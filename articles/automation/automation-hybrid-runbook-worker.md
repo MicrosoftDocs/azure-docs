@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -21,11 +21,11 @@ Runbooks in Azure Automation cannot access resources in your local data center s
 
 This functionality is illustrated in the following image.
 
-![Hybrid Runbook Worker Overview](./media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
+![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
 
 You can designate one or more computers in your data center to act as a Hybrid Runbook Worker and run runbooks from Azure Automation.  Each worker requires the Microsoft Management Agent with a connection to Azure Operational Insights and the Azure Automation runbook environment.  Operational Insights is only used to install and maintain the management agent and to monitor the functionality of the worker.  The delivery of runbooks and the instruction to run them are performed by Azure Automation.
 
-![Hybrid Runbook Worker Components](./media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components.png)
+![Hybrid Runbook Worker Components](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components.png)
 
 There are no inbound firewall requirements to support Hybrid Runbook Workers. The agent on the local computer initiates all communication with Azure Automation in the cloud. When a runbook is started, Azure Automation creates an instruction that is retrieved by agent. The agent then pulls down the runbook and any parameters before running it.  It will also retrieve any [assets](http://msdn.microsoft.com/library/dn939988.aspx) that are used by the runbook from Azure Automation.
 
@@ -72,7 +72,7 @@ Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
 
 - **Name** is the name of the Hybrid Runbook Worker Group. If this group already exists in the automation account, then the current computer is added to it.  If it does not already exist, then it is added.
 - **EndPoint** is the URL of the Agent service. You can obtain this from the Azure preview portal on the **Manage Keys** blade.  
-- **Token** is the **Primary Access Key** in the **Manage Keys** blade.  You can open the Manage Keys blade by clicking the key icon on the Elements panel for the automation account.<br><br>![Hybrid Runbook Worker Overview](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+- **Token** is the **Primary Access Key** in the **Manage Keys** blade.  You can open the Manage Keys blade by clicking the key icon on the Elements panel for the automation account.<br><br>![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
 #### 3. Install PowerShell modules
@@ -82,7 +82,7 @@ Since the primary purpose of the Hybrid Runbook Worker feature is to manage loca
 
 ## Starting runbooks on Hybrid Runbook Worker
 
-[Starting a Runbook in Azure Automation](../automation-starting-a-runbook) describes different methods for starting a runbook.  Hybrid Runbook Worker adds a **RunOn** option where you can specify the name of a Hybrid Runbook Worker Group.  If a group is specified, then the runbook is retrieved and run by of the workers in that group.  If this option is not specified, then it is run in Azure Automation as normal.
+[Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) describes different methods for starting a runbook.  Hybrid Runbook Worker adds a **RunOn** option where you can specify the name of a Hybrid Runbook Worker Group.  If a group is specified, then the runbook is retrieved and run by of the workers in that group.  If this option is not specified, then it is run in Azure Automation as normal.
 
 When you start a runbook in the Azure preview portal, you will be presented with a **Run on** option where you can select **Azure** or **Hybrid Worker**.  If you select **Hybrid Worker**, then you can select the group from a dropdown.
 
@@ -99,7 +99,7 @@ There is no difference in the structure of runbooks that run in Azure Automation
 
 ### Runbook permissions
 
-Runbooks will run in the context of the local System account on the Hybrid Runbook Worker, so they must provide their own authentication to resources that they they will access.  They cannot use the same [method that is typically used for runbooks authenticating to Azure resources](automation-configuring.md/#configuring-authentication-to-azure-resources) since they will be accessing resources outside of Azure.
+Runbooks will run in the context of the local System account on the Hybrid Runbook Worker, so they must provide their own authentication to resources that they they will access.  They cannot use the same [method that is typically used for runbooks authenticating to Azure resources](automation-configuring.md#configuring-authentication-to-azure-resources) since they will be accessing resources outside of Azure.
 
 You can use use [Credential](http://msdn.microsoft.com/library/dn940015.aspx) and [Certificate](http://msdn.microsoft.com/library/dn940013.aspx) assets in your runbook with cmdlets that allow you to specify credentials so you can authenticate to different resources.  The following example shows a portion of a runbook that restarts a computer.  It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the Restart-Computer cmdlet.
 
@@ -108,7 +108,7 @@ You can use use [Credential](http://msdn.microsoft.com/library/dn940015.aspx) an
 
 	Restart-Computer -ComputerName $Computer  -Credential $Cred
 
-You can also leverage [InlineScript](automation-runbook-concepts.md/#inline-script) which will allow you to run blocks of code on another computer with credentials specified by the [PSCredential common parameter](http://technet.microsoft.com/library/jj129719.aspx).
+You can also leverage [InlineScript](automation-powershell-workflow.md#inline-script) which will allow you to run blocks of code on another computer with credentials specified by the [PSCredential common parameter](http://technet.microsoft.com/library/jj129719.aspx).
 
 
 ### Authoring and testing runbooks
@@ -117,7 +117,7 @@ You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you ma
 
 ## Relationship to Service Management Automation
 
-[Service Management Automation (SMA)](http://aka.ms/runbookauthor/sma) is a component of Windows Azure Pack (WAP) that allows you to run the same runbooks that are supported by Azure Automation in your local data center.  Unlike Azure Automation, SMA requires a local installation that includes the Windows Azure Pack Management Portal and a database to hold runbooks and SMA configuration. Azure Automation provides these services in the cloud and only requires you to maintain the Hybrid Runbook Workers in your local environment.
+[Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) is a component of Windows Azure Pack (WAP) that allows you to run the same runbooks that are supported by Azure Automation in your local data center.  Unlike Azure Automation, SMA requires a local installation that includes the Windows Azure Pack Management Portal and a database to hold runbooks and SMA configuration. Azure Automation provides these services in the cloud and only requires you to maintain the Hybrid Runbook Workers in your local environment.
 
 If you are an existing SMA user, you can move your runbooks to Azure Automation to be used with Hybrid Runbook Worker with no changes, assuming that they perform their own authentication to resources as described in [Creating runbooks for Hybrid Runbook Worker](#creating-runbooks-for-hybrid-runbook-worker).  Runbooks in SMA run in the context of the service account on the worker server which may provide that authentication for the runbooks.
 
@@ -133,6 +133,6 @@ You can use the following criteria to determine whether Azure Automation with Hy
 
 ## Related articles
 
-- [Starting a Runbook in Azure Automation](../automation-starting-a-runbook)
+- [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)
 - [Editing a Runbook in Azure Automation](https://msdn.microsoft.com/library/dn879137.aspx)
  

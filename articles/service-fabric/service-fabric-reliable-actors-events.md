@@ -55,7 +55,7 @@ class GameEventsHandler : IGameEvents
 }
 ```
 
-On the client, create proxy to the actor that publishes the event and subscribe to the events.
+On the client, create a proxy to the actor that publishes the event and subscribe to its events.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -63,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-In the event of failovers the actor may failover to a different process or node. The actor proxy manages the active subscriptions and automatically re-subscribes them. You can control the re-subscription interval through `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. To unsubscribe use `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
+In the event of failovers the actor may failover to a different process or node. The actor proxy manages the active subscriptions and automatically re-subscribes them. You can control the re-subscription interval through the `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. To unsubscribe use the `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
 
 On the actor, simply publish the events as they happen. If there are subscribers subscribed to the event, the Actors runtime will send them the notification.
 
