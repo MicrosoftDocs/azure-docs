@@ -31,7 +31,7 @@ The StorSimple Snapshot Manager central management console enables you to create
 
 - Create independent copies of data, which can be stored in the cloud and used for disaster recovery.
 
-This article provides links to more information about StorSimple Snapshot Manager and tutorials that explain how to use its features to complete system administration tasks and workflows.
+This article provides links to tutorials that describe StorSimple Snapshot Manager and how to use it to complete system administration tasks and workflows.
 
 - For more information about StorSimple Snapshot Manager components and architecture, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) 
 
