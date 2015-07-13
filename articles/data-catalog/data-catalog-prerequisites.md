@@ -1,14 +1,14 @@
 <properties
    pageTitle="Azure Data Catalog prerequisites"
    description="What do I need to get started with Azure Data Catalog?"
-   services="cloud services"
+   services="data-catalog"
    documentationCenter=""
    authors="dvana"
    manager="mblythe"
    editor=""
    tags=""/>
 <tags
-   ms.service="cloud-services"
+   ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"

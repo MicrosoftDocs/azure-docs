@@ -1,14 +1,14 @@
 <properties
    pageTitle="Azure Data Catalog frequently asked questions"
    description="Azure Data Catalog: Catalog frequently asked questions"
-   services="cloud services"
+   services="data-catalog"
    documentationCenter=""
    authors="dvana"
    manager="mblythe"
    editor=""
    tags=""/>
 <tags
-   ms.service="cloud-services"
+   ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
