@@ -170,17 +170,14 @@ Then fill out the details as shown below:
 ## Add Power BI output ##
 
 1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
-
 ![graphic22][graphic22]
-
 > [AZURE.NOTE] Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
 
 2.  Select **Power BI** and then click the right button.
 3.  You will see a screen like the following:
 
 ![graphic23][graphic23]
-
-4.  In this step, you have to be careful to use the same Org Id that you are using for your Stream Analytics job. At this point, Power BI output has to use the same Org Id that your Stream Analytics job uses. If you already have Power BI account using the same Org Id, select “Authorize Now”. If not, choose “Sign up now” and use same Org Id as your azure account while signing up for Power BI. [Here is a good blog with a walkthrough of a Power BI sign-up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  In this step, you have to be careful to use the same Org Id that you are using for your Stream Analytics job. At this point, Power BI output has to use the same Org Id that your Stream Analytics job uses. If you already have Power BI account using the same Org Id, select “Authorize Now”. If not, choose “Sign up now” and use same Org Id as your azure account while signing up for Power BI. [Here is a good blog with a walkthrough of a Power BI sign-up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx). You can also assign your Azure account as your Power BI login account if you chose. Details are [here](https://support.powerbi.com/knowledgebase/articles/499083-how-to-use-the-same-account-login-for-power-bi-and).
 5.  Next you will see a screen like the following:
 
 ![graphic24][graphic24]
