@@ -15,7 +15,7 @@
    ms.date="07/13/2015"
    ms.author="v-sharos" />
 
-# What is StorSimple Snapshot Manager?
+# Use StorSimple Snapshot Manager to administer your StorSimple solution
 
 ## Overview
 
