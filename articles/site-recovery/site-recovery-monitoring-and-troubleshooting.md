@@ -160,7 +160,7 @@ disabling the log, and then save the log and re-open it in Event Viewer
 or use other tools to convert it as desired.
 
 
-## Understanding the Hyper-V virtual machine protection & recovery life cycle
+## Understanding the Hyper-V virtual machine protection and recovery life cycle
 
 ![](media/site-recovery-monitoring-and-troubleshooting/image17.png)
 
