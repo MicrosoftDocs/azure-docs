@@ -19,7 +19,7 @@
 
 Azure SQL Database monitors the usage of the shared resources, such as the transaction log, I/O, and many other resources. This enable Azure SQL Databse to keep databases within set resource boundaries. This resource boundary or threshold is called the resource limit. When the resource usage by the clients exceeds these limits, either at a tenant or physical node level, Azure SQL Database responds by managing the resource usage, which results in connection losses or request denials.
 
-> [AZURE.NOTE] When resource limits prevent queries to analyze database performance problems, you might need to use the dedicated administrator connection (DAC) which is available beginning with Azure SQL Database V12. For more information about using the DAC, see [Diagnostic Connection for Database Administrators](https://msdn.microsoft.com/library/ms189595.aspx).
+> [AZURE.NOTE] When resource limits prevent queries to analyze database performance problems, you might need to use the dedicated administrator connection (DAC), which is available beginning with Azure SQL Database V12. For more information about using the DAC, see [Diagnostic Connection for Database Administrators](https://msdn.microsoft.com/library/ms189595.aspx).
 
 ## Resource Limits Summary Table
 
@@ -43,9 +43,9 @@ Error Message 2:
 	The session has been terminated because of excessive transaction log space usage.
 	Try modifying fewer rows in a single transaction.
 
-The same situation applies to Resource ID that appear in some messages. The Resource ID translates to a system resource that is experiencing the limit.
+The same situation applies to Resource ID that appear in some messages. The Resource ID translates to a system resource that is experiencing the limit. 
 
-The remainder of this topic explains possible error codes in more detail, including instances where the State value and Resource ID provides additional information about the error.
+The remainder of this topic explains possible error codes in more detail, including instances where the State value and Resource ID provides additional information about the error. 
 
 ## Database Size
 
@@ -144,3 +144,4 @@ In certain scenarios like the usage of federated database feature, it is possibl
 [Error Messages (Azure SQL Database)](https://msdn.microsoft.com/library/azure/ff394106.aspx)
 
 [Azure SQL Database Best Practices to Prevent Request Denials or Connection Termination](https://msdn.microsoft.com/library/azure/dn338082.aspx)
+
