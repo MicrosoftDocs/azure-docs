@@ -41,7 +41,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	[Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md)		|	May indicate a successful brute force attack.												|
 |	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
 |	[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)	|	May indicate a successful sign in after a sustained intrusion attempt.						|
-|	Sign ins from possibly infected devices				|	May indicate an attempt to sign in from possibly infected devices.							|
+|	[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)				|	May indicate an attempt to sign in from possibly infected devices.							|
 |	Irregular sign in activity							|	May indicate events anomalous to users’ sign in patterns.									|
 |	Users with anomalous sign in activity				|	Indicates users whose accounts may have been compromised.									|
 |	Users with leaked credentials						|	Users with leaked credentials																|
@@ -112,11 +112,8 @@ For details on this report, check out [Sign ins from IP addresses with suspiciou
 
 ### Sign ins from possibly infected devices
 
-| Description        | Report location |
-| :-------------     | :-------        |
-| <p>Use this report when you want to see sign ins from devices on which some malware (malicious software) may be running. We correlate IP addresses of sign ins against IP addresses from which an attempt was made to contact a malware server.</p><p>Recommendation: Since this report assumes an IP address was associated with the same device in both cases, we recommend that you contact the user and scan the user's device to be certain.</p><p>For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Directory > Reports tab |
+For details on this report, check out [Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
 
-![Sign ins from possibly infected devices](./media/active-directory-view-access-usage-reports/signInsFromPossiblyInfectedDevices.PNG)
 
 
 ### Users with anomalous sign in activity
