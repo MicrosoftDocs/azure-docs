@@ -181,6 +181,8 @@ Only certain types of sign in events will appear in the User Activity report.
 
 > Note: To reduce the amount of noise in this report, sign ins to the [Lync/Skype for Business](http://products.office.com/en-us/skype-for-business/online-meetings) native app and by the [Microsoft Online Services Sign-In Assistant](http://community.office365.com/en-us/w/sso/534.aspx) are not shown.
 
+
+
 ## Activity logs
 
 ### Audit report
@@ -191,25 +193,6 @@ Only certain types of sign in events will appear in the User Activity report.
 
 ![Audit report](./media/active-directory-view-access-usage-reports/auditReport.PNG)
 
-
-### Groups activity report
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows all activity for the self-service managed groups in your directory. | Directory > Users > <i>User</i> > Devices tab |
-
-![Self service groups activity](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
-
-
-### Password reset registration activity report
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows all password reset registrations that have occurred in your organization | Directory > Reports tab |
-
-![Password reset registration activity](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
-
-
 ### Password reset activity
 
 | Description        | Report location |
@@ -217,6 +200,23 @@ Only certain types of sign in events will appear in the User Activity report.
 | Shows all password reset attempts that have occurred in your organization. | Directory > Reports tab |
 
 ![Password reset activity](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
+
+### Password reset registration activity
+
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows all password reset registrations that have occurred in your organization | Directory > Reports tab |
+
+![Password reset registration activity](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
+
+### Self service groups activity
+
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows all activity for the self-service managed groups in your directory. | Directory > Users > <i>User</i> > Devices tab |
+
+![Self service groups activity](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
+
 
 
 ## Things to consider if you suspect security breach
