@@ -495,7 +495,7 @@ More information regarding the template language can be found on MSDN at [Azure 
 
 ### "resources" section
 
-The "resources" section is where most of the action is happening. Looking carefully inside this section, you can immediately identify two different cases. The first one is an element defined of type `Microsoft.Resources/deployments` that basically means the invocation of a nested deployment within the main one. Through the **templateLink** element (and related version property), it's possible to specify a linked template file that will be invoked passing a set of parameters as input, as seen in this fragment:
+The "resources" section is where most of the action happens. Looking carefully inside this section, you can immediately identify two different cases. The first is an element defined of type `Microsoft.Resources/deployments` that essentially invokes a nested deployment within the main one. The second is the **templateLink** property (and related **contentVersion** property) that makes it possible to specify a linked template file that will be invoked, passing a set of parameters as input. These can be seen in this template fragment:
 
 ```json
 "resources": [
@@ -819,7 +819,7 @@ Another interesting fragment to explore is the one related to **CustomScriptForL
 
 Notice that the extension for the master and slave node resources executes different commands, defined in the **commandToExecute** property, as part of the provisioning process.  
 
-You can see that this resource depends on the resource VM already being deployed (**Microsoft.Compute/virtualMachines/vmMember<X>**, where <X> is the parameter **machineSettings.machineIndex**, which is the index of the VM that was passed to this script using the **copyindex()** function).
+If you look at the JSON snippet of the latest virtual machine extension, you can see that this resource depends on the virtual manchine resource and its network interface. This indicates that these two resources need to be already deployed before provisioning and running this VM extension. Also note the use of the **copyindex()** function to repeat this step for each slave virtual machine.
 
 By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-node solutions, based on any technology, leveraging Azure Resource Manager templates. While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:
 
