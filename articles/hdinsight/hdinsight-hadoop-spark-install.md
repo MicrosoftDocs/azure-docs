@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
@@ -21,6 +21,8 @@
 You can install Spark on any type of cluster in Hadoop on Azure HDInsight by using **Script Action** cluster customization. Script Action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize].
 
 In this topic, you will learn how to install Spark by using Script Action. Once you have installed Spark, you'll also learn how to run a Spark query on HDInsight clusters.
+
+> [AZURE.NOTE] HDInsight now provides Spark as a first-class cluster type, which means you can now directly provision a Spark cluster without modifying a Hadoop cluster. For more information, see [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
 
 ## <a name="whatis"></a>What is Spark?

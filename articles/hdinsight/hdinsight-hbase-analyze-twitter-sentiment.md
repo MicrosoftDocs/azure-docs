@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2015" 
+	ms.date="07/09/2015" 
 	ms.author="jgao"/>
 
 # Analyze real-time Twitter sentiment with HBase in HDInsight
@@ -1355,5 +1355,4 @@ In this tutorial, you learned how to get tweets, analyze the sentiment of tweets
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
-
  

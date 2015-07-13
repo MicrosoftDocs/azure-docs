@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="07/10/2015"
+   ms.author="joaoma" />
 
 # Disable or Enable a Traffic Manager Endpoint
 
 You can also disable individual endpoints that are part of a Traffic Manager profile. Endpoints include both cloud services and websites. Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it. This action is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be enabled
 
-[AZURE.NOTE] **Disabling an endpoint has nothing to do with its deployment state in Azure. A healthy endpoint will remain up and able to receive traffic even when disabled in Traffic Manager. Additionally, disabling an endpoint in one profile does not affect its status in another profile.**
+>[AZURE.NOTE] **Disabling an endpoint has nothing to do with its deployment state in Azure. A healthy endpoint will remain up and able to receive traffic even when disabled in Traffic Manager. Additionally, disabling an endpoint in one profile does not affect its status in another profile.**
 
 ## To disable an endpoint
 
@@ -36,7 +36,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 1. Click the endpoint that you want to enable, and then click **Enable** at the bottom of the page.
 1. Traffic will start flowing to the service again as dictated by the profile.
 
-## See Also
+## Next Steps
 
 [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 

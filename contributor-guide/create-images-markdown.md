@@ -55,7 +55,7 @@ Use the following guidelines when creating and including art files:
 
 - Avoid whitespace on edges of screenshots.  If you crop a screenshot in a way that leaves white background at the edges, add a single pixel gray border around the image.  If using Paint, use the lighter gray in the default color pallete (0xC3C3C3). If using some other graphic app, the RGB color is R195, G195, 195. You can easily add a gray border around an image in Visio--to do this, select the image, select Line, and ensure the the correct color is set, and then change the line weight to 1 1/2 pt.  Screenshots should have a 1-pixel-wide gray border so that white areas of the screenshot do not blur into the web page.
 
-Example:
+    Example:
 
     ![This is an example of a gray border around whitespace.](./media/create-images-markdown/agent.png)
 
@@ -65,7 +65,7 @@ Example:
 
 - Take whole screenshots of windows when possible. When taking a screenshot of a browser window, resize your browser window to 780 px wide or less, and keep the height of the browser window as short as possible such that your application fits within the window.
 
-Example:
+    Example:
 
     ![This is an example of a browser window screenshot.](./media/create-images-markdown/helloworldlocal.png)
 
