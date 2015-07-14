@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="07/14/2015"
 	ms.author="carlrab"/>
 
 
 
 #Migrating a Database to SQL Server on an Azure VM
-There are a number of methods for migrating an on-premises SQL Server database to SQL Server in an Azure virtual machine. This article will discuss the various methods, recommend the best method for various scenarios, and include a tutorial to guide you through the use of the Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard.
+There are a number of methods for migrating an on-premises SQL Server database to SQL Server in an Azure virtual machine. This article will discuss the various methods, recommend the best method for various scenarios, and include a tutorial to guide you through the use of the Deploy a SQL Server Database to a Microsoft Azure VM wizard.
 
 
 ##What are the primary migration methods?
@@ -45,7 +45,15 @@ If it is not possible to use the wizard because the database backup size is too 
 
 The following table lists each of the primary migration methods and discusses when the use of each method is most appropriate.
 
-[Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other-migration-methods-to-migrate-a-database)
+| Method  | Source database version  |  Destination database version | Source database backup size constraint  | Notes  |
+|---|---|---|---|---|
+| [Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard](#use-the-deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard-to-migrate-an-existing-database)  |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |123456789
 
 <table cellspacing="0" border="1">
 <tr>
@@ -56,7 +64,7 @@ The following table lists each of the primary migration methods and discusses wh
    <th align="left" valign="middle">Notes</th>
 </tr>
 <tr>
-   <td valign="middle">[Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard](#Use-the-Deploy-a-SQL-Server-Database-to-a-Microsoft-Azure-VM-wizard-to-migrate-an-existing-database)</td>
+   <td valign="middle">[Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard](#use-the-deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard-to-migrate-an-existing-database)</td>
    <td valign="middle">SQL Server 2005 or greater</td>
    <td valign="middle">SQL Server 2014 or greater</td>
    <td valign="middle">less than 1 TB</td>
