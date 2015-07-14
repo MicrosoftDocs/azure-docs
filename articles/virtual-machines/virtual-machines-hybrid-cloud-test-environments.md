@@ -3,19 +3,6 @@
 	description="Get to the key topics that describe how to build test environments that you can use for dev/test or a proof-of-concept for your Azure hybrid cloud."
 	documentationCenter=""
 	services="virtual-machines"
-<<<<<<< HEAD
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""/>
-
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/29/2015"
-=======
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
@@ -28,7 +15,6 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
->>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
 	ms.author="josephd"/>
 
 # Azure hybrid cloud test environments
@@ -64,21 +50,10 @@ For organizations and individuals for which a direct Internet connection and pub
 
 ## Additional resources
 
-<<<<<<< HEAD
 [SharePoint farms hosted in Azure Infrastructure Services](virtual-machines-sharepoint-infrastructure-services.md)
-=======
-[SharePoint farms hosted in Azure Infrastructure Services](virtual-machines-sharepoint-infrastructure-services.md)
->>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
 
 [PDF of the 3-D Line-of-Business Applications architecture blueprint](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
 
 [Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<<<<<<< HEAD
 [Azure Infrastructure Services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
-=======
-[Azure Infrastructure Services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-
-
->>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
