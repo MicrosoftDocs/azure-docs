@@ -43,6 +43,8 @@ If it is not possible to use the wizard because the database backup size is too 
 
 The following table lists each of the primary migration methods and discusses when the use of each method is most appropriate.
 
+[Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other-migration-methods-to-migrate-a-database)
+
 <table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Method</th>
