@@ -62,7 +62,7 @@ This scenario shows how to use a non-default storage either within the same subs
 
         Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileName 'file1.ps1','file2.ps1' -Run 'file.ps1' | Update-AzureVM
 
-  ### Upload scripts to multiple containers across different storage accounts
+### Upload scripts to multiple containers across different storage accounts
 
   If the script files are stored across multiple containers, to run the scripts, you have to provide the full SAS URL for the files.
 
@@ -72,6 +72,7 @@ This scenario shows how to use a non-default storage either within the same subs
 ### Add Custom Script Extension from the portal
 
 Browse to the VM in the <a href="https://portal.azure.com/ " target="_blank">Azure Preview Portal </a> and add the extension by specifying the script file to run.
+
   ![][5]
 
 ### Uninstalling Custom Script Extension
