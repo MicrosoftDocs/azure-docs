@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/22/2015"
+   ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager Templates
 
@@ -85,7 +85,7 @@ The following example shows how to use several of the functions when constructin
     }
 
 For now, you know enough about expressions and functions to understand the sections of the template. For more detailed information about all of the template functions, including parameters and the format of returned values, 
-see [Azure Resouce Manager template functions](./resource-group-template-functions.md). 
+see [Azure Resource Manager template functions](./resource-group-template-functions.md). 
 
 
 ## Parameters
@@ -226,7 +226,7 @@ You define resources with the following structure:
 | properties               |   No     | Resource specific configuration settings.
 | resources                |   No     | Child resources that depend on the resource being defined.
 
-If the resouce name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
+If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
 
 The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a nested **Extensions** resource:
 
@@ -310,9 +310,9 @@ The following example shows a value that is returned in the Outputs section.
 ## More advanced scenarios.
 This topic provides an introductory look at the template. However, your scenario may require more advanced tasks.
 
-You may need to merge two templates together or use a child template within a parent template. For more information, see [Nested Templates](./resource-group-advanced-template.md/#nested-template).
+You may need to merge two templates together or use a child template within a parent template. For more information, see [Nested Templates](../resource-group-advanced-template#nested-template).
 
-You may need to use resources that exist within a different resource group. This is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](./resource-group-template-functions.md/#resourceid).
+You may need to use resources that exist within a different resource group. This is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](../resource-group-template-functions#resourceid).
 
 ## Complete template
 The following template deploys a web app and provisions it with code from a .zip file. 
@@ -398,7 +398,8 @@ The following template deploys a web app and provisions it with code from a .zip
 
 ## Next Steps
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)
+- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
 - [Advanced Template Operations](./resource-group-advanced-template.md)
+- [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
 

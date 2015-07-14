@@ -1,5 +1,3 @@
-
-
 >[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 
@@ -15,7 +13,7 @@
 
 	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
 
-4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click the toggle to enable **Google Cloud Messaging for Android**. Then on the next page click **Enable API** and accept the terms of service. 
+4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click **Cloud Messaging for Android**. Then on the next page click **Enable API** and accept the terms of service. 
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 

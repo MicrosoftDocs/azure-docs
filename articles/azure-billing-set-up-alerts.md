@@ -3,18 +3,18 @@
 	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises." 
 	services="" 
 	documentationCenter="" 
-	authors="mbaldwin" 
-	manager="mbaldwin" 
+	authors="vikdesai" 
+	manager="msmbaldwin" 
 	editor=""/>
 
 <tags 
 	ms.service="multiple" 
 	ms.workload="multiple" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2015" 
-	ms.author="cabailey"/>
+	ms.date="06/01/2015" 
+	ms.author="vikdesai"/>
 
 # Set up billing alerts for your Microsoft Azure subscriptions
 

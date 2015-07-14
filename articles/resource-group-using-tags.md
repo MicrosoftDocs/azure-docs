@@ -3,8 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="flanakin" 
-	writer="" 
+	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
-	ms.author="micflan"/>
+	ms.date="06/24/2015" 
+	ms.author="tomfitz"/>
 
 
 # Using tags to organize your Azure resources
@@ -42,7 +41,7 @@ From here, you can click on each individual tag to view a list of all the resour
 
 ## Tagging with PowerShell
 
-First thing's first, grab the latest [Azure PowerShell module](./install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](./install-configure-powershell.md) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
+First thing's first, grab the latest [Azure PowerShell module](./install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](./install-configure-powershell.md) to get up to speed. For the purposes of this article, we'll assume you've already added an account and selected a subscription with the resources you want to tag.
 
 Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 
@@ -56,7 +55,7 @@ This cmdlet returns several bits of metadata on the resource group including wha
 
 ![Setting tags with Set-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
-Remember that tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to save use an array with all the tags you want to keep. To remove one, simply save the array without the one you want to remove. 
+Remember that tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to use an array with all the tags you want to keep. To remove one, simply save the array without the one you want to remove. 
 
 The process is the same for resources, except you'll use the `Get-AzureResource` and `Set-AzureResource` cmdlets. To get resources or resource groups with a specific tag, use `Get-AzureResource` or `Get-AzureResourceGroup` cmdlet with the `-Tag` parameter.
 
@@ -88,6 +87,19 @@ To view your taxonomy of tags in the portal, use the Browse hub to view Everythi
 Pin the most important tags to your Startboard for quick access and you're ready to go. Have fun!
 
 ![Pin tags to the Startboard](./media/resource-group-using-tags/pin-tags.png)
+
+## Tagging and billing
+
+For supported services, you can use tags to group your billing data. For example, [Virtual Machines integrated with Azure Resource Manager](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) enable 
+you to define and apply tags to organize the billing usage for virtual machines. If you are running multiple VMs for different organizations, you can use the tags to group usage by cost center.  
+You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.
+
+You can retrieve information about tags through the [usage api](billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file that you can download from 
+the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com).
+
+When you download the usage CSV for services that support tags with billing, the tags will appear in the **Tags** column. For more details, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+
+![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
 
 ## Next Steps
 Getting Started  
