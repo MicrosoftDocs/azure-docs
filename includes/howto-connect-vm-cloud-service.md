@@ -12,7 +12,7 @@ If you place your virtual machines in a virtual network, you can decide how many
 
 ![Virtual machines in a virtual network](./media/howto-connect-vm-cloud-service/VirtualNetworkExample.png)
 
-Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits/)
+Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits/).
 
 ## Connect VMs in a virtual network
 
@@ -28,9 +28,8 @@ To connect virtual machines in a virtual network:
 
 To connect virtual machines in a standalone cloud service:
 
-1.	Create the cloud service for your deployment in the [Azure Portal](http://manage.windowsazure.com). Click **New > Compute > Cloud Service > Custom Create**.
-2.	When you create the virtual machine, choose the name of cloud service created in the previous step. Or, you can create the cloud service for your deployment when you create your first virtual machine.
-
+1.	Create the cloud service in the [Azure Portal](http://manage.windowsazure.com). Click **New > Compute > Cloud Service > Custom Create**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
+2.	When you create the virtual machines, choose the name of cloud service created in the previous step. 
 ![Add a virtual machine to an existing cloud service](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Resources
