@@ -59,7 +59,7 @@ The following table lists each of the primary migration methods and discusses wh
    <td valign="middle">Fastest and simplest method, use whenever possible to migrate to a new or existing SQL Server instance in an Azure virtual machine</td>
 </tr>
 <tr>
-   <td valign="middle">[Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other Migration Methods to migrate a database)</td>
+   <td valign="middle">[Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other-migration-methods-to-migrate-a-database)</td>
    <td valign="middle">SQL Server 2005 or greater</td>
    <td valign="middle">SQL Server 2014 or greater</td>
    <td valign="middle">Azure VM storage limitations</td>
@@ -119,7 +119,7 @@ If you are migrating to an existing Azure virtual machine, the following configu
 ###Run the Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard
 1. Open Microsoft SQL Server Management Studio for Microsoft SQL Server 2016 and connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
 2. Right-click the database that you are migrating, point to Tasks and then click Deploy to a Microsoft Azure virtual machine.
-![Start Wizard][start-wizard]
+![Start Wizard](./media/virtual-machines-migrate-onpremises-database/start-wizard.png)
 3. On the Introduction page, click Next.
 4. On the Source Settings page, connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
 5. Specify a temporary location for the backup files. If connecting to a remote server, you must specify a network drive.
@@ -152,7 +152,7 @@ If you are migrating to an existing Azure virtual machine, the following configu
 ![Results][results]
 14. When the wizard completes, connect to your virtual machine and verify that your database has been migrated.
 15. If you created a new virtual machine, Configure the Azure virtual machine and the SQL Server instance by following the steps in Connect to the SQL Server virtual machine instance from SSMS on another computer section in [Provisioning a SQL Server Virtual Machine on Azure](../virtual-machines-provision-sql-server/#SSMS).
-##Other Migration Methods to migrate a database
+## Other migration methods to migrate a database
 These next sections give a brief overview of the steps required for each of the other migration methods previously discussed.
 ###Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine
 Use this method when you cannot use the Deploy a SQL Server Database to a Microsoft Azure VM wizard either because you are migrating to a version of SQL Server prior to SQL Server 2014 or your backup file is larger than 1 TB. Use the following general steps to migrate a user database using this manual method:
