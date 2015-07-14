@@ -1,0 +1,1 @@
+For specific information about Mobile Services limits, see [Mobile Services Pricing](https://azure.microsoft.com/pricing/details/mobile-services/).

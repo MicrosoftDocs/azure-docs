@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/13/2015"
    ms.author="cherylmc"/>
 
 # Configure ExpressRoute and Site-to-Site VPN connections that coexist
@@ -48,10 +48,11 @@ There are two separate configuration procedures to choose from. The configuratio
 
 ### Notes and limitations
 
+- You won’t be able to route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.
+- You can't enable Point-to-Site VPN connections to the same VNet that is connected to ExpressRoute. Point-to-Site VPN and ExpressRoute cannot coexist for the same VNet.
 - Both the ExpressRoute gateway and the Site-to-Site VPN gateway must be either a Standard or HighPerformance gateway SKU. For information about gateway SKUs, see [Gateway SKUs](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - If your local network is connected to both ExpressRoute and a Site-to-Site VPN (Scenario 1), you should have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet. 
 - You must create the ExpressRoute gateway first, before you add the Site-to-Site VPN gateway.
-- You won’t be able to route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.
 - Both procedures assume that you already have an ExpressRoute circuit configured. If you do not, please see the following articles: 
 
 	- [Configure an ExpressRoute connection through a network service provider (NSP)](expressroute-configuring-nsps.md) 
