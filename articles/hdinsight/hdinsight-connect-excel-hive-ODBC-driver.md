@@ -3,7 +3,7 @@
    description="Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in an HDInsight cluster."
    services="hdinsight"
    documentationCenter=""
-   authors="bradsev"
+   authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/08/2015"
-   ms.author="bradsev"/>
+   ms.date="07/09/2015"
+   ms.author="jgao"/>
 
 #Connect Excel to Hadoop with the Microsoft Hive ODBC driver
 
