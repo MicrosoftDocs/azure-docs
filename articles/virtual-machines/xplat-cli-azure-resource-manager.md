@@ -72,7 +72,7 @@ You can start adding resources to this group after this, and use it to configure
 There are two ways to create virtual machines in the arm mode:
 
 1. Using individual Azure CLI commands.
-2. Using resource group Templates.
+2. Using resource group templates.
 
 Be sure to create at least one resource group before you start with any of these methods.
 
@@ -80,19 +80,19 @@ Be sure to create at least one resource group before you start with any of these
 
 This is the basic approach to configure and create a virtual machine as per your needs. In arm mode, you will need to configure some mandatory resources like the networking before you can use the **vm create** command.
 
->[AZURE.NOTE] If you are creating resources for the first time on the command line for your subscription, you might be prompted to register for certain Resource Providers.
-> If that happens, it is easy to register the said provider and try the failed command again. For example,
+>[AZURE.NOTE] If you are creating resources for the first time on the command line for your subscription, you might be prompted to register for certain resource providers.
+> If that happens, it is easy to register the provider and try the failed command again, as shown in the next example.
 >
 > `azure provider register Microsoft.Storage`
 >
-> You can find out the list of providers registered for your subscription by running,
+> You can find out the list of providers registered for your subscription by running the following command.
 >
 > `azure provider list`
 
 
 #### Creating a public IP resource
 
-You will need to create a public IP so you can SSH into your new virtual machine for any meaningful work. Creating a public IP is straightforward. The command needs a resource group, a name for your public IP resource and a location, in that order.
+You will need to create a public IP so you can SSH into your new virtual machine for any meaningful work. Creating a public IP is straightforward. The command needs a resource group, a name for your public IP resource, and a location, in that order.
 
 	azure network public-ip create "testrg" "testip" "westus"
 
@@ -106,7 +106,7 @@ You can then create a subnet in this virtual network by using the **network vnet
 
 	azure network vnet subnet create "testrg" "testvnet" "testsubnet"
 
-You should be able to create an NIC using these resources with the **network nic create** command.
+You should be able to create a NIC using these resources with the **network nic create** command.
 
 	azure network nic create "testrg" "testnic" "westus" -k "testsubnet" -m "testvnet" -p "testip"
 
@@ -179,7 +179,7 @@ The new **vm quick-create** shortcut cuts out most of the steps of the imperativ
 	Password: ********
 	Confirm password: ********
 
-The Azure CLI will create a virtual machine with default VM size. It will also create a storage account, an NIC, a virtual network and subnet, and a public IP. You can SSH into the virtual machine using the public IP after it boots.
+The Azure CLI will create a virtual machine with default VM size. It will also create a storage account, a NIC, a virtual network and subnet, and a public IP. You can SSH into the virtual machine using the public IP after it boots.
 
 ### Using resource group templates
 
@@ -189,7 +189,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 		azure group template list
 
-	The response will list the publisher and template name, and will appear similar to the following (although there will be far more).
+	The response will list the publisher and template name, and will appear similar to the following example (although there will be far more).
 
 		data:    Publisher               Name
 		data:    ----------------------------------------------------------------------------
@@ -216,7 +216,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 	When using a template, you can supply parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. You can also write your **value** fields directly inside the **parameters** section in the template, although that would make the template tightly bound to a particular deployment and wouldn't be reusable easily. Either way, the parameters must be in JSON format, and you must provide your own values for those keys that do not have default values.
 
-	For example, to create a file that contains parameters for the CoreOS.CoreOSStable.0.2.40-preview template, use the following data to create a file named params.json. Replace the values used in this sample with your own values. The **Location** should specify an Azure region near you, such as **North Europe** or **South Central US**. (This example uses **West US**)
+	For example, to create a file that contains parameters for the CoreOS.CoreOSStable.0.2.40-preview template, use the following data to create a file named params.json. Replace the values used in this sample with your own values. The **Location** should specify an Azure region near you, such as **North Europe** or **South Central US**. (This example uses **West US**).
 
 		{
 		  "newStorageAccountName": {
@@ -258,7 +258,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 	The **ProvisioningState** shows the status of the deployment.
 
-	If your deployment was successful, you will see an output similar to below:
+	If your deployment was successful, you will see an output similar to the following example.
 
 		azure-cli@0.8.0:/# azure group deployment show testRG testDeploy
 		info:    Executing command group deployment show
@@ -331,7 +331,7 @@ While templates allow you to declare group-wide changes in configuration, someti
 
 ## Logging
 
-To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list the last operation performed on the group. To view all operations, use the optional `--all` parameter. For the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed against the group 'MyGroup'.
+To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list the last operation performed on the group. To view all operations, use the optional `--all` parameter. For the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed against the group MyGroup.
 
 	azure group log show mygroup --all
 
