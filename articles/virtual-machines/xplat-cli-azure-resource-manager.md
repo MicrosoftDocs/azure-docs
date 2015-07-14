@@ -16,7 +16,7 @@
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
 
-# Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
+# Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
