@@ -557,7 +557,7 @@ The following example shows several ways to write logs:
 
 In the WebJobs SDK Dashboard, the output from the `TextWriter` object shows up when you go to the page for a particular function invocation and click **Toggle Output**:
 
-![Click function invocation link](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png")
+![Click function invocation link](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![Logs in function invocation page](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
