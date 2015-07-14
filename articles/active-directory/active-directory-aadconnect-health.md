@@ -53,11 +53,16 @@ The following video will provide an overview of Azure AD Connect Health:
 
 ## Using Azure Active Directory Connect Health for the first time from the Azure Portal
 To get started with Azure Active Directory Connect Health, follow the steps below. Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers. To download the Azure AD Connect Health Agent, from the first blade, select Quick Start and Get Tools. You can also download the agent directly using the link below.  To use Azure Active Directory Connect Health do the following:
-<ol>
-<li>Sign in to the [Microsoft Azure portal](https://portal.azure.com/)</li>
-<li>Azure Active Directory Connect Health can be access by going to Marketplace and searching for it or by selecting Marketplace, and selecting Security + Identity.</li>
-<li>On the introductory blade (A blade is one piece of the overall view. You can think of a blade as a window or fly out), click Create. This will open another blade with your directory information.</li>
-<li>On directory blade, click Create. If you do not have an Azure Active Directory Premium License you will need one to use Azure AD Connect Health. For information on Azure AD Premium see Getting started with Azure AD Premium.</li>
+
+1. Sign in to the [Microsoft Azure portal.](https://portal.azure.com/)
+2. Azure Active Directory Connect Health can be access by going to Marketplace and searching for it or by selecting Marketplace, and selecting Security + Identity.
+3. On the introductory blade (A blade is one piece of the overall view. You can think of a blade as a window or fly out), click Create. This will open another blade with your directory information.
+4. On directory blade, click Create. If you do not have an Azure Active Directory Premium License you will need one to use Azure AD Connect Health. For information on Azure AD Premium see Getting started with Azure AD Premium.
+
+
+
+
+
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal1.png)
 
@@ -72,13 +77,16 @@ The Azure AD Connect Health portal allows you to view alerts, performance monito
 - **Active Directory Federation Services** – this represents all of the AD FS services that Azure AD Connect Health is currently monitoring. The options that appear in this section will be discussed in the section below. See Azure Active Directory Connect Health Services.
 - Configure – this allows you to turn the following on or off:
 <ol>
-<li>Auto update to automatically update the Azure AD Connect Health agent to the latest version - This means that you will be automatically updated to the latest version of the Azure AD Connect Health Agent when they become available. This is enabled by default.</li>
-<li>Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only - This means that if this is enabled, Microsoft will be able to see the same data that you are seeing. This can help with troubleshooting and assistance with issues. This is disabled by default.</li>
+1. Auto update to automatically update the Azure AD Connect Health agent to the latest version - This means that you will be automatically updated to the latest version of the Azure AD Connect Health Agent when they become available. This is enabled by default.
+2. Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only - This means that if this is enabled, Microsoft will be able to see the same data that you are seeing. This can help with troubleshooting and assistance with issues. This is disabled by default.
+
+
+
 
 ## Azure Active Directory Connect Health Services
 This section represents the active services and instances of those services that Azure AD Connect Health is monitoring. By clicking the ellipses, a blade will open up that will show all of the instances.
 
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal3.png)
+![Azure AD Connect Health Services](./media/active-directory-aadconnect-health/portal3.png)
 
 By selecting one of the instances, Azure AD Connect Health will open a blade with information about that services instance. Here you will find a wealth of information about your instance. This information includes an overview, properties, alerts, monitoring, and usage analytics. For information on these, see the links to the subsequent sections at the top of this page.
 

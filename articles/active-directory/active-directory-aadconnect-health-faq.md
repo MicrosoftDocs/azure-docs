@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure AD Connect Health Operations." 
-	description="This is the Azure AD Connect Health page that describes additional operations that can be performed once you have Azure AD Connect Health deployed.." 
+	pageTitle="Azure AD Connect Health FAQ" 
+	description="This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -65,11 +65,12 @@ Yes, both the registration process and normal operation can function through an 
 Perform any time prior to running Register-AdHealthAgent (The final step of Installation)
 
 
-- **Step 1 – Add entry to the machine.config file** 
+- Step 1 – Add entry to the machine.config file
 
-<ol>
-<li>Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64\[version]\config\machine.config</li>
-<li>Add the following entry under the <configuration></configuration> element in your machine.config file.</li></ol>
+
+Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64\[version]\config\machine.config</li>
+
+Add the following entry under the <configuration></configuration> element in your machine.config file.
  
 		
 	<system.net>  
@@ -87,11 +88,13 @@ Additional <defaultProxy> information can be found [here](https://msdn.microsoft
 
 This settings configures .NET applications system-wide to use your explicitly defined proxy when makeing http .NET requests. Modifying each individual app.config is not recommended because it will be undone during auto update. You only have to change one file and it will persist through updates if you only modify machine.config.
 
-- **Step2 - Configure Proxy in Internet Options**
-<ol>
-<li>Open Internet Explorer -> Settings -> Internet Options -> Connections -> LAN Settings</li>
-<li>Select Use a Proxy Server for you LAN</li>
-<li>Select Advanced IF you have different proxy ports for HTTP and HTTPS/Secure</li>
+- Step 2 - Configure Proxy in Internet Options
+
+Open Internet Explorer -> Settings -> Internet Options -> Connections -> LAN Settings.
+
+Select Use a Proxy Server for you LAN
+
+Select Advanced IF you have different proxy ports for HTTP and HTTPS/Secure
 
 
 
