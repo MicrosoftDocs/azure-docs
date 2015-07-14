@@ -1,10 +1,10 @@
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 In this tutorial, you'll learn:
 
 - How to create a new web app through the Azure Marketplace.
 
-- How to deploy the web app through the Azure Portal.
+- How to deploy the web app through the Azure Preview Portal.
  
 You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
 
@@ -15,59 +15,75 @@ You'll build a WordPress blog that uses a default template. The following illust
 
 ## Create a web app in the portal
 
-1. Log in to the Azure Portal.
+1. Log in to the Azure Preview Portal.
 
-2. Open the Azure Marketplace either by clicking the **Marketplace** icon, or by clicking the **New** icon on the bottom left of the dashboard, selecting **Web + mobile** and then **Azure Marketplace** at the bottom.
+2. Open the Azure Marketplace either by clicking the **Marketplace** icon:
+
+    ![Marketplace icon][marketplace]
+
+    Or by clicking the **New** icon on the upper right of the dashboard, and selecting **Marketplace** at the bottow of the list.
 	
-	<!--todo:![Create New][5]-->
+    ![Create New][5]
 	
-3. In the Marketplace, select **Web Apps**.
+3. Select **Web + Mobile**. Search for **WordPress** and click the **WordPress** icon.
 
-4. Click the **Scalable WordPress** icon.
-
-	<!--todo:![WordPress from list][7]-->
+	![WordPress from list][7]
 	
 5. After reading the description of the WordPress app, select **Create**.
 
-6. Click on each part (**WEB APP**, **DATABASE**, and **SUBSCRIPTION**) and enter or select values for the required fields:
+6. Click on **Web app**, and provide the required values for configuring your web app.
 	
-- Enter a URL name of your choice	
-- Select the region closest to you
+    ![configure your app][8]
 
-	<!--todo:![configure your app][8]-->
+7. Click on **Database**, and provide the required values for configuring your MySQL database. 
 
-7. When finished defining the web app, click **Create**.
+    ![configure database][database]
+
+8. Provide a name for a new resource group.
+
+    ![Set resource group][groupname]
+
+8. If necessary, click **SUBSCRIPTION**, and specify the subscription to use. 
+
+7. When you have finished defining the web app, click **Create**, and wait while the new web app is created.
+
+   When the app has been created, you will see the resource group containing web app and database.
+
+   ![show group][resourcegroup]
 
 ## Launch and manage your WordPress web app
 	
-1. From the **Web Apps** blade, click on your new web app to open the dashboard.
+1. Click on your new web app to see details about your app.
 
-	<!--todo:![launch dashboard][10]-->
+    ![launch dashboard][10]
 
-2. On the **Essentials** page, click the link under **Url** to open the web app's welcome page.
+2. On the **Essentials** page, click either **Browse** or the link under **Url** to open the web app's welcome page.
 
-	<!--todo:![site URL][11]--> 
+    ![site URL][browse]
 
 3. If you have not installed WordPress, enter the appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web app's login page.
 
-	<!--todo:![login to WordPress][12]-->
-
 4. Click **Login** and enter your credentials.  
-	<!--todo:screenshot-->
 
 5. You'll have a new WordPress web app that looks similar to the web app below.    
 
-	<!--todo:![your WordPress site][13]-->
+	![your WordPress site][13]
 
 
 
 
 
 
-[5]: ./media/website-from-gallery/wordpressgallery-01.png
+[5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
-[7]: ./media/website-from-gallery/wordpressgallery-03.png
-[8]: ./media/website-from-gallery/wordpressgallery-04.png
+[7]: ./media/website-from-gallery/search-web-app.png
+[8]: ./media/website-from-gallery/set-web-app.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
-[10]: ./media/website-from-gallery/wordpressgallery-06.png
+[10]: ./media/website-from-gallery/select-web.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
+[webapps]: ./media/website-from-gallery/selectwebapps.png
+[database]: ./media/website-from-gallery/set-db.png
+[resourcegroup]: ./media/website-from-gallery/show-rg.png
+[browse]: ./media/website-from-gallery/browse-web.png
+[marketplace]: ./media/website-from-gallery/marketplace-icon.png
+[groupname]: ./media/website-from-gallery/set-rg.png

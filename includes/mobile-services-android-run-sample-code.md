@@ -1,4 +1,4 @@
-1. In Project Explorer, expand **app** => **java** => **com.example.GetStartedWithData**, **src**, and **.com.example.GetStartedWithData**, then open the *ToDoActivity.java* file.
+1. In Project Explorer, expand **app** => **src** => **main** => **java** => **com.example.GetStartedWithData** and then open the *ToDoActivity.java* file.
 
    	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
