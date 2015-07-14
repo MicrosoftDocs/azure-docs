@@ -54,7 +54,7 @@ The information provided in this section is for completing the **Offline Backup*
     - **Azure Storage Account** - Enter the name of the Azure storage account that will be associated with this Import job.
     - **Azure Storage Container** - Enter the name of the destination storage blob where this job’s data will be imported.
 
-2. Complete the workflow and select **Backup Now** in the Azure Backup mmc, to initiate the offline backup copy. The initial backup is written to the staging area as part of this step.
+2. Complete the workflow and select **Backup Now** in the Azure Backup mmc to initiate the offline backup copy. The initial backup is written to the staging area as part of this step.
 
     ![Backup now](./media/backup-azure-backup-import-export/backupnow.png)
 
