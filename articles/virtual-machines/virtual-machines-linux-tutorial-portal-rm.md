@@ -26,7 +26,7 @@ Creating an Azure virtual machine (VM) that runs Linux is easy to do. This tutor
 
 [AZURE.NOTE] This topic creates an Azure virtual machine that is managed by the Azure resource group API. For details, see [Azure resource group overview](resource-group-overview.md).
 
-[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## How to create the Linux virtual machine
 
