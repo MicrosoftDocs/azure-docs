@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/19/2015"
+	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
 #About Azure Virtual Machines
@@ -41,7 +41,7 @@ Because those tutorials help you create a VM quickly, they show you only one way
 
 [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md)
 
-If you're just starting to learn about Azure Virtual Machines, be sure to also check out the Frequently Asked Questions.
+If you're just starting to learn about Azure Virtual Machines, be sure to also check out the [Frequently Asked Questions](virtual-machines-questions.md).
 
 
 <!--links-->
