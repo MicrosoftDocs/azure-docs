@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Considerations and Proven Practices for Designing Azure Resource Manager Templates"
-	description="World Class ARM Templates - Considerations and Proven Practices"
+	description="Show design patterns for Azure Resource Manager Templates"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="mmercuri"
@@ -8,9 +8,9 @@
 	editor="tysonn"/>
 
 <tags
-	ms.service="arm"
+	ms.service="azure-resource-manager"
 	ms.workload="multiple"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/13/2015"
@@ -35,7 +35,7 @@ This article provides details on consumption scenarios, architecture, and implem
 implementations with Azure Customer Advisory Team (AzureCAT) customers. Far from academic, these are proven practices informed by the development of templates 
 for 12 of the top Linux-based OSS technologies, including: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by 
 Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis, and Nagios. The majority of these templates were developed with a well-known vendor of 
-a given distribution and influenced by the requirements of Microsoft’s enterprise and SI customers during recent projects.
+a given distribution and influenced by the requirements of Microsoftâ€™s enterprise and SI customers during recent projects.
 
 This article shares these proven practices to help you architect world class ARM templates.  
 
@@ -47,7 +47,7 @@ This section provides a high-level overview of common scenarios and patterns for
 ### Enterprises and System Integrators
 
 Within large organizations, we commonly see two consumers of ARM templates: internal software development teams and corporate IT. The scenarios for the 
-SIs we’ve worked with have mapped to those of Enterprises, so the same considerations apply.
+SIs weâ€™ve worked with have mapped to those of Enterprises, so the same considerations apply.
 
 #### Internal software development teams
 
@@ -58,7 +58,7 @@ You can use templates as-is or extend or compose them to accommodate your needs.
 various views such as team, project, individual, and education.
 
 Businesses often want software development teams to create a template for consistent deployment of a solution while also offering constraints so certain 
-items within that environment remain fixed and can’t be overridden. For example, a bank might require a template to include RBAC so a programmer can’t revise a 
+items within that environment remain fixed and canâ€™t be overridden. For example, a bank might require a template to include RBAC so a programmer canâ€™t revise a 
 banking solution to send data to a personal storage account.
 
 #### Corporate IT
@@ -67,7 +67,7 @@ Corporate IT organizations typically use templates for delivering cloud capacity
 
 ##### Cloud capacity
 
-A common way for corporate IT groups to provide cloud capacity for teams within their organization is with “t-shirt sizes”, which are standard offering sizes 
+A common way for corporate IT groups to provide cloud capacity for teams within their organization is with â€œt-shirt sizesâ€, which are standard offering sizes 
 such as small, medium, and large. The t-shirt sized offerings can mix different resource types and quantities while providing a level of standardization that 
 makes it possible to use templates. The templates deliver capacity in a consistent way that enforces corporate policies and uses tagging to provide 
 chargeback to consuming organizations.
@@ -79,10 +79,10 @@ internet and packet inspection. You may also have organization-specific roles fo
 ##### Cloud-hosted capabilities
 
 You can use templates to support cloud-hosted capabilities, including individual software packages or composite offerings that are offered to internal lines 
-of business. An example of a composite offering would be analytics-as-a-service—analytics, visualization, and other technologies—delivered in an optimized, 
+of business. An example of a composite offering would be analytics-as-a-serviceâ€”analytics, visualization, and other technologiesâ€”delivered in an optimized, 
 connected configuration on a predefined network topology.
 
-Cloud-hosted capabilities are affected by the security and role considerations established by the cloud capacity offering on which they’re built as described above.
+Cloud-hosted capabilities are affected by the security and role considerations established by the cloud capacity offering on which theyâ€™re built as described above.
 These capabilities are offered as is or as a managed service. For the latter, access-constrained roles are required to enable access into the environment for 
 management purposes.
 
@@ -104,14 +104,14 @@ and number of transactions. These scale units are increased or decreased as dema
 
 #### CSV offering injected into customer subscription
 
-You may want to deploy your software into subscriptions owned by end customers. You can use templates to deploy distinct deployments into a customer’s Azure account.
+You may want to deploy your software into subscriptions owned by end customers. You can use templates to deploy distinct deployments into a customerâ€™s Azure account.
 
-These deployments use RBAC so you can update and manage the deployment within the customer’s account.
+These deployments use RBAC so you can update and manage the deployment within the customerâ€™s account.
 
 #### Azure Marketplace
 
 If you want to advertise and sell your offerings through a marketplace, such as Azure Marketplace, you can develop templates to deliver distinct types of 
-deployments that will run in a customer’s Azure account. This distinct deployments can be typically described as a t-shirt size (small, medium, large), 
+deployments that will run in a customerâ€™s Azure account. This distinct deployments can be typically described as a t-shirt size (small, medium, large), 
 product/audience type (community, developer, enterprise), or feature type (basic, high availability).  In some cases, these types will allow you to specify 
 certain attributes of the deployment, such as VM type or number of disks.
 
@@ -126,14 +126,14 @@ This section identifies the things you need to consider before designing your so
 
 ### Identifying the outside vs. inside of a VM
 
-As you design your template, it’s helpful to look at the requirements in terms of what’s outside and inside of the virtual machines (VMs):
+As you design your template, itâ€™s helpful to look at the requirements in terms of whatâ€™s outside and inside of the virtual machines (VMs):
 
 - Outside means the VMs and other resources of your deployment, such as the network topology, tagging, references to the certs/secrets, and role-based access control. 
 All are part of your template.
-- For the VM’s insides—that is, the installed software and overall desired state configuration—other mechanisms are used in whole or in part, such as VM extensions 
-or scripts. These may be identified and executed by the template but aren’t in it.
+- For the VMâ€™s insidesâ€”that is, the installed software and overall desired state configurationâ€”other mechanisms are used in whole or in part, such as VM extensions 
+or scripts. These may be identified and executed by the template but arenâ€™t in it.
 
-Common examples of activities you would do “inside the box” include -  
+Common examples of activities you would do â€œinside the boxâ€ include -  
 
 - Install or remove server roles and features
 - Install and configure software at the node or cluster level
@@ -149,8 +149,8 @@ Common examples of activities you would do “inside the box” include -
 
 #### Desired State Configuration (DSC)
 
-Thinking about the internal state of your VMs beyond deployment, you’ll want to make sure this deployment doesn’t “drift” from the configuration that you have 
-defined and checked into source control. This ensures your developers or operations staff don’t manually make ad-hoc changes to an environment that are not vetted, 
+Thinking about the internal state of your VMs beyond deployment, youâ€™ll want to make sure this deployment doesnâ€™t â€œdriftâ€ from the configuration that you have 
+defined and checked into source control. This ensures your developers or operations staff donâ€™t manually make ad-hoc changes to an environment that are not vetted, 
 tested or recorded in source control. This is important, because the manual changes are not in source control, they are also not part of the standard deployment 
 and will impact future automated deployments of the software.
 
@@ -163,7 +163,7 @@ also be used to make sure the desired state is maintained.
 
 ### Common Template Scopes
 
-In our experience, we’ve seen three key solution templates scopes emerge. These three scopes – capacity, capability, and end-to-end solution – are described in 
+In our experience, weâ€™ve seen three key solution templates scopes emerge. These three scopes â€“ capacity, capability, and end-to-end solution â€“ are described in 
 more detail below.
 
 #### Capacity Scope
@@ -192,7 +192,7 @@ this document.
 
 #### Free-form configurations
 
-On the surface, free-form configurations sound ideal. They allow you to select a VM type and provide an arbitrary number of nodes and attached disks for those nodes—and 
+On the surface, free-form configurations sound ideal. They allow you to select a VM type and provide an arbitrary number of nodes and attached disks for those nodesâ€”and 
 do so as parameters to a template. When you look closely, though, and consider templates that will deploy multiple virtual machines of different sizes, additional 
 considerations appear that make the choice less appropriate in a number of scenarios.
 
@@ -216,31 +216,31 @@ approach, dynamic calculations are required to determine the appropriate partiti
 mathematical functions, so you must perform these calculations in code, generating a unique, hard-coded template with the appropriate details.
 
 In enterprise IT and SI scenarios, someone must maintain the templates and provide support for the deployed topologies for one or more organizations. 
-This additional overhead — different configurations and templates for each customer — is far from desirable.
+This additional overhead â€” different configurations and templates for each customer â€” is far from desirable.
 
-You can use these templates to deploy environments in your customer’s Azure subscription, but both corporate IT teams and CSVs typically deploy them into their 
+You can use these templates to deploy environments in your customerâ€™s Azure subscription, but both corporate IT teams and CSVs typically deploy them into their 
 own subscriptions, using a chargeback function to bill their customers. In these scenarios, the goal is to deploy capacity for multiple customers across a pool 
-of subscriptions and keep deployments densely populated into the subscriptions to minimize subscription sprawl—that is, more subscriptions to manage. With truly 
+of subscriptions and keep deployments densely populated into the subscriptions to minimize subscription sprawlâ€”that is, more subscriptions to manage. With truly 
 dynamic deployment sizes, achieving this type of density requires careful planning and additional development for scaffolding work on behalf of the organization.
 
-In addition, you can’t create subscriptions via an API call but must do so manually through the portal. As the number of subscriptions increases, any resulting 
-subscription sprawl requires human intervention—it can’t be automated. With so much variability in the sizes of deployments, you would have to pre-provision a 
+In addition, you canâ€™t create subscriptions via an API call but must do so manually through the portal. As the number of subscriptions increases, any resulting 
+subscription sprawl requires human interventionâ€”it canâ€™t be automated. With so much variability in the sizes of deployments, you would have to pre-provision a 
 number of subscriptions manually to ensure subscriptions are available.
 
 Considering all these factors, a truly free-form configuration is less appealing than at first blush.
 
-#### Known configurations—the t-shirt sizing approach
+#### Known configurationsâ€”the t-shirt sizing approach
 
 Rather than offer a template that provides total flexibility and countless variations, in our experience a common pattern is to provide the ability to select 
-known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, 
-such as community edition or enterprise edition.  In other cases, it may be workload specific configurations of a technology – such as map reduce or no sql.
+known configurations â€” in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, 
+such as community edition or enterprise edition.  In other cases, it may be workload specific configurations of a technology â€“ such as map reduce or no sql.
 
 Many enterprise IT organizations, OSS vendors, and SIs make their offerings available today in this way in on-premises, virtualized environments 
 (enterprises) or as software-as-a-service (SaaS) offerings (CSVs and OSVs).
 
 This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers 
 must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts 
-and other resources (due to cluster size and resource constraints). Known configurations enable customers to easily select the right t-shirt size—that is, 
+and other resources (due to cluster size and resource constraints). Known configurations enable customers to easily select the right t-shirt sizeâ€”that is, 
 a given deployment. In addition to making a better experience for the customer, a small number of known configurations is easier to support and can help you 
 deliver a higher level of density.
 
@@ -345,7 +345,7 @@ template, such as *jumpbox_enabled.json*. Template linking would use the resulti
 You can link the optional resources template from multiple places:
 
 -	When applicable to every deployment, create a parameter-driven link from the shared resources template.
--	When applicable to select known configurations—for example, only install on large deployments—create a parameter-driven or variable-driven link from the 
+-	When applicable to select known configurationsâ€”for example, only install on large deploymentsâ€”create a parameter-driven or variable-driven link from the 
 known configuration template.
 
 Whether a given resource is optional may not be driven by the template consumer but instead by the template provider. For example, you may need to satisfy a 
@@ -367,8 +367,8 @@ or product configurations such as Community, Developer, or Enterprise.
 
 As with the shared resource template, variables are passed to the known configurations template from either:
 
--	An end user—that is, the parameters sent to the main template.
--	An organization—that is, the variables in the main template that represent internal requirements or policies.
+-	An end userâ€”that is, the parameters sent to the main template.
+-	An organizationâ€”that is, the variables in the main template that represent internal requirements or policies.
 
 #### Member resources template
 
@@ -407,7 +407,7 @@ that is called after all VMs (or all VMs of a given member type) are deployed.
 
 ### Capability Scoped Solution Template Example - Redis
 
-To show how an implementation might work, let’s look at a practical example of building a template that will facilitate the deployment and configuration of 
+To show how an implementation might work, letâ€™s look at a practical example of building a template that will facilitate the deployment and configuration of 
 Redis in standard t-shirt sizes.  
 
 For the deployment, there will be set of shared resources (virtual network, storage account, availability sets) and an optional resource (jumpbox). There are 
@@ -422,9 +422,9 @@ You create Shared Resources Template named shared-resources.json
 
 You create an Optional Resource Template to enable the deployment of a jumpbox, named jumpbox_enabled.json
 
-Redis will use just a single node type, so you’ll create a single Member Resource Template named node-resources.json.
+Redis will use just a single node type, so youâ€™ll create a single Member Resource Template named node-resources.json.
 
-With Redis, you’ll want to install each individual node and then, once all nodes are installed you’ll want to set up the cluster.  You have scripts to 
+With Redis, youâ€™ll want to install each individual node and then, once all nodes are installed youâ€™ll want to set up the cluster.  You have scripts to 
 accommodate both of these, redis-cluster-install.sh and redis-cluster-setup.sh.
 
 #### Linking the Templates
@@ -446,8 +446,8 @@ The topology would resemble this illustration.
 
 #### Configuring State
 
-For the nodes in the cluster, there are two steps to configuring the state, both represented by Purpose Specific Scripts.  “redis-cluster-install.sh” will 
-perform an installation of Redis and “redis-cluster-setup.sh” will set up the cluster.
+For the nodes in the cluster, there are two steps to configuring the state, both represented by Purpose Specific Scripts.  â€œredis-cluster-install.shâ€ will 
+perform an installation of Redis and â€œredis-cluster-setup.shâ€ will set up the cluster.
 
 #### Supporting Different Size Deployments
 
@@ -515,12 +515,12 @@ when using this capability scoped template by itself or as part of an end to end
 For example, if there was a technology focused template that deployed SQL Server as a capability, what would be the considerations, if any, from using that 
 independently or as part of a broader end to end solution scoped template that may use that SQL Server to support a web application.
 
-When looking at this scenario, it’s relevant to look at the number of resources likely involved. For a robust implementation, your capability scoped template won’t 
+When looking at this scenario, itâ€™s relevant to look at the number of resources likely involved. For a robust implementation, your capability scoped template wonâ€™t 
 just be a storage account and a single VM with one installation of SQL Server. A robust capability scoped template will deploy multiple VMs with SQL Server deployed 
 for high availability. For some capabilities, such as Analysis Services, your topology will also have likely have Active Directory deployed with it as well.
 
 Two key considerations for this scenario include the lifecycle of how SQL Server will be used and the RBAC that you wish to apply to it.  Specifically, will 
-the SQL Server be updated and deleted with the rest of the solution or will it’s lifecycle vary from the solution or other parts of the solution.  If the 
+the SQL Server be updated and deleted with the rest of the solution or will itâ€™s lifecycle vary from the solution or other parts of the solution.  If the 
 lifecycle will vary, you will want to consider placing it in another resource group.  
 
 Another consideration is how you would like to apply RBAC to your SQL Server capability scoped solution template.  Based on how you want to apply RBAC within 
@@ -528,8 +528,8 @@ your topology, you may opt for different resource groups based to align with tho
 resources for the SQL Server capability scoped solution template, a distinct resource group with RBAC applied to it should be a consideration.
 
 Another consideration is an evaluation of the SQL Server capability scoped solution template to identify if it currently creates certain resources itself vs. 
-allowing you to “Bring Your Own Resources.”  In a “Bring Your Own Resources” (BYOR) model, the capability scoped solution template would allow your template to 
-re-use previously existing resources, with the typical examples being a storage account, virtual network or an availability set. If a BYOR approach doesn’t exist 
+allowing you to â€œBring Your Own Resources.â€  In a â€œBring Your Own Resourcesâ€ (BYOR) model, the capability scoped solution template would allow your template to 
+re-use previously existing resources, with the typical examples being a storage account, virtual network or an availability set. If a BYOR approach doesnâ€™t exist 
 in your capability scoped template, you can alter it using the approach defined earlier in this document for optional resource templates.  In this case, your 
 end-to-end solution scoped template would have a shared resource template with these common resources, and the capability scoped template would be extended to 
 support these resources as optional.  This creates a better capability scoped solution template as it now can be used independently or part of a composition.
@@ -538,9 +538,9 @@ When assessing whether the storage account should be passed in from the end to e
 do you need to ensure that RBAC be applied to this specific resource?  If so, if the resource is expected to have this applied when it is passed in, a level of 
 trust is being placed not just in the Solution Block but any user who wishes to optionally provide this to the capability scoped template when used 
 independently.  If RBAC is critical, then you should consider on whether to make this an optional template within the capability scoped solution template 
-or to require it’s creation with the required RBAC from within the capability scoped solution template.
+or to require itâ€™s creation with the required RBAC from within the capability scoped solution template.
 
-If a decision is made to place these in different resource groups, you can also use Resource Links to define the relationships between the resources – even 
+If a decision is made to place these in different resource groups, you can also use Resource Links to define the relationships between the resources â€“ even 
 when the resources span resource groups.
 
 ### Creating an End to End Solution Scoped Template with Multiple Capability Scoped Templates
@@ -552,14 +552,14 @@ composition will use those capability scoped solution templates as well as a sha
 Outside of the specific capability scoped templates required, additional resources will be necessary for the solution, even if just scripts to 
 stitch the capability scoped templates together and configure them.
 
-In this case, it’s identified that there’s a shared virtual network and a shared storage account.  To accommodate this, you should add these to a shared 
-resources template in your end to end solution scoped template and ensure that a “Bring Your Own Resource” approach is supported in the capability scoped templates. 
+In this case, itâ€™s identified that thereâ€™s a shared virtual network and a shared storage account.  To accommodate this, you should add these to a shared 
+resources template in your end to end solution scoped template and ensure that a â€œBring Your Own Resourceâ€ approach is supported in the capability scoped templates. 
 If it is not, you can modify your capability scoped templates to accommodate this, as described in the previous example.
 
 For the additional resources that you will be adding, you will follow a superset of the pattern used for creating an individual capability scoped template. 
 In this case, you will add a Shared Resources Template, Optional Resources Template(s), Member Node template(s), and desired state configuration (scripts, 
-Chef, Puppet, Powershell DSC) for the new resources.  Where there are dependencies, you’ll optimize to use implicit references vs. dependsOn where possible 
-to eliminate the potential for stray dependencies which may impact the parallelism (and speed) of your deployment. You’ll also consider the lifecycle of 
+Chef, Puppet, Powershell DSC) for the new resources.  Where there are dependencies, youâ€™ll optimize to use implicit references vs. dependsOn where possible 
+to eliminate the potential for stray dependencies which may impact the parallelism (and speed) of your deployment. Youâ€™ll also consider the lifecycle of 
 these resources, the RBAC considerations, and dependencies to determine if they should be placed in different resource groups.  
 
 When adding shared resources, such as the shared storage account, you should also evaluate if a resource lock is required for it, as this can help avoid 
@@ -585,22 +585,22 @@ pay-as-you-go model, the customer would like to have the data pipeline operation
 As part of their data pipeline, they have a SQL Server, which receives the processed data and makes it available for querying. The customer has indicated that 
 while they would like to turn the ingestion and processing pieces of the pipeline on and off on a fixed schedule, they would like to always have the SQL Server available.
 
-In this scenario, there are what appear to be explicit differences in lifecycle and potentially some additional considerations the customer hasn’t 
+In this scenario, there are what appear to be explicit differences in lifecycle and potentially some additional considerations the customer hasnâ€™t 
 raised but should be evaluated.
 
 As described, the SQL Server deployment will be kept alive while other resources will be created and deleted.  They will be deployed together initially 
 but then other members of the template will be destroyed and created on a different lifecycle.  These can be isolated into different resource groups or be 
 left in the same resource group with resource locking applied to the SQL Server resources.  As SQL Server specifically is, as described in the earlier examples, 
-likely represented as a larger set of resources, separating it out into it’s own resource group would be appropriate.
+likely represented as a larger set of resources, separating it out into itâ€™s own resource group would be appropriate.
 
 The other consideration is that while the customer has said that they want the rest of the data pipeline
 turned on and off on a schedule, they may not be considering the inconsist behavior of reporting systems.  Scheduled delivery of data from third parties is not 
-always precise – connectivity may be unavailable for a period of time, clocks on local or cloud based servers may drift, time changes may or may not occur as 
+always precise â€“ connectivity may be unavailable for a period of time, clocks on local or cloud based servers may drift, time changes may or may not occur as 
 expected, etc. It should be evaluated if your ingestion mechanism should be used in an on/off pattern as well, and if so, if the lifecycle for that is greater 
 than that of the processing components.
 
-If you’re using a managed service such as Azure Data Factory or Event Hub, this is less of an issue as their operating models and associated billing approach 
-make them readily available to ingest your data and place it in storage.  If you’re using another technology, such as Kafka, that you’ve deployed to a virtual 
+If youâ€™re using a managed service such as Azure Data Factory or Event Hub, this is less of an issue as their operating models and associated billing approach 
+make them readily available to ingest your data and place it in storage.  If youâ€™re using another technology, such as Kafka, that youâ€™ve deployed to a virtual 
 machine, you may want to look at the lifecycle for how you make that and the associated storage account(s) required for ingestion available.  This may result in 
 the ingestion and processing resources being placed in a different resource groups based on their lifecycle.
 
@@ -623,10 +623,10 @@ This section explores common customer drivers for environment, billing, and geog
 
 Service owners have a desire to isolate their different environments.  Having each environment isolated allows teams the ability to have more fine-grained 
 control over who can have access to the environments. While development environments may be more open in terms of who can access them, as the 
-environment scope moves closer to production the number of users – be they human or system accounts used for automation – is reduced to aid in 
+environment scope moves closer to production the number of users â€“ be they human or system accounts used for automation â€“ is reduced to aid in 
 compliance and minimize overall risk.
 
-##### Billing Isolation – Developing vs. Running a Service
+##### Billing Isolation â€“ Developing vs. Running a Service
 
 To accurately reflect Cost of Goods Sold (COGS) and Operating Expenses (OpEx), business owners want to be able to break apart the cost of researching 
 and building the service vs. running the services.  
@@ -634,20 +634,20 @@ and building the service vs. running the services.
 A superset of environment isolation mentioned previously, the intent would be consolidation of development and test for individual and/or 
 aggregated billing for the former while production would remain independent for the latter.
 
-##### Billing Isolation – Adding Transparency and Accountability to Service Consumption Costs
+##### Billing Isolation â€“ Adding Transparency and Accountability to Service Consumption Costs
 
 Billing isolation is also used to both gain transparency into costs related to platform consumption by specific teams and introducing appropriate 
 levels of accountability.
 
 While the cloud is elastic and allows for a pay-as-you-go model, this is less familiar to some developers coming from a non-cloud model where hardware 
-is procured and owned. In the non-cloud model, there were physical limitations in terms of the number of “machines” that could be turned on and there 
+is procured and owned. In the non-cloud model, there were physical limitations in terms of the number of â€œmachinesâ€ that could be turned on and there 
 were limited incentives to scale down or turn off resources when not in use.  Procurement of this dedicated hardware, in many cases, was not done by the 
 developers that were utilizing it.
 
 By isolating subscriptions and assigning accountability for those subscriptions to specific teams, service owners found this type of subscription 
 partitioning beneficial in driving and enforcing desired behaviors.
 
-##### Geography Driven Isolation – Deployments Specific to and Governed by Laws of a Specific Geography
+##### Geography Driven Isolation â€“ Deployments Specific to and Governed by Laws of a Specific Geography
 
 In certain contexts, there will be requirements that services targeted for a specific geography will need to consider how they deploy to address 
 compliance considerations.
@@ -671,7 +671,7 @@ their applications and there are associated compliance regulations designed to b
 
 Separation of roles and duties is a key requirement for internal services to be compliant with internal policies. Many commercial services also require 
 this to remain in compliance with governments and industry regulatory guidelines.  Services need to limit access to services and their underlying resources 
-to authorized roles under specific circumstances. Many services have built scaffolding to deliver two capabilities – RBAC and auditing.
+to authorized roles under specific circumstances. Many services have built scaffolding to deliver two capabilities â€“ RBAC and auditing.
 
 ##### Role Base Access Control (RBAC) Use Cases
 
@@ -691,8 +691,8 @@ In addition to constrained access provided by RBAC, organizations also need to a
 
 Previously, organizations would have used subscription partitioning to accomplish these goals. While possible, this was not ideal.  As the creation of 
 a subscription is effectively a commerce activity, the Service Management API did not expose a mechanism by which to create or delete new subscriptions 
-automatically and subscriptions needed to be created manually. The resulting number of subscriptions could grow significantly – for very large services 
-such as Microsoft’s own commercial services – that number could span into over one thousand subscriptions.  This would often result in the creation of 
+automatically and subscriptions needed to be created manually. The resulting number of subscriptions could grow significantly â€“ for very large services 
+such as Microsoftâ€™s own commercial services â€“ that number could span into over one thousand subscriptions.  This would often result in the creation of 
 custom scaffolding to create and manage subscriptions for an organization.
 
 With Resource Manager, deploying multiple environments within a subscription is much more straightforward.  It relaxes the previous fixed caps on resources 
@@ -703,9 +703,9 @@ where geographic isolation is required, this can also be accomplished utilizing 
 for one or more geographies can be achieved.
 
 You can apply tags to resources and resource groups which can be used in billing roll ups and summarized views to provide billing isolation.  You can use tags 
-to define the environment type (research, education, development, test, production), accountable organization or individual (“HR”, “Finance”, “John Smith”, “Jane Jones”).
+to define the environment type (research, education, development, test, production), accountable organization or individual (â€œHRâ€, â€œFinanceâ€, â€œJohn Smithâ€, â€œJane Jonesâ€).
 
-The auditing requirement is delivered as part of the underlying Azure Resource Manager’s set of out of the box capabilities and can be viewed in a central location.
+The auditing requirement is delivered as part of the underlying Azure Resource Managerâ€™s set of out of the box capabilities and can be viewed in a central location.
 
 End customers would have accounts registered in Azure Active Directory that would be used for authentication and for role based access control to the 
 environment and resources.
@@ -714,11 +714,11 @@ environment and resources.
 
 While the resource limits are relaxed in Azure Resource Manager, there will still be limits. Beyond creating the environments themselves, you should also 
 look at achieving density of environments within subscriptions as well.  Delivering an environment is delivering capacity to an indivual or organization and 
-you should evaluate what relevant “t-shirt size(s)” you will want to deliver.  Specifically, identify the variants between small, medium, large, and extra 
+you should evaluate what relevant â€œt-shirt size(s)â€ you will want to deliver.  Specifically, identify the variants between small, medium, large, and extra 
 larger customers in terms of the resources required.  
 
 You may choose to use different subscriptions for different t-shirt sizes to achieve greater density. For example, you may be able to accommodate 1000 small 
-t-shirt size environments, 500 medium size deployments, 100 large deployments, and 10 extra-large deployments in a given subscription.  As there’s no billed 
+t-shirt size environments, 500 medium size deployments, 100 large deployments, and 10 extra-large deployments in a given subscription.  As thereâ€™s no billed 
 cost to have multiple subscriptions, you may want to isolate the different sizes into different subscriptions to provide maximum density.  This can be done 
 while keeping the number of subscriptions relatively modest and easy to manage.
 
@@ -768,7 +768,7 @@ network appliance, user defined routes should be used.
 A virtual appliance is nothing more than a VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device. 
 A number of third parties provide virtual network appliances on Azure, and organizations can also bring their own.
 
-A “bring your own” appliance approach allows an organization to re-use existing code that may be used in their on premise environments. This virtual 
+A â€œbring your ownâ€ appliance approach allows an organization to re-use existing code that may be used in their on premise environments. This virtual 
 appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, 
 you must enable IP Forwarding in the VM.  
 
@@ -778,7 +778,7 @@ As with prior examples, resource lifecycle and RBAC constraints should be review
 
 One concern for an organization may be protecting their resources and the templates that provision them from bad actors.  
 
-One example of this could be a bank wishing to ensure that a rogue software developer or member of their IT staff don’t make modifications or 
+One example of this could be a bank wishing to ensure that a rogue software developer or member of their IT staff donâ€™t make modifications or 
 extract key information that results in data going to a bad actor for criminal purposes.
 
 A typical enterprise scenario is to have a small group of Trusted Operators who have access to critical secrets within the deployed workloads, 
@@ -799,28 +799,28 @@ As stated earlier in the document, there are no global Key Vaults. As Key Vaults
 
 An example implementation of this approach was provided in the Secrets and Certificates section found earlier in this document.
 
-### Enabling a “Bring Your Own Subscription” Model
+### Enabling a â€œBring Your Own Subscriptionâ€ Model
 
-Corporate IT, System Integrators, and Cloud Services vendors may employ a “Bring Your Own Subscription” model with their customers.  Specifically, the 
-organization provides a service to an end customer and utilizes that customer’s Azure subscription in some fashion.
+Corporate IT, System Integrators, and Cloud Services vendors may employ a â€œBring Your Own Subscriptionâ€ model with their customers.  Specifically, the 
+organization provides a service to an end customer and utilizes that customerâ€™s Azure subscription in some fashion.
 
 There are multiple variants of this approach, each with slightly different requirements, as detailed below.
 
 #### Enabling Third Party Access for Monitoring of Resources within an Account
 
-An organization with a monitoring application may require read-only access to a customer’s subscription to retrieve data for use in that application. 
-This would require read-only access for an ongoing period of time.  Access would need to be in the customer’s control, providing them the ability to 
+An organization with a monitoring application may require read-only access to a customerâ€™s subscription to retrieve data for use in that application. 
+This would require read-only access for an ongoing period of time.  Access would need to be in the customerâ€™s control, providing them the ability to 
 terminate the access if the relationship with the provider of the monitoring service is severed.
 
 ##### Implementing with Azure Resource Manager
 
-Details on implementing this are provided in significant detail in the “Developers Guide to Auth with the Azure Resource Manager API” which 
+Details on implementing this are provided in significant detail in the â€œDevelopers Guide to Auth with the Azure Resource Manager APIâ€ which 
 can be found [here](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/). That document provides 
 step-by-step implementation instructions as well as sample code.
 
 #### Enabling 3rd Party Access for One Time Deployment of Software
 
-In another example, an organization may deploy and configure a version of their software in a customer’s account, requiring write access for the period of 
+In another example, an organization may deploy and configure a version of their software in a customerâ€™s account, requiring write access for the period of 
 time for the deployment.
 
 ##### Implementing with Azure Resource Manager
@@ -832,7 +832,7 @@ required to achieve the installation and then have that access be immediately re
 
 #### Enabling 3rd Party Access to Use Customer Subscriptions for Data Storage
 
-In another example, an organization may wish to run software in their own environment but use the customer’s account for storage. This places the customer 
+In another example, an organization may wish to run software in their own environment but use the customerâ€™s account for storage. This places the customer 
 in control of their data at all times and enables them to leverage other technologies on the platform, e.g. Azure Machine Learning or HDInsight, at their 
 own discretion while not adding cost/billing overhead for the Enterprise IT, System Integrator, or CSV providing the capability. This requires ongoing access 
 to the storage account for the organization, with the customer in control and having access to audit information for accesses to that information.
