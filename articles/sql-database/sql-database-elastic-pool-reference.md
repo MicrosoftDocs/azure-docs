@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -33,8 +33,7 @@ An elastic pool is a collection of database throughput units (DTUs), and storage
 
 
 - Elastic pools are only available in Azure SQL Database V12 servers.   
-- PowerShell and REST APIs for elastic pools are supported on Azure Resource Manager (ARM) only; service management commands (RDFE) are not supported. 
-- Creating and managing elastic pools is supported in the [Microsoft Azure portal](https:portal.azure.com) only. 
+- Creating and managing elastic pools is supported using the [Microsoft Azure portal](https://portal.azure.com), PowerShell, and REST APIs on Azure Resource Manager (ARM) only; the [Classic portal](https://manage.windowsazure.com/) and service management commands (RDFE) are not supported. 
 
 
 ## Restrictions for the current preview
@@ -64,7 +63,7 @@ The following articles will help you get started using elastic databases and ela
 An elastic pool is an ARM resource of type “ElasticPool” in the Microsoft Azure SQL Database.
 
 - **namespace**: Microsoft.Sql/ElasticPool
-- **secondary-endpoint** for REST API calls (Azure resource manager): https://management.azure.com
+- **management-endpoint** for REST API calls (Azure resource manager): https://management.azure.com
 
 
 
