@@ -1,5 +1,5 @@
 
-|  | FREE 1 | BASIC | STANDARD |
+|  | FREE | BASIC | STANDARD |
 |----|----|----|----|
 | API Calls | 500 K | 1.5 M / unit | 15 M / unit |
 | Active Devices | 500 | Unlimited | Unlimited |
