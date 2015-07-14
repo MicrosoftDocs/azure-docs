@@ -24,6 +24,10 @@ This topic shows you how to authenticate users of an App Service Mobile App from
 
 This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Get started with your mobile app].
 
+##<a name="review"></a>Review your server project setup (optional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)] 
+
 ##<a name="register"></a>Register your app for authentication and configure the App Service
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
