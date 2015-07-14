@@ -73,7 +73,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 ## Connect to your Azure Linux VM using **ssh**
 
-Now you can connect to your Ubuntu VM using **ssh** in the standard way. However, you're going to need to discover the IP address allocated to the Azure VM by opening the tile for the VM and its resources. You can either do this by clicking **Browse**, then selecting **Recent** and looking for the VM you created, or clicking the tile created for you on the home screen. In either case, locate and copy the **Public IP Address** value, shown in the following graphic.
+Now you can connect to your Ubuntu VM using **ssh** in the standard way. However, you're going to need to discover the IP address allocated to the Azure VM by opening the tile for the VM and its resources. You can either do this by clicking **Browse**, then selecting **Recent** and looking for the VM you created, or clicking the tile created for you on the Startboard. In either case, locate and copy the **Public IP Address** value, shown in the following graphic.
 
 ![summary of successful creation](media/virtual-machines-linux-tutorial-portal-rm/successresultwithip.png)
 
