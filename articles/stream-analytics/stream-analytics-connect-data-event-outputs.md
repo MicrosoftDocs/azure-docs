@@ -22,7 +22,7 @@
 When creating a Stream Analytics job, one of the considerations is how the output of the job is consumed. Who are the consumers of the data transformation and what tool(s) will they be using to analyze the output? Azure Stream Analytics provides five different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Power BI and Table storage. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.
 
 ## Using SQL as output
-
+---
 You can use Azure SQL databases as output for data that is relational in nature or for applications that depend on content being hosted in a database. For more information on Azure SQL databases see [Azure SQL Databases](http://azure.microsoft.com/services/sql-database/).
 
 To start using an Azure SQL database, you should have the following information about your database:
@@ -72,7 +72,7 @@ In this example, the credentials that were provided were incorrect. You can corr
 ![graphic10][graphic10]
 
 ## Using Event Hubs as your output
-
+---
 ### Overview
  
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. Their robust handling of high numbers of events also make them perfect for job output.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job. For further details on Event Hubs visit the portal at [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs").
@@ -93,7 +93,7 @@ There are a few parameters that customers need to configure for Event Hub data s
 6. Partition Key Column:  Optional parameter for Event Hub outputs. The data attribute column that is used as the partition key for Event Hub output. 
 
 ## Using Azure Table storage for your output
-
+---
 Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval. For further information on Azure Table storage visit [Azure Table storage](./articles/storage/storage-introduction.md).
 
 To start using an Azure Table storage, you should have the following information about your Table:
@@ -151,7 +151,7 @@ In this example, the credentials that were provided were incorrect. You can corr
 ![graphic19][graphic19]
 
 ## Using Blob Storage as an Output
-
+---
 For an introduction on Azure Blob Storage and its usage, review the article [An introduction to Windows Azure Blob Storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
 
 To start using an Azure Blog Storage Output, you should have the following information collect about your Table:
@@ -168,7 +168,7 @@ Then fill out the details as shown below:
 ![graphic21][graphic21]
 
 ## Add Power BI output ##
-
+---
 1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
 ![graphic22][graphic22]
 > [AZURE.NOTE] Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.

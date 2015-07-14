@@ -19,6 +19,7 @@
 # Connect Stream Analytics inputs
 
 ## Understanding Stream Analytics inputs
+---
 When creating a Stream Analytics job, the user must understand the type of data being analyzed. As long as the job is composed of at least a single streaming data source, Stream Analytics jobs can process it. If the data also includes additional auxiliary data sources or even stored time-based events, it is important to understand the two input methods for Stream Analytics and which is appropriate for each dataset in the present use case.
 
 ## Data stream inputs
@@ -34,6 +35,7 @@ To enable support for refreshing reference data the user may specify a list of b
 For example if the job has a reference input configured in the portal with the path pattern such as: /sample/{date}/{time}/products.csv where the date format is “YYYY-MM-DD” and the time format is “HH:mm” than the job will pick up a file named /sample/2015-04-16/17:30/products.csv at 5:30 PM on April 16th 2015 UTC time zone (which is equivalent to 10:30 AM on April 16th 2015 using PST time zone).
 
 ## Creation of a data stream input
+---
 To create a data stream input, simply go to the **Inputs** tab of the Stream Analytics job and click **Add Input** at the bottom of the page.
 
 ![image1](./media/stream-analytics-connect-data-event-inputs/01-stream-analytics-create-inputs.png)
@@ -43,15 +45,15 @@ To create a data stream input, simply go to the **Inputs** tab of the Stream Ana
 ![image2](./media/stream-analytics-connect-data-event-inputs/02-stream-analytics-create-inputs.png)
 
 ## Creating an Event hub input data stream
-
-### Overview
+---
+### Overview of Event hubs
 
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can publish web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining. Event Hubs can be used for data egress also.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job. For further details on Event Hubs visit the portal at [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs").
 
 ### Consumer groups
 Each Stream Analytics job output should be configured to have its own event-hub consumer group. When a job contains self-join or multiple outputs, some input may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
 
-### Walkthrough
+## Creating the Event hub input data stream
 
 Below is a walkthrough to configure an Event hub as an input. To start using an Event hub input, the user should have the following information collect about the Table:
 
@@ -81,7 +83,7 @@ Then validate the event serialization format is correct for the data stream.
 Then check the **Complete** checkbox and your Event hub input is now created.
 
 ## Creating a Blob storage input data stream
-
+---
 For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. For further information on Blog storage visit the portal at [Blog storage](http://azure.microsoft.com/services/storage/blobs/)
 
 Below is a walkthrough to configure Blog storage as an input. To start using an Azure Blog storage input, the user should have the following information collect about the Table:
