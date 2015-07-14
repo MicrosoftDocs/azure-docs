@@ -1,11 +1,21 @@
 <properties
+<<<<<<< HEAD
 	pageTitle="Oracle software hosted on Azure virtual machines"
 	description="Get to the key topics that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines."
+=======
+	pageTitle="Oracle Software Hosted on Azure Virtual Machines"
+	description="Get to the key topics that describe how to set up Oracle software on Windows or Linux-based Azure virtual machines."
+>>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
+<<<<<<< HEAD
 	editor=""/>
+=======
+	editor=""
+	tags="azure-service-management"/>
+>>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
 
 <tags
 	ms.service="virtual-machines"
@@ -13,6 +23,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
+<<<<<<< HEAD
 	ms.date="06/25/2015"
 	ms.author="josephd"/>
 
@@ -23,6 +34,18 @@ Set up your first or next dev/test or production Oracle database running on a vi
 ## Oracle virtual machine images
 
 See [List of Oracle virtual machine images](virtual-machines-oracle-list-oracle-virtual-machine-images.md) for the latest set of Windows-based and Linux-based virtual machine images.
+=======
+	ms.date="07/09/2015"
+	ms.author="josephd"/>
+
+# Oracle software hosted on Azure Virtual Machines
+
+Set up your first or next dev/test or production Oracle database running on a virtual machine in Microsoft Azure infrastructure services. Take advantage of ease of configuration and the ability to quickly expand the Oracle database workload to include new capacity.
+
+## Oracle virtual machine images
+
+See [List of Oracle Virtual Machine Images](virtual-machines-oracle-list-oracle-virtual-machine-images.md) for the latest set of Windows- and Linux-based virtual machine images.
+>>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
 
 ## Considerations for Windows-based virtual machines
 
@@ -30,7 +53,11 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Oracle database virtual machine
 
+<<<<<<< HEAD
 [Creating an Oracle database virtual machine in Azure](virtual-machines-creating-oracle-database-virtual-machine.md) steps you through virtual machine creation, database creation, and configuration of popular options.
+=======
+[Creating an Oracle Database Virtual Machine in Azure](virtual-machines-creating-oracle-database-virtual-machine.md) steps you through virtual machine creation, database creation, and configuration of popular options.
+>>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
 
 ## Oracle WebLogic Server 12c
 
@@ -54,7 +81,11 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Oracle Data Guard
 
+<<<<<<< HEAD
 [Configuring Oracle Data Guard for Azure](virtual-machines-configuring-oracle-data-guard.md) steps you through the configuration of the standby environment and the listener.
+=======
+[Configuring Oracle Data Guard for Azure](virtual-machines-configuring-oracle-data-guard.md) steps you through configuration of the standby environment and the listener.
+>>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
 
 ## Oracle GoldenGate
 

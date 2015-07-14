@@ -3,7 +3,7 @@
 	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains the Linux operating system."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/15/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
 
@@ -140,4 +140,3 @@ For more information, see [Add-AzureVhd]((https://msdn.microsoft.com/library/azu
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
- 
