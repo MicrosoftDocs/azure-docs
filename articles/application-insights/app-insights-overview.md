@@ -17,36 +17,44 @@
  
 # What is Application Insights?
 
-Visual Studio Application Insights is a service with which you can track the performance and usage of your live web or device application.
+Application Insights is an extensible analytics service that you can use to understand the performance and usage of your live application. 
 
-It works for a wide variety of app types and platforms: web apps in .NET or J2EE, hosted on-premises or in the cloud; device apps on Windows, iOS, Android, OSX and other platforms. For applications with client, server and other components, you can 
+It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud; device apps on Windows, iOS, Android, OSX and other platforms. 
 
+It is aimed at the development team. With it, you can:
+
+* [Analyze usage patterns][knowUsers] to understand your users better and continuously improve your app. 
+ * Page view counts, new and returning users, geolocation, platforms, and other core usage statistics
+ * Trace usage paths to assess the success of each feature.
 * [Detect, triage and diagnose][detect] performance issues and fix them before most of your users are aware.
  *  Alerts on performance changes or crashes.
  *  Metrics to help diagnose performance issues, such as response times, CPU usage, dependency tracking.
  *  Availability tests for web apps.
  *  Crash and exception reports and alerts
  *  Powerful diagnostic log search (including log traces from your favorite logging frameworks).
-* [Continuously improve your application][knowUsers] by understanding what your users do with it. 
- * Page view counts, new and returning users, and other core usage analytics
- * Track your own events to assess usage patterns and the success of each feature.
+
+The SDK for each platform includes a range of modules that monitor the app straight out of the box. In addition, you can code your own telemetry for more detailed and tailored analytics.
+
+Telemetry data collected from your application is stored and analysed in the Azure Portal, where there are intuitive views and powerful tools for fast diagnosis and analysis.
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
 
-
-
 ## What platforms and languages can it work with?
 
-There are currently SDKs for:
+There are SDKs for a growing range of platforms. Currently the list includes:
 
  * [ASP.NET servers][greenbrown] on Azure or your IIS server
+ * [Azure Cloud Services](app-insights-cloudservices.md)
  * [J2EE servers][java]
  * [Web pages][client]: HTML+JavaScript
- * [Windows Phone, Windows Store and Desktop apps][windows]
+ * [Windows Phone, Windows Store, Windows 10 universal apps, and direct integration with the Windows 10 developer portal][windows]
+ * [Windows desktop][desktop]
  * [iOS][ios]
  * [Android][android]
- * [Other platforms][platforms]
+ * [Other platforms][platforms] - Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
+
+Application Insights can also get telemetry from existing ASP.NET web apps on IIS without rebuilding them.
 
 If your app has client, server and other components, you can instrument them all. The data will be integrated in the Application Insights portal so that, for example, you can correlate events at the client with events at the server.
 
@@ -113,6 +121,7 @@ For more details, choose your app type under Get Started in the navigation bar o
 [android]:app-insights-android.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
+[desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [ios]: app-insights-ios.md
