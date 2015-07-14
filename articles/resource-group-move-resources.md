@@ -36,6 +36,7 @@ new version is available. For more information, see [How to install and configur
 Not all services currently support the ability to move resources.
 
 For now, the services that support moving to both a new resource group and subscription are:
+
 - API Management
 - Azure Search
 - Data Factory
@@ -45,10 +46,12 @@ For now, the services that support moving to both a new resource group and subsc
 - Redis Cache
 
 The services that support moving to a new resource group but not a new subscription are:
+
 - Compute (classic)
 - Storage (classic)
 
 The services that currently do not support moving a resource are:
+
 - Virtual Networks
 
 ## Using PowerShell to move resources
