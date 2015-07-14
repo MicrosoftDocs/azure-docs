@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -23,8 +24,8 @@
 This article covers how to:
 
 - Use the Management Portal to create a Windows Server virtual machine from the gallery
-- Connect to the virtual machine using Remote Desktop
 - Attach a data disk to the virtual machine
+- Connect to the virtual machine using Remote Desktop
 - Install MongoDB on the virtual machine
 
 ## Create a virtual machine running Windows Server
