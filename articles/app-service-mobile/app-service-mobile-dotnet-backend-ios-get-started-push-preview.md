@@ -25,11 +25,11 @@ This topic shows you how to add push notifications to the [quickstart project](a
 
 > [AZURE.NOTE] The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so you must use a physical iOS device. You'll also need to sign up for a paid [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
 
-[AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
-
 ##<a name="review"></a>Review your server project setup (optional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)] 
+
+[AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 ## Configure Azure to Send Push Notifications
 
