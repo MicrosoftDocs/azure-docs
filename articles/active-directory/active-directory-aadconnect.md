@@ -238,6 +238,12 @@ Also, some of the documentation that was created for Azure AD Sync is still rele
 
 **Additional Resources**
 
+
+
+Ignite 2015 presentation on extending your on-premises directories to the cloud.
+
+[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
+
 [Multi-forest Directory Sync with Single Sign-On Scenario](https://msdn.microsoft.com/library/azure/dn510976.aspx) - Integrate multiple directories with Azure AD.
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - Monitor the health of your on-premises AD FS infrastructure.
