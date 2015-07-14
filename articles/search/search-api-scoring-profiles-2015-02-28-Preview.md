@@ -18,7 +18,7 @@
       
 #Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 
-> [AZURE.NOTE] This article describes scoring profiles in the [2015-02-28-Preview](../search-api-2015-02-28-preview.md). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here. We provide this article to give you the full documentation set for `2015-02-28-Preview`, even though this API happens to be unchanged.
+> [AZURE.NOTE] This article describes scoring profiles in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here. We provide this article to give you the full documentation set for `2015-02-28-Preview`, even though this API happens to be unchanged.
 
 ## Overview
 
@@ -55,7 +55,7 @@ To use this scoring profile, your query is formulated to specify the profile on 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-This query searches on the term 'inn' and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](../search-api-2015-02-28-preview.md#SearchDocs).
+This query searches on the term 'inn' and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](search-api-2015-02-28-preview.md#SearchDocs).
 
 Click [Example](#example) to review a more detailed example of a scoring profile.
 
@@ -186,7 +186,7 @@ Function type (freshness, magnitude, distance, tag) must be lower case.
 <br/> 
 Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
 <br/> 
-Functions can only be applied to filterable fields. See [Create Index](../search-api-2015-02-28-preview.md#createindex) for more information about filterable fields.
+Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28-preview.md#createindex) for more information about filterable fields.
 <br/>
 Functions can only be applied to fields that are defined in the fields collection of an index.
 </td>
@@ -195,7 +195,7 @@ Functions can only be applied to fields that are defined in the fields collectio
 </table>
 </font>
 
-After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](../search-api-2015-02-28-preview.md#createindex) and [Add or Update Documents](../search-api-2015-02-28-preview.md#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
+After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview.md#createindex) and [Add or Update Documents](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 <a name="bkmk_template"></a>
 ##Template
@@ -302,13 +302,13 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>distance</td>	<td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameterquery` string option) as a lon,lat argument.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](../search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters.</td>
+<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters.</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>A number that indicates the distance in kilometers from the reference location where the boosting range ends.</td>
 </tr><tr>
 <td>tag</td>	<td>The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the `scoringParameterquery` string option).</td>
 </tr><tr>
-<td>tag | tagsParameter</td>	<td>A parameter to be passed in queries to specify tags for a particular request. scoringParameter is a query parameter. See [Search Documents](../search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters.</td>
+<td>tag | tagsParameter</td>	<td>A parameter to be passed in queries to specify tags for a particular request. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters.</td>
 </tr><tr>
 <td>functionAggregation</td>	<td>Optional. Applies only when functions are specified. Valid values include: sum (default), average, minimum, maximum, and firstMatching. A search score is single value that is computed from multiple variables, including multiple functions. This attributes indicates how the boosts of all the functions are combined into a single aggregate boost that then is applied to the base document score. The base score is based on the tf-idf value computed from the document and the search query.</td>
 </tr><tr>

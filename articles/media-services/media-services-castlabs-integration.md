@@ -25,7 +25,7 @@ This article describes how you can use Azure Media Services (AMS) to deliver a s
 
 The following diagram demonstrates a high-level Azure Media Services and castLabs integration architecture.
 
-![Scale page](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
+![integration](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ##Typical system set up
 
