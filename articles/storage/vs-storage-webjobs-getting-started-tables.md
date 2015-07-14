@@ -27,14 +27,14 @@
 > - [Queues](vs-storage-webjobs-getting-started-queues.md)
 > - [Tables](vs-storage-webjobs-getting-started-tables.md)
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md/#create-table "How to use Table Storage from .NET") for more information.
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "How to use Table Storage from .NET") for more information.
 
 ## Overview
 
 This article provides C# code samples that show how to read and write Azure storage tables by using [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
 
 		
-Some of the code snippets show the `Table` attribute used in functions that are [called manually](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), that is, not by using one of the trigger attributes. 
+Some of the code snippets show the `Table` attribute used in functions that are [called manually](vs-storage-webjobs-getting-started-blobs.md#manual), that is, not by using one of the trigger attributes. 
 
 ## <a id="ingress"></a> How to add entities to a table
 
@@ -155,7 +155,7 @@ For more information about how to use the `CloudTable` object, see [How to use T
 
 ## <a id="queues"></a>Related topics covered by the queues how-to article
 
-For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [How to use Azure queue storage with the WebJobs SDK](vs-storage-webjobs-getting-started-queues.md). 
 
 Topics covered in that article include the following:
 

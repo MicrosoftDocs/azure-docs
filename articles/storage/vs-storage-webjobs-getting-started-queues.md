@@ -30,12 +30,7 @@
 
 Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md) for more information. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
 
-## Overview
-
-This article provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service.
-
-
-The article includes the following topics:
+This article provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service. The article includes the following topics:
 
 -   [How to trigger a function when a queue message is received](#trigger)
 	- String queue messages

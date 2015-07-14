@@ -26,7 +26,7 @@
 
 ##### References Added
 
-The Azure Storage NuGet package was added to your Visual Studio project.  
+The Azure Storage NuGet package was added to or updated in your Visual Studio project.  
 This package adds the following .NET references:
 
 - `Microsoft.Data.Edm`
@@ -39,6 +39,6 @@ This package adds the following .NET references:
 - `System.Spatial`
 
 #####Connection string for Azure Storage added 
-In the App.config file of your project, an element was created with the selected storage account's connection string and key.
+In the App.config file of your project, the `AzureWebJobsStorage` and `AzureWebJobsDashboard` were updated with the selected storage account's connection string and key. 
 
 For more information, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226). 
