@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/29/2015"
+    ms.date="07/10/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 1 release notes  
@@ -28,6 +28,7 @@ Please review the information contained in the release notes before you deploy t
 >[AZURE.IMPORTANT]
 > 
 - A critical patch, Update 1.1, was released on June 23. This patch addresses an issue in the backup engine. If you applied Update 1 before June 23rd and are currently using software version **6.3.9600.17491**, make sure that you apply this critical update to avoid any issues with backups. After you install the update, the software version will change to **6.3.9600.17521**.
+- If you created a virtual device between May 27th and July 10th which is in the software version 6.3.9600.17481, create a new virtual device and fail over any volumes from the old virtual device to the new one. (This is because the older virtual device cannot be updated.) If not, you might see that backups start failing. For failover and disaster recovery procedures, see this article on [Failover and disaster recovery for your StorSimple device] (storsimple-device-failover-disaster-recovery.md)
 - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
 - This release also contains disk firmware updates that can only be applied when the device is in Maintenance mode. These are disruptive updates that will result in down time for your device. You can apply these updates during planned maintenance.
 - It takes approximately 5-10 hours to install this update (including the Windows Updates). 
@@ -103,11 +104,11 @@ This release updates the driver and the firmware on the SAS controller of your p
 
 - For more information about the firmware update, see [Firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063414). 
 
-- For more information about the disk firmware update, see [Disk firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/en-us/kb/3063416).
+- For more information about the disk firmware update, see [Disk firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063416).
  
 ## Virtual device updates in Update 1
 
-This release does not contain any updates for the virtual device. Applying this update will not change the software version of a virtual device.
+This update cannot be applied to the virtual device. However, any virtual devices created after 10th July will automatically be in this version.
 
 ## Next steps
 

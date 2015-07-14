@@ -1,14 +1,14 @@
 <properties
    pageTitle="Azure Data Catalog release notes"
    description="Release notes for the 13 July 2015 release of Azure Data Catalog"
-   services="cloud services"
+   services="data-catalog"
    documentationCenter=""
    authors="dvana"
    manager="mblythe"
    editor=""
    tags=""/>
 <tags
-   ms.service="cloud-services"
+   ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"

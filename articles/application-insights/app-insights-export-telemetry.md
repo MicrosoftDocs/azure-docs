@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -159,6 +159,12 @@ The continuous export will restart.
 * *Is there any limit to the amount of data you put in my store?* 
 
     No. We'll keep pushing data in until you delete the export. We'll stop if we hit the outer limits for blob storage, but that's pretty huge. It's up to you to control how much storage you use.  
+
+* *How many blobs should I see in the storage?*
+
+ * For every data type you selected to export, a new blob is created every minute (if data is available). 
+ * In addition, for applications with high traffic, additional partition units are allocated. In this case each unit creates a blob every minute.
+
 
 * *I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.*
 
