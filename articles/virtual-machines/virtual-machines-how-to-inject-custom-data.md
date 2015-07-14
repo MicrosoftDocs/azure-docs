@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management" />
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2015"
+	ms.date="07/14/2015"
 	ms.author="rasquill"/>
 
 
@@ -27,11 +28,11 @@ Injecting a script or other data into an Azure Virtual Machine when it is being 
 
 - Use special tools available on some systems to detect and handle custom data automatically.
 
-> [AZURE.NOTE] This topic expands upon [this Azure blog post](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) about this feature, and will be kept up-to-date as more functionality appears.
+> [AZURE.NOTE] This article describes how custom data can be injected using a VM created with the Azure Service Management compute stack. To see how to use the Azure Resource Management compute stack, see [the example template here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 ## Injecting the custom data into your Azure Virtual Machine
 
-This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat). Although you may use any of the options for the `azure vm create` command, the following approach demonstrates one very basic approach.
+This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-xplat-cli). Although you may use any of the options for the `azure vm create` command, the following approach demonstrates one very basic approach.
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -63,7 +64,7 @@ If your Azure Virtual Machine is from an Ubuntu or CoreOS image, then you can us
 
 In most Azure Linux images you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md) for more information.
 
-However, on the Ubuntu Cloud Images we must use cloud-init to configure the resource disk (aka "ephemeral" disk) and swap partition.  Please see the following page on the Ubuntu wiki for more details:
+However, on the Ubuntu Cloud Images you must use cloud-init to configure the resource disk (that is, the "ephemeral" disk) and swap partition.  Please see the following page on the Ubuntu wiki for more details:
 
  - [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
 

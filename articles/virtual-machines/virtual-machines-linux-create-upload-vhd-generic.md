@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Create and upload a Linux VHD in Azure" 
-	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+	pageTitle="Create and upload a Linux VHD in Azure"
+	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
 
@@ -92,7 +92,7 @@ If you are not running in a Windows environment then it is recommended to use qe
 		echo "Rounded Size = $rounded_size"
 
  3. Resize the raw disk using $rounded_size as set in the above script:
- 
+
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
  4. Now, convert the RAW disk back to a fixed-size VHD:
@@ -188,6 +188,3 @@ The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) (waagent) is
 		# logout
 
 - You will then need to shut down the virtual machine and upload the VHD to Azure.
-
-
- 
