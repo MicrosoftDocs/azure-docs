@@ -16,18 +16,18 @@
 	ms.topic="article"
 	ms.date="05/29/2015"
 =======
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 >>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
 	ms.author="josephd"/>
 
@@ -65,9 +65,9 @@ For organizations and individuals for which a direct Internet connection and pub
 ## Additional resources
 
 <<<<<<< HEAD
-[SharePoint farms hosted in Azure infrastructure Services](virtual-machines-sharepoint-infrastructure-services.md)
+[SharePoint farms hosted in Azure Infrastructure Services](virtual-machines-sharepoint-infrastructure-services.md)
 =======
-[SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
+[SharePoint farms hosted in Azure Infrastructure Services](virtual-machines-sharepoint-infrastructure-services.md)
 >>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
 
 [PDF of the 3-D Line-of-Business Applications architecture blueprint](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
@@ -77,8 +77,8 @@ For organizations and individuals for which a direct Internet connection and pub
 <<<<<<< HEAD
 [Azure Infrastructure Services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 =======
-[Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Azure Infrastructure Services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 
- 
+
 >>>>>>> 03e3b97e5493be99a5cd16a470d9bbdc24d049db
