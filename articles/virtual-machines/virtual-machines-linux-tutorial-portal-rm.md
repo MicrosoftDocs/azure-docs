@@ -32,8 +32,6 @@ Creating an Azure virtual machine (VM) that runs Linux is easy to do. This tutor
 
 This tutorial uses the **From Gallery** method to create a virtual machine because it gives you more options than the **Quick Create** method. You can choose connected resources, the DNS name, and the network connectivity if needed.
 
-**Important**: This tutorial creates a virtual machine that's not connected to a virtual network. If you want your virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
-
 ## Choose Ubuntu VM
 
 ![choosing a VM image](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
