@@ -6,27 +6,27 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-manager, azure-service-management"/>
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="06/19/2015"
+	ms.topic="get-started-article"
+	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
 #About Azure Virtual Machines
 
-Azure Virtual Machines is one of several types of on-demand, scalable computing resources offered by Azure. Typically, you'll choose a virtual machine instead of another option if you need more control over the computing environment than the other choices offer. 
+Azure Virtual Machines is one of several types of on-demand, scalable computing resources offered by Azure. Typically, you'll choose a virtual machine instead of another option if you need more control over the computing environment than the other choices offer.
 
 Another approach is to use a VM on your own hardware. Compared to that approach, an Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you do still need to maintain the virtual machine -- configuring, patching, and maintaining the operating system and any other software that runs on the virtual machine.
 
 This table helps you compare the choices offered by Azure.
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
- 
+
 ## Next Steps
 
 Try out a virtual machine by creating a simple virtual machine quickly. For instructions, see one of these tutorials:
@@ -41,7 +41,7 @@ Because those tutorials help you create a VM quickly, they show you only one way
 
 [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md)
 
-If you're just starting to learn about Azure Virtual Machines, be sure to also check out the Frequently Asked Questions. 
+If you're just starting to learn about Azure Virtual Machines, be sure to also check out the [Frequently Asked Questions](virtual-machines-questions.md).
 
 
 <!--links-->
