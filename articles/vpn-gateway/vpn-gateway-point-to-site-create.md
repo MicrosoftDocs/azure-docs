@@ -20,9 +20,9 @@
 
 Configuring a point-to-site connection takes multiple steps, but it's a great way to have a secure connection from your computer to your virtual network without acquiring and configuring a VPN device. There are three main parts to configuring a point-to-site VPN: the virtual network and VPN gateway, the certificates used for authentication, and the VPN client that is used to connect to your virtual network. The order in which you configure each of these is important, so don't skip steps or jump ahead.
 
-1. [Create a virtual network and a VPN gateway](#create-a-virtual-network-and-a-vpn-gateway)
+1. [Create a virtual network and a VPN gateway](#create-a-virtual-network-and-vpn-gateway)
 2. [Create your certificates](#create-your-certificates)
-3. [Configure your VPN client](#configure-your-VPN-client)
+3. [Configure your VPN client](#configure-your-vpn-client)
 
 ## Create a virtual network and VPN gateway
 
@@ -59,7 +59,7 @@ A point-to-site connection requires a virtual network with a dynamic routing gat
 Certificates are used to authenticate VPN clients for point-to-site VPNs. This procedure has multiple steps. Use the links below to complete each step, in order.
 
 1. [Generate a self-signed root certificate](#generate-a-self-signed-root-certificate) - Only self-signed root certificates are supported at this time
-2. [Upload the root certificate file to the Management Portal](#upload-the-root-certificate-file-to-the-Management-Portal)
+2. [Upload the root certificate file to the Management Portal](#upload-the-root-certificate-file-to-the-management-portal)
 3. [Generate a client certificate](#generate-a-client-certificate)
 4. [Export and install the client certificate](#export-and-install-the-client-certificate)
 
@@ -152,10 +152,10 @@ Example:
 ## See Also
 
 
-You can learn more about Virtual Network cross-premises connectivity in this article: [About Virtual Network Secure Cross-Premises Connectivity](http://go.microsoft.com/fwlink/p/?LinkID=532884).
+You can learn more about Virtual Network cross-premises connectivity in this article: [About Virtual Network secure cross-premises connectivity](http://go.microsoft.com/fwlink/p/?LinkID=532884).
 
-If you want to configure a site-to-site VPN connection, see [Configure a Site-to-Site VPN Connection](vpn-gateway-site-to-site-create.md).
+If you want to configure a site-to-site VPN connection, see [Configure a virtual network with a site-to-site VPN Connection](vpn-gateway-site-to-site-create.md).
 
-You can add virtual machines to your virtual network. See [How to Create a Custom Virtual Machine](../virtual-machines/virtual-machines-create-custom.md).
+You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-create-custom.md).
 
  
