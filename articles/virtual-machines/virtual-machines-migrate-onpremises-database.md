@@ -24,6 +24,7 @@ There are a number of methods for migrating an on-premises SQL Server database t
 
 ##What are the primary migration methods?
 The primary migration methods are:
+
 * [Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard](#Use-the-Deploy-a-SQL-Server-Database-to-a-Microsoft-Azure-VM-wizard-to-migrate-an-existing-database)
 * [Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other Migration Methods to migrate a database)
 * [Perform a backup to URL and restore into the Azure virtual machine from the URL](#Other Migration Methods to migrate a database)
@@ -113,10 +114,10 @@ Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard in Microsoft
 ###Configure the existing Azure virtual machine and SQL Server instance (if applicable)
 If you are migrating to an existing Azure virtual machine, the following configuration steps are required:
 * Configure the Azure virtual machine and the SQL Server instance to enable connectivity from another computer by following the steps in Connect to the SQL Server VM instance from SSMS on another computer section in [Provisioning a SQL Server Virtual Machine on Azure](../virtual-machines-provision-sql-server/#SSMS).
-* •	Configure an open endpoint for your SQL Server Cloud Adapter service on the Microsoft Azure gateway with private port of 11435. This endpoint is enables to wizard to utilize the Cloud Adaptor service that is created a part of SQL Server 2014 or SQL Server 2016 provisioning on an Azure VM. For more information, see [Cloud Adapter for SQL Server](https://msdn.microsoft.com/library/dn169301.aspx). This port is created as part of SQL Server 2014 or SQL Server 2016 provisioning on a Microsoft Azure VM. The Cloud Adapter also creates a Windows Firewall rule to allow its incoming TCP connections at default port 11435.
+* Configure an open endpoint for your SQL Server Cloud Adapter service on the Microsoft Azure gateway with private port of 11435. This endpoint is enables to wizard to utilize the Cloud Adaptor service that is created a part of SQL Server 2014 or SQL Server 2016 provisioning on an Azure VM. For more information, see [Cloud Adapter for SQL Server](https://msdn.microsoft.com/library/dn169301.aspx). This port is created as part of SQL Server 2014 or SQL Server 2016 provisioning on a Microsoft Azure VM. The Cloud Adapter also creates a Windows Firewall rule to allow its incoming TCP connections at default port 11435.
 ![Create Cloud Adapter Endpoint][cloud-adapter-endpoint]
 ###Run the Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard
-1. Open Microsoft SQL Server Management Studio for Microsoft SQL Server 2016 and connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
+  1. Open Microsoft SQL Server Management Studio for Microsoft SQL Server 2016 and connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
 2. Right-click the database that you are migrating, point to Tasks and then click Deploy to a Microsoft Azure virtual machine.
 ![Start Wizard][start-wizard]
 3. On the Introduction page, click Next.
