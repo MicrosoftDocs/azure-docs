@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="07/08/2015"
 	ms.author="carlrab"/>
 
 
@@ -49,56 +49,11 @@ The following table lists each of the primary migration methods and discusses wh
 |---|---|---|---|---|
 | [Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard](#use-the-deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard-to-migrate-an-existing-database) | SQL Server 2005 or greater | SQL Server 2014 or greater | less than 1 TB  | Fastest and simplest method, use whenever possible to migrate to a new or existing SQL Server instance in an Azure virtual machine |
 | [Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#perform-on-premises-backup-using-compression-and-manually-copy-the-backup-file-into-the-azure-virtual-machine) | SQL Server 2005 or greater | SQL Server 2014 or greater | Azure VM storage limitations | Use only when you cannot use the wizard, such as when the destination database version is less than SQL Server 2012 SP1 CU2 or the database backup size is larger than 1 TB (12.8 TB with SQL Server 2016) |
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |123456789
-
-<table cellspacing="0" border="1">
-
-<tr>
-   <td valign="middle">[Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#other-migration-methods-to-migrate-a-database)</td>
-   <td valign="middle">SQL Server 2005 or greater</td>
-   <td valign="middle">SQL Server 2014 or greater</td>
-   <td valign="middle">Azure VM storage limitations</td>
-   <td valign="middle">Use only when you cannot use the wizard, such as when the destination database version is less than SQL Server 2012 SP1 CU2 or the database backup size is larger than 1 TB (12.8 TB with SQL Server 2016)</td>
-</tr>
-<tr>
-	<td valign="middle">[Perform a backup to URL and restore into the Azure virtual machine from the URL](#Other Migration Methods to migrate a database)</td>
-	<td valign="middle">SQL Server 2012 SP1 CU2 or greater</td>
-	<td valign="middle">SQL Server 2012 SP1 CU2 or greater</td>
-	<td valign="middle">less than 1 TB</td>
-	<td valign="middle">Generally using [backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) is equivalent in performance to using the wizard and not quite as easy</td>
-<tr>
-   <td valign="middle">[Perform a backup to URL and restore into the Azure virtual machine from the URL](#Other Migration Methods to migrate a database)</td>
-   <td valign="middle">SQL Server 2012 SP1 CU2 or greater</td>
-   <td valign="middle">SQL Server 2016</td>
-   <td valign="middle">less than 12.8 TB</td>
-   <td valign="middle">Consider using [backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) when Azure virtual machine with SQL Server already exists and the backup file size is larger than 1 TB. Use a striped backup set for performance and to exceed the size limits per blob. For large databases, also consider the [Windows Import/Export Service](../storage-import-export-service/).</td>
-</tr>
-<tr>
-   <td valign="middle">[Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure virtual machine from URL](#Other Migration Methods to migrate a database)</td>
-   <td valign="middle">SQL Server 2005 or greater</td>
-   <td valign="middle">SQL Server 2014 or greater</td>
-   <td valign="middle">Azure Blob storage limitations</td>
-   <td valign="middle">Use when attaching database files to SQL Server in an Azure VM [storing these files using the Azure Blob storage service](https://msdn.microsoft.com/library/dn385720.aspx), particularly with very large databases</td>
-</tr>
-<tr>
-   <td valign="middle">[Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD](#Other Migration Methods to migrate a database)</td>
-   <td valign="middle">SQL Server 2005 or greater</td>
-   <td valign="middle">SQL Server 2005 or greater</td>
-   <td valign="middle">Azure VM storage limitations</td>
-   <td valign="middle">Use when [bringing your own SQL Server license](../data-management-azure-sql-database-and-sql-server-iaas/), when migrating a database that you will run on an older version of SQL Server, or when migrating system and user databases together as part of the migration of database dependent on other user databases and/or system databases.</td>
-</tr>
-<tr>
-   <td valign="middle">[Ship hard drive using Windows Import/Export Service](#Other Migration Methods to migrate a database)</td>
-   <td valign="middle">SQL Server 2005 or greater</td>
-   <td valign="middle">SQL Server 2005 or greater</td>
-   <td valign="middle">Azure VM storage limitations</td>
-   <td valign="middle">Use the [Windows Import/Export Service](../storage-import-export-service/) when manual copy method is too slow, such as with very large databases</td>
-</tr>
-</table>
+| [Perform a backup to URL and restore into the Azure virtual machine from the URL](#Other Migration Methods to migrate a database) | SQL Server 2012 SP1 CU2 or greater | SQL Server 2012 SP1 CU2 or greater | less than 1 TB | Generally using [backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) is equivalent in performance to using the wizard and not quite as easy |
+| [Perform a backup to URL and restore into the Azure virtual machine from the URL](#Other Migration Methods to migrate a database) | SQL Server 2012 SP1 CU2 or greater | SQL Server 2016 | less than 12.8 TB | Consider using [backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) when Azure virtual machine with SQL Server already exists and the backup file size is larger than 1 TB. Use a striped backup set for performance and to exceed the size limits per blob. For large databases, also consider the [Windows Import/Export Service](../storage-import-export-service/). |
+| [Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure virtual machine from URL](#Other Migration Methods to migrate a database) | SQL Server 2005 or greater | SQL Server 2014 or greater | Azure Blob storage limitations | Use when attaching database files to SQL Server in an Azure VM [storing these files using the Azure Blob storage service](https://msdn.microsoft.com/library/dn385720.aspx), particularly with very large databases |
+| [Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD](#Other Migration Methods to migrate a database) | SQL Server 2005 or greater | SQL Server 2005 or greater | Azure VM storage limitations | Use when [bringing your own SQL Server license](../data-management-azure-sql-database-and-sql-server-iaas/), when migrating a database that you will run on an older version of SQL Server, or when migrating system and user databases together as part of the migration of database dependent on other user databases and/or system databases. |
+| [Ship hard drive using Windows Import/Export Service](#Other Migration Methods to migrate a database) | SQL Server 2005 or greater | SQL Server 2005 or greater | Azure VM storage limitations | >Use the [Windows Import/Export Service](../storage-import-export-service/) when manual copy method is too slow, such as with very large databases |123456789
 
 ##Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard to migrate an existing database
 
