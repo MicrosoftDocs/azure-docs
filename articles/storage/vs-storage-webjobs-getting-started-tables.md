@@ -77,15 +77,15 @@ If you want to work directly with the Azure storage API, you can add a `CloudSto
 
 Because data ingress functions often process large volumes of data, the WebJobs SDK dashboard provides real-time monitoring data. The **Invocation Log** section tells you if the function is still running.
 
-![Ingress function running](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
+![Ingress function running](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
 
 The **Invocation Details** page reports the function's progress (number of entities written) while it's running and gives you an opportunity to abort it. 
 
-![Ingress function running](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
+![Ingress function running](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
 
 When the function finishes, the **Invocation Details** page reports the number of rows written.
 
-![Ingress function finished](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
+![Ingress function finished](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a id="multiple"></a> How to read multiple entities from a table
 

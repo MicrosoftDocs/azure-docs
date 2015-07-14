@@ -559,11 +559,11 @@ In the WebJobs SDK Dashboard, the output from the `TextWriter` object shows up w
 
 ![Click function invocation link](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png")
 
-![Logs in function invocation page](../app-service-web/media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![Logs in function invocation page](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
 In the WebJobs SDK Dashboard, the most recent 100 lines of Console output show up when you go to the page for the WebJob (not for the function invocation) and click **Toggle Output**.
  
-![Click Toggle Output](../app-service-web/media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Click Toggle Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 In a continuous WebJob, application logs show up in /data/jobs/continuous/*{webjobname}*/job_log.txt in the web app file system.
 
@@ -578,9 +578,9 @@ In an Azure blob the application logs look like this:
 
 And in an Azure table the `Console.Out` and `Console.Error` logs look like this:
 
-![Info log in table](../app-service-web/media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
+![Info log in table](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
-![Error log in table](../app-service-web/media/vs-storage-webjobs-getting-started-queues/tableerror.png)
+![Error log in table](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a id="nextsteps"></a> Next steps
 
