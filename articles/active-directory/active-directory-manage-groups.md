@@ -68,7 +68,7 @@ Ready to get started? You should try out some of the basic tasks you can do with
 
 * [Making a group available for end user self-service](active-directory-accessmanagement-self-service-group-management.md)
 
-* [Syncing an on-premise group to  Azure using Azure AD Connect](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect/)
+* [Syncing an on-premise group to  Azure using Azure AD Connect](active-directory-aadconnect.md)
 
 * [Managing Owners to a Group](active-directory-accessmanagement-managing-group-owners.md) 
 
@@ -88,6 +88,6 @@ Now that you have understood the basics of access management, here are some addi
 ## Learn More
 Here are some topics that will provide some additional information on Azure Active Directory 
 
-* [What is Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/)
+* [What is Azure Active Directory?](active-directory-whatis.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect/)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
