@@ -34,13 +34,58 @@ This tutorial uses the **From Gallery** method to create a virtual machine becau
 
 **Important**: This tutorial creates a virtual machine that's not connected to a virtual network. If you want your virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-	cat ~/.ssh/id_rsa.pub                                                                                                      [14:17:02]
-	ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDnX2FPYQWFgPR2uG0eZ/0Ooy6UccK6xFp32TmQTqWJ+79cbUyHVfa4yvJ+mXGBLQGdDIDzhXi/K8S3lhBNzJEHNF+psfMfuTokMGcD5Z9QuLeV3J7il3vW56gWhF1Mb1H0tVeqBcyRwiFPNNGqdRRJ0aRHrwqdgPcSDp9K2QTTzmy8Umk1r6PR7qD2SQvOFQcLTP26RAUn6PjzpRROIb6wnpeF35nZ1zTTGXRxd693IcZxfNc2mKUqmx/HrLjU0iaqsN6pIrj/9ckJbyi89lf9buL8djo5VHlnlkUN/l+2WWlibIFqSHyunt+NnCJjHzCOE9+lc/owh/9QJGYcvRBl ralph@local
+## Choose Ubuntu VM
 
+![choosing a VM image](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
+
+## Change to the Resource Manager compute stack
+
+At the bottom of the Ubuntu Server 14.04. LTS image summary, look for and select **Use the Resource Manager stack** in the **Select a compute stack** text box: 
+
+![change to the resource manager compute stack](media/virtual-machines-linux-tutorial-portal-rm/changetoresourcestack.png)
+
+and click the ![create button](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png) button.
+
+## Enter the basic configuration
+
+You must enter basic VM information, such as the name of the VM, the username of the first user, the authentication type and authentication information, choose a subscription, select a resource group for the deployment (or create a new one), and select a location for the deployment. 
+
+This article uses `ubuntuvm`, `ops`, enters a public key file (in **ssh-rsa** format, in this case from the `~/.ssh/id_rsa.pub` file), chooses a specific Azure subscription, and the location `East US`.
+
+	cat ~/.ssh/id_rsa.pub                                                                                          
+
+> [AZURE.NOTE] You may also choose username/password authentication here and enter that information if you do not want to secure your **ssh** session with a public and private key exchange.
+
+![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
+
+
+## Select the size
+
+In this step, choose the pricing tier that you want for your VM, and click the ![select button](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png) button at the bottom.
+
+## Step three
+
+Modify the other values needed to get your Azure VM up and running, including disk types, storage accounts for the VM disk, networking values, and others. When you're ready, press the ![OK button](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png) button.
+
+![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
+
+When you press the ![OK button](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png) button you can see the summary of activities that will be performed. It should look like the following image (although you may have chosen different values):
+
+![creation summary](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
+
+> [AZURE.NOTE] Note that the summary does not contain a public DNS name the way it does when a VM is created inside a Cloud Service using the service management compute stack. 
+
+To create the VM and its supporting resources, click the ![OK button](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png) button at the bottom of the summary. It should only be a few moments to wait for the VM to be ready to use.
 
 ## Connect to your Azure Linux VM using **ssh**
 
-	ssh ops@23.96.106.1 -p 22                                                                                                  [14:29:54]
+Now you can connect to your Ubuntu VM using **ssh** in the standard way. However, you're going to need to discover the IP address allocated to the Azure VM by opening the tile for the VM and its resources. You can either do this by clicking **Browse**, then selecting **Recent** and looking for the VM you created, or clicking the tile created for you on the home screen. In either case, locate and copy the **Public IP Address** value, shown in the following graphic.
+
+![summary of successful creation](media/virtual-machines-linux-tutorial-portal-rm/successresultwithip.png)
+
+Now you can **ssh** into your Azure VM, and you're ready to go.
+
+	ssh ops@23.96.106.1 -p 22
 	The authenticity of host '23.96.106.1 (23.96.106.1)' can't be established.
 	ECDSA key fingerprint is bc:ee:50:2b:ca:67:b0:1a:24:2f:8a:cb:42:00:42:55.
 	Are you sure you want to continue connecting (yes/no)? yes
@@ -72,8 +117,6 @@ This tutorial uses the **From Gallery** method to create a virtual machine becau
 	
 	ops@ubuntuvm:~$
 
-
-> [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For details, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## Next Steps
 
