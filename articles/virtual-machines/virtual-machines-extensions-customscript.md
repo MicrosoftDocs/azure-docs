@@ -26,7 +26,7 @@ Virtual machine (VM) extensions are built by Microsoft and trusted third-party p
 
 ## Custom Script Extension overview
 
-Custom Script Extension for Windows allows you to run PowerShell scripts on a remote VM, without logging into it. The scripts can be run after provisioning the VM or anytime during the lifecycle of the VM without requiring to open any additional ports on the VM. The most common use case for Custom Script Extension include running, installing, and configuring additional software on the VM post provisioning.
+Custom Script Extension for Windows allows you to run PowerShell scripts on a remote VM, without logging into it. The scripts can be run after provisioning the VM or any time during the lifecycle of the VM without requiring to open any additional ports on the VM. The most common use case for Custom Script Extension include running, installing, and configuring additional software on the VM after it's provisioned.
 
 ### Prerequistes for running Custom Script Extension
 
