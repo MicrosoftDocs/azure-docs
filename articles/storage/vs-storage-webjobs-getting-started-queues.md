@@ -394,7 +394,7 @@ In the following example the `CopyBlob` function will fail when a queue message 
 
 The following illustration shows console output from these functions when a poison message is processed.
 
-![Console output for poison message handling](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/poison.png)
+![Console output for poison message handling](./media/vs-storage-webjobs-getting-started-queues/poison.png)
 
 ### Manual poison message handling
 
@@ -529,9 +529,9 @@ To trigger a function manually, use the `Call` or `CallAsync` method on the `Job
 
 The Dashboard shows logs in two places: the page for the WebJob, and the page for a particular WebJob invocation. 
 
-![Logs in WebJob page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+![Logs in WebJob page](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+![Logs in function invocation page](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
 Output from Console methods that you call in a function or in the `Main()` method appears in the Dashboard page for the WebJob, not in the page for a particular method invocation. Output from the TextWriter object that you get from a parameter in your method signature appears in the Dashboard page for a method invocation.
 
@@ -557,13 +557,13 @@ The following example shows several ways to write logs:
 
 In the WebJobs SDK Dashboard, the output from the `TextWriter` object shows up when you go to the page for a particular function invocation and click **Toggle Output**:
 
-![Click function invocation link](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png")
+![Click function invocation link](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png")
 
-![Logs in function invocation page](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+![Logs in function invocation page](../app-service-web/media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
 In the WebJobs SDK Dashboard, the most recent 100 lines of Console output show up when you go to the page for the WebJob (not for the function invocation) and click **Toggle Output**.
  
-![Click Toggle Output](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+![Click Toggle Output](../app-service-web/media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 In a continuous WebJob, application logs show up in /data/jobs/continuous/*{webjobname}*/job_log.txt in the web app file system.
 
@@ -578,9 +578,9 @@ In an Azure blob the application logs look like this:
 
 And in an Azure table the `Console.Out` and `Console.Error` logs look like this:
 
-![Info log in table](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
+![Info log in table](../app-service-web/media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
-![Error log in table](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
+![Error log in table](../app-service-web/media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a id="nextsteps"></a> Next steps
 
