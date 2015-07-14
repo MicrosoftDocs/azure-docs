@@ -33,6 +33,8 @@ not change the location of the resource.
 new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 4. The move operation can take a while to complete and during that time your PowerShell prompt will wait until the operation has completed.
 
+## Supported Services
+
 Not all services currently support the ability to move resources.
 
 For now, the services that support moving to both a new resource group and subscription are:
