@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configure a Point-to-Site VPN connection to an Azure Virtual Network | Microsoft Azure"
+   pageTitle="Configure a Point-to-Site VPN connection to a Virtual Network | Microsoft Azure"
    description="Securely connect to your Azure Virtual Network by creating a point-to-site VPN connection."
    services="vpn-gateway"
    documentationCenter="na"
@@ -16,7 +16,7 @@
    ms.date="07/14/2015"
    ms.author="cherylmc"/>
 
-# Configure a Point-to-Site VPN connection to an Azure Virtual Network
+# Configure a Point-to-Site VPN connection to a Virtual Network
 
 Configuring a point-to-site connection takes multiple steps, but it's a great way to have a secure connection from your computer to your virtual network without acquiring and configuring a VPN device. There are three main parts to configuring a point-to-site VPN: the virtual network and VPN gateway, the certificates used for authentication, and the VPN client that is used to connect to your virtual network. The order in which you configure each of these is important, so don't skip steps or jump ahead.
 
