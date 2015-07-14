@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="How to install and configure Trend Micro Deep Security as a Service on an Azure VM" 
-	description="Describes installing and configuring Trend Micro security on a VM in Azure" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="How to install and configure Trend Micro Deep Security as a Service on an Azure VM"
+	description="Describes installing and configuring Trend Micro security on a VM in Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/17/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/17/2015"
+	ms.author="dkshir"/>
 
 
 # How to install and configure Trend Micro Deep Security as a Service on an Azure VM
 
-This article shows you how to install and configure Trend Micro Deep Security as a Service on a new or existing virtual machine (VM) running Windows Server. The protection that Deep Security as a Service provides includes anti-malware protection, firewall, intrusion prevention system, and integrity monitoring. 
+This article shows you how to install and configure Trend Micro Deep Security as a Service on a new or existing virtual machine (VM) running Windows Server. The protection that Deep Security as a Service provides includes anti-malware protection, firewall, intrusion prevention system, and integrity monitoring.
 
 The client is installed as a security extension by using the VM Agent. On a new virtual machine, you'll install the VM Agent along with the Deep Security Agent. On an existing virtual machine that doesn't have the VM Agent, you'll need to download and install it first. This article covers both situations.
 
@@ -43,15 +43,15 @@ This **From Gallery** option opens a wizard that helps you set up the virtual ma
 
 To do this, you'll need the following:
 
-- The Azure PowerShell module, version 0.8.2 or newer installed on your local computer. You can check the version of Azure PowerShell that you have installed with the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell](../install-configure-powershell.md). 
+- The Azure PowerShell module, version 0.8.2 or newer installed on your local computer. You can check the version of Azure PowerShell that you have installed with the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell](../install-configure-powershell.md).
 
-- The VM Agent installed on the target virtual machine. 
+- The VM Agent installed on the target virtual machine.
 
 First, verify that the VM Agent is already installed. Fill in the cloud service name and virtual machine name, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.
 
 	$CSName = "<cloud service name>"
 	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 	write-host $vm.VM.ProvisionGuestAgent
 
 If you don't know the cloud service and virtual machine name, run **Get-AzureVM** to display that information for all the virtual machines in your current subscription.
@@ -81,5 +81,3 @@ It takes a few minutes for the agent to start running when it is installed. Afte
 <!--Link references-->
 [How to Log on to a Virtual Machine Running Windows Server]: virtual-machines-log-on-windows-server.md
 [Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
-
- 

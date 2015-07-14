@@ -32,7 +32,7 @@ The Operational Insights service manages your data securely by using the followi
 
 Each customer has a dedicated Azure blob that houses the long-term data. The blob is encrypted with unique per-customer keys, which are changed every 90 days.
 
-**Data retention:** Aggregated metrics for some of the solutions (previously called intelligence packs), such as Capacity Management, is stored in a SQL Database hosted by Microsoft Azure. This data is stored for 390 days. Indexed log search data is stored and retained according to the pricing plan. For more information look at the [Pricing Page](http://azure.microsoft.com/en-us/pricing/details/operational-insights/)
+**Data retention:** Aggregated metrics for some of the solutions (previously called intelligence packs), such as Capacity Management, is stored in a SQL Database hosted by Microsoft Azure. This data is stored for 390 days. Indexed log search data is stored and retained according to the pricing plan. For more information look at the [Pricing Page](http://azure.microsoft.com/pricing/details/operational-insights/)
 
 **Physical security:** The Operational Insights service is manned by Microsoft personnel and all activities are logged and can be audited. The Operational Insights service runs completely in Azure and complies with the Azure common engineering criteria. You can view details about the physical security of Azure assets on page 18 of the [Microsoft Azure Security Overview](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf).
 
