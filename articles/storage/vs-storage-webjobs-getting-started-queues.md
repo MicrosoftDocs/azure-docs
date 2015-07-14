@@ -557,13 +557,13 @@ The following example shows several ways to write logs:
 
 In the WebJobs SDK Dashboard, the output from the `TextWriter` object shows up when you go to the page for a particular function invocation and click **Toggle Output**:
 
-![Click function invocation link](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
+![Click function invocation link](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png")
 
-![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+![Logs in function invocation page](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
 In the WebJobs SDK Dashboard, the most recent 100 lines of Console output show up when you go to the page for the WebJob (not for the function invocation) and click **Toggle Output**.
  
-![Click Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+![Click Toggle Output](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
 In a continuous WebJob, application logs show up in /data/jobs/continuous/*{webjobname}*/job_log.txt in the web app file system.
 
@@ -578,9 +578,9 @@ In an Azure blob the application logs look like this:
 
 And in an Azure table the `Console.Out` and `Console.Error` logs look like this:
 
-![Info log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
+![Info log in table](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
 
-![Error log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
+![Error log in table](../app-service-web/media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
 ## <a id="nextsteps"></a> Next steps
 
