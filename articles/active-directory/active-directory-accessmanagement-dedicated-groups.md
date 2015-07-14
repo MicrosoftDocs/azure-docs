@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	manager="TerryLan" 
+	manager="swadhwa" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2015" 
+	ms.date="07/13/2015" 
 	ms.author="femila"/>
 
  # Dedicated Groups in Azure Active Directory

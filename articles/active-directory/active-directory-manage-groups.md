@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/13/2015" 
 	ms.author="femila"/>
 # Managing access to resources with Azure Active Directory groups
 
@@ -44,7 +44,7 @@ The resource owner can use a rule to express which users should be assigned acce
 
 The access to a resource is derived from an external source, e.g. a group that is synchronized from an authoritative source such as an on premise directory or a SaaS app such as WorkDay. The resource owner assigns the group to provide access to the resource, and the external source manages the members of the group.
 
-  ![](./media/active-directory-manage-groups/access-management-overview.png)
+  ![](./media/active-directory-access-management-groups/access-management-overview.png)
 
 
 ###Watch a video that explains Access Management
