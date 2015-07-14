@@ -92,7 +92,9 @@ Additional information about using Azure Active Directory for authentication can
 
 ### Retrieve your access token 
 
-You only need to do this once while your credentials are cached. You will need to establish credentials again after they are expired.
+The client application must retrieve the application access token for the current user. The first time you run this code the user will be prompted to enter their user credentials. The resulting token is cached locally. On subsequent executions it will retrieve the token from the cache, only prompting the user to log in if the token has expired.
+
+To create automation scripts where no user interaction is required, you must authenticate based on a service principal rather than a user. This approach requires that a credential object is created and submitted. For details, see [Authenticating with a service principal]().
 
 
     /// <summary>
@@ -143,7 +145,7 @@ A resource group is a container that holds related resources for an application.
 
 ### Create a server 
 
-SQL databases are contained in servers. The server name must be globally unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete.
+SQL databases are contained in servers. The server name must be globally unique to Azure SQL Servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete.
 
 
     //create a SQL Database management client
