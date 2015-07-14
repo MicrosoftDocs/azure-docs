@@ -149,12 +149,12 @@ Example:
 
 
 
-## See Also
+## Next Steps
 
 
 You can learn more about Virtual Network cross-premises connectivity in this article: [About Virtual Network secure cross-premises connectivity](http://go.microsoft.com/fwlink/p/?LinkID=532884).
 
-If you want to configure a site-to-site VPN connection, see [Configure a virtual network with a site-to-site VPN Connection](vpn-gateway-site-to-site-create.md).
+If you want to configure a site-to-site VPN connection, see [Configure a virtual network with a site-to-site VPN gateway connection](vpn-gateway-site-to-site-create.md).
 
 You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-create-custom.md).
 
