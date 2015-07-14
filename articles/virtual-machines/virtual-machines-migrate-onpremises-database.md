@@ -117,13 +117,13 @@ If you are migrating to an existing Azure virtual machine, the following configu
 * Configure an open endpoint for your SQL Server Cloud Adapter service on the Microsoft Azure gateway with private port of 11435. This endpoint is enables to wizard to utilize the Cloud Adaptor service that is created a part of SQL Server 2014 or SQL Server 2016 provisioning on an Azure VM. For more information, see [Cloud Adapter for SQL Server](https://msdn.microsoft.com/library/dn169301.aspx). This port is created as part of SQL Server 2014 or SQL Server 2016 provisioning on a Microsoft Azure VM. The Cloud Adapter also creates a Windows Firewall rule to allow its incoming TCP connections at default port 11435.
 ![Create Cloud Adapter Endpoint][cloud-adapter-endpoint]
 ###Run the Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard
-  1. Open Microsoft SQL Server Management Studio for Microsoft SQL Server 2016 and connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
- 2. Right-click the database that you are migrating, point to Tasks and then click Deploy to a Microsoft Azure virtual machine.
+1. Open Microsoft SQL Server Management Studio for Microsoft SQL Server 2016 and connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
+2. Right-click the database that you are migrating, point to Tasks and then click Deploy to a Microsoft Azure virtual machine.
 ![Start Wizard][start-wizard]
- 3. On the Introduction page, click Next.
- 4. On the Source Settings page, connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
- 5. Specify a temporary location for the backup files. If connecting to a remote server, you must specify a network drive.
- 6. Click Next.
+3. On the Introduction page, click Next.
+4. On the Source Settings page, connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
+5. Specify a temporary location for the backup files. If connecting to a remote server, you must specify a network drive.
+6. Click Next.
 ![Source Settings][source-settings]
 7. On the Microsoft Azure Sign-In page, click Sign In and sign-in to your Azure account.
 8. Select the subscription that you wish to use and click Next.
