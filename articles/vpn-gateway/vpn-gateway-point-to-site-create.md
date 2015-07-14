@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configure a Point-to-Site VPN connection to an Azure Virtual Network | Microsoft Azure"
-   description="Connect to your virtual network securely by creating a point-to-site vpn connection."
+   description="Securely connect to your Azure Virtual Network by creating a point-to-site VPN connection."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
