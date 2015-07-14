@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Frequently asked questions for Azure Virtual Machines"
+	pageTitle="Frequently asked questions for Azure virtual machines"
 	description="Provides answers to some of the most common questions about Azure virtual machines"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,27 +17,27 @@
 	ms.date="06/19/2015"
 	ms.author="kathydav"/>
 
-# Azure Virtual Machines FAQ
+# Azure virtual machines FAQ
 
 This article addresses some common questions users ask about Azure virtual machines, based on input from the Azure VM Support team, as well as from forums, newsgroups, and comments in other articles. For basic information, start with [About Virtual Machines](virtual-machines-about.md).
 
-## What can I run on an Azure VM?
+## What can I run on an Azure virtual machine?
 
 All subscribers can run server software on an Azure virtual machine. Additionally, MSDN subscribers have access to certain Windows client images provided by Azure.
 
-For server software, you can run recent versions of Windows Server, as well as a variety of Linux distributions, and host various server workloads and services on them. For support details, see:
+For server software, you can run recent versions of Windows Server, and a variety of Linux distributions, and host various server workloads and services on them. For support details, see:
 
-• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+- For Windows virtual machines -- [Microsoft server software support for Azure virtual machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• For Linux VMs -- [Linux on Azure-Endorsed Distributions](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+- For Linux virtual machines -- [Linux on Azure-endorsed distributions](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
 For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
 ## How much storage can I use with a virtual machine?
 
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
+Each data disk can be up to 1 (terabyte) TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. You’re charged for the storage used in the storage account, rather than for available space on the disk. For pricing details, see [Storage Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. You’re charged for the storage used in the storage account, rather than for available space on the disk. For pricing details, see [Storage pricing details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
 ## Which virtual hard disk types can I use?
 
@@ -52,7 +52,7 @@ For instructions on uploading a data disk, see the Linux or Windows article and 
 ## Are these virtual machines the same as Hyper-V virtual machines?
 
 In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Two key differences that sometimes surprise Hyper-V users are:
-<!-- In previous para, last sentence, s/b "Three key differences" correct? Also, since the colon provide adequate context for user, you might omit "are".  -->
+
 - Azure doesn’t provide console access to a virtual machine.
 - Azure VMs in most [sizes](virtual-machines-size-specs.md) have only 1 virtual network adapter, which means that they also can have only 1 external IP address. (The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)
 - Azure VMs don't support Generation 2 Hyper-V VM features. For details about these features, see [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
@@ -75,11 +75,11 @@ You need to establish a remote connection to log on to the virtual machine, usin
 - [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
 If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) extension to help fix the problem. For Windows VMs, additional options include:
-<!--  In next paragraph, omit "the" or add a modifier, for example, "click the X button". To enhance instructional design, you might use: "...the VM, and then on the X bar, click X"-->
+
 - In the Azure Preview Portal, find the VM, then click the **Reset Remote Access** from the Command bar.
 - Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
-- Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
-<!-- Previous para, added END punctuation -->
+- Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md)
+
 If you’re familiar with Hyper-V, you might be looking for a tool similar to Virtual Machine Connection. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
 
 ## Can I use the D: drive (Windows) or /dev/sdb1 (Linux)?
@@ -94,12 +94,12 @@ On a Windows virtual machine, you can change the drive letter by moving the page
 
 The term upgrade generally means moving to a more recent release of your operating system, while staying on the same hardware. For Azure VMs, the process for moving to a more recent release differs for Linux and Windows:
 
-- For Linux VMs, use the package management tools and procedures appropriate for the distribution.
-- For a Windows virtual machine, use Windows Server Migration Tools. Don’t attempt to upgrade the guest OS while it resides on Azure. It isn’t supported because of the risk of losing access to a virtual machine. If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems. For general details about the tools and process, see [Migrate Roles and Features to Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940). For details on upgrading to Windows Server 2012 R2, see [Upgrade Options for Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
-<!--In previous para, last two sentences. Omit "general" since it adds questionable value for customer? -->
+- For a Linux-based virtual machine, use the package management tools and procedures appropriate for the distribution.
+- For a Windows-based virtual machine, use Windows Server Migration Tools. Don’t attempt to upgrade the guest operating system while it resides on Azure. It isn’t supported because of the risk of losing access to a virtual machine. If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems. For general details about the tools and process, see [Migrate roles and features to Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940). For details on upgrading to Windows Server 2012 R2, see [Upgrade options for Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
+
 ## What's the default user name and password on the virtual machine?
 
-The images provided by Azure don’t have a pre-configured user name and password. When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.
+The images provided by Azure don’t have a preconfigured user name and password. When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.
 
 If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the VMAccess extension to fix the problem.
 
@@ -122,7 +122,7 @@ Azure Backup is available as a preview in certain regions. For details, see [Bac
 
 An additional option is to use the snapshot capabilities of blob storage. To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot. This saves pending data writes and puts the file system in a consistent state.
 
-## How does Azure charge for my VM?
+## How does Azure charge for my virtual machine?
 
 Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. If you create the VM with a VM image containing certain pre-installed software, additional hourly software charges may apply. Azure charges separately for storage for the VM’s operating system and data disks. Temporary disk storage is free.
 
@@ -136,11 +136,10 @@ For more details, see [Virtual Machines Pricing](http://azure.microsoft.com/pric
 
 ## Will Azure reboot my VM for maintenance?
 
-Generally, you can start, stop, or restart your VM whenever you need to. (For details, see [About starting, stopping, and restarting an Azure VM](https://msdn.microsoft.com/library/azure/dn763934.aspx)). Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters. Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
+Generally, you can start, stop, or restart your virtual machine whenever you need to. (For details, see [About starting, stopping, and restarting an Azure virtual machine](https://msdn.microsoft.com/library/azure/dn763934.aspx)). Azure sometimes restarts your virtual machine as part of regular, planned maintenance updates in the Azure datacenters. Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your virtual machine. For unplanned events, Azure automatically migrates the virtual machine to a healthy host and restarts the virtual machine.
 
-For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
+For any standalone virtual machine (meaning the virtual machine isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the virtual machines could be restarted during the update. Applications running on the virtual machines could experience downtime.
 
 You also can use the Azure portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see [Manage the availability of virtual machines](virtual-machines-manage-availability.md).
-<!-- Promotion, referrals, customer empathy (this tactic likely requires signoff from individual that manages "look and feel" of these assets): Consider a new section like "Need more help" and within new section include link to Developer Portal, or perhaps new product features, troubleshooting, or maintenance?-->
+To provide redundancy, put two or more similarly configured virtual machines in the same availability set. This helps ensure at least one virtual machine is available during planned or unplanned maintenance. Azure guarantees certain levels of virtual machine availability for this configuration. For details, see [Manage the availability of virtual machines](virtual-machines-manage-availability.md).
