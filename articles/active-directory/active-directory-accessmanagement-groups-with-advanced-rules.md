@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="terrylan"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -125,7 +125,7 @@ Allowed operators
 | mailNickName               | Any string value. Mail alias of the user.                                                             | (user.mailNickName -eq "value")                           |
 | mobile                     | Any string value or $null.                                                                            | (user.mobile -eq "value")                                 |
 | objectId                   | GUID of the user object                                                                               | (user.objectId -eq "1111111-1111-1111-1111-111111111111") |
-| passwordPolicies           | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |                                                           |
+| passwordPolicies           | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |   (user.passwordPolicies -eq "DisableStrongPassword")                                                      |
 | physicalDeliveryOfficeName | Any string value or $null.                                                                            | (user.physicalDeliveryOfficeName -eq "value")             |
 | postalCode                 | Any string value or $null.                                                                            | (user.postalCode -eq "value")                             |
 | preferredLanguage          | ISO 639-1 code                                                                                        | (user.preferredLanguage -eq "en-US")                      |
@@ -138,8 +138,7 @@ Allowed operators
 | userPrincipalName          | Any string value.                                                                                     | (user.userPrincipalName -eq "alias@domain")               |
 | userType                   | member guest $null                                                                                    | (user.userType -eq "Member")                              |
 
-
-**Properties of type string collectio**n
+**Properties of type string collection**
 
 Allowed operators
 
@@ -153,3 +152,10 @@ Allowed operators
 | otherMails     | Any string value                      | (user.otherMails -contains "alias@domain")           |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
+Here are some topics that will provide some additional information on Azure Active Directory 
+
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+
+* [What is Azure Active Directory?](active-directory-whatis.md)
+
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

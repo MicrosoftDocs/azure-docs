@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="terrylan"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -35,3 +35,11 @@
 3. On the Groups page, click on the name of the group that you want to remove an owner from.
 4. On that group’s page, click the **Owners** tab.
 5. On that group’s page, click on the name of the owner that you want to remove from this group and then click **Remove**.
+
+Here are some topics that will provide some additional information on Azure Active Directory 
+
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+
+* [What is Azure Active Directory?](active-directory-whatis.md)
+
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

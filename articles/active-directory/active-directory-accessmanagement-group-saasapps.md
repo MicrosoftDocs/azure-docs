@@ -4,9 +4,9 @@
 	description="A topic that explains how to use groups in Azure AD Premium to assign access to a SaaS applications that are integrated with Azure AD." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+	authors="femila" 
+	manager="SWadhwa" 
+	editor=""
 	tags="azure-classic-portal"/>
 
 <tags 
@@ -41,3 +41,11 @@ This capability can be used with hundreds of applications that you can add from 
 
 > [AZURE.NOTE]
 >You will only see the Users and Groups tab once you have enabled Azure AD Premium.
+
+Here are some topics that will provide some additional information on Azure Active Directory 
+
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+
+* [What is Azure Active Directory?](active-directory-whatis.md)
+
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

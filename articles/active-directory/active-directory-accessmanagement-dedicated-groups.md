@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="swadhwa" 
-	editor="LisaToft"
+	editor=""
 	tags="azure-classic-portal"/>
 
 <tags 
@@ -24,3 +24,11 @@ In Azure Active Directory, dedicated groups are created automatically and group 
 In the current public preview release, once the Enable Dedicated Groups switch is set to Yes, you can further enable the directory to automatically create the All Users dedicated group by setting the Enable “All Users” Group switch to Yes. You can then also edit the name of this dedicated group by typing it in the Display Name for “All Users” Group field.
 
 The All Users dedicated group can be useful if you want to assign the same permissions to all the users in your directory. For example, you can grant all users in your directory access to a SaaS application by assigning access for the All Users dedicated group to this application.
+
+Here are some topics that will provide some additional information on Azure Active Directory 
+
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+
+* [What is Azure Active Directory?](active-directory-whatis.md)
+
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

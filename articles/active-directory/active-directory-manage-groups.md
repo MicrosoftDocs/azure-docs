@@ -4,8 +4,8 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="TerryLan" 
-	editor="LisaToft"
+	manager="swadhwa" 
+	editor=""
 	tags="azure-classic-portal"/>
 
 <tags 
@@ -16,6 +16,8 @@
 	ms.topic="article" 
 	ms.date="07/13/2015" 
 	ms.author="femila"/>
+
+
 # Managing access to resources with Azure Active Directory groups
 
 Azure Active Directory is a comprehensive identity and access management solution that provides a robust set of capabilities to manage access to on-premises and cloud applications and resources including Microsoft online services like Office 365 and a world of non-Microsoft SaaS applications.
