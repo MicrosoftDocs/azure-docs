@@ -111,6 +111,7 @@ Use the latest version of the Deploy a SQL Server Database to a Microsoft Azure 
 
 ###Configure the existing Azure virtual machine and SQL Server instance (if applicable)
 If you are migrating to an existing Azure virtual machine, the following configuration steps are required:
+
 - Configure the Azure virtual machine and the SQL Server instance to enable connectivity from another computer by following the steps in Connect to the SQL Server VM instance from SSMS on another computer section in [Provisioning a SQL Server Virtual Machine on Azure](../virtual-machines-provision-sql-server/#SSMS).
 - Configure an open endpoint for your SQL Server Cloud Adapter service on the Microsoft Azure gateway with private port of 11435. This endpoint is enables to wizard to utilize the Cloud Adaptor service that is created a part of SQL Server 2014 or SQL Server 2016 provisioning on an Azure VM. For more information, see [Cloud Adapter for SQL Server](https://msdn.microsoft.com/library/dn169301.aspx). This port is created as part of SQL Server 2014 or SQL Server 2016 provisioning on a Microsoft Azure VM. The Cloud Adapter also creates a Windows Firewall rule to allow its incoming TCP connections at default port 11435.
 ![Create Cloud Adapter Endpoint][cloud-adapter-endpoint]
