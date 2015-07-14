@@ -105,7 +105,11 @@ From the QuickStart blade, click Get code to monitor my web pages:
 
 ![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
 
-Open the updated web pages.
+Insert the code snippet in the head of your HTML files.
+
+#### View client-side data
+
+Open your updated web pages and use them. Wait a minute or two, then return to Application Insights and refresh the usage blade.
 
 Page view, user, and session metrics will appear on the usage blade:
 
