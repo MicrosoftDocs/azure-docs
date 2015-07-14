@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="07/09/2015"
 	ms.author="raynew"/>
 
 # Site Recovery components
@@ -31,7 +31,7 @@ Site Recovery components will vary slightly depending on the protection scenario
 ### Protection between two datacenters with VMM
 
 **Scenario** | **Description** | **Required components** | **Details**
---- | --- | --- | 
+--- | --- | --- | ---
 You deploy Azure Site Recovery to replicate virtual machines between two datacenters | <p>Each datacenter has a VMM server</p><p>Each VMM server has a private cloud that contains one or more Hyper-V host servers with virtual machines you want to protect</p> | The Azure Site Recovery Provider will be installed on both VMM servers | <p>No components are installed on the Hyper-V host servers or protected virtual machines</p><p>The Azure Site Recovery Provider on the VMM server communicates with the Site Recovery service over HTTPS 443 to orchestrate protection</p><p>Replication occurs between the primary and secondary Hyper-V host servers over the internet using Kerberos and certificate authentication on ports 8083 and 8084.</p>
 
 ![On-premises to on-premises](./media/site-recovery-components/Components_Onprem2Onprem.png)
@@ -40,7 +40,7 @@ You deploy Azure Site Recovery to replicate virtual machines between two datacen
 ### Protection between a datacenter with VMM and Azure
 
 **Scenario** | **Description** | **Required components** | **Details**
---- | --- | --- | 
+--- | --- | --- | ---
 You deploy Azure Site Recovery to replicate virtual machines between a datacenter and Azure | <p>The on-premises datacenter has a VMM server with a private cloud that contains one or more Hyper-V host servers with virtual machines you want to protect</p> | <p>The Azure Site Recovery Provider will be installed on the VMM server</p><p>The Microsoft Recovery Services agent will be installed on source Hyper-V host servers</p> | <p>No components are installed on protected virtual machines</p><p>The Azure Site Recovery Provider on the VMM server communicates with the Site Recovery service over HTTPS 443 to orchestrate protection</p><p>Replication occurs between Microsoft Recovery Services agent running on the source Hyper-V host servers and Azure over HTTPS 443.</p>
 
 ![On-premises VMM to Azure](./media/site-recovery-components/Components_OnpremVMM2Azure.png)
@@ -48,7 +48,7 @@ You deploy Azure Site Recovery to replicate virtual machines between a datacente
 ###  Protection between a Hyper-V site and Azure
 
 **Scenario** | **Description** | **Required components** | **Details**
---- | --- | --- | 
+--- | --- | --- | ---
 You deploy Azure Site Recovery to replicate virtual machines between a datacenter and Azure | <p>The on-premises datacenter has one or more Hyper-V host servers with virtual machines you want to protect</p><p>During configuration you define a Hyper-V site that contains one or more of these Hyper-V host servers</p> | <p>A single component installation runs to install both the Azure Site Recovery Provider and the Microsoft Recovery Services agent on the Hyper-V host servers</p> | <p>No VMM server in the deployment</p><p>No components are installed on protected virtual machines</p><p>The Azure Site Recovery Provider on the Hyper-V host server communicates with the Site Recovery service over HTTPS 443 to orchestrate protection</p><p>Replication occurs between the Microsoft Recovery Services agent running on the Hyper-V host server and Azure over HTTPS 443.</p>
 
 ![On-premises VMM to Azure](./media/site-recovery-components/Components_OnpremHyperVSite2Azure.png)
@@ -171,8 +171,8 @@ For detailed planning information about these components read the capacity plann
 **Component** | **How to update** 
 --- | --- 
 <p>**Azure Site Recovery Provider for VMM**</p><p>**Azure Recovery Services Agent**</p> | <p></p>**First time installation**: download the latest version from the Quick Start page<p></p>**Ongoing**: You can download the latest (and previous) versions from the Dashboard in Site Recovery. Alternatively if you opt in for Microsoft Updates the latest version of the Provider and agent will be installed automatically on the server.
-<p>**Process server**</p><p>**Configuration server**</p><p>**Master target server**</p> | <p>Download installation files from the Quick Start page</p><p>Check for updates on the Site Recovery Dashboard tab</p> 
-**Mobility service** | <p>Manual installation: After ensuring that the process server is up-to-date download the latest version of Mobility service from the C:\pushinstallsvc\repository folder on the process server</p><p>Push installation: Make sure the process server has the latest updates (the process server pushes the mobility service)</p>  
+<p>**Process server**</p><p>**Configuration server**</p><p>**Master target server**</p> | Check for updates on the Site Recovery Dashboard. 
+**Mobility service** | <p>Ensure you have the latest Mobility service updates on each machine you want to protect:<p><p>You can download the latest updates:</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>Alternatively after ensuring that the process server is up-to-date you can download the latest version of Mobility service from the C:\pushinstallsvc\repository folder on the process server</p>  
 
 ## Next steps
 

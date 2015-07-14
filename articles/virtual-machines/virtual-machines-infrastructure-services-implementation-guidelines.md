@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Infrastructure Services Implementation Guidelines" 
+	pageTitle="Azure infrastructure services implementation guidelines" 
 	description="Learn about the key design and implementation guidelines for deploying an IT workload in Azure infrastructure services." 
 	documentationCenter=""
 	services="virtual-machines" 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
-# Azure Infrastructure Services Implementation Guidelines
+# Azure infrastructure services implementation guidelines
  
 Azure is an excellent platform to implement dev/test or proof-of-concept configurations, since it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
 
@@ -27,7 +27,7 @@ This article was adapted from the content in the [Azure Implementation Guideline
 
 > [AZURE.NOTE] Affinity groups have been deprecated and their use is not described here. For more information, see [About Regional VNets and Affinity Groups](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
-## 1. Naming Conventions
+## 1. Naming conventions
 
 A good naming convention should be in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with management of those resources.
 
@@ -65,7 +65,7 @@ When establishing your naming conventions, make sure that they clearly state whi
 
 Many times, it is important to determine the date of creation from the name of a resource. Microsoft recommends the YYYYMMDD date format. This format ensures that not only the full date is recorded, but also that two resources whose names differ only on the date will be sorted alphabetically and chronologically at the same time.
 
-### Naming Resources
+### Naming resources
 You should define each type of resource in the naming convention, which should have rules that define how to assign names to each resource created. These rules should apply to all types of resources, for instance:
 
 - Subscriptions
@@ -76,14 +76,14 @@ You should define each type of resource in the naming convention, which should h
 - Availability Sets
 - Resource groups
 - Cloud Services
-- Virtual Machines
+- Virtual machines
 - Endpoints
 - Network Security Groups
 - Roles
 
 Names should be as descriptive as possible, to ensure that the name can provide enough information to determine to which resource it refers.
 
-### Computer Names
+### Computer names
 
 When administrators create a virtual machine, Microsoft Azure will require them to provide a virtual machine name of up to 15 characters. Microsoft Azure will use the virtual machine name as the Azure virtual machine resource name. Azure will use the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same. 
 
@@ -91,7 +91,7 @@ In cases in which a virtual machine is created from a .VHD file that already con
 
 We recommend that the Azure Virtual Machine name be the same as the underlying OS computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS Computer Naming Conventions](https://support.microsoft.com/kb/188997/).
 
-### Storage Account Names
+### Storage account names
 
 Storage accounts have special rules governing their names. You can only use lowercase letters and numbers and the assigned name, concatenated to the service (blob, table, or queue) and the default domain (core.windows.net) should render a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting URLs should be valid, unique DNS names:
 
@@ -101,7 +101,7 @@ Storage accounts have special rules governing their names. You can only use lowe
 
 In addition, storage accounts can take advantage of containers. These must adhere to the naming conventions as described in [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
-### Azure Building Block names
+### Azure building block names
 
 Azure Building Blocks are application level services that Azure offers, typically to those applications taking advantage of PaaS features, although IaaS resources might leverage some, like Azure SQL, Traffic Manager, and others.
 
@@ -180,7 +180,7 @@ If you are using disk striping for Azure data disks, consider the following guid
 
 For more information, see [Storage Spaces - Designing for Performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
-### Multiple Storage Accounts
+### Multiple storage accounts
 
 Using multiple storage accounts to back the disks associated with many virtual machines ensures that the aggregated I/O of those disks is well below the scalability targets for each one of those storage accounts. 
 
@@ -204,7 +204,7 @@ Task:
 
 - Create the set of storage accounts using your naming convention. You can use the Azure Preview Portal, the Azure Management Portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
 
-## 4. Cloud Services
+## 4. Cloud services
 
 Cloud services are a fundamental building block in Azure Service Management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
 
@@ -232,7 +232,7 @@ Task:
 
 - Create the set of cloud services using your naming convention. You can use the Azure Management Portal or the **New-AzureService** PowerShell cmdlet.
 
-## 5. Virtual Networks
+## 5. Virtual networks
 
 The next logical step is to create the virtual networks necessary to support the communications across the virtual machines in the solution. Although it is possible to host multiple virtual machines of an IT workload within just a cloud service, virtual networks are recommended.
 
@@ -288,9 +288,9 @@ Tasks:
 - Define the address space for the virtual network.
 - Define the set of subnets and the address space for each.
 - For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the virtual machines in the virtual network need to reach.
-- Create the virtual network using your naming convention. You can use the Azure Preview Portal or the Azure Management Portal.
+- Create the virtual network using your naming convention. You can use the Azure Preview portal or the Azure portal.
 
-## 6. Availability Sets
+## 6. Availability sets
 
 In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
 
@@ -308,11 +308,11 @@ Task:
 
 - Define the set of availability sets using your naming convention. You can associate a virtual machine to an availability set when you create the virtual machines or you can associate a virtual machine to an availability set after the virtual machine has been created.
 
-## 7. Virtual Machines
+## 7. Virtual machines
 
 In Azure PaaS, Azure manages virtual machines and their associated disks. You must create and name cloud services and roles, and then Azure will create instances associated to those roles. In the case of Azure IaaS, it is up to you to provide names for the cloud services, virtual machines, and associated disks.
 
-To reduce administrative burden, the Azure Management Portal will use the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
+To reduce administrative burden, the Azure portal will use the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
 
 In addition, Azure names disks and their supporting VHD blobs using a combination of the cloud service name, the computer name, and the creation date.
 
@@ -387,7 +387,7 @@ They created a cloud-only virtual network with the following settings using the 
 	- Name: BackEnd
 	- Address space: 10.0.2.0/24
 
-### Availability Sets
+### Availability sets
 
 To maintain high availability of all four tiers of their financial analysis engine, Contoso decided on four availability sets:
 
@@ -438,5 +438,5 @@ This configuration incorporates:
 
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
-[Azure Compute, Network & Storage Providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Azure Compute, Network, and Storage Providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
