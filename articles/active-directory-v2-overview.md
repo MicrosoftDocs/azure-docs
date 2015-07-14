@@ -26,7 +26,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
  One simple process allows you to immediately reach an audience that spans millions of users with both personal and work/school accounts.
 
-| Register an app at <br> [apps.dev.microsoft.com](apps.dev.microsoft.com) | Learn the auth protocols, <br> [OAuth 2.0]() & [OpenID Connect]() | [Get Started]() with tutorials <br> using our auth libraries |
+| Register an app at <br> [apps.dev.microsoft.com](apps.dev.microsoft.com) | Learn the auth protocols, <br> [OAuth 2.0]() & [OpenID Connect]() | [Get Started]() with tutorials <br> using our open source auth libraries |
 | ----------------------- | ------------------------------- | ------------ |
 
 Your apps can also consume a [unified set of Microsoft REST APIs]() using either type of account, including:
