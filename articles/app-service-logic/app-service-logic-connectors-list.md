@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/12/2015" 
 	ms.author="mandia"/>
 
 
@@ -48,12 +48,12 @@ Azure WebJobs | Connects to WebJobs.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Using this connector, you can create, update, read, delete, and query different entities from Intuit QuickBooks like customers, items, invoices, and so on.
 [SFTP](app-service-logic-connector-sftp.md) (SSH File Transfer Protocol)| Connects to SFTP and can Upload File, Get File, Delete File, List Files, and use a trigger to retrieve files.
 [SMTP](app-service-logic-connector-smtp.md) (Simple Mail Transfer Protocol) | Connects to a SMTP server and can send email with attachments.
-[Slack](app-service-logic-connector-slack.md) | 
+[Slack](app-service-logic-connector-slack.md) | Connect to Slack and post messages to Slack channels.
 [Salesforce](app-service-logic-connector-salesforce.md) | The Salesforce connector manages different entities such as Accounts, Leads, Opportunities, Cases, and so on in your Salesforce account. You can also create, update, upsert, query, and delete various entities.
 [SugarCRM](app-service-logic-connector-sugarcrm.md) | Connects to SugarCRM Online and can create, update, read, and delete different types of modules like accounts, contacts, products, and so on.
 [Twilio](app-service-logic-connector-twilio.md) | Connects to Twilio and can Send Messages, Get Messages, List Messages, List Usage, Get Available Toll Free Numbers, Get Available Mobile Numbers, Get Available Local Numbers, List Incoming Phone Numbers, Get Incoming Phone Number, and Add Incoming Phone Number.
 [Twitter](app-service-logic-connector-twitter.md) | Connects to Twitter and can Get user Timeline, Search Tweets, Get Followers, Get Friends, Search User, Get Home Timeline, Get Mentions Timeline, Post Tweet, Post Tweet to User, and Send Direct Message. The Twitter Connector also uses triggers such as Get Tweets by Keyword, Get Tweets by User Handle, and Get Tweets by Hashtag.
-Wait | Use this connector to delay the execution of your app. You can delay the app for a specific duration or until an occurrence at a specific time.
+[Wait](app-service-logic-connector-wait.md) | Use this connector to delay the execution of your app. You can delay the app for a specific duration or until an occurrence at a specific time.
 
 
 ## Premium Connectors
@@ -61,11 +61,11 @@ The following table lists all the available Connectors and API Apps created by M
 
 Name  | Description
 ------------- | -------------
-AS2 Connector | The AS2 connector can receive and send messages using the AS2 transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet using digital certificates and encryption.
-BizTalk EDIFACT | The EDIFACT API App receives and sends messages using the EDIFACT protocol in business-to-business communications.
-BizTalk X12 | The X12 API App receives and sends messages using the X12 protocol in business-to-business communications.
-BizTalk Trading Partner Management | The Trading Partner Management API App defines and persists business-to-business relationships using partners, agreements, and schemas and certificates used in agreements. These relationships are enforced using the AS2, EDIFACT, and X12 API Apps.
-BizTalk JSON Encoder | An encoder and decoder that helps your app interop between JSON and XML data. It can convert a given JSON instance to XML and vice versa.
+[AS2 Connector](app-service-logic-connector-as2.md) | The AS2 connector can receive and send messages using the AS2 transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet using digital certificates and encryption.
+[BizTalk EDIFACT](app-service-logic-connector-edifact.md) | The EDIFACT API App receives and sends messages using the EDIFACT protocol in business-to-business communications.
+[BizTalk X12](app-service-logic-connector-x12.md) | The X12 API App receives and sends messages using the X12 protocol in business-to-business communications.
+[BizTalk Trading Partner Management](app-service-logic-connector-tpm.md) | The Trading Partner Management API App defines and persists business-to-business relationships using partners, agreements, and schemas and certificates used in agreements. These relationships are enforced using the AS2, EDIFACT, and X12 API Apps.
+[BizTalk JSON Encoder](app-service-logic-connector-jsonencoder.md) | An encoder and decoder that helps your app interop between JSON and XML data. It can convert a given JSON instance to XML and vice versa.
 [BizTalk Rules](app-service-logic-use-biztalk-rules.md) | BizTalk Rules define and control the structure, operation, and strategy of an organization. Business policies can be updated without recompiling and redeploying the associated applications.
 DB2 Connector | Connects to an IBM DB2 database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. <br/><br/>No triggers. Actions include table select, insert, update, delete, and custom statement<br/><br/>This connector also includes the Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
 Informix | Connects to an IBM Informix database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands.<br/><br/>No triggers. Actions include table select, insert, update, delete, and custom statement.<br/><br/>When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes a Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
@@ -88,10 +88,12 @@ Connectors can also be used as actions within your Logic App. Actions are useful
 
 ## Create your own Connectors and API Apps
 [Connectors and API Apps Reference](http://aka.ms/appservicesconnectorreference)<br/>
-[Azure App Service API app triggers](../app-service-api/app-service-api-dotnet-triggers.md)
+[Azure App Service API app triggers](../app-service-api/app-service-api-dotnet-triggers.md)<br/>
+[Logic App Reference](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
-## More Connectors
+## More on Connectors and API Apps
 
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)<br/>
-[Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md) 
+[Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)<br/>
+[Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md)

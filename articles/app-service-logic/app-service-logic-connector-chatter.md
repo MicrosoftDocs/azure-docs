@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Using the Chatter connector in your logic app #
@@ -88,4 +88,3 @@ Once your API app is created, you can now use the Chatter connector as a trigger
 [9]: ./media/app-service-logic-connector-chatter/img9.PNG
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
- 

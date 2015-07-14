@@ -1,4 +1,4 @@
-The following table lists quota information specific to Service Bus messaging:
+The following table lists quota information specific to Service Bus messaging. Event Hubs limits are included in this table, but for more specific information about Event Hubs, see [Event Hubs Pricing](http://azure.microsoft.com/pricing/details/event-hubs/). For information about pricing and other quotas for Service Bus, see the [Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/) overview.
 
 |Quota Name|Scope|Type|Behavior when exceeded|Value|
 |---|---|---|---|---|

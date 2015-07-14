@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
 
@@ -63,7 +63,7 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
 2. Install Application Insights SDK for Web Apps.
 
-    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
+    ![Search for "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
 
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
@@ -72,6 +72,11 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
     (You can alternatively [set the key by writing some code][apikey] in your app.)
 
+#### To upgrade to future SDK versions
+
+To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again and filter on installed packages. Select Microsoft.ApplicationInsights.Web and choose Upgrade.
+
+If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
 
 ## <a name="run"></a> 3. Run your project
@@ -109,19 +114,54 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 
 Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+## Add dependency tracking
+
+The SDK needs a little help to get access to some data. In particular, you'll need this additional step in order to automatically measure calls from your app to databases, REST APIs, and other external components. These dependency metrics can be invaluable to help you diagnose performance issues.
+
+#### If your app runs in your IIS server
+
+Login to your server with admin rights, and install [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648). 
+
+(You can also use Status Monitor to [instrument an app that's already running](app-insights-monitor-performance-live-website-now.md), even if it hasn't been built with the SDK.)
+
+#### If your app is an Azure Web App
+
+In the control panel of your Azure Web App, add the Application Insights extension.
+
+![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+
+(The extension only assists an app that has been built with the SDK. Unlike Status Monitor, it can't instrument an existing app.)
+
+## Add client-side monitoring
+
+You've installed the SDK that sends telemetry data from the server end of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client. 
+
+You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
+
+#### If your clients are web browsers
+
+If your app displays web pages, add a JavaScript snippet to every page. Get the code from your Application Insights resource:
+
+![In your web app, open Quick Start and click 'Get code to monitor my web pages'](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+
+Notice that the code contains the instrumentation key that identifies your application resource.
+
+[Learn more about web page tracking.](app-insights-web-track-usage.md)
+
+#### If your clients are device apps
+
+If your application is serving clients such as phones or other devices, add the [appropriate SDK](app-insights-platforms.md) to your device app.
+
+If you configure the client SDK with the same instrumentation key as the server SDK, the two streams will be integrated so that you can see them together.
+
 
 ## Complete your installation
 
-To get the full 360-degree view of your application, there are some more things you should do:
+To get the full 360-degree view of your application, there are a few more things you can do:
 
-
-* [Add the JavaScript SDK to your web pages][client] to get browser-based telemetry such as user, session and page view counts, page load times, script exceptions, and to let you write custom telemetry in your page scripts.
-* Add dependency tracking to diagnose issues caused by databases or other components used by your app:
- * [in your Azure Web App or VM][azure]
- * [in your on-premises IIS server][redfield]
+* [Set up web tests][availability] to make sure your application stays live and responsive.
 * [Capture log traces][netlogs] from your favorite logging framework
 * [Track custom events and metrics][api] in client or server or both, to learn more about how your application is used.
-* [Set up web tests][availability] to make sure your application stays live and responsive.
 
 ## <a name="ide"></a> The automated way
 

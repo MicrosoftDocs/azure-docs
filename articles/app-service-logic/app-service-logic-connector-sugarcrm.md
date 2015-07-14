@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="SugarCRM Connector" 
-   description="How to use the SugarCRM Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="SugarCRM Connector"
+   description="How to use the SugarCRM Connector"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/01/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Using the SugarCRM Connector in your Logic App#
@@ -28,11 +28,11 @@ Logic apps can trigger based on a variety of data sources and offer connectors t
 - Order to Cash flow from SugarCRM to ERP systems
 
 
-As part of Connector package settings, the user can specify entities the connector can manage and the actions, input and output parameters are dynamically populated. 
+As part of Connector package settings, the user can specify entities the connector can manage and the actions, input and output parameters are dynamically populated.
 
 ##SugarCRM Connector Actions##
 Following are the different actions available in SugarCRM connector.
- 
+
 - Create Module - Use this action to create a new record for SugarCRM module such as Accounts, Leads, Contacts.
 
 - Update Module - Use this action to update an existing  record for SugarCRM module.
@@ -43,12 +43,12 @@ Following are the different actions available in SugarCRM connector.
 
 - Get Module - Use this action to retrieve a single record from specified module.
 
-- Get Record Count - Use this action to get the number of records in the module that match the query. If no query is specified then total number of records in the module are returned. 
+- Get Record Count - Use this action to get the number of records in the module that match the query. If no query is specified then total number of records in the module are returned.
 
 - Check Duplicate Module - Use this action to check for duplicate records within a module.
 
 *Note*: For more details on the supported arguments in query refer to SugarCRM REST API documentation.
-   
+
 ##Create a SugarCRM Connector API App##
 1.	Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
 2.	Browse to “Web and Mobile > API apps” and search for “SugarCRM”.
@@ -94,7 +94,7 @@ Following are the different actions available in SugarCRM connector.
 	  </tr>
 	</table>
 
-	![][9]				
+	![][9]
 
 
 
@@ -121,7 +121,7 @@ Let us create a simple logic app that creates an account in SugarCRM and updates
 
 	![][4]
 
-12.	Provide name as 'Microsoft Account' and click ✓. 
+12.	Provide name as 'Microsoft Account' and click ✓.
 
 	![][5]
 
@@ -131,7 +131,7 @@ Let us create a simple logic app that creates an account in SugarCRM and updates
 
 	![][6]
 
-15.	Click on ‘+’ next to ‘Record Id’ to pick the id value from the output of ‘Create Account’ action. 
+15.	Click on ‘+’ next to ‘Record Id’ to pick the id value from the output of ‘Create Account’ action.
 
 	![][7]
 
@@ -155,6 +155,3 @@ Let us create a simple logic app that creates an account in SugarCRM and updates
 [7]: ./media/app-service-logic-connector-sugarcrm/7_Record_ID_from_Create.png
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
-
-
- 

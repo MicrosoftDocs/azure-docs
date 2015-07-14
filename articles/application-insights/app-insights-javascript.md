@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
 # Application Insights for JavaScript web apps
@@ -44,7 +44,7 @@ In Quick Start, get the script for web pages:
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example:
 
-* In an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
+* In an ASP.NET MVC project, you'd put it in View\Shared\\_Layout.cshtml
 * In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
 
 The script contains the instrumentation key that directs the data to your Application Insights resource.
@@ -135,11 +135,15 @@ In the Diagnostic Search blade, set Filters to Page View.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Select any event to see more detail.
+Select any event to see more detail. In the details page, click "..." to see even more detail.
 
 > [AZURE.NOTE] If you use [Search][diagnostic], notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About". 
 
 > [Learn more about diagnostic search][diagnostic]
+
+### Page view properties
+
+* **Page view duration** The time taken to load the page and start running scripts. Specifically, the interval between starting to load the page and execution of the trackPageView. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value. 
 
 ## Custom usage tracking
 

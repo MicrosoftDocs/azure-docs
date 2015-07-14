@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/07/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Questions - Application Insights for ASP.NET
@@ -20,6 +20,21 @@
 ## Can I use Application Insights with ...?
 
 [See Platforms][platforms]
+
+## Is it free?
+
+* Yes, if you choose the free [pricing tier](app-insights-pricing.md). You get most features and a generous quota of data. 
+* You have to provide your credit card data to register with Microsoft Azure, but no charges will be made unless you use another paid-for Azure service, or you explicitly upgrade to a paying tier.
+* If your app sends more data than the monthly quota for the free tier, it stops being logged. If that happens, you can either choose to start paying, or wait until the quota is reset at the end of the month.
+* Basic usage and session data is not subject to a quota.
+* There is also a free 30-day trial, during which you get the Premium features free of charge.
+* Each application resource has a separate quota, and you set its pricing tier independently of any others.
+
+#### What do I get if I pay?
+
+* A larger [monthly quota of data](http://azure.microsoft.com/pricing/details/application-insights/).
+* Option to pay 'overage' to continue collecting data over the monthly quota. If your data goes over quota, you're charged per Mb.
+* [Continuous export](app-insights-export-telemetry.md).
 
 ## Adding the SDK
 
@@ -105,6 +120,11 @@ To do this:
 4. Save the file.
 5. Right-click on the project and choose Reload *yourProject.csproj*
 
+## How do I upgrade from older SDK versions?
+
+See the [release notes](app-insights-release-notes.md) for the SDK appropriate to your type of application. 
+
+
 ## No data
 
 #### <a name="q03"></a>I added Application Insights successfully and ran my app, but I've never seen data in the portal.
@@ -112,7 +132,7 @@ To do this:
 + On the Overview page, click the Search tile to open Diagnostic Search. Data appears here first.
 + Click the Refresh button. In the current version, the content of a blade doesn't refresh automatically.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-+ Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx).
++ Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/).
 + In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 + If you have to use a proxy to send out of your corporate network, set [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 + Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -201,6 +221,9 @@ See [Data Retention and Privacy][data].
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
+## Automation
+
+You can [write a PowerShell script](app-insights-powershell-script-create-resource.md) to create an Application Insights resource.
 
 
 <!--Link references-->
