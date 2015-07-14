@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="07/09/2015"
 	ms.author="carlrab"/>
 
 
@@ -25,12 +25,12 @@ There are a number of methods for migrating an on-premises SQL Server database t
 ##What are the primary migration methods?
 The primary migration methods are:
 
-- [Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard](#Use-the-Deploy-a-SQL-Server-Database-to-a-Microsoft-Azure-VM-wizard-to-migrate-an-existing-database)
-- [Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other Migration Methods to migrate a database)
-- [Perform a backup to URL and restore into the Azure virtual machine from the URL](#Other Migration Methods to migrate a database)
-- [Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure virtual machine from URL](#Other Migration Methods to migrate a database)
-- [Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD](#Other Migration Methods to migrate a database)
-- [Ship hard drive using Windows Import/Export Service](#Other Migration Methods to migrate a database)
+- Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard
+- Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine
+- Perform a backup to URL and restore into the Azure virtual machine from the URL
+- Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure virtual machine from URL
+- Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD]
+- Ship hard drive using Windows Import/Export Service
 
 Note: If you have an AlwaysOn deployment on-premises, you can also consider using the [Add Azure Replica Wizard](https://msdn.microsoft.com/library/dn463980.aspx) to create a replica in Azure and then failover as a method of migrating.
 
