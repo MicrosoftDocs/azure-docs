@@ -26,23 +26,18 @@ Read all the safety and health information in this article that applies to your 
 
 Here are the icons that you will find when you review the safety precautions to be observed when setting up and running your Microsoft Azure StorSimple device.
 
-- ![Danger Icon](./media/storsimple-safety/IC740879.png) **DANGER!** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. This signal word is to be limited to the most extreme situations.
- 
-- ![Warning Icon](./media/storsimple-safety/IC740879.png) **WARNING!** Indicates a hazardous situation that, if not avoided, could result in death or serious injury.
- 
-- ![Warning Icon](./media/storsimple-safety/IC740879.png) **CAUTION!** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.
+| Icon  | Description  |
+|:------|:-------------| 
+|![Danger Icon](./media/storsimple-safety/IC740879.png) **DANGER!**|Indicates a hazardous situation that, if not avoided, will result in death or serious injury. This signal word is to be limited to the most extreme situations.| 
+|![Warning Icon](./media/storsimple-safety/IC740879.png) **WARNING!**|Indicates a hazardous situation that, if not avoided, could result in death or serious injury.|
+|![Warning Icon](./media/storsimple-safety/IC740879.png) **CAUTION!**|Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
+|![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**|Indicates information considered important, but not hazard-related.|
+|![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **Electrical Shock Hazard** |High voltage|
+|![Heavy Weight Icon](./media/storsimple-safety/IC740883.png) **Heavy Weight**| |
+|![No User Serviceable Parts Icon](./media/storsimple-safety/IC740879.png) **No User Serviceable Parts**|Do not access unless properly trained.|
+|![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png)**Read All Instructions First**| |
+|![Tip Hazard Icon](./media/storsimple-safety/IC740886.png) **Tip Hazard**| |
 
-- ![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:** Indicates information considered important, but not hazard-related.
-
-- ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **Electrical Shock Hazard** High voltage
-
-- ![Heavy Weight Icon](./media/storsimple-safety/IC740883.png) **Heavy Weight**
-
-- ![No User Serviceable Parts Icon](./media/storsimple-safety/IC740879.png) **No User Serviceable Parts** Do not access unless properly trained.
-
-- ![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png)**Read All Instructions First**
-
-- ![Tip Hazard Icon](./media/storsimple-safety/IC740886.png) **Tip Hazard**
 
 ## Handling precautions
 
