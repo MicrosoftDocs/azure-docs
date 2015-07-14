@@ -21,12 +21,6 @@
 
 [MongoDB][MongoDB] is a popular open source, high performance NoSQL database.  Using the [Azure Management Portal][AzureManagementPortal], you can create a virtual machine running Windows Server from the Image Gallery.  You can then install and configure a MongoDB database on the virtual machine.
 
-This article covers how to:
-
-- Use the Management Portal to create a Windows Server virtual machine from the gallery
-- Attach a data disk to the virtual machine
-- Connect to the virtual machine using Remote Desktop
-- Install MongoDB on the virtual machine
 
 ## Create a virtual machine running Windows Server
 
