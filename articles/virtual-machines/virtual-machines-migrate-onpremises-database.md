@@ -39,6 +39,8 @@ For optimum performance, migration of the database files into the Azure virtual 
 
 [Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other-migration-methods-to-migrate-a-database)
 
+[blah](#choosing-your-migration-method)
+
 If it is not possible to use the wizard because the database backup size is too large or you are migrating to an older version of SQL Server version, your migration process will be a manual process that will generally start with a database backup followed by a database restore into SQL Server in the Azure virtual machine. There several methods by which you can accomplish this manual process.
 
 **Note**: When you upgrade to SQL Server 2014 or SQL Server 2016 from older versions of SQL Server, you might need to consider the changes that are needed. We recommend that you address all dependencies on features not supported by the new version of SQL Server as part of your migration project. For more information on the supported editions and scenarios, see [Upgrade to SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
@@ -156,7 +158,9 @@ If you are migrating to an existing Azure virtual machine, the following configu
 ![Results][results]
 14. When the wizard completes, connect to your virtual machine and verify that your database has been migrated.
 15. If you created a new virtual machine, Configure the Azure virtual machine and the SQL Server instance by following the steps in Connect to the SQL Server virtual machine instance from SSMS on another computer section in [Provisioning a SQL Server Virtual Machine on Azure](../virtual-machines-provision-sql-server/#SSMS).
+
 ## Other migration methods to migrate a database
+
 These next sections give a brief overview of the steps required for each of the other migration methods previously discussed.
 ###Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine
 Use this method when you cannot use the Deploy a SQL Server Database to a Microsoft Azure VM wizard either because you are migrating to a version of SQL Server prior to SQL Server 2014 or your backup file is larger than 1 TB. Use the following general steps to migrate a user database using this manual method:
