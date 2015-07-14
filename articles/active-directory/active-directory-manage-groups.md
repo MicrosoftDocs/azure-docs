@@ -54,7 +54,7 @@ You can watch a short video that explains more about this [here](http://channel9
 ##How does Access Management in Azure Active Directory work?
 At the center of Azure Active Directory’s access management solution is the security group. Using a security group to manage access to resources is a well-known paradigm, which allows for a flexible and easily understood way to provide access to a resource for the intended group of users. The resource owner (or the administrator of the directory) can assign a group to provide a certain access right to the resources they own. The members of the group will be provided the access, and the resource owner can delegate the right to manage the members list of a group to someone else – such as a department manager or a helpdesk administrator.
 
-![](./media/active-directory-manage-groups/active-directory-access-management-works.png)
+![](./media/active-directory-access-management-groups/active-directory-access-management-works.png)
 The owner of a group can also make that group available for self service requests. In doing so, an end user can search for and find the group and make a request to join, effectively seeking permission to access the resources that are managed through the group. The owner of the group can set up the group so that join requests are approved automatically or require approval by the owner of the group. When a user makes a request to join a group, the join request is forwarded to the owners of the group. If one of the owners approves the request, the requesting user is notified and the user is joined to the group. If one of the owners denies the request, the requesting user is notified but not joined to the group.
 
 
@@ -74,7 +74,9 @@ Ready to get started? You should try out some of the basic tasks you can do with
 
 
 ## Next steps for access management
-Now that you have understood the basics of access management, here are some additional advanced capabilities available in Azure Active Directory for managing access to your applications and resources. 
+Now that you have understood the basics of access management, here are some additional advanced capabilities available in Azure Active Directory for managing access to your applications and resources.
+
+* [Using a simple rule to create a group](active-directory-accessmanagement-simplerulegroup.md) 
 
 * [Using Attributes to Create Advanced Rules](active-directory-accessmanagement-groups-with-advanced-rules.md)
 
@@ -83,3 +85,9 @@ Now that you have understood the basics of access management, here are some addi
 * [Setting up Dedicated Groups in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md)
 
 
+## Learn More
+Here are some topics that will provide some additional information on Azure Active Directory 
+
+* [What is Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/)
+
+* [Integrating your on-premises identities with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect/)
