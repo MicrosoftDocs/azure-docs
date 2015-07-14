@@ -276,5 +276,5 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
 
 [Azure Mobile App SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
+[SQLite store Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
