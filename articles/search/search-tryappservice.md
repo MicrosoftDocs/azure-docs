@@ -121,7 +121,7 @@ In the rebuilt application window, enter a search term that you’ve used before
 
 It’s a pretty big difference. Instead of seven search results, you get over two million. 
 
-    ![][11]
+   ![][11]
  
 The behavior you’re observing is due to the inclusion `NOT` operator (in this case, "-ND"), which is *OR'd* rather than *AND'd* when **searchMode** is set to `Any`.
 
@@ -160,13 +160,158 @@ Filters are specified using OData syntax and are frequently used with faceted na
 
 4. Type the wildcard (*) to return a count. Notice that the results are now limited to 42,411 items, which are all of the documents for all of the geographical features in Washington State.
 
-    ![][12]
+   ![][12]
+
+##Add Hit Highlighting
+
+Now that you have made a series of one-line code changes, you might want to try deeper modifications that require code changes in multiple places. The following version of **Search.cshtml** can be pasted right over the Search.cshtml file in your current session. 
+
+The following code adds hit-highlighting. Notice the new properties declared in the [SearchParameters](https://msdn.microsoft.com/library/microsoft.azure.search.models.searchparameters_properties.aspx). There is also a new function that iterates over the collection of results to get the documents that need highlighting, plus HTML that renders the result. 
+
+When you run this code sample, search term inputs that have a corresponding match in specified fields are highlighted in bold font.
+
+   ![][14]
+
+You might want to save a copy of the original **Search.cshtml** file to see how both versions compare.
+
+> [AZURE.NOTE] Comments have been trimmed to reduce the size of the file.
+ 
+    @using System.Collections.Specialized
+    @using System.Configuration
+    @using Microsoft.Azure.Search
+    @using Microsoft.Azure.Search.Models
+    
+    @{
+    Layout = "~/_SiteLayout.cshtml";
+    }
+    
+    @{
+    // This modified search.cshtml file adds hit-highlighting
+    
+    string searchText = Request.Unvalidated["q"];
+    string filterExpression = Request.Unvalidated["filter"];
+    
+    DocumentSearchResponse response = null;
+    if (!string.IsNullOrEmpty(searchText))
+    {
+    searchText = searchText.Trim();
+    
+    // Retrieve search service name and an api key from configuration
+    string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
+    string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
+    
+    var searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
+    var indexClient = searchClient.Indexes.GetClient("geonames");
+    
+    // Set the Search parameters used when executing the search request
+    var sp = new SearchParameters
+    {
+    // Specify whether Any or All of the search terms must be matched in order to count the document as a match.
+    SearchMode = SearchMode.All,
+    // Include a count of results in the query result
+    IncludeTotalResultCount = true,
+    // Return an aggregated count of feature classes based on the specified query
+    Facets = new[] { "FEATURE_CLASS" },
+    // Limit the results to 20 documents
+    Top = 20,
+    // Enable hit-highlighting
+    HighlightFields = new[] { "FEATURE_NAME", "DESCRIPTION", "FEATURE_CLASS", "COUNTY_NAME", "STATE_ALPHA" },
+    HighlightPreTag = "<b>",
+    HighlightPostTag = "</b>",
+    };
+    
+    if (!string.IsNullOrEmpty(filterExpression))
+    {
+    // Add a search filter that will limit the search terms based on a specified expression.
+    // This is often used with facets so that when a user selects a facet, the query is re-executed,
+    // but limited based on the chosen facet value to further refine results
+    sp.Filter = filterExpression;
+    }
+    
+    // Execute the search query based on the specified search text and search parameters
+    response = indexClient.Documents.Search(searchText, sp);
+    }
+    }
+    
+    @functions
+    {
+    private string GetFacetQueryString(string facetKey, string facetValue)
+    {
+    NameValueCollection queryString = HttpUtility.ParseQueryString(Request.Url.Query);
+    queryString["filter"] = string.Format("{0} eq '{1}'", HttpUtility.UrlEncode(facetKey), HttpUtility.UrlEncode(facetValue));
+    return queryString.ToString();
+    }
+    
+    private HtmlString RenderHitHighlightedString(SearchResult item, string fieldName)
+    {
+    if (item.Highlights != null && item.Highlights.ContainsKey(fieldName))
+    {
+    string highlightedResult = string.Join("...", item.Highlights[fieldName]);
+    return new HtmlString(highlightedResult);
+    }
+    return new HtmlString(item.Document[fieldName].ToString());
+    }
+    }
+    
+    <!-- Form to allow user to enter search terms -->
+    <form class="form-inline" role="search">
+    <div class="form-group">
+    <input type="search" name="q" id="q" autocomplete="off" size="80" placeholder="Type something to search, i.e. 'park'." class="form-control" value="@searchText" />
+    <button type="submit" id="search" class="btn btn-primary">Search</button>
+    </div>
+    </form>
+    @if (response != null)
+    {
+    if (response.Count == 0)
+    {
+    <p style="padding-top:20px">No results found for "@searchText"</p>
+    <h3>Suggestions:</h3>
+    <ul>
+    <li>Ensure words are spelled correctly.</li>
+    <li>Try rephrasing keywords or using synonyms.</li>
+    <li>Try less specific keywords.</li>
+    </ul>
+    }
+    else
+    {
+    <div class="col-xs-3 col-md-2">
+    <h3>Feature Class</h3>
+    <ul class="list-unstyled">
+    @if (!string.IsNullOrEmpty(filterExpression))
+    {
+    <li><a href="?q=@HttpUtility.UrlEncode(searchText)">All</a></li>
+    }
+    <!-- Cycle through the facet results and show the values and counts -->
+    @foreach (var facet in response.Facets["FEATURE_CLASS"])
+    {
+    <li><a href="?@GetFacetQueryString("FEATURE_CLASS", (string)facet.Value)">@facet.Value (@facet.Count)</a></li>
+    }
+    </ul>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-10">
+    <p style="padding-top:20px">1 - @response.Results.Count of @response.Count results for "@searchText"</p>
+    
+    <ul class="list-unstyled">
+    <!-- Cycle through the search results -->
+    @foreach (var item in response.Results)
+    {
+    <li>
+    <h3>@RenderHitHighlightedString(item, "FEATURE_NAME")</h3>
+    <p>@RenderHitHighlightedString(item, "DESCRIPTION")</p>
+    <p>@RenderHitHighlightedString(item, "FEATURE_CLASS"), elevation: @item.Document["ELEV_IN_M"] meters</p>
+    <p>@RenderHitHighlightedString(item, "COUNTY_NAME") County, @RenderHitHighlightedString(item, "STATE_ALPHA")</p>
+    <br />
+    </li>
+    }
+    </ul>
+    </div>
+    }
+    }
+
 
 ##Next steps
 
-Now that you have made a series of one-line code changes, you might want to try deeper modifications that require code changes in multiple places. For example if you want to add hit-highlighting, you need to declare the properties in the [SearchParameters](https://msdn.microsoft.com/library/microsoft.azure.search.models.searchparameters_properties.aspx), and then iterate over the collection of results to get the documents that need highlighting. 
-
-Other Azure Search functionality that you should explore includes creating and updating indexes, which adds the ability to:
+Using the read-only service provided in [Try Azure App Service](https://tryappservice.azure.com/) site, you have seen the query syntax and full-text search in action, learned about searchMode and filters, and added hit-highlighting to your search application. As your next step, consider moving on to creating and updating indexes. This adds the ability to:
 
 - [Define scoring profiles](https://msdn.microsoft.com/library/dn798928.aspx) used for tuning search scores so that high-value items show up first.
 - [Define Suggesters](https://msdn.microsoft.com/library/mt131377.aspx) that add auto-complete or type-ahead query suggestions in response to user input.
@@ -181,7 +326,7 @@ To learn more about Azure Search, visit our [documentation page](http://azure.mi
 
 The following screenshot shows the schema used to create the index used in this template.
  
-    ![][13]
+   ![][13]
 
 ###Schema.json file
 
@@ -383,3 +528,4 @@ The following screenshot shows the schema used to create the index used in this 
 [11]: ./media/search-tryappservice/AzSearch-TryAppService-searchmodeany.png
 [12]: ./media/search-tryappservice/AzSearch-TryAppService-searchmodeWAState.png
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
+[14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
