@@ -28,10 +28,7 @@ Follow these instructions to create a virtual machine.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
-> [AZURE.NOTE] You can add an endpoint for MongoDB while creating the virtual machine, and configure it as following:
-> - Name it **Mongo**
-> - Use **TCP** as the protocol
-> - Set both the public and private ports to **27017**.
+> [AZURE.NOTE] You can add an endpoint for MongoDB while creating the virtual machine, and configure it as following: name it as **Mongo**, use **TCP** as the protocol, and set both the public and private ports to **27017**.
 
 ## Attach a data disk
 To provide a storage for the virtual machine, attach a data disk and then initialize it so that Windows can use it. You can attach either an existing disk if you already have data you want to use, or attach an empty disk.
