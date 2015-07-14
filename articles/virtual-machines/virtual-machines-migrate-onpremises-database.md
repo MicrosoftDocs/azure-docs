@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2015"
+	ms.date="07/13/2015"
 	ms.author="carlrab"/>
 
 
@@ -37,9 +37,7 @@ Note: If you have an AlwaysOn deployment on-premises, you can also consider usin
 ## Choosing your migration method
 For optimum performance, migration of the database files into the Azure virtual machine by using a compressed backup is generally the best method. This is what the Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard does for you. This wizard is the recommended method for migrating an on-premises user database running on SQL Server 2005 or greater to SQL Server 2014 or greater when the compressed database backup is less than 1 TB.
 
-[Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other-migration-methods-to-migrate-a-database)
-
-[blah](#choosing-your-migration-method)
+[Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#other-migration-methods-to-migrate-a-database)
 
 If it is not possible to use the wizard because the database backup size is too large or you are migrating to an older version of SQL Server version, your migration process will be a manual process that will generally start with a database backup followed by a database restore into SQL Server in the Azure virtual machine. There several methods by which you can accomplish this manual process.
 
