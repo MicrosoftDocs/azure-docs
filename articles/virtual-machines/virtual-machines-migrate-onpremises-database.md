@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="07/08/2015"
 	ms.author="carlrab"/>
 
 
@@ -25,12 +25,12 @@ There are a number of methods for migrating an on-premises SQL Server database t
 ##What are the primary migration methods?
 The primary migration methods are:
 
-* [Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard](#Use-the-Deploy-a-SQL-Server-Database-to-a-Microsoft-Azure-VM-wizard-to-migrate-an-existing-database)
-* [Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other Migration Methods to migrate a database)
-* [Perform a backup to URL and restore into the Azure virtual machine from the URL](#Other Migration Methods to migrate a database)
-* [Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure virtual machine from URL](#Other Migration Methods to migrate a database)
-* [Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD](#Other Migration Methods to migrate a database)
-* [Ship hard drive using Windows Import/Export Service](#Other Migration Methods to migrate a database)
+- [Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard](#Use-the-Deploy-a-SQL-Server-Database-to-a-Microsoft-Azure-VM-wizard-to-migrate-an-existing-database)
+- [Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#Other Migration Methods to migrate a database)
+- [Perform a backup to URL and restore into the Azure virtual machine from the URL](#Other Migration Methods to migrate a database)
+- [Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure virtual machine from URL](#Other Migration Methods to migrate a database)
+- [Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD](#Other Migration Methods to migrate a database)
+- [Ship hard drive using Windows Import/Export Service](#Other Migration Methods to migrate a database)
 
 Note: If you have an AlwaysOn deployment on-premises, you can also consider using the [Add Azure Replica Wizard](https://msdn.microsoft.com/library/dn463980.aspx) to create a replica in Azure and then failover as a method of migrating.
 
@@ -118,12 +118,12 @@ If you are migrating to an existing Azure virtual machine, the following configu
 ![Create Cloud Adapter Endpoint][cloud-adapter-endpoint]
 ###Run the Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard
   1. Open Microsoft SQL Server Management Studio for Microsoft SQL Server 2016 and connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
-2. Right-click the database that you are migrating, point to Tasks and then click Deploy to a Microsoft Azure virtual machine.
+ 2. Right-click the database that you are migrating, point to Tasks and then click Deploy to a Microsoft Azure virtual machine.
 ![Start Wizard][start-wizard]
-3. On the Introduction page, click Next.
-4. On the Source Settings page, connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
-5. Specify a temporary location for the backup files. If connecting to a remote server, you must specify a network drive.
-6. Click Next.
+ 3. On the Introduction page, click Next.
+ 4. On the Source Settings page, connect to the SQL Server instance containing the database that you are going to migrate to an Azure virtual machine.
+ 5. Specify a temporary location for the backup files. If connecting to a remote server, you must specify a network drive.
+ 6. Click Next.
 ![Source Settings][source-settings]
 7. On the Microsoft Azure Sign-In page, click Sign In and sign-in to your Azure account.
 8. Select the subscription that you wish to use and click Next.
