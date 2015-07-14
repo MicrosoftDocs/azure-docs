@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -22,9 +22,9 @@
 
 [top]: #machine-learning-sample-datasets
 
-When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/), and others are included as examples of various types of data used in machine learning. 
+When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Machine Learning Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/), and others are included as examples of various types of data typically used in machine learning. 
 
-Some of these data sets are available in Azure Blob storage. For these data sets the tables below provide a direct link. You can use these data sets in your experiments by using the [Reader][reader] module - to see an example of how to access a dataset, view the properties of the [Reader][reader] module in the sample experiment associated with the dataset.
+Some of these data sets are available in Azure Blob storage. For these data sets the table below provides a direct link. You can use these data sets in your experiments by using the [Reader][reader] module.
 
 The rest of these sample data sets are listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
 You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
@@ -38,240 +38,25 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Sample data sets associated with models in the Machine Learning Gallery
-
-The following data sets are used by sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/). 
-For more information about the model and its associated experiment, follow the link in the table to see the model details.
 
 <table>
 
 <tr>
-  <th align=left>Sample model</th>
-  <th align=left>Associated experiment</th>
   <th align=left>Dataset name</th>
   <th align=left>Dataset description</th>
-</tr>
-
-<tr ID=bill-gates-rgb-image>
-  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/">Color quantization using K-Means clustering</a></td>
-  <td valign=top>Sample Experiment - Color Based Image Compression using K-Means Clustering - Development</td>
-  <td valign=top>Bill Gates RGB Image</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
-  </td>
-</tr>
-
-<tr ID=german-credit-card-uci-dataset>
-  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-credit-risk-prediction/">Credit risk prediction</a></td>
-  <td valign=top>Sample Experiment - German Credit - Development</td>
-  <td valign=top>German Credit Card UCI dataset</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
-  </td>
-</tr>
-
-<tr ID=crm-dataset-shared>
-  <td rowspan=4 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-crm-task/">CRM task</a></td>
-  <td rowspan=4 valign=top>Sample Experiments - CRM - Development</td>
-  <td valign=top>CRM Dataset Shared</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-crm-dataset-shared](../../includes/machine-learning-sample-dataset-crm-dataset-shared.md)]
-  </td>
-</tr>
-<tr ID=crm-appetency-labels-shared>
-  <td valign=top>CRM Appetency Labels Shared</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-crm-appetency-labels-shared](../../includes/machine-learning-sample-dataset-crm-appetency-labels-shared.md)]
-  </td>
-</tr>
-<tr ID=crm-churn-labels-shared>
-  <td valign=top>CRM Churn Labels Shared</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-crm-churn-labels-shared](../../includes/machine-learning-sample-dataset-crm-churn-labels-shared.md)]
-  </td>
-</tr>
-<tr ID=crm-upselling-labels-shared>
-  <td valign=top>CRM Upselling Labels Shared</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-crm-upselling-labels-shared](../../includes/machine-learning-sample-dataset-crm-upselling-labels-shared.md)]
-  </td>
-</tr>
-
-<tr ID=wikipedia-sp-500-dataset>
-  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-finding-similar-companies/">Finding similar companies</a></td>
-  <td valign=top>Sample Experiment - S & P 500 Company Clustering - Development</td>
-  <td valign=top>Wikipedia SP 500 Dataset</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-wikipedia-sp-500](../../includes/machine-learning-sample-dataset-wikipedia-sp-500.md)]
-  </td>
-</tr>
-
-<tr ID=airport-codes-dataset>
-  <td rowspan=3 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-flight-delay-prediction/">Flight delay prediction</a></td>
-  <td rowspan=3 valign=top>Sample Experiment - Flight Delay Prediction - Development</td>
-  <td valign=top>Airport Codes Dataset</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../../includes/machine-learning-sample-dataset-airport-codes.md)]
-  </td>
-</tr>
-
-<tr ID=flight-delays-data>
-  <td valign=top>Flight Delays Data</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../../includes/machine-learning-sample-dataset-flight-delays-data.md)]
-</td>
-</tr>
-
-<tr ID=weather-dataset>
-  <td valign=top>Weather Dataset</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../../includes/machine-learning-sample-dataset-weather-dataset.md)]
-  </td>
-</tr>
-
-<tr ID=intrusion-detection>
-  <td valign=top> <a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-network-intrusion-detection/">Network intrusion detection</a></td>
-  <td valign=top>Sample Experiment - Network Intrusion Detection - Development</td>
-  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-network-intrusion](../../includes/machine-learning-sample-dataset-network-intrusion.md)]
-  </td>
-</tr>
-
-<tr ID=bike-rental-uci-dataset>
-  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/">Prediction of the number of bike rentals</a></td>
-  <td valign=top>Sample Experiment - Demand Forecasting of Bikes</td>
-  <td valign=top>Bike Rental UCI dataset</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-bike-rental-uci-dataset](../../includes/machine-learning-sample-dataset-bike-rental-uci-dataset.md)]
-  </td>
-</tr>
-
-<tr ID=student-performance>
-  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-student-performance/">Prediction of student performance</a></td>
-  <td valign=top>Sample Experiment - Student Performance - Development</td>
-  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-student-performance](../../includes/machine-learning-sample-dataset-student-performance.md)]
-  </td>
-</tr>
-
-<tr ID=book-reviews-from-amazon>
-  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-sentiment-analysis/">Sentiment analysis</a></td>
-  <td valign=top>Sample Experiment - Sentiment Classification - Development</td>
-  <td valign=top>Book Reviews from Amazon</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]
-  </td>
-</tr>
-
-</table>
-
-
-
-## Data sets used in Machine Learning Studio sample experiments
-
-The following data sets are used by sample experiments included in [Machine Learning Studio](https://studio.azureml.net/Home). 
-
-You can find these data sets listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
-You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
-
-You can find all of the sample experiments listed here in the **Samples** tab of the **Experiments** page in ML Studio.
-To make a copy of a sample experiment that you can edit, open the experiment in ML Studio and click **Save As**.
-
-
-<table>
-
-<tr>
-  <th align=left>Dataset name</th>
-  <th align=left>Sample experiment</th>
-  <th align=left>Dataset description</th>
-</tr>
-
-<tr ID=breast-cancer-features>
-  <td valign=top>Breast Cancer Features
-  <td valign=top>Sample Experiment - Breast Cancer - Development</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-features](../../includes/machine-learning-sample-dataset-breast-cancer-features.md)]
-  </td>
-</tr>
-
-<tr ID=breast-cancer-info>
-  <td valign=top>Breast Cancer Info</td>
-  <td valign=top><i>same</i></td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-info](../../includes/machine-learning-sample-dataset-breast-cancer-info.md)]
-  </td>
-</tr>
-
-<tr ID=direct-marketing>
-  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
-  <td valign=top>Sample Experiment - Direct Marketing - Development - Training</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-direct-marketing](../../includes/machine-learning-sample-dataset-direct-marketing.md)]
-  </td>
-</tr>
-
-<tr ID=imdb-movie-titles>
-  <td valign=top>IMDB Movie Titles</td>
-  <td valign=top>Sample Experiment - Movie Recommender - Development</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-imdb-movie-titles](../../includes/machine-learning-sample-dataset-imdb-movie-titles.md)]
-  </td>
-</tr>
-
-<tr ID=movie-tweets>
-  <td valign=top>Movie Tweets</td>
-  <td valign=top>Sample Experiment - Ranking of Movie Tweets According to their Future Popularity - Development</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-movie-tweets](../../includes/machine-learning-sample-dataset-movie-tweets.md)]
-  </td>
-</tr>
-
-<tr ID=lyrl2004-tokens-test>
-  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
-  <td valign=top>Sample Experiment - News Categorization - Development</td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-test](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-test.md)]
-  </td>
-</tr>
-
-<tr ID=lyrl2004-tokens-train>
-  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
-  <td valign=top><i>same</i></td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-train](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-train.md)]
-  </td>
-</tr>
-
-<tr ID=rcv1-v2-topics-qrels>
-  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
-  <td valign=top><i>same</i></td>
-  <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-rcv1-v2-topics](../../includes/machine-learning-sample-dataset-rcv1-v2-topics.md)]
-  </td>
-</tr>
-
-</table>
-
-
-
-## Miscellaneous sample data sets in Machine Learning Studio
-
-The following data sets are included in [Machine Learning Studio](https://studio.azureml.net/Home) to provide examples of various types of data used in machine learning.
-You can find them listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
-You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
-
-<table>
-<tr>
-  <th align=left>Dataset name</th>
-  <th align=left>Description</th>
 </tr>
 
 <tr>
   <td valign=top>Adult Census Income Binary Classification dataset</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-adult-census-income](../../includes/machine-learning-sample-dataset-adult-census-income.md)]
+  </td>
+</tr>
+
+<tr ID=airport-codes-dataset>
+  <td valign=top>Airport Codes Dataset</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../../includes/machine-learning-sample-dataset-airport-codes.md)]
   </td>
 </tr>
 
@@ -282,10 +67,31 @@ You can use any of these data sets in your own experiment by dragging it to your
   </td>
 </tr>
 
+<tr ID=bike-rental-uci-dataset>
+  <td valign=top>Bike Rental UCI dataset</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-bike-rental-uci-dataset](../../includes/machine-learning-sample-dataset-bike-rental-uci-dataset.md)]
+  </td>
+</tr>
+
+<tr ID=bill-gates-rgb-image>
+  <td valign=top>Bill Gates RGB Image</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
+  </td>
+</tr>
+
 <tr>
   <td valign=top>Blood donation data</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-blood-donation](../../includes/machine-learning-sample-dataset-blood-donation.md)]
+  </td>
+</tr>
+
+<tr ID=book-reviews-from-amazon>
+  <td valign=top>Book Reviews from Amazon</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]
   </td>
 </tr>
 
@@ -296,11 +102,60 @@ You can use any of these data sets in your own experiment by dragging it to your
   </td>
 </tr>
 
+<tr ID=breast-cancer-features>
+  <td valign=top>Breast Cancer Features
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-features](../../includes/machine-learning-sample-dataset-breast-cancer-features.md)]
+  </td>
+</tr>
+
+<tr ID=breast-cancer-info>
+  <td valign=top>Breast Cancer Info</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-info](../../includes/machine-learning-sample-dataset-breast-cancer-info.md)]
+  </td>
+</tr>
+
+<tr ID=crm-appetency-labels-shared>
+  <td valign=top>CRM Appetency Labels Shared</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-appetency-labels-shared](../../includes/machine-learning-sample-dataset-crm-appetency-labels-shared.md)]
+  </td>
+</tr>
+
+<tr ID=crm-churn-labels-shared>
+  <td valign=top>CRM Churn Labels Shared</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-churn-labels-shared](../../includes/machine-learning-sample-dataset-crm-churn-labels-shared.md)]
+  </td>
+</tr>
+
+<tr ID=crm-dataset-shared>
+  <td valign=top>CRM Dataset Shared</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-dataset-shared](../../includes/machine-learning-sample-dataset-crm-dataset-shared.md)]
+  </td>
+</tr>
+
+<tr ID=crm-upselling-labels-shared>
+  <td valign=top>CRM Upselling Labels Shared</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-upselling-labels-shared](../../includes/machine-learning-sample-dataset-crm-upselling-labels-shared.md)]
+  </td>
+</tr>
+
 <tr>
   <td valign=top>Energy Efficiency Regression data</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-energy-efficiency-regression](../../includes/machine-learning-sample-dataset-energy-efficiency-regression.md)]
   </td>
+</tr>
+
+<tr ID=flight-delays-data>
+  <td valign=top>Flight Delays Data</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../../includes/machine-learning-sample-dataset-flight-delays-data.md)]
+</td>
 </tr>
 
 <tr>
@@ -317,10 +172,31 @@ You can use any of these data sets in your own experiment by dragging it to your
   </td>
 </tr>
 
+<tr ID=german-credit-card-uci-dataset>
+  <td valign=top>German Credit Card UCI dataset</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+  </td>
+</tr>
+
+<tr ID=imdb-movie-titles>
+  <td valign=top>IMDB Movie Titles</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-imdb-movie-titles](../../includes/machine-learning-sample-dataset-imdb-movie-titles.md)]
+  </td>
+</tr>
+
 <tr>
   <td valign=top>Iris two class data</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-iris-two-class](../../includes/machine-learning-sample-dataset-iris-two-class.md)]
+  </td>
+</tr>
+
+<tr ID=movie-tweets>
+  <td valign=top>Movie Tweets</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-movie-tweets](../../includes/machine-learning-sample-dataset-movie-tweets.md)]
   </td>
 </tr>
 
@@ -372,6 +248,68 @@ You can use any of these data sets in your own experiment by dragging it to your
 [AZURE.INCLUDE [machine-learning-sample-dataset-telescope-data](../../includes/machine-learning-sample-dataset-telescope-data.md)]
   </td>
 </tr>
+
+<tr ID=weather-dataset>
+  <td valign=top>Weather Dataset</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../../includes/machine-learning-sample-dataset-weather-dataset.md)]
+  </td>
+</tr>
+
+<tr ID=wikipedia-sp-500-dataset>
+  <td valign=top>Wikipedia SP 500 Dataset</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-wikipedia-sp-500](../../includes/machine-learning-sample-dataset-wikipedia-sp-500.md)]
+  </td>
+</tr>
+
+
+
+
+
+<tr ID=direct-marketing>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-direct-marketing](../../includes/machine-learning-sample-dataset-direct-marketing.md)]
+  </td>
+</tr>
+
+<tr ID=lyrl2004-tokens-test>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-test](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-test.md)]
+  </td>
+</tr>
+
+<tr ID=lyrl2004-tokens-train>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-train](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-train.md)]
+  </td>
+</tr>
+
+<tr ID=intrusion-detection>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-network-intrusion](../../includes/machine-learning-sample-dataset-network-intrusion.md)]
+  </td>
+</tr>
+
+<tr ID=rcv1-v2-topics-qrels>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-rcv1-v2-topics](../../includes/machine-learning-sample-dataset-rcv1-v2-topics.md)]
+  </td>
+</tr>
+
+<tr ID=student-performance>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-student-performance](../../includes/machine-learning-sample-dataset-student-performance.md)]
+  </td>
+</tr>
+
+
 
 
 </table>

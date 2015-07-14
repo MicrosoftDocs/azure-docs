@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/14/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Overview
@@ -67,6 +67,8 @@ When you create a solution from the Marketplace, the solution automatically incl
 Finally, the template becomes part of the source code for your app. You can check it in to your source code repository and update it as your app evolves. You can edit the template through Visual Studio.
 
 For more information about defining the template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
+
+For template schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
 
 For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md) and [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
@@ -124,6 +126,7 @@ Creating and Deploying Applications
 - [Deploy using .NET libraries and template](virtual-machines/arm-template-deployment.md)
 - [Template functions](./resource-group-template-functions.md)
 - [Advance template operations](./resource-group-advanced-template.md)
+- [Template Schemas](https://github.com/Azure/azure-resource-manager-schemas)
 
 Organizing Resources
 

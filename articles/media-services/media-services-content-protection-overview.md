@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2015" 
+	ms.date="07/07/2015" 
 	ms.author="juliako"/>
 
 #Protecting Content Overview

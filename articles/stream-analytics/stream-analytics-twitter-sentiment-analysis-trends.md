@@ -30,7 +30,7 @@ A news media website is interested in getting an edge over its competitors by fe
 
 ## Prerequisites
 1.	A Twitter account is required for this tutorial.  
-2.	This walkthough uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/streamanalytics/samples/tree/master/TwitterClient) and follow the steps below to set up your solution.
+2.	This walkthough uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) and follow the steps below to set up your solution.
 
 ## Create an Event Hub input and a Consumer Group
 

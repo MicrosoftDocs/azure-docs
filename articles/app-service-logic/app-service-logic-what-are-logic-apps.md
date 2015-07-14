@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="What are Logic Apps?" 
 	description="Learn more about App Service Logic Apps" 
-	authors="klam" 
+	authors="kevinlam1" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="07/08/2015"
 	ms.author="klam"/>
 
 #What are Logic Apps?
@@ -32,7 +32,7 @@ Logic Apps allow developers to design workflows that start from a trigger and th
 
 If you want to automate any business process (e.g. find negative tweets and post to your internal slack channel or replicate new customer records from SQL, as they arrive, into your CRM system) Logic Apps makes integrating disparate data sources, from cloud to on-premises easy. Check out our [connectors][connectors] for more inspiration and [get started][create] now to see what you can do. 
 
-What's more, with our [BizTalk API][biztalk] apps you can scale to mature integration scenarios with the power of a [rules engine][rules], [trader partner management][tpm] and more.
+What's more, with our [BizTalk API Apps][biztalk] you can scale to mature integration scenarios with the power of a [rules engine][rules], [trader partner management][tpm] and more.
 
 - **Easy to use design tools** - Logic Apps can be designed end-to-end in the browser. Start with a trigger - from a simple schedule to whenever a tweet appears about your company. Then orchestrate any number of actions  using the rich gallery of connectors.
 
@@ -49,7 +49,7 @@ What's more, with our [BizTalk API][biztalk] apps you can scale to mature integr
 The following are some of the key pieces that comprise the Logic Apps experience. 
 
 - **Workflow** - Logic Apps provides a graphical way to model your business processes as a series of steps or a workflow.
-- **[Connectors][connectors]** - Your logic apps need access to data and services. A connector is a special type of API app. It is created specifically to aid you when you are connecting to and working with your data. See the list of connectors available now in [using connectors][connectors].
+- **Connectors** - Your logic apps need access to data and services. A connector is a special type of API app. It is created specifically to aid you when you are connecting to and working with your data. See the list of connectors available now in [using connectors][connectors].
 - **Triggers** - Some connectors can also act as a trigger. A trigger starts a new instance of a workflow based on a specific event, like the arrival of an e-mail or a change in your Azure Storage account.
 -  **Actions** - Each step after the trigger in a workflow is called an action. Each action typically maps to an operation on your connector or custom API apps.
 - **BizTalk** - for more advanced integration scenarios, Azure App Services includes capabilities from Biztalk. Biztalk is Microsoft's industry leading integration platform. The BizTalk API apps allow you to easily include validation, transformation, rules and more in to your Logic App workflows. Find out more in [what are BizTalk API apps][biztalk].
@@ -63,7 +63,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[connectors]: app-service-logic-use-biztalk-connectors.md
+[connectors]: app-service-logic-connectors-list.md
 [tpm]: app-service-logic-create-a-trading-partner-agreement.md
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/01/2015"
+	ms.date="07/11/2015"
 	ms.author="nitinme"/>
 
 # Develop Java MapReduce programs for Hadoop in HDInsight

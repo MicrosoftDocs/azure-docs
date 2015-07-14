@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/19/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Transition from preview api-version=2014* to api-version=2015*#
@@ -136,7 +136,7 @@ After you’ve ported your solution and verified it runs as expected, you can us
 
 - [Azure Search is generally available (blog post)](http://go.microsoft.com/fwlink/p/?LinkId=528211 )
 - [What’s new in the latest update to Azure Search](search-latest-updates.md)
-- [Azure Search Overview]( https://msdn.microsoft.com/library/azure/dn798933.aspx)
+- [What is Azure Search?](search-what-is-azure-search.md)
 
 ##Get help##
 

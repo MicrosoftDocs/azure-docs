@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Azure Resource Manager Architecture
@@ -25,9 +25,9 @@ This article provides an overview of both the Service Management and Resource Ma
 
 Before we discuss the architecture of Azure Resource Manager and the various resource providers, let's review the architecture that currently exists for Azure Service Management. In Azure Service Management, the compute, storage, or network resources for hosting virtual machines are provided by:
 
-- A required cloud service acts as a container for hosting virtual machines (compute). Virtual machines are automatically provided with a network interface card (NIC) and an IP address assigned by Azure. Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.
-- A required storage account stores the VHDs for a virtual machine, including the operating system, temporary, and additional data disks (storage).
-- An optional virtual network acts as an additional container, in which you can create a subnetted structure and designate the subnet on which the virtual machine is located (network).
+- A required cloud service that acts as a container for hosting virtual machines (compute). Virtual machines are automatically provided with a network interface card (NIC) and an IP address assigned by Azure. Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.
+- A required storage account that stores the VHDs for a virtual machine, including the operating system, temporary, and additional data disks (storage).
+- An optional virtual network that acts as an additional container, in which you can create a subnetted structure and designate the subnet on which the virtual machine is located (network).
 
 Here are the components and their relationships for Azure Service Management. 
 
@@ -67,13 +67,13 @@ All of these resources of this application are managed through the single resour
 
 You can also see the componentization and dependent relationships between resources when you create a Resource Manager-based virtual machine using Azure PowerShell or the Azure CLI. Before you can run the command that creates the virtual machine, you must create a resource group, a storage account, a virtual network with a subnet, and a NIC with an IP address. For more information, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
 
-## Next Step
+## Next steps
 
 [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 [Deploy and Manage Azure Virtual Machines using Resource Manager Templates and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-## Additional Resources
+## Additional resources
 
 [Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/10/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -62,8 +62,8 @@ Data Management Gateway has a full range of on-premises data connection capabili
 2.	The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
 3.	If the host machine hibernates, the gateway won’t be able to respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. The gateway installation prompts a message if the machine is configured to hibernate.  
 
+The Data Management Gateway serializes and deserializes the source and sink data on the computer where it is hosted. It also performs type conversions on the data as it is being copied. During the copy operation, the gateway reads data from the source to a memory buffer and at the same time another writer thread writes the buffer to the sink. Since multiple copy activity jobs can be running at the same time on the gateway host machine during peak times, the consumption of memory and CPU resources is much higher than it is is at idle times. Therefore, the host machine running a Data Management Gateway may need more resources than outlined in the minimum suggested machine configuration above, or less resources during idle times.     
 
- 
 
 ## Walkthrough
 
@@ -167,7 +167,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 4.	do the following in the JSON pane: 
 	1.	For the **gatewayName** property, enter **adftutorialgateway** to replace all the text inside the double quotes.  
 	2.	If you are using **SQL Authentication**: 
-		1.	For the **connectionString** property, replace **<servername\>**, **<databasename\>**, **<username\>**, and **<password\>** with names of your on-premises SQL server, database, user account, and  password.	
+		1.	For the **connectionString** property, replace **<servername\>**, **<databasename\>**, **<username\>**, and **<password\>** with names of your on-premises SQL server, database, user account, and  password. To specify an instance name, use the escape character: \. For example: **server\\instancename**. 	
 		2.	Remove last two properties (**username** and **password**) from the JSON file and remove the **comma (,)** character at the end of the last line from the remaining JSON script.
 		
 				{
