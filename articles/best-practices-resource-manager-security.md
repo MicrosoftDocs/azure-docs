@@ -161,17 +161,12 @@ under the direct control of the operator.
         }
     }
 
-## Service principals unlock multi-organization subscription interactions
+## Service principals for cross-subscription interactions
 
-Service identities are represented by service principals in Active Directory. Service principals will be at the center of enabling key scenarios for Enterprise IT 
-organizations, System Integrators, and Cloud Service Vendors.
-
-Specifically, there will be use cases where one of these organizations will need to interact with the subscription of one of their customers.  
+Service identities are represented by service principals in Active Directory. Service principals will be at the center of enabling key scenarios for Enterprise IT organizations, System Integrators, and Cloud Service Vendors. Specifically, there will be use cases where one of these organizations will need to interact with the subscription of one of their customers.  
 
 Your organization could provide an offering that will monitor a solution deployed in your customers environment and subscription. In this case, you will need to 
-get access to logs and other data within a customers account so that you can utilize it in your monitoring solution.
-
-If you're a Corporate IT organization, a Systems Integrator, you may provide an offering to a customer where you will deploy and manage a capability for them, 
+get access to logs and other data within a customers account so that you can utilize it in your monitoring solution. If you're a Corporate IT organization, a Systems Integrator, you may provide an offering to a customer where you will deploy and manage a capability for them, 
 such as a data analytics platform, where the offering resides in the customers own subscription.
 
 In these use cases, your organization would require an identity that could be given access to perform these actions within the context of a customer subscription.  
@@ -187,7 +182,7 @@ These scenarios bring with them a certain set of considerations for your custome
 
 A combination of a service principal and RBAC can be used to address these requirements.
 
-## Understanding network security groups
+## Network security groups
 
 Many scenarios will have requirements that specify how traffic to one or more VM instances in your virtual network is controlled. You can use a network security 
 group (NSG) to do this as part of an ARM template deployment.
