@@ -164,7 +164,7 @@ Then SSH into it by using the **ssh username@ipaddress** command. To quickly loo
 
 Managing this virtual machine is easy with **vm** commands. For more information, visit [Using the Azure CLI with Azure Resource Management](azure-cli-arm-commands.md).
 
-### **vm quick-create** shortcut
+### vm quick-create shortcut
 
 The new **vm quick-create** shortcut cuts out most of the steps of the imperative method of VM creation. This is handy when you want to try out creating simple virtual machines or if you do not care about the networking configurations. It's an interactive command, and you need to find out only the OS image URN before running it.
 
@@ -185,7 +185,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 #### Locating and configuring a resource group template
 
-1. When working with templates, you can either create your own, or use one from the Template Gallery, or use templates available on [GitHub](https://github.com/azurermtemplates/azurermtemplates). To start with, let's use a template named CoreOS.CoreOSStable.0.2.40-preview from the Template Gallery. To list available templates from the gallery, use the following command. As there are thousands of templates available, you can paginate the results or use **grep** or **findstr**(on Windows) or your favorite string-searching command to locate interesting templates. Alternatively, you can use the **--json** option and download the entire list in JSON format for easier searching.
+1. When working with templates, you can either create your own, or use one from the Template Gallery, or use templates available on [GitHub](https://github.com/azurermtemplates/azurermtemplates). To start with, let's use a template named CoreOS.CoreOSStable.0.2.40-preview from the Template Gallery. To list available templates from the gallery, use the following command. As there are thousands of templates available, you can paginate the results or use **grep** or **findstr** (on Windows) or your favorite string-searching command to locate interesting templates. Alternatively, you can use the **--json** option and download the entire list in JSON format for easier searching.
 
 		azure group template list
 
@@ -338,8 +338,8 @@ To view logged information on operations performed on a group, use the `azure gr
 ## Next steps
 
 * For information on using the Azure Command-Line Interface (Azure CLI), see [Install and Configure the Azure CLI][clisetup].
-* For information on working with Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
-* For imformation on working with Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm]
+* For information on working with Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+* For imformation on working with Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
