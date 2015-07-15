@@ -26,7 +26,7 @@ In this article we'll deploy a simple LAMP application to Ubuntu using the Azure
 
 ## Prerequisites
 
-In the next example, first create two Azure VMs running Ubuntu 14.04. In the next example, the VMs are called *script-vm* and *lamp-vm*. Use unique names when you create the VMs. One is used to run the CLI commands and one is used to deploy the LAMP app.
+In the next example, first create two Azure VMs running Ubuntu 14.04. The VMs are called *script-vm* and *lamp-vm*. Use unique names when you create the VMs. One is used to run the CLI commands and one is used to deploy the LAMP app.
 
 You also need an Azure Storage account and a key to access it (you can get this from the Azure Portal).
 
