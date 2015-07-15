@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="SAP Connector"
    description="How to use the SAPConnector"
    services="app-service\logic"
@@ -19,8 +19,8 @@
 
 # SAP Connector #
 
-Connectors can be used in Logic apps to fetch, process or push data as a part of a flow.
-There are scenarios where you may need to work with SAP which is installed on-premise and behind the firewall. By leveraging the SAP Connector in your flow you can achieve a variety of scenarios. A few examples:  
+Connectors can be used in Logic apps to fetch, process or push data as a part of a flow. 
+There are scenarios where you may need to work with SAP, which is installed on-premises and behind the firewall. By leveraging the SAP Connector in your flow, you can achieve a variety of scenarios. A few examples:  
 
 1.	Expose a section of the data residing in your SAP via a web or mobile user front end.
 2.	Publish data to your SAP after due processing
@@ -29,7 +29,7 @@ There are scenarios where you may need to work with SAP which is installed on-pr
 For these scenarios, the following needs to be done:
 
 1. Create an instance of the SAP Connector API App
-2. Establish hybrid connectivity for the API App to communicate with the on-premise SAP
+2. Establish hybrid connectivity for the API App to communicate with the on-premises SAP
 3. Use the created API App in a logic app to achieve the desired business process
 
 ## Create an instance of the SAP Connector API App ##
@@ -40,7 +40,9 @@ To use the SAP Connector, you need to create an instance of the 'SAP Connector' 
 2. Browse to “Web and Mobile > API apps” and search for “SAP Connector”
 3. Configure it as follows:
 	1. Provide the generic details such as Name, App service plan, and so on in the first blade
-	2. As part of Package settings provide the SAP Credentials. Also provide an Azure Servce Bus connection string. This will be used to establish hybrid connectivity with your on-premise SAP.
+
+	2. As part of Package settings provide the SAP Credentials. Also provide an Azure Service Bus connection string. This will be used to establish hybrid connectivity with your on-premises SAP. 
+
 	3. RFCs, TRFCs, BAPIs and IDOCs need to be configured based on the scenario need. If multiple values need to be provided then they can be separated by commas
 
 ![][1]  
