@@ -2,6 +2,7 @@
     pageTitle="Efficiently use Listing APIs in Microsoft Azure Storage Client Library for C++ | Microsoft Azure" 
     description="Learn how to use the “Listing APIs” in Microsoft Azure Storage Client Library for C++ efficiently." 
     documentationCenter=".net" 
+    services="storage"
     authors="tamram" 
     manager="adinah" 
     editor=""/>
