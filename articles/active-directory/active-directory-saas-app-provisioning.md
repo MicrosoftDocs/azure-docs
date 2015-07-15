@@ -76,8 +76,7 @@ Please contact us through the [Azure Active Directory feedback forum](http://fee
 Azure AD provisions users to SaaS apps by connecting to provisioning endpoints provided by each application vendor. These endpoints allow Azure AD to programmatically create, update, and remove users. Below is a brief overview of the different steps that Azure AD takes to automate provisioning.
 
 1. When you enable provisioning for an application for the first time, the following actions are performed:
- - Azure AD will attempt to match any existing users in the SaaS app with their corresponding identities in the directory.
- - When a user is matched, they are automatically assigned access to the application, which enables them for single sign-on.
+ - Azure AD will attempt to match any existing users in the SaaS app with their corresponding identities in the directory. When a user is matched, they are *not* automatically enabled for single sign-on. In order for a user to have access to the application, they must be explicitly assigned to the app in Azure AD, either directly or via group membership.
  - If you have already specified which users should be assigned to the application, and if Azure AD fails to find existing accounts for those users, Azure AD will provision new accounts for them in the application.
 2. Once the initial synchronization has been completed as described above, Azure AD will check every 10 minutes for the following changes:
  - If new users have been assigned to the application (either directly or through group membership), then they will be provisioned a new account in the SaaS app.
