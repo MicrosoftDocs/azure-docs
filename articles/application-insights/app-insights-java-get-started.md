@@ -207,25 +207,11 @@ Add this item to the Struts configuration file (usually named struts.xml or stru
 (If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
 
 
-## 5. Collect additional diagnostic data
-
-You can get extra data by installations on the server machine.
-
-#### Remote dependencies, method execution timings, and  caught exceptions
-
-* [Install the Java Agent](app-insights-java-agent.md)
-
-#### Performance Counters
-
-On your server machine, if it's a Windows machine, install 
-
-* [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
-
-## 6. Run your application
+## 5. Run your application
 
 Either run it in debug mode on your development machine, or publish to your server.
 
-## 7. View your telemetry in Application Insights
+## 6. View your telemetry in Application Insights
 
 Return to your Application Insights resource in [Microsoft Azure Portal](https://portal.azure.com).
 
@@ -257,8 +243,9 @@ For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET H
 
 This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 
-## Unhandled exceptions and request failures
+## Exceptions and request failures
 
+Unhandled exceptions are collected:
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
@@ -266,6 +253,11 @@ To collect data on other exceptions, you have two options:
 
 * [Insert calls to TrackException in your code][apiexceptions].
 * [Install the Java Agent on your server](app-insights-java-agent.md). You specify the methods you want to watch.
+
+
+## Monitor method calls and external dependencies
+
+[Install the Java Agent](app-insights-java-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
 
 
 ## Performance counters
@@ -326,6 +318,18 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
+
+### Even more Performance Counters
+
+On your server machine:
+
+**If it's a Windows machine**, install 
+
+* [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+
+**If it's Unix**
+
+* [Install collectd with the Application Insights plugin] to get a very wide variety of system and network data.
 
 ## Get user and session data
 
