@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/07/2015"
+   ms.date="07/14/2015"
    ms.author="liviodlc"/>
 
 #Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory
