@@ -20,25 +20,25 @@
 
 The Microsoft Azure CustomScript Extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (for example, Python, and Bash). This provides a very flexible way to automate application deployment to multiple machines.
 
-You can deploy the CustomScript Extension using the Azure Portal, PowerShell, or the Azure Command-Line Interface (Azure CLI).
+You can deploy the CustomScript Extension using the Azure Portal, Windows PowerShell, or the Azure Command-Line Interface (Azure CLI).
 
 In this article we'll deploy a simple LAMP application to Ubuntu using the Azure CLI.
 
 ## Prerequisites
 
-In the next example, first create two Azure VMs running Ubuntu 14.04. In the next example, the VMs are called *script-vm* and *lamp-vm*. Use unique names when you create VMs. One is used to run the CLI commands and one is used to deploy the LAMP app.
+In the next example, first create two Azure VMs running Ubuntu 14.04. In the next example, the VMs are called *script-vm* and *lamp-vm*. Use unique names when you create the VMs. One is used to run the CLI commands and one is used to deploy the LAMP app.
 
 You also need an Azure Storage account and a key to access it (you can get this from the Azure Portal).
 
 If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](virtual-machines-linux-tutorial.md).
 
-Though the specific install commands will assume Ubuntu, you can adapt the general steps for any supported Linux distro.
+The install commands assume Ubuntu, but you can adapt the installation for any supported Linux distro.
 
 The script-vm VM needs to have Azure CLI installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Command-Line Interface](../xplat-cli.md).
 
 ## Upload a script
 
-In this example the CustomScript Extension will execute a script on a remote VM to install the LAMP stack and create a PHP page. In order to access the script from anywhere we'll upload it as an Azure blob.
+In this example the CustomScript Extension runs a script on a remote VM to install the LAMP stack and create a PHP page. In order to access the script from anywhere we'll upload it as an Azure blob.
 
 **Script overview**
 
@@ -64,7 +64,7 @@ The next script example installs a LAMP stack to Ubuntu (including setting up a 
 
 **Upload script**
 
-Save the script as a text file, for example *lamp_install.sh*, and then upload it to Azure Storage. You can do this easily with Azure CLI. The following example uploads the file to a storage container named "scripts". Note: If the container doesn't exist you'll need to create it first.
+Save the script as a text file, for example *lamp_install.sh*, and then upload it to Azure Storage. You can do this easily with Azure CLI. The following example uploads the file to a storage container named "scripts". If the container doesn't exist you'll need to create it first.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
