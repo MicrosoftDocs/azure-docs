@@ -84,7 +84,7 @@ After deploying the latest updates begin the deployment steps.
 4. In **Name** enter a friendly name to identify the vault.
 5. In **Region** select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](pricing/details/site-recovery/).
 
-<P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
+Check the status bar to confirm that the vault was successfully created. The vault will be listed as **Active** on the main Recovery Services page.
 
 ## Step 2: Configure the vault
 
