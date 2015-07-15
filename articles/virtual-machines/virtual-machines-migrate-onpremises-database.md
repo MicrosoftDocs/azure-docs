@@ -18,9 +18,11 @@
 
 
 # Migrating a Database to SQL Server on an Azure VM
+
 There are a number of methods for migrating an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods, recommend the best method for various scenarios, and include a tutorial to guide you through the use of the Deploy a SQL Server Database to a Microsoft Azure VM wizard.
 
 ## What are the primary migration methods?
+
 The primary migration methods are:
 
 - Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard
@@ -33,6 +35,7 @@ The primary migration methods are:
 > [AZURE.NOTE] If you have an AlwaysOn deployment on-premises, you can also consider using the [Add Azure Replica Wizard](https://msdn.microsoft.com/library/dn463980.aspx) to create a replica in Azure and then failover as a method of migrating.
 
 ## Choosing your migration method
+
 For optimum data transfer performance, migration of the database files into the Azure VM  using a compressed backup file is generally the best method. This is the method that the [Deploy a SQL Server Database to a Microsoft Azure VM wizard](#azure-vm-deployment-wizard-tutorial) uses. This wizard is the recommended method for migrating an on-premises user database running on SQL Server 2005 or greater to SQL Server 2014 or greater when the compressed database backup file is less than 1 TB.
 
 If it is not possible to use the wizard because the database backup file is too large or you the destination SQL Server instance is not SQL Server 2014 or newer, your migration process will be a manual process that will generally start with a database backup followed by a copy of the the database backup into Azure and then completed with a database restore. You can also copy the database files themselves into Azure. There several methods by which you can accomplish this manual process of migrating a database into an Azure VM.
@@ -72,19 +75,19 @@ If you are migrating to an existing Azure VM, the following configuration steps 
 1. Open Microsoft SQL Server Management Studio for Microsoft SQL Server 2016 and connect to the SQL Server instance containing the user database that you will be migrating to an Azure VM.
 2. Right-click the database that you are migrating, point to Tasks and then click Deploy to a Microsoft Azure VM.
 
- ![Start Wizard](./media/virtual-machines-migrate-onpremises-database/start-wizard.png)
+	![Start Wizard](./media/virtual-machines-migrate-onpremises-database/start-wizard.png)
 
 3. On the Introduction page, click Next.
 4. On the Source Settings page, connect to the SQL Server instance containing the database that you are going to migrate to an Azure VM.
 5. Specify a temporary location for the backup files. If connecting to a remote server, you must specify a network drive.
 6. Click Next.
 
- ![Source Settings](./media/virtual-machines-migrate-onpremises-database/source-settings.png)
+	![Source Settings](./media/virtual-machines-migrate-onpremises-database/source-settings.png)
 
 7. On the Microsoft Azure Sign-In page, click Sign In and sign-in to your Azure account.
 8. Select the subscription that you wish to use and click Next.
 
- ![Azure Sign-In](./media/virtual-machines-migrate-onpremises-database/azure-signin.png)
+	![Azure Sign-In](./media/virtual-machines-migrate-onpremises-database/azure-signin.png)
 
 9. On the Deployment Settings page, you can specify a new or an existing Cloud Service name and Virtual Machine name:
 
@@ -97,12 +100,12 @@ If you are migrating to an existing Azure VM, the following configuration steps 
  - Specify an existing Cloud Service name and new Virtual Machine name to create a new Azure virtual machine in an existing Cloud Service. Only specify a SQL Server 2014 or SQL Server 2016 gallery image.
  - Specify an existing Cloud Service name and Virtual Machine name to use an existing Azure virtual machine. This must an image built using a SQL Server 2014 or SQL Server 2016 gallery image.
 
-    ![Deploymnent Settings](./media/virtual-machines-migrate-onpremises-database/deployment-settings.png)
+		![Deploymnent Settings](./media/virtual-machines-migrate-onpremises-database/deployment-settings.png)
 
 10. Click Settings
   - 	If you specified an existing Cloud Service name and Virtual Machine name, you will be prompted to provide the user name and password.
 
-    	![Azure machine settings](./media/virtual-machines-migrate-onpremises-database/azure-machine-settings.png)
+  		![Azure machine settings](./media/virtual-machines-migrate-onpremises-database/azure-machine-settings.png)
 
 	- If you specified a new Virtual Machine name, you will be prompted to select an image from the list of Gallery images and provide the following information:
 	  - Image – select only SQL Server 2014 or SQL Server 2016
@@ -113,12 +116,12 @@ If you are migrating to an existing Azure VM, the following configuration steps 
 		- Size.
 	  - If addition, click to accept the self-generated certificate for this new Microsoft Azure Virtual Machine and then click OK.
 
-    	![Azure new machine settings](./media/virtual-machines-migrate-onpremises-database/azure-new-machine-settings.png)
+  		![Azure new machine settings](./media/virtual-machines-migrate-onpremises-database/azure-new-machine-settings.png)
 
 11. Specify the target database name if different from the source database name. If the target database already exists, the system will automatically increment the database name rather than overwrite the existing database.
 12. Click Next and then click Finish.
 
- ![Results](./media/virtual-machines-migrate-onpremises-database/results.png)
+	![Results](./media/virtual-machines-migrate-onpremises-database/results.png)
 
 13. When the wizard completes, connect to your virtual machine and verify that your database has been migrated.
 14. If you created a new virtual machine, configure the Azure virtual machine and the SQL Server instance by following the steps in Connect to the SQL Server virtual machine instance from SSMS on another computer section in [Provisioning a SQL Server Virtual Machine on Azure](../virtual-machines-provision-sql-server/#SSMS).
