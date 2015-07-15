@@ -11,7 +11,7 @@ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
- ms.workload="infrastructure-services"
+ ms.workload="big-compute"
  ms.date="07/14/2015"
  ms.author="danlep"/>
 
@@ -29,9 +29,9 @@ Following are methods you can use to create a Linux RDMA cluster either with or 
 
 * **HPC Pack** - Starting with Microsoft HPC Pack 2012 R2 Update 2, you can now create a Microsoft HPC Pack cluster in Azure and deploy compute nodes that run supported Linux distributions. Some Linux nodes can be configured to access the RDMA network. See the [HPC Pack documentation](http://go.microsoft.com/fwlink/?LinkId=617894) to get started.
 
-* **Azure CLI scripts** - You can use the [Azure Command Line Interface](xplat-cli.md) (CLI) for Mac, Linux, and Windows in Azure Service Management mode to build your own scripts to deploy a virtual network and all the other necessary components to create a Linux cluster. The CLI in asm mode will deploy the cluster nodes serially, so if you are deploying many compute nodes it might take several minutes to complete the deployment. See steps in the rest of this article for an example.
+* **Azure CLI scripts** - You can use the [Azure Command Line Interface](../xplat-cli.md) (CLI) for Mac, Linux, and Windows in Azure Service Management mode to build your own scripts to deploy a virtual network and all the other necessary components to create a Linux cluster. The CLI in asm mode will deploy the cluster nodes serially, so if you are deploying many compute nodes it might take several minutes to complete the deployment. See steps in the rest of this article for an example.
 
-* **Azure Resource Manager templates** - By creating a straightforward Azure Resource Manager JSON template file and running Azure CLI arm-mode commands or using the Azure Preview Portal, you can deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources to create a compute cluster that can take advantage of the RDMA network and run MPI workloads. You can [create your own template](resource-group-authoring-templates.md), or check the [Azure Quickstart Templates page](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates generally provide the fastest and most reliable way to deploy a Linux cluster.
+* **Azure Resource Manager templates** - By creating a straightforward Azure Resource Manager JSON template file and running Azure CLI arm-mode commands or using the Azure Preview Portal, you can deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources to create a compute cluster that can take advantage of the RDMA network and run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure Quickstart Templates page](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates generally provide the fastest and most reliable way to deploy a Linux cluster.
 
 ## Deployment in Azure Service Management with Azure CLI scripts
 
@@ -42,7 +42,7 @@ The following steps will help you use the Azure CLI to deploy a SLES 12 VM, inst
 * **Client computer** - You'll need a Mac, Linux, or Windows-based client computer to communicate with Azure.
 * **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 * **Cores quota** - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs. For example, you will need at least 128 cores if you want to deploy 16 A8 VMs. To raise a quota, you can [open an online customer support request](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
-* **Azure CLI** - [Install](xplat-cli-install.md) the Azure CLI and [configure it ](xplat-cli-connect.md) to use your Azure subscription on the client computer
+* **Azure CLI** - [Install](../xplat-cli-install.md) the Azure CLI and [configure it ](../xplat-cli-connect.md) to use your Azure subscription on the client computer.
 
 
 ### Provision a SLES 12 VM
