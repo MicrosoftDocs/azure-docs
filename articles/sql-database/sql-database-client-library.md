@@ -26,7 +26,9 @@
 
 This article provides commands to perform many Azure SQL Database management tasks using C#. Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
-The Azure SQL Database Library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) API, it is a wrapper on the [SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). The API wraps PUT statements into the CreateOrUpdate statements so the calls are idempotent, meaning you can run the code many times and it will produce the same result.
+The Azure SQL Database Library for .NET provides an [Azure Resource Management](resource-group-overview.md)(ARM)-based API that wraps the [ARM-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for ARM-based client libraries. 
+
+Creating or updating resources is achieved using calls to CreateOrUpdate operations on the API which each wrap a PUT request on the underlying REST API. PUT requests are idempotent, so making the same call multiple times will produce the same result. Each call requires you format and pass in a set of parameters including the properties defined on the underlying Azure resource. When updating an existing resource all properties must be given an explicit value or the default value will be used regardless of the current values of the properties.
 
 ARM requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD), so code examples are provided for this as well.
 
@@ -40,17 +42,17 @@ If you do not have an Azure subscription, simply click **FREE TRIAL** at the top
 
 ## Installing the required libraries
 
-Get the SQL Database Management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console):
+Get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console):
 
-    PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+    PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
     PM> Install-Package Microsoft.Azure.Common
 
 
-## Configure your credentials by authenticating with Azure Active Directory
+## Configure authentication with Azure Active Directory
 
-First you must establish access to your Azure account by setting up the required authentication. 
+You must first enable your application to access the REST API by setting up the required authentication.
 
 The [Azure Resource Management (ARM) REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs. 
 
@@ -95,9 +97,9 @@ Save your changes before leaving the page.
 Additional information about using Azure Active Directory for authentication can be found in [this useful blog post](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
-### Retrieve your access token 
+### Retrieve the access token for the current user 
 
-The client application must retrieve the application access token for the current user. The first time you run this code the user will be prompted to enter their user credentials and the resulting token is cached locally. Subsequent executions will retrieve the token from the cache and will only prompt the user to log in if the token has expired.
+The client application must retrieve the application access token for the current user. The first time the code is executed by a user they will be prompted to enter their user credentials and the resulting token is cached locally. Subsequent executions will retrieve the token from the cache and will only prompt the user to log in if the token has expired.
 
 
 
@@ -132,7 +134,8 @@ To create automated scripts where no user interaction is required, you can authe
 
 ## Create a resource group
 
-A resource group is a container that holds related resources for an application. Azure SQL Databases and servers are contained in resource groups. Before creating or working with a SQL database you must first create a resource group, a server, and then you must create a new firewall rule(s) to allow T-SQL clients to access the server and databases.
+With ARM, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. With Azure SQL Database the database server must be created first within an existing resource group and then the database created on the server. Then before an application can connect to the server or database using TDS to submit T-SQL you must also create a firewall rule on the server to open access from the client IP address.
+
 
     // Create a resource management client 
     ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
@@ -148,11 +151,9 @@ A resource group is a container that holds related resources for an application.
 
 
 
-
-
 ## Create a server 
 
-SQL databases are contained in servers. The server name must be globally unique to Azure SQL Servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete.
+SQL databases are contained in servers. The server name must be globally unique among all Azure SQL servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete.
 
 
     // Create a SQL Database management client
@@ -178,7 +179,7 @@ SQL databases are contained in servers. The server name must be globally unique 
 
 ## Create a server firewall rule to allow access to the server
 
-Establish a firewall rule to access the server. A [firewall rule](https://msdn.microsoft.com/library/azure/ee621782.aspx) allows T-SQL access, and enables access to the server and all databases on the server. 
+By default a server cannot be connected to from any location. In order to connect to a server using TDS and submit T-SQL to the server, or to any databases on the server, a [firewall rule](https://msdn.microsoft.com/library/azure/ee621782.aspx) must be defined that allows access from the client IP address.
 
 The following example creates a rule that opens access to the server from any IP address. It is recommended that you create appropriate SQL logins and passwords to secure your database and not rely on firewall rules as a primary defense against intrusion. 
 
@@ -204,7 +205,7 @@ To allow other Azure services to access a server add a firewall rule and set bot
 
 ## Create a database
 
-The following command will create a Basic database. If the **Edition** property was omitted, a Standard S0 database would be created by default. 
+The following command will create a new Basic database if a database with the same name does not exist on the server; if a database with the same name does exist it will be updated. If the **Edition** property is omitted, a Standard S0 database will be created by default. 
 
 
     // Create a database
