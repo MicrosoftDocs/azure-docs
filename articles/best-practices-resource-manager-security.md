@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Security Considerations for Azure Resource Manager"
+	pageTitle="Security considerations for Azure Resource Manager"
 	description="Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="07/15/2015"
 	ms.author="mmercuri"/>
 
 
-# Security Considerations for Azure Resource Manager
+# Security considerations for Azure Resource Manager
 
 When looking at aspects of security for your Azure Resource Manager templates, there are several areas to consider – keys and secrets, role-based access control, 
 and network security groups.
@@ -26,7 +26,7 @@ This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azu
 [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md) and 
 [Managing and Auditing Access to Resources](resource-group-rbac.md) 
 
-## Secrets and Certificates
+## Secrets and certificates
 
 Azure Virtual Machines, Azure Resource Manager and Azure Key Vault are fully integrated to provide support for the secure handling of certificates which are 
 to be deployed in the VM.  Utilizing Azure Key Vault with Resource Manager to orchestrate and store VM secrets and certificates is a best practice and 
@@ -45,7 +45,7 @@ company to a new group, they no longer have access to the keys they created in t
 datacenter.  Once the keys are in the Key Vault, they never see 'daylight' over an untrusted channel outside of the datacenter.  
 - Key Vaults are always regional, so the secrets always have locality (and sovereignty) with the VMs. There are no global Key Vaults.
 
-### Separation of Keys from Deployments
+### Separation of keys from deployments
 
 A best practice is to maintain separate templates for:
 
@@ -161,7 +161,7 @@ under the direct control of the operator.
         }
     }
 
-## Service Principals Unlock Multi-Organization Subscription Interactions
+## Service principals unlock multi-organization subscription interactions
 
 Service identities are represented by service principals in Active Directory. Service principals will be at the center of enabling key scenarios for Enterprise IT 
 organizations, System Integrators, and Cloud Service Vendors.
@@ -203,7 +203,7 @@ in the subnet. A VM or subnet can be associated with only 1 NSG, but each NSG ca
 
 >> [AZURE.NOTE]  Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
 
-### How NSGs work
+### How network security groups work
 
 Network security groups are different than endpoint-based ACLs. Endpoint ACLs work only on the public port that is exposed through the Input endpoint. An 
 NSG works on one or more VM instances and controls all the traffic that is inbound and outbound on the VM.
@@ -323,7 +323,7 @@ Name |	Priority |	Source IP |	Source Port |	Destination IP |	Destination Port |	
 --- | --- | --- | --- | --- | --- | --- | ---
 WEB	| 100	| INTERNET | *	| *	| 80	| TCP	| ALLOW
 
-## User Defined Routes
+## User-defined routes
 
 Azure uses a route table to decide how to forward IP traffic based on the destination of each packet. Although Azure provides a default route table based on 
 your virtual network settings, you may need to add custom routes to that table.
@@ -352,7 +352,7 @@ routes used to decide where to forward packets based on the destination IP addre
 
 ![Routing](./media/best-practices-resource-manager-security/routing.png)
 
-### Default Routes
+### Default routes
 
 Every subnet created in a virtual network is automatically associated with a route table that contains the following default route rules:
 
@@ -360,7 +360,7 @@ Every subnet created in a virtual network is automatically associated with a rou
 - On-premises Rule: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.
 - Internet Rule: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
-### BGP Routes
+### BGP routes
 
 At the time of this writing, ExpressRoute is not yet supported in the Network Resource Provider for ARM.  If you have an ExpressRoute connection between your 
 on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure once ExpressRoute is supported in the NRP. These 
@@ -369,7 +369,7 @@ BGP routes are used in the same way as default routes and user defined routes in
 
 >> [AZURE.NOTE] When ExpressRoute on NRP is supported, you will be able to configure your Azure environment to use force tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
 
-### User Defined Routes
+### User-defined routes
 
 You cannot view the default routes specified above in your Azure environment, and for most environments, those are the only routes you will need. 
 However, you may need to create a route table and add one or more routes in specific cases, such as:
@@ -391,7 +391,7 @@ order:
 
 >> [AZURE.NOTE] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 
-### IP Forwarding
+### IP forwarding
 
 As described above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance. A virtual appliance is nothing more than a 
 VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.
@@ -399,6 +399,6 @@ VM that runs an application used to handle network traffic in some way, such as 
 This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, 
 you must enable IP Forwarding in the VM.
 
-## Next Steps
-- [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md)
-- [Managing and Auditing Access to Resources](resource-group-rbac.md)
+## Next steps
+- To understand how to set up security principals with the correct access to work with resources in your organization, see [Authenticating a Service Principal with Azure Resource Manager](resource-group-authenticate-service-principal.md)
+- If you need to lock access to a resource, you can use management locks. See [Lock Resources with Azure Resource Manager](resource-group-lock-resources.md)
