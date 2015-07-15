@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -29,18 +29,7 @@ Some charts are segmented: the total height of the chart at any point is the sum
 
 Dotted lines show the value of the metric one week previously.
 
-## Point values
 
-Hover your mouse over the chart to display the values of the metrics at that point.
-
-
-![Hover the mouse over a chart](./media/app-insights-metrics-explorer/02-focus.png)
-
-The value of the metric at a particular point is aggregated over the preceding sampling interval. This can vary depending on the time range of the whole chart.
-
-The sampling interval or "grain" is shown at the top of the blade. 
-
-![The header of a blade.](./media/app-insights-metrics-explorer/11-grain.png)
 
 ## Time range
 
@@ -56,6 +45,23 @@ In the Overview blade, drag over a part of the chart to zoom into it in a new ch
 
 ![Drag across part of a chart.](./media/app-insights-metrics-explorer/12-drag.png)
 
+## Grain and point values
+
+Hover your mouse over the chart to display the values of the metrics at that point.
+
+![Hover the mouse over a chart](./media/app-insights-metrics-explorer/02-focus.png)
+
+The value of the metric at a particular point is aggregated over the preceding sampling interval. 
+
+The sampling interval or "grain" is shown at the top of the blade. 
+
+![The header of a blade.](./media/app-insights-metrics-explorer/11-grain.png)
+
+You can adjust the grain in the Time range blade:
+
+![The header of a blade.](./media/app-insights-metrics-explorer/grain.png)
+
+The grains available depend on the time range you select. The explicit grains are alternatives to the "automatic" grain for the time range. 
 
 ## Metrics Explorer
 
