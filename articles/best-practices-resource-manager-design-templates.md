@@ -257,7 +257,7 @@ typically tied to licensing considerations or feature availability across the di
 You can also accommodate customers with unique variants using the JSON-based templates. When dealing with outliers, you can incorporate the appropriate planning 
 and considerations for development, support, and costing.
 
-## The template decomposition approach
+## Template decomposition approach
 
 Based on the customer template consumption scenarios, requirements identified at the start of this document, and our hands-on experience creating numerous templates, 
 we identified a pattern for template decomposition.
