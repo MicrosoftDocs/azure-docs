@@ -64,7 +64,16 @@ The types of programs that a Node can run include executable files (.exe), comma
 
 - File system folders that are both task-specific and shared. A folder structure and environment variables are created on each pool node. The following folder structure is created with a “shared” folder for applications and data shared between tasks, plus a folder for each task.
 
-![][1]
+<pre><code> ─ %AZ_BATCH_NODE_ROOT_DIR%
+   ├─shared
+   ├─startup
+   └─&lt;JOB_ID&gt;
+     ├─&lt;TASK_ID_1&gt;
+     │ └─wd
+     └─&lt;TASK_ID_2&gt;
+       └─wd
+</code></pre>
+
 
 - Stdout.txt and stderr.txt files that are written to a task-specific folder
 
