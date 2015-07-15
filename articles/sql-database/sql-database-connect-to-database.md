@@ -23,7 +23,7 @@
 These are the steps to install SQL Server Management Studio (SSMS) and use SSMS to connect and query your SQL Database.
 
 ## Prerequisites
-* •	An SQL Database AdventureWorks sample database as described in [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
+* An SQL Database AdventureWorks sample database as described in [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
 
 ## Install and launch SQL Server Management Studio (SSMS)
 1. Go to the download page for [SQL Server 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299), click **Download**, and choose either the 32-bit version (x86) or the 64-bit version (x64) of the MgmtStudio download.
