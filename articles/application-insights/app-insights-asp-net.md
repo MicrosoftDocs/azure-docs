@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Application Insights SDK to monitor your ASP.NET app" 
+	pageTitle="Application Insights for ASP.NET" 
 	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -133,6 +133,26 @@ If your application is serving clients such as phones or other devices, add the 
 
 If you configure the client SDK with the same instrumentation key as the server SDK, the two streams will be integrated so that you can see them together.
 
+## Usage tracking
+
+When you've delivered a new user story, you'd like to know how much your customers are using it, and whether they are achieving their goals or having difficulties. Get a detailed picture of user activity by inserting TrackEvent() and other calls in your code, both at the client and server. 
+
+[Use the API to track usage][api]
+
+
+## Diagnostic logs
+
+[Capture log traces][netlogs] from your favorite logging framework to help diagnose any problems. Your log entries will appear in [diagnostic search][diagnostic] along with the Application Insights telemetry events.
+
+## Publish your app
+
+If you haven't yet published your app (since you added Application Insights), do that now. Watch the data grow in the charts as people use your app.
+
+### Keep separate resources for dev, test and release
+
+For a major application, it's advisable to send telemetry data from debugging, testing and production into [separate resources](app-insights-separate-resources.md). 
+
+
 
 ## Add dependency tracking
 
@@ -162,16 +182,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 ![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
 
 
-## Usage tracking
 
-When you've delivered a new user story, you'd like to know how much your customers are using it, and whether they are achieving their goals or having difficulties. Get a detailed picture of user activity by inserting TrackEvent() and other calls in your code, both at the client and server. 
-
-[Use the API to track usage][api]
-
-
-## Diagnostic logs
-
-[Capture log traces][netlogs] from your favorite logging framework.
 
 
 

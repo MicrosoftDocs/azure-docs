@@ -57,7 +57,7 @@ To get back to it next time you login to Azure, look for your app's quick-start 
 
 ## Copy the instrumentation key
 
-The instrumentation key identifies the resource that you created. You might need it to 
+The instrumentation key identifies the resource that you created. You'll need it to give to the SDK.
 
 ![Click Essentials, click the Instrumentation Key, CTRL+C](./media/app-insights-create-new-resource/02-props.png)
 
