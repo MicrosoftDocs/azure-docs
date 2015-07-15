@@ -21,12 +21,11 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-By adding Visual Studio Application Insights to your project, you can detect and diagnose performance issues and exceptions.
-
+Application Insights is an extensible analytics service that helps you understand the performance and usage of your live application. Use it to detect and diagnose performance issues and exceptions, and [write code][api] to track what users do with your app.
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
-In addition, you can set up [web tests][availability] to monitor your application's availability, and insert [code into your web pages][api] to understand usage patterns.
+[Application Insights web tests][availability] monitor your application's availability.
 
 You'll need:
 
@@ -74,13 +73,12 @@ Then refresh the project dependencies, to get the binaries downloaded.
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[0.9,)</version>
+        <version>[1.0,)</version>
       </dependency>
     </dependencies>
 
 
-* *Build or checksum validation errors?*
- * Try using a specific version, such as:* `<version>0.9.n</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors? Try using a specific version, such as:* `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -95,11 +93,11 @@ Then refresh the project dependencies, to get the binaries downloaded.
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `version:'0.9.n'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).* 
+* *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).* 
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -207,12 +205,13 @@ Add this item to the Struts configuration file (usually named struts.xml or stru
 
 (If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
 
+## 5. Install on the server
 
-## 5. Enable Performance Counter collection
-
-On your server machine, if it's a Windows machine, install 
+On Windows servers, install:
 
 * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+
+(This enables performance counters.)
 
 ## 6. Run your application
 
@@ -250,12 +249,21 @@ For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET H
 
 This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 
-## Unhandled exceptions and request failures
+## Exceptions and request failures
 
+Unhandled exceptions are collected:
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
-To collect data on other exceptions, [insert calls to TrackException in your code][apiexceptions]. 
+To collect data on other exceptions, you have two options:
+
+* [Insert calls to TrackException in your code][apiexceptions].
+* [Install the Java Agent on your server](app-insights-java-agent.md). You specify the methods you want to watch.
+
+
+## Monitor method calls and external dependencies
+
+[Install the Java Agent](app-insights-java-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
 
 
 ## Performance counters
@@ -296,7 +304,7 @@ You can specify additional performance counters to be collected.
 
 
 
-#### Windows (64-bit) performance counters 
+#### Windows performance counters 
 
 Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
@@ -316,6 +324,10 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
+
+### Unix performance counters
+
+* [Install collectd with the Application Insights plugin](app-insights-java-collectd.md) to get a wide variety of system and network data.
 
 ## Get user and session data
 
