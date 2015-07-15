@@ -67,20 +67,20 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 1. Launch **Visual Studio 2013**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
 2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**. If you don't see DataFactory template, close Visual Studio, install the add-in, and reopen Visual Studio.  
 
-	![New project dialog box](../media/data-factory-get-started-using-vs/new-project-dialog.png)
+	![New project dialog box](./media/data-factory-get-started-using-vs/new-project-dialog.png)
 
 3. Enter a name for the project, location, and solution name, and click **OK**.
 
-	![Solution Explorer](../media/data-factory-get-started-using-vs/solution-explorer.png)	
+	![Solution Explorer](./media/data-factory-get-started-using-vs/solution-explorer.png)	
 
 4. Right-click **Linked Services** in the solution explorer, point to **Add**, and click **New Item**.      
 5. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**. 
 
-	![New Linked Service](../media/data-factory-get-started-using-vs/new-linked-service-dialog.png)
+	![New Linked Service](./media/data-factory-get-started-using-vs/new-linked-service-dialog.png)
  
 3. Replace **accountname** and **accountkey** with the name of your Azure storage account and its key. 
 
-	![Azure Storage Linked Service](../media/data-factory-get-started-using-vs/azure-storage-linked-service.png)
+	![Azure Storage Linked Service](./media/data-factory-get-started-using-vs/azure-storage-linked-service.png)
 
 4. Save the **AzureStorageLinkedService1.json** file.
 5. Right-click on **Linked Services** node in the **Solution Explorer** again, point to **Add**, and click **New Item**. 
@@ -201,8 +201,8 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 	21. Once the sign-in is successful, you should see all the data factories in the Azure subscription. In this tutorial, you will create a new data facotry.       
 22. In the drop-down list, select **ADFTutorialFactoryVS**, and click **Publish** button to deploy/publish the linked services, datasets, and the pipeline.    
 
-	![Publish button](../media/data-factory-get-started-using-vs/publish.png)
+	![Publish button](./media/data-factory-get-started-using-vs/publish.png)
 
 23. You should see the status of publishing in the Data Factory Task List window that is shown in the picture above. Confirm that publishing has succeeded.
-24. See [Monitor datasets and pipeline](../data-factory-get-started-using-editor/#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
+24. See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
 
