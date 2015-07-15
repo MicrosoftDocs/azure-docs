@@ -70,7 +70,7 @@ Install as follows:
 2. To update the RX server, download **RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz**. Copy it to the RX server and extract **RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz**. .In the extracted folder run **/Install**.
 2. To update the configuration server, download **CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15**. Copy it to the configuration server and double click on **CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15**.
 3. To update the unified agent on a master target server running Windows, download **UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15**. Copy it to the master target server. Double click on **UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15**. Note that the unified agent for Windows isn't application on the source server. It should be installed on the Windows master target server only.
-4. To update hte unified agent on a master target server running Linux, download **UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz**. Copy it to the master target server. Extract **UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz**. In the extracted folder run **/Install**
+4. To update hte unified agent on a master target server running Linux, download **UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz**. Copy it to the master target server. Extract **UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz**. In the extracted folder run **/Install**.
 5. To update the vContinuum server download **vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15**. Copy it to thevContinuum server. Make sure you've closed the vContinuum Wizard. Double click on the **vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15** installer.
 
 After deploying the latest updates begin the deployment steps.
