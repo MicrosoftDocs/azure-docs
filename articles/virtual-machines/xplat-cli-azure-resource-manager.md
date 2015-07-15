@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management | Microsoft Azure"
-	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management."
+	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Manager."
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
