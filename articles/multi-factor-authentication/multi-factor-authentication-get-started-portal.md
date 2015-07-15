@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/14/2015" 
 	ms.author="billmath"/>
 
 # Deploying the user portal for the Azure Multi-Factor Authentication Server
@@ -98,6 +98,29 @@ Before installing the user portal on a seperate server, be aware of the followin
 ## Configure the user portal settings in the Azure Multi-Factor Authentication Server
 Now that the portal is installed, you need to configure the Azure Multi-Factor Authentication Server to work with the portal.
 
+Azure Multi-Factor Authentication server provides several options for the user portal.  The following table provides a list of these options and an explaination of what they are used for.
+
+User Portal Settings|Description|
+:------------- | :------------- | 
+User Portal URL| Allows you to enter the URL of where the portal is being hosted.
+Primary authentication| Allows you to specify the type of authentication to use when signing in to the portal.  Either Windows, Radius, or LDAP authentication.
+Allow users to log in|Allows users to enter a username and password on the sign in page for the User portal.  If this is not selected, the boxes will be greyed out.
+Allow user enrollment|Allows user to enroll in multi-factor authentication by taking them to a setup screen that prompts them for additional information such as telephone number.  Prompt for backup phone allows users to specify a secondary phone number.  Prompt for third-party OATH token allows users to specify a 3rd party OATH token.
+Allow users to initiate One-Time Bypass| This allows users to initiate a one-time bypass.  If a user sets this up it will take affect the next time the user signs in.  Prompt for bypass seconds provides the user with a box so they can change the default of 300 seconds.  Otherwise, the one-time bypass is only good for 300 seconds.
+Allow users to select method| Allows users to specify their primary contact method.  This can be phone call, text message, mobile app, or OATH token.
+Allow users to select language|  Allows the user to change the language that is used for the phone call, text message, mobile app, or OATH token.
+Allow users to activate mobile app| Allows the users to generate an activation code to complete the mobile app activation process that is used with the server.  You can also set the number of devices they can activate this on.  Between 1 and 10.
+Use security questions for fallback|Allows you to use security questions in case multi-factor authentication fails.  You can specify the number of security questions that must be successfully answered.
+Allow users to associate third-party OATH token| Allows users to specify a third-party OATH token.
+Use OATH token for fallback|Allows for the use of an OATH token in the event that multi-factor authentication is not successful.  You can also specify the session timeout in minutes.
+Enable logging|Enables logging on the user portal.  The log files are located at: C:\Program Files\Multi-Factor Authentication Server\Logs.
+
+The majority of these settings are visible to the user once they are enabled and the user signs into the user portal.
+
+![User portal settings](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
+
+
+
 ### To configure the user portal settings in the Azure Multi-Factor Authentication Server
 
 
@@ -110,43 +133,57 @@ Now that the portal is installed, you need to configure the Azure Multi-Factor A
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/config.png)</center>
 
 
-## User Portal Settings
+## Administrators tab
+This tab simply allows you to add users who will have administrative privileges.  When adding an administrator, you can fine tune the permissions that they receive.  This way, you can be sure to only grant the needed permissions to the administrator.  Simply click the Add button and then select and user and their permissions and then click Add.
+
+![User portal administrators](./media/multi-factor-authentication-get-started-portal/admin.png)
 
 
-Azure Multi-Factor Authentication server provides several options for the user portal.  The following table provides a list of these options and an explaination of what they are used for.
+## Security Questions
+This tab allows you to specify the security questions that users will need to provide answers to if the Use security questions for fallback option is selected.  Azure Multi-Factor Authenticaton Server comes with default questions that you can use.  You can also change the order or add your own questions.  When adding your own questions, you can specify the language you would like those question to appear in as well.
 
-User Portal Settings|Description|
-:------------- | :------------- | 
-User Portal URL| Allows you to enter the URL of where the portal is being hosted.
-Primary authentication| Allows you to specify the type of authentication to use when signing in to the portal.  Either Windows, Radius, or LDAP authentication.
-Allow users to log in|Allows users to enter a username and password on the sign in page for the User portal.  If this is not selected, the boxes will be greyed out.
-Allow user enrollment|Allows user to enroll in multi-factor authentication by taking them to a setup screen that prompts them for additional information such as telephone number.  Prompt for backup phone allows users to specify a secondary phone number.  Prompt for third-party OATH token allows users to specify a 3rd party OATH token.
+![User portal security questions](./media/multi-factor-authentication-get-started-portal/secquestion.png)
 
 
+## Passed Sessions
 
+## SAML
+Allows you to setup the user portal to accept claims from an identity provider using SAML.  You can specify the timeout session, specify the verification certificate and the Log out redirect URL.
 
+![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
-Depending on what you, as an administrator select, will affect the user sign-in experience. 
+## Trusted IPs
+This tab allows you to specify either single IP addresses or IP address ranges that can be added so that if a user is signing in from one of these IP addresses, then multi-factor authentication is bypassed. 
 
-For example, When a user logs in to the User Portal and clicks the Log In button, they are then taken to the Azure Multi-Factor Authentication User Setup page.  Depending on how you have configured Azure Multi-Factor Authentication, the user may be able to select their authentication method.  
+![User portal trusted IPs](./media/multi-factor-authentication-get-started-portal/trusted.png)
+
+## Self-Service User Enrollment
+If you want your users to sign in and enroll you must select the Allow users to login in and Allow user enrollment options. Remember that the settings you select will affect the user sign-in experience.
+
+For example, when a user logs in to the User Portal and clicks the Log In button, they are then taken to the Azure Multi-Factor Authentication User Setup page.  Depending on how you have configured Azure Multi-Factor Authentication, the user may be able to select their authentication method.  
 
 If they select the Voice Call authentication method or have been pre-configured to use that method, the page will prompt the user to enter their primary phone number and extension if applicable.  They may also be allowed to enter a backup phone number.  
 
+![User portal trusted IPs](./media/multi-factor-authentication-get-started-portal/backupphone.png)
+
 If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  After entering their phone number(s) and PIN (if applicable), the user clicks the Call Me Now to Authenticate button.  Azure Multi-Factor Authentication will perform a phone call authentication to the user’s primary phone number.  The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.   
 
-If the user selects the SMS Text authentication method or has been pre-configured to use that method, the page will prompt the user for their mobile phone number.  If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the Text Me Now to Authenticate button.  Azure Multi-Factor Authentication will perform an SMS authentication to the user’s mobile phone.  The user must receive the SMS which contains a one- time-passcode (OTP) and reply to the message with that OTP plus their PIN if applicable) to move on to the next step of the self-enrollment process.    
+If the user selects the SMS Text authentication method or has been pre-configured to use that method, the page will prompt the user for their mobile phone number.  If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the Text Me Now to Authenticate button.  Azure Multi-Factor Authentication will perform an SMS authentication to the user’s mobile phone.  The user must receive the SMS which contains a one- time-passcode (OTP) and reply to the message with that OTP plus their PIN if applicable) to move on to the next step of the self-enrollment process. 
 
-If the user selects the Mobile app authentication method or has been pre-configured to use that method, the page will prompt the user to install the Azure Multi-Factor Authentication app on their device and generate an activation code.  After installing the Azure Multi-Factor Authentication app, the user clicks the Generate Activation Code button.  NOTE: In order to use the Azure Multi-Factor Authentication app, the user must enable push notifications for their device.   
+![User portal SMS](./media/multi-factor-authentication-get-started-portal/text.png)   
 
-The page then displays an activation code and a URL along with a barcode picture.  If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.    
+If the user selects the Mobile app authentication method or has been pre-configured to use that method, the page will prompt the user to install the Azure Multi-Factor Authentication app on their device and generate an activation code.  After installing the Azure Multi-Factor Authentication app, the user clicks the Generate Activation Code button.    
 
+>[AZURE.NOTE]In order to use the Azure Multi-Factor Authentication app, the user must enable push notifications for their device. 
 
-The user enters the activation code and URL into the Azure Multi-Factor Authentication app or uses the barcode scanner to scan the barcode picture and clicks the Activate button.    
+The page then displays an activation code and a URL along with a barcode picture.  If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  The user enters the activation code and URL into the Azure Multi-Factor Authentication app or uses the barcode scanner to scan the barcode picture and clicks the Activate button.    
 
 After the activation is complete, the user clicks the Authenticate Me Now button.  Azure Multi-Factor Authentication will perform an authentication to the user’s mobile app.  The user must enter their PIN (if applicable) and press the Authenticate button in their mobile app to move on to the next step of the self-enrollment process.  
 
 
 If the administrators have configured the Azure Multi-Factor Authentication Server to collect security questions and answers, the user is then taken to the Security Questions page.  The user must select four security questions and provide answers to their selected questions.    
+
+![User portal security questions](./media/multi-factor-authentication-get-started-portal/secq.png)  
 
 The user self-enrollment is now complete and the user is logged in to the User Portal.  Users can log back in to the User Portal at any time in the future to change their phone numbers, PINs, authentication methods and security questions if allowed by their administrators.
 
