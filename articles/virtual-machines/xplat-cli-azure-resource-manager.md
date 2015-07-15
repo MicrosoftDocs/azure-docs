@@ -339,7 +339,7 @@ To view logged information on operations performed on a group, use the `azure gr
 
 * For information on using the Azure Command-Line Interface (Azure CLI), see [Install and Configure the Azure CLI][clisetup].
 * For information on working with Azure Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-* For imformation on working with Azure Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm].
+* For information on working with Azure Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
