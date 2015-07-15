@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Using the Twitter Connector in Microsoft Azure App Service
+   pageTitle="Using the Twitter Connector in Microsoft Azure App Service"
    description="How to use the Twitter Connector API App"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
