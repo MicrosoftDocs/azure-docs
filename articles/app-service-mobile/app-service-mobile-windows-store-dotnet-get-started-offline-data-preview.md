@@ -36,9 +36,9 @@ This tutorial walks you through these basic steps:
 This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
-* Completion of [Create a Windows app].
-* [Azure Mobile Services SDK version 2.0.0 (or later)][Azure Mobile App SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.2 (or later)][SQLite store Nuget]
+* Completion of [Create a Windows app][create a windows app].
+* [Azure Mobile Services SDK version 2.0.0 (or later)][azure mobile app sdk nuget]
+* [Azure Mobile Services SQLite Store version 1.0.2 (or later)][sqlite store nuget]
 * [SQLite for Windows 8.1](www.sqlite.org/downloads)
 
 >[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
