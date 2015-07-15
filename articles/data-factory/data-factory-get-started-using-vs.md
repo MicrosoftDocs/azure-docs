@@ -38,17 +38,17 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
 1.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** in the **Data analytics** blade. 
 
-	![New->DataFactory][image-data-factory-new-datafactory-menu]	
+	![New->DataFactory](./media/data-factory-get-started-using-vs/NewDataFactoryMenu.png)	
 
 6. In the **New data factory** blade:
 	1. Enter **ADFTutorialDataFactoryVS** for the **name**. 
 	
-  		![New data factory blade][image-data-factory-getstarted-new-data-factory-blade]
+  		![New data factory blade](./media/data-factory-get-started-using-vs/getstarted-new-data-factory.png)
 	2. Click **RESOURCE GROUP NAME** and do the following:
 		1. Click **Create a new resource group**.
 		2. In the **Create resource group** blade, enter **ADFTutorialResourceGroup** for the **name** of the resource group, and click **OK**. 
 
-			![Create Resource Group][image-data-factory-create-resource-group]
+			![Create Resource Group](./media/data-factory-get-started-using-vs/CreateNewResourceGroup.png)
 
 		Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](resource-group-overview.md).  
 7. In the **New data factory** blade, notice that **Add to Startboard** is selected.
@@ -56,12 +56,12 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
 	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactoryVS” is not available**, change the name of the data factory (for example, yournameADFTutorialDataFactoryVS) and try creating again. Use this name in place of ADFTutorialFactory while performing remaining steps in this tutorial. See [Data Factory - Naming Rules][data-factory-naming-rules] topic for naming rules for Data Factory artifacts.  
 	 
-	![Data Factory name not available][image-data-factory-name-not-available]
+	![Data Factory name not available]( ./media/data-factory-get-started-using-vs/getstarted-data-factory-not-available.png)
 
 9. Click **NOTIFICATIONS** hub on the left and look for notifications from the creation process. Click **X** to close the **NOTIFICATIONS** blade if it is open. 
 10. After the creation is complete, you will see the **DATA FACTORY** blade as shown below.
 
-    ![Data factory home page][image-data-factory-get-stated-factory-home-page]
+    ![Data factory home page](./media/data-factory-get-started-using-vs/getstarted-data-factory-home-page.png)
 
 ## Step 2: Create Visual Studio project with Data Factory entities and deploy 
 1. Launch **Visual Studio 2013**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
@@ -82,14 +82,14 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
 	![Azure Storage Linked Service](../media/data-factory-get-started-using-vs/azure-storage-linked-service.png)
 
-4. Save the AzureStorageLinkedService1.json file.
-5. Right-click on Linked Services node in the Solution Explorer again, point to Add, and click New Item. 
-6. This time, select Azure SQL Linked Service, and click Add. 
-7. In the AzureSqlLinkedService1.json file, replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and  password.    
-8.  Save the AzureSqlLinkedService1.json file. 
-9. You have created linked services. Now, you will create an input and output Data Factory tables. To create tables, right-click Tables in the Solution Explorer, point to Add, and click New Item.
-10. In the Add New Item dialog box, select Azure Blob, and click Add.   
-10. Replace the JSON text with the following text and save the AzureBlobLocation1.json file. 
+4. Save the **AzureStorageLinkedService1.json** file.
+5. Right-click on **Linked Services** node in the **Solution Explorer** again, point to **Add**, and click **New Item**. 
+6. This time, select **Azure SQL Linked Service**, and click **Add**. 
+7. In the **AzureSqlLinkedService1.json file**, replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and  password.    
+8.  Save the **AzureSqlLinkedService1.json** file. 
+9. You have created linked services. Now, you will create an input and output Data Factory tables. To create tables, right-click **Tables** in the **Solution Explorer**, point to **Add**, and click **New Item**.
+10. In the **Add New Item** dialog box, select **Azure Blob**, and click **Add**.   
+10. Replace the JSON text with the following text and save the **AzureBlobLocation1.json** file. 
 
 		{
     		"name": "EmpTableFromBlob",
@@ -120,8 +120,8 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 	        }
 		}
 
-11. Right-click Tables in the Solution Explorer again, point to Add, and click New Item.
-12. In the Add New Item dialog box, select Azure SQL, and click Add. 
+11. Right-click **Tables** in the **Solution Explorer** again, point to **Add**, and click **New Item**.
+12. In the **Add New Item** dialog box, select **Azure SQL**, and click **Add**. 
 13. Replace the JSON text with the following JSON.
 
 		{
@@ -147,8 +147,8 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 		    }
 		}
  
-14. You have created input/output linked services and tables so far. Now, you will create a pipeline with a Copy Activity to copy data from the Azure blob to Azure SQL database. Right-click Pipelines in the Solution Explorer, point to Add, and click New Item.  
-15. Select Copy Data Pipeline in the Add New Item dialog box and click Add. 
+14. You have created input/output linked services and tables so far. Now, you will create a pipeline with a **Copy Activity** to copy data from the Azure blob to Azure SQL database. Right-click **Pipelines** in the **Solution Explorer**, point to **Add**, and click **New Item**.  
+15. Select **Copy Data Pipeline** in the **Add New Item** dialog box and click **Add**. 
 16. Replace the JSON with the following JSON.
 			
 		 {
@@ -194,12 +194,12 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 		    }
 		} 
 
-17. Save the CopyActivity1.json file. 
-18. In the toolbar area, right-click and select Data Factory to enabled the Data Factory toolbar if it is not already enabled. 
-19. In the Data Factory toolbar, click the drop-down box to see all the data factories in your Azure subscription. If you see the Sign-in to Visual Studio dialog box: 
-	20. Enter the email account associated with the Azure subscription in which you want to create the data factory, enter Password, and click Sign-in
+17. Save the **CopyActivity1.json** file. 
+18. In the toolbar area, right-click and select **Data Factory** to enabled the Data Factory toolbar if it is not already enabled. 
+19. In the **Data Factory toolbar**, click the **drop-down box** to see all the data factories in your Azure subscription. If you see the **Sign-in to Visual Studio** dialog box: 
+	20. Enter the **email account** associated with the Azure subscription in which you want to create the data factory, enter **Password**, and click **Sign-in**.
 	21. Once the sign-in is successful, you should see all the data factories in the Azure subscription. In this tutorial, you will create a new data facotry.       
-22. In the drop-down list, select ADFTutorialFactoryVS, and click Publish button. 
+22. In the drop-down list, select **ADFTutorialFactoryVS**, and click **Publish** button to deploy/publish the linked services, datasets, and the pipeline.    
 
 	![Publish button](../media/data-factory-get-started-using-vs/publish.png)
 
