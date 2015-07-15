@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="07/15/2015" 
 	ms.author="femila"/>
 
 
@@ -153,6 +153,8 @@ Allowed operators
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
 Here are some topics that will provide some additional information on Azure Active Directory 
+
+* [Troubleshooting dynamic memberships for groups](active-directory-accessmanagement-troubleshooting.md)
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
