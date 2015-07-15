@@ -109,7 +109,7 @@ If you are migrating to an existing Azure VM, the following configuration steps 
 
 ## Backup to file and copy to VM and restore
 
-Use this method when you cannot use the Deploy a SQL Server Database to a Microsoft Azure VM wizard either because you are migrating to a version of SQL Server prior to SQL Server 2014 or your backup file is larger than 1 TB. Use the following general steps to migrate a user database using this manual method:
+Use this method when you cannot use the Deploy a SQL Server Database to a Microsoft Azure VM wizard either because you are migrating to a version of SQL Server prior to SQL Server 2014 or your backup file is larger than 1 TB. If your backup file is larger than 1 TB, you must stripe it becuase the maximum size of a VM disk is 1 TB. Use the following general steps to migrate a user database using this manual method:
 1.	Perform a full database backup to an on-premises location.
 2.	Create or upload a virtual machine with the version of SQL Server desired.
 3.	Provision the virtual machine using the steps in [Provisioning a SQL Server Virtual Machine on Azure](../virtual-machines-provision-sql-server/#SSMS).
