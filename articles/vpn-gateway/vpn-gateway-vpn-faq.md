@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/14/2015"
    ms.author="cherylmc" />
 
 # VPN Gateway FAQ
@@ -162,7 +162,7 @@ Add each range that you want sent through the gateway for your virtual network o
 
 ### Can I configure Forced Tunneling?
 
-Yes. See [About Forced Tunneling](http://go.microsoft.com/fwlink/p/?LinkId=615153).
+Yes. See [About Forced Tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I setup my own VPN server in Azure and use it to connect to my on-premises network?
 
@@ -170,7 +170,7 @@ Yes, you can deploy your own VPN gateways or servers in Azure either from the Az
 
 ### More information about gateway types, requirements, and throughput
 
-For more information, see [Gateways](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+For more information, see [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 
 ## Multi-site and VNet-to-VNet connectivity
 

@@ -3,7 +3,7 @@
 	description="Latest Android SDK - How to Use the Engagement API on Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kapiteir" 
+	authors="kpiteira" 
 	manager="dwrede" 
 	editor="" />
 
