@@ -73,13 +73,12 @@ Then refresh the project dependencies, to get the binaries downloaded.
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[0.9,)</version>
+        <version>[1.0,)</version>
       </dependency>
     </dependencies>
 
 
-* *Build or checksum validation errors?*
- * Try using a specific version, such as:* `<version>0.9.n</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors? Try using a specific version, such as:* `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -94,11 +93,11 @@ Then refresh the project dependencies, to get the binaries downloaded.
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `version:'0.9.n'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).* 
+* *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).* 
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -206,12 +205,19 @@ Add this item to the Struts configuration file (usually named struts.xml or stru
 
 (If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
 
+## 5. Install on the server
 
-## 5. Run your application
+On Windows servers, install:
+
+* [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+
+(This enables performance counters.)
+
+## 6. Run your application
 
 Either run it in debug mode on your development machine, or publish to your server.
 
-## 6. View your telemetry in Application Insights
+## 7. View your telemetry in Application Insights
 
 Return to your Application Insights resource in [Microsoft Azure Portal](https://portal.azure.com).
 
@@ -298,7 +304,7 @@ You can specify additional performance counters to be collected.
 
 
 
-#### Windows (64-bit) performance counters 
+#### Windows performance counters 
 
 Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
@@ -319,17 +325,9 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 
-### Even more Performance Counters
+### Unix performance counters
 
-On your server machine:
-
-**If it's a Windows machine**, install 
-
-* [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
-
-**If it's Unix**
-
-* [Install collectd with the Application Insights plugin] to get a very wide variety of system and network data.
+* [Install collectd with the Application Insights plugin](app-insights-java-collectd.md) to get a wide variety of system and network data.
 
 ## Get user and session data
 
