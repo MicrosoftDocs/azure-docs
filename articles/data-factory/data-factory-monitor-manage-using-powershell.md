@@ -21,7 +21,7 @@
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio Add-in](data-factory-get-started-using-vs.md)
+- [Using Visual Studio](data-factory-get-started-using-vs.md)
 
 
 The [Get started with Azure Data Factory][adf-get-started] tutorial shows you how to create and monitor an Azure data factory using the [Azure Preview Portal][azure-preview-portal]. 

@@ -21,17 +21,16 @@
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio Add-in](data-factory-get-started-using-vs.md)
+- [Using Visual Studio](data-factory-get-started-using-vs.md)
 
 
 ##In This Tutorial
-In This tutorial you will first create an Azure data factory using the Azure Preview Portal and then do the following using the Visual Studio Add-in:
+In This tutorial you will first create an Azure data factory named  **ADFTutorialDataFactoryVS** using the Azure Preview Portal and then do the following using Visual Studio 2013:
 
-1. Create two linked services: **StorageLinkedService** and **AzureSqlLinkedService**. The StorageLinkedService links the Azure storage and AzureSqlLinkedService links the Azure SQL database to the ADFTutorialDataFactoryVS. The input data for the pipeline resides in a blob container in the Azure blob storage and output data will be stored in a table in the Azure SQL database. Therefore, you add these two data stores as linked services to the data factory.
-2. you created linked services that refer to data stores that contain input/output data. In this step, you will define two data factory tables -- **EmpTableFromBlob** and **EmpSQLTable** -- that represent the input/output data that is stored in the data stores. For the EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for the EmpSQLTable, you will specify the SQL table that will store the output data. You will also specify other properties such as structure of the data, availability of the data, etc...
+1. Create two linked services: **AzureStorageLinkedService1** and **AzureSqlinkedService1**. The AzureStorageLinkedService1 links an Azure storage and AzureSqlLinkedService1 links an Azure SQL database to the data factory: **ADFTutorialDataFactoryVS**. The input data for the pipeline resides in a blob container in the Azure blob storage and output data will be stored in a table in the Azure SQL database. Therefore, you add these two data stores as linked services to the data factory.
+2. Create two data factory tables: **EmpTableFromBlob** and **EmpSQLTable**, which represent the input/output data that is stored in the data stores. For the EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for the EmpSQLTable, you will specify the SQL table that will store the output data. You will also specify other properties such as structure of the data, availability of the data, etc...
 3. Create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactoryVS. The pipeline will have a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table 
 
-Then, you will monitor slices of input and output tables by using the Azure Preview Portal.
 
 ## <a name="CreateDataFactory"></a>Step 1: Create an Azure Data Factory
 In this step, you use the Azure Preview Portal to create an Azure data factory named **ADFTutorialDataFactoryVS**.
@@ -63,15 +62,31 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
     ![Data factory home page](./media/data-factory-get-started-using-vs/getstarted-data-factory-home-page.png)
 
-## Step 2: Create Visual Studio project with Data Factory entities and deploy 
+## Step 2: Create and deploy Data Factory entities using Visual Studio 
+
+### Pre-requisites
+You must have the following installed on your computer: 
+- Visual Studio 2013
+- Download Azure SDK for Visual Studio 2013. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013 install** in the **.NET** section.
+
+### Walkthrough
+
+#### Create the Visual Studio project 
 1. Launch **Visual Studio 2013**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
-2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**. If you don't see DataFactory template, close Visual Studio, install the add-in, and reopen Visual Studio.  
+2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**. If you don't see the DataFactory template, close Visual Studio, install Azure SDK for Visual Studio 2013, and reopen Visual Studio.  
 
 	![New project dialog box](./media/data-factory-get-started-using-vs/new-project-dialog.png)
 
-3. Enter a name for the project, location, and solution name, and click **OK**.
+3. Enter a **name** for the project, **location**, and a name for the **solution**, and click **OK**.
 
 	![Solution Explorer](./media/data-factory-get-started-using-vs/solution-explorer.png)	
+
+#### Create linked services
+Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database or an on-premises SQL Server database.
+
+In this step, you will create two linked services: **AzureStorageLinkedService1** and **AzureSqlLinkedService1**. AzureStorageLinkedService1 linked service links an Azure Storage Account and AzureSqlLinkedService links an Azure SQL database to the data factory: **ADFTutorialDataFactory**. 
+
+##### Create the Azure Storage linked service
 
 4. Right-click **Linked Services** in the solution explorer, point to **Add**, and click **New Item**.      
 5. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**. 
@@ -83,11 +98,21 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 	![Azure Storage Linked Service](./media/data-factory-get-started-using-vs/azure-storage-linked-service.png)
 
 4. Save the **AzureStorageLinkedService1.json** file.
+
+#### Create the Azure SQL linked service
+
 5. Right-click on **Linked Services** node in the **Solution Explorer** again, point to **Add**, and click **New Item**. 
 6. This time, select **Azure SQL Linked Service**, and click **Add**. 
 7. In the **AzureSqlLinkedService1.json file**, replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and  password.    
 8.  Save the **AzureSqlLinkedService1.json** file. 
-9. You have created linked services. Now, you will create an input and output Data Factory tables. To create tables, right-click **Tables** in the **Solution Explorer**, point to **Add**, and click **New Item**.
+
+
+## Create input and output tables
+In the previous step, you created linked services **AzureStorageLinkedService1** and **AzureSqlLinkedService1** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactory**. In this step, you will define two data factory tables -- **EmpTableFromBlob** and **EmpSQLTable** -- that represent the input/output data that is stored in the data stores referred by AzureStorageLinkedService1 and AzureSqlLinkedService1 respectively. For  EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for EmpSQLTable, you will specify the SQL table that will store the output data.
+
+#### Create the input table
+
+9. Right-click **Tables** in the **Solution Explorer**, point to **Add**, and click **New Item**.
 10. In the **Add New Item** dialog box, select **Azure Blob**, and click **Add**.   
 10. Replace the JSON text with the following text and save the **AzureBlobLocation1.json** file. 
 
@@ -120,9 +145,11 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 	        }
 		}
 
+#### Create the output table
+
 11. Right-click **Tables** in the **Solution Explorer** again, point to **Add**, and click **New Item**.
 12. In the **Add New Item** dialog box, select **Azure SQL**, and click **Add**. 
-13. Replace the JSON text with the following JSON.
+13. Replace the JSON text with the following JSON and save the **AzureSqlTableLocation1.json** file.
 
 		{
 		    "name": "EmpSQLTable",
@@ -146,10 +173,14 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 		        }
 		    }
 		}
- 
-14. You have created input/output linked services and tables so far. Now, you will create a pipeline with a **Copy Activity** to copy data from the Azure blob to Azure SQL database. Right-click **Pipelines** in the **Solution Explorer**, point to **Add**, and click **New Item**.  
+
+#### Create the pipeline 
+You have created input/output linked services and tables so far. Now, you will create a pipeline with a **Copy Activity** to copy data from the Azure blob to Azure SQL database. 
+
+
+1. Right-click **Pipelines** in the **Solution Explorer**, point to **Add**, and click **New Item**.  
 15. Select **Copy Data Pipeline** in the **Add New Item** dialog box and click **Add**. 
-16. Replace the JSON with the following JSON.
+16. Replace the JSON with the following JSON and save the **CopyActivity1.json** file..
 			
 		 {
 		    "name": "ADFTutorialPipeline",
@@ -194,7 +225,8 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 		    }
 		} 
 
-17. Save the **CopyActivity1.json** file. 
+#### Publish/deploy Data Factory entities
+  
 18. In the toolbar area, right-click and select **Data Factory** to enabled the Data Factory toolbar if it is not already enabled. 
 19. In the **Data Factory toolbar**, click the **drop-down box** to see all the data factories in your Azure subscription. If you see the **Sign-in to Visual Studio** dialog box: 
 	20. Enter the **email account** associated with the Azure subscription in which you want to create the data factory, enter **Password**, and click **Sign-in**.
@@ -204,5 +236,6 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 	![Publish button](./media/data-factory-get-started-using-vs/publish.png)
 
 23. You should see the status of publishing in the Data Factory Task List window that is shown in the picture above. Confirm that publishing has succeeded.
-24. See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
+
+See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
 
