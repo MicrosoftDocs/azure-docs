@@ -23,7 +23,7 @@
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 - [Azure Preview Portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-Creating an Azure virtual machine (VM) that runs Linux is easy to do. This tutorial shows you how to use the Azure Preview portal to create one quickly, and uses the `~/.ssh/id_rsa.pub` public key file to secure your **SSH** connection to the VM. You can also create Linux VMs using [your own images as templates](virtual-machines-linux-create-upload-vhd.md). 
+Creating an Azure virtual machine (VM) that runs Linux is easy to do. This tutorial shows you how to use the Azure Preview portal to create one quickly, and uses the `~/.ssh/id_rsa.pub` public key file to secure your **SSH** connection to the VM. You can also create Linux VMs using [your own images as templates](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE] This tutorial creates an Azure virtual machine that is managed by the Azure resource group API. For details, see [Azure resource group overview](resource-group-overview.md).
 
@@ -46,7 +46,7 @@ Go to the Azure Marketplace in the Preview portal to find the Windows Server VM 
 4. Next, click ![create button](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
 
 	![change to the resource manager compute stack](media/virtual-machines-linux-tutorial-portal-rm/changetoresourcestack.png)
-	
+
 ## Create the virtual machine
 
 After you select the image, you can use Azure's default settings for most of the configuration and quickly create the VM.
@@ -71,7 +71,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 8. While Azure creates the VM, you can track the progress in **Notifications**, in the Hub menu. After Azure creates the VM, you'll see it on your Startboard unless you cleared **Pin to Startboard** in the **Create virtual machine** blade.
 
-	> [AZURE.NOTE] Note that the summary does not contain a public DNS name the way it does when a VM is created inside a Cloud Service using the service management compute stack. 
+	> [AZURE.NOTE] Note that the summary does not contain a public DNS name the way it does when a VM is created inside a Cloud Service using the service management compute stack.
 
 ## Connect to your Azure Linux VM using **ssh**
 
@@ -87,30 +87,30 @@ Now you can **ssh** into your Azure VM, and you're ready to go.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added '23.96.106.1' (ECDSA) to the list of known hosts.
 	Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.16.0-43-generic x86_64)
-	
+
 	 * Documentation:  https://help.ubuntu.com/
-	
+
 	  System information as of Mon Jul 13 21:36:28 UTC 2015
-	
+
 	  System load: 0.31              Memory usage: 5%   Processes:       208
 	  Usage of /:  42.1% of 1.94GB   Swap usage:   0%   Users logged in: 0
-	
+
 	  Graph this data and manage this system at:
 	    https://landscape.canonical.com/
-	
+
 	  Get cloud support with Ubuntu Advantage Cloud Guest:
 	    http://www.ubuntu.com/business/services/cloud
-	
+
 	0 packages can be updated.
 	0 updates are security updates.
-		
+
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-	
+
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
-	
+
 	ops@ubuntuvm:~$
 
 
@@ -123,7 +123,5 @@ To learn more about Linux on Azure, see:
 - [How to use the Azure Command-Line Tools for Mac and Linux](virtual-machines-command-line-tools.md)
 
 - [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-script-lamp.md)
-
-- [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
 - [The Docker Virtual Machine Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
