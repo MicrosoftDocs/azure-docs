@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="07/01/2015"
 	ms.author="carlrab"/>
 
 
@@ -123,6 +123,7 @@ Use the [backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) method
 ## Detach and copy to URL and attach from URL
 
 Use this method when you plan to [store these files using the Azure Blob storage service](https://msdn.microsoft.com/library/dn385720.aspx) and attach them to SQL Server running in an Azure VM, particularly with very large databases. Use the following general steps to migrate a user database using this manual method:
+
 1.	Detach the database files from the on-premises database instance.
 2.	Copy the detached database files into Azure blob storage using the [AZCopy command-line utility](../storage-use-azcopy/).
 3.	Attach the database files from the Azure URL to the SQL Server instance in the Azure VM.
@@ -130,6 +131,7 @@ Use this method when you plan to [store these files using the Azure Blob storage
 ## Convert to VM and upload to URL and deploy as new VM
 
 Use this method to migrate all system and user databases in an on-premises SQL Server instance to Azure virtual machine. Use the following general steps to migrate an entire SQL Server instance using this manual method:
+
 1.	Convert physical or virtual machines to Hyper-V VHDs by using [Microsoft Virtual Machine Converter](http://technet.microsoft.com/library/dn873998.aspx).
 2.	Upload VHD files to Azure Storage by using the [Add-AzureVHD cmdlet](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 3.	Deploy a new virtual machine by using the uploaded VHD.
