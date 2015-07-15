@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Using Linked Templates with Azure Resource Manager
@@ -101,7 +101,7 @@ The following example shows how to use a base URL to create two URLs for linked 
 ## Passing values back from a linked template
 
 If you need to pass a value from linked template to the main template, you can create a value in **outputs** section of the linked template. For an example, see 
-[Best Practices for Handling State in Azure Resource Manager Templates](best-practices-resource-manager-state.md).
+[Sharing State in Azure Resource Manager Templates](best-practices-resource-manager-state.md).
 
 ## Next steps
 - [Authoring templates](./resource-group-authoring-templates.md)
