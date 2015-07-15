@@ -123,15 +123,16 @@ The client application must retrieve the application access token for the curren
 
 To create automated scripts where no user interaction is required, you can authenticate based on a service principal instead of a user. This approach requires that a credential object is created and submitted. 
 
-## Create a resource group, server, and firewall rule
 
-A resource group is a container that holds related resources for an application. Azure SQL Databases and servers are contained in resource groups. Before creating or working with a SQL database you must first create a resource group, a server, and then you must create a new firewall rule(s) to allow T-SQL clients to access the server and databases.
+
 
 > [AZURE.NOTE] The examples in this article use a synchronous form of each API request and block until completion of the REST call on the underlying service. There are async methods available.
 
-### Create a resource group
 
-A resource group is a container that holds related resources for an application. Azure SQL Databases and servers are contained in resource groups.
+
+## Create a resource group
+
+A resource group is a container that holds related resources for an application. Azure SQL Databases and servers are contained in resource groups. Before creating or working with a SQL database you must first create a resource group, a server, and then you must create a new firewall rule(s) to allow T-SQL clients to access the server and databases.
 
     // Create a resource management client 
     ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
@@ -149,7 +150,7 @@ A resource group is a container that holds related resources for an application.
 
 
 
-### Create a server 
+## Create a server 
 
 SQL databases are contained in servers. The server name must be globally unique to Azure SQL Servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete.
 
@@ -175,7 +176,7 @@ SQL databases are contained in servers. The server name must be globally unique 
 
 
 
-### Create a server firewall rule to allow access to the server
+## Create a server firewall rule to allow access to the server
 
 Establish a firewall rule to access the server. A [firewall rule](https://msdn.microsoft.com/library/azure/ee621782.aspx) allows T-SQL access, and enables access to the server and all databases on the server. 
 
