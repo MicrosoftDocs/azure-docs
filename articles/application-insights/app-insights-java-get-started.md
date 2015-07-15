@@ -21,12 +21,11 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-By adding Visual Studio Application Insights to your project, you can detect and diagnose performance issues and exceptions.
-
+Application Insights is an extensible analytics service that helps you understand the performance and usage of your live application. Use it to detect and diagnose performance issues and exceptions, and [write code][api] to track what users do with your app.
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
-In addition, you can set up [web tests][availability] to monitor your application's availability, and insert [code into your web pages][api] to understand usage patterns.
+[Application Insights web tests][availability] monitor your application's availability.
 
 You'll need:
 
