@@ -36,7 +36,7 @@ Then, you will monitor slices of input and output tables by using the Azure Prev
 ## <a name="CreateDataFactory"></a>Step 1: Create an Azure Data Factory
 In this step, you use the Azure Preview Portal to create an Azure data factory named **ADFTutorialDataFactoryVS**.
 
-1.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** in the **Data analytics** blade. 
+1.	After logging into the [Azure Preview Portal](http://portal.azure.com), click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** in the **Data analytics** blade. 
 
 	![New->DataFactory](./media/data-factory-get-started-using-vs/NewDataFactoryMenu.png)	
 
