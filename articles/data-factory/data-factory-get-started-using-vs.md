@@ -76,7 +76,7 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 4. Right-click **Linked Services** in the solution explorer, point to **Add**, and click **New Item**.      
 5. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**. 
 
-	![New Linked Service](../media/data-factory-get-started-using-vs/new-linkedservice-dialog.png)
+	![New Linked Service](../media/data-factory-get-started-using-vs/new-linked-service-dialog.png)
  
 3. Replace **accountname** and **accountkey** with the name of your Azure storage account and its key. 
 
