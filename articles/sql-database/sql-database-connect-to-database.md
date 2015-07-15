@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/25/2015"
+	ms.date="07/15/2015"
 	ms.author="sidneyh" />
 
 # Connect with SQL Server Management Studio
