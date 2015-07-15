@@ -19,9 +19,9 @@
 #Manage the availability of virtual machines
 
 ## Understand planned vs. unplanned maintenance
-There are two types of Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
+There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
 
-- **Planned maintenance events** are periodic updates made by Microsoft to the underlying Microsoft Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure.
+- **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure.
 
 - **Unplanned maintenance events** occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot.
 
@@ -38,7 +38,7 @@ To provide redundancy to your application, we recommend that you group two or mo
 
 Each virtual machine in your Availability Set is assigned an Update Domain (UD) and a Fault Domain (FD) by the underlying Azure platform. For a given Availability Set, five non-user-configurable UDs are assigned to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same UD as the first virtual machine, the seventh in the same UD as the second virtual machine, and so on. The order of UDs being rebooted may not proceed sequentially during planned maintenance, but only one UD will be rebooted at a time.
 
-FDs define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across two FDs. While placing your virtual machines into an Availability Set does not protect your application from operating system nor application-specific failures, it does limit the impact of potential physical hardware failures, network outages, or power interruptions.
+FDs define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across two FDs. While placing your virtual machines into an Availability Set does not protect your application from operating system or application-specific failures, it does limit the impact of potential physical hardware failures, network outages, or power interruptions.
 
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
@@ -48,7 +48,7 @@ FDs define the group of virtual machines that share a common power source and ne
 ### Configure each application tier into separate Availability Sets
 If the virtual machines in your Availability Set are all nearly identical and serve the same purpose for your application, we recommend that you configure an Availability Set for each tier of your application.  If you place two different tiers in the same Availability Set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an Availability Set for each tier, you guarantee that at least one virtual machine in each tier will be available.
 
-For example, you could put all the virtual machines in the front-end of your application running IIS, Apache, Nginx, etc., in a single availability set. Make sure that only front-end virtual machines are placed in the same Availability Set. Similarly, make sure that only data-tier virtual machines are placed in their own Availability Set, like your replicated SQL Server virtual machines or your MySQL virtual machines.
+For example, you could put all the virtual machines in the front-end of your application running IIS, Apache, Nginx, etc., in a single Availability Set. Make sure that only front-end virtual machines are placed in the same Availability Set. Similarly, make sure that only data-tier virtual machines are placed in their own Availability Set, like your replicated SQL Server virtual machines or your MySQL virtual machines.
 
 <!--Image reference-->
    ![Application tiers](./media/virtual-machines-manage-availability/application-tiers.png)
