@@ -155,7 +155,7 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 
 Actor state is preserved across garbage collections and failovers by persisting it on disk and replicating it across multiple nodes in the cluster. This means that, like method arguments and return values, the actor state's type must be  [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-> [AZURE.NOTE] please refer to the [Reliable Actors notes on serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) article for mode details on how interfaces and Actor State types should be defined.  
+> [AZURE.NOTE] Please refer to the [Reliable Actors notes on serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) article for mode details on how interfaces and Actor State types should be defined.  
 
 #### Actor state providers
 The storage and retrieval of the state is provided by an actor state provider. State providers can be configured per actor or for all actors within an assembly by the state provider specific attribute. When an actor is activated its state is loaded in memory. When an actor method completes, the modified state is automatically saved by the Actors runtime by calling a method on the state provider. If failure occurs during the save operation, the Actors runtime creates a new actor instance and loads the last consistent state from the state provider.
