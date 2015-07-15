@@ -26,13 +26,15 @@
 
 This article provides commands to perform many Azure SQL Database management tasks using C#. Individual code snippets are broken out for clarity. A sample console application brings all the commands together in the section at the bottom of this article.
 
-The Azure SQL Database Library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) API so snippets for authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) and creating a resource group are provided as well.
+The Azure SQL Database Library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) API as it is a wrapper on the [SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). The API wraps PUT statements into the CreateOrUpdate statements so the calls are idempotent, meaning you can run the code many times and it will produce the same outcome.
 
-The library is a wrapper on the [SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). The API wraps PUT statements into the CreateOrUpdate statements so the calls are idempotent, meaning you can run the code many times and it will produce the same outcome. 
+ARM requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD), so code examples are provided for this as well.
 
+<br>
 
 > [AZURE.NOTE] The SQL Database Library for .NET is currently in preview.
 
+<br>
 
 If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to this article.
 
