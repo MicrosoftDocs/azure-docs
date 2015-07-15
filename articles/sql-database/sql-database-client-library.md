@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/13/2015"
+   ms.date="07/14/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with the Azure SQL Database Library for .NET
@@ -26,7 +26,7 @@
 
 This article provides commands to perform many Azure SQL Database management tasks using C#. Individual code snippets are broken out for clarity. A sample console application brings all the commands together in the section at the bottom of this article.
 
-The Azure SQL Database Library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) API as it is a wrapper on the [SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). The API wraps PUT statements into the CreateOrUpdate statements so the calls are idempotent, meaning you can run the code many times and it will produce the same outcome.
+The Azure SQL Database Library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) API, it is a wrapper on the [SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). The API wraps PUT statements into the CreateOrUpdate statements so the calls are idempotent, meaning you can run the code many times and it will produce the same result.
 
 ARM requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD), so code examples are provided for this as well.
 
@@ -198,7 +198,7 @@ The following example creates a rule that opens access to the server from any IP
 
 
 
-If your server needs to allow access to other Azure services, add a firewall rule and allow all azure traffic access to the server.
+To allow other Azure services to access a server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from *any* Azure subscription to access the server.
 
 
 ## Create a database
