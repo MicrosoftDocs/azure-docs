@@ -53,7 +53,7 @@ After logging in to Azure with the Azure CLI, run the `azure config list` comman
 azure config mode asm
 ```
 
-Type the following to list all the suscriptions you are authorized to use:
+Type the following to list all the subscriptions you are authorized to use:
 
 ```
 azure account list
@@ -146,11 +146,11 @@ host 10.32.0.3
 
 >[AZURE.NOTE]Configuring `StrictHostKeyChecking no` can create a potential security risk if a specific IP address or IP range is not specified as shown above.
 
-**Applications** - You can copy any applications you need onto this VM or perforom other customizations before you capture the image.
+**Applications** - Copy any applications you need onto this VM or perform other customizations before you capture the image.
 
 ## Capture the image
 
-To capture the iimage, first run the following command in the Linux VM:
+To capture the image, first run the following command in the Linux VM:
 
 ```
 $ sudo waagent -deprovision
@@ -166,9 +166,9 @@ After you run these commands, the VM image will be captured for your use and the
 
 ## Deploy a cluster with the image
 
-Modify the following Azure CLI cript with appropriate values for your environment, and run it from your client computer.
+Modify the following Azure CLI with script with appropriate values for your environment, and run it from your client computer.
 
->[AZURE.NOTE]The ASM deployment method deploys the VMs serieally, so it will take a few minutes to deploy the 16 VMs suggested in this script.
+>[AZURE.NOTE]The ASM deployment method deploys the VMs serially, so it will take a few minutes to deploy the 16 VMs suggested in this script.
 
 ```
 ### Script to create a compute cluster without a scheduler in a VNet in Azure
@@ -180,7 +180,7 @@ Modify the following Azure CLI cript with appropriate values for your environmen
 azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
-### Note: The current maxium number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
+### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
 
 azure service create <cloud-service-name> -l "West US" –s <subscription-ID>
 
@@ -250,7 +250,7 @@ You can run the following Intel MPI commands to verify the cluster configuration
  /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
 ```
 
-You should see output similar to the follwoing on a working cluster with two nodes:
+You should see output similar to the following on a working cluster with two nodes:
 
 ```
 #------------------------------------------------------------
