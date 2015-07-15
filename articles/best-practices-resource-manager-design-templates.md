@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Considerations and Proven Practices for Designing Azure Resource Manager Templates"
 	description="Show design patterns for Azure Resource Manager Templates"
-	services="virtual-machines"
+	services="azure-resource-manager"
 	documentationCenter=""
 	authors="mmercuri"
 	manager="georgem"
