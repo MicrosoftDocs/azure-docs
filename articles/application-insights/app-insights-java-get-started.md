@@ -207,7 +207,15 @@ Add this item to the Struts configuration file (usually named struts.xml or stru
 (If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
 
 
-## 5. Enable Performance Counter collection
+## 5. Collect additional diagnostic data
+
+You can get extra data by installations on the server machine.
+
+#### Remote dependencies, method execution timings, and  caught exceptions
+
+* [Install the Java Agent](app-insights-java-agent.md)
+
+#### Performance Counters
 
 On your server machine, if it's a Windows machine, install 
 
@@ -254,7 +262,10 @@ This enables meaningful aggregations of requests, such as number of requests and
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
-To collect data on other exceptions, [insert calls to TrackException in your code][apiexceptions]. 
+To collect data on other exceptions, you have two options:
+
+* [Insert calls to TrackException in your code][apiexceptions].
+* [Install the Java Agent on your server](app-insights-java-agent.md). You specify the methods you want to watch.
 
 
 ## Performance counters
