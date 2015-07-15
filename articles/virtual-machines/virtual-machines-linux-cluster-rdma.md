@@ -102,7 +102,7 @@ Run commands similar to the following to install Intel MPI on the VM:
 ```
 
 $ wget <download link for your registration>
-$ tar xvzf l_<tar-file>
+$ tar xvzf <tar-file>
 $ cd <mpi-directory>
 $ sudo ./inst
 ```
@@ -316,8 +316,8 @@ You should see output similar to the following on a working cluster with two nod
 ```
 ## Network topology considerations
 
-* Eth1 is reserved for RDMA network traffic. Do not change any Eth1 settings or any information in the configuration file referring to this network.
+* On Linux VMs, Eth1 is reserved for RDMA network traffic. Do not change any Eth1 settings or any information in the configuration file referring to this network.
 
 * In Azure IP over Infiniband (IB) is not supported. Only RDMA over IB is supported.
 
-* Eth0 is reserved for regular Azure network traffic.
+* On Linux VMs, Eth0 is reserved for regular Azure network traffic.
