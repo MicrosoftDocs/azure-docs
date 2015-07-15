@@ -175,7 +175,7 @@ For additional details on SQL Database limits, please see the following topics:
 
 ## Site Recovery Limits
 
-[AZURE.INCLUDE [site-recovery-limits](../includes/azure-site-recovery-limits.md)]
+[AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
 ##Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
