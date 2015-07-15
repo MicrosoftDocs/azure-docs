@@ -41,7 +41,7 @@ Go to the Azure Marketplace in the Preview portal to find the Windows Server VM 
 
 	> [AZURE.TIP] To find additional images, click **Marketplace** and then search or filter for available items.
 
-3. At the bottom of the **Ubuntu Server 14.04 LTS** page, select **Use the Resource Manager stack** to create the VM in Azure Resource Manager. (For most new workloads we recommend the Resource Manager stack. For considerations see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).) Then click ![create button](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
+3. At the bottom of the **Ubuntu Server 14.04 LTS** page, select **Use the Resource Manager stack** to create the VM in Azure Resource Manager. For most new workloads we recommend the Resource Manager stack. For considerations see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md). Then click ![create button](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
 
 	![change to the resource manager compute stack](media/virtual-machines-linux-tutorial-portal-rm/changetoresourcestack.png)
 	
