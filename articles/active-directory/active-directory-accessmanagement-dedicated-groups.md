@@ -19,7 +19,7 @@
 
 # Dedicated groups in Azure Active Directory
 
-In Azure Active Directory, dedicated groups are created automatically and group membership for the dedicated groups is also automatic. You cannot add or remove members to and from dedicated groups through the Azure management portal, Windows PowerShell cmdlets, or programmatically. To enable dedicated groups, In the Azure Management Portal, on the Configure tab, set the Enable Dedicated Groups switch to Yes.
+In Azure Active Directory, dedicated groups are created automatically and group membership for the dedicated groups is also automatic. You cannot add or remove members to and from dedicated groups through the Azure Management portal, Windows PowerShell cmdlets, or programmatically. To enable dedicated groups, In the Azure Management Portal, on the Configure tab, set the Enable Dedicated Groups switch to Yes.
 
 In the current public preview release, once the Enable Dedicated Groups switch is set to Yes, you can further enable the directory to automatically create the All Users dedicated group by setting the Enable “All Users” Group switch to Yes. You can then also edit the name of this dedicated group by typing it in the Display Name for “All Users” Group field.
 
