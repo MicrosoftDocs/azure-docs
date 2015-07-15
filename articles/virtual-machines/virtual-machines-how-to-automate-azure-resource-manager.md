@@ -25,7 +25,7 @@ Azure Resource Manager simplifies the deployment and management of complex appli
 
 [Azure Resource Manager overview](../resource-group-overview.md)
 
-[Resource Manager templates](http://go.microsoft.com/fwlink/p/?linkid=536445&clcid=0x409)
+[Azure Quickstart templates](http://go.microsoft.com/fwlink/p/?linkid=536445&clcid=0x409)
 
 [Application frameworks using templates](virtual-machines-app-frameworks.md)
 
