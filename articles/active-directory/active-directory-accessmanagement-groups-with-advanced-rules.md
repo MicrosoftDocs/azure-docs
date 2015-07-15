@@ -154,6 +154,8 @@ Allowed operators
 
 Here are some topics that will provide some additional information on Azure Active Directory 
 
+* [Troubleshooting dynamic memberships for groups](active-directory-accessmanagement-troubleshooting.md)
+
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
 * [What is Azure Active Directory?](active-directory-whatis.md)
