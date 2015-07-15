@@ -68,7 +68,7 @@ The installation order is as follows:
 
 Install as follows:
 
-1. Download the [update](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASR Scout 8.0.1 Update1.zip] zip file. This zip files contains the following files:
+1. Download the [update](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASR Scout 8.0.1 Update1.zip) zip file. This zip files contains the following files:
 
 	-  RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz
 	-  CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15.exe
