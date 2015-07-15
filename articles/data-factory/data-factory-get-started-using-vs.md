@@ -21,7 +21,7 @@
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio Add-in](data-factory-monitor-manage-using-vs.md)
+- [Using Visual Studio Add-in](data-factory-get-started-using-vs.md)
 
 
 ##In This Tutorial
