@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="07/15/2015"
 	ms.author="mmercuri"/>
 
-# Best Practices for Handling State in Azure Resource Manager Templates
+# Sharing State in Azure Resource Manager Templates
 
 This topic describes how to manage and share state within an Azure Resource Manager template and across linked templates.
 
