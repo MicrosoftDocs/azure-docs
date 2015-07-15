@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="07/15/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with the Azure SQL Database Library for .NET
@@ -24,7 +24,7 @@
 
 ## Overview
 
-This article provides commands to perform many Azure SQL Database management tasks using C#. Individual code snippets are broken out for clarity. A sample console application brings all the commands together in the section at the bottom of this article.
+This article provides commands to perform many Azure SQL Database management tasks using C#. Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
 The Azure SQL Database Library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) API, it is a wrapper on the [SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). The API wraps PUT statements into the CreateOrUpdate statements so the calls are idempotent, meaning you can run the code many times and it will produce the same result.
 
@@ -36,7 +36,7 @@ ARM requires resource groups, and authenticating with [Azure Active Directory](h
 
 <br>
 
-If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to this article.
+If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to this article. And for a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 ## Installing the required libraries
 
@@ -50,9 +50,9 @@ Get the SQL Database Management libraries by installing the following packages u
 
 ## Configure your credentials by authenticating with Azure Active Directory
 
-First you must establish access to your Azure account by setting up the required authentication.
+First you must establish access to your Azure account by setting up the required authentication. 
 
-The [Azure Resource Management (ARM) REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs.
+The [Azure Resource Management (ARM) REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs. 
 
 To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Azure management portal](https://manage.windowsazure.com/). 
 
@@ -144,7 +144,7 @@ A resource group is a container that holds related resources for an application.
     };
     
     //Create a resource group
-    var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("ResourceGroup1", resourceGroupParameters);
+    var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("resourcegroup-name", resourceGroupParameters);
 
 
 
@@ -172,7 +172,7 @@ SQL databases are contained in servers. The server name must be globally unique 
         Properties = serverProperties 
     };
 
-    var serverResult = sqlClient.Servers.CreateOrUpdate("ResourceGroup1", "your-server-name", serverParameters);
+    var serverResult = sqlClient.Servers.CreateOrUpdate("resourcegroup-name", "server-name", serverParameters);
 
 
 
@@ -195,7 +195,7 @@ The following example creates a rule that opens access to the server from any IP
         Properties = firewallProperties
     };
 
-    var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("ResourceGroup1", "your-server-name", "FirewallRule1", firewallParameters);
+    var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("resourcegroup-name", "server-name", "FirewallRule1", firewallParameters);
 
 
 
@@ -219,7 +219,7 @@ The following command will create a Basic database. If the **Edition** property 
         Properties = databaseProperties
     };
 
-    var databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "your-server-name", "Database1", databaseParameters);
+    var databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
 
 
 
@@ -233,7 +233,7 @@ The following sets a SQL database to the Standard (S0) level:
     databaseProperties.Edition = "Standard";
     databaseProperties.RequestedServiceObjectiveName = "S0";
 
-    databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "your-server-name", "Database1", databaseParameters);
+    databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
 
 
 ## List all databases on a server
@@ -241,8 +241,8 @@ The following sets a SQL database to the Standard (S0) level:
 To list all databases on a server, pass the server and resource group names to the Databases.List method:
 
     // List databases on the server
-    DatabaseListResponse dbListOnServer = sqlClient.Databases.List("ResourceGroup1", "your-server-name");
-    Console.WriteLine("Databases on Server {0}", "your-server-name");
+    DatabaseListResponse dbListOnServer = sqlClient.Databases.List("resourcegroup-name", "server-name");
+    Console.WriteLine("Databases on Server {0}", "server-name");
     foreach (Database db in dbListOnServer)
     {
         Console.WriteLine("  Database {0}, Service Objective {1}", db.Name, db.Properties.ServiceObjective);
@@ -270,7 +270,7 @@ To create a new pool on a server:
         Properties = poolProperties
     };
 
-    var poolResult = sqlClient.ElasticPools.CreateOrUpdate("ResourceGroup1", "your-server-name", "ElasticPool1", poolParameters);
+    var poolResult = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", poolParameters);
 
 
 
@@ -284,7 +284,7 @@ To move an existing database into a pool:
     databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
     databaseProperties.ElasticPoolName = "ElasticPool1";
 
-    databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "your-server-name", "Database1", databaseParameters);
+    databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
 
 
 
@@ -296,7 +296,7 @@ To create a new database directly in a pool:
     databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
     databaseProperties.ElasticPoolName = "ElasticPool1";
 
-    databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "your-server-name", "Database2", databaseParameters);
+    databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", databaseParameters);
 
 
 
@@ -306,8 +306,8 @@ To create a new database directly in a pool:
 To list all databases in a pool:
 
     //List databases in the elastic pool
-    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("ResourceGroup1", "your-server-name", "ElasticPool1");
-    Console.WriteLine("Databases in Elastic Pool {0}", "your-server-name.ElasticPool1");
+    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
+    Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
     foreach (Database db in dbListInPool)
     {
         Console.WriteLine("  Database {0}", db.Name);
@@ -317,7 +317,7 @@ To list all databases in a pool:
 
 To delete a server (which also deletes the databases and any elastic database pools on the server), run the following code:
 
-    var serverOperationResponse = sqlClient.Servers.Delete("ResourceGroup1", "your-server-name");
+    var serverOperationResponse = sqlClient.Servers.Delete("resourcegroup-name", "server-name");
 
 
 ## Delete a resource group
@@ -325,7 +325,7 @@ To delete a server (which also deletes the databases and any elastic database po
 To delete a resource group:
 
     // Delete the resource group
-    var resourceOperationResponse = resourceClient.ResourceGroups.Delete("ResourceGroup1");
+    var resourceOperationResponse = resourceClient.ResourceGroups.Delete("resourcegroup-name");
 
 
 
@@ -383,7 +383,7 @@ To delete a resource group:
             };
 
             //Create a resource group
-            var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("ResourceGroup1", resourceGroupParameters);
+            var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("resourcegroup-name", resourceGroupParameters);
                         
             Console.WriteLine("Resource group {0} create or update completed with status code {1} ", resourceGroupResult.ResourceGroup.Name, resourceGroupResult.StatusCode);
 
@@ -404,7 +404,7 @@ To delete a resource group:
                 Properties = serverProperties 
             };
 
-            var serverResult = sqlClient.Servers.CreateOrUpdate("ResourceGroup1", "your-server-name", serverParameters);
+            var serverResult = sqlClient.Servers.CreateOrUpdate("resourcegroup-name", "server-name", serverParameters);
 
             Console.WriteLine("Server {0} create or update completed with status code {1}", serverResult.Server.Name, serverResult.StatusCode);
 
@@ -420,7 +420,7 @@ To delete a resource group:
                 Properties = firewallProperties
             };
 
-            var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("ResourceGroup1", "your-server-name", "FirewallRule1", firewallParameters);
+            var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("resourcegroup-name", "server-name", "FirewallRule1", firewallParameters);
 
             Console.WriteLine("Firewall rule {0} create or update completed with status code {1}", firewallResult.FirewallRule.Name, firewallResult.StatusCode);
                         
@@ -436,7 +436,7 @@ To delete a resource group:
                 Properties = databaseProperties
             };
 
-            var databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "your-server-name", "Database1", databaseParameters);
+            var databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
 
             Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective {2} ", databaseResult.Database.Name, databaseResult.StatusCode, databaseResult.Database.Properties.ServiceObjective);
             
@@ -444,7 +444,7 @@ To delete a resource group:
             databaseProperties.Edition = "Standard";
             databaseProperties.RequestedServiceObjectiveName = "S0";
 
-            databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "your-server-name", "Database1", databaseParameters);
+            databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
 
             Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2} ", databaseResult.Database.Name, databaseResult.StatusCode, databaseResult.Database.Properties.ServiceObjective);
 
@@ -463,7 +463,7 @@ To delete a resource group:
                 Properties = poolProperties
             };
 
-            var poolResult = sqlClient.ElasticPools.CreateOrUpdate("ResourceGroup1", "your-server-name", "ElasticPool1", poolParameters);
+            var poolResult = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", poolParameters);
 
             Console.WriteLine("Elastic pool {0} create or update completed with status code {1}.", poolResult.ElasticPool.Name, poolResult.StatusCode);
 
@@ -471,7 +471,7 @@ To delete a resource group:
             databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
             databaseProperties.ElasticPoolName = "ElasticPool1";
 
-            databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "your-server-name", "Database1", databaseParameters);
+            databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
 
             Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2}({3}) ", databaseResult.Database.Name, databaseResult.StatusCode, databaseResult.Database.Properties.ServiceObjective, databaseResult.Database.Properties.ElasticPoolName);
 
@@ -480,21 +480,21 @@ To delete a resource group:
             databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
             databaseProperties.ElasticPoolName = "ElasticPool1";
 
-            databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "your-server-name", "Database2", databaseParameters);
+            databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", databaseParameters);
 
             Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2}({3}) ", databaseResult.Database.Name, databaseResult.StatusCode, databaseResult.Database.Properties.ServiceObjective, databaseResult.Database.Properties.ElasticPoolName);
             
             // List databases on the server
-            DatabaseListResponse dbListOnServer = sqlClient.Databases.List("ResourceGroup1", "your-server-name");
-            Console.WriteLine("Databases on Server {0}", "your-server-name");
+            DatabaseListResponse dbListOnServer = sqlClient.Databases.List("resourcegroup-name", "server-name");
+            Console.WriteLine("Databases on Server {0}", "server-name");
             foreach (Database db in dbListOnServer)
             {
                 Console.WriteLine("  Database {0}, Service Objective {1}", db.Name, db.Properties.ServiceObjective);
             }
 
             //List databases in the elastic pool
-            DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("ResourceGroup1", "your-server-name", "ElasticPool1");
-            Console.WriteLine("Databases in Elastic Pool {0}", "your-server-name.ElasticPool1");
+            DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
+            Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
             foreach (Database db in dbListInPool)
             {
                 Console.WriteLine("  Database {0}", db.Name);
@@ -505,14 +505,14 @@ To delete a resource group:
             Console.ReadKey();
 
             // Delete the server which deletes the databases and then the elastic pool
-            var serverOperationResponse = sqlClient.Servers.Delete("ResourceGroup1", "your-server-name");
+            var serverOperationResponse = sqlClient.Servers.Delete("resourcegroup-name", "server-name");
             Console.WriteLine("");
-            Console.WriteLine("Server {0} delete completed with status code {1}.", "your-server-name", serverOperationResponse.StatusCode);
+            Console.WriteLine("Server {0} delete completed with status code {1}.", "server-name", serverOperationResponse.StatusCode);
 
             // Delete the resource group
-            var resourceOperationResponse = resourceClient.ResourceGroups.Delete("ResourceGroup1");
+            var resourceOperationResponse = resourceClient.ResourceGroups.Delete("resourcegroup-name");
             Console.WriteLine("");
-            Console.WriteLine("Resource {0} delete completed with status code {1}.", "ResourceGroup1", resourceOperationResponse.StatusCode);
+            Console.WriteLine("Resource {0} delete completed with status code {1}.", "resourcegroup-name", resourceOperationResponse.StatusCode);
 
             Console.WriteLine("");
             Console.WriteLine("Execution complete.  Press any key to continue.");
