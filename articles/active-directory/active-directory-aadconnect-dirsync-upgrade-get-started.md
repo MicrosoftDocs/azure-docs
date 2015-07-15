@@ -22,7 +22,8 @@ The following documentation will help you upgrade your existing DirSync installa
 
 ## Download Azure AD Connect
 
-To get started using Azure AD Connect you can download the latest version using the following:  [Download Azure AD Connect Public Preview](http://connect.microsoft.com/site1164/program8612) 
+To get started using Azure AD Connect you can download the latest version using the following: [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) 
+
 
 ## Before you install Azure AD Connect
 Before you install Azure AD Connect, and upgrade from DirSync here are a few things you will need.  

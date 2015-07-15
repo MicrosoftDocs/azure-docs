@@ -17,9 +17,6 @@
 	ms.author="huvalo"/>
 
 
-
-
-
 # IPython Notebook on Azure
 
 The [IPython project](http://ipython.org) provides a collection of tools for scientific computing that include powerful interactive shells, high-performance and easy to use parallel libraries and a web-based environment called the IPython Notebook. The Notebook provides a working environment for interactive computing that combines code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying.
@@ -333,16 +330,16 @@ profiling and parallel computing integration.
 
 
 [tornado]:      http://www.tornadoweb.org/          "Tornado"
-[PyZMQ]:        https://github.com/zeromq/pyzmq     "PyZMQ"
-[NumPy]:        http://www.numpy.org/               "NumPy"
-[Matplotlib]:   http://matplotlib.sourceforge.net/  "Matplotlib"
+[pyzmq]:        https://github.com/zeromq/pyzmq     "PyZMQ"
+[numpy]:        http://www.numpy.org/               "NumPy"
+[matplotlib]:   http://matplotlib.sourceforge.net/  "Matplotlib"
 
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 [repository]: https://github.com/ipython/ipython
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[python Tools for visual studio]: http://aka.ms/ptvs
 
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[python 2.7]: http://www.python.org/download
+[openssl]: http://slproweb.com/products/Win32OpenSSL.html
  

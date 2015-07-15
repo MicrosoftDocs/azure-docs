@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/12/2015" 
 	ms.author="mandia"/>
 
 
@@ -88,7 +88,8 @@ Connectors can also be used as actions within your Logic App. Actions are useful
 
 ## Create your own Connectors and API Apps
 [Connectors and API Apps Reference](http://aka.ms/appservicesconnectorreference)<br/>
-[Azure App Service API app triggers](../app-service-api/app-service-api-dotnet-triggers.md)
+[Azure App Service API app triggers](../app-service-api/app-service-api-dotnet-triggers.md)<br/>
+[Logic App Reference](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
 ## More on Connectors and API Apps

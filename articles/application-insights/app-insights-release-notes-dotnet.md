@@ -32,6 +32,12 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * Compare ApplicationInsights.config with the old copy. Most of the changes you'll see are because we removed some modules and made others parameterizable. Reinstate any customizations you made to the old file.
 * Rebuild your solution.
 
+## Version 1.1
+
+- New telemetry type `DependencyTelemetry` was added which can be used to send information about dependency calls from application (like SQL, HTTP calls etc).
+- New overload method `TelemetryClient.TrackDependency` was added that allows you to send information about dependency calls.
+- Fixed NullReferenceException thrown by diagnostics module when TelemetryConfiguration.CreateDefault is used.
+
 ## Version 1.0
 
 - Moved telemetry initializers and telemetry modules from separate sub-namespaces to the root `Microsoft.ApplicationInsights.Extensibility.Web` namespace.
