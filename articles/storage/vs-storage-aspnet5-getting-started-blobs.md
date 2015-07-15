@@ -27,9 +27,23 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files.
+Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files. This article describes how to get started with blob storage after you create an Azure storage by using the Visual Studio **Add Connected Services** dialog.
 
-To get started, you need to create an Azure storage account and then create one or more containers in the storage. For example, you could make a storage called “Scrapbook,” then create containers in the storage called “images” to store pictures and another called “audio” to store audio files. After you create the containers, you can upload individual blob files to them. See [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md "How to use Blob Storage from .NET") for more information on programmatically manipulating blobs.
+Just as files live in folders, storage blobs live in containers. After you have created a storage, you create one or more containers in the storage. For example, in a storage called “Scrapbook,” you can create containers in the storage called “images” to store pictures and another called “audio” to store audio files. After you create the containers, you can upload individual blob files to them. See [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md "How to use Blob Storage from .NET") for more information on programmatically manipulating blobs.
+
+####Create containers in Visual Studio Server Explorer
+You can create blob containers by using Visual Studio **Server Explorer**.
+
+![Server Explorer][Image1]
+
+1. On the **View** menu, choose **Server Explorer**.
+2. In Server Explorer, expand the **Azure** node for your subscription, expand the **Storage** node and the node for the storage account you specified in the Azure Storage connected service.
+3. Select the **Blobs** node and choose **Create Blob Container** from the context menu.
+4. Enter a name for the container and choose **OK**.   
+
+By default, the new container is private and you must specify your storage access key to download blobs from this container. If you want to make the blobs in the container public, select the container in **Server Explorer** and press `F4` to display the **Properties**. Set the **Public Read Access** to **Blob**. 
+
+####Accessing blob containers in code 
 
 To programmatically access blobs in ASP.NET 5 projects, you need to add the following items, if they're not already present.
 
@@ -41,42 +55,50 @@ To programmatically access blobs in ASP.NET 5 projects, you need to add the foll
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. Use the following code to get the configuration setting.
+2. Use the following code to get the configuration settings.
 
 		 IConfigurationSourceRoot config = new Configuration()
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 
-#####Get the storage connection string
-Before you can do anything with a blob, you need to get the connection string for the storage account the blobs will live in. You can use the **CloudStorageAccount** type to represent your storage account information. If you’re using an ASP.NET 5 project, you can you call the get method of the Configuration object to get your storage connection string and storage account information from the Azure service configuration, as shown in the following code.
+3. Get a **CloudStorageAccount** object that represent your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
 
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
+		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		   config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-#####Create a container
-Just as files live in folders, storage blobs live in containers. You can use a **CloudBlobClient** object to reference an existing container, or you can call the CreateCloudBlobClient() method to create a new container.
+4. Get a **CloudBlobClient** object to reference an existing container in your storage account.
 
-The following code shows how to create a new blob storage container. The code first creates a **BlobClient** object so that you can access the object's functions, such as creating a storage container. Then, the code tries to reference a storage container named “mycontainer.” If it can’t find a container with that name, it creates one.
+		// Create a blob client.
+		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-**NOTE:** The APIs that perform calls out to Azure storage in ASP.NET 5 are asynchronous. See [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
+        // Get a reference to a container named “mycontainer.”
+        CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+
+
+**NOTE:** Use all of this code in front of the code in the following sections.
+
+****Create a container programmatically****
+
+You can also use the **CloudBlobClient** to create a container in your storage account. All you need to do is add a call to `CreateIfNotExistsAsync()` as in the following code:
 
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Get a reference to a container named “mycontainer.”
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+    // Get a reference to a container named “my-new-container.”
+    CloudBlobContainer container = blobClient.GetContainerReference("my-new-container");
 
     // If “mycontainer” doesn’t exist, create it.
     await container.CreateIfNotExistsAsync();    
 
-By default, the new container is private and you must specify your storage access key to download blobs from this container. If you want to make the files within the container available to everyone, you can set the container to be public by using the following code.
+
+**NOTE:** The APIs that perform calls out to Azure storage in ASP.NET 5 are asynchronous. See [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
+
+To make the files within the container available to everyone, you can set the container to be public by using the following code.
 
 	await container.SetPermissionsAsync(new BlobContainerPermissions
     {
         PublicAccess = BlobContainerPublicAccessType.Blob
     });
-
-**NOTE:** Use all of this code in front of the code in the following sections.
 
 #####Upload a blob into a container
 To upload a blob file into a container, get a container reference and use it to get a blob reference. Once you have a blob reference, you can upload any stream of data to it by calling the **UploadFromStreamAsync()** method. This operation will create the blob if it’s not already there, or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.
@@ -152,3 +174,4 @@ To delete a blob, first get a reference to the blob and then call the **DeleteAs
 [Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx) and [ASP.NET 5](http://www.asp.net/vnext).
  
+[Image1]: ./media/vs-storage-aspnet5-getting-started-blobs/vs-storage-create-blob-containers-in-Server-Explorer.png
