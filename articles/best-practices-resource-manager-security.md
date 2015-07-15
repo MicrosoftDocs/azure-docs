@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Security Considerations for Azure Resource Manager"
 	description="Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups."
-	services="virtual-machines"
+	services="azure-resource-manager"
 	documentationCenter=""
 	authors="mmercuri"
 	manager="georgem"
@@ -19,7 +19,7 @@
 
 # Security Considerations for Azure Resource Manager
 
-When looking at aspects of security for your Azure Resource Manager templates, there are several areas to consider – keys and secrets, role-based access control, 
+When looking at aspects of security for your Azure Resource Manager templates, there are several areas to consider â€“ keys and secrets, role-based access control, 
 and network security groups.
 
 This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azure Resource Manager. For more information, see 
@@ -194,7 +194,7 @@ group (NSG) to do this as part of an ARM template deployment.
 
 A network security group is a top-level object that is associated with your subscription. An NSG contains access control rules that allow or deny traffic to 
 VM instances. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a virtual network 
-that is associated with a region (location). NSGs are not compatible with virtual networks that are associated with an affinity group. If you don’t have a 
+that is associated with a region (location). NSGs are not compatible with virtual networks that are associated with an affinity group. If you donâ€™t have a 
 regional virtual network and you want to control traffic to your endpoints, please see [About Network Access Control Lists (ACLs)](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
 You can associate an NSG with a VM, or to a subnet within a virtual network. When associated with a VM, the NSG applies to all the traffic that is sent and 
@@ -210,7 +210,7 @@ NSG works on one or more VM instances and controls all the traffic that is inbou
 
 A network security group has a *Name*, is associated with a *Region* (one of the supported Azure locations), and has a descriptive label. It contains two types of 
 rules, Inbound and Outbound. The Inbound rules are applied on the incoming packets to a VM and the Outbound rules are applied to the outgoing packets from the VM. 
-The rules are applied at the server machine where the VM is located. An incoming or outgoing packet must match an Allow rule to be permitted; otherwise, it’s dropped.
+The rules are applied at the server machine where the VM is located. An incoming or outgoing packet must match an Allow rule to be permitted; otherwise, itâ€™s dropped.
 
 Rules are processed in the order of priority. For example, a rule with a lower priority number such as 100 is processed before rules with a higher priority numbers 
 such as 200. Once a match is found, no more rules are processed.
@@ -224,7 +224,7 @@ A rule specifies the following:
 -	Source Port Range: An integer or range between 0 and 65536
 -	Destination IP Range: CIDR of the destination IP Range
 -	Destination Port Range: An integer or range between 0 and 65536
--	Protocol: TCP, UDP or ‘\*’
+-	Protocol: TCP, UDP or â€˜\*â€™
 -	Access: Allow/Deny
 
 ### Default rules
@@ -275,14 +275,14 @@ Default tags are system-provided identifiers to address a category of IP address
 Tag |	Description
 --- | ---
 VIRTUAL_NETWORK |	Denotes all of your network address space. It includes the virtual network address space (IP CIDR in Azure) as well as all connected on-premises address space (Local Networks). This also includes virtual network-to-virtual network address spaces.
-AZURE_LOADBALANCER | Denotes the Azure Infrastructure load balancer and will translate to an Azure datacenter IP where Azure’s health probes will originate. This is needed only if the VM or set of VMs associated with the NSG is participating in a load balanced set.
+AZURE_LOADBALANCER | Denotes the Azure Infrastructure load balancer and will translate to an Azure datacenter IP where Azureâ€™s health probes will originate. This is needed only if the VM or set of VMs associated with the NSG is participating in a load balanced set.
 INTERNET | Denotes the IP address space that is outside the virtual network and can be reached by public Internet. This range includes Azure-owned public IP space as well.
 
 ### Ports and port ranges
 
 NSG rules can be specified on a single source or destination port, or on a port range. This approach is particularly useful when you want to open a wide range of ports 
 for an application, such as FTP. The range must be sequential and can't be mixed with individual port specifications.
-To specify a range of ports, use the hyphen (\–) character. For example, **100-500**.
+To specify a range of ports, use the hyphen (\â€“) character. For example, **100-500**.
 
 ### ICMP traffic
 
@@ -293,7 +293,7 @@ the Inbound rules that support traffic from and to any port and protocol (\*) wi
 
 When an NSG is directly associated with a VM, the network access rules in the NSG are directly applied to all traffic that is destined to the VM. Whenever the NSG is 
 updated for rule changes, the traffic handling reflects the updates within minutes. When the NSG is disassociated from the VM, the state reverts to its 
-pre-NSG condition—that is, to the system defaults before the NSG was introduced.
+pre-NSG conditionâ€”that is, to the system defaults before the NSG was introduced.
 
 ### Associating an NSG with a subnet
 
