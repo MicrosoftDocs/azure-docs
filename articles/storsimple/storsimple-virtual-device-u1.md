@@ -73,12 +73,12 @@ The following sections will help you prepare to use the StorSimple virtual devic
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
 - For the virtual device, [configure a virtual network on Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx). 
-- You can use the default DNS server provided by Azure instead of specifying your own DNS server name. 
+- It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid, creation of the virtual device will fail.
 - Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
 
 >[AZURE.IMPORTANT] **Make sure that the virtual network is in the same region as the cloud storage accounts that you are going to be using with the virtual device.**
 
-- Create [Azure Virtual Machines ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (host servers) in the virtual network. These servers must meet the following requirements: 							
+- You can create [Azure Virtual Machines ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements: 							
 	- Be Windows or Linux VMs with iSCSI Initiator software installed
 	- Be running in the same virtual network as the virtual device
 	- Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device
@@ -131,10 +131,10 @@ Perform the following steps to create the StorSimple virtual device
 	a. **Name** – A unique name for your virtual device.
 
 
-	b. **Version** - Choose the version of the virtual device. This option will be absent if you only have Update 1 physical devices registered with this service. This field is presented only if you have a combination of pre-update 1 and Update 1 physical devices registered with the service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
+	b. **Version** - Choose the version of the virtual device. This option will be absent if you only have Update 1 (or above) physical devices registered with this service. This field is presented only if you have a combination of pre-update 1 and Update 1 physical devices registered with the service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
 
 	- Version Update 0.3 if you will failover or DR from a physical device with GA Release or Updates 0.1 to 0.3. 
-	- Version Update 1 if you will failover or clone from a physical device with Update 1. 
+	- Version Update 1 if you will failover or clone from a physical device with Update 1 (or above). 
 
  
 	b. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
@@ -155,27 +155,30 @@ Before starting this procedure, make sure that you have a copy of the service da
 Perform the following steps to configure and register your StorSimple virtual device.
 
 
-1. Select the **StorSimple virtual device** as your device and double-click it to access the Quick Start.
+1. Select the **StorSimple virtual device** you just created in the Devices page. 
 
 - Click **complete device setup**. This starts the Configure device wizard.
 
 - Enter the **Service Data Encryption Key** in the space provided.
 
-- Click the check mark to finish the initial configuration and registration of the virtual device. The Device Administrator Password is preconfigured with default values and must be changed after the device is registered.
+- Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.
+
+- Click the check mark to finish the initial configuration and registration of the virtual device. 
 
 ### Modify the device configuration settings
 
-The following section describes the device configuration settings that you need to configure for the StorSimple virtual device.
+The following section describes the device configuration settings that you might want to configure for the StorSimple virtual device if you want to use CHAP, StorSimple Snapshot Manager or change the Device Administrator password.
 
-#### Configure the CHAP initiator
+#### Configure the CHAP initiator (optional)
 
 This parameter contains the credentials that your virtual device (target) expects from the initiators (servers) that are attempting to access the volumes. The initiators will provide a CHAP user name and a CHAP password to identify themselves to your device during this authentication.
 
-#### Configure the CHAP target
+#### Configure the CHAP target (optional)
 
 This parameter contains the credentials that your virtual device uses when a CHAP-enabled initiator requests mutual or bi-directional authentication. Your virtual device will use a Reverse CHAP user name and Reverse CHAP password to identify itself to the initiator during this authentication process. Note that CHAP target settings are global settings. When these are applied, all the volumes connected to the storage virtual device will use CHAP authentication.
+Select your device in the Devices page. Go to the Configure page within your devices page and scroll down to find the CHAP section.
 
-#### Configure the StorSimple Snapshot Manager
+#### Configure the StorSimple Snapshot Manager (optional)
 
 StorSimple Snapshot Manager software resides on your Windows host and allows administrators to manage backups of your StorSimple device in the form of local and cloud snapshots.
 
@@ -183,7 +186,7 @@ StorSimple Snapshot Manager software resides on your Windows host and allows adm
 
 When configuring a device in the StorSimple Snapshot Manager, you will be prompted to provide the StorSimple device IP address and password to authenticate your storage device. 
 
-Perform the following steps to configure StorSimple Snapshot Manager when using it with your StorSimple virtual device.
+Perform the following steps to change the StorSimple Snapshot Manager password.
 
 1. On your virtual device, go to **Devices > Configure**.
 
@@ -195,11 +198,11 @@ Perform the following steps to configure StorSimple Snapshot Manager when using 
 
 The StorSimple Snapshot Manager password is now updated and can be used when you authenticate your Windows hosts.
 
-#### Configure the device administrator password
+#### Change the device administrator password
 
 When you use the Windows PowerShell interface to access the virtual device, you will be required to enter a device administrator password. For the security of your data, you are required to change this password before the virtual device can be used.
 
-Perform the following steps to configure the device administrator password for your StorSimple virtual device.
+Perform the following steps to change the device administrator password for your StorSimple virtual device.
 
 1. On your virtual device, go to **Devices > Configure**.
  
@@ -211,7 +214,7 @@ Perform the following steps to configure the device administrator password for y
 
 The device administrator password should now be updated. You will use this modified password to access the Windows PowerShell interface on your virtual device.
 
-#### Configure remote management 
+#### Configure remote management (optional)
 
 Remote access to your virtual device via the Windows PowerShell interface is not enabled by default. You need to enable remote management on the virtual device first, and then enable it on the client that will be used to access your virtual device.
 
