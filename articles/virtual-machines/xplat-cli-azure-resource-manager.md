@@ -23,29 +23,29 @@
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 
 
-This article describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the arm mode.  
+This article describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the Azure Resource Manager mode.  
 
 >[AZURE.NOTE] To create and manage Azure resources on the command line, you will need an Azure account ([free trial here](http://azure.microsoft.com/pricing/free-trial/)). You will also need to [install the Azure CLI](../xplat-cli-install.md), and to [log on to use Azure resources associated with your account](../xplat-cli-connect.md). If you've done these things, you're ready to go.
 
 ## Azure resources
 
-The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a virtual machine, database server, database, or website) as a single logical unit, or _resource group_. You can create, manage, and delete these resources imperatively on the command line, just like you can in the asm mode.
+Use the Azure Resource Manager to manage a group of _resources_ (user-managed entities such as a virtual machine, database server, database, or website) as a single logical unit, or _resource group_. You can create, manage, and delete these resources imperatively on the command line, just like you can in the asm mode.
 
-Using the arm mode, you can also manage your Azure resources in a _declarative_ way by describing the structure and relationships of a deployable group of resources in JSON *templates*. The template describes parameters that can be filled in either inline when running a command or stored in a separate JSON azuredeploy-parameters.json file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a website will have parameters for the site name, the region the website will be located in, and other common parameters.
+Using the Azure Resoure Manager mode, you can also manage your Azure resources in a _declarative_ way by describing the structure and relationships of a deployable group of resources in JSON *templates*. The template describes parameters that can be filled in either inline when running a command or stored in a separate JSON azuredeploy-parameters.json file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a website will have parameters for the site name, the region the website will be located in, and other common parameters.
 
-When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Resource Manager, visit the [Azure Resource Manager Overview](../resource-group-overview.md).
+When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Azure Resource Manager, visit the [Azure Resource Manager Overview](../resource-group-overview.md).
 
 ## Authentication
 
-Working with the Resource Manager through the Azure CLI requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a certificate installed through a .publishsettings file will not work.
+Working with the Azure Resource Manager through the Azure CLI requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a certificate installed through a .publishsettings file will not work.
 
 For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 
 > [AZURE.NOTE] Because you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](../resource-group-rbac.md).
 
-## Setting the arm mode
+## Setting the Azure Resource Manager mode
 
-Because the Resource Manager mode is not enabled by default, you must use the following command to enable Azure CLI resource manager commands.
+Because the Azure Resource Manager mode is not enabled by default, you must use the following command to enable Azure CLI Resource Manager commands.
 
 	azure config mode arm
 
@@ -53,7 +53,7 @@ Because the Resource Manager mode is not enabled by default, you must use the fo
 
 ## Finding the locations
 
-Most of the arm commands need a valid location to create or find a resource from. You can find all available locations by using the following command.
+Most of the Azure Resource Manager commands need a valid location to create or find a resource from. You can find all available locations by using the following command.
 
 	azure location list
 
@@ -61,7 +61,7 @@ It will list locations specific to regions such as "West US", "East US", and so 
 
 ## Creating resource group
 
-A resource group is a logical grouping of network, storage and other resources. Almost all commands in arm mode need a resource group. You can create a resource group named _testrg_, for example, by using the following command.
+A resource group is a logical grouping of network, storage and other resources. Almost all commands in the Azure Resource Manager mode need a resource group. You can create a resource group named _testrg_, for example, by using the following command.
 
 	azure group create -n "testrg" -l "West US"
 
@@ -69,7 +69,7 @@ You can start adding resources to this group after this, and use it to configure
 
 ## Creating virtual machines
 
-There are two ways to create virtual machines in the arm mode:
+There are two ways to create virtual machines in the Azure Resource Manager mode:
 
 1. Using individual Azure CLI commands.
 2. Using resource group templates.
@@ -78,7 +78,7 @@ Be sure to create at least one resource group before you start with any of these
 
 ### Using individual Azure CLI commands
 
-This is the basic approach to configure and create a virtual machine as per your needs. In arm mode, you will need to configure some mandatory resources like the networking before you can use the **vm create** command.
+This is the basic approach to configure and create a virtual machine as per your needs. In the Azure Resource Manager mode, you will need to configure some mandatory resources like the networking before you can use the **vm create** command.
 
 >[AZURE.NOTE] If you are creating resources for the first time on the command line for your subscription, you might be prompted to register for certain resource providers.
 > If that happens, it is easy to register the provider and try the failed command again, as shown in the next example.
@@ -338,8 +338,8 @@ To view logged information on operations performed on a group, use the `azure gr
 ## Next steps
 
 * For information on using the Azure Command-Line Interface (Azure CLI), see [Install and Configure the Azure CLI][clisetup].
-* For information on working with Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-* For imformation on working with Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm].
+* For information on working with Azure Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+* For imformation on working with Azure Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
