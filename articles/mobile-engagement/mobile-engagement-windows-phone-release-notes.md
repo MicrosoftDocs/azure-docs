@@ -11,8 +11,8 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="" 
-	ms.topic="article" 
+	ms.devlang="na" 
+	ms.topic="article"
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
 
