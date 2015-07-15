@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Next Steps for Access Management using Groups | Microsoft Azure"
+	pageTitle="Next steps for access management using groups | Microsoft Azure"
 	description="Advanced How-to's for managing security groups and how to use these groups to manage access to a resource."
 	services="active-directory"
 	documentationCenter=""
@@ -10,12 +10,13 @@
 
 <tags
 	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/13/2015" 
 	ms.author="femila"/>
+
 # Managing owners to a group
 
 ##Assigning owners to a group

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Managing Access to Resources with Azure Active Directory Groups| Microsoft Azure" 
+	pageTitle="Managing access to resources with Azure Active Directory groups| Microsoft Azure" 
 	description="A topic that explains how to use groups for access management in Azure AD." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -10,7 +10,7 @@
 
 <tags 
 	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 

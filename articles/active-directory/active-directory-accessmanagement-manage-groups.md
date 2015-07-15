@@ -1,6 +1,6 @@
 <properties
 
-	pageTitle="Managing Security Groups in Azure Active Directory | Microsoft Azure| Microsoft Azure"
+	pageTitle="Managing security groups in Azure Active Directory | Microsoft Azure"
 	description="Covers how to sign up for Azure and first steps you can try with Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 

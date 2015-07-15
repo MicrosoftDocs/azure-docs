@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Setting up Azure AD for Self Service Application Access Management| Microsoft Azure" 
+	pageTitle="Setting up Azure AD for self service application access management| Microsoft Azure" 
 	description="A topic that explains how to manage groups in Azure AD." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -10,7 +10,7 @@
 
 <tags 
 	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 

@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Using Attributes to Create Advanced Rules| Microsoft Azure"
+	pageTitle="Using attributes to create advanced rules| Microsoft Azure"
 	description="Advanced How-to's for managing security groups and how to use these groups to manage access to a resource."
 	services="active-directory"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 

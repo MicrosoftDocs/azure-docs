@@ -5,17 +5,16 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="Swadhwa" 
+	manager="swadhwa" 
 	editor="Curtis"
 	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="articl
-e" 
+	ms.topic="article" 
 	ms.date="07/13/2015" 
 	ms.author="femila"/>
 
