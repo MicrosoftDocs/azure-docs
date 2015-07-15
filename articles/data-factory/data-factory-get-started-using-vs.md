@@ -237,5 +237,13 @@ You have created input/output linked services and tables so far. Now, you will c
 
 23. You should see the status of publishing in the Data Factory Task List window that is shown in the picture above. Confirm that publishing has succeeded.
 
+## Use Server Explorer to review Data Factory entities
+
+1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
+2. In the Server Explorer window, expand **Azure** and expand **Data Factory**. If you see **Sign in to Visual Studio**, enter the **account** associated with your Azure subscription and click **Continue**. Enter **password**, and click **Sign in**. Visual Studio tries to get information about all Azure data factories in your subscription. You will see the status of this operation in the **Data Factory Task List** window.
+	![Server Explorer](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. You can right-click on a data factory, and select Export Data Factory to New Project to create a Visual Studio project based on an existing data factory.
+	![Export data factory to a VS project](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+
 See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
 
