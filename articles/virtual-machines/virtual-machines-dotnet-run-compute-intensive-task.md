@@ -76,7 +76,7 @@ To create a service namespace:
 3.  In the lower pane of the Azure portal, click  **Create**.
 
     ![Create new service bus][create_service_bus]
-4.  In the **Create a namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available, as it must be a unique name.
+4.  In the **Create a namespace** dialog box, enter a namespace name. The system immediately checks to see if the name is available, as it must be a unique name.
 
     ![Create a namespace dialog][create_namespace_dialog]
 5.  After ensuring the namespace name is available, choose the region in which your namespace should be hosted (make sure you use the same region in which your virtual machine is hosted).
@@ -88,7 +88,7 @@ To create a service namespace:
 
 	![Click create screenshot][click_create]
 
-The namespace you created will then appear in the Azure portal and takes a moment to activate. Wait until the status is **Active** before continuing with the next step.
+The namespace you created will then appear in the Azure portal, and it takes a moment to activate. Wait until the status is **Active** before continuing with the next step.
 
 ## Obtain the default management credentials for the namespace
 
