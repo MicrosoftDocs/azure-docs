@@ -25,7 +25,7 @@ Script Action can be used to install additional software running on a Hadoop clu
 
 ## Call script actions
 
-HDInsight provides several scripts to install the following components on HDInsight clusters:
+HDInsight provides several scripts to install additional components on HDInsight clusters:
 
 Name | Script
 ----- | -----
