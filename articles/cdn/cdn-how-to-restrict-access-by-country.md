@@ -55,7 +55,7 @@ The rule of blocking **/Photos/Strasbourg/** will filter files including:
 The **Country Filtering** feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. Currently, the following two country codes are supported "EU" (Europe) and "AP" (Asia/Pacific). However, these country codes cannot be used to allow or block all requests from those regions. Rather, those country codes are applied to requests that originate from IP addresses that are spread out over a region instead of a country. To block or allow access in EU and AP countries, select both the countries and corresponding region EU and AP. 
 
 
-##Considereations
+##Considerations
  
 - It may take up to an hour for changes to your country filtering configuration to take effect.
 - This feature does not support wildcard characters (e.g., *).
