@@ -46,7 +46,7 @@ where `<your_FS_name> `is replaced with the federation service host name your or
 
 ## If your AutoCertificateRollover property is set to False
 
-If your AutoCertificateRollover property is set to False, you are using non-default AD FS certificate settings.  The most common reason for this is that your organization manages AD FS certificates enrolled from an organizational certificate authority.  In this case you need to renew and update your certificates yourself.  Use the guidance [here](https://msdn.microsoft.com/en-us/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+If your AutoCertificateRollover property is set to False, you are using non-default AD FS certificate settings.  The most common reason for this is that your organization manages AD FS certificates enrolled from an organizational certificate authority.  In this case you need to renew and update your certificates yourself.  Use the guidance [here](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
 ## If your metadata is not publicly accessible
 If your AutocertificateRollover setting is True but your federation metadata is not publicly available, use the procedure below to ensure your certificates are updated both on premises and in the cloud:
