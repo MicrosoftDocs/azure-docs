@@ -117,11 +117,11 @@ Removing licenses is just as easy as assigning them. If the user is directly ass
 
 ###Extending trials
 
-Trial extensions for customers are available as self-service through the Office 365 portal. A customer admin can navigate to the [Office portal](https://portal.office.com/#Billing) and select your Azure AD Premium trial. Click the **Extend trial** link and follow the instructions. You will need to enter a credit card, but it will not be charged.
+Trial extensions for customers are available as self-service through the Office 365 portal. A customer admin can navigate to the [Office portal](https://portal.office.com/#Billing) (access depends on permissions for the Office portal) and select your Azure AD Premium trial. Click the **Extend trial** link and follow the instructions. You will need to enter a credit card, but it will not be charged.
 
 ![Extending a license trial in the Office portal](./media/active-directory-licensing-what-is/extend_license_trial.png)
 
-Customers can also request a trial extension by submitting a support request. A customer admin can navigate to the Office portal [support page](http://aka.ms/extendAADtrial). On this page select “Subscriptions and Trials” under Features and “Trial questions” under Symptom. Finally, enter information on the circumstances
+Customers can also request a trial extension by submitting a support request. A customer admin can navigate to the Office portal [support page](http://aka.ms/extendAADtrial) (access depends on permissions for the Office support page). On this page select “Subscriptions and Trials” under Features and “Trial questions” under Symptom. Finally, enter information on the circumstances
 
 ![Extending a license trial using a support request](./media/active-directory-licensing-what-is/alternate_office_aad_trial_extension.png)
 

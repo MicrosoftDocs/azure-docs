@@ -40,4 +40,4 @@ To add an Azure AD directory in the Azure Management Portal, select the Active D
 
 > [AZURE.NOTE]   Unlike other Azure resources, your directories are not child resources of an Azure subscription. If you cancel or allow your Azure subscription to expire, you can still access your directory data using Azure PowerShell, the Azure Graph API, or other interfaces such as the Office 365 Admin Center. You can also associate another subscription with the directory.
 
-For a broad overview of Azure AD licensing issues and best practices, see
+For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active Directory Licensing?](azure-active-licensing-what-is).
