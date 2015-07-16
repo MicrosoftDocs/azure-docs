@@ -31,7 +31,7 @@ Read on for specifics on user profile data.
 
 ## How can an admin get to the data?
 
-If you need to access the data for one of your users (for disaster recovery or if the user leaves the company), contact Azure RemoteApp and provide the subscription information for the collection and the user identity. The Azure RemoteApp team will provide you a URL where you can access the data - from there you can browse the location and retrieve any documents or files you need.
+If you need to access the data for one of your users (for disaster recovery or if the user leaves the company), contact [Azure RemoteApp](mailto:remoteappforum@microsoft.com) and provide the subscription information for the collection and the user identity. The Azure RemoteApp team will provide you a URL where you can access the data - from there you can browse the location and retrieve any documents or files you need.
 
 
 ## Is the data backed up?
@@ -65,7 +65,7 @@ If you need to delete a UPD from a collection, contact Azure RemoteApp - we can 
 
 ## Can I access my users' UPDs (either current or deleted users)?
 
-Yes, if you contact Azure RemoteApp, we can set you up with a URL to access the data. You'll have about 10 hours to download any data or files from the UPD before the access expires.
+Yes, if you contact [Azure RemoteApp](mailto:remoteappforum@microsoft.com), we can set you up with a URL to access the data. You'll have about 10 hours to download any data or files from the UPD before the access expires.
 
 ## Are UPDs available offline?
 
