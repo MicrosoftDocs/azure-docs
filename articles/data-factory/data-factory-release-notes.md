@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
@@ -21,8 +21,9 @@
 ## Notes for 07/17/2015 release of Data Factory
 The following JSON changes are introduced in this release of Azure PowerShell. 
 
-### Update to types of linked services, tables, and activities
+## Update to types of linked services, tables, and activities
 Resource type | Current name in JSON | New name in JSON
+------------- | -------------------- | ----------------
 Linked Service (Data Source) | AzureSqlLinkedService | AzureSqlDatabase
 Linked Service (Data Source) | AzureStorageLinkedService | AzureStorage
 Linked Service (Data Source) | DocumentDbLinkedService | DocumentDb
@@ -54,10 +55,10 @@ Activity | HDInsightActivity (Streaming) | HDInsightHadoopStreaming
 Activity | AzureMLBatchScoringActivity | AzureMLBatchScoring
 Activity | StoredProcedureActivity | SqlServerStoredProcedure
 
-### New typeProperties element
+## New typeProperties element
 The new typeProperties element contains type specific properties for a linked service/table/activity. 
 
-##### Old linked service JSON
+### Old linked service JSON
 	{
 	    "name": "StorageLinkedService",
 	    "properties":
@@ -67,7 +68,7 @@ The new typeProperties element contains type specific properties for a linked se
 	    }
 	}
 
-##### New linked service JSON
+### New linked service JSON
 	{
 	  "name": "StorageLinkedService",
 	  "properties": {
@@ -80,7 +81,7 @@ The new typeProperties element contains type specific properties for a linked se
 
 See that the **type** is set to **AzureStorage** now and the new **typeProperties** element contains type specific properties (**connectionString** in this example). 
 
-#### Old dataset JSON
+### Old dataset JSON
 	{
 	    "name": "EmpTable",
 	    "properties":
@@ -99,7 +100,7 @@ See that the **type** is set to **AzureStorage** now and the new **typePropertie
 	    }
 	}
 
-#### New dataset JSON
+### New dataset JSON
 
 	{
 	    "name": "EmpTable",
@@ -118,7 +119,7 @@ See that the **type** is set to **AzureStorage** now and the new **typePropertie
 	  
 Notice that the **location** element is removed now and the properties that were specified in the **location** section are specified in the new **typeProperties** section in the new JSON. The **type** property is moved one level up and the type name **AzureTableLocation** has been changed to **AzureTable**. 
 
-#### Old activity JSON
+### Old activity JSON
 
 	{
 	    "name": "CopyFromSQLtoBlob   ",
@@ -140,7 +141,7 @@ Notice that the **location** element is removed now and the properties that were
 	    }
 	}   
 
-#### New activity JSON
+### New activity JSON
 	
 	{
 	    "name": "CopyFromSQLtoBlob   ",
@@ -164,10 +165,10 @@ Notice that the **location** element is removed now and the properties that were
 
 Notice that the **transformation** element has been replaced with the new **typeProperties** element.
 
-### waitOnExternal element is removed
+## waitOnExternal element is removed
 The **waitOnExternal** element is replaced with the new **external** and **externalData** properties.        
 
-#### Old JSON
+### Old JSON
 	{
 	    "name": "EmpTableFromBlob",
 	    "properties":
@@ -197,7 +198,7 @@ The **waitOnExternal** element is replaced with the new **external** and **exter
 	    }
 	} 
 
-#### New JSON
+### New JSON
 	{
 	  "name": "EmpTableFromBlob",
 	  "properties": {
@@ -227,7 +228,7 @@ The **waitOnExternal** element is replaced with the new **external** and **exter
 
 Notice that the **waitOnExternal** property is removed from the **availability** section and a new **external** property is added one level up and is set to **true**. The properties of **waitOnExternal** element such as **retryInterval** are added to the new **externalData** section in the **Policy** element. 
 
-### New copyBehavior property for the BlobSink
+## New copyBehavior property for the BlobSink
 The **BlobSink** supports new property named: **copyBehavior**. This property defines the copy behavior when the source is **BlobSource** or **FileSystem**. There are three possible values for the **copyBehavior** property. 
 
 **PreserveHierarchy**:: preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder. 
@@ -238,7 +239,7 @@ The **BlobSink** supports new property named: **copyBehavior**. This property de
 
 **MergeFiles**: merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. 
  
-### New getDebugInfo property for all HDInsight activities
+## New getDebugInfo property for all HDInsight activities
 The HDInsight activities (Hive, Pig, MapReduce, Hadoop Streaming) support the new property:  **getDebugInfo** property. The **getDebugInfo** property is an optional element. When it is set to **Failure**, the logs are downloaded only on execution failure. When it is set to **All**, logs are always downloaded irrespective of the execution status. When it is set to **None**, no logs are downloaded.
 
   
