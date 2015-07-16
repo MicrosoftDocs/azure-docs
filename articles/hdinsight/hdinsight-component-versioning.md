@@ -37,6 +37,7 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 <tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
 <tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
 <tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
+<tr><td>Spark</td><td>1.3.1</td><td></td><td></td><td></td></tr>
 </table>
 
 
@@ -58,6 +59,13 @@ If you use the **Quick Create** option, you will get version 3.1 of HDInsight, w
 ##Feature highlights
 Some of the salient features of the HDInsight platform include:
 
+- **Spark** - Apache Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations.
+
+	Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark. 
+
+	Spark can also be added using Script Action.  Script action adds either Spark 1.2.0 to HDInsight 3.2 cluster or Spark 1.0.2 to HDInsight 3.1 cluster. For more information, see [Install and use Spark on HDInsight Hadoop clusters](hdinsight-hadoop-spark-install.md).
+
+ 
 - **Storm** - Storm on Azure HDInsight is now generally available, giving a fast and easy way to deploy real-time analytics in just a few clicks and within minutes. Apache Storm on Azure HDInsight is an open-source project in the Apache Hadoop ecosystem that provides access to an analytics platform capable of reliably processing millions of events. Now Hadoop users can gain insights as events happen, along with insights from past events. Microsoft is also providing built-in integration with Visual Studio, making developer interaction with Storm easy. You can now develop, deploy, and debug Storm topologies from within Visual Studio.
 
 - **HDInsight on Linux (Preview)** - Azure HDInsight provides the option of provisioning Hadoop clusters that run on Linux (Ubuntu) virtual machines (VMs). You can use this option if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. You can provision an HDInsight cluster on Linux from a client computer running Windows or Linux by using the Azure portal, the Azure CLI, or the HDInsight .NET SDK (Windows only).
