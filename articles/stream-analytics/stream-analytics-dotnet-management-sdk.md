@@ -70,8 +70,8 @@ To create an analytics job, first set up your project.
 		  <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 		  <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		  <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		  <add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION>" />
-		  <add key="ActiveDirectoryTenantId" value="<YOU TENANT ID>" />
+		  <add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION" />
+		  <add key="ActiveDirectoryTenantId" value="YOU TENANT ID" />
 		</appSettings>
 
 
