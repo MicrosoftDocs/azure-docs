@@ -50,13 +50,15 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
 ## Step 3: Install component updates
 
-Read about the latest [updates](#updates). Then install the files in the update in the following order:
+Read about the latest [updates](#updates). You'll install the update files in the following order:
 
 1. RX server if there is one
 2. Configuration servers
 3. Process servers
 3. Master target servers.
 4. vContinuum servers.
+
+Install as follows:
 
 1. Download the [update](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASR Scout 8.0.1 Update1.zip) zip file. This zip file contains the following files:
 
