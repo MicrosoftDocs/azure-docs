@@ -30,13 +30,66 @@ HDInsight provides several scripts to install the following components on HDInsi
 Name | Script
 ----- | -----
 **Install Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. See [Install and use Spark on HDInsight clusters][hdinsight-install-spark].
-**Install R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. See [Install and use R on HDInsight clusters][hdinsight-install-r].
+**Install R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. See [Install and use R on HDInsight clusters][hdinsight-r-scripts].
 **Install Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 - **Install Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 Script Action can be deployed from the Azure portal, Azure PowerShell or by using the HDInsight .NET SDK.  For more information, see [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize].
 
 > [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
+
+## A sample script
+
+The following is a sample script for configure the site configuration files:
+
+	param (
+	    [parameter(Mandatory)][string] $ConfigFileName,
+	    [parameter(Mandatory)][string] $Name,
+	    [parameter(Mandatory)][string] $Value,
+	    [parameter()][string] $Description
+	)
+	
+	if (!$Description) {
+	    $Description = ""
+	}
+	
+	$hdiConfigFiles = @{
+	    "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
+	    "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
+	    "hdfs-site.xml" = "$env:HADOOP_HOME\etc\hadoop\hdfs-site.xml";
+	    "mapred-site.xml" = "$env:HADOOP_HOME\etc\hadoop\mapred-site.xml";
+	    "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
+	}
+	
+	if (!($hdiConfigFiles[$ConfigFileName])) {
+	    Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
+	    return
+	}
+	
+	[xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
+	
+	$existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
+	    
+	if ($existingproperty) {
+	    $existingproperty.Value = $Value
+	    $existingproperty.Description = $Description
+	} else {
+	    $newproperty = @($configFile.configuration.property)[0].Clone()
+	    $newproperty.Name = $Name
+	    $newproperty.Value = $Value
+	    $newproperty.Description = $Description
+	    $configFile.configuration.AppendChild($newproperty)
+	}
+	
+	$configFile.Save($hdiConfigFiles[$ConfigFileName])
+	
+	Write-HDILog "$configFileName has been configured."
+
+A copy of the script file can be found at [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1). When you call the script from the Azure portal, you can using the following parameters:
+
+	hive-site.xml hive.metastore.client.socket.timeout 90
+
+These parameters will set the hive.metastore.client.socket.timeout value to 90 in the hive-site.xml file.  The default value is 60 seconds.
 
 ## Best practices for script development
 
