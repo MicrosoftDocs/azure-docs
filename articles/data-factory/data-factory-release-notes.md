@@ -19,7 +19,7 @@
 # Azure Data Factory release notes
 
 ## Notes for 07/17/2015 release of Data Factory
-The following JSON changes are introduced in this release of Azure PowerShell. 
+The following JSON changes are introduced in the July 2015 release of Azure PowerShell. 
 
 ## Update to types of linked services, tables, and activities
 Resource type | Current name in JSON | New name in JSON
@@ -56,7 +56,7 @@ Activity | AzureMLBatchScoringActivity | AzureMLBatchScoring
 Activity | StoredProcedureActivity | SqlServerStoredProcedure
 
 ## New typeProperties element
-The new typeProperties element contains type specific properties for a linked service/table/activity. 
+The new **typeProperties** element contains type specific properties for a linked service/table/activity. 
 
 ### Old linked service JSON
 	{
@@ -79,7 +79,10 @@ The new typeProperties element contains type specific properties for a linked se
 	  }
 	}
 
-See that the **type** is set to **AzureStorage** now and the new **typeProperties** element contains type specific properties (**connectionString** in this example). 
+Noice the following: 
+
+- The **type** property is moved one level up and is set to **AzureStorage** (change from **AzureStorageLinkedService** to **AzureStorage**) 
+- New **typeProperties** element that contains properties supported by the Azure Storage linked service (**connectionString** in this example).  
 
 ### Old dataset JSON
 	{
@@ -116,8 +119,12 @@ See that the **type** is set to **AzureStorage** now and the new **typePropertie
 	        }
 	    }
 	}
-	  
-Notice that the **location** element is removed now and the properties that were specified in the **location** section are specified in the new **typeProperties** section in the new JSON. The **type** property is moved one level up and the type name **AzureTableLocation** has been changed to **AzureTable**. 
+
+Notice the following:
+
+- The **type** property is moved one level up and the type name **AzureTableLocation** has been changed to **AzureTable**.
+- The **linkedServiceName** is moved one level up. 
+- The **location** element is removed now and the type specific properties such as **tableName** that were specified in the **location** section are specified in the new **typeProperties** section.  
 
 ### Old activity JSON
 
@@ -163,7 +170,9 @@ Notice that the **location** element is removed now and the properties that were
 	    }
 	}
 
-Notice that the **transformation** element has been replaced with the new **typeProperties** element.
+Notice the following:
+
+- Notice that the **transformation** element has been replaced with the new **typeProperties** element.
 
 ## waitOnExternal element is removed
 The **waitOnExternal** element is replaced with the new **external** and **externalData** properties.        
@@ -226,7 +235,14 @@ The **waitOnExternal** element is replaced with the new **external** and **exter
 	  }
 	}
 
-Notice that the **waitOnExternal** property is removed from the **availability** section and a new **external** property is added one level up and is set to **true**. The properties of **waitOnExternal** element such as **retryInterval** are added to the new **externalData** section in the **Policy** element. 
+Notice the following:
+
+- The **waitOnExternal** property is removed from the **availability** section 
+- A new **external** property is added one level up and is set to **true** for an external table. 
+- The properties of **waitOnExternal** element such as **retryInterval** are added to the new **externalData** section in the **Policy** element.
+- The **externalData** element is an optional element. 
+- When you use the **externalData** element, you must have the **external** property set to **true**. 
+ 
 
 ## New copyBehavior property for the BlobSink
 The **BlobSink** supports new property named: **copyBehavior**. This property defines the copy behavior when the source is **BlobSource** or **FileSystem**. There are three possible values for the **copyBehavior** property. 
