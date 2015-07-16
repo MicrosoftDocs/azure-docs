@@ -36,7 +36,7 @@ This tutorial requires the following:
 * Visual Studio 2013
 * Visual Studio [Xamarin extension] **or** [Xamarin Studio] on OS X
 
-##<a name="review"></a>Review your server project setup (optional)
+##<a name="review"></a>Review your server project configuration (optional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
 

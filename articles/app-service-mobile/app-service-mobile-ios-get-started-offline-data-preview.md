@@ -31,7 +31,7 @@ Offline sync has several potential uses:
 
 If this is your first experience with Mobile Apps, first complete the tutorial [Create an iOS App].
 
-##<a name="review"></a>Review your server project setup (optional)
+##<a name="review"></a>Review your server project configuration (optional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
 

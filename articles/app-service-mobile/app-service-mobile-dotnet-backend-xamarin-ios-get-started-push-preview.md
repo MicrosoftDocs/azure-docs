@@ -33,7 +33,7 @@ This tutorial requires the following:
 
 The Apple Push Notification Service (APNs) uses certificates to authenticate your mobile app. Follow these instructions to create the necessary certificates and upload it to your mobile app. For the official APNS feature documentation, see [Apple Push Notification Service].
 
-##<a name="review"></a>Review your server project setup (optional)
+##<a name="review"></a>Review your server project configuration (optional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)] 
 

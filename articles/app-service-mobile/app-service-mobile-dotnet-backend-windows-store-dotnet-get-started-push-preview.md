@@ -37,7 +37,7 @@ To complete this tutorial, you need the following:
 * An active [Microsoft Store account](http://go.microsoft.com/fwlink/p/?LinkId=280045).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
 
-##<a name="review"></a>Review your server project setup (optional)
+##<a name="review"></a>Review your server project configuration (optional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)] 
 
