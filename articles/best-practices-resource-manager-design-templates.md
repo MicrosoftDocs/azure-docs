@@ -174,8 +174,7 @@ Cassandra, Hadoop, etc.
 
 An End-to-End Solution Scope is targeted beyond a single capability, and instead focused on delivering an end to end solution comprised of multiple capabilities.  
 
-A solution-scoped template scope manifests itself as a set of one or more capability scoped templates with solution specific resources, logic, and desired state.  
-An example of a solution-scoped template is an end to end data pipeline solution template that might mix solution specific topology and state with 
+A solution-scoped template scope manifests itself as a set of one or more capability scoped templates with solution specific resources, logic, and desired state. An example of a solution-scoped template is an end to end data pipeline solution template that might mix solution specific topology and state with 
 multiple capability scoped solution templates such as Kafka, Storm, and Hadoop.
 
 ## Choosing free-form vs. known configurations
