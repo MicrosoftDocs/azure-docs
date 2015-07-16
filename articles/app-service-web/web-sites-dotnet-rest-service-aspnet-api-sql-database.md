@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/16/2015" 
 	ms.author="riande"/>
 
 # Create a REST service using ASP.NET Web API and SQL Database in Azure App Service
@@ -37,7 +37,6 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![screenshot of web site][intro001]
 
-<a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -130,7 +129,7 @@ The application home page appears in the default browser.
 
 This is all you need to do for now to create the application that you'll deploy to Azure. Later you'll add database functionality.
 
-## <a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Azure
+## Deploy the application to Azure
 
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
@@ -150,7 +149,7 @@ Visual Studio begins the process of copying the files to the Azure server. The *
 	
 	![To Do List home page running in Azure][rxz2]
 
-## <a name="bkmk_addadatabase"></a>Add a database to the application
+## Add a database to the application
 
 Next, you'll update the MVC application to add the ability to display and update contacts and store the data in a database. The application will use the Entity Framework to create the database and to read and update data in the database.
 
@@ -196,7 +195,7 @@ The **Contacts** class defines the data that you will store for each contact, pl
 
 The ASP.NET MVC the scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions.
 
-## <a name="bkmk_addcontroller"></a>Add a Controller and a view for the data
+## Add a Controller and a view for the data
 
 1. In **Solution Explorer**, expand the Controllers folder.
 
@@ -321,7 +320,7 @@ The application shows the seed data and provides edit, details and delete links.
 
 ![MVC view of data][rxz3]
 
-## <a name="bkmk_addview"></a>Edit the View
+## Edit the View
 
 1. Open the *Views\Home\Index.cshtml* file. In the next step, we will replace the generated markup with code that uses [jQuery](http://jquery.com/) and [Knockout.js](http://knockoutjs.com/). This new code retrieves the list of contacts from using web API and JSON and then binds the contact data to the UI using knockout.js. For more information, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
 
@@ -505,7 +504,7 @@ To:
 1. In the Package Manager Console, run the following command to install Knockout.
 
 	Install-Package knockoutjs
-## <a name="bkmk_addwebapi"></a>Add a controller for the Web API Restful interface
+## Add a controller for the Web API Restful interface
 
 1. In **Solution Explorer**, right-click Controllers and click **Add** and then **Controller....** 
 
@@ -546,7 +545,7 @@ To:
 	![Web API save dialog][addwebapi007]
 
 	**Security Warning**: At this point, your application is insecure and vulnerable to CSRF attack. Later in the tutorial we will remove this vulnerability. For more information see [Preventing Cross-Site Request Forgery (CSRF) Attacks][prevent-csrf-attacks].
-## <a name="xsrf"></a>Add XSRF Protection
+## Add XSRF Protection
 
 Cross-site request forgery (also known as XSRF or CSRF) is an attack against web-hosted applications whereby a malicious website can influence the interaction between a client browser and a website trusted by that browser. These attacks are made possible because web browsers will send authentication tokens automatically with every request to a website. The canonical example is an authentication cookie, such as ASP.NET's Forms Authentication ticket. However, websites which use any persistent authentication mechanism (such as Windows Authentication, Basic, and so forth) can be targeted by these attacks.
 
@@ -691,7 +690,7 @@ For more information, see the [Open Web Application Security Project](https://ww
             </script>
 
 
-## <a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Azure and SQL Database
+## Publish the application update to Azure and SQL Database
 
 To publish the application, you repeat the procedure you followed earlier.
 
@@ -729,7 +728,7 @@ The application is now running in the cloud, using SQL Database to store its dat
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-## <a name="nextsteps"></a>Next Steps
+## Next Steps
 
 A real application would require authentication and authorization, and you would use the membership database for that purpose. The tutorial [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) is based on this tutorial and shows how to deploy a web application with the membership database.
 
