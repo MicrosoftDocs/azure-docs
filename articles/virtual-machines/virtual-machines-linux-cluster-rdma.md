@@ -1,6 +1,6 @@
 <properties
  pageTitle="Set up a Linux RDMA cluster to run MPI applications | Microsoft Azure"
- description="Shows how to create a cluster of Linux A8 or A9 VMs to use Linux RDMA."
+ description="Shows how to create a Linux cluster of size A8 or A9 VMs to use RDMA to run MPI apps."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="07/14/2015"
+ ms.date="07/15/2015"
  ms.author="danlep"/>
 
 # Set up a Linux RDMA cluster to run MPI applications
@@ -27,9 +27,9 @@ This article shows you how to set up a Linux RDMA cluster in Azure with [size A8
 
 Following are methods you can use to create a Linux RDMA cluster either with or without a job scheduler.
 
-* **HPC Pack** - Starting with Microsoft HPC Pack 2012 R2 Update 2, you can now create a Microsoft HPC Pack cluster in Azure and deploy compute nodes that run supported Linux distributions. Some Linux nodes can be configured to access the RDMA network. See the [HPC Pack documentation](http://go.microsoft.com/fwlink/?LinkId=617894) to get started.
+* **HPC Pack** - You can create a Microsoft HPC Pack cluster in Azure and add compute nodes that run supported Linux distributions (supported starting in HPC Pack 2012 R2 Update 2). Some Linux nodes can be configured to access the RDMA network. See the [HPC Pack documentation](http://go.microsoft.com/fwlink/?LinkId=617894) to get started.
 
-* **Azure CLI scripts** - You can use the [Azure Command Line Interface](../xplat-cli.md) (CLI) for Mac, Linux, and Windows in Azure Service Management mode to build your own scripts to deploy a virtual network and all the other necessary components to create a Linux cluster. The CLI in asm mode will deploy the cluster nodes serially, so if you are deploying many compute nodes it might take several minutes to complete the deployment. See steps in the rest of this article for an example.
+* **Azure CLI scripts** - You can use the [Azure Command Line Interface](../xplat-cli.md) (CLI) for Mac, Linux, and Windows to build your own scripts to deploy a virtual network and the other necessary components to create a Linux cluster. The CLI in Azure Service Management (asm) mode will deploy the cluster nodes serially, so if you are deploying many compute nodes it might take several minutes to complete the deployment. See steps in the rest of this article for an example.
 
 * **Azure Resource Manager templates** - By creating a straightforward Azure Resource Manager JSON template file and running Azure CLI arm-mode commands or using the Azure Preview Portal, you can deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources to create a compute cluster that can take advantage of the RDMA network and run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure Quickstart Templates page](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates generally provide the fastest and most reliable way to deploy a Linux cluster.
 
@@ -40,8 +40,11 @@ The following steps will help you use the Azure CLI to deploy a SLES 12 VM, inst
 ### Prerequisites
 
 * **Client computer** - You'll need a Mac, Linux, or Windows-based client computer to communicate with Azure.
+
 * **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
-* **Cores quota** - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs. For example, you will need at least 128 cores if you want to deploy 16 A8 VMs. To raise a quota, you can [open an online customer support request](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+
+* **Cores quota** - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs. For example, you will need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. To increase a quota, [open an online customer support request](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+
 * **Azure CLI** - [Install](../xplat-cli-install.md) the Azure CLI and [configure it ](../xplat-cli-connect.md) to use your Azure subscription on the client computer.
 
 
@@ -73,7 +76,7 @@ azure vm image list | grep "suse.*hpc"
 
 >[AZURE.NOTE]The SLES 12 HPC images are preconfigured with the necessary Linux RDMA drivers for Azure.
 
-Now provision a size A8 or A9 VM with an available SLES 12 HPC image by running a command similar to the following:
+Now provision a size A9 VM with an available SLES 12 HPC image by running a command similar to the following:
 
 ```
 azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n <vmname> -e 10004 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
@@ -82,12 +85,14 @@ azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n <vm
 where
 
 * the size (A9 in this example) can be A8 or A9
-* the ssh port number (10004 in this example) is any valid port number; the default ssh port is 22
+
+* the external SSH port number (10004 in this example) is any valid port number; the internal SSH  port number will be set to 22
+
 * the image name currently can be `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` (free of charge) or `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` for SUSE priority support (charges will apply)
 
 ### Customize the VM
 
-After you provision the VM, ssh to the VM using the VM's external IP address and the external port number you configured, and customize it.
+After you provision the VM, SSH to the VM using the VM's external IP address and the external port number you configured, and customize it.
 
 >[AZURE.NOTE]Microsoft Azure does not provide root access to Linux VMs. To gain administrative access when connected as a user you can use `sudo –s`.
 
@@ -104,36 +109,39 @@ Run commands similar to the following to install Intel MPI on the VM:
 $ wget <download link for your registration>
 $ tar xvzf <tar-file>
 $ cd <mpi-directory>
-$ sudo ./inst
+$ sudo ./install.sh
 ```
 
-**Lock memory** - For MPI codes to lock the memory available for RDMA, you need to add or change the following settings in the /etc/security/limits.conf fie:
+**Lock memory** - For MPI codes to lock the memory available for RDMA, you need to add or change the following settings in the /etc/security/limits.conf file:
 
 ```
 <User or group name> hard    memlock <memory required for your application in KB>
 <User or group name> soft    memlock <memory required for your application in KB>
 ```
 
-**ssh keys** - Establish trust for the user name and password that you used to create this VM among all the compute nodes in the cluster. Use the following command to create ssh keys:
+>[AZURE.NOTE]For testing purposes, you can also set memlock to unlimited. For example: `<User or group name>    hard    memlock unlimited`.
+
+
+**SSH keys** - Establish trust for the user name and password that you used to create this VM among all the compute nodes in the cluster. Use the following command to create SSH keys:
 
 ```
 $ ssh-keygen
 ```
 
-Save the key in a default location and remember the passphrase entered.
+Save the public key in a default location and remember the passphrase entered.
 
 ```
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-In the /.ssh directory edit or create a config file. Provide the IP address range of the private network that you will use in Azure:
+In the /.ssh directory edit or create the ssh_config file. Provide the IP address range of the private network that you will use in Azure:
 
 ```
 host 10.32.0.*
 StrictHostKeyChecking no
 ```
 
-Alternatively, you can list the private network IP address of each machine in your cluster as follows:
+Alternatively, you can list the private network IP address of each VM in your cluster as follows:
 
 ```
 host 10.32.0.1
@@ -144,7 +152,7 @@ host 10.32.0.3
  StrictHostKeyChecking no
 ```
 
->[AZURE.NOTE]Configuring `StrictHostKeyChecking no` can create a potential security risk if a specific IP address or IP range is not specified as shown above.
+>[AZURE.NOTE]Configuring `StrictHostKeyChecking no` can create a potential security risk if a specific IP address or range is not specified as shown above.
 
 **Applications** - Copy any applications you need onto this VM or perform other customizations before you capture the image.
 
@@ -166,16 +174,17 @@ After you run these commands, the VM image will be captured for your use and the
 
 ## Deploy a cluster with the image
 
-Modify the following Azure CLI with script with appropriate values for your environment, and run it from your client computer.
+Modify the following script with appropriate values for your environment, and run it from your client computer.
 
->[AZURE.NOTE]The ASM deployment method deploys the VMs serially, so it will take a few minutes to deploy the 16 VMs suggested in this script.
+>[AZURE.NOTE]The ASM deployment method deploys the VMs serially, so it will take a few minutes to deploy the 8 A9 VMs suggested in this script.
 
 ```
 ### Script to create a compute cluster without a scheduler in a VNet in Azure
 ### Create a custom private network in Azure
 ### Replace 10.32.0.0 with your virtual network address space
 ### Replace <network-name> with your network identifier
-### Select a region where A8 and A9 VMs can be deployed, such as West US
+### Select a region where A8 and A9 VMs are available, such as West US
+### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
 azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
 
@@ -188,13 +197,13 @@ azure service create <cloud-service-name> -l "West US" –s <subscription-ID>
 
 vmname=cluster
 
-### Define external port numbers. If you want to turn off external ports and use only internal ports to communicate between compute nodes via port 22, don’t use this option. Since port numbers up to 10000 are reserved, use numbers after 10000. Leave external port on for rank 0 and head node.
+### Define a prefix for external port numbers. If you want to turn off external ports and use only internal ports to communicate between compute nodes via port 22, don’t use this option. Since port numbers up to 10000 are reserved, use numbers after 10000. Leave external port on for rank 0 and head node.
 
 portnumber=101
 
-### In this cluster there will be 16 size A9 nodes, named cluster11 to cluster26. Specify your captured image in <image-name>.
+### In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>.
 
-for (( i=11; i<27; i++ )); do
+for (( i=11; i<19; i++ )); do
         azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i <image-name>
 done
 
