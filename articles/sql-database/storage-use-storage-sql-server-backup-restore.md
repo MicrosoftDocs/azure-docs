@@ -11,9 +11,9 @@
 	ms.service="sql-database"
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na"
+	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="07/16/2015" 
+	ms.date="07/16/2015"
 	ms.author="carlrab"/>
 
 
