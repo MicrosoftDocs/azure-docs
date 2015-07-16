@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="07/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -31,7 +31,7 @@ This topic provides links to quick start code samples you can use to connect to 
 - Code samples that convert relational result sets into an object  oriented format.
 
 
-> [AZURE.NOTE] As of June 10 2015, code samples for more languages are being prepared, and links to them will be added to this topic.
+> [AZURE.NOTE] Code samples for more languages are being prepared, and links to them will be added to this topic.
 
 
 ## Clients on Linux
@@ -44,6 +44,7 @@ This section provides links to code sample topics for client programs that run o
 | :-- | :-- | :-- | :-- |
 | Node.js | [Tedious](sql-database-develop-nodejs-simple-linux.md) | . | . |
 | Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Ruby | [FreeTDS, TinyTDS](sql-database-develop-ruby-simple-linux.md) | . | . |
 
 
 ## Clients on Mac OS
@@ -83,4 +84,4 @@ This section provides links to code sample topics for client programs that run o
 - [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
 - [Create your first Azure SQL Database](sql-database-get-started.md)
 
- 
+
