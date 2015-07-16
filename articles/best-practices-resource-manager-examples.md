@@ -379,4 +379,4 @@ considered for resources which require such protection.
 
 - To learn about creating templates, see [Authoring templates](resource-group-authoring-templates.md).
 - For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
-- For learning about sharing state into and out of templates, see [Sharing State in Azure Resource Manager Templates](best-practices-resource-manager-state.md)
+- To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md)
