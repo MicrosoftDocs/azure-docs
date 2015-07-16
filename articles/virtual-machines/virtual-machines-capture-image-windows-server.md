@@ -27,7 +27,7 @@ Azure stores this under **My Images**. This is the same place where any images y
 
 These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you haven't done this yet, see these instructions:
 
-- [How to create a custom virtual machine] []
+- [Create a custom virtual machine running Windows] []
 - [How to attach a data disk to a virtual machine] []
 
 > [AZURE.WARNING] This process deletes the original virtual machine after it's captured. It's not intended as a way to back up a virtual machine. One possible option for that is Azure Backup, which is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
