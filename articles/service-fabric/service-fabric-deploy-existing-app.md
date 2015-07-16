@@ -115,7 +115,7 @@ You can start by creating the directory structure as described above. I created 
 
 
 ### Add the application's code and configuration files
-After you have created the directory structure, you can add the application's code and configuration files under the Code and Config directory. You can also create additional directories or sub directories under the Code or Config directories. Service Fabric does an xcopy of the content of the application root directory so there is no predefined structure to use other than creating two top directories Code & Settings (but you can pick different names if you want, more details in the next section). 
+After you have created the directory structure, you can add the application's code and configuration files under the Code and Config directory. You can also create additional directories or sub directories under the Code or Config directories. Service Fabric does an xcopy of the content of the application root directory so there is no predefined structure to use other than creating two top directories Code and Settings (but you can pick different names if you want, more details in the next section). 
 
 !Azure Note: Make sure that you include all the files/dependencies that the application needs. Service Fabric will copy the content of the application package on all nodes in the cluster where the application's services are going to be deployed. The package should contain all the code that the application needs in order to run. It is not recommended to assume that the dependencies are already installed. 
 
@@ -231,7 +231,7 @@ In the example above, the `SetupEntrypoint` is based on a batch file myAppsetup.
 
 ## Application Manifest file
 
-Once you have configured the `servicemanifest.xml` file you need to make some changes to the `applicationmanifest.xml` file to ensure the correct Service type & name are used.
+Once you have configured the `servicemanifest.xml` file you need to make some changes to the `applicationmanifest.xml` file to ensure the correct Service type and name are used.
 
 	<ServiceManifestImport>
 		<ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0.0" />
@@ -301,7 +301,7 @@ After you know the node where the service is currently running, you can find out
 
 ![][4]
 
-When you select the name of the service, on the right panel you can see there the service code & settings are stored
+When you select the name of the service, on the right panel you can see there the service code and settings are stored
 
 ![][5]
 
