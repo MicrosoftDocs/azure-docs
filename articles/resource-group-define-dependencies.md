@@ -56,7 +56,7 @@ distracting the deployment engine from avoiding parallelism unnecessarily.
 
 The resources property allows you to specify child resources that depend on the resource being defined. Resource dependencies can only be defined 5 levels deep.
 
-The resource section is also where resource links, described later in this section, are defined.
+For more details about the resources section, see [Resources](resource-group-authoring-templates.md/#resources).
 
 ## reference function
 
