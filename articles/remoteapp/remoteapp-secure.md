@@ -41,9 +41,9 @@ Another example is if you want to block internet access for a particular app in 
 
 - The following RDS policies are likely to be most useful: 
 	- [Device and Resource Redirection](https://technet.microsoft.com/library/ee791794.aspx)
-	- [Printer Redirection](https://technet.microsoft.com/library/ee791784(v=ws.10).aspx)
+	- [Printer Redirection](https://technet.microsoft.com/library/ee791784.aspx)
 	- [Profiles](https://technet.microsoft.com/library/ee791865.aspx).
 - Note that configuring redirections via the RemoteApp PowerShell module (as seen [here](./remoteapp-redirection.md)) relies on the client machine to enforce the policy, so if security is the primary objective you'll want to enforce the policy via the template image local policy or via group policy.
 - [Windows Server 2012 R2 policies](https://technet.microsoft.com/library/hh831791.aspx).
-- [Office 2013 polices](https://technet.microsoft.com/library/cc178969.aspx) (including [how to customize the Office toolba](https://technet.microsoft.com/library/cc179143.aspx)r).
+- [Office 2013 polices](https://technet.microsoft.com/library/cc178969.aspx) (including [how to customize the Office toolbar](https://technet.microsoft.com/library/cc179143.aspx)).
  
