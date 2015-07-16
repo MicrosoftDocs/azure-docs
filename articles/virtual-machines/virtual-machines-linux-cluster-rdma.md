@@ -11,7 +11,7 @@ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
- ms.workload="big-compute"
+ ms.workload="infrastructure-services"
  ms.date="07/16/2015"
  ms.author="danlep"/>
 
