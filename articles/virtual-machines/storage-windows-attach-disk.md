@@ -48,6 +48,7 @@ You can attach empty disks and disks with data. In both cases, the disks are act
 ## Additional resources
 
 [How to Detach a Disk from a Windows Virtual Machine](storage-windows-detach-disk.md)
+
 [About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md

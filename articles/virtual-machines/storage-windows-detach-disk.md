@@ -26,4 +26,5 @@
 ## Additional resources
 
 [About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md)
+
 [How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md)
