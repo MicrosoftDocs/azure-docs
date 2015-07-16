@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/09/2015"
+   ms.date="07/14/2015"
    ms.author="danlep"/>
 
 # Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)
@@ -81,6 +81,8 @@ Use these Azure Resource Manager templates to deploy Linux HPC clusters.
 ## Compute intensive instances
 
 Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.md), including compute intensive [A8, A9, A10, and A11 instances](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), to run your Linux and Windows HPC workloads.
+
+* [Set up a Linux RDMA cluster to run MPI applications](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
 * [A8 and A9 Instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
