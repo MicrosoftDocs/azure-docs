@@ -1,6 +1,6 @@
 <properties 
     pageTitle="DocumentDB Indexing Policies | Azure" 
-    description="Understand how indexing works in DocumentDB and learn how to configure the indexing policy." 
+    description="Understand how indexing works in DocumentDB and learn how to configure and change indexing policy." 
     services="documentdb" 
     documentationCenter="" 
     authors="mimig1" 
@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="07/06/2015" 
+    ms.date="07/21/2015" 
     ms.author="mimig"/>
 
 
@@ -40,7 +40,7 @@ After reading this article, you'll be able to answer the following questions:
 - How can I override the properties to include or exclude from indexing?
 - How can I configure the index for eventual updates?
 - How can I configure indexing to perform Order By or range queries?
-
+- How do I make changes to collection indexing policy?
 
 ## How DocumentDB indexing works
 
@@ -48,7 +48,7 @@ The indexing in DocumentDB takes advantage of the fact that JSON grammar allows 
 
 ![Indexing Policies](media/documentdb-indexing-policies/image001.png)
 
-For example, the JSON property {"headquarters": "Belgium"} property in the above example corresponds to the path /"headquarters"/"Belgium". The JSON array {"exports": [{"city": “Moscow"}, {"city": Athens"}]} correspond to the paths /"exports"/0/"city"/"Moscow" and /"exports"/1/"city"/"Athens".
+For example, the JSON property {"headquarters": "Belgium"} property in the above example corresponds to the path /headquarters/Belgium. The JSON array {"exports": [{"city": “Moscow"}, {"city": Athens"}]} correspond to the paths /exports/[]/city/Moscow and /exports/[]/city/Athens.
 
 >[AZURE.NOTE] The path representation blurs the boundary between the structure/schema and the instance values in documents, allowing DocumentDB to be truly schema-free.
 
@@ -56,61 +56,27 @@ In DocumentDB, documents are organized into collections that can be queried usin
 
 ## Configuring the indexing policy of a collection
 
-The following sample shows how to set a custom indexing policy during  the creation of a collection, by using the DocumentDB REST API. The sample shows the indexing policy expressed in terms of paths, index types, and precisions.
+The following .NET code snippet shows how to set a custom indexing policy during  the creation of a collection. The sample shows the indexing policy expressed in terms of paths, index types, and precisions.
 
-    POST https://<REST URI>/colls HTTP/1.1
-    Accept: application/json 
-
-    {
-       "id":"customIndexCollection",
-       "indexingPolicy":{
-          "automatic":true,
-          "indexingMode":"Consistent",
-          "includedPaths":[
-             {
-                "path":"/*",
-                "indexes":[
+    var collection = new DocumentCollection { Id = "myCollection" };
     
-                ]
-             }
-          ],
-          "excludedPaths":[
-             {
-                "path":"/nonIndexedContent/*"
-             }
-          ]
-       }
-    }
-     ...
+    collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+    
+    collection.IndexingPolicy.IncludedPaths.Add(
+        new IncludedPath { 
+            Path = "/*", 
+            Indexes = new Collection<Index> { 
+                new RangeIndex(DataType.String) { Precision = -1 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }
+        });
 
+    await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
 
-     HTTP/1.1 201 Created
 
 >[AZURE.NOTE] The JSON schema for indexing policy has been changed with the release of REST API version 2015-06-03 to support Range indexes against strings. .NET SDK 1.2.0 and Java, Python, and Node.js SDKs 1.1.0 support the new policy schema. Older SDKs use the REST API version 2015-04-08 and support the older schema of Indexing Policy.
 >
->The indexing policy of a collection must be specified at the time of creation. Modifying the indexing policy after collection creation is not allowed, but will be supported in a future release of DocumentDB.
->
->By default, DocumentDB indexes all paths within documents consistently with a hash index. The internal Timestamp (\_ts) path is stored with a range index.
-
-### Automatic indexing
-
-You can choose if you want the collection to automatically index all documents or not. By default, all documents are automatically indexed, but you can choose to turn it off. When indexing is turned off, documents can be accessed only through their self-links or by
-queries using ID.
-
-With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
-
-You can configure the default policy by specifying the value for the automatic property to be true or false. To override for a single document, you can set the x-ms-indexingdirective request header while inserting or replacing a document.
-
-For example, the following sample shows how to include a document explicitly using the [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
-
-    // If you want to override the default collection behavior to either
-    // exclude (or include) a Document from indexing,
-    // use the RequestOptions.IndexingDirective property.
-    client.CreateDocumentAsync(defaultCollection.SelfLink,
-        new { id = "AndersenFamily", isRegistered = true },
-        new RequestOptions { IndexingDirective = IndexingDirective.Include });
-        
-
+>By default, DocumentDB indexes all string properties within documents consistently with a Hash index, and numeric properties with a Range index.  
 
 ### Indexing modes
 
@@ -331,6 +297,60 @@ Similarly paths can be completely excluded from indexing. The next example shows
     
     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
 
+
+### Automatic indexing
+
+You can choose if you want the collection to automatically index all documents or not. By default, all documents are automatically indexed, but you can choose to turn it off. When indexing is turned off, documents can be accessed only through their self-links or by
+queries using ID.
+
+With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
+
+You can configure the default policy by specifying the value for the automatic property to be true or false. To override for a single document, you can set the x-ms-indexingdirective request header while inserting or replacing a document.
+
+For example, the following sample shows how to include a document explicitly using the [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
+
+    // If you want to override the default collection behavior to either
+    // exclude (or include) a Document from indexing,
+    // use the RequestOptions.IndexingDirective property.
+    client.CreateDocumentAsync(defaultCollection.SelfLink,
+        new { id = "AndersenFamily", isRegistered = true },
+        new RequestOptions { IndexingDirective = IndexingDirective.Include });
+
+## Modifying the indexing policy of a collection
+
+DocumentDB allows you to make changes to the indexing policy of a collection on the fly. This can be done through the REST API using a "PUT" on collections, or for example, using the ReplaceDocumentCollectionAsync method in the .NET SDK. Here's a code snippet that shows how to modify a collection's indexing policy from consistent indexing to lazy indexing.
+
+    // Switch to lazy indexing.
+    Console.WriteLine("Changing from Default to Lazy IndexingMode.");
+
+    collection.IndexingPolicy.IndexingMode = IndexingMode.Lazy;
+
+    await client.ReplaceDocumentCollectionAsync(collection);
+
+When you change the indexing policy of a collection e.g. using the .NET ReplaceDocumentCollectionAsync method, the underlying index undergoes transformation. This transformation is an online, asynchronous and *in situ* operation. 
+
+- **Online**: While an index transformation is in progress, the collection is available for all operations including reads, writes and queries. 
+- **Asynchronous**: Index transformations are performed asynchronously. While the index is being transformed, the queries can potentially return stale results. Once the transformation is complete, queries will return results matching the indexing policy configuration. You can track the progress of an ongoing index transformation by calling ReadDocumentCollectionAsync and extracting the ResourceResponse<T>.IndexTransformationProgress property in .NET. 
+- **In situ**: Index transformations are performed in-place or in-situ. While the index is being transformed, no additional on-disk storage is consumed. 
+
+Here's a code snippet of how you can check the progress of an index transformation triggered by the ReplaceDocumentCollectionAsync call.
+
+    long smallWaitTimeMilliseconds = 1000;
+    long progress = 0;
+
+    while (progress >= 0 && progress < 100)
+    {
+        ResourceResponse<DocumentCollection> collectionReadResponse = await client.ReadDocumentCollectionAsync(collection.SelfLink);
+        progress = collectionReadResponse.IndexTransformationProgress;
+
+        await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
+
+Custom indexing policies are an advanced construct in DocumentDB, but can be very powerful. Consider including index transformations when you need to do the following:
+
+- Hand select the properties to be indexed and change them over time
+- Serve consistent results during normal operation, but fall back to lazy indexing during bulk data imports.
+- Change or fine-tune the kind of index (Hash or Range) and index precision for best performance
+- Use Order By on strings, or perform string range queries on a collection containing data.
 
 ## Performance tuning
 
