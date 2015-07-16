@@ -37,12 +37,12 @@ for 12 of the top Linux-based OSS technologies, including: Apache Kafka, Apache 
 Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis, and Nagios. The majority of these templates were developed with a well-known vendor of 
 a given distribution and influenced by the requirements of Microsoft’s enterprise and SI customers during recent projects.
 
-This article shares these proven practices to help you architect world class ARM templates.  
+This article shares these proven practices to help you architect world class Azure Resource Manager templates.  
 
 In our work with customers, we have identified a number of Resource Manager template consumption experiences across enterprises, System Integrators (SI)s, and CSVs. 
 The following sections provides a high-level overview of common scenarios and patterns for different customer types.
 
-## Enterprises and System Integrators
+## Enterprises and system integrators
 
 Within large organizations, we commonly see two consumers of ARM templates: internal software development teams and corporate IT. The scenarios for the 
 SIs we’ve worked with have mapped to those of Enterprises, so the same considerations apply.
