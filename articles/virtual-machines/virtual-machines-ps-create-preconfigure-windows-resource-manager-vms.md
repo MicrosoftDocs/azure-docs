@@ -165,7 +165,7 @@ Copy the following lines to your command set and specify an existing virtual net
 
 Next, you create a network interface card (NIC), request a public IP address, and optionally assign it a DNS domain name label. Copy one of the two following options to your command set and fill in the NIC name and DNS domain name label.
 
-Option 1: Specify a NIC name.
+### Option 1: Specify a NIC name
 
 Copy the following lines to your command set and specify the name for the NIC.
 
@@ -173,7 +173,7 @@ Copy the following lines to your command set and specify the name for the NIC.
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-Option 2: Specify a NIC name and a DNS domain name label.
+### Option 2: Specify a NIC name and a DNS domain name label
 
 Copy the following lines to your command set and specify the name for the NIC and the globally unique domain name label. When you create virtual machines in the Service Management mode of Azure PowerShell, Azure completes these steps automatically.
 
@@ -184,7 +184,7 @@ Copy the following lines to your command set and specify the name for the NIC an
 
 Next, create a local VM object and optionally add it to an availability set. Copy one of the two following options to your command set and fill in the name, size, and name of the availability set.
 
-Option 1: Specify a virtual machine name and size.
+### Option 1: Specify a virtual machine name and size
 
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
@@ -195,7 +195,7 @@ To determine the possible values of the VM size string for option 1, use the fol
 	$locName="<Azure location of your resource group>"
 	Get-AzureVMSize -Location $locName | Select Name
 
-Option 2: Specify a virtual machine name and size and add it to an availability set.
+### Option 2: Specify a virtual machine name and size and add it to an availability set
 
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
