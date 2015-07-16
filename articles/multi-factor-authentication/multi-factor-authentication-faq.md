@@ -35,7 +35,7 @@ This FAQ answers questions about Azure Multi-Factor Authentication. This FAQ cov
 
 [Password reset](mailto:phonefactorsupport@microsoft.com)
 
-- Legacy Phonefactor customers who have any queries around resetting your password or for help to get your password reset, please send an email to [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com).
+- Legacy Phonefactor customers who have any queries around resetting your password or for help to get your password reset, please use the link below to open a support case.
 
 [Microsoft Azure Multi-Factor Authentication Server (Phone Factor) customer support](https://support.microsoft.com/oas/default.aspx?prid=14947)
 
