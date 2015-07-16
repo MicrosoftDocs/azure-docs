@@ -36,7 +36,7 @@ This tutorial is based on the Mobile App quickstart. You must also first complet
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="7">
+<ol start="5">
 <li>In Visual Studio, open your client app project and ensure that in App.xaml.cs, the instance of <b>MobileServiceClient</b> is configured to use the cloud URL to the Mobile App resource.</li>
 <li><p>Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
 

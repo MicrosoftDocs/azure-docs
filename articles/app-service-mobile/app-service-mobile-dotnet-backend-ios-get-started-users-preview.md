@@ -36,7 +36,7 @@ This tutorial is based on the Mobile App quickstart. You must also first complet
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="7">
+<ol start="5">
 <li><p>In Xcode, open the project. Press the <b>Run</b> button to  start the app. Verify that an exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
 
    	<p>This happens because the app attempts to access your Mobile App Code as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
