@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="azure-government" 
-	ms.date="1/21/2014" 
+	ms.date="01/21/2014" 
 	ms.author="jharve"/>
 
 
