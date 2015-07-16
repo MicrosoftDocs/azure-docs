@@ -3,7 +3,7 @@
 	description="Learn about related and linked resources that are displayed in the tile gallery of the Azure preview portal." 
 	services="azure-portal" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="adamabdelhamed" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/16/2015" 
-	ms.author="tomfitz"/>
+	ms.author="adamab"/>
 
 # Related and linked resources in the tile gallery
 
