@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="07/16/2015"
 	ms.author="kathydav"/>
 
-# How to Attach a Data Disk to a Windows Virtual Machine
+# How to attach a data disk to a Windows virtual machine
 
 You can attach empty disks and disks with data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
 
@@ -25,7 +25,7 @@ You can attach empty disks and disks with data. In both cases, the disks are act
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>How to: Initialize a new data disk in Windows Server
+## <a id="initializeinWS"></a>How to: initialize a new data disk in Windows Server
 
 1. Connect to the virtual machine. For instructions, see [How to log on to a virtual machine running Windows Server][logon].
 
@@ -44,5 +44,10 @@ You can attach empty disks and disks with data. In both cases, the disks are act
 	![Volume successfully initialized](./media/storage-windows-attach-disk/newvolumecreated.png)
 
 > [AZURE.NOTE] The size of the virtual machine determines how many disks you can attach to it. For details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
+
+## Additional resources
+
+[How to Detach a Disk from a Windows Virtual Machine](storage-windows-detach-disk.md)
+[About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md

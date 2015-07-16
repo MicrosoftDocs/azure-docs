@@ -19,10 +19,11 @@
 
 
 
-# How to Detach a Disk from a Windows Virtual Machine
+# How to detach a disk from a Windows virtual machine
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
-## Additional Resources
+## Additional resources
 
+[About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md)
 [How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md)
