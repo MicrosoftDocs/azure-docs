@@ -21,7 +21,7 @@
 
 This article shows you how to capture an Azure virtual machine running Windows so you can use it as an image to create other virtual machines. This image includes the operating system disk and any data disks that are attached to the virtual machine. It doesn't include networking configurations, so you'll need to configure those when you create the other virtual machines that use the template.
 
-Azure treats this template as an image and stores it under **My Images**. This is the same place where any images you've uploaded are stored. For more information about images, see [About virtual machine images in Azure] [].
+Azure stores this under **My Images**. This is the same place where any images you've uploaded are stored. For details about images, see [About virtual machine images in Azure] [].
 
 ##Before you begin##
 
@@ -29,6 +29,8 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 - [How to create a custom virtual machine] []
 - [How to attach a data disk to a virtual machine] []
+
+> [AZURE.WARNING] This process deletes the original virtual machine after it's captured. It's not intended as a way to back up a virtual machine. One possible option for that is Azure Backup, which is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
 
 ##Capture the virtual machine##
 
@@ -68,17 +70,15 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 12.	Click the check mark to capture the image.
 
-  **NOTE: When you capture an image of a generalized virtual machine, the virtual machine is deleted.**
-
  The new image is now available under **Images**.
  ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Next steps##
-The image is ready to be used as a template to create virtual machines. To do this, you'll create a custom virtual machine by using the **From Gallery** menu item and selecting the image you just created. For instructions, see [How to create a custom virtual machine] [].
+The image is ready to be used to create virtual machines. To do this, you'll create a custom virtual machine by using the **From Gallery** menu item and selecting the image you just created. For instructions, see [Create a custom virtual machine running Windows] [].
 
 
 [About Virtual Machine Images in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[How to Create a Custom Virtual Machine]: virtual-machines-create-custom.md
+[Create a custom virtual machine running Windows]: virtual-machines-windows-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [How to sign in to a virtual machine running Windows Server]:http://www.windowsazure.com/manage/windows/how-to-guides/log-on-a-windows-vm/
 [How to Use Sysprep: An Introduction]:http://technet.microsoft.com/library/bb457073.aspx
