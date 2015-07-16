@@ -18,7 +18,7 @@
 	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
-# Troubleshoot Secure Shell (SSH) Connections to a Linux-based Azure Virtual Machine
+# Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine
 
 If you can't connect to Linux-based Azure virtual machines, this article describes a methodical approach for isolating and correcting the problem.
 
@@ -123,7 +123,7 @@ If you can create an SSH connection with a virtual machine in the same virtual n
 
 To eliminate the endpoint as a source of the problem, remove the current endpoint and create a new endpoint, specifying the **SSH** name (TCP port 22 for the public and private port number). For more information, see [Set up endpoints on a virtual machine in Azure](virtual-machines-set-up-endpoints.md).
 
-### <a id="nsg"></a>Source 4: Network Security GroupsaazzzzZ4qhj777
+### <a id="nsg"></a>Source 4: Network security groups
 
 Network security groups allow you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Examine your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
 For more information, see [About network security groups](../traffic-manager/virtual-networks-nsg.md).
