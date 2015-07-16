@@ -22,7 +22,7 @@ You can install Spark on any type of cluster in Hadoop on Azure HDInsight by usi
 
 In this topic, you will learn how to install Spark by using Script Action. Once you have installed Spark, you'll also learn how to run a Spark query on HDInsight clusters.
 
-> [AZURE.NOTE] HDInsight now provides Spark as a first-class cluster type, which means you can now directly provision a Spark cluster without modifying a Hadoop cluster. For more information, see [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
+> [AZURE.NOTE] HDInsight now provides Spark as a first-class cluster type, which means you can now directly provision a Spark cluster without modifying a Hadoop cluster. Using the Spark cluster type, you get an HDInsight version 3.2 cluster with Spark version 1.3.1. For more information, see [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
 
 ## <a name="whatis"></a>What is Spark?
