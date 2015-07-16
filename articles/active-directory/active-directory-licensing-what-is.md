@@ -27,7 +27,7 @@ For a broad overview of Azure AD service capabilities, see [What is Azure AD](ac
 
 > [AZURE.NOTE]  Azure pay as you go subscriptions are different: while also represented in your directory, these subscriptions enable creation of Azure resources and map them to your payment method. In this case there are NO license counts associated with the subscription. Users' association with the subscription, the users' access to managing subscription resources, is achieved by granting them permissions to operate on Azure resources mapped to the subscription.
 
-> [Learn more about Azure AD service levels](http://azure.microsoft.com/en-us/support/legal/sla/)
+> [Learn more about Azure AD service levels](http://azure.microsoft.com/support/legal/sla/)
 
 ##How does Azure AD licensing work?
 
