@@ -3,7 +3,8 @@
     pageTitle="User Profile data in Azure RemoteApp"
 	description="Learn how user data is stored and accessed in Azure RemoteApp"
 	services="remoteapp"
-	solutions="" documentationCenter="" 
+	solutions="" 
+	documentationCenter="" 
 	authors="lizap" 
 	manager="mbaldwin" />
 
