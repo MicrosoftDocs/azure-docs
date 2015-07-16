@@ -310,7 +310,7 @@ resource template and are shared by other templates, so the shared resource temp
 
 Some resources are deployed optionally regardless of the specified known configuration.
 
-#### Shared resources template
+### Shared resources template
 
 This template delivers resources that are common across all known configurations. It contains the virtual network, availability sets, and other resources that 
 are required regardless of the known configuration template that is deployed.
@@ -322,7 +322,7 @@ are required regardless of the known configuration template that is deployed.
 Resource names, such as the virtual network name, are based on the main template. You can specify them as a variable within that template or receive them as a 
 parameter from the user, as required by your organization.
 
-#### Optional resources template
+### Optional resources template
 
 The optional resources template contains resources that are programmatically deployed based on the value of a parameter or variable.
 
@@ -344,7 +344,7 @@ Whether a given resource is optional may not be driven by the template consumer 
 particular product requirement or product add-on (common for CSVs) or to enforce policies (common for SIs and enterprise IT groups). In these cases, you can use a 
 variable to identify whether the resource should be deployed.
 
-#### Known configuration resources template
+### Known configuration resources template
 
 In the main template, a parameter can be exposed to allow the template consumer to specify a desired known configuration to deploy. In many cases, this known 
 configuration uses a t-shirt size approach with a set of fixed configuration sizes such as sandbox, small, medium, and large.
@@ -362,7 +362,7 @@ As with the shared resource template, variables are passed to the known configur
 -	An end user—that is, the parameters sent to the main template.
 -	An organization—that is, the variables in the main template that represent internal requirements or policies.
 
-#### Member resources template
+### Member resources template
 
 Within a known configuration, one or more member node types are often included. For example, with Hadoop you would have master nodes and data nodes. 
 If you are installing MongoDB, you would have data nodes and an arbiter. If you are deploying DataStax, you would have data nodes as well as a VM 
@@ -378,7 +378,7 @@ infrastructure as well as executing scripts to deploy and configure software wit
 
 For VMs, typically two types of scripts are used, widely reusable and custom scripts.
 
-#### Widely reusable scripts
+### Widely reusable scripts
 
 Widely reusable scripts can be used across multiple types of templates. One of the better examples of these widely reusable scripts sets up RAID on Linux to 
 pool disks and gain a greater number of IOPS. Regardless of the software being installed in the VM, this script provides reuse of proven practices for common scenarios.
@@ -387,7 +387,7 @@ pool disks and gain a greater number of IOPS. Regardless of the software being i
 
 **Member resources templates can call widely reusable scripts**
 
-#### Custom scripts
+### Custom scripts
 
 Templates commonly call one or more scripts that install and configure software within VMs. A common pattern is seen with large topologies where multiple 
 instances of one or more member types are deployed. An installation script is initiated for every VM that can be run in parallel, followed by a setup script 
@@ -397,7 +397,7 @@ that is called after all VMs (or all VMs of a given member type) are deployed.
 
 **Member resources templates can call scripts for a specific purpose such as VM configuration**
 
-### Capability Scoped Solution Template Example - Redis
+## Capability-scoped solution template example - Redis
 
 To show how an implementation might work, let’s look at a practical example of building a template that will facilitate the deployment and configuration of 
 Redis in standard t-shirt sizes.  
@@ -406,7 +406,7 @@ For the deployment, there will be set of shared resources (virtual network, stor
 multiple known configurations represented as t-shirt sizes (small, medium, large) but each with a single node type. There are also two purpose specific scripts 
 (installation, configuration).
 
-#### Creating the Template Files
+### Creating the template files
 
 You would create a Main Template named azuredeploy.json.
 
@@ -419,7 +419,7 @@ Redis will use just a single node type, so you’ll create a single Member Resou
 With Redis, you’ll want to install each individual node and then, once all nodes are installed you’ll want to set up the cluster.  You have scripts to 
 accommodate both of these, redis-cluster-install.sh and redis-cluster-setup.sh.
 
-#### Linking the Templates
+### Linking the templates
 
 Using template linking, the main template links out to the shared resources template, which establishes the virtual network.
 
@@ -436,18 +436,18 @@ The topology would resemble this illustration.
 
 **Template structure for a Redis template**
 
-#### Configuring State
+### Configuring state
 
 For the nodes in the cluster, there are two steps to configuring the state, both represented by Purpose Specific Scripts.  “redis-cluster-install.sh” will 
 perform an installation of Redis and “redis-cluster-setup.sh” will set up the cluster.
 
-#### Supporting Different Size Deployments
+### Supporting Different Size Deployments
 
 Inside of variables, the t-shirt size template specifies the number of nodes of each type to deploy for the specified size (*large*). It then deploys that number of 
 VM instances using resource loops, providing unique names to resources by appending a node name with a numeric sequence number from *copyIndex()*. It does this for 
 both hot and warm zone VMs, as defined in the t-shirt name template
 
-### Decomposition and End-to-End Solution Scoped Templates
+## Decomposition and end-to-end solution scoped templates
 
 A solution template with an end-to-end solution scope is focused on delivering an end-to-end solution.  This will typically be a composition of multiple capability 
 scoped templates with additional resources, logic and state.
@@ -470,7 +470,7 @@ Template are used to provide the appropriate values for downstream capability sc
 
 **The model used for capacity or capability scoped solution templates can be readily extended for end to end solution template scopes**
 
-### Preparing Templates for the Marketplace
+## Preparing templates for the Marketplace
 
 The above approach readily accommodates scenarios where Enterprises, SIs, and CSVs want to either deploy the templates themselves or enable their customers to 
 deploy on their own.
