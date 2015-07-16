@@ -3,7 +3,8 @@
     pageTitle="Troubleshoot creating RemoteApp hybrid collections"
     description="Learn how to troubleshoot RemoteApp hybrid collection creation failures" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    solutions="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
