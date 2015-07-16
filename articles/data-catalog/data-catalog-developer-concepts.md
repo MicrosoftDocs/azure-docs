@@ -1,14 +1,14 @@
 <properties
    pageTitle="Azure Data Catalog developer concepts"
    description="Developer concepts in Azure Data Catalog: Catalog, users, assets, crowdsourcing."
-   services="cloud-services"
+   services="data-catalog"
    documentationCenter=""
    authors="dvana"
    manager="mblythe"
    editor=""
    tags=""/>
 <tags
-   ms.service="cloud-services"
+   ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
