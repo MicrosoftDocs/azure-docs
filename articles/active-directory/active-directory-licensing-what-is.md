@@ -23,7 +23,7 @@ Azure Active Directory (AD) is Microsoft's Identity as a Service (IDaaS) solutio
 
 Azure AD administration portal is a part of the Azure Management Portal. While using Azure AD does not require any Azure purchases, accessing this portal requires an active Azure subscription or an [Azure trial subscription](http://azure.microsoft.com/pricing/free-trial/).
 
-For a broad overview of Azure AD service capabilities, see [What is Azure AD](active-directory-whatis.md)
+For a broad overview of Azure AD service capabilities, see [What is Azure AD](active-directory-whatis.md).
 
 > [AZURE.NOTE]  Azure pay as you go subscriptions are different: while also represented in your directory, these subscriptions enable creation of Azure resources and map them to your payment method. In this case there are NO license counts associated with the subscription. Users' association with the subscription, the users' access to managing subscription resources, is achieved by granting them permissions to operate on Azure resources mapped to the subscription.
 
@@ -60,7 +60,7 @@ Getting started with Azure AD is easy; you can always create your directory as a
 
 Here are a couple of best practices:
 - If you are already using any of Microsoft's organizational services, you already have an Azure AD directory. In this case, you should continue to use the same directory for other services, so that core identity management, including provisioning and hybrid SSO, can be utilized across the services. Your users will have a single logon experience and will benefit from richer capabilities across the services. As a result, if you decide to buy an Azure AD paid service for your workforce, we recommend that you use the same directory to do this.
-- If you are planning to use Azure AD for a different set of users (partners, customers, and so on), or if you would like to evaluate Azure AD services and would like to do that in isolation of your production service, or if you are looking to setup a sandbox environment for your services, we recommend that you first create a new directory through the Azure Management Portal. [Learn more about creating a new Azure AD directory in the Azure Management Portal](active-directory-licensing-directory-independence.md). The new directory will be created with your account as an external user with global administrator permissions. When you sign in to the Azure Management Portal with this account, you will be able to see this directory and access all directory administration tasks. We recommend that you create a local account with appropriate privileges to manage other Microsoft services (those not accessible through the Azure Management Portal). [Learn more about creating user accounts in Azure AD]( active-directory-create-users.md).
+- If you are planning to use Azure AD for a different set of users (partners, customers, and so on), or if you would like to evaluate Azure AD services and would like to do that in isolation of your production service, or if you are looking to setup a sandbox environment for your services, we recommend that you first create a new directory through the Azure Management Portal. [Learn more about creating a new Azure AD directory in the Azure Management Portal](active-directory-licensing-directory-independence.md). The new directory will be created with your account as an external user with global administrator permissions. When you sign in to the Azure Management Portal with this account, you will be able to see this directory and access all directory administration tasks. We recommend that you create a local account with appropriate privileges to manage other Microsoft services (those not accessible through the Azure Management Portal). [Learn more about creating user accounts in Azure AD](active-directory-create-users.md).
 
 > [AZURE.NOTE] Azure AD supports “external users,” which are user accounts in an instance of Azure AD that were created using either a Microsoft Account (MSA) or an Azure AD identity from another directory. While we are busy extending this capability into all of Microsoft's organizational services, right now these accounts are not supported in some of the services' experiences; for example, the Office 365 administration portal does not currently support these users. As a result, external users with Microsoft accounts will not be able to access the Office 365 administration portal at all, while external users from other Azure AD directories will be ignored. In the latter case, only the user’s local account, the Azure AD or Office 365 directory where the user was originally created, would be accessible through these experiences.
 
@@ -76,30 +76,30 @@ As indicated, Azure AD has different paid versions. These versions have some min
 ###Select one or more license trials
  In all cases, you can activate an Azure AD Premium or Enterprise Mobility Suite trial subscription by selecting the specific trial you want on the Licenses tab in your directory. Either trial contains a 30-day subscription with 100 licenses.
 
-![Azure Active Directory trial license plans](./media/active-directory-licensing-what-is/trial plans.png)
+![Azure Active Directory trial license plans](./media/active-directory-licensing-what-is/trial_plans.png)
 
-![Enterprise Mobility Suite trial license plans](./media/active-directory-licensing-what-is/EMS trial plan.png)
+![Enterprise Mobility Suite trial license plans](./media/active-directory-licensing-what-is/EMS_trial_plan.png)
 
-![Active trial license plans](./media/active-directory-licensing-what-is/active license trials.png)
+![Active trial license plans](./media/active-directory-licensing-what-is/active_license_trials.png)
 
 ###Assign licenses
 Once the trial is active, you should assign a license to yourself and refresh the browser to ensure you are seeing all your features. The next step is to assign licenses to the users that will need to access or be included in paid Azure AD features. As we mentioned above in "Assigning licenses," the best way to do this is to identify the group representing the desired audience and assign it to the license; in this way, users who are added or removed from the group over its lifecycle will be assigned to or removed from the license.
 
 To assign a license to a group or individual users, select the license plan you would like to assign and click **Assign** on the command bar.
 
-![Active trial license plans](./media/active-directory-licensing-what-is/assign licenses.png)
+![Active trial license plans](./media/active-directory-licensing-what-is/assign_licenses.png)
 
 Once in the assignment dialog for the selected plan, you can select users and adding them to the **Assign** column on the right. You can page through the user list or search for specific individuals using the looking glass on the top right of the user grid. To assign groups, select "Groups" from the **Show** menu and then click the check button on the right to refresh the assignments that are displayed.
 
-![Assigning licenses to groups](./media/active-directory-licensing-what-is/assign licenses to groups.png)
+![Assigning licenses to groups](./media/active-directory-licensing-what-is/assign_licenses_to_groups.png)
 
 You can now search or page through groups and add them to the **Assign** column in the same way. You can use these to assign a combination of users and groups in a single operation. To complete the assignment process, click the check button in the bottom right corner of the page.
 
-![License assignment progress message](./media/active-directory-licensing-what-is/license assignment progress message.png)
+![License assignment progress message](./media/active-directory-licensing-what-is/license_assignment_progress_message.png)
 
 When a group is assigned, its members inherit the licenses within 30 minutes, but usually within 1-2 minutes.
 
-Assignment errors can occur in Azure AD portal license assignment, but are relatively rare. Potential assignment errors are limited to:
+Assignment errors can occur during Azure AD portal license assignment, but are relatively rare. Potential assignment errors are limited to:
 - Assignment conflict - when a user was previously assigned a license that is incompatible with the current license. In this case, assigning the new license will require removing the previous one.
 - Exceeded available licenses - when the number of users in assigned groups exceed available licenses, the users' assignment status will reflect a failure to assign due to missing licenses.
 
@@ -107,31 +107,31 @@ Assignment errors can occur in Azure AD portal license assignment, but are relat
 
 A summary view of assigned licenses including available, assigned, and next subscription lifecycle event are displayed on the **Licenses** tab.
 
-![View the number of assigned licenses](./media/active-directory-licensing-what-is/view assigned licenses.png)
+![View the number of assigned licenses](./media/active-directory-licensing-what-is/view_assigned_licenses.png)
 
 A detailed list of assigned users and groups, including assignment status and path (direct or inherited from one or more groups) is available when navigating into a license plan.
 
-![Detail display of licenses assigned for a license plan](./media/active-directory-licensing-what-is/assigned licenses detail.png)
+![Detail display of licenses assigned for a license plan](./media/active-directory-licensing-what-is/assigned_licenses_detail.png)
 
 Removing licenses is just as easy as assigning them. If the user is directly assigned or for an assigned group, you can remove the license by selecting the license type, selecting **Remove**, adding the user or group to the remove list, and confirming the action. Alternatively, you can open a license type, select the specific user or group, and tap **Remove** on the command bar. To end a user’s inheritance of a license from a group, simply remove the user from the group.
 
 ###Extending trials
 
-Trial extensions for customers are available as self-service through the Office 365 portal. A customer admin can navigate to https://portal.office.com/#Billing and select your Azure AD Premium trial. Click the **Extend trial** link and follow the instructions. You will need to enter a credit card, but it will not be charged.
+Trial extensions for customers are available as self-service through the Office 365 portal. A customer admin can navigate to the [Office portal](https://portal.office.com/#Billing) and select your Azure AD Premium trial. Click the **Extend trial** link and follow the instructions. You will need to enter a credit card, but it will not be charged.
 
-![Extending a license trial in the Office portal](./media/active-directory-licensing-what-is/extend license trial.png)
+![Extending a license trial in the Office portal](./media/active-directory-licensing-what-is/extend_license_trial.png)
 
-Customers can also request a trial extension by submitting a support request. A customer admin can navigate to http://aka.ms/extendAADtrial. On this page select “Subscriptions and Trials” under Features and “Trial questions” under Symptom. Finally, enter information on the circumstances
+Customers can also request a trial extension by submitting a support request. A customer admin can navigate to the Office portal [support page](http://aka.ms/extendAADtrial). On this page select “Subscriptions and Trials” under Features and “Trial questions” under Symptom. Finally, enter information on the circumstances
 
-![Extending a license trial using a support request](./media/active-directory-licensing-what-is/alternate office aad trial extension.png)
+![Extending a license trial using a support request](./media/active-directory-licensing-what-is/alternate_office_aad_trial_extension.png)
 
 ## Next steps
 
 Now you might be ready to configure and use some Azure AD Premium features.
 
-[Self-service password reset](active-directory-manage-passwords.md)
-[Self-service group management](active-directory-accessmanagement-self-service-group-management.md)
-[Azure AD Connect heath](active-directory-aadconnect-health.md)
-[Group assignment to applications](active-directory-manage-groups.md)
-[Azure Multi-Factor Authentication](multi-factor-authentication.md)
-[Direct purchase](http://aka.ms/buyaadp)
+- [Self-service password reset](active-directory-manage-passwords.md)
+- [Self-service group management](active-directory-accessmanagement-self-service-group-management.md)
+- [Azure AD Connect heath](active-directory-aadconnect-health.md)
+- [Group assignment to applications](active-directory-manage-groups.md)
+- [Azure Multi-Factor Authentication](multi-factor-authentication.md)
+- [Direct purchase of Azure AD Premium licenses](http://aka.ms/buyaadp)
