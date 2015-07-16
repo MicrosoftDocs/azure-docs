@@ -54,9 +54,7 @@ distracting the deployment engine from avoiding parallelism unnecessarily.
 
 ## resources
 
-The resources property allows you to specify child resources that depend on the resource being defined. Resource dependencies can only be defined 5 levels deep.
-
-For more details about the resources section, see [Resources](resource-group-authoring-templates.md/#resources).
+The resources property allows you to specify child resources that are related to the resource being defined. Child resources can only be defined 5 levels deep. It is important to note that an implicit dependency is not created between a child resource and the parent resource. If you need the child resource to be deployed after the parent resource, you must explicitly state that dependency with the dependsOn property. 
 
 ## reference function
 
@@ -68,7 +66,7 @@ The property represented by **propertyPath** below is optional, if it is not spe
 You can use either this element or the dependsOn element to specify dependencies, but you do not need to use both for the same dependent resource. The guidance is to use the implicit reference to avoid the 
 risk of inadvertently having an unnecessary dependsOn element stop the deployment engine from doing aspects of the deployment in parallel.
 
-To learn more, see [reference function](resource-group-template-functions.md/#reference).
+To learn more, see [reference function](../resource-group-template-functions/#reference).
 
 ## Next steps
 
