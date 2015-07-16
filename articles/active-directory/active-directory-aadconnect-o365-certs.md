@@ -26,7 +26,7 @@ If you received an email or a portal notification asking you to renew your certi
 If you are using AD FS 2.0 or later, Office 365 and Azure AD will automatically update your certificate before it expires.  You do not need to perform any manual steps or run a script as a scheduled task.  For this to work, both of the following default AD FS configuration settings must be in effect:
 
 - The AD FS property AutoCertificateRollover must be set to True, indicating that AD FS will automatically generate new token signing and token decryption certificates before the old ones expire.
-	- If the value is False, you are using custom certificate settings.  Go [here](https://msdn.microsoft.com/en-us/library/azure/JJ933264.aspx#BKMK_NotADFSCert)  for comprehensive guidance.
+	- If the value is False, you are using custom certificate settings.  Go [here](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert)  for comprehensive guidance.
 - Your federation metadata must be available to the public internet.
 	
 	Here is how to check:
