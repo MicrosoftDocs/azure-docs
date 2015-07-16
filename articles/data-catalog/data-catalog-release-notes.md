@@ -18,7 +18,8 @@
 
 # Notes for the 13 July 2015 release of Azure Data Catalog
 
-Registering and Connecting to Oracle Database
+## Registering and Connecting to Oracle Database
+
 When connecting to Oracle Database data sources users must have installed the correct Oracle drivers that match the bitness (32-bit or 64-bit) of the software being used.
 
 -	When registering Oracle data sources on a computer running 32-bit Windows, the 32-bit Oracle drivers will be used
@@ -26,21 +27,21 @@ When connecting to Oracle Database data sources users must have installed the co
 -	When connecting to Oracle data sources using Excel on a computer running the 32-bit version of Microsoft Office, including on 64-bit Windows, the 32-bit Oracle drivers will be used
 -	When connecting to Oracle data sources using Excel on a computer running the 64-bit version of Microsoft Office, the 64-bit Oracle drivers will be used
 
-### Registering and connecting to SQL Server Reporting Services
+## Registering and connecting to SQL Server Reporting Services
 
 Support for SQL Server Reporting Services (SSRS) data sources in the initial preview release of Azure Data Catalog is limited to Native Mode servers only. Support for SSRS in SharePoint mode will be added in a later release.
 
-### Opening data assets in Excel
+## Opening data assets in Excel
 
 When opening data assets in Microsoft Excel from the Azure Data Catalog portal, users may be prompted with a **Microsoft Excel Security Notice** dialog box. This is standard, expected behavior, and users can select **Enable** to continue.
 
 For more information, see [Enable or disable security alerts about links and files from suspicious websites](https://support.office.com/en-us/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE). 
 
-### BLOB and UDT columns missing in previews
+## BLOB and UDT columns missing in previews
 
 When registering tables and views that contain binary large object (BLOB) and user-defined data type (UDT) columns, and selecting to include preview for the data assets, these columns will not be included in the preview.
 
-### Proxy and policy configuration and data source registration
+## Proxy and policy configuration and data source registration
 
 Users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on.
 

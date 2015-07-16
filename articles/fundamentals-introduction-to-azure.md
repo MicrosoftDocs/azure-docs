@@ -4,7 +4,7 @@
 	services=" " 
 	documentationCenter=".net" 
 	authors="Rboucher" 
-	manager="jwhit" 
+	manager="jwhit"
 	editor=""/>
 
 <tags 
@@ -110,7 +110,7 @@ You have two roles to choose from when you create an instance, both based on Win
 Cloud Services are ideal to support massive scale out when you need more control over the platform than provided by Azure Web Apps but don’t need control over the underlying operating system. 
 
 #### Choosing a Compute Model
-The page [Azure Web Apps, Cloud Services and Virtual Machines comparison](./choose-web-site-cloud-service-vm/ ) provides more detailed information on how to choose a Compute model.
+The page [Azure Web Apps, Cloud Services and Virtual Machines comparison](choose-web-site-cloud-service-vm.md) provides more detailed information on how to choose a Compute model.
 
 
 
@@ -606,5 +606,3 @@ Now that you have the big-picture, the next step is to write your first Azure ap
 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-
-

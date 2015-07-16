@@ -1607,47 +1607,48 @@ The mathematical functions each perform a calculation, usually based on input va
 <td>Returns the sign value (-1, 0, 1) of the specified numeric expression.</td>
 </tr>
 <tr>
-<td>ACOS (num_expr)</td>	
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_acos">ACOS (num_expr)</a></td>	
 <td>Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine.</td>
 </tr>
 <tr>
-<td>ASIN (num_expr)</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_asin">ASIN (num_expr)</a></td>	
 <td>Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine.</td>
 </tr>
 <tr>
-<td>ATAN (num_expr)</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atan">ATAN (num_expr)</a></td>	
 <td>Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent.</td>
 </tr>
 <tr>
-<td>ATN2 (num_expr)</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atn2">ATN2 (num_expr)</a></td>	
 <td>Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions.</td>
 </tr>
 <tr>
-<td>COS (num_expr)</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cos">COS (num_expr)</a></td>	
 <td>Returns the trigonometric cosine of the specified angle, in radians, in the specified expression.</td>
 </tr>
 <tr>
-<td>COT (num_expr)</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cot">COT (num_expr)</a></td>	
 <td>Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression.</td>
 </tr>
 <tr>
-<td>DEGREES (num_expr)</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_degrees">DEGREES (num_expr)</a></td>	
 <td>Returns the corresponding angle in degrees for an angle specified in radians.</td>
 </tr>
 <tr>
-<td>PI ()</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_pi">PI ()</a></td>	
 <td>Returns the constant value of PI.</td>
 </tr>
 <tr>
-<td>RADIANS (num_expr)</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_radians">RADIANS (num_expr)</a></td>	
 <td>Returns radians when a numeric expression, in degrees, is entered.</td>
 </tr>
 <tr>
-<td>SIN (num_expr)</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sin">SIN (num_expr)</a></td>	
 <td>Returns the trigonometric sine of the specified angle, in radians, in the specified expression.</td>
 </tr>
 <tr>
-<td>TAN (num_expr)</td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_tan">TAN (num_expr)</a></td>	
 <td>Returns the tangent of the input expression, in the specified expression.</td>
 </tr>
 
@@ -1698,11 +1699,11 @@ The type checking functions allow you to check the type of an expression within 
   <td>Returns a Boolean indicating if the type of the value is a string.</td>
 </tr>
 <tr>
-  <td>IS_DEFINED (expr)</td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined">IS_DEFINED (expr)</a></td>
   <td>Returns a Boolean indicating if the property has been assigned a value.</td>
 </tr>
 <tr>
-  <td>IS_PRIMITIVE (expr)</td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
   <td>Returns a Boolean indicating if the type of the value is a string, number, Boolean or null.</td>
 </tr>
 
@@ -1727,67 +1728,67 @@ The following scalar functions perform an operation on a string input value and 
   <td><strong>Description</strong></td>
 </tr>
 <tr>
-  <td>LENGTH (str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length">LENGTH (str_expr)</a></td>
   <td>Returns the number of characters of the specified string expression.</td>
 </tr>
 <tr>
-  <td>CONCAT (str_expr, str_expr [, str_expr])</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat">CONCAT (str_expr, str_expr [, str_expr])</a></td>
   <td>Returns a string that is the result of concatenating two or more string values.</td>
 </tr>
 <tr>
-  <td>SUBSTRING (str_expr, num_expr, num_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring">SUBSTRING (str_expr, num_expr, num_expr)</a></td>
   <td>Returns part of a string expression.</td>
 </tr>
 <tr>
-  <td>STARTSWITH (str_expr, str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith">STARTSWITH (str_expr, str_expr)</a></td>
   <td>Returns a Boolean indicating whether the first string expression ends with the second</td>
 </tr>
 <tr>
-  <td>ENDSWITH (str_expr, str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith">ENDSWITH (str_expr, str_expr)</a></td>
   <td>Returns a Boolean indicating whether the first string expression ends with the second</td>
 </tr>
 <tr>
-  <td>CONTAINS (str_expr, str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains">CONTAINS (str_expr, str_expr)</a></td>
   <td>Returns a Boolean indicating whether the first string expression contains the second.</td>
 </tr>
 <tr>
-  <td>INDEX_OF (str_expr, str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of">INDEX_OF (str_expr, str_expr)</a></td>
   <td>Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.</td>
 </tr>
 <tr>
-  <td>LEFT (str_expr, num_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left">LEFT (str_expr, num_expr)</a></td>
   <td>Returns the left part of a string with the specified number of characters.</td>
 </tr>
 <tr>
-  <td>RIGHT (str_expr, num_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right">RIGHT (str_expr, num_expr)</a></td>
   <td>Returns the right part of a string with the specified number of characters.</td>
 </tr>
 <tr>
-  <td>LTRIM (str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim">LTRIM (str_expr)</a></td>
   <td>Returns a string expression after it removes leading blanks.</td>
 </tr>
 <tr>
-  <td>RTRIM (str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim">RTRIM (str_expr)</a></td>
   <td>Returns a string expression after truncating all trailing blanks.</td>
 </tr>
 <tr>
-  <td>LOWER (str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower">LOWER (str_expr)</a></td>
   <td>Returns a string expression after converting uppercase character data to lowercase.</td>
 </tr>
 <tr>
-  <td>UPPER (str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper">UPPER (str_expr)</a></td>
   <td>Returns a string expression after converting lowercase character data to uppercase.</td>
 </tr>
 <tr>
-  <td>REPLACE (str_expr, str_expr, str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace">REPLACE (str_expr, str_expr, str_expr)</a></td>
   <td>Replaces all occurrences of a specified string value with another string value.</td>
 </tr>
 <tr>
-  <td>REPLICATE (str_expr, num_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate">REPLICATE (str_expr, num_expr)</a></td>
   <td>Repeats a string value a specified number of times.</td>
 </tr>
 <tr>
-  <td>REVERSE (str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse">REVERSE (str_expr)</a></td>
   <td>Returns the reverse order of a string value.</td>
 </tr>
 </table>
@@ -1849,19 +1850,19 @@ The following scalar functions perform an operation on an array input value and 
   <td><strong>Description</strong></td>
 </tr>
 <tr>
-  <td>ARRAY_LENGTH (arr_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length">ARRAY_LENGTH (arr_expr)</a></td>
   <td>Returns the number of elements of the specified array expression.</td>
 </tr>
 <tr>
-  <td>ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat">ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])</a></td>
   <td>Returns an array that is the result of concatenating two or more array values.</td>
 </tr>
 <tr>
-  <td>ARRAY_CONTAINS (arr_expr, expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains">ARRAY_CONTAINS (arr_expr, expr)</a></td>
   <td>Returns a Boolean indicating whether the array contains the specified value.</td>
 </tr>
 <tr>
-  <td>ARRAY_SLICE (arr_expr, num_expr [, num_expr])</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice">ARRAY_SLICE (arr_expr, num_expr [, num_expr])</a></td>
   <td>Returns part of an array expression.</td>
 </tr>
 </table>
