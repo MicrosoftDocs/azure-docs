@@ -85,7 +85,7 @@ Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can
 
 For more details see [DocumentDB indexing policies](documentdb-indexing-policies.md).
 
-### Indexing for Order By against all numeric properties
+### Indexing for Order By against all properties
 Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it. Here, "/*" represents all JSON properties/paths within the collection, and -1 represents the maximum precision.
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
@@ -99,6 +99,8 @@ Here's how you can create a collection with "All Range" indexing for Order By ag
 
     await client.CreateDocumentCollectionAsync(databaseLink, 
         booksCollection);  
+
+>[AZURE.NOTE] Note that Order By only will return results of the data types (String and Number) that are indexed with a RangeIndex. For example, if you have the default indexing policy which only has RangeIndex on numbers, an Order By against a path with string values will return no documents.
 
 ### Indexing for Order By for a single property
 Here's how you can create a collection with indexing for Order By against just the Title property, which is a string. There are two paths, one for the Title property ("/Title/?") with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.                    

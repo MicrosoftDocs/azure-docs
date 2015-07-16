@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="07/10/2015"
+    ms.date="07/15/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 1 release notes  
 
 ## Overview
 
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1. These also contain a list of the StorSimple software and firmware updates included in this release. This is the first major release after the StorSimple 8000 Series Release version was made generally available in July 2014.
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1. They also contain a list of the StorSimple software and firmware updates included in this release. This is the first major release after the StorSimple 8000 Series Release version was made generally available in July 2014.
 
 This update changes the device software to be StorSimple 8000 Series Update 1. Please review the information contained in the release notes before you deploy the update in your StorSimple solution. For more information, see how to [install Update 1 on your StorSimple device](storsimple-install-update-1.md). 
 
@@ -28,7 +28,7 @@ Please review the information contained in the release notes before you deploy t
 >[AZURE.IMPORTANT]
 > 
 - A critical patch, Update 1.1, was released on June 23. This patch addresses an issue in the backup engine. If you applied Update 1 before June 23rd and are currently using software version **6.3.9600.17491**, make sure that you apply this critical update to avoid any issues with backups. After you install the update, the software version will change to **6.3.9600.17521**.
-- If you created a virtual device between May 27th and July 10th which is in the software version 6.3.9600.17481, create a new virtual device and fail over any volumes from the old virtual device to the new one. (This is because the older virtual device cannot be updated.) If not, you might see that backups start failing. For failover and disaster recovery procedures, see this article on [Failover and disaster recovery for your StorSimple device] (storsimple-device-failover-disaster-recovery.md)
+- If you created a virtual device between May 27th and July 10th that is in  software version 6.3.9600.17481, create a new virtual device and fail over any volumes from the old virtual device to the new one. (This is because the older virtual device cannot be updated.) If you do not create a new virtual device, you might see that backups start failing. For failover and disaster recovery procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
 - This release also contains disk firmware updates that can only be applied when the device is in Maintenance mode. These are disruptive updates that will result in down time for your device. You can apply these updates during planned maintenance.
 - It takes approximately 5-10 hours to install this update (including the Windows Updates). 

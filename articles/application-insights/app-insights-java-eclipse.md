@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
@@ -101,9 +101,17 @@ And when viewing the properties of a request, you can see the telemetry events a
 
 ## Client-side telemetry
 
-From the Quick Start tile on the overview blade, you can get a script to add to your web pages. 
+From the QuickStart blade, click Get code to monitor my web pages: 
 
-Page view, user, and session metrics will appear on the overview blade:
+![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
+
+Insert the code snippet in the head of your HTML files.
+
+#### View client-side data
+
+Open your updated web pages and use them. Wait a minute or two, then return to Application Insights and refresh the usage blade.
+
+Page view, user, and session metrics will appear on the usage blade:
 
 ![Sessions, users and page views](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
@@ -111,7 +119,7 @@ Page view, user, and session metrics will appear on the overview blade:
 
 ## Availability web tests
 
-Application Insights can test your website at regular intervals to check that it's up and responding well. Click through the empty web tests chart on the overview blade, and provide your public URL. 
+Application Insights can test your website at regular intervals to check that it's up and responding well. To set up, click through the empty web tests chart on the overview blade, and provide your public URL. 
 
 You'll get charts of response times, plus email notifications if your site goes down.
 
@@ -157,7 +165,7 @@ You can insert code both in web page JavaScript and in the server-side Java.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
