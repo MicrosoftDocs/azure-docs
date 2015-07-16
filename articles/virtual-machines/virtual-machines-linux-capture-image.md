@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/16/2015"
 	ms.author="dkshir"/>
 
 
@@ -32,7 +33,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 ##Capture the Virtual Machine##
 
-1. Connect to the virtual machine by clicking **Connect** on the command bar. For details, see [How to Log on to a Virtual Machine Running Linux][].
+1. Connect to the virtual machine using an SSH client of your choice. For details, see [How to Log on to a Virtual Machine Running Linux] [].
 
 2. In the SSH window, type the following command.  Note that the output from `waagent` may vary slightly depending on the version of this utility:
 
@@ -63,20 +64,33 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 4. Type **Exit** to close the SSH client.
 
-5. In the [Management Portal](http://manage.windowsazure.com), select the virtual machine, and then click **Shut down**.
+>[AZURE.NOTE] All the steps below can be just as easily done in the [Management Portal](http://manage.windowsazure.com). The next steps assume you have already [installed the Azure CLI](../xplat-cli-install.md) on your client computer.
 
-6. When the virtual machine is stopped, on the command bar, click **Capture** to open the **Capture the Virtual Machine** dialog box.
+5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 
-7.	In **Image Name**, type a name for the new image.
+6. Make sure you are in Service Management mode by typing
 
-8.	All Linux images must be *deprovisioned* by running the `waagent` command with the `-deprovision` option. Click **I have run waagent-deprovision on the virtual machine** to indicate that the operating system is prepared to be an image.
+	azure config mode asm
 
-9.	Click the check mark to capture the image.
+7. Shut down the virtual machine which is already deprovisioned in the steps above with:
 
-	The new image is now available under **Images**. The virtual machine is deleted after the image is captured.
+	azure vm shutdown <your-virtual-machine-name>
 
-	![Image capture successful](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
+	>[AZURE.NOTE] You can find out all the virtual machines created in your subscription by using `azure vm list`
 
+8. When the virtual machine is stopped, capture the image with the command:
+
+	azure vm capture -t <your-virtual-machine-name> <new-image-name>
+
+Type the image name you want in place of <new-image-name>. This is a generalized OS image. Note the `-t` subcommand which deletes the original virtual machine.
+
+9.	The new image is now available in the list of images that can be used to configure your new virtual machine. You can view it with the command
+
+	azure vm image list
+
+On the [Management Portal](manage.windowsazure.com), it will appear in the **IMAGES** list.
+
+	![New image captured](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
 ##Next Steps##
 The image is ready to be used as a template to create virtual machines. To do this, you'll create a custom virtual machine by using the **From Gallery** method and select the image you just created. For instructions, see [How to Create a Custom Virtual Machine] [].
