@@ -29,6 +29,10 @@ This tutorial requires the following:
 * Microsoft Azure Mobile Services SDK
 * The [Active Directory Authentication Library for iOS]
 
+##<a name="review"></a>Review your server project setup (optional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)] 
+
 ## <a name="register-application"></a>Register your application with the Azure Active Directory
 
 [AZURE.INCLUDE [app-service-mobile-adal-register-app](../../includes/app-service-mobile-adal-register-app.md)]
