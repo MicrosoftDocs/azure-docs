@@ -18,7 +18,7 @@
 
 This article describes how to use the “Listing APIs” in Microsoft Azure Storage Client Library for C++ efficiently.
 
-[AZURE.NOTE]This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 There are a number of methods in Storage Client Library to either list or query storage services to return an indeterminate number of resources. This article describes the following scenarios:
 -	List containers in an account
