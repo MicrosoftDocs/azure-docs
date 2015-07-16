@@ -21,7 +21,8 @@
 HDInsight provides a configuration option called **Script Action** that invokes custom scripts, which define the customization to be performed on the cluster during the provision process. These scripts can be used to install additional software on a cluster, or to change the configuration of applications on a cluster. 
 
 
-> [AZURE.NOTE] Script Action is only supported on HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+> [AZURE.NOTE] Script Action is only supported on HDInsight cluster version 3.1 or higher with the Windows operating system.  For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+> 
 > Script Action is available as part of the standard Azure HDInsight subscriptions at no extra charge.
 
 HDInsight clusters can be customized in a variety of other ways as well, such as including additional Azure Storage accounts, changing the Hadoop configuration files (core-site.xml, hive-site.xml, etc.), or adding shared libraries (e.g., Hive, Oozie) into common locations in the cluster. These customizations can be done through Azure PowerShell, the Azure HDInsight .NET SDK, or the Azure portal. For more information, see [Provision Hadoop clusters in HDInsight using custom options][hdinsight-provision-cluster].
