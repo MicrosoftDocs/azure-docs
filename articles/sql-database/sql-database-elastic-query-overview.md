@@ -35,7 +35,7 @@ An elastic database query also allows easy access to an entire collection of dat
 
 The data tier is scaled out across many databases using a common schema. This approach is also known as horizontal partitioning or sharding. The partitioning can be performed and managed using (1) the [Elastic Database client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) or (2) using an application-specific model for distributing data across multiple databases. With this topology, reports often have to span multiple databases. With an elastic database query, you can now connect to a single SQL database, and query results from the remote databases appear as if generated from a single virtual database.
 
-Note that elastic database query works best for occasional reporting scenarios where most of the processing can be performed on the data tier. For heavy reporting workloads or data warehousing scenarios with more complex queries, also consider using [Azure SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+[AZURE.NOTE] Elastic database query works best for occasional reporting scenarios where most of the processing can be performed on the data tier. For heavy reporting workloads or data warehousing scenarios with more complex queries, also consider using [Azure SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
 
 
 ## Elastic Database query topology
