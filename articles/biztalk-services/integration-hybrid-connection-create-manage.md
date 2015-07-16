@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="mandia"/>
 
 
@@ -105,7 +105,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 	- The Hybrid Connection hosted on Azure is automatically configured to use the Primary Application Connection String. 
 	- The On-Premises resource is automatically configured to use the Primary On-Premises Connection String.
 
-- The Hybrid Connection Manager must use a valid on-premises connection string for authorization. The Azure Web Apps or  Mobile Apps must use a valid application connection string for authorization.
+- The Hybrid Connection Manager must use a valid on-premises connection string for authorization. The Azure Web Apps or Mobile Apps must use a valid application connection string for authorization.
+- You can scale Hybrid Connections by installing another instance of the Hybrid Connection Manager on another server. Configure the on-premises listener to use the same address as the first on-premises listener. In this situation, the traffic is randomly distributed (round robin) between the active on-premises listeners. 
 
 
 ## <a name="ManageHybridConnection"></a>Manage Hybrid Connections
