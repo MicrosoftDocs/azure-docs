@@ -259,7 +259,7 @@ The following sections will setup your app to receive them.
 
 		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
 		{
-			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, completionHandler)
+			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
 		}
 
 ###Grant access to your Push Certificate to Mobile Engagement
