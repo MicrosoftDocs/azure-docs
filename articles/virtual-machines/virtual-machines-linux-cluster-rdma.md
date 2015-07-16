@@ -157,7 +157,7 @@ host 10.32.0.3
 
 **Applications** - Copy any applications you need onto this VM or perform other customizations before you capture the image.
 
-## Capture the image
+### Capture the image
 
 To capture the image, first run the following command in the Linux VM:
 
@@ -171,9 +171,10 @@ Then, from your client computer, run the following Azure CLI command:
 azure vm capture -t <image-name> <instance-name>
 
 ```
-After you run these commands, the VM image will be captured for your use and the VM will be deleted. Now you have your custom image ready to deploy a cluster.
 
-## Deploy a cluster with the image
+See [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-capture-image.md) for details. After you run these commands, the VM image will be captured for your use and the VM will be deleted. Now you have your custom image ready to deploy a cluster.
+
+### Deploy a cluster with the image
 
 Modify the following script with appropriate values for your environment, and run it from your client computer. Becuase the ASM deployment method deploys the VMs serially, it will take a few minutes to deploy the 8 A9 VMs suggested in this script.
 
@@ -209,7 +210,7 @@ done
 ### Save this script and run it at the CLI prompt to provision your cluster
 ```
 
-## Configure Intel MPI
+## Configure and run Intel MPI
 
 To run MPI applications on Azure Linux RDMA, you need to configure certain environment variables specific to Intel MPI. Here is a sample script to configure the variables and run an application.
 
@@ -327,3 +328,9 @@ You should see output similar to the following on a working cluster with two nod
 * In Azure IP over Infiniband (IB) is not supported. Only RDMA over IB is supported.
 
 * On Linux VMs, Eth0 is reserved for regular Azure network traffic.
+
+## Next steps
+
+* Try deploying and running your Linux MPI applications to your Linux cluster.
+
+* See the [Intel MPI Library documentation](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) for guidance on Intel MPI.
