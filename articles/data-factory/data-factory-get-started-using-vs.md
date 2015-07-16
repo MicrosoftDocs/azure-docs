@@ -245,5 +245,12 @@ You have created input/output linked services and tables so far. Now, you will c
 3. You can right-click on a data factory, and select Export Data Factory to New Project to create a Visual Studio project based on an existing data factory.
 	![Export data factory to a VS project](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
+## Update Data Factory tools for Visual Studio
+To update Azure Data Factory tools for Visual Studio, do the following:
+
+1. Click **Tools** on the menu and select **Extensions and Updates**. 
+2. Select **Updates** in the left pane and then select **Visual Studio Gallery**.
+4. Select **Azure Data Factory tools for Visual Studio** and click **Update**. If you do not see this entry, you already have the latest version of the tools. 
+
 See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
 
