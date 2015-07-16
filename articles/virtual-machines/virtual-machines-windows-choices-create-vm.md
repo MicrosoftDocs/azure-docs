@@ -81,7 +81,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
 [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell]:  virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
-[Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines]: virtual-machines-ps-create-preconfigure-windows-vms.md
+[Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines]: virtual-machines-ps-create-preconfigure-windows-vms.md
 [How to Create a Custom Virtual Machine Running Windows]: virtual-machines-windows-create-custom.md
 
