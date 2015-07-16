@@ -1,6 +1,6 @@
 <properties
  pageTitle="Set up a Linux RDMA cluster to run MPI applications | Microsoft Azure"
- description="Shows how to create a Linux cluster of size A8 or A9 VMs to use RDMA to run MPI apps."
+ description="Learn how to create a Linux cluster of size A8 or A9 VMs to use RDMA to run MPI apps."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -12,16 +12,17 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="07/15/2015"
+ ms.date="07/16/2015"
  ms.author="danlep"/>
 
 # Set up a Linux RDMA cluster to run MPI applications
 
 This article shows you how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you configure size A8 and A9 Linux-based VMs to run a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
->[AZURE.NOTE]Azure Linux RDMA is currently supported with Intel MPI Library version 5.0 running on SUSE Linux Enterprise Server 12 (SLES 12).
+>[AZURE.NOTE] Azure Linux RDMA is currently supported with Intel MPI Library version 5.0 running on SUSE Linux Enterprise Server 12 (SLES 12).
+>
+> Azure also provides A10 and A11 compute intensive instances, with processing capabilities identical to the A8 and A9 instances, but without a connection to an RDMA backend network. To run MPI workloads in Azure, you will generally get best performance with the A8 and A9 instances.
 
->[AZURE.NOTE]Azure also provides A10 and A11 compute intensive instances, with processing capabilities identical to the A8 and A9 instances, but without a connection to an RDMA backend network. To run MPI workloads in Azure, you will generally get best performance with the A8 and A9 instances.
 
 ## Linux cluster deployment options
 
@@ -174,9 +175,7 @@ After you run these commands, the VM image will be captured for your use and the
 
 ## Deploy a cluster with the image
 
-Modify the following script with appropriate values for your environment, and run it from your client computer.
-
->[AZURE.NOTE]The ASM deployment method deploys the VMs serially, so it will take a few minutes to deploy the 8 A9 VMs suggested in this script.
+Modify the following script with appropriate values for your environment, and run it from your client computer. Becuase the ASM deployment method deploys the VMs serially, it will take a few minutes to deploy the 8 A9 VMs suggested in this script.
 
 ```
 ### Script to create a compute cluster without a scheduler in a VNet in Azure
@@ -239,15 +238,13 @@ mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path
 #end
 ```
 
-The format of the host file is as follows. Add one line for each node in your cluster.
+The format of the host file is as follows. Add one line for each node in your cluster. Specify private IP addresses from the VNet defined earlier, not DNS names.
 
 ```
 private ip address1:16 [e.g. 10.32.0.1:16]
 private ip address2:16
 ...
 ```
-
->[AZURE.NOTE]In the host file, use private IP addresses from the VNet defined earlier, not DNS names.
 
 ## Verify a basic two node cluster after Intel MPI is installed
 
