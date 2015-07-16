@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/07/2015"
+   ms.date="07/15/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: How to integrate Salesforce with Azure Active Directory
@@ -29,6 +29,8 @@ This tutorial will show you how to connect your Salesforce environment to your A
 > [AZURE.IMPORTANT] If you are using a Salesforce.com **trial** account, then you will be unable to configure automated user provisioning. Trial accounts do not have the necessary API access enabled until they are purchased.
 > 
 > You can get around this limitation by using a [free developer account](https://developer.salesforce.com/signup) to complete this tutorial.
+
+If you are using a Salesforce Sandbox environment, please see the [Salesforce Sandbox integration tutorial](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ##Video tutorials
 
@@ -220,7 +222,7 @@ You may follow this tutorial using the videos below.
 
 ##See also
 
-- [List of SaaS Application Integration Tutorials](https://msdn.microsoft.com/library/azure/dn893637.aspx)
+- [List of SaaS Application Integration Tutorials](active-directory-saas-tutorial-list.md)
 - [Application Access in Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 - [Introduction to the Access Panel](https://msdn.microsoft.com/library/azure/dn308586.aspx)
 

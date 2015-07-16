@@ -1,19 +1,19 @@
 <properties
    pageTitle="Authenticating a Service Principal with Azure Resource Manager"
    description="Describes how to grant access to a Service Principal through role-based access control and authenticate it. Shows how to perform these tasks with PowerShell and Azure CLI."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/15/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Authenticating a Service Principal with Azure Resource Manager

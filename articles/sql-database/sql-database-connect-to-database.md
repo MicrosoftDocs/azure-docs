@@ -15,41 +15,57 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/25/2015"
+	ms.date="07/15/2015"
 	ms.author="sidneyh" />
 
-# How to connect to an Azure SQL database with SQL Server Management Studio
+# Connect with SQL Server Management Studio
 
-These are the steps to connect to a Microsoft Azure SQL Database using SQL Server Management Studio (SSMS).
+These are the steps to install SQL Server Management Studio (SSMS) and use SSMS to connect and query your SQL Database.
 
 ## Prerequisites
-* An Azure SQL Database provisioned and running. To create a new SQL Database, see [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
-* The administrator name and password for the SQL Database.
-* The latest version of SQL Server Management Studio (SSMS). To get the tool, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-* Configure the firewall settings for the database. See [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md)
+* An SQL Database AdventureWorks sample database as described in [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
 
-## To connect to an instance of SQL Database
-1. Log into the [Azure Management portal](https://portal.azure.com).
-2. Click the **Browse** button, then click **SQL databases** (b).
+## Install and launch SQL Server Management Studio (SSMS)
+1. Go to the download page for [SQL Server 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299), click **Download**, and choose either the 32-bit version (x86) or the 64-bit version (x64) of the MgmtStudio download.
 
-	![Click Browse and SQL Database][1]
-3. With **SQL databases** selected (a), click the name of a database on the server you want to connect to (b).
+	![MgtmtStudio32BIT or MgmtStudio64BIT][1]
+2.	Follow the prompts as you install SSMS using the default settings.
+3.	Once downloaded, search for SQL Server 2014 Management Studio on your PC and then start SSMS.
 
-	![Click the name of a database][2]
-4. With the name selected (a), click Properties (b). Copy the name of the server (c), and the name of the administrator (d). The administrator name and password are created with the creation of the SQL Database. You must have the password to proceed to the next step.
 
-	![Click SQL Server, Settings, and Property][3]
-5. Open SQL Server Management Studio 2014.
-6. In the Connect to Server dialog, paste the name of the server into the **Server name** box (a). Set the Authentication to **SQL Server Authentication** (b). Paste the name of the server administrator into the **Login** box (c), then type in its password (d). Then click **Options** (e).
+## Connect to your SQL Database
+1. Open SSMS.
+2. In the **Connect to Server** window, in the **Server name** box, type in server's name in the format *&lt;servername>*.**database.windows.net**
+3. In the **Authentication** drop-down, select **SQL Server Authentication**.
+4. Enter the **Login** and **Password** you specified when you created your SQL Database server.
 
-	![SSMS login dialog box][4]
-7. In the Connection Properties tab, set the **Connect to database** box to **master** (or to any other database you want to connect to).Then click **Connect**.
+	![Connect to server dialog][2]
+5. Click the **Options** button.
+6. In the **Connect to database** box, enter **AdventureWorks** and click **Connect**.
 
-	![Set to master and click Connect][5]
+	![Connect to database][3]
 
-## Troubleshooting connection problems
+### If the connection fails
+Make sure that the firewall of the logical server you have created allows connections from your local computer. See [How to: Configure Firewall Settings (Azure SQL Database)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
 
-In case of problems, see [Troubleshoot connection problems to Azure SQL Database](https://support.microsoft.com/kb/2980233/). For a list of possible problems and answers, see [Troubleshoot Microsoft Azure SQL Database connectivity](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+## Run sample queries
+
+1. In the **Object Explorer**, navigate to the **AdventureWorks** database.
+2. Right click on the database and select click on **New Query**.
+
+	![New query][4]
+3. In the newly opened query window, copy and paste the following code:
+
+		SELECT 
+		CustomerId
+		,Title
+		,FirstName
+		,LastName
+		,CompanyName
+		FROM SalesLT.Customer;
+
+4. Then click the **Execute** button.  Success looks like the following:
+	![Sucess][5]
 
 
 ## Next Steps
@@ -57,9 +73,9 @@ You can use Transact-SQL statements to create or manage databases. See [CREATE D
 
 <!--Image references-->
 
-[1]:./media/sql-database-connect-to-database/browse-vms.png
-[2]:./media/sql-database-connect-to-database/sql-databases.png
-[3]:./media/sql-database-connect-to-database/blades.png
-[4]:./media/sql-database-connect-to-database/ssms-connect-to-server.png
-[5]:./media/sql-database-connect-to-database/ssms-master.png
+[1]:./media/sql-database-connect-to-database/1-download.png
+[2]:./media/sql-database-connect-to-database/2-connect.png
+[3]:./media/sql-database-connect-to-database/3-connect-to-database.png
+[4]:./media/sql-database-connect-to-database/4-run-query.png
+[5]:./media/sql-database-connect-to-database/5-success.png
  
