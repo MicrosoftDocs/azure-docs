@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/21/2015" 
+	ms.date="07/16/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -35,7 +35,7 @@ Before you begin this article, you must have the following:
 2.	In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Insights SDK which will be used to enable monitoring. The last one is the Azure Active Directory client that will be used for authentication.
 
     ```
-    Install-Package Microsoft.Azure.Management.StreamAnalytics –Pre
+    Install-Package Microsoft.Azure.Management.StreamAnalytics
     Install-Package Microsoft.Azure.Insights -Pre
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
@@ -48,12 +48,12 @@ Before you begin this article, you must have the following:
     	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
     	<add key="JobName" value="YOUR JOB NAME" />
     	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
-    	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
-    	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
+    	<add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+    	<add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
     	<add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
     	<add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-    	<add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
+    	<add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION ID" />
     	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
 	```
