@@ -32,7 +32,7 @@ In This tutorial you will first create an Azure data factory named  **ADFTutoria
 3. Create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactoryVS. The pipeline will have a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table 
 
 
-## <a name="CreateDataFactory"></a>Step 1: Create an Azure Data Factory
+## <a name="CreateDataFactory"></a>Create an Azure Data Factory
 In this step, you use the Azure Preview Portal to create an Azure data factory named **ADFTutorialDataFactoryVS**.
 
 1.	After logging into the [Azure Preview Portal](http://portal.azure.com), click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** in the **Data analytics** blade. 
@@ -62,7 +62,7 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
     ![Data factory home page](./media/data-factory-get-started-using-vs/getstarted-data-factory-home-page.png)
 
-## Step 2: Create and deploy Data Factory entities using Visual Studio 
+## Create and deploy Data Factory entities using Visual Studio 
 
 ### Pre-requisites
 You must have the following installed on your computer: 
@@ -107,7 +107,7 @@ In this step, you will create two linked services: **AzureStorageLinkedService1*
 8.  Save the **AzureSqlLinkedService1.json** file. 
 
 
-## Create input and output tables
+### Create input and output tables
 In the previous step, you created linked services **AzureStorageLinkedService1** and **AzureSqlLinkedService1** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactory**. In this step, you will define two data factory tables -- **EmpTableFromBlob** and **EmpSQLTable** -- that represent the input/output data that is stored in the data stores referred by AzureStorageLinkedService1 and AzureSqlLinkedService1 respectively. For  EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for EmpSQLTable, you will specify the SQL table that will store the output data.
 
 #### Create the input table
