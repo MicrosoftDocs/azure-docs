@@ -21,7 +21,6 @@
 > [AZURE.SELECTOR]
 - [Classic portal- Azure Service Manager](load-balancer-internet-getstarted.md#setting-up-a-internet-facing-load-balancer-for-virtual-machines)
 - [PowerShell - Service Management](load-balancer-internet-getstarted.md#setting-up-load-balancer-using-powershell)- [PowerShell - Resource Manager](load-balancer-arm-powershell.md)
-- [PowerShell - Service Management](load-balancer-internet-getstarted.md#setting-up-load-balancer-using-powershell)
 
 
 Load balancing services in Microsoft Azure work with all the tenant types (IaaS or PaaS) and all OS flavors (Windows or any Linux based OS supported).
