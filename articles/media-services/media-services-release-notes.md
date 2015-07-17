@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [July 2015 Release](#july_changes_15)
 - [June 2015 Release](#june_changes_15)
 - [May 2015 Release](#may_changes_15)
 - [April 2015 Release](#april_changes_15)
@@ -71,6 +72,12 @@ These release notes summarize changes from previous releases and known issues.
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+##<a id="july_changes_15"></a>July 2015 Release
+
+Announcing the general availability of Media Encoder Standard. For more information, see [this blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+
+Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using the preset for 4k encodes, you should use Premium RU. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
 
 ##<a id="june_changes_15"></a>June 2015 Release
 
