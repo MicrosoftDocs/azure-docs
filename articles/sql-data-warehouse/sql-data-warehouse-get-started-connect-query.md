@@ -19,7 +19,9 @@
 # Get Started: Connect to SQL Data Warehouse
 This quick start article introduces you to connecting to and querying a provisioned instance of SQL Data Warehouse  with two different tools:
 
-**Visual Studio** - Visual Studio's integrated code editor and debugger, SQL Server Data Tools (SSDT), is fully compatible with SQL DW, enabling you to easily connect to, query, and manage SQL Data Warehouse.  **Note:** *SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later*
+**Visual Studio** - Visual Studio's integrated code editor and debugger, SQL Server Data Tools (SSDT), is fully compatible with SQL DW, enabling you to easily connect to, query, and manage SQL Data Warehouse.  
+
+> [AZURE.NOTE] SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later
 
 **sqlcmd** - sqlcmd is a commandline tool that offers simple connection and querying abilities.  
 
@@ -62,10 +64,9 @@ Close the "Extensions and Updates" window and also close Visual Studio 2013 befo
 This completes the update of Visual Studio 2013.
 
 ### Update SSDT 
-You might find that you also need to update SSDT. 
-**Important:** *SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later*
+> [Azure.Important] SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later.
 
-This is quite normal. The SSDT engineers update their plugin very regularly with new features so you will find you have to update from time to time. Again this is a very simple process. To check if you need to update SSDT perform the following steps:
+The SSDT engineers update their plugin very regularly with new features so you will find you have to update from time to time. Again this is a very simple process. To check if you need to update SSDT perform the following steps:
 
 1. Open Visual Studio 2013.  
 2. Choose the "Tools" menu and select "Extensions and Updates..."
