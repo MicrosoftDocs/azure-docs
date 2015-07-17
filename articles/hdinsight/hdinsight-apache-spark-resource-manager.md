@@ -42,7 +42,7 @@ Apache Spark cluster in HDInsight is designed for multi-tenancy, so resources ar
 
 	![Resource allocation](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Resource.png "Find resources allocated to a Spark cluster")
 
-	Going by the screen capture above, the maximum cores that you can allocate is 7 (total 8 cores of which 1 is in use), and the maximum RAM that you can alloacate is 9GB (total 12GB RAM, of which 2GB must be set aside for system use and 1GB that is in use by other applications).
+	Going by the screen capture above, the maximum cores that you can allocate is 7 (total 8 cores of which 1 is in use), and the maximum RAM that you can allocate is 9GB (total 12GB RAM, of which 2GB must be set aside for system use and 1GB that is in use by other applications).
 
 	You should also factor any applications that are running. You can look at the running applications from the **Spark UI** tab.
 
