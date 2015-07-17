@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the StorSimple Manager service to modify your StorSimple device configuration" 
+   pageTitle="Use the StorSimple Manager service to modify your StorSimple device configuration | Microsoft Azure" 
    description="Describes how to use the StorSimple Manager service to reconfigure a StorSimple device that has already been deployed." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -130,7 +130,7 @@ Perform the following steps to swap or reassign the VIPs for any of the network 
 
 ## Next steps
 
-[Configure CHAP for your StorSimple device](https://msdn.microsoft.com/library/dn772351.aspx)
+[Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md)
 
  
      
