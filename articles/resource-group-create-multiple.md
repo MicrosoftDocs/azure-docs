@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create Multiple Instances of Resources"
    description="Describes how to use the copy operation in an Azure Resource Manager template to iterate multiple times when deploying resources."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -16,7 +16,7 @@
    ms.date="07/14/2015"
    ms.author="tomfitz"/>
 
-# Create Multiple Instances of Resources in Azure Resource Manager
+# Create multiple instances of resources in Azure Resource Manager
 
 This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
 
@@ -110,7 +110,7 @@ Use the following template:
       } 
     ]
 
-## Next Steps
+## Next steps
 - [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
 - [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
