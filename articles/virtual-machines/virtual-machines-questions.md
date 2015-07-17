@@ -6,7 +6,7 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager, azure-service-management"/>
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="07/17/2015"
 	ms.author="kathydav"/>
 
 # Azure Virtual Machines FAQ
@@ -37,7 +37,7 @@ For Windows client images, certain versions of Windows 7 and Windows 8.1 are ava
 
 Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. You’re charged for the storage used in the storage account, rather than for available space on the disk. For pricing details, see [Storage Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
 ## Which virtual hard disk types can I use?
 
@@ -51,21 +51,17 @@ For instructions on uploading a data disk, see the Linux or Windows article and 
 
 ## Are these virtual machines the same as Hyper-V virtual machines?
 
-In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Two key differences that sometimes surprise Hyper-V users are:
-<!-- In previous para, last sentence, s/b "Three key differences" correct? Also, since the colon provide adequate context for user, you might omit "are".  -->
+In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Three key differences that sometimes surprise Hyper-V users are:
+
 - Azure doesn’t provide console access to a virtual machine.
 - Azure VMs in most [sizes](virtual-machines-size-specs.md) have only 1 virtual network adapter, which means that they also can have only 1 external IP address. (The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)
 - Azure VMs don't support Generation 2 Hyper-V VM features. For details about these features, see [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
 
 ## Can these virtual machines use my existing, on-premises networking infrastructure?
 
-The answer differs for Service Management-based VMs and Resource Management-based VMs.  
-
-For Service Management-based VMs, you can use Azure Virtual Network to extend your existing infrastructure. The approach is like setting up a branch office. You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect these to on-premises IT infrastructure. For details, see [Virtual Network Overview](https://msdn.microsoft.com/library/jj156007.aspx).
+For virtual machines created in Service Management, you can use Azure Virtual Network to extend your existing infrastructure. The approach is like setting up a branch office. You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect these to on-premises IT infrastructure. For details, see [Virtual Network Overview](https://msdn.microsoft.com/library/jj156007.aspx).
 
 You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine. This means, for example, that you can’t join an existing virtual machine to a virtual network. However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.
-
-For Resource Management-based VMs, you can't include them in your existing, on-premises infrastructure at this time.
 
 ## How can I access  my virtual machine?
 
@@ -75,11 +71,11 @@ You need to establish a remote connection to log on to the virtual machine, usin
 - [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
 If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) extension to help fix the problem. For Windows VMs, additional options include:
-<!--  In next paragraph, omit "the" or add a modifier, for example, "click the X button". To enhance instructional design, you might use: "...the VM, and then on the X bar, click X"-->
-- In the Azure Preview Portal, find the VM, then click the **Reset Remote Access** from the Command bar.
+
+- In the Azure Preview Portal, find the VM, then click **Reset Remote Access** from the Command bar.
 - Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
 - Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
-<!-- Previous para, added END punctuation -->
+
 If you’re familiar with Hyper-V, you might be looking for a tool similar to Virtual Machine Connection. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
 
 ## Can I use the D: drive (Windows) or /dev/sdb1 (Linux)?
@@ -96,7 +92,7 @@ The term upgrade generally means moving to a more recent release of your operati
 
 - For Linux VMs, use the package management tools and procedures appropriate for the distribution.
 - For a Windows virtual machine, use Windows Server Migration Tools. Don’t attempt to upgrade the guest OS while it resides on Azure. It isn’t supported because of the risk of losing access to a virtual machine. If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems. For general details about the tools and process, see [Migrate Roles and Features to Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940). For details on upgrading to Windows Server 2012 R2, see [Upgrade Options for Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
-<!--In previous para, last two sentences. Omit "general" since it adds questionable value for customer? -->
+
 ## What's the default user name and password on the virtual machine?
 
 The images provided by Azure don’t have a pre-configured user name and password. When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.
@@ -143,4 +139,11 @@ For any standalone VM (meaning the VM isn’t part of an availability set), Azur
 You also can use the Azure portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see [Manage the availability of virtual machines](virtual-machines-manage-availability.md).
-<!-- Promotion, referrals, customer empathy (this tactic likely requires signoff from individual that manages "look and feel" of these assets): Consider a new section like "Need more help" and within new section include link to Developer Portal, or perhaps new product features, troubleshooting, or maintenance?-->
+
+## Additional resources
+
+[About Azure Virtual Machines](virtual-machines-about.md)
+
+[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-choices-create-vm.md)
+
+[Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md)
