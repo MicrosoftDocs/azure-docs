@@ -44,7 +44,7 @@ To create the VPN gateway for the classic VNet, follow the instructions below.
 4. In the **CIDR (ADDRESS COUNT)** drop down, select the number of bits used for the network portion of the CIDR block used by the ARM VNet you want to connect to.
 5. In **VPN DEVICE IP ADDRESS (OPTIONAL)**, type any valid public IP address. We will change this IP address later. Then click on the checkmark button on the bottom right of the screen. The figure below shows sample settings for this page.
 
-	![Local netowrk settings](..\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
+	![Local netowrk settings](..\virtual-network\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
 
 5. On the **networks** page, click on **VIRTUAL NETWORKS**, then click on your classic VNet, and then click on **CONFIGURE**.
 6. Under **site-to-site connectivity** enable the **connect to the local network** checkbox.
