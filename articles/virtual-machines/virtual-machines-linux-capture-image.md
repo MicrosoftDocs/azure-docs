@@ -37,7 +37,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 2. In the SSH window, type the following command.  Note that the output from `waagent` may vary slightly depending on the version of this utility:
 
-	`$ sudo waagent -deprovision`
+	`sudo waagent -deprovision`
 
 	This command will attempt to clean the system and make it suitable for re-provisioning. This operation performs the following tasks:
 
@@ -47,8 +47,6 @@ These steps assume that you've already created an Azure virtual machine and conf
 	- Removes cached DHCP client leases
 	- Resets host name to localhost.localdomain
 	- Deletes the last provisioned user account (obtained from /var/lib/waagent) **and associated data**.
-
-	![Deprovision the virtual machine](./media/virtual-machines-linux-capture-image/LinuxDeprovision.png)
 
 	>[AZURE.NOTE] Deprovisioning deletes files and data in an effort to "generalize" the image. Only run this command on virtual machines that you intend to capture as a new image template. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution to third parties.
 
