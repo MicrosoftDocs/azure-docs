@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/30/2015"
+   ms.date="07/15/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: How to integrate NetSuite with Azure Active Directory
@@ -220,7 +220,7 @@ This tutorial will show you how to connect your NetSuite environment to your Azu
 
 ##See Also
 
-- [List of SaaS Application Integration Tutorials](https://msdn.microsoft.com/library/azure/dn893637.aspx)
+- [List of SaaS Application Integration Tutorials](active-directory-saas-tutorial-list.md)
 - [Application Access in Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 - [Introduction to the Access Panel](https://msdn.microsoft.com/library/azure/dn308586.aspx)
 

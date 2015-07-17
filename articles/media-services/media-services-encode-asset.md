@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/16/2015" 
 	ms.author="juliako"/>
 
 #Encoding On-Demand Content with Azure Media Services
@@ -24,14 +24,23 @@ This topic is part of the [Media Services Video-on-Demand Workflow](media-servic
 
 Media Services supports the following encoders:
 
+- [Media Encoder Standard](#media_encoder_standard)
 - [Azure Media Encoder](#azure_media_encoder)
 - [Media Encoder Premium Workflow](#media_encoder_premium_workflow) (public preview)
 
-The [following section](#compare_encoders) compares encoding capabilities of both encoders.
+The [following section](#compare_encoders) compares encoding capabilities of supported encoders.
 
 By default each Media Services account can have one active encoding task at a time. You can reserve encoding units that allow you to have multiple encoding tasks running concurrently, one for each encoding reserved unit you purchase. For information about scaling encoding units, see the following **Portal** and **.NET** topics.
 
 [AZURE.INCLUDE [media-services-selector-scale-encoding-units](../../includes/media-services-selector-scale-encoding-units.md)]
+
+##<a id="media_encoder_standard"></a>Media Encoder Standard
+
+[Formats Supported by the Media Encoder Standard](media-services-media-encoder-standard-formats.md)  – Discusses the file and stream formats supported by **Media Encoder Standard**.
+
+**Media Encoder Standard** is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?LinkId=618336) or custom presets that are based on [these](http://go.microsoft.com/fwlink/?LinkId=618336) presets.
+
+For more information, see [this blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
 ##<a id="azure_media_encoder"></a>Azure Media Encoder
 
@@ -52,7 +61,7 @@ Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**,
 [Encoding your media with Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md) – Describes how to encode audio tracks using Dolby Digital Plus encoding.
 
 
-##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow (public preview)
+##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow (preview)
 
 **Note** Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 
@@ -67,7 +76,19 @@ Encode with **Media Encoder Premium Workflow** using **.NET**. For more informat
 
 ##<a id="compare_encoders"></a>Compare Encoders
 
-This section compares the encoding capabilities of **Azure Media Encoder** and **Media Encoder Premium Workflow**.
+###<a id="billing"></a>Billing meter used by each encoder
+
+<table border="1">
+<tr><th>Media Processor Name</th><th>Applicable Pricing</th><th>Notes</th></tr>
+<tr><td><b>Windows Azure Media Encoder</b></td><td>LEGACY ENCODER</td><td>Encoding Tasks will be charged according to the sum of sizes of the input Asset(s) and output Asset, in GBytes, at the rate specified <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">here</a>, under the LEGACY ENCODER column.</td></tr>
+<tr><td><b>Azure Media Encoder</b></td><td>ENCODER</td><td>Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified  <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">here</a>, under the ENCODER column.</td></tr>
+<tr><td><b>Media Encoder Standard</b></td><td>ENCODER</td><td>Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified  <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">here</a>, under the ENCODER column.</td></tr>
+<tr><td><b>Media Encoder Premium Workflow</b></td><td>PREMIUM ENCODER</td><td>Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified  <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">here</a>, under the PREMIUM ENCODER column.</td></tr>
+</table>
+
+
+This section compares the encoding capabilities of **Azure Media Encoder**, **Media Encoder Premium Workflow**, and **Media Encoder Standard**.
+
 
 ###Input formats
 

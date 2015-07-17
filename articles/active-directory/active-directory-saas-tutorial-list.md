@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2015"
+   ms.date="07/10/2015"
    ms.author="liviodlc"/>
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
@@ -94,7 +94,7 @@ Logo | App Name
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.jpg) | [Mimecast Personal Portal](https://go.microsoft.com/fwLink/?LinkID=522549&clcid=0x409)
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MozyEnterprise.jpg) | [Mozy Enterprise](https://go.microsoft.com/fwLink/?LinkID=510239&clcid=0x409)
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetDocuments.jpg) | [NetDocuments](https://go.microsoft.com/fwLink/?LinkID=403244&clcid=0x409)
-![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetSuite.jpg) | [NetSuite](https://go.microsoft.com/fwLink/?LinkID=403257&clcid=0x409)
+![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetSuite.jpg) | [NetSuite](https://go.microsoft.com/fwLink/?LinkID=403239&clcid=0x409)
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NewRelic.jpg) | [New Relic](https://go.microsoft.com/fwLink/?LinkID=403257&clcid=0x409)
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OfficeSpaceSoftware.jpg) | [OfficeSpace Software](https://go.microsoft.com/fwLink/?LinkID=512726&clcid=0x409)
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Onit.jpg) | [Onit](https://go.microsoft.com/fwLink/?LinkID=522566&clcid=0x409)

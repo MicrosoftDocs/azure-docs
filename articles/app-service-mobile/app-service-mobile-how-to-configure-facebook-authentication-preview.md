@@ -18,6 +18,8 @@
 
 # How to configure your application to use Facebook login
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 This topic shows you how to configure Azure App Services to use Facebook as an authentication provider.
 
 To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
