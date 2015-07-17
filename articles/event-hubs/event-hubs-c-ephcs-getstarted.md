@@ -87,21 +87,31 @@ Now you are ready to run the applications.
 
    	![][24]
 
+## Next steps
+
+Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
+
+- A complete [sample application that uses Event Hubs].
+- The [Scale out Event Processing with Event Hubs] sample.
+- A [queued messaging solution] using Service Bus queues.
+
 <!-- Images. -->
-[1]: ./media/service-bus-event-hubs-c-ephcs-getstarted/create-event-hub1.png
-[2]: ./media/service-bus-event-hubs-c-ephcs-getstarted/create-event-hub2.png
-[3]: ./media/service-bus-event-hubs-c-ephcs-getstarted/create-event-hub3.png
-[4]: ./media/service-bus-event-hubs-c-ephcs-getstarted/create-event-hub4.png
-[5]: ./media/service-bus-event-hubs-c-ephcs-getstarted/create-event-hub5.png
-[6]: ./media/service-bus-event-hubs-c-ephcs-getstarted/create-event-hub6.png
-[6b]: ./media/service-bus-event-hubs-c-ephcs-getstarted/create-event-hub6b.png
+[1]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png
+[2]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub2.png
+[3]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub3.png
+[4]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub4.png
+[5]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub5.png
+[6]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub6.png
+[6b]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub6b.png
 
 
-[21]: ./media/service-bus-event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
-[24]: ./media/service-bus-event-hubs-c-ephcs-getstarted/receive-eph-c.png
+[21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
+[24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx
- 
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
