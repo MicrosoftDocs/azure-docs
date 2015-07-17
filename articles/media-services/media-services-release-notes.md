@@ -77,7 +77,7 @@ For information about the Media Services REST API version history, see [Azure Me
 
 Announcing the general availability of Media Encoder Standard. For more information, see [this blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using the preset for 4k encodes, you should use Premium RU. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
+Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium ** reserved unit type. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
 
 ##<a id="june_changes_15"></a>June 2015 Release
 
