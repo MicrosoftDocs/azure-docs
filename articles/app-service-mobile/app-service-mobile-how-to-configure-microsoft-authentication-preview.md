@@ -18,6 +18,8 @@
 
 # How to configure your application to use Microsoft Account login
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 This topic shows you how to configure Azure App Services to use Microsoft Account as an authentication provider.
 
 ## <a name="register"> </a>Register your application with Microsoft Account
