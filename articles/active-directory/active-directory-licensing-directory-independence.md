@@ -18,9 +18,9 @@
 
 # Add and manage multiple Azure AD directories
 
-You can manage each directory as a fully independent resource: each directory is a peer, fully-featured, and logically independent of other directories that you manage; there is no parent-child relationship between directories. This independence between directories includes resource independence, administrative independence, and synchronization independence.
+In Azure AD directory, each directory is a fully independent resource: a peer, fully-featured, and logically independent of other directories that you manage. There is no parent-child relationship between directories. This independence between directories includes resource independence, administrative independence, and synchronization independence.
 
-##Resource independence.
+##Resource independence
 
 If you create or delete a resource in one directory, it has no impact on any resource in another directory, with the partial exception of external users, described below. If you use a custom domain 'contoso.com' with one directory, it cannot be used with any other directory.
 
@@ -40,4 +40,4 @@ To add an Azure AD directory in the Azure Management Portal, select the Active D
 
 > [AZURE.NOTE]   Unlike other Azure resources, your directories are not child resources of an Azure subscription. If you cancel or allow your Azure subscription to expire, you can still access your directory data using Azure PowerShell, the Azure Graph API, or other interfaces such as the Office 365 Admin Center. You can also associate another subscription with the directory.
 
-For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active Directory Licensing?](azure-active-licensing-what-is.md).
+For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active Directory licensing?](active-directory-licensing-what-is.md).
