@@ -20,9 +20,9 @@
 
 # Integrate Azure AD with a Windows Phone App
 
-[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
-
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
+
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
 If you're developing a windows phone app, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 

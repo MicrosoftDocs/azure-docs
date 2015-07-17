@@ -6,7 +6,3 @@
 - [Windows Store](active-directory-devquickstarts-windowsstore.md)
 - [Xamarin](active-directory-devquickstarts-xamarin.md)
 - [Cordova](active-directory-devquickstarts-cordova.md)
-- [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
-- [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
-- [Javascript](active-directory-devquickstarts-angular.md)
-- [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
