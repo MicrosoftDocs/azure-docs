@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -333,6 +333,9 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
         Console.WriteLine("Getting run details of a data slice");
 
+		// give it a few minutes for the output slice to be ready
+        Console.ReadKey();
+
         var datasliceRunListResponse = client.DataSliceRuns.List(
                 resourceGroupName,
                 dataFactoryName,
@@ -357,13 +360,13 @@ You can create, monitor, and manage Azure data factories programmatically using 
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. Build the console application. Click **Build** on the menu and click **Build Solution**. If you get an error about ConfigurationManager class, add a reference to the System.Configuration assembly and try to build again. 
+15. Build the console application. Click **Build** on the menu and click **Build Solution**. If you get an error about **ConfigurationManager** class, add a reference to the **System.Configuration** assembly and try to build again. 
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
 
         John, Doe
 		Jane, Doe
 	 
-17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu.
+17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**. 
 18. Use the Azure Preview Portal to verify that the data factory: **APITutorialFactory** is created with the following artifacts: 
 	- Linked service: **LinkedService_AzureStorage** 
 	- Tables: **TableBlobSource** and **TableBlobDestination**.
