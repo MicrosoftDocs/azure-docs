@@ -1,32 +1,32 @@
-<properties 
-	pageTitle="Azure Mobile Engagement iOS SDK Integration" 
+<properties
+	pageTitle="Azure Mobile Engagement iOS SDK Integration"
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="02/12/2015"
 	ms.author="kapiteir" />
 
 #How to Integrate Engagement on iOS
 
-> [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+> [AZURE.SELECTOR]
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.
 
-> [AZURE.IMPORTANT] The Engagement SDK requires iOS4+: the deployment target of your application must be at least iOS 4.
+> [AZURE.IMPORTANT] The Engagement SDK requires iOS5+: the deployment target of your application must be at least iOS 5.
 
 The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API  (see [How to use the advanced Mobile Engagement tagging API in your iOS app](mobile-engagement-ios-use-engagement-api.md) since these statistics are application dependent.
 
@@ -72,12 +72,12 @@ In order to activate the report of all the logs required by Engagement to comput
 **Without Engagement :**
 
 			#import <UIKit/UIKit.h>
-			
+
 			@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
 			  UITextField* myTextField1;
 			  UITextField* myTextField2;
 			}
-			
+
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
@@ -85,12 +85,12 @@ In order to activate the report of all the logs required by Engagement to comput
 
 			#import <UIKit/UIKit.h>
 			#import "EngagementViewController.h"
-			
+
 			@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
 			  UITextField* myTextField1;
 			  UITextField* myTextField2;
 			}
-			
+
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
@@ -208,4 +208,3 @@ The following example of `Settings.bundle` shows how to implement it:
 [NSLocationAlwaysUsageDescription]:https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]:http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]:https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
- 
