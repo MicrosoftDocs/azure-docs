@@ -42,27 +42,27 @@ In order to complete this tutorial you will need the following:
 
 2. Click **App Services**, then **Service Bus**, then **Event Hub**, and then **Quick Create**.
 
-   	![][1]
+	![][1]
 
 3. Type a name for your Even Hub, select your desired region, and then click **Create a new Event Hub**.
 
-   	![][2]
+	![][2]
 
 4. Click the namespace you just created (usually ***event hub name*-ns**).
 
-   	![][3]
+	![][3]
 
 5. Click the **Event Hubs** tab at the top of the page, and then click the Event Hub you just created.
 
-   	![][4]
+	![][4]
 
 6. Click the **Configure** tab at the top of the page, add a rule called **SendRule** with *Send* rights, add another rule called **ReceiveRule** with *Listen* rights, and then click **Save**.
 
-   	![][5]
+	![][5]
 
 7. On the same page, take note of the generated keys for **SendRule** and **ReceiveRule**.
 
-   	![][6c]
+	![][6c]
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
@@ -78,7 +78,7 @@ Now you are ready to run the applications.
 
 2.	Run the **sender** program, and see the events appear in the receiver window.
 
-   	![][23]
+	![][23]
 
 > [AZURE.NOTE] In this tutorial only, use Storm in local mode for development purposes. Refer to the [HDInsight Storm Overview] and the official [Apache Storm] documentation for more information of Storm deployments and patterns.
 
@@ -90,15 +90,15 @@ The following resources are available for developing applications integrating Ev
 - [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] is a tutorial on how to write Storm pipelines using C#.
 
 <!-- Images. -->
-[1]: ./media/service-bus-event-hubs-c-storm-getstarted/create-event-hub1.png
-[2]: ./media/service-bus-event-hubs-c-storm-getstarted/create-event-hub2.png
-[3]: ./media/service-bus-event-hubs-c-storm-getstarted/create-event-hub3.png
-[4]: ./media/service-bus-event-hubs-c-storm-getstarted/create-event-hub4.png
-[5]: ./media/service-bus-event-hubs-c-storm-getstarted/create-event-hub5.png
-[6]: ./media/service-bus-event-hubs-getstarted/create-event-hub6.png
-[6c]: ./media/service-bus-event-hubs-c-storm-getstarted/create-event-hub6c.png
+[1]: ./media/event-hubs-c-storm-getstarted/create-event-hub1.png
+[2]: ./media/event-hubs-c-storm-getstarted/create-event-hub2.png
+[3]: ./media/event-hubs-c-storm-getstarted/create-event-hub3.png
+[4]: ./media/event-hubs-c-storm-getstarted/create-event-hub4.png
+[5]: ./media/event-hubs-c-storm-getstarted/create-event-hub5.png
+[6]: ./media/event-hubs-getstarted/create-event-hub6.png
+[6c]: ./media/event-hubs-c-storm-getstarted/create-event-hub6c.png
 
-[23]: ./media/service-bus-event-hubs-c-storm-getstarted/receive-storm3.png
+[23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/

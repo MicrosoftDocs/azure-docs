@@ -89,15 +89,15 @@ The following resources are available for developing applications integrating Ev
 - [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] is a tutorial on how to write Storm pipelines using C#.
 
 <!-- Images. -->
-[1]: ./media/service-bus-event-hubs-java-storm-getstarted/create-event-hub1.png
-[2]: ./media/service-bus-event-hubs-java-storm-getstarted/create-event-hub2.png
-[3]: ./media/service-bus-event-hubs-java-storm-getstarted/create-event-hub3.png
-[4]: ./media/service-bus-event-hubs-java-storm-getstarted/create-event-hub4.png
-[5]: ./media/service-bus-event-hubs-java-storm-getstarted/create-event-hub5.png
-[6]: ./media/service-bus-event-hubs-getstarted/create-event-hub6.png
-[6c]: ./media/service-bus-event-hubs-java-storm-getstarted/create-event-hub6c.png
+[1]: ./media/event-hubs-java-storm-getstarted/create-event-hub1.png
+[2]: ./media/event-hubs-java-storm-getstarted/create-event-hub2.png
+[3]: ./media/event-hubs-java-storm-getstarted/create-event-hub3.png
+[4]: ./media/event-hubs-java-storm-getstarted/create-event-hub4.png
+[5]: ./media/event-hubs-java-storm-getstarted/create-event-hub5.png
+[6]: ./media/event-hubs-getstarted/create-event-hub6.png
+[6c]: ./media/event-hubs-java-storm-getstarted/create-event-hub6c.png
 
-[22]: ./media/service-bus-event-hubs-java-storm-getstarted/receive-storm2.png
+[22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
