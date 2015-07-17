@@ -40,7 +40,7 @@ Item | Virtual machine name | Gallery image | Minimum size
 
 **Table M – Virtual machines for the SharePoint 2013 intranet farm in Azure**
 
-For the complete list of virtual machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+For the complete list of virtual machine sizes, see [Sizes for virtual machines](https://github.com/Azure/azure-content-pr/pull/virtual-machines-size-specs.md).
 
 Use the following block of Azure PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the < and > characters. Note that this Azure PowerShell command set uses values from the following:
 
@@ -206,8 +206,8 @@ Next, update the DNS servers for your virtual network so that Azure assigns virt
 2.	Click **Configure**.
 3.	In **DNS Servers**, remove the entries corresponding to the DNS servers that are located on your on-premises network.
 4.	In **DNS Servers**, add two entries with friendly names and the IP addresses of these two table items:
-- Table V – Item 6 – Value column
-- Table V – Item 7 – Value column
+ - Table V – Item 6 – Value column
+ - Table V – Item 7 – Value column
 5.	In the command bar at the bottom, click **Save**.
 6.	In the left pane of the Azure portal, click **Virtual Machines**, and then click the **Status** column next to the name of your first domain controller.
 7.	In the command bar, click **Restart**.
