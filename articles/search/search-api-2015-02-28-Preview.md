@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/08/2015"
+   ms.date="07/10/2015"
    ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
@@ -797,7 +797,7 @@ Below is the list of supported analyzers together with a short description of th
 	</tr>
   	<tr>
 		<td>Korean</td>
-		<td>ko.microsfot</td>
+		<td>ko.microsoft</td>
 		<td>
 		<ul>
 			<li>Reductive stemmer (lemmatization)</li>

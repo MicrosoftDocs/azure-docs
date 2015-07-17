@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="MightyPen" 
 	manager="jeffreyg" 
-	editor="jeffreyg"/>
+	editor=""/>
 
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015" 
+	ms.date="07/15/2015" 
 	ms.author="genemi"/>
 
 
