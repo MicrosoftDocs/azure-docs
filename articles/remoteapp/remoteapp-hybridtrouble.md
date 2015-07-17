@@ -72,8 +72,6 @@ For example:
 
 ![Define your DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
-For more information, see [Name resolution using your own DNS server](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
-
 ## Are you using an Active Directory domain controller in your collection? ##
 Currently only one Active Directory domain can be associated with Azure RemoteApp. The hybrid collection supports only Azure Active Directory accounts that have been synced using DirSync tool from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. 
 
