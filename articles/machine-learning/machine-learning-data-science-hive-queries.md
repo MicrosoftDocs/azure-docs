@@ -181,8 +181,8 @@ In this section, we describe ways of generating features using Hive queries:
   
 1. [Frequency based Feature Generation](#hive-frequencyfeature)
 2. [Risks of Categorical Variables in Binary Classification](#hive-riskfeature)
-3. [Extract features from Datetime Field](#hive-datefeatures)
-4. [Extract features from Text Field](#hive-textfeatures)
+3. [Extract features from Datetime Field](#hive-datefeature)
+4. [Extract features from Text Field](#hive-textfeature)
 5. [Calculate distance between GPS coordinates](#hive-gpsdistance)
 
 > [AZURE.NOTE] Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, which can then be joined with the original table.
