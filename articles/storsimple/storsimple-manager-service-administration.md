@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/09/2015"
+   ms.date="07/17/2015"
    ms.author="alkohli" />
 
 # Use StorSimple Manager service to administer your StorSimple device
@@ -39,6 +39,7 @@ The StorSimple Manager service runs in Microsoft Azure and connects to multiple 
 1. Using your Microsoft account credentials, log on to the Microsoft Azure Management Portal (located at the top-right of the pane).
 
 1. Scroll down the left navigation pane to access the StorSimple Manager service.
+
 
 ## Navigate StorSimple Manager service UI
 
@@ -86,19 +87,20 @@ For more information about each workflow, click the appropriate entry in the tab
 |View job details</br>Cancel a job|StorSimple Manager service → Jobs|[Manage jobs](storsimple-manage-jobs)
 |Receive alert notifications</br>Manage alerts</br>Review alerts|StorSimple Manager service → Alerts|[Manage alerts on your StorSimple device](storsimple-manage-alerts)
 |View connected initiators</br>Find the device serial number</br>Find the target IQN|StorSimple Manager service → Devices → Dashboard|
-|Monitor|StorSimple Manager service → Devices → Monitor|
+|Monitor your device</br>Create monitoring charts|StorSimple Manager service → Devices → Monitor|Monitor your StorSimple device|
 |Add a volume container</br>Modify a volume container</br>Delete a volume container|StorSimple Manager service → Devices → Volume Containers|[Manage volume containers](storsimple-manage-volume-containers)|
 |Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume|StorSimple Manager service → Devices → Volume Containers → Volumes|[Manage volumes](storsimple-manage-volumes)|
-|Configure device settings</br>Configure time settings</br>Configure DNS settings</br>View web proxy settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure||
+|Modify device settings</br>Modify time settings</br>Modify DNS settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure|Modify device configuration for your StorSimple device|
 |View web proxy settings|StorSimple Manager service → Devices → Configure|Configure web proxy for your device|
+|Modify device administrator password</br>Modify StorSimple Snapshot Manager password|StorSimple Manager service → Devices → Configure|
 |Configure remote management|StorSimple Manager service → Devices → Configure|Connect remotely to your StorSimple device|
-|Configure alert settings|StorSimple Manager service → Devices → Configure||
+|Configure alert settings|StorSimple Manager service → Devices → Configure|Configure alerts for your StorSimple device|
 |Configure CHAP for your StorSimple device|StorSimple Manager service → Devices → Configure|[Configure CHAP for your StorSimple device](https://msdn.microsoft.com/library/dn772351.aspx)|
 |Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules|StorSimple Manager service → Devices → Backup policies|[Manage backup policies](storsimple-manage-backup-policies)|
 |Manage device controllers|StorSimple Manager service → Devices → Maintenance|Stop, start or shut down your device controller|
-|Monitor hardware status (on-premises device only)|StorSimple Manager service → Devices → Maintenance|
-|Create a support package|StorSimple Manager service → Devices → Maintenance| |
-|Install software updates|StorSimple Manager service → Devices → Maintenance| |
+|Monitor hardware status (on-premises device only)|StorSimple Manager service → Devices → Maintenance|Monitor hardware components|
+|Create a support package|StorSimple Manager service → Devices → Maintenance|Create, edit a Support package|
+|Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your device](storsimple-update-device)|
 
 ##Next steps
 If you experience any issues with the day-to-day operation of your StorSimple device or with any of its hardware components, refer to:
