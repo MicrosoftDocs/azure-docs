@@ -20,16 +20,16 @@
 
 # How to Capture a Linux Virtual Machine to Use as a Template
 
-This article shows you how to capture an Azure virtual machine running Linux so you can use it like a template to create other virtual machines. This template includes the OS disk and any data disks attached the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.
+This article shows you how to capture an Azure virtual machine running Linux so you can use it like a template to create other virtual machines. This template includes the OS disk and data disks attached to the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.
 
-Azure treats this template as an image and stores it under **My Images**. This is also where any images you've uploaded are stored. For more information about images, see [About Virtual Machine Images in Azure] [].
+Azure treats this template as an image and stores it under **Images**. This is also where any images you've uploaded are stored. For more information about images, see [About Virtual Machine Images in Azure] [].
 
 ## Before You Begin
 
 These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you haven't done this yet, see these instructions:
 
-- [How to Create a Custom Virtual Machine] []
-- [How to Attach a Data Disk to a Virtual Machine] []
+- [How to Create a Virtual Machine Running Linux] []
+
 
 ## Capture the Virtual Machine
 
@@ -95,3 +95,4 @@ The image is ready to be used as a template to create virtual machines. You can 
 [About Virtual Machine Images in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [How to Create a Custom Virtual Machine]: virtual-machines-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
+[How to Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
