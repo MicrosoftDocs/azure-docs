@@ -55,7 +55,7 @@ The key features of this solution are:
 ## Application and workloads
 
 | Workload | Source machine | Azure Backup solution |
-| --- | --- |
+| --- | --- |---|
 | File & folders | Windows Server, Windows client | Azure Backup agent |
 | File & folders | Windows Server, Windows client | System Center DPM |
 | Hyper-V Virtual machine (Windows) | Windows Server | System Center DPM |
