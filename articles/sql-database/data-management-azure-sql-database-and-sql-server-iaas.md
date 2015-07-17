@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="07/15/2015" 
 	ms.author="selcint"/>
 
 # Understanding Azure SQL Database and SQL Server in Azure VMs
@@ -186,7 +186,7 @@ For **Virtual Machines hosted in Azure**, Microsoft provides an availability SLA
 
 ###<a name="market"></a>Time to market
 
-**Azure SQL Database** is the right solution for cloud-designed applications when developer productivity and fast time-to-market are critical. With programmatic DBA-like functionality, it is perfect for cloud architects and developers as it lowers the need for managing the underlying operating system and database. It helps developers understand and configure database-related tasks. For example, you can use the [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) and [PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn546726.aspx) to automate and manage administrative operations for thousands of databases. With elastic scale in the cloud, you can easily focus on the application layer and deliver your application to the market faster. 
+**Azure SQL Database** is the right solution for cloud-designed applications when developer productivity and fast time-to-market are critical. With programmatic DBA-like functionality, it is perfect for cloud architects and developers as it lowers the need for managing the underlying operating system and database. It helps developers understand and configure database-related tasks. For example, you can use the [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) and [PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn546726.aspx) to automate and manage administrative operations for thousands of databases. With [elastic scale](sql-database-elastic-pool.md) in the cloud, you can easily focus on the application layer and deliver your application to the market faster. 
 
 **SQL Server running in Azure VM** is perfect if your existing and new applications require access and control to all features of a SQL Server instance, and when you want to migrate existing on-premises applications and databases to the cloud as-is. Since you do not need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solution packages to the VMs and doing some performance optimizations required by the Azure platform. For information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn133149.aspx).
 
@@ -207,6 +207,9 @@ Choose **SQL Server in Azure VM**, if:
 - You have existing on-premises applications and wish to stop maintaining your own hardware or you consider hybrid solutions. This approach lets you get access to high database capacity faster and also connects your on-premises applications to the cloud via a secure tunnel.
 
 - You have existing IT resources, need full administrative rights over SQL Server, and require the full compatibility with on-premises SQL Server (for example, some features do not exist in Azure SQL Database). This approach lets you minimize costs for development or modifications of existing applications with the flexibility to run most applications. In addition, it provides full control on the VM, operating system, and database configuration.
+
+> [AZURE.NOTE] - Do you want to try out SQL Server 2016 CTP2? Sign up for Microsoft Azure, and then go [here](http://aka.ms/sql2016vm "here") to spin up a Virtual Machine with SQL Server 2016 CTP2 already installed. 
+
 
 ##<a name="ack"></a>Acknowledgements
 

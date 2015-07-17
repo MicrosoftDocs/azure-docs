@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Detach a disk from a Linux virtual machine in Azure" 
+	pageTitle="Detach a disk from a Linux virtual machine in Azure"
 	description="Learn to detach a data disk from an Azure virtual machine."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # How to Detach a Disk from a Linux Virtual Machine
 
