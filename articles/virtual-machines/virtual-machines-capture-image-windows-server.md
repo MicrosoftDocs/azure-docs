@@ -30,7 +30,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 - [Create a custom virtual machine running Windows] []
 - [How to attach a data disk to a virtual machine] []
 
-> [AZURE.WARNING] This process deletes the original virtual machine after it's captured, and is not intended as a way to back up a virtual machine. One possible wya to do that is Azure Backup, which is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
+> [AZURE.WARNING] This process deletes the original virtual machine after it's captured, and is not intended as a way to back up a virtual machine. One possible way to do that is Azure Backup, which is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
 
 ##Capture the virtual machine##
 
@@ -62,11 +62,11 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 10.	In **Image Name**, type a name for the new image.
 
-11.	Before you add a Windows Server image to your set of custom images, it must be generalized by running Sysprep as instructed in the previous steps. Click **I have run Sysprep on the virtual machine** to indicate that you have done this.
+11.	Before you add a Windows Server image to your set of custom images, it must be generalized by running Sysprep as instructed in the previous steps. Click **I have run Sysprep on the virtual machine** to indicate you did that.
 
 12.	Click the check mark to capture the image. The new image is now available under **Images**.
 
- ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+ 	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Next steps##
 The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by using the **From Gallery** menu item and selecting the image you just created. For instructions, see [Create a custom virtual machine running Windows] [].
