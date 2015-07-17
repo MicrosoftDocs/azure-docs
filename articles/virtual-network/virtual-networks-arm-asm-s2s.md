@@ -21,7 +21,7 @@ Azure currently has two management modes: Azure Service Manager (referred to as 
 
 In such situations, you will want to ensure the new infrastructure is able to communicate with your classic resources. You can do so by creating a VPN connection between the two VNets. The figure below illustrates a sample environment with two VNets (classic and ARM), along with a secure tunnel connectivity between the VNets.
 
-![](..\media\virtual-networks-arm-asm-s2s\figure01.png)
+![](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure01.png)
 
 >[AZURE.NOTE] This document walks you through an end-to-end solution, for testing purposes. If you already have your VNets setup, and are familiar with VPN gateways and site-to-site connection in Azure, visit [Configure a S2S VPN between an ARM VNet and a classic VNet](../virtual-networks-arm-asm-s2s-howto.md).
 
@@ -143,21 +143,21 @@ To create the VPN gateway for vnet01 by using the classic Azure portal, follow t
 5. On the **LOCAL NETWORK** list, select **vnet02**, then click **SAVE**, and then click **YES**.
 6. Click **DASHBOARD** and notice the message stating a gateway was not yet created, as shown in figure 2 below.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure02.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure02.png)
 
 7. Click **CREATE GATEWAY** as shown in figure 3 below to create a VPN gateway for vnet01.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure03.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure03.png)
 
 8. In the list of gateway types, click **DYNAMIC**, and then click **YES**. Notice that the dashboard image changes, showing the gateway in yellow, while it is being created. 
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure04.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure04.png)
 
 	>[AZURE.NOTE] This operation may take several minutes.
 
 9. Write down the public IP address for the gateway, as seen below, once it is created. You will need this address to create a local network for the ARM VNet later.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure05.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure05.png)
 
 ## Create a new VNet environment
 
@@ -205,7 +205,7 @@ To create the ARM VNet, with two subnets, and a local network for the classic VN
 7. From your browser, navigate to https://ms.portal.azure.com/ and enter your credentials, if necessary.
 8. Click on the **RG1** resource group tile in the Azure portal, as shown below.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure06.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure06.png)
 
 9. Notice the resources added to the group by using the ARM template.
 
@@ -216,21 +216,21 @@ To create a VM in the new VNet, from the Azure portal, follow the instructions b
 1. From the portal, click the **NEW** button, then click **Compute**, and then click **Windows Server 2012 R2 Datacenter**.
 2. At the bottom of the right pane, in the **Select a compute stack**, select **Use the Resource Manager stack** to create the VM in ARM, as seen below, then click **Create**.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure07.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure07.png)
 
 3. In the **Basics** blade, enter the VM name, user name, password, subscription, resource group, and location for the VM, and then click **OK**. The figure below shows the settings for this scenario.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure08.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure08.png)
 
 4. In the **Choose a size** blade, select a size, and then click **Select**. For this scenario, select **D2**.
 5. In the **Settings** blade, click **Virtual network**, and then click **vnet02**.
 6. Click **Subnet**, then click **Subnet1**, and then click **OK**. The **Summary** blade should look similar to the figure below.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure09.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure09.png)
 
 7. Click **OK**, and then click **Create** to create the VM. You will see a new tile in the portal, showing the VM being provisioned, as seen below.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure10.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure10.png)
 
 	>[AZURE.NOTE] This operation may take several minutes. You can move on to the next part of this document.
 
@@ -315,12 +315,12 @@ Now that you have the classic VNet gateway configured, it's time to establish th
 3. Open the Azure Portal at https://manage.windowsazure.com and, if necessary, enter your credentials.
 4. Under **ALL ITEMS**, scroll down and click **NETWORKS**, then click **vnet01**, and then click **DASHBOARD**. Notice the connection between **vnet01** and **vnet02** is now established, as seen below.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure11.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
 
 5. Although you can manage the classic VNet and its connection from the classic portal, it's recommended to use the new Azure portal. To open the new portal, navigate to https://ms.portal.azure.com.
 6. In the new portal, click **BROWSE ALL**, then click **Virtual networks (classic)**, and then click **vnet01**. Notice the **VPN connections** pane shown below.
 
-	![VNet dashboard](..\media\virtual-networks-arm-asm-s2s\figure12.png)
+	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure12.png)
 
 ### Step 3: Test the connectivity
 
