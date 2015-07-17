@@ -4,7 +4,7 @@
 	description="Learn how to restore an Azure virtual machine"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="aashishr"/>
+	ms.author="trinadhk"/>
 
 # Restore a virtual machine
 You can restore a virtual machine to a new VM from the backups stored in Azure backup vault using restore action.
@@ -90,7 +90,7 @@ Once the restore operation is finished, it will be marked as completed in **Jobs
 
 ![Restore job complete](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [recreate the endpoints](virtual-machines-set-up-endpoints) for the virtual machine in the Azure portal.
+After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](virtual-machines-set-up-endpoints) for the virtual machine in the Azure portal.
 
 ## Troubleshooting errors
 For most errors, you can follow the recommended action suggested in the Error Details. Here are some additional points to help with the troubleshooting:

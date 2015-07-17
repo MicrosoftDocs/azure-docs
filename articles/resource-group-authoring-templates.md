@@ -1,24 +1,26 @@
 <properties
    pageTitle="Authoring Azure Resource Manager Templates"
    description="Create Azure Resource Manager templates using declarative JSON syntax to deploy applications to Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="07/15/2015"
+   ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager Templates
 
 Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
+
+This topic describes the sections of the template. For the actual schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
 
 ## Template format
 
@@ -398,7 +400,8 @@ The following template deploys a web app and provisions it with code from a .zip
 
 ## Next Steps
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)
+- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
 - [Advanced Template Operations](./resource-group-advanced-template.md)
+- [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
-
+- [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas)

@@ -1,0 +1,1 @@
+API Management limits are different for each pricing tier. To see the pricing tiers and their associated limits, see [API Management Pricing](http://azure.microsoft.com/pricing/details/api-management/).

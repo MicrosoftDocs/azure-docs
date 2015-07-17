@@ -10,17 +10,18 @@ When you create a storage account, you must select one of the following replicat
 
 	ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.  
 
-	> [AZURE.NOTE] ZRS is currently available only for block blobs.  
-	> Once you have created your storage account and selected zone-redundant replication, you cannot convert it to use to any other type of replication, or vice versa. 
+	> [AZURE.NOTE] ZRS is currently available only for block blobs.
+	> 
+	> Once you have created your storage account and selected ZRS, you cannot convert it to use to any other type of replication, or vice versa. 
 
 - **Geo-redundant storage (GRS)**. Geo-redundant storage is enabled for your storage account by default when you create it. GRS maintains six copies of your data. With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability. In the event of a failure at the primary region, Azure Storage will failover to the secondary region. GRS ensures that your data is durable in two separate regions.
 
 
 - **Read access geo-redundant storage (RA-GRS)**. Read access geo-redundant storage replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant storage allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
 
-	> [AZURE.IMPORTANT] You can change how your data is replicated after your storage account has been created, but note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS. If you choose GRS when you create your account, then you cannot subsequently switch to any other type of replication, or vice versa.
+	> [AZURE.IMPORTANT] You can change how your data is replicated after your storage account has been created, unless you specified ZRS when you created the account. However, note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS.
  
-See [Azure Storage Replication](../articles/storage-redundancy.md) for additional details about storage replication options.
+See [Azure Storage Replication](../articles/storage/storage-redundancy.md) for additional details about storage replication options.
 
 For pricing information for storage account replication, see [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/).
 

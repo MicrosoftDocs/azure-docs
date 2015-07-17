@@ -14,7 +14,7 @@ All Azure technical articles contain two metadata sections - a properties sectio
 The properties section uses this syntax:
 
     <properties
-       pageTitle="Page title that displays in search results and the browser tab"
+       pageTitle="Page title that displays in search results and the browser tab | Microsoft Aure"
        description="Article description that will be displayed on landing pages and in most search results"
        services="service-name"
        documentationCenter="dev-center-name"
@@ -66,8 +66,11 @@ The tags section uses this syntax:
 - cloud-services
 - data-factory
 - documentdb
+- dns
+- event-hubs
 - hdinsight
 - key-vault
+- load-balancer
 - machine-learning
 - media-services
 - mobile-engagement
@@ -78,6 +81,7 @@ The tags section uses this syntax:
 - recovery-manager
 - redis-cache
 - remoteapp
+- rights-management
 - search
 - service-bus
 - service-fabric
@@ -90,6 +94,7 @@ The tags section uses this syntax:
 - virtual-machines
 - virtual-network
 - visual-studio-online
+- vpn-gateway
 - web-sites
 
 ![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
@@ -142,7 +147,6 @@ The tags section uses this syntax:
  - **cloud-services**
  - **expressroute**
  - **hdinsight**
- - **intelligent-systems**
  - **key-vault**
  - **machine-learning**
  - **marketplace**: Articles about the Azure marketplace
@@ -249,6 +253,9 @@ The tags section uses this syntax:
  - **vs-what-happened**: Identifies the VS Getting Started What Happened page. Tag added 12/1/14.
 
 ![](./media/article-metadata/checkmark-small.png)**ms.workload**: Required. Specifies the Azure workload that the page applies to. One value only per article.
+
+**update 7/7/15** The ms.workload value is being mapped by an xls, not the value in the .md file. The ms.workload value is still required for validation until the feature can be updated. That work in now being scheduled. 
+
 
  If a page applies to multiple workloads, choose the workload to which is most directly applies. If a page applies to multiple workloads equally, choose **multiple**. If a page applies to a service that does not yet map to a workload, choose **TBD**. If a page does not apply to any workloads (this will be rare), choose **NA**.
 
