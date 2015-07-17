@@ -17,7 +17,9 @@
 	ms.author="dastrock"/>
 
 
-# Call a Web API from a Windows Phone App
+# Integrate Azure AD with a Windows Store App
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
