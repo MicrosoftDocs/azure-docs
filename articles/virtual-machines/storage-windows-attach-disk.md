@@ -19,9 +19,9 @@
 
 # How to attach a data disk to a Windows virtual machine
 
-You can attach empty disks and disks with data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
+You can attach empty disks and disks with data. In both cases, the disks are actually .vhd files that reside in an Azure Storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
 
-> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. **Do not use the D drive to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
+> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has a disk for the operating system mapped to drive C and a temporary disk mapped to drive D. **Do not use drive D to store data.** As the name implies, drive D provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure Storage.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
@@ -35,7 +35,7 @@ You can attach empty disks and disks with data. In both cases, the disks are act
 
 3. Expand the menu and select **Disks**.
 
-4. The **Disks** section lists disk 0, disk 1, and disk 2. Disk 0 is the OS disk, disk 1 is the temporary disk (which should not be used for data storage), and disk 2 is the data disk you have attached to the virtual machine. The data disk has a capacity of 5 GB, based on what you specified when you attached the disk. Right-click disk 2 and  select **Initialize**.
+4. The **Disks** section lists disk 0, disk 1, and disk 2. Disk 0 is the operating system disk, disk 1 is the temporary disk (which should not be used for data storage), and disk 2 is the data disk you attached to the virtual machine. The data disk has a capacity of 5 GB, based on what you specified when you attached the disk. Right-click disk 2 and  select **Initialize**.
 
 5.	You're notified that all data will be erased when the disk is initialized. Click **Yes** to acknowledge the warning and initialize the disk. Then, right-click disk 2 again and select **New Volume**.
 
