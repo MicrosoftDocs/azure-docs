@@ -64,7 +64,7 @@ Close the "Extensions and Updates" window and also close Visual Studio 2013 befo
 This completes the update of Visual Studio 2013.
 
 ### Update SSDT 
-> [Azure.Important] SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later.
+> [AZURE.IMPORTANT] SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later.
 
 The SSDT engineers update their plugin very regularly with new features so you will find you have to update from time to time. Again this is a very simple process. To check if you need to update SSDT perform the following steps:
 
