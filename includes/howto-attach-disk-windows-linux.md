@@ -1,5 +1,5 @@
 
-For more information about disks, see [About Virtual Machine Disks in Azure](../articles/virtual-machines-disks-vhds.md).
+For more details about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines-disks-vhds.md).
 
 ##<a id="attachempty"></a>How to: Attach an empty disk
 Attaching an empty disk is the simpler way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.

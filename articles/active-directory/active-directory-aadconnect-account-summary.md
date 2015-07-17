@@ -33,7 +33,7 @@ The Azure AD Connect wizard offers two different paths with distinct permissions
 Wizard Page  | Credentials Collected | Permissions Required| Used For 
 ------------- | ------------- |------------- |------------- |
 Connect to Azure AD| Azure AD directory credentials | Global administrator role in Azure AD | <li>Enabling sync in the Azure AD directory.</li>  <li>Creation of the Azure AD account that will be used for on-going sync operations in Azure AD.</li>
-Connect to AD DS | On-premises Active Directory credentials | Member of the Enterprise Admins (EA) group in Active Directory|  <li>Creation of the local AD account that will be used for reading objects and attributes from the local AD for ongoing sync operation.</li> <li> Assigning the correct permissions and access control settings for sync and password sync to the above account and to AD.</li> 
+Connect to AD DS | On-premises Active Directory credentials | Member of the Enterprise Admins (EA) group in Active Directory|  Used as the local AD Connector account, that is, it is the account that reads and writes the directory information for synchronization.
 NA|Logon credentials of the user running the wizard| Administrator of the local server|The wizard creates the AD account that will be used as the sync service logon account on the local machine.
 
 <br>
