@@ -32,9 +32,12 @@ If a non-administrative user of directory 'Contoso', creates a test directory 'T
 - If you change (add or remove) an administrator role for a user in one directory, the change does not affect any administrator role that the user might have in another directory.
 
 ##Synchronization independence
+
 You can configure each Azure AD directory independently to get data synchronized from a single instance of either:
   - The Directory Synchronization (DirSync) tool, to synchronize data with a single AD forest.
   - The Azure Active Directory Connector for Forefront Identity Manager, to synchronize data with one or more on-premises forests, and/or non-Azure AD data sources.
+
+##Add an Azure AD directory
 
 To add an Azure AD directory in the Azure Management Portal, select the Active Directory extension on the left and tap **Add**.
 
