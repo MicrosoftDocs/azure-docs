@@ -1,6 +1,6 @@
 <properties 
     pageTitle="DocumentDB Indexing Policies | Azure" 
-    description="Understand how indexing works in DocumentDB and learn how to configure and change indexing policy." 
+    description="Understand how indexing works in DocumentDB and learn how to configure and change the indexing policy." 
     services="documentdb" 
     documentationCenter="" 
     authors="mimig1" 
@@ -40,7 +40,7 @@ After reading this article, you'll be able to answer the following questions:
 - How can I override the properties to include or exclude from indexing?
 - How can I configure the index for eventual updates?
 - How can I configure indexing to perform Order By or range queries?
-- How do I make changes to collection indexing policy?
+- How do I make changes to the collection indexing policy?
 
 ## How DocumentDB indexing works
 
@@ -58,13 +58,13 @@ In DocumentDB, documents are organized into collections that can be queried usin
 
 For every DocumentDB collection, you can configure the following options:
 
-- **Indexing Mode**: Consistent, Lazy (for asynchronous updates), or None (only "id" based access)
-- **Included and Excluded paths**: Pick which paths within JSON are included and excluded
-- **Index Kind**: Hash (for equality queries), Range (for equality, range and order by queries with higher storage)
-- **Index Precision**: 1-8 or Maximum (-1) to tradeoff between storage and performance
-- **Automatic**: true or false to enable, or manual (opt-in with each insert)
+- Indexing mode: **Consistent**, **Lazy** (for asynchronous updates), or **None** (only "id" based access)
+- Included and excluded paths: Choose which paths within JSON are included and excluded
+- Index kind: **Hash** (for equality queries), **Range** (for equality, range, and order by queries with higher storage)
+- Index precision: 1-8 or Maximum (-1) to tradeoff between storage and performance
+- Automatic: **true** or **false** to enable, or **manual** (opt-in with each insert)
 
-The following .NET code snippet shows how to set a custom indexing policy during  the creation of a collection. Here we set the policy with Range index for strings and numbers at the maximum precision. This policy lets us execute Order By queries against strings.
+The following .NET code snippet shows how to set a custom indexing policy during the creation of a collection. Here we set the policy with Range index for strings and numbers at the maximum precision. This policy lets us execute Order By queries against strings.
 
     var collection = new DocumentCollection { Id = "myCollection" };
     
@@ -280,22 +280,22 @@ The following example configures a specific path with range indexing and a custo
 
 Now that we've taken a look at how to specify paths, let's look at the options we can use to configure the indexing policy for a path. You can specify one or more indexing definitions for every path:
 
-- **Data Type**: String or Number (can contain only one entry per data type per path)
-- **Index Kind**: Hash (Equality queries) or Range (Equality, Range or Order By queries)
-- **Precision**: 1-8 or -1 (Maximum precision) for Numbers, 1-100 (Maximum precision) for String
+- Data type: **String** or **Number** (can contain only one entry per data type per path)
+- Index kind: **Hash** (equality queries) or **Range** (equality, range or Order By queries)
+- Precision: 1-8 or -1 (Maximum precision) for numbers, 1-100 (Maximum precision) for string
 
-#### Index Kind
+#### Index kind
 
 DocumentDB supports two Index Kinds for every path and data type pair.
 
 - **Hash** supports efficient equality queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes.
 - **Range** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and Order By queries. Order By queries by default also require maximum index precision (-1).
 
-#### Index Precision
+#### Index precision
 
-Index precision lets you trade off between index storage overhead and query performance. For numbers, we recommend using the default precision configuration of -1. Since numbers are 8 bytes in JSON, this is equivalent to a configuration of 8 bytes. Picking a lower value for precision like 1-7 means that values within some ranges map to the same index entry. Therefore you will reduce index storage space, but query execution might have to process more documents and consequently consume more throughput i.e., request units. 
+Index precision lets you trade off between index storage overhead and query performance. For numbers, we recommend using the default precision configuration of -1. Since numbers are 8 bytes in JSON, this is equivalent to a configuration of 8 bytes. Picking a lower value for precision, such as 1-7, means that values within some ranges map to the same index entry. Therefore you will reduce index storage space, but query execution might have to process more documents and consequently consume more throughput i.e., request units. 
 
-Index precision configuration is more practically useful with string ranges. Since strings can be any arbitrary length, the choice of the index precision can impact the performance of string range queries, and impact the amount of index storage space required. String range indexes can be configured with 1-100 or the maximum precision value (-1). If you need Order By on Strings, then you must specify over the specified path (-1).
+Index precision configuration is more practically useful with string ranges. Since strings can be any arbitrary length, the choice of the index precision can impact the performance of string range queries, and impact the amount of index storage space required. String range indexes can be configured with 1-100 or the maximum precision value (-1). If you need Order By on strings, then you must specify over the specified path (-1).
 
 The following example shows how to increase the precision for range indexes in a collection using the .NET SDK. Note that this uses the default path "/*".
 
@@ -313,13 +313,13 @@ The following example shows how to increase the precision for range indexes in a
     await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
 
 
-> [AZURE.NOTE] DocumentDB returns an error when a query uses a Order By but does not have a range index against the queried path with the maximum precision. 
+> [AZURE.NOTE] DocumentDB returns an error when a query uses Order By but does not have a range index against the queried path with the maximum precision. 
 >
-> An error is returned for queries with range operators like >= if there is no range index (of any precision), but those can be served if there are other filters that can be served from the index. 
+> An error is returned for queries with range operators such as >= if there is no range index (of any precision), but those can be served if there are other filters that can be served from the index. 
 > 
 > Range queries can be performed without a range index using the x-ms-documentdb-enable-scans header in the REST API or the EnableScanInQuery request option using the .NET SDK. 
 
-Similarly paths can be completely excluded from indexing. The next example shows how to exclude an entire section of the documents (a.k.a. a sub-tree) from indexing using the "*" wildcard.
+Similarly, paths can be completely excluded from indexing. The next example shows how to exclude an entire section of the documents (a.k.a. a sub-tree) from indexing using the "*" wildcard.
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -330,7 +330,7 @@ Similarly paths can be completely excluded from indexing. The next example shows
 
 ### Automatic indexing
 
-You can choose if you want the collection to automatically index all documents or not. By default, all documents are automatically indexed, but you can choose to turn it off. When indexing is turned off, documents can be accessed only through their self-links or by queries using ID.
+You can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can choose to turn it off. When indexing is turned off, documents can be accessed only through their self-links or by queries using ID.
 
 With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
 
@@ -356,9 +356,9 @@ DocumentDB allows you to make changes to the indexing policy of a collection on 
 
 When you change the indexing policy of a collection, the DocumentDB service kicks off a transformation of the underlying index of that collection. This transformation is an online, asynchronous and *in situ* operation. 
 
-- **Online**: While an index transformation is in progress, the collection is available for all operations including reads, writes and queries. 
-- **Asynchronous**: Index transformations are performed asynchronously. While the index is being transformed, the queries can potentially return stale results. Once the transformation is complete, queries will return results matching the indexing policy configuration. You can track the progress of an ongoing index transformation by calling ReadDocumentCollectionAsync and extracting the ResourceResponse<T>.IndexTransformationProgress property in .NET. 
-- **In situ**: Index transformations are performed in-place or in-situ. While the index is being transformed, no additional on-disk storage is consumed. 
+- Online: While an index transformation is in progress, the collection is available for all operations including reads, writes, and queries. 
+- Asynchronous: Index transformations are performed asynchronously. While the index is being transformed, the queries can potentially return stale results. Once the transformation is complete, queries will return results matching the indexing policy configuration. You can track the progress of an ongoing index transformation by calling ReadDocumentCollectionAsync and extracting the ResourceResponse<T>.IndexTransformationProgress property in .NET. 
+- In situ: Index transformations are performed in-place or in-situ. While the index is being transformed, no additional on-disk storage is consumed. 
 
 You can check the progress of an index transformation by calling ReadDocumentCollectionAsync. Here's a snippet in .NET that shows how to do this.
 
@@ -372,18 +372,18 @@ You can check the progress of an index transformation by calling ReadDocumentCol
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
 
-Custom indexing policies are an advanced construct in DocumentDB, but can be powerful in configuring the service to adapt to your worklaods. Consider including index transformations when you need to do the following:
+Custom indexing policies are an advanced construct in DocumentDB, but can be powerful in configuring the service to adapt to your workloads. Consider including index transformations when you need to do the following:
 
 - Hand select the properties to be indexed and change them over time
-- Serve consistent results during normal operation, but fall back to lazy indexing during bulk data imports.
+- Serve consistent results during normal operation, but fall back to lazy indexing during bulk data imports
 - Change or fine-tune the kind of index (Hash or Range) and index precision for best performance
-- Use Order By on strings, or perform string range queries on a collection containing data.
+- Use Order By on strings, or perform string range queries on a collection containing data
 
 >[AZURE.NOTE] To modify indexing policy using ReplaceDocumentCollectionAsync, you need version >= 1.3.0 of the .NET SDK
 
 ## Performance tuning
 
-The DocumentDB APIs provide information about performance metrics like the index storage used, and the throughput cost (request units) for every operation. This information can be used to compare various indexing policies and for performance tuning.
+The DocumentDB APIs provide information about performance metrics such as the index storage used, and the throughput cost (request units) for every operation. This information can be used to compare various indexing policies and for performance tuning.
 
 To check the storage quota and usage of a collection, run a HEAD or GET request against the collection resource, and inspect the x-ms-request-quota and the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contain these corresponding values.
 
