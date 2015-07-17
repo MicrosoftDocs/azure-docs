@@ -17,133 +17,120 @@
 	ms.author="spelluru"/>
 
 # Understanding Pipelines & Activities
-This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end flows for your scenario or business. This article assumes you have gone through the [Overview](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles prior to this.
+This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. This article assumes you have gone through the [Overview](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles prior to this.
 
 ## What is a pipeline?
 A pipeline is a logical grouping of related activities. Activities which when grouped together to make one logical sense can be defined in one pipeline and can be managed together. To understand pipelines better lets understand an activity first and then we will come back to a pipeline. 
 
 ### What is an activity?
-One uses an Activity in Azure Data Factory to perform a desired action on one’s data. Each activity takes zero/more datasets as inputs and produces one/more datasets as output. An activity is a unit of execution in Azure Data Factory. Scheduling and execution are covered in more detail later in this article. 
+You use an Activity in Azure Data Factory to perform a desired action on data. Each activity takes zero/more datasets as inputs and produces one/more datasets as output. An activity is a unit of execution in Azure Data Factory. Scheduling and execution are covered in more detail later in this article. 
 
-For example, you may use a Copy activity to copy data from one dataset to another. Similarly you may use an HDInsight activity to run a Hive query to transform or analyze your data. Azure Data Factory provides data movement and data processing activities out-of-the-box. You may also choose to run your own code.  
+For example, you may use a Copy activity to copy data from one data store to another. Similarly, you may use an HDInsight activity to run a Hive query to transform or analyze your data. Azure Data Factory provides data movement and data processing activities out-of-the-box. You may also choose to run your own code.  
 
 Example of an activity: 
 	
-	{
-		"name": "CopyActivity",
-	    "description": "Copies data from an on premise SQL Server table to Azure Storage", 
-	    "type": "CopyActivity",
-	    "inputs":  [ { "name": "MyOnPremTable"  } ],
-	    "outputs":  [ { "name": "MyAzureBlob" } ],
-	    "transformation":
-	    {
-	    	"source":
-	        {
-	        	"type": "SqlSource",
-	            "sqlReaderQuery": "select * from MyTable"
-			},
-	        "sink":
-	        {
-	        	"type": "BlobSink"
-			}
-		}
-	}
+  	{
+    	"name": "CopyActivity",
+    	"description": "Copies data from an on premise SQL Server table to Azure Storage",
+    	"type": "Copy",
+    	"inputs": [ { "name": "MyOnPremTable" } ],
+    	"outputs": [ { "name": "MyAzureBlob" } ],
+    	"typeProperties": {
+      		"source": {
+        		"type": "SqlSource",
+        		"sqlReaderQuery": "select * from MyTable"
+      		},
+      		"sink": {
+        		"type": "BlobSink"
+      		}
+    	}
+  	}
 
 The above activity copies data from SQL Server to Azure Blob Storage.
 
 Now that we have a brief understanding on what an activity is, let’s re-visit the pipeline. 
 
-**A pipeline is a logical grouping of related activities. Activities which when grouped together to make one logical sense can be defined in one pipeline and can be managed together**. A pipeline is the unit of deployment for activities. An output dataset from an activity in a pipeline can be the input dataset to another activity in the same/different pipeline and via this dependencies among activities can be defined.
+**A pipeline is a logical grouping of related activities. Activities which when grouped together to make one logical sense can be defined in one pipeline and can be managed together**. A pipeline is the unit of deployment for activities. An output dataset from an activity in a pipeline can be the input dataset to another activity in the same/different pipeline and via dependencies among activities that you can define. 
 
-Should I create 1 pipeline or more? The answer depends on your logical construction of your scenario. Examples:
+One common question when creating a pipeline is: should I create one pipeline or more? The answer depends on your logical construction of your scenario. For example:
 
-1. You may define a single pipeline which copies over data from an on premise system, then runs analysis on top of it via a Hive query and finally copies the analyzed result into same/different on premise system. 
-2. Whereas someone else may choose to do all the ingress data movement in 1 pipeline. Data transformation and analysis on copied data could be in the 2nd pipeline and the 3rd pipeline may be leveraged to publish the data to the eventual storage systems.
+1. You may define a single pipeline with three activities (Copy, HDInsightHive, and Copy) that copy over data from an on premise system, then run analysis on top of the data using a Hive query and finally copy the analyzed result into same/different on premise system. 
+2. Whereas someone else may choose to do all the ingress data movement in one pipeline with one activity (Copy). Data transformation and analysis on copied data could be in the 2nd pipeline (HDInsightHive) and the 3rd pipeline may be leveraged to publish the data to the eventual storage systems (Copy).
 
 The pipeline construct helps in the management of the logical separations. 
 
 Example of a pipeline definition: 
 
 	{
-	    "name": "AnalyzeMarketingCampaignPipeline",
-	    "properties":
-	    {
-	        "description" : "To join the Regional Campaign data and with Enriched Gamer Fact Data and push to Azure SQLD Database",
-	        "activities":Ca
-	        [
-	            {
-			"name": "JoinData",
-			"description": "Join Regional Campaign data with Enriched Gamer Fact Data",
-			"type": "HDInsightActivity",
-			"inputs": [ {"name": "EnrichedGameEventsTable"}, {"name": "RefMarketingCampaignTable"} ],
-			"outputs": [ {"name": "MarketingCampaignEffectivenessBlobTable"} ],
-			"linkedServiceName": "HDInsightLinkedService",
-			"transformation":
-			{
-	    			"type": "Hive",
-				"extendedProperties":
-				{
-	                                "EventsInput": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/enrichedgameevents/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-	                                "CampaignInput": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/refdata/refmarketingcampaign/",
-	                                "CampaignOutput": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/marketingcampaigneffectiveness/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
-				},		
-	    			"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    			
-				"scriptLinkedService": "StorageLinkedService"
-			},
-			"policy":
-			{
-				"concurrency": 1,
-				"executionPriorityOrder": "NewestFirst",
-				"retry": 1,
-				"timeout": "01:00:00"
-			}
-	            },
-		    {
-			"name": "EgressDataAzure",
-			"description": "Push Regional Effectiveness Campaign data to Sql Azure",		
-			"type": "CopyActivity",
-			"inputs": [ {"name": "MarketingCampaignEffectivenessBlobTable"} ],
-			"outputs": [ {"name": "MarketingCampaignEffectivenessSQLTable"} ],	
-			"transformation":
-			{
-				"source":
-				{                               
-					"type": "BlobSource"
-				},
-				"sink":
-				{
-					"type": "SqlSink",
-					"SqlWriterTableType": "MarketingCampaignEffectivenessType",
-					"SqlWriterStoredProcedureName": "spEgressOverwriteMarketingCampaignEffectiveness"
-				}			
-			},
-			"Policy":
-			{
-				"concurrency": 1,
-				"executionPriorityOrder": "NewestFirst",
-				"style": "StartOfInterval",
-				"retry": 0,
-				"timeout": "01:00:00"
-			}
-		     }
-	        ]
+	  "name": "AnalyzeMarketingCampaignPipeline",
+	  "properties": {
+	    "description": "To join the Regional Campaign data and with Enriched Gamer Fact Data and push to Azure SQLD Database",
+	    "activities": [
+	      {
+	        "name": "JoinData",
+	        "description": "Join Regional Campaign data with Enriched Gamer Fact Data",
+	        "inputs": [ {"name": "EnrichedGameEventsTable" }, { "name": 	"RefMarketingCampaignTable" }],
+	        "outputs": [{"name": "MarketingCampaignEffectivenessBlobTable"}],
+	        "linkedServiceName": "HDInsightLinkedService",
+	        "type": "HDInsightHive",
+	        "typeProperties": {
+	          "scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",
+	          "scriptLinkedService": "StorageLinkedService",
+	          "defines": {
+	            "EventsInput": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/enrichedgameevents/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
+	            "CampaignInput": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/refdata/refmarketingcampaign/",
+	            "CampaignOutput": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/marketingcampaigneffectiveness/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+	          }
+	        },
+	        "policy": {
+	          "concurrency": 1,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "01:00:00"
+	        }
+	      },
+	      {
+	        "name": "EgressDataAzure",
+	        "description": "Push Regional Effectiveness Campaign data to Sql Azure",
+	        "type": "Copy",
+	        "inputs": [{"name": "MarketingCampaignEffectivenessBlobTable"}],
+	        "outputs": [{"name": "MarketingCampaignEffectivenessSQLTable"}],
+	        "typeProperties": {
+	          "source": {
+	            "type": "BlobSource"
+	          },
+	          "sink": {
+	            "type": "SqlSink",
+	            "SqlWriterTableType": "MarketingCampaignEffectivenessType",
+	            "SqlWriterStoredProcedureName": "spEgressOverwriteMarketingCampaignEffectiveness"
+	          }
+	        },
+	        "Policy": {
+	          "concurrency": 1,
+	          "executionPriorityOrder": "NewestFirst",
+	          "style": "StartOfInterval",
+	          "retry": 0,
+	          "timeout": "01:00:00"
+	        }
 	      }
+	    ]
+	  }
 	}
 
-The above pipeline describes two activities in it. The first one is an HDInsight activity which runs a Hive query with 2 datasets as inputs and produces 1 output dataset. The second activity takes the output of the preceding activity and copies it to Azure SQL Database. Let us take a closer look on how a pipeline is defined.
+The above pipeline has two activities in it. The first one is an HDInsight Hive activity which runs a Hive query with 2 datasets as inputs and produces 1 output dataset. The second activity takes the output of the preceding activity and copies it to an Azure SQL database. Let us take a closer look on how a pipeline is defined.
 
 Typical steps when creating a pipeline in Azure Data Factory are:
 
-1. Create a Data Factory (if not created)
-2. Create a linked service for each data store or compute
-3. Create input and output dataset(s)
-4. Create a pipeline with activities which operate on the datasets defined above
+1. Create a data factory. 
+2. Create a linked service for each data store or compute.
+3. Create input and output dataset(s).
+4. Create a pipeline with activities which operate on the datasets defined above.
 
 ## Anatomy of a Pipeline  
 The generic structure for a pipeline looks as follows:
 
 	{
-	    "name": "PipelineName”,
+		"name": "PipelineName”,
 	    "properties": 
 	    {
 	        "description" : "pipeline description",
@@ -151,8 +138,8 @@ The generic structure for a pipeline looks as follows:
 	        [
 	
 	        ],
-		start: <start date-time>,
-		end: <end date-time>
+			start: <start date-time>,
+			end: <end date-time>
 	    }
 	}
 
@@ -165,7 +152,7 @@ The activities section can have one or more activities defined within it. Each a
 	    "inputs":  [],
 	    "outputs":  [],
 	    “linkedServiceName”: "MyLinkedService",
-	    "transformation":
+	    "typeProperties":
 	    {
 	
 	    },
@@ -184,7 +171,7 @@ type | Specifies the type of the activity. See the next table of activity types 
 inputs | Input tables used by the activity<p>// one input table<br/>"inputs":  [ { "name": "inputtable1"  } ],</p><p>// two input tables <br/>"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],</p> | Yes
 outputs | Output tables used by the activity.<p>// one output table<br/>"outputs":  [ { "name": “outputtable1” } ],</p><p>//two output tables<br/>"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],</p> | Yes
 linkedServiceName | Name of the linked service used by the activity. <p>An activity may require that you specify the linked service that links to the required compute environment.</p> | Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <p>No for all others</p>
-transformation | Properties in the transformation section depend on type of the activity. Refer to the article on each individual activity to learn more on this | No
+typeProperties | Properties in the typeProperties section depend on type of the activity. Refer to the article on each individual activity to learn more on this | No
 policy | Policies which affect the run-time behavior of the activity. If it is not specified, default policies will be used. Scroll below for details | No
 start | Start date-time for the pipeline. Must be in ISO format. For example: 2014-10-14T16:32:41Z. The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. | No
 End | End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41Z | No
@@ -192,7 +179,7 @@ isPaused | If set to true the pipeline will not get executed. Default value = fa
 Via this property one can enable or disable | No   
 
 ### Activity types
-The table below lists the types of activities provided by Azure Data Factory. [Data movement](data-factory-data-movement-activities.md) and [Data transformation](data-factory-data-transformation-activities.md) articles describe these further with examples.
+The table below lists the types of activities provided by Azure Data Factory. [Data movement](data-factory-data-movement-activities.md) and [Data transformation](data-factory-data-transformation-activities.md) articles provide more details about these activities along with examples.
 
 Activity | Type | Description | No. of inputs | No. of outputs
 -------- | ---- | ----------- | ------------- | --------------
@@ -220,7 +207,7 @@ longRetry | The number of long retry attempts before the slice execution is fail
 longRetryInterval | The delay between long retry attempts | TimeSpan<br/>Default value: 00:00:00
 
 ## Authoring
-Azure Data Factory provides various mechanisms to author and deploy a pipelines (which in turn contain one or more activities in it). They are: 
+Azure Data Factory provides various mechanisms to author and deploy pipelines (which in turn contain one or more activities in it). 
 
 ### Using Azure Preview Portal
 
@@ -237,10 +224,10 @@ Azure Data Factory provides various mechanisms to author and deploy a pipelines 
 - After you have finished authoring the pipeline, then click on **Deploy** on the command bar to deploy the pipeline. **Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline.
 
 ### Using Visual Studio plugin
-You can use Visual Studio to author and deploy pipelines to Azure Data Factory. To learn more, refer to (add link to the create pipelines section in the Visual Studio authoring article being written).
+You can use Visual Studio to author and deploy pipelines to Azure Data Factory. To learn more, refer to [Tutorial: Copy data from Azure Storage to Azure SQL (Visual Studio)](data-factory-get-started-using-vs.md).
 
 ### Using Azure PowerShell
-You can use the Azure PowerShellto create pipelines in Azure Data Factory. Say, you have defined the pipeline JSON in a file at c:\DPWikisample.json. You can upload it to your Azure Data Factory instance as shown in the following example.
+You can use the Azure PowerShell to create pipelines in Azure Data Factory. Say, you have defined the pipeline JSON in a file at c:\DPWikisample.json. You can upload it to your Azure Data Factory instance as shown in the following example.
 
 	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
@@ -250,14 +237,14 @@ To learn more about this cmdlet, see [New-AzureDataFactoryPipeline cmdlet](https
 You can create and deploy pipeline using REST APIs too. This mechanism can be leveraged to create pipelines programmatically. To learn more on this, see [Create or Update a Pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
 
 ## Scheduling & Execution
-So far we have understood what pipelines and activities are. We have also taken a look at how are they defined and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed.
+Now you know what pipelines and activities are, how they are defined, and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed.
 
-A pipeline is active only between its start time and end time. Before and after that it will not get executed. If the pipeline is paused it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. 
+A pipeline is active only between its start time and end time. Before the start time and after the end time, the pipeline is not active. If the pipeline is paused, it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. 
 
-In fact it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. Activities in a pipeline inherit their time active interval based on the pipeline’s active period, their input and output dataset(s), and their own availability configuration. Let us take a closer look at how activities get executed here (add link to a detailed article which explain execution).
+In fact it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. Activities in a pipeline inherit their active time interval based on the pipeline’s active period, their input and output dataset(s), and their own availability configuration. Let us take a closer look at how activities get executed here (**TODO:** add link to a detailed article which explain execution).
 
 ## Manage & Monitor  
-Once a pipeline is deployed you can manage and monitor your pipelines, slices and runs. Read more about it here: [Monitor and Manage](data-factory-monior-manage.md).
+Once a pipeline is deployed, you can manage and monitor your pipelines, slices and runs. Read more about it here: [Monitor and Manage Pipelines](data-factory-monior-manage-pipelines.md).
 
 ## Next Steps
 
