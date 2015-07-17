@@ -130,7 +130,7 @@ Typical steps when creating a pipeline in Azure Data Factory are:
 The generic structure for a pipeline looks as follows:
 
 	{
-		"name": "PipelineName”,
+		"name": "PipelineName",
 	    "properties": 
 	    {
 	        "description" : "pipeline description",
@@ -138,8 +138,8 @@ The generic structure for a pipeline looks as follows:
 	        [
 	
 	        ],
-			start: <start date-time>,
-			end: <end date-time>
+			"start": "<start date-time>",
+			"end": "<end date-time>"
 	    }
 	}
 
@@ -151,12 +151,12 @@ The activities section can have one or more activities defined within it. Each a
 	    "type": "<ActivityType>",
 	    "inputs":  [],
 	    "outputs":  [],
-	    “linkedServiceName”: "MyLinkedService",
+	    "linkedServiceName": "MyLinkedService",
 	    "typeProperties":
 	    {
 	
 	    },
-	    policy:
+	    "policy":
 	    {
 	    }
 	}
@@ -175,8 +175,7 @@ typeProperties | Properties in the typeProperties section depend on type of the 
 policy | Policies which affect the run-time behavior of the activity. If it is not specified, default policies will be used. Scroll below for details | No
 start | Start date-time for the pipeline. Must be in ISO format. For example: 2014-10-14T16:32:41Z. The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. | No
 End | End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41Z | No
-isPaused | If set to true the pipeline will not get executed. Default value = false
-Via this property one can enable or disable | No   
+isPaused | If set to true the pipeline will not get executed. Default value = false. You can use this property to enable or disable. | No   
 
 ### Activity types
 The table below lists the types of activities provided by Azure Data Factory. [Data movement](data-factory-data-movement-activities.md) and [Data transformation](data-factory-data-transformation-activities.md) articles provide more details about these activities along with examples.
@@ -184,13 +183,13 @@ The table below lists the types of activities provided by Azure Data Factory. [D
 Activity | Type | Description | No. of inputs | No. of outputs
 -------- | ---- | ----------- | ------------- | --------------
 Copy | Copy | Copies the data from a data store to another data store. The store can be either a cloud or on-premises store (add link to data movement article which will list all connectors we support). | 1 | 1
-HDInsight Hive Activity | HDInsightHive | Specifies the Hive script that will process the data from the input tables, and produce data to output tables. | ? | ?
-HDInsight Pig Activity | HDInsightPig | Specifies the Pig script that will process the data from the input tables, and produce data to output tables. | ? | ?
-HDInsight Map Reduce Activity | HDInsightMapReduce | Specifies the MapReduce program that will be invoked to process the data from the input tables, and produce data to the output tables | ? | ?
-HDInsight Hadoop Streaming Activity | HDInsightHadoopStreaming | Specifies the map/reduce program (other than Java) that will be invoked to process the data from the input tables, and produce data to the output tables | ? | ? 
-Azure Machine Learning Batch Scoring Activity | AzureMLBatchScoring | This activity gets the location of the input file from your input tables, call the Azure Machine Learning batch scoring API, and copy the batch scoring output to the blob given in your output table | ? |?
-SQL Server Stored Procedure Activity | SqlServerStoredProcedure | This activity invokes a stored procedure in an Azure SQL Database when the input data is ready and produces output as per the schedule defined by the output table. | ? | ? 
-.Net Activity | DotNetActivity | This activity helps in execute user’s custom code in a pipeline. The activity can be configured to run using either an Azure HDInsight cluster or an Azure Batch service | | 
+HDInsight Hive Activity | HDInsightHive | Specifies the Hive script that will process the data from the input tables, and produce data to output tables. | >=0 | >=1
+HDInsight Pig Activity | HDInsightPig | Specifies the Pig script that will process the data from the input tables, and produce data to output tables. | >=0 | >=1
+HDInsight Map Reduce Activity | HDInsightMapReduce | Specifies the MapReduce program that will be invoked to process the data from the input tables, and produce data to the output tables | >=0 | >=1
+HDInsight Hadoop Streaming Activity | HDInsightHadoopStreaming | Specifies the map/reduce program (other than Java) that will be invoked to process the data from the input tables, and produce data to the output tables | >=0 | >=1 
+Azure Machine Learning Batch Scoring Activity | AzureMLBatchScoring | This activity gets the location of the input file from your input tables, call the Azure Machine Learning batch scoring API, and copy the batch scoring output to the blob given in your output table | 1 | 1
+SQL Server Stored Procedure Activity | SqlServerStoredProcedure | This activity invokes a stored procedure in an Azure SQL Database when the input data is ready and produces output as per the schedule defined by the output table. | >=0 | >=1 
+.Net Activity | DotNetActivity | This activity helps in execute user’s custom code in a pipeline. The activity can be configured to run using either an Azure HDInsight cluster or an Azure Batch service | >=0 | >=1 
 **Note: **If you specify multiple output tables for an activity, the tables must be on the same schedule.
 
 ### Policies
@@ -211,17 +210,21 @@ Azure Data Factory provides various mechanisms to author and deploy pipelines (w
 
 ### Using Azure Preview Portal
 
-- Log into [Azure Preview Portal](https://portal.azure.com/)
-- Navigate to your Azure Data Factory instance in which you wish to create a pipeline
-- Click  **Author and Deploy** tile in the **Summary** lens. 
+1. Log into [Azure Preview Portal](https://portal.azure.com/).
+2. Navigate to your Azure Data Factory instance in which you wish to create a pipeline
+3. Click  **Author and Deploy** tile in the **Summary** lens. 
+ 
 	![Author and deploy tile](./media/data-factory-create-pipelines/author-deploy-tile.png)
-- Click **New pipeline** on the command bar. 
+
+4. Click **New pipeline** on the command bar. 
 
 	![New pipeline button](./media/data-factory-create-pipelines/new-pipeline-button.png)
 
-- You should see the editor window with pipeline JSON template.
+5. You should see the editor window with pipeline JSON template.
+
 	![Pipeline editor](./media/data-factory-create-pipelines/pipeline-in-editor.png)
-- After you have finished authoring the pipeline, then click on **Deploy** on the command bar to deploy the pipeline. **Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline.
+
+6. After you have finished authoring the pipeline, then click on **Deploy** on the command bar to deploy the pipeline. **Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline.
 
 ### Using Visual Studio plugin
 You can use Visual Studio to author and deploy pipelines to Azure Data Factory. To learn more, refer to [Tutorial: Copy data from Azure Storage to Azure SQL (Visual Studio)](data-factory-get-started-using-vs.md).
@@ -250,7 +253,7 @@ Once a pipeline is deployed, you can manage and monitor your pipelines, slices a
 
 - Read about the [data movement](data-factory-data-movement-activities.md) and [data transformation capabilities](data-factory-data-transformation-activities) in Azure Data Factory
 - Author and deploy a pipeline and then see it in action. Refer to the authoring section above to do so
-- Refer to more pipeline examples via the Samples & Tutorials section 
+- Refer to more pipeline examples via the [Samples & Tutorials](data-factory-samples.md) section 
 
 
  
