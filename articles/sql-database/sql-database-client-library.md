@@ -47,7 +47,6 @@ Get the required management libraries by installing the following packages using
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
-    PM> Install-Package Microsoft.Azure.Common
 
 
 ## Configure authentication with Azure Active Directory
@@ -67,7 +66,13 @@ Scroll the menu on the left side to locate the **Active Directory** service and 
 
 ### Identify the domain name
 
-Select the **DOMAINS** tab and note the domain name which you will need to enter in your client code.  A default domain name will typically be a URI of the form <domain>.onmicrosoft.com. 
+An easy way to identify the proper domain name is to:
+
+1. Go to the [Azure portal](https://portal.azure.com).
+2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.
+
+    ![Identify domain name][3]
+
 
 ### Register your client application
 
@@ -100,8 +105,6 @@ Additional information about using Azure Active Directory for authentication can
 ### Retrieve the access token for the current user 
 
 The client application must retrieve the application access token for the current user. The first time the code is executed by a user they will be prompted to enter their user credentials and the resulting token is cached locally. Subsequent executions will retrieve the token from the cache and will only prompt the user to log in if the token has expired.
-
-
 
 
     /// <summary>
@@ -203,9 +206,9 @@ The following example creates a rule that opens access to the server from any IP
 To allow other Azure services to access a server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from *any* Azure subscription to access the server.
 
 
-## Create a database
+## Create or update a database
 
-The following command will create a new Basic database if a database with the same name does not exist on the server; if a database with the same name does exist it will be updated. If the **Edition** property is omitted, a Standard S0 database will be created by default. 
+The following command will create a new Basic database if a database with the same name does not exist on the server; if a database with the same name does exist it will be updated. 
 
 
     // Create a database
@@ -228,11 +231,21 @@ The following command will create a new Basic database if a database with the sa
 
 To change the service tier and performance level of a database, set the Edition and RequestedServiceObjectiveName properties. Note that when changing the Edition to or from **Premium**, the update can take some time depending on the size of your database.
 
-The following sets a SQL database to the Standard (S0) level:
+The following updates a SQL database to the Standard (S2) level:
 
     // Update the service objective of the database
-    databaseProperties.Edition = "Standard";
-    databaseProperties.RequestedServiceObjectiveName = "S0";
+    DatabaseCreateOrUpdateProperties databaseProperties = new DatabaseCreateOrUpdateProperties()
+    {
+        Edition = "Standard",
+        RequestedServiceObjectiveName = "S2"
+    };
+
+    DatabaseCreateOrUpdateParameters databaseParameters = new DatabaseCreateOrUpdateParameters()
+    {
+        Location = "South Central US",
+        Properties = databaseProperties
+    };
+
 
     databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
 
@@ -538,3 +551,4 @@ To delete a resource group:
 <!--Image references-->
 [1]: ./media/sql-database-client-library/aad.png
 [2]: ./media/sql-database-client-library/permissions.png
+[3]: ./media/sql-database-client-library/getdomain.png
