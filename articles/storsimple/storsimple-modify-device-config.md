@@ -130,7 +130,6 @@ Perform the following steps to swap or reassign the VIPs for any of the network 
 
 ## Next steps
 
-[Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md)
-
+[Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
  
      

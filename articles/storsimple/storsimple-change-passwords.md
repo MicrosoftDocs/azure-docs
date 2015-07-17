@@ -62,6 +62,6 @@ The device administrator password should now be updated. You can use this modifi
 
 ## Next steps
 
-[Learn more about StorSimple security](storsimple-security.md)
+[Learn more about StorSimple security](storsimple-security.md).
 
 [Learn more about modifying your device configuration](storsimple-modify-device-config.md).
