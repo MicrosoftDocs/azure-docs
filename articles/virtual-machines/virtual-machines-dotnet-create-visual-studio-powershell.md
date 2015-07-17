@@ -32,7 +32,7 @@ To create a virtual machine when you create a website, follow these steps:
 
 	![][2]
 
-5. In the **DNS name** box, enter a name for the virtual machine. The **DNS name** must be unique in Azure. If the name you entered isn't available, a red exclamation point appears.
+5. In the **DNS name** box, enter a name for the virtual machine. The DNS name must be unique in Azure. If the name you entered isn't available, a red exclamation point appears.
 6. In the **Image** list, choose the image you want to base the virtual machine on. You can choose any of the standard Azure virtual machine images or your image that you've uploaded to Azure.
 7. Leave the **Enable IIS and Web Deploy** check box selected unless you plan to install a different web server. You won't be able to publish from Visual Studio if you disable Web Deploy. You can add IIS and Web Deploy to any of the packaged Windows Server images, including your own custom images.
 8. In the **Size** list, choose the size of the virtual machine.
