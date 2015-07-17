@@ -18,7 +18,7 @@
 
 #Connect to Hive on Azure HDInsight using the Hive JDBC driver
 
-AZURE.INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
+[AZURE.INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
 In this document, you will learn how to use JDBC from a Java application to remotely submit Hive queries to an HDInsight cluster. For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
