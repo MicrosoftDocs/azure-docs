@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="07/16/2015"
+ ms.date="07/17/2015"
  ms.author="danlep"/>
 
 # Set up a Linux RDMA cluster to run MPI applications
@@ -65,7 +65,7 @@ azure account list
 
 The current active subscription will be identified with `Current` set to `true`. If this is not the subscription you want to use to create the cluster, set the appropriate subscription number as the active subscription:
 
-```
+```he
 azure account set <subscription-number>
 ```
 
@@ -80,7 +80,7 @@ azure vm image list | grep "suse.*hpc"
 Now provision a size A9 VM with an available SLES 12 HPC image by running a command similar to the following:
 
 ```
-azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n <vmname> -e 10004 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
+azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 10004 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
 ```
 
 where
@@ -89,11 +89,13 @@ where
 
 * the external SSH port number (10004 in this example) is any valid port number; the internal SSH  port number will be set to 22
 
+* a new cloud service will be created in the Azure region specified by the location; specify a location such as "West US" in which the A8 and A9 instances are available
+
 * the image name currently can be `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` (free of charge) or `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` for SUSE priority support (charges will apply)
 
 ### Customize the VM
 
-After you provision the VM, SSH to the VM using the VM's external IP address and the external port number you configured, and customize it.
+After the VM completes provisioning, SSH to the VM using the VM's external IP address (or DNS name) and the external port number you configured, and customize it. For connection details, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md).
 
 >[AZURE.NOTE]Microsoft Azure does not provide root access to Linux VMs. To gain administrative access when connected as a user you can use `sudo –s`.
 
@@ -165,14 +167,16 @@ To capture the image, first run the following command in the Linux VM:
 $ sudo waagent -deprovision
 ```
 
-Then, from your client computer, run the following Azure CLI command:
+Then, from your client computer, run the following Azure CLI commands to capture the image. See [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-capture-image.md) for details.  
 
 ```
-azure vm capture -t <image-name> <instance-name>
+azure vm shutdown <vm-name>
+
+azure vm capture -t <vm-name> <image-name>
 
 ```
 
-See [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-capture-image.md) for details. After you run these commands, the VM image will be captured for your use and the VM will be deleted. Now you have your custom image ready to deploy a cluster.
+After you run these commands, the VM image will be captured for your use and the VM will be deleted. Now you have your custom image ready to deploy a cluster.
 
 ### Deploy a cluster with the image
 
@@ -191,7 +195,7 @@ azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
 
-azure service create <cloud-service-name> -l "West US" –s <subscription-ID>
+azure service create <cloud-service-name> --location "West US" –s <subscription-ID>
 
 ### Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
 
@@ -331,6 +335,6 @@ You should see output similar to the following on a working cluster with two nod
 
 ## Next steps
 
-* Try deploying and running your Linux MPI applications to your Linux cluster.
+* Try deploying and running your Linux MPI applications on your Linux cluster.
 
 * See the [Intel MPI Library documentation](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) for guidance on Intel MPI.
