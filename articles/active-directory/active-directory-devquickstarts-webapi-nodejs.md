@@ -19,6 +19,7 @@
 # Getting Started With WEB-API for Node
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 This walkthrough will give you  a quick and easy way to set up a REST API Service that is integrated with  Azure Active Directory for API protection using the OAuth2 protocol. The sample server included in the download are designed to run on any platform but target OSX and Linux.

@@ -20,6 +20,7 @@
 # Protect a Web API using Bearer tokens from Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 If you’re building an application that provides access to protected resources you will need to know how to protect those resources from unwarranted access.
