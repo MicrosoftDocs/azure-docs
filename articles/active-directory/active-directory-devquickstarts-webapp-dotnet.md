@@ -176,8 +176,5 @@ You can now move onto more advanced topics.  You may want to try:
 
 [Secure a Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-For additional resources, check out:
-- [AzureADSamples on GitHub >>](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >>](https://cloudidentity.com)
-- Azure AD documentation on [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  

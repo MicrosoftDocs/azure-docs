@@ -1177,4 +1177,6 @@ Simply clone down to your developer machine and configure as stated in the Walkt
 [ADAL for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL for .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
