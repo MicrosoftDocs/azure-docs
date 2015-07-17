@@ -16,7 +16,7 @@
 	ms.date="07/17/2015" 
 	ms.author="spelluru"/>
 
-# Tutorial: Create and monitor a data factory using Data Factory Editor
+# Tutorial: Create and monitor a data factory using Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
