@@ -57,6 +57,6 @@ For additional information on why use Azure Multi-Factor Authentication see the 
 
 **Additional Resources**
 
-* [What does Multi-Factor Authentication mean to me?](multi-factor-authentication-end-user.md)
 * [Setup multi-factor authentication for Office365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+* [What does Multi-Factor Authentication mean to me?](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 

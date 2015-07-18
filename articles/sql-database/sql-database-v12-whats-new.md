@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="MightyPen" 
 	manager="jeffreyg" 
-	editor="jeffreyg"/>
+	editor=""/>
 
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015" 
+	ms.date="07/17/2015" 
 	ms.author="genemi"/>
 
 
@@ -146,9 +146,9 @@ V12 was released in December 2014, but only at the status of [Preview](http://az
 V12 is available at Preview in the following regions:
 
 
-| Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA |
+| Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA, estimated |
 | :--- | :--- | :--- |
-| Australia East | **Preview** | Second quarter 2015, estimated |
-| Australia Southeast | **Preview** | Second quarter 2015, estimated |
+| Australia East | **Preview** | Third quarter of calendar 2015, estimated |
+| Australia Southeast | **Preview** | Third quarter of calendar 2015, estimated |
 
  

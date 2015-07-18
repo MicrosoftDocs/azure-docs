@@ -108,8 +108,8 @@ To learn about the business continuity features of other Azure SQL Database edit
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL Database business continuity overview]: sql-database/sql-database-business-continuity/,d
-[Finalize a recovered database]: sql-database/sql-database-recovered-finalize/
+[Azure SQL Database business continuity overview]: sql-database/sql-database-business-continuity.md
+[Finalize a recovered database]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx
