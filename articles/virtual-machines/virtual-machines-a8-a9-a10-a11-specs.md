@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/14/2015"
+ ms.date="07/17/2015"
  ms.author="danlep"/>
 
 # About the A8, A9, A10, and A11 Compute Intensive Instances
@@ -100,7 +100,7 @@ MPI | Intel MPI Library 5.0
 
 ### Access from Windows A8 and A9 instances
 
-Within a single cloud service or availability set, the A8 and A9 instances can access the RDMA network in Azure when running MPI applications that use the Microsoft Network Direct interface to communicate between instances. At this time Network Direct is only supported by Microsoft’s MS-MPI for Windows. The A10 and A11 instances do not include access to the RDMA network.
+Within a single cloud service or availability set, the A8 and A9 instances can access the RDMA network in Azure when running MPI applications that use the Microsoft Network Direct interface to communicate between instances. The A10 and A11 instances do not include access to the RDMA network.
 
 See the following table for prerequisites for MPI applications to access the RDMA network in virtual machine (IaaS) and cloud service (PaaS) deployments of the A8 or A9 instances. For typical deployment scenarios, see [A8 and A9 Compute Intensive Instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
 
@@ -108,7 +108,7 @@ See the following table for prerequisites for MPI applications to access the RDM
 Prerequisite | Virtual machines (IaaS) | Cloud services (PaaS)
 ---------- | ------------ | -------------
 Operating system | Windows Server 2012 R2 or Windows Server 2012 VMs | Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 Guest OS family
-MPI | MS-MPI 2012 R2 or later, either standalone or installed via HPC Pack 2012 R2 or later | MS-MPI 2012 R2 or later, installed via HPC Pack 2012 R2 or later
+MPI | MS-MPI 2012 R2 or later, either standalone or installed via HPC Pack 2012 R2 or later<br/><br/>Intel MPI Library 5.0 | MS-MPI 2012 R2 or later, installed via HPC Pack 2012 R2 or later<br/><br/>Intel MPI Library 5.0
 
 
 >[AZURE.NOTE]For IaaS scenarios, the [HpcVmDrivers extension](https://msdn.microsoft.com/library/azure/dn690126.aspx) must be added to the VMs to install Windows drivers needed for RDMA connectivity.
