@@ -22,7 +22,7 @@
 
 In this walkthrough, we demonstrate using the Advanced Analytics Process and Technology (ADAPT) end-to-end with an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. We use Azure Machine Learning to build a binary classification model on this data. We also show how to publish one of these models as a Web service.
 
-It is also possible to use an iPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
+It is also possible to use an IPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
 
 ## <a name="dataset"></a>Criteo Dataset Description
@@ -647,15 +647,15 @@ We see two links for webservices on the left side:
 
 Clicking on the link **REQUEST/RESPONSE** takes us to a page that gives us pre-canned code in C#, python, and R. This code can be conveniently used for making calls to the webservice. Note that the API key on this page needs to be used for authentication. 
 
-It is convenient to copy this python code over to a new cell in the iPython notebook. 
+It is convenient to copy this python code over to a new cell in the IPython notebook. 
 
 Below, we show a segment of python code with the correct API key.
 
 ![Python code](http://i.imgur.com/f8N4L4g.png)
 
-Note that we replaced the default API key with our webservices's API key. Clicking **Run** on this cell in an iPython notebook yields the following response:
+Note that we replaced the default API key with our webservices's API key. Clicking **Run** on this cell in an IPython notebook yields the following response:
 
-![iPython response](http://i.imgur.com/KSxmia2.png)
+![IPython response](http://i.imgur.com/KSxmia2.png)
 
 We see that for the two test examples we asked about (in the JSON framework of the python script), we get back answers in the form "Scored Labels, Scored Probabilities". Note that in this case, we chose the default values that the pre-canned code provides (0's for all numeric columns and the string "value" for all categorical columns).
 
