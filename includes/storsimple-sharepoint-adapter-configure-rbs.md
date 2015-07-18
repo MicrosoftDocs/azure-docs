@@ -21,7 +21,7 @@
 
 2. In the **Azure StorSimple** section, click **Configure StorSimple Adapter**.
 
-    ![Configure the StorSimple Adapter](./media/storsimple-sharepoint-adapter-configure-RBS/HCS_SSASP_ConfigRBS1-include.png) 
+    ![Configure the StorSimple Adapter](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
 
 3. On the **Configure StorSimple Adapter** page:
 
@@ -35,15 +35,15 @@
 
           >[AZURE.NOTE] The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint server farm must have access to the share.
 
-          ![Enable the RBS provider](./media/storsimple-sharepoint-adapter-configure-RBS/HCS_SSASP_ConfigRBS2-include.png)
+          ![Enable the RBS provider](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
 
            When you enable or disable RBS, you will also see the following message.
 
-          ![Configure StorSimple Adapter Enable Disable](./media/storsimple-sharepoint-adapter-configure-RBS/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
+          ![Configure StorSimple Adapter Enable Disable](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
     4. Click the **Update** button to apply the configuration. When you click the Update button, the RBS configuration status will be updated on all WFE servers, and the entire farm will be RBS-enabled. The following message appears.
 
-           ![Adapter configuration message](./media/storsimple-sharepoint-adapter-configure-RBS/HCS_SSASP_ConfigRBS3-include.png)
+           ![Adapter configuration message](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
 
            >[AZURE.NOTE] If you are configuring RBS for a SharePoint farm with a very large number of databases (greater than 200), the SharePoint Central Administration web page might time out. If that occurs, refresh the page. This does not affect the configuration process.
  
