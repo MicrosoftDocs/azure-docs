@@ -1,6 +1,6 @@
-You can create table containers by using Visual Studio **Server Explorer**.
+You can create Azure storage table by using Visual Studio **Server Explorer**.
 
-![Server Explorer Blobs][Image1]
+![Server Explorer Tables][Image1]
 
 1. On the **View** menu, choose **Server Explorer**.
 2. In Server Explorer, expand the **Azure** node for your subscription, expand the **Storage** node and the node for the storage account you specified in the Azure Storage connected service.

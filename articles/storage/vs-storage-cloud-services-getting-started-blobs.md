@@ -80,8 +80,8 @@ You can also use the **CloudBlobClient** to create a container in your storage a
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Get a reference to a container named “my-new-container.”
-    CloudBlobContainer container = blobClient.GetContainerReference("my-new-container");
+    // Get a reference to a container named “mNewContainer.”
+    CloudBlobContainer container = blobClient.GetContainerReference("mNewContainer");
 
     // If “mycontainer” doesn’t exist, create it.
     await container.CreateIfNotExistsAsync();    
