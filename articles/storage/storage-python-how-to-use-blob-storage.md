@@ -78,8 +78,8 @@ The following example uploads the contents of the **sunset.png** file into the *
 
 ## How to: List the Blobs in a Container
 
-To list the blobs in a container, use the **list\_blobs** method with a **for**
-loop to display the name of each blob in the container. The
+To list the blobs in a container, use the **list\_blobs** method with a
+**for** loop to display the name of each blob in the container. The
 following code outputs the **name** and **url** of each blob in a container to the
 console.
 
@@ -88,7 +88,8 @@ console.
 		print(blob.name)
 		print(blob.url)
 
-**list\_blobs** will only return a maximum of 5000 blobs.  If the container contains more than 5000 blobs use the following code.
+**list\_blobs** will only return a maximum of 5000 blobs.  If the container
+contains more than 5000 blobs use the following code.
 
 	blobs = []
 	marker = None
