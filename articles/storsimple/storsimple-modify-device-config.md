@@ -95,7 +95,7 @@ For each network interface, the following parameters are displayed:
     - **Cloud enabled** – when enabled, the device will use this interface to communicate with the cloud.
     - **iSCSI enabled** – when enabled, the device will use this interface to communicate with the iSCSI host.
 
-    We recommend that you isolate iSCSI traffic from cloud storage traffic. Also note if your host is within the same subnet as your device, you do not need to assign a gateway; however if your host is in a different subnet than your device, you will need to assign a gateway.
+    We recommend that you isolate iSCSI traffic from cloud storage traffic. Also note if your host is within the same subnet as your device, you do not need to assign a gateway; however, if your host is in a different subnet than your device, you will need to assign a gateway.
 
 - **IP address** – This can be IPv4 or IPv6 or both. Both the IPv4 and IPv6 address families are supported for the device network interfaces. When using IPv4, specify a 32-bit IP address (*xxx.xxx.xxx.xxx*) in dot-decimal notation. When using IPv6, simply supply a 4-digit prefix, and a 128-bit address will be generated automatically for your device network interface based on that prefix.
 
