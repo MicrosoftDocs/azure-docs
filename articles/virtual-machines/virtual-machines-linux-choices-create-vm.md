@@ -100,3 +100,4 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
 [Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
+[Create a Custom Virtual Machine]: virtual-machines-linux-create-custom.md
