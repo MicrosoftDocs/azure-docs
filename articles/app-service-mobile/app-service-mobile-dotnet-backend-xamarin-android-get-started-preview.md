@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/01/2015"
+	ms.date="07/20/2015"
 	ms.author="chrande"/>
 
 # <a name="getting-started"> </a>Create a Xamarin Android App
