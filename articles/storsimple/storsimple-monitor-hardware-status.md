@@ -18,7 +18,7 @@
 # Maintenance
 
 ##Overview
-This article describes how to use the Maintenance page in the StorSimple Manager service to monitor the hardware status of your device components. After reading this article, you will learn about the hardware components of your StorSimple device and how to use the Hardware Status section, located on the Maintenance page menu, to view their status. For detailed information on the various components of your device, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/en-us/library/azure/dn757736.aspx) guide.
+This article describes how to use the Maintenance page in the StorSimple Manager service to monitor the hardware status of your device components. After reading this article, you will learn about the hardware components of your StorSimple device and how to use the Hardware Status section, located on the Maintenance page menu, to view their status. For detailed information on the various components of your device, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx) guide.
 
 Under the list of components for 8100, there are three sections that are collapsed by default. To expand these, simply click the arrow preceding the label for each section. These sections describe:
 
