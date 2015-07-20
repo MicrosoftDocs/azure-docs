@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/17/2015"
+   ms.date="07/20/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Use the StorSimple Manager service to modify your StorSimple device configuration
@@ -30,7 +30,7 @@ The Management Portal **Configure** page contains all the device parameters that
 
 ## Modify device settings
 
-The device settings include the friendly name of the device and its description.
+The device settings include the friendly name of the device and the device description.
 
 A StorSimple device that is connected to the StorSimple Manager service is assigned a default name. The default name typically reflects the serial number of the device. For example, a default device name that is 15 characters long, such as 8600-SHX0991003G44HT, indicates the following:
 
@@ -59,7 +59,7 @@ If the device is deployed in a different time zone, the device time zone will ch
 
 ## Modify DNS settings
 
-A DNS server is used when your device attempts to communicate with your cloud storage service provider. For high availability, you are required to configure both the primary and the secondary DNS servers during the initial device deployment. To reconfigure the primary DNS server, you will need to use the Windows PowerShell interface of your StorSimple device.
+A DNS server is used when your device attempts to communicate with your cloud storage service provider. For high availability, you are required to configure both the primary and the secondary DNS servers during the initial device deployment. To reconfigure the primary DNS server, you will need to use the Windows PowerShell interface on your StorSimple device.
 
 To modify the secondary DNS server, you can use the Management Portal.
 
@@ -97,8 +97,8 @@ For each network interface, the following parameters are displayed:
 
     We recommend that you isolate iSCSI traffic from cloud storage traffic. Also note:
 
-    - If your host is within the same subnet as your device, you do not need to assign a gateway.
-    - If your host is in a different subnet than your device, you will need to assign a gateway.
+       - If your host is within the same subnet as your device, you do not need to assign a gateway.
+       - If your host is in a different subnet than your device, you will need to assign a gateway.
 
 - **IP address** – This can be IPv4 or IPv6 or both. Both the IPv4 and IPv6 address families are supported for the device network interfaces. When using IPv4, specify a 32-bit IP address (*xxx.xxx.xxx.xxx*) in dot-decimal notation. When using IPv6, simply supply a 4-digit prefix, and a 128-bit address will be generated automatically for your device network interface based on that prefix.
 
@@ -114,7 +114,7 @@ You can reconfigure Controller 0 and Controller 1 through the Management Portal.
 >
 >- To ensure proper operation, verify the interface speed and duplex on the switch that each device interface is connected to. Switch interfaces should either negotiate with or be configured for Gigabit Ethernet (1000 Mbps) and be full-duplex. Interfaces operating at slower speeds or in half-duplex will result in performance issues.
 >
->- We recommend that you enable portfast on each of the switch ports that the iSCSI network interface of your device will be connecting to. This will ensure that network connectivity can be established quickly in the event of a failover, which will minimize disruptions and downtime.
+>- To minimize disruptions and downtime, we recommend that you enable portfast on each of the switch ports that the iSCSI network interface of your device will be connecting to. This will ensure that network connectivity can be established quickly in the event of a failover.
  
 ## Swap or reassign IPs
 
