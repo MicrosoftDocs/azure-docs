@@ -410,6 +410,7 @@ Now that you've learned the basics of table storage, follow these links to learn
 
 -	[How to use Blob Storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[How to use Queue Storage from C++](storage-c-plus-plus-how-to-use-queues.md)
+-	[List Azure Storage Resources with the Microsoft Azure Storage Client Library for C++](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Azure Storage MSDN Reference](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)

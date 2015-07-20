@@ -82,7 +82,9 @@ For example, a typical call to list all blobs in a container may look like the f
 
 Note that the number of results returned in a page can be controlled by the parameter *max_results* in the overload of each API, for example:
 	
-		list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, blob_listing_details::values includes, int max_results, const continuation_token& token, const blob_request_options& options, operation_context context)
+	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
+		blob_listing_details::values includes, int max_results, const continuation_token& token, 
+		const blob_request_options& options, operation_context context)
 
 If you do not specify the *max_results* parameter, the default maximum value of up to 5000 results is returned in a single page.
 
