@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to Automate with Azure Resource Manager" 
-	description="Get links to topics on how to automate virutal machines with Azure Resource Manager." 
+	pageTitle="How to automate with Azure Resource Manager" 
+	description="Get links to topics on how to automate the creation and management of Azure virtual machines with Resource Manager." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -13,15 +13,15 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.topic="index-page" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
-# How to Automate with Azure Resource Manager
+# How to automate with Azure Resource Manager
 
-The Azure Resource Manager simplifies the deployment and management of complex applications running on Azure infrastructure services. Many applications require a combination of compute, network, and storage resources, such as virtual network, storage account, and virtual machines with network interfaces. The Azure Resource Manager allows you to use or construct a JSON template to deploy and manage all these resources together as a single application.
+Azure Resource Manager simplifies the deployment and management of complex applications running on Azure infrastructure services. Many applications require a combination of compute, network, and storage resources, such as virtual network, storage account, and virtual machines with network interfaces. The Azure Resource Manager allows you to use or construct a JSON template to deploy and manage all these resources together as a single application.
 
-## Start Here
+## Start here
 
 [Overview of Azure Resource Manager](../resource-group-overview.md)
 
@@ -33,7 +33,7 @@ The Azure Resource Manager simplifies the deployment and management of complex a
 
 [Deploy and manage using Resource Manager and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-## General Resources
+## General resources
 
 [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/)
 
@@ -66,7 +66,7 @@ The Azure Resource Manager simplifies the deployment and management of complex a
 
 
 
-## Additional Resources
+## Additional resources
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -63,7 +63,7 @@ Once the data has been converted to CSV format, we need to upload it into Machin
 2.	Click **+NEW** at the bottom of the window.
 3.	Select **DATASET**.
 4.	Select **FROM LOCAL FILE**.
-5.	In the **Upload a new dataset dialog** area, click **Browse** and find the **german.csv** file you created.
+5.	In the **Upload a new dataset** dialog, click **Browse** and find the **german.csv** file you created.
 6.	Enter a name for the dataset. For this example, we'll call it "UCI German Credit Card Data".
 7.	For data type, select **Generic CSV File With no header (.nh.csv)**.
 8.	Add a description if you’d like.
