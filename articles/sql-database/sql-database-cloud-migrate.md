@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/15/2015"
+   ms.date="07/15/2015"
    ms.author="pehteh"/>
 
 # Overview
@@ -77,6 +77,3 @@ You must use the lastest SQL Server database tooling for Visual Studio for Azure
 | Application validation occurs in Azure. Should be minimal as schema is migrated without change. | Application validation occurs in Azure after migration. Generated script could also be installed on-premises for initial application validation. | Application validation can be done in SQL Server before the database is deployed to Azure. |
 | Microsoft supported tool. | Community supported tool downloaded from CodePlex. | Microsoft supported tools with optional use of community supported tool downloaded from CodePlex. |
 | Simple easily configured one- or two-step process. | Schema transformation and generation and deployment to the cloud are orchestrated from a single easy to use wizard. | More complex multi-step process (simpler if only deploying schema). |
-
-
- 
