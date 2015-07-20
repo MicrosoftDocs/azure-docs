@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Media Encoder Standard formats and codecs" 
+	pageTitle="Media Encoder Standard formats and codecs" 
 	description="This topic gives an overview of Azure Media Encoder Standard formats and codecs." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,10 +16,10 @@
 	ms.date="07/08/2015" 
 	ms.author="juliako"/>
 
-#Azure Media Encoder Standard Formats and Codecs
+#Media Encoder Standard Formats and Codecs
 
 
-This document contains a list of the most common import and export file formats that you can use with Azure Media Encoder Standard.
+This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
 
 
 [Media Encoder Import Formats ](#import_formats)

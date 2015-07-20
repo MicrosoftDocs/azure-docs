@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Best Practices for Handling State in Azure Resource Manager Templates"
 	description="Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates"
-	services="virtual-machines"
+	services="azure-resource-manager"
 	documentationCenter=""
 	authors="mmercuri"
 	manager="georgem"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="07/15/2015"
 	ms.author="mmercuri"/>
 
-# Best Practices for Handling State in Azure Resource Manager Templates
+# Sharing state in Azure Resource Manager templates
 
 This topic describes how to manage and share state within an Azure Resource Manager template and across linked templates.
 
@@ -396,7 +396,7 @@ Within the main template, you can use that data with the following syntax:
         "value": "[reference('master-node').outputs.masterip.value]"
     }
 
-## Next Steps
+## Next steps
 - [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
 - [Azure Resource Manager Template Functions](resource-group-template-functions.md)
 
