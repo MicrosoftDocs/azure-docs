@@ -12,10 +12,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/15/2015" 
+    ms.date="07/19/2015" 
     ms.author="zhimingyuan;tamram"/>
 
-# List Azure Storage Resources with the Microsoft Azure Storage Client Library for C++
+# List Azure Storage Resources in C++
 
 Listing operations are key to many development scenarios with Azure Storage. This article describes how to most efficiently enumerate objects in Azure Storage using the listing APIs provided in the Microsoft Azure Storage Client Library for C++.
 
