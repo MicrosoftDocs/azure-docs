@@ -43,6 +43,8 @@ Three components are required in order to deploy an application as a cloud servi
 - **Service Package**<br/>
   The service package (.cspkg) contains the application code and configurations and the service definition file.
 
+You can learn more about these and how to create a package [here](cloud-services-model-and-package.md).
+
 ## Prepare your app
 Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). The Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Azure Downloads](http://azure.microsoft.com/downloads/) page, in the language in which you prefer to develop your application code.
 
