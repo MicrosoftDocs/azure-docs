@@ -3,8 +3,8 @@
     description="Learn how to use the listing APIs in Microsoft Azure Storage Client Library for C++ to enumerate containers, blobs, queues, tables, and entities." 
     documentationCenter=".net" 
     services="storage"
-    authors="zhimingyuan" 
-    manager="mingqxu" 
+    authors="tamram" 
+    manager="carolz" 
     editor=""/>
 <tags 
     ms.service="storage" 
