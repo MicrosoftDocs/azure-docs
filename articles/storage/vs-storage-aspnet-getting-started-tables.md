@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/17/2015" 
 	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (ASP.NET Projects)
@@ -27,10 +27,21 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md/#create-table "How to use Table Storage from .NET") for more information. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
+## Overview
+This article describes how get started using Azure table storage in Visual Studio after you have created or referenced an Azure storage account in an Azure Cloud Service by using the  Visual Studio **Add Connected Services** dialog. For more general information about using Azure table storage, see [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md).
 
-This article will show you how to perform common scenarios using the Azure Table Storage Service. The samples are written in C\# code and use the Azure Storage Client Library for .NET. The scenarios covered include **creating and
+
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data. 
+
+
+This article shows you how to perform common tasks in Azure tables. The samples are written in C\# code and use the Azure Storage Client Library for .NET. The scenarios covered include **creating and
 deleting a table**, as well as **working with table entities**.
+
+##Create Azure storage tables in Visual Studio Server Explorer
+
+[AZURE.INCLUDE [vs-create-table-in-server-explorer](../../includes/vs-create-table-in-server-explorer.md)]
+
+##Access tables in code 
 
 ## Programmatically access Table storage
 
