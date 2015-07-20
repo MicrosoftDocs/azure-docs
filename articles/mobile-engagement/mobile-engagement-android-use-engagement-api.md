@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
