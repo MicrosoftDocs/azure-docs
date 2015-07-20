@@ -40,9 +40,9 @@ Yes. You can use a VNet without using site-to-site connectivity. This is particu
 
 You can use the following tools to create or configure a virtual network:
 
-- You can use the Management Portal. See [How to manage Virtual Network (VNet) Properties](./virtual-networks-settings).
+- You can use the Management Portal. See [How to manage Virtual Network (VNet) Properties](virtual-networks-settings.md).
 
-- You can use a network configuration file (netcfg). See [Configure a virtual network using a network configuration file](./virtual-networks-using-network-configuration-file).
+- You can use a network configuration file (netcfg). See [Configure a virtual network using a network configuration file](virtual-networks-using-network-configuration-file.md).
 
 ### What address ranges can I use in my VNets?
 
