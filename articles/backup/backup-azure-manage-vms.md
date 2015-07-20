@@ -4,8 +4,8 @@
 	description="Learn how to manage an Azure virtual machine"
 	services="backup"
 	documentationCenter=""
-	authors="jimpark"
-	manager="jwhit"
+	authors="aashishr"
+	manager="shreeshd"
 	editor=""/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
-	ms.author="jimpark"/>
+	ms.date="07/17/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 # Manage virtual machines
 
@@ -95,7 +95,7 @@ To Stop protection for a virtual machine:
 
     ![Stop protection](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    If you have not selected **Delete associated backup data** option during **Stop Protection** wizard, then post job completion, protection status changes to **Protection Stopped**. The data remains with Azure Backup until it is explicitly deleted. You can always delete the data by selecting the virtual machine in the **Protected Items** page and clicking **Delete**. 
+    If you have not selected **Delete associated backup data** option during **Stop Protection** wizard, then post job completion, protection status changes to **Protection Stopped**. The data remains with Azure Backup until it is explicitly deleted. You can always delete the data by selecting the virtual machine in the **Protected Items** page and clicking **Delete**.
 
     ![Stopped protection](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
@@ -158,4 +158,3 @@ To delete backup data on a virtual machine, which is in the “Protection Stoppe
 On the **Dashboard** page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors.
 
   ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
- 

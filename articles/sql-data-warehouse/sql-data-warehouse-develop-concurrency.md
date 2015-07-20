@@ -19,7 +19,7 @@
 # Concurrency and workload management in SQL Data Warehouse
 To deliver predictable performance at scale SQL Data Warehouse implements mechanisms for managing both workload concurrency and computational resource assignment.
 
-This article introduces you to the concepts of concurrency and workload management; explaining the how both features have been implemented and how you can control them in your data warehouse.
+This article introduces you to the concepts of concurrency and workload management; explaining how both features have been implemented and how you can control them in your data warehouse.
 
 ## Concurrency
 It is important to understand that concurrency in SQL Data Warehouse is governed by two concepts; **concurrent queries** and **concurrency slots**. 
