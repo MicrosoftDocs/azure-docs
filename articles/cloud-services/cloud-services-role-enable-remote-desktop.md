@@ -97,7 +97,7 @@ You can use the following steps to retrieve the RDP file from the Management Por
 4.  Browse to the location where you saved the RDP file, select the file, click **Open**, and then click **Connect**. Follow the instructions to complete the connection.
 
 ### Use PowerShell to get the RDP file
-You can use the [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/en-us/library/azure/dn495261.aspx) cmdlet to retrieve the RDP file. 
+You can use the [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet to retrieve the RDP file. 
 
 ### Use Visual Studio to download the RDP file
 In Visual Studio, you can use the Server Explorer to create a remote desktop connection.
