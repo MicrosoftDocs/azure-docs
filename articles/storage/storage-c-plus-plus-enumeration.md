@@ -3,8 +3,8 @@
     description="Learn how to use the listing APIs in Microsoft Azure Storage Client Library for C++ to enumerate containers, blobs, queues, tables, and entities." 
     documentationCenter=".net" 
     services="storage"
-    authors="zhimingyuan" 
-    manager="adinah" 
+    authors="tamram" 
+    manager="carolz" 
     editor=""/>
 <tags 
     ms.service="storage" 
@@ -12,10 +12,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/15/2015" 
+    ms.date="07/19/2015" 
     ms.author="zhimingyuan;tamram"/>
 
-# List Azure Storage Resources with the Microsoft Azure Storage Client Library for C++
+# List Azure Storage Resources in C++
 
 Listing operations are key to many development scenarios with Azure Storage. This article describes how to most efficiently enumerate objects in Azure Storage using the listing APIs provided in the Microsoft Azure Storage Client Library for C++.
 
@@ -82,7 +82,9 @@ For example, a typical call to list all blobs in a container may look like the f
 
 Note that the number of results returned in a page can be controlled by the parameter *max_results* in the overload of each API, for example:
 	
-		list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, blob_listing_details::values includes, int max_results, const continuation_token& token, const blob_request_options& options, operation_context context)
+	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
+		blob_listing_details::values includes, int max_results, const continuation_token& token, 
+		const blob_request_options& options, operation_context context)
 
 If you do not specify the *max_results* parameter, the default maximum value of up to 5000 results is returned in a single page.
 
