@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -36,7 +36,7 @@ Here are some common scenarios that you might run into with your Spark cluster, 
 Apache Spark cluster in HDInsight is designed for multi-tenancy, so resources are split across multiple components (notebooks, job server, etc). This allows you to use all Spark components concurrently without worrying about any component not able to get resources to run, but each component will be slower since resources are fragmented.  This can be adjusted based on your needs. 
 
 
-### I only use IPython with the Spark cluster. How can I allocate all resources to it?
+### I only use the Jupyter notebook with the Spark cluster. How can I allocate all resources to it?
 
 1. From the **Spark Dashboard**, click the **Spark UI** tab to find out the maximum number of cores and the maximum RAM that you can allocate to the applications.
 
