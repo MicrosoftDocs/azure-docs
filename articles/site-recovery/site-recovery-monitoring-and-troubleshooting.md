@@ -22,7 +22,7 @@ This Monitoring and Troubleshooting Guide enables you to learn tracking the repl
 
 ## Understanding the components
 
-### VMware/Physical Site Deployment for replication between on-premises & Azure.
+### VMware/Physical Site Deployment for replication between on-premises and Azure.
 To setup DR between on-premises VMware/Physical machine; Configuration Server, Master Target and Process Server needs to configured. While enabling protection for the source server Azure Site Recovery will install Mobility service. Post on-premises outage once the source server fails-over to Azure, customers needs to setup a Process Server in Azure and a Master Target server on-premises to protect the source server back to rebuilt on-premises. 
 
 ![VMware/Physical Site Deployment for replication between on-premises & Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
@@ -160,7 +160,7 @@ disabling the log, and then save the log and re-open it in Event Viewer
 or use other tools to convert it as desired.
 
 
-## Understanding the Hyper-V virtual machine protection & recovery life cycle
+## Understanding the Hyper-V virtual machine protection and recovery life cycle
 
 ![Understanding the Hyper-V virtual machine protection & recovery life cycle](media/site-recovery-monitoring-and-troubleshooting/image17.png)
 
