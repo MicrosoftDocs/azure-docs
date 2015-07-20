@@ -62,7 +62,7 @@ Be sure to use the latest version of the [SQL Azure Migration Wizard](http://sql
 ### SQL Server tooling in Visual Studio (VS, SSDT)
 The SQL Server tooling in Visual Studio can be used to create and manage a database project comprising a set of Tranact-SQL files for each object in the schema. The project can be imported from a database or from a script file. Once created, the project can be to Azure SQL Database v12; building the project then validates schema compatibility. Clicking on an error opens the corresponding Transact-SQL file allowing it to be edited and the error corrected. Once all the errors are fixed the project can be published, either directly to SQL Database to create an empty database or back to (a copy of) the original SQL Server database to update its schema, which allows the database to be deployed with its data using SSMS as above. 
 
-Use the [lastest SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/en-us/library/mt204009.aspx) with Visual Studio 2013 Update 4 or later.
+Use the [lastest SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) with Visual Studio 2013 Update 4 or later.
 
 ## Comparisons
 | Option #1 | Option #2 | Option #3 |
