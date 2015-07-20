@@ -16,10 +16,6 @@
    ms.author="joaoma" />
 
 # How to create a load balancer using Azure Resource Manager
-> [AZURE.SELECTOR]
-- [Classic portal- Azure Service Manager](load-balancer-internet-getstarted.md#setting-up-a-internet-facing-load-balancer-for-virtual-machines)
-- [PowerShell - Service Management](load-balancer-internet-getstarted.md#setting-up-load-balancer-using-powershell)- [PowerShell - Resource Manager](load-balancer-arm-powershell.md)
-
 
 The steps below will show how to create a load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create a load balancer are configured individually and then put together to create a resource. 
 
