@@ -1,17 +1,17 @@
 <properties 
-   pageTitle="View and manage StorSimple jobs"
+   pageTitle="View and manage StorSimple jobs | Microsoft Azure"
    description="Describes the StorSimple Manager service Jobs page and how to use it."
    services="storsimple"
-   documentationCenter=""
+   documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang=""
+   ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
    ms.date="07/20/2015"
    ms.author="alkohli" />
 
