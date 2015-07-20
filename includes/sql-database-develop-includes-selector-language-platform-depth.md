@@ -12,4 +12,5 @@
 - [(Python | Linux. Starter)](sql-database-develop-python-simple-ubuntu-linux.md)
 - [(Python | Windows. Starter)](sql-database-develop-python-simple-windows.md)
 - [(Python | Mac. Starter)](sql-database-develop-python-simple-mac-osx.md)
+- [(Ruby | Linux. Starter)](sql-database-develop-ruby-simple-linux.md)
 

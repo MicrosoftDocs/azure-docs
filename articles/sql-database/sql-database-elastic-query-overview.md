@@ -35,12 +35,14 @@ An elastic database query also allows easy access to an entire collection of dat
 
 The data tier is scaled out across many databases using a common schema. This approach is also known as horizontal partitioning or sharding. The partitioning can be performed and managed using (1) the [Elastic Database client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) or (2) using an application-specific model for distributing data across multiple databases. With this topology, reports often have to span multiple databases. With an elastic database query, you can now connect to a single SQL database, and query results from the remote databases appear as if generated from a single virtual database.
 
+> [AZURE.NOTE] Elastic database query works best for occasional reporting scenarios where most of the processing can be performed on the data tier. For heavy reporting workloads or data warehousing scenarios with more complex queries, also consider using [Azure SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+
 
 ## Elastic Database query topology
 
 Using an elastic database query to perform reporting tasks over a horizontally partitioned data tier requires an elastic scale shard map to represent the databases of the data tier. Typically, only a single shard map is used in this scenario and a dedicated database with elastic database query capabilities serves as the entry point for reporting queries. Only this dedicated database needs to be configured with elastic database query objects, as described below. Figure 2 illustrates this topology and its configuration with the elastic database query database and shard map.
 
-**Note** The dedicated elastic database query database must be a SQL DB v12 database and initially only the Premium tier is supported. There are no restrictions on the shards themselves.
+> [AZURE.NOTE] The dedicated elastic database query database must be a SQL DB v12 database and initially only the Premium tier is supported. There are no restrictions on the shards themselves.
 
 **Figure 2**
 
