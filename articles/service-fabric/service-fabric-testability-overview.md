@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="7/13/2015"
+   ms.date="07/13/2015"
    ms.author="rsinha"/>
 
 # Testability overview
