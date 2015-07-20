@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/15/2015"
+   ms.date="07/18/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with the Azure SQL Database Library for .NET
@@ -28,7 +28,6 @@ This article provides commands to perform many Azure SQL Database management tas
 
 The Azure SQL Database Library for .NET provides an [Azure Resource Management](resource-group-overview.md)(ARM)-based API that wraps the [ARM-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for ARM-based client libraries. 
 
-Creating or updating resources is achieved using calls to CreateOrUpdate operations on the API which each wrap a PUT request on the underlying REST API. PUT requests are idempotent, so making the same call multiple times will produce the same result. Each call requires you format and pass in a set of parameters including the properties defined on the underlying Azure resource. When updating an existing resource all properties must be given an explicit value or the default value will be used regardless of the current values of the properties.
 
 ARM requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD), so code examples are provided for this as well.
 
@@ -68,7 +67,7 @@ Scroll the menu on the left side to locate the **Active Directory** service and 
 
 An easy way to identify the proper domain name is to:
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Go to the [Azure preview portal](https://portal.azure.com).
 2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.
 
     ![Identify domain name][3]
