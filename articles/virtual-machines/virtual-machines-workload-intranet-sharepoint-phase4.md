@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SharePoint Intranet Farm Workload Phase 4: Configure SharePoint Servers"
-	description="In this phase of deploying an intranet SharePoint 2013 farm with AlwaysOn Availability Groups in Azure infrastructure services, you create virtual machines and a farm."
+	description="In this fourth phase of deploying an intranet-only SharePoint 2013 farm, you create the SharePoint server virtual machines and a new SharePoint farm."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -108,8 +108,8 @@ Use these steps to configure the first SharePoint server in the farm:
 3.	A **SharePoint Products Configuration Wizard** dialog appears, warning that services (such as IIS) will be restarted or reset. Click **Yes**.
 4.	On the **Connect to a server farm** page, select **Create a new server farm**, and then click **Next**.
 5.	On the **Specify Configuration Database Settings** page:
- - In **Database server**, type the name of the primary SQL server.
- - In **Username**, type [Domain]**\sp_farm_db** (created in [Phase 2: Configure domain controllers](virtual-machines-workload-intranet-sharepoint-phase2.md)). Recall that the sp_farm_db account has sysadmin privileges on the SQL server.
+ - In **Database server**, type the name of the primary database server.
+ - In **Username**, type [Domain]**\sp_farm_db** (created in [Phase 2: Configure domain controllers](virtual-machines-workload-intranet-sharepoint-phase2.md)). Recall that the sp_farm_db account has sysadmin privileges on the database server.
  - In **Password**, type the sp_farm_db account password.
 6.	Click **Next**.
 7.	On the **Specify Farm Security Settings** page, type a passphrase twice. Record the passphrase and store it in a secure location for future reference. Click **Next**.
@@ -125,7 +125,7 @@ Perform the following procedure on the second SharePoint application server and 
 2.	On the **Welcome to SharePoint Products** page, click **Next**.
 3.	A **SharePoint Products Configuration Wizard** dialog appears, warning that services (such as IIS) will be restarted or reset. Click **Yes**.
 4.	On the **Connect to a server farm** page, click **Connect to an existing server farm**, and then click **Next**.
-5.	On the **Specify Configuration Database Settings** page, type the name of the primary SQL server in **Database server**, and then click **Retrieve Database Names**.
+5.	On the **Specify Configuration Database Settings** page, type the name of the primary database server in **Database server**, and then click **Retrieve Database Names**.
 6.	Click **SharePoint_Config** in the database name list, and then click **Next**.
 7.	On the **Specify Farm Security Settings** page, type the passphrase from the previous procedure. Click **Next**.
 8.	The **Completing the SharePoint Products Configuration Wizard** page appears. Click **Next**.
@@ -133,7 +133,7 @@ Perform the following procedure on the second SharePoint application server and 
 
 When SharePoint creates the farm, it configures a set of server logins on the primary SQL Server virtual machine. SQL Server 2012 introduces the concept of users with passwords for contained databases. The database itself stores all the database metadata and user information, and a user who is defined in this database does not need to have a corresponding login. The information in this database is replicated by the availability group and is available after a failover. For more information, see [Contained databases](http://go.microsoft.com/fwlink/p/?LinkId=262794).
 
-However, by default, SharePoint databases are not contained databases. Therefore, you will need to manually configure the secondary SQL server so that it has the same set of logins for SharePoint farm accounts as the primary SQL server. You can perform this synchronization from SQL Server Management Studio by connecting to both servers at the same time.
+However, by default, SharePoint databases are not contained databases. Therefore, you will need to manually configure the secondary database server so that it has the same set of logins for SharePoint farm accounts as the primary database server. You can perform this synchronization from SQL Server Management Studio by connecting to both servers at the same time.
 
 After you finish this initial setup, more configuration options for the capabilities of the SharePoint farm are available. For more information, see [Planning for SharePoint 2013 on Azure infrastructure services](http://msdn.microsoft.com/library/dn275958.aspx).
 
