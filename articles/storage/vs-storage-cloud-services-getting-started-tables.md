@@ -55,7 +55,7 @@ To access tables in cloud servic projects, you need to include the following ite
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
-		using Microsoft.WindowsAzure.Storage.Blob;
+		using Microsoft.WindowsAzure.Storage.Table;
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
@@ -213,6 +213,12 @@ You can delete an entity after you find it. The following code looks for a custo
 	
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
+
+##Next steps
+
+[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+
+
 
 [Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx) and [ASP.NET 5](http://www.asp.net/vnext).

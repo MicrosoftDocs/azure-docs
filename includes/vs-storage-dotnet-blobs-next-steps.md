@@ -7,7 +7,7 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 - View more feature guides to learn about additional options for storing data in Azure.
 <ul> 
  <ul>
-    <li>Use <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-storage-aspnet5-getting-started-blobs/">Table Storage</a> to store structured data.</li>
+    <li>Use <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-storage-aspnet5-getting-started-tables/">Table Storage</a> to store structured data.</li>
     <li>Use <a href="https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store unstructured data.</li>
     <li>Use <a href="https://azure.microsoft.com/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
   </ul>
