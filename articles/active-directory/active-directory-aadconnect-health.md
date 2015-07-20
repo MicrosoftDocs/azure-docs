@@ -30,7 +30,7 @@ This information is all presented in the Azure AD Connect Health portal.  Using 
 Future updates to Azure AD Connect Health will include additional monitoring and insight into other identity components and services such as Azure AD Connect Sync services. Thus providing you a single dash board through the lens of identity, enabling you to have an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.
 
 
-![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)
+<center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)</center>
 
 
 
@@ -51,24 +51,22 @@ The following video will provide an overview of Azure AD Connect Health:
 [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 
-## Using Azure Active Directory Connect Health for the first time from the Azure Portal
-To get started with Azure Active Directory Connect Health, follow the steps below. Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers. To download the Azure AD Connect Health Agent, from the first blade, select Quick Start and Get Tools. You can also download the agent directly using the link below.  To use Azure Active Directory Connect Health do the following:
+## Azure AD Connect Health Overview
 
-1. Sign in to the [Microsoft Azure portal.](https://portal.azure.com/)
-2. Azure Active Directory Connect Health can be access by going to Marketplace and searching for it or by selecting Marketplace, and selecting Security + Identity.
-3. On the introductory blade (A blade is one piece of the overall view. You can think of a blade as a window or fly out), click Create. This will open another blade with your directory information.
-4. On directory blade, click Create. If you do not have an Azure Active Directory Premium License you will need one to use Azure AD Connect Health. For information on Azure AD Premium see Getting started with Azure AD Premium.
-
-
-
-
-
-
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal1.png)
+Feature|Description
+:------------- | :------------- | 
+[Portal](#the-azure-active-directory-connect-health-portal)|  Allows you to view alerts, performance monitoring, and usage analytics.|
+[Services](#azure-active-directory-connect-health-services)|
+[Alerts](#azure-active-directory-connect-health-alerts)|
+[Performance Monitoring](#azure-active-directory-connect-health-performance-monitoring)|
+[Usage Analytics and Reports](#azure-active-directory-connect-health-usage-analytics-and-reports)|
 
 
 
-## The Azure Active Directory Connect Health Portal
+
+
+
+### The Azure Active Directory Connect Health Portal
 The Azure AD Connect Health portal allows you to view alerts, performance monitoring, and usage analytics. Upon first accessing Azure AD Connect Health you will be presented with the first blade. A blade is one piece of the overall view. You can think of a blade as a window. The first blade you see shows Quick Start, Services and Configure. Below the screenshot is a brief explanation of each of these.
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal2.png)
@@ -83,32 +81,21 @@ The Azure AD Connect Health portal allows you to view alerts, performance monito
 
 
 
-## Azure Active Directory Connect Health Services
+### Azure Active Directory Connect Health Services
 This section represents the active services and instances of those services that Azure AD Connect Health is monitoring. By clicking the ellipses, a blade will open up that will show all of the instances.
 
 ![Azure AD Connect Health Services](./media/active-directory-aadconnect-health/portal3.png)
 
 By selecting one of the instances, Azure AD Connect Health will open a blade with information about that services instance. Here you will find a wealth of information about your instance. This information includes an overview, properties, alerts, monitoring, and usage analytics. For information on these, see the links to the subsequent sections at the top of this page.
 
-
-
-----------------------------------------------------------------------------------------------------------
-## Download the Azure AD Connect Health Agent
-
-To get started using Azure AD Connect Health you can download the latest version of the agent here:  [Download Azure AD Connect Health Agent.](http://go.microsoft.com/fwlink/?LinkID=518973) Ensure that you’ve added the service from Marketplace before installing the agents.
-
-----------------------------------------------------------------------------------------------------------
-
-## Azure Active Directory Connect Health Alerts
-The Azure AD Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alerts that were resolved in the past.
-
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/alert1.png)
+### Azure Active Directory Connect Health Alerts
+The Azure AD Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alers that were resolved in the past.
 
 By selecting an alert you will be provided with additional information as well as steps you can take to resolve the alert and links to additional documentation.
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/alert2.png)
 
-## Azure Active Directory Connect Health Performance Monitoring
+### Azure Active Directory Connect Health Performance Monitoring
 Azure AD Connect Health Performance Monitoring provides monitoring information on metrics. By selecting the Monitoring box, a blade will open up that provides detailed information on the metrics.
 
 
@@ -118,9 +105,7 @@ Azure AD Connect Health Performance Monitoring provides monitoring information o
 By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metrics, simply right-click on the monitoring chart under the monitoring blade and select Edit Chart. Then, from the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
 
 
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/perf2.png)
-
-## Azure Active Directory Connect Health Usage Analytics and Reports
+### Azure Active Directory Connect Health Usage Analytics and Reports
 Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. Selecting the usage analytics box will open the usage analytics blade, which will show you the metrics and groupings.
 
 >[AZURE.NOTE] In order to use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see Azure AD Connect Health Requirements. 
@@ -143,6 +128,24 @@ To select additional metrics, specify a time range, or to change the grouping, s
 |  | Application | This will group the failures based on the targeted application (relying party). This is useful to understand which targeted application is seeing most number of errors. |
 | User Count: Average number of unique users active in the system | All | This provides a count of average number of users using the federation service in the selected time slice. The users are not grouped. <br>The average will depend on the time slice selected. |
 |  | Application | This will group the average number of users based on the targeted application (relying party). This is useful to understand how many users are using which application. |
+
+## Get started with Azure AD Connect Health
+To get started using Azure AD Connect Health, the first thing you need to do is follow the steps below and sign into the Azure portal
+
+### Using Azure Active Directory Connect Health for the first time from the Azure Portal
+To get started with Azure Active Directory Connect Health, follow the steps below. Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers. To download the Azure AD Connect Health Agent, from the first blade, select Quick Start and Get Tools. You can also download the agent directly using the link below.  To use Azure Active Directory Connect Health do the following:
+
+1. Sign in to the [Microsoft Azure portal.](https://portal.azure.com/)
+2. Azure Active Directory Connect Health can be access by going to Marketplace and searching for it or by selecting Marketplace, and selecting Security + Identity.
+3. On the introductory blade (A blade is one piece of the overall view. You can think of a blade as a window or fly out), click Create. This will open another blade with your directory information.
+4. On directory blade, click Create. If you do not have an Azure Active Directory Premium License you will need one to use Azure AD Connect Health. For information on Azure AD Premium see Getting started with Azure AD Premium.
+
+### Download the Azure AD Connect Health Agent
+
+To get started using Azure AD Connect Health you can download the latest version of the agent here:  [Download Azure AD Connect Health Agent.](http://go.microsoft.com/fwlink/?LinkID=518973) Ensure that you’ve added the service from Marketplace before installing the agents.
+
+
+
 
 ## What's Next
 To get going with Azure AD Connect Health see [Azure AD Connect Health Requirements](active-directory-aadconnect-health-requirements.md).  Once you have the agent installed and are collecting data, see [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md) for more information on configuring Azure AD Connect Health or checkout the [FAQ.](active-directory-aadconnect-health-faq.md)
