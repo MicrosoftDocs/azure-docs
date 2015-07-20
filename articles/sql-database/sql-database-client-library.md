@@ -58,14 +58,51 @@ To authenticate your client application based on the current user you must first
 
 To create a new application and register it in the correct active directory do the following:
 
-Scroll the menu on the left side to locate the **Active Directory** service and open it.
+1. Scroll the menu on the left side to locate the **Active Directory** service and open it.
 
-   ![AAD][1]
+    ![AAD][1]
+
+2. Select the directory to authenticate your application and click it's **Name**.
+
+    ![Directories][4]
+
+3. On the directory page, click **APPLICATIONS**.
+
+    ![Applications][5]
+
+4. Click **ADD** to create a new application.
+
+    ![Add application][6]
+
+5. Select **Add an application my organization is developing**.
+
+5. Provide a **NAME** for the app, and select **NATIVE CLIENT APPLICATION**.
+
+    ![Add application][7]
+
+6. Provide a **REDIRECT URI**. It doesn't need to be an actual endpoint, just a valid URI.
+
+    ![Add application][8]
+
+7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (you will need the client id in your code).
+
+    ![get client id][9]
+
+
+1. On the bottom of the page click on **Add application**.
+1. Select **Microsoft Apps**.
+1. Select **Windows Azure Service Management API**, and then complete the wizard.
+2. With the API selected you now need to grant the specific permissions required to access this API by selecting **Access Azure Service Management (preview)**.
+
+    ![permissions][2]
+
+2. Click **SAVE**.
+
 
 
 ### Identify the domain name
 
-An easy way to identify the proper domain name is to:
+The domain name is required for your code. An easy way to identify the proper domain name is to:
 
 1. Go to the [Azure preview portal](https://portal.azure.com).
 2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.
@@ -73,28 +110,8 @@ An easy way to identify the proper domain name is to:
     ![Identify domain name][3]
 
 
-### Register your client application
 
-First register your application with the following steps.
 
-1. Select the **Applications** tab and select **Add** to register a new application.
-1. In the dialog select the option to **Add an application my organization is developing**.   
-1. Provide a Name by which your client application will be known in the directory. This will be used, for example, when granting access to the application to users. 
-1. Identify the Type of application.  For a command line or windows client select **NATIVE CLIENT APPLICATION**. 
-1. Provide a Redirect URI.  The value does not need to be a physical endpoint, but must be a valid URI.  The following can be used **urn:ietf:wg:oauth:2.0:oob**.  Make a note of this value as you will use it in your code.
-1. Complete the wizard which creates the application and then make a note of the client ID which is on the Quick Start page for the application under **UPDATE YOUR CODE** and on the Configuration page.  
-
-Once the client application is registered you can grant it access to other applications or APIs.  You do this on the Configure page of the application.
-
-1. Scroll to the bottom of the page and under permissions to other applications click on the Add application button.
-1. Ensure **Show Microsoft Apps** is selected in the drop down.
-1. Select Azure Service Management API and then complete the wizard.
-
-With the API selected you now need to grant the specific permissions required to access this API by checking the box alongside Access Azure Service Management (preview) in the drop down in the application list.
-
-   ![permissions][2]
-
-Save your changes before leaving the page.
 
 **Additional AAD Resources**  
 
@@ -551,3 +568,9 @@ To delete a resource group:
 [1]: ./media/sql-database-client-library/aad.png
 [2]: ./media/sql-database-client-library/permissions.png
 [3]: ./media/sql-database-client-library/getdomain.png
+[4]: ./media/sql-database-client-library/aad2.png
+[5]: ./media/sql-database-client-library/aad-applications.png
+[6]: ./media/sql-database-client-library/add.png
+[7]: ./media/sql-database-client-library/add-application.png
+[8]: ./media/sql-database-client-library/add-application2.png
+[9]: ./media/sql-database-client-library/clientid.png
