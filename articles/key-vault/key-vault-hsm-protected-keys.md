@@ -61,7 +61,7 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 |A subscription to Azure|To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](http://azure.microsoft.com/pricing/free-trial/)|
 |An Azure Key Vault that supports HSMs|For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](http://azure.microsoft.com/pricing/details/key-vault/) website.|
 |Thales HSM, smartcards, and support software|You must have access to a Thales Hardware Security Module and basic operational knowledge of Thales HSMs. See [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) for the list of compatible models, or to purchase an HSM if you do not have one.|
-|The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operation system of Windows 7.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol>|For security reasons, we recommend that the first workstation is not connected to a network. However, this is not programmatically enforced.<br/><blockquote><p>[AZURE.NOTE]In the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><blockquote><p>[AZURE.NOTE]In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/>|
+|The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operation system of Windows 7.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol>|For security reasons, we recommend that the first workstation is not connected to a network. However, this is not programmatically enforced.<br/><br/>Note that in the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>Note that in the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/>|
 
 ##Generate and transfer your key to Azure Key Vault HSM
 
@@ -150,7 +150,7 @@ Do the following steps on the disconnected workstation.
 
 Start a command prompt and run the Thales new-world program.
 
-		new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
 This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards will give full access to the security world. These cards become the **Administrator Card Set** for the new security world. 
 
@@ -171,19 +171,19 @@ To validate the downloaded package:
 1.	Run the verifykeypackage.py script by tying one of the following, depending on your region:
 	- For North America:
 
-			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
+		python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
 	- For Europe:
 
-			python verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
+		python verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
 	- For Asia:
 
-			python verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
+		python verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
 	- For Latin America:
 
-			python verifykeypackage.py -k BYOK-KEK-pkg-LATAM-1 -w BYOK-SecurityWorld-pkg-LATAM-1
+		python verifykeypackage.py -k BYOK-KEK-pkg-LATAM-1 -w BYOK-SecurityWorld-pkg-LATAM-1
 	- For Japan:
 
-			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
+		python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
 
 	>[AZURE.TIP]The Thales software includes python at %NFAST_HOME%\python\bin
 	
@@ -305,4 +305,4 @@ If the upload is successful, you see displayed the properties of the key that yo
 
 ##Next steps
 
-You can now use this HSM-protected key in your key vault. For more information and examples, see [Get started with Azure Key Vault](key-vault-get-started.md).
+You can now use this HSM-protected key in your key vault. For example, see [If you want to use a hardware security module (HSM) section](key-vault-get-started/HSM) in the Key Vault getting started tutorial.
