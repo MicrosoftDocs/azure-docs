@@ -299,7 +299,7 @@ Use a USB drive or other portable storage to copy the output file from the previ
 
 On the Internet-connected workstation, use the [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
 
-		Add-AzureKeyVaultKey -VaultName ‘ContosoKeyVaultHSM’ -Name ‘ContosoFirstHSMkey’ -KeyFilePath ‘c:\TransferPackage-ContosoFirstHSMkey.byok’ -Destination 'HSM'
+	Add-AzureKeyVaultKey -VaultName ‘ContosoKeyVaultHSM’ -Name ‘ContosoFirstHSMkey’ -KeyFilePath ‘c:\TransferPackage-ContosoFirstHSMkey.byok’ -Destination 'HSM'
 
 If the upload is successful, you see displayed the properties of the key that you just added.
 
