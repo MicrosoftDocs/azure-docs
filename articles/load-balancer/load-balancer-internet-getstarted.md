@@ -118,6 +118,17 @@ The probe definition also controls the frequency of the probe. In our case above
 
 Check the service definition schema for the [health probe](https://msdn.microsoft.com/library/azure/jj151530.aspx) for more information.
 
+## Setting up load balancer using PowerShell
+
+After creating a virtual machine, you can use PowerShell cmdlets to add a load balancer to a virtual machine within the same cloud service.
+
+In the example below, you will add a load balancer called "webfarm" to cloud service endpoint "mycloudservice" (or mycloudservice.cloudapp.net) and virtual machine name myVM. The load balancer will receive traffic on port 80 and load balance the network traffic between the virtual machines on port 8080 using HTTP"
+
+	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+
+
+
 ## Next Steps
 
 [Get started configuring an Internal load balancer](load-balancer-internal-getstarted.md)

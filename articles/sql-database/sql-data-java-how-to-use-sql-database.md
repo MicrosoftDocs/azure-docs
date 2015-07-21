@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
-	manager="wpickett" 
+	manager="jeffreyg" 
 	editor="jimbe"/>
 
 <tags 
