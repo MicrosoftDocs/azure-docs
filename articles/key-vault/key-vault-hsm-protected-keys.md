@@ -138,9 +138,10 @@ For more information, see the user guide included with the Thales HSM.
 ###Step 2.2: Install the BYOK toolset on the disconnected workstation
 
 Copy the BYOK toolset package from the USB drive or other portable storage, and then do the following:
-1.	Extract the files from the downloaded package into any folder.
-2.	From that folder, run vcredist_x64.exe.
-3.	Follow the instructions to the install the Visual C++ runtime components for Visual Studio 2012.
+
+1. Extract the files from the downloaded package into any folder.
+2. From that folder, run vcredist_x64.exe.
+3. Follow the instructions to the install the Visual C++ runtime components for Visual Studio 2012.
 
 ##Step 3: Generate your key
 
@@ -199,7 +200,7 @@ Generate a key by using the Thales **generatekey** program.
 
 Run the following command to generate the key:
 
-		generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey plainname=contosokey nvram=no pubexp=
+	generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey plainname=contosokey nvram=no pubexp=
 
 When you run this command, use these instructions:
 
@@ -295,10 +296,10 @@ Use a USB drive or other portable storage to copy the output file from the previ
 
 For this final step, on the Internet-connected workstation, use the [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
 
-	Add-AzureKeyVaultKey -VaultName ‘ContosoKeyVaultHSM’ -Name ‘ContosoFirstHSMkey’ -KeyFilePath ‘c:\TransferPackage-ContosoFirstHSMkey.byok’ -Destination 'HSM'
+	Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
 If the upload is successful, you see displayed the properties of the key that you just added.
 
 ##Next steps
 
-You can now use this HSM-protected key in your key vault. For more information, see the *If you want to use a hardware security module (HSM)* section in the [Getting started with Azure Key Vault](key-vault-get-started.md) tutorial.
+You can now use this HSM-protected key in your key vault. For more information, see the **If you want to use a hardware security module (HSM)** section in the [Getting started with Azure Key Vault](key-vault-get-started.md) tutorial.
