@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/14/2015"
+   ms.date="07/17/2015"
    ms.author="pehteh"/>
 
 #Migrating a compatible database using SSMS 
@@ -29,37 +29,37 @@ Deploying directly from SSMS will always deploy the schema and data, while expor
 This option is also used as the final step in option #3 to migrate the databases after it has been updated to make it compatible with Azure SQL Database. 
 
 ##Using SSMS to Deploy to Azure SQL Database
-1.	Provision a server using the Azure portal as described in, Create the target server for the migrated database.
+1.	Provision a logical server using the Azure Management Portal.
 2. Locate the source database in the SSMS Object Explorer and execute the task, **Deploy Database to Azure SQL Database…**
 
 	![Deploy to Azure from Tasks menu](./media/sql-database-migrate-ssms/02MigrateusingSSMS.png)
 
-3.	In the deployment wizard configure the connection to the target Azure SQL Database server provisioned in step. 
-4.	Provide the **name** for the database and set the **Edition** (service tier) and **Service Objective** (performance level). See, Choosing a database performance level/pricing tier for migration, for more information on configuring these settings. 
+3.	In the deployment wizard, configure the connection to the target Azure SQL Database server you provisioned. 
+4.	Provide the **name** for the database and set the **Edition** (service tier) and **Service Objective** (performance level). See [Azure SQL Database service tiers](sql-database-service-tiers.md) for more information on configuring these settings. 
 
 	![Export settings](./media/sql-database-migrate-ssms/03MigrateusingSSMS.png)
 
-5.	Complete the wizard to execute the migration of the database.  
-Depending on the size and complexity of the database deployment may take from a few minutes to many hours. If errors occur that indicate that the database schema is incompatible with the SQL Database then a different option must be used.
+5.	Complete the wizard to migrate the database.  
+Depending on the size and complexity of the database, deployment may take from a few minutes to many hours. If errors indicate that the database schema is incompatible with the SQL Database, use a different migration option.
 
 ##Use SSMS to export a BACPAC and then import it to SQL Database
-The deployment process can be broken into two steps: export and import. In the first step a BACPAC file is created which is then used as input in the second step. 
+The deployment process can be broken into two steps: export and import. In the first step, a BACPAC file is created which is then used as input in the second step. 
 
-1.	Provision a server using the latest SQL Database Update as described in, Create the target server for the migrated database.
+1.	Provision a logical server using the Azure Management Portal.
 2.	Locate the source database in the SSMS Object Explorer and select the task, **Deploy Database to Azure SQL Database…**
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-migrate-ssms/04MigrateusingSSMS.png)
 
-3. In the export wizard configure the export to save the BACPAC file locally. The exported BACPAC always includes the complete database schema and by default data from all the tables. Use the Advanced tab if you wish to exclude data from some or all of the tables. You might, for example, choose to export only the data for reference tables.
+3. In the export wizard, configure the export to save the BACPAC file locally. The exported BACPAC always includes the complete database schema and, by default, data from all the tables. Use the Advanced tab if you want to exclude data from some or all of the tables. You might, for example, choose to export only the data for reference tables.
 	>[AZURE.NOTE] Note: once the Azure management portal supports import running in Azure then you could choose to save the exported BACPAC file to Azure Storage and run the import in the cloud. 
 
 	![Export settings](./media/sql-database-migrate-ssms/05MigrateusingSSMS.png)
 
-4.	Once the BACPAC has been created, connect to the server you created in step1, right click on Databases folder and select Import Data Tier Application...
+4.	Once the BACPAC has been created, connect to the server you created in Step 1, right click the **Databases** folder and click **Import Data-tier Application...**
 
 	![Import data-tier application menu item](./media/sql-database-migrate-ssms/06MigrateusingSSMS.png) 
 
-5.	In the import wizard select the BACPAC file you have just exported to create the new database in Azure SQL Database. 
+5.	In the import wizard, choose the BACPAC file you just exported to create the new database in Azure SQL Database. 
 
 	![Import settings](./media/sql-database-migrate-ssms/07MigrateusingSSMS.png)
 
