@@ -39,14 +39,14 @@ With those definitions, the opportunity for leveraging Azure AD to authenticate 
 ### A real world example
 Finally, let's reinforce these concepts by considering the topology that exists between the large multi-tenant SaaS applications found in Office 365 and their relationship to Azure AD, and comparing it with a simple Azure SaaS application scenario.  
 
-When you sign up for an Azure subscription, you automatically get an Azure AD tenant, which the subscription *trusts* for it's identity needs.  Applications you build in Azure are also assigned to the subscription, allowing them to take advantage of your Azure AD tenant for user account management, authentication, authorization, etc..  
+When you sign up for an Azure subscription, you automatically get an Azure AD tenant, which the subscription *trusts* for it's identity needs.  Applications you build in Azure are also assigned to the subscription, allowing them to take advantage of the Azure AD tenant for user account management, authentication, authorization, etc..  
 
-In the same way that your Azure SaaS application accesses Azure AD services through a subscription, Office 365 SaaS tenants are *also* associated with an Azure AD tenant via a subscription, for user account management and authentication.  Further, any common subscribers between Office 365 and our Azure application, can use their Office 365 credentials to authenticate with your Azure application, just by enabling the application to be aware of multiple Azure AD tenants.  
+In the same way that the Azure SaaS application accesses Azure AD services through a subscription, Office 365 SaaS tenants are *also* associated with their own Azure AD tenant via a subscription, providing each subscriber with user account management and authentication.  Further, any common subscribers between Office 365 and the Azure application, can use their Office 365 credentials to authenticate with the Azure application, just by enabling the application to be aware of multiple Azure AD tenants.  
 
 ![O365-AD-Topology][1]
 
 ## Prerequisites
-As we walk through the relevant concepts for this scenario, we will prescriptively show you how to apply and reinforce those concepts using a set of related code samples. It is assumed that you have a basic understanding of Azure AD, including [why/how you would integrate your application with Azure AD] [ACOM-How-To-Integrate], as well as the [basics of Azure AD authentication and supported authentication scenarios] [ACOM-Auth-Scenarios].
+As we walk through the relevant concepts for this scenario, we will show you how to apply and reinforce those concepts using a set of related code samples. It is assumed that you have a basic understanding of Azure AD, including [why/how you would integrate your application with Azure AD] [ACOM-How-To-Integrate], as well as the [basics of Azure AD authentication and supported authentication scenarios] [ACOM-Auth-Scenarios].
 
 You should also be comfortable editing your Azure AD tenant's application configurations in the [Azure portal][Azure-portal]
 
@@ -67,12 +67,14 @@ This is an early version of this article.  The final version will go into more d
 - User vs. Admin consent
 	- Users can consent to the app if it only needs access to personal permissions, otherwise needs admin consent
 	- once the app is consented it will appear in the user's tenant (if it’s a web app)
+- point to Dan's new "Consent Framework Quickstart"?
+
 
 ### Known clients 
 - by topology
 
 ### Authenticating with the Common Endpoint 
-- required when you're authenticating with multiple Azure AD tenants because you don't know which Azure AD tenant your users belong to.
+- required when you're authenticating with multiple Azure AD tenants because you don't know in advance which Azure AD tenant your users belong to.
 
 ### Issuer/Token Validation 
 - must be handled by your application
