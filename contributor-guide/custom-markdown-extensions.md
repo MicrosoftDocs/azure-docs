@@ -165,7 +165,7 @@ Use technology and platform switchers in technical articles when you author mult
 
 ###<a id="simple-selectors"></a>Simple selectors
 
-Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers only need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java  
+Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers only need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java.  Please use the below custom markdown format for any selectors.  Do not use HTML for selector functions.  
 
 See [Get started with Notification Hubs](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
 
@@ -180,14 +180,14 @@ See [Get started with Notification Hubs](http://azure.microsoft.com/documentatio
 Example:
 
     > [AZURE.SELECTOR]
-    - [Windows Universal](../articles/notification-hubs-windows-store-dotnet-get-started/)
+    - [Universal Windows](../articles/notification-hubs-windows-store-dotnet-get-started/)
     - [Windows Phone](../articles/notification-hubs-windows-phone-get-started/)
     - [iOS](../articles/notification-hubs-ios-get-started/)
     - [Android](../articles/notification-hubs-android-get-started/)
     - [Kindle](../articles/notification-hubs-kindle-get-started/)
     - [Baidu](../articles/notification-hubs-baidu-get-started/)
     - [Xamarin.iOS](../articles/partner-xamarin-notification-hubs-ios-get-started/)
-    - [Xamarin.Android](../articles/partner-xamarin-notification-hubs-android-get-started/)
+    -[Xamarin.Android](../articles/partner-xamarin-notification-hubs-android-get-started/)
 
 #### Rendering
 
