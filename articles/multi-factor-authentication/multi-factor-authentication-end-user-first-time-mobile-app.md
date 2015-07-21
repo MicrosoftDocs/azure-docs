@@ -29,7 +29,7 @@ The Azure Authenticator app is available for [Windows Phone](http://www.windowsp
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)</center>
 
 <li>Select either Notification or One-time password and click Set up</li>
-<li>On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.</li>
+<li>On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.  To add an account that already has Azure MFA or a 3rd party account see [Adding an account manually](adding-an-account-manually).</li>
 
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)</center>
@@ -53,5 +53,18 @@ The Azure Authenticator app is available for [Windows Phone](http://www.windowsp
 <li>If you are using these apps then copy the app password provided and paste the password into your non-browser application. For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.</li>
 <li>Click Done.</li>
 
+## Adding an account manually
+If you want to add an account manually, select the enter account manually button.  
 
+<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)</center>
+
+Now if you have an account that already has Azure MFA, enter the code and the url that is provided on the same page that shows you the barcode.  This goes in the code and url boxes on the mobile app.  This will begin the activation.
+
+<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode2.png)</center>
+
+Once this has completed click Contact me. This will send either a notification or a verification code to your phone. Click verify.  To finish, follow the steps above starting at number 6.
+
+If you are using a 3rd party account with the mobile app, enter the account name and the security key in the boxes provided and then activate the account.  Once you have done this and verified the account, follow the steps above starting at number 6.
+
+>[AZURE.NOTE]If you see "Add work account", this is for Workplace Join and not for multi-factor authentication.  You can disregard this.
  
