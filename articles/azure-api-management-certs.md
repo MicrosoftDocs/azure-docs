@@ -34,19 +34,19 @@ Once you have a management certficate created, (.cer file with only the public k
 1. Log into the [Azure Management Portal](http://manage.windowsazure.com).
 2. Click **Settings** on the left side of the portal (you may need to scroll down). 
     
-    ![Settings](./media/azure-api-managemenet-certs/settings.png)
+    ![Settings](./media/azure-api-management-certs/settings.png)
 
 3. Click the **Management Certificates** tab.
 
-    ![Settings](./media/azure-api-managemenet-certs/certificates-tab.png)
+    ![Settings](./media/azure-api-management-certs/certificates-tab.png)
     
 4. Click the **Upload** button.
 
-    ![Settings](./media/azure-api-managemenet-certs/upload.png)
+    ![Settings](./media/azure-api-management-certs/upload.png)
     
 5. Fill out the dialog information and click the done **Checkmark**.
 
-    ![Settings](./media/azure-api-managemenet-certs/upload-dialog.png)
+    ![Settings](./media/azure-api-management-certs/upload-dialog.png)
 
 ## Next steps
 
