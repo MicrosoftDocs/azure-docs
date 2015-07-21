@@ -67,11 +67,11 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 
 You will use the following 5 steps to transfer your key to an Azure Key Vault HSM: 
 
-- [Step 1: Prepare your Internet-connected workstation](#prepare-your-Internet-connected-workstation)
-- [Step 2: Prepare your disconnected workstation](#prepare-your-disconnected-workstation)
-- [Step 3: Generate your key](#generate-your-key)
-- [Step 4: Prepare your key for transfer](#prepare-your-key-for-transfer)
-- [Step 5: Transfer your key to Azure Key Vault](#transfer-your-key-to-azure-key-vault)
+- [Step 1: Prepare your Internet-connected workstation](#step-1-prepare-your-Internet-connected-workstation)
+- [Step 2: Prepare your disconnected workstation](#step-2-prepare-your-disconnected-workstation)
+- [Step 3: Generate your key](#step-3-generate-your-key)
+- [Step 4: Prepare your key for transfer](#step-4-prepare-your-key-for-transfer)
+- [Step 5: Transfer your key to Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
 
 ## Step 1: Prepare your Internet-connected workstation
 For this first step, do the following procedures on your workstation that is connected to the Internet.
