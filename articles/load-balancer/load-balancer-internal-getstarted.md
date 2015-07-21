@@ -261,7 +261,7 @@ More information about the load balancer schema see [add load balancer](https://
 ### Step 2
 
 
-Change the service definition (.csdef) file to add endpoints to the ILB. The moment a role instance is created, the service definition file will add the role to the ILB.
+Change the service definition (.csdef) file to add endpoints to the ILB. The moment a role instance is created, the service definition file will add the role instances to the ILB.
 
 
 	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
