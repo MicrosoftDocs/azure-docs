@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/17/2015"
+   ms.date="07/10/2015"
    ms.author="claudioc"/>
 
 # Reliable Actors: The canonical HelloWorld walk-through scenario
@@ -37,14 +37,17 @@ In order to get started with Reliable Actors you just need to understand 4 basic
 After you install the Service Fabric Tools for Visual Studio, you can create a new project types. The new project types are under the 'Cloud' category of the New Project Dialog
 
 
-![][1]
+![Service Fabric tools for VS - New project][1]
 
+In the next dialog you can choose the type of project that you want to create.
+
+![Service Fabric Project Templates][5]
 
 For the HelloWorld project, let's use the Service Fabric Actor Service.
 
 Once the solution is created you should see the following structure:
 
-![][2]
+![Service Fabric Project Structure][2]
 
 ## Reliable Actors basic building blocks
 
@@ -137,15 +140,15 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 ## Debugging
 
-Service Fabric tools for Visual Studio supports debugging on the local machine. You can start a debugging session by hitting F5. Visual Studio builds (if necessary), packages and deploys the application on the local Service Fabric cluster and attach the debugger. The experience is similar to debugging an ASP.NET application.
+Service Fabric tools for Visual Studio supports debugging on the local machine. You can start a debugging session by hitting F5. Visual Studio builds (if necessary), packages and deploys the application on the local Service Fabric cluster and attaches the debugger. The experience is similar to debugging an ASP.NET application.
 During the deployment process you can see progress in the Output Window
 
-![][3]
+![Service Fabric Debugging output window][3]
 
 ## Application deployment
 From Visual Studio you can also package and deploy the application in the local cluster without having to launch the debugger by selecting the Service Fabric Application project and right-clicking.
 
-![][4]
+![Service Fabric - project menu for deploying and packaging applications][4]
 
 * **Deploy**: packages the app and starts the deployment process
 * **Remove Deployment**: it can be used to remove an application from the local cluster
@@ -154,7 +157,8 @@ From Visual Studio you can also package and deploy the application in the local 
 ## Next steps
 
 [Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
-
+[Actors APIs Reference Documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+[Sample code](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -162,4 +166,5 @@ From Visual Studio you can also package and deploy the application in the local 
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
+[5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
  
