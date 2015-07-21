@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Application Insights is an extensible analytics service that helps you understand the performance and usage of your live application. Use it to detect and diagnose performance issues and exceptions, and [write code][api] to track what users do with your app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
@@ -31,6 +31,8 @@ You'll need:
 
 * Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
 * A subscription to [Microsoft Azure](http://azure.microsoft.com/). (You could start with the [free trial](http://azure.microsoft.com/pricing/free-trial/).)
+
+*The following steps are recommended if you are able to rebuild and republish your app. If you have a web site that's already running and you don't want to update its code, there's a way to [add Application Insights to a live Java web app](app-insights-java-live), but it doesn't allow you to write your own code for detailed tracking.*
 
 
 ## 1. Get an Application Insights instrumentation key
@@ -105,18 +107,18 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 Manually add the SDK:
 
-1. Download the [Application Insights SDK for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
+1. Download the [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)
 2. Extract the binaries from the zip file, and add them to your project.
 
-Questions...
+### Questions...
 
 * *What's the relationship between the `-core` and `-web` components in the zip?*
 
  * `applicationinsights-core` gives you the bare API. You always need this. 
  * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this if you don't want this telemetry automatically collected - for example if you want to write your own.
 
-* *To update the SDK*
- * Download the latest [Application Insights SDK for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) and replace the old ones.
+* *To update the SDK when we publish changes*
+ * Download the latest [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) and replace the old ones.
  * Changes are described in the [SDK release notes](app-insights-release-notes-java.md).
 
 
