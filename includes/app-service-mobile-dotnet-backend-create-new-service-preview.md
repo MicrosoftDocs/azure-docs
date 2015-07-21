@@ -42,7 +42,7 @@ Follow these steps to create a new mobile app.
 
 8. In the **Connection string** blade, provide the same administrator login name and password that you provided in the **New Server** blade.
 
-    This is the only username and password that you have at this point because the database is brand new. If you  select an existing database in the **New database** blade, you can provide the credentials for any user of that database. 
+    This is the only username and password that you have at this point because the database is brand new. If you select an existing database in the **New database** blade, you can provide the credentials for any user of that database. 
 
 1. Click the **OK** button.
     You've now created a new mobile app backend that can be used by your mobile apps.
