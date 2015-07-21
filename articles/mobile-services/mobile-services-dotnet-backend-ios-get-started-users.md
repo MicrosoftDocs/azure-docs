@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # Add Authentication to Existing Azure Mobile Services app
@@ -64,4 +64,3 @@ In the next tutorial, [Service-side authorization of Mobile Services users], you
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
- 

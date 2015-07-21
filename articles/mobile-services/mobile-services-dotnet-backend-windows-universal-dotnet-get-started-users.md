@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" 
-	description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
+	pageTitle="Add authentication to your Universal Windows 8.1 app | Azure Mobile Services" 
+	description="Learn how to use Mobile Services to authenticate users of your Universal Windows 8.1 app by using various identity providers, including Google, Facebook, Twitter, and Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/01/2015" 
 	ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app 
@@ -38,15 +38,15 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
-<ol start="5">
-<li><p>In Visual Studio, right-click the Windows Store project for the TodoList app and click <strong>Set as StartUp Project</strong>.</p></li>
-<li><p>In the shared project, open the App.xaml.cs project file, locate the definition for the <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, and make sure that it is configured to connect to the mobile service running in Azure.</p>
-<p>Note that when you use Visual Studio tools to connect your app to a Mobile Service, the tool generate two sets of <strong>MobileServiceClient</strong> definitions, one for each client platform. This is a good time to simplify the generated code by unifying the <code>#if...#endif</code> wrapped <strong>MobileServiceClient</strong> definitions into a single unwrapped definition used by both versions of the app. You won't need to do this when you downloaded the quickstart app from the Azure Management portal.</p>
-</li> 
-<li><p>Press the F5 key to run the Windows store app, and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
+&nbsp;&nbsp;6. In Visual Studio, right-click the Windows Store project for the TodoList app and click **Set as StartUp Project**.
+
+&nbsp;&nbsp;7. In the shared project, open the App.xaml.cs project file, locate the definition for the [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx), and make sure that it is configured to connect to the mobile service running in Azure.
+
+>[AZURE.NOTE]When you use Visual Studio tools to connect your app to a Mobile Service, the tool generate two sets of **MobileServiceClient** definitions, one for each client platform. This is a good time to simplify the generated code by unifying the `#if...#endif` wrapped **MobileServiceClient** definitions into a single unwrapped definition used by both versions of the app. You won't need to do this when you downloaded the quickstart app from the Azure Management portal.
+
+&nbsp;&nbsp;8. Press the F5 key to run the Windows store app, and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
    
-   	<p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
-</ol>
+&nbsp;&nbsp;This happens because the app attempts to access Mobile Services as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 

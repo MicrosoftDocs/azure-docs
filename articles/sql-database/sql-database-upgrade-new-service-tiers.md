@@ -3,7 +3,7 @@
 	description="Upgrade Azure SQL Database Web or Business databases to the new Azure SQL Database Basic, Standard, and Premium service tiers and performance levels." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="jenniehubbard" 
+	authors="stevestein" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -11,7 +11,7 @@
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="06/18/2015" 
-	ms.author="jhubbard; sstein" 
+	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>

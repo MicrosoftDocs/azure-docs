@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
 # Enable offline sync for your iOS mobile app
@@ -30,6 +30,10 @@ Offline sync has several potential uses:
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
 
 If this is your first experience with Mobile Apps, first complete the tutorial [Create an iOS App].
+
+##<a name="review"></a>Review your server project configuration (optional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
 
 ## <a name="get-app"></a>Get the sample offline ToDo app
 
@@ -48,7 +52,7 @@ This section walks through the offline sync-related code in the sample.
 
     To get a reference to a sync table, use the method `syncTableWithName`. To remove offline sync functionality, use `tableWithName` instead.
 
-3. Before any table operations can be performed, the local store must be initialized. This is the relevant code in the `QSTodoService.init` method:
+2. Before any table operations can be performed, the local store must be initialized. This is the relevant code in the `QSTodoService.init` method:
 
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 
@@ -58,9 +62,9 @@ This section walks through the offline sync-related code in the sample.
 
     The first parameter of `initWithDelegate` is used to specify a conflict handler. Since we have passed `nil`, we will get the default conflict handler, which fails on any conflict.
 
-<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
+	<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
-4. The methods `pullData` and `syncData` performs the actual sync operation: `syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
+3. The methods `pullData` and `syncData` performs the actual sync operation: `syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
 
         -(void)syncData:(QSCompletionBlock)completion
         {
@@ -98,7 +102,7 @@ This section walks through the offline sync-related code in the sample.
 
     The second parameter to `pullWithQuery` is a query ID that is used for *incremental sync*. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp (called `ms_updatedAt` in the local store). The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. Note that this can be potentially inefficient, since it will retrieve all records on each pull operation.
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. In the class `QSTodoService`, the method `syncData` is called after the operations that modify data, `addItem` and `completeItem`. It is also called from `QSTodoListViewController.refresh`, so that the user gets the latest data whenever they perform the refresh gesture. The app also performs a sync on launch, since `QSTodoListViewController.init` calls `refresh`.
@@ -214,13 +218,13 @@ In this section, you will turn of Wi-Fi in the simulator to create an offline sc
 
 In order to support the offline sync feature, we used the `MSSyncTable` interface and initialized `MSClient.syncContext` with a local store. In this case the local store was a Core Data-based database.
 
-When using a Core Data local store, you must define several tables with the [correct system properties][Review the Core Data model].
+When using a Core Data local store, you must define several tables with the [correct system properties](#review-core-data).
 
 The normal CRUD operations for Mobile Apps work as if the app is still connected but, all the operations occur against the local store.
 
 When we wanted to synchronize the local store with the server, we used the `MSSyncTable.pullWithQuery` and `MSClient.syncContext.pushWithCompletion` methods.
 
-*  To push changes to the server, we called `Review the Core Data model`. This method is a member of `MSSyncContext` instead of the sync table because it will push changes across all tables.
+*  To push changes to the server, we called `pushWithCompletion`. This method is a member of `MSSyncContext` instead of the sync table because it will push changes across all tables.
 
     Only records that have been modified in some way locally (through CUD operations) will be sent to the server.
 

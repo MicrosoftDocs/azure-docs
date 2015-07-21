@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Create a geospatial search app using Azure Search
@@ -32,7 +32,7 @@ This tutorial builds on the [Azure Search – Adventure Works Demo](http://azure
 ## Prerequisites
 
 +	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](search-get-started.md) for details.
++	An Azure Search service. You'll need the Search service name, plus the admin key. See [Create an Azure Search service in the portal](search-create-service-portal.md) for details.
 +	A Bing map service and a key to access it. Instructions are provided in the next section
 +	[Azure Search GeoSearch Sample on CodePlex](https://azuresearchgeospatial.codeplex.com/). On the Source tab, click **Download** to get a zip file of the solution. 
 
@@ -151,7 +151,7 @@ For additional self-study, consider adding more capabilities to the mapping appl
 
 + Facets to allow users to filter by country or province.  
 
-+ User-drawn selection areas that let users specify regions to be searched by draing an area on the map. The area is then filtered by Azure Search using the geo-intersect API and plotted on the map.
++ User-drawn selection areas that let users specify regions to be searched by dragging an area on the map. The area is then filtered by Azure Search using the geo-intersect API and plotted on the map.
 
 
 <!--Anchors-->

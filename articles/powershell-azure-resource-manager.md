@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Using Azure PowerShell with Azure Resource Manager" 
 	description="Use Azure PowerShell to deploy multiple resources as a resource group to Azure." 
-	services="" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
@@ -330,9 +330,7 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 
 ## Move a resource
 
-- To move an existing resource to the resource group, use the **Move-AzureResource** command.
-
-		PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
 
 ## Delete a resource group
 

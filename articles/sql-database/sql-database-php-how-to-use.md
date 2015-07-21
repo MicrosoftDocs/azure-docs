@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
-	manager="wpickett" 
+	manager="jeffreyg" 
 	editor="mollybos"/>
 
 <tags 

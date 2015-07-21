@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="03/26/2015"
+	ms.date="07/01/2015"
     ms.author="donnam"/>
 
 # Enable offline sync for your Xamarin iOS mobile app
@@ -35,6 +35,10 @@ This tutorial requires the following:
 
 * Visual Studio 2013
 * Visual Studio [Xamarin extension] **or** [Xamarin Studio] on OS X
+
+##<a name="review"></a>Review your server project configuration (optional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
 
 ## Review the Mobile App sync code
 

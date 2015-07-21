@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Graphical authoring in Azure Automation
@@ -115,11 +115,11 @@ When you specify a value for a parameter, you select a data source to determine 
 |:---|:---|
 |Constant Value|Type in a value for the parameter.  This is only available for the following data types: Int32,Int64,String,Boolean,DateTime,Switch. |
 |Activity Output|Output from an activity that precedes the current activity in the workflow.  All valid activities will be listed.  Select just the activity to use its output for the parameter value.  If the activity outputs an object with multiple properties, then you can type in the name of the property after selecting the activity.|
-|Runbook Input Parameter<br>*(Coming soon)*|Select a runbook input parameter as input to the activity parameter.|  
-|Automation Variable Asset<br>*(Coming soon)*|Select an Automation Variable as input.|  
-|Automation Credential Asset<br>*(Coming soon)*|Select an Automation Credential as input.|  
-|Automation Certificate Asset<br>*(Coming soon)*|Select an Automation Certificate as input.|  
-|Automation Connection Asset<br>*(Coming soon)*|Select an Automation Connection as input.| 
+|Runbook Input Parameter|Select a runbook input parameter as input to the activity parameter.|  
+|Automation Variable Asset|Select an Automation Variable as input.|  
+|Automation Credential Asset|Select an Automation Credential as input.|  
+|Automation Certificate Asset|Select an Automation Certificate as input.|  
+|Automation Connection Asset|Select an Automation Connection as input.| 
 |PowerShell Expression|Specify simple PowerShell expression.  The expression will be evaluated before the activity and the result used for the parameter value.  You can use variables to refer to the output of an activity or a runbook input parameter.|
 |Empty String|An empty string value.|
 |Null|A Null value.|
@@ -228,7 +228,7 @@ You can also retrieve the output of an activity in a **PowerShell Expression** d
 
 ### Checkpoints
 
-The same guidance for setting [checkpoints](automation-runbook-concepts/#checkpoints) in your runbook applies to graphical runbooks.  You can add an activity for the Checkpoint-Workflow cmdlet where you need to set a checkpoint.  You should then follow this activity with an Add-AzureAccount in case the runbook starts from this checkpoint on a different worker. 
+The same guidance for setting [checkpoints](automation-powershell-workflow/#checkpoints) in your runbook applies to graphical runbooks.  You can add an activity for the Checkpoint-Workflow cmdlet where you need to set a checkpoint.  You should then follow this activity with an Add-AzureAccount in case the runbook starts from this checkpoint on a different worker. 
 
 ## Authenticating to Azure resources
 
@@ -277,6 +277,6 @@ Data created by any activity that does not have an outgoing link will be added t
 
 ## Related articles
 
-- [Azure Automation runbook concepts](automation-runbook-concepts.md)
+- [Learning Windows PowerShell Workflow](automation-powershell-workflow.md)
 - [Automation assets](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  

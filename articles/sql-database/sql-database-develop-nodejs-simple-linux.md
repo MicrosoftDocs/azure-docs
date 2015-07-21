@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/16/2015" 
 	ms.author="mebha"/>
 
 
@@ -41,7 +41,7 @@ After your machine is configured with **node** and **npm**, navigate to a direct
 
 
 	sudo npm init
-	sudp npm install tedious
+	sudo npm install tedious
 
 
 **npm init** creates a node project. To retain the defaults during your project creation, press enter until the project is created. Now you see a **package.json** file in your project directory.

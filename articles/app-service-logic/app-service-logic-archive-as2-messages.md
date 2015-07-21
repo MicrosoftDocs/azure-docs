@@ -3,7 +3,7 @@
    description="This topic covers archival of AS2 messages" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
+   authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
-   ms.author="hariag"/>
+   ms.date="07/01/2015"
+   ms.author="rajram"/>
 
 
 #Archive AS2 Messages

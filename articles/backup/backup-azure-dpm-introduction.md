@@ -3,7 +3,7 @@
 	description="An introduction to backing up DPM servers using the Azure Backup service"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker", "sammehta"
+	authors="SamirMehta"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/12/2015"
-	ms.author="jimpark"/>
+	ms.date="07/16/2015"
+	ms.author="sammehta"; "jimpark"/>
 
 # Introduction to Azure DPM Backup
 
@@ -51,65 +51,12 @@ Prepare Azure Backup to back up DPM data as follows:
 2. **Download vault credentials** — In Azure Backup, upload the management certificate you created to the vault.
 3. **Install the Azure Backup Agent and register the server** — From Azure Backup, install the agent on each DPM server and register the DPM server in the backup vault.
 
-### Create a backup vault
-To start backing up your Azure virtual machines, you need to first create a backup vault. The vault is an entity that stores all the backups and recovery points that have been created over time. The vault also contains the backup policies that will be applied to the virtual machines being backed up.
+[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
-1. Sign in to the [Management Portal](http://manage.windowsazure.com/).
-2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create**. If you have multiple subscriptions associated with your organizational account, choose the correct subscription to associate with the backup vault. In each Azure subscription you can have multiple backup vaults to organize the data being protected.
-3. In **Name**, enter a friendly name to identify the vault. This needs to be unique for each subscription.
-4. In **Region**, select the geographic region for the vault. Note that the vault must be in the same region as the virtual machines you want to protect. If you have virtual machines in different regions create a vault in each one. There is no need to specify storage accounts to store the backup data – the backup vault and the Azure Backup service will handle this automatically.
-    > [AZURE.NOTE] Virtual machine backup using the Azure Backup service is only supported in select regions. Check list of [supported regions](http://azure.microsoft.com/regions/#services). If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
+[AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
-5. In **Subscription**, enter the Azure subscription that you want to use the backup vault with.
-6. Click on **Create Vault**.
-    ![Create backup vault](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
+[AZURE.INCLUDE [backup-install-agent](../../includes/backup-install-agent.md)]
 
-    It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
-![Create vault toast notification](./media/backup-azure-dpm-introduction/creating-vault.png)
-
-    A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as **Active**.
-
-    ![List of backup vaults](./media/backup-azure-dpm-introduction/backup_vaultslist.png)
-
-    > [AZURE.NOTE] Ensure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](http://azure.microsoft.com/documentation/articles/backup-azure-backup-create-vault/#azure-backup---storage-redundancy-options).
-
-### Download vault credentials
-1. Click **Recovery Services** and click the backup vault. On the **Quick Start** page, click **Download vault credentials** to download the credentials file and save to a safe location. You can’t edit the credentials so you don’t need to open the location. For security reasons, the key in the file expires after 48 hours.
-
-2. Copy the file to a safe location that’s easily accessed by the DPM servers you want to register in the Azure Backup vault. You’ll need to select the file when you install the Azure Backup Agent.
-
-### Install the Azure Backup Agent and register the server
-You’ll download the Agent installation file and run it on each DPM server that contains data you want to back up. Agents are stored on the **Azure Download Center**, and they have their own setup process. When you run setup the Agent is installed and the DPM server is registered with the vault. Note that:
-
-- You’ll need administrative permissions on the DPM server to install the Agent.
-- To install on multiple DPM servers you can place the installer file on a shared network resource, or use Group Policy or management products such as System Center Configuration Manager to install the agent.
-- You don’t need to restart the DPM server after the installation.
-
-#### To install the backup agent and register the server
-
-1. On the **Quick Start** page of the Azure Backup vault in **Download Azure Backup Agent** select **For Windows Server or System Center Data Protection Manager or Windows Client**. Download the application to the DPM server on which you want to run it.
-2. Run the setup file **MARSAgentInstaller.exe**. Accept the service terms and select to install any missing prerequisite software.
-3. On the **Installation Settings** page select the **Installation Folder** and **Cache Location**.
-
-    The default cache location folder is <system drive>:\Program Files\Azure Backup Agent. In the cache location, the installation process creates a folder named **Scratch** in the **Azure Backup Agent** folder. The cache location must have at least 2.5 gigabytes (GB) (or 10% of the size of data that will be backed up to Azure) of free space. Only local system administrators and members of the Administrators group have access to the cache directory to prevent denial-of-service attacks.
-
-4. On the **Proxy Configuration** page set custom proxy settings for the Agent to connect to Azure. If you don’t configure any settings the default Internet access settings on the DPM server will be used. Note that if you are using a proxy server that requires authentication you should input the details on this page.
-5. On the **Microsoft Updates Opt-In** page we recommend that you enable updates. If the server is already enabled for automatic updates this step is skipped. Note that the Microsoft Update settings are for all Microsoft product updates, and aren’t exclusive to the Azure Backup Agent.
-6. The **Installation** page is displayed. Installation checks that the required software is installed and completes setup. When it’s done you’ll receive a message that the Azure Backup Agent was installed successfully. At this point, you can choose to check for updates. We recommend that you allow the updates check to occur.
-7. Click **Proceed to registration** to register the server in the vault.
-8. In the **Vault Identification** page select the vault registration file you generated in the Azure Backup vault.
-9. In the **Encryption Setting** page specify passphrase details or automatically generate a passphrase.
-10. Click on Generate Passphrase followed by Copy to clipboard. You will receive a message that your passphrase has been copied to the clipboard. It is now a very good idea to open notepad and paste the passphrase from the clipboard and save the file, also print the file and lock it away. Click on Register to register your DPM server with your Backup Vault.
-
-    > [AZURE.TIP] In the Encryption Setting step remember to copy the passphrase to the clipboard.
-11. Click **Register**.
-
-    After registration is complete, the DPM console shows the availability of Azure Backup.
-
-    Azure Backup will always encrypt data at the source with the passphrase (alpha-numeric string) you specify or generate automatically.
-    >[AZURE.NOTE] Azure Backup never maintains the passphrase and if you lose it the data can’t be restored or recovered. We strongly recommend that the save the key to an external location.
-
-When you specify a passphrase and click **Finish** it takes a few seconds for the agent to register the production server to the backup vault. As soon as the registration with the vault finishes a summary **Server Registration** page appears.
 
 ## Requirements (and limitations)
 

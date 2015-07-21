@@ -151,16 +151,16 @@ But you'd still like Application Insights to log the number of times each game i
 
 Use custom events to . You can send them from device apps, web pages or a web server:
 
-(JavaScript)
+*JavaScript*
 
     telemetryClient.trackEvent("GameEnd");
 
-(C#)
+*C#*
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-(VB)
+*VB*
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
@@ -210,7 +210,9 @@ And now we can see that this user logged in simply to check the latest scores. M
 You can attach arbitrary tags and numeric values to events.
  
 
-JavaScript at client
+*JavaScript at client*
+
+```JavaScript
 
     appInsights.trackEvent("WinGame",
         // String properties:
@@ -218,8 +220,11 @@ JavaScript at client
         // Numeric measurements:
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
+```
 
-C# at server
+*C# at server*
+
+```C#
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -229,8 +234,11 @@ C# at server
 
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements);
+```
 
-VB at server
+*VB at server*
+
+```VB
 
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
@@ -243,14 +251,19 @@ VB at server
 
     ' Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements)
+```
 
 Attach properties to page views in the same way:
 
-JavaScript at client
+*JavaScript at client*
+
+```JS
 
     appInsights.trackPageView("Win", 
+        url,
         {Game: currentGame.Name}, 
         {Score: currentGame.Score});
+```
 
 In Diagnostic Search, view the properties by clicking through an individual occurrence of an event.
 
@@ -271,7 +284,9 @@ For this technique, you attach distinct tags to all the telemetry that is sent b
 
 In the Application Insights portal, you'll then be able to filter and group (segment) your data on the tags, so as to compare the different versions.
 
-C# at server
+*C# at server*
+
+```C#
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -280,18 +295,24 @@ C# at server
     var telemetry = new TelemetryClient(context);
     // Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame");
+```
 
-VB at server
+*VB at server*
+
+```VB
 
     Dim context = New TelemetryContext
     context.Properties("Game") = currentGame.Name
     Dim telemetry = New TelemetryClient(context)
     ' Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame")
+```
 
 Individual telemetry can override the default values.
 
 You can set up a universal initializer so that all new TelemetryClients automatically use your context.
+
+```C#
 
     // Telemetry initializer class
     public class MyTelemetryInitializer : IContextInitializer
@@ -301,8 +322,11 @@ You can set up a universal initializer so that all new TelemetryClients automati
             context.Properties["AppVersion"] = "v2.1";
         }
     }
+```
 
 In the app initializer such as Global.asax.cs:
+
+```C#
 
     protected void Application_Start()
     {
@@ -310,6 +334,7 @@ In the app initializer such as Global.asax.cs:
         TelemetryConfiguration.Active.ContextInitializers
         .Add(new MyTelemetryInitializer());
     }
+```
 
 
 ## Build - Measure - Learn
@@ -326,7 +351,7 @@ And of course, when the feature is live, make sure you look at the analytics and
 
 ## Video
 
-> [Azure.VIDEO usage-monitoring-application-insights]
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->

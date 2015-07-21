@@ -3,7 +3,7 @@
    description="This article provides instructions to configure SSL offload on an Azure Application Gateway."
    documentationCenter="na"
    services="application-gateway"
-   authors="cherylmc"
+   authors="joaoma"
    manager="jdial"
    editor="tysonn"/>
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/23/2015"
-   ms.author="cherylmc"/>
+   ms.date="06/30/2015"
+   ms.author="joaoma"/>
 
-# Configure Application Gateway for SSL offload
+# Configure an Application Gateway for SSL offload
 
 Application Gateway can be configured to terminate the SSL session at the gateway, which can avoid costly SSL decryption on the web farm. SSL offload also simplifies the frontend server setup and management of the application.
 
@@ -101,9 +101,9 @@ This sample shows the cmdlet on the first line, followed by the output.
 	State..........: Provisioned
 
 
-## Configure the application gateway
+## Configure the gateway
 
-An application gateway configuration consists of multiple values which can be tied together to construct the configuration. You can construct your configuration either by creating a configuration object, or by using a configuration XML file.
+An application gateway configuration consists of multiple values. The values can be tied together to construct the configuration. 
 
 The values are:
  
@@ -121,9 +121,10 @@ For SSL certificates configuration, the protocol in **HttpListener** should chan
 
 
 
+You can construct your configuration either by creating a configuration object, or by using a configuration XML file. 
 To construct your configuration by using a configuration XML file, use the sample below.
 
-### Configuration XML sample
+**Configuration XML sample**
 
 
 	    <?xml version="1.0" encoding="utf-8"?>

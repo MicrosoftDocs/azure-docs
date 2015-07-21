@@ -3,7 +3,7 @@
    description="This topic covers tracking of B2B processing" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
+   authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/27/2015"
-   ms.author="hariag"/>
+   ms.date="07/01/2015"
+   ms.author="rajram"/>
 
 
 # Track B2B messages

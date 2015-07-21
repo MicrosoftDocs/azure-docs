@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="04/21/2015"
+	ms.date="07/09/2015"
 	ms.author="garye"/>
 
 #Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio
@@ -23,16 +23,16 @@ In this first machine learning tutorial, we'll create a linear regression model 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-A Machine Learning Studio experiment consists of drag-and-drop components to *create a model*, *train the model*, and *score and test the model*. The experiment uses predictive modeling techniques in the form of Machine Learning Studio modules that ingest data, train a model against it, and apply the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
+A Machine Learning Studio experiment consists of dragging-and-dropping components onto a canvas, and connecting them in order to *create a model*, *train the model*, and *score and test the model*. The experiment uses predictive modeling techniques in the form of Machine Learning Studio modules that ingest data, train a model against it, and apply the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
 
-Open Machine Learning Studio: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For help getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/).
+Enter Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net), and click on the "Get started" button. You can choose either the Guest Access, or sign-in with your Microsoft account. 
 
 And for more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
 
 ##Five steps to create an experiment
 
-In this machine learning tutorial, you'll follow five basic steps to build an experiment in Machine Learning Studio in order to create, train, and score your model:  
+In this machine learning tutorial, you'll follow five basic steps to build an experiment in Machine Learning Studio in order to create, train, and score your model:
 
 - Create a model
 	- [Step 1: Get data]

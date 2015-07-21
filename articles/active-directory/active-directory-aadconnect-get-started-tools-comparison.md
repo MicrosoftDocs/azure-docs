@@ -28,7 +28,7 @@ Over the years the directory integration tools have grown and evolved.  This doc
 Use the following key for each of the tables.
 
 ●  = Available Now</br>
-CS = Coming Soon</br>
+FR = Future Release</br>
 PP = Public Preview</br>
 
 
@@ -38,12 +38,12 @@ PP = Public Preview</br>
 | :-------- |:--------:|:--------:|:--------:|:--------:
 | Connect to single on-premises AD forest | ● | ● | ● | ● |
 | Connect to multiple on-premises AD forests |●  | ● |  | ● |
-| Connect to multiple on-premises Exchange Orgs |PP  |  |  |  |
-| Connect to single on-premises LDAP directory | CS |  |  | ● |
-| Connect to multiple on-premises LDAP directories |CS  |  |  | ● |
-| Connect to on-premises AD and on-premises LDAP directories |CS  |  |  | ● |
-| Connect to custom systems (i.e. SQL, Oracle, MySQL, etc.) | CS |  |  | ● |
-| Synchronize customer defined attributes (directory extensions) | PP |  |  |  |
+| Connect to multiple on-premises Exchange Orgs | ● |  |  |  |
+| Connect to single on-premises LDAP directory | FR |  |  | ● |
+| Connect to multiple on-premises LDAP directories |FR  |  |  | ● |
+| Connect to on-premises AD and on-premises LDAP directories |FR  |  |  | ● |
+| Connect to custom systems (i.e. SQL, Oracle, MySQL, etc.) | FR |  |  | ● |
+| Synchronize customer defined attributes (directory extensions) | ● |  |  |  |
 
 ## Cloud to On-Premises Synchronization
 
@@ -51,7 +51,7 @@ PP = Public Preview</br>
 | :-------- |:--------:|:--------:|:--------:|:--------:
 | Writeback of devices | ● |  | ● |  |
 | Attribute writeback (for Exchange hybrid deployment ) | ● | ● | ● | ● |
-| Writeback of users and groups objects |  PP|  | |  |
+| Writeback of users and groups objects |  ●|  | |  |
 | Writeback of passwords (from self-service password reset (SSPR) and password change) |  ● | ● |  |  |
 
 
@@ -74,7 +74,7 @@ PP = Public Preview</br>
 | Supports installation on a Domain Controller | ● | ● | ● |  |
 | Supports installation using SQL Express | ● | ● | ● |  |
 | Easy upgrade from DirSync |● |  |  |  |
-| Localization Windows Server languages | CS | ● | ● |  |
+| Localization Windows Server languages | FR | ● | ● |  |
 | Support for Windows Server 2008 and Windows Server 2008 R2 | ● for Sync, No for federation| ● | ●  | ● |
 | Support for Windows Server 2012 and Windows Server 2012 R2 | ● | ● | ● | Only 2012 |
 

@@ -3,7 +3,7 @@
    description="This page provides instructions to create, configure, start, and delete an Azure Application Gateway"
    documentationCenter="na"
    services="application-gateway"
-   authors="cherylmc"
+   authors="joaoma"
    manager="jdial"
    editor="tysonn"/>
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/25/2015"
-   ms.author="cherylmc"/>
+   ms.date="06/30/2015"
+   ms.author="joaoma"/>
 
 # Create, start, or delete an Application Gateway
 
@@ -30,10 +30,10 @@ This article walks you through the steps to create and configure, start, and del
 To create a new application gateway, perform the following steps in the order listed. 
 
 1. [Create a new application gateway](#create-a-new-application-gateway)
-2. [Configure the gateway](#configure-the-application-gateway)
-3. [Set the gateway](#set-the-application-gateway)
-4. [Start the gateway](#start-the-application-gateway)
-4. [Verify the gateway](#verify-the-application-gateway-status)
+2. [Configure the gateway](#configure-the-gateway)
+3. [Set the gateway configuration](#set-the-gateway-configuration)
+4. [Start the gateway](#start-the-gateway)
+4. [Verify the gateway status](#verify-the-gateway-status)
 
 If you want to delete an application gateway, go to [Delete an application gateway](#delete-an-application-gateway).
 
@@ -70,9 +70,9 @@ In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional pa
 	DnsName       :
 
 
-## Configure the application gateway
+## Configure the gateway
 
-An application gateway configuration consists of multiple values which can be tied together to construct the configuration.
+An application gateway configuration consists of multiple values. The values can be tied together to construct the configuration.
 
 The values are:
 
@@ -130,7 +130,7 @@ To construct your configuration by using a configuration XML file, use the sampl
 	    </HttpLoadBalancingRules>
 	</ApplicationGatewayConfiguration>
 
-## Set the application gateway
+## Set the gateway configuration
 
 Next, you'll set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration object, or with a configuration XML file. 
 
@@ -143,7 +143,7 @@ Next, you'll set the application gateway. You can use the `Set-AzureApplicationG
 	----       ----------------     ------------                             ----
 	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 
-## Start the application gateway
+## Start the gateway
 
 Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
 
@@ -160,7 +160,7 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 	----       ----------------     ------------                             ----
 	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
-## Verify the application gateway status
+## Verify the gateway status
 
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. 
 
@@ -222,7 +222,9 @@ To verify that the service has been removed, you can use the `Get-AzureApplicati
 
 ## Next Steps
 
-If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-SSL.md).
+If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-ssl.md).
+
+If you want to configure an application gateway to use with ILB, see [Create an Application Gateway with an Internal Load Balancer (ILB)](application-gateway-ilb.md).
 
 If you want more information about load balancing options in general, see:
 

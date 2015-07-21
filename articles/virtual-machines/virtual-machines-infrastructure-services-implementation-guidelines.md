@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Azure Infrastructure Services Implementation Guidelines" 
+	pageTitle="Azure infrastructure services implementation guidelines" 
 	description="Learn about the key design and implementation guidelines for deploying an IT workload in Azure infrastructure services." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,20 +14,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
-# Azure Infrastructure Services Implementation Guidelines
+# Azure infrastructure services implementation guidelines
  
 Azure is an excellent platform to implement dev/test or proof-of-concept configurations, since it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
 
 This guidance identifies many areas for which planning are vital to the success of an IT workload in Azure. In addition, provides an order to the creation of the necessary resources. Although there is some flexibility, Microsoft recommends that you apply the order in this article to your planning and decision-making.
 
-This article was adapted from the content in the [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft), Hugo Salcedo (Application Development Manager for Microsoft), and Greg Hinkel (former Application Development Manager for Microsoft) for their original material.
+This article was adapted from the content in the [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft) and Hugo Salcedo (Application Development Manager for Microsoft) for their original material.
 
 > [AZURE.NOTE] Affinity groups have been deprecated and their use is not described here. For more information, see [About Regional VNets and Affinity Groups](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
-## 1. Naming Conventions
+## 1. Naming conventions
 
 A good naming convention should be in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with management of those resources.
 
@@ -43,10 +44,10 @@ Therefore, it is beneficial to identify types of resources that need an affix to
 - The beginning of the name (prefix)
 - The end of the name (suffix)
 
-For instance, here are two possible names for a cloud service the hosts a calculation engine:
+For instance, here are two possible names for a resource group that hosts a calculation engine:
 
-- Svc-CalculationEngine (prefix)
-- CalculationEngine-Svc (suffix)
+- Rg-CalculationEngine (prefix)
+- CalculationEngine-Rg (suffix)
 
 Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
 
@@ -54,7 +55,7 @@ Aspect | Examples | Notes
 --- | --- | ---
 Environment | dev, stg, prod | Depending on the purpose and name of each environment.
 Location | usw (West US), use (East US 2) | Depending on the region of the datacenter or the region of the organization.
-Azure component, service, or product | Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.
+Azure component, service, or product | Rg for resource group, Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.
 Role | sql, ora, sp, iis | Depending on the role of the VM.
 Instance | 01, 02, 03, etc. | For resources that have more than one instance. For example, load balanced web servers in a cloud service.
 		
@@ -64,7 +65,7 @@ When establishing your naming conventions, make sure that they clearly state whi
 
 Many times, it is important to determine the date of creation from the name of a resource. Microsoft recommends the YYYYMMDD date format. This format ensures that not only the full date is recorded, but also that two resources whose names differ only on the date will be sorted alphabetically and chronologically at the same time.
 
-### Naming Resources
+### Naming resources
 You should define each type of resource in the naming convention, which should have rules that define how to assign names to each resource created. These rules should apply to all types of resources, for instance:
 
 - Subscriptions
@@ -73,23 +74,24 @@ You should define each type of resource in the naming convention, which should h
 - Virtual networks
 - Subnets
 - Availability Sets
+- Resource groups
 - Cloud Services
-- Virtual Machines
+- Virtual machines
 - Endpoints
 - Network Security Groups
 - Roles
 
 Names should be as descriptive as possible, to ensure that the name can provide enough information to determine to which resource it refers.
 
-### Computer Names
+### Computer names
 
-When administrators create a virtual machine, Microsoft Azure will require them to provide a virtual machine name. Microsoft Azure will use the virtual machine name as the Azure virtual machine resource name. Azure will use the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same. 
+When administrators create a virtual machine, Microsoft Azure will require them to provide a virtual machine name of up to 15 characters. Microsoft Azure will use the virtual machine name as the Azure virtual machine resource name. Azure will use the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same. 
 
 In cases in which a virtual machine is created from a .VHD file that already contains an operating system, the virtual machine name in Microsoft Azure might differ from the virtual machine’s OS computer name. This situation might add a degree of difficulty to virtual machine management and we discourage it. Always ensure that the Azure virtual machine resource name is the same name as the computer name as assigned to the operating system of that virtual machine.
 
 We recommend that the Azure Virtual Machine name be the same as the underlying OS computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS Computer Naming Conventions](https://support.microsoft.com/kb/188997/).
 
-### Storage Account Names
+### Storage account names
 
 Storage accounts have special rules governing their names. You can only use lowercase letters and numbers and the assigned name, concatenated to the service (blob, table, or queue) and the default domain (core.windows.net) should render a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting URLs should be valid, unique DNS names:
 
@@ -99,7 +101,7 @@ Storage accounts have special rules governing their names. You can only use lowe
 
 In addition, storage accounts can take advantage of containers. These must adhere to the naming conventions as described in [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
-### Azure Building Block names
+### Azure building block names
 
 Azure Building Blocks are application level services that Azure offers, typically to those applications taking advantage of PaaS features, although IaaS resources might leverage some, like Azure SQL, Traffic Manager, and others.
 
@@ -161,7 +163,7 @@ Storage accounts are bound to scalability targets. See [Microsoft Azure Subscrip
 
 Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure blobs, whereas the temporary disk is backed by storage local to the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, since the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
 
-Operating system disks and data disks have a maximum size of 1023 GB since the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 10243 bytes). You can implement disk striping in Windows to surpass this limit.
+Operating system disks and data disks have a maximum size of 1023 GB since the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can implement disk striping in Windows to surpass this limit.
 
 ### Striped Disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks will enhance performance by allowing multiple blobs to back the storage for a single volume. This parallelizes the I/O required to write and read data from a single disk. 
@@ -178,7 +180,7 @@ If you are using disk striping for Azure data disks, consider the following guid
 
 For more information, see [Storage Spaces - Designing for Performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
-### Multiple Storage Accounts
+### Multiple storage accounts
 
 Using multiple storage accounts to back the disks associated with many virtual machines ensures that the aggregated I/O of those disks is well below the scalability targets for each one of those storage accounts. 
 
@@ -202,18 +204,21 @@ Task:
 
 - Create the set of storage accounts using your naming convention. You can use the Azure Preview Portal, the Azure Management Portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
 
-## 4. Cloud Services
+## 4. Cloud services
 
-Cloud services are a fundamental building block in Azure, both for PaaS and IaaS services.
-For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
+Cloud services are a fundamental building block in Azure Service Management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
 
 In the case of IaaS, cloud services offer similar functionality, although in most cases, the load balancer functionality is used to forward traffic to specific TCP or UDP ports from the Internet to the many virtual machines within that cloud service.
+
+> [AZURE.NOTE] Cloud services do not exist in Azure Resource Manager. For an introduction to the advantages of Resource Manager, see [Azure Compute, Network & Storage Providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Cloud service names are especially important in IaaS because Azure uses them as part of the default naming convention for disks. The cloud service name can contain only letters, numbers, and hyphens. The first and last character in the field must be a letter or number.
 
 Microsoft Azure exposes the cloud service names, since they are associated to the VIP, in the domain “cloudapp.net”. For better user experience of the application, a vanity name should be configured as needed to replace the fully qualified cloud service name. This is typically done with a CNAME record in your public DNS that maps the public DNS name of your resource (for example, www.contoso.com) to the DNS name of the cloud service hosting the resource (for example, the cloud service hosting the web servers for www.contoso.com).
 
 In addition, the naming convention used for cloud services might need to tolerate exceptions because the cloud service names must be unique among all other Microsoft Azure cloud services, regardless of the Microsoft Azure tenant.
+
+One important limitation of cloud services to consider is that only one virtual machine management operation can be performed at a time for all the virtual machines in the cloud service. When you perform a virtual machine management operation on one virtual machine in the cloud service, you must wait until it is complete before you can perform a new management operation on another virtual machine. Therefore, you should keep the number of virtual machines in a cloud service low. 
 
 Azure subscriptions can support a maximum of 200 cloud services.
 
@@ -227,7 +232,7 @@ Task:
 
 - Create the set of cloud services using your naming convention. You can use the Azure Management Portal or the **New-AzureService** PowerShell cmdlet.
 
-## 5. Virtual Networks
+## 5. Virtual networks
 
 The next logical step is to create the virtual networks necessary to support the communications across the virtual machines in the solution. Although it is possible to host multiple virtual machines of an IT workload within just a cloud service, virtual networks are recommended.
 
@@ -283,9 +288,9 @@ Tasks:
 - Define the address space for the virtual network.
 - Define the set of subnets and the address space for each.
 - For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the virtual machines in the virtual network need to reach.
-- Create the virtual network using your naming convention. You can use the Azure Preview Portal or the Azure Management Portal.
+- Create the virtual network using your naming convention. You can use the Azure Preview portal or the Azure portal.
 
-## 6. Availability Sets
+## 6. Availability sets
 
 In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
 
@@ -303,11 +308,11 @@ Task:
 
 - Define the set of availability sets using your naming convention. You can associate a virtual machine to an availability set when you create the virtual machines or you can associate a virtual machine to an availability set after the virtual machine has been created.
 
-## 7. Virtual Machines
+## 7. Virtual machines
 
 In Azure PaaS, Azure manages virtual machines and their associated disks. You must create and name cloud services and roles, and then Azure will create instances associated to those roles. In the case of Azure IaaS, it is up to you to provide names for the cloud services, virtual machines, and associated disks.
 
-To reduce administrative burden, the Azure Management Portal will use the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
+To reduce administrative burden, the Azure portal will use the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
 
 In addition, Azure names disks and their supporting VHD blobs using a combination of the cloud service name, the computer name, and the creation date.
 
@@ -343,15 +348,14 @@ The resulting design must incorporate:
 - A Contoso Azure subscription and account
 - Storage accounts
 - A virtual network with two subnets
-- A set of cloud services
 - Availability Sets for the sets of servers with a similar role
 - Virtual machines
+- A single resource group
 
 All of the above will follow these Contoso naming conventions:
 
 - Contoso uses [IT workload]-[location]-[Azure resource] as a prefix. For this example, "azfae" (Azure Financial Analysis Engine) is the IT workload name and "use" (East US 2) is the location, because most of Contoso's initial customers are on the East Coast of the United States.
 - Storage accounts use contosoazfaeusesa[description] Note that contoso was added to the prefix to provide uniqueness and storage account names do not support the use of hyphens.
-- Cloud services use contoso-azfae-use-cs-[description] Note that ccontoso was added to the prefix to provide uniqueness.
 - Virtual networks use AZFAE-USE-VN[number].
 - Availability sets use azfae-use-as-[role].
 - Virtual machine names use azfae-use-vm-[vmname].
@@ -366,11 +370,6 @@ Contoso determined that they needed two storage accounts:
 
 - **contosoazfaeusesawebapp** for the standard storage of the Web servers, application servers, and domain controlles and their extra data disks
 - **contosoazfaeusesasqlclust** for the premium storage of the SQL Server cluster servers and their extra data disks
-
-Contoso created the two storage accounts with these PowerShell commands:
-
-	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesawebapp" -Location "East US 2"
-	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesasqlclust" -Location "East US 2" -Type Premium_LRS
 
 ### A virtual network with subnets
 
@@ -388,19 +387,7 @@ They created a cloud-only virtual network with the following settings using the 
 	- Name: BackEnd
 	- Address space: 10.0.2.0/24
 
-### Cloud services
-
-Contoso decided on two cloud services:
-
-- **contoso-azfae-use-cs-frontend** for the front-end Web servers
-- **contoso-azfae-use-cs-backend** for the back-end application servers, SQL server cluster servers, and domain controllers
-
-Contoso created the cloud services with these PowerShell commands:
-
-	New-AzureService -Service "contoso-azfae-use-cs-frontend" -Location "East US 2"
-	New-AzureService -Service "contoso-azfae-use-cs-backend" -Location "East US 2"
-
-### Availability Sets
+### Availability sets
 
 To maintain high availability of all four tiers of their financial analysis engine, Contoso decided on four availability sets:
 
@@ -432,108 +419,12 @@ Here is the resulting configuration.
 This configuration incorporates:
 
 - A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
-- Two cloud services
 - Two storage accounts
 - Four availability sets, one for each tier of the financial analysis engine
 - The virtual machines for the four tiers
 - An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
 - An internal load balanced set for unencrypted web traffic from the web servers to the application servers
-
-These Azure PowerShell commands create the virtual machines in this configuration for the previously created storage accounts, cloud services, and virtual network.
-
-	#Specify the storage account for the web and application servers
-	Set-AzureSubscription –SubscriptionName "Contoso Enterprise Subscription" -CurrentStorageAccountName "contosoazfaeusesawebapp"
-	
-	#Specify the cloud service name for the web servers
-	$ServiceName="contoso-azfae-use-cs-frontend"
-	
-	#Get the image string for the latest version of the Windows Server 2012 R2 Datacenter image in the gallery
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	
-	#Create the first web server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first web server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-web01 -InstanceSize large -ImageName $image -AvailabilitySetName azfae-use-as-web
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames FrontEnd
-	$vm1 | Add-AzureEndpoint -Name Web1 -Protocol tcp -LocalPort 443 -PublicPort 443 -LBSetName "WebSet" -DefaultProbe
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second web server 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second web server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-web02 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-web
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames FrontEnd
-	$vm1 | Add-AzureEndpoint -Name Web2 -Protocol tcp -LocalPort 443 -PublicPort 443 -LBSetName "WebSet" -DefaultProbe
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Specify the cloud service name for the application, SQL server, and authentication tiers
-	$ServiceName="contoso-azfae-use-cs-backend"
-	
-	#Create the first domain controller server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first domain controller server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-dc01 -InstanceSize Small -ImageName $image -AvailabilitySetName azfae-use-as-dc
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second domain controller server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second domain controller server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-dc02 -InstanceSize Small -ImageName $image -AvailabilitySetName azfae-use-as-dc
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-	AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create an internal load balancer instance for the application server tier 
-	Add-AzureInternalLoadBalancer -ServiceName $ServiceName -InternalLoadBalancerName "AppTierILB" –SubnetName BackEnd –StaticVNetIPAddress 10.0.2.100
-	
-	#Create the first application server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first application server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-app01 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-app
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureEndpoint -Name App1 -Protocol tcp -LocalPort 80 -PublicPort 80 -LBSetName "AppSet" -InternalLoadBalancerName "AppTierILB" -DefaultProbe
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 500 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-	AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second application server 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second application server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-app02 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-app
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Add-AzureEndpoint -Name App2 -Protocol tcp -LocalPort 80 -PublicPort 80 -LBSetName "AppSet" -InternalLoadBalancerName "AppTierILB" -DefaultProbe
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 500 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Specify the premium storage account for the SQL Server cluster
-	Set-AzureSubscription –SubscriptionName "Contoso Enterprise Subscription" -CurrentStorageAccountName "contosoazfaeusesasqlclust"
-	
-	#Create the majority node witness server for the SQL Server cluster
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the majority node witness server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sqlmn01 -InstanceSize Medium -ImageName $image -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Change the image string for the latest version of the SQL Server 2014 image in the gallery
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	
-	#Create the first SQL Server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sql01 -InstanceSize A5 -ImageName $image  -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1000 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second SQL Server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SQL Server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sql02 -InstanceSize A5 -ImageName $image  -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1000 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
+- A single resource group
 
 ## Additional Resources
 
@@ -547,4 +438,5 @@ These Azure PowerShell commands create the virtual machines in this configuratio
 
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
+[Azure Compute, Network, and Storage Providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
