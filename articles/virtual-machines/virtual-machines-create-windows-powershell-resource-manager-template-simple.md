@@ -24,7 +24,7 @@ You can easily create a new Windows-based Azure virtual machine (VM) using a Res
 
 Before you dive in, make sure you have Azure and PowerShell configured and ready to go.
 
-[AZURE.INCLUDE [arm-getting-setup-powershell](../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Create a Windows VM
 

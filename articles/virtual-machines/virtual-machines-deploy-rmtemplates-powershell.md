@@ -33,7 +33,7 @@ This article shows you how to use Azure Resource Manager templates and PowerShel
 
 Before you get started, make sure you have Azure PowerShell ready to go.
 
-[AZURE.INCLUDE [arm-getting-setup-powershell](../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Understanding Azure Resource Templates and Resource Groups
 
