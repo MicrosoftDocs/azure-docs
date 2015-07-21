@@ -218,7 +218,7 @@ You are now ready to transfer your key to Azure Key Vault.
 
 ##Step 4: Prepare your key for transfer
 
-For this forth step, do the following procedures on the disconnected workstation.
+For this fourth step, do the following procedures on the disconnected workstation.
 
 ###Step 4.1: Create a copy of your key with reduced permissions
 
