@@ -81,10 +81,16 @@ To accomplish this task, Azure AD provides a common authentication endpoint wher
 ### Issuer/Token Validation 
 - must be handled by your application
 
-### Managing the sign-up/sign-in experience and best practices
-- The user should be presented with a form that walks them through the registration process. Here they can choose if they want to follow the "admin consent" flow (the app gets provisioned for all the users in one organization - requiring the user to sign up using an administrator) or the "user consent" flow (the app gets provisioned for one user only). 
+### Managing the registration experience
+Your application may offer a registration experience for users, which automates the consent process. When they attempt to authenticate with your application, they will be transferred to the Azure AD portal, to sign in as the user they want to use for consenting. If the user is from an Azure AD tenant that is different from the one associated with your application, they will be presented with a consent page that will walk them through the registration process.  
 
-- When they attempt to authenticate, they will be transferred to the Azure AD portal, to sign in as the user they want to use for consenting. If the user is from an Azure AD tenant that is different from the one associate with your application, they will be presented with a consent page.
+The user can choose to either follow either :
+
+- the "admin consent" flow, where the application gets provisioned for all the users in one organization, requiring the user to authenticate using administrator credentials
+- the "user consent" flow, where the application gets provisioned for a single user
+
+Once they click on a sign up (or sign-in) button, the application will need to redirect the browser to the Azure AD OAuth 2.0 authorize endpoint, or an OpenID Connect userinfo endpoint. These endpoints allow the application to get information about the new user by inspecting the id_token.  For the "admin consent" flow, you can also pass a prompt=admin_consent parameter to trigger the administrator consent experience, where the administrator will grant consent on behalf of their organization. On successful consent, the response will contain admin_consent=true. When redeeming an access token, you’ll also receive an id_token that will provide information on the organization and the administrator that signed up for your application.
+
 
 ### Code samples
 The following code samples show you how to authenticate user accounts from any Azure Active Directory tenant, by implementing authentication for various types of client applications, including a Web app, Web API, and Native client
