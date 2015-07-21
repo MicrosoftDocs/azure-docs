@@ -43,12 +43,12 @@ You can attach empty disks and disks with data. In both cases, the disks are act
 
 	![Volume successfully initialized](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE] The size of the virtual machine determines how many disks you can attach to it. For details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
+> [AZURE.NOTE] The size of the virtual machine determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
 ## Additional resources
 
-[How to Detach a Disk from a Windows Virtual Machine](storage-windows-detach-disk.md)
+[How to detach a disk from a Windows virtual machine](storage-windows-detach-disk.md)
 
-[About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md)
+[About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
