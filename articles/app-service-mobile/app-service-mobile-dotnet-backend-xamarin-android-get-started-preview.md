@@ -16,7 +16,7 @@
 	ms.date="07/20/2015"
 	ms.author="chrande"/>
 
-# <a name="getting-started"> </a>Create a Xamarin Android App
+# <a name="getting-started"> </a>Create a Xamarin.Android App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
@@ -31,7 +31,8 @@ You'll have to complete this tutorial before you try all the other tutorials for
 * An active Azure account. 
 
     If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
-* The professional SKU of Visual Studio 2013 or later</a>.
+
+* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio Professional 2015</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. 
 
 >[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
 
@@ -39,11 +40,11 @@ You'll have to complete this tutorial before you try all the other tutorials for
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Create a new Xamarin Android app
+## Create a Xamarin.Android app
 
 Follow a basic quickstart on the [Azure Portal] to create an app or modify one, and then connect it to your mobile backend.
 
-To get started, download a .NET backend service project for your mobile app and a new Xamarin Android app. Here's how you do it.
+To get started, download a .NET backend service project for your mobile app and a new Xamarin.Android app. Here's how you do it.
 
 1. In the Azure Portal, click **Browse All**, then **Mobile Apps**, and then click the mobile app that you just created.
 
@@ -53,10 +54,6 @@ To get started, download a .NET backend service project for your mobile app and 
 
     This displays the three things you need to do to create a Xamarin.Android app that's connected to your mobile app backend.
 
-
-3. If you haven't already done it yet, download and install <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio Professional 2015</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> or on your local computer or virtual machine. 
-
-4. You'll also need to download and install [Xamarin] so that you can open your Xamarin.Android app in Visual Studio or Xamarin Studio.
 
 ###Download, run, and publish the mobile backend project
 
@@ -70,7 +67,7 @@ To get started, download a .NET backend service project for your mobile app and 
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Download and run the Xamarin Android app
+### Download and run the Xamarin.Android app
 
 5. Under **Download and run your Xamarin.Android project**, click the **Download** button.
 
