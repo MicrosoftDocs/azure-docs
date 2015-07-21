@@ -32,12 +32,12 @@ You'll need:
 * Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
 * A subscription to [Microsoft Azure](http://azure.microsoft.com/). (You could start with the [free trial](http://azure.microsoft.com/pricing/free-trial/).)
 
-*The following steps are recommended if you are able to rebuild and republish your app. If you have a web site that's already running and you don't want to update its code, there's a way to [add Application Insights to a live Java web app](app-insights-java-live), but it doesn't allow you to write your own code for detailed tracking.*
+*If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
 
 
 ## 1. Get an Application Insights instrumentation key
 
-1. Log into the [Microsoft Azure Portal](https://portal.azure.com)
+1. Log into the [Microsoft Azure Portal](https://portal.azure.com).
 2. Create a new Application Insights resource
 
     ![Click + and choose Application Insights](./media/app-insights-java-get-started/01-create.png)

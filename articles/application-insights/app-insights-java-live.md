@@ -23,6 +23,8 @@ If you have a web application that is already running on your J2EE server, you c
 
 You'll need a subscription to [Microsoft Azure](http://azure.com).
 
+> [AZURE.NOTE] The procedure on this page adds the SDK to your web app at runtime. This is useful if you don't want to update or rebuild your source code. But if you can, we recommend you [add the SDK to the source code](app-insights-java-get-started.md) instead. That gives you more options such as writing code to track user activity.
+
 ## 1. Get an Application Insights instrumentation key
 
 1. Log into the [Microsoft Azure Portal](https://portal.azure.com)
@@ -81,7 +83,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
-* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
+* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search](app-insights-diagnostic-search.md).
 
 
 ## 4. Add an HTTP filter
@@ -101,9 +103,9 @@ To get the most accurate results, the filter should be mapped before all other f
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-## 5. Restart your web app.
+## 5. Restart your web app
 
-## 7. View your telemetry in Application Insights
+## 6. View your telemetry in Application Insights
 
 Return to your Application Insights resource in [Microsoft Azure Portal](https://portal.azure.com).
 
@@ -123,28 +125,16 @@ And when viewing the properties of a request, you can see the telemetry events a
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
-[Learn more about metrics.][metrics]
+[Learn more about metrics.](app-insights-metrics-explorer.md)
 
 
 
 ## Next steps
 
-•	[Add telemetry to your web pages](app-insights-web-track-usage.md) to monitor page views and user metrics.
-•	[Set up web tests](app-insights-monitor-web-app-availability.md) to make sure your application stays live and responsive.
-•	[Capture log traces](app-insights-java-trace-logs.md)
-•	[Search events and logs](app-insights-diagnostic-search.md) to help diagnose problems.
+* [Add telemetry to your web pages](app-insights-web-track-usage.md) to monitor page views and user metrics.
+* [Set up web tests](app-insights-monitor-web-app-availability.md) to make sure your application stays live and responsive.
+* [Capture log traces](app-insights-java-trace-logs.md)
+* [Search events and logs](app-insights-diagnostic-search.md) to help diagnose problems.
 
-
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
 
  
