@@ -66,5 +66,8 @@ Once this has completed click Contact me. This will send either a notification o
 
 If you are using a 3rd party account with the mobile app, enter the account name and the security key in the boxes provided and then activate the account.  Once you have done this and verified the account, follow the steps above starting at number 6.
 
+
+<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)</center>
+
 >[AZURE.NOTE]If you see "Add work account", this is for Workplace Join and not for multi-factor authentication.  You can disregard this.
  
