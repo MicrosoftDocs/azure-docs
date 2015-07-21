@@ -23,7 +23,7 @@ Deployments can fail for any number of reasons. It is far better to prevent depl
 ## Useful tools to interact with Azure
 The AzureResourceManager module includes cmdlets that
 
-When working with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure resource management API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.
+When you work with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure resource management API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.
 
 ### Mac, Linux, and Windows tools
 If you use the Azure Command-Line Interface for Mac, Linux, and Windows, you are probably familiar with standard download tools such as **[curl](http://curl.haxx.se/)** and **[wget](https://www.gnu.org/software/wget/)**, or **[Resty](https://github.com/beders/Resty)**, and JSON utilities such as **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, and language libraries that handle JSON well. (Many of these tools also have ports for Windows, such as [wget](http://gnuwin32.sourceforge.net/packages/wget.htm); in fact, there are several ways to get Linux and other open-source software tools running on Windows as well.)
