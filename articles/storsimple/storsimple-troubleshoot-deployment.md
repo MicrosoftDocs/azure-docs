@@ -125,7 +125,7 @@ You can reset the passwords from the Management Portal of your StorSimple Manage
 - [Configure the device administrator password](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
 - [Configure the StorSimple Snapshot Manager password](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 
-### Errors during registration
+## Errors during device registration
 
 You use the StorSimple Manager service running in Microsoft Azure to register the device. You could encounter one or more of the following issues during device registration.
 
