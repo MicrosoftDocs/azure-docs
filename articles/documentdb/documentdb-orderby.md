@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="07/19/2015" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By

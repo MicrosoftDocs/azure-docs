@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Directory integration between Azure Multi-Factor Authentication and Active Directory" 
-	description="This is the Azure Multi-factor authentication page that describes how to integrate the Azure Multi-Factor Authenticaton Server with Active Directory so that is stays synched with all the lasted information in the directory." 
+	description="This is the Azure Multi-factor authentication page that describes how to integrate the Azure Multi-Factor Authentication Server with Active Directory so you can synchronize the directories." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 

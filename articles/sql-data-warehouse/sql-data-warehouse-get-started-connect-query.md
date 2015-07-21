@@ -21,6 +21,8 @@ This quick start article introduces you to connecting to and querying a provisio
 
 **Visual Studio** - Visual Studio's integrated code editor and debugger, SQL Server Data Tools (SSDT), is fully compatible with SQL DW, enabling you to easily connect to, query, and manage SQL Data Warehouse.  
 
+> [AZURE.NOTE] SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later
+
 **sqlcmd** - sqlcmd is a commandline tool that offers simple connection and querying abilities.  
 
 After completing this article you will have:
@@ -62,7 +64,9 @@ Close the "Extensions and Updates" window and also close Visual Studio 2013 befo
 This completes the update of Visual Studio 2013.
 
 ### Update SSDT 
-You might find that you also need to update SSDT. This is quite normal. The SSDT engineers update their plugin very regularly with new features so you will find you have to update from time to time. Again this is a very simple process. To check if you need to update SSDT perform the following steps:
+> [AZURE.IMPORTANT] SQL Data Warehouse requires at least SSDT Preview version 12.0.50623 or later.
+
+The SSDT engineers update their plugin very regularly with new features so you will find you have to update from time to time. Again this is a very simple process. To check if you need to update SSDT perform the following steps:
 
 1. Open Visual Studio 2013.  
 2. Choose the "Tools" menu and select "Extensions and Updates..."
@@ -83,7 +87,7 @@ This will initiate a download of the latest SSDT version. The image below shows 
 
 You now have an up to date version of Visual Studio 2013 on your desktop with an up to date SSDT extension.
 
-> [AZURE.NOTE] Currently we recommend the use of the [SSDT Preview for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409)
+> [AZURE.NOTE] Currently we recommend the use of the [SSDT Preview for Visual Studio 2013 version 12.0.50623 or later](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409) 
 
 ## Connect with Visual Studio 2013
 If you are running the desired version of Visual Studio you will be able to connect to the SQL Data Warehouse instance in two different ways:
