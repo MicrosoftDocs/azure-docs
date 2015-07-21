@@ -36,7 +36,7 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 
 -	HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
 
-		> [AZURE.NOTE] HDInsight Tools for Visual Studio are not supported on Visual Studio Express
+	> [AZURE.NOTE] HDInsight Tools for Visual Studio are not supported on Visual Studio Express
 
 -	Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-storm-getting-started.md) for steps to create a cluster.
 
