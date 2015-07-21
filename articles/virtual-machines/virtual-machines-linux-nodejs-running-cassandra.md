@@ -495,7 +495,7 @@ Add the following subnets:
 
 
 ###Step 2: Create Local Networks
-A Local Network in Azure virtual networking is a proxy address space that maps to a remote site including a private cloud or another Azure region. This proxy address space is bound to a remote gateway for routing network to the right networking destinations. See [Configure a VNet to VNet Connection](http://msdn.microsoft.com/library/azure/dn690122.aspx) for the instructions on establishing VNET-to-VNET connection. 
+A Local Network in Azure virtual networking is a proxy address space that maps to a remote site including a private cloud or another Azure region. This proxy address space is bound to a remote gateway for routing network to the right networking destinations. See [Configure a VNet to VNet Connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) for the instructions on establishing VNET-to-VNET connection. 
 
 Create two local networks per the following details:
 
