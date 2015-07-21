@@ -1,31 +1,24 @@
 <properties 
-	pageTitle="Azure Government Overview" 
-	description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " 
-	services="azure-government" 
-	documentationCenter="" 
-	authors="joharve2" 
-	manager="required"/>
+   pageTitle="Azure Government Overview" 
+   description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " 
+   services="Azure-Government" 
+   documentationCenter="" 
+   authors="joharve2" 
+   manager="chrisnie" 
+   editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="azure-government" 
-	ms.date="1/9/2014" 
-	ms.author="jharve"/>
+<tags
+   ms.service="multiple"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="azure-government" 
+   ms.date="03/13/2015"
+   ms.author="john.harvey@microsoft.com"/>
 
 #  Microsoft Azure Government Overview 
 
 <p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.
-
-
-## In this topic
-
-
-+ [Overview](#Overview)
-+ [Features currently available in Microsoft Azure Government](#Features)
-+ [Next Steps](#next)
 
 
 ## <a name="Overview"></a>Overview
@@ -76,6 +69,10 @@ Azure Government currently has the following services available in both US GOV I
 - Scheduler
 - Virtual Networking
 - SQL Database
+- Azure Files
+- Media Services
+- Traffic Manager
+- Service Bus
 
 Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
 
@@ -102,6 +99,6 @@ If you are interested in learning more and about Azure Government please leverag
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

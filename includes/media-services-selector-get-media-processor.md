@@ -1,3 +1,3 @@
 > [AZURE.SELECTOR]
-- [.NET SDK](/documentation/articles/media-services-get-media-processor/)
-- [REST API](/documentation/articles/media-services-rest-get-media-processor/)
+- [.NET SDK](../articles/media-services/media-services-get-media-processor.md)
+- [REST API](../articles/media-services/media-services-rest-get-media-processor.md)
