@@ -34,13 +34,13 @@ This topic explains how to use the Quick Create method to create a new cloud ser
 ## Concepts
 Three components are required in order to deploy an application as a cloud service in Azure:
 
-- **Service Definition**<br/>
+- **Service Definition**  
   The cloud service definition file (.csdef) defines the service model, including the number of roles.
 
-- **Service Configuration**<br/>
+- **Service Configuration**  
   The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
 
-- **Service Package**<br/>
+- **Service Package**  
   The service package (.cspkg) contains the application code and configurations and the service definition file.
 
 You can learn more about these and how to create a package [here](cloud-services-model-and-package.md).

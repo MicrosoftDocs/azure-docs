@@ -76,7 +76,7 @@ The service configuration file should be similar to the following example with t
 </ServiceConfiguration>
 ```
 
-When you [package](cloud-services-model-and-package.md#cspkg) and [publish](cloud-services-how-to-create-deploy-portal.md) the application, you must ensure that the **Enable Remote Desktop for all Roles** check box is selected. [This](https://msdn.microsoft.com/library/ff683672.aspx) article provides lists common tasks related to using Visual Studio and Cloud Services.
+When you [package](cloud-services-model-and-package.md#cspkg) and [publish](cloud-services-how-to-create-deploy-portal.md) the application, you must ensure that the **Enable Remote Desktop for all Roles** check box is selected. [This](https://msdn.microsoft.com/library/ff683672.aspx) article provides lists common tasks related to using Visual Studio and Cloud Services.
 
 ### Set up the connection on running instances
 On the Configure page for your cloud service, you can enable or modify remote desktop connection settings. For more information, see [Configure remote access to role instances](cloud-services-how-to-configure.md).
@@ -97,7 +97,7 @@ You can use the following steps to retrieve the RDP file from the Management Por
 4.  Browse to the location where you saved the RDP file, select the file, click **Open**, and then click **Connect**. Follow the instructions to complete the connection.
 
 ### Use PowerShell to get the RDP file
-You can use the [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet to retrieve the RDP file. 
+You can use the [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet to retrieve the RDP file. 
 
 ### Use Visual Studio to download the RDP file
 In Visual Studio, you can use the Server Explorer to create a remote desktop connection.
@@ -105,9 +105,9 @@ In Visual Studio, you can use the Server Explorer to create a remote desktop con
 1.  In Server Explorer, expand the **Azure\\Cloud Services\\[cloud service name]** node.
 2.  Expand either **Staging** or **Production**.
 3.  Expand the individual role.
-4.  Right-click one of the role instances, click **Connect using Remote Desktop...**, and thenter the user name and password.
+4.  Right-click one of the role instances, click **Connect using Remote Desktop...**, and then enter the user name and password.
 
-### Programatically download the RDP file through the Service Management REST API
+### Programmatically download the RDP file through the Service Management REST API
 You can use the [Download RDP File](https://msdn.microsoft.com/library/jj157183.aspx) REST operation to download the RDP file. You can then use the RDP file with Remote Desktop Connection to access the cloud service.
 
 ## Next steps
