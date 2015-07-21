@@ -40,9 +40,12 @@ else.
 
 Check that your federation metadata is publicly accessible by navigating to the following URL from a computer on the public internet (off of the corporate network):
 
-https://<your_FS_name>/federationmetadata/2007-06/federationmetadata.xml 
 
-where `<your_FS_name> `is replaced with the federation service host name your organization uses, such as fs.contoso.com.  If you are able to verify both of these settings successfully, you do not have to do anything else.
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml 
+
+where `(your_FS_name) `is replaced with the federation service host name your organization uses, such as fs.contoso.com.  If you are able to verify both of these settings successfully, you do not have to do anything else.  
+
+Example: https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## If your AutoCertificateRollover property is set to False
 
