@@ -84,7 +84,7 @@ Media Encoder Standard uses presets described in [this](http://go.microsoft.com/
 
 Azure Media Services .NET SDK is now version 3.4.0.0. The following functionality was added in this release:  
 
-- Implemented support for live archive. Note that asset upload/download doesn’t work with live archive.
+- Implemented support for live archive. Note that you cannot download an asset that contains a live archive.
 - Implemented support for dynamic filters
 - Implemented functionality that allows users to keep storage container while deleting asset
 - Bug fixes related to retry policies in channels
