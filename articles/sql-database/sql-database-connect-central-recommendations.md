@@ -112,6 +112,11 @@ For links to code sample topics that demonstrate retry logic, see:
 
 
 <a id="gatewaynoretry" name="gatewaynoretry"></a>
+
+
+&nbsp;
+
+
 ## Gateway no longer provides retry logic in V12
 
 
