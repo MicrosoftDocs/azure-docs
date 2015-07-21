@@ -12,7 +12,7 @@ can best protect your cloud applications.
 An application's security is a function of its surface. The more surface
 that the application exposes the greater the security concerns. For
 example, an application that runs as an unattended batch process exposes
-less, from a security perspective, than a publically available website.
+less, from a security perspective, than a publicly available website.
 
 When you move to the cloud you gain a certain peace of mind about
 infrastructure and networking since these are managed in data centers
@@ -532,7 +532,8 @@ Refer to the following resources to solve this scenario
 -   [Shared Access Signatures Are Easy These Days](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
 
-##Azure SQL Database Identity and Access Scenarios
+## Azure SQL Database Identity and Access Scenarios
+
 
 SQL Database only supports SQL Server Authentication. Windows
 Authentication (integrated security) is not supported. Users must
@@ -540,18 +541,26 @@ provide credentials (login and password) every time they connect to a
 SQL Database. Pay special attention when managing your username and
 password to avoid information disclosure.
 
+
 ![][15]
 
-Refer to the following resources to solve this scenario:
 
--   [Security Guidelines and Limitations (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ff394108.aspx#authentication)
--   [How to: Connect to SQL Database Using sqlcmd](http://msdn.microsoft.com/library/windowsazure/ee336280.aspx)
--   [How to: Connect to SQL Database Using ADO.NET](http://msdn.microsoft.com/library/windowsazure/ee336243.aspx)
--   [How to: Connect to SQL Database Through ASP.NET](http://msdn.microsoft.com/library/windowsazure/ee621781.aspx)
--   [How to: Connect to SQL Database Through WCF Data Services](http://msdn.microsoft.com/library/windowsazure/ee621789.aspx)
--  [ How to: Connect to SQL Database Using PHP](http://msdn.microsoft.com/library/windowsazure/ff394110.aspx)
--   [How to: Connect to SQL Database Using JDBC](http://msdn.microsoft.com/library/windowsazure/gg715284.aspx)
--   [How to: Connect to SQL Database Using the ADO.NET Entity Framework](http://msdn.microsoft.com/library/windowsazure/ff951633.aspx)
+To solve this scenario, refer to the following Help topic:<br/>
+[Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+
+Or refer to one of its many child topics, some of which are:
+
+
+- [How to: Connect to SQL Database Using sqlcmd](http://msdn.microsoft.com/library/azure/ee336280.aspx)
+- [Code sample: Retry logic for connecting to Azure SQL Database with ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [How to: Connect to SQL Database Using PHP](http://msdn.microsoft.com/library/azure/ff394110.aspx)
+- [How to: Connect to SQL Database Using JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx)
+
+
+Or refer to:<br/>
+[Azure SQL Database Security Guidelines and Limitations](http://msdn.microsoft.com/library/azure/ff394108.aspx#authentication)
+
 
 ##Azure Service Bus Identity and Access Scenarios
 

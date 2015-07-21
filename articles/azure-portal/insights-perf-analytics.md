@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="07/17/2015" 
 	ms.author="awills"/>
 
 # Monitor Azure web app performance
@@ -27,7 +27,9 @@ Application Insights and New Relic are two of the performance monitoring extensi
 
 1. Click **Browse** and select the web app or virtual machine you would like to instrument.
 
-2. Add the Application Insights or the New Relic extension. If you're instrumenting a web app:
+2. Add the Application Insights or the New Relic extension. 
+
+    If you're instrumenting a web app:
 
 ![Settings, Extensions, Add, Application Insights](./media/insights-perf-analytics/05-extend.png)
 

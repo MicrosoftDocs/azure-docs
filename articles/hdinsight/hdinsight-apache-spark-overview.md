@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 # Overview: Apache Spark on Azure HDInsight 
@@ -66,7 +66,7 @@ Apache Spark in HDInsight stores data in Azure Blobs. Business experts and key d
 
 [Look at a tutorial](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-Apache Spark comes with [MLlib](http://spark.apache.org/mllib/), a machine learning library built on top of Spark. In addition to this, Spark on HDInsight also includes Anaconda, a Python distribution with a variety of packages for machine learning. Couple this with a built-in support for IPython notebooks, and you have a top-of-the-line environment for creating machine learning applications.  
+Apache Spark comes with [MLlib](http://spark.apache.org/mllib/), a machine learning library built on top of Spark. In addition to this, Spark on HDInsight also includes Anaconda, a Python distribution with a variety of packages for machine learning. Couple this with a built-in support for Jupyter notebooks, and you have a top-of-the-line environment for creating machine learning applications.  
 
 ### Streaming and real-time data analysis
 
@@ -82,7 +82,7 @@ Spark in HDInsight includes the following components that are available on the c
 - [Anaconda](http://docs.continuum.io/anaconda/)
 - [Spark Job Server](https://github.com/spark-jobserver/spark-jobserver)
 - [Zeppelin Notebook](https://zeppelin.incubator.apache.org)
-- [IPython Notebook](https://jupyter.org)
+- [Jupyter Notebook](https://jupyter.org)
 
 Spark in HDInsight also provides an [ODBC driver](http://go.microsoft.com/fwlink/?LinkId=616229) for connectivity to Spark clusters in HDInsight from BI tools such as Microsoft Power BI and Tableau.
 
