@@ -87,6 +87,8 @@ In the Application Insights resource, aggregated remote dependency and method ex
 
 To search for individual instances of dependency, exception and method reports, open [Search][diagnostic]. 
 
+[Diagnosing dependency issues - learn more](app-insights-dependencies.md#diagnosis).
+
 ## Questions? Problems?
 
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
