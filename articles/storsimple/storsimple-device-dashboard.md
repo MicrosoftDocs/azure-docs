@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Use the StorSimple Manager device dashboard"
-   description="Device Dashboard"
+   description="Describes the StorSimple Manager device dashboard and how to use it to view connected initiators and find the device serial number and IQN."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
