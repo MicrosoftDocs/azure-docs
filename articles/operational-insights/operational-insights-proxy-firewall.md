@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Configure proxy and firewall settings for Operational Insights
@@ -81,12 +81,12 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 ## Configure proxy and firewall settings with Operations Manager
 
-For an Operations Manager management group to connect to and register with the Operational Insights service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the Operations Manager management server and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights. Even if an Operations Manager management server is not behind a proxy server, it's agents might. In this case, the proxy server should to be configured the same manner as agents are to enable allow Security and Log Management solution data to get sent to the Operational Insights web service.
+For an Operations Manager management group to connect to and register with the Operational Insights service, it must have access to the port numbers of your domains and URLs. If you use a proxy server for communication between the Operations Manager management server and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights. Even if an Operations Manager management server is not behind a proxy server, it's agents might. In this case, the proxy server should to be configured the same manner as agents are in order to enable and allow Security and Log Management solution data to get sent to the Operational Insights web service.
 
-In order for Operations Manager agents to communicate with the Operational Insights service, your Operations Manager infrastructure (including agents) version should be one of the of the following:
+In order for Operations Manager agents to communicate with the Operational Insights service, your Operations Manager infrastructure (including agents) should have the correct proxy settings and version. The proxy setting for agents is specified in the Operations Manager console. Your version should be one of the of the following:
 
-- Operations Manager 2012 SP1 Update rollup 7 or later
-- Operations Manager 2012 R2 Update Rollup 3
+- Operations Manager 2012 SP1 Update Rollup 7 or later
+- Operations Manager 2012 R2 Update Rollup 3 or later
 
 
 The following tables list the ports related to these tasks.
