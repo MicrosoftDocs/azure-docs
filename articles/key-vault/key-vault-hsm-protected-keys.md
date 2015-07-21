@@ -156,6 +156,7 @@ Start a command prompt and run the Thales new-world program.
 This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards will give full access to the security world. These cards become the **Administrator Card Set** for the new security world. 
 
 Then do the following:
+
 - Back up the world file. Secure and protect the world file, the Administrator Cards, and their pins, and make sure that no single person has access to more than one card.
 
 ###Step 3.2: Validate the downloaded package
