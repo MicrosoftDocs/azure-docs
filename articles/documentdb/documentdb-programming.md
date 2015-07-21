@@ -3,7 +3,7 @@
 	description="Find out how to use Microsoft Azure DocumentDB to write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
-	ms.author="mimig"/>
+	ms.date="07/20/2015" 
+	ms.author="andrl"/>
 
 # DocumentDB server-side programming: Stored procedures, triggers, and UDFs
 
@@ -470,6 +470,202 @@ The UDF can subsequently be used in queries like in the following sample:
 	}, function(error) {
 	    console.log("Error" , error);
 	});
+
+## JavaScript query API
+In addition to issuing queries using DocumentDB’s SQL grammar, the server-side SDK allows you to perform optimized queries directly in JavaScript (no SQL knowledge needed). The JavaScript Query API allows you to programmatically build queries simply by passing lambdas in to chainable function calls.
+
+### JavaScript query grammar
+The current set of supported functions include:
+<ul>
+    <li>
+        <b>chain() ... .value([callback] [, options])</b>
+        <ul><li>
+        Starts a chained call which must be terminated with value().
+        </li></ul>
+    </li>
+    <li>
+        <b>filter(predicateFunction [, options] [, callback])</b>
+        <ul><li>
+        Filters the input using a predicate function which returns true/false in order to filter in/out input documents into the resulting set. This behaves similar to a WHERE clause in SQL.
+        </li></ul>
+    </li>
+    <li>
+        <b>map(transformationFunction [, options] [, callback])</b>
+        <ul><li>
+        Applies a projection given a transformation function which maps each input item to a JavaScript object or value. This behaves similar to a SELECT clause in SQL.
+        </li></ul>
+    </li>
+    <li>
+        <b>pluck([propertyName] [, options] [, callback])</b>
+        <ul><li>
+        This is a shortcut for a map which extracts the value of a single property from each input item.
+        </li></ul>
+    </li>
+    <li>
+        <b>flatten([isShallow] [, options] [, callback])</b>
+        <ul><li>
+        Combines and flattens arrays from each input item in to a single array. This behaves similar to SelectMany in LINQ.
+        </li></ul>
+    </li>
+    <li>
+        <b>sortBy(selectorFunction [, options] [, callback])</b>
+        <ul><li>
+        Sort the input by given field/property/array item.
+        </li></ul>
+    </li>
+    <li>
+        <b>sortByDescending(selectorFunction [, options] [, callback])</b>
+        <ul><li>
+        Sort the input by given field/property/array item in descending order.
+        </li></ul>
+    </li>
+</ul>
+
+
+When included inside predicate and/or selector functions, the following JavaScript constructs get automatically optimized to run directly on DocumentDB indices:
+
+* Simple operators: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Literals, including the object literal: {}
+* var, return
+
+The following JavaScript constructs do not get optimized for DocumentDB indices:
+
+* Control flow (e.g. if, for, while)
+* Function calls
+
+For more information, please see our [Server-Side JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+
+### SQL to Javascript query API cheat sheet
+The following table presents various SQL queries and the corresponding JavaScript queries.
+
+As with SQL queries, document property keys (e.g. `doc.id`) are case-sensitive.
+
+> [AZURE.NOTE] `__` (double-underscore) is an alias to getContext().getCollection(). In other words, you can use `__` or `getContext().getCollection()` to access the JavaScript query API.
+
+<table border="1" width="100%">
+<tbody>
+<tr>
+<th>SQL</th>
+<th>JavaScript Query API</th>
+<th>Details</th>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return doc;
+});
+</pre>
+</td>
+<td>Results in all documents (paginated with continuation token) as is.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg, docs.actions 
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return {
+        id: doc.id,
+        msg: doc.message,
+        actions: doc.actions
+    };
+});
+</pre>
+</td>
+<td>Projects the id, message (aliased to msg), and action from all documents.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT * 
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(doc) {
+    return doc.id === "X998_Y998";
+});
+</pre>
+</td>
+<td>Queries for documents with the predicate: id = "X998_Y998".</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+WHERE ARRAY_CONTAINS(docs.Tags, 123)
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(x) {
+    return x.Tags && x.Tags.indexOf(123) > -1;
+});
+</pre>
+</td>
+<td>Queries for documents that have a Tags property and Tags is an array containing the value 123.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.id === "X998_Y998";
+    })
+    .map(function(doc) {
+        return {
+            id: doc.id,
+            msg: doc.message
+        };
+    })
+    .value();
+</pre>
+</td>
+<td>Queries for documents with a predicate, id = "X998_Y998", and then projects the id and message (aliased to msg).</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT VALUE tag
+FROM tag IN docs.Tags
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.Tags != null;
+    })
+    .pluck("Tags")
+    .flatten()
+    .value();
+</pre>
+</td>
+<td>Projects the id, message (aliased to msg), and action.</td>
+</tr>
+</tbody>
+</table>
 
 ## Runtime support
 [DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources.md).
