@@ -129,7 +129,7 @@ Here are the configuration details:
 
 ## Azure Resource Manager
 
-The SharePoint Server Farm feature of the Azure preview portal creates virtual machines in Service Manager. To create SharePoint Server 2013 farms in Azure Resource Manager, see [Deploy SharePoint Farms with Azure Resource Manager templates](virtual-machines-workload-template-sharepoint.md).
+The SharePoint Server Farm feature of the Azure preview portal creates virtual machines in Service Management. To create SharePoint Server 2013 farms in Azure Resource Manager, see [Deploy SharePoint Farms with Azure Resource Manager templates](virtual-machines-workload-template-sharepoint.md).
 
 ## Additional resources
 
