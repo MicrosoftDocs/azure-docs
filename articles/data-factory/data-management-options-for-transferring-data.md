@@ -3,8 +3,8 @@
 	description="Guidance for choosing the best option for transferring data from on-premises other cloud sources into Microsoft Azure for advanced analytics." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
 	documentationCenter="" 
-	authors="cjgronlund" 
-	manager="paulettm" 
+	authors="spelluru" 
+	manager="jeffgoll" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-data" 
 	ms.date="01/07/2014" 
-	ms.author="cgronlun"/>
+	ms.author="spelluru"/>
 
 # Options for transferring stored data to the Azure cloud
 
