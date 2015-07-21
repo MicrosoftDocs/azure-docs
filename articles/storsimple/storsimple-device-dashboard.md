@@ -19,7 +19,7 @@
 
 ## Overview
 
-The device dashboard gives you an overview of information for a specific StorSimple device, in contrast to the service dashboard, which gives you information about all of the devices included in your Microsoft Azure StorSimple solution.
+The StorSimple Manager device dashboard gives you an overview of information for a specific  StorSimple device, in contrast to the service dashboard, which gives you information about all of the devices included in your Microsoft Azure StorSimple solution.
 
 ![Device dashboard page](./media/storsimple-device-dashboard/HCS_DeviceDashboardPage.png)
 
