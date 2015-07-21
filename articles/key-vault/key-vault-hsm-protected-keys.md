@@ -67,7 +67,7 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 
 You will use the following 5 steps to generate and transfer your key to an Azure Key Vault HSM: 
 
-- [Step 1: Prepare your Internet-connected workstation](#step-1-prepare-your-Internet-connected-workstation)
+- [Step 1: Prepare your Internet-connected workstation](#step-1-prepare-your-internet-connected-workstation)
 - [Step 2: Prepare your disconnected workstation](#step-2-prepare-your-disconnected-workstation)
 - [Step 3: Generate your key](#step-3-generate-your-key)
 - [Step 4: Prepare your key for transfer](#step-4-prepare-your-key-for-transfer)
@@ -162,6 +162,7 @@ Then do the following:
 ###Step 3.2: Validate the downloaded package
 
 This step is optional but recommended so that you can validate the following:
+
 - The Key Exchange Key that is included in the toolset has been generated from a genuine Thales HSM.
 - The hash of the Security World that is included in the toolset has been generated in a genuine Thales HSM.
 - The Key Exchange Key is non-exportable.
@@ -241,7 +242,7 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
 
-When you run this command, replace *contosokey* with the same value you specified in **Step 3.3: Create a new key** from the [Generate your key step](#step-3-generate-your-key).
+When you run this command, replace *contosokey* with the same value you specified in **Step 3.3: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
 
 You will be asked to plug in your security world admin cards.
 
@@ -257,7 +258,7 @@ Optionally, run the Thales utilities to confirm the minimal permissions on the n
 - kmfile-dump.exe:
 
 		"%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-When you run these command, replace contosokey with the same value you specified in **Step 3.3: Create a new key** from the [Generate your key step](#step-3-generate-your-key).
+When you run these command, replace contosokey with the same value you specified in **Step 3.3: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
 
 ###Step 4.3: Encrypt your key by using Microsoft’s Key Exchange Key
 
@@ -281,9 +282,9 @@ Run one of the following commands, depending on your region:
 
 When you run this command, use these instructions:
 
-- Replace *contosokey* with the identifier that you used to generate the key in **Step 3.3: Create a new key** from the [Generate your key step](#step-3-generate-your-key).
+- Replace *contosokey* with the identifier that you used to generate the key in **Step 3.3: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
 
-- Replace *SubscriptionID* with the ID of the Azure subscription that contains your key vault. You retrieved this value previously, in **Step 1.2: Get your Azure subscription ID** from the [Prepare your Internet-connected workstation step](#step-1-prepare-your-Internet-connected-workstation).
+- Replace *SubscriptionID* with the ID of the Azure subscription that contains your key vault. You retrieved this value previously, in **Step 1.2: Get your Azure subscription ID** from the [Prepare your Internet-connected workstation](#step-1-prepare-your-internet-connected-workstation) step.
 
 - Replace *ContosoFirstHSMKey* with a label that will be used for your output file name.
 
