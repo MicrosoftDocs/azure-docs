@@ -21,7 +21,7 @@
 
 If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, use the Azure preview portal or the VMAccess extension to reset the local administrator password or reset the Remote Desktop service configuration.
 
-> [AZURE.NOTE] This article does not apply to virtual machines created in Resource Manager.
+> [AZURE.NOTE] This article does not apply to virtual machines created in Azure Resource Manager.
 
 ## Preview portal
 
