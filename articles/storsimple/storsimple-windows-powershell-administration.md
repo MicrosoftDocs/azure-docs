@@ -177,11 +177,11 @@ The following is a brief description of the types of Help for this Windows Power
 
 #### To get Help for a cmdlet
 
-- To get Help for any cmdlet or function, use the following command:Get-Help <cmdlet-name>
+- To get Help for any cmdlet or function, use the following command: `Get-Help <cmdlet-name>`
 
-- To get online Help for any cmdlet, use the previous cmdlet with the -Online parameter: Get-Help <cmdlet-name> -Online
+- To get online Help for any cmdlet, use the previous cmdlet with the `-Online` parameter: `Get-Help <cmdlet-name> -Online`
 
-- For full Help, you can use the –Full parameter, and for examples, use the –Examples parameter.
+- For full Help, you can use the –Full parameter, and for examples, use the `–Examples` parameter.
 
 #### To update Help
 
@@ -191,14 +191,15 @@ You can easily update the Help in the Windows PowerShell interface. Perform the 
 
 1. Start Windows PowerShell with the **Run as administrator** option.
 
-1. At the command prompt, type:Update-Help
+1. At the command prompt, type:
+	`Update-Help`
 
 1. The updated Help files will be installed.
 
-1. After the Help files are installed, type: Get-Help Get-Command. This will display a list of cmdlets for which Help is available.
+1. After the Help files are installed, type: `Get-Help Get-Command`. This will display a list of cmdlets for which Help is available.
 
 
->[AZURE.NOTE] **To get a list of all the available cmdlets in any of the runspaces, log in to the corresponding menu option and run the Get-Command cmdlet.**
+>[AZURE.NOTE] **To get a list of all the available cmdlets in any of the runspaces, log in to the corresponding menu option and run the `Get-Command` cmdlet.**
 
 ## Next steps
 
