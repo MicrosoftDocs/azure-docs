@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
 
-###<span id="whathappened">What happened to my project?</span>
+###What happened to my project?</span>
 
 ##### References Added
 

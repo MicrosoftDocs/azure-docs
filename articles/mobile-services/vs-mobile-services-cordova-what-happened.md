@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
 > - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
-###<span id="whathappened">What happened to my project?</span>
+###What happened to my project?</span>
 
 #####References Added
 

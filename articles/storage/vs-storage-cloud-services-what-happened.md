@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
 > - [What Happened](vs-storage-cloud-services-what-happened.md)
 
-###<span id="whathappened">What happened to my project?</span>
+###What happened to my project?</span>
 
 ###### References Added
 

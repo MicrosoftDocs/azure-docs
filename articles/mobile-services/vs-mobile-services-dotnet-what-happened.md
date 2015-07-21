@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
 > - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
-###<span id="whathappened">What happened to my project?</span>
+###What happened to my project?</span>
 
 #####References Added
 
