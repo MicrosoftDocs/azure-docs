@@ -38,7 +38,6 @@ After reading this article, you will be able to:
 >- The Azure PowerShell StorSimple cmdlets are a different collection of cmdlets that allow you to automate StorSimple service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the Azure StorSimple cmdlet reference.
 
 
-## Connect to Windows PowerShell for StorSimple
 
 You can access the Windows PowerShell for StorSimple using one of the following methods:
 
@@ -46,7 +45,7 @@ You can access the Windows PowerShell for StorSimple using one of the following 
 - Connect remotely to StorSimple using Windows PowerShell
 	
 
-## Connect through the device serial console
+## Connect to Windows PowerShell for StorSimple via device serial console
 
 You can [download PuTTY](http://www.putty.org/) or similar terminal emulation software to connect to Windows PowerShell for StorSimple. You need to configure PuTTY specifically to access the Microsoft Azure StorSimple device. The following topics contain detailed steps about how to configure PuTTy and connect to the device. Various menu options in the serial console are also explained.
 
@@ -123,7 +122,7 @@ Make sure that you use the following PuTTY settings to connect to the Windows Po
 
 You can now use PuTTY to connect to the device serial console by doing the following steps:
 
-#### To connect using PuTTY
+[AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
 
 ## Connect remotely to StorSimple using Windows PowerShell for StorSimple
