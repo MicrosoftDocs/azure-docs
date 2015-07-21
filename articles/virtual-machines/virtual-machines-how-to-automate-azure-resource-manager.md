@@ -3,7 +3,7 @@
 	description="Get links to topics on how to automate the creation and management of Azure virtual machines by using Resource Manager."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,8 @@
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.date="07/09/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
+
 
 # How to automate with Azure Resource Manager
 
@@ -58,7 +59,8 @@ Azure Resource Manager simplifies the deployment and management of complex appli
 
 ## Automate with .NET
 
-[Deploy Azure resources using the Compute, Network, and Storage .NET libraries](virtual-machines-arm-deployment.md)
+[Deploy Azure resources using the .NET Library](virtual-machines-arm-deployment.md)
+
 
 ## Automate with Azure Automation
 
