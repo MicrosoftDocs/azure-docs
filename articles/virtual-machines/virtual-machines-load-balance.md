@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Load balancing for Azure Infrastructure Services"
+	pageTitle="Load balancing for Azure infrastructure services"
 	description="Describes the two different types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,9 +17,9 @@
 	ms.author="joaoma"/>
 
 
-# Load balancing for Azure Infrastructure Services#
+# Load balancing for Azure infrastructure services#
 
-There are two levels of load balancing available for Azure Infrastructure Services:
+There are two levels of load balancing available for Azure infrastructure services:
 
 - **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints. This is done with Azure Traffic Manager and the Round Robin load balancing method.
 - **Network Level**:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network. This is done with the Azure load balancer.
