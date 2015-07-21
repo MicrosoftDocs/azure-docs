@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Install Python and the SDK - Azure" 
-	description="Learn how to install Python and the SDK to use with Azure." 
-	services="" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Install Python and the SDK - Azure"
+	description="Learn how to install Python and the SDK to use with Azure."
+	services=""
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/05/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="02/05/2015"
 	ms.author="huvalo"/>
 
 
@@ -89,7 +89,7 @@ After the installation you should have Python and the Client Libraries available
 The WebPI installer provides everything you need to develop Python Azure apps.
 
 ![how-to-install-python-webpi-34-1](./media/python-how-to-install/how-to-install-python-webpi-34-1.png)
- 
+
 Once finished, you should see this screen confirming your install choices:
 
 ![how-to-install-python-webpi-34-2](./media/python-how-to-install/how-to-install-python-webpi-34-2.png)
@@ -143,11 +143,11 @@ To install the Python Azure Client Libraries, use **pip** to grab it from **PyPI
 If you don't have **pip** installed, use this command to install it:
 
 	curl https://bootstrap.pypa.io/get-pip.py | sudo python
-	
+
 The command above will silently prompt for the root password. Type it and press Enter.  
 
 Next, use the `pip` command to install the Python Azure Client Libraries:
-	
+
 	sudo pip install azure
 
 You should now see the client libraries installed under **site-packages**.  On MacOS:
@@ -197,19 +197,19 @@ For more information on developing and publishing Azure Websites, see the tutori
 [www.activestate.com]: http://www.activestate.com
 [SciPy - A suite of Scientific Python libraries]: http://www.scipy.org
 [NumPy - A numerics library for Python]: http://www.numpy.org
-[Django Project - A mature web framework/CMS]: http://www.djangoproject.com 
+[Django Project - A mature web framework/CMS]: http://www.djangoproject.com
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
 [IPython Notebook on Azure]: virtual-machines-python-ipython-notebook.md
 [Cloud Services]: cloud-services-python-ptvs.md
 [Websites]: web-sites-python-ptvs-django-mysql.md
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
+[Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com
 [Python Package Index]: http://pypi.python.org/pypi
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
-[How to use the Azure Command-Line Tools for Mac and Linux]: crossplat-cmd-tools.md
+[How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
 [Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
 [Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
 [Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md

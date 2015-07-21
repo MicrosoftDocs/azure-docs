@@ -15,7 +15,7 @@
    ms.date="04/28/15"
    ms.author="v-sharos" />
 
-### To create a volume
+#### To create a volume
 
 1. On the device **Quick Start** page, click **Add a volume**. This starts the Add a volume wizard.
 

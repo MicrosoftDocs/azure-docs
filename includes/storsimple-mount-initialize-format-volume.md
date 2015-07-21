@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/01/2015"
+   ms.date="04/29/2015"
    ms.author="v-sharos" />
 
-### To mount, initialize, and format a volume
+#### To mount, initialize, and format a volume
 
 1. Start the Microsoft iSCSI initiator.
 

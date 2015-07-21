@@ -15,7 +15,7 @@
    ms.date="04/21/2015"
    ms.author="v-sharos" />
 
-### To configure automatic updating
+#### To configure automatic updating
 
 1. On the **Devices** page, select the device on which you want to install updates.
 

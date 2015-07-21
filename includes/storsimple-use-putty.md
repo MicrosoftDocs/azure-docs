@@ -15,7 +15,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### To connect through the serial console
+#### To connect through the serial console
 
 1. Connect your serial cable to the device (directly or through a USB-serial adapter).
 
@@ -38,7 +38,7 @@
 
     These settings are shown in the following illustration.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_ConnectingViaPutty-include.png) 
+     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
 
     > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
 

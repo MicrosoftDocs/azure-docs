@@ -15,19 +15,19 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### To install regular updates via Windows PowerShell for StorSimple
+#### To install regular updates via Windows PowerShell for StorSimple
 
 1. Open the device serial console and select option 1, **Log in with full access**. Type the password. The default password is *Password1*. 
 
 2. At the command prompt, type:
 
-    **Get-HcsUpdateAvailability** 
-
+     `Get-HcsUpdateAvailability`
+    
     You will be notified if updates are available and whether the updates are disruptive or non-disruptive.
 
 3. At the command prompt, type:
 
-    **Start-HcsUpdate**
+     `Start-HcsUpdate`
 
     The update process with start.
 

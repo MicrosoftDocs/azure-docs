@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/01/2015"
+   ms.date="04/29/2015"
    ms.author="v-sharos" />
 
-### To complete the minimum StorSimple device setup
+#### To complete the minimum StorSimple device setup
 
 1. Select the device and click **Quick Start**. Click **Complete device setup** to start the Configure device wizard.
 

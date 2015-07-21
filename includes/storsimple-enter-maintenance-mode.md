@@ -15,7 +15,7 @@
    ms.date="04/21/2015"
    ms.author="v-sharos" />
 
-### To enter Maintenance mode
+#### To enter Maintenance mode
 
 1. In the serial console menu, choose option 1, **Log in with full access**.
 
@@ -23,7 +23,7 @@
 
 3. At the command prompt, type
 
-    **Enter-HcsMaintenanceMode** 
+     `Enter-HcsMaintenanceMode`
 
 4. You will see a warning message telling you that Maintenance mode will disrupt all I/O requests and sever the connection to the Management Portal, and you will be prompted for confirmation. Type **Y** to enter Maintenance mode.
 

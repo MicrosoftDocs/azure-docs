@@ -26,7 +26,7 @@ The preview portal will run great on modern PCs, Macs, and tablets. Mobile phone
 ### Supported Browsers
 The latest versions of the following browsers are supported:
 
-- Internet Explorer (10 and up)
+- Internet Explorer (11 and up)
 - Safari (7 and up)
 - Chrome (Latest)
 - Firefox (Latest)

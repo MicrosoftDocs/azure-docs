@@ -15,7 +15,7 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### To get the IQN of a Windows host
+#### To get the IQN of a Windows host
 
 1. Start the Microsoft iSCSI initiator on your Windows host.
 

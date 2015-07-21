@@ -1,30 +1,3 @@
-## Review API app metadata
-
-The metadata that enables a Web API project to be deployed as an API app is contained in an *apiapp.json* file and a *Metadata* folder.
-
-![](./media/app-service-api-define-api-app/metadatainse.png)
-
-The default contents of the *apiapp.json* file resemble the following example:
-
-		{
-		    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
-		    "id": "ContactsList",
-		    "namespace": "microsoft.com",
-		    "gateway": "2015-01-14",
-		    "version": "1.0.0",
-		    "title": "ContactsList",
-		    "summary": "",
-		    "author": "",
-		    "endpoints": {
-		        "apiDefinition": "/swagger/docs/v1",
-		        "status": null
-		    }
-		}
-
-The *Metadata* folder contains information such as screenshots for the API App gallery or a static Swagger API definition file.
-
-For this tutorial you don't need to modify any of this metadata. 
-
 ## Add Web API code
 
 In the following steps you add code for a simple HTTP Get method that returns a hard-coded list of contacts. 
@@ -96,6 +69,8 @@ By default, API App projects are enabled with automatic [Swagger](http://swagger
 
 However, the Azure API App new-project template disables the API test page. If you created your API app project by using the API App project template, you need to do the following steps to enable the test page.
 
+**Note:** If you deploy the API app as *public anonymous* and with the Swagger UI enabled, anyone will be able to use the Swagger UI to discover and call your APIs. 
+
 1. Open the *App_Start/SwaggerConfig.cs* file, and search for **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
@@ -121,7 +96,3 @@ To view the API test page, perform the following steps.
 2. Click the **Try it out** button, and you see that the API is functioning and returns the expected result. 
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
-
-## Next steps
-
-Your API app is now ready to be deployed, and you can follow the [Deploy an API app](app-service-dotnet-deploy-api-app.md) tutorial to do that.
