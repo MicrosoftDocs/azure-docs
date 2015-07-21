@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="07/20/2015"
 	ms.author="mebha"/>
 
 
@@ -93,7 +93,7 @@ The [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) functio
 ## Insert a row, pass parameters, and retrieve the generated primary key
 
 
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
 
 
 	function InsertData()
