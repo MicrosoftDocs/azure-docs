@@ -239,7 +239,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
     >[AZURE.WARNING] Don't delete or change the public or private port number of any of the endpoints created during configuration server deployment.
 
-The configuration server is deployed in an automatically created Azure cloud service with a reserved IP address. The reserved address is needed to ensure that the Configuration Server cloud service IP address remains the same across reboots of the virtual machines (including the configuration server) on the cloud service. The reserved public IP address will need to be manually unreserved when the configuration server is decommissioned or it'll remain reserved. There's a default limit of 20 reserved public IP addresses per subscription. [Find out more](https://msdn.microsoft.com/library/azure/dn630228.aspx) about reserved IP addresses. 
+The configuration server is deployed in an automatically created Azure cloud service with a reserved IP address. The reserved address is needed to ensure that the Configuration Server cloud service IP address remains the same across reboots of the virtual machines (including the configuration server) on the cloud service. The reserved public IP address will need to be manually unreserved when the configuration server is decommissioned or it'll remain reserved. There's a default limit of 20 reserved public IP addresses per subscription. [Find out more](../virtual-network/virtual-networks-reserved-private-ip.md) about reserved IP addresses. 
 
 ### Register the configuration server in the vault
 
@@ -754,4 +754,3 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=530254). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
-
