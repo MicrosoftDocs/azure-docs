@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/21/2015"
    ms.author="abhisram"/>
 
 # Diagnostics and Performance Monitoring for Fabric Actors
@@ -154,4 +154,3 @@ The Fabric Actors runtime emits the following events related to [actor activatio
 |---|---|---|---|---|
 |ActorActivated|5|Informational|0x1|An actor has been activated.|
 |ActorDeactivated|6|Informational|0x1|An actor has been deactivated.|
- 
