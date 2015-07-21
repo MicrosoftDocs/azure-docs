@@ -31,7 +31,7 @@ You'll have to complete this tutorial before you try all the other tutorials for
 
     >[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
 
-* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio Professional 2015</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. 
+* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio 2015 (any edition)</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. 
 
 * A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it.  
 

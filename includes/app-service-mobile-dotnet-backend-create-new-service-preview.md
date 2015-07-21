@@ -12,7 +12,7 @@ Follow these steps to create a new mobile app.
 
     ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/new-mobile-app.png)
 
-2. In the **Mobile App** blade, provide a name for your mobile app. It must be at least 8 characters long.  
+2. In the **Mobile App** blade, provide a name for your mobile app. It must be at least 8 characters long and lowercase a-z.  
 
 7. Choose a location. In this tutorial, we'll use **South Central US**.
 
@@ -24,32 +24,28 @@ Follow these steps to create a new mobile app.
 
 4. Create a resource group that has the same name as your mobile app, and then click the **Create** button.  
 
-5. Click **Settings** -> **Users**, to open the **Users** blade.
-
-7. Click the **Add** button, and follow guidance in the **Add access** and **Select a role** blades to add at least one user to the mobile app.
-
 5. In the **Settings** blade, click **Mobile App** -> **Data** to open the **Data Connections** blade.
 
     ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/Mobile-create-datablade.png)
-
-7. In the **Add data connection** blade, select **Connection string**.
-
-8. In the **Connection string** blade, provide the user name and password of the user that you added to this mobile app.
-
-
-
-
 
 5. In the **Add data connection** blade, select **SQL Database**. You can choose an existing database or create a new one. 
 
 6. Select **Create a new database**, and type the name of the new database.
 
-7. Select **Server**, type the name of a new server, and then provide an administrator login name and password. Then, click the **OK** button in the remaining open blades. 
+7. Select **Server**, type the name of a new server, and then provide an administrator login name and password. 
 
     ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create-db.png)
 
+7. Click the **OK** button in the **New Server** and **New database** blades.
 
-You have now created a new mobile app backend that can be used by your mobile apps.
+8. In the **Add data connection** blade, select **Connection string**.
+
+8. In the **Connection string** blade, provide the same administrator login name and password that you provided in the **New Server** blade.
+
+    This is the only username and password that you have at this point because the database is brand new. If you select an existing database in the **New database** blade, you can provide the credentials for any user of that database. 
+
+1. Click the **OK** button.
+    You've now created a new mobile app backend that can be used by your mobile apps.
 
 > [AZURE.NOTE] After your mobile app is created, navigate in the portal to the sql server you just created (be sure to select the server and not the azure sql db). From there, click the settings part, expand the firewall part, and change the "Allow access to Azure services". If you don't do this, your application won't work.
 
