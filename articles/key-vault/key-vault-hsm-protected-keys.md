@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to Generate and Transfer HSM-Protected Keys for Azure Key Vault | Microsoft Aure"
-	description="Use this article to help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault."
+	pageTitle="How to generate and transfer HSM-protected keys for Azure Key Vault | Microsoft Aure"
+	description="Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault."
 	services="key-vault"
 	documentationCenter=""
 	authors="cabailey"
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.date="07/20/2015"
 	ms.author="cabailey"/>
-#How to Generate and Transfer HSM-Protected Keys for Azure Key Vault
+#How to generate and transfer HSM-protected keys for Azure Key Vault
 
 ##Introduction
 
@@ -65,25 +65,25 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 
 ##Generate and transfer your key to Azure Key Vault HSM
 
-You will use the following procedures to transfer your key to an Azure Key Vault HSM: 
+You will use the following 5 steps to transfer your key to an Azure Key Vault HSM: 
 
-- [Prepare your Internet-connected workstation](#prepare-your-Internet-connected-workstation)
-- [Prepare your disconnected workstation](#prepare-your-disconnected-workstation)
-- [Generate your key](#generate-your-key)
-- [Prepare your key for transfer](#prepare-your-key-for-transfer)
-- [Transfer your key to Azure Key Vault](#transfer-your-key-to-azure-key-vault)
+- [Step 1: Prepare your Internet-connected workstation](#prepare-your-Internet-connected-workstation)
+- [Step 2: Prepare your disconnected workstation](#prepare-your-disconnected-workstation)
+- [Step 3: Generate your key](#generate-your-key)
+- [Step 4: Prepare your key for transfer](#prepare-your-key-for-transfer)
+- [Step 5: Transfer your key to Azure Key Vault](#transfer-your-key-to-azure-key-vault)
 
-## Prepare your Internet-connected workstation
-Do the following steps on your workstation that is connected to the Internet.
+## Step 1: Prepare your Internet-connected workstation
+For this first step, do the following procedures on your workstation that is connected to the Internet.
 
 
-###Step 1: Install Azure PowerShell
+###Step 1.1: Install Azure PowerShell
 
 From the Internet-connected workstation, download and install the Azure PowerShell module that includes the cmdlets to manage Azure Key Vault. This requires a minimum version of  0.8.13.
 
 For installation instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-###Step 2: Get your Azure subscription ID
+###Step 1.2: Get your Azure subscription ID
 
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:
 
@@ -95,7 +95,7 @@ From the output, locate the ID for the subscription you will use for Azure Key V
 
 Do not close the Azure PowerShell window.
 
-###Step 3: Download the BYOK toolset for Azure Key Vault
+###Step 1.3: Download the BYOK toolset for Azure Key Vault
 
 Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](http://www.microsoft.com/download/details.aspx?id=45345) for your region:
 
@@ -120,12 +120,12 @@ The toolset includes the following:
 
 Copy the package to a USB drive or other portable storage.
 
-##Prepare your disconnected workstation
+##Step 2: Prepare your disconnected workstation
 
-Do the following steps on the workstation that is not connected to a network (either the Internet or your internal network).
+For this second step, do the following procedures on the workstation that is not connected to a network (either the Internet or your internal network).
 
 
-###Step 1: Prepare the disconnected workstation with Thales HSM
+###Step 2.1: Prepare the disconnected workstation with Thales HSM
 
 Install the nCipher (Thales) support software on a Windows computer, and then attach a Thales HSM to that computer. 
 
@@ -135,18 +135,18 @@ Ensure that the Thales tools are in your path (**%nfast_home%\bin** and **%nfast
 
 For more information, see the user guide included with the Thales HSM.
 
-###Step 2: Install the BYOK toolset on the disconnected workstation
+###Step 2.2: Install the BYOK toolset on the disconnected workstation
 
 Copy the BYOK toolset package from the USB drive or other portable storage, and then do the following:
 1.	Extract the files from the downloaded package into any folder.
 2.	From that folder, run vcredist_x64.exe.
 3.	Follow the instructions to the install the Visual C++ runtime components for Visual Studio 2012.
 
-##Generate your key
+##Step 3: Generate your key
 
-Do the following steps on the disconnected workstation.
+For this third step, do the following procedures on the disconnected workstation.
 
-###Step 1: Create a security world
+###Step 3.1: Create a security world
 
 Start a command prompt and run the Thales new-world program.
 
@@ -157,7 +157,7 @@ This program creates a **Security World** file at %NFAST_KMDATA%\local\world, wh
 Then do the following:
 - Back up the world file. Secure and protect the world file, the Administrator Cards, and their pins, and make sure that no single person has access to more than one card.
 
-###Step 2: Validate the downloaded package
+###Step 3.2: Validate the downloaded package
 
 This step is optional but recommended so that you can validate the following:
 - The Key Exchange Key that is included in the toolset has been generated from a genuine Thales HSM.
@@ -171,19 +171,19 @@ To validate the downloaded package:
 1.	Run the verifykeypackage.py script by tying one of the following, depending on your region:
 	- For North America:
 
-		python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
+			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
 	- For Europe:
 
-		python verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
+			python verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
 	- For Asia:
 
-		python verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
+			python verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
 	- For Latin America:
 
-		python verifykeypackage.py -k BYOK-KEK-pkg-LATAM-1 -w BYOK-SecurityWorld-pkg-LATAM-1
+			python verifykeypackage.py -k BYOK-KEK-pkg-LATAM-1 -w BYOK-SecurityWorld-pkg-LATAM-1
 	- For Japan:
 
-		python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
+			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
 
 	>[AZURE.TIP]The Thales software includes python at %NFAST_HOME%\python\bin
 	
@@ -193,7 +193,7 @@ This script validates the signer chain up to the Thales root key. The hash of th
 
 You’re now ready to create a new key.
 
-###Step 3: Create a new key
+###Step 3.3: Create a new key
 
 Generate a key by using the Thales **generatekey** program.
 
@@ -215,41 +215,37 @@ Back up this Tokenized Key File in a safe location.
 
 You are now ready to transfer your key to Azure Key Vault.
 
-##Prepare your key for transfer
+##Step 4: Prepare your key for transfer
 
-Do the following steps on the disconnected workstation.
+For this forth step, do the following procedures on the disconnected workstation.
 
-###Step 1: Create a copy of your key with reduced permissions
+###Step 4.1: Create a copy of your key with reduced permissions
 
 To reduce the permissions on your key, from a command prompt, run one of the following, depending on your region:
 
 - For North America:
 
-			KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-NA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-NA-1
-
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-NA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-NA-1
 - For Europe:
 
-			KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-EU-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-EU-1
-
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-EU-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-EU-1
 - For Asia:
 
-			KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AP-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AP-1
-
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AP-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AP-1
 - For Latin America:
 
-			KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-LATAM-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-LATAM-1
-
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-LATAM-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-LATAM-1
 - For Japan:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
 
-When you run this command, replace *contosokey* with the same value you specified in *Step 3: Create a new key* from the *Generate your key* section.
+When you run this command, replace *contosokey* with the same value you specified in *Step 3.3: Create a new key* from the *Generate your key* step.
 
 You will be asked to plug in your security world admin cards.
 
 When the command completes, you will see **Result: SUCCESS** and the copy of your key with reduced permissions will be in the file named key_xferacId_<contosokey>.
 
-###Step 2: Inspect the new copy of the key
+###Step 4.2: Inspect the new copy of the key
 
 Optionally, run the Thales utilities to confirm the minimal permissions on the new key:
 
@@ -259,9 +255,9 @@ Optionally, run the Thales utilities to confirm the minimal permissions on the n
 - kmfile-dump.exe:
 
 		"%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-When you run these command, replace contosokey with the same value you specified in *Step 3: Create a new key* from the *Generate your key* section.
+When you run these command, replace contosokey with the same value you specified in *Step 3.3: Create a new key* from the *Generate your key* step.
 
-###Step 3: Encrypt your key by using Microsoft’s Key Exchange Key
+###Step 4.3: Encrypt your key by using Microsoft’s Key Exchange Key
 
 Run one of the following commands, depending on your region:
 
@@ -283,21 +279,21 @@ Run one of the following commands, depending on your region:
 
 When you run this command, use these instructions:
 
-- Replace *contosokey* with the identifier that you used to generate the key in **Step 3: Create a new key** from the **Generate your key** section.
+- Replace *contosokey* with the identifier that you used to generate the key in **Step 3.3: Create a new key** from the **Generate your key** step.
 
-- Replace *SubscriptionID* with the ID of the Azure subscription that contains your key vault. You retrieved this value previously, in **Step 2: Get your Azure subscription ID** from the **Prepare your Internet-connected workstation** section.
+- Replace *SubscriptionID* with the ID of the Azure subscription that contains your key vault. You retrieved this value previously, in **Step 1.2: Get your Azure subscription ID** from the **Prepare your Internet-connected workstation** step.
 
 - Replace *ContosoFirstHSMKey* with a label that will be used for your output file name.
 
 When this completes successfully it displays **Result: SUCCESS** and there will be a new file in the current folder that has the following name: TransferPackage-*ContosoFirstHSMkey*.byok
 
-###Step 4: Copy your key transfer package to the Internet-connected workstation 
+###Step 4.4: Copy your key transfer package to the Internet-connected workstation 
 
 Use a USB drive or other portable storage to copy the output file from the previous step (KeyTransferPackage-ContosoFirstHSMkey.byok) to your Internet-connected workstation.
 
-##Transfer your key to Azure Key Vault
+##Step 5: Transfer your key to Azure Key Vault
 
-On the Internet-connected workstation, use the [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
+For this final step, on the Internet-connected workstation, use the [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
 
 	Add-AzureKeyVaultKey -VaultName ‘ContosoKeyVaultHSM’ -Name ‘ContosoFirstHSMkey’ -KeyFilePath ‘c:\TransferPackage-ContosoFirstHSMkey.byok’ -Destination 'HSM'
 
@@ -305,4 +301,4 @@ If the upload is successful, you see displayed the properties of the key that yo
 
 ##Next steps
 
-You can now use this HSM-protected key in your key vault. For example, see [If you want to use a hardware security module (HSM) section](key-vault-get-started/HSM) in the Key Vault getting started tutorial.
+You can now use this HSM-protected key in your key vault. For more information, see the *If you want to use a hardware security module (HSM)* section in the [Getting started with Azure Key Vault](key-vault-get-started.md) tutorial.
