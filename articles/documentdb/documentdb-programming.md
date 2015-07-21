@@ -477,50 +477,47 @@ In addition to issuing queries using DocumentDB’s SQL grammar, the server-side
 ### JavaScript query grammar
 The current set of supported functions include:
 <ul>
-    <li>
-        <b>chain() ... .value([callback] [, options])</b>
-        <ul><li>
-        Starts a chained call which must be terminated with value().
-        </li></ul>
-    </li>
-    <li>
-        <b>filter(predicateFunction [, options] [, callback])</b>
-        <ul><li>
-        Filters the input using a predicate function which returns true/false in order to filter in/out input documents into the resulting set. This behaves similar to a WHERE clause in SQL.
-        </li></ul>
-    </li>
-    <li>
-        <b>map(transformationFunction [, options] [, callback])</b>
-        <ul><li>
-        Applies a projection given a transformation function which maps each input item to a JavaScript object or value. This behaves similar to a SELECT clause in SQL.
-        </li></ul>
-    </li>
-    <li>
-        <b>pluck([propertyName] [, options] [, callback])</b>
-        <ul><li>
-        This is a shortcut for a map which extracts the value of a single property from each input item.
-        </li></ul>
-    </li>
-    <li>
-        <b>flatten([isShallow] [, options] [, callback])</b>
-        <ul><li>
-        Combines and flattens arrays from each input item in to a single array. This behaves similar to SelectMany in LINQ.
-        </li></ul>
-    </li>
-    <li>
-        <b>sortBy(selectorFunction [, options] [, callback])</b>
-        <ul><li>
-        Sort the input by given field/property/array item.
-        </li></ul>
-    </li>
-    <li>
-        <b>sortByDescending(selectorFunction [, options] [, callback])</b>
-        <ul><li>
-        Sort the input by given field/property/array item in descending order.
-        </li></ul>
-    </li>
+<li>
+<b>chain() ... .value([callback] [, options])</b>
+<ul>
+<li>
+Starts a chained call which must be terminated with value().
+</li>
 </ul>
-
+</li>
+<li>
+<b>filter(predicateFunction [, options] [, callback])</b>
+<ul>
+<li>
+Filters the input using a predicate function which returns true/false in order to filter in/out input documents into the resulting set. This behaves similar to a WHERE clause in SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>map(transformationFunction [, options] [, callback])</b>
+<ul>
+<li>
+Applies a projection given a transformation function which maps each input item to a JavaScript object or value. This behaves similar to a SELECT clause in SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>pluck([propertyName] [, options] [, callback])</b>
+<ul>
+<li>
+This is a shortcut for a map which extracts the value of a single property from each input item.
+</li>
+</ul>
+</li>
+<li>
+<b>flatten([isShallow] [, options] [, callback])</b>
+<ul>
+<li>
+Combines and flattens arrays from each input item in to a single array. This behaves similar to SelectMany in LINQ.
+</li>
+</ul>
+</li>
+</ul>
 
 When included inside predicate and/or selector functions, the following JavaScript constructs get automatically optimized to run directly on DocumentDB indices:
 
@@ -540,8 +537,10 @@ The following table presents various SQL queries and the corresponding JavaScrip
 
 As with SQL queries, document property keys (e.g. `doc.id`) are case-sensitive.
 
-> [AZURE.NOTE] `__` (double-underscore) is an alias to getContext().getCollection(). In other words, you can use `__` or `getContext().getCollection()` to access the JavaScript query API.
+> [AZURE.NOTE] `__` (double-underscore) is an alias to getContext().getCollection().
+> In other words, you can use `__` or `getContext().getCollection()` to access the JavaScript query API.
 
+<br/>
 <table border="1" width="100%">
 <tbody>
 <tr>
