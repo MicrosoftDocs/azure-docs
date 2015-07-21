@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/10/2015"
+   ms.date="07/20/2015"
    ms.author="bryanla;skwan"/>
 
 # How to enable your application to authenticate any Azure Active Directory user
@@ -24,28 +24,29 @@ Whether you've set out to build a SaaS application from the start, need to conve
 
 ## Overview
 
-### Multi-tenancy
-SaaS applications are typically architected using a ***multi-tenant*** design: sharing  their code across ***multiple*** organizations, while enforcing secure/isolated data access on a per-organization basis (aka: ***tenant***). For the purposes of this article, let's assume that we have 2 SaaS applications in the mix:
+### Defining multi-tenancy
+In general, a multi-tenant application is one that shares ***multiple*** instances of its code, allowing it to enforce secure/isolated data access on a per-organization basis (aka: ***tenant***). For the purposes of this article, let's assume that we have 2 types of multi-tenancy in the mix:
  
-- A line-of-business (LOB) application, which uses multi-tenancy to partition/secure *business* data. Once a user is authenticated, the application can access data in a secure fashion under the context of the authenticated user. 
-- Azure AD, which uses multi-tenancy to partion/secure *directory* data.  Later we will see how other SaaS applications can use separate tenants to manage/authenticate their users.
+- Your line-of-business (LOB) SaaS application, which can use multi-tenancy to partition/secure *business* data. Once a user is authenticated, the application accesses data in a secure fashion under the context of the authenticated user. 
+- Azure AD, Identity Management as a Service (IDMaaS) software which uses multi-tenancy to partion/secure *directory* data, providing a single point of management for an organization's directory data, such as user accounts.  
 
-Although it's beyond the scope of this article, an LOB application could provide components that represent one or more [OAuth 2.0] [OAuth-2] roles, including "Client", and  "Resource Server".  While the Azure AD tenant would be considered the "Authorization Server". Later we will explore code samples that illustrate practical implementations of these roles.
+We will spend the remainder of this article helping you learn how to build/enable your SaaS application to be *multi-tenant-aware*, where tenant refers to an Azure AD tenant, allowing your SaaS application to delegate authentication/authorization to your subscribers' Azure AD tenants.
+
 
 ### Integrating with multiple Azure AD tenants
-With those definitions, the opportunity for leveraging Azure AD to authenticate your application's users becomes clearer.  Specifically, for the set of organizations/tenants that subscribe to both your application AND Microsoft Azure, you can design your application to delegate authentication of all of those users to their Azure AD tenant. That means any new subscribers that also have an Azure subscription, can authenticate using their Azure AD credentials going forward, with no additional architectural or coding changes required. When you consider the user base that already has Azure AD credentials (including Office 365 subscribers, for example), this creates a huge opportunity that could be appealing to both you and your subscribers.
+With those definitions, the opportunity for leveraging Azure AD to authenticate your application's users becomes clearer.  Specifically, for the set of organizations that subscribe to both your application AND a service already using Azure AD, you can design your application to delegate authentication of all of those users to their Azure AD tenant. That means any future subscribers that also use Azure AD, can authenticate using their Azure AD credentials going forward, with no additional architectural or coding changes required. When you consider the user base that already has Azure AD credentials (including Office 365 subscribers, for example), this creates a huge opportunity that could be appealing to both you and your subscribers.
 
 ### A real world example
-Finally, let's reinforce these concepts by considering the topology that exists between the large multi-tenant SaaS applications found in Office 365 and their relationship to Azure AD, and comparing it with a simple Azure scenario.  When you sign up for an Azure subscription, you automatically get an Azure AD tenant, which the subscription *trusts* for it's identity needs.  Applications you build in Azure are also assigned to the subscription, allowing them to take advantage of your Azure AD tenant for user account management and authentication.  
+Finally, let's reinforce these concepts by considering the topology that exists between the large multi-tenant SaaS applications found in Office 365 and their relationship to Azure AD, and comparing it with a simple Azure SaaS application scenario.  
 
-In the same way that an Azure application accesses Azure AD services through a subscription, Office 365 SaaS tenants are *also* associated with an  Azure AD tenant via a subscription, for user account management and authentication.  Further, any common subscribers between Office 365 and our Azure application, can use their Office 365 credentials to authenticate with our Azure application, just by enabling our Azure application to be aware of multiple Azure AD tenants.  
+When you sign up for an Azure subscription, you automatically get an Azure AD tenant, which the subscription *trusts* for it's identity needs.  Applications you build in Azure are also assigned to the subscription, allowing them to take advantage of your Azure AD tenant for user account management, authentication, authorization, etc..  
+
+In the same way that your Azure SaaS application accesses Azure AD services through a subscription, Office 365 SaaS tenants are *also* associated with an Azure AD tenant via a subscription, for user account management and authentication.  Further, any common subscribers between Office 365 and our Azure application, can use their Office 365 credentials to authenticate with your Azure application, just by enabling the application to be aware of multiple Azure AD tenants.  
 
 ![O365-AD-Topology][1]
 
-We will spend the remainder of this article on exactly that: helping you understand how you can *build/enable multi-tenant aware applications*, where tenant refers to an Azure AD tenant.
-
 ## Prerequisites
-As we walk through the relevant concepts for this scenario, we will prescriptively show you how to apply those concepts using a set of related code samples, reinforcing the concepts. It is assumed that you have a basic understanding of Azure AD, including [why/how you would integrate your application with Azure AD] [ACOM-How-To-Integrate], as well as the [basics of Azure AD authentication and supported authentication scenarios] [ACOM-Auth-Scenarios].
+As we walk through the relevant concepts for this scenario, we will prescriptively show you how to apply and reinforce those concepts using a set of related code samples. It is assumed that you have a basic understanding of Azure AD, including [why/how you would integrate your application with Azure AD] [ACOM-How-To-Integrate], as well as the [basics of Azure AD authentication and supported authentication scenarios] [ACOM-Auth-Scenarios].
 
 You should also be comfortable editing your Azure AD tenant's application configurations in the [Azure portal][Azure-portal]
 
