@@ -56,12 +56,24 @@ This is an early version of this article.  The final version will go into more d
 
 ## Best practices
 ### Azure AD application configuration
+TODO: provide an overview of Azure AD application configuration requirements for AzureAD multi-tenancy
 
 - App ID URI: provides a unique/logical identifier which AAD associates with this application. In order to configure this application as Multi-Tenant, the "App ID URI" must be in a verified custom domain for an external user to grant your application access to their AAD data (ie:  xxxx.Test.OnMicrosoft.Com , if your directory domain is  Test.OnMicrosoft.Com ). It must also be unique within your directory, and therefore not being used as the "App ID URI" for any other applications.
 
 - Multi-Tenant: must be set to "yes", indicating that your application requires consent from owners of multiple AAD tenants, to grant access to their directories. 
 
+### Known clients by topology 
+For the client application to be able to call a Web API on an Azure AD tenant other than the one where you developed the app, you need to explicitly bind the client app entry in Azure AD with the entry for the Web API. You can do so by adding the client ID of the application to the manifest of the Web API by:
+
+1. Log into the [Azure portal](https://manage.windowsazure.com)
+2. Navigate to the Azure AD tenant and application configuration page
+3. Retrieve the Web API manifest file 
+4. In the manifest, locate the knownClientApplications property and add to it the client ID assigned to the application during registration. The manifest entry should look like the following:  
+	"knownClientApplications": [ "94da0930-763f-45c7-8d26-04d5938baab2" ] 
+5. Save the manifest 
+
 ### Consent experience 
+TODO: Provide an overview of the consent experience
 
 - on first use (consider dev, ITPro, end user experiences)
 - User vs. Admin consent
@@ -69,19 +81,7 @@ This is an early version of this article.  The final version will go into more d
 	- once the app is consented it will appear in the user's tenant (if it’s a web app)
 - point to Dan's new "Consent Framework Quickstart"?
 
-
-### Known clients 
-- by topology
-
-### Authenticating with the Common Endpoint 
-When your application needs to be able to authenticate with multiple Azure AD tenants, you don't know in advance which Azure AD tenant your users belong to. A single tenant application only needs to look in its own directory for a user, while a multi-tenant application needs to identify a specific user from all the directories in Azure AD. 
-
-To accomplish this task, Azure AD provides a common authentication endpoint where any multi-tenant application can direct sign-in requests, instead of a tenant-specific endpoint. This endpoint is https://login.microsoftonline.com/common for all directories in Azure AD, whereas a tenant-specific endpoint might be https://login.microsoftonline.com/contoso.onmicrosoft.com. The common endpoint is especially important to consider when developing your application because you’ll need the necessary logic to handle multiple tenants during sign-in, sign-out, and token validation.
-
-### Issuer/Token Validation 
-- must be handled by your application
-
-### Managing the registration experience
+### Managing the user registration experience
 Your application may offer a registration experience for users, which automates the consent process. When they attempt to authenticate with your application, they will be transferred to the Azure AD portal, to sign in as the user they want to use for consenting. If the user is from an Azure AD tenant that is different from the one associated with your application, they will be presented with a consent page that will walk them through the registration process.  
 
 The user can choose to either follow either :
@@ -91,6 +91,13 @@ The user can choose to either follow either :
 
 Once they click on a sign up (or sign-in) button, the application will need to redirect the browser to the Azure AD OAuth 2.0 authorize endpoint, or an OpenID Connect userinfo endpoint. These endpoints allow the application to get information about the new user by inspecting the id_token.  For the "admin consent" flow, you can also pass a prompt=admin_consent parameter to trigger the administrator consent experience, where the administrator will grant consent on behalf of their organization. On successful consent, the response will contain admin_consent=true. When redeeming an access token, you’ll also receive an id_token that will provide information on the organization and the administrator that signed up for your application.
 
+### Authenticating with the Common Endpoint 
+When your application needs to be able to authenticate with multiple Azure AD tenants, you don't know in advance which Azure AD tenant your users belong to. A single tenant application only needs to look in its own directory for a user, while a multi-tenant application needs to identify a specific user from all the directories in Azure AD. 
+
+To accomplish this task, Azure AD provides a common authentication endpoint where any multi-tenant application can direct sign-in requests, instead of a tenant-specific endpoint. This endpoint is https://login.microsoftonline.com/common for all directories in Azure AD, whereas a tenant-specific endpoint might be https://login.microsoftonline.com/contoso.onmicrosoft.com. The common endpoint is especially important to consider when developing your application because you’ll need the necessary logic to handle multiple tenants during sign-in, sign-out, and token validation.
+
+### Issuer/Token Validation 
+- must be handled by your application
 
 ### Code samples
 The following code samples show you how to authenticate user accounts from any Azure Active Directory tenant, by implementing authentication for various types of client applications, including a Web app, Web API, and Native client
