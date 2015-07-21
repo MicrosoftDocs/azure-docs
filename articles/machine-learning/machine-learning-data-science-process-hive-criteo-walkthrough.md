@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/21/2015" 
 	ms.author="ginathan;mohabib;bradsev" /> 
 
 # Advanced Analytics Process and Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset

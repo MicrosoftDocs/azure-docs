@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get Started with Event Hubs"
-	description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost"
-	services="event-hubs,service-bus"
+	description="Follow this tutorial to get started using Azure Event Hubs with C# and using the EventProcessorHost."
+	services="event-hubs"
 	documentationCenter=""
 	authors="fsautomata"
 	manager="timlt"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
 	ms.topic="hero-article"
-	ms.date="06/17/2015"
+	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
