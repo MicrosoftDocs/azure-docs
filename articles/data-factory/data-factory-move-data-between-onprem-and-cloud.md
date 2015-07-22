@@ -53,6 +53,7 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 If your company uses a firewall or proxy server, additional steps may be required in case Data Management Gateway cannot connect to Microsoft cloud services. 
 
 **Possible symptoms for firewall related issues:**
+
 1. When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2. When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
 
@@ -60,8 +61,8 @@ These are caused by the improper configuration of the firewall or proxy server, 
 
 The two firewalls that are possibly in scope are: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed. Here are the some considerations:
 
-•	There is no need to change the inbound policy for corporate firewall.
-•	Both corporate firewall and Windows firewall should enable outbound rule for TCP ports: 80, 440, and from 9305 to 9354. These are used by Microsoft Azure Service Bus to establish connection between the cloud services and Data Management Gateway.
+- There is no need to change the inbound policy for corporate firewall.
+- Both corporate firewall and Windows firewall should enable outbound rule for TCP ports: 80, 440, and from 9305 to 9354. These are used by Microsoft Azure Service Bus to establish connection between the cloud services and Data Management Gateway.
 
 The MSI setup will automatically configure Windows firewall rules for inbound ports for the gateway machine (see ports and security considerations section above).
  But the setup assumes the above mentioned outbound ports are allowed by default on the local machine and corporate firewall. You need to enable these outbound ports if that is not the case. If you have replaced the Windows firewall with a third party firewall, these ports might need to be opened manually. 
