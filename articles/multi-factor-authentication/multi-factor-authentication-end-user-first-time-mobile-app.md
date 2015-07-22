@@ -29,7 +29,7 @@ The Azure Authenticator app is available for [Windows Phone](http://www.windowsp
 2. Select either Notification or One-time password and click Set up.
 3. On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.  To add an account that already has Azure MFA or a 3rd party account see [Adding an account manually](adding-an-account-manually).<br>
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
-4. Scan the barcode picture that came up with the configure mobile app screen.  Click Done to close the barcode screen.  If you cannot get the barcode to scan you can enter the information manually.
+4. Scan the barcode picture that came up with the configure mobile app screen.  Click Done to close the barcode screen.  If you cannot get the barcode to scan you can enter the information manually.<br>
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode.png)
 5. On the phone, it will begin to activate, once this has completed click Contact me.  This will send either a notification or a verification code to your phone.  Click verify.<br>
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
