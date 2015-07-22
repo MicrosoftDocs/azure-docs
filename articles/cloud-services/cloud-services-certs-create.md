@@ -57,9 +57,9 @@ There are two easy ways to create a certificate on Windows, with the `makecert.e
 
 ### Makecert.exe
 
-This utility is installed with Visual Studio 2013/2015. It is a console utility that allows you to create and install certificates. If you launch the **VS2015 x64 x86 Cross Tools Command Prompt** shortcut that is created when you install Visual Studio, a command prompt will appear that has this tool in path.
+This utility is installed with Visual Studio 2013/2015. It is a console utility that allows you to create and install certificates. If you launch the **Developer Command Prompt for VS2015** shortcut that is created when you install Visual Studio, a command prompt will appear that has this tool in path.
 
-    makecert -sky exchange -r -n "CN=\[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv \[CertificateName].pvk \[CertificateName].cer
+    makecert -sky exchange -r -n "CN=[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv [CertificateName].pvk [CertificateName].cer
 
 
 ### Internet Information Services (IIS)

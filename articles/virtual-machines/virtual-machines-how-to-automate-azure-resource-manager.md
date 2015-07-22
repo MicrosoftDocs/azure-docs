@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="How to automate with Azure Resource Manager" 
-	description="Get links to topics on how to automate the creation and management of Azure virtual machines with Resource Manager." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="How to automate with Azure Resource Manager"
+	description="Get links to topics on how to automate the creation and management of Azure virtual machines with Resource Manager."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="index-page" 
-	ms.date="07/09/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/09/2015"
+	ms.author="davidmu"/>
 
 # How to automate with Azure Resource Manager
 
@@ -59,7 +59,7 @@ Azure Resource Manager simplifies the deployment and management of complex appli
 ## Automate with .NET
 
 [Deploy Azure resources using the .NET Library](virtual-machines-arm-deployment.md)
-   
+
 ## Automate with Azure Automation
 
 [Use Azure Automation to manage VM tasks](automation-manage-virtual-machines.md)
@@ -69,5 +69,3 @@ Azure Resource Manager simplifies the deployment and management of complex appli
 ## Additional resources
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
- 
