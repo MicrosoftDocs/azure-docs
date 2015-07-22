@@ -17,9 +17,11 @@
 
 # How to create a load balancer using Azure Resource Manager
 
+
 > [AZURE.SELECTOR]
 - [Service Manager Powershell steps](load-balancer-internet-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+
 
 The steps below will show how to create a load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create a load balancer are configured individually and then put together to create a resource. 
 
@@ -30,15 +32,15 @@ We will cover in this page the sequence of individual tasks it has to be done to
 
 The following items need to be configured before creating a load balancer:
 
-- Front end IP configuration 
+- Front end IP configuration - will add a public IP address to front end IP pool for incoming network traffic to load balance. 
 
-- Backend address pool 
+- Backend address pool - will configure the network interfaces which will receive the load balanced traffic coming from front end IP pool. 
 
-- Load balancing rules
+- Load balancing rules - source and local port configuration for the load balancer.
 
-- Probes 
+- Probes - configures the health status probe for the Virtual Machine instances.
 
-- Inbound NAT rules 
+- Inbound NAT rules - configures the port rules to directly access one of the Virtual Machine instances.
 
 You can get more information about load balancer components with Azure resource manager at [Azure Resource Manager support for load balancer](load-balancer-arm.md).
 

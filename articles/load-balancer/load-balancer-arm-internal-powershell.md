@@ -17,9 +17,11 @@
 
 # How to create a load balancer using Azure Resource Manager
 
+
 > [AZURE.SELECTOR]
 - [Service Manager Powershell steps](load-balancer-internal-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
+
 
 The steps below will show how to create an internal load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create a Internal load balancer are configured individually and then put together to create a resource. 
 
