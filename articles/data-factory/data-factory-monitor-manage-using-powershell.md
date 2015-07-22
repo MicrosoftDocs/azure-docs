@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Azure PowerShell
@@ -74,13 +74,16 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 1.	Create a JSON file named **StorageLinkedService.json** in the **C:\ADFGetStartedPSH** with the following content. Create the folder ADFGetStartedPSH if it does not already exist.
 
 		{
-		    "name": "StorageLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureStorageLinkedService",
-		        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		  "name": "StorageLinkedService",
+		  "properties": {
+		    "type": "AzureStorage",
+		    "typeProperties": {
+		      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
 		    }
+		  }
 		}
+
+	Replace **accountname** with the name of your storage account and **accountkey** with the key for your Azure storage account.
 2.	In the **Azure PowerShell**, switch to the **ADFGetStartedPSH** folder. 
 3.	You can use the **New-AzureDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial require you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can use **Get-AzureDataFactory** to get a DataFactory object and pass the object without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureDataFactory** cmdlet to a variable: **$df**. 
 
@@ -100,13 +103,17 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 1.	Create a JSON file named AzureSqlLinkedService.json with the following content.
 
 		{
-		    "name": "AzureSqlLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureSqlLinkedService",
-		        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		  "name": "AzureSqlLinkedService",
+		  "properties": {
+		    "type": "AzureSqlDatabase",
+		    "typeProperties": {
+		      "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
 		    }
+		  }
 		}
+
+	Replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and  password.
+
 2.	Run the following command to create a linked service. 
 	
 		New-AzureDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
@@ -167,37 +174,38 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 1.	Create a JSON file named **EmpBlobTable.json** in the **C:\ADFGetStartedPSH** folder with the following content:
 
 		{
-	    	"name": "EmpTableFromBlob",
-	        "properties":
-	        {
-	            "structure":  
-	                [ 
-	                { "name": "FirstName", "type": "String"},
-	                { "name": "LastName", "type": "String"}
-	            ],
-	            "location": 
-	            {
-	                "type": "AzureBlobLocation",
-	                "folderPath": "adftutorial/",
-	                "format":
-	                {
-	                    "type": "TextFormat",
-	                    "columnDelimiter": ","
-	                },
-	                "linkedServiceName": "StorageLinkedService"
-	            },
-	            "availability": 
-	            {
-	                "frequency": "hour",
-	                "interval": 1,
-	                "waitonexternal": {}
-	                }
-	        }
+		  "name": "EmpTableFromBlob",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureBlob",
+		    "linkedServiceName": "AzureStorageLinkedService1",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
 	
 	Note the following: 
 	
-	- location **type** is set to **AzureBlobLocation**.
+	- location **type** is set to **AzureBlob**.
 	- **linkedServiceName** is set to **StorageLinkedService**. 
 	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
@@ -232,31 +240,33 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
 1.	Create a JSON file named **EmpSQLTable.json** in the **C:\ADFGetStartedPSH** folder with the following content.
 		
 		{
-		    "name": "EmpSQLTable",
-		    "properties":
-		    {
-		        "structure":
-		        [
-		            { "name": "FirstName", "type": "String"},
-		            { "name": "LastName", "type": "String"}
-		        ],
-		        "location":
-		        {
-		            "type": "AzureSqlTableLocation",
-		            "tableName": "emp",
-		            "linkedServiceName": "AzureSqlLinkedService"
-		        },
-		        "availability": 
-		        {
-		            "frequency": "Hour",
-		            "interval": 1            
-		        }
+		  "name": "EmpSQLTable",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureSqlTable",
+		    "linkedServiceName": "AzureSqlLinkedService1",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
 		    }
+		  }
 		}
 
      Note the following: 
 	
-	* location **type** is set to **AzureSqlTableLocation**.
+	* location **type** is set to **AzureSqlTable**.
 	* **linkedServiceName** is set to **AzureSqlLinkedService**.
 	* **tablename** is set to **emp**.
 	* There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database, but ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
@@ -271,49 +281,54 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
 In this step, you create a pipeline with a **Copy Activity** that uses **EmpTableFromBlob** as input and **EmpSQLTable** as output.
 
 1.	Create a JSON file named **ADFTutorialPipeline.json** in the **C:\ADFGetStartedPSH** folder with the following content: 
-
-		{
-		    "name": "ADFTutorialPipeline",
-		    "properties":
-		    {   
-		        "description" : "Copy data from an Azure blob to an Azure SQL table",
-		        "activities":   
-		        [
-		            {
-		                "name": "CopyFromBlobToSQL",
-		                "description": "Copy data from the adftutorial blob container to emp SQL table",
-		                "type": "CopyActivity",
-		                "inputs": [ {"name": "EmpTableFromBlob"} ],
-		                "outputs": [ {"name": "EmpSQLTable"} ],     
-		                "transformation":
-		                {
-		                    "source":
-		                    {                               
-		                        "type": "BlobSource"
-		                    },
-		                    "sink":
-		                    {
-		                        "type": "SqlSink"
-		                    }   
-		                },
-		                "Policy":
-		                {
-		                    "concurrency": 1,
-		                    "executionPriorityOrder": "NewestFirst",
-		                    "style": "StartOfInterval",
-		                    "retry": 0,
-		                    "timeout": "01:00:00"
-		                }       
-		            }
+	
+		 {
+		  "name": "ADFTutorialPipeline",
+		  "properties": {
+		    "description": "Copy data from a blob to Azure SQL table",
+		    "activities": [
+		      {
+		        "name": "CopyFromBlobToSQL",
+		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpTableFromBlob"
+		          }
 		        ],
-		        "start": "2015-03-03T00:00:00Z",
-		        "end": "2015-03-04T00:00:00Z"
-		    }
-		}  
+		        "outputs": [
+		          {
+		            "name": "EmpSQLTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "BlobSource"
+		          },
+		          "sink": {
+		            "type": "SqlSink",
+		            "writeBatchSize": 10000,
+		            "writeBatchTimeout": "60:00:00"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-07-12T00:00:00Z",
+		    "end": "2015-07-13T00:00:00Z",
+		    "isPaused": false
+		  }
+		}
 
 	Note the following:
 
-	- In the activities section, there is only one activity whose **type** is set to **CopyActivity**.
+	- In the activities section, there is only one activity whose **type** is set to **Copy**.
 	- Input for the activity is set to **EmpTableFromBlob** and output for the activity is set to **EmpSQLTable**.
 	- In the **transformation** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
