@@ -267,11 +267,11 @@ You should see output similar to the following on a working cluster with two nod
 #------------------------------------------------------------
 #    Intel (R) MPI Benchmarks 4.0 Update 1, MPI-1 part
 #------------------------------------------------------------
-# Date                  : Fri Jul 10 21:37:35 2015
+# Date                  : Fri Jul 17 23:16:46 2015
 # Machine               : x86_64
 # System                : Linux
 # Release               : 3.12.39-44-default
-# Version               : #6 SMP Wed Jun 17 20:05:42 UTC 2015
+# Version               : #5 SMP Thu Jun 25 22:45:24 UTC 2015
 # MPI Version           : 3.0
 # MPI Thread Environment:
 # New default behavior from Version 3.2 on:
@@ -298,33 +298,35 @@ You should see output similar to the following on a working cluster with two nod
 # #processes = 2
 #---------------------------------------------------
        #bytes #repetitions      t[usec]   Mbytes/sec
-            0         1000         6.08         0.00
-            1         1000         5.61         0.17
-            2         1000         5.59         0.34
-            4         1000         5.57         0.69
-            8         1000         5.81         1.31
-           16         1000         5.50         2.78
-           32         1000         3.58         8.52
-           64         1000         4.06        15.02
-          128         1000         4.75        25.71
-          256         1000         4.66        52.38
-          512         1000         4.12       118.60
-         1024         1000         4.61       211.98
-         2048         1000         5.77       338.38
-         4096         1000         7.53       518.72
-         8192         1000        10.06       776.21
-        16384         1000        13.34      1171.37
-        32768         1000        16.92      1846.81
-        65536          640        30.60      2042.32
-       131072          320        60.26      2074.36
-       262144          160        88.56      2822.97
-       524288           80       156.34      3198.22
-      1048576           40       287.36      3479.92
-      2097152           20       549.65      3638.68
-      4194304           10      1103.25      3625.66
+            0         1000         2.23         0.00
+            1         1000         2.26         0.42
+            2         1000         2.26         0.85
+            4         1000         2.26         1.69
+            8         1000         2.26         3.38
+           16         1000         2.36         6.45
+           32         1000         2.57        11.89
+           64         1000         2.36        25.81
+          128         1000         2.64        46.19
+          256         1000         2.73        89.30
+          512         1000         3.09       157.99
+         1024         1000         3.60       271.53
+         2048         1000         4.46       437.57
+         4096         1000         6.11       639.23
+         8192         1000         7.49      1043.47
+        16384         1000         9.76      1600.76
+        32768         1000        14.98      2085.77
+        65536          640        25.99      2405.08
+       131072          320        50.68      2466.64
+       262144          160        80.62      3101.01
+       524288           80       145.86      3427.91
+      1048576           40       279.06      3583.42
+      2097152           20       543.37      3680.71
+      4194304           10      1082.94      3693.63
 
 # All processes entering MPI_Finalize
+
 ```
+
 ## Network topology considerations
 
 * On Linux VMs, Eth1 is reserved for RDMA network traffic. Do not change any Eth1 settings or any information in the configuration file referring to this network.
