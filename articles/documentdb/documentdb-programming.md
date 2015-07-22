@@ -543,6 +543,11 @@ As with SQL queries, document property keys (e.g. `doc.id`) are case-sensitive.
 
 <br/>
 <table border="1" width="100%">
+<colgroup>
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+</colgroup>
 <tbody>
 <tr>
 <th>SQL</th>
