@@ -23,7 +23,7 @@ This article provides information about supplementary hardware that works with y
 
 ## List of supported devices
 
-Microsoft has tested the following small form-factor plugable (SFP) transceivers, cables, and switches to ensure that they function optimally with devices. (The following tables will be updated as new hardware is tested.)
+Microsoft has tested the following small form-factor pluggable (SFP) transceivers, cables, and switches to ensure that they function optimally with devices. (The following tables will be updated as new hardware is tested.)
 
 ### SFP+ Transceivers
 
