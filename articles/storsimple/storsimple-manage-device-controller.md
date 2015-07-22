@@ -20,12 +20,6 @@ This tutorial describes the different operations that can be performed on your S
 
 The controllers in your StorSimple device are redundant (peer) controllers in an active-passive configuration. At a given time, only one controller is active, and is processing all the disk and network operations. The other controller is in a passive mode. If the active controller fails, the passive controller becomes active automatically.
 
-A controller restart or shut down is not required as a part of normal system operation. Shutdown operations are common only in cases in which a failed device hardware component requires replacement, the device is being physically moved, or the device is taken out of service. A controller restart may also be required in a situation in which performance is affected by excessive memory usage or a malfunctioning controller. You may also need to restart a controller after a successful controller replacement, if you wish to enable and test the replaced controller.
-
-Restarting a device is not disruptive to connected initiators, assuming the passive controller is available. If a passive controller is not available or turned off, then restarting the active controller may result in the disruption of service and downtime.
-
->[AZURE.IMPORTANT] **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
-
 After reading this tutorial, you will be able to:
 
 - Restart or shut down a StorSimple device controller
@@ -37,7 +31,13 @@ After reading this tutorial, you will be able to:
 
 To manage your device controllers from the Management Portal, perform the following steps.
 
->[AZURE.IMPORTANT] **The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the virtual device, see Work with the virtual device.**
+A controller restart or shut down is not required as a part of normal system operation. Shutdown operations are common only in cases in which a failed device hardware component requires replacement, the device is being physically moved, or the device is taken out of service. A controller restart may also be required in a situation in which performance is affected by excessive memory usage or a malfunctioning controller. You may also need to restart a controller after a successful controller replacement, if you wish to enable and test the replaced controller.
+
+Restarting a device is not disruptive to connected initiators, assuming the passive controller is available. If a passive controller is not available or turned off, then restarting the active controller may result in the disruption of service and downtime.
+
+>[AZURE.IMPORTANT] **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
+
+>[AZURE.IMPORTANT] **The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the virtual device, see [Work with the virtual device](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device).**
 
 #### To restart or shut down a controller in Management Portal
 
@@ -45,11 +45,11 @@ To manage your device controllers from the Management Portal, perform the follow
 
 1. Go to **Hardware Status** and verify that the status of both the controllers on your device is **Healthy**.
 
-	![Verify StorSimple Device Controllers Are Healthy](./media/use-storsimple-manager-service-to-administer-your-storsimple-device-/IC766017.png)
+	![Verify StorSimple Device Controllers Are Healthy](./media/storsimple-manage-device-controller/IC766017.png)
 
 1. From the bottom of the Maintenance page, click **Manage Controllers**.
 
-	![Manage StorSimple Device Controllers](./media/use-storsimple-manager-service-to-administer-your-storsimple-device-/IC766018.png)
+	![Manage StorSimple Device Controllers](./media/storsimple-manage-device-controller/IC766018.png)
 
 	>[AZURE.NOTE] **If you cannot see Manage Controllers, you need to install updates. For more information, see Install updates and hotfixes**
 
@@ -61,9 +61,9 @@ To manage your device controllers from the Management Portal, perform the follow
 	
 	b. From the Select Action drop-down list, choose **Restart controller** or **Shut down controller**.
 	
-	![Restart StorSimple Device Passive Controller](./media/use-storsimple-manager-service-to-administer-your-storsimple-device-/IC766020.png)
+	![Restart StorSimple Device Passive Controller](./media/storsimple-manage-device-controller/IC766020.png)
 	
-	c. Click the check icon.
+	c. Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
 
 This will restart or shut down the controller. The table below summarizes the details of what happens depending on the selections you have made in the Change Controller Settings dialog box.  
 													
