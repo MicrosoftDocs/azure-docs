@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Data Movement Activities
-Data factory has a globally available service to support data movement with Copy activity across a variety of data stores listed below. Data factory also has built-in support for securely moving data between on-premises locations and cloud using the data management gateway.
+Data factory has a [globally available service](#global) to support data movement with Copy activity across a variety of data stores listed below. Data factory also has built-in support for [securely moving data between on-premises locations and cloud using the data management gateway](#moveonpremtocloud).
 
 ## Supported data stores for Copy Activity
 Copy activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and source, sink combinations. Click on a data store to learn how to copy data from/to that store.
@@ -45,7 +45,7 @@ Copy activity takes one input dataset (**source**) and copies data per activity 
 
 Copy activity provides the following capabilities:
 
-### Globally available data movement
+### <a href="global"></a>Globally available data movement
 The data movement service powering copy activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
 
 | Region | Geography |
@@ -62,7 +62,7 @@ The data movement service powering copy activity is available globally in the fo
 | Southeast Asia | APAC |
 | Japan East | APAC |
 
-### Securely move data between on-premises location and cloud
+### <a href="moveonpremtocloud"></a>Securely move data between on-premises location and cloud
 One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data management gateway is an agent you can install on-premises to enable hybrid data pipelines. 
 
 The data gateway provides the following capabilities: 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Movement Activities" 
+	pageTitle="Move data between on-premises and cloud using Azure Data Factory " 
 	description="Learn about moving data between on-premises and cloud using Data Management Gateway and Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -70,7 +70,7 @@ If your company uses a proxy server, then you need to add Microsoft Azure to the
 ## Using the Data Gateway – Step by Step Walkthrough
 In this walkthrough, you create a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. 
 
-## Step 1: Create an Azure data factory
+### Step 1: Create an Azure data factory
 In this step, you use the Azure Management Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
 
 1.	After logging into the [Azure Preview Portal](https://portal.azure.com), click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** on the **Data analytics** blade.
@@ -99,7 +99,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 	![Data Factory Home Page](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
-## Step 2: Create a data management gateway
+### Step 2: Create a data management gateway
 5.	On the **Data Factory** blade for **ADFTutorialOnPremDF**, click **Linked Services**. 
 
 	![Data Factory Home Page](./media/data-factory-move-data-between-onprem-and-cloud/DataFactoryHomePage.png)
@@ -148,10 +148,10 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 7. On the **Linked Services** blade, confirm that the **status** of the gateway is **Good**. 
 
 
-## Step 2: Create linked services 
+### Step 2: Create linked services 
 In this step, you will create two linked services: **StorageLinkedService** and **SqlServerLinkedService**. The **SqlServerLinkedService** links an on-premises SQL Server database and the **StorageLinkedService** linked service links an Azure blob store to the **ADFTutorialDataFactory**. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
 
-### Add a linked service to an on-premises SQL Server database
+#### Add a linked service to an on-premises SQL Server database
 1.	In the **Linked Services** blade, click **New data store** on the command bar.
 2.	Enter SqlServerLinkedService for the name. 
 2.	Click arrow next to the **Type**, and select **SQL Server**.
@@ -183,7 +183,7 @@ If you access the portal from a machine that is different from the gateway machi
 5. Click **OK** to close the dialog box. 
 
  
-## Step 3: Create input and output datasets
+### Step 3: Create input and output datasets
 In this step, you will create input and output datasets that represent input and output data for the copy operation (On-premises SQL Server database => Azure blob storage). Before creating datasets or tables (rectangular datasets), you need to do the following (detailed steps follows the list):
 
 - Create a table named **emp** in the SQL Server Database you added as a linked service to the data factory and insert couple of sample entries into the table.
@@ -309,7 +309,7 @@ In this step, you will create input and output datasets that represent input and
 2.	Click **Deploy** on the command bar to deploy the dataset (table is a rectangular dataset). Confirm that you see a message on the title bar that says **TABLE DEPLOYED SUCCESSFULLY**.
   
 
-## Step 4: Create and run a pipeline
+### Step 4: Create and run a pipeline
 In this step, you create a **pipeline** with one **Copy Activity** that uses **EmpOnPremSQLTable** as input and **OutputBlobTable** as output.
 
 1.	In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
@@ -383,7 +383,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 
 **Congratulations!** You have successfully created an Azure data factory, linked services, tables, and a pipeline and scheduled the pipeline.
 
-### View the data factory in a Diagram View 
+#### View the data factory in a Diagram View 
 1. In the **Azure Preview Portal**, click **Diagram** tile on the home page for the **ADFTutorialOnPremDF** data factory. :
 
 	![Diagram Link](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
@@ -394,7 +394,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 
 	You can zoom in, zoom out, zoom to 100%, zoom to fit, automatically position pipelines and tables, and show lineage information (highlights upstream and downstream items of selected items).  You can double-blick on an object (input/output table or pipeline) to see properties for it. 
 
-## Step 5: Monitor the datasets and pipelines
+### Step 5: Monitor the datasets and pipelines
 In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about monitoring, see [Monitor and Manage Pipelines](monitor-manage-pipelines.md).
 
 1. Navigate to **Azure Preview Portal** (if you have closed it)
