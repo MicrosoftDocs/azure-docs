@@ -61,7 +61,7 @@ Before you begin the instructions in this article, you must have the following:
 	- Storm clusters: for real time event processing workloads
 	- Spark clusters (preview): for in-memory processing, interactive queries, stream, and machines learning workloads.
 
-	![HDInsight clusters](./media/hdinsight-provision-clusters/HDInsight.clusters.png)
+	![HDInsight clusters](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
  
 	> [AZURE.NOTE] *Azure HDInsight cluster* is also called *Hadoop clusters in HDInsight*, or *HDInsight cluster*. Sometimes, it is used interchangeably with *Hadoop cluster*. They all refer to the Hadoop clusters hosted in the Microsoft Azure environment. 	   
 
