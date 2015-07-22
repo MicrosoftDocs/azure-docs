@@ -46,7 +46,9 @@ Logs that a page or similar container was displayed to the user.
 `measurements` | `? {[string]:number}` | Metrics associated with this page, displayed in Metrics Explorer on the portal. Defaults to empty.
 
 
-#### `trackEvent(name: string, properties?: Object, measurements?: Object)`
+### trackEvent
+
+    trackEvent(name: string, properties?: {[string]:string}, measurements?: {[string]:string})
 
 Log a user action or other occurrence.
 
@@ -61,7 +63,9 @@ You can also search and [display individual events](app-insights-diagnostic-sear
 `measurements` | `? {[string]:number}` | Metrics associated with this page, displayed in Metrics Explorer on the portal. Defaults to empty.
 
 
-### `trackMetric(name: string, average: number, sampleCount?: number, min?: number, max?: number)`
+### trackMetric
+
+    trackMetric(name: string, average: number, sampleCount?: number, min?: number, max?: number)
 
 
 Log a numeric value that is not associated with a specific event. Typically used to send regular reports of performance indicators. 
@@ -78,7 +82,9 @@ To send a single measurement, use just the first two parameters. If you take mea
 `min` | `? number` | The smallest measurement in the sample. Defaults to the average.
 `max` | `? number` | The largest measurement in the sample. Defaults to the average.
 
-### `trackException(exception: Error, handledAt?: string, properties?: Object, measurements?: Object)`
+### trackException
+
+    trackException(exception: Error, handledAt?: string, properties?: Object, measurements?: Object)
 
 Log an exception you have caught. (Exceptions caught by the browser are also logged.)
 
@@ -91,7 +97,9 @@ In the portal, you can [search on exception type and view](app-insights-diagnost
 `properties` |  `? {[string]:string}` | Additional data used to filter pages and metrics in the portal. Defaults to empty.
 `measurements` | `? {[string]:number}` | Metrics associated with this page, displayed in Metrics Explorer on the portal. Defaults to empty.
 
-### `trackTrace(message: string, properties?: Object, measurements?: Object)`
+### trackTrace
+
+    trackTrace(message: string, properties?: Object, measurements?: Object)
 
 Log a diagnostic event such as entering or leaving a method.
 
@@ -102,14 +110,18 @@ In the portal, you can search on message content and [display individual trackTr
 ---|---|---
 `message` | `string` | Diagnostic data. Can be much longer than a name.
 
-### `flush()`
+### flush
+
+    flush()
 
 Immediately send all queued telemetry.
 
 Use this on window closing.
 
 
-### `config: IConfig`
+### config
+
+    config: IConfig
 
 Values that control how the telemetry data is sent.
 
@@ -137,9 +149,11 @@ Look for this line, and add more items:
       instrumentationKey: "000...000"
     });
 
-### `context: TelemetryContext`
+### context
 
+    context: TelemetryContext
 
+Information that the SDK attempts to extract from the environment about the device, location, and user.
 
 
 ## class TelemetryContext
