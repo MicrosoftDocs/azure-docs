@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -74,7 +74,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 6. Add the following code that creates an instance of  **DataPipelineManagementClient** class to the **Main** method. You will use this object to create a data factory, a linked service, input and output tables, and a pipeline. You will also this object to monitor slices of a table at runtime.    
 
         // create data factory management client
-        string resourceGroupName = "ADF";
+        string resourceGroupName = "resourcegroupname";
         string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
@@ -85,6 +85,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
+	> [AZURE.NOTE] Replace the **resourcegroupname** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet.
 
 7. Add the following code that creates a **data factory** to the **Main** method.
 
