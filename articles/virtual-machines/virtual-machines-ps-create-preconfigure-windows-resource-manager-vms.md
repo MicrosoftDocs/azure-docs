@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Create and preconfigure a Windows virtual machine with Azure Resource Manager and Azure PowerShell
@@ -119,7 +119,9 @@ Use the following command to list the existing availability sets.
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-Resource Manager-based virtual machines require a Resource Manager-based virtual network. If needed, create a new Resource Manager-based virtual network with at least one subnet for the new virtual machine. The followng example is for a new virtual network with two subnets named frontendSubnet and backendSubnet.
+Resource Manager-based virtual machines can be configured with inbound NAT rules to allow incoming traffic from the Internet and be placed in a load balanced set. In both cases, you must specify a load balancer instance and other settings. For more information, see [Create a load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
+
+Resource Manager-based virtual machines require a Resource Manager-based virtual network. If needed, create a new Resource Manager-based virtual network with at least one subnet for the new virtual machine. The following example is for a new virtual network with two subnets named frontendSubnet and backendSubnet.
 
 	$rgName="LOBServers"
 	$locName="West US"
@@ -163,9 +165,9 @@ Copy the following lines to your command set and specify an existing virtual net
 	$subnetIndex=<index of the subnet on which to create the NIC for the virtual machine>
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-Next, you create a network interface card (NIC), request a public IP address, and optionally assign it a DNS domain name label. Copy one of the two following options to your command set and fill in the NIC name and DNS domain name label.
+Next, you create a network interface card (NIC). Copy one of the following options to your command set and fill in the needed information.
 
-### Option 1: Specify a NIC name
+### Option 1: Specify a NIC name and assign a public IP address
 
 Copy the following lines to your command set and specify the name for the NIC.
 
@@ -181,6 +183,51 @@ Copy the following lines to your command set and specify the name for the NIC an
 	$domName="<domain name label>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
+
+### Option 3: Specify a NIC name and assign a static, private IP address
+
+Copy the following lines to your command set and specify the name for the NIC.
+
+	$nicName="<name of the NIC of the VM>"
+	$staticIP="<available static IP address on the subnet>"
+	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id -PrivateIpAddress $staticIP
+
+### Option 4: Specify a NIC name and a load balancer instance for an inbound NAT rule.
+
+To create a NIC and add it to a load balancer instance for an inbound NAT rule, you need the following information:
+
+- The name of a previously-created load balancer instance that has an inbound NAT rule for traffic being forwarded to the virtual machine.
+- The index number of the back end address pool of the load balancer instance to assign to the NIC.
+- The index number of the inbound NAT rule to assign to the NIC.
+
+For information on how to create a load balancer instance with inbound NAT rules, see [Create a load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
+
+Copy these lines to your command set and specify the needed names and index numbers.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+
+### Option 5: Specify a NIC name and a load balancer instance for a load-balanced set.
+
+To create a NIC and add it to a load balancer instance for a load-balanced set, you need the following information:
+
+- The name of a previously-created load balancer instance that has a rule for the load-balanced traffic.
+- The index number of the back end address pool of the load balancer instance to assign to the NIC.
+
+For information on how to create a load balancer instance with rules for load-balanced traffic, see [Create a load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
+
+Copy these lines to your command set and specify the needed names and index numbers.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Next, create a local VM object and optionally add it to an availability set. Copy one of the two following options to your command set and fill in the name, size, and name of the availability set.
 

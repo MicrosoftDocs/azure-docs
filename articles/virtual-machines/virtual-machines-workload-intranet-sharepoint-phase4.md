@@ -5,20 +5,21 @@
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/21/2015" 
 	ms.author="josephd"/>
 
 # SharePoint Intranet Farm Workload Phase 4: Configure SharePoint Servers
 
-In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the application and web tiers of the SharePoint farm and create the farm with the SharePoint Configuration Wizard. 
+In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the application and web tiers of the SharePoint farm with Virtual Machines in Service Management, and then create the farm with the SharePoint Configuration Wizard. 
 
 You must complete this phase before moving on to [Phase 5](virtual-machines-workload-intranet-sharepoint-phase5.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
 
@@ -174,11 +175,11 @@ This is the configuration resulting from the successful completion of this phase
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase4/workload-spsqlao_04.png)
 
-## Next Step
+## Next steps
 
 To continue with the configuration of this workload, go to [Phase 5: Create the Availability Group and add the SharePoint databases](virtual-machines-workload-intranet-sharepoint-phase5.md).
 
-## Additional Resources
+## Additional resources
 
 [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
 

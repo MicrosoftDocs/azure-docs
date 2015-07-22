@@ -5,15 +5,16 @@
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/21/2015" 
 	ms.author="josephd"/>
 
 # Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure
@@ -25,6 +26,8 @@ This topic contains links to the step-by-step instructions for deploying an intr
 - Two database servers
 - One cluster majority node server
 - Two domain controllers
+
+The Azure networking, storage, and compute resources are created with Azure Service Management.
 
 This is the configuration, with placeholder names for each server.
 
