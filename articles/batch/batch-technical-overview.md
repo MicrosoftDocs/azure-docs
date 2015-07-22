@@ -55,7 +55,7 @@ Typical Batch developer scenarios are in the following sections.
 
 ### Scale out a parallel workload
 
-Use the Batch API to scale out intrinsically parallel work such as image rendering on a pool of up to thousands of compute cores. Instead of having to set up a compute cluster or write code to queue and schedule your jobs and move the necessary input and output data, you automate the scheduling of large compute jobs and scale a pool of compute VMs up and down to run them. You can write client apps or front-ends to run jobs and tasks on demand, on a schedule, or as part of a larger workfolow managed by tools such as [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+Use the Batch API to scale out intrinsically parallel work such as image rendering on a pool of up to thousands of compute cores. Instead of having to set up a compute cluster or write code to queue and schedule your jobs and move the necessary input and output data, you automate the scheduling of large compute jobs and scale a pool of compute VMs up and down to run them. You can write client apps or front-ends to run jobs and tasks on demand, on a schedule, or as part of a larger workflow managed by tools such as [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 Figure 2 shows a simplified workflow to submit an application to a Batch pool where it's distributed for processing.
 

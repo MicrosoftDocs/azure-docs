@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc"/>
 
 # Configure ExpressRoute and Site-to-Site VPN connections that coexist
@@ -155,7 +155,7 @@ There are two separate configuration procedures to choose from. The configuratio
 		OperationStatus      : Succeeded
 
 	
-8. Configure your local VPN device to connect to the new gateway. Use the information that you retrieved in step 6 when configuring your VPN device. For more information about VPN device configuration, see [VPN Device Configuration](vpn-gateway-configure-vpn-gateway-mp.md/#gather-information-for-your-vpn-device-configuration).
+8. Configure your local VPN device to connect to the new gateway. Use the information that you retrieved in step 6 when configuring your VPN device. For more information about VPN device configuration, see [VPN Device Configuration](http://go.microsoft.com/fwlink/p/?linkid=615099).
 	
 
 9. Link the Site-to-Site VPN gateway on Azure to the local gateway. 

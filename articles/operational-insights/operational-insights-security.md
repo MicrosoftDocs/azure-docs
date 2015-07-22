@@ -32,11 +32,11 @@ The Operational Insights service manages your data securely by using the followi
 
 Each customer has a dedicated Azure blob that houses the long-term data. The blob is encrypted with unique per-customer keys, which are changed every 90 days.
 
-**Data retention:** Aggregated metrics for each of the solutions (previously called intelligence packs) is stored in a SQL Database hosted by Microsoft Azure. This data is stored for 390 days. Indexed log search data is stored for 10 days on average before the data is groomed. If the upper limit of 20 million records for each data type is reached earlier, Operational Insights grooms the data earlier than 10 days. If the data limit is not reached by 10 days, Operational Insights waits until the limit is reached to groom it.
+**Data retention:** Aggregated metrics for some of the solutions (previously called intelligence packs), such as Capacity Management, is stored in a SQL Database hosted by Microsoft Azure. This data is stored for 390 days. Indexed log search data is stored and retained according to the pricing plan. For more information look at the [Pricing Page](http://azure.microsoft.com/pricing/details/operational-insights/)
 
 **Physical security:** The Operational Insights service is manned by Microsoft personnel and all activities are logged and can be audited. The Operational Insights service runs completely in Azure and complies with the Azure common engineering criteria. You can view details about the physical security of Azure assets on page 18 of the [Microsoft Azure Security Overview](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf).
 
-**Compliance and certifications:** The Operational Insights software development and service team is actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire a variety of certifications, including ISO, before the Operational Insights service is generally available.
+**Compliance and certifications:** The Operational Insights software development and service team is actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire a variety of certifications, including ISO.
 
 We currently meet the following security standards:
 
