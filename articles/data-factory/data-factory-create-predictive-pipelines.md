@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
@@ -212,41 +212,12 @@ To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following:
 
 
 #### Azure SQL Writer
-As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters. An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table. The following table describes when the input linked service is used vs. output linked service.   
+As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters. An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table. The following table describes when the input linked service is used vs. output linked service. 
 
-<table>
-<tr>
-<td>Output/Input</td>
-<td><b>Input is Azure SQL</b></td>
-<td><b>Input is Azure Blob</b></td>
-</tr>
-<tr>
-<td><b>Output is Azure SQL</b></td>
-<td><p>The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p>
-<p>If the Azure SQL Reader and Azure SQL Writer in your Azure ML model share the same Web service parameters mentioned above, you are fine. If they do not share same Web service paramers, for example, if the Azure SQL Writer uses parameters names: Database server name1, Database name1, Server user account name1, Server user account password1 (with '1' at the end), you must pass values for these OUTPUT web service parameters in the webServiceParameters section of activity JSON.</p>
-<p>
-You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON.  
-</p>
-
-</td>
-<td>
-<p>The Data Factory service uses the connection string information from the OUTPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p>
-<p>You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON . <p>Input blob will be used as input location.</p>
-</td>
-</tr>
-<tr>
-<td><b>Output is Azure Blob</b></td>
-<td>The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.
-</td>
-<td>
-<p>You must pass values for any Web service parameters using the WebServiceParameters section of activity JSON.</p> 
-
-<p>Blobs will be used as input and output locations.</p>
-
-</td>
-<tr>
-
-</table>
+| Output/Input | Input is Azure SQL | Input is Azure Blob |
+| ------------ | ------------------ | ------------------- |
+| Output is Azure SQL | <p>The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p><p>If the Azure SQL Reader and Azure SQL Writer in your Azure ML model share the same Web service parameters mentioned above, you are fine. If they do not share same Web service paramers, for example, if the Azure SQL Writer uses parameters names: Database server name1, Database name1, Server user account name1, Server user account password1 (with '1' at the end), you must pass values for these OUTPUT web service parameters in the webServiceParameters section of activity JSON.</p><p>You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON.</p> | <p>The Data Factory service uses the connection string information from the OUTPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p><p>You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON . <p>Input blob will be used as input location.</p> |
+|Output is Azure Blob | The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio. | <p>You must pass values for any Web service parameters using the WebServiceParameters section of activity JSON.</p><p>Blobs will be used as input and output locations.</p> |
     
 
 > [AZURE.NOTE] Azure SQL Writer may encounter key violations if it is overwriting an identity column. You should ensure that you structure your output table to avoid this situation. 
