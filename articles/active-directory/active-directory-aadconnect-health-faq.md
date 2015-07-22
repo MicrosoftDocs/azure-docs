@@ -104,7 +104,7 @@ Select Advanced IF you have different proxy ports for HTTP and HTTPS/Secure
 No. A mechanism for specifying arbitrary username/password for Basic Authentication is not currently supported.
 
 
-**Q:  What firewall ports do I need open to use Azure AD Connect? **
+**Q: What firewall ports do I need open to use Azure AD Connect?**
 
 The following table provides the port, protocol, and brief description of the firewall ports that need to be opened.
 
