@@ -82,6 +82,8 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 		    }
 		  }
 		}
+
+	Replace **accountname** with the name of your storage account and **accountkey** with the key for your Azure storage account.
 2.	In the **Azure PowerShell**, switch to the **ADFGetStartedPSH** folder. 
 3.	You can use the **New-AzureDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial require you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can use **Get-AzureDataFactory** to get a DataFactory object and pass the object without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureDataFactory** cmdlet to a variable: **$df**. 
 
@@ -109,6 +111,9 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 		    }
 		  }
 		}
+
+	Replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and  password.
+
 2.	Run the following command to create a linked service. 
 	
 		New-AzureDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
