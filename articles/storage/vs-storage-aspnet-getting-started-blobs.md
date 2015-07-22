@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
->This article describes how to get started using Azure blob storage after you have created or referenced an Azure storage account in an ASP.NET app by using the  Visual Studio **Add Connected Services** dialog. For more general information about using Azure blob storage, see [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md).
+This article describes how to get started using Azure blob storage after you have created or referenced an Azure storage account in an ASP.NET app by using the  Visual Studio **Add Connected Services** dialog. For more general information about using Azure blob storage, see [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md).
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files. 
 
