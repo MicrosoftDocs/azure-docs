@@ -263,14 +263,11 @@ This section shows the syntax and template for scoring profiles. Refer to [Index
 **Note**
 A scoring function can only be applied to fields that are filterable.
 
-<table>
-<thead>
+<table border="1">
 <tr>
-<td>Attribute</td>
-<td>Description</td>
+<th>Attribute</th>
+<th>Description</th>
 </tr>
-</thead>
-<tbody>
 <tr>
 <td>Name</td>	<td>Required. This is the name of the scoring profile. It follows the same naming conventions of a field. It must start with a letter, cannot contain dots, colons or @ symbols, and cannot start with the phrase ‘azureSearch’ (case-sensitive). </td>
 </tr><tr>
@@ -323,8 +320,7 @@ A scoring function can only be applied to fields that are filterable.
 <td>defaultScoringProfile</td>	<td>When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only).
 A default scoring profile name can be set here, causing Azure Search to use that profile when no specific profile is given in the search request. </td>
 </tr>
-</tbody>
-</table>
+</table></br>
 
 <a name="bkmk_interpolation"></a>
 ##Set interpolations##
