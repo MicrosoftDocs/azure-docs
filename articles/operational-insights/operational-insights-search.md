@@ -709,28 +709,10 @@ Examples:
 You can omit the logical operator for the top-level filter arguments. In this case, the AND operator is assumed.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table>
-	<tr>
-		<th>Filter expression</th>
-		<th>Equivalent to</th>
-	</tr>
-	<tr>
-		<td>
-		<p>system error</p>
-		</td>
-		<td>
-		<p>system AND error</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>system &quot; Windows Server&quot; OR Severity:1</p>
-		</td>
-		<td>
-		<p>system AND (&quot;Windows Server&quot; OR Severity:1)</p>
-		</td>
-	</tr>
-</table>
+Filter expression|Equivalent to
+---|---
+system error|system AND error
+system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1)
 
 
 
