@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (Cloud Service projects)
@@ -34,6 +34,9 @@ This article describes how to get started using Azure table storage in Visual St
 To get started, you first need to create an Azure queue in your storage account. We'll show you how to create an queue from the Visual Studio **Server Explorer**. If you prefer, we'll also show you how to create a queue in code.
 
 We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages. The samples are written in C\# code and use the Azure Storage Client Library for .NET. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
+
+##Create a queue in Server Explorer
+[AZURE.INCLUDE [vs-create-queue-in-server-explorer](../../includes/vs-create-queue-in-server-explorer.md)]
 
 ##Access queues in code
 

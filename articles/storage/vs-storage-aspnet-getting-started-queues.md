@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (ASP.NET Projects)
@@ -27,11 +27,16 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
+This article describes how get started using Azure queue storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET project by using the  Visual Studio **Add Connected Services** dialog. 
+
 Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
 
 To get started, you first need to create an Azure queue in your storage account. We'll show you how to create an queue from the Visual Studio **Server Explorer**. If you prefer, we'll also show you how to create a queue in code.
 
 We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages. The samples are written in C\# code and use the Azure Storage Client Library for .NET. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
+
+##Create a queue in Server Explorer
+[AZURE.INCLUDE [vs-create-queue-in-server-explorer](../../includes/vs-create-queue-in-server-explorer.md)]
 
 ##Access queues in code
 

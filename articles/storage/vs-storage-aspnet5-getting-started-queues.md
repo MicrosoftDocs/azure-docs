@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2015"
+	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (ASP.NET 5 Projects)
@@ -40,6 +40,9 @@ We'll also show you how to perform basic queue operations, such as adding, modif
 **NOTE:** Some of the APIs that perform calls out to Azure storage in ASP.NET 5 are asynchronous. See [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
 
 See [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md/ "How to use Queue Storage from .NET") for more information.
+
+##Create a queue in Server Explorer
+[AZURE.INCLUDE [vs-create-queue-in-server-explorer](../../includes/vs-create-queue-in-server-explorer.md)]
 
 ##Access queues in code
 
@@ -204,6 +207,3 @@ To delete a queue and all the messages contained in it, call the
 			
 
 
-##Next steps
-
-[AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
