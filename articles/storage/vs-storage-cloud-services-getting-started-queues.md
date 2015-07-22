@@ -29,7 +29,7 @@
 
 Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
 
-This article describes how to get started using Azure table storage in Visual Studio after you have created or referenced an Azure storage account in cloud services project by using the  Visual Studio **Add Connected Services** dialog. The **Add Connected Services** operation installs the appropriate NuGet packages to access Azure storage in your project and adds the connection string for the storage account to your project configuration files.
+This article describes how to get started using Azure table storage in Visual Studio after you have created or referenced an Azure storage account in a cloud services project by using the  Visual Studio **Add Connected Services** dialog. The **Add Connected Services** operation installs the appropriate NuGet packages to access Azure storage in your project and adds the connection string for the storage account to your project configuration files.
 
 To get started, you first need to create an Azure queue in your storage account. We'll show you how to create an queue from the Visual Studio **Server Explorer**. If you prefer, we'll also show you how to create a queue in code.
 
