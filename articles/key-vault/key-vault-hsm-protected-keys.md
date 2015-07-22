@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="cabailey"
 	manager="mbaldwin"
-	tags=""/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/20/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 #How to generate and transfer HSM-protected keys for Azure Key Vault
 
 ##Introduction
 
-For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as bring your own key, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses Thales nShield family of HSMs to protect your keys.
+For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses Thales nShield family of HSMs to protect your keys.
 
 Use the information in this topic to help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault. 
 
->[AZURE.NOTE] For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)?  
+>[AZURE.NOTE] For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)  
 >
 >For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [Get started with Azure Key Vault](key-vault-get-started.md).
 
