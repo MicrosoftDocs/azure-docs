@@ -672,7 +672,7 @@ __.chain()
 </tbody>
 </table>
 
-### Example Stored Procedure
+### Example: Write a stored procedure using the JavaScript query API
 
 The following code sample is an example of how to use the JavaScript Query API can be used in the context of a stored procedure. In this case, the stored procedure implements upsert (create a document, or replace if it already exists) by using the `__.filter()` method to check whether the document already exists.
 
