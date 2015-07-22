@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create an Internal load balancer using Azure Resource Manager | Microsoft Azure "
-   description="How to create a load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create an Internal load balancer (ILB) resource."
+   pageTitle="Get started on Internal load balancer using Azure Resource Manager | Microsoft Azure "
+   description="How to create a Internal load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create an Internal load balancer (ILB) resource."
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
 # How to create a load balancer using Azure Resource Manager

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gettting started with Internal load balancer | Microsoft Azure "
+   pageTitle="Get started with Internal load balancer | Microsoft Azure "
    description="Configure Internal Load balancer and how to implement them for Virtual Machines and Cloud deployments"
    services="load-balancer"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
 # Get started configuring an internal load balancer
