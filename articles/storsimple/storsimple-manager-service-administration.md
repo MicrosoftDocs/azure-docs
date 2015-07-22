@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/17/2015"
+   ms.date="07/22/2015"
    ms.author="alkohli" />
 
 # Use StorSimple Manager service to administer your StorSimple device
@@ -85,21 +85,21 @@ For more information about each workflow, click the appropriate entry in the tab
 |About bandwidth templates</br>Add a bandwidth template</br>Edit a bandwidth template</br>Delete a bandwidth template</br>Use a default bandwidth template</br>Create an all-day bandwidth template that starts at a specified time|StorSimple Manager service → Configure|[Manage bandwidth templates](storsimple-manage-bandwidth-templates)|
 |About access control records</br>Create an access control record</br>Edit an access control record</br>Delete an access control record|StorSimple Manager service → Configure|[Manage access control records](storsimple-manage-acrs)|
 |View job details</br>Cancel a job|StorSimple Manager service → Jobs|[Manage jobs](storsimple-manage-jobs)
-|Receive alert notifications</br>Manage alerts</br>Review alerts|StorSimple Manager service → Alerts|[Manage alerts on your StorSimple device](storsimple-manage-alerts)
-|View connected initiators</br>Find the device serial number</br>Find the target IQN|StorSimple Manager service → Devices → Dashboard|
-|Monitor your device</br>Create monitoring charts|StorSimple Manager service → Devices → Monitor|Monitor your StorSimple device|
+|Receive alert notifications</br>Manage alerts</br>Review alerts|StorSimple Manager service → Alerts|[View and manage StorSimple alerts](storsimple-manage-alerts)
+|View connected initiators</br>Find the device serial number</br>Find the target IQN|StorSimple Manager service → Devices → Dashboard|[Use the StorSimple device dashboard](storsimple-device-dashboard)|
+|Monitor your device</br>Create monitoring charts|StorSimple Manager service → Devices → Monitor|[Monitor your StorSimple device](https://msdn.microsoft.com/library/azure/dn757759.aspx)|
 |Add a volume container</br>Modify a volume container</br>Delete a volume container|StorSimple Manager service → Devices → Volume Containers|[Manage volume containers](storsimple-manage-volume-containers)|
 |Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume|StorSimple Manager service → Devices → Volume Containers → Volumes|[Manage volumes](storsimple-manage-volumes)|
-|Modify device settings</br>Modify time settings</br>Modify DNS settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure|Modify device configuration for your StorSimple device|
-|View web proxy settings|StorSimple Manager service → Devices → Configure|Configure web proxy for your device|
-|Modify device administrator password</br>Modify StorSimple Snapshot Manager password|StorSimple Manager service → Devices → Configure|
-|Configure remote management|StorSimple Manager service → Devices → Configure|Connect remotely to your StorSimple device|
-|Configure alert settings|StorSimple Manager service → Devices → Configure|Configure alerts for your StorSimple device|
+|Modify device settings</br>Modify time settings</br>Modify DNS settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure|[Modify device configuration for your StorSimple device](storsimple-modify-device-config)|
+|View web proxy settings|StorSimple Manager service → Devices → Configure|[Configure web proxy for your device](https://msdn.microsoft.com/library/azure/dn764937.aspx)|
+|Modify device administrator password</br>Modify StorSimple Snapshot Manager password|StorSimple Manager service → Devices → Configure|[Change StorSimple passwords](storsimple-change-passwords)|
+|Configure remote management|StorSimple Manager service → Devices → Configure|[Connect remotely to your StorSimple device](https://msdn.microsoft.com/en-us/library/dn772393.aspx)|
+|Configure alert settings|StorSimple Manager service → Devices → Configure|[View and manage StorSimple alerts](storsimple-manage-alerts)|
 |Configure CHAP for your StorSimple device|StorSimple Manager service → Devices → Configure|[Configure CHAP for your StorSimple device](https://msdn.microsoft.com/library/dn772351.aspx)|
 |Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules|StorSimple Manager service → Devices → Backup policies|[Manage backup policies](storsimple-manage-backup-policies)|
-|Manage device controllers|StorSimple Manager service → Devices → Maintenance|Stop, start or shut down your device controller|
-|Monitor hardware status (on-premises device only)|StorSimple Manager service → Devices → Maintenance|Monitor hardware components|
-|Create a support package|StorSimple Manager service → Devices → Maintenance|Create, edit a Support package|
+|Manage device controllers|StorSimple Manager service → Devices → Maintenance|[Manage StorSimple device controller](storsimple-manage-device-controller)|
+|Monitor hardware status (on-premises device only)|StorSimple Manager service → Devices → Maintenance|[Monitor hardware components](storsimple-monitor-hardware-status)|
+|Create a support package|StorSimple Manager service → Devices → Maintenance|[Create and manage a Support package](https://msdn.microsoft.com/library/azure/dn757780.aspx#sec04)|
 |Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your device](storsimple-update-device)|
 
 ##Next steps
