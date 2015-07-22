@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="How to failover your StorSimple device"
-   description="Learn how to failover your StorSimple device to itself, another physical device or a virtual device."
+   pageTitle="Failover and disaster recovery for your StorSimple device | Microsoft Azure"
+   description="Learn how to fail over your StorSimple device to itself, another physical device, or a virtual device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/29/2015"
+   ms.date="07/22/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -128,12 +128,18 @@ Perform the following steps to restore the device to a target StorSimple virtual
 	
 	b. 	Go to **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed here.
 
+## Business continuity disaster recovery (BCDR)
 
-## See also
-After you have performed the failover, you may need to:
+This scenario occurs when the entire Azure datacenter stops functioning. This section discusses the implications of such an event for your StorSimple Manager service and the associated StorSimple devices.
 
-- [Deactivate your StorSimple device](https://msdn.microsoft.com/library/azure/dn772379.aspx#deactivate)
-- [Delete your StorSimple device](https://msdn.microsoft.com/library/azure/dn772379.aspx#delete)
+If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to undergo a factory reset. After the disaster, the StorSimple device will be shown as offline. The StorSimple device must be deleted from the portal, and a factory reset should be done followed by a fresh registration.
+
+## Next steps
+
+After you have performed a failover, you may need to:
+
+- [Deactivate your StorSimple device](storsimple-deactivate-and-delete-device#deactivate-a-device)
+- [Delete your StorSimple device](storsimple-deactivate-and-delete-device#delete-a-device)
 
 For information on how to manage your device using the StorSimple Manager service, see:
 
