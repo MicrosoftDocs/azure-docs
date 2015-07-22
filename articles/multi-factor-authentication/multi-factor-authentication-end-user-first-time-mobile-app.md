@@ -23,51 +23,40 @@ If you want to use the mobile app as your primary contact method you can use thi
 The Azure Authenticator app is available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
 ## To use a mobile app as your contact method
-<ol>
-<li>Select Mobile App from the drop-down.</li>
 
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)</center>
+1. Select Mobile App from the drop-down.
+![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
+2. Select either Notification or One-time password and click Set up.
+3. On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.  To add an account that already has Azure MFA or a 3rd party account see [Adding an account manually](adding-an-account-manually).<br>
+![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
+4. Scan the barcode picture that came up with the configure mobile app screen.  Click Done to close the barcode screen.  If you cannot get the barcode to scan you can enter the information manually.
+![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode.png)
+5. On the phone, it will begin to activate, once this has completed click Contact me.  This will send either a notification or a verification code to your phone.  Click verify.<br>
+![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
+6. Click close.  At this point, your verification should be successful.
+7. Now it is recommended that enter your mobile phone number in case you lose access to your mobile app.
+8. Specify your country from the drop-down and enter your mobile phone number in the box next to country.  Click Next.
+9. At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older. If you do not use these apps click **Done**.  Otherwise continue to the next step.
+![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
+10. If you are using these apps then copy the app password provided and paste the password into your non-browser application. For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.
+11. Click Done.
 
-<li>Select either Notification or One-time password and click Set up</li>
-<li>On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.  To add an account that already has Azure MFA or a 3rd party account see [Adding an account manually](adding-an-account-manually).</li>
-
-
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)</center>
-
-
-<li>Scan the barcode picture that came up with the configure mobile app screen.  Click Done to close the barcode screen.  If you cannot get the barcode to scan you can enter the information manually.</li>
-
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode.png)</center>
-
-<li>On the phone, it will begin to activate, once this has completed click Contact me.  This will send either a notification or a verification code to your phone.  Click verify.</li>
-
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)</center>
-
-<li>Click close.  At this point, your verification should be successful.</li>
-<li>Now it is recommended that enter your mobile phone number in case you lose access to your mobile app.
-<li>Specify your country from the drop-down and enter your mobile phone number in the box next to country.  Click Next.</li>
-<li>At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older. If you do not use these apps click **Done**.  Otherwise continue to the next step.</li>
-
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)</center>
-
-<li>If you are using these apps then copy the app password provided and paste the password into your non-browser application. For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.</li>
-<li>Click Done.</li>
 
 ## Adding an account manually
 If you want to add an account manually, select the enter account manually button.  
 
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)</center>
+![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
 
 Now if you have an account that already has Azure MFA, enter the code and the url that is provided on the same page that shows you the barcode.  This goes in the code and url boxes on the mobile app.  This will begin the activation.
 
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode2.png)</center>
+![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode2.png)
 
 Once this has completed click Contact me. This will send either a notification or a verification code to your phone. Click verify.  To finish, follow the steps above starting at number 6.
 
 If you are using a 3rd party account with the mobile app, enter the account name and the security key in the boxes provided and then activate the account.  Once you have done this and verified the account, follow the steps above starting at number 6.
 
 
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)</center>
+![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)
 
 >[AZURE.NOTE]If you see "Add work account", this is for Workplace Join and not for multi-factor authentication.  You can disregard this.
  
