@@ -8,7 +8,7 @@
    editor="" />
 <tags 
    ms.service="storsimple"
-   ms.devlang=""
+   ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
