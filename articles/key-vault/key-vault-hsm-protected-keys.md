@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="cabailey"
 	manager="mbaldwin"
-	tags=""/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/20/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 #How to generate and transfer HSM-protected keys for Azure Key Vault
 
