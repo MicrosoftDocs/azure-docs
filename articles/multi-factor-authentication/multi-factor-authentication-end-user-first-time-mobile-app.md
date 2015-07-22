@@ -24,22 +24,34 @@ The Azure Authenticator app is available for [Windows Phone](http://www.windowsp
 
 ## To use a mobile app as your contact method
 
-1. Select Mobile App from the drop-down.
+
+- Select Mobile App from the drop-down.
+
+
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
-2. Select either Notification or One-time password and click Set up.
-3. On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.  To add an account that already has Azure MFA or a 3rd party account see [Adding an account manually](adding-an-account-manually).<br>
+
+- Select either Notification or One-time password and click Set up.
+- On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.  To add an account that already has Azure MFA or a 3rd party account see [Adding an account manually](adding-an-account-manually).
+
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
-4. Scan the barcode picture that came up with the configure mobile app screen.  Click Done to close the barcode screen.  If you cannot get the barcode to scan you can enter the information manually.<br>
+
+- Scan the barcode picture that came up with the configure mobile app screen.  Click Done to close the barcode screen.  If you cannot get the barcode to scan you can enter the information manually.
+
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode.png)
-5. On the phone, it will begin to activate, once this has completed click Contact me.  This will send either a notification or a verification code to your phone.  Click verify.<br>
+
+- On the phone, it will begin to activate, once this has completed click Contact me.  This will send either a notification or a verification code to your phone.  Click verify.
+
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
-6. Click close.  At this point, your verification should be successful.
-7. Now it is recommended that enter your mobile phone number in case you lose access to your mobile app.
-8. Specify your country from the drop-down and enter your mobile phone number in the box next to country.  Click Next.
-9. At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older. If you do not use these apps click **Done**.  Otherwise continue to the next step.
+
+- Click close.  At this point, your verification should be successful.
+- Now it is recommended that enter your mobile phone number in case you lose access to your mobile app.
+- Specify your country from the drop-down and enter your mobile phone number in the box next to country.  Click Next.
+- At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older. If you do not use these apps click **Done**.  Otherwise continue to the next step.
+
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
-10. If you are using these apps then copy the app password provided and paste the password into your non-browser application. For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.
-11. Click Done.
+
+- If you are using these apps then copy the app password provided and paste the password into your non-browser application. For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.
+- Click Done.
 
 
 ## Adding an account manually
