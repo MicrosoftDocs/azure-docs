@@ -40,6 +40,22 @@ To learn more, you can:
 ## Supported sources and sinks
 The Copy Activity supports the following data movement scenarios: 
 
+| *Source/Sink* | Azure Blob | Azure Table | Azure SQL Database | Azure DocumentDB | SQL Server on Azure VM | On-premises SQL Server |
+| ------------- | ---------- | ----------- | ------------------ | ---------------- | ------------------ | ------------------- |
+| Azure Blob | X | X | X | X | X | X |
+| Azure Table | X | X | X | X | X | X |
+| Azure SQL Database | X | X | X | X | X | X |
+| Azure DocumentDB | X | X | X |  |  |  |  
+| On-premises SQL Server | X | X | X |  | X | X |
+| SQL Server on Azure VM | X | X | X |  | X | X |
+| On-premises File System | X | X | X |  | X | X |
+| On-premises Oracle Database | X | X | X |  | X | X |
+| On-premises MySQL Database| X | X | X |  | X | X |
+| On-premises DB2 Database | X | X | X |  | X | X |
+| On-premises Teradata Database | X | X | X |  | X | X |
+| On-premises Sybase Database | X | X | X |  | X | X |
+| On-premises PostgreSQL Database | X | X | X |  | X | X |
+
 <table border="1">	
 	<tr>
 		<th><i>Source/Sink<i></th>
