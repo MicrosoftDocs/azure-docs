@@ -3,7 +3,7 @@
 	description="Learn about the key design and implementation guidelines for deploying an IT workload in Azure infrastructure services." 
 	documentationCenter=""
 	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
+	authors="squillace" 
 	manager="timlt" 
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/09/2015" 
-	ms.author="josephd"/>
+	ms.author="rasquill"/>
 
 # Azure infrastructure services implementation guidelines
  
@@ -168,7 +168,7 @@ Operating system disks and data disks have a maximum size of 1023 GB since the m
 ### Striped Disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks will enhance performance by allowing multiple blobs to back the storage for a single volume. This parallelizes the I/O required to write and read data from a single disk. 
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For the details, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For the details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
@@ -430,7 +430,7 @@ This configuration incorporates:
 
 [Microsoft Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md#storage-limits)
 
-[Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Sizes for Virtual Machines](virtual-machines-size-specs.md)
 
 [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md)
 
