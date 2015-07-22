@@ -19,10 +19,11 @@
 # Managing Azure AD Connect 
 
 > [AZURE.SELECTOR]
-- [What is It](../active-directory-aadconnect.md)
-- [How it Works](../active-directory-aadconnect-how-it-works.md)
-- [Getting Started](../active-directory-aadconnect-get-started.md)
-- [What's Next](../active-directory-aadconnect-whats-next.md) - [Learn More](../active-directory-aadconnect-learn-more.md)
+- [What is It](../active-directory-aadconnect/)
+- [How it Works](../active-directory-aadconnect-how-it-works/)
+- [Getting Started](../active-directory-aadconnect-get-started/)
+- [What's Next](../active-directory-aadconnect-whats-next/) 
+- [Learn More](../active-directory-aadconnect-learn-more/)
 
 The following are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organization's needs and requirements.  
 
