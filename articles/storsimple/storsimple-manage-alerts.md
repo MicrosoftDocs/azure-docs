@@ -1,11 +1,11 @@
 <properties 
    pageTitle="View and manage StorSimple alerts"
-   description="Describes how to use the StorSimple Manager service to view and clear alerts."
+   description="Describes StorSimple alerts and how to use the StorSimple Manager service to view and clear them."
    services="storsimple"
    documentationCenter="NA"
-   authors="alkohli"
+   authors="SharS"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="07/22/2015"
-   ms.author="alkohli" />
+   ms.author="v-sharos" />
 
 # View and manage StorSimple alerts
 
