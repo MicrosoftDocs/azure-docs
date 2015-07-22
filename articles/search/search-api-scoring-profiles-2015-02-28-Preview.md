@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview)"
+	pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure"
 	description="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview)"
 	services="search"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="07/22/2015"
+	ms.date="07/22/2015" />
 
 # Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 
