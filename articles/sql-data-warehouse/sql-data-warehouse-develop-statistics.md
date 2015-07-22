@@ -179,9 +179,9 @@ WITH
   )
 ;
 
-CREATE STATISTICS stats_col1 on dbo.table1;
-CREATE STATISTICS stats_col2 on dbo.table2;
-CREATE STATISTICS stats_col3 on dbo.table3;
+CREATE STATISTICS stats_col1 on dbo.table1 (col1);
+CREATE STATISTICS stats_col2 on dbo.table2 (col2);
+CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### H. Use a stored procedure to create statistics on all columns in a database
