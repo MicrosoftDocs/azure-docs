@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2015"
+	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
 # What happened to my project?
@@ -22,11 +22,11 @@
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
 > - [What Happened](vs-active-directory-dotnet-what-happened.md)
 
-###<span id="whathappened">What happened to my project?</span>
 
-References have been added.
 
-#####NuGet package references
+##References have been added
+
+###NuGet package references
 
 - `Microsoft.IdentityModel.Protocol.Extensions`
 - `Microsoft.Owin`
@@ -37,7 +37,7 @@ References have been added.
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
-#####.NET references
+###.NET references
 
 - `Microsoft.IdentityModel.Protocol.Extensions`
 - `Microsoft.Owin`
@@ -50,15 +50,17 @@ References have been added.
 - `System.IdentityModel.Tokens.Jwt`
 - `System.Runtime.Serialization`
 
-#####Code files were added to your project
+##Code has been added
+
+###Code files were added to your project
 
 An authentication startup class, `App_Start/Startup.Auth.cs` was added to your project containing startup logic for Azure AD authentication. Also, a controller class, Controllers/AccountController.cs was added which contains `SignIn()` and `SignOut()` methods. Finally, a partial view, `Views/Shared/_LoginPartial.cshtml` was added containing an action link for SignIn/SignOut.
 
-#####Startup code was added to your project
+###Startup code was added to your project
 
 If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)`. Otherwise, a Startup class was added to your project.
 
-#####Your app.config or web.config has new configuration values
+###Your app.config or web.config has new configuration values
 
 The following configuration entries have been added.
 	<pre>
@@ -70,19 +72,19 @@ The following configuration entries have been added.
 	    <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
 	</appSettings>` </pre>
 
-#####An Azure Active Directory (AD) App was created
+###An Azure Active Directory (AD) App was created
 An Azure AD Application was created in the directory that you selected in the wizard.
 
-###If I checked *disable Individual User Accounts authentication*, what additional changes were made to my project?
+##If I checked *disable Individual User Accounts authentication*, what additional changes were made to my project?
 NuGet package references were removed, and files were removed and backed up. Depending on the state of your project, you may have to manually remove additional references or files, or modify code as appropriate.
 
-#####NuGet package references removed (for those present)
+###NuGet package references removed (for those present)
 
 - `Microsoft.AspNet.Identity.Core`
 - `Microsoft.AspNet.Identity.EntityFramework`
 - `Microsoft.AspNet.Identity.Owin`
 
-#####Code files backed up and removed (for those present)
+###Code files backed up and removed (for those present)
 
 Each of following files was backed up and removed from the project. Backup files are located in a 'Backup' folder at the root of the project's directory.
 
@@ -91,7 +93,7 @@ Each of following files was backed up and removed from the project. Backup files
 - `Models\IdentityModels.cs`
 - `Models\ManageViewModels.cs`
 
-#####Code files backed up (for those present)
+###Code files backed up (for those present)
 
 Each of following files was backed up before being replaced. Backup files are located in a 'Backup' folder at the root of the project's directory.
 
@@ -100,10 +102,11 @@ Each of following files was backed up before being replaced. Backup files are lo
 - `Controllers\AccountController.cs`
 - `Views\Shared\_LoginPartial.cshtml`
 
-###If I checked *Read directory data*, what additional changes were made to my project?
+##If I checked *Read directory data*, what additional changes were made to my project?
+
 Additional references have been added.
 
-#####Additional NuGet package references
+###Additional NuGet package references
 
 - `EntityFramework`
 - `Microsoft.Azure.ActiveDirectory.GraphClient`
@@ -113,7 +116,7 @@ Additional references have been added.
 - `Microsoft.IdentityModel.Clients.ActiveDirectory`
 - `System.Spatial`
 
-#####Additional .NET references
+###Additional .NET references
 
 - `EntityFramework`
 - `EntityFramework.SqlServer`
@@ -125,15 +128,15 @@ Additional references have been added.
 - `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms`
 - `System.Spatial`
 
-#####Additional Code files were added to your project
+###Additional Code files were added to your project
 
 Two files were added to support token caching: `Models\ADALTokenCache.cs` and `Models\ApplicationDbContext.cs`.  An additional controller and view were added to illustrate accessing user profile information using Azure graph APIs.  These files are `Controllers\UserProfileController.cs` and `Views\UserProfile\Index.cshtml`.
 
-#####Additional Startup code was added to your project
+###Additional Startup code was added to your project
 
 In the `startup.auth.cs` file, a new `OpenIdConnectAuthenticationNotifications` object was added to the `Notifications` member of the `OpenIdConnectAuthenticationOptions`.  This is to enable receiving the OAuth code and exchange it for an access token.
 
-#####Additional changes were made to your app.config or web.config
+###Additional changes were made to your app.config or web.config
 
 The following additional configuration entries have been added.
 	<pre>
@@ -162,7 +165,7 @@ The following configuration sections and connection string have been added.
 	</entityFramework>`</pre>
 
 
-#####Your Azure Active Directory App was updated
+###Your Azure Active Directory App was updated
 Your Azure Active Directory App was updated to include the *Read directory data* permission and an additional key was created which was then used as the *ida:ClientSecret* in the `web.config` file.
 
 [Learn more about Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
