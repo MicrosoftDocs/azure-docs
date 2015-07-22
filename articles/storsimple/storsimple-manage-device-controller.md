@@ -90,7 +90,7 @@ This will restart or shut down the controller. The table below summarizes the de
 Perform the following steps to shut down or restart a single controller on your StorSimple device from the Management Portal. 
 
 
-1. Access the device by using the serial console or a telnet session from a remote computer. Connect to Controller 0 or Controller 1 by following the steps in [Use PuTTY to connect to the device serial console](https://msdn.microsoft.com/en-us/library/dn757808.aspx).
+1. Access the device by using the serial console or a telnet session from a remote computer. Connect to Controller 0 or Controller 1 by following the steps in [Use PuTTY to connect to the device serial console](https://msdn.microsoft.com/library/azure/dn757808.aspx).
 
 1. In the serial console menu, choose option 1, **Log in with full access**.
 
@@ -209,4 +209,4 @@ A. To return a controller to service, you must insert it into the chassis as des
 
 ## Next steps
 
-If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in thsi tutorial, [Contact Microsoft Support](https://msdn.microsoft.com/en-us/library/azure/dn757750.aspx).
+If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in thsi tutorial, [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
