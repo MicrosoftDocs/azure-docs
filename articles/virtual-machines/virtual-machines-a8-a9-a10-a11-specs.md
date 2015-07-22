@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/17/2015"
+ ms.date="07/22/2015"
  ms.author="danlep"/>
 
 # About the A8, A9, A10, and A11 compute-intensive instances
@@ -53,7 +53,7 @@ Network | Description
 32-Gbps back end, RDMA capable | Enables low-latency, high-throughput application communication between instances within a single cloud service or availability set. Reserved for MPI traffic only.
 
 
->[AZURE.IMPORTANT]On A8 and A9 VMs running Linux in IaaS, access to the RDMA network is currently enabled only through applications that use Azure Linux RDMA and Intel MPI Library 5.0 on SUSE Linux Enterprise Server 12 (SLES 12). On A8 and A9 instances running Windows Server in IaaS or PaaS, access to the RDMA network is currently enabled only through applications that use the Microsoft Network Direct interface through Microsoft MPI (MS-MPI). See [Access to the RDMA network](#access-the-rdma-network) in this article for additional requirements.
+>[AZURE.IMPORTANT]On A8 and A9 VMs running Linux in IaaS, access to the RDMA network is currently enabled only through applications that use Azure Linux RDMA and Intel MPI Library 5.0 on SUSE Linux Enterprise Server 12 (SLES 12). On A8 and A9 instances running Windows Server in IaaS or PaaS, access to the RDMA network is currently enabled only through applications that use the Microsoft Network Direct interface. See [Access to the RDMA network](#access-the-rdma-network) in this article for additional requirements.
 
 A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that connects to Azure services and the Internet.
 
@@ -67,7 +67,7 @@ A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that conne
 
 * **Affinity group** – Currently, an affinity group is not recommended for most new deployments. However, note that if you're using an affinity group that contains instances of sizes other than A8–A11, you won't be able to use it for the A8–A11 instances, and vice versa.
 
-* **Virtual network** – An Azure virtual network is not required to use the compute-intensive instances. However, you may need at least a cloud-based Azure virtual network for many IaaS scenarios, or a site-to-site connection if you need to access on-premises resources such as an application license server. You will need to create a new (regional) virtual network before deploying the instances. Adding an A8, A9, A10, or A11 VM to a virtual network in an affinity group is not supported. For more information, see [Create a virtual network](https://msdn.microsoft.com/library/azure/dn631643.aspx) and [Configure a virtual network with a site-to-site VPN connection](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+* **Virtual network** – An Azure virtual network is not required to use the compute-intensive instances. However, you may need at least a cloud-based Azure virtual network for many IaaS scenarios, or a site-to-site connection if you need to access on-premises resources such as an application license server. You will need to create a new (regional) virtual network before deploying the instances. Adding an A8, A9, A10, or A11 VM to a virtual network in an affinity group is not supported. For more information, see [How to create a virtual network (VNet)](../virtual-network/virtual-networks-create-vnet.md) and [Configure a virtual network with a site-to-site VPN connection](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 * **Cloud service or availability set** – To connect through the RDMA network, the A8 and A9 instances must be deployed in the same cloud service (for IaaS scenarios with Linux-based VMs or Windows-based VMs in Azure Service Management, or PaaS scenarios with Windows Server) or the same availability set (for Linux-based VMs or Windows-based VMs in Azure Resource Manager).
 
@@ -81,7 +81,7 @@ A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that conne
 
 HPC Pack is not required for you to use the A8, A9, A10, and A11 instances with Windows Server, but it is a recommended tool to create Windows HPC Server–based clusters in Azure. In the case of A8 and A9 instances, HPC Pack is the most efficient way to run Windows-based MPI applications that access the RDMA network in Azure. HPC Pack includes a runtime environment for the Microsoft implementation of the Message Passing Interface for Windows.
 
-For more information and checklists to deploy and use the compute-intensive instances in IaaS and PaaS scenarios with HPC Pack on Windows Server, see [A8 and A9 compute intensive instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
+For more information and checklists to deploy and use the compute-intensive instances in IaaS and PaaS scenarios with HPC Pack on Windows Server, see [A8 and A9 compute intensive instances: Quick start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
 
 ## Access to the RDMA network
 
@@ -102,7 +102,7 @@ MPI | Intel MPI Library 5.0
 
 Within a single cloud service or availability set, the A8 and A9 instances can access the RDMA network in Azure for running MPI applications that use the Microsoft Network Direct interface to communicate between instances. The A10 and A11 instances do not include access to the RDMA network.
 
-See the following table for prerequisites for MPI applications to access the RDMA network in virtual machine (IaaS) and cloud service (PaaS) deployments of the A8 or A9 instances. For typical deployment scenarios, see [A8 and A9 compute intensive instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
+See the following table for prerequisites for MPI applications to access the RDMA network in virtual machine (IaaS) and cloud service (PaaS) deployments of the A8 or A9 instances. For typical deployment scenarios, see [A8 and A9 compute intensive instances: Quick start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
 
 
 Prerequisite | Virtual machines (IaaS) | Cloud services (PaaS)
@@ -128,4 +128,4 @@ MPI | MS-MPI 2012 R2 or later, either stand-alone or installed via HPC Pack 2012
 
 * For details about availability and pricing of the A8, A9, A10, and  A11 instances, see [Virtual Machines pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Cloud Services pricing](http://azure.microsoft.com/pricing/details/cloud-services/).
 * To deploy and configure a Linux-based cluster with A8 and A9 instances to access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md).
-* To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [A8 and A9 compute intensive instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) and [Run MPI applications on A8 and A9 instances](https://msdn.microsoft.com/library/azure/dn592104.aspx).
+* To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [A8 and A9 compute intensive instances: Quick start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) and [Run MPI applications on A8 and A9 instances](https://msdn.microsoft.com/library/azure/dn592104.aspx).
