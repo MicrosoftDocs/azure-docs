@@ -24,7 +24,7 @@ If your organization is federated with Azure Active Directory and you have resou
 
 
 
-1. Use the steps outlined in [turn-on multi-factor authentication](multi-factor-authentication-get-started-cloud/#turn-on-multi-factor-authentication-for-users) for users to enable an account.
+1. Use the steps outlined in [turn-on multi-factor authentication](multi-factor-authentication-get-started-cloud.md/#turn-on-multi-factor-authentication-for-users) for users to enable an account.
 2. Use the following procedure to setup a claims rule:
 
 ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
