@@ -106,22 +106,22 @@ The following table outlines where and how this data is used during password res
           <tbody><tr>
             <td>
               <p>
-                <strong>Contact Method Name</strong>
+                **Contact Method Name**
               </p>
             </td>
             <td>
               <p>
-                <strong>Azure Active Directory Data Element</strong>
+                **Azure Active Directory Data Element**
               </p>
             </td>
             <td>
               <p>
-                <strong>Used / Settable Where?</strong>
+                **Used / Settable Where?**
               </p>
             </td>
             <td>
               <p>
-                <strong>Format requirements</strong>
+                **Format requirements**
               </p>
             </td>
           </tr>

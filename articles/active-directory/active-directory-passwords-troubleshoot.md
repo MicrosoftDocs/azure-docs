@@ -56,41 +56,41 @@ If you encounter an error when configuring password reset, you might be able to 
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                **Error Case**
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                **What error does a user see?**
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                **Solution**
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>I don’t see the <strong>User Password Reset Policy </strong>section under the <strong>Configure</strong> tab in the Azure management portal</p>
+              <p>I don’t see the **User Password Reset Policy **section under the **Configure** tab in the Azure management portal</p>
             </td>
             <td>
-              <p>The <strong>User Password Reset Policy </strong>section is not visible on the <strong>Configure</strong> tab in the Azure Management Portal.</p>
+              <p>The **User Password Reset Policy **section is not visible on the **Configure** tab in the Azure Management Portal.</p>
             </td>
             <td>
               <p>This can occur if you do not have an AAD Premium or AAD Basic license assigned to the admin performing this operation. </p>
-              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the <strong>Licenses</strong> tab and try again.</p>
+              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the **Licenses** tab and try again.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>I don’t see any of the configuration options under the <strong>User Password Reset Policy</strong> section that are described in the documentation.</p>
+              <p>I don’t see any of the configuration options under the **User Password Reset Policy** section that are described in the documentation.</p>
             </td>
             <td>
-              <p>The <strong>User Password Reset Policy </strong>section is visible, but the only flag that appears under it is the <strong>Users Enabled for Password Reset</strong> flag.</p>
+              <p>The **User Password Reset Policy **section is visible, but the only flag that appears under it is the **Users Enabled for Password Reset** flag.</p>
             </td>
             <td>
-              <p>The rest of the UI will appear when you switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes.</strong></p>
+              <p>The rest of the UI will appear when you switch the **Users Enabled for Password Reset** flag to **Yes.**</p>
             </td>
           </tr>
           <tr>
@@ -98,7 +98,7 @@ If you encounter an error when configuring password reset, you might be able to 
               <p>I don’t see a particular configuration option.</p>
             </td>
             <td>
-              <p>For example, I do not see the <strong>Number of days before a user must confirm their contact data</strong> option when I scroll through the <strong>User Password Reset Policy</strong> section (or other examples of the same issue).</p>
+              <p>For example, I do not see the **Number of days before a user must confirm their contact data** option when I scroll through the **User Password Reset Policy** section (or other examples of the same issue).</p>
             </td>
             <td>
               <p>Many elements of UI are hidden until they are needed. Try enabling all the options on the page if you want to see.</p>
@@ -107,10 +107,10 @@ If you encounter an error when configuring password reset, you might be able to 
           </tr>
           <tr>
             <td>
-              <p>I don’t see the <strong>Write Back Passwords to On-Premises</strong> configuration option</p>
+              <p>I don’t see the **Write Back Passwords to On-Premises** configuration option</p>
             </td>
             <td>
-              <p>The <strong>Write Back Passwords to On-Premises</strong> option is not visible under the <strong>Configure</strong> tab in the Azure Management Portal</p>
+              <p>The **Write Back Passwords to On-Premises** option is not visible under the **Configure** tab in the Azure Management Portal</p>
             </td>
             <td>
               <p>This option is only visible if you have downloaded Azure AD Connect and configured Password Writeback. When you have done this, that option appears and allows you to enable or disable writeback from the cloud.</p>
@@ -126,17 +126,17 @@ If you encounter an error when using the password management reports, you might 
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                **Error Case**
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                **What error does a user see?**
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                **Solution**
               </p>
             </td>
           </tr>
@@ -145,11 +145,11 @@ If you encounter an error when using the password management reports, you might 
               <p>I don’t see any password management reports</p>
             </td>
             <td>
-              <p>The <strong>Password reset activity</strong> and <strong>Password reset registration activity</strong> reports are not visible under the <strong>Activity Log</strong> reports in the <strong>Reports</strong> tab.</p>
+              <p>The **Password reset activity** and **Password reset registration activity** reports are not visible under the **Activity Log** reports in the **Reports** tab.</p>
             </td>
             <td>
               <p>This can occur if you do not have an AAD Premium or AAD Basic license assigned to the admin performing this operation. </p>
-              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the <strong>Licenses</strong> tab and try again.</p>
+              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the **Licenses** tab and try again.</p>
             </td>
           </tr>
           <tr>
@@ -173,17 +173,17 @@ If you encounter an error when registering a user for password reset, you might 
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                **Error Case**
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                **What error does a user see?**
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                **Solution**
               </p>
             </td>
           </tr>
@@ -195,7 +195,7 @@ If you encounter an error when registering a user for password reset, you might 
               <p>Your administrator has not enabled you to use this feature.</p>
             </td>
             <td>
-              <p>Switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes</strong> and hit <strong>Save</strong> in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
+              <p>Switch the **Users Enabled for Password Reset** flag to **Yes** and hit **Save** in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
             </td>
           </tr>
           <tr>
@@ -206,7 +206,7 @@ If you encounter an error when registering a user for password reset, you might 
               <p>Your administrator has not enabled you to use this feature.</p>
             </td>
             <td>
-              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the <strong>Licenses</strong> tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
+              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the **Licenses** tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
             </td>
           </tr>
           <tr>
@@ -235,17 +235,17 @@ If you encounter an error when resetting a password for a user, you might be abl
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                **Error Case**
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                **What error does a user see?**
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                **Solution**
               </p>
             </td>
           </tr>
@@ -262,7 +262,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>Switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes</strong> and hit <strong>Save</strong> in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
+              <p>Switch the **Users Enabled for Password Reset** flag to **Yes** and hit **Save** in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
             </td>
           </tr>
           <tr>
@@ -273,7 +273,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>While we cannot reset non-admin account passwords automatically, we can contact your organization's admin to do it for you.</p>
             </td>
             <td>
-              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the <strong>Licenses</strong> tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
+              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the **Licenses** tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
             </td>
           </tr>
           <tr>
@@ -348,10 +348,10 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>I have set a password reset policy, but when an admin account uses password reset, that policy is not applied</p>
             </td>
             <td>
-              <p>Admin accounts resetting their passwords see the same options enabled for password reset, email and mobile phone, no matter what policy is set under the <strong>User Password Reset Policy</strong> section of the <strong>Configure</strong> tab.</p>
+              <p>Admin accounts resetting their passwords see the same options enabled for password reset, email and mobile phone, no matter what policy is set under the **User Password Reset Policy** section of the **Configure** tab.</p>
             </td>
             <td>
-              <p>The options configured under the <strong>User Password Reset Policy</strong> section of the <strong>Configure</strong> tab only apply to end users in your organization.</p>
+              <p>The options configured under the **User Password Reset Policy** section of the **Configure** tab only apply to end users in your organization.</p>
               <p>Microsoft manages and controls the Admin password reset policy in order to ensure the highest level of security</p>
             </td>
           </tr>
@@ -423,17 +423,17 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                **Error Case**
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                **What error does a user see?**
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                **Solution**
               </p>
             </td>
           </tr>
@@ -627,7 +627,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>Password operations fail with a configuration error. The application event log contains Azure AD Connect error 6329 with text: 0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent.)</p>
             </td>
             <td>
-              <p>This occurs if the Azure AD Connect configuration is changed to add&nbsp;a new AD forest (or to remove and re-add an existing forest) <strong>after</strong> the Password Writeback feature has already been enabled. Password operations for users in such newly added forests will fail. To fix the problem, disable and re-enable the Password Writeback feature after the forest configuration changes have been completed.</p>
+              <p>This occurs if the Azure AD Connect configuration is changed to add&nbsp;a new AD forest (or to remove and re-add an existing forest) **after** the Password Writeback feature has already been enabled. Password operations for users in such newly added forests will fail. To fix the problem, disable and re-enable the Password Writeback feature after the forest configuration changes have been completed.</p>
             </td>
           </tr>
           <tr>
@@ -651,22 +651,22 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
           <tbody><tr>
             <td>
               <p>
-                <strong>Code</strong>
+                **Code**
               </p>
             </td>
             <td>
               <p>
-                <strong>Name / Message</strong>
+                **Name / Message**
               </p>
             </td>
             <td>
               <p>
-                <strong>Source</strong>
+                **Source**
               </p>
             </td>
             <td>
               <p>
-                <strong>Description</strong>
+                **Description**
               </p>
             </td>
           </tr>
