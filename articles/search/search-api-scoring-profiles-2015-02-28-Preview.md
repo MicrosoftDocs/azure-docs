@@ -269,6 +269,8 @@ A scoring function can only be applied to fields that are filterable.
 <td>Attribute</td>
 <td>Description</td>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>Name</td>	<td>Required. This is the name of the scoring profile. It follows the same naming conventions of a field. It must start with a letter, cannot contain dots, colons or @ symbols, and cannot start with the phrase ‘azureSearch’ (case-sensitive). </td>
 </tr><tr>
