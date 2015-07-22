@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="07/22/2015" 
 	ms.author="andrl"/>
 
 # DocumentDB server-side programming: Stored procedures, triggers, and UDFs
@@ -666,6 +666,72 @@ __.chain()
 </tr>
 </tbody>
 </table>
+
+### Example Stored Procedure
+
+The following code sample is an example of how to use the JavaScript Query API can be used in the context of a stored procedure. In this case, the stored procedure implements upsert (create a document, or replace if it already exists) by using the `__.filter()` method to check whether the document already exists.
+
+    function upsert(newDocument) {
+      var response = getContext().getResponse();
+
+      if (!newDocument) throw new Error("The document is undefined or null.");
+
+      tryQuery(null);
+      // Query to see if a document with the given id already exists.
+      function tryQuery(continuation) {
+        __.filter(
+          // Predicate function.
+          function(doc) {
+            return doc.id == newDocument.id;
+          },
+          // Request options.
+          {
+            continuation: continuation
+          },
+          // Callback.
+          function(err, resource, options) {
+            if (resource.length > 0) {
+              // If the document already exists - replace it.
+              tryReplace(resource[0]);
+            } else if (options.continuation) {
+              // Conservative check for continuation; ot expected to hit in practice for a query by id.
+              tryQuery(options.continuation);
+            } else {
+              // If the document doesn't already exist - create it.
+              tryCreate();
+            }
+          });
+      }
+
+      // If the document doesn't already exist - create it.
+      function tryCreate() {
+        var isAccepted = __.createDocument(__.getSelfLink(), newDocument, function(err, resource) {
+          if (err) throw err;
+          response.setBody({
+            "operation": "created",
+            "document": resource
+          });
+
+        });
+
+        if (!isAccepted) throw new Error("Unable to schedule create document");
+      }
+
+    // If the document already exists - replace it.
+      function tryReplace(docToReplace) {
+        var isAccepted = __.replaceDocument(docToReplace._self, newDocument, function(err, resource) {
+          if (err) throw err;
+          response.setBody({
+            "operation": "replaced",
+            "document": resource
+          });
+
+        });
+
+        if (!isAccepted) throw new Error("Unable to schedule replace document");
+      }
+    }
+
 
 ## Runtime support
 [DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources.md).
