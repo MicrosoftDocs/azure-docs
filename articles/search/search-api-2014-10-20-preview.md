@@ -115,7 +115,7 @@ The Azure Search Service API supports two syntaxes for entity lookup: [simple](h
 
 ________________________________________
 <a name="IndexOps"></a>
-# Index Operations #
+## Index Operations
 
 You can create and manage indexes in Azure Search service via simple HTTP requests (POST, GET, PUT, DELETE) against a given index resource. To create an index, you first POST a JSON document that describes the index schema. The schema defines the fields of the index, their data types, and how they can be used (for example, in full-text searches, filters, sorting, faceting, or suggestions). It also defines scoring profiles, suggesters and other attributes to configure the behavior of the index.
 
@@ -962,7 +962,7 @@ The response body is in the following format:
 
 ________________________________________
 <a name="DocOps"></a>
-# Document Operations #
+## Document Operations
 
 In Azure Search, an index is stored in the cloud and populated using JSON documents that you upload to the service. All the documents that you upload comprise the corpus of your search data. Documents contain fields, some of which are tokenized into search terms as they are uploaded. The `/docs` URL segment in the Azure Search API represents the collection of documents in an index. All operations performed on the collection such as uploading, merging, deleting, or querying documents take place in the context of a single index, so the URLs for these operations will always start with `/indexes/[index name]/docs` for a given index name.
 
