@@ -51,21 +51,21 @@ Alerts have different severity levels, depending on the impact that the alert si
 
 You can choose whether you want to be notified by email of alert conditions for each of your StorSimple devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **OTHER EMAIL RECIPIENTS** box, separated by semicolons.
 
-[AZURE.NOTE] **You can enter a maximum of 20 email addresses per device.**
+>[AZURE.NOTE] You can enter a maximum of 20 email addresses per device.
 
-After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from storsimple-alerts-noreply@mail.windowsazure.com and will describe the alert condition. Recipients can click Unsubscribe to remove themselves from the email notification list.
+After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
-## To enable email notification of alerts for a device
+#### To enable email notification of alerts for a device
 
 1. Go to **Devices** > **Configure** for the device.
 
 2. Under **Alert Settings**, set the following:
 
-    a. In the **SEND EMAIL NOTIFICATION** field, select **YES**.
+    1. In the **SEND EMAIL NOTIFICATION** field, select **YES**.
 
-    b. In the **EMAIL SERVICE ADMINISTRATORS** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
+    2. In the **EMAIL SERVICE ADMINISTRATORS** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
 
-    c. In the **OTHER EMAIL RECIPIENTS** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
+    3. In the **OTHER EMAIL RECIPIENTS** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
 
     ![Alerts notification configuration page](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig.png)
 
@@ -75,7 +75,7 @@ After you enable email notification for a device, members of the notification li
 
     ![Alerts test notification email sent](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
-    [AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. This can occur because of traffic or other network issues. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
+    >[AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. This can occur because of traffic or other network issues. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
 
 ## View and track alerts
 
@@ -83,7 +83,7 @@ The StorSimple Manager service dashboard provides you with a quick glance at the
 
 ![Alerts dashboard](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
 
-Clicking the severity level opens the Alerts tab. The results include only the alerts that match that severity level.
+Clicking the severity level opens the **Alerts** tab. The results include only the alerts that match that severity level.
 
 ![Alerts report scoped to alert type](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
 
@@ -137,7 +137,7 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 
 |Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Connectivity to <*cloud credential name*> cannot be established.|Cannot connect to the storage account.|It looks like there might be a connectivity issue with your device. Please run the **Test-HcsmConnection** cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue. If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised. In this case, use the **Test-HcsStorageAccountCredential** cmdlet to determine if there are issues that you can resolve.<br>Check your network settings.<br>Check your storage account credentials.|
+|Connectivity to <*cloud credential name*> cannot be established.|Cannot connect to the storage account.|It looks like there might be a connectivity issue with your device. Please run the **Test-HcsmConnection** cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue. If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised. In this case, use the **Test-HcsStorageAccountCredential** cmdlet to determine if there are issues that you can resolve.<ul><li>Check your network settings.</li><li>Check your storage account credentials.</li></ul>|
 |We have not received a heartbeat from your device for the last <*number*> minutes.|Cannot connect to device.|It looks like there is a connectivity issue with your device. Please use the **Test-HcsmConnection** cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue or contact your network administrator.|
 
 ### Cluster alerts
@@ -186,7 +186,7 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 |Microsoft Support session has begun.|Third-party accessed support session.|Please confirm this access is authorized. After you have taken appropriate action, please clear this alert from the alerts page.|
 |Password for <*element*> will expire in <*length of time*>.||Change your password before it expires.|
 |Security configuration information missing for <*element ID*>.||The volumes associated with this volume container cannot be used to replicate your StorSimple configuration. To ensure that your data is safely stored, we recommend that you delete the volume container and any volumes associated with the volume container. After you have taken appropriate action, please clear this alert from the alerts page.|
-|<*number*> login attempts failed for <*element ID*>.|Multiple failed logon attempts.|Your device might be under attack or an authorized user is attempting to connect with an incorrect password.<br>Contact your authorized users and verify that these attempts were from a legitimate source. If you continue to see large numbers of failed login attempts, consider disabling remote management and contacting your network administrator. After you have taken appropriate action, please clear this alert from the alerts page.<br>Check that your Snapshot Manager instances are configured with the correct password. After you have taken appropriate action, please clear this alert from the alerts page.|
+|<*number*> login attempts failed for <*element ID*>.|Multiple failed logon attempts.|Your device might be under attack or an authorized user is attempting to connect with an incorrect password.<ul><li>Contact your authorized users and verify that these attempts were from a legitimate source. If you continue to see large numbers of failed login attempts, consider disabling remote management and contacting your network administrator. After you have taken appropriate action, please clear this alert from the alerts page.</li><li>Check that your Snapshot Manager instances are configured with the correct password. After you have taken appropriate action, please clear this alert from the alerts page.</li></ul>|
 |One or more failures occurred while changing the service data encryption key.||There were errors encountered while changing the service data encryption key. After you have addressed the error conditions, run the **Invoke-HcsmServiceDataEncryptionKeyChange** cmdlet from the Windows PowerShell Interface for StorSimple on your device to update the service. If this issue persists, please contact Microsoft support. After you resolve the issue, please clear this alert from the alerts page.|
 
 ### Support package alerts
@@ -208,11 +208,11 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 |Hotfix installed.|Software/firmware update completed.|The hotfix has been successfully installed on your device.|
 |Manual updates available.|Notification of available updates.|Please use the Windows PowerShell Interface for StorSimple on your device to install these updates.|
 |New updates available.|Notification of available updates.|You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device.|
-|Failed to install updates.|Updates were not successfully installed.|The updates were not able to be installed. You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. If the issue persists, please contact Microsoft Support.|
+|Failed to install updates.|Updates were not successfully installed.|Your system was not able to install the updates. You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. If the issue persists, please contact Microsoft Support.|
 |Unable to automatically check for new updates.|Automatic check failed.|You can manually check for new updates from the **Maintenance** page.|
 |New WUA agent available.|Notification of available update.|Download the latest Windows Update Agent and install it from the Windows PowerShell interface.|
 |Version of firmware component <*component ID*> does not match with hardware.|Firmware update(s) were not successfully installed.|Please contact Microsoft Support.|
 
 ## Next steps
 
-[Learn more about StorSimple errors](storsimple-errors-reference.md)
+[Learn more about StorSimple errors](storsimple-review-errors.md)
