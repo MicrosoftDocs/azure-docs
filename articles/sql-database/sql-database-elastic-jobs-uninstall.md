@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
-	ms.author="sidneyh"/>
+	ms.date="07/20/2015" 
+	ms.author="ddove; sidneyh"/>
 
 # How to uninstall the Elastic Database job components
 

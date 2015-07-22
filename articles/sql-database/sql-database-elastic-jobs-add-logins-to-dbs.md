@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
-	ms.author="sidneyh" />
+	ms.date="07/20/2015" 
+	ms.author="ddove; sidneyh" />
 
 # How to add users to an Elastic Database pool
 
