@@ -15,17 +15,15 @@
    ms.date="07/22/2015"
    ms.author="v-sharos" />
 
-# Errors quick reference
+# View and manage StorSimple errors
 
 ## Overview
 
 This article lists some of the errors that you might encounter during Microsoft Azure StorSimple installation, configuration, and operation. 
 
->[AZURE.NOTE] This article will be updated with additional information as it becomes available.
-
 ## Error codes and recommended actions
 
-Errors are listed in numeric order.
+Errors are listed in numeric order. (The following table will be updated as information becomes available.)
 
 |Error Number|Error text or description|Recommended user action|
 |---|---|---|
