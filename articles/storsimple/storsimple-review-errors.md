@@ -19,9 +19,9 @@
 
 ## Overview
 
-This article lists some of the errors that you might encounter during Microsoft Azure StorSimple installation, configuration, and operation. In addition to error codes and text, the article provides links to additional information if available.
+This article lists some of the errors that you might encounter during Microsoft Azure StorSimple installation, configuration, and operation. 
 
-This article will be updated when more information becomes available.
+This article will be updated with additional errors and pointers to other resources as information becomes available.
 
 ## Error codes and recommended actions
 
