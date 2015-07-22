@@ -187,7 +187,7 @@ If you access the portal from a machine that is different from the gateway machi
 In this step, you will create input and output datasets that represent input and output data for the copy operation (On-premises SQL Server database => Azure blob storage). Before creating datasets or tables (rectangular datasets), you need to do the following (detailed steps follows the list):
 
 - Create a table named **emp** in the SQL Server Database you added as a linked service to the data factory and insert couple of sample entries into the table.
-- - If you haven’t gone through the tutorial from [Get started with Azure Data Factory][adfgetstarted] article, create a blob container named **adftutorial** in the Azure blob storage account you added as a linked service to the data factory.
+- Create a blob container named **adftutorial** in the Azure blob storage account you added as a linked service to the data factory.
 
 ### Prepare On-premises SQL Server for the tutorial
 
@@ -395,7 +395,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 	You can zoom in, zoom out, zoom to 100%, zoom to fit, automatically position pipelines and tables, and show lineage information (highlights upstream and downstream items of selected items).  You can double-blick on an object (input/output table or pipeline) to see properties for it. 
 
 ## Step 5: Monitor the datasets and pipelines
-In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about using cmdlets for monitoring, see [Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-powershell].
+In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about monitoring, see [Monitor and Manage Pipelines](monitor-manage-pipelines.md).
 
 1. Navigate to **Azure Preview Portal** (if you have closed it)
 2. If the blade for **ADFTutorialOnPremDF** is not open, open it by clicking **ADFTutorialOnPremDF** on the **Startboard**.
@@ -434,7 +434,8 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 
 	![Activity Run Details blade][image-data-factory-activity-run-details]
 
-11. Click **X** to close all the blades until you get back to the home blade for the **ADFTutorialOnPremDF**.
+11. Click **X** to close all the blades until you 
+12. get back to the home blade for the **ADFTutorialOnPremDF**.
 14. (optional) Click **Pipelines**, click **ADFTutorialOnPremDF**, and drill through input tables (**Consumed**) or output tables (**Produced**).
 15. Use tools such as **Azure Storage Explorer** to verify the output.
 
