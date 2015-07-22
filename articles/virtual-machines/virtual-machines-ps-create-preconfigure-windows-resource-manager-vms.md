@@ -3,9 +3,10 @@
 	description="Learn how to use Azure PowerShell to create and preconfigure Windows and Resource Manager-based virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="davidmu"/>
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
 # Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell
 
