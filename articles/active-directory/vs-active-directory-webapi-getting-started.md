@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/27/2015" 
 	ms.author="patshea123"/>
 
 # Getting Started with Azure Active Directory (Web API Projects)
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
 > - [What Happened](vs-active-directory-webapi-what-happened.md)
 
-#####Requiring authentication to access controllers
+##Requiring authentication to access controllers
  
 All controllers in your project were adorned with the **Authorize** attribute. This attribute will require the user to be authenticated before accessing the APIs defined by these controllers. To allow the controller to be accessed anonymously, remove this attribute from the controller. If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.
 
