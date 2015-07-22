@@ -73,12 +73,12 @@ The following table describes the different values allowed for each column:
             <tbody><tr>
               <td>
                 <p>
-                  **Column**
+                  <strong>Column</strong>
                 </p>
               </td>
               <td>
                 <p>
-                  **Allowed values and their meanings**
+                 <strong>Allowed values and their meanings</strong>
                 </p>
               </td>
             </tr>
@@ -89,23 +89,23 @@ The following table describes the different values allowed for each column:
               <td>
                 <ul>
                   <li class="unordered">
-                    **Alternate Email** – user used alternate email or authentication email to authenticate<br><br></li>
+                    <strong>Alternate Email</strong> – user used alternate email or authentication email to authenticate<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Office Phone** – user used office phone to authenticate<br><br></li>
+                    <strong>Office Phone</strong> – user used office phone to authenticate<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Mobile Phone** – user used mobile phone or authentication phone to authenticate<br><br></li>
+                    <strong>Mobile Phone</strong> – user used mobile phone or authentication phone to authenticate<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Security Questions** – user used security questions to authenticate<br><br></li>
+                    <strong>Security Questions</strong> – user used security questions to authenticate<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.<br><br></li>
+                    <strong>Any combination of the above (e.g. Alternate Email + Mobile Phone)</strong> – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -138,12 +138,12 @@ The following table describes the different values allowed for each column:
             <tbody><tr>
               <td>
                 <p>
-                  **Column**
+                  <strong>Column</strong>
                 </p>
               </td>
               <td>
                 <p>
-                  **Allowed values and their meanings**
+                  <strong>Allowed values and their meanings</strong>
                 </p>
               </td>
             </tr>
@@ -154,23 +154,23 @@ The following table describes the different values allowed for each column:
               <td>
                 <ul>
                   <li class="unordered">
-                    **Alternate Email** – user used alternate email or authentication email to authenticate<br><br></li>
+                    <strong>Alternate Email</strong> – user used alternate email or authentication email to authenticate<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Office Phone** – user used office phone to authenticate<br><br></li>
+                    <strong>Office Phone</strong> – user used office phone to authenticate<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Mobile Phone** – user used mobile phone or authentication phone to authenticate<br><br></li>
+                    <strong>Mobile Phone</strong> – user used mobile phone or authentication phone to authenticate<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Security Questions** – user used security questions to authenticate<br><br></li>
+                    <strong>Security Questions</strong> – user used security questions to authenticate<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.<br><br></li>
+                    <strong>Any combination of the above (e.g. Alternate Email + Mobile Phone)</strong> – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -181,27 +181,27 @@ The following table describes the different values allowed for each column:
               <td>
                 <ul>
                   <li class="unordered">
-                    **Abandoned** – user started password reset but then stopped halfway through without completing<br><br></li>
+                    <strong>Abandoned</strong> – user started password reset but then stopped halfway through without completing<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Blocked** – user’s account was prevented to use password reset due to attempting to use the password reset page or a single password reset gate too many times in a 24 hour period<br><br></li>
+                    <strong>Blocked</strong> – user’s account was prevented to use password reset due to attempting to use the password reset page or a single password reset gate too many times in a 24 hour period<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Cancelled** – user started password reset but then clicked the cancel button to cancel the session part way through <br><br></li>
+                    <strong>Cancelled</strong> – user started password reset but then clicked the cancel button to cancel the session part way through <br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Contacted Admin** – user had a problem during his session that he could not resolve, so the user clicked the “Contact your administrator” link instead of finishing the password reset flow<br><br></li>
+                    <strong>Contacted Admin</strong> – user had a problem during his session that he could not resolve, so the user clicked the “Contact your administrator” link instead of finishing the password reset flow<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Failed** – user was not able to reset a password, likely because the user was not configured to use the feature (e.g. no license, missing authentication info, password managed on-prem but writeback is off).<br><br></li>
+                    <strong>Failed</strong> – user was not able to reset a password, likely because the user was not configured to use the feature (e.g. no license, missing authentication info, password managed on-prem but writeback is off).<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    **Succeeded** – password reset was successful.<br><br></li>
+                    <strong>Succeeded</strong> – password reset was successful.<br><br></li>
                 </ul>
               </td>
             </tr>
