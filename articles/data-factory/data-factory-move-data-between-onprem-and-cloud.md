@@ -24,21 +24,21 @@ The data gateway provides the following capabilities:
 1.	Model on-premises data sources and cloud data sources within the same data factory and move data.
 2.	Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud dashboard.
 3.	Manage access to on-premises data sources securely.
-a.	No changes required to corporate firewall. Gateway only makes outbound http based connections to open internet.
-b.	Encrypt credentials for your on-premises data stores with your certificate.
+	1. No changes required to corporate firewall. Gateway only makes outbound http based connections to open internet.
+	2. Encrypt credentials for your on-premises data stores with your certificate.
 4.	Move data efficiently – data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
 
 ## Considerations for using Data Management Gateway
-1.	A single instance of Data Management Gateway can be used for multiple on-premises data sources, but note that a single gateway instance is tied to only one Azure data factory and cannot be shared with another data factory.
-2.	You can have only one instance of Data Management Gateway installed on a single machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install gateways on two on-premises computers where each gateway tied to a separate data factory.
-3.	The gateway does not need to be on the same machine as the data source, but staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that is different from the one that hosts on-premises data source so that the gateway does not compete for resources with data source.
-4.	You can have multiple gateways on different machines connecting to the same on-premises data source. For example, you may have two gateways serving two data factories but the same on-premises data source is registered with both the data factories.
-5.	If you already have a gateway installed on your computer serving a Power BI scenario, please install a separate gateway for Azure Data Factory on another machine.
+1.	A single instance of Data Management Gateway can be used for multiple on-premises data sources, but note that **a single gateway instance is tied to only one Azure data factory** and cannot be shared with another data factory.
+2.	You can have **only one instance of Data Management Gateway** installed on a single machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install gateways on two on-premises computers where each gateway tied to a separate data factory.
+3.	The **gateway does not need to be on the same machine as the data source**, but staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that is different from the one that hosts on-premises data source so that the gateway does not compete for resources with data source.
+4.	You can have **multiple gateways on different machines connecting to the same on-premises data source**. For example, you may have two gateways serving two data factories but the same on-premises data source is registered with both the data factories.
+5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine.
 
 ## Gateway installation - prerequisites
-1.	The supported Operating System versions are Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012.
-2.	The recommended configuration for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
-3.	If the host machine hibernates, the gateway won’t be able to respond to data requests. Therefore, configure an appropriate power plan on the computer before installing the gateway. The gateway installation prompts a message if the machine is configured to hibernate.
+1.	The supported **Operating System** versions are Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012.
+2.	The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
+3.	If the host machine hibernates, the gateway won’t be able to respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. The gateway installation prompts a message if the machine is configured to hibernate.
 
 Due to the fact that copy activity runs happen on a specific frequency, the resource usage (CPU, memory) on the machine also follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress you will observe resource usage go up during peak times. While above is the minimum configuration it is always better to have a configuration with more resources than the min configuration described above depending on your specific load for data movement.
 
@@ -52,7 +52,14 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 ### Installation Troubleshooting:
 If your company uses a firewall or proxy server, additional steps may be required in case Data Management Gateway cannot connect to Microsoft cloud services. 
 
-**Possible symptoms for firewall related issues:**
+#### Looking at Gateway logs with Event Viewer:
+
+Gaetway configuration manager application shows status for gateway like “Disconnected” or “Connecting”.
+
+For more detailed information you can look at gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
+
+
+#### Possible symptoms for firewall related issues:
 
 1. When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2. When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
@@ -65,7 +72,9 @@ The two firewalls that are possibly in scope are: corporate firewall running on 
 - Both corporate firewall and Windows firewall should enable outbound rule for TCP ports: 80, 440, and from 9305 to 9354. These are used by Microsoft Azure Service Bus to establish connection between the cloud services and Data Management Gateway.
 
 The MSI setup will automatically configure Windows firewall rules for inbound ports for the gateway machine (see ports and security considerations section above).
- But the setup assumes the above mentioned outbound ports are allowed by default on the local machine and corporate firewall. You need to enable these outbound ports if that is not the case. If you have replaced the Windows firewall with a third party firewall, these ports might need to be opened manually. 
+
+But the setup assumes the above mentioned outbound ports are allowed by default on the local machine and corporate firewall. You need to enable these outbound ports if that is not the case. If you have replaced the Windows firewall with a third party firewall, these ports might need to be opened manually. 
+
 If your company uses a proxy server, then you need to add Microsoft Azure to the whitelist. You can download a list of valid Microsoft Azure IP addresses from the [Microsoft Download Center](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
 
 ## Using the Data Gateway – Step by Step Walkthrough
@@ -130,11 +139,12 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 4. Click the **NOTIFICATIONS** hub on the left. Wait until you see **Express setup for 'adftutorialgateway' succeeded** message in the **Notifications** blade.
 
 	![Express setup succeeded](./media/data-factory-move-data-between-onprem-and-cloud/express-setup-succeeded.png)
-5. Click **OK** on the **Create** blade and then on the **New data gateway** blade.
+6. Click **OK** on the **Create** blade and then on the **New data gateway** blade.
 6. Close the **Linked Services** blade (by pressing **X** button in the top-right corner) and reopen the **Linked Services** blade to see the latest status of the gateway. 
 7. Confirm that the **status** of the gateway is **Online**. 
 
 	![Gateway status](./media/data-factory-move-data-between-onprem-and-cloud/gateway-status.png)
+
 5. Launch **Microsoft Data Management Gateway Configuration Manager** application  on your computer.
 
 	![Gateway Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
@@ -146,7 +156,11 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 	4. **Gateway key status** is set to **Registered**.
 	5. The status bar the bottom displays **Connected to Data Management Gateway Cloud Service** along with a **green check mark**.
 	
-7. On the **Linked Services** blade, confirm that the **status** of the gateway is **Good**. 
+7. Switch to **Certificates**. The certificate specified on this tab is used to encrypt/decrypt credentials for the on-premises data store that you specify on the portal. Click **Change** to use your own certificate instead. By default, the gateway uses the certificate that is auto-generated by the Data Factory service.
+
+	![Gateway certificate configuration](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
+
+8. In the portal, on the **Linked Services** blade, confirm that the **status** of the gateway is **Good**. 
 
 
 ### Step 2: Create linked services 
@@ -154,15 +168,23 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 #### Add a linked service to an on-premises SQL Server database
 1.	In the **Linked Services** blade, click **New data store** on the command bar.
-2.	Enter SqlServerLinkedService for the name. 
+2.	Enter **SqlServerLinkedService** for the **name**. 
 2.	Click arrow next to the **Type**, and select **SQL Server**.
+
+	![Create new data store](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
 3.	You should more settings below the **Type** setting.
 4.	For the **Data gateway** setting, select the gateway you just created. 
+
+	![SQL Server settings](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
 4.	Enter the name of your database server for the **Server** setting.
 5.	Enter the name of the database for the **Database** setting.
 6.	Click arrow next to **Credentials**.
+
+	![Credentials blade](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
 7.	In the **Credentials** blade, click **Click here to set credentials**.
 8.	In the **Setting Credentials** dialog box, do the following:
+
+	![Setting credentials dialog](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
 	1.	Select **authentication** that you want the Data Factory service to use to connect to the database. 
 	2.	Enter name of the user who has access to the database for the **USERNAME** setting. 
 	3.	Enter password for the user for the **PASSWORD** setting.  
@@ -170,8 +192,13 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 4. Click **OK** to close the **Credentials** blade. 
 5. Click **OK** on the **New data store** blade. 	
 6. Confirm that the status for **SqlServerLinkedService** is set to Online in the Linked Services blade.
+	![SQL Server linked service status](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
+
+You can also use Data Factory Editor, which you will use to create datasets/tables in this tutorial, to create linked services. If you create a SQL Server linked service by using the editor and you enter credentials in plain text, the credentials are encrypted using a certificate that the Data Factory service owns. You can also encrypt credentials using the [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) and use the encrypted credentials in the JSON snippet in the editor. 
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
 #### Add a linked service for an Azure storage account
  
