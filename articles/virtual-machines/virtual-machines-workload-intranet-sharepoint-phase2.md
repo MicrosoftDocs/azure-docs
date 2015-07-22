@@ -41,7 +41,7 @@ Item | Virtual machine name | Gallery image | Minimum size
 
 **Table M – Virtual machines for the SharePoint 2013 intranet farm in Azure**
 
-For the complete list of virtual machine sizes, see [Sizes for virtual machines](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/).
+For the complete list of virtual machine sizes, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
 Use the following block of Azure PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the < and > characters. Note that this Azure PowerShell command set uses values from the following:
 
