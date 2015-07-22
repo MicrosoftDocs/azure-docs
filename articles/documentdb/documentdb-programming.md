@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="07/27/2015" 
 	ms.author="andrl"/>
 
 # DocumentDB server-side programming: Stored procedures, triggers, and UDFs
@@ -537,7 +537,8 @@ The following table presents various SQL queries and the corresponding JavaScrip
 
 As with SQL queries, document property keys (e.g. `doc.id`) are case-sensitive.
 
-> [AZURE.NOTE] `__` (double-underscore) is an alias to getContext().getCollection().
+> [AZURE.NOTE] `__` (double-underscore) is an alias to `getContext().getCollection()`.
+> <br/>
 > In other words, you can use `__` or `getContext().getCollection()` to access the JavaScript query API.
 
 <br/>
