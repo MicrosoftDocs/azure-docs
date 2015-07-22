@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="06/05/2015"
 	ms.author="kathydav"/>
 
 # Create a virtual machine running Windows in the Azure portal
