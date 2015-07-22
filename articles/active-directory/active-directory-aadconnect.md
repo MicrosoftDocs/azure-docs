@@ -148,8 +148,8 @@ Selecting Express Settings is the default option and is one of the most common s
 8. Once the installation completes, click **Exit**.
 
 
-<br>
-<br>
+
+
 
 For a video on using the express installation check out the following:
 
