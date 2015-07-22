@@ -16,9 +16,14 @@
    ms.author="alkohli" />
 
 #Overview
-This tutorial describes the different operations that can be performed on your StorSimple device controllers. It includes step-by-step instructions to manage the device controllers using the Maintenance page in the StorSimple Manager service. Instructions for these controller and device management tasks by using Windows PowerShell for StorSimple are also included. The controller management tasks include restart or shut down a controller, shut down the device and reset your StorSimple device to factory defaults.
+This tutorial describes the different operations that can be performed on your StorSimple device controllers. The controllers in your StorSimple device are redundant (peer) controllers in an active-passive configuration. At a given time, only one controller is active, and is processing all the disk and network operations. The other controller is in a passive mode. If the active controller fails, the passive controller becomes active automatically.
 
-The controllers in your StorSimple device are redundant (peer) controllers in an active-passive configuration. At a given time, only one controller is active, and is processing all the disk and network operations. The other controller is in a passive mode. If the active controller fails, the passive controller becomes active automatically.
+This tutorial includes step-by-step instructions to manage the device controllers by using the:
+
+- Controller section of the Maintenance page in the StorSimple Manager service
+- Windows PowerShell for StorSimple. 
+
+We recommend that the user manage the device controllers via the StorSimple Manager service. If an action can only be performed using the Windows PowerShell for StorSimple, the tutorial makes a note of it.
 
 After reading this tutorial, you will be able to:
 
@@ -27,17 +32,22 @@ After reading this tutorial, you will be able to:
 - Reset your StorSimple device to factory defaults
 
 
-## Restart or shut down a controller
+## Restart or shut down a single controller
 
-To manage your device controllers from the Management Portal, perform the following steps.
-
-A controller restart or shut down is not required as a part of normal system operation. Shutdown operations are common only in cases in which a failed device hardware component requires replacement, the device is being physically moved, or the device is taken out of service. A controller restart may also be required in a situation in which performance is affected by excessive memory usage or a malfunctioning controller. You may also need to restart a controller after a successful controller replacement, if you wish to enable and test the replaced controller.
+A controller restart or shut down is not required as a part of normal system operation. Shutdown operations for a single device controller are common only in cases in which a failed device hardware component requires replacement. A controller restart may also be required in a situation in which performance is affected by excessive memory usage or a malfunctioning controller. You may also need to restart a controller after a successful controller replacement, if you wish to enable and test the replaced controller.
 
 Restarting a device is not disruptive to connected initiators, assuming the passive controller is available. If a passive controller is not available or turned off, then restarting the active controller may result in the disruption of service and downtime.
 
 >[AZURE.IMPORTANT] **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
 
 >[AZURE.IMPORTANT] **The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the virtual device, see [Work with the virtual device](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device).**
+
+You can restart or shut down a single device controller by using the:
+
+- Management Portal of StorSimple Manager service
+- Windows PowerShell for StorSimple. 
+
+To manage your device controllers from the Management Portal, perform the following steps.
 
 #### To restart or shut down a controller in Management Portal
 
@@ -77,7 +87,6 @@ This will restart or shut down the controller. The table below summarizes the de
 
 
 #### To restart or shut down a controller in Windows PowerShell for StorSimple
-
 Perform the following steps to shut down or restart a single controller on your StorSimple device from the Management Portal. 
 
 
@@ -104,11 +113,18 @@ Perform the following steps to shut down or restart a single controller on your 
 
 ## Shut down a StorSimple device
 
-This section explains how to shut down a running or a failed StorSimple device from a remote computer.
+This section explains how to shut down a running or a failed StorSimple device from a remote computer. A device is turned off after shutting down both the device controllers. A device shut down is done when the device is being physically moved, or is taken out of service. 
 
 >[AZURE.IMPORTANT] **Before shutting down the device, check the health of the device components. Navigate to **Devices > Maintenance > Hardware Status** and verify that the LED status of all the components is green. Only a healthy device will have a green status. If the device is being shut down to replace a malfunctioning component, you will see a failed (red) or a degraded (yellow) status for the respective component(s).**
 
-#### To shut down a StorSimple device in Windows PowerShell for StorSimple
+#### To shut down a StorSimple device
+
+1. Use the [restart or shut down a controller](#restart-or-shut-down-a-single-controller) procedure to identify and shut down the passive controller on your device. You can perform this operation in the Management Portal or in the the Windows PowerShell for StorSimple.
+2. Repeat the above step to shut down the active controller.
+3. You will now need to look at the back plane of the device. After the two controllers are completely shut down, the status LEDs on both the controllers should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This should shut down the device.
+
+
+<!--#### To shut down a StorSimple device in Windows PowerShell for StorSimple
 
 1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](https://msdn.microsoft.com/library/azure/dn757808.aspx).
 
@@ -124,7 +140,7 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 1. Repeat steps 1 through 4 to connect to the active controller and then shut it down.
 
-1. After both the controllers are completely shut down, the status LEDs on both should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.
+1. After both the controllers are completely shut down, the status LEDs on both should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.-->
 
 ## Reset the device to factory default settings
 
@@ -193,4 +209,4 @@ A. To return a controller to service, you must insert it into the chassis as des
 
 ## Next steps
 
-If you encounter any issues with your StorSimple device controllers, Contact Microsoft Support.
+If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in thsi tutorial, [Contact Microsoft Support](https://msdn.microsoft.com/en-us/library/azure/dn757750.aspx).
