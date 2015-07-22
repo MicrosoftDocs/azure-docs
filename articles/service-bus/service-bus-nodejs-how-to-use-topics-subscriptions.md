@@ -17,10 +17,6 @@
 	ms.author="mwasson"/>
 
 
-
-
-
-
 # How to Use Service Bus topics and subscriptions
 
 This guide describes how to use Service Bus topics and subscriptions
@@ -182,9 +178,9 @@ add new filters to an existing subscription.
 
 > Since the default filter is applied automatically to all new
 subscriptions, you must first remove the default filter or the
-<strong>MatchAll</strong> will override any other filters you may specify. You can
-remove the default rule by using the <strong>deleteRule</strong> method of the
-<strong>ServiceBusService</strong> object.
+**MatchAll** will override any other filters you may specify. You can
+remove the default rule by using the **deleteRule** method of the
+**ServiceBusService** object.
 
 The example below creates a subscription named 'HighMessages' with a
 **SqlFilter** that only selects messages that have a custom
