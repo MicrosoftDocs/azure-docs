@@ -111,10 +111,7 @@ For links to code sample topics that demonstrate retry logic, see:
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
 
-<a id="gatewaynoretry" name="gatewaynoretry"></a>
-
-
-&nbsp;
+<a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
 
 
 ## Gateway no longer provides retry logic in V12
