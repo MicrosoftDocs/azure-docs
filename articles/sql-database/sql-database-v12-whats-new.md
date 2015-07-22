@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/17/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
@@ -108,6 +108,17 @@ There are many good reasons why customers should upgrade now to Azure SQL Databa
 - SQL Database V12 has a long list of features beyond those of V11.
 - We continue to add new features to V12, but no new features will be added to V11.
 - Most new features are released on SQL Database V12 before they being released for Microsoft SQL Server.
+
+
+## Gateway no longer provides retry logic in V12
+
+
+Before version V12, Azure SQL Database had a gateway that acted as a proxy to buffer all interactions between the database and your client program. The gateway provided automated *retry logic* for some *transient errors*.
+
+ V12 eliminated the gateway. Now your program must more fully handle transient errors. For details see:
+
+
+- [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md#gatewaynoretry)
 
 
 ## Are you using V12 already?
