@@ -98,7 +98,6 @@ The following table will help you determine the method to start a runbook in Azu
 <br>
 
 
-
 ## Starting a runbook with the Azure portal
 
 1. In the Azure portal, select **Automation** and then then click the name of an automation account.
