@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="andrl"/>
 
 # Build a Java web application using DocumentDB #
@@ -88,7 +88,7 @@ To do this, you will need to convert your project to a maven project by completi
 4. In the **Select Dependency** window, do the following:
  - In the **GroupId** box, enter com.microsoft.azure.
  - In the **Artifact Id** box enter azure-documentdb.
- - In the **Version** box enter 1.0.0.
+ - In the **Version** box enter 1.1.0.
 
 	![](./media/documentdb-java-application/image13.png)
 
@@ -97,7 +97,7 @@ To do this, you will need to convert your project to a maven project by completi
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.0.0</version>
+		    <version>1.1.0</version>
 	    </dependency>
 
 5. Click **Ok** and Maven will install the DocumentDB Java SDK.
