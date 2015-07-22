@@ -23,35 +23,36 @@ If you have already installed **Elastic Database jobs** through the Portal from 
 
 ## Prerequisites
 * An Azure subscription. For a free trial, see [Free trial](http://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell version >= 0.8.16. Install the latest version (0.9.5) through the [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+* Azure PowerShell version >= 0.8.16. Install the latest version (0.9.5) through the [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 * [NuGet Command-line Utility](https://nuget.org/nuget.exe) is used to install the Elastic Database jobs package. For more information, see http://docs.nuget.org/docs/start-here/installing-nuget.
 
-## Download the PowerShell package and import the PowerShell module
+## Download and import the Elastic Database jobs PowerShell package
 1. Launch Microsoft Azure PowerShell command window and navigate to the directory where you downloaded NuGet Command-line Utility (nuget.exe).
 
-2. Download **Elastic Database jobs** package into the current directory with the following command:
+2. Download and import **Elastic Database jobs** package into the current directory with the following command:
 
-    `PS C:\temp>.\nuget install Microsoft.Azure.SqlDatabase.Jobs.PowerShell -prerelease`
+		PS C:\temp>.\nuget install Microsoft.Azure.SqlDatabase.Jobs.PowerShell -prerelease
 
     The **Elastic Database jobs** files are placed in the local directory in a folder named **Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. The **Elastic Database jobs** PowerShell cmdlets (including required client .dlls) are located in the **content\ElasticDatabaseJobs** sub-directory and the PowerShell scripts to install, upgrade and uninstall reside in the **content** sub-directory.
 
 3. Navigate to the content sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x folder by typing cd \content, for example:
 
-    `PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>cd content`
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>cd content
 
 4.	Execute the .\InstallElasticDatabaseJobsCmdlets.ps1 script to copy the ElasticDatabaseJobs directory into $home\Documents\WindowsPowerShell\Modules. This will also automatically import the module for use, for example:
 
-    `PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>.\InstallElasticDatabaseJobsCmdlets.ps1`
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*
+		\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## Install the Elastic Database jobs components using PowerShell
 1.	Launch a Microsoft Azure PowerShell command window and navigate to the \content sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x folder: Type cd \content
 
-	PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>cd content
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>cd content
 
 2.	Execute the .\InstallElasticDatabaseJobs.ps1 PowerShell script and supply values for its requested variables. This script will create the components described in [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing) along with configuring the Azure Cloud Service to appropriately use the dependent components.
 
-    `Unblock-File .\InstallElasticDatabaseJobs.ps1` 
-	`PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>.\InstallElasticDatabaseJobs.ps1`
+		Unblock-File .\InstallElasticDatabaseJobs.ps1 
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>.\InstallElasticDatabaseJobs.ps1
 
 The parameters provided on this sample invocation can be modified for your desired settings. The following provides more information on the behavior of each parameter:
 <table style="width:100%">
@@ -109,9 +110,9 @@ For systems that target having large numbers of jobs running in parallel against
     PS C:\>Unblock-File .\InstallElasticDatabaseJobs.ps1
     PS C:\>.\InstallElasticDatabaseJobs.ps1UpdateElasticDatabaseJobs.ps1 -ServiceWorkerCount 2 -ServiceVmSize A2 -SqlServerDatabaseSlo S2
 
-## Upgrade the Elastic Database jobs components, including updating the service level settings for scale and high-availability
+## Update an existing installation
 
-**Elastic Database jobs** can be updated within an existing installation. This process allows for future upgrades of service code without having to drop and recreate the control database. This process can also be used within the same version to modify the service VM size or the server worker count.
+**Elastic Database jobs** can be updated within an existing installation for scale and high-availability. This process allows for future upgrades of service code without having to drop and recreate the control database. This process can also be used within the same version to modify the service VM size or the server worker count.
 
 To update the VM size of an installation, run the following script with parameters updated to the values of your choice.
 

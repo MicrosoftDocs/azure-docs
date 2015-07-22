@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="07/21/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Elastic Database jobs overview
 
-The **Elastic Database jobs** feature, in preview, enables you to run a Transact-SQL script across a group of databases including custom-defined collection of databases, all databases in an [Elastic Database pool (preview)](sql-database-elastic-pool.md) or an **Elastic Database Shard set** in Azure SQL Database. In preview, **Elastic Database jobs** is currently a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called jobs. Using this feature, you can easily and reliably manage Azure SQL Database at scale across an entire group of databases by running Transact-SQL scripts to perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection. Normally, you must connect to each database independently in order to run Transact-SQL statements or perform other administrative tasks. **Elastic Database jobs** handle the task of logging in, and reliably running the script, while logging the status of execution for each database. For instructions on installation, go to [Installing the Elastic Database job components](sql-database-elastic-jobs-service-installation.md).
+The **Elastic Database jobs** feature (preview) enables you to run a Transact-SQL script across a group of databases including custom-defined collection of databases, all databases in an [Elastic Database pool (preview)](sql-database-elastic-pool.md) or an **Elastic Database Shard set** in Azure SQL Database. In preview, **Elastic Database jobs** is currently a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called jobs. Using this feature, you can easily and reliably manage Azure SQL Database at scale across an entire group of databases by running Transact-SQL scripts to perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection. Normally, you must connect to each database independently in order to run Transact-SQL statements or perform other administrative tasks. **Elastic Database jobs** handle the task of logging in, and reliably running the script, while logging the status of execution for each database. For instructions on installation, go to [Installing the Elastic Database job components](sql-database-elastic-jobs-service-installation.md).
 
 ![Elastic database job service][1]
 
