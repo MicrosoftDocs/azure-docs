@@ -38,9 +38,11 @@ A controller restart or shut down is not required as a part of normal system ope
 
 Restarting a device is not disruptive to connected initiators, assuming the passive controller is available. If a passive controller is not available or turned off, then restarting the active controller may result in the disruption of service and downtime.
 
->[AZURE.IMPORTANT] **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
+> [AZURE.IMPORTANT] 
 
->[AZURE.IMPORTANT] **The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the virtual device, see [Work with the virtual device](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device).**
+> - **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
+
+> - The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the virtual device, see [Work with the virtual device](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device).
 
 You can restart or shut down a single device controller by using the:
 
@@ -78,12 +80,12 @@ To manage your device controllers from the Management Portal, perform the follow
 This will restart or shut down the controller. The table below summarizes the details of what happens depending on the selections you have made in the Change Controller Settings dialog box.  
 													
 
-	|Selection #|If you choose to...|This will happen.|
-	|---|---|---|
-	|1.|Restart the passive controller.|A job will be created to restart the controller, and you will be notified after the job is successfully created. This will initiate the controller restart. You can monitor the restart process by accessing **Service > Dashboard > View operation logs** and then filtering by parameters specific to your service.|
-	|2.|Restart the active controller.|You will see the following warning: "If you restart the active controller, the device will fail over to the passive controller. Do you want to continue?" </br>If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).|
-	|3.|Shut down the passive controller.|You will see the following message: "After shutdown is complete, you will need to push the power button on your controller to turn it on. Are you sure you want to shut down this controller?" </br>If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).|
-	|4.|Shut down the active controller.|You will see the following message: "After shutdown is complete, you will need to push the power button on your controller to turn it on. Are you sure you want to shut down this controller?" </br>If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).|
+|Selection #|If you choose to...|This will happen.|
+|---|---|---|
+|1.|Restart the passive controller.|A job will be created to restart the controller, and you will be notified after the job is successfully created. This will initiate the controller restart. You can monitor the restart process by accessing **Service > Dashboard > View operation logs** and then filtering by parameters specific to your service.|
+|2.|Restart the active controller.|You will see the following warning: "If you restart the active controller, the device will fail over to the passive controller. Do you want to continue?" </br>If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).|
+|3.|Shut down the passive controller.|You will see the following message: "After shutdown is complete, you will need to push the power button on your controller to turn it on. Are you sure you want to shut down this controller?" </br>If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).|
+|4.|Shut down the active controller.|You will see the following message: "After shutdown is complete, you will need to push the power button on your controller to turn it on. Are you sure you want to shut down this controller?" </br>If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).|
 
 
 #### To restart or shut down a controller in Windows PowerShell for StorSimple
@@ -115,7 +117,7 @@ Perform the following steps to shut down or restart a single controller on your 
 
 This section explains how to shut down a running or a failed StorSimple device from a remote computer. A device is turned off after shutting down both the device controllers. A device shut down is done when the device is being physically moved, or is taken out of service. 
 
->[AZURE.IMPORTANT] **Before shutting down the device, check the health of the device components. Navigate to **Devices > Maintenance > Hardware Status** and verify that the LED status of all the components is green. Only a healthy device will have a green status. If the device is being shut down to replace a malfunctioning component, you will see a failed (red) or a degraded (yellow) status for the respective component(s).**
+> [AZURE.IMPORTANT] Before you shut down the device, check the health of the device components. Navigate to **Devices > Maintenance > Hardware Status** and verify that the LED status of all the components is green. Only a healthy device will have a green status. If your device is being shut down to replace a malfunctioning component, you will see a failed (red) or a degraded (yellow) status for the respective component(s).
 
 #### To shut down a StorSimple device
 
@@ -160,9 +162,11 @@ Perform the following steps to reset your Microsoft Azure StorSimple device to f
 
 	The system will reboot multiple times. You will be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
 
->[AZURE.NOTE] **For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/azure/dn688132(v=wps.630).aspx).**
+> [AZURE.TIP] 
 
->[AZURE.TIP] Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports a firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
+> - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports a firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
+
+> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/azure/dn688132(v=wps.630).aspx).
 
 
 ## Questions and answers about managing device controllers
