@@ -40,7 +40,7 @@ You only have to do this one time per machine. This step installs a toolkit whic
 
     ![Help, Install New Software](./media/app-insights-java-eclipse/0-plugin.png)
 
-2. The SDK is in http://dl.msopentech.com/eclipse, under Azure Toolkit. 
+2. The SDK is in http://dl.windowsazure.com/eclipse, under Azure Toolkit. 
 3. Uncheck **Contact all update sites...**
 
     ![For Application Insights SDK, clear Contact all update sites](./media/app-insights-java-eclipse/1-plugin.png)
