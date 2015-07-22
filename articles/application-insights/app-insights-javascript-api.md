@@ -38,6 +38,7 @@ In a web page where you have [set up web page tracking](app-insights-javascript.
 
 Logs that a page or similar container was displayed to the user. 
 
+ | | 
 ---|---|---
 `name` | `? string` | The name used to identify the page in the portal. Defaults to the document title.
 `url` | `? string` |  A relative or absolute URL that identifies the page or similar item. Defaults to the window location.
@@ -53,6 +54,7 @@ In the portal, you can select events by name, and [display charts that count the
 
 You can also search and [display individual events](app-insights-diagnostic-search.md).
 
+ | | 
 ---|---|---
  `name` | `string` | Identifies the event. Events with the same name are counted and can be charted in [Metric Explorer](app-insights-metrics-explorer.md).
 `properties` |  `? {[string]:string}` | Additional data used to filter pages and metrics in the portal. Defaults to empty.
@@ -68,6 +70,7 @@ In the portal, you can select metrics by name to [chart their values over time](
 
 To send a single measurement, use just the first two parameters. If you take measurements very frequently, you can reduce the telemetry bandwidth by aggregating multiple measurements and sending the resulting average at intervals.
 
+ | | 
 ---|---|---
 `name` | `string` |    A string that identifies the metric. In the portal, you can select metrics for display by name.
 `average` | ` number` | Either a single measurement, or the average of several measurements.
@@ -81,6 +84,7 @@ Log an exception you have caught. (Exceptions caught by the browser are also log
 
 In the portal, you can [search on exception type and view](app-insights-diagnostic-search.md) the type, message, and stack trace of individual instances. 
 
+ | | 
 ---|---|---
 `exception` | `Error` |  An Error from a catch clause.  
 `handledAt` | `? string` | Defaults to "unhandled".
@@ -94,6 +98,7 @@ Log a diagnostic event such as entering or leaving a method.
 In the portal, you can search on message content and [display individual trackTrace events](app-insights-diagnostic-search.md).
 (Unlike `trackEvent`, you can't filter on the message content in the portal.)
 
+ | | 
 ---|---|---
 `message` | `string` | Diagnostic data. Can be much longer than a name.
 
