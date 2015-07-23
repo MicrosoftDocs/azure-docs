@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="07/23/2015"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using the Management Portal
