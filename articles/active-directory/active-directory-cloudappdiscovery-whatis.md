@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="24/07/2015" 
 	ms.author="markusvi"/>
 
 # How can I discover unsanctioned cloud apps that are used within my organization
