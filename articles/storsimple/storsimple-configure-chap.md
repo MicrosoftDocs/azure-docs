@@ -17,11 +17,15 @@
 
 # Configure CHAP for your StorSimple device
 
-This topic explains how to configure CHAP for your StorSimple device.
+This tutorial explains how to configure CHAP for your StorSimple device.
 
 CHAP stands for Challenge Handshake Authentication Protocol. It is an authentication scheme used by servers to validate the identity of remote clients. The verification is based on a shared password or secret.
 
 CHAP can be one-way (unidirectional) or mutual (bidirectional). One-way CHAP is when the target authenticates an initiator. Mutual or reverse CHAP, on the other hand, requires that the target authenticate the initiator and then the initiator authenticate the target. Initiator authentication can be implemented without target authentication. However, target authentication can be implemented only if initiator authentication is also implemented.
+
+As a best practice, we recommend that you use CHAP to enhance iSCSI security.
+
+>[AZURE.NOTE] Keep in mind that IPSEC is not currently supported on StorSimple devices.
 
 The CHAP settings on the StorSimple device can be configured in the following ways:
 
@@ -29,11 +33,7 @@ The CHAP settings on the StorSimple device can be configured in the following wa
 
 - Bidirectional or mutual or reverse authentication
 
-In each of these cases, the device Management Portal and the server iSCSI initiator software need to be configured. The detailed steps for this configuration are described in the following sections.
-
-As a best practice, use CHAP to enhance iSCSI security.
-
->[AZURE.NOTE] Keep in mind that IPSEC is not currently supported on StorSimple devices.
+In each of these cases, the device Management Portal and the server iSCSI initiator software need to be configured. The detailed steps for this configuration are described in the following tutorial.
 
 ## Unidirectional or one-way authentication
 
