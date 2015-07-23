@@ -13,72 +13,84 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="02/24/2015"
+	ms.date="07/20/2015"
 	ms.author="chrande"/>
 
 
-# <a name="getting-started"> </a>Create a Xamarin iOS app
+# <a name="getting-started"> </a>Create a Xamarin.iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-This tutorial shows you how to add a cloud-based backend service to a Xamarin iOS app with Azure Mobile App. In this tutorial, you will create both a new .NET service and a simple _To do list_ app that stores app data in the .NET backend.
+This tutorial shows you how to connect a Xamarin.iOS app to a cloud-based backend service by using Azure Mobile Apps. You'll start by creating a new .NET service. Then, you'll create a basic _To do list_ task tracking app that stores tasks to the .NET backend.
 
-To complete this tutorial, you need the following:
+You'll have to complete this tutorial before you try all the other tutorials for Xamarin.iOS apps. But first, you'll need these things:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
+* An active Azure account. 
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter mobile app in App Service. No credit cards required; no commitments.
+    If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+
+    >[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
+
+* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio 2015 (any edition)</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. 
+
+* A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it.  
+
+    If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
+
+* [Xamarin Studio] and [Xcode] v4.4 or later installed on your Mac.
+
+
 
 ## Create a new mobile app backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Create a new Xamarin iOS app
+## Create a Xamarin.iOS app
 
-Once you have created your mobile app backend, you can follow an easy quickstart in the Azure Portal to either create a new app or modify an existing app to connect to your mobile app backend.
+Follow a basic quickstart on the [Azure Portal] to create an app or modify one, and then connect it to your mobile backend.
 
-In this section you will download a new Xamarin iOS app and a service project for your mobile app backend.
+To get started, you'll download a .NET backend service project for your mobile app and a new Xamarin.iOS app. Here's how you do it.
 
-1. In the Azure Portal, click **Mobile App**, and then click the mobile app backend that you just created.
+1. On your Windows computer, open the [Azure Portal] in a browser window.
 
-2. At the top of the blade, click **Add Client** and expand **Xamarin iOS**.
+2. In the Azure Portal, click **Browse All**, then **Mobile Apps**, and then click the mobile app that you just created.
+
+2. At the top of the blade, click **Add Client** and expand **Xamarin.iOS**.
 
 	![][6]
 
-	This displays the three easy steps to create a Xamarin iOS app connected to your mobile app backend.
+    This displays the three things you need to do to create a Xamarin.iOS app that's connected to your mobile app backend
 
-3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.  
+###Download, run, and publish the mobile backend project
 
-4. Download and install [Xcode] v4.4 or a later version and [Xamarin Studio]. You can also use Xamarin for Visual Studio.
+5. Under **Download and run your service project**, click the **Download** button.
 
-5. Under **Download and publish your service to the cloud**, click **Download**.
-
- This downloads a solution contains projects for both the mobile app backend and for the sample _To do list_ application that is connected to your mobile app backend. Save the compressed project file to your local computer, and make a note of where you save it.
-
-6. Download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
-
-## Test the mobile app backend
+  	This downloads a project that contains the mobile app backend code. Save the compressed project file to your local computer and make a note of where you saved it.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
 
-## Publish your mobile app backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Run the Xamarin iOS app
+###Download and run the Xamarin.iOS app
 
-The final stage of this tutorial is to build and run your new app.
+5. On your Mac, open the [Azure Portal] in a browser window.
 
-1. Navigate to the client project within the mobile app backend solution, in either Visual Studio or Xamarin Studio.
+>[AZURE.NOTE] It's easier to run your Xamarin.iOS app on a Mac. You can run the Xamarin.iOS app by using Visual Studio on your Windows computer if you want, but it's a bit more complicated because you have to connect to a networked Mac. If you're interested in doing that, see [Installing Xamarin.iOS on Windows].
 
-	![][8]
+6. Under **Download and run your Xamarin.iOS project**, click the **Download** button.
+
+  	This downloads a project that contains a client application that is connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
+
+1. Extract the project that you downloaded, and then open it in Xamarin Studio (or Visual Studio).
 
 	![][9]
 
-2. Press the **Run** button to build the client project and start the app in the iPhone emulator.
+	![][8]
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
+2. Press the **F5** key to build the project and start the app in the iPhone emulator.
+
+3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the **+** button.
 
 	![][10]
 
@@ -113,6 +125,8 @@ The final stage of this tutorial is to build and run your new app.
 
 
 [Xamarin Studio]: http://xamarin.com/download
+[Xamarin]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
+[Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
