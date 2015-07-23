@@ -79,7 +79,7 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-For more information about setting a static IP address, see [Configure a Static Internal IP Address for a VM](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+For more information about setting a static IP address, see [Configure a Static Internal IP Address for a VM](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## Install Windows Server Active Directory
 

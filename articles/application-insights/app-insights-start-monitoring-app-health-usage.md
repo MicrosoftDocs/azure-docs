@@ -128,7 +128,7 @@ Login to your server with admin rights, and install [Application Insights Status
 
 In the control panel of your Azure Web App, add the Application Insights extension.
 
-![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![In your web app, Tools, Performance Monitoring, Add, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
 (The extension only assists an app that has been built with the SDK. Unlike Status Monitor, it can't instrument an existing app.)
 

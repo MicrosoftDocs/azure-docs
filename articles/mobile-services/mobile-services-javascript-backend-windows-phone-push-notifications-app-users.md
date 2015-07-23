@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Send push notifications to authenticated users" 
-	description="Learn how to send push notifications to specific" 
+	pageTitle="Send push notifications to authenticated Windows Phone Silverlight app users | Azure Mobile Services" 
+	description="Learn how to send push notifications from Azure Mobile Services to specific users of your Windows Phone Silverlight app." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Send push notifications to authenticated users
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+##Overview
 
 This topic shows you how to send push notifications to an authenticate user on any registered device. Unlike the previous [Add push notifications to your app] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications. Registration is also modified to add a tag based on the assigned user ID. Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.
  
@@ -38,13 +40,14 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
 
-<ol start="5"><li><p>Replace the insert function with the following code, then click <strong>Save</strong>:</p>
-<pre><code>function insert(item, user, request) {
+&nbsp;&nbsp;5. Replace the insert function with the following code, then click **Save**:
+
+    function insert(item, user, request) {
 	// Define a payload for the Windows Phone toast notification.
-	var payload = '&lt;?xml version="1.0" encoding="utf-8"?&gt;' +
-		'&lt;wp:Notification xmlns:wp="WPNotification"&gt;&lt;wp:Toast&gt;' +
-		'&lt;wp:Text1&gt;New Item&lt;/wp:Text1&gt;&lt;wp:Text2&gt;' + item.text + 
-		'&lt;/wp:Text2&gt;&lt;/wp:Toast&gt;&lt;/wp:Notification&gt;';
+	var payload = '<?xml version="1.0" encoding="utf-8"?>' +
+		'<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
+		'<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+		'</wp:Text2></wp:Toast></wp:Notification>';
 
 	// Get the ID of the logged-in user.
 	var userId = user.userId;		
@@ -64,9 +67,9 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 					});
 				}
 			});      
-}</code></pre>
+	}
 
-<p>This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Windows Phone (MPNS) app registrations created by the logged-in user.</p></li></ol>
+&nbsp;&nbsp;This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Windows Phone (MPNS) app registrations created by the logged-in user.
 
 ##<a name="update-app"></a>Update the app to log in before registration
 
