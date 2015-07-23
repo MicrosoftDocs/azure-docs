@@ -17,7 +17,7 @@
  
 # Walkthrough: Enabling Telemetry for Microsoft CRM Online using Application Insights
 
-This article will show you how to get telemetry data from [Microsoft CRM Online](https://www.dynamics.com/) using [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). We’ll walk through the complete process of adding Application Insights script to your application, capturing data, and data visualization.
+This article shows you how to get telemetry data from [Microsoft CRM Online](https://www.dynamics.com/) using [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). We’ll walk through the complete process of adding Application Insights script to your application, capturing data, and data visualization.
 
 ## Add Application Insights to new or existing CRM Online instance 
 
