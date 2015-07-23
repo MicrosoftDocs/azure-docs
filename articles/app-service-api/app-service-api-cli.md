@@ -157,15 +157,15 @@ To find an existing resource group, use the `group list` command, and choose a r
 
 ### Create or find an App Service plan to use
 
-To create an App Service plan, use the `resource create` command.
+To create an App Service plan, use the `resource create` command and use the resource type parameter (`-r`) to specify App Service plan.
 
-	azure resource create -g <resource group> -n <app service plan name> -r Microsoft.Web/serverfarms -l <location> -o 2015-06-01
+	azure resource create -g <resource group> -n <app service plan name> -r Microsoft.Web/serverfarms -l <location> -o <API version>
 
 For example:
 
 	azure resource create -g myresourcegroup -n myplan -r Microsoft.Web/serverfarms -l "West US" -o 2015-06-01
 
-The sample command specifies the latest API version as of the date this article was written. To check if a later version is available, use the `provider show` command and see the apiVersions array for the `sites` object in the `resourceTypes` array.
+The sample command specifies the latest API version as of the date this article was written. To check if a later version is available, use the `provider show` command and see the `apiVersions` array for the `sites` object in the `resourceTypes` array.
 
 	azure provider show -n Microsoft.Web --json
    
@@ -196,7 +196,7 @@ Here is a sample of the `sites` object in the command output.
 	      "name": "sites"
 	    }
 
-To list existing App Service plans, use the `resource list` command and specify the App Service plan resource type (`-r`) parameter.
+To list existing App Service plans, use the `resource list` command and specify App Service plan as the resource type by using the `-r` parameter.
 
 	azure resource list -r Microsoft.Web/serverfarms
 
