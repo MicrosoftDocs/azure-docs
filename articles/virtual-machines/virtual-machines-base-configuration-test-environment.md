@@ -19,11 +19,7 @@
 
 # Base Configuration test environment
 
-<<<<<<< HEAD
-This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Service Management.
-=======
 This article provides you with step-by-step instructions to create the Base Configuration test environment in a Azure Virtual Network, using virtual machines created in Service Management.
->>>>>>> d65ad5f5209fa59a402a77e54644672270506f3d
 
 You can use the resulting test environment:
 
@@ -31,11 +27,7 @@ You can use the resulting test environment:
 - For the [simulated hybrid cloud environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 - To extend it with additional virtual machines and Azure services for a test environment of your own design.
 
-<<<<<<< HEAD
-The Base Configuration test environment consists of the Corpnet subnet in a cloud-only Azure Virtual Network named TestLab that simulates a simplified, private intranet connected to the Internet.
-=======
 The Base Configuration test environment consists of the Corpnet subnet in a cloud-only virtual network named TestLab that simulates a simplified, private intranet connected to the Internet.
->>>>>>> d65ad5f5209fa59a402a77e54644672270506f3d
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
@@ -52,11 +44,7 @@ This configuration allows DC1, APP1, CLIENT1, and additional Corpnet subnet comp
 
 There are four phases to setting up the Corpnet subnet of the Windows Server 2012 R2 Base Configuration test environment in Azure.
 
-<<<<<<< HEAD
-1.	Create the Azure Virtual Network.
-=======
 1.	Create the virtual network.
->>>>>>> d65ad5f5209fa59a402a77e54644672270506f3d
 2.	Configure DC1.
 3.	Configure APP1.
 4.	Configure CLIENT1.
