@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Manage your StorSimple device controllers"
+   pageTitle="Manage your StorSimple device controllers | Microsoft Azure"
    description="Learn how to stop, restart, shut down or reset your StorSimple device controllers."
    services="storsimple"
    documentationCenter=""
@@ -14,6 +14,7 @@
    ms.workload="na"
    ms.date="07/23/2015"
    ms.author="alkohli" />
+
 #Manage StorSimple device controllers
 
 ##Overview
