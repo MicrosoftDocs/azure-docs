@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="07/22/2015" 
 	ms.author="spelluru"/>
 
 # Azure Blob Connector - Move Data To and From Azure Blob
