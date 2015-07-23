@@ -21,6 +21,7 @@
 > [AZURE.SELECTOR]
 - [Service Manager steps](load-balancer-internet-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+
 Load balancing services in Microsoft Azure work with all the tenant types (IaaS or PaaS) and all OS flavors (Windows or any Linux based OS supported).
 
 
