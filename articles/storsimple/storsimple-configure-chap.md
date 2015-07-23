@@ -41,11 +41,11 @@ In unidirectional authentication, the target authenticates the initiator. This a
 
 #### To configure your device for one-way authentication
 
-1. In the Management Portal, on the Devices page, click the Configure tab.
+1. In the Management Portal, on the **Devices** page, click the **Configure** tab.
 
     ![CHAP Initiator](./media/storsimple-configure-chap/IC740943.png)
 
-2. Scroll down on this page, and in the CHAP Initiator section:
+2. Scroll down on this page, and in the **CHAP Initiator** section:
 													
 	1. Provide a user name for your CHAP initiator.
 
@@ -53,9 +53,11 @@ In unidirectional authentication, the target authenticates the initiator. This a
 
     > [AZURE.IMPORTANT] The CHAP user name must contain fewer than 233 characters. The CHAP password must be between 12 and 16 characters. A longer user name or password will result in an authentication failure on the Windows host.
 
-3. On the Windows host server, start the iSCSI Initiator.
+#### To configure one-way authentication on the Windows host server
 
-4. In the **iSCSI Initiator Properties** window, perform the following steps:
+1. On the Windows host server, start the iSCSI Initiator.
+
+2. In the **iSCSI Initiator Properties** window, perform the following steps:
 													
 	1. Click the **Discovery** tab.
 
@@ -63,7 +65,7 @@ In unidirectional authentication, the target authenticates the initiator. This a
 
 	2. Click **Discover Portal**.
 
-5. In the **Discover Target Portal** dialog box:
+3. In the **Discover Target Portal** dialog box:
 													
 	1. Specify the IP address of your device.
 
@@ -71,7 +73,7 @@ In unidirectional authentication, the target authenticates the initiator. This a
 
 		![Discover target portal](./media/storsimple-configure-chap/IC740945.png)
 
-6. In the **Advanced Settings** dialog box:
+4. In the **Advanced Settings** dialog box:
 													
 	1. Select the **Enable CHAP log on** check box.
 
@@ -83,21 +85,21 @@ In unidirectional authentication, the target authenticates the initiator. This a
 
 		![Advanceds settings general](./media/storsimple-configure-chap/IC740946.png)
 
-7. On the **Targets** tab of the **iSCSI Initiator Properties** window, the device status should appear as **Connected**.
+5. On the **Targets** tab of the **iSCSI Initiator Properties** window, the device status should appear as **Connected**.
 
     > [AZURE.IMPORTANT] If you change the iSCSI name, the new name will be used for new iSCSI sessions. New settings are not used for existing sessions until you log off and log on again.
 
-#### Additional considerations
+**Additional considerations:**
 
-The **Quick Connect** feature does not support connections that have CHAP enabled. When CHAP is enabled, make sure that you use the **Connect** button that is available on the **Targets** tab to connect to a target.
+- The **Quick Connect** feature does not support connections that have CHAP enabled. When CHAP is enabled, make sure that you use the **Connect** button that is available on the **Targets** tab to connect to a target.
 
-![Connect to target](./media/storsimple-configure-chap/IC740947.png)
+    ![Connect to target](./media/storsimple-configure-chap/IC740947.png)
 
-In the **Connect to Target** dialog box that is presented, select the **Add this connection to the list of Favorite Targets** check box. This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.
+- In the **Connect to Target** dialog box that is presented, select the **Add this connection to the list of Favorite Targets** check box. This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.
 
 ## Bidirectional or mutual authentication
 
-In bidirectional authentication, the target authenticates the initiator and then the initiator authenticates the target. This requires the user to configure the CHAP initiator settings, as well as the reverse CHAP settings on the device and iSCSI Initiator software on the host. The detailed procedure for a Windows host is described in the following section.
+In bidirectional authentication, the target authenticates the initiator and then the initiator authenticates the target. This requires the user to configure the CHAP initiator settings, as well as the reverse CHAP settings on the device and iSCSI Initiator software on the host. The following procedures describe the steps to configure mutual authentication on the device and on the Windows host.
 
 #### To configure your device for mutual authentication
 
@@ -123,13 +125,15 @@ In bidirectional authentication, the target authenticates the initiator and then
 
 4. Click **Save**. A confirmation message will be displayed. Click **OK** to save the changes.
 
-5. On the Windows host server, start the iSCSI Initiator.
+#### To configure bidirectional authentication on the Windows host server
 
-6. In the **iSCSI Initiator Properties** window, click the **Configuration** tab.
+1. On the Windows host server, start the iSCSI Initiator.
 
-7. Click **CHAP**.
+2. In the **iSCSI Initiator Properties** window, click the **Configuration** tab.
 
-8. In the **iSCSI Initiator Mutual CHAP Secret** dialog box:
+3. Click **CHAP**.
+
+4. In the **iSCSI Initiator Mutual CHAP Secret** dialog box:
 													
 	1. Type the **Reverse CHAP Password** that you configured in the Management Portal.
 
@@ -137,13 +141,13 @@ In bidirectional authentication, the target authenticates the initiator and then
 
 		![iSCSI initiator mutual CHAP secret](./media/storsimple-configure-chap/IC740949.png)
 
-9. Click the **Targets** tab.
+5. Click the **Targets** tab.
 
-10. Click the **Connect** button.
+6. Click the **Connect** button.
 
-11. In the **Connect To Target** dialog box, click **Advanced**.
+7. In the **Connect To Target** dialog box, click **Advanced**.
 
-12. In the **Advanced Properties** dialog box:
+8. In the **Advanced Properties** dialog box:
 													
 	1. Select the **Enable CHAP log on** check box.
 
