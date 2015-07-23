@@ -3,7 +3,7 @@
    description="Learn how to custom-provision clusters for Azure HDInsight by using the Azure portal, Azure PowerShell, a command line, or a .NET SDK." 
    services="hdinsight" 
    documentationCenter="" 
-   authors="nitinme" 
+   authors="mumian" 
    manager="paulettm" 
    editor="cgronlun"/>
 
