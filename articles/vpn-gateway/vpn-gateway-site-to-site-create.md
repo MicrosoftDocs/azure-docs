@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a site-to-site virtual network connection | Microsoft Azure"
+   pageTitle="Create a virtual network with a site-to-site VPN connection using the Management Portal | Microsoft Azure"
    description="Create a virtual network with a site-to-site VPN connection for cross-premises and hybrid configurations."
    services="vpn-gateway"
    documentationCenter=""
