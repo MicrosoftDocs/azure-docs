@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Build your first pipeline using Azure Data Factory"
-	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight using Data Factory Editor"
+	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight using Visual Studio"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/16/2015"
+	ms.date="07/23/2015"
 	ms.author="spelluru"/>
 
 # Build your first pipeline using Azure Data Factory
@@ -24,7 +24,7 @@
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
 
-In this article, you will learn how to use the [Azure Preview Portal](https://portal.azure.com/) to create your first pipeline. This tutorial consists of the following steps:
+In this article, you will learn how to use the Visual Studio to create your first pipeline. This tutorial consists of the following steps:
 
 1.	Creating the data factory
 2.	Creating the linked services (data stores, computes) and datasets
@@ -64,38 +64,49 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 
 In the subsequent steps, you will learn how to create the linked services, datasets and pipeline that you will use in this tutorial. 
 
-## Step 2: Create linked services and datasets
+## Walkthrough: Create and deploy Data Factory entities using Visual Studio 
+
+### Pre-requisites
+
+You must have the following installed on your computer: 
+- Visual Studio 2013
+- Download Azure SDK for Visual Studio 2013. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013 install** in the **.NET** section.
+
+
+### Create the Visual Studio project 
+1. Launch **Visual Studio 2013**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
+2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**. If you don't see the DataFactory template, close Visual Studio, install Azure SDK for Visual Studio 2013, and reopen Visual Studio.  
+
+	![New project dialog box](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
+
+3. Enter a **name** for the project, **location**, and a name for the **solution**, and click **OK**.
+
+	![Solution Explorer](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+
+### Create linked services
 In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory and then crate a dataset to represent the output data from Hive processing.
 
-### Create Azure Storage linked service
-1.	Click **Author and deploy** on the **DATA FACTORY** blade for **DataFactoryFirstPipeline**. This launches the Data Factory Editor. 
-	
-	![Author and deploy tile](./media/data-factory-build-your-first-pipeline/data-factory-author-deploy.png)
-2.	Click **New data store** and choose **Azure storage**
-	
-	![Azure Storage linked service](./media/data-factory-build-your-first-pipeline/azure-storage-linked-service.png)
-3.	Copy and paste the following JSON snippet to the Draft-1 window, and do the following:
 
-		{
-	    	"name": "StorageLinkedService",
-		    "properties": {
-	    	    "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>",
-	    	    "type": "AzureStorageLinkedService"
-		    }
-		}
+#### Create Azure Storage linked service
 
-4. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
-5. Click **Deploy** on the command bar to deploy the linked service.
 
-	![Deploy button](./media/data-factory-build-your-first-pipeline/deploy-button.png)
+4. Right-click **Linked Services** in the solution explorer, point to **Add**, and click **New Item**.      
+5. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**. 
 
-### Create Azure HDInsight linked service
+	![New Linked Service](./media/data-factory-build-your-first-pipeline-using-vs/new-linked-service-dialog.png)
+ 
+3. Replace **accountname** and **accountkey** with the name of your Azure storage account and its key. 
+
+	![Azure Storage Linked Service](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
+
+4. Save the **AzureStorageLinkedService1.json** file.
+
+#### Create Azure HDInsight linked service
 Now, you will create a linked service for an on-demand HDInsight cluster that will be used to run the Hive script. 
 
-1. In the **Data Factory Editor**, click **New compute** on the command bar and select **On-demand HDInsight cluster**.
-
-	![New compute](./media/data-factory-build-your-first-pipeline/new-compute-menu.png)
-2. Copy and paste the snippet below to the Draft-1 window. The JSON snippet describes the properties that will be used to create the HDInsight cluster on-demand. 
+1. In the **Solution Explorer**, right-click **Linked Services**, point to **Add**, and click **New Item**.
+2. Select **HDInsight On Demand Linked Service**, and click **Add**. 
+3. Replace the **JSON** with the following:
 
 		{
 		    "name": "HDInsightOnDemandLinkedService",
@@ -118,20 +129,15 @@ Now, you will create a linked service for an on-demand HDInsight cluster that wi
 	TimeToLive | This specifies that the idle time for the HDInsight cluster, before it is deleted.
 	JobsContainer | This specifies the name of the job container that will be created to store the logs that are generated by HDInsight
 	linkedServiceName | This specifies the storage account that will be used to store the logs that are generated by HDInsight
-3. Click **Deploy** on the command bar to deploy the linked service.
 
-	![Deploy button](./media/data-factory-build-your-first-pipeline/deploy-button-2.png)  
-4. Confirm that you see both StorageLinkedService and HDInsightOnDemandLinkedService in the tree view on the left.
-
-	![Tree view with linked services](./media/data-factory-build-your-first-pipeline/tree-view-linked-services.png)
+4. Save the **HDInsightOnDemandLinkedService1.json** file.
  
 ### Create the output dataset
 Now, you will create the output dataset to represent the data stored in the Azure Blob storage. 
 
-1. In the **Data Factory Editor**, click **New dataset** on the command bar and select **Azure Blob storage**.  
-
-	![New dataset](./media/data-factory-build-your-first-pipeline/new-data-set.png)
-2. Copy and paste the snippet below to the Draft-1 window. In the JSON snippet, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **data** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
+1. In the **Solution Explorer**, right-click point to **Add**, and click **New Item**. 
+2. Select **Azure Blob** from the list, and click **Add**. 
+3. Replace the **JSON** in the editor with the following: In the JSON snippet, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **data** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 	
 		{
 		    "name": "AzureBlobOutput",
@@ -152,20 +158,15 @@ Now, you will create the output dataset to represent the data stored in the Azur
 		    }
 		}
 
-3. Click **Deploy** on the command bar to deploy the newly created dataset.
+4. Save the **AzureBlobLocation1.json** file.
 
-	![Deploy button](./media/data-factory-build-your-first-pipeline/deploy-button-3.png)
-4. Verify that the dataset is created successfully.
 
-	![Tree view with linked services](./media/data-factory-build-your-first-pipeline/tree-view-data-set.png)
-
-## Step 3: Creating your first pipeline
+### Creating your first pipeline
 In this step, you will create your first pipeline.
 
-1. In the **Data Factory Editor**, click **Elipsis (…)** and then click **New pipeline**.
-	
-	![new pipeline button](./media/data-factory-build-your-first-pipeline/new-pipeline-button.png)
-2. Copy and paste the snippet below to the Draft-1 window, and replace **<storageaccountname\>** with the storage account name that you are using in this tutorial.
+1. In the **Solution Explorer**, right-click **Pipelines**, point to **Add**, and click **New Item.** 
+2. Select **Hive Transformation Pipeline** from the list, and click **Add**. 
+3. Replace the **JSON** with the following snippet and replace **storageaccountname** with the storage account name that you are using in this tutorial.
 
 		{
 			"name": "MyFirstPipeline",
@@ -205,32 +206,24 @@ In this step, you will create your first pipeline.
 	The **start** and **end** properties of the pipeline specifies the active period of the pipeline.
 
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the linked service – **HDInsightOnDemandLinkedService**.
-3. Click **Deploy** on the command bar to deploy the pipeline.
+3. Save the **HiveActivity1.json** file. 
 
-	![Deploy button](./media/data-factory-build-your-first-pipeline/deploy-button-4.png)
-4. Confirm that you see the pipeline in the tree view.
-
-	![Tree view with pipeline](./media/data-factory-build-your-first-pipeline/tree-view-pipeline.png)
-5. Congratulations, you have successfully created your first pipeline!
-6. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory blade, and click on **Diagram**.
+### Publish/deploy Data Factory entities
   
-	![Diagram tile](./media/data-factory-build-your-first-pipeline/diagram-tile.png)
-7. In the Diagram View, you will see an overview of the pipelines, and datasets used in this tutorial.
-	
-	![Diagram View](./media/data-factory-build-your-first-pipeline/diagram-view-2.png) 
-8. In the Diagram View, double-click on the dataset **AzureBlobOutput**. You will see that the slice that is currently being processed.
+1. In the toolbar area, right-click and select **Data Factory** to enable the Data Factory toolbar if it is not already enabled. 
+19. In the **Data Factory toolbar**, click the **drop-down box** to see all the data factories in your Azure subscription. If you see the **Sign-in to Visual Studio** dialog box: 
+	20. Enter the **email account** associated with the Azure subscription in which you want to create the data factory, enter **Password**, and click **Sign-in**.
+	21. Once the sign-in is successful, you should see all the data factories in the Azure subscription. In this tutorial, you will create a new data facotry.       
+22. In the drop-down list, select **DataFactoryMyFirstPipeline**, and click **Publish** button to deploy/publish the linked services, datasets, and the pipeline.    
 
-	![Dataset](./media/data-factory-build-your-first-pipeline/dataset-blade.png)
-9. When processing is done, you will see the slice in **Ready** state. Note that the creation of an on-demand HDInsight cluster usually takes sometime. 
+	![Publish button](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
-	![Dataset](./media/data-factory-build-your-first-pipeline/dataset-slice-ready.png)	
-10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **data** container in your blob storage for the output data.  
- 
+23. You should see the status of publishing in the Data Factory Task List window that is shown in the picture above. Confirm that publishing has succeeded.
 
  
 
 ## Next Steps
-In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure blob to Azure SQL](./data-factory-get-started.md).
+In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure blob to Azure SQL](data-factory-get-started.md).
   
 
 

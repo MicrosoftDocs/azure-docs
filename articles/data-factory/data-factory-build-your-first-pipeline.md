@@ -21,6 +21,7 @@
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
 This article helps you get started with building your first pipeline, and deploy it to the Azure Data Factory. 
 
