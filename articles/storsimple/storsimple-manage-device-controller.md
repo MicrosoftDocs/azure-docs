@@ -66,6 +66,7 @@ To manage your device controllers from the Management Portal, perform the follow
 	>[AZURE.NOTE] **If you cannot see Manage Controllers, you need to install updates. For more information, see [Update your device](storsimple-update-device).**
 
 1. In the **Change Controller Settings** dialog box, from the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
+
 	>[AZURE.NOTE] **A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.**
 	
 2. From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
@@ -158,11 +159,11 @@ Perform the following steps to reset your Microsoft Azure StorSimple device to f
 
 	The system will reboot multiple times. You will be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
 
-> [AZURE.TIP] 
-
-> - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports a firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
-
-> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/en-us/library/dn688168.aspx).
+	> [AZURE.TIP] 
+	
+	> - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports a firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
+	
+	> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/en-us/library/dn688168.aspx).
 
 
 ## Questions and answers about managing device controllers
