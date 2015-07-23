@@ -20,10 +20,10 @@
 This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. This article assumes you have gone through the [Overview](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles prior to this.
 
 ## What is a pipeline?
-Pipelines are a logical grouping of Activities. They are used to group activities into a unit that together perform a task. To understand pipelines better lets understand an activity first and then we will come back to a pipeline. 
+**Pipelines are a logical grouping of Activities**. They are used to group activities into a unit that together perform a task. To understand pipelines better lets understand an activity first and then we will come back to a pipeline. 
 
 ### What is an activity?
-Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets) as inputs and produces one or more datasets as output. An activity is a unit of orchestration in Azure Data Factory. Scheduling and execution are covered in more detail later in this article. 
+Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets) as inputs and produces one or more datasets as output. **An activity is a unit of orchestration in Azure Data Factory.** Scheduling and execution are covered in more detail later in this article. 
 
 For example, you may use a Copy activity to orchestrate copying data from one dataset to another. Similarly you may use a Hive activity which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of data transformation, analysis, and [data movement activities](data-factory-data-movement-activities.md). You may also choose to run your own code. 
 
@@ -58,7 +58,7 @@ Table ‘MyTable’ contains a column ‘timestampcolumn’ which helps in speci
 
 #### Azure Blob Dataset 
 
-Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity
+Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
 
 	{
 	  "name": "AzureBlobOutput",
@@ -238,7 +238,7 @@ isPaused | If set to true the pipeline will not get executed. Default value = fa
 scheduler | “scheduler” property is used it define desired scheduling for the activity. Its sub-properties are the same as those under [availability property in a dataset](data-factory-create-datasets.md#Availability). | No |   
 
 ### Activity types
-TAzure Data Factory provides a wide range of [Data movement activities](data-factory-data-movement-activities.md) and [Data transformation activities](data-factory-data-transformation-activities.md).
+TAzure Data Factory provides a wide range of [Data movement](data-factory-data-movement-activities.md) and [Data transformation](data-factory-data-transformation-activities.md) activities.
 
 ### Policies
 Policies affect the run-time behavior of an activity, specifically when the slice of a table is processed. The following table provides the details.
@@ -273,7 +273,7 @@ Azure Data Factory provides various mechanisms to author and deploy pipelines (w
 
 	![Pipeline editor](./media/data-factory-create-pipelines/pipeline-in-editor.png)
 
-6. After you have finished authoring the pipeline, then click on **Deploy** on the command bar to deploy the pipeline. **Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline.
+6. After you have finished authoring the pipeline, then click on **Deploy** on the command bar to deploy the pipeline. **Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline. You can use the editor to update and delete a pipeline.
 
 ### Using Visual Studio plugin
 You can use Visual Studio to author and deploy pipelines to Azure Data Factory. To learn more, refer to [Tutorial: Copy data from Azure Storage to Azure SQL (Visual Studio)](data-factory-get-started-using-vs.md).
@@ -287,6 +287,10 @@ To learn more about this cmdlet, see [New-AzureDataFactoryPipeline cmdlet](https
 
 ### Using REST API
 You can create and deploy pipeline using REST APIs too. This mechanism can be leveraged to create pipelines programmatically. To learn more on this, see [Create or Update a Pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
+
+### Via .NET SDK
+You can create and deploy pipeline via .NET SDK too. This mechanism can be leveraged to create pipelines programmatically. To learn more on this refer to [Create, manage, and monitor data factories programmatically](data-factory-create-data-factories-programmatically.md).
+
 
 ## Scheduling & Execution
 So far we have understood what pipelines and activities are. We have also taken a look at how are they defined and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed. 
