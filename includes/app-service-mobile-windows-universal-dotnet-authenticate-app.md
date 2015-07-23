@@ -57,13 +57,15 @@
 		
 5. In the Windows Store app project, open the MainPage.xaml project file and add the following **Button** element just before the element that defines the **Save** button:
 
+```
 	<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
-                Visibility="Visible">Sign in</Button>
+	        Visibility="Visible">Sign in</Button>
+```
 
 6. In the Windows Phone Store app project, add the following **Button** element in the **ContentPanel**, after the **TextBlock** element:
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
-        Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
+        	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
 7. Open the shared App.xaml.cs project file and add the following using statement, if it doesn't already exist:
 
