@@ -15,7 +15,7 @@
 	ms.date="07/23/2015" 
 	ms.author="awills"/>
  
-# Power BI Dashboard from Application Insights
+# Power BI views of Application Insights data
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) presents your data in rich and varied visuals, with the ability to bring together information from multiple sources. You can stream telemetry data about the performance and usage of your web or device apps from Application Insights to Power BI.
 
@@ -33,7 +33,7 @@ If you haven't tried it yet, now is the time to start. Application Insights can 
 
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
-1. Create a storage account in your subscription in the [Azure portal][portal].
+1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-power-bi/030.png)
 
@@ -68,7 +68,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     ![Choose event types](./media/app-insights-export-power-bi/080.png)
 
-Now sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer][metrics] and individual events in [diagnostic search][diagnostic]. 
+Now sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md). 
 
 And also, the data will export to your storage.
 
