@@ -625,73 +625,15 @@ You can chain the Date/Time math operators together, for example:
 
 The following table lists the supported Date/Time units.
 
-<table border="1" cellspacing="4" cellpadding="4"><table>
-	<tr>
-		<th>Date/Time unit </th>
-		<th>Description </th>
-	</tr>
-	<tr>
-		<td>
-		<p>YEAR, YEARS</p>
-		</td>
-		<td>
-		<p>Rounds to current year, or offsets by the specified number of years.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>MONTH, MONTHS</p>
-		</td>
-		<td>
-		<p>Rounds to current month, or offsets by the specified number of
-		months.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>DAY, DAYS, DATE</p>
-		</td>
-		<td>
-		<p>Rounds to current day of the month, or offsets by the specified
-		number of days.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>HOUR, HOURS</p>
-		</td>
-		<td>
-		<p>Rounds to current hour, or offsets by the specified number of hours.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>MINUTE, MINUTES</p>
-		</td>
-		<td>
-		<p>Rounds to current minute, or offsets by the specified number of
-		minutes.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>SECOND, SECONDS</p>
-		</td>
-		<td>
-		<p>Rounds to current second, or offsets by the specified number of
-		seconds.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p>
-		</td>
-		<td>
-		<p>Rounds to current millisecond, or offsets by the specified number of
-		milliseconds.</p>
-		</td>
-	</tr>
-</table>
+Date/Time unit|Description
+---|--- 
+YEAR, YEARS|Rounds to current year, or offsets by the specified number of years.
+MONTH, MONTHS|Rounds to current month, or offsets by the specified number of months.
+DAY, DAYS, DATE|Rounds to current day of the month, or offsets by the specified number of days.
+HOUR, HOURS|Rounds to current hour, or offsets by the specified number of hours.
+MINUTE, MINUTES|Rounds to current minute, or offsets by the specified number of minutes.
+SECOND, SECONDS|Rounds to current second, or offsets by the specified number of seconds.
+MILLISECOND, MILLISECONDS, MILLI, MILLIS|Rounds to current millisecond, or offsets by the specified number of milliseconds.
 
 
 #### Field facets
@@ -767,28 +709,10 @@ Examples:
 You can omit the logical operator for the top-level filter arguments. In this case, the AND operator is assumed.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table>
-	<tr>
-		<th>Filter expression</th>
-		<th>Equivalent to</th>
-	</tr>
-	<tr>
-		<td>
-		<p>system error</p>
-		</td>
-		<td>
-		<p>system AND error</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>system &quot; Windows Server&quot; OR Severity:1</p>
-		</td>
-		<td>
-		<p>system AND (&quot;Windows Server&quot; OR Severity:1)</p>
-		</td>
-	</tr>
-</table>
+Filter expression|Equivalent to
+---|---
+system error|system AND error
+system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1)
 
 
 
