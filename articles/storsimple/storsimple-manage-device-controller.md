@@ -20,7 +20,7 @@ This tutorial describes the different operations that can be performed on your S
 
 This tutorial includes step-by-step instructions to manage the device controllers by using the:
 
-- Controller section of the Maintenance page in the StorSimple Manager service
+- **Controllers** section of the **Maintenance** page in the StorSimple Manager service
 - Windows PowerShell for StorSimple. 
 
 We recommend that the user manage the device controllers via the StorSimple Manager service. If an action can only be performed using the Windows PowerShell for StorSimple, the tutorial makes a note of it.
