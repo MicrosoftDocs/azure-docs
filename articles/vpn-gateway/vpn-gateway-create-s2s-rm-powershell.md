@@ -34,13 +34,13 @@ These instructions apply to ARM. If you want to create a Azure Service Manager s
 
 Before you begin, verify that you have the following:
 
-- A compatible VPN device (and someone who is able to configure it). See [About VPN Devices](vpn-gateway-vpn-devices.md) 
+- A compatible VPN device (and someone who is able to configure it). See [About VPN Devices](vpn-gateway-vpn-devices.md).
 - An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
-- The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). Y
+- The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 	
 
-## Connect to your subscription and virtual network
+## Connect to your subscription 
 
 
 Open your PowerShell console and switch to the Azure Resource Manager mode. Use the following sample to help you connect:
@@ -56,7 +56,7 @@ Next, switch to the ARM mode. This will switch the mode to allow you to use the 
 		Switch-AzureMode -Name AzureResourceManager
 
 
-## Create your virtual network and gateway subnet
+## Create a virtual network and a gateway subnet
 
 - If you already have a virtual network with a gateway subnet, you can go jump ahead to [Add your local site](#add-your-local-site). 
 - If you have a virtual network and you want to add a gateway subnet to your VNet, see [Add a gateway subnet to a VNet](#gatewaysubnet).
@@ -127,7 +127,7 @@ In this step, you'll create the virtual network gateway.
 
 ## Configure your VPN device
 
-At this point, you'll need the public IP address of the virtual network gateway. Use the virtual network gateway IP address when configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information. Additionally, refer to the [VPN Devices](http://go.microsoft.com/fwlink/p/?linkid=615099) for more information.
+At this point, you'll need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information. Additionally, refer to the [VPN Devices](http://go.microsoft.com/fwlink/p/?linkid=615099) for more information.
 
 To find the public IP address of your virtual network gateway, use the following sample:
 
@@ -135,16 +135,16 @@ To find the public IP address of your virtual network gateway, use the following
 
 ## Create the VPN connection
 
-Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. Note that the shared key must match what you used for your VPN device configuration.
+Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. Note that the shared key must match the value you used for your VPN device configuration.
 
 		$gateway1 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
 		New-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-After a few minutes, the connection should be established. Note that at this time, this connection is not visible in the portal. 
+After a few minutes, the connection should be established. Note that at this time, site-to-site VPN connections created with ARM are not visible in the Portal.
 
 
 ## Next Steps
 
-Add a virtual machine to your virtual network. [Create a Virtual Machine](..virtual-machines/virtual-machines-windows-tutorial.md).
+Add a virtual machine to your virtual network. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
