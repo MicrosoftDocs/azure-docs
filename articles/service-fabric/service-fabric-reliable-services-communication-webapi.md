@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="05/18/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host
