@@ -63,19 +63,15 @@ To manage your device controllers from the Management Portal, perform the follow
 
 	![Manage StorSimple Device Controllers](./media/storsimple-manage-device-controller/IC766018.png)
 
-	>[AZURE.NOTE] **If you cannot see Manage Controllers, you need to install updates. For more information, see Install updates and hotfixes**
+	>[AZURE.NOTE] **If you cannot see Manage Controllers, you need to install updates. For more information, see [Update your device](storsimple-update-device).**
 
-1. In the **Change Controller Settings** dialog box, do the following:
-											
-	a. From the Select Controller drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
-	
+1. In the **Change Controller Settings** dialog box, from the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
 	>[AZURE.NOTE] **A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.**
 	
-	b. From the Select Action drop-down list, choose **Restart controller** or **Shut down controller**.
-	
-	![Restart StorSimple Device Passive Controller](./media/storsimple-manage-device-controller/IC766020.png)
-	
-	c. Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
+2. From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
+		![Restart StorSimple Device Passive Controller](./media/storsimple-manage-device-controller/IC766020.png)
+
+1. Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
 
 This will restart or shut down the controller. The table below summarizes the details of what happens depending on the selections you have made in the **Change Controller Settings** dialog box.  
 													
@@ -166,7 +162,7 @@ Perform the following steps to reset your Microsoft Azure StorSimple device to f
 
 > - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports a firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
 
-> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/en-us/library/dn688168.aspx****).
+> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/en-us/library/dn688168.aspx).
 
 
 ## Questions and answers about managing device controllers
