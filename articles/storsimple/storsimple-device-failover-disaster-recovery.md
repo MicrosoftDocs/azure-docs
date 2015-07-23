@@ -128,7 +128,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 													
 	a. Select the StorSimple virtual device that was used as the target device for the failover process.
 	
-	b. 	Go to **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
+	b. 	Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
 
 ## Business continuity disaster recovery (BCDR)
 
@@ -140,8 +140,8 @@ If there are StorSimple devices that were registered just before a disaster occu
 
 After you have performed a failover, you may need to:
 
-- [Deactivate your StorSimple device](storsimple-deactivate-and-delete-device#deactivate-a-device)
-- [Delete your StorSimple device](storsimple-deactivate-and-delete-device#delete-a-device)
+- [Deactivate your StorSimple device](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
+- [Delete your StorSimple device](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
 For information on how to manage your device using the StorSimple Manager service, see:
 
