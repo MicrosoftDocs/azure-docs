@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configure a site-to-site virtual network connection | Microsoft Azure"
+   pageTitle="Create a site-to-site virtual network connection | Microsoft Azure"
    description="Create a virtual network with a site-to-site VPN connection for cross-premises and hybrid configurations."
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor=""/>
 
 <tags
@@ -13,10 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/22/2015"
    ms.author="cherylmc"/>
 
-# Configure a virtual network with a site-to-site VPN connection
+# Create a virtual network with a site-to-site VPN connection using the Management Portal
+
+> [AZURE.SELECTOR]
+- [Azure Portal](vpn-gateway-site-to-site-create.md)
+- [PowerShell - Resource Manager](vpn-gateway-create-s2s-rm-powershell.md)
+
+
 
 You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and creating a site-to-site VPN connection between your newly created VNet and your on-premises location.
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle=" | Microsoft Azure"
+   pageTitle="Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and PowerShell | Microsoft Azure"
    description="Create a site-to-site VPN connection from your virtual network to your on-premises location by using Azure Resource Manager and PowerShell"
    services="vpn-gateway"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="07/22/2015"
    ms.author="cherylmc"/>
 
-# Create a site-to-site VPN connection using Azure Resource Manager and PowerShell
+# Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure Portal](vpn-gateway-site-to-site-create.md)
