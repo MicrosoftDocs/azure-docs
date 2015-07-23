@@ -20,16 +20,16 @@
 
 # Plan your Azure Machine Learning advanced analytics environment
 
-You need to make certain decisions when you set up an Azure Machine Learning advanced analytics environment. The choices you make will be based on the type, size, and source location of your data and the target destination for this data in the cloud. The Advanced Analytics Process consists of an end-to-end series of tasks that take you obtaining a dataset from some source through the creation and publishing of a model as an Azure web service that applications can consume.
+What scenario matches your analytics problem when you are getting ready to set up an environment to do advanced analytics with Azure Machine Learning?  The choices you make regarding the resources that are needed are based on the type, size, and source location of your data and the target destination for this data. This article discusses those questions that will help you identify your scenario.
 
-The Advanced Analytics Process and Technology (ADAPT)workflow is presented in the [Learning Path: Build advanced analytics solutions in Azure](machine-learning-data-science-how-to-create-machine-learning-service.md). To learn more about the individual steps in the Advanced Analytics Process and Technology, consult the relevant topics in the learning path.
+Once you have identified the relevant scenario, the Advanced Analytics Process and Technology (ADAPT) workflow that is presented in the [Learning Path: Build advanced analytics solutions in Azure](machine-learning-data-science-how-to-create-machine-learning-service.md).
+steps your through a series of tasks, from obtaining a dataset through the creation and publishing of a model as an Azure web service that applications can consume.
 
-This article discusses the key questions to consider when setting up your advanced analytics environment. It also enumerates some of the resources and tools that are used by this process and provides guidance on how to use the Advanced Analytics Process and Technology learning path.
+This topic also enumerates some of the resources and tools that are used by this advanced analytics process.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Answer these questions
-
 Answer these questions to determine what scenario you are working with before you create your advanced analytics environment.
 
 1. **Where is your data located?** (This location is referred to as the ***data source***.) For example:
@@ -63,7 +63,7 @@ Answer these questions to determine what scenario you are working with before yo
 Once you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md).
 
 ## Advanced analytics resources in Azure
-Depending on your scenario, you might also need the following tools and resources.
+Depending on your scenario, you might need some of the following tools and resources.
 
 1.  Azure Tools: 
 	* 	[Azure PowerShell SDK](../install-configure-powershell.md), 
