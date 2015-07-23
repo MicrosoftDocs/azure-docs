@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Manage Content with Azure Media Services using Azure Management Portal
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
+
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+
 
 This topic shows how to use Azure Management Portal to manage media content in your Media Services account.
 

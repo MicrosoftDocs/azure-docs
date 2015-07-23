@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/24/2015" 
 	ms.author="juliako"/>
 
-#Advanced encoding with Media Encoder Premium Workflow (public preview)
+#Advanced encoding with Media Encoder Premium Workflow
 
 **Note** Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 
 ##Overview
 
-Microsoft Azure Media Services is introducing the public preview of **Media Encoder Premium Workflow** media processor. This processor offers advance encoding capabilities for your premium on-demand workflows. 
+Microsoft Azure Media Services is introducing the **Media Encoder Premium Workflow** media processor. This processor offers advance encoding capabilities for your premium on-demand workflows. 
 
 The following topics outline details related to **Media Encoder Premium Workflow**: 
 
