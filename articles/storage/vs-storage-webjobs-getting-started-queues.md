@@ -30,40 +30,12 @@
 
 Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md) for more information. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
 
+When you add a Storage Account to a WebJob project by using the Visual Studio **Add Connected Services** dialog, the appropriate Azure Storage NuGet package is installed, the appropriate .NET references are added to the project, and connection strings for the storage account are updated in the App.config file.  
+
 This article provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service. The article includes the following topics:
 
--   [How to trigger a function when a queue message is received](#trigger)
-	- String queue messages
-	- POCO queue messages
-	- Async functions
-	- Types the QueueTrigger attribute works with
-	- Polling algorithm
-	- Multiple instances
-	- Parallel execution
-	- Get queue or queue message metadata
-	- Graceful shutdown
--   [How to create a queue message while processing a queue message](#createqueue)
-	- String queue messages
-	- POCO queue messages
-	- Create multiple messages or in async functions
-	- Types the Queue attribute works with
-	- Use WebJobs SDK attributes in the body of a function
--   [How to read and write blobs while processing a queue message](#blobs)
-	- String queue messages
-	- POCO queue messages
-	- Types the Blob attribute works with
--   [How to handle poison messages](#poison)
-	- Automatic poison message handling
-	- Manual poison message handling
--   [How to set configuration options](#config)
-	- Set SDK connection strings in code
-	- Configure QueueTrigger settings
-	- Set values for WebJobs SDK constructor parameters in code
--   [How to trigger a function manually](#manual)
--   [How to write logs](#logs)
--   [Next steps](#nextsteps)
 
-## <a id="trigger"></a> How to trigger a function when a queue message is received
+## How to trigger a function when a queue message is received
 
 To write a function that the WebJobs SDK calls when a queue message is received, use the `QueueTrigger` attribute. The attribute constructor takes a string parameter that specifies the name of the queue to poll. You can also [set the queue name dynamically](#config).
 
@@ -114,7 +86,7 @@ Async functions may take a [cancellation token](http://www.asp.net/mvc/overview/
 		    await blobInput.CopyToAsync(blobOutput, 4096, token);
 		}
 
-### <a id="qtattributetypes"></a> Types the QueueTrigger attribute works with
+### Types the QueueTrigger attribute works with
 
 You can use `QueueTrigger` with the following types:
 
@@ -123,21 +95,21 @@ You can use `QueueTrigger` with the following types:
 * `byte[]`
 * `CloudQueueMessage`
 
-### <a id="polling"></a> Polling algorithm
+### Polling algorithm
 
 The SDK implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs.  When a message is found, the SDK waits two seconds and then checks for another message; when no message is found it waits about four seconds before trying again. After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute. [The maximum wait time is configurable](#config).
 
-### <a id="instances"></a> Multiple instances
+###Multiple instances
 
 If your web app runs on multiple instances, a continuous WebJobs runs on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).  
 
-### <a id="parallel"></a> Parallel execution
+###Parallel execution
 
 If you have multiple functions listening on different queues, the SDK will call them in parallel when messages are received simultaneously. 
 
 The same is true when multiple messages are received for a single queue. By default, the SDK gets a batch of 16 queue messages at a time and executes the function that processes them in parallel. [The batch size is configurable](#config). When the number being processed gets down to half of the batch size, the SDK gets another batch and starts processing those messages. Therefore the maximum number of concurrent messages being processed per function is one and a half times the batch size. This limit applies separately to each function that has a `QueueTrigger` attribute. If you don't want parallel execution for messages received on one queue, set the batch size to 1.
 
-### <a id="queuemetadata"></a>Get queue or queue message metadata
+###Get queue or queue message metadata
 
 You can get the following message properties by adding parameters to the method signature:
 
@@ -190,7 +162,7 @@ Here is a sample log written by the sample code:
 		queue endpoint=https://contosoads.queue.core.windows.net/
 		queueTrigger=Hello world!
 
-### <a id="graceful"></a>Graceful shutdown
+###Graceful shutdown
 
 A function that runs in a continuous WebJob can accept a `CancellationToken` parameter which enables the operating system to notify the function when the WebJob is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
@@ -217,7 +189,7 @@ The following example shows how to check for impending WebJob termination in a f
  
 For more information, see [WebJobs Graceful Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
-## <a id="createqueue"></a> How to create a queue message while processing a queue message
+## How to create a queue message while processing a queue message
 
 To write a function that creates a new queue message, use the `Queue` attribute. Like `QueueTrigger`, you pass in the queue name as a string or you can [set the queue name dynamically](#config).
 
@@ -274,7 +246,7 @@ You can use the `Queue` attribute on the following parameter types:
 * `IAsyncCollector`
 * `CloudQueue` (for creating messages manually using the Azure Storage API directly)
 
-### <a id="ibinder"></a>Use WebJobs SDK attributes in the body of a function
+###Use WebJobs SDK attributes in the body of a function
 
 If you need to do some work in your function before using a WebJobs SDK attribute such as `Queue`, `Blob`, or `Table`, you can use the `IBinder` interface.
 
@@ -292,7 +264,7 @@ The following example takes an input queue message and creates a new message wit
 
 The `IBinder` interface can also be used with the `Table` and `Blob` attributes.
 
-## <a id="blobs"></a> How to read and write blobs and tables while processing a queue message
+##How to read and write blobs and tables while processing a queue message
 
 The `Blob` and `Table` attributes enable you to read and write blobs and tables. The samples in this section apply to blobs. For code samples that show how to trigger processes when blobs are created or updated, see [How to use Azure blob storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
@@ -323,7 +295,7 @@ The following example uses a `CloudBlockBlob` object to delete a blob. The queue
 		    blobToDelete.Delete();
 		}
 
-### <a id="pocoblobs"></a> POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) queue messages
+###POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) queue messages
 
 For a POCO stored as JSON in the queue message, you can use placeholders that name properties of the object in the `Queue` attribute's `blobPath` parameter. You can also use [queue metadata property names](#queuemetadata) as placeholders. 
 
@@ -345,7 +317,7 @@ The SDK uses the [Newtonsoft.Json NuGet package](http://www.nuget.org/packages/N
 
 If you need to do some work in your function before binding a blob to an object, you can use the attribute in the body of the function, [as shown earlier for the Queue attribute](#ibinder).
 
-### <a id="blobattributetypes"></a> Types you can use the Blob attribute with
+###Types you can use the Blob attribute with
  
 The `Blob` attribute can be used with the following types:
 
@@ -361,7 +333,7 @@ The `Blob` attribute can be used with the following types:
 * `CloudBlockBlob` (read or write) 
 * `CloudPageBlob` (read or write) 
 
-## <a id="poison"></a> How to handle poison messages
+##How to handle poison messages
 
 Messages whose content causes a function to fail are called *poison messages*. When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated. The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.
 
@@ -411,7 +383,7 @@ You can get the number of times a message has been picked up for processing by a
 		    }
 		}
 
-## <a id="config"></a> How to set configuration options
+##How to set configuration options
 
 You can use the `JobHostConfiguration` type to set the following configuration options:
 
@@ -419,7 +391,7 @@ You can use the `JobHostConfiguration` type to set the following configuration o
 * Configure `QueueTrigger` settings such as maximum dequeue count.
 * Get queue names from configuration.
 
-### <a id="setconnstr"></a>Set SDK connection strings in code
+###Set SDK connection strings in code
 
 Setting the SDK connection strings in code enables you to use your own connection string names in configuration files or environment variables, as shown in the following example.
 
@@ -442,7 +414,7 @@ Setting the SDK connection strings in code enables you to use your own connectio
 		    host.RunAndBlock();
 		}
 
-### <a id="configqueue"></a>Configure QueueTrigger  settings
+###Configure QueueTrigger  settings
 
 You can configure the following settings that apply to the queue message processing:
 
@@ -462,7 +434,7 @@ The following example shows how to configure these settings:
 		    host.RunAndBlock();
 		}
 
-### <a id="setnamesincode"></a>Set values for WebJobs SDK constructor parameters in code
+###Set values for WebJobs SDK constructor parameters in code
 
 Sometimes you want to specify a queue name, a blob name or container, or a table name in code rather than hard-code it. For example, you might want to specify the queue name for `QueueTrigger` in a configuration file or environment variable. 
 
@@ -497,7 +469,7 @@ You pass the `NameResolver` class in to the `JobHost` object as shown in the fol
  
 **Note:** Queue, table, and blob names are resolved each time a function is called, but blob container names are resolved only when the application starts. You can't change blob container name while the job is running. 
 
-## <a id="manual"></a>How to trigger a function manually
+##How to trigger a function manually
 
 To trigger a function manually, use the `Call` or `CallAsync` method on the `JobHost` object and the `NoAutomaticTrigger` attribute on the function, as shown in the following example. 
 
@@ -520,7 +492,7 @@ To trigger a function manually, use the `Call` or `CallAsync` method on the `Job
 		    }
 		}
 
-## <a id="logs"></a>How to write logs
+##How to write logs
 
 The Dashboard shows logs in two places: the page for the WebJob, and the page for a particular WebJob invocation. 
 
@@ -577,7 +549,7 @@ And in an Azure table the `Console.Out` and `Console.Error` logs look like this:
 
 ![Error log in table](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
-## <a id="nextsteps"></a> Next steps
+##Next steps
 
 This article has provided code samples that show how to handle common scenarios for working with Azure queues. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
  

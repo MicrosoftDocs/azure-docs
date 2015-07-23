@@ -27,16 +27,18 @@
 > - [Queues](vs-storage-webjobs-getting-started-queues.md)
 > - [Tables](vs-storage-webjobs-getting-started-tables.md)
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "How to use Table Storage from .NET") for more information.
+
 
 ## Overview
 
-This article provides C# code samples that show how to read and write Azure storage tables by using [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "How to use Table Storage from .NET") for more information.
+
+This article provides C# code samples that show show how to use the Azure WebJobs SDK version 1.x with the Azure table storage service. The code samples use the [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x. 
 
 		
 Some of the code snippets show the `Table` attribute used in functions that are [called manually](vs-storage-webjobs-getting-started-blobs.md#manual), that is, not by using one of the trigger attributes. 
 
-## <a id="ingress"></a> How to add entities to a table
+##How to add entities to a table
 
 To add entities to a table, use the `Table` attribute with an `ICollector<T>` or `IAsyncCollector<T>` parameter where `T` specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table. 
 
@@ -73,7 +75,7 @@ Typically the type you use with `ICollector` derives from `TableEntity` or imple
 
 If you want to work directly with the Azure storage API, you can add a `CloudStorageAccount` parameter to the method signature.
 
-## <a id="monitor"></a> Real-time monitoring
+##Real-time monitoring
 
 Because data ingress functions often process large volumes of data, the WebJobs SDK dashboard provides real-time monitoring data. The **Invocation Log** section tells you if the function is still running.
 
@@ -87,7 +89,7 @@ When the function finishes, the **Invocation Details** page reports the number o
 
 ![Ingress function finished](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
-## <a id="multiple"></a> How to read multiple entities from a table
+##How to read multiple entities from a table
 
 To read a table, use the `Table` attribute with an `IQueryable<T>` parameter where type `T` derives from `TableEntity` or implements `ITableEntity`.
 
@@ -105,7 +107,7 @@ The following code sample reads and logs all rows from the `Ingress` table:
 		    }
 		}
 
-### <a id="readone"></a> How to read a single entity from a table
+###How to read a single entity from a table
 
 There is a `Table` attribute constructor with two additional parameters that let you specify the partition key and row key when you want to bind to a single table entity.
 
@@ -131,7 +133,7 @@ The following code sample reads a table row for a `Person` entity based on parti
 
 The `Person` class in this example does not have to implement `ITableEntity`.
 
-## <a id="storageapi"></a> How to use the .NET Storage API directly to work with a table
+##How to use the .NET Storage API directly to work with a table
 
 You can also use the `Table` attribute with a `CloudTable` object for more flexibility in working with a table.
 
@@ -153,22 +155,13 @@ The following code sample uses a `CloudTable` object to add a single entity to t
 
 For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables.md). 
 
-## <a id="queues"></a>Related topics covered by the queues how-to article
+##Related topics covered by the queues how-to article
 
 For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [How to use Azure queue storage with the WebJobs SDK](vs-storage-webjobs-getting-started-queues.md). 
 
-Topics covered in that article include the following:
 
-* Async functions
-* Multiple instances
-* Graceful shutdown
-* Use WebJobs SDK attributes in the body of a function
-* Set the SDK connection strings in code
-* Set values for WebJobs SDK constructor parameters in code
-* Trigger a function manually
-* Write logs
 
-## <a id="nextsteps"></a> Next steps
+##Next steps
 
 This article has provided code samples that show how to handle common scenarios for working with Azure tables. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
  
