@@ -25,8 +25,8 @@
 
 You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and creating a site-to-site VPN connection between your newly created VNet and your on-premises location.
 
-Azure currently has two management modes: Azure Service Manager, and Azure Resource Manager (ARM). The site-to-site setup is different, depending on the mode your virtual network was created in.
-These instructions apply to Azure Service Manager. If you want to create a Azure Resource Manager site-to-site VPN connection instead, see [Create a site-to-site VPN connection using Azure Resource Manager and PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+Azure currently has two management modes: Azure Service Management, and Azure Resource Manager (ARM). The site-to-site setup is different, depending on the mode your virtual network was created in.
+These instructions apply to Azure Service Management. If you want to create a Azure Resource Manager site-to-site VPN connection instead, see [Create a site-to-site VPN connection using Azure Resource Manager and PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Before beginning
