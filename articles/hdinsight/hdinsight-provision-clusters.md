@@ -231,7 +231,10 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 > [AZURE.NOTE] You must create the Azure virtual network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 >
-> Azure HDInsight supports only location-based virtual networks and does not currently work with affinity group-based virtual networks.
+>[AZURE.NOTE] Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks. Use Azure PowerShell cmdlet Get-AzureVNetConfig to check whether an existing Azure virtual network is location-based. If your virtual network is not location-based, you have the following options:
+>
+> - Export the existing Virtual Network configuration and then create a new Virtual Network. All new Virtual Networks are location based  by default.
+> - Migrate to a location-based Virtual Network.  See [Migrate existing services to regional scope](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
 >
 > It is highly recommended to designate a single subnet for one cluster.
 
