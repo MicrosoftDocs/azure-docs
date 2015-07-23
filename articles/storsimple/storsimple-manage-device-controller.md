@@ -63,11 +63,11 @@ To manage your device controllers from the Management Portal, perform the follow
 
 	![Manage StorSimple Device Controllers](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	>[AZURE.NOTE] **If you cannot see Manage Controllers, you need to install updates. For more information, see [Update your device](storsimple-update-device).**
+	> [AZURE.NOTE] **If you cannot see Manage Controllers, you need to install updates. For more information, see [Update your device](storsimple-update-device).**
 
 1. In the **Change Controller Settings** dialog box, from the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
 
-	>[AZURE.NOTE] **A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.**
+	> [AZURE.NOTE] A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.
 	
 2. From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
 		![Restart StorSimple Device Passive Controller](./media/storsimple-manage-device-controller/IC766020.png)
