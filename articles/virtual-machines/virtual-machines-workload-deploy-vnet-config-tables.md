@@ -28,11 +28,7 @@ This topic steps you through the creation of a cross-premises virtual network by
 
 These tables are typically filled out in a topic that describes the configuration of an IT workload in Azure and includes a cross-premises virtual network. See [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md) for an example.
 
-<<<<<<< HEAD
 The following procedure references the information in these tables to guide you through the virtual network configuration process. If you have not already specified the settings in these tables in another topic, but you still want to configure a cross-premises virtual network, see [Configure a cross-premises site-to-site connection to an Azure virtual network](../vpn-gateway/vpn-gateway-site-to-site-create.md).
-=======
-The following procedure references the information in these tables to guide you through the virtual network configuration process in Service Management. If you have not already specified the settings in these tables in another topic, but you still want to configure a cross-premises virtual network, see [Configure a cross-premises site-to-site connection to an Azure virtual network](https://msdn.microsoft.com/library/dn133795.aspx).
->>>>>>> 876203a3f23165afed18a4b57977a4bf4b23fc2d
 
 > [AZURE.NOTE] This procedure steps you through creating a virtual network that uses a site-to-site VPN connection. For information about using Azure ExpressRoute for your site-to-site connection, see [ExpressRoute technical overview](https://msdn.microsoft.com/library/dn606309.aspx).
 
