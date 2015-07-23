@@ -21,9 +21,12 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
+##Overview
 This tutorial shows you how to add a cloud-based backend service to a universal Windows app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple *To do list* app in HTML and JavaScript that stores app data in the new mobile service. The mobile service that you create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript version of this topic.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
+
+##Prerequisites
 
 To complete this tutorial, you need the following:
 
@@ -68,26 +71,22 @@ In this section you will create a new universal Windows app that is connected to
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-<ol start="4">
-<li><p>In the Shared code project, open the default.js file, locate the code that creates a <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a> instance, comment-out the code that creates this client using <em>localhost</em> and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:</p>
+&nbsp;&nbsp;4. In the Shared code project, open the default.js file, locate the code that creates a [WindowsAzure.MobileServiceClient](http://msdn.microsoft.com/library/azure/jj554219.aspx) instance, comment-out the code that creates this client using *localhost* and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:
 
-        <pre><code>var client = new WindowsAzure.MobileServiceClient(
-            "https://todolist.azure-mobile.net/",
-            "XXXXXX-APPLICATION-KEY-XXXXXX"
-        );</code></pre>
+	var client = new WindowsAzure.MobileServiceClient(
+	    "https://todolist.azure-mobile.net/",
+	    "XXXXXX-APPLICATION-KEY-XXXXXX"
+	);
 
-	<p>The client will now access the mobile service published to Azure.</p></li>
+&nbsp;&nbsp;The client will now access the mobile service published to Azure.
 
-<li><p>Press the <strong>F5</strong> key to rebuild the project and start the app.</p></li>
+&nbsp;&nbsp;5. Press the **F5** key to rebuild the project and start the app.
 
-<li><p>In the app, type meaningful text, such as <em>Complete the tutorial</em>, in <strong>Insert a TodoItem</strong>, and then click <strong>Save</strong>.</p>
+&nbsp;&nbsp;6. In the app, type meaningful text, such as *Complete the tutorial*, in **Insert a TodoItem**, and then click **Save**.
 
-<p>This sends a POST request to the new mobile service hosted in Azure.</p>
-</li>
-<li><p>(Optional) In a universal Windows solution, change the default start up project to the other app and press <strong>F5</strong> again.</p>
+&nbsp;&nbsp;This sends a POST request to the new mobile service hosted in Azure.
 
-	<p>Notice that data saved from the previous step is loaded from the mobile service after the app starts.</p></li>
-</ol>
+&nbsp;&nbsp;7. (Optional) In a universal Windows solution, change the default start up project to the other app and press **F5** again and notice that data saved from the previous step is loaded from the mobile service after the app starts.
 
 For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 

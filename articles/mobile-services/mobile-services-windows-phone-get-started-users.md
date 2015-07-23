@@ -13,26 +13,19 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/23/2015" 
 	ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users-legacy](../../includes/mobile-services-selector-get-started-users-legacy.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+##Overview
 
-<p>This topic shows you how to authenticate users in Azure Mobile Services from your app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:50</span></div>
-</div>  
+This topic shows you how to authenticate users in Azure Mobile Services from your app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
-This tutorial walks you through these basic steps to enable authentication in your app:
+> [AZURE.VIDEO Windows-Phone-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services]
 
-1. [Register your app for authentication and configure Mobile Services]
-2. [Restrict table permissions to authenticated users]
-3. [Add authentication to the app]
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Add Mobile Services to an existing app]. 
 
@@ -50,10 +43,10 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
-<ol start="3">
-<li>In Visual Studio 2012 Express for Windows Phone, open the project that you created when you completed the tutorial <strong>Get started with Mobile Services</strong>.</li>
 
-<li>Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</li></ol>
+&nbsp;&nbsp;3. In Visual Studio 2012 Express for Windows Phone, open the project that you created when you completed the tutorial [Add Mobile Services to an existing app](mobile-services-windows-phone-get-started-data.md).
+
+&nbsp;&nbsp;4. Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because the app attempts to access Mobile Services as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
