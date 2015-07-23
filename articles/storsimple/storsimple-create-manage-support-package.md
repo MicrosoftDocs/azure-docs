@@ -16,7 +16,9 @@
    ms.author="alkohli" />
 
 
-#Create and Manage a Support package
+# Create and Manage a Support package
+
+## Overview
 This tutorial describes the various tasks associated with creating and managing a Support package. A Support package includes all the relevant logs in an encrypted, compressed format and is used to assist the Microsoft Support team with troubleshooting any StorSimple device issues.
 
 This tutorial includes step-by-step instructions to create and manage the Support package by using the:
@@ -56,6 +58,7 @@ To troubleshoot any issues that you might experience with the StorSimple device,
 
 > [AZURE.IMPORTANT] You can disable support access by running `Disable-HcsSupportAccess`. The StorSimple device will also attempt to disable support access 8 hours after the session was initiated. It is a best practice to change your StorSimple device credentials after initiating a support session.
 
+
 ## Create a support package
 
 A support package includes all the relevant logs that can assist the Microsoft Support team with troubleshooting any StorSimple device issues. You can generate an encrypted support package for your StorSimple device through 
@@ -75,15 +78,17 @@ Perform the following steps in Management Portal to create a support package:
 
 1. In the **Support package** section, click **Create and upload Support package**.
 
-	![Create Support Package](./media/storsimple-create-manage-support-package/IC740923.png)
+	
 
 1. In the **Create and upload support package** dialog box, do the following:
+
+	![Create Support Package](./media/storsimple-create-manage-support-package/IC740923.png)
 											
-	1. Provide the **Support Passkey**. This key should be sent to you by your Microsoft Support Engineer in an email.
-	
-	1. Check the combo box to provide consent to **automatically upload the support package to the Microsoft Support site**.
-	
-	1. Click the check icon ![Check icon](./media/storsimple-create-manage-support-package/IC740895.png) .
+	- Provide the **Support Passkey**. This key should be sent to you by your Microsoft Support Engineer in an email.
+ 	
+	- Check the combo box to provide consent to **automatically upload the support package to the Microsoft Support site**.
+ 	
+	- Click the check icon ![Check icon](./media/storsimple-create-manage-support-package/IC740895.png).
 
 
 ## Create a Support package in Windows PowerShell for StorSimple
@@ -97,14 +102,18 @@ If you need to edit your log files prior to creating a package, you will need to
 	`Start PowerShell`
 
 1. In the Windows PowerShell session, connect to the SSAdmin Console runspace of your device by performing the following steps: 
-	1. Type the following command at the command prompt:
+
+
+	- Type the following command at the command prompt:
 		
 		`$MS = New-PSSession -ComputerName <IP of DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
 		
 		Where <IP of DATA 0> contains the IP address for DATA 0.
 
 
-	1. In the dialog box that opens, type your device administrator password. The default password is:*Password1*.
+	1. In the dialog box that opens, type your device administrator password. The default password is:
+	 
+		`Password1`
 
 		![PowerShell Session To SSAdminConsole Runspace](./media/storsimple-create-manage-support-package/IC740962.png)
 	2. Click **OK**.
@@ -127,7 +136,7 @@ If you need to edit your log files prior to creating a package, you will need to
 
 		`Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
 
-		The support package will be created for both controllers in the specified network shared folder. It is an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](https://msdn.microsoft.com/en-us/library/dn757750.aspx).
+		The support package will be created for both controllers in the specified network shared folder. It is an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](https://msdn.microsoft.com/library/dn757750.aspx).
 
 
 ### More information about the Export-HcsSupportPackage cmdlet
@@ -159,7 +168,7 @@ To edit a support package before uploading it on the Microsoft Support site, you
 
 #### To edit a support package in Windows PowerShell for StorSimple
 
-1. Use Windows PowerShell for StorSimple to generate a support package as described in [Generate a support package](https://msdn.microsoft.com/en-us/library/dn772348.aspx).
+1. Use Windows PowerShell for StorSimple to generate a support package as described in [Create a support package](#Create-a-Support-package-in-Windows-PowerShell-for-StorSimple).
 
 1. [Download the script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) locally on your client.
 
@@ -184,7 +193,7 @@ To edit a support package before uploading it on the Microsoft Support site, you
     	Supply values for the following parameters:EncryptionPassphrase: ****
 	
 
-1. Navigate to the folder that contains the log files. You will note that the files are now decompressed and decrypted. The original file extensions will now be displayed. Modify these files to remove any customer-specific information such as volume names, device IP addresses, and so on, and then save the files.
+1. Navigate to the folder that contains the log files. As the log files are now decompressed and decrypted, the original file extensions will be displayed. Modify these files to remove any customer-specific information such as volume names and device IP addresses and save the files.
 
 1. Close the files. Closing the files will compress them with Gzip and then encrypt them with AES-256. This is for security and speed when transferring the support package over a network. To close files, type:
 
