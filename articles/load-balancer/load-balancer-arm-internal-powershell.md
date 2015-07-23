@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started on internet facing load balancer using Azure Resource Manager | Microsoft Azure "
-   description="How to create a load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create a load balancer resource."
+   pageTitle="Get started on Internal load balancer using Azure Resource Manager | Microsoft Azure "
+   description="How to create a Internal load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create an Internal load balancer (ILB) resource."
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -15,26 +15,26 @@
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# How to create an internet facing load balancer using Azure Resource Manager
+# How to create a load balancer using Azure Resource Manager
 
 
 > [AZURE.SELECTOR]
-- [Service Manager steps](load-balancer-internet-getstarted.md)
-- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+- [Service Manager steps](load-balancer-internal-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 
-The steps below will show how to create an internet facing load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create an internet facing load balancer are configured individually and then put together to create a resource. 
+The steps below will show how to create an internal load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create a Internal load balancer are configured individually and then put together to create a resource. 
 
-We will cover in this page the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal to create a load balancer.
+We will cover in this page the sequence of individual tasks it has to be done to create an Internal load balancer and explain in detail what is being done to accomplish the goal to create a load balancer.
 
 
-## What is required to create an internet facing load balancer?
+## What is required to create an internal load balancer?
 
-The following items need to be configured before creating a load balancer:
+The following items need to be configured before creating an internal load balancer:
 
-- Front end IP configuration - will add a public IP address to front end IP pool for incoming network traffic to load balance. 
+- Front end IP configuration - will configure the private IP address for incoming network traffic 
 
-- Backend address pool - will configure the network interfaces which will receive the load balanced traffic coming from front end IP pool. 
+- Backend address pool - will configure the network interfaces which will receive the load balanced traffic coming from front end IP pool 
 
 - Load balancing rules - source and local port configuration for the load balancer.
 
@@ -97,17 +97,12 @@ Create a virtual network:
 
 	$backendSubnet = New-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 
-Creates a subnet for the virtual network and assigns to $backendSubnet
+Creates a subnet for the virtual network and assigns to variable $backendSubnet
 
-	New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
+	$vnet= New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
-Creates the virtual network and adds the subnet lb-subnet-be to the virtual network NRPVNet. 
+Creates the virtual network and adds the subnet lb-subnet-be to the virtual network NRPVNet and assigns to variable $vnet 
 
-### Step 2
-
-Create a public IP address to be used by frontend IP pool:
-
-	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
 
 ## Create Front end IP pool and backend address pool
@@ -116,10 +111,9 @@ Setting up a front end IP pool for the incoming load balancer network traffic an
 
 ### Step 1 
 
-Using public IP variable ($publicIP), create the front end IP pool.
+Create a front end IP pool using the private IP address 10.0.2.6 for the subnet 10.0.2.0/24 which will be the incoming network traffic endpoint.
 
-	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
-
+	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
 
 ### step 2 
 
@@ -161,7 +155,7 @@ Create the load balancer adding all objects (NAT rules, Load balancer rules, pro
 
 ## Create network interfaces
 
-After creating the load balancer, you need define which network interfaces will be receiving the incoming load balanced network traffic, NAT rules and probe. The network interface in this case is configured individually and can be assigned to a virtual machine later on. 
+After creating the internal load balancer, you need define which network interfaces will be receiving the incoming load balanced network traffic, NAT rules and probe. The network interface in this case is configured individually and can be assigned to a virtual machine later on. 
 
 
 ### Step 1 
