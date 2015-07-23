@@ -47,37 +47,8 @@
 
  3. Run `.\DevClusterSetup.ps1` to setup your local cluster.
 
+That's it! You can now launch Visual Studio and continue building Service Fabric applications.
 
-## Migrate existing projects
-
-The Service Fabric project structure has changed since the initial release. If you would like to continue working on existing projects, you will need migrate them to the new structure in order to successfully build and debug with this release.
-
->[AZURE.TIP] If your existing project is small, it may be faster to create a brand new project in Visual Studio and copy over your code than to attempt to migrate the original project.
-
-To migrate an existing project, do the following:
-
-### Add the PublishProfiles folder
-
-1. Open the project you would like to migrate in Visual Studio 2015.
-
-2. Open a second Visual Studio window and create a new Service Fabric application project. You will use this project to acquire the artifacts provided in the new project templates. You can choose any of the service types since the content you need is from the application project, which is independent of your service types.
-
-3. In your existing project, create a new folder in the application project called PublishProfiles. The application project is the one that includes ApplicationManifest.xml.
-
-4. Right-click on PublishProfiles and choose "Add existing item".
-
-5. Browse to the second project you created and add the Local.xml file from the PublishProfiles folder.
-
-
-### Update the app management scripts
-
-1. In the application project, delete all of the files under the Scripts folder.
-
-2. Right-click the Scripts folder and choose "Add existing item".
-
-3. Browse to the second project you created and add all of the files from the Scripts folder.
-
-
->[AZURE.NOTE] In the event that you made modifications to any of the scripts included in the project template, you will need to ensure that those changes carry over.
+>[AZURE.NOTE] The default project structure has changed in this release. You should be able to open and run existing projects in Visual Studio. However, if you encounter any issues with building, deploying, or debugging your applications, consider creating a new project and migrating your code over.
 
  [1]:  http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI link"
