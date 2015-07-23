@@ -19,7 +19,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Service Manager Powershell steps](load-balancer-internet-getstarted.md)
+- [Service Manager steps](load-balancer-internet-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 
