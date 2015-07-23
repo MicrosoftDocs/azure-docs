@@ -23,7 +23,7 @@
 - [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 
-The steps below will show how to create an internet facing load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create an internet load balancer are configured individually and then put together to create a resource. 
+The steps below will show how to create an internet facing load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create an internet facing load balancer are configured individually and then put together to create a resource. 
 
 We will cover in this page the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal to create a load balancer.
 
