@@ -153,3 +153,6 @@ The following code calls .NET SDK extensions methods that create a locator and g
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
  
+##See Also
+
+[Download assets](media-services-deliver-asset-download.md)
