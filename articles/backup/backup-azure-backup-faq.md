@@ -118,6 +118,7 @@ A20. Ensure firewall rules enable communication with URLs below for seamless bac
 - \*.microsoftonline.com
 - \*.windows.net
 
+
 ## Backup & Retention
 **Q1. Is there a limit on the size of each data source being backed up?** <br/>
 A1. As of July 2015, each data source should be less than or equal to 1.7 TB. A data source is either
