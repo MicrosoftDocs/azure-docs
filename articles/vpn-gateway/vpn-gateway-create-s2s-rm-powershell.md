@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor=""/>
+   editor=""
    tags="azure-resource-manager"/>
 
 <tags
