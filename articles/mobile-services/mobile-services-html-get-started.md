@@ -25,7 +25,7 @@
 
 This tutorial shows you how to add a cloud-based backend service to an HTML app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service. You can view the following video version of this tutorial. 
 
-> [AZURE.VIDEO Getting-Started-with-the-Mobile-Services-HTML-Client]
+> [AZURE.VIDEO getting-started-with-the-mobile-services-html-client]
  
 A screenshot from the completed app is below:
 

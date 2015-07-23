@@ -24,7 +24,7 @@ This tutorial shows you how to leverage Azure Mobile Services in your Sencha Tou
 
 If you prefer to watch a video, this clip follows the same steps as this tutorial. In the video, Arthur Kay  explains how to build a Sencha Touch application using an Azure Mobile Services backend.
 
-> [AZURE.VIDEO Getting-Started-with-Windows-Azure-for-Sencha-Touch]
+> [AZURE.VIDEO getting-started-with-windows-azure-for-sencha-touch]
 
 
 A screenshot from the completed app is shown below:
