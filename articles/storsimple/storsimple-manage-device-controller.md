@@ -61,7 +61,7 @@ To manage your device controllers from the Management Portal, perform the follow
 
 1. From the bottom of the **Maintenance** page, click **Manage Controllers**.
 
-	![Manage StorSimple Device Controllers](./media/storsimple-manage-device-controller/IC766018.png)
+	![Manage StorSimple Device Controllers](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
 	>[AZURE.NOTE] **If you cannot see Manage Controllers, you need to install updates. For more information, see [Update your device](storsimple-update-device).**
 
