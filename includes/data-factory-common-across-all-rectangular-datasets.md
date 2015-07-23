@@ -12,10 +12,10 @@ The following are error conditions and will result in an exception:
 2.	Duplicate mapping.
 3.	SQL query result does not have a column name that is specified in the mapping.
 
-### Column Mapping Samples
+## Column Mapping Samples
 > [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable the same way for any data store that supports rectangular tables. You will have to adjust dataset and linkedservice definitions in examples below to point to data in the relevant data source.
 
-#### Sample 1 – column mapping from Azure SQL to Azure blob
+### Sample 1 – column mapping from Azure SQL to Azure blob
 In this sample, the input table is defined as follows. The input table has a structure and it points to a SQL table in an Azure SQL database.
 
 	{
