@@ -194,8 +194,8 @@ The generic structure for a pipeline looks as follows:
 	        [
 	
 	        ],
-		start: <start date-time>,
-		end: <end date-time>
+			"start": "<start date-time>",
+			"end": "<end date-time>"
 	    }
 	}
 
