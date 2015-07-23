@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="07/23/2015"
    ms.author="claudioc"/>
 
 # Reliable Actors: The canonical HelloWorld walk-through scenario
