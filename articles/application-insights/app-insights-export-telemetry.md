@@ -131,7 +131,7 @@ The continuous export will restart.
 
 [Stream Application Insights to Power BI](app-insights-export-power-bi.md)
 
-![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/01.png)
+![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-telemetry/210.png)
 
 ## Export to SQL
 
