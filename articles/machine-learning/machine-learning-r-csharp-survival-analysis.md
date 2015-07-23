@@ -101,6 +101,9 @@ From within Azure Machine Learning, a new blank experiment was created and two [
     time_of_interest="500"
     index_time="1"
     index_event="2"
+    
+    # 0 - continuous; 1 -  factor
+    variable_types="0;0;1;1"
 
     sampleInput=data.frame(trainingdata,testingdata,time_of_interest,index_time,index_event,variable_types)
 

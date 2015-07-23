@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
@@ -46,24 +46,6 @@ Regardless of which connection technology you use, certain firewall settings for
 - [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-## Recommendations: Connection
-
-
-- In your client connection logic, override the default timeout to be 30 seconds.
- - The default of 15 seconds is too short for connections that depend on the internet.
-- If you are using a [connection pool](http://msdn.microsoft.com/library/8xx3tyca.aspx), close the connection the instant your program is not actively using it, and is not just preparing to reuse it.
- - Unless your program will reuse the connection for another operation immediately, without pause, we recommend the following pattern:
-<br/><br/>Open a connection.
-<br/>Do one operation through the connection.
-<br/>Close the connection.<br/><br/>
-- Use retry logic with your connection logic, but only for transient errors. When using SQL Database, your attempts to open a connection or issue a query can fail for various reasons.
- - One persistent reason for failure could be that your connection string is malformed.
- - One transient reason for failure could be that the Azure SQL Database system needs to balance the overall load. The transient reason goes away by itself, which means your program should retry.
- - When retrying a query, first close the connection, and then open another connection.
-- Ensure that your [Azure SQL Database firewall](http://msdn.microsoft.com/library/ee621782.aspx) allows outgoing TCP communication on port 1433.
- - You can configure the [firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx) settings on an SQL Database server or to an individual database.
-
-
 ## Recommendation: Authentication
 
 
@@ -76,7 +58,28 @@ Regardless of which connection technology you use, certain firewall settings for
  - You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database.
 
 
-## Transient errors
+## Recommendations: Connection
+
+
+- In your client connection logic, override the default timeout to be 30 seconds.
+ - The default of 15 seconds is too short for connections that depend on the internet.
+- Ensure that your [Azure SQL Database firewall](http://msdn.microsoft.com/library/ee621782.aspx) allows outgoing TCP communication on port 1433.
+ - You can configure the [firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx) settings on an SQL Database server or to an individual database.
+- If you are using a [connection pool](http://msdn.microsoft.com/library/8xx3tyca.aspx), close the connection the instant your program is not actively using it, and is not just preparing to reuse it.
+ - Unless your program will reuse the connection for another operation immediately, without pause, we recommend the following pattern:
+<br/><br/>Open a connection.
+<br/>Do one operation through the connection.
+<br/>Close the connection.<br/><br/>
+- Use retry logic with your connection logic, but only for transient errors. When using SQL Database, your attempts to open a connection or issue a query can fail for various reasons.
+ - One persistent reason for failure could be that your connection string is malformed.
+ - One transient reason for failure could be that the Azure SQL Database system needs to balance the overall load. The transient reason goes away by itself, which means your program should retry.
+ - When retrying a query, first close the connection, and then open another connection.
+
+
+The next section has more to say about retry logic and transient fault handling.
+
+
+## Transient errors and retry logic
 
 
 Cloud services such as Azure and its SQL Database service have the endless challenge of balancing workloads and managing resources. If two databases that are being served from the same computer are involved in exceptionally heavy processing at overlapping times, the management system might detect the necessary of shifting the workload of one database to another resource which has excess capacity.
@@ -85,10 +88,11 @@ Cloud services such as Azure and its SQL Database service have the endless chall
 During the shift, the database might be temporarily unavailable. This might block new connections, or it might cause your client program to lose its connection. But the resource shift is transient, and it might resolve itself in a couple of minutes or in several seconds. After the shift is completed, your client program can reestablish its connection and resume its work. The pause in processing is better than an avoidable failure of your client program.
 
 
-When any error occurs with SQL Database, an [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) is thrown. The SqlException contains a numeric error code in its **Number** property. If the error code identifies a transient error, your program should retry the call.
+When any error occurs with SQL Database, an [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) is thrown. The `SqlException` contains a numeric error code in its **Number** property. If the error code identifies a transient error, your program should retry the call.
 
 
-- [Error Messages (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx) - its **Connection-Loss Errors** section is a list of the transient errors that warrant an automatic retry.
+- [Error Messages (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+ - Its **Transient Errors, Connection-Loss Errors** section is a list of the transient errors that warrant an automatic retry.
  - For example, retry if the error number 40613 occurs, which says something similar to<br/>*Database 'mydatabase' on server 'theserver' is not currently available.*
 
 
@@ -101,28 +105,56 @@ For further assistance when you encounter a connection error, whether transient 
 - [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
 
 
+For links to code sample topics that demonstrate retry logic, see:
+
+
+- [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
+
+
+<a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
+
+
+## Gateway no longer provides retry logic in V12
+
+
+Before version V12, Azure SQL Database had a gateway that acted as a proxy to buffer all interactions between the database and your client program. The gateway was an additional network hop that sometimes increased the latency of database accesses.
+
+
+V12 eliminated the gateway. So now:
+
+
+- Your client program interacts *directly* with the database, which is more efficient.
+- The gateway's minor distortions in error messages and other communications to your program are eliminated.
+ - SQL Database and SQL Server look more identical to your program.
+
+
+#### Retry logic gone
+
+
+The gateway had retry logic handle some transient errors for you. Now your program must more fully handle transient errors. For code samples about retry logic, see:
+
+
+- [Client development and quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
+ - Has links to code samples that contain retry logic, and to simpler samples that connect-and-query.
+- [How to: Reliably connect to Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+- [How to: Connect to Azure SQL Database by using ADO.NET with Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
+- [How to: Connect to Azure SQL Database by using ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+
+
 ## Technologies
 
 
 The following topics contains links to code samples for several languages and driver technologies that you can use to connect to Azure SQL Database from your client program.
 
 
-Various code samples are given for clients that run on both Windows and Linux.
+Various code samples are given for clients that run on both Windows, Linux, and Mac OS X.
 
 
-**General samples:** There are code samples for a variety of programming languages, including PHP, Python, Node.js, and .NET CSharp. Also, samples are given for clients that run on Windows or Linux.
+**General samples:** There are code samples for a variety of programming languages, including PHP, Python, Node.js, and .NET CSharp. Also, samples are given for clients that run on Windows, Linux, and Mac OS X.
 
 
-- [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
+- [Client development and quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
-
-
-**Retry logic:** There are code samples designed with the sophistication necessary to handle transient errors with automatic retry logic.
-
-
-- [How to: Reliably connect to Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
-- [How to: Connect to Azure SQL Database by using ADO.NET with Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [How to: Connect to Azure SQL Database by using ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
 
 
 **Elastic scale:** For information about connectivity to Elastic Scale databases, see:

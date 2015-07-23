@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -21,27 +21,26 @@
 
 For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases. 
 
-This reference provides links and details to elastic pool articles and programmability information.
+This reference provides links and details to elastic database pool articles and programmability information.
 
 ## Overview
 
-An elastic pool is a collection of database throughput units (DTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md). 
+An elastic database pool is a collection of database throughput units (DTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md). 
 
 
 
-## Prerequisites for creating and managing elastic pools
+## Prerequisites for creating and managing elastic database pools
 
 
-- Elastic pools are only available in Azure SQL Database V12 servers.   
-- PowerShell and REST APIs for elastic pools are supported on Azure Resource Manager (ARM) only; service management commands (RDFE) are not supported. 
-- Creating and managing elastic pools is supported in the [Microsoft Azure portal](https:portal.azure.com) only. 
+- Elastic database pools are only available in Azure SQL Database V12 servers.   
+- Creating and managing elastic database pools is supported using the [Microsoft Azure portal](https://portal.azure.com), PowerShell, and REST APIs on Azure Resource Manager (ARM) only; the [Classic portal](https://manage.windowsazure.com/) and service management commands (RDFE) are not supported. 
 
 
 ## Restrictions for the current preview
 
-- The pricing tier for an elastic pool in the current preview is Standard.  
-- Import of a database directly into an elastic pool is not supported. You can import into a stand-alone database and then move the database into a pool. Export of a database from within a pool is supported.
-- Each elastic pool can have a maximum 100 databases.
+- The pricing tier for an elastic database pool in the current preview is Standard.  
+- Import of a database directly into a pool is not supported. You can import into a stand-alone database and then move the database into a pool. Export of a database from within a pool is supported.
+- Each pool can have a maximum 100 databases.
 
 
 ## List of articles
@@ -50,9 +49,9 @@ The following articles will help you get started using elastic databases and ela
 
 | Article | Description |
 | :-- | :-- |
-| [SQL Database elastic pools](sql-database-elastic-pool.md) | Overview of elastic pools |
-| [Create and manage a SQL Database elastic pool with the Azure portal](sql-database-elastic-pool-portal.md) | How to create and manage an elastic pool using the Azure portal |
-| [Create and manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-powershell.md) | How to create and manage an elastic pool using PowerShell cmdlets |
+| [SQL Database elastic database pools](sql-database-elastic-pool.md) | Overview of elastic pools |
+| [Create and manage a SQL Database elastic database pool with the Azure portal](sql-database-elastic-pool-portal.md) | How to create and manage an elastic pool using the Azure portal |
+| [Create and manage a SQL Database elastic database pool with PowerShell](sql-database-elastic-pool-powershell.md) | How to create and manage an elastic pool using PowerShell cmdlets |
 | [Elastic database jobs overview](sql-database-elastic-jobs-overview.md) | An overview of the elastic jobs service, that enables running T-SQL scripts across all elastic databases in a pool |
 | [Installing the elastic database job component](sql-database-elastic-jobs-service-installation.md) | How to install the elastic database job service |
 | [Creating the required user for the elastic jobs service](sql-database-elastic-jobs-add-logins-to-dbs.md) | To run an elastic database job script, a user with the appropriate permissions must be added to every database in the pool. |
@@ -64,7 +63,7 @@ The following articles will help you get started using elastic databases and ela
 An elastic pool is an ARM resource of type “ElasticPool” in the Microsoft Azure SQL Database.
 
 - **namespace**: Microsoft.Sql/ElasticPool
-- **secondary-endpoint** for REST API calls (Azure resource manager): https://management.azure.com
+- **management-endpoint** for REST API calls (Azure resource manager): https://management.azure.com
 
 
 

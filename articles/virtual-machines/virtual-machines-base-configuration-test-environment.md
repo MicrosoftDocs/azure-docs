@@ -19,7 +19,11 @@
 
 # Base Configuration test environment
 
+<<<<<<< HEAD
 This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Service Management.
+=======
+This article provides you with step-by-step instructions to create the Base Configuration test environment in a Azure Virtual Network, using virtual machines created in Service Management.
+>>>>>>> d65ad5f5209fa59a402a77e54644672270506f3d
 
 You can use the resulting test environment:
 
@@ -27,7 +31,11 @@ You can use the resulting test environment:
 - For the [simulated hybrid cloud environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 - To extend it with additional virtual machines and Azure services for a test environment of your own design.
 
+<<<<<<< HEAD
 The Base Configuration test environment consists of the Corpnet subnet in a cloud-only Azure Virtual Network named TestLab that simulates a simplified, private intranet connected to the Internet.
+=======
+The Base Configuration test environment consists of the Corpnet subnet in a cloud-only virtual network named TestLab that simulates a simplified, private intranet connected to the Internet.
+>>>>>>> d65ad5f5209fa59a402a77e54644672270506f3d
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
@@ -44,7 +52,11 @@ This configuration allows DC1, APP1, CLIENT1, and additional Corpnet subnet comp
 
 There are four phases to setting up the Corpnet subnet of the Windows Server 2012 R2 Base Configuration test environment in Azure.
 
+<<<<<<< HEAD
 1.	Create the Azure Virtual Network.
+=======
+1.	Create the virtual network.
+>>>>>>> d65ad5f5209fa59a402a77e54644672270506f3d
 2.	Configure DC1.
 3.	Configure APP1.
 4.	Configure CLIENT1.
@@ -53,9 +65,9 @@ If you do not already have an Azure account, you can sign up for a free trial at
 
 > [AZURE.NOTE] Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Pricing Calculator](http://azure.microsoft.com/pricing/calculator/). To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
 
-## Phase 1: Create the Azure Virtual Network
+## Phase 1: Create the virtual network
 
-First, you create the TestLab Azure Virtual Network that will host the Corpnet subnet of the base configuration.
+First, you create the TestLab virtual network that will host the Corpnet subnet of the base configuration.
 
 1.	In the task bar of the Azure Management Portal, click **New > Network Services > Virtual Network > Custom Create**.
 2.	On the Virtual Network Details page, type **TestLab** in **Name**.

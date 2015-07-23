@@ -27,7 +27,7 @@ If your organization is federated with Azure Active Directory and you have resou
 1. Use the steps outlined in [turn-on multi-factor authentication](multi-factor-authentication-get-started-cloud/#turn-on-multi-factor-authentication-for-users) for users to enable an account.
 2. Use the following procedure to setup a claims rule:
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)</center>
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 
 - 	Start the AD FS Management console.
 - 	Navigate to Relying Party Trusts and right-click on the Relying Party Trust. Select Edit Claim Rules…
@@ -48,5 +48,71 @@ If your organization is federated with Azure Active Directory and you have resou
 
 Users then can complete signing in using the on-premises method (such as smartcard).
 
+## Trusted IPs for federated users
+Trusted IPs allow administrators to by-pass multi-factor authentication for specific IP address or for federated users that have requests originating from within their own intranet. The following sections will describe how to configure Azure Multi-Factor Authentication Trusted IPs with federated users and by-pass multi-factor authentication, when a request originates from within a federated users intranet.  This is achieved by configuring AD FS to use a pass through or filter an incoming claim template with the Inside Corporate Network claim type.  This example uses Office 365 for our Relying Party Trusts.
 
- 
+### Configure the AD FS claims rules
+
+The first thing we need to do is to configure the AD FS claims. We will be creating two claims rules, one for the Inside the Corporate Network claim type and an additional one for keeping our users signed in.
+<ol>
+
+<li>Open AD FS Management.</li>
+<li>On the left, select Relying Party Trusts.</li>
+<li>In the middle, right-click on Microsoft Office 365 Identity Platform and select **Edit Claim Rules…**</li>
+
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+
+<li>On Issuance Transform Rules click **Add Rule.**</li>
+
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+<li>On the Add Transform Claim Rule Wizard, select Pass Through or Filter an Incoming Claim from the drop down and click Next.</li>
+
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+<li>In the box next to Claim rule name, give your rule a name. For example: InsideCorpNet.</li>
+<li>From the drop-down, next to Incoming claim type, select Inside Corporate Network.</li>
+
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
+
+<li>Click Finish.</li>
+<li>On Issuance Transform Rules click **Add Rule**.</li>
+<li>On the Add Transform Claim Rule Wizard, select Send Claims Using a Custom Rule from the drop down and click Next.</li>
+<li>In the box under Claim rule name: enter Keep Users Signed In.</li>
+<li>In the Custom rule box enter:
+	
+	c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
+	=> issue(claim = c);
+</li>
+
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
+
+<li>Click **Finish**.</li>
+<li>Click **Apply**.</li>
+<li>Click **Ok**.</li>
+
+<li>Close AD FS Management.</li>
+
+### Configure Azure Multi-Factor Authentication Trusted IPs with Federated Users
+Now that the claims are in place, we cane configure trusted ips.
+<ol>
+
+<li>Sign-in to the Azure Management Portal.</li>
+<li>On the left, click Active Directory.</li>
+<li>Under, Directory click on the directory you wish to setup Trusted IPs on.</li>
+<li>On the Directory you have selected, click Configure.</li>
+<li>In the multi-factor authentication section, click Manage service settings.</li>
+<li>On the Service Settings page, under Trusted IPs, select **For requests from federated users originating from my intranet.**</li>
+
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+<li>Click save.</li>
+<li>Once the updates have been applied, click close.</li>
+
+That’s it! At this point, federated Office 365 users should only have to use MFA when a claim originates from outside the corporate intranet.
+
+
+
+
+
+

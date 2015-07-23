@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/01/2015"
+	ms.date="07/13/2015"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs to increase throughput #
@@ -152,7 +152,7 @@ This query can be scaled to 24 streaming units.
 3. Click the Stream Analytics job that you want to scale.
 4. Click **SCALE** at the top of the page.
 
-![Azure Stream Analytics configure job scale][img.stream.analytics.configure.scale]
+![Azure Stream Analytics Stream Units Scale][img.stream.analytics.streaming.units.scale]
 
 
 ## Monitor job performance ##

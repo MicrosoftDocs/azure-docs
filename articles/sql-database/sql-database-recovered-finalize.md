@@ -18,14 +18,6 @@
 
 # Finalize your recovered Azure SQL Database
 
-> [AZURE.SELECTOR]
-- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
-- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md)
-- [Point in Time Restore - REST API](sql-database-point-in-time-restore-tutorial-rest.md)
-- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
-- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
-- [Geo-Restore - REST API](sql-database-geo-restore-tutorial-rest.md)
-
 ## Overview
 
 This article provides a checklist of tasks that you need to go through before putting a newly recovered Azure SQL Database back into production. This checklist applies to databases recovered from Geo-Replication failover, Deleted Database Restore, Point-in-Time Restore, or Geo-Restore.

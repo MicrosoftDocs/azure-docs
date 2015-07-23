@@ -27,12 +27,12 @@ It is important to understand the difference between codecs and file formats. Co
 This document contains a list of the most common import and export file formats that you can use with Azure Media Encoder.
 
 
-[Media Encoder Import Formats ](#import_formats)
+[Azure Media Encoder Import Formats ](#import_formats)
 
-[Media Encoder Export Formats](#export_formats)
+[Azure Media Encoder Export Formats](#export_formats)
 
 
-##<a id="import_formats"></a>Media Encoder Import Formats 
+##<a id="import_formats"></a>Azure Media Encoder Import Formats 
 
 The following section lists the codecs and file format that are supported for import.
 
@@ -102,7 +102,7 @@ Some uncompressed formats are supported. For more information, see [Supported Un
 </table>
 
 
-##<a id="export_formats"></a>Media Encoder Export Formats
+##<a id="export_formats"></a>Azure Media Encoder Export Formats
 
 The following table lists the codecs and file formats that are supported for export.
 
