@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get started on internet facing load balancer using Azure Resource Manager | Microsoft Azure "
+   pageTitle="Get started configuring an internet facing load balancer using Azure Resource Manager | Microsoft Azure "
    description="How to create a load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create a load balancer resource."
    services="load-balancer"
    documentationCenter="na"
@@ -15,7 +15,7 @@
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# How to create an internet facing load balancer using Azure Resource Manager
+# Get started configuring an internet facing load balancer using Azure Resource Manager
 
 
 > [AZURE.SELECTOR]
