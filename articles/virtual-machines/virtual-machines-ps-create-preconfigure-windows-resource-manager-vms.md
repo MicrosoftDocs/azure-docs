@@ -214,6 +214,8 @@ Copy these lines to your command set and specify the needed names and index numb
 	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
+The $nicName string must be unique for the resource group. A best practice is to incorporate the virtual machine name in the string, such as "LOB07-NIC".
+
 ### Option 5: Specify a NIC name and a load balancer instance for a load-balanced set.
 
 To create a NIC and add it to a load balancer instance for a load-balanced set, you need:
@@ -329,7 +331,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
-	$saName="contosoLOBServersSA"
+	$saName="contosolobserverssa"
 
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
@@ -337,7 +339,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
-	$nicName="AzureInterface"
+	$nicName="LOB07-NIC"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
