@@ -107,7 +107,7 @@ The JSON for the activity is shown below. The columns from source mapped to colu
 
 **Column Mapping Flow:**
 
-![Column mapping flow](./media/data-factory-common-across-all-rectangular-datasets/column-mapping-flow.png)
+![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
 ### Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
 In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section. 
