@@ -81,10 +81,10 @@ Below is an example of a dataset representing a table named **MyTable** in **Azu
 
 The **Structure** section asserts the schema of the dataset. It contains the collection of the columns and the type of these columns. Each column contains the following properties:
 
-| Property | Description | Required | Default | 
-| -------- | ----------- | -------- | ------- | 
-| name | Name of the column | No | NA |
-| type | Data type of the column | No | NA |
+Property | Description | Required | Default  
+-------- | ----------- | -------- | -------
+name | Name of the column | No | NA 
+type | Data type of the column | No | NA 
 
 ### Example
 
@@ -92,9 +92,9 @@ In the following example, the dataset has three columns slicetimestamp, projectn
 
 	structure:  
 	[ 
-	    { name: "slicetimestamp", type: "String"},
-	    { name: "projectname", type: "String"},
-	    { name: "pageviews", type: "Decimal"}
+	    { "name": "slicetimestamp", "type": "String"},
+	    { "name": "projectname", "type": "String"},
+	    { "name": "pageviews", "type": "Decimal"}
 	]
 
 ## <a name="Type"></a> Dataset Type
@@ -110,8 +110,37 @@ The Availability section in a dataset defines the processing window or the slici
 | frequency | Specifies the time unit for dataset slice production.<p>**Supported frequency**: Minute, Hour, Day, Week, Month</p> | Yes | NA |
 | interval | Specifies a multiplier for frequency<p>“Frequency x interval” determines how often the slice is produced.</p><p>If you need the dataset to be sliced on an hourly basis, you set Frequency to Hour, and interval to 1.</p><p>Note: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15</p> | Yes | NA |
 | style | Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of moth.<.p><p>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.</p>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM.</p> | No | EndOfInterval |
-| anchorDateTime | Defines the absolute position in time used by scheduler to compute dataset slice boundaries.<p>Example: 23 hours dataset slices that starts on 2007-04-19T08:00:00</p><p>    "availability":<p>    {</p><p>        "frequency": "Hour",</p><p>        "frequency": "Hour",</p><p>        "interval": "23",</p><p>        "anchorDataTime":"2007-04-19T08:00:00"</p><p>    }</p><p>Note: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts will be ignored. For example, if the interval is hourly (frequency: hour and interval: 1) and the AnchorDateTime contains minutes and seconds, then the minutes and seconds parts of the AnchorDateTime will be ignored. </p> | No | 01/01/0001 |
-| Offset | Timespan by which the start and end of all dataset slices are shifted. </p>Example: Daily slices that starts at 6 AM instead of the default midnight</p><p>    "availability":</p><p>    {</p><p>        "frequency": "Daily",</p><p>        "interval": "1",</p><p>        "Offset": "06:00:00"</p><p>    }</p><p>In this case, SliceStart is shifted by 6 hours and will be 6 AM.</p> <p>Example: For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 2nd or 3rd (60 days from the beginning of the year if style = StartOfInterval), depending on the year being leap year or not.</p><p>Note:If both anchorDateTime and offset are specified, the result is the combined shift. </p> | No | NA |
+| anchorDateTime | Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <p>Note: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts will be ignored. For example, if the interval is hourly (frequency: hour and interval: 1) and the AnchorDateTime contains minutes and seconds, then the minutes and seconds parts of the AnchorDateTime will be ignored. </p>| No | 01/01/0001 |
+| Offset | Timespan by which the start and end of all dataset slices are shifted. <p>Note: If both anchorDateTime and offset are specified, the result is the combined shift.</p> | No | NA |
+
+### anchorDateTime example
+
+Example: 23 hours dataset slices that starts on 2007-04-19T08:00:00
+
+	"availability":	
+	{	
+		"frequency": "Hour",		
+		"interval": "23",	
+		"anchorDataTime":"2007-04-19T08:00:00"	
+	}
+
+
+
+### offset example
+
+Daily slices that starts at 6 AM instead of the default midnight. 
+
+	"availability":
+	{
+		"frequency": "Daily",
+		"interval": "1",
+		"offset": "06:00:00"
+	}
+
+In this case, SliceStart is shifted by 6 hours and will be 6 AM.
+
+For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 2nd or 3rd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
+
 
 
 ## <a name="Policy"></a>Dataset Policy
@@ -122,8 +151,31 @@ he Policy section in the dataset defines the criteria or the condition that the 
 
 | Policy Name | Description | Applied To | Required | Default |
 | ----------- | ----------- | ---------- | -------- | ------- |
-| minimumSizeMB | Validates that the data in an Azure blob meets the minimum size requirements (in megabytes). <p>    "policy":</p><p>    {</p><p>        "validation":</p><p>        {</p><p>            "minimumSizeMB": 10.0</p><p>        }</p><p>    }</p> | Azure Blob | No | NA |
-|minimumRows | Validates that the data in an Azure SQL database or an Azure table contains the minimum number of rows.<p>    "policy":</p>    {</p><p>        "validation":</p><p>        {</p><p>            "minimumRows": 100</p><p>        }</p><p>    }</p> | <ul><li>Azure SQL Database</li><li>Azure Table</li></ul> | No | NA
+| minimumSizeMB | Validates that the data in an Azure blob meets the minimum size requirements (in megabytes). | Azure Blob | No | NA |
+|minimumRows | Validates that the data in an Azure SQL database or an Azure table contains the minimum number of rows. | <ul><li>Azure SQL Database</li><li>Azure Table</li></ul> | No | NA
+
+#### Examples
+
+**minimumSizeMB:**
+
+	"policy":
+	
+	{
+	    "validation":
+	    {
+	        "minimumSizeMB": 10.0
+	    }
+	}
+
+**minimumRows**
+
+	"policy":
+	{
+		"validation":
+		{
+			"minimumRows": 100
+		}
+	}
 
 ### ExternalData policies
 
