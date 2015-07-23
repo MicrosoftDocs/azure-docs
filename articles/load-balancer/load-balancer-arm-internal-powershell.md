@@ -28,9 +28,9 @@ The steps below will show how to create an internal load balancer using Azure Re
 We will cover in this page the sequence of individual tasks it has to be done to create an Internal load balancer and explain in detail what is being done to accomplish the goal to create a load balancer.
 
 
-## What is required to create a load balancer?
+## What is required to create an internal load balancer?
 
-The following items need to be configured before creating a load balancer:
+The following items need to be configured before creating an internal load balancer:
 
 - Front end IP configuration - will configure the private IP address for incoming network traffic 
 
