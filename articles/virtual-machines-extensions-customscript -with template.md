@@ -44,15 +44,14 @@ Azure Resource Manager Template allow you to declaratively specify the Azure Iaa
 
 ## Overview of using Custom Script Extension with Templates:
 
-For deploying with templates we use the same version of  Custom Script extension thats availale for Azure Service Management APIs. The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location. The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in the format '1.*'.
+For deploying with templates we use the same version of  Custom Script extension thats availale for Azure Service Management APIs. The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location. The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in majorversion.* format.
 
  ### Template Snippet for Custom Script Extension on a Linux VM
  Here is the template fragment for using Custom Script Extension on a Linux VM:
 
- //Define the following resource in the Resource section of the template
+ Define the following extension resource in the Resource section of the template
 
- {
-
+      {
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "MyCustomScriptExtension",
     "apiVersion": "2015-05-01-preview",
@@ -73,8 +72,9 @@ For deploying with templates we use the same version of  Custom Script extension
 ### Template Snippet for Custom Script Extension on a Windows VM
 Here is the template fragment for using Custom Script Extension on a Windows VM:
 
-    //Define the following resource in the Resource section of the template
-    {
+Define the following resource in the Resource section of the template
+
+       {
        "type": "Microsoft.Compute/virtualMachines/extensions",
        "name": "MyCustomScriptExtension",
        "apiVersion": "2015-05-01-preview",
@@ -91,9 +91,9 @@ Here is the template fragment for using Custom Script Extension on a Windows VM:
                "http://Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
            ],
            "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File start.ps1"
+         }
        }
-   }
-}
+     }
 
 In the examples above, replace the file URL and the file name with your own settings.
 
@@ -102,4 +102,5 @@ After authoring the template, you cna deploy them using Azure CLI or Azure Power
 Please refer to the examples below for complete samples of configuring applications on a VM using custom script extension.
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Custom Script Extension on a Linux VM</a>.
+</br>
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Custom Script Extension on a Windows VM</a>.
