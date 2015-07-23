@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to configure an availability set for virtual machines"
-	description="Gives the steps to configure an availability set for a new or existing virtual machine in Azure using the Azure management portal and Azure PowerShell commands"
+	description="Gives the steps to configure an availability set for a new or existing virtual machine in Azure using the Azure Management Portal and Azure PowerShell commands"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
@@ -29,36 +29,36 @@ You can put virtual machines into an availability set by using one of two option
 - [Option 2: Add an existing virtual machine to an availability set] [].
 
 
->[AZURE.NOTE] Virtual machines that you want to put in the same availability set must belong to the same cloud services.
+>[AZURE.NOTE] Virtual machines that you want to put in the same availability set must belong to the same cloud service.
 
 ## <a id="createset"> </a>Option 1: Create a virtual machine and an availability set at the same time##
 
-You can use either the management portal or Azure PowerShell commands to do this.
+You can use either the Azure Management Portal or Azure PowerShell commands to do this.
 
-To use the management portal:
+To use the portal:
 
-1. If you haven't already done so, sign in to the [Azure management portal](http://manage.windowsazure.com).
+1. If you haven't already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. On the command bar, click **New**.
 
 3. Click **Virtual Machine**, and then click **From Gallery**.
 
-4. Use the first two screens to pick an image, a user name and password, and so on. For more details, see [Create a virtual machine running Windows][].
+4. Use the first two screens to select an image, a user name and password, and so on. For more details, see [Create a virtual machine running Windows][].
 
 5. In the third screen, you can configure resources for networking, storage, and availability. Do the following:
 
-	1. Pick the appropriate choice for a cloud service. Leave it set to **Create a new cloud service** (unless you are adding this new virtual machine to an existing virtual machine cloud service). Then, under **Cloud Service DNS Name**, type a name. The DNS name becomes part of the URI that's used to contact the virtual machine. The cloud service acts as a communications and isolation group. All virtual machines in the same cloud service can communicate with each other, can be set up for load balancing, and can be placed in the same availability set.
+	1. Choose the appropriate cloud service. Leave it set to **Create a new cloud service** (unless you are adding this new virtual machine to an existing virtual machine cloud service). Then, under **Cloud Service DNS Name**, type a name. The DNS name becomes part of the URI that's used to contact the virtual machine. The cloud service acts as a communications and isolation group. All virtual machines in the same cloud service can communicate with each other, can be set up for load balancing, and can be placed in the same availability set.
 
-	2. Under **Region/Affinity Group/Virtual Network**, specify a virtual network if you plan to use one. **Important**: If you want a virtual machine to use a virtual network, you must join the virtual machine to the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network overview][].
+	2. Under **Region/Affinity Group/Virtual Network**, specify a virtual network if you plan to use one. **Important**: If you want a virtual machine to use a virtual network, you must join the virtual machine to the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network Overview][].
 
 	3. Create the availability set. Under **Availability Set**, leave it set to **Create an availability set**. Then, type a name for the set.
 
 	4. Create the default endpoints and add more endpoints if needed. You also can add endpoints later.
 
-	![Create an availabililty set for a new virtual machine](./media/virtual-machines-how-to-configure-availability/VMavailabilityset.png)
+	![Create an availability set for a new virtual machine](./media/virtual-machines-how-to-configure-availability/VMavailabilityset.png)
 
-6. On the fourth screen, click the extensions that you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure Virtual Machine Agent and Virtual Machine Extensions](http://go.microsoft.com/fwlink/p/?LinkId=XXX).
-git a
+6. On the fourth screen, click the extensions that you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure VM Agent and VM Extensions](http://go.microsoft.com/fwlink/p/?LinkId=XXX).
+
 7.	Click the arrow to create the virtual machine and the availability set.
 
 	From the dashboard of the new virtual machine, you can click **Configure** to see that the virtual machine belongs to the new availability set.
@@ -71,9 +71,9 @@ To use Azure PowerShell commands to create an Azure virtual machine and add it t
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
 
-In the management portal, you can add existing virtual machines to an existing availability set, or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
+In the portal, you can add existing virtual machines to an existing availability set, or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
 
-1. If you have not already done so, sign in to the [Azure management portal](http://manage.windowsazure.com).
+1. If you have not already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. On the command bar, click **Virtual Machines**.
 
