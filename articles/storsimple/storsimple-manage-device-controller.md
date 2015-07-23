@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="07/23/2015"
    ms.author="alkohli" />
 
 #Overview
@@ -65,14 +65,21 @@ To manage your device controllers from the Management Portal, perform the follow
 
 	> [AZURE.NOTE] **If you cannot see Manage Controllers, you need to install updates. For more information, see [Update your device](storsimple-update-device).**
 
-1. In the **Change Controller Settings** dialog box, from the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
+1. In the **Change Controller Settings** dialog box, do the following:
 
-	> [AZURE.NOTE] A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.
+
+	- From the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
+
+		> [AZURE.NOTE] A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.
 	
-2. From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
-		![Restart StorSimple Device Passive Controller](./media/storsimple-manage-device-controller/IC766020.png)
 
-1. Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
+
+	- From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
+	
+		![Restart StorSimple Device Passive Controller](./media/storsimple-manage-device-controller/IC766020.png)
+ 
+
+	- Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
 
 This will restart or shut down the controller. The table below summarizes the details of what happens depending on the selections you have made in the **Change Controller Settings** dialog box.  
 													
@@ -120,7 +127,7 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 1. Use the [restart or shut down a controller](#restart-or-shut-down-a-single-controller) procedure to identify and shut down the passive controller on your device. You can perform this operation in the Management Portal or in the the Windows PowerShell for StorSimple.
 2. Repeat the above step to shut down the active controller.
-3. You will now need to look at the back plane of the device. After the two controllers are completely shut down, the status LEDs on both the controllers should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This should shut down the device.
+3. You will now need to look at the back plane of the device. After the two controllers are completely shut down, the status LEDs on both the controllers should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This should turn off the device.
 
 
 <!--#### To shut down a StorSimple device in Windows PowerShell for StorSimple
@@ -198,7 +205,7 @@ In this section, we have summarized some of the frequently asked questions regar
 
 **Q.** How can you figure out if a controller was restarted or shut down?
 
-**A.** You can check the controller status on the Maintenance page. The controller status will indicate whether a controller has been restarted or shut down. Additionally, the Alerts page will contain an informational alert if the controller was restarted or shut down. The controller restart and shutdown operations are also recorded in the operation logs. For more information about operation logs, go to [View operation logs](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec03).
+**A.** You can check the controller status on the Maintenance page. The controller status will indicate whether a controller has been restarted or shut down. Additionally, the Alerts page will contain an informational alert if the controller was restarted or shut down. The controller restart and shutdown operations are also recorded in the operation logs. For more information about operation logs, go to [View the operation logs](storsimple-service-dashboard.md#view-the-operations-logs).
 
 **Q.** Is there any impact to the I/Os as a result of controller failover?
 
@@ -210,4 +217,4 @@ In this section, we have summarized some of the frequently asked questions regar
 
 ## Next steps
 
-If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in thsi tutorial, [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
