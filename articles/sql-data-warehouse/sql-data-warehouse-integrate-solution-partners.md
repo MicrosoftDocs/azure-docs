@@ -50,15 +50,15 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 
 
 <!--Image references-->
-[1]:  ./media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
-[2]:  ./media/sql-data-warehouse-integrate-solution-partners/birst_logo.png
-[3]:  ./media/sql-data-warehouse-integrate-solution-partners/bryte_systems_logo.png
-[4]:  ./media/sql-data-warehouse-integrate-solution-partners/clearstory_data_logo.png
-[5]:  ./media/sql-data-warehouse-integrate-solution-partners/coffing_data_warehousing_logo.png
-[6]:  ./media/sql-data-warehouse-integrate-solution-partners/dell_statistica_logo.png
-[7]:  ./media/sql-data-warehouse-integrate-solution-partners/dundas_software_logo.png
-[8]:  ./media/sql-data-warehouse-integrate-solution-partners/inbrein_logo.png
-[9]:  ./media/sql-data-warehouse-integrate-solution-partners/infolibrarian_logo.png
+[1]: ./media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
+[2]: ./media/sql-data-warehouse-integrate-solution-partners/birst_logo.png
+[3]: ./media/sql-data-warehouse-integrate-solution-partners/bryte_systems_logo.png
+[4]: ./media/sql-data-warehouse-integrate-solution-partners/clearstory_data_logo.png
+[5]: ./media/sql-data-warehouse-integrate-solution-partners/coffing_data_warehousing_logo.png
+[6]: ./media/sql-data-warehouse-integrate-solution-partners/dell_statistica_logo.png
+[7]: ./media/sql-data-warehouse-integrate-solution-partners/dundas_software_logo.png
+[8]: ./media/sql-data-warehouse-integrate-solution-partners/inbrein_logo.png
+[9]: ./media/sql-data-warehouse-integrate-solution-partners/infolibrarian_logo.png
 [10]: ./media/sql-data-warehouse-integrate-solution-partners/informatica_logo.png
 [11]: ./media/sql-data-warehouse-integrate-solution-partners/jinfonet_logo.png
 [12]: ./media/sql-data-warehouse-integrate-solution-partners/logianalytics_logo.png
