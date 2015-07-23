@@ -13,18 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/24/2015" 
 	ms.author="juliako"/>
 
 
 #How to: Deliver streaming content
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ##Overview
 
 
-You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming locator and building a streaming URL. The [encoding an asset](media-services-rest-encode-asset.md) topic shows how to encode into an adaptive bitrate MP4 set. Before you create a locator you should configure asset delivery policy as described in [this](media-services-rest-configure-asset-delivery-policy.md) topic. 
+You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming locator and building a streaming URL. The [encoding an asset](media-services-rest-encode-asset.md) topic shows how to encode into an adaptive bitrate MP4 set. If your content is encrypted, configure asset delivery policy (as described in [this](media-services-rest-configure-asset-delivery-policy.md) topic) before creating a locator. 
 
 You can also use an OnDemand streaming locator to build URLs that point to MP4 files that can be progressively downloaded.  
 
@@ -37,7 +40,7 @@ The [following](#types) section shows the enum types whose values are used in th
 To create the OnDemand streaming locator and get URLs you need to do the following:
 
 
-   1. Define an access policy.
+   1. If the content is encrypted, define an access policy.
    2. Create an OnDemand streaming locator.
    3. If you plan to stream, get the streaming manifest file (.ism) in the asset. 
    		

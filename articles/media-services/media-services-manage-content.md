@@ -20,9 +20,6 @@
 # Manage Content with Azure Media Services using Azure Management Portal
 
 
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-
 This topic shows how to use Azure Management Portal to manage media content in your Media Services account.
 
 This topic shows how to perform the following content operations directly from the portal:
@@ -37,6 +34,9 @@ This topic shows how to perform the following content operations directly from t
 
 
 ##<a id="upload"></a>How to: Upload content 
+
+
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
@@ -59,6 +59,10 @@ If the file size value does not get updated after the uploading process stops, p
 
 ##<a id="index"></a>How to: Index content
 
+> [AZURE.SELECTOR]
+- [.NET](media-services-index-content.md)
+- [Portal](media-services-manage-content.md#index)
+
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](media-services-index-content.md).
 
 To following steps demonstrate how to use the Management Portal to index your content.
@@ -72,6 +76,11 @@ To following steps demonstrate how to use the Management Portal to index your co
 	![Process][process]
 
 ##<a id="encode"></a>How to: Encode content
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 In order to deliver digital video over the internet you must compress the media. Media Services provides a media encoder that allows you to specify how you want for your content to be encoded (for example, the codecs to use, file format, resolution, and bitrate.) 
 
@@ -136,6 +145,11 @@ If you want for Media Services to dynamically encrypt your asset with an AES key
 	Once you enabled encryption, whenever a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
 ##<a id="publish"></a>How to: Publish content
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ###Overview
 
