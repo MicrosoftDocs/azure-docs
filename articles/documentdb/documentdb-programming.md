@@ -471,11 +471,16 @@ The UDF can subsequently be used in queries like in the following sample:
 	    console.log("Error" , error);
 	});
 
-## JavaScript query API
-In addition to issuing queries using DocumentDB’s SQL grammar, the server-side SDK allows you to perform optimized queries directly in JavaScript (no SQL knowledge needed). The JavaScript Query API allows you to programmatically build queries simply by passing lambdas in to chainable function calls.
+## Fluent JavaScript query API
+In addition to issuing queries using DocumentDB’s SQL grammar, the server-side SDK allows you to perform optimized queries using fluent JavaScript interfaces without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing anonymous functions into chainable function calls. Queries are parsed by the JavaScript runtime to be executed efficiently directly over DocumentDB’s indices.
 
-### JavaScript query grammar
-The current set of supported functions include:
+### JavaScript Query grammar
+
+> [AZURE.NOTE] `__` (double-underscore) is an alias to `getContext().getCollection()`.
+> <br/>
+> In other words, you can use `__` or `getContext().getCollection()` to access the JavaScript query API.
+
+Supported functions include:
 <ul>
 <li>
 <b>chain() ... .value([callback] [, options])</b>
@@ -532,14 +537,75 @@ The following JavaScript constructs do not get optimized for DocumentDB indices:
 
 For more information, please see our [Server-Side JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/).
 
-### SQL to Javascript query API cheat sheet
+### Example: Write a stored procedure using the JavaScript query API
+
+The following code sample is an example of how the JavaScript Query API can be used in the context of a stored procedure. In this case, the stored procedure implements upsert (create a document, or replace if it already exists) by using the `__.filter()` method to check whether the document already exists.
+
+    function upsert(newDocument) {
+      var response = getContext().getResponse();
+
+      if (!newDocument) throw new Error("The document is undefined or null.");
+
+      tryQuery(null);
+      // Query to see if a document with the given id already exists.
+      function tryQuery(continuation) {
+        __.filter(
+          // Predicate function.
+          function(doc) {
+            return doc.id == newDocument.id;
+          },
+          // Request options.
+          {
+            continuation: continuation
+          },
+          // Callback.
+          function(err, resource, options) {
+            if (resource.length > 0) {
+              // If the document already exists - replace it.
+              tryReplace(resource[0]);
+            } else if (options.continuation) {
+              // Conservative check for continuation; not expected to hit in practice for a query by id.
+              tryQuery(options.continuation);
+            } else {
+              // If the document doesn't already exist - create it.
+              tryCreate();
+            }
+          });
+      }
+
+      // If the document doesn't already exist - create it.
+      function tryCreate() {
+        var isAccepted = __.createDocument(__.getSelfLink(), newDocument, function(err, resource) {
+          if (err) throw err;
+          response.setBody({
+            "operation": "created",
+            "document": resource
+          });
+
+        });
+
+        if (!isAccepted) throw new Error("Unable to schedule create document");
+      }
+
+    // If the document already exists - replace it.
+      function tryReplace(docToReplace) {
+        var isAccepted = __.replaceDocument(docToReplace._self, newDocument, function(err, resource) {
+          if (err) throw err;
+          response.setBody({
+            "operation": "replaced",
+            "document": resource
+          });
+
+        });
+
+        if (!isAccepted) throw new Error("Unable to schedule replace document");
+      }
+    }
+
+## SQL to Javascript query API cheat sheet
 The following table presents various SQL queries and the corresponding JavaScript queries.
 
 As with SQL queries, document property keys (e.g. `doc.id`) are case-sensitive.
-
-> [AZURE.NOTE] `__` (double-underscore) is an alias to `getContext().getCollection()`.
-> <br/>
-> In other words, you can use `__` or `getContext().getCollection()` to access the JavaScript query API.
 
 <br/>
 <table border="1" width="100%">
@@ -671,72 +737,6 @@ __.chain()
 </tr>
 </tbody>
 </table>
-
-### Example: Write a stored procedure using the JavaScript query API
-
-The following code sample is an example of how the JavaScript Query API can be used in the context of a stored procedure. In this case, the stored procedure implements upsert (create a document, or replace if it already exists) by using the `__.filter()` method to check whether the document already exists.
-
-    function upsert(newDocument) {
-      var response = getContext().getResponse();
-
-      if (!newDocument) throw new Error("The document is undefined or null.");
-
-      tryQuery(null);
-      // Query to see if a document with the given id already exists.
-      function tryQuery(continuation) {
-        __.filter(
-          // Predicate function.
-          function(doc) {
-            return doc.id == newDocument.id;
-          },
-          // Request options.
-          {
-            continuation: continuation
-          },
-          // Callback.
-          function(err, resource, options) {
-            if (resource.length > 0) {
-              // If the document already exists - replace it.
-              tryReplace(resource[0]);
-            } else if (options.continuation) {
-              // Conservative check for continuation; ot expected to hit in practice for a query by id.
-              tryQuery(options.continuation);
-            } else {
-              // If the document doesn't already exist - create it.
-              tryCreate();
-            }
-          });
-      }
-
-      // If the document doesn't already exist - create it.
-      function tryCreate() {
-        var isAccepted = __.createDocument(__.getSelfLink(), newDocument, function(err, resource) {
-          if (err) throw err;
-          response.setBody({
-            "operation": "created",
-            "document": resource
-          });
-
-        });
-
-        if (!isAccepted) throw new Error("Unable to schedule create document");
-      }
-
-    // If the document already exists - replace it.
-      function tryReplace(docToReplace) {
-        var isAccepted = __.replaceDocument(docToReplace._self, newDocument, function(err, resource) {
-          if (err) throw err;
-          response.setBody({
-            "operation": "replaced",
-            "document": resource
-          });
-
-        });
-
-        if (!isAccepted) throw new Error("Unable to schedule replace document");
-      }
-    }
-
 
 ## Runtime support
 [DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources.md).
