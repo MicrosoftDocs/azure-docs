@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="07/23/2015" 
 	ms.author="andrl"/>
 
 # DocumentDB server-side programming: Stored procedures, triggers, and UDFs
@@ -473,8 +473,6 @@ The UDF can subsequently be used in queries like in the following sample:
 
 ## Fluent JavaScript query API
 In addition to issuing queries using DocumentDB’s SQL grammar, the server-side SDK allows you to perform optimized queries using fluent JavaScript interfaces without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing anonymous functions into chainable function calls. Queries are parsed by the JavaScript runtime to be executed efficiently directly over DocumentDB’s indices.
-
-### JavaScript Query grammar
 
 > [AZURE.NOTE] `__` (double-underscore) is an alias to `getContext().getCollection()`.
 > <br/>
