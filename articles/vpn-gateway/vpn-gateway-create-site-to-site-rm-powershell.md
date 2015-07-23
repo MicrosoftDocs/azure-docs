@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure Portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-s2s-rm-powershell.md)
+- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
 This topic will walk you through creating an Azure Resource Manager virtual network and a site-to-site VPN connection to your on-premises network. 
