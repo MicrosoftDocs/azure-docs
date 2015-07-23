@@ -32,10 +32,6 @@ The CLI can be used in [Service Management (asm)](../virtual-machines/virtual-ma
 
 	azure config mode arm
 
-You can switch back to Service Management mode by specifying `asm` mode.
-
-	azure config mode asm
-
 ## List commands available for working with API apps
 
 To see all the commands currently available for working with API apps, run the `apiapp` command.
