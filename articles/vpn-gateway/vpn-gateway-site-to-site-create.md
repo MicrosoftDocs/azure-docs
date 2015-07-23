@@ -18,11 +18,6 @@
 
 # Create a virtual network with a site-to-site VPN connection using the Management Portal
 
-> [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
-
-
 
 You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and creating a site-to-site VPN connection between your newly created VNet and your on-premises location.
 
