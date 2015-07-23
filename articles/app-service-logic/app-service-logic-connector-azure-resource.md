@@ -69,7 +69,7 @@ For **Resource Group Deployments** you can:
 Name | Description 
 ---- | -----------
 List deployments | List all of the deployments in a resource group.
-Get deployment | Get a template deployment by its id."
+Get deployment | Get a template deployment by its id.
 Create deployment | Create a new resource group deployment by providing a template.
 
 For **Events** about resources you can:

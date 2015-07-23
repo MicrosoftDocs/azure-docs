@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell

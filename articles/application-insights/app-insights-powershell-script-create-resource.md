@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.date="07/17/2015" 
 	ms.author="awills"/>
 
 #  PowerShell script to create an Application Insights resource
@@ -65,7 +65,7 @@ Switch-AzureMode AzureResourceManager
 Select-AzureSubscription -SubscriptionName "MySubscription"
 
 #Create the App Insights Resource
-$resource = New-AzureResource -Name $appInsightsName -ResourceGroupName $resourceGroupName -Tag @{ Name = "AppInsightsApp"; Value = $applicationTagName} -ResourceType "Microsoft.Insights/Components" -Location "Central US" -ApiVersion "2014-08-01"
+$resource = New-AzureResource -Name $appInsightsName -ResourceGroupName $resourceGroupName -Tag @{ Name = "AppInsightsApp"; Value = $applicationTagName} -ResourceType "Microsoft.Insights/Components" -Location "Central US" -ApiVersion "2014-08-01" -PropertyObject @{"Type"="ASP.NET"} -Force 
 
 #Give team owner access - http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/
 New-AzureRoleAssignment -Mail "myTeam@fabrikam.com" -RoleDefinitionName Owner -Scope $resource.ResourceId | Out-Null

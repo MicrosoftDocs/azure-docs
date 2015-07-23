@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/08/2015"
+	ms.date="07/21/2015"
 	ms.author="jgao"/>
 
 # Get started using Visual Studio Hadoop tools for HDInsight to run a Hive query
@@ -182,6 +182,14 @@ The most recent release of the tool allows you to see what’s inside your Hive 
 
 	![Hadoop tools: HDInsight Visual Studio Tools view Hive jobs][12]
 
+### Tez Hive job performance graph
+
+The HDInsight Visual Studio Tools support showing performance graphs for the Hive jobs ran by the Tez execution engine. For information on enabling Tez, see [use Hive in HDInsight][hdinsight.hive]. After you submit a Hive job in Visual Studio, Visual Studio will show you the graph when the job is completed.  You might need to click the Refresh button to get the latest job status.
+
+> [AZURE.NOTE] This feature is only available for HDInsight cluster version above 3.2.4.593, and can only work for completed jobs. This works for both Windows and Linux based clusters.
+
+![hadoop hive tez performance graph](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
+
 ## Run Pig scripts
 
 HDInsight Tools for Visual Studio supports creating and submit Pig scripts to HDInsight clusters. Users can create a Pig project from template, and then submit the script to HDInsight clusters.
@@ -215,6 +223,7 @@ In this article, you have learned how to connect to HDInsight clusters from Visu
 [12]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png
 [13]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.table.names.png
 [14]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png
+
 
 <!--Link references-->
 [hdinsight-provision]: ../hdinsight/hdinsight-provision-clusters.md
