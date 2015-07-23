@@ -26,8 +26,8 @@
 
 This topic will walk you through creating an Azure Resource Manager virtual network and a site-to-site VPN connection to your on-premises network. 
 
-Azure currently has two management modes: Azure Service Manager, and Azure Resource Manager (ARM). The site-to-site setup is different, depending on the mode your virtual network was created in.
-These instructions apply to ARM. If you want to create a Azure Service Manager site-to-site VPN connection instead, see [Create a site-to-site VPN connection in the Management Portal](vpn-gateway-site-to-site-create.md).
+Azure currently has two management modes: Azure Service Management, and Azure Resource Manager (ARM). The site-to-site setup is different, depending on the mode your virtual network was created in.
+These instructions apply to ARM. If you want to create a Azure Service Management site-to-site VPN connection instead, see [Create a site-to-site VPN connection in the Management Portal](vpn-gateway-site-to-site-create.md).
 
 
 ## Before you begin
