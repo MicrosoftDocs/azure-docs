@@ -38,7 +38,6 @@ At this time, multi VIP functionality is limited to the following scenarios:
 
 - **IaaS only**. You can only enable multi VIP for cloud services that contain VMs. You cannot use multi VIP in PaaS scenarios, with role instances.
 - **PowerShell only**. You can only manage multi VIP by using PowerShell.
-- **No ARM support**. There is no support for multi VIP in Azure Resource Manager.
 
 >[AZURE.IMPORTANT] These limitations are temporary, and may change at any time. Make sure to revisit this page to verify future changes.
 
