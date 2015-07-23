@@ -40,7 +40,7 @@ To see all the commands currently available for working with API apps, run the `
 
 ## List all API apps in a subscription or resource group
 
-To list all the API apps you have in your subscription run the `apiapp list` command with no parameters.
+To list all the API apps you have in your subscription, run the `apiapp list` command with no parameters.
 
 	azure apiapp list
 
