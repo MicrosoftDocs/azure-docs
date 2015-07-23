@@ -77,7 +77,7 @@ You will define the Blob Source dataset as follows along with type definitions f
 	                "columnDelimiter": ","
 	            }
 	        },
-	        “external”: “true”,
+	        "external": "true",
 	        "availability":
 	        {
 	            "frequency": "Hour",
@@ -107,7 +107,7 @@ Next you will define the Azure SQL dataset as follows. Note: You do not need to 
 	        "type": "AzureSqlTableLocation",
 	        "linkedServiceName": "AzureSqlLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable”
+	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",

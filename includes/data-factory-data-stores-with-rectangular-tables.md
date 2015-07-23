@@ -30,15 +30,15 @@ In this sample, the input table is defined as follows. The input table has a str
 	        "type": "AzureSqlTableLocation",
 	        "linkedServiceName": "AzureSqlLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable”
+	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": "1",
 	            "externalData": {
 	                "retryInterval": "00:01:00",
 	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
+	                "maximumRetry": "3"
 	            }
 	        }
 	    }
@@ -145,7 +145,7 @@ In this case the query results are first mapped to columns specified in “struc
 
 #### Column Mapping Flow
 
-![Column mapping flow-2](./media/data-factory-common-across-all-rectangular-datasets/column-mapping-flow-2.png)
+![Column mapping flow-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
 
 

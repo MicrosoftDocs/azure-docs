@@ -54,6 +54,7 @@ The sample copies data belonging to a time series from an Azure blob to a table 
 	}
 
 **Azure Blob input dataset:**
+
 Data is picked up from a new blob every hour with the path & filename for the blob reflecting the specific date-time with hour granularity. “external”: “true” tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
 	{
@@ -120,6 +121,7 @@ Data is picked up from a new blob every hour with the path & filename for the bl
 	}
 
 **Azure SQL output dataset:**
+
 The sample copies data to a table named “MyTable” in Azure SQL. You should create the table in your Azure SQL database with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
 	{
@@ -137,7 +139,8 @@ The sample copies data to a table named “MyTable” in Azure SQL. You should c
 	  }
 	}
 
-**Piplie with a Copy activity:**
+**Pipeline with a Copy activity:**
+
 Copy activity specifies the input, output dataset and is scheduled for runs every hour.
 
 	{  
@@ -374,7 +377,7 @@ The typeProperties section is different for each type of dataset and provides in
 | -------- | ----------- | -------- | 
 | folderPath | Path to the container and folder in the blob storage. Example: myblobcontainer\myblobfolder\ | Yes |
 | fileName | <p>Name of the blob. fileName is optional. </p><p>If you specify a filename the activity (including Copy) works on the specific Blob.</p><p>When fileName is not specified Copy will include all Blobs in the folderPath for input dataset.</p><p>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
-| partitionedBy | <p>partitionedBy is an optional property. You can leverage it for 2 purposes. Please refer to the partitionedBy section below for details and examples.</p><p>1.	Specifying a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data.</p> | No
+| partitionedBy | <p>partitionedBy is an optional property. You can leverage it for 2 purposes. Please refer to the partitionedBy section below for details and examples.</p><p>Specifying a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data.</p> | No
 | format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either if this value. When the format is TextFormat you can specify additional optional properties for format. Please refer to format section below for more details. | No
 
 ## Leveraging partionedBy property
@@ -414,7 +417,7 @@ If the format is set to **TextFormat**, you can specify the following **optional
 | -------- | ----------- | -------- |
 | columnDelimiter | The character(s) used as a column separator in a file.This tag is optional. The default value is comma (,). | No |
 | rowDelimiter | The character(s) used as a raw separator in file. This tag is optional. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
-| escapeChar | <p>The special character used to escape column delimiter shown in content. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> } | No | 
+| escapeChar | <p>The special character used to escape column delimiter shown in content. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No | 
 | quoteChar | <p>The special character is used to quote the string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. This property is applicable to both input and output tables.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No |
 | nullValue | <p>The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N”.</p><p>For example, based on above sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server.</p> | No |
 | encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). For example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
@@ -455,7 +458,7 @@ For a full list of sections & properties available for defining activities pleas
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks
 
-**BlobSource** supports the following properties in typeProperties section:
+**BlobSource** supports the following properties in **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- | 
@@ -469,9 +472,9 @@ Properties available in the typeProperties section of the activity on the other 
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | Specifies whether to add header of column definitions. | TRUE, FALSE (default) | No |
 
-[AZURE.INCLUDE [data-factory-common-across-all-datasets](../../includes/data-factory-common-across-all-datasets.md)]
+[AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-[AZURE.INCLUDE [data-factory-common-across-all-rectangular-datasets](../../includes/data-factory-common-across-all-rectangular-datasets.md)]
+[AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
 
 
 
