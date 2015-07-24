@@ -18,6 +18,8 @@
 
 # How to configure your application to use Twitter login
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 This topic shows you how to configure Azure App Services to use Twitter as an authentication provider.
 
 To complete the procedure in this topic, you must have a Twitter account that has a verified email address. To create a new Twitter account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.

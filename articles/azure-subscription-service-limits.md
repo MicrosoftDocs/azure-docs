@@ -177,7 +177,19 @@ For additional details on SQL Database limits, please see the following topics:
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
-##Multi-Factor Authentication
+## API Management Limits
+
+[AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
+
+## Azure Redis Cache Limits
+
+[AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
+
+## Key Vault Limits
+
+[AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
+
+## Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ## See Also

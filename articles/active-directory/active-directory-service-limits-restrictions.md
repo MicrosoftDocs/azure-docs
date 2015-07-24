@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="07/13/2015"
 	ms.author="curtand"/>
 
 # Azure AD service limits and restrictions

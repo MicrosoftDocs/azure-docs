@@ -3,7 +3,7 @@
 	description="Learn about the key design and implementation guidelines for deploying an IT workload in Azure infrastructure services." 
 	documentationCenter=""
 	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
+	authors="squillace" 
 	manager="timlt" 
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -15,11 +15,11 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/09/2015" 
-	ms.author="josephd"/>
+	ms.author="rasquill"/>
 
 # Azure infrastructure services implementation guidelines
  
-Azure is an excellent platform to implement dev/test or proof-of-concept configurations, since it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
+Azure is an excellent platform to implement dev/test or proof-of-concept configurations, because it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
 
 This guidance identifies many areas for which planning are vital to the success of an IT workload in Azure. In addition, provides an order to the creation of the necessary resources. Although there is some flexibility, Microsoft recommends that you apply the order in this article to your planning and decision-making.
 
@@ -29,7 +29,7 @@ This article was adapted from the content in the [Azure Implementation Guideline
 
 ## 1. Naming conventions
 
-A good naming convention should be in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with management of those resources.
+You should have a good naming convention in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with management of those resources.
 
 You might choose to follow a specific set of naming conventions defined for your entire organization, or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, when a team needs to work on a project on Azure, that model does not scale well. 
 
@@ -63,9 +63,10 @@ When establishing your naming conventions, make sure that they clearly state whi
 
 ### Dates
 
-Many times, it is important to determine the date of creation from the name of a resource. Microsoft recommends the YYYYMMDD date format. This format ensures that not only the full date is recorded, but also that two resources whose names differ only on the date will be sorted alphabetically and chronologically at the same time.
+It is often important to determine the date of creation from the name of a resource. Microsoft recommends the YYYYMMDD date format. This format ensures that not only the full date is recorded, but also that two resources whose names differ only on the date will be sorted alphabetically and chronologically at the same time.
 
 ### Naming resources
+
 You should define each type of resource in the naming convention, which should have rules that define how to assign names to each resource created. These rules should apply to all types of resources, for instance:
 
 - Subscriptions
@@ -81,25 +82,24 @@ You should define each type of resource in the naming convention, which should h
 - Network Security Groups
 - Roles
 
-Names should be as descriptive as possible, to ensure that the name can provide enough information to determine to which resource it refers.
+To ensure that the name can provide enough information to determine to which resource it refers, you should use descriptive names.
 
 ### Computer names
 
 When administrators create a virtual machine, Microsoft Azure will require them to provide a virtual machine name of up to 15 characters. Microsoft Azure will use the virtual machine name as the Azure virtual machine resource name. Azure will use the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same. 
 
-In cases in which a virtual machine is created from a .VHD file that already contains an operating system, the virtual machine name in Microsoft Azure might differ from the virtual machine’s OS computer name. This situation might add a degree of difficulty to virtual machine management and we discourage it. Always ensure that the Azure virtual machine resource name is the same name as the computer name as assigned to the operating system of that virtual machine.
+In cases in which a virtual machine is created from a .VHD image file that already contains an operating system, the virtual machine name in Microsoft Azure may differ from the virtual machine’s OS computer name. This situation can add a degree of difficulty to virtual machine management and we discourage it. Name the Azure virtual machine resource the same name as the computer name that you  assign to the operating system of that virtual machine.
 
 We recommend that the Azure Virtual Machine name be the same as the underlying OS computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS Computer Naming Conventions](https://support.microsoft.com/kb/188997/).
 
 ### Storage account names
 
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers and the assigned name, concatenated to the service (blob, table, or queue) and the default domain (core.windows.net) should render a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting URLs should be valid, unique DNS names:
+Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 - mystorageaccount.blob.core.windows.net
 - mystorageaccount.table.core.windows.net
 - mystorageaccount.queue.core.windows.net
 
-In addition, storage accounts can take advantage of containers. These must adhere to the naming conventions as described in [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 ### Azure building block names
 
@@ -155,20 +155,20 @@ Task:
 
 ## 3. Storage
 
-Storage is an integral part of any Azure solution, since not only does it provide application level services, but it is also part of the infrastructure supporting virtual machines. 
- 
-There are two types of storage available from Azure. Standard storage gives you access to Blob storage, Table storage, Queue storage, and File storage. Premium storage is designed for high-performance applications, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure Virtual Machine disks only.
+Azure Storage is an integral part of many Azure solutions. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting virtual machines. 
+
+There are two types of storage accounts available from Azure. A standard storage account gives you access to Blob storage (used for storing Azure Virtual Machine disks), Table storage, Queue storage, and File storage. Premium storage is designed for high-performance applications, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure Virtual Machine disks only.
 
 Storage accounts are bound to scalability targets. See [Microsoft Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md).
 
-Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure blobs, whereas the temporary disk is backed by storage local to the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, since the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
+Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, because the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
 
-Operating system disks and data disks have a maximum size of 1023 GB since the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can implement disk striping in Windows to surpass this limit.
+Operating system disks and data disks have a maximum size of 1023 GB because the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can implement disk striping in Windows to surpass this limit.
 
 ### Striped Disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks will enhance performance by allowing multiple blobs to back the storage for a single volume. This parallelizes the I/O required to write and read data from a single disk. 
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For the details, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For the details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
@@ -214,7 +214,7 @@ In the case of IaaS, cloud services offer similar functionality, although in mos
 
 Cloud service names are especially important in IaaS because Azure uses them as part of the default naming convention for disks. The cloud service name can contain only letters, numbers, and hyphens. The first and last character in the field must be a letter or number.
 
-Microsoft Azure exposes the cloud service names, since they are associated to the VIP, in the domain “cloudapp.net”. For better user experience of the application, a vanity name should be configured as needed to replace the fully qualified cloud service name. This is typically done with a CNAME record in your public DNS that maps the public DNS name of your resource (for example, www.contoso.com) to the DNS name of the cloud service hosting the resource (for example, the cloud service hosting the web servers for www.contoso.com).
+Microsoft Azure exposes the cloud service names, because they are associated to the VIP, in the domain “cloudapp.net”. For better user experience of the application, a vanity name should be configured as needed to replace the fully qualified cloud service name. This is typically done with a CNAME record in your public DNS that maps the public DNS name of your resource (for example, www.contoso.com) to the DNS name of the cloud service hosting the resource (for example, the cloud service hosting the web servers for www.contoso.com).
 
 In addition, the naming convention used for cloud services might need to tolerate exceptions because the cloud service names must be unique among all other Microsoft Azure cloud services, regardless of the Microsoft Azure tenant.
 
@@ -294,7 +294,7 @@ Tasks:
 
 In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
 
-In Azure IaaS, the concept of role is not significant, since each IaaS virtual machine represents a role with a single instance. In order to hint Azure not to bring down two or more associated machines at the same time (e.g. for OS updates of the node where they reside), the concept of availability sets was introduced. An availability set tells Azure not to bring down all the machines in the same availability set at the same time to prevent a service outage. The virtual machine members of an availability set have a 99.95% uptime service level agreement. 
+In Azure IaaS, the concept of role is not significant, because each IaaS virtual machine represents a role with a single instance. In order to hint Azure not to bring down two or more associated machines at the same time (e.g. for OS updates of the node where they reside), the concept of availability sets was introduced. An availability set tells Azure not to bring down all the machines in the same availability set at the same time to prevent a service outage. The virtual machine members of an availability set have a 99.95% uptime service level agreement. 
 
 Availability sets must be part of the high-availability planning of the solution. An availability set is defined as the set of virtual machines within a single cloud service that have the same availability set name. You can create availability sets after you create cloud services.
 
@@ -430,7 +430,7 @@ This configuration incorporates:
 
 [Microsoft Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md#storage-limits)
 
-[Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Sizes for Virtual Machines](virtual-machines-size-specs.md)
 
 [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md)
 

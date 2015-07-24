@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -41,13 +41,13 @@ To change the reserved unit type and the number of encoding reserved units, do t
 	![Processors page](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 	  
-	>[Azure.Note] The following data centers do not offer the Premium reserved unit type: Singapore, Hong Kong, Osaka, Beijing, Shanghai.
+	>[AZURE.NOTE] The following data centers do not offer the Premium reserved unit type: Singapore, Hong Kong, Osaka, Beijing, Shanghai.
 
 3. Press the SAVE button to save your changes.
 
 	The new encoding reserved units are allocated as soon as you press SAVE.
 
-	>[Azure.Note] The highest number of units specified for the 24-hour period is used in calculating the cost.
+	>[AZURE.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost.
 
 ##Quotas and limitations
 
