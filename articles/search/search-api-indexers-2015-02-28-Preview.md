@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="04/23/2015" 
+ms.date="07/08/2015" 
 ms.author="heidist" />
 
 #Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)
 
-> [AZURE.NOTE] This article describes indexers in the [2015-02-28-Preview](../search-api-2015-02-28-preview.md). Currently the only difference between the `2015-02-28` version documented on [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) and the `2015-02-28-Preview` version described here is that the preview provides *fieldMappings*, as described in [Create Indexer](#CreateIndexer).
+> [AZURE.NOTE] This article describes indexers in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently the only difference between the `2015-02-28` version documented on [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) and the `2015-02-28-Preview` version described here is that the preview provides *fieldMappings*, as described in [Create Indexer](#CreateIndexer).
 
 ## Overview
 

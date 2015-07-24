@@ -1,5 +1,5 @@
 
-##<a name="storage-client-server"></a>Install the storage client in the mobile service project
+##Install the storage client in the mobile service project
 
 To be able to generate an SAS to upload images to Blob storage, you must first add the NuGet package that installs Storage client library in the mobile service project. 
 
@@ -11,7 +11,7 @@ To be able to generate an SAS to upload images to Blob storage, you must first a
 
   	This adds the client library for Azure storage services to the mobile service project.
 
-##<a name="update-data-model"></a>Update the TodoItem definition in the data model
+##Update the TodoItem definition in the data model
 
 The TodoItem class defines the data object, and you need to add the same properties to this class as you did on the client.
 
@@ -28,7 +28,7 @@ The TodoItem class defines the data object, and you need to add the same propert
 
 	>[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database when it detects a data model change in the Code First definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-##<a name="update-scripts"></a>Update the TodoItem controller to generate a shared access signature 
+##Update the TodoItem controller to generate a shared access signature 
 
 The existing **TodoItemController** is updated so that the **PostTodoItem** method generates an SAS when a new TodoItem is inserted. You also 
 

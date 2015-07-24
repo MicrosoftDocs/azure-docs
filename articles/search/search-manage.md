@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/25/2015" 
+	ms.date="07/08/2015" 
 	ms.author="eugenesh"/>
 
 #Azure Search Indexer Customization#
@@ -29,7 +29,7 @@ In this article, you will learn how to use Azure Search indexers to implement th
 If you’re not familiar with Azure Search indexers, you might want to take a look at the following articles first:
 
 - [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-- [Connecting DocumentDB with Azure Search using indexers](../documentdb-search-indexer.md)
+- [Connecting DocumentDB with Azure Search using indexers](../documentdb/documentdb-search-indexer.md)
 - [.NET SDK with support for indexers](https://msdn.microsoft.com/library/dn951165.aspx) or 
 - [Indexers REST API reference](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 

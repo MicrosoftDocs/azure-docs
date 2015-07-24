@@ -1,6 +1,6 @@
 <properties
 			pageTitle="How to use Azure File storage with PowerShell and .NET | Microsoft Azure"
-            description="Learn how to use Azure File storage to create cloud file shares and manage file content. File storage enables enterprises to move applications reliant on SMB file shares to Azure. Samples are written in PowerShell and C#."
+            description="Learn how to use Azure File storage to create cloud file shares and manage file content. File storage enables enterprises to move applications that rely on SMB file shares to Azure. Persist your storage account credentials for the virtual machine so as to reconnect to the file share on reboot."
             services="storage"
             documentationCenter=".net"
             authors="tamram"
@@ -12,14 +12,18 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="06/22/2015"
+      ms.date="07/06/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with PowerShell and .NET
 
 ## Overview
 
-This getting started guide demonstrates the basics of using Microsoft Azure File storage. In this tutorial, we will:
+The Azure File service exposes file shares using the standard SMB 2.1 protocol. Applications running in Azure can now easily share files between VMs using standard and familiar file system APIs like ReadFile and WriteFile. In addition, the files can also be accessed at the same time via a REST interface, which opens a variety of hybrid scenarios. Finally, Azure Files is built on the same technology as the Blob, Table, and Queue Services, which means Azure Files is able to leverage the existing availability, durability, scalability, and geo redundancy that is built into our platform.
+
+## About this tutorial
+
+This getting started tutorial demonstrates the basics of using Microsoft Azure File storage. In this tutorial, we will:
 
 - Use PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
 - Mount the file share from an Azure virtual machine, just as you would any SMB share.

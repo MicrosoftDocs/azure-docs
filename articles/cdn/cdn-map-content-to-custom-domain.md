@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="03/05/2015" 
+	 ms.date="07/07/2015" 
 	 ms.author="mazha"/>
 
 #How to map Custom Domain to Content Delivery Network (CDN) endpoint
@@ -85,11 +85,10 @@ First, ensure that you have public content that is cached at the endpoint. For e
 
 		http://www.mydomain.com/cdn/mycloudservice
 
-#See Also
+##See Also
 
 
 [How to Enable the Content Delivery Network (CDN)  for Azure](./cdn-create-new-endpoint.md
 )  
-**Overview of the Azure CDN**
 
  

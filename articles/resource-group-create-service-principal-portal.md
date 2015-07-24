@@ -1,19 +1,19 @@
 <properties
    pageTitle="Create a new Azure Service Principal using the Azure portal"
    description="Describes how to create a new Azure service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Create a new Azure Service Principal using the Azure portal

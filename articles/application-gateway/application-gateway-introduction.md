@@ -3,7 +3,7 @@
    description="This page provides an overview of the Application Gateway service for layer 7 load balancing, including gateway sizes, HTTP load balancing, cookie based session affinity, and SSL offload."
    documentationCenter="na"
    services="application-gateway"
-   authors="cherylmc"
+   authors="joaoma"
    manager="jdial"
    editor="tysonn"/>
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="06/24/2015"
-   ms.author="cherylmc"/>
+   ms.author="joaoma"/>
 
 # Application Gateway technical overview 
 

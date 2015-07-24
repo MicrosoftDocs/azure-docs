@@ -1,25 +1,39 @@
-<properties title="" pageTitle="Install and set up tools for authoring in GitHub" description="Tools and steps to get set up for authoring Azure content in GitHub." services="contributor-guide" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="carolz" />
+<properties 
+pageTitle="Install and set up tools for authoring in GitHub" 
+description="Tools and steps to get set up for authoring Azure content in GitHub." 
+services="contributor-guide" 
+documentationCenter="" 
+authors="tysonn"  
+manager="carolz" />
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/19/2015" ms.author="tysonn" />
+<tags 
+ms.service="contributor-guide"
+ ms.devlang="" 
+ ms.topic="article"
+  ms.tgt_pltfrm="" 
+  ms.workload="" 
+  ms.date="01/19/2015" 
+  ms.author="tysonn" />
 
 #Install and set up tools for authoring in GitHub
 
 Follow the steps in this article to set up tools for contributing to the Azure technical documentation. Casual and occasional contributors probably can use the GitHub UI described in step 2.
 
-If you're unfamiliar with Git, you might want to review some Git terminology. T​his StackOverflow thread contains a glossary of Git terms you'll encounter in this set of steps: [http://stackoverflow.com/questions/7076164/terminology-used-by-git](http://stackoverflow.com/questions/7076164/terminology-used-by-git​​)
+If you're unfamiliar with Git, you might want to review some Git terminology: [https://help.github.com/articles/github-glossary](https://help.github.com/articles/github-glossary). In addition, this StackOverflow thread contains a glossary of Git terms you'll encounter in this set of steps: [http://stackoverflow.com/questions/7076164/terminology-used-by-git](http://stackoverflow.com/questions/7076164/terminology-used-by-git)
 
 ## Contents
 
-- [Create a GitHub account and set up your profile]
-- [Sign up for Disqus]
-- [Determine whether you really need to follow the rest of these steps]
-- [Permissions in GitHub]
-- [Install Git for Windows]
-- [Enable two-factor authentication]
-- [Install a markdown editor]
-- [Fork the repository and copy it to your computer]
-- [Configure your user name and email locally]
-- [Next steps]
+- [Create a GitHub account and set up your profile](#create-a-github-account-and-set-up-your-profile)
+- [Sign up for Disqus](#sign-up-for-disqus)
+- [Determine whether you really need to follow the rest of these steps](#determine-whether-you-really-need-to-follow-the-rest-of-these-steps)
+- [Permissions in GitHub](#permissions-in-github)
+- [Install Git for Windows](#install-git-for-windows)
+- [Enable two-factor authentication](#enable-two-factor-authentication)
+- [Install a markdown editor](#install-a-markdown-editor)
+- [Configure Atom](#configure-atom)
+- [Fork the repository and copy it to your computer](#fork-the-repository-and-copy-it-to-your-computer)
+- [Configure your user name and email locally](#configure-your-user-name-and-email-locally)
+- [Next steps](#next-steps)
 
 ## Create a GitHub account and set up your profile
 
@@ -38,7 +52,7 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
-##Sign up for Disqus
+## Sign up for Disqus
 
 Every published Azure technical article has a comment stream provided by the Disqus service.
 
@@ -124,6 +138,11 @@ We author content using simple "markdown" notation in the files, rather than com
 
 - **Prose**: This is a lightweight, elegant, on-line, and open source markdown editor that offers a preview. Visit [http://prose.io](http://prose.io) and authorize Prose in your repository.
 
+## Configure Atom
+
+Atom defaults to using 2 spaces for tabs.  If you leave it at the default of two, your article will look as expected in local preview, but it will not render correctly when it’s imported into Azure.
+
+To view a preview of your edits in Atom, turn on the preview function (Packages>Markdown Preview>Toggle Preview).
 
 ## Fork the repository and copy it to your computer
 

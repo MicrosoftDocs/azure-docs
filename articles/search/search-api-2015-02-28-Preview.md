@@ -1,10 +1,10 @@
-<properties 
+<properties
    pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
-   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches." 
-   services="search" 
-   documentationCenter="na" 
-   authors="HeidiSteen" 
-   manager="mblythe" 
+   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches."
+   services="search"
+   documentationCenter="na"
+   authors="HeidiSteen"
+   manager="mblythe"
    editor=""/>
 
 <tags
@@ -12,27 +12,28 @@
    ms.devlang="rest-api"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="search" 
-   ms.date="05/25/2015"
+   ms.workload="search"
+   ms.date="07/22/2015"
    ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
 
-This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current locked version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
+This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
 - [Natural language processors](#LanguageSupport) from Microsoft (the same ones used by Office and Bing) offer greater precision over query results and more languages.
 - `moreLikeThis` is a a query parameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
+- A POST alternative to the GET syntax for both the [Search](#SearchDocs) and [Suggestions](#Suggestions) API, useful when the overall URL length exceeds 8KB.
 
 A few additional features in `2015-02-28-Preview` are documented separately. These include:
 
-- [Scoring Profiles](../search-api-scoring-profiles-2015-02-28-preview.md)
-- [Indexers](../search-api-indexers-2015-02-28-preview.md)
+- [Scoring Profiles](search-api-scoring-profiles-2015-02-28-preview.md)
+- [Indexers](search-api-indexers-2015-02-28-preview.md)
 
 Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 ##APIs in this document
 
-The Azure Search Service API supports two syntaxes for entity lookup: simple and alternate OData syntax (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
+The Azure Search Service API supports two syntaxes for entity lookup: [simple](https://msdn.microsoft.com/library/dn798920.aspx) and alternate OData syntax (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
 
 [Create Index](#CreateIndex)
 
@@ -65,6 +66,7 @@ The Azure Search Service API supports two syntaxes for entity lookup: simple and
 [Search Documents](#SearchDocs)
 
     GET /indexes/[index name]/docs?[query parameters]
+    POST /indexes/[index name]/docs/search?api-version=2015-02-28-Preview
 
 [Lookup Document](#LookupAPI)
 
@@ -77,12 +79,13 @@ The Azure Search Service API supports two syntaxes for entity lookup: simple and
 [Suggestions](#Suggestions)
 
     GET /indexes/[index name]/docs/suggest?[query parameters]
+    POST /indexes/[index name]/docs/suggest?api-version=2015-02-28-Preview
 
 ________________________________________
 <a name="IndexOps"></a>
 ## Index Operations
 
-You can create and manage indexes in Azure Search service via simple HTTP requests (POST, GET, PUT, DELETE) against a given index resource. To create an index, you first POST a JSON document that describes the index schema. The schema defines the fields of the index, their data types, and how they can be used (for example, in full-text searches, filters, sorting, or faceting). It also defines scoring profiles, suggesters and other attributes to configure the behavior of the index. 
+You can create and manage indexes in Azure Search service via simple HTTP requests (POST, GET, PUT, DELETE) against a given index resource. To create an index, you first POST a JSON document that describes the index schema. The schema defines the fields of the index, their data types, and how they can be used (for example, in full-text searches, filters, sorting, or faceting). It also defines scoring profiles, suggesters and other attributes to configure the behavior of the index.
 
 The following example provides an illustration of a schema used for searching on hotel information with the Description field defined in two languages. Notice how attributes control how the field is used. For example the `hotelId` is used as the document key (`"key": true`) and is excluded from full-text searches (`"searchable": false`).
 
@@ -108,9 +111,9 @@ The following example provides an illustration of a schema used for searching on
        "searchMode": "analyzingInfixMatching",
        "sourceFields": ["hotelName"]
       }
-     ] 
+     ]
     }
- 
+
 After the index is created, you'll upload documents that populate the index. See [Add or Update Documents](#AddOrUpdateDocuments) for this next step.
 
 For a video introduction to indexing in Azure Search, see the [Channel 9 Cloud Cover episode on Azure Search](http://go.microsoft.com/fwlink/p/?LinkId=511509).
@@ -133,34 +136,34 @@ Alternatively, you can use PUT and specify the index name on the URI. If the ind
 
 Creating an index determines the structure of the documents stored and used in search operations. Populating the index is a separate operation. For this step, you can use an [indexer](https://msdn.microsoft.com/library/azure/mt183328.aspx) (available for supported data sources) or an [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) operation. The inverted index is generated when the documents are posted.
 
-**Note**: The maximum number of indexes allowed varies by pricing tier. The free service allows up to 3 indexes. Standard service allows 50 indexes per Search service. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for details. 
+**Note**: The maximum number of indexes allowed varies by pricing tier. The free service allows up to 3 indexes. Standard service allows 50 indexes per Search service. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for details.
 
 **Request**
 
-HTTPS is required for all service requests. The **Create Index** request can be constructed using either a POST or PUT method. When using POST, you must provide an index name in the request body along with the index schema definition. With PUT, the index name is part of the URL. If the index doesn't exist, it is created. If it already exists, it is updated to the new definition. 
+HTTPS is required for all service requests. The **Create Index** request can be constructed using either a POST or PUT method. When using POST, you must provide an index name in the request body along with the index schema definition. With PUT, the index name is part of the URL. If the index doesn't exist, it is created. If it already exists, it is updated to the new definition.
 
 The index name must be lower case, start with a letter or number, have no slashes or dots, and be less than 128 characters. After starting the index name with a letter or number, the rest of the name can include any letter, number and dashes, as long as the dashes are not consecutive.
 
-The `api-version` is required. The current version is `api-version=2015-02-28`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
+The `api-version` is required. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for a list of available versions.
 
 **Request Headers**
 
-The following list describes the required and optional request headers. 
+The following list describes the required and optional request headers.
 
 - `Content-Type`: Required. Set this to `application/json`
-- `api-key`: Required. The `api-key` is used to 
-- authenticate the request to your Search service. It is a string value, unique to your service. The **Create Index** request must include an `api-key` header set to your admin key (as opposed to a query key). 
- 
+- `api-key`: Required. The `api-key` is used to
+- authenticate the request to your Search service. It is a string value, unique to your service. The **Create Index** request must include an `api-key` header set to your admin key (as opposed to a query key).
+
 You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 <a name="RequestData"></a>
 **Request Body Syntax**
 
-The body of the request contains a schema definition, which includes the list of data fields within documents that will be fed into this index, data types, attributes, as well as an optional list of scoring profiles that are used to score matching documents at query time. 
+The body of the request contains a schema definition, which includes the list of data fields within documents that will be fed into this index, data types, attributes, as well as an optional list of scoring profiles that are used to score matching documents at query time.
 
 Note that for a POST request, you must specify the index name in the request body.
 
-There can only be one key field in the index. It has to be a string field. This field represents the unique identifier for each document stored within the index. 
+There can only be one key field in the index. It has to be a string field. This field represents the unique identifier for each document stored within the index.
 
 The main parts of an index include the following:
 
@@ -200,7 +203,7 @@ The syntax for structuring the request payload is as follows. A sample request i
           "name": "name of scoring profile",
           "text": (optional, only applies to searchable fields) {
             "weights": {
-              "searchable_field_name": relative_weight_value (positive #'s),
+              "searchable_field_name": relative_weight_value (positive numbers),
               ...
             }
           },
@@ -227,7 +230,7 @@ The syntax for structuring the request payload is as follows. A sample request i
               }
             }
           ],
-          "functionAggregation": (optional, applies only when functions are specified) 
+          "functionAggregation": (optional, applies only when functions are specified)
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
@@ -236,8 +239,8 @@ The syntax for structuring the request payload is as follows. A sample request i
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
         "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
       }
-    }    
-    
+    }
+
 **Index Attributes**
 
 The following attributes can be set when creating an index. For details about scoring and scoring profiles, see [Add scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx).
@@ -250,7 +253,7 @@ The following attributes can be set when creating an index. For details about sc
 
   - **Note**: `searchable` fields consume extra space in your index since Azure Search will store an additional tokenized version of the field value for full-text searches. If you want to save space in your index and you don't need a field to be included in searches, set `searchable` to `false`.
 
-`filterable` - Allows the field to be referenced in `$filter` queries. `filterable` differs from `searchable` in how strings are handled. Fields of type `Edm.String` or `Collection(Edm.String)` that are `filterable` do not undergo word-breaking, so comparisons are for exact matches only. For example, if you set such a field `f` to "sunny day", `$filter=f eq 'sunny'` will find no matches, but `$filter=f eq 'sunny day'` will. All fields are `filterable` by default. 
+`filterable` - Allows the field to be referenced in `$filter` queries. `filterable` differs from `searchable` in how strings are handled. Fields of type `Edm.String` or `Collection(Edm.String)` that are `filterable` do not undergo word-breaking, so comparisons are for exact matches only. For example, if you set such a field `f` to "sunny day", `$filter=f eq 'sunny'` will find no matches, but `$filter=f eq 'sunny day'` will. All fields are `filterable` by default.
 
 `sortable` - By default the system sorts results by score, but in many experiences users will want to sort by fields in the documents. Fields of type `Collection(Edm.String)` cannot be `sortable`. All other fields are `sortable` by default.
 
@@ -260,13 +263,13 @@ The following attributes can be set when creating an index. For details about sc
 
   - **Note**: If a field has none of the above attributes set to `true` (`searchable`, `filterable`, `sortable`,  or`facetable`) the field is effectively excluded from the inverted index. This option is useful for fields that are not used in queries, but are needed in search results. Excluding such fields from the index improves performance.
 
-  - `suggestions` - Previous versions of the API included a `suggestions` property. This boolean property is now deprecated and no longer available in either `2015-02-28` or `2015-02-28-Preview`. Please use the [Suggesters API](#Suggesters) instead. In the `2014-07-31` version, the `suggestions` property was used to specify whether the field could be used for auto-complete for type ahead, for fields of type `Edm.String` or `Collection(Edm.String)`. The `suggestions` was `false` by default because it required extra space in your index, but if you enabled it see [Transition from Preview to General Release in Azure Search](search-transition-from-preview.md) for instructions on how to transition to the new API.
+  - `suggestions` - Previous versions of the API included a `suggestions` property. This boolean property is now deprecated and no longer available in either `2015-02-28` or `2015-02-28-Preview`. Please use the [Suggesters API](#Suggesters) instead. In the `2014-07-31` version, the `suggestions` property was used to specify whether the field could be used for auto-complete for type ahead, for fields of type `Edm.String` or `Collection(Edm.String)`. The `suggestions` was `false` by default because it required extra space in your index, but if you enabled it, see [Transition from Preview to General Release in Azure Search](search-transition-from-preview.md) for instructions on how to transition to the new API.
 
 `key` - Marks the field as containing unique identifiers for documents within the index. Exactly one field must be chosen as the `key` field and it must be of type `Edm.String`. Key fields can be used to look up documents directly via the [Lookup API](#LookupAPI).
 
 `retrievable` - Sets whether the field can be returned in a search result.  This is useful when you want to use a field (for example, margin) as a filter, sorting, or scoring mechanism but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.
 
-`analyzer` - Sets the name of the text analyzer to use for the field. For the allowed set of values see [Language Support](#LanguageSupport). This option can be used only with `searchable` fields. Once the analyzer is chosen, it cannot be changed for the field. 
+`analyzer` - Sets the name of the text analyzer to use for the field. For the allowed set of values see [Language Support](#LanguageSupport). This option can be used only with `searchable` fields. Once the analyzer is chosen, it cannot be changed for the field.
 
 `sugggesters` - Sets the search mode and fields that are the source of the content for suggestions. See [Suggesters](#Suggesters) for details.
 
@@ -278,16 +281,16 @@ The following attributes can be set when creating an index. For details about sc
 
 Searchable fields undergo analysis that most frequently involves word-breaking, text normalization, and filtering out terms. By default, searchable fields in Azure Search are analyzed with the [Apache Lucene Standard analyzer](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html) which breaks text into elements following the["Unicode Text Segmentation"](http://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.
 
-Azure Search supports indexing fields in a variety of languages. Each language requires a non-standard text analyzer which accounts for characteristics of a given language. Azure Search offers two types of analyzers: 
+Azure Search supports indexing fields in a variety of languages. Each language requires a non-standard text analyzer which accounts for characteristics of a given language. Azure Search offers two types of analyzers:
 
 - 28 analyzers backed by Lucene.
-- 50 analyzers backed by proprietary Microsoft natural language processing technology used in Office and Bing. 
+- 50 analyzers backed by proprietary Microsoft natural language processing technology used in Office and Bing.
 
 Some developers might prefer the more familiar, simple, open-source solution of Lucene. Lucene is faster, but the Microsoft analyzers have advanced capabilities, such as lemmatization. If possible, you should run comparisons of both the Microsoft and Lucene analyzers to decide which one is a better fit.
 
 ***How they compare***
 
-The Lucene analyzer for English extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per [Porter Stemming algorithm](http://tartarus.org/~martin/PorterStemmer/), and removes English [stop words](http://en.wikipedia.org/wiki/Stop_words). Querying and indexing with Lucene analyzers is very fast. 
+The Lucene analyzer for English extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per [Porter Stemming algorithm](http://tartarus.org/~martin/PorterStemmer/), and removes English [stop words](http://en.wikipedia.org/wiki/Stop_words). Querying and indexing with Lucene analyzers is very fast.
 
 In comparison, the Microsoft analyzer implements an expansive stemmer that generates at query time all possible word forms of each query term, resulting in higher results precision, but also more latency. Decreased query performance is common for expansive stemmers. Indexing with Microsoft analyzers is on average three times slower than their Lucene equivalents.
 
@@ -320,15 +323,15 @@ Below is the list of supported analyzers together with a short description of th
 		<td>Arabic</td>
 		<td>ar.microsoft</td>
 		<td>
-		<ul>		
+		<ul>
 			<li>Reductive stemmer</li>
 			<li>Filters out Arabic stop words</li>
 		</ul>
 		</td>
-	</tr>   
+	</tr>
     <tr>
     	<td>Armenian</td>
-    	<td>hy.lucene</td>	
+    	<td>hy.lucene</td>
     	<td>
     	<ul>
       		<li>Applies light algorithmic stemming</li>
@@ -341,7 +344,7 @@ Below is the list of supported analyzers together with a short description of th
 		<td>bg.microsoft</td>
 		<td>
 		<ul>
-			<li>Expansive stemmer (lemmatization)</li>			
+			<li>Expansive stemmer (lemmatization)</li>
 		</ul>
 		</td>
 	</tr>
@@ -370,7 +373,7 @@ Below is the list of supported analyzers together with a short description of th
 		<td>bn.microsoft</td>
 		<td>
 		<ul>
-			<li>Expansive stemmer (lemmatization)</li>			
+			<li>Expansive stemmer (lemmatization)</li>
 		</ul>
 		</td>
 	</tr>
@@ -380,7 +383,7 @@ Below is the list of supported analyzers together with a short description of th
     	<td>
     	<ul>
       		<li>Applies light algorithmic stemming</li>
-      		<li>Filters out Catalan stop words</li>      
+      		<li>Filters out Catalan stop words</li>
       		<li>Removes ellisions</li>
    		</ul>
     	</td>
@@ -390,8 +393,8 @@ Below is the list of supported analyzers together with a short description of th
 		<td>ca.microsoft</td>
 		<td>
 		<ul>
-			<li>Expansive stemmer (lemmatization)</li>		
-			<li>Removes diacritics</li>	
+			<li>Expansive stemmer (lemmatization)</li>
+			<li>Removes diacritics</li>
 		</ul>
 		</td>
 	</tr>
@@ -557,7 +560,7 @@ Below is the list of supported analyzers together with a short description of th
 			<li>Decompounding</li>
 		</ul>
 		</td>
-	</tr>	
+	</tr>
     <tr>
 		<td>French</td>
 		<td>fr.lucene</td>
@@ -586,7 +589,7 @@ Below is the list of supported analyzers together with a short description of th
     	<td>
     	<ul>
     		<li>Applies light stemming</li>
-      		<li>Filters out Galician stop words</li>      
+      		<li>Filters out Galician stop words</li>
     	</ul>
     	</td>
   	</tr>
@@ -668,7 +671,7 @@ Below is the list of supported analyzers together with a short description of th
 		<td>
 		<ul>
 			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Hindi stop words</li>			
+			<li>Filters out Hindi stop words</li>
 		</ul>
 		</td>
 	</tr>
@@ -698,7 +701,7 @@ Below is the list of supported analyzers together with a short description of th
 		<td>is.microsoft</td>
 		<td>
 		<ul>
-			<li>Expansive stemmer (lemmatization)</li>			
+			<li>Expansive stemmer (lemmatization)</li>
 		</ul>
 		</td>
 	</tr>
@@ -717,7 +720,7 @@ Below is the list of supported analyzers together with a short description of th
 		<td>id.microsoft</td>
 		<td>
 		<ul>
-			<li>Expansive stemmer (lemmatization)</li>		
+			<li>Expansive stemmer (lemmatization)</li>
 			<li>Filters out Indonesian stop words</li>
 		</ul>
 		</td>
@@ -797,7 +800,7 @@ Below is the list of supported analyzers together with a short description of th
 	</tr>
   	<tr>
 		<td>Korean</td>
-		<td>ko.microsfot</td>
+		<td>ko.microsoft</td>
 		<td>
 		<ul>
 			<li>Reductive stemmer (lemmatization)</li>
@@ -927,7 +930,7 @@ Below is the list of supported analyzers together with a short description of th
 		<td>pt-Br.microsoft</td>
 		<td>
 		<ul>
-			<li>Expansive stemmer (lemmatization)</li>			
+			<li>Expansive stemmer (lemmatization)</li>
 			<li>Filters out Brazilian stop words</li>
 		</ul>
 		</td>
@@ -1017,7 +1020,7 @@ Below is the list of supported analyzers together with a short description of th
 		<td>sr-latin.microsoft</td>
 		<td>
 		<ul>
-			<li>Expansive stemmer (lemmatization)</li>	
+			<li>Expansive stemmer (lemmatization)</li>
 		</ul>
 		</td>
 	</tr>
@@ -1026,8 +1029,8 @@ Below is the list of supported analyzers together with a short description of th
 		<td>sk.microsoft</td>
 		<td>
 		<ul>
-			<li>Reductive stemmer</li>	
-			<li>Decompounding</li>		
+			<li>Reductive stemmer</li>
+			<li>Decompounding</li>
 		</ul>
 		</td>
 	</tr>
@@ -1114,7 +1117,7 @@ Below is the list of supported analyzers together with a short description of th
 		<td>Thai</td>
 		<td>th.microsoft</td>
 		<td>
-		<ul>			
+		<ul>
 			<li>Filters out Thai stop words</li>
 		</ul>
 		</td>
@@ -1163,11 +1166,11 @@ Below is the list of supported analyzers together with a short description of th
 		<td>vi.microsoft</td>
 		<td>
 		<ul>
-			
+
 		</ul>
 		</td>
 	</tr>
-	<td colspan="3">Additionally Azure Search provides language-agnostic analyzer configurations</td> 
+	<td colspan="3">Additionally Azure Search provides language-agnostic analyzer configurations</td>
     <tr>
 		<td>Standard ASCII Folding</td>
 		<td>standardasciifolding.lucene</td>
@@ -1192,7 +1195,7 @@ A `scoringProfile` defines custom scoring behaviors that let you influence which
 
 A default scoring profile operates behind the scenes to compute a search score for every item in a result set. You can use the internal, unnamed scoring profile. Alternatively, set `defaultScoringProfile` to use a custom profile as the default, invoked whenever a custom profile is not specified on the query string.
 
-See [Add scoring profiles to a search index (Azure Search Service REST API)](../search-api-scoring-profiles-2015-02-28.md) for details.
+See [Add scoring profiles to a search index (Azure Search Service REST API)](search-api-scoring-profiles-2015-02-28.md) for details.
 
 **CORS Options**
 
@@ -1204,7 +1207,7 @@ Client-side Javascript cannot call any APIs by default since the browser will pr
 
 <a name="CreateUpdateIndexExample"></a>
 **Request Body Example**
- 
+
     {
       "name": "hotels",  
       "fields": [
@@ -1227,12 +1230,12 @@ Client-side Javascript cannot call any APIs by default since the browser will pr
           "searchMode": "analyzingInfixMatching",
           "sourceFields": ["hotelName"]
         }
-      ] 
+      ]
     }
 
 **Response**
 
-For a successful request: "201 Created". 
+For a successful request: "201 Created".
 
 By default the response body will contain the JSON for the index definition that was created. If the `Prefer` request header is set to `return=minimal`, the response body will be empty and the success status code will be "204 No Content" instead of "201 Created". This is true regardless of whether PUT or POST was used to create the index.
 
@@ -1243,7 +1246,7 @@ Currently, there is limited support for index schema updates. Any schema updates
 <a name="Suggesters"></a>
 ##Suggesters
 
-The suggestions feature in Azure Search is a type-ahead or auto-complete query capability, providing a list of potential search terms in response to partial string inputs entered into a search box. You've probably noticed query suggestions when using commercial web search engines: typing ".NET" in Bing produces a list of terms for ".NET 4.5", ".NET Framework 3.5", and so forth. When using the Search service REST API, implementing suggestions in a custom Azure Search application requires the following: 
+The suggestions feature in Azure Search is a type-ahead or auto-complete query capability, providing a list of potential search terms in response to partial string inputs entered into a search box. You've probably noticed query suggestions when using commercial web search engines: typing ".NET" in Bing produces a list of terms for ".NET 4.5", ".NET Framework 3.5", and so forth. When using the Search service REST API, implementing suggestions in a custom Azure Search application requires the following:
 
 - Enable suggestions by adding a **suggester** construction in your index, giving the name, search mode, and a list of fields for which type-ahead is invoked. For example, if you specify "cityName" as a source field, typing a partial search string of "Sea" will result in "Seattle", "Seaside", and "Seatac" (all three are actual city names) offered up as query suggestions to the user.
 
@@ -1253,7 +1256,7 @@ This article explains how to configure a **suggester**. You should also review t
 
 **Usage**
 
-`Suggesters` are created in the index and work best when used to suggest specific documents rather than loose terms or phrases. The best candidate fields are titles, names, and other relatively short phrases that can identify an item. Less effective are repetitive fields, such as categories and tags, or very long fields such as descriptions or comments fields. 
+`Suggesters` are created in the index and work best when used to suggest specific documents rather than loose terms or phrases. The best candidate fields are titles, names, and other relatively short phrases that can identify an item. Less effective are repetitive fields, such as categories and tags, or very long fields such as descriptions or comments fields.
 
 As part of the index definition, you can add a single suggester to the `suggesters` collection. Properties that define a suggester include the following:
 
@@ -1268,7 +1271,7 @@ A suggester is part of the index. Only one suggester can exist in the `suggester
 		{
 		  "name": "hotels",
 		  "fields": [
-		     . . . 
+		     . . .
 		   ],
 		  "suggesters": [
 		    {
@@ -1278,12 +1281,11 @@ A suggester is part of the index. Only one suggester can exist in the `suggester
 		    }
 		  ],
 		  "scoringProfiles": [
-		     . . . 
+		     . . .
 		  ]
 		}
 
-> [AZURE.NOTE]  If you used the public preview version of Azure Search, `suggesters` replaces an older boolean property (`"suggestions": false`) that only supported prefix suggestions for short strings (3-25 characters). Its replacement, `suggesters`, supports infix matching that finds matching terms at the beginning or in the middle of field content, with better tolerance for mistakes in search strings. This is the only implementation of the suggestions API. The `suggestions` property that was introduced in `api-version=2014-07-31-Preview` continues to work in that version, but is not operational in the `2015-02-28` version of Azure Search.
-
+> [AZURE.NOTE]  If you used the public preview version of Azure Search, `suggesters` replaces an older boolean property (`"suggestions": false`) that only supported prefix suggestions for short strings (3-25 characters). Its replacement, `suggesters`, supports infix matching that finds matching terms at the beginning or in the middle of field content, with better tolerance for mistakes in search strings. Starting with the generally available release, this is now the only implementation of the suggestions API. The older `suggestions` property that was introduced in `api-version=2014-07-31-Preview` continues to work in that version, but is not operational in the `2015-02-28` or later versions of Azure Search.
 
 <a name="UpdateIndex"></a>
 ## Update Index
@@ -1300,7 +1302,7 @@ When adding a new field to an index, all existing documents in the index will au
 
 **Request**
 
-HTTPS is required for all service requests. The **Update Index** request is constructed using HTTP PUT. With PUT, the index name is part of the URL. If the index doesn't exist, it is created. If the index already exists, it is updated to the new definition. 
+HTTPS is required for all service requests. The **Update Index** request is constructed using HTTP PUT. With PUT, the index name is part of the URL. If the index doesn't exist, it is created. If the index already exists, it is updated to the new definition.
 
 The index name must be lower case, start with a letter or number, have no slashes or dots, and be less than 128 characters. After starting the index name with a letter or number, the rest of the name can include any letter, number and dashes, as long as the dashes are not consecutive.
 
@@ -1312,7 +1314,7 @@ The following list describes the required and optional request headers.
 
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Update Index** request must include an `api-key` header set to your admin key (as opposed to a query key).
- 
+
 You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body Syntax**
@@ -1348,7 +1350,7 @@ The schema syntax used to create an index is reproduced here for convenience. Se
           "name": "name of scoring profile",
           "text": (optional, only applies to searchable fields) {
             "weights": {
-              "searchable_field_name": relative_weight_value (positive #'s),
+              "searchable_field_name": relative_weight_value (positive numbers),
               ...
             }
           },
@@ -1375,7 +1377,7 @@ The schema syntax used to create an index is reproduced here for convenience. Se
               }
             }
           ],
-          "functionAggregation": (optional, applies only when functions are specified) 
+          "functionAggregation": (optional, applies only when functions are specified)
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
@@ -1384,7 +1386,7 @@ The schema syntax used to create an index is reproduced here for convenience. Se
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
         "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
       }
-    }    
+    }
 
 
 **Response**
@@ -1396,7 +1398,7 @@ By default the response body will be empty. However, if the `Prefer` request hea
 <a name="ListIndexes"></a>
 ## List Indexes
 
-The **List Indexes** operation returns a list of the indexes currently in your Azure Search service. 
+The **List Indexes** operation returns a list of the indexes currently in your Azure Search service.
 
     GET https://[service name].search.windows.net/indexes?api-version=[api-version]
     api-key: [admin key]
@@ -1410,9 +1412,9 @@ HTTPS is required for all service requests. The **List Indexes** request can be 
 **Request Headers**
 
 The following list describes the required and optional request headers.
- 
+
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **List Indexes** request must include an `api-key` set to an admin key (as opposed to a query key).
- 
+
 You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
@@ -1446,7 +1448,7 @@ Note that you can filter the response down to just the properties you're interes
 
     GET /indexes?api-version=2015-02-28-Preview&$select=name
 
-In this case, the response from the above example would appear as follows: 
+In this case, the response from the above example would appear as follows:
 
     {
       "value": [
@@ -1468,8 +1470,8 @@ The **Get Index** operation gets the index definition from Azure Search.
 
 **Request**
 
-HTTPS is required for service requests. The **Get Index** request can be constructed using the GET method. 
- 
+HTTPS is required for service requests. The **Get Index** request can be constructed using the GET method.
+
 The [index name] in the request URI specifies which index to return from the indexes collection.
 
 `api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
@@ -1477,7 +1479,7 @@ The [index name] in the request URI specifies which index to return from the ind
 **Request Headers**
 
 The following list describes the required and optional request headers.
- 
+
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Get Index** request must include an `api-key` set to an admin key (as opposed to a query key).
 
 You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
@@ -1499,21 +1501,21 @@ The **Delete Index** operation removes an index and associated documents from yo
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
-    
+
 **Request**
 
 HTTPS is required for service requests. The **Delete Index** request can be constructed using the DELETE method.
- 
-The [index name] in the request URI specifies which index to delete from the indexes collection. 
+
+The [index name] in the request URI specifies which index to delete from the indexes collection.
 
 `api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 **Request Headers**
 
-The following list describes the required and optional request headers. 
- 
+The following list describes the required and optional request headers.
+
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Delete Index** request must include an `api-key` header set to your admin key (as opposed to a query key).
- 
+
 You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
@@ -1527,7 +1529,7 @@ Status Code: 204 No Content is returned for a successful response.
 <a name="GetIndexStats"></a>
 ## Get Index Statistics
 
-The **Get Index Statistics** operation returns from Azure Search a document count for the current index, plus storage usage. 
+The **Get Index Statistics** operation returns from Azure Search a document count for the current index, plus storage usage.
 
 	GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
     api-key: [admin key]
@@ -1544,9 +1546,9 @@ The [index name] in the request URI tells the service to return index statistics
 **Request Headers**
 
 The following list describes the required and optional request headers.
- 
+
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Get Index Statistics** request must include an `api-key` set to an admin key (as opposed to a query key).
- 
+
 You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
@@ -1568,18 +1570,15 @@ ________________________________________
 <a name="DocOps"></a>
 ## Document Operations #
 
-In Azure Search, an index is populated using JSON documents that you upload to the service. All the documents that you upload comprise the corpus of your search data. Documents contain fields, some of which are tokenized into search terms as they are uploaded. The `/docs` URL segment in the Azure Search API represents the collection of documents in an index. All operations performed on the collection such as uploading, merging, deleting, or querying documents take place in the context of a single index, so the URLs for these operations will always start with `/indexes/[index name]/docs` for a given index name.
+In Azure Search, an index is stored in the cloud and populated using JSON documents that you upload to the service. All the documents that you upload comprise the corpus of your search data. Documents contain fields, some of which are tokenized into search terms as they are uploaded. The `/docs` URL segment in the Azure Search API represents the collection of documents in an index. All operations performed on the collection such as uploading, merging, deleting, or querying documents take place in the context of a single index, so the URLs for these operations will always start with `/indexes/[index name]/docs` for a given index name.
 
-Your application code can generate JSON documents to upload to Azure Search using a result set from a relational database, or any other structured data source.
-
-In the majority of application development scenarios, search data is separate and external to your application data layer. If your application uses an on-premises database for tracking inventory status, the documents persisted in Azure Search will contain similar or identical data values in terms of product name, price, and availability, but they will be stored in an inverted index in order to optimize searches. 
+Your application code must either generate JSON documents to upload to Azure Search or you can use an [indexer](https://msdn.microsoft.com/library/dn946891.aspx) to load documents if the data source is either Azure SQL Database or DocumentDB. Typically, indexes are populated from a single dataset that you provide.
 
 You should plan on having one document for each item that you want to search. A movie rental application might have one document per movie, a storefront application might have one document per SKU, an online courseware application might have one document per course, a research firm might have one document for each academic paper in their repository, and so on.
 
-Documents consist of one or more fields. Fields can contain text that is tokenized by Azure Search into search terms, as well as non-tokenized or non-text values that can be used in filters or scoring profiles. The names, data types, and search features supported for each field are determined by the index schema. One of the fields in each index schema must be designated as an ID, and each document must have a value for the ID field that uniquely identifies that document in the index. All other document fields are optional and will default to a null value if left unspecified. Note that null values do not take up space in the inverted index. 
+Documents consist of one or more fields. Fields can contain text that is tokenized by Azure Search into search terms, as well as non-tokenized or non-text values that can be used in filters or scoring profiles. The names, data types, and search features supported for each field are determined by the index schema. One of the fields in each index schema must be designated as an ID, and each document must have a value for the ID field that uniquely identifies that document in the index. All other document fields are optional and will default to a null value if left unspecified. Note that null values do not take up space in the search index.
 
 Before you can upload documents, you must have already created the index on the service. See [Create Index](#CreateIndex) for details about this first step.
-
 
 <a name="AddOrUpdateDocuments"></a>
 ## Add, Update, or Delete Documents
@@ -1589,10 +1588,10 @@ You can upload, merge, merge-or-upload or delete documents from a specified inde
     POST https://[service name].search.windows.net/indexes/[index name]/docs/index?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
-    
+
 **Request**
 
-HTTPS is required for all service requests. You can upload, merge, merge-or-upload or delete documents from a specified index using HTTP POST. 
+HTTPS is required for all service requests. You can upload, merge, merge-or-upload or delete documents from a specified index using HTTP POST.
 
 The request URI includes [index name], specifying which index to post documents. You can only post documents to one index at a time.
 
@@ -1604,12 +1603,12 @@ The following list describes the required and optional request headers.
 
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Add Documents** request must include an `api-key` header set to your admin key (as opposed to a query key).
- 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](.search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
-The body of the request contains one or more documents to be indexed. Documents are identified by a unique key. Each document is associated with an action: upload, merge, mergeOrUpload or delete. Upload requests must include the document data as a set of key/value pairs. 
+The body of the request contains one or more documents to be indexed. Documents are identified by a unique key. Each document is associated with an action: upload, merge, mergeOrUpload or delete. Upload requests must include the document data as a set of key/value pairs.
 
     {
       "value": [
@@ -1622,13 +1621,13 @@ The body of the request contains one or more documents to be indexed. Documents 
         ...
       ]
     }
-    
+
 **Document Actions**
 
 - `upload`: An upload action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. Note that all fields are replaced in the update case.
 - `merge`: Merge updates an existing document with the specified fields. If the document doesn't exist, the merge will fail. Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field "tags" with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for "tags", the final value of the "tags" field will be `["economy", "pool"]`. It will **not** be `["budget", "economy", "pool"]`.
 - `mergeOrUpload`: behaves like `merge` if a document with the given key already exists in the index. If the document does not exist it behaves like `upload` with a new document.
-- `delete`: Delete removes the specified document from the index. Note that you can specify only the key field value in a `delete` operation. Attempting to specify other fields will result in an HTTP 400 error. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to `null`. 
+- `delete`: Delete removes the specified document from the index. Note that you can specify only the key field value in a `delete` operation. Attempting to specify other fields will result in an HTTP 400 error. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to `null`.
 
 **Response**
 
@@ -1645,7 +1644,7 @@ Status code: 200 OK is returned for a successful response, meaning that all item
     }  
 
 Status code: 207 is returned when at least one item was not successfully indexed (as indicated by the 'status' field set to false for items that have not been indexed):
- 
+
     {
       "value": [
         {
@@ -1671,7 +1670,7 @@ Status code: 429 indicates that you have exceeded your quota on the number of do
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville", 
+		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1713,18 +1712,26 @@ ________________________________________
 <a name="SearchDocs"></a>
 ## Search Documents
 
-A **Search** operation is issued as a GET request and specifies query parameters that give the criteria for selecting matching documents. 
+A **Search** operation is issued as a GET or POST request and specifies parameters that give the criteria for selecting matching documents.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
-    api-key: [admin key]
+    api-key: [admin or query key]
+
+    POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin or query key]
+
+**When to use POST instead of GET**
+
+When you use HTTP GET to call the **Search** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries, specifically OData filter expressions. For these applications, using HTTP POST is a better choice. The request size limit for POST is close to 17 MB, which is plenty of room for even the most complex queries.
 
 **Request**
 
-HTTPS is required for service requests. The **Search** request can be constructed using the GET method.
+HTTPS is required for service requests. The **Search** request can be constructed using the GET or POST methods.
 
-The request URI specifies which index to query, for all documents that match the query parameters.
+The request URI specifies which index to query, for all documents that match the parameters. Parameters are specified on the query string in the case of GET requests, and in the request body in the case of POST requests.
 
-As a best practice, remember to [URL-encode](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specific query parameters when calling the REST API directly. For Search Document operations, this includes:
+As a best practice when creating GET requests, remember to [URL-encode](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specific query parameters when calling the REST API directly. For **Search** operations, this includes:
 
 - `$filter`
 - `facet`
@@ -1735,11 +1742,13 @@ As a best practice, remember to [URL-encode](https://msdn.microsoft.com/library/
 
 URL encoding is only recommended on the above query parameters. If you inadvertently URL-encode the entire query string (everything after the ?), requests will break.
 
-Also, URL encoding is only necessary when calling the REST API directly. Using the [.NET client library](https://msdn.microsoft.com/library/dn951165.aspx) handles URL encoding for you.
+Also, URL encoding is only necessary when calling the REST API directly using GET. No URL encoding is necessary when calling **Search** using POST, or when using the [.NET client library](https://msdn.microsoft.com/library/dn951165.aspx), which handles URL encoding for you.
 
 **Query Parameters**
 
-`search=[string]` (optional) - The text to search for. All `searchable` fields are searched by default unless `searchFields` is specified. When searching `searchable` fields, the search text itself is tokenized, so multiple terms can be separated by white space (for example: `search=hello world`). To match any term, use `*` (this can be useful for boolean filter queries). Omitting this parameter has the same effect as setting it to `*`. See "Simple query syntax" below for specifics on the search syntax.
+**Search** accepts several parameters that provide query criteria and also specify search behavior. You provide these parameters in the URL query string when calling **Search** via GET, and as JSON properties in the request body when calling **Search** via POST. The syntax for some parameters is slightly different between GET and POST. These differences are noted as applicable below:
+
+`search=[string]` (optional) - The text to search for. All `searchable` fields are searched by default unless `searchFields` is specified. When searching `searchable` fields, the search text itself is tokenized, so multiple terms can be separated by white space (for example: `search=hello world`). To match any term, use `*` (this can be useful for boolean filter queries). Omitting this parameter has the same effect as setting it to `*`. See [Simple Query Syntax](https://msdn.microsoft.com/library/dn798920.aspx) for specifics on the search syntax.
 
   - **Note**: The results can sometimes be surprising when querying over `searchable` fields. The tokenizer includes logic to handle cases common to English text like apostrophes, commas in numbers, etc. For example, `search=123,456` will match a single term 123,456 rather than the individual terms 123 and 456, since commas are used as thousand-separators for large numbers in English. For this reason, we recommend using white space rather than punctuation to separate terms in the `search` parameter.
 
@@ -1749,21 +1758,33 @@ Also, URL encoding is only necessary when calling the REST API directly. Using t
 
 `moreLikeThis=[key]` (optional) **Important:** This feature is only available in `2015-02-28-Preview`. This option cannot be used in a query that contains the text search parameter, `search=[string]`. The `moreLikeThis` parameter finds documents that are similar to the document specified by the document key. When a search request is made with `moreLikeThis`, a list of search terms is generated based on the frequency and rarity of terms in the source document. Those terms are then used to make the request. By default, the contents of all `searchable` fields are considered unless `searchFields` is used to restrict which fields are searched.  
 
-`$skip=#` (optional) - The number of search results to skip; Cannot be greater than 100,000. If you need to scan documents in sequence but cannot use `$skip` due to this limitation, consider using `$orderby` on a totally-ordered key and `$filter` with a range query instead. 
+`$skip=#` (optional) - the number of search results to skip; Cannot be greater than 100,000. If you need to scan documents in sequence but cannot use `$skip` due to this limitation, consider using `$orderby` on a totally-ordered key and `$filter` with a range query instead.
 
-`$top=#` (optional) - The number of search results to retrieve. This defaults to 50. If you specify a value greater than 1000 and there are more than 1000 results, only the first 1000 results will be returned, along with a link to the next page of results (see `@odata.nextLink` in [the example below](#SearchResponse)).
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `skip` instead of `$skip`.
+
+`$top=#` (optional) - the number of search results to retrieve. This can be used in conjunction with `$skip` to implement client-side paging of search results.
+
+> [AZURE.NOTE] Azure Search uses ***server-side paging*** to prevent queries from retrieving too many documents at once. The default page size is 50, while the maximum page size is 1000. This means that by default **Search** returns at most 50 results if you don't specify `$top`. If there are more than 50 results, the response includes information to retrieve the next page of at most 50 results (see `@odata.nextLink` and `@search.nextPageParameters` in [the example below](#SearchResponse)). Similarly, if you specify a value greater than 1000 for `$top` and there are more than 1000 results, only the first 1000 results are returned, along with information to retrieve the next page of at most 1000 results.  
+
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `top` instead of `$top`.
 
 `$count=true|false` (optional, defaults to `false`) - Specifies whether to fetch the total count of results. Setting this value to `true` may have a performance impact. Note that the count returned is an approximation.
 
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `count` instead of `$count`.
+
 `$orderby=[string]` (optional) - A list of comma-separated expressions to sort the results by. Each expression can be either a field name or a call to the `geo.distance()` function. Each expression can be followed by `asc` to indicated ascending, and `desc` to indicate descending. The default is ascending order. Ties will be broken by the match scores of documents. If no `$orderby` is specified, the default sort order is descending by document match score. There is a limit of 32 clauses for `$orderby`.
+
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `orderby` instead of `$orderby`.
 
 `$select=[string]` (optional) - A list of comma-separated fields to retrieve. If unspecified, all fields marked as retrievable in the schema are included. You can also explicitly request all fields by setting this parameter to `*`.
 
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `select` instead of `$select`.
+
 `facet=[string]` (zero or more) - A field to facet by. Optionally the string may contain parameters to customize the faceting expressed as comma-separated `name:value` pairs. Valid parameters are:
 
-- `count` (max # of facet terms; default is 10). There is no maximum, but higher values incur a corresponding performance penalty, especially if the faceted field contains a large number of unique terms.
+- `count` (max number of facet terms; default is 10). There is no maximum, but higher values incur a corresponding performance penalty, especially if the faceted field contains a large number of unique terms.
   - For example: `facet=category,count:5` gets the top five categories in facet results.  
-  - **Note**: If the `count` parameter is less than the number of unique terms, the results may not be accurate. This is due to the way faceting queries are distributed across shards. Increasing `count` generally increases the accuracy of the term counts, but at a performance cost. 
+  - **Note**: If the `count` parameter is less than the number of unique terms, the results may not be accurate. This is due to the way faceting queries are distributed across shards. Increasing `count` generally increases the accuracy of the term counts, but at a performance cost.
 - `sort` (one of `count` to sort *descending* by count, `-count` to sort *ascending* by count, `value` to sort *ascending* by value, or `-value` to sort *descending* by value)
   - For example: `facet=category,count:3,sort:count` gets the top three categories in facet results in descending order by the number of documents with each city name. For example, if the top three categories are Budget, Motel, and Luxury, and Budget has 5 hits, Motel has 6, and Luxury has 4, then the buckets will be in the order Motel, Budget, Luxury.
   - For example: `facet=rating,sort:-value` produces buckets for all possible ratings, in descending order by value. For example, if the ratings are from 1 to 5, the buckets will be ordered 5, 4, 3, 2, 1, irrespective of how many documents match each rating.
@@ -1775,17 +1796,27 @@ Also, URL encoding is only necessary when calling the REST API directly. Using t
   - For example: `facet=lastRenovationDate,interval:year` produces one bucket for each year when hotels were renovated.
 - **Note**: `count` and `sort` can be combined in the same facet specification, but they cannot be combined with `interval` or `values`, and `interval` and `values` cannot be combined together.
 
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `facets` instead of `facet`. Also, you specify it as a JSON array of strings where each string is a separate facet expression.
+
 `$filter=[string]` (optional) - A structured search expression in standard OData syntax. See [OData Expression Syntax](#ODataExpressionSyntax) for details on the subset of the OData expression grammar that Azure Search supports.
+
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `filter` instead of `$filter`.
 
 `highlight=[string]` (optional) - A set of comma-separated field names used for hit highlights. Only `searchable` fields can be used for hit highlighting.
 
-  `highlightPreTag=[string]` (optional, defaults to `<em>`) - A string tag that prepends to hit highlights. Must be set with `highlightPostTag`. Reserved characters in URL must be percent-encoded (for example, %23 instead of #).
+`highlightPreTag=[string]` (optional, defaults to `<em>`) - A string tag that prepends to hit highlights. Must be set with `highlightPostTag`.
 
-  `highlightPostTag=[string]` (optional, defaults to `</em>`) - a string tag that appends to hit highlights. Must be set with `highlightPreTag`. Reserved characters in URL must be percent-encoded (for example, %23 instead of #).
+> [AZURE.NOTE] When calling **Search** using GET, reserved characters in the URL must be percent-encoded (for example, %23 instead of #).
+
+`highlightPostTag=[string]` (optional, defaults to `</em>`) - a string tag that appends to hit highlights. Must be set with `highlightPreTag`.
+
+> [AZURE.NOTE] When calling **Search** using GET, reserved characters in the URL must be percent-encoded (for example, %23 instead of #).
 
 `scoringProfile=[string]` (optional) - The name of a scoring profile to evaluate match scores for matching documents in order to sort the results.
 
 `scoringParameter=[string]` (zero or more) - Indicates the value for each parameter defined in a scoring function (for example, `referencePointParameter`) using the format name:value. For example, if the scoring profile defines a function with a parameter called "mylocation" the query string option would be &scoringParameter=mylocation:-122.2,44.8
+
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `scoringParameters` instead of `scoringParameter`. Also, you specify it as a JSON array of strings where each string is a separate name:value pair.
 
 `minimumCoverage` (optional, defaults to 100) - a number between 0 and 100 indicating the percentage of the index that must be covered by a search query in order for the query to be reported as a success. By default, the entire index must be available or `Search` will return HTTP status code 503. If you set `minimumCoverage` and `Search` succeeds, it will return HTTP 200 and include a `@search.coverage` value in the response indicating the percentage of the index that was included in the query.
 
@@ -1793,19 +1824,41 @@ Also, URL encoding is only necessary when calling the REST API directly. Using t
 
 `api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
-Note: For this operation, the `api-version` is specified as a query parameter.
+Note: For this operation, the `api-version` is specified as a query parameter in the URL regardless of whether you call **Search** with GET or POST.
 
 **Request Headers**
 
-The following list describes the required and optional request headers. 
+The following list describes the required and optional request headers.
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Search** request can specify either an admin key or query key for `api-key`.
- 
+
 You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
-None.
+For GET: None.
+
+For POST:
+
+    {
+      "count": true | false (default),
+      "facets": [ "facet_expression_1", "facet_expression_2", ... ],
+      "filter": "odata_filter_expression",
+      "highlight": "highlight_field_1, highlight_field_2, ...",
+      "highlightPreTag": "pre_tag",
+      "highlightPostTag": "post_tag",
+      "minimumCoverage": # (% of index that must be covered to declare query successful; default 100),
+      "moreLikeThis": "document_key" (mutually exclusive with "search" parameter),
+      "orderby": "orderby_expression",
+      "scoringParameters": [ "scoring_parameter_1", "scoring_parameter_2", ... ],
+      "scoringProfile": "scoring_profile_name",
+      "search": "simple_query_expression",
+      "searchFields": "field_name_1, field_name_2, ...",
+      "searchMode": "any" (default) | "all",
+      "select": "field_name_1, field_name_2, ...",
+      "skip": # (default 0),
+      "top": #
+    }
 
 <a name="SearchResponse"></a>
 **Response**
@@ -1826,6 +1879,25 @@ Status Code: 200 OK is returned for a successful response.
         ],
         ...
       },
+      "@search.nextPageParameters": { (request body to fetch the next page of results if result count exceeds page size and Search was called with POST)
+        "count": ... (value from request body if present),
+        "facets": ... (value from request body if present),
+        "filter": ... (value from request body if present),
+        "highlight": ... (value from request body if present),
+        "highlightPreTag": ... (value from request body if present),
+        "highlightPostTag": ... (value from request body if present),
+        "minimumCoverage": ... (value from request body if present),
+        "moreLikeThis": ... (value from request body if present),
+        "orderby": ... (value from request body if present),
+        "scoringParameters": ... (value from request body if present),
+        "scoringProfile": ... (value from request body if present),
+        "search": ... (value from request body if present),
+        "searchFields": ... (value from request body if present),
+        "searchMode": ... (value from request body if present),
+        "select": ... (value from request body if present),
+        "skip": ... (page size plus value from request body if present),
+        "top": ... (value from request body if present minus page size),
+      },
       "value": [
         {
           "@search.score": document_score (if a text query was provided),
@@ -1839,70 +1911,157 @@ Status Code: 200 OK is returned for a successful response.
         },
         ...
       ],
-      "@odata.nextLink": (URL to fetch the next page of results if $top is greater than 1000)
+      "@odata.nextLink": (URL to fetch the next page of results if result count exceeds page size; Applies to both GET and POST)
     }
-    
+
 **Examples:**
 
 You can find additional examples on the [OData Expression Syntax for Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx) page.
 
-1)	Search the Index sorted descending by date. 
+1)	Search the Index sorted descending by date.
 
     GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "*",
+      "orderby": [ "lastRenovationDate desc" ]
+    }
 
 2)	In a faceted search, search the index and retrieve facets for categories, rating, tags, as well as items with baseRate in specific ranges:
 
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "test",
+      "facets": [ "category", "rating", "tags", "baseRate,values:80|150|220" ]
+    }
+
 3)	Using a filter, narrow down the previous faceted query results after the user clicks on rating 3 and category "Motel":
 
     GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "test",
+      "facets": [ "tags", "baseRate,values:80|150|220" ],
+      "filter": "rating eq 3 and category eq 'Motel'"
+    }
 
 4) In a faceted search, set an upper limit on unique terms returned in a query. The default is 10, but you can increase or decrease this value using the `count` parameter on the `facet` attribute:
 
     GET /indexes/hotels/docs?search=test&facet=city,count:5&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "test",
+      "facets": [ "city,count:5" ]
+    }
+
 5)	Search the Index within specific fields; For example, a language-specific field:
 
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "hôtel",
+      "searchFields": [ "description_fr" ]
+    }
+
 6) Search the Index across multiple fields. For example, you can store and query searchable fields in multiple languages, all within the same index.  If English and French descriptions co-exist in the same document, you can return any or all in the query results:
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2015-02-28-Preview
-	
+
+	POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "hotel",
+      "searchFields": [ "description", "description_fr" ]
+    }
+
 Note that you can only query one index at a time. Do not create multiple indexes for each language unless you plan to query one at a time.
 
 7)	Paging - Get the 1st page of items (page size is 10):
 
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "*",
+      "skip": 0,
+      "top": 10
+    }
+
 8)	Paging - Get the 2nd page of items (page size is 10):
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "*",
+      "skip": 10,
+      "top": 10
+    }
 
 9)	Retrieve a specific set of fields:
 
     GET /indexes/hotels/docs?search=*&$select=hotelName,description&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "*",
+      "select": [ "hotelName", "description" ]
+    }
+
 10)  Retrieve documents matching a specific filter expression
 
     GET /indexes/hotels/docs?$filter=(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
+    }
+
 11) Search the index and return fragments with hit highlights
 
     GET /indexes/hotels/docs?search=something&highlight=description&api-version=2015-02-28-Preview
-    
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "something",
+      "highlight": "description"
+    }
+
 12) Search the index and return documents sorted from closer to farther away from a reference location
 
     GET /indexes/hotels/docs?search=something&$orderby=geo.distance(location, geography'POINT(-122.12315 47.88121)')&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "something",
+      "orderby": [ "geo.distance(location, geography'POINT(-122.12315 47.88121)')" ]
+    }
 
 13) Search the index assuming there's a scoring profile called "geo" with two distance scoring functions, one defining a parameter called "currentLocation" and one defining a parameter called "lastLocation"
 
     GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
 
-14) Find documents in the index using simple query syntax. This query returns hotels where searchable fields contain the terms "comfort" and "location" but not "motel":
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "something",
+      "scoringProfile": "geo",
+      "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
+    }
+
+14) Find documents in the index using [simple query syntax](https://msdn.microsoft.com/library/dn798920.aspx). This query returns hotels where searchable fields contain the terms "comfort" and "location" but not "motel":
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "comfort +location -motel",
+      "searchMode": "all"
+    }
 
 Note the use of `searchMode=all` above. Including this parameter overrides the default of `searchMode=any`, ensuring that `-motel` means "AND NOT" instead of "OR NOT". Without `searchMode=all`, you get "OR NOT" which expands rather than restricts search results, and this can be counter-intuitive to some users.
 
@@ -1912,20 +2071,20 @@ Note the use of `searchMode=all` above. Including this parameter overrides the d
 
 The **Lookup Document** operation retrieves a document from Azure Search. This is useful when a user clicks on a specific search result, and you want to look up specific details about that document.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters] 
-    api-key: [admin key]
-    
+    GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters]
+    api-key: [admin or query key]
+
 **Request**
 
-HTTPS is required for service requests. The **Lookup Document** request can be constructed as follows. 
+HTTPS is required for service requests. The **Lookup Document** request can be constructed as follows.
 
-    GET /indexes/[index name]/docs/key?[query parameters] 
+    GET /indexes/[index name]/docs/key?[query parameters]
 
 Alternatively, you can use the traditional OData syntax for key lookup:
 
     GET /indexes('[index name]')/docs('[key]')?[query parameters]
 
-The request URI includes an [index name] and [key], specifying which document to retrieve from which index. You can only get one document at a time. Use **Search** to get multiple documents in a single request. 
+The request URI includes an [index name] and [key], specifying which document to retrieve from which index. You can only get one document at a time. Use **Search** to get multiple documents in a single request.
 
 **Query Parameters**
 
@@ -1940,7 +2099,7 @@ Note: For this operation, the `api-version` is specified as a query parameter.
 The following list describes the required and optional request headers.
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Lookup Document** request can specify either an admin key or query key for `api-key`.
- 
+
 You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
@@ -1954,7 +2113,7 @@ Status Code: 200 OK is returned for a successful response.
     {
       field_name: field_value (fields matching the default or specified projection)
     }
-    
+
 **Example**
 
 Lookup the document that has key '2'
@@ -1972,13 +2131,13 @@ The **Count Documents** operation retrieves a count of the number of documents i
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/$count?api-version=[api-version]
     Accept: text/plain
-    api-key: [admin key]
-    
+    api-key: [admin or query key]
+
 **Request**
 
 HTTPS is required for service requests. The **Count Documents** request can be constructed using the GET method.
 
-The [index name] in the request URI tells the service to return a count of all items in the docs collection of the specified index. 
+The [index name] in the request URI tells the service to return a count of all items in the docs collection of the specified index.
 
 `api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
@@ -1988,7 +2147,7 @@ The following list describes the required and optional request headers.
 
 - `Accept`: This value must be set to `text/plain`.
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Count Documents** request can specify either an admin key or query key for `api-key`.
- 
+
 You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
@@ -2008,17 +2167,26 @@ The **Suggestions** operation retrieves suggestions based on partial search inpu
 
 Suggestion requests aim at suggesting target documents, so the suggested text may be repeated if multiple candidate documents match the same search input. You can use `$select` to retrieve other document fields (including the document key) so that you can tell which document is the source for each suggestion.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs/suggest?[query parameters]
-    api-key: [admin key]
+A **Suggestions** operation is issued as a GET or POST request.
 
+    GET https://[service name].search.windows.net/indexes/[index name]/docs/suggest?[query parameters]
+    api-key: [admin or query key]
+
+    POST https://[service name].search.windows.net/indexes/[index name]/docs/suggest?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin or query key]
+
+**When to use POST instead of GET**
+
+When you use HTTP GET to call the **Suggestions** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries, specifically OData filter expressions. For these applications, using HTTP POST is a better choice. The request size limit for POST is close to 17 MB, which is plenty of room for even the most complex queries.
 
 **Request**
 
-HTTPS is required for service requests. The **Suggestions** request can be constructed using the GET method.
+HTTPS is required for service requests. The **Suggestions** request can be constructed using the GET or POST methods.
 
-The request URI specifies the name of the index to query. It also includes the partially input search term in the query string.
+The request URI specifies the name of the index to query. Parameters, such as the partially input search term, are specified on the query string in the case of GET requests, and in the request body in the case of POST requests.
 
-As a best practice, remember to [URL-encode](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specific query parameters when calling the REST API directly. For Suggestions operations, this includes:
+As a best practice when creating GET requests, remember to [URL-encode](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specific query parameters when calling the REST API directly. For **Suggestions** operations, this includes:
 
 - `$filter`
 - `highlightPreTag`
@@ -2027,15 +2195,21 @@ As a best practice, remember to [URL-encode](https://msdn.microsoft.com/library/
 
 URL encoding is only recommended on the above query parameters. If you inadvertently URL-encode the entire query string (everything after the ?), requests will break.
 
-Also, URL encoding is only necessary when calling the REST API directly. Using the [.NET client library](https://msdn.microsoft.com/library/dn951165.aspx) handles URL encoding for you.
+Also, URL encoding is only necessary when calling the REST API directly using GET. No URL encoding is necessary when calling **Suggestions** using POST, or when using the [.NET client library](https://msdn.microsoft.com/library/dn951165.aspx), which handles URL encoding for you.
 
 **Query Parameters**
 
-`search=[string]` - the search text to use to suggest queries. Must be at least 3 characters, and no more than 25 characters.
+**Suggestions** accepts several parameters that provide query criteria and also specify search behavior. You provide these parameters in the URL query string when calling **Suggestions** via GET, and as JSON properties in the request body when calling **Suggestions** via POST. The syntax for some parameters is slightly different between GET and POST. These differences are noted as applicable below:
 
-`highlightPreTag=[string]` (optional) - a string tag that prepends to search hits. Must be set with `highlightPostTag`. Reserved characters in URL must be percent-encoded (for example, %23 instead of #).
+`search=[string]` - the search text to use to suggest queries. Must be at least 1 character, and no more than 100 characters.
 
-`highlightPostTag=[string]` (optional) - a string tag that appends to search hits. Must be set with `highlightPreTag`. Reserved characters in URL must be percent-encoded (for example, %23 instead of #).
+`highlightPreTag=[string]` (optional) - a string tag that prepends to search hits. Must be set with `highlightPostTag`.
+
+> [AZURE.NOTE] When calling **Suggestions** using GET, reserved characters in the URL must be percent-encoded (for example, %23 instead of #).
+
+`highlightPostTag=[string]` (optional) - a string tag that appends to search hits. Must be set with `highlightPreTag`.
+
+> [AZURE.NOTE] When calling **Suggestions** using GET, reserved characters in the URL must be percent-encoded (for example, %23 instead of #).
 
 `suggesterName=[string]` - the name of the suggester as specified in the `suggesters` collection that's part of the index definition. A `suggester` determines which fields are scanned for suggested query terms. See [Suggesters](#Suggesters) for details.
 
@@ -2045,11 +2219,19 @@ Also, URL encoding is only necessary when calling the REST API directly. Using t
 
 `$top=#` (optional, default = 5) - the number of suggestions to retrieve. Must be a number between 1 and 100.
 
+> [AZURE.NOTE] When calling **Suggestions** using POST, this parameter is named `top` instead of `$top`.
+
 `$filter=[string]` (optional) - an expression that filters the documents considered for suggestions.
+
+> [AZURE.NOTE] When calling **Suggestions** using POST, this parameter is named `filter` instead of `$filter`.
 
 `$orderby=[string]` (optional) - a list of comma-separated expressions to sort the results by. Each expression can be either a field name or a call to the `geo.distance()` function. Each expression can be followed by `asc` to indicated ascending, and `desc` to indicate descending. The default is ascending order. There is a limit of 32 clauses for `$orderby`.
 
+> [AZURE.NOTE] When calling **Suggestions** using POST, this parameter is named `orderby` instead of `$orderby`.
+
 `$select=[string]` (optional) - a list of comma-separated fields to retrieve. If unspecified, only the document key and suggestion text is returned.
+
+> [AZURE.NOTE] When calling **Suggestions** using POST, this parameter is named `select` instead of `$select`.
 
 `minimumCoverage` (optional, defaults to 80) - a number between 0 and 100 indicating the percentage of the index that must be covered by a suggestions query in order for the query to be reported as a success. By default, at least 80% of the index must be available or `Suggest` will return HTTP status code 503. If you set `minimumCoverage` and `Suggest` succeeds, it will return HTTP 200 and include a `@search.coverage` value in the response indicating the percentage of the index that was included in the query.
 
@@ -2057,7 +2239,7 @@ Also, URL encoding is only necessary when calling the REST API directly. Using t
 
 `api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
-Note: For this operation, the `api-version` is specified as a query parameter.
+Note: For this operation, the `api-version` is specified as a query parameter in the URL regardless of whether you call **Suggestions** with GET or POST.
 
 **Request Headers**
 
@@ -2065,11 +2247,27 @@ The following list describes the required and optional request headers
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Suggestions** request can specify either an admin key or query key as the `api-key`.
 
-  You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
-None.
+For GET: None.
+
+For POST:
+
+    {
+      "filter": "odata_filter_expression",
+	  "fuzzy": true | false (default),
+      "highlightPreTag": "pre_tag",
+      "highlightPostTag": "post_tag",
+      "minimumCoverage": # (% of index that must be covered to declare query successful; default 80),
+      "orderby": "orderby_expression",
+      "search": "partial_search_input",
+      "searchFields": "field_name_1, field_name_2, ...",
+      "select": "field_name_1, field_name_2, ...",
+	  "suggesterName": "suggester_name",
+      "top": # (default 5)
+    }
 
 **Response**
 
@@ -2100,13 +2298,15 @@ If the projection option is used to retrieve fields they are included in each el
       ]
     }
 
- **Example**
+**Example**
 
 Retrieve 5 suggestions where the partial search input is 'lux'
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2015-02-28-Preview
 
-
-
-
- 
+    POST /indexes/hotels/docs/suggest?api-version=2015-02-28-Preview
+    {
+      "search": "lux",
+      "top": 5,
+      "suggesterName": "sg"
+    }

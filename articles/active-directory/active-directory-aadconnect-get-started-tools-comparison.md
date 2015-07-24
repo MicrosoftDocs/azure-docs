@@ -38,12 +38,12 @@ PP = Public Preview</br>
 | :-------- |:--------:|:--------:|:--------:|:--------:
 | Connect to single on-premises AD forest | ● | ● | ● | ● |
 | Connect to multiple on-premises AD forests |●  | ● |  | ● |
-| Connect to multiple on-premises Exchange Orgs |PP  |  |  |  |
+| Connect to multiple on-premises Exchange Orgs | ● |  |  |  |
 | Connect to single on-premises LDAP directory | FR |  |  | ● |
 | Connect to multiple on-premises LDAP directories |FR  |  |  | ● |
 | Connect to on-premises AD and on-premises LDAP directories |FR  |  |  | ● |
 | Connect to custom systems (i.e. SQL, Oracle, MySQL, etc.) | FR |  |  | ● |
-| Synchronize customer defined attributes (directory extensions) | PP |  |  |  |
+| Synchronize customer defined attributes (directory extensions) | ● |  |  |  |
 
 ## Cloud to On-Premises Synchronization
 
@@ -51,7 +51,7 @@ PP = Public Preview</br>
 | :-------- |:--------:|:--------:|:--------:|:--------:
 | Writeback of devices | ● |  | ● |  |
 | Attribute writeback (for Exchange hybrid deployment ) | ● | ● | ● | ● |
-| Writeback of users and groups objects |  PP|  | |  |
+| Writeback of users and groups objects |  ●|  | |  |
 | Writeback of passwords (from self-service password reset (SSPR) and password change) |  ● | ● |  |  |
 
 

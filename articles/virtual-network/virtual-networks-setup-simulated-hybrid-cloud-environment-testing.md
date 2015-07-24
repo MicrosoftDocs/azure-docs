@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="josephd"/>
 
 # Set up a simulated hybrid cloud environment for testing
@@ -222,7 +223,7 @@ You can also build these configurations in this test environment:
 - [Web-based LOB application](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 - [Office 365 Directory Synchronization (DirSync) server](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-## Additional Resources
+## Additional resources
 
 [Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
@@ -232,7 +233,7 @@ You can also build these configurations in this test environment:
 
 [Azure hybrid cloud test environments](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
 
-[Azure Infrastructure Services Implementation Guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Azure infrastructure services implementation guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 ## <a id="costs"></a>Minimizing the ongoing costs of this environment
 

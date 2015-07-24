@@ -7,7 +7,7 @@
     documentationCenter=""
     authors="tysonn"
     manager="carolz"
-    editor=""/>/>
+    editor=""/>
 
 <tags
     ms.service="contributor-guide"
@@ -97,6 +97,7 @@ Reusable text fragments in our GitHub repository are called "includes". When you
 - Includes are meant to be used for significant amounts of content - a paragraph or two, a shared procedure, or a shared section. Do not use them for anything smaller than a sentence; they are not for product names or incomplete sentences.
 - Don't embed includes within other includes. Bad things happen in the publishing system!
 - Don't share media between files. Use a separate file with a unique name for each include and article. Store the media file in the media folder associated with the include.
+- Don't use an includes as the only content of an article.  Includes are meant to be supplemental to the content in the rest of the article.
 - Because all includes must be in the /includes directory, the path to an include from an article is always
 
     ../includes
@@ -164,7 +165,7 @@ Use technology and platform switchers in technical articles when you author mult
 
 ###<a id="simple-selectors"></a>Simple selectors
 
-Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers only need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java  
+Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers only need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java.  Please use the below custom markdown format for any selectors.  Do not use HTML for selector functions.  
 
 See [Get started with Notification Hubs](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
 
@@ -179,14 +180,14 @@ See [Get started with Notification Hubs](http://azure.microsoft.com/documentatio
 Example:
 
     > [AZURE.SELECTOR]
-    - [Windows Universal](../articles/notification-hubs-windows-store-dotnet-get-started/)
+    - [Universal Windows](../articles/notification-hubs-windows-store-dotnet-get-started/)
     - [Windows Phone](../articles/notification-hubs-windows-phone-get-started/)
     - [iOS](../articles/notification-hubs-ios-get-started/)
     - [Android](../articles/notification-hubs-android-get-started/)
     - [Kindle](../articles/notification-hubs-kindle-get-started/)
     - [Baidu](../articles/notification-hubs-baidu-get-started/)
     - [Xamarin.iOS](../articles/partner-xamarin-notification-hubs-ios-get-started/)
-    - [Xamarin.Android](../articles/partner-xamarin-notification-hubs-android-get-started/)
+    -[Xamarin.Android](../articles/partner-xamarin-notification-hubs-android-get-started/)
 
 #### Rendering
 

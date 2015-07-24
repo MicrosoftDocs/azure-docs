@@ -18,7 +18,7 @@
 
 # Model an application in Service Fabric
 
-This article provides an overview the Service Fabric application model and describes how to define an application and service via manifest files and get the application packaged and ready for deployment.
+This article provides an overview of the Service Fabric application model and describes how to define an application and service via manifest files and get the application packaged and ready for deployment.
 
 ## Understand the application model
 

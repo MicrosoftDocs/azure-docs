@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" 
+	pageTitle="Schedule recurring jobs in Azure Mobile Services" 
 	description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Schedule recurring jobs in Mobile Services 
@@ -36,16 +36,14 @@ This tutorial walks you through how to use the job scheduler to create a schedul
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-<ol start="7">
-<li><p>In Solution Explorer in Visual Studio, open the web.config file for the mobile service project, locate the <strong>MS_TwitterConsumerKey</strong> and <strong>MS_TwitterConsumerSecret</strong> app settings and replace the values of these keys with Twitter consumer key and consumer secret values that you set in the portal.</p></li>
+&nbsp;&nbsp;7. In Solution Explorer in Visual Studio, open the web.config file for the mobile service project, locate the `MS_TwitterConsumerKey` and `MS_TwitterConsumerSecret` app settings and replace the values of these keys with Twitter consumer key and consumer secret values that you set in the portal.
 
-<li><p>In the same section, add the following new app settings, replacing the placeholders with the Twitter access token and access token secret values that you set as app settings in the portal:</p>
+&nbsp;&nbsp;8. In the same section, add the following new app settings, replacing the placeholders with the Twitter access token and access token secret values that you set as app settings in the portal:
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" /&gt;
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /&gt;</code></pre>
+	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
 
-<p>The mobile service uses these stored settings when it runs on the local computer, which lets you test the scheduled job before you publish it. When running in Azure, the mobile service instead uses values set in the portal and ignores these project settings.  </p></li>
-</ol>
+The mobile service uses these stored settings when it runs on the local computer, which lets you test the scheduled job before you publish it. When running in Azure, the mobile service instead uses values set in the portal and ignores these project settings. 
 
 ##<a name="install-linq2twitter"></a>Download and install the LINQ to Twitter library
 
@@ -65,7 +63,7 @@ Next, you need to create a new table in which to store tweets.
 
 	This creates a new project file for the Updates class.
 
-2. Right-click **References**, click **Add Reference...**, select **Framework** under **Assemblies**, check **System.ComponentModel.DataAnnotations**, then click **OK**.
+2. Right-click **References** > **Add Reference...** > **Framework** under **Assemblies**, then check **System.ComponentModel.DataAnnotations** and click **OK**.
 
 	![][7]
 
@@ -88,7 +86,7 @@ Next, you need to create a new table in which to store tweets.
 	        public DateTime Date { get; set; }
     	}
 
-4. Expand the Models folder, open the data model context file (named <em>service_name</em>Context.cs) and add the following property that returns a typed **DbSet**:
+4. Expand the Models folder, open the data model context file (named *service_name*Context.cs) and add the following property that returns a typed **DbSet**:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -127,7 +125,8 @@ Next, you create the scheduled job that accesses Twitter and stores tweet data i
 		        private string accessToken;
 		        private string accessTokenSecret;
 		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
@@ -214,7 +213,7 @@ Next, you create the scheduled job that accesses Twitter and stores tweet data i
 		    }
 		}
 
-	In the above code, you must replace the strings _todolistService_ and _todolistContext_ with the namespace and DbContext of your downloaded project, which are <em>mobile&#95;service&#95;name</em>Service and <em>mobile&#95;service&#95;name</em>Context, respective.  
+	In the above code, you must replace the strings _todolistService_ and _todolistContext_ with the namespace and DbContext of your downloaded project, which are *mobile&#95;service&#95;name*Service and *mobile&#95;service&#95;name*Context, respective.  
    	
 	In the above code, the **ExecuteAsync** override method calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
 

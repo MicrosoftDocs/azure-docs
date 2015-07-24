@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="06/19/2015"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 #Get started with Azure Search in NodeJS#

@@ -250,6 +250,14 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	The complete URL will consist of what you enter here plus .azurewebsites.net (as shown next to the **Web app name** text box). For example, if the web app name is ContosoAds, the URL will be ContosoAds.azurewebsites.net.
 
+9. In the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) drop-down list choose **Create new App Service plan**.
+
+11. Enter a name for the App Service plan, such as ContosoAdsPlan.
+
+9. In the [Resource group](../resource-group-overview.md) drop-down list choose **Create new resource group**.
+
+11. Enter a name for the resource group, such as ContosoAdsGroup.
+
 9. In the **Region** drop-down list choose the same region you chose for your storage account.
 
 	This setting specifies which Azure datacenter your web app will run in. Keeping the web app and storage account in the same datacenter minimizes latency and data egress charges.
@@ -257,6 +265,8 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 9. In the **Database server** drop-down list choose **Create new server**.
 
 	Alternatively, if your subscription already has a server, you can select that server from the drop-down list.
+
+1. Enter a name for the database server, such as ContosoAdsServer.
 
 1. Enter an administrator **Database username** and **Database password**. 
 
