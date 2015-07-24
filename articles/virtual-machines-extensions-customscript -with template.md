@@ -46,10 +46,9 @@ Azure Resource Manager Template allow you to declaratively specify the Azure Iaa
 
 For deploying with templates we use the same version of  Custom Script extension thats availale for Azure Service Management APIs. The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location. The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in majorversion.* format.
 
- ### Template Snippet for Custom Script Extension on a Linux VM
- Here is the template fragment for using Custom Script Extension on a Linux VM:
+ ## Template Snippet for Custom Script Extension on a Linux VM
 
- Define the following extension resource in the Resource section of the template
+Define the following extension resource in the Resource section of the template
 
       {
     "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -67,10 +66,9 @@ For deploying with templates we use the same version of  Custom Script extension
       "commandToExecute": "shmongo-install-ubuntu.sh"
       }
     }
-  }
+    }
 
-### Template Snippet for Custom Script Extension on a Windows VM
-Here is the template fragment for using Custom Script Extension on a Windows VM:
+## Template Snippet for Custom Script Extension on a Windows VM
 
 Define the following resource in the Resource section of the template
 
