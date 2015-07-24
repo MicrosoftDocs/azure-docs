@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Data Movement Activities
-Data factory has a [globally available service](#global) to support data movement with Copy activity across a variety of data stores listed below. Data factory also has built-in support for [securely moving data between on-premises locations and cloud using the data management gateway](#moveonpremtocloud).
+Data factory has a globally available service to support data movement with Copy activity across a variety of data stores listed below. Data factory also has built-in support for securely moving data between on-premises locations and cloud using the data management gateway.
 
 ## Supported data stores for Copy Activity
 Copy activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and source, sink combinations. Click on a data store to learn how to copy data from/to that store.
@@ -37,15 +37,18 @@ Copy activity copies data from a **source** data store to a **sink** data store.
 | [On-premises Teradata Database](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises Sybase Database](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises PostgreSQL Database](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
+| Generic ODBC | | 
+| General OData | | 
+| Azure SQL Data Warehouse | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB, Azure SQL Data Warehouse |
 
 ## Copy Activity
-To learn about defining activities in general at a high level, various sections and properties available across all activities please refer to the [Creating Pipelines](data-factory-creating-pipelines.md) article.
-
 Copy activity takes one input dataset (**source**) and copies data per activity configuration to one output dataset (**sink**). Data copy is done in a batch fashion according to the schedule specified on the activity.
+
+> [AZURE.NOTE] To learn about defining activities in general at a high level such as various JSON sections and properties available for all activities, see [Creating Pipelines](data-factory-creating-pipelines.md) article.
 
 Copy activity provides the following capabilities:
 
-### <a href="global"></a>Globally available data movement
+### <a name="global"></a>Globally available data movement
 The data movement service powering copy activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
 
 | Region | Geography |
@@ -62,7 +65,7 @@ The data movement service powering copy activity is available globally in the fo
 | Southeast Asia | APAC |
 | Japan East | APAC |
 
-### <a href="moveonpremtocloud"></a>Securely move data between on-premises location and cloud
+### <a name="moveonpremtocloud"></a>Securely move data between on-premises location and cloud
 One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data management gateway is an agent you can install on-premises to enable hybrid data pipelines. 
 
 The data gateway provides the following capabilities: 
@@ -86,7 +89,7 @@ You can find the mapping for a given native type system to .NET for the data sto
 For file based sources Copy activity supports variety of file format including binary, text and Avro formats.
 
 ## Copy Activity Properties
-Properties like name, description, input and output tables, various policies etc are available for all types of activities. Properties available in the typeProperties section of the activity on the other hand vary with each activity type. 
+Properties like name, description, input and output tables, various policies etc are available for all types of activities. Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. 
 
-In case of Copy activity the typeProperties section varies depending on the types of sources and sinks. Each of the data store specific page listed above documents these properties specific to the data store type.
+In case of Copy activity the **typeProperties** section varies depending on the types of sources and sinks. Each of the data store specific page listed above documents these properties specific to the data store type.
 

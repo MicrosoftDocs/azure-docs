@@ -24,7 +24,7 @@ The data gateway provides the following capabilities:
 1.	Model on-premises data sources and cloud data sources within the same data factory and move data.
 2.	Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud dashboard.
 3.	Manage access to on-premises data sources securely.
-	1. No changes required to corporate firewall. Gateway only makes outbound http based connections to open internet.
+	1. No changes required to corporate firewall. Gateway only makes outbound HTTP based connections to open internet.
 	2. Encrypt credentials for your on-premises data stores with your certificate.
 4.	Move data efficiently – data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
 
