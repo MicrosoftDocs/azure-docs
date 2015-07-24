@@ -3,7 +3,7 @@
 	description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="markusvi" 
 	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
@@ -14,8 +14,8 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/23/2015" 
+	ms.author="markusvi"/>
 
 
 # Install a new Active Directory forest on an Azure virtual network
