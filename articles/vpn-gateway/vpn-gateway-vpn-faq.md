@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2015"
+   ms.date="07/16/2015"
    ms.author="cherylmc" />
 
 # VPN Gateway FAQ
@@ -27,7 +27,7 @@ Yes. In fact, there is no region constraint. One virtual network can connect to 
 Yes.
 ### Can I connect to multiple sites from a single virtual network?
 
-You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-Site and VNet-to-VNet Connectivity](#Multi-Site-and-VNet-to-VNet-Connectivity) FAQ section.
+You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-Site and VNet-to-VNet Connectivity](#multi-site-and-vnet-to-vnet-connectivity) FAQ section.
 ## What are my cross-premises connection options?
 
 Virtual Network supports the following cross-premises connections:

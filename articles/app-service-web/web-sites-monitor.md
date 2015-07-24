@@ -122,7 +122,7 @@ The **site diagnostics** section of the **Configure** management page controls t
 
 After enabling diagnostics for a web app, click the **Save** icon at the bottom of the **Configure** management page to apply the options that you have set.
 
-> [AZURE.IMPORTANT] Logging and tracing place significant demands on a web app. We recommend turning off logging and tracing once you have reproduced the problem(s) that you are troubleshooting.
+> [AZURE.IMPORTANT] Detailed Error Messages and Failed Request Tracing place significant demands on a web app. We recommend turning off these features once you have reproduced the problem(s) that you are troubleshooting.
 
 ### Advanced configuration ###
 

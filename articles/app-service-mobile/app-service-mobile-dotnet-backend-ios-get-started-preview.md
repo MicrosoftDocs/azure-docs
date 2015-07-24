@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Get Started with Azure App Service Mobile iOS Apps"
-	description="Follow this tutorial to get started using Azure App Service for iOS development."
+	pageTitle="iOS Quick Start with Azure Mobile Apps"
+	description="Get started using Azure Mobile Apps for iOS development"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="ysxu"
+	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,60 +13,42 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="get-started-article"
-	ms.date="06/18/2015"
-	ms.author="yuaxu"/>
+	ms.date="07/24/2015"
+	ms.author="krisragh"/>
 
-# <a name="getting-started"> </a>Create an iOS app
+# <a name="getting-started"> </a>iOS Quick Start with Azure Mobile Apps
+
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-This tutorial shows you how to create an iOS app with Azure App Service Mobile Apps. You will create a new mobile app backend and a simple _To do list_ app that stores app data. The tutorial uses .NET and Visual Studio for server-side logic.
+This tutorial walks you through a simple _Todo list_ iOS app. You'll learn to use Azure Mobile Apps as a backend for storing data and server-side logic. 
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
+* A PC with Visual Studio Professional 2013 or later
+* A Mac with the latest Xcode 
+* An active Azure account. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/) and [App Service Pricing](http://azure.microsoft.com/en-us/pricing/details/app-service/). With [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), try an hour of Azure App Service experience with no Azure subscription, free of charge and commitment.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter mobile app in App Service. No credit cards required; no commitments.
-
-## <a name="create-new-service"> </a>Create a new mobile app backend
+## Create Azure Backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Create a new iOS app
+## Download Azure Backend Code
 
-Now that you have created your mobile backend, you can follow an easy quickstart in the Azure Preview Portal to either create a new app or modify an existing app to connect to your mobile app backend.
+1. On your PC, visit [Azure Portal], click **Browse All** > **Mobile Apps** > the backend that you just created.
 
-1. In the Azure Portal, click **Mobile App**, and then click the mobile app backend that you just created.
+2. At the top of the blade, click **Add Client** > either **iOS (Objective-C)** or **iOS (Swift.)**
 
-2. At the top of the blade, click Add Client and expand iOS.
+3. Click **Download and publish your service to the cloud** > **Download**.
 
-	![][6]
-
-	This displays steps to create a iOS app connected to your mobile app backend.
-
-3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.
-
-4. Download and install [Xcode] v4.4 or a later version and [Xamarin Studio]. You can also use Xamarin for Visual Studio.
-
-5. Under **Download and publish your service to the cloud**, click **Download**.
-
- This downloads a solution contains projects for both the mobile app backend and for the sample _To do list_ application that is connected to your mobile app backend. Save the compressed project file to your local computer, and make a note of where you save it.
-
-6. Download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
-
-## Test the mobile app
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
-
-## Publish your mobile app
+## Deploy Azure Backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Run the iOS app
+## Download and Run iOS App
 
 [AZURE.INCLUDE [app-service-mobile-ios-run-app-preview](../../includes/app-service-mobile-ios-run-app-preview.md)]
-
 
 
 <!-- Images. -->
@@ -82,6 +64,6 @@ Now that you have created your mobile backend, you can follow an easy quickstart
 [11]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-data-tab.png
 [12]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-data-browse.png
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Portal]: https://portal.azure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
  
