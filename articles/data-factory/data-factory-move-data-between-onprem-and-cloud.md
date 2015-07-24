@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data between on-premises and cloud using Azure Data Factory " 
+	pageTitle="Move data between on-premises and cloud using Azure Data Factory" 
 	description="Learn about moving data between on-premises and cloud using Data Management Gateway and Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -196,9 +196,14 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
 
-You can also use Data Factory Editor, which you will use to create datasets/tables in this tutorial, to create linked services. If you create a SQL Server linked service by using the editor and you enter credentials in plain text, the credentials are encrypted using a certificate that the Data Factory service owns. You can also encrypt credentials using the [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) and use the encrypted credentials in the JSON snippet in the editor. 
+When you use the Azure Portal to set credentials for an on-premises data source, the portal encrypts the credentials with the certificate you specified in the Certificate tab of the Data Management Gateway Configuration Manager on the gateway machine. 
 
+You can also use the [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You can the encrypted credentials returned by this cmdlet in the JSON file that you will use with the [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/en-us/library/azure/dn820246.aspx) cmdlet or in the JSON snippet in the Data Factory Editor in the portal.
+ 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
+You can also use the Data Factory Editor, which you will use to create datasets/tables in this tutorial, to create linked services. If you create a SQL Server linked service by using the editor and you enter credentials in plain text, the credentials are encrypted using a certificate that the Data Factory service owns, NOT the certificate that gateway is configured to use. Therefore, we recommend that you follow this approach only for development/testing purposes. 
+
 
 #### Add a linked service for an Azure storage account
  

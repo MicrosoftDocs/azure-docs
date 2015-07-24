@@ -23,29 +23,27 @@ Please use the following guidelines for when to include “structure” informat
 
 1.	**For structured data sources** that store data schema and type information along with the data itself (sources like SQL, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below). 
 
-	As mentioned above type information is optional in “structure” section. Since for structured sources type information is already available as part of dataset definition in the data store you should not include type information when you do include “structure” section.
-2. **For schema on read data sources** specifically Azure blob you can chose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
+	As mentioned above, the type information is optional in “structure” section. For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
+2. **For schema on read data sources (specifically Azure blob)**  you can chose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
 	1. You want to do column mapping.
-	2. When the dataset is a Source in Copy activity you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move Data To and From Azure Blob article](../articles/data-factory/data-factory-azure-blob-connector.md) for more information.
+	2. When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move Data To and From Azure Blob article](../articles/data-factory/data-factory-azure-blob-connector.md) for more information.
 
 ### Supported .NET Based Type Values
 Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
 
-| Type |
-| ---- |
-| Int16 |
-| Int32 |
-| Int64 |
-| Single | 
-| Double |
-| Decimal |
-| Byte[] |
-| Bool |
-| String |
-| Guid |
-| Datetime |
-| Datetimeoffset |
-| Timespan | 
+- Int16
+- Int32 
+- Int64
+- Single
+- Double
+- Decimal
+- Byte[]
+- Bool
+- String 
+- Guid
+- Datetime
+- Datetimeoffset
+- Timespan 
 
 For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion below.
 
