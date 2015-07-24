@@ -22,13 +22,13 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-This tutorial walks you through a simple _Todo list_ iOS app. You'll use Azure Mobile Apps as the backend for storing data and server-side logic. 
+This tutorial walks you through a simple _Todo list_ iOS app. You'll learn to use Azure Mobile Apps as a backend for storing data and server-side logic. 
 
 To complete this tutorial, you need the following:
 
 * A PC with Visual Studio Professional 2013 or later
 * A Mac with the latest Xcode 
-* An active Azure account. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/) and [App Service Pricing](http://azure.microsoft.com/en-us/pricing/details/app-service/). With [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), you can also create a short-lived starter app (no credit card, account, or commitment necessary.)
+* An active Azure account. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/) and [App Service Pricing](http://azure.microsoft.com/en-us/pricing/details/app-service/). With [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), try an hour of Azure App Service experience with no Azure subscription, free of charge and commitment.
 
 ## Create Azure Backend
 
@@ -38,11 +38,11 @@ To complete this tutorial, you need the following:
 
 1. On your PC, visit [Azure Portal], click **Browse All** > **Mobile Apps** > the backend that you just created.
 
-2. At the top of the blade, click **Add Client** > either **iOS (Objective-C)** or **iOS (Swift)**.
+2. At the top of the blade, click **Add Client** > either **iOS (Objective-C)** or **iOS (Swift.)**
 
-3. Click #2 > **Download and publish your service to the cloud** > **Download**.
+3. Click **Download and publish your service to the cloud** > **Download**.
 
-## Publish Backend Service
+## Deploy Azure Backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
