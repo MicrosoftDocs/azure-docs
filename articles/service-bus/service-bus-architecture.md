@@ -65,6 +65,6 @@ When a client sends a request to Service Bus, the Azure load balancer routes it 
 
 Now that you've read an overview of how Service Bus works, to get started visit the following links:
 
-- [Service Bus messaging overview](https://azure.microsoft.com/documentation/articles/service-bus-messaging-overview/)
-- [Service Bus fundamentals](https://azure.microsoft.com/documentation/articles/service-bus-fundamentals-hybrid-solutions/)
-- [A queued messaging solution using Service Bus queues](https://azure.microsoft.com/documentation/articles/service-bus-dotnet-multi-tier-app-using-service-bus-queues/)
+- [Service Bus messaging overview](service-bus-messaging-overview.md)
+- [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+- [A queued messaging solution using Service Bus queues](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
