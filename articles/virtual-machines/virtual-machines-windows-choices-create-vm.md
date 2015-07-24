@@ -5,15 +5,17 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
+>>>>>>> 8eb5a4ae300300b59b42299643c4e5c58c196256
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="index-page"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/14/2015"
+	ms.date="07/15/2015"
 	ms.author="kathydav"/>
 
 # Different ways to create a Windows-based virtual machine
@@ -34,9 +36,9 @@ The graphical user interface of the Azure portal is an easy way to try out a vir
 
 If you prefer working in a command shell, choose between the Azure command-line interface (CLI) for Mac and Linux users, or Azure PowerShell, which has Windows PowerShell cmdlets for Azure and a custom console.
 
-For Azure CLI, see [Equivalent Resource Manager and service management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows][]. To use a template, see [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI][].
+For Azure CLI, see [Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows][]. To use a template, see [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI][].
 
-For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines][] To use a template, see [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell][].
+For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines][] To use a template, see [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell][]. To create virtual machines in the Service Management stack, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines][].
 
 ### Development environment: Visual Studio
 
@@ -46,7 +48,7 @@ For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Windo
 
 ## Operating system and image choices
 
-Choose an image based on the operating system that you want to run. Azure and its partners offer many images, some of which include applications and tools. Or, use one of your own images.
+Choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools. Or, use one of your own images.
 
 ### Azure images
 
@@ -77,14 +79,14 @@ Use an image based on an existing Azure virtual machine by *capturing* that virt
 
 [Create a virtual machine running Windows]: virtual-machines-windows-tutorial.md
 
-[Equivalent Resource Manager and service management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
+[Equivalent Resource Manager and Service Management commands for virtual machine  operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
-[Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell]:  virtual-machines-deploy-rmtemplates-powershell.md
+[Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell]:  virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
+[Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Use Azure PowerShell to create and preconfigure Windows-based virtual machines]: virtual-machines-ps-create-preconfigure-windows-vms.md
-
 [How to create a custom virtual machine running Windows]: virtual-machines-windows-create-custom.md
 
-[How to capture a Windows-based virtual machine to use as a template]: virtual-machines-capture-image-windows-server.md
+[How to capture a Windows virtual machine]: virtual-machines-capture-image-windows-server.md
 
 [Create and upload a Windows Server VHD to Azure]: virtual-machines-create-upload-vhd-windows-server.md
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gettting started with Internal load balancer | Microsoft Azure "
+   pageTitle="Get started with Internal load balancer | Microsoft Azure "
    description="Configure Internal Load balancer and how to implement them for Virtual Machines and Cloud deployments"
    services="load-balancer"
    documentationCenter="na"
@@ -12,10 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
 # Get started configuring an internal load balancer
+
+> [AZURE.SELECTOR]
+- [Service Manager steps](load-balancer-internal-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 Azure Internal Load Balancing (ILB) provides load balancing between virtual machines that reside inside of a cloud service or a virtual network with a regional scope. For information about the use and configuration of virtual networks with a regional scope, see [Regional Virtual Networks](../regional-virtual-networks.md) in the Azure blog. Existing virtual networks that have been configured for an affinity group cannot use ILB.
 
@@ -261,7 +265,7 @@ More information about the load balancer schema see [add load balancer](https://
 ### Step 2
 
 
-Change the service definition (.csdef) file to add endpoints to the ILB. The moment a role instance is created, the service definition file will add the role to the ILB.
+Change the service definition (.csdef) file to add endpoints to the ILB. The moment a role instance is created, the service definition file will add the role instances to the ILB.
 
 
 	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
