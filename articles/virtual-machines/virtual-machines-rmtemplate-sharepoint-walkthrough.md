@@ -33,7 +33,7 @@ Open the azuredeploy.json template in a text editor or tool of your choice. The 
 
 ## "parameters" section
 
-The "parameters" section specifies parameters that are used to input data into a template. You must supply the data when the template is executed. A maximum of 50 parameters can be defined. Here is an example of a parameter for the Azure location:
+The **"parameters"** section specifies parameters that are used to input data into a template. You must supply the data when the template is executed. A maximum of 50 parameters can be defined. Here is an example of a parameter for the Azure location:
 
 	"deploymentLocation": {
 		"type": "string",
@@ -52,7 +52,7 @@ The "parameters" section specifies parameters that are used to input data into a
 
 ## "variables" section
 
-The "variables" section specifies variables that can be used throughout a template. In contrast to parameters, you do not supply them when you execute the template. A maximum of 100 variables can be defined. Here are some examples:
+The **"variables"** section specifies variables and their values that the template uses. Variable values can be explicitly set or be derived from parameter values. In contrast to parameters, you do not supply them when you execute the template. A maximum of 100 variables can be defined. Here are some examples:
 
 	"LBFE": "LBFE",
 	"LBBE": "LBBE",
@@ -87,7 +87,7 @@ This section creates a new storage account for all VHD and disk resources for th
 
 ### Microsoft.Network/publicIPAddresses
 
-This section creates a set of public IP addresses through which each virtual machine can be reached over the Internet. Here is an example:
+These sections create a set of public IP addresses through which each virtual machine can be reached over the Internet. Here is an example:
 
 	{
 		"apiVersion": "2015-05-01-preview",
@@ -104,7 +104,7 @@ This section creates a set of public IP addresses through which each virtual mac
 
 ### Microsoft.Compute/availabilitySets
 
-This section creates three availability sets, one for each tier of the deployment:
+These sections create three availability sets, one for each tier of the deployment:
 
 - Active Directory domain controllers
 - SQL Server cluster
@@ -121,7 +121,7 @@ Here is an example:
 
 ### Microsoft.Network/virtualNetworks
 
-This section creates a cloud-only virtual network with three subnets (one for each tier of the deployment), into which the virtual machines are placed. Here is the JSON code:
+These sections create a cloud-only virtual network with three subnets (one for each tier of the deployment), into which the virtual machines are placed. Here is the JSON code:
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
@@ -199,7 +199,7 @@ These sections create load balancer instances for each virtual machine to provid
 
 ### Microsoft.Network/networkInterfaces
 
-These sections create one network interface for each virtual machine and configures a static IP address for the domain controller. Here is the example for the network interface of the domain controller:
+These sections create one network interface for each virtual machine and configure a static IP address for the domain controller. Here is the example for the network interface of the domain controller:
 
 	{
 		"name": "[variables('adNicName')]",
