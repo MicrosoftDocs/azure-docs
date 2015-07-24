@@ -32,15 +32,7 @@ After reading this tutorial, you will be able to:
 - Decrypt and edit a support package
 
 
-## Create a support package
-
-A support package includes all the relevant logs that can assist the Microsoft Support team with troubleshooting any StorSimple device issues. You can generate an encrypted support package for your StorSimple device through: 
-
-- StorSimple Manager service in Azure Management Portal  
-- Windows PowerShell for StorSimple
-
-
-## Generate a support package in the Management Portal
+## Create a support package in the Management Portal
 To troubleshoot any issues that you may be experiencing with StorSimple Manager service, you can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in  the Management Portal. You will need to provide a support passkey to allow the upload. The support pass key should be provided to you by your Support Engineer in an email. An unencrypted, compressed support package is created (.cab file). This package can then be retrieved by the Support Engineer from the Support site when the engineer supplies the pass key.
 
 Perform the following steps in the Management Portal to create a support package:
@@ -64,7 +56,7 @@ Perform the following steps in the Management Portal to create a support package
 	- Click the check icon ![Check icon](./media/storsimple-create-manage-support-package/IC740895.png).
 
 
-## Generate a support package in Windows PowerShell for StorSimple
+## Create a support package in Windows PowerShell for StorSimple
 If you need to edit your log files prior to creating a package, you will need to create your package through the Windows PowerShell for StorSimple. 
 
 Perform the following steps to create a support package in Windows PowerShell for StorSimple:
@@ -123,7 +115,7 @@ The different parameters that can be used with the Export-HcsSupportPackage cmdl
 | 3      | Credential           | Optional          | Use this parameter to supply access credentials for the network shared folder.                                                                                        |
 | 4      | Force                | Optional          | Use to skip the encryption passphrase confirmation step.                                                                                                                |
 | 5      | PackageTag           | Optional          | Use to specify a directory under Path in which the support package will be placed. The default is [device name]-[ current date and time:yyyy-MM-dd-HH-mm-ss].       |
-| 6      | Scope                | Optional          | Specify as Cluster (default) to create a support package for both controllers. If you want to create a package only for the current controller, specify Controller. |
+| 6      | Scope                | Optional          | Specify as **Cluster** (default) to create a support package for both controllers. If you want to create a package only for the current controller, specify **Controller**. |
 
 
 ## Edit a support package
