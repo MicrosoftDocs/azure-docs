@@ -78,7 +78,7 @@ For more information about each workflow, click the appropriate procedure in the
 |Change the service data encryption key</br>View the operation logs|StorSimple Manager service → Dashboard|[Use StorSimple Manager service dashboard](storsimple-service-dashboard.md)|
 |Deactivate a device</br>Delete a device|StorSimple Manager service → Devices|[Deactivate or delete a device]()|
 |Disaster recovery and device failover|StorSimple Manager service → Devices|[Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md)|
-|List backups for a volume</br>Select a backup set</br>Delete a backup set|StorSimple Manager service → Backup Catalog|[Manage backups](storsimple-manage-backups.md)|
+|List backups for a volume</br>Select a backup set</br>Delete a backup set|StorSimple Manager service → Backup Catalog|[Manage backups](storsimple-manage-backup-catalog.md)|
 |Clone a volume|StorSimple Manager service → Backup Catalog|[Clone a volume](storsimple-clone-volume.md)|
 |Restore a backup set|StorSimple Manager service → Backup Catalog|[Restore a backup set](storsimple-restore-from-backup-set.md)|
 |About  storage accounts</br>Add a storage account</br>Edit a storage account</br>Delete a storage account</br>Key rotation of storage accounts|StorSimple Manager service → Configure|[Manage storage accounts](storsimple-manage-storage-accounts.md)|
@@ -89,7 +89,7 @@ For more information about each workflow, click the appropriate procedure in the
 |View connected initiators</br>Find the device serial number</br>Find the target IQN|StorSimple Manager service → Devices → Dashboard|[Use the StorSimple device dashboard](storsimple-device-dashboard.md)|
 |Monitor your device</br>Create monitoring charts|StorSimple Manager service → Devices → Monitor|[Monitor your StorSimple device](https://msdn.microsoft.com/library/azure/dn757759.aspx)|
 |Add a volume container</br>Modify a volume container</br>Delete a volume container|StorSimple Manager service → Devices → Volume Containers|[Manage volume containers](storsimple-manage-volume-containers.md)|
-|Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume|StorSimple Manager service → Devices → Volume Containers → Volumes|[Manage volumes](storsimple-manage-volumes)|
+|Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume|StorSimple Manager service → Devices → Volume Containers → Volumes|[Manage volumes](storsimple-manage-volumes.md)|
 |Modify device settings</br>Modify time settings</br>Modify DNS.md settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure|[Modify device configuration for your StorSimple device](storsimple-modify-device-config.md)|
 |View web proxy settings|StorSimple Manager service → Devices → Configure|[Configure web proxy for your device](storsimple-configure-web-proxy.md)|
 |Modify device administrator password</br>Modify StorSimple Snapshot Manager password|StorSimple Manager service → Devices → Configure|[Change StorSimple passwords](storsimple-change-passwords.md)|
