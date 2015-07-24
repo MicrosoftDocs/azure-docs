@@ -94,25 +94,23 @@ Create additional virtual machines, which will be managed by the administration 
 
 7. Add your first managed server to the cluster.
 
-	a. Click **New**.
+	1. Click **New**.
 
-	b. In the **Create a New Server** dialog box:
+	2. In the **Create a New Server** dialog box:
 
-		1. For **Server Name**, enter the name of your first managed server. For example, MYVM2-MANAGED.
+     1. For **Server Name**, enter the name of your first managed server. For example, MYVM2-MANAGED.
 
-		2. For **Server Listen Address**, enter the name again.
+	   2. For **Server Listen Address**, enter the name again.
 
-		3. For **Listen Port**, type **7008**.
+	   3. For **Listen Port**, type **7008**.
 
-		4. Select **Yes, make this server a member of an existing cluster.**
+	   4. Select **Yes, make this server a member of an existing cluster.**
 
-		5. In the **Select a cluster** drop-down list, select the cluster that you previously created.
+	   5. In the **Select a cluster** drop-down list, select the cluster that you previously created: 34d27e82-bb2e-4f9c-aaad-ca3e28c0f5fc
 
-			34d27e82-bb2e-4f9c-aaad-ca3e28c0f5fc
+	   6. Click **Next**.
 
-		6. Click **Next**.
-
-		7. Click **Finish**.
+	   7. Click **Finish**.
 
 8. Add your second managed server to the cluster, using the previous steps. For **Server Name** and **Server Listen Address**, use the name of the second managed computer. For **Listen Port**, use **7008**.
 
