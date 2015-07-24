@@ -40,7 +40,7 @@ See the [Getting Started Topic](sql-database-get-started.md) to learn how to cre
 
 The demo program is designed so that a transient error during an attempt to connect leads to a retry. But a transient error during query command causes the program to discard the connection and create a new connection, before retrying the query command. We neither recommend nor disrecommend this design choice. The demo program illustrates some of the design flexibility that is available to you.
 
-<br>The length of this code sample is due mostly to the catch exception logic. A shorter version of this Program.cs file is available this [here](https://azure.microsoft.com/en-us/documentation/articles/sql-database-develop-php-simple-windows/).
+<br>The length of this code sample is due mostly to the catch exception logic. A shorter version of this Program.cs file is available this [here](sql-database-develop-php-simple-windows.md).
 <br>The Main method is in Program.cs. The callstack runs as follows:
 * Main calls ConnectAndQuery.
 * ConnectAndQuery calls EstablishConnection.
