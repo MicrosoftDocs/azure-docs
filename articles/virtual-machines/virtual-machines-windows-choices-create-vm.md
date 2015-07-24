@@ -7,7 +7,6 @@
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
->>>>>>> 8eb5a4ae300300b59b42299643c4e5c58c196256
 
 <tags
 	ms.service="virtual-machines"
