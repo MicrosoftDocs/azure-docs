@@ -11,7 +11,7 @@ This task includes the following steps:
 * [Step 1: Create a storage account](#Step1)
 * [Step 2: Create a new CDN endpoint for your storage account](#Step2)
 * [Step 3: Access your CDN content](#Step3)
-* [Step 4: Delete your CDN content](#Step4)
+* [Step 4: Remove your CDN content](#Step4)
 
 The benefits of using CDN to cache Azure data include:
 
@@ -29,22 +29,18 @@ Azure storage services. The storage account represents the highest level
 of the namespace for accessing each of the Azure storage service
 components: Blob services, Queue services, and Table services. For more
 information about the Azure storage services, see [Using the
-Azure Storage Services].
+Azure Storage Services](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>For information about performing this operation by using the
-Azure Service Management API, see the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">Create Storage Account</a> reference topic.</p>
-</div>
+> [AZURE.NOTE] For information about performing this operation by using the
+Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) reference topic.
 
 **To create a storage account for an Azure subscription**
 
 1.  Log into the [Azure Management Portal].
-2.  In the lower left corner, click **New**, and then click **Storage**.
-3.  Click **Quick Create**.
+2.  In the lower left corner, click **New**. In the **New** Dialog, select **Data Services**, then click **Storage**, then **Quick Create**.
 
     The **Create Storage Account** dialog appears.
 
@@ -66,7 +62,10 @@ Azure Service Management API, see the <a href="http://msdn.microsoft.com/en-us/l
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
-5.  From the **Region/Affinity Group** drop-down list, select a geographic location for the storage account. Alternatively, use an affinity group. For instructions on creating an affinity group, see [How to Create an Affinity Group in Azure].
+5.  From the **Region/Affinity Group** drop-down list, select a region or affinity group for the storage account. Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using. This can improve performance, and no charges are incurred for egress.  
+
+    **Note:** To create an affinity group, open the **Settings** area of the Management Portal, click **Affinity Groups**, and then click either **Add an affinity group** or **Add**. You can also create and manage affinity groups using the Windows Azure Service Management API. For more information, see [Operations on Affinity Groups].
+
 6. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
 7.  Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
 8.  To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
@@ -93,17 +92,14 @@ when the cached content time-to-live period expires.
 5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
 
 	The origin domain is the location from which the CDN caches
-    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. See [How to Manage Expiration of Blob Content](http://msdn.microsoft.com/en-us/library/gg680306.aspx) for more information. 
+    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. 
 
 
-    <div class="dev-callout">
-    <strong>Note</strong>
-    <p>The configuration created for the endpoint will not
+    > [AZURE.NOTE] The configuration created for the endpoint will not
     immediately be available; it can take up to 60 minutes for the
     registration to propagate through the CDN network. Users who try to
     use the CDN domain name immediately may receive status code 400
-    (Bad Request) until the content is available via the CDN.</p>
-    </div>
+    (Bad Request) until the content is available via the CDN.
 
 <a id="Step3"> </a>
 <h2>Step 3: Access CDN content</h2> 
@@ -120,7 +116,7 @@ Delivery Network (CDN), you can take one of the following steps:
 
 -   For an Azure blob, you can delete the blob from the public
     container.
--   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/en-us/library/dd179354.aspx) for more information.
+-   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) for more information.
 -   You can disable or delete the CDN endpoint using the Management
     Portal.
 -   You can modify your hosted service to no longer respond to requests for the
@@ -132,8 +128,7 @@ expires, the CDN will check to see whether the CDN endpoint is still
 valid and the object still anonymously accessible. If it is not, then
 the object will no longer be cached.
 
-No explicit "purge" tool is currently available for the Azure
-CDN.
+The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](http://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
 
 ## Additional resources
 
@@ -142,16 +137,14 @@ CDN.
 -   [About the Service Management API]
 -   [How to Map CDN Content to a Custom Domain]
 
-  [Create Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+  [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+  [Azure CDN Node Locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
   [Azure Management Portal]: https://manage.windowsazure.com/
-  [billing plan]: /en-us/pricing/calculator/?scenario=full
-  [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee795179.aspx
-  [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
-  [Overview of the Azure CDN]: http://msdn.microsoft.com/en-us/library/windowsazure/ff919703.aspx
-  [How to: Manage Storage Accounts for an Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
-  [About the Service Management API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
-  [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [billing plan]: /pricing/calculator/?scenario=full
+  [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
+  [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
+  [About the Service Management API]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
+  [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
 
 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png

@@ -1,4 +1,4 @@
-Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and all APIs (Web, SMTP, Event, Parse, Sub-User). For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
+Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
 
 ### To sign up for a SendGrid account
 
@@ -8,15 +8,15 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 	![command-bar-new][command-bar-new]
 
-3. Click **Store**.
+3. Click **Marketplace**.
 
 	![sendgrid-store][sendgrid-store]
 
-4. In the **Choose an Add-on** dialog, select **SendGrid** and click the right arrow.
+4. In the **Choose an Application and Service** dialog, select **SendGrid** and click the right arrow.
 
-5. In the **Personalize Add-on** dialog select the **SendGrid** plan you want to sign up for.
+5. In the **Personalize Application and Service** dialog select the **SendGrid** plan you want to sign up for.
 
-6. Enter a name to identify your **SendGrid** service in your Azure settings, or use the default value of **SendGrid**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+6. Enter a name to identify your **SendGrid** service in your Azure settings, or use the default value of **SendGridEmailDelivery.Simplified.SMTPWebAPI**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
 
 	![store-screen-2][store-screen-2]
 
@@ -24,7 +24,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 8. Click the right arrow.
 
-9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your SendGrid account will begin the provisioning process.
+9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your SendGrid account will begin the [SendGrid provisioning process].
 
 	![store-screen-3][store-screen-3]
 
@@ -34,7 +34,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 	Your SendGrid account is provisioned immediately and you will see the message **Successfully purchased Add-On SendGrid**. Your account and credentials are now created. You are ready to send emails at this point. 
 
-	To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid add-ons dashboard. 
+	To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard. 
 
 	![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
 
@@ -73,5 +73,6 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 [SendGrid Features]: http://sendgrid.com/features
 [Azure Management Portal]: https://manage.windowsazure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
-
+[SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 

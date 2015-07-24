@@ -1,4 +1,20 @@
-<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Node.js) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Node.js, Azure email Node.js" description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." metaCanonical="" services="" documentationCenter="Node.js" title="How to Send Email Using SendGrid from Node.js" authors="" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="How to use the SendGrid email service (Node.js) - Azure" 
+	description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." 
+	services="" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -42,11 +58,11 @@ include:
 -   Forwarding customer inquiries
 -   Email notifications from your application
 
-For more information, see [http://sendgrid.com](http://sendgrid.com).
+For more information, see [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="createaccount"> </a>Create a SendGrid Account
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="reference"> </a>Reference the SendGrid Node.js Module
 
@@ -58,11 +74,11 @@ package manager (npm) by using the following command:
 After installation, you can require the module in your application by
 using the following code:
 
-    var SendGrid = require('sendgrid')
+    var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 
 The SendGrid module exports the **SendGrid** and **Email** functions.
-**SendGrid** is responsible for sending email through either SMTP or Web
-API, while **Email** encapsulates an email message.
+**SendGrid** is responsible for sending email through Web API, 
+while **Email** encapsulates an email message.
 
 ## <a name="createemail"> </a>How to: Create an Email
 
@@ -71,7 +87,7 @@ creating an email message using the Email function, and then sending it
 using the SendGrid function. The following is an example of creating a
 new message using the Email function:
 
-    var mail = new SendGrid.Email({
+    var email = new sendgrid.Email({
         to: 'john@contoso.com',
         from: 'anna@contoso.com',
         subject: 'test mail',
@@ -92,49 +108,27 @@ see [sendgrid-nodejs][].
 ## <a name="sendemail"> </a>How to: Send an Email
 
 After creating an email message using the Email function, you can send
-it using either SMTP or the Web API provided by SendGrid. For details
-about the benefits and differences of each API, see [SMTP vs. Web API][]
-in the SendGrid documentation.
-
-Using either the SMTP API or Web API requires that you first initialize
-the SendGrid function using the user and key of your SendGrid account as
-follows:
-
-    var sender = new SendGrid.SendGrid('user','key');
-
-The message can now be sent using either SMTP or the Web API. The calls
-are virtually identical, passing the email message and an optional
-callback function; The callback is used to determine the success or
-failure of the operation. The following examples show how to send a
-message using both SMTP and the Web API.
-
-### SMTP
-
-    sender.smtp(mail, function(success, err){
-        if(success) console.log('Email sent');
-        else console.log(err);
-    });
+it using the Web API provided by SendGrid. 
 
 ### Web API
 
-    sender.send(mail, function(success, err){
-        if(success) console.log('Email sent');
-        else console.log(err);
+    sendgrid.send(email, function(err, json){
+        if(err) { return console.error(err); }
+        console.log(json);
     });
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>While the above examples show passing in an email object and
-callback function, you can also directly invoke the send and smtp
-functions by directly specifying email properties. For example:</p>
-<pre class="prettyprint">sender.send({
+> [AZURE.NOTE] While the above examples show passing in an email object and
+callback function, you can also directly invoke the send
+function by directly specifying email properties. For example:  
+>
+>`````
+sendgrid.send({
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
     subject: 'test mail',
     text: 'This is a sample email message.'
 });
-</pre>
-</div>
+`````
 
 ## <a name="addattachment"> </a>How to: Add an Attachment
 
@@ -142,24 +136,27 @@ Attachments can be added to a message by specifying the file name(s) and
 path(s) in the **files** property. The following example demonstrates
 sending an attachment:
 
-    sender.send({
+    sendgrid.send({
         to: 'john@contoso.com',
         from: 'anna@contoso.com',
         subject: 'test mail',
         text: 'This is a sample email message.',
-        files: {
-            'file1.txt': __dirname + '/file1.txt',
-            'image.jpg': __dirname + '/image.jpg'
-        }
+        files: [
+            {
+                filename:     '',           // required only if file.content is used.
+                contentType:  '',           // optional
+                cid:          '',           // optional, used to specify cid for inline content
+                path:         '',           //
+                url:          '',           // == One of these three options is required
+                content:      ('' | Buffer) //
+            }
+        ],
     });
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>When using the <strong>files</strong> property, the file must be accessible
-through <a href="http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile">fs.readFile</a>. If the file you wish to attach is hosted in Azure Storage, such as in a Blob container, you must first copy the file to local storage or to an Azure drive before it can be sent as an attachment using the <strong>files</strong> property.</p>
-</div>
+> [AZURE.NOTE] When using the **files** property, the file must be accessible
+through [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). If the file you wish to attach is hosted in Azure Storage, such as in a Blob container, you must first copy the file to local storage or to an Azure drive before it can be sent as an attachment using the **files** property.
 
-## <a name="usefilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Twitter
+## <a name="usefilters"> </a>How to: Use Filters to Enable Footers and Tracking
 
 SendGrid provides additional email functionality through the use of
 filters. These are settings that can be added to an email message to
@@ -169,59 +166,46 @@ see [Filter Settings][].
 
 Filters can be applied to a message by using the **filters** property.
 Each filter is specified by a hash containing filter-specific settings.
-The following examples demonstrate the footer, click tracking, and
-Twitter filters:
+The following examples demonstrate the footer and click tracking filters:
 
 ### Footer
 
-    sender.send({
+    var email = new sendgrid.Email({
         to: 'john@contoso.com',
         from: 'anna@contoso.com',
         subject: 'test mail',
-        text: 'This is a sample email message.',
-        filters: {
-            'footer': {
-                'settings': {
-                    'enable': 1,
-                    'text/plain': 'This is a text footer.'
-                }
+        text: 'This is a sample email message.'
+    });
+    
+    email.setFilters({
+        'footer': {
+            'settings': {
+                'enable': 1,
+                'text/plain': 'This is a text footer.'
             }
         }
     });
+
+    sendgrid.send(email);
 
 ### Click Tracking
 
-    sender.send({
+    var email = new sendgrid.Email({
         to: 'john@contoso.com',
         from: 'anna@contoso.com',
         subject: 'test mail',
-        text: 'This is a sample email message.',
-        filters: {
-            'clicktrack': {
-                'settings': {
-                    'enable': 1
-                }
+        text: 'This is a sample email message.'
+    });
+    
+    email.setFilters({
+        'clicktrack': {
+            'settings': {
+                'enable': 1
             }
         }
     });
-
-### Twitter
-
-    sender.send({
-        to: 'john@contoso.com',
-        from: 'anna@contoso.com',
-        subject: 'test mail',
-        text: 'This is a sample email message.',
-        filters: {
-            'twitter': {
-                'settings': {
-                    'enable': 1,
-                    'username': 'twitter_username',
-                    'password': 'twitter_password'
-                }
-            }
-        }
-    });
+    
+    sendgrid.send(email);
 
 ## <a name="updateproperties"> </a>How to: Update Email Properties
 
@@ -233,14 +217,8 @@ recipients by using
 
 or set a filter by using
 
-    email.setFilterSetting({
-      'footer': {
-        'setting': {
-          'enable': 1,
-          'text/plain': 'This is a footer.'
-        }
-      }
-    });
+    email.addFilter('footer', 'enable', 1);
+    email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
 For more information, see [sendgrid-nodejs][].
 
@@ -257,11 +235,11 @@ these links to learn more.
 
 -   SendGrid Node.js module repository: [sendgrid-nodejs][]
 -   SendGrid API documentation:
-    <http://docs.sendgrid.com/documentation/api/>
+    <https://sendgrid.com/docs>
 -   SendGrid special offer for Azure customers:
-    [http://sendgrid.com/azure.html](http://sendgrid.com/azure.html)
+    [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
-  [Next Steps]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/blob-storage/#next-steps
+  [Next Steps]: http://www.windowsazure.com/develop/nodejs/how-to-guides/blob-storage/#next-steps
   [What is the SendGrid Email Service?]: #whatis
   [Create a SendGrid Account]: #createaccount
   [Reference the SendGrid Node.js Module]: #reference
@@ -275,13 +253,12 @@ these links to learn more.
 
   
   
-  [special offer]: http://www.sendgrid.com/azure.html
+  [special offer]: https://sendgrid.com/windowsazure.html
   
   
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   
-  [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
-  [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
-  [cloud-based email service]: http://sendgrid.com/solutions
-  [transactional email delivery]: http://sendgrid.com/transactional-email
+  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [SendGrid API documentation]: https://sendgrid.com/docs
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email

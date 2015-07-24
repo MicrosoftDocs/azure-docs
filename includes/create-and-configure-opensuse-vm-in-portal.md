@@ -1,4 +1,4 @@
-<properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
+<properties writer="kathydav" editor="tysonn" manager="timlt" />
 
 **Important**: If you want your virtual machine to use a virtual network, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
@@ -9,70 +9,53 @@
 
 	![Create a New Virtual Machine][Image1]
 
-3. Select an OpenSUSE virtual machine image from **Platform Images**, and then click the next arrow at the bottom right of the page.
+3. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the forward arrow at the bottom right of the page.
 
 
-4. On the **Virtual machine configuration** page, provide the following information:
+4. On the first **Virtual machine configuration** page, fill in or verify the settings:
 
-	- Provide a **Virtual Machine Name**, such as "testlinuxvm".
-	- Specify a **New User Name**, such as "newuser", which will be added to the Sudoers list file.
-	- In the **New Password** box, type a [strong password](http://msdn.microsoft.com/en-us/library/ms161962.aspx).
-	- In the **Confirm Password** box, retype the password.
-	- Select the appropriate **Size** from the drop down list.
+	- Type a **Virtual Machine Name**, such as "testlinuxvm".
+	- Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from.
+	- Type a **New User Name**, such as "newuser", which will be added to the Sudoers list file.
+	- Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).
 
-	Click the next arrow to continue.
 
-5. On the **Virtual machine mode** page, provide the following information:
-	- Select **Standalone Virtual Machine**.
-	- In the **DNS Name** box, type a valid DNS address.  For example, "testlinuxvm".
+5. On the next **Virtual machine configuration** page, fill in or verify the settings:
+	- Use the default **Create a new cloud service**.
+	- In the **DNS Name** box, type a valid DNS name to use as part of the address, such as "testlinuxvm".
 	- In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
 
-   Click the next arrow to continue.
-	
-6. On the **Virtual machine options** page, select **(none)** in the **Availability Set** box. Click the check mark to continue.
-	
-7. Wait while Azure prepares your virtual machine.
-
-##Configure Endpoints
-Once the virtual machine is created you must configure endpoints in order to remotely connect.
-
-1. In the Management Portal, click **Virtual Machines**, then click the name of your new virtual machine, then click **Endpoints**.
-
-2. Click **Edit Endpoint** at the bottom of the page, and edit the SSH endpoint so that its **Public Port** is 22.
+6.	Click the next arrow to finish, then wait while Azure prepares your virtual machine and then starts it.
 
 ##Connect to the Virtual Machine
-When the virtual machine has been provisioned and the endpoints configured you can connect to it using SSH or PuTTY.
+You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system you're running on your computer:
 
-###Connecting Using SSH
-If you are using a linux computer, connect to the VM using SSH.  At the command prompt, run:
+- If you're using Linux to connect to the VM, use SSH. At the command prompt, run:
 
-	$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180
+	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
 
-Enter the user's password.
+	Type the user's password.
 
-###Connecting using PuTTY
-If you are using a Windows computer, connect to the VM using PuTTY. PuTTY can be downloaded from the [PuTTY Download Page][PuTTYDownLoad]. 
+- If you're using Windows computer to connect to the VM, use PuTTY. You can PuTTY download from the [PuTTY Download Page][PuTTYDownload].
 
-1. Download and save **putty.exe** to a directory on your computer. Open a command prompt, navigate to that folder, and execute **putty.exe**.
+	Download and save **putty.exe** to a directory on your computer. Open a command prompt, navigate to that folder, and execute **putty.exe**.
 
-2. Enter "testlinuxvm.cloudapp.net" for the **Host Name** and "22" for the **Port**.
-![PuTTY Screen][Image6]  
+	Type the host name, such as "testlinuxvm.cloudapp.net", and type "22" for the **Port**.
+
+	![PuTTY Screen][Image6]  
 
 ##Update the Virtual Machine (optional)
-1. Once you've connected to the virtual machine, you can optionally install system updates and patches. Run:
+1. After you've connected to the virtual machine, you can optionally install system updates and patches. To run the update, type:
 
 	`$ sudo zypper update`
 
-2. Select **Software** then **Online Update**.  A list of updates is displayed.  Select **Accept** to start the installation and apply all new patches (except the optional ones) that are currently available for your system. 
+2. Select **Software**, then **Online Update** to list available updates. Select **Accept** to start the installation and apply all new available patches (except the optional ones).
 
-3. After installation is complete, select **Finish**.  Your system is now up to date.
+3. After installation is done, select **Finish**.  Your system is now up to date.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
-
-
-
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

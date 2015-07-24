@@ -29,11 +29,11 @@
 
 5. Open the Windows Firewall console and create a new port rule to allow connections to the port. For more information on creating a new Windows Firewall port rule, see [How to add a new Windows Firewall port rule].
 
-    >[WACOM.NOTE] If your test machine is joined to a domain, firewall exceptions may be controlled by a domain policy. In this case, you would need to contact your domain adminstrator to get an exemption for the port on your machine.
+    >[AZURE.NOTE] If your test machine is joined to a domain, firewall exceptions may be controlled by a domain policy. In this case, you would need to contact your domain adminstrator to get an exemption for the port on your machine.
 
     You should now be configured to test with IIS Express hosting your mobile service. 
 
-    >[WACOM.NOTE] Once you finish your testing of the service locally, you should delete the Windows Firewall rule you created. 
+    >[AZURE.NOTE] Once you finish your testing of the service locally, you should delete the Windows Firewall rule you created. 
 
 
 <!-- URLs. -->

@@ -1,4 +1,4 @@
-1. Open the file `AndroidManifest.xml`. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
+1. In your **app** project, open the file `AndroidManifest.xml`. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
 
 2. Add the following new permissions after the existing `uses-permission` element:
 
@@ -20,40 +20,51 @@
         </receiver>
 
 
-4. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
+4. Add this line under *dependencies* in the **build.gradle** file in the app directory and re-sync gradle with the project: 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
-    </div>
+	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
 
-5.  Open the file *ToDoItemActivity.java*, and add the following import statement:
+
+5. Open the file *ToDoItemActivity.java*, and add the following import statement:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
-6. Add the following private variable to the class, where _`<PROJECT_NUMBER>`_ is the Project Number assigned by Google to your app in the preceding procedure:
+
+6. Add the following private variable to the class: replace _`<PROJECT_NUMBER>`_ with the Project Number assigned by Google to your app in the preceding procedure:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. In the **onCreate** method, before the MobileServiceClient is instantiated, add this code which registers the Notification Handler for the device:
+7. Change the definition of the *MobileServiceClient* from **private** to **public static**, so it now looks like this:
 
-		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+		public static MobileServiceClient mClient;
 
-	Later we define the MyHandler.class referenced in this code.
-	
 
-8. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
 
-9. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
+8. Next we need to add a new class to handle notifications. In the Project Explorer, open the **src** => **main** => **java** nodes, and right-click the  package name node: click **New**, then click **Java Class**.
 
-	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
+9. In **Name** type `MyHandler`, then click **OK**. 
 
-	This creates the new MyHandler class.
 
-10. Add the following import statement:
+	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
 
+
+10. In the MyHandler file, replace the class declaration with 
+
+		public class MyHandler extends NotificationsHandler {
+
+
+11. Add the following import statements for the `MyHandler` class:
+
+		import android.app.NotificationManager;
+		import android.app.PendingIntent;
 		import android.content.Context;
-		
-11. Next add this code to the class:
+		import android.content.Intent;
+		import android.os.AsyncTask;
+		import android.os.Bundle;
+		import android.support.v4.app.NotificationCompat;
+
+	
+12. Next add the following members for the `MyHandler` class:
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -61,24 +72,30 @@
 		Context ctx;
 
 
-12. Add the following code to override the **onRegistered** method: which registers your device with the mobile service Notification Hub.
+13. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service Notification Hub.
 
 		@Override
-		public void onRegistered(Context context, String gcmRegistrationId) {
-			super.onRegistered(context, gcmRegistrationId);
-			
-			ToDoActivity.mClient.getPush().register(gcmRegistrationId, null, new RegistrationCallback() {
-	            @Override
-	            public void onRegister(Registration registration, Exception exception) {
-	                  if (exception != null) {
-	                        // handle error
-	                  }
-	            }
-	      	});
+		public void onRegistered(Context context,  final String gcmRegistrationId) {
+		    super.onRegistered(context, gcmRegistrationId);
+	
+		    new AsyncTask<Void, Void, Void>() {
+		    		    	
+		    	protected Void doInBackground(Void... params) {
+		    		try {
+		    		    ToDoActivity.mClient.getPush().register(gcmRegistrationId, null);
+		    		    return null;
+	    		    }
+	    		    catch(Exception e) { 
+			    		// handle error    		    
+	    		    }
+					return null;  		    
+	    		}
+		    }.execute();
 		}
 
 
-13. Add the following code to override the **onReceive** method, which causes the notification to display when it is received.
+
+14. In the `MyHandler` class, add the following code to override the **onReceive** method, which causes the notification to display when it is received.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
@@ -108,4 +125,12 @@
 		}
 
 
-Your app is now updated to support push notifications.
+15. Back in the TodoActivity.java file, update the **onCreate** method of the *ToDoActivity* class to register the notification handler class. Make sure to add this code after the *MobileServiceClient* is instantiated.
+
+
+		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+
+    Your app is now updated to support push notifications.
+
+<!-- URLs. -->
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q

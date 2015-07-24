@@ -1,41 +1,30 @@
 
 
-The following steps create a new mobile service in Azure and add code to your project that enables access to this new service. Before you can create the mobile service, you must import the publishsettings file from your Azure subscription into Visual Studio. This enables Visual Studio to connect to Azure on your behalf. When you create a new mobile service, you must specify an Azure SQL Database that is used by the mobile service to store app data. 
+The following steps create a new mobile service in Azure and add code to your project that connects your app to this new service. Visual Studio 2013 connects to Azure on your behalf to create the new mobile service by using the credentials that you provide. When you create a new mobile service, you must specify an Azure SQL Database that is used by the mobile service to store app data. 
 
 
-1. In Visual Studio 2013, open Solution Explorer, right-click the project then click **Add** and then **Connected Service...**. 
+1. In Visual Studio 2013, open Solution Explorer, right-click the Windows Store app project, click **Add**, and then click **Connected Service...**.  
 
-	![add connected service](./media/mobile-services-create-new-service-vs2013/mobile-add-connected-service.png)
+2. In the Services Manager dialog, click **Create service...**, then select **&lt;Manage...&gt;** from  **Subscription** in the Create Mobile Service dialog.  
 
-2. In the Services Manager dialog, click **Create service...**, then select **&lt;Import...&gt;** from  **Subscription** in the Create Mobile Service dialog.  
+	![create service manage subscriptions](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013.png)
 
-	![create a new mobile service from VS 2013](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013.png)
+3. In Manage Microsoft Azure Subscriptions, click **Sign In...** to sign in to your Azure account (if required), select an available subscription, then click **Close**.
 
-3. In Import Azure Subscriptions, click **Download subscription file**, login to your Azure account (if required), click **Save** when your browser requests to save the file.
+	When your subscription already has one or more existing mobile services, the service names are displayed. 
 
-	![download subscription file in VS](./media/mobile-services-create-new-service-vs2013/mobile-import-azure-subscription.png)
+5. Back in the **Create Mobile Service** dialog, select your **Subscription**, the **JavaScript** backend  in **Runtime** and a **Region** for your mobile service, then type a **Name** for your mobile service.
 
-	<div class="dev-callout"><strong>Note</strong> <p>The login window is displayed in the browser, which may be behind your Visual Studio window. Remember to make a note of where you saved the downloaded .publishsettings file. You can skip this step if your project is already connected to your Azure subscription.</p></div> 
-
-4. Click **Browse**, navigate to the location where you saved the .publishsettings file, select the file, then click **Open** and then **Import**. 
-
-	![import subscription in VS](./media/mobile-services-create-new-service-vs2013/mobile-import-azure-subscription-2.png)
-
-	Visual Studio imports the data needed to connect to your Azure subscription. When your subscription already has one or more existing mobile services, the service names are displayed. 
-
-	<div class="dev-callout"><strong>Security note</strong> <p>After importing the publish settings, consider deleting the downloaded .publishsettings file as it contains information that can be used by others to access your account. Secure the file if you plan to keep it for use in other connected app projects.</p></div>
-
-5. Back in the **Create Mobile Service** dialog, select your **Subscription** and the desired **Region** for your mobile service, then type a **Name** for your mobile service.
-
-	<div class="dev-callout"><strong>Note</strong> <p>Mobile service names must be unique. A red X is displayed next to <strong>Name</strong> when the name you supplied is not available. </p></div>		
+	>[AZURE.NOTE]Mobile service names must be unique. A red X is displayed next to **Name** when the name you supplied is not available. 
 
 6. In **Database**, select **&lt;Create a free SQL Database&gt;**, supply the **Server user name**, **Server password**, and **Server password confirmation** then click **Create**.
 
-  	![create service from VS 2013 part 2](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013-2.png)
+  	![create new mobile service in VS 2013](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013-2.png)
 
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> As part of this tutorial, you create a new free SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. You can only have one free database instance. If you already have a database in the same region as the new mobile service, you can instead choose the existing database. When you choose an existing database, make sure that you supply correct login credentials. If you supply incorrect login credentials, the mobile service is created in an unhealthy state.
 
-   	After the mobile service is created, a reference to the Mobile Services client library is added to the project and your project source code is updated.
+7. After the mobile service is created, select the newly created mobile service from the list in Service Manager and click **OK**.
 
+	After the wizard completes, the required NuGet packages are installed, a reference to the Mobile Services client library is added to the project, and your project source code is updated.

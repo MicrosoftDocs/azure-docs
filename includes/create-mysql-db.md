@@ -1,22 +1,13 @@
-#How to Create a MySQL Database in Azure
-
 This guide will show you how to use [ClearDB] to create a MySQL database from the [Azure Store] and  how to create a MySQL database as a linked resource when you create a [Azure Web Site][waws] . [ClearDB] is a fault-tolerant database-as-a-service provider that allows you to run and manage MySQL databases in Azure datacenters and connect to them from any application.  
 
-##Table of Contents
-* [How to: Create a MySQL database from the Azure Store](#CreateFromStore)
-* [How to: Create a MySQL database as a linked resource for Azure Web Site](#CreateForWebSite)
+> [AZURE.NOTE] When you create a MySQL database as part of the Website creation process, you can only create a free database. Creating a MySQL database from the Azure Store allows you to create a free database or choose from paid options.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>When you create a MySQL database as part of the Web Site creation process, you can only create a free database. Creating a MySQL database from the Azure Store allows you to create a free database or choose from paid options.</p> 
-</div>
-
-<h2><a id="CreateFromStore"></a>How to: Create a MySQL database from the Azure Store</h2>
+## How to: Create a MySQL database from the Azure Store
 
 To create a MySQL database from the [Azure Store], do the following:
 
 1. Log in to the [Azure Management Portal][portal].
-2. Click **+NEW** at the bottom of the page, then select **STORE**.
+2. Click **+NEW** at the bottom of the page, then select **MARKETPLACE**.
 
 	![Select add-on from store](./media/create-mysql-db/select-store.png)
 
@@ -41,24 +32,24 @@ To create a MySQL database from the [Azure Store], do the following:
 	![MySql connection information](./media/create-mysql-db/mysql-conn-info.png) 
 
 
-<h2><a id="CreateForWebSite"></a>How to: Create a MySQL database as a linked resource for Azure Web Site</h2>
+## How to: Create a MySQL database as a linked resource for Azure Website
 
 To create a MySQL database as a linked resource when you create a [Azure Web Site][waws], do the following:
 
 1. Log in to the [Azure Management Portal][portal].
-2. Click **+NEW** at the bottom of the page, then select **COMPUTE**, **WEB SITE**, and **CREATE WITH DATABASE**.
+2. Click **+NEW** at the bottom of the page, then select **COMPUTE**, **WEBSITE**, and **CREATE WITH DATABASE**.
 
 	![Create website with database](./media/create-mysql-db/custom_create.png)
 
-3. Provide a **URL** for your web site, select the **REGION** for your site, and choose **Create a new MySQL database** from the **DATABASE** dropdown. Optionally, you can replace the default name for the connection string. Click the arrow at the bottom of the page.
+3. Provide a **URL** for your website, select the **REGION** for your site, and choose **Create a new MySQL database** from the **DATABASE** dropdown. Optionally, you can replace the default name for the connection string. Click the arrow at the bottom of the page.
 
 	![Provide website details](./media/create-mysql-db/provide-website-details.png) 
 
-4. Provide a database **NAME**, select the **REGION** for your database (this should be same as the region for your web site), agree to ClearDB's legal terms, and click the checkmark at the bottom of the frame.
+4. Provide a database **NAME**, select the **REGION** for your database (this should be same as the region for your website), agree to ClearDB's legal terms, and click the checkmark at the bottom of the frame.
 
 	![Provide MySQL details](./media/create-mysql-db/provide-mysql-details.png)
 
-5. After your web site has been created, click on the name of your site to go to your site's dashboard.
+5. After your website has been created, click on the name of your site to go to your site's dashboard.
 
 	![Go to web site dashboard](./media/create-mysql-db/go-to-website-dashboard.png)
 
@@ -74,10 +65,10 @@ To create a MySQL database as a linked resource when you create a [Azure Web Sit
 
 	![Shown connection string](./media/create-mysql-db/shown-conn-string.png)
 
-> [WACOM.NOTE] Connection strings are accessible to your web site application by connection string name. In .NET applications, connection strings are availble in the **connectionStrings** object. In other programming languages, connection strings are accessible as environment variables. For more information, see [How to Configure Web Sites][configure].
+> [AZURE.NOTE] Connection strings are accessible to your website application by connection string name. In .NET applications, connection strings are availble in the **connectionStrings** object. In other programming languages, connection strings are accessible as environment variables. For more information, see [How to Configure Web Sites][configure].
 
 [ClearDB]: http://www.cleardb.com/
-[waws]: /en-us/documentation/services/web-sites/
-[Azure Store]: /en-us/gallery/store/
+[waws]: /documentation/services/web-sites/
+[Azure Store]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../web-sites-configure/
+[configure]: ../article/app-service-web/web-sites-configure.md

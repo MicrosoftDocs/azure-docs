@@ -196,7 +196,7 @@ center.
 Sometimes, you may want to take a single application (like a simple web
 site) and have it hosted in Azure. But frequently, your
 application may consist of several roles that all work together. For
-example, in the figure below, there are two instances of the Web Site
+example, in the figure below, there are two instances of the Website
 role, three instances of the Order Processing role, and one instance of
 the Report Generator role. These roles are all working together and the
 code for all of them can be packaged together and deployed as a single
@@ -208,18 +208,18 @@ The main reason to split an application into different roles each
 running on its own set of role instances (that is, VMs) is to scale the
 roles independently. For example, during the holiday season, many
 customers may be purchasing products from your company, so you might
-want to increase the number of role instances running your Web Site role
+want to increase the number of role instances running your Website role
 as well as the number of role instances running your Order Processing
 role. After the holiday season, you may get a lot of products returned,
-so you may still need a lot of Web Site instances but fewer Order
+so you may still need a lot of Website instances but fewer Order
 Processing instances. During the rest of the year, you may only need a
-few Web Site and Order Processing instances. Throughout all of this, you
+few Website and Order Processing instances. Throughout all of this, you
 may need only one Report Generator instance. The flexibility of
 role-based deployments in Azure enables you to easily adapt your
 application to your business needs.
 
 It's common to have the role instances within your hosted service
-communicate with each other. For example, the web site role accepts a
+communicate with each other. For example, the website role accepts a
 customer's order but then it offloads the order processing to the Order
 Processing role instances. The best way to pass work form one set of
 role instances to another set of instances is using the queuing
@@ -244,9 +244,9 @@ guaranteed to eventually get processed. The queue also acts as a load
 balancer by effectively distributing its messages to any and all role
 instances that request messages from it.
 
-For the Web Site role instances, you can monitor the traffic coming into
+For the Website role instances, you can monitor the traffic coming into
 them and decide to scale the number of them up or down as well. The
-queue allows you to scale the number of Web Site role instances
+queue allows you to scale the number of Website role instances
 independently of the Order Processing role instances. This is very
 powerful and gives you a lot of flexibility. Of course, if your
 application consists of additional roles, you could add additional
@@ -269,7 +269,7 @@ instance.
 As I mentioned earlier, the service definition (CSDEF) file is an XML
 file that describes the various roles that make up your complete
 application. The complete schema for the XML file can be found here:
-[http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][].
 The CSDEF file contains a WebRole or WorkerRole element for each role
 that you want in your application. Deploying a role as a web role (using
 the WebRole element) means that the code will run on a role instance
@@ -486,7 +486,7 @@ more useful items available to you:
 The service configuration (CSCFG) file is an XML file that describes
 settings that can be changed without redeploying your application. The
 complete schema for the XML file can be found here:
-[http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][].
 The CSCFG file contains a Role element for each role in your
 application. Here are some of the items you can specify in the CSCFG
 file:
@@ -503,7 +503,7 @@ file:
     setting the osVersion attribute to a value of
     "WA-GUEST-OS-2.8\_201109-01" causes all your role instances to get
     what is described on this web page:
-    [http://msdn.microsoft.com/en-us/library/hh560567.aspx][]. For more
+    [http://msdn.microsoft.com/library/hh560567.aspx][]. For more
     information about guest OS versions, see [Managing Upgrades to the
     Azure Guests OS].
 
@@ -579,20 +579,20 @@ article.<a id="Ref" name="Ref"></a>
   [0]: ./media/application-model/application-model-3.jpg
   [1]: ./media/application-model/application-model-4.jpg
   [2]: ./media/application-model/application-model-5.jpg
-  [Configuring a Custom Domain Name in Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-  [Data Storage Offerings in Azure]: http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/
+  [Configuring a Custom Domain Name in Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
+  [Data Storage Offerings in Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   
-  [Azure Pricing]: http://www.windowsazure.com/en-us/pricing/calculator/
-  [Managing Certificates in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/en-us/library/hh560567.aspx]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
-  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
+  [Azure Pricing]: http://www.windowsazure.com/pricing/calculator/
+  [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
-  [Deploying and Updating Azure Applications]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
-  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
-  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
-  [Migrating Applications to Azure]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
-  [Configuring an Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+  [Deploying and Updating Azure Applications]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
+  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Migrating Applications to Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Configuring an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx

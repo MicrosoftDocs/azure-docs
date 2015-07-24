@@ -1,4 +1,20 @@
-<properties linkid="develop-java-how-to-twilio-phone-call" urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="How to Make a phone call from Twilio (Java) - Azure" metaKeywords="Azure Twilio call, Twilio call website, Azure Twilio Java" description="Learn how to make a phone call from a web page using Twilio in a Java application on Azure." metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="How to Make a phone call from Twilio (Java) - Azure" 
+	description="Learn how to make a phone call from a web page using Twilio in a Java application on Azure." 
+	services="" 
+	documentationCenter="java" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor="mollybos"/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="microsofthelp@twilio.com"/>
 
 # How to Make a Phone Call Using Twilio in a Java Application on Azure 
 
@@ -9,13 +25,11 @@ The following example shows you how you can use Twilio to make a call from a web
 You'll need to do the following to use the code in this topic:
 
 1. Acquire a Twilio account and authentication token. To get started with Twilio, evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. You can sign up at [https://www.twilio.com/try-twilio][try_twilio]. For information about the API provided by Twilio, see [http://www.twilio.com/api][twilio_api].
-2. Verify your phone number as an outbound caller ID with Twilio. For information on how to verify your phone number, see [https://www.twilio.com/user/account/phone-numbers/verified#][verify_phone]. As an alternative to using an existing number, you can purchase a Twilio phone number.
-For purposes of this example, use the verified phone number as the **From** value of callform.jsp (described later).
-3. Obtain the Twilio JAR. At [https://github.com/twilio/twilio-java][twilio_java_github], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
+2. Obtain the Twilio JAR. At [https://github.com/twilio/twilio-java][twilio_java_github], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
 The code in this topic was written using the pre-built TwilioJava-3.3.8-with-dependencies JAR.
-4. Add the JAR to your Java build path.
-5. If you are using Eclipse to create this Java application, include the Twilio JAR in your application deployment file (WAR) using Eclipse's deployment assembly feature. If you are not using Eclipse to create this Java application, ensure the Twilio JAR is included within the same Azure role as your Java application, and added to the class path of your application.
-6. Ensure your cacerts keystore contains the Equifax Secure Certificate Authority certificate with MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (the serial number is 35:DE:F4:CF and the SHA1 fingerprint is D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). This is the certificate authority (CA) certificate for the [https://api.twilio.com][twilio_api_service] service, which is called when you use Twilio APIs. For information about adding this CA certificate to your JDK's cacert store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
+3. Add the JAR to your Java build path.
+4. If you are using Eclipse to create this Java application, include the Twilio JAR in your application deployment file (WAR) using Eclipse's deployment assembly feature. If you are not using Eclipse to create this Java application, ensure the Twilio JAR is included within the same Azure role as your Java application, and added to the class path of your application.
+5. Ensure your cacerts keystore contains the Equifax Secure Certificate Authority certificate with MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (the serial number is 35:DE:F4:CF and the SHA1 fingerprint is D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). This is the certificate authority (CA) certificate for the [https://api.twilio.com][twilio_api_service] service, which is called when you use Twilio APIs. For information about adding this CA certificate to your JDK's cacert store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
 
 Additionally, familiarity with the information at [Creating a Hello World Application Using the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)][azure_java_eclipse_hello_world], or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.
 
@@ -183,12 +197,12 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twimlet_message_url]: http://twimlets.com/message
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api_service]: http://api.twilio.com
-[add_ca_cert]: ../java-add-certificate-ca-store
-[azure_java_eclipse_hello_world]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx
-[howto_twilio_voice_sms_java]: ../partner-twilio-java-how-to-use-voice-sms
-[howto_blob_storage_java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
-[howto_sql_azure_java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx
-[azure_runtime_jsp]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690948.aspx
+[add_ca_cert]: java-add-certificate-ca-store.md
+[azure_java_eclipse_hello_world]: http://msdn.microsoft.com/library/windowsazure/hh690944.aspx
+[howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
+[howto_blob_storage_java]: http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
+[howto_sql_azure_java]: http://msdn.microsoft.com/library/windowsazure/hh749029.aspx
+[azure_runtime_jsp]: http://msdn.microsoft.com/library/windowsazure/hh690948.aspx
 [azure_javadoc]: http://dl.windowsazure.com/javadoc
 [twilio_docs_security]: http://www.twilio.com/docs/security
 [twilio_docs]: http://www.twilio.com/docs

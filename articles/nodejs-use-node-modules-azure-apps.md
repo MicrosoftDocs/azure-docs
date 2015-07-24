@@ -1,4 +1,6 @@
-<properties linkid="develop-nodejs-common-tasks-working-with-node-modules" urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="Node.js" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
+<properties pageTitle="Working with Node.js Modules" description="Learn how to work with Node.js modules when using Azure Web Sites or Cloud Services." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
 
 
 
@@ -10,18 +12,12 @@ This document provides guidance on using Node.js modules with applications hoste
 
 If you are already familiar with using Node.js modules, **package.json** and **npm-shrinkwrap.json** files, the following is a quick summary of what is discussed in this article:
 
-* Azure Web Sites understand **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
+* Azure Webites understand **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
 * Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.</p>
-</div>
+> [AZURE.NOTE] Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>It is possible to enable support for installing modules using <b>package.json</b> or <b>npm-shrinkwrap.json</b> files on Azure, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see <a href="http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure">Azure Startup task to run npm install to avoid deploying node modules </a></p>
-</div>
+> [AZURE.NOTE] It is possible to enable support for installing modules using **package.json** or **npm-shrinkwrap.json** files on Azure, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see [Azure Startup task to run npm install to avoid deploying node modules](http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure)
 
 ##Node.js Modules
 
@@ -33,11 +29,12 @@ When deploying the **node\_modules** directory as part of your application, it w
 
 ###Native Modules
 
-While most modules are simply plain-text JavaScript files, some modules are platform-specific binary images. These modules are compiled at install time, usually by using Python and node-gyp. One specific limitation of Azure Web Sites is that while it natively understands how to install modules specified in a **package.json** or **npm-shrinkwrap.json** file, it does not provide Python or node-gyp and cannot build native modules.
+While most modules are simply plain-text JavaScript files, some modules are platform-specific binary images. These modules are compiled at install time, usually by using Python and node-gyp. Since Azure Cloud Services rely on the **node\_modules** folder being deployed as part of the application, any native module included as part of the installed modules should work in a cloud service as long as it was installed and compiled on a Windows development system.
 
-Since Azure Cloud Services rely on the **node\_modules** folder being deployed as part of the application, any native module included as part of the installed modules should work in a cloud service as long as it was installed and compiled on a Windows development system. 
+Azure Websites does not support all native modules and might fail at compiling those with very specific prerequisites. While some popular modules like MongoDB have optional native dependencies and work just fine without them, two workarounds proved successful with almost all native modules available today:
 
-Native modules are not supported with Azure Web Sites. Some modules such as JSDOM and MongoDB have optional native dependencies, and will work with applications hosted in Azure Web Sites.
+* Run **npm install** on a Windows machine that has all the native module's prerequisites installed. Then, deploy the created **node\_modules** folder as part of the application to Azure Websites.
+* Azure Websites can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. For a video showing how to do this, see [Custom Website Deployment Scripts with Kudu].
 
 ###Using a package.json file
 
@@ -45,14 +42,14 @@ The **package.json** file is a way to specify the top level dependencies your ap
 
 During development, you can use the **--save**, **--save-dev**, or **--save-optional** parameters when installing modules to add an entry for the module to your **package.json** file automatically. For more information, see [npm-install](https://npmjs.org/doc/install.html).
 
-One potential problem with the **package.json** file is that it only specifies the version for top level dependencies. Each module installed may or may not specify the version of the modules it depends on, and so it is possible that you may end up with a different dependency chain than the one used in development. 
+One potential problem with the **package.json** file is that it only specifies the version for top level dependencies. Each module installed may or may not specify the version of the modules it depends on, and so it is possible that you may end up with a different dependency chain than the one used in development.
 
-> [WACOM.NOTE]
-> When deploying to an Azure Web Site, if your <b>package.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
+> [AZURE.NOTE]
+> When deploying to an Azure Webite, if your <b>package.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 
->		npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1	
+>		npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
 
 
 ###Using a npm-shrinkwrap.json file
@@ -61,9 +58,9 @@ The **npm-shrinkwrap.json** file is an attempt to address the module versioning 
 
 When your application is ready for production, you can lock-down version requirements and create an **npm-shrinkwrap.json** file by using the **npm shrinkwrap** command. This will use the versions currently installed in the **node\_modules** folder, and record these to the **npm-shrinkwrap.json** file. After the application has been deployed to the hosting environment, the **npm install** command is used to parse the **npm-shrinkwrap.json** file and install all the dependencies listed. For more information, see [npm-install](https://npmjs.org/doc/install.html).
 
-> [WACOM.NOTE]
->When deploying to an Azure Web Site, if your <b>npm-shrinkwrap.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
-		
+> [AZURE.NOTE]
+>When deploying to an Azure Webite, if your <b>npm-shrinkwrap.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
+
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 
 >		npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
@@ -71,13 +68,12 @@ When your application is ready for production, you can lock-down version require
 
 ##Next Steps
 
-Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Tools for Mac and Linux].
+Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Interface for Mac and Linux].
 
-[specify the Node.js version]: /en-us/documentation/articles/nodejs-specify-node-version-azure-apps/
-[How to use the Azure Command-Line Tools for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
-[build and deploy a Node.js Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Node.js Web Application with Storage on MongoDB (MongoLab)]: /en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/
-[Publishing with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
-[Build and deploy a Node.js application to an Azure Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-
-
+[specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
+[How to use the Azure Command-Line Interface for Mac and Linux]: xplat-cli.md
+[build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
+[Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
+[Publishing with Git]: web-sites-publish-source-control.md
+[Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
+[Custom Website Deployment Scripts with Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/

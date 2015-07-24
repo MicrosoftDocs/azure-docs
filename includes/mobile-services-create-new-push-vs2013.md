@@ -1,35 +1,28 @@
-First, you use the Add Push Notification wizard in Visual Studio 2013 to register your app with the Windows Store, configure your mobile service to enable push notifications, and add code to your app to register a device channel.
+The following steps registers your app with the Windows Store, configure your mobile service to enable push notifications, and add code to your app to register a device channel with your notification hub. Visual Studio 2013 connects to Azure and to the Windows Store by using the credentials that you provide. 
 
-0. If you haven't already done so, follow the steps in [Import your publishsettings file in Visual Studio 2013] to import your publisher.settings file into Visual Studio. 
+1. In Visual Studio 2013, open Solution Explorer, right-click the Windows Store app project, click **Add** then **Push Notification...**. 
 
-	You do not need to do this if you have already used Visual Studio to create or manage mobile services in your Azure subscription.
-
-1. In Visual Studio 2013, open Solution Explorer, right-click the project, click **Add** then **Push Notification...**. 
-
-	![mobile-add-push-notifications-vs2013](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
+	![Add Push Notification wizard in Visual Studio 2013](./media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
 
 	This starts the Add Push Notification Wizard.
 
 2. Click **Next**, sign in to your Windows Store account, then supply a name in **Reserve a new name** and click **Reserve**.
 
-	![mobile-add-push-notifications-vs2013-2](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png) 
-
-	This create a new app registration.
+	This creates a new app registration.
 
 3. Click the new registration in the **App Name** list, then click **Next**.
 
-	![mobile-add-push-notifications-vs2013-3](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png)
+4. In the **Select a service** page, click the name of your mobile service, then click **Next** and **Finish**. 
 
-4. In the **Select a service** dialog, click the name of the mobile service that you created when you completed either [Get started with Mobile Services] or [Get started with data], then click **Next** and **Finish**. 
+	The notification hub used by your mobile service is updated with the Windows Notification Services (WNS) registration. You can now use Azure Notification Hubs to send notifications from Mobile Services to your app by using WNS. 
 
-	
-	The mobile service is updated to register your app package SID and client secret and a new **channels** table is created. Mobile Services is now configured to work with Windows Push Notification Services (WNS) to be able to send notifications to your app.   
+	>[AZURE.NOTE]This tutorial demonstrates sending notifications from a mobile service backend. You can use the same notification hub registration to send notifications from any backend service. For more information, see [Notification Hubs Overview](http://msdn.microsoft.com/library/azure/jj927170.aspx).
 
-	<div class="dev-callout"><b>Note</b>
-		<p>When your app isn't already configured to connect to the mobile service, the wizard also completes the same configuration tasks demonstrated in <strong>Get started with data</strong>.</p>
-	</div>
+5. When you complete the wizard, a new **Push setup is almost complete** page is opened in Visual Studio. This page details an alternate method to configure your mobile service project to send notifications that is different from this tutorial. 
+
+	The code that is added to your universal Windows app solution by the Add Push Notification wizard is platform-specific. Later in this section, you will remove this redundancy by sharing the Mobile Services client code, which makes the universal app easier to maintain.  
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Import your publishsettings file in Visual Studio 2013]: /en-us/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet/
+[Import your publishsettings file in Visual Studio 2013]: ../articles/mobile-services/mobile-services-windows-how-to-import-publishsettings.md

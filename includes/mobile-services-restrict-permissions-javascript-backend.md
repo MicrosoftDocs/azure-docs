@@ -1,9 +1,8 @@
 
+To secure your endpoints, you must restrict access to only authenticated clients. 
 
-1. In Visual Studio, In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
+1. In the [Azure Management portal](https://manage.windowsazure.com/), navigate to your mobile service, then click  **Data** > your table name (**TodoItem**) > **Permissions**. 
 
-   	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png)
+2. Set all of the table operation permissions to **Only authenticated users**. 
 
-2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**. This will ensure that all operations against the **TodoItem** table require an authenticated user. This also simplifies the scripts in the next tutorial because they will not have to allow for the possibility of anonymous users.
-
-   	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png)
+	 This ensures that all operations against the table require an authenticated user, which is required for this tutorial. You can set differnt permissions on each operations to support your specific scenario.  

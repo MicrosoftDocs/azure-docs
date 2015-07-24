@@ -1,4 +1,5 @@
-##<a name="storage-client-server"></a>Install the storage client in the mobile service project
+
+##Install the storage client in the mobile service project
 
 To be able to generate an SAS to upload images to Blob storage, you must first add the NuGet package that installs Storage client library in the mobile service project. 
 
@@ -10,7 +11,7 @@ To be able to generate an SAS to upload images to Blob storage, you must first a
 
   	This adds the client library for Azure storage services to the mobile service project.
 
-##<a name="update-data-model"></a>Update the TodoItem definition in the data model
+##Update the TodoItem definition in the data model
 
 The TodoItem class defines the data object, and you need to add the same properties to this class as you did on the client.
 
@@ -25,9 +26,9 @@ The TodoItem class defines the data object, and you need to add the same propert
 
 	These properties are used to generate the SAS and to store image information. Note that the casing on these properties matches the JavaScript backend version. 
 
-	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database when it detects a data model change in the Code First definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database when it detects a data model change in the Code First definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-##<a name="update-scripts"></a>Update the TodoItem controller to generate a shared access signature 
+##Update the TodoItem controller to generate a shared access signature 
 
 The existing **TodoItemController** is updated so that the **PostTodoItem** method generates an SAS when a new TodoItem is inserted. You also 
 
@@ -35,12 +36,8 @@ The existing **TodoItemController** is updated so that the **PostTodoItem** meth
 
 1. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
 
-  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
-
 2. Make a note of the **Storage Account Name** and **Access Key**.
-
-   	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
-
+ 
 3. In your mobile service, click the **Configure** tab, scroll down to **App settings** and enter a **Name** and **Value** pair for each of the following that you obtained from the storage account, then click **Save**.
 
 	+ `STORAGE_ACCOUNT_NAME`
@@ -123,7 +120,7 @@ The existing **TodoItemController** is updated so that the **PostTodoItem** meth
 
    	This POST method now generates a new SAS for the inserted item, which is valid for 5 minutes, and assigns the value of the generated SAS to the `sasQueryString` property of the returned item. The `imageUri` property is also set to the resource path of the new BLOB to enable image display during binding in the client UI.
 
-	>[WACOM.NOTE] This code creates an SAS for an individual BLOB. If you need to upload multiple blobs to a container using the same SAS, you can instead call the <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature method</a> with an empty blob resource name, like this: 
+	>[AZURE.NOTE] This code creates an SAS for an individual BLOB. If you need to upload multiple blobs to a container using the same SAS, you can instead call the <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature method</a> with an empty blob resource name, like this: 
 	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 Next, you will update the quickstart app to add image upload functionality by using the SAS generated on insert.
@@ -131,18 +128,7 @@ Next, you will update the quickstart app to add image upload functionality by us
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
-[1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
-
-[3]: ./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png
-[4]: ./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png
-
-
-
-
-
-[10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account
-[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[How To Create a Storage Account]: ../articles/storage/storage-create-storage-account.md
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

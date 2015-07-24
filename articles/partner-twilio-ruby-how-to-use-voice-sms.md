@@ -1,4 +1,20 @@
-<properties linkid="develop-ruby-how-to-twilio-sms-voice-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Ruby) - Azure" metaKeywords="Azure Ruby Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Ruby." metaCanonical="" services="" documentationCenter="Ruby" title="How to Use Twilio for Voice and SMS Capabilities in PHP" authors="" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="How to Use Twilio for Voice and SMS (Ruby) - Azure" 
+	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Ruby." 
+	services="" 
+	documentationCenter="ruby" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
 
@@ -6,18 +22,6 @@
 
 # How to Use Twilio for Voice and SMS Capabilities in Ruby
 This guide demonstrates how to perform common programming tasks with the Twilio API service on Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the [Next Steps](#NextSteps) section.
-
-## Table of Contents
-* [What is Twilio?](#WhatIs)
-* [Twilio Pricing](#Pricing)
-* [Concepts](#Concepts)
-* [Create a Twilio Account](#CreateAccount)
-* [Create a Ruby Sinatra Application](#create_app)
-* [Configure Your Application to Use Twilio Libraries](#configure_app)
-* [How to: Make an outgoing call](#howto_make_call)
-* [How to: Recieve an SMS message](#howto_recieve_sms)
-* [How to: Additional Twilio Services](#additional_services)
-* [Next Steps](#NextSteps)
 
 ## <a id="WhatIs"></a>What is Twilio?
 Twilio is a telephony web-service API that lets you use your existing web languages and skills to build voice and SMS applications. Twilio is a third-party service (not an Azure feature and not a Microsoft product).
@@ -83,7 +87,7 @@ SSH into your new VM and create a directory for your new app. Inside that direct
     gem 'sinatra'
     gem 'thin'
 
-On the command line run `bundle install`. This will install the dependecies above. Next create a file called `web.rb`. This will be where the code for your web app lives. Paste the following code into it:
+On the command line run `bundle install`. This will install the dependencies above. Next create a file called `web.rb`. This will be where the code for your web app lives. Paste the following code into it:
 
     require 'sinatra'
 
@@ -125,7 +129,7 @@ Add this function to `web.md`:
       
     get '/make_call' do
 	  # Create the call client.
-	  client = Twilio::REST::Client.create(sid, token);
+	  client = Twilio::REST::Client.new(sid, token);
       
       # Make the call
       client.account.calls.create(to: to, from: from, url: url)
@@ -150,7 +154,7 @@ We would like to process incoming SMS messages, so let's update the URL to `http
 
     post '/sms_url' do
       "<Response>
-         <Sms>Hey, thanks for the ping! Twilio and Azure rock!</Sms>
+         <Message>Hey, thanks for the ping! Twilio and Azure rock!</Message>
        </Response>"
     end
 
@@ -189,4 +193,4 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+[azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
