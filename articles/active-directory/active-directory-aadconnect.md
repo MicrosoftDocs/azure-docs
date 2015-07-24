@@ -248,6 +248,8 @@ Ignite 2015 presentation on extending your on-premises directories to the cloud.
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - Monitor the health of your on-premises AD FS infrastructure.
 
+[Azure D Connect FAQ](active-directory-aadconnect-faq.md) - Frequently asked questions around Azure AD Connect.
+
 
 
 
