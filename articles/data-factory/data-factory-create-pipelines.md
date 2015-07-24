@@ -20,7 +20,7 @@
 This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. This article assumes you have gone through the [Overview](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles prior to this.
 
 ## What is a pipeline?
-**Pipelines are a logical grouping of Activities**. They are used to group activities into a unit that together perform a task. To understand pipelines better lets understand an activity first and then we will come back to a pipeline. 
+**Pipelines are a logical grouping of Activities**. They are used to group activities into a unit that performs a task. To understand pipelines better lets understand an activity first and then we will come back to a pipeline. 
 
 ### What is an activity?
 Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets) as inputs and produces one or more datasets as output. **An activity is a unit of orchestration in Azure Data Factory.** Scheduling and execution are covered in more detail later in this article. 
@@ -115,7 +115,7 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 	}
 
 
-The Copy activity in the pipeline below will help copy data from Azure SQL to Azure Blob Storage. It takes Azure SQL table as the input dataset with hourly frequency and writes the data to Azure Blob storage represented by the ‘AzureBlobOutput’ dataset. The output dataset also has an hourly frequency. Refer to the scheduling and execution section to look at how the data is copied over per unit of time. This pipeline have an active period of 3 hours from “2015-01-01T08:00:00” to “2015-01-01T11:00:00”. 
+The Copy activity in the pipeline below will help copy data from Azure SQL to Azure Blob Storage. It takes Azure SQL table as the input dataset with hourly frequency and writes the data to Azure Blob storage represented by the ‘AzureBlobOutput’ dataset. The output dataset also has an hourly frequency. Refer to the Scheduling and Execution section to understand how the data is copied over the unit of time. This pipeline have an active period of 3 hours from “2015-01-01T08:00:00” to “2015-01-01T11:00:00”. 
 
 **Pipeline:**
 	
@@ -166,7 +166,7 @@ The Copy activity in the pipeline below will help copy data from Azure SQL to Az
 
 Now that we have a brief understanding on what an activity is, let’s re-visit the pipeline.
  
-Pipelines are a logical grouping of Activities. They are used to group activities into a unit that together perform a task. **A pipeline is also the unit of deployment and management for activities.** For example, you may wish to put logically related activities together as one pipeline and such that they can need to be in active or in paused state together. 
+Pipelines are a logical grouping of Activities. They are used to group activities into a unit that performs a task. **A pipeline is also the unit of deployment and management for activities.** For example, you may wish to put logically related activities together as one pipeline and such that they can need to be in active or in paused state together. 
 
 An output dataset from an activity in a pipeline can be the input dataset to another activity in the same/different pipeline and via this dependencies among activities can be defined. Data dependencies is covered in detail in scheduling and execution section below. 
 
@@ -226,7 +226,7 @@ Tag | Description | Required
 --- | ----------- | --------
 name | Name of the activity or the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter  number, or a  underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Yes
 description | Text describing what the activity or pipeline is used for | Yes
-type | Specifies the type of the activity. See the next table of activity types in this article to determine the activity you require | Yes
+type | Specifies the type of the activity. See the [Data Movement Activities](data-factory-data-movement-activities.md) and [Data Transformation Activities](data-factory-data-transformation-activities.md) articles for different types of activities. | Yes
 inputs | Input tables used by the activity<p>// one input table<br/>"inputs":  [ { "name": "inputtable1"  } ],</p><p>// two input tables <br/>"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],</p> | Yes
 outputs | Output tables used by the activity.<p>// one output table<br/>"outputs":  [ { "name": “outputtable1” } ],</p><p>//two output tables<br/>"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],</p> | Yes
 linkedServiceName | Name of the linked service used by the activity. <p>An activity may require that you specify the linked service that links to the required compute environment.</p> | Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <p>No for all others</p>
@@ -253,7 +253,7 @@ delay | TimeSpan | 00:00:00 | Specify the delay before data processing of the sl
 longRetry | Integer<p>Max value: 10</p> | 1 | The number of long retry attempts before the slice execution is failed.<p>longRetry attempts are spaced by longRetryInterval. So if you need to specify a time between retry attempts, use longRetry. If both Retry and longRetry are specified, each longRetry attempt will include Retry attempts and the max number of attempts will be Retry * longRetry.</p><p>For example, if we have the following in the activity policy:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>Assume there is only one slice to execute (status is PendingExecution) and the activity execution fails every time. Initially there would be 3 consecutive execution attempts. After each attempt the slice status would be Retry. After first 3 attempts are over the slice status would be LongRetry.</p><p>After an hour (i.e. longRetryInteval’s value), there would be another set of 3 consecutive execution attempts. After that, the slice status would be Failed and no more retries would be attempted. Hence overall 6 attempts were made.</p><p>Note: If any execution succeeds, the slice status would be Ready and no more retries will be attempted.</p><p>longRetry may be used in situations where dependent data arrives at non-deterministic times or the overall environment is quite flaky under which data processing occurs. In such cases doing retries one after another may not help and doing so after an interval of time results in the desired output.</p><p>Word of caution: do not set high values for longRetry or longRetryInterval. Typically higher values imply other systemic issues which are being brushed off under this</p> 
 longRetryInterval | TimeSpan | 00:00:00 | The delay between long retry attempts 
 
-## Authoring
+## Authoring and managing a pipeline
 Azure Data Factory provides various mechanisms to author and deploy pipelines (which in turn contain one or more activities in it). 
 
 ### Using Azure Preview Portal
@@ -294,9 +294,9 @@ You can create and deploy pipeline via .NET SDK too. This mechanism can be lever
 ## Scheduling & Execution
 So far we have understood what pipelines and activities are. We have also taken a look at how are they defined and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed. 
 
-A pipeline is active only between its start time and end time. Before and after that it will not get executed. If the pipeline is paused it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. 
+A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. 
 
-In fact it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. Let us take a closer look at how scheduling and execution works in Azure Data Factory here (**TODO:** add link to a detailed article which explain execution).
+In fact it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. Let us take a closer look at how scheduling and execution works in Azure Data Factory in the [Scheduling and Execution](data-factory-scheduling-and-execution.md).
 
 ## Manage & Monitor  
 Once a pipeline is deployed, you can manage and monitor your pipelines, slices and runs. Read more about it here: [Monitor and Manage Pipelines](data-factory-monior-manage-pipelines.md).

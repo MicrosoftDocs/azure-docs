@@ -108,9 +108,9 @@ The Availability section in a dataset defines the processing window or the slici
 | Property | Description | Required | Default |
 | -------- | ----------- | -------- | ------- |
 | frequency | Specifies the time unit for dataset slice production.<p>**Supported frequency**: Minute, Hour, Day, Week, Month</p> | Yes | NA |
-| interval | Specifies a multiplier for frequency<p>“Frequency x interval” determines how often the slice is produced.</p><p>If you need the dataset to be sliced on an hourly basis, you set Frequency to Hour, and interval to 1.</p><p>Note: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15</p> | Yes | NA |
+| interval | Specifies a multiplier for frequency<p>“Frequency x interval” determines how often the slice is produced.</p><p>If you need the dataset to be sliced on an hourly basis, you set **Frequency** to **Hour**, and **interval** to **1**.</p><p>Note: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15</p> | Yes | NA |
 | style | Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of moth.<.p><p>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.</p>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM.</p> | No | EndOfInterval |
-| anchorDateTime | Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <p>Note: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts will be ignored. For example, if the interval is hourly (frequency: hour and interval: 1) and the AnchorDateTime contains minutes and seconds, then the minutes and seconds parts of the AnchorDateTime will be ignored. </p>| No | 01/01/0001 |
+| anchorDateTime | Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <p>Note: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts will be ignored. For example, if the **interval** is **hourly** (frequency: hour and interval: 1) and the **AnchorDateTime** contains **minutes and seconds**, then the **minutes and seconds** parts of the AnchorDateTime will be ignored. </p>| No | 01/01/0001 |
 | Offset | Timespan by which the start and end of all dataset slices are shifted. <p>Note: If both anchorDateTime and offset are specified, the result is the combined shift.</p> | No | NA |
 
 ### anchorDateTime examples
@@ -123,12 +123,6 @@ The Availability section in a dataset defines the processing window or the slici
 		"interval": "23",	
 		"anchorDataTime":"2007-04-19T08:00:00"	
 	}
-
-**Example 2:** for a weekly schedule, You can specify anchor time of Tuesday Nov. 4, 2014, 3 AM. This means that the scheduling will happen every Tuesday at 3 AM.
-
-**Example 3:** For a daily schedule, if you set anchorDateTime = 10/20/2014 6 AM means that the scheduling will happen every day at 6 AM.
-
-**Example 4:** For a monthly schedule and interval = 12, (every 12 months) AnchorDateTime = 03/02/2014 means every year on March 2nd.
 
 
 ### offset example
