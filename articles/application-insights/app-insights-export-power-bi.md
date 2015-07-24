@@ -25,6 +25,12 @@ In this article, we'll show how to export data from Application Insights and use
 
 ![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/020.png)
 
+## Video
+
+Noam Ben Zeev shows what we describe in this article.
+
+> [AZURE.VIDEO export-to-power-bi-from-application-insights]
+
 ## Monitor your app with Application Insights
 
 If you haven't tried it yet, now is the time to start. Application Insights can monitor any device or web app on a wide range of platforms, including Windows, iOS, Android, J2EE, and more. [Get started](app-insights-get-started.md).

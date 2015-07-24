@@ -165,7 +165,7 @@ You can now upload the exported PFX file to your Azure web app.
 
 5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Azure App Service:
 
-		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	When prompted, enter a password to secure the .pfx file.
 
@@ -175,7 +175,7 @@ You can now upload the exported PFX file to your Azure web app.
 	>
 	>
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure App Service.
@@ -294,7 +294,7 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 	>
 	> 
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure App Service.
