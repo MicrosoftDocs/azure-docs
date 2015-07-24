@@ -40,7 +40,7 @@ The following example shows you how you can create a virtual machine (VM) based 
 
 1.	Log in to the [Azure portal](https://ms.portal.azure.com/).
 
-2.	Click ** Virtual Machines**.
+2.	Click **Virtual Machines**.
 
 3.	Click the name of the VM that you want to log in to.
 
