@@ -39,28 +39,28 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 	2.	Click **Data analytics** in the **Create** blade.
 	3.	Click **Data Factory** on the **Data analytics** blade.
 
-		![Create blade](./media/data-factory-build-your-first-pipeline/create-blade.png)
+		![Create blade](./media/data-factory-build-your-first-pipeline-using-vs/create-blade.png)
 
 2.	In the **New data factory** blade, enter **DataFactoryMyFirstPipeline** for the Name.
 
-	![New data factory blade](./media/data-factory-build-your-first-pipeline/new-data-factory-blade.png)
+	![New data factory blade](./media/data-factory-build-your-first-pipeline-using-vs/new-data-factory-blade.png)
 
-	[AZURE.IMPORTANT] Azure Data Factory names are globally unique. You will need to prefix the name of the data factory with your name, to enable the successful creation of the factory. 
+	> [AZURE.IMPORTANT] Azure Data Factory names are globally unique. You will need to prefix the name of the data factory with your name, to enable the successful creation of the factory. 
 3.	If you have not created any resource group,  you will need to create a resource group. To do this:
 	1.	Click on **RESOURCE GROUP NAME**.
 	2.	Select **Create a new resource group** in the **Resource group** blade.
 	3.	Enter **ADF** for the **Name** in the **Create resource group** blade.
 	4.	Click **OK**.
 	
-		![Create resource group](./media/data-factory-build-your-first-pipeline/create-resource-group.png)
+		![Create resource group](./media/data-factory-build-your-first-pipeline-using-vs/create-resource-group.png)
 4.	After you have selected the resource group, verify that you are using the correct subscription where you want the data factory to be created.
 5.	Click **Create** on the **New data factory** blade.
 6.	You will see the data factory being created in the **Startboard** of the Azure Preview Portal as follows:   
 
-	![Creating data factory status](./media/data-factory-build-your-first-pipeline/creating-data-factory-image.png)
+	![Creating data factory status](./media/data-factory-build-your-first-pipeline-using-vs/creating-data-factory-image.png)
 7. Congratulations! You have successfully created your first data factory. After the data factory has been created successfully, you will see the data factory page, which shows you the contents of the data factory. 	
 
-	![Data Factory blade](./media/data-factory-build-your-first-pipeline/data-factory-blade.png)
+	![Data Factory blade](./media/data-factory-build-your-first-pipeline-using-vs/data-factory-blade.png)
 
 In the subsequent steps, you will learn how to create the linked services, datasets and pipeline that you will use in this tutorial. 
 

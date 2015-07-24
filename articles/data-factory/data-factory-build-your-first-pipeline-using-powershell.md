@@ -65,14 +65,16 @@ In this step, you will link your Azure Storage account and an on-demand Azure HD
 
 		{
 		    "name": "StorageLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureStorageLinkedService",
-		        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		    "properties": {
+		        "type": "AzureStorage",
+		        "description": "",
+		        "typeProperties": {
+		            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		        }
 		    }
 		}
 
-	Replace **<account name\>** with the name of your Azure storage account and **<account key\>** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)
+	Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)
 
 2.	In the **Azure PowerShell**, switch to the **ADFGetStartedPSH** folder. 
 3.	You can use the **New-AzureDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial require you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can use **Get-AzureDataFactory** to get a DataFactory object and pass the object without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureDataFactory** cmdlet to a variable: **$df**. 
@@ -94,16 +96,19 @@ Now, you will create a linked service for an on-demand HDInsight cluster that wi
 
 1.	Create a JSON file named **HDInsightOnDemandLinkedService.json** in the **C:\ADFGetStartedPSH** with the following content. 
 
+
 		{
-		    "name": "HDInsightOnDemandLinkedService",
-		    "properties": {
-		        "version": "3.1",
-		        "clusterSize": 1,
-		        "timeToLive": "00:05:00",
-		        "jobsContainer": "adfjobs",
-		        "linkedServiceName": "StorageLinkedService",
-		        "type": "HDInsightOnDemandLinkedService"
+		  "name": "HDInsightOnDemandLinkedService",
+		  "properties": {
+		    "type": "HDInsightOnDemand",
+		    "typeProperties": {
+		      "version": "3.1",
+		      "clusterSize": 1,
+		      "timeToLive": "00:05:00",
+		      "jobsContainer": "adfjobs",
+		      "linkedServiceName": "StorageLinkedService"
 		    }
+		  }
 		}
 
 	The following table provides descriptions for the JSON properties used in the snippet:
@@ -126,24 +131,23 @@ Now, you will create the output dataset to represent the data stored in the Azur
 1.	Create a JSON file named **OutputTable.json** in the **C:\ADFGetStartedPSH** folder with the following content:
 
 		{
-		    "name": "AzureBlobOutput",
-		    "properties": {
-		        "location": {
-		            "type": "AzureBlobLocation",
-		            "folderPath": "data/partitioneddata",
-		            "format": {
-		                "type": "TextFormat",
-		                "columnDelimiter": ","
-		            },
-		            "linkedServiceName": "StorageLinkedService"
-		        },
-		        "availability": {
-		            "frequency": "Month",
-		            "interval": 1
-		        }
+		  "name": "AzureBlobOutput",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "data/partitioneddata",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Month",
+		      "interval": 1
 		    }
+		  }
 		}
-
 	In the JSON snippet, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **data** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 
 2. Run the following command in the Azure PowerShell to create the Data Factory table.
@@ -155,35 +159,38 @@ In this step, you will create your first pipeline.
 
 1.	Create a JSON file named **MyFirstPipelinePSH.json** in the **C:\ADFGetStartedPSH** folder with the following content: 
 
-	[AZURE.IMPORTANT] Replace **<storageaccountname\>** with the storage account name that you are using in this tutorial. 
+	> [AZURE.IMPORTANT] Replace **storageaccountname** with the storage account name that you are using in this tutorial. 
 
 		{
-			"name": "MyFirstPipeline",
-			"properties": {
-			"description": "My first Azure Data Factory pipeline",
-		 	"activities": [
+		  "name": "MyFirstPipeline",
+		  "properties": {
+		    "description": "My first Azure Data Factory pipeline",
+		    "activities": [
 		      {
-		            "type": "HDInsightActivity",
-		            "transformation": {
-		                    "scriptPath": "script/partitionweblogs.hql",
-		                    "scriptLinkedService": "StorageLinkedService",
-		                    "type": "Hive",
-		                    "extendedProperties": {
-		                        "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
-		                    }
-		                },
-		                "outputs": [   {  "name": "AzureBlobOutput"    }   ],
-		                "policy": {  
-		                    "concurrency": 1,
-		                    "retry": 3
-						},
-		                "name": "RunSampleHiveActivity",
-		                "linkedServiceName": "HDInsightOnDemandLinkedService"
-		            }
+		        "type": "HDInsightHive",
+		        "typeProperties": {
+		          "scriptPath": "script/partitionweblogs.hql",
+		          "scriptLinkedService": "StorageLinkedService",
+		          "defines": {
+		            "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
+		          }
+		        },
+		        "outputs": [
+		          {
+		            "name": "AzureBlobOutput"
+		          }
 		        ],
-		        "start": "2014-01-01",
-		        "end": "2014-01-02"
-		    }
+		        "policy": {
+		          "concurrency": 1,
+		          "retry": 3
+		        },
+		        "name": "RunSampleHiveActivity",
+		        "linkedServiceName": "HDInsightOnDemandLinkedService"
+		      }
+		    ],
+		    "start": "2014-01-01",
+		    "end": "2014-01-02"
+		  }
 		}
 		
 	In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process Data on an HDInsight cluster.
