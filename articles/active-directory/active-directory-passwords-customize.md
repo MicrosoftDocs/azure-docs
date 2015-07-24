@@ -26,88 +26,10 @@ In order to give your users the best possible experience, we recommend that you 
 ## Password managment look and feel
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the **Directory Properties** section of your directory’s **Configure** tab within the [Azure Management Portal](https://manage.windowsazure.com).
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Policy Control</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Description</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Affects?</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Directory Name</p>
-              </td>
-              <td>
-                <p>Determines what organizational name users or admins see on password reset email communications</p>
-              </td>
-              <td>
-                <p>
-                  <strong>”Contact your administrator” emails:</strong>
-                </p>
-                <ul>
-                  <li class="unordered">
-												Determines the from address friendly name, e.g. “Microsoft on behalf of <strong>Wingtip Toys<strong>”<br><br></li>
-                  <li class="unordered">
-												Determines the subject name of the email, e.g. “<strong>Wingtip Toys<strong> account email verification code”<br><br></li>
-                </ul>
-                <p>
-                  <strong>Password reset emails:</strong>
-                </p>
-                <ul>
-                  <li class="unordered">
-												Determines the from address friendly name, e.g. “Microsoft on behalf of <strong>Wingtip Toys<strong>”<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Sign in and access panel page appearance</p>
-              </td>
-              <td>
-                <p>Determines if users visiting the password reset page see the Microsoft logo or your own custom logo.  This configuration item also adds your branding to the access panel and sign in page.</p>
-                <p>
-                  
-                </p>
-                <p>You can learn more about the tenant branding and customization feature at <a href="https://technet.microsoft.com/library/dn532270.aspx">Add company branding to your Sign In and Access Panel pages</a>.</p>
-              </td>
-              <td>
-                <p>
-                  <strong>Password reset portal:</strong>
-                </p>
-                <ul>
-                  <li class="unordered">
-												Determines whether or not your logo is shown at the top of the password reset portal instead of the default Microsoft logo.<br><br></li>
-                  <li class="unordered">
-                    <strong>Note:<strong/> you may not see your logo on the first page of the password reset portal if you come to the password reset page directly.  Once a user enters his or her userID and clicks next, your logo will appear.  You can force your logo to appear on page load by passing the whr parameter to the password reset page, like this: <a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a><br><br></li>
-                </ul>
-                <p>
-                  <strong>”Contact your administrator” emails:</strong>
-                </p>
-                <ul>
-                  <li class="unordered">
-												Determines whether or not your logo is shown at the bottom of the emails sent to admins when users choose to contact you by clicking the “contact your administrator” link on the password reset UI.<br><br></li>
-                </ul>
-                <p>
-                  <strong>Password reset emails:</strong>
-                </p>
-                <ul>
-                  <li class="unordered">
-												Determines whether or not your logo is shown at the bottom of the emails sent to users when they reset their passwords.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody></table>
+Policy Control|Description|Affects?
+--|--|--
+Directory Name|Determines what organizational name users or admins see on password reset email communications|**"Contact your administrator"** emails:<p><p> * Determines the from address friendly name, e.g. “Microsoft on behalf of **Wingtip Toys**”<p> * Determines the subject name of the email, e.g. “**Wingtip Toys** account email verification code”<p>**Password reset emails:**<p>* Determines the from address friendly name, e.g. “Microsoft on behalf of **Wingtip Toys**”
+Sign in and access panel page appearance|Determines if users visiting the password reset page see the Microsoft logo or your own custom logo.  This configuration item also adds your branding to the access panel and sign in page.<p><p>You can learn more about the tenant branding and customization feature at [Add company branding to your Sign In and Access Panel pages](https://technet.microsoft.com/library/dn532270.aspx)|**Password reset portal:**<p>* Determines whether or not your logo is shown at the top of the password reset portal instead of the default Microsoft logo.<p>**Note:** you may not see your logo on the first page of the password reset portal if you come to the password reset page directly.  Once a user enters his or her userID and clicks next, your logo will appear.  You can force your logo to appear on page load by passing the whr parameter to the password reset page, like this: [https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com](https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com)<p>**”Contact your administrator” emails:**<p>Determines whether or not your logo is shown at the bottom of the emails sent to admins when users choose to contact you by clicking the “contact your administrator” link on the password reset UI.<p>**Password reset emails:**<p> * Determines whether or not your logo is shown at the bottom of the emails sent to users when they reset their passwords.
 
 ## Password Management behavior
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the **User Password Reset Policy** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).
@@ -118,17 +40,17 @@ The following table describes how each control affects the experience for users 
             <tbody><tr>
               <td>
                 <p>
-                  <strong>Policy Control</strong>
+                  **Policy Control**
                 </p>
               </td>
               <td>
                 <p>
-                  <strong>Description</strong>
+                  **Description**
                 </p>
               </td>
               <td>
                 <p>
-                  <strong>Affects?</strong>
+                  **Affects?**
                 </p>
               </td>
             </tr>
@@ -141,7 +63,7 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -149,18 +71,18 @@ The following table describes how each control affects the experience for users 
                   <li class="unordered">
 												If set to yes, any end user in the directory can register challenge data by going to the registration portal at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.<br><br></li>
                   <li class="unordered">
-                    <strong>Note:</strong> users must have an Azure AD Premium or Basic license assigned before they can register for password reset.<br><br></li>
+                    **Note:** users must have an Azure AD Premium or Basic license assigned before they can register for password reset.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
 												If set to no, users see a message saying the must contact their admin to reset their password.<br><br></li>
                   <li class="unordered">
-												If set to yes, users are able to reset their passwords automatically by going to  <a href="http://passwordreset.microsoftonline.com">http://passwordreset.microsoftonline.com</a>, or clicking on the <strong>can’t access your account</strong> link on any Organizational ID sign-in page.<br><br></li>
+												If set to yes, users are able to reset their passwords automatically by going to  <a href="http://passwordreset.microsoftonline.com">http://passwordreset.microsoftonline.com</a>, or clicking on the **can’t access your account** link on any Organizational ID sign-in page.<br><br></li>
                   <li class="unordered">
-                    <strong>Note:</strong> users must have an Azure AD Premium or Basic license assigned before they can reset their passwords.<br><br></li>
+                    **Note:** users must have an Azure AD Premium or Basic license assigned before they can reset their passwords.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -169,26 +91,26 @@ The following table describes how each control affects the experience for users 
                 <p>Restrict access to password reset</p>
               </td>
               <td>
-                <p>Determines whether only a particular group of users is allowed to use password reset. (Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
+                <p>Determines whether only a particular group of users is allowed to use password reset. (Only visible if **users enabled for password reset** is set to **yes**).</p>
               </td>
               <td>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
 												If set to no, then all end users in your directory can register for password reset at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
                   <li class="unordered">
-												If set to yes, then only end users specified in the <strong>group that can perform password reset</strong> control can register for password reset at  <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
+												If set to yes, then only end users specified in the **group that can perform password reset** control can register for password reset at  <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
 												If set to no, then all end users in your directory can reset their passwords.<br><br></li>
                   <li class="unordered">
-												If set to yes, then only end users specified in the <strong>group that can perform password reset</strong> control can reset their passwords.<br><br></li>
+												If set to yes, then only end users specified in the **group that can perform password reset** control can reset their passwords.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -201,31 +123,31 @@ The following table describes how each control affects the experience for users 
                 <p>
                   
                 </p>
-                <p>(Only visible if <strong>restrict access to password reset</strong> is set to <strong>yes</strong>).</p>
+                <p>(Only visible if **restrict access to password reset** is set to **yes**).</p>
               </td>
               <td>
                 <p>
-                  <strong>Note:</strong>
+                  **Note:**
                 </p>
                 <ul>
                   <li class="unordered">
-												If no group is specified and you click <strong>Save</strong>, an empty group called <strong>SSPRSecurityGroupUsers</strong> will be created for you.<br><br></li>
+												If no group is specified and you click **Save**, an empty group called **SSPRSecurityGroupUsers** will be created for you.<br><br></li>
                   <li class="unordered">
 												If you’d like to specify your own group, you can provide your own display name.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
-												If <strong>restrict access to password reset</strong> is set to <strong>yes</strong>, then only end users in this group will be able to register for password reset. <br><br></li>
+												If **restrict access to password reset** is set to **yes**, then only end users in this group will be able to register for password reset. <br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
-												If <strong>restrict access to password reset</strong> is set to <strong>yes</strong>, then only end users in this group will be able to reset their passwords.<br><br></li>
+												If **restrict access to password reset** is set to **yes**, then only end users in this group will be able to reset their passwords.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -238,7 +160,7 @@ The following table describes how each control affects the experience for users 
                 <p>
                   
                 </p>
-                <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
+                <p>(Only visible if **users enabled for password reset** is set to **yes**).</p>
               </td>
               <td>
                 <p>
@@ -248,7 +170,7 @@ The following table describes how each control affects the experience for users 
                   
                 </p>
                 <p>
-                  <strong>Note:</strong>
+                  **Note:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -259,37 +181,37 @@ The following table describes how each control affects the experience for users 
 												If you are using security questions, we highly recommend you use them in conjunction with another authentication method, as security questions can be less secure than phone or email-based password reset methods.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Which directory fields are used?</strong>
+                  **Which directory fields are used?**
                 </p>
                 <ul>
                   <li class="unordered">
-												Office Phone corresponds to the <strong>Office Phone</strong> attribute on a user object in the directory.<br><br></li>
+												Office Phone corresponds to the **Office Phone** attribute on a user object in the directory.<br><br></li>
                   <li class="unordered">
-												Mobile Phone corresponds to either the <strong>Authentication Mobile</strong> attribute (which is not publically visible) or the <strong>Mobile Phone</strong> attribute (which is publically visible) on a user object in the directory.  The service first checks <strong>Authentication Phone</strong> for data, and if there is none present, falls back to the <strong>Mobile Phone</strong> attribute.<br><br></li>
+												Mobile Phone corresponds to either the **Authentication Mobile** attribute (which is not publically visible) or the **Mobile Phone** attribute (which is publically visible) on a user object in the directory.  The service first checks **Authentication Phone** for data, and if there is none present, falls back to the **Mobile Phone** attribute.<br><br></li>
                   <li class="unordered">
-												Alternate Email Address corresponds to either the <strong>Authentication Email</strong> attribute (which is not publically visible) or the <strong>Alternate Email</strong> attribute on a user object in the directory.  The service first checks <strong>Authentication Email</strong> for data, and if there is none present, falls back to the <strong>Alternate Email</strong> attribute.<br><br></li>
+												Alternate Email Address corresponds to either the **Authentication Email** attribute (which is not publically visible) or the **Alternate Email** attribute on a user object in the directory.  The service first checks **Authentication Email** for data, and if there is none present, falls back to the **Alternate Email** attribute.<br><br></li>
                   <li class="unordered">
 												Security Questions are stored privately and securely on a user object in the directory and can only be answered by users during registration.  For security purposes, there is currently no way for an administrator to edit or see these answers.<br><br></li>
                   <li class="unordered">
-                    <strong>Note: </strong>by default, only the cloud attributes Office Phone and Mobile Phone are synchronized to your cloud directory from your on-premises directory.  To learn more about which on-premises attributes are synced to the cloud, see <a href="https://msdn.microsoft.com/library/azure/dn764938.aspx">Attributes synchronized to Azure AD.</a><br><br></li>
+                    **Note: **by default, only the cloud attributes Office Phone and Mobile Phone are synchronized to your cloud directory from your on-premises directory.  To learn more about which on-premises attributes are synced to the cloud, see <a href="https://msdn.microsoft.com/library/azure/dn764938.aspx">Attributes synchronized to Azure AD.</a><br><br></li>
                 </ul>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
 												Affects which authentication methods are displayed when users are registering.  If you do not enable a given authentication method, users will not be able to self-register for that authentication method.<br><br></li>
                   <li class="unordered">
-                    <strong>Note: </strong>users are currently not able to register their own office phone numbers; that authentication method must be defined by their administrator.<br><br></li>
+                    **Note: **users are currently not able to register their own office phone numbers; that authentication method must be defined by their administrator.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
-												Determines which authentication methods a user can use as challenges for a given verification step.  For example, if a user has data in both the <strong>Office Phone</strong> and <strong>Authentication Phone</strong> fields in Azure Active Directory, then he or she can use either of these authentication methods to recover his or her password.<br><br></li>
+												Determines which authentication methods a user can use as challenges for a given verification step.  For example, if a user has data in both the **Office Phone** and **Authentication Phone** fields in Azure Active Directory, then he or she can use either of these authentication methods to recover his or her password.<br><br></li>
                   <li class="unordered">
-                    <strong>Note: </strong>users will be able to reset their password if and only if they have data present in the authentication methods you have enabled as an administrator.<br><br></li>
+                    **Note: **users will be able to reset their password if and only if they have data present in the authentication methods you have enabled as an administrator.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -302,31 +224,31 @@ The following table describes how each control affects the experience for users 
                 <p>
                   
                 </p>
-                <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
+                <p>(Only visible if **users enabled for password reset** is set to **yes**).</p>
               </td>
               <td>
                 <p>
-                  <strong>Note:</strong>
+                  **Note:**
                 </p>
                 <ul>
                   <li class="unordered">
 												Can be set to 1 or 2 authentication methods required.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
 												Determines the minimum number of authentication methods a user must register before being able to finish the registration experience.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
 												Affects number of verification steps a user must go through before being able to reset a password.  A verification step is defined to be a user using one piece of authentication information (such as a call to their office phone, or an email to their alternate email) to verify their account.<br><br></li>
                   <li class="unordered">
-                    <strong>Note:</strong> If a user does not have the required amount of authentication information defined on his or her account in order to be successful resetting his or her password in accordance with the policy you’ve set, he or she will see an error page which will direct them to request an administrator to reset his or her password.  <br><br></li>
+                    **Note:** If a user does not have the required amount of authentication information defined on his or her account in order to be successful resetting his or her password in accordance with the policy you’ve set, he or she will see an error page which will direct them to request an administrator to reset his or her password.  <br><br></li>
                 </ul>
               </td>
             </tr>
@@ -336,11 +258,11 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Determines the minimum number of questions a user must answer when registering for the security questions option.</p>
-                <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
+                <p>(Only visible if the **Security Questions** checkbox is enabled).</p>
               </td>
               <td>
                 <p>
-                  <strong>Note:</strong>
+                  **Note:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -351,7 +273,7 @@ The following table describes how each control affects the experience for users 
 												We recommend you set the number of questions required to register to be higher than the number required to reset so users have more flexibility when resetting their passwords.  This is also a more secure configuration because we will randomly select questions for the user to answer from the pool of all of the questions they have registered.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -368,11 +290,11 @@ The following table describes how each control affects the experience for users 
                 <p>
                   
                 </p>
-                <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
+                <p>(Only visible if the **Security Questions** checkbox is enabled).</p>
               </td>
               <td>
                 <p>
-                  <strong>Note:</strong>
+                  **Note:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -381,7 +303,7 @@ The following table describes how each control affects the experience for users 
 												Number of questions required to reset must be less than or equal to the number of questions required to register.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -400,11 +322,11 @@ The following table describes how each control affects the experience for users 
                 <p>
                   
                 </p>
-                <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
+                <p>(Only visible if the **Security Questions** checkbox is enabled).</p>
               </td>
               <td>
                 <p>
-                  <strong>Note:</strong>
+                  **Note:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -427,14 +349,14 @@ The following table describes how each control affects the experience for users 
 												Defining different questions for different locales is not yet supported, but will be in the future.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
 												Determines which questions a user is able to provide answers for when registering for password reset.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -454,7 +376,7 @@ The following table describes how each control affects the experience for users 
                 <p>
                   
                 </p>
-                <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
+                <p>(Only visible if **users enabled for password reset** is set to **yes**).</p>
               </td>
               <td>
                 <p>
@@ -464,18 +386,18 @@ The following table describes how each control affects the experience for users 
                   
                 </p>
                 <p>
-                  <strong>Note:</strong>
+                  **Note:**
                 </p>
                 <ul>
                   <li class="unordered">
 												If you disable this feature, you can also manually send users to <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a> to register their contact data.  <br><br></li>
                   <li class="unordered">
-												Users can also reach the registration portal by clicking the <strong>register for password reset</strong> link under the profile tab in the access panel.<br><br></li>
+												Users can also reach the registration portal by clicking the **register for password reset** link under the profile tab in the access panel.<br><br></li>
                   <li class="unordered">
 												Registration via this method can be dismissed by clicking the cancel button or closing the window, but users will be nagged every time they sign in if they do not register.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -488,11 +410,11 @@ The following table describes how each control affects the experience for users 
                 <p>Number of days before users must confirm their contact data</p>
               </td>
               <td>
-                <p>When <strong>require users to register</strong> is turned on, this setting determines the period of time which can elapse before a user must re-confirm their data. </p>
+                <p>When **require users to register** is turned on, this setting determines the period of time which can elapse before a user must re-confirm their data. </p>
                 <p>
                   
                 </p>
-                <p>(Only visible if <strong>require users to register when signing in to the access panel</strong> is set to <strong>yes</strong>).</p>
+                <p>(Only visible if **require users to register when signing in to the access panel** is set to **yes**).</p>
               </td>
               <td>
                 <p>
@@ -502,14 +424,14 @@ The following table describes how each control affects the experience for users 
                   
                 </p>
                 <p>
-                  <strong>Note: </strong>
+                  **Note: **
                 </p>
                 <ul>
                   <li class="unordered">
 												Values between 0-730 days are accepted, with 0 days meaning that users will never be asked to re-confirm their contact data.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -526,18 +448,18 @@ The following table describes how each control affects the experience for users 
                 <p>
                   
                 </p>
-                <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
+                <p>(Only visible if **users enabled for password reset** is set to **yes**).</p>
               </td>
               <td>
                 <p>
-                  <strong>Note: </strong>
+                  **Note: **
                 </p>
                 <ul>
                   <li class="unordered">
-												If you enable this setting, you must choose a custom URL or email address by filling out the <strong>custom email address or url</strong> field immediately below this setting.<br><br></li>
+												If you enable this setting, you must choose a custom URL or email address by filling out the **custom email address or url** field immediately below this setting.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -566,26 +488,26 @@ The following table describes how each control affects the experience for users 
                 <p>Custom email address or URL</p>
               </td>
               <td>
-                <p>Controls the email address or URL to which the <strong>contact your administrator</strong> link points. </p>
+                <p>Controls the email address or URL to which the **contact your administrator** link points. </p>
                 <p>
                   
                 </p>
-                <p>(Only visible if <strong>customize contact your administrator link</strong> is set to <strong>yes</strong>).</p>
+                <p>(Only visible if **customize contact your administrator link** is set to **yes**).</p>
               </td>
               <td>
                 <p>
-                  <strong>Note:</strong>
+                  **Note:**
                 </p>
                 <ul>
                   <li class="unordered">
 												Must be a valid intranet or extranet URL or email address.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
-												Changes where the <strong>contact your administrator</strong> link points.<br><br></li>
+												Changes where the **contact your administrator** link points.<br><br></li>
                   <li class="unordered">
 												If you provide an email address, the link will become a “mailto” link to that email address.<br><br></li>
                   <li class="unordered">
@@ -609,33 +531,33 @@ The following table describes how each control affects the experience for users 
                   
                 </p>
                 <p>
-                  <strong>Note:</strong>
+                  **Note:**
                 </p>
                 <ul>
                   <li class="unordered">
-												This control only appears if you have installed Password Writeback by downloading the latest version of Azure AD Connect and enabling the <strong>Password Writeback</strong> option under the <strong>optional features</strong> selection screen.<br><br></li>
+												This control only appears if you have installed Password Writeback by downloading the latest version of Azure AD Connect and enabling the **Password Writeback** option under the **optional features** selection screen.<br><br></li>
                   <li class="unordered">
-												If you have enabled Password Writeback and feel there is a configuration issue with the service, you can come to this tab and look at the <strong>password write back service status</strong> label to see if something is wrong.<br><br></li>
+												If you have enabled Password Writeback and feel there is a configuration issue with the service, you can come to this tab and look at the **password write back service status** label to see if something is wrong.<br><br></li>
                   <li class="unordered">
-												Statuses that can be shown are:<br><br><ul><li class="unordered"><strong>Configured </strong>– everything is working as expected<br><br></li><li class="unordered"><strong>Not configured</strong> – you have writeback installed, but we can’t reach the service, check to make sure you are not blocking outbound connections to 443 and try re-installing the service if you still have problems.<br><br></li></ul></li>
+												Statuses that can be shown are:<br><br><ul><li class="unordered">**Configured **– everything is working as expected<br><br></li><li class="unordered">**Not configured** – you have writeback installed, but we can’t reach the service, check to make sure you are not blocking outbound connections to 443 and try re-installing the service if you still have problems.<br><br></li></ul></li>
                 </ul>
                 <p>
-                  <strong>Registration portal:</strong>
+                  **Registration portal:**
                 </p>
                 <ul>
                   <li class="unordered">
-												If writeback is deployed and configured and this switch is set to <strong>no</strong>, then writeback will be disabled, and federated and password hash sync’d users will not be able to register for password reset their passwords.<br><br></li>
+												If writeback is deployed and configured and this switch is set to **no**, then writeback will be disabled, and federated and password hash sync’d users will not be able to register for password reset their passwords.<br><br></li>
                   <li class="unordered">
-												If the switch is set to <strong>yes</strong>, then writeback will be enabled, and federated and password hash sync’d users will be able to reset their passwords.<br><br></li>
+												If the switch is set to **yes**, then writeback will be enabled, and federated and password hash sync’d users will be able to reset their passwords.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
-												If writeback is deployed and configured and this switch is set to <strong>no</strong>, then writeback will be disabled, and federated and password hash sync’d users will not be able to reset their passwords.<br><br></li>
+												If writeback is deployed and configured and this switch is set to **no**, then writeback will be disabled, and federated and password hash sync’d users will not be able to reset their passwords.<br><br></li>
                   <li class="unordered">
-												If the switch is set to <strong>yes</strong>, then writeback will be enabled, and federated and password hash sync’d users will be able to reset their passwords.<br><br></li>
+												If the switch is set to **yes**, then writeback will be enabled, and federated and password hash sync’d users will be able to reset their passwords.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -648,17 +570,17 @@ The following table describes how each control affects the experience for users 
             <tbody><tr>
               <td>
                 <p>
-                  <strong>Policy Control</strong>
+                  **Policy Control**
                 </p>
               </td>
               <td>
                 <p>
-                  <strong>Description</strong>
+                  **Description**
                 </p>
               </td>
               <td>
                 <p>
-                  <strong>Affects?</strong>
+                  **Affects?**
                 </p>
               </td>
             </tr>
@@ -671,7 +593,7 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -682,7 +604,7 @@ The following table describes how each control affects the experience for users 
 												This notification is sent via an email to the primary email addresses of all other global admins in the organization.<br><br></li>
                 </ul>
                 <p>
-                  <strong>Example:</strong>
+                  **Example:**
                 </p>
                 <ul>
                   <li class="unordered">
@@ -699,7 +621,7 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>
-                  <strong>Password reset portal:</strong>
+                  **Password reset portal:**
                 </p>
                 <ul>
                   <li class="unordered">
