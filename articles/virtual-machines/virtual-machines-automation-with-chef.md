@@ -33,6 +33,7 @@ The following diagram depicts the high-level Chef architecture.
 ![][2]
 
 Chef has three main architectural components:
+
 - Chef Server
 - Chef Client (node)
 - Chef Workstation
