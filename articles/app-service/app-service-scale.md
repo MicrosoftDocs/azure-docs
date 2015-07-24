@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Scale pricing tier in Azure App Service" 
-	description="Learn how to scale web, mobile, api and logic apps in Azure App Service, including autoscaling." 
+	description="Learn how to scale Web, Mobile, API and Logic apps in Azure App Service, including autoscaling." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="07/21/2015" 
 	ms.author="stepsic"/>
 
 # Scale pricing tier in Azure App Service
@@ -24,7 +24,9 @@ The level of service your App Service plan has is based on the [*Pricing tier* f
 
 In addition to scaling up the pricing tier, you can increase the number of instances that you service has. This is referred to as *Scaling out* or *Scaling in*. See the article on [Scale instance count manually or automatically](../insights-how-to-scale.md) to learn more about *Scale out* and *Scale in*.
 
-For information about App Service plans, see [What is an App Service Plan?](../web-sites-web-hosting-plan-overview.md) and [Azure App Service Plans In-Depth Overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/app-service/).  
+For information about App Service plans, see [What is an App Service Plan?](../web-sites-web-hosting-plan-overview.md) and [Azure App Service Plans In-Depth Overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/app-service/).
+
+Finally, scaling works differently if you want to use a dedicated [App Service Environment](app-service-app-service-environment-intro.md). See [Scaling web apps in an App Service Environment](app-service-web-scale-a-web-app-in-an-app-service-environment.md) for more details.
 
 > [AZURE.NOTE] Before switching a from the **Free** mode to **Basic**, **Standard**, or **Premium** mode, you must first remove the spending caps in place for your Azure App Service subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
@@ -43,8 +45,10 @@ For information about App Service plans, see [What is an App Service Plan?](../w
 	
 4. Once you choose your tier, click **Select**.
 	
-	The **Notifications** tab will flash a green **SUCCESS** once the operation is complete. 
-		
+	The **Notifications** tab will flash a green **SUCCESS** once the operation is complete.
+ 
+You can also learn about the different tiers of compute in Azure [here](http://go.microsoft.com/fwlink/?LinkId=309169).
+	
 <a name="ScalingSQLServer"></a>
 ##Scaling related resources
 If your app depends on other services, such as SQL or Storage, you can also scale those based on your needs.
