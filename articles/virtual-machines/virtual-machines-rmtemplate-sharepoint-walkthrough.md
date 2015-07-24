@@ -73,7 +73,7 @@ This section contains the following subsections:
 
 ### Microsoft.Storage/storageAccounts  
 
-This section creates a new Storage account for all VHD and disk resources for the farm. Here is the JSON code for the Storage account:
+This section creates a new storage account for all VHD and disk resources for the farm. Here is the JSON code for the storage account:
 
 	{
 	  "type": "Microsoft.Storage/storageAccounts",
@@ -346,24 +346,24 @@ An additional section for the domain controller starting with **"name": "UpdateV
 
 The next **"type": "Microsoft.Compute/virtualMachines"** section creates the SQL Server virtual machines in the deployment and:
 
-- Specifies the Storage account, availability set, load balancer, virtual network, and network interface.
+- Specifies the storage account, availability set, load balancer, virtual network, and network interface.
 - Adds an extra disk.
 
 Additional **"Microsoft.Compute/virtualMachines/extensions"** sections call the PowerShell script to configure the SQL Server.
 
-The next **"type": "Microsoft.Compute/virtualMachines"** section creates the SharePoint virtual machine in the deployment, specifying the Storage account, availability set, load balancer, virtual network, and network interface. An additional **"Microsoft.Compute/virtualMachines/extensions"** section calls a PowerShell script to configure the SharePoint farm.
+The next **"type": "Microsoft.Compute/virtualMachines"** section creates the SharePoint virtual machine in the deployment, specifying the storage account, availability set, load balancer, virtual network, and network interface. An additional **"Microsoft.Compute/virtualMachines/extensions"** section calls a PowerShell script to configure the SharePoint farm.
 
 Note the overall organization of the subsections of the **"resources"** section of the JSON file:
 
-1.	Create the elements of Azure infrastructure that are required for supporting multiple virtual machines (a Storage account, public IP addresses, availability sets, a virtual network, network interfaces, and load balancer instances).
+1.	Create the elements of Azure infrastructure that are required for supporting multiple virtual machines (a storage account, public IP addresses, availability sets, a virtual network, network interfaces, and load balancer instances).
 2.	Create the domain controller virtual machine, which uses the previously created common and specific elements of Azure infrastructure, adds a data disk, and runs a PowerShell script. Additionally, update the virtual network to use the static IP address of the domain controller.
 3.	Create the SQL Server virtual machine, which uses the previously created common and specific elements of the Azure infrastructure created for the domain controller, adds data disks, and runs a PowerShell script to configure the SQL Server.
 4.	Create the SharePoint Server virtual machine, which uses the previously created common and specific elements of the Azure infrastructure and runs a PowerShell script to configure the SharePoint farm.
 
 Your own JSON template to build a multi-tier infrastructure in Azure should follow the same steps:
 
-1.	Create the common (Storage account, virtual network), tier-specific (availability sets), and virtual machine-specific (public IP addresses, availability sets, network interfaces, load balancer instances) elements of Azure infrastructure that are required for your deployment.
-2.	For each tier in your application (such as authentication, database, web), create and configure the servers in that tier using the common (Storage account virtual network), tier-specific (availability set) and virtual machine-specific (public IP addresses, network interfaces, load balancer instances) elements.
+1.	Create the common (storage account, virtual network), tier-specific (availability sets), and virtual machine-specific (public IP addresses, availability sets, network interfaces, load balancer instances) elements of Azure infrastructure that are required for your deployment.
+2.	For each tier in your application (such as authentication, database, web), create and configure the servers in that tier using the common (storage account, virtual network), tier-specific (availability set) and virtual machine-specific (public IP addresses, network interfaces, load balancer instances) elements.
 
 For more information, see [Azure Resource Manager template language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
