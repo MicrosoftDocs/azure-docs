@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="07/24/2015"
    ms.author="alkohli" />
 
 # Use StorSimple Manager service to administer your StorSimple device
@@ -68,7 +68,7 @@ The navigational hierarchy for the StorSimple Manager service UI is shown in the
 
 The following table shows a summary of all the common management tasks and complex workflows that can be performed within the StorSimple Manager service UI. These tasks are organized based on the UI pages on which they are initiated.
 
-For more information about each workflow, click the appropriate entry in the table.
+For more information about each workflow, click the appropriate procedure in the table.
 
 #### StorSimple Manager workflows
 
@@ -81,7 +81,7 @@ For more information about each workflow, click the appropriate entry in the tab
 |List backups for a volume</br>Select a backup set</br>Delete a backup set|StorSimple Manager service → Backup Catalog|[Manage backups](storsimple-manage-backups)|
 |Clone a volume|StorSimple Manager service → Backup Catalog|[Clone a volume](storsimple-clone-volume)|
 |Restore a backup set|StorSimple Manager service → Backup Catalog|[Restore a backup set](storsimple-restore-from-backup-set)|
-|About  storage accounts</br>Add a storage account</br>Edit a storage account</br>Delete a storage account</br>Key rotation of storage accounts</br></br></br></br>|StorSimple Manager service → Configure|[Manage storage accounts](storsimple-manage-storage-accounts)|
+|About  storage accounts</br>Add a storage account</br>Edit a storage account</br>Delete a storage account</br>Key rotation of storage accounts|StorSimple Manager service → Configure|[Manage storage accounts](storsimple-manage-storage-accounts)|
 |About bandwidth templates</br>Add a bandwidth template</br>Edit a bandwidth template</br>Delete a bandwidth template</br>Use a default bandwidth template</br>Create an all-day bandwidth template that starts at a specified time|StorSimple Manager service → Configure|[Manage bandwidth templates](storsimple-manage-bandwidth-templates)|
 |About access control records</br>Create an access control record</br>Edit an access control record</br>Delete an access control record|StorSimple Manager service → Configure|[Manage access control records](storsimple-manage-acrs)|
 |View job details</br>Cancel a job|StorSimple Manager service → Jobs|[Manage jobs](storsimple-manage-jobs)
@@ -91,15 +91,15 @@ For more information about each workflow, click the appropriate entry in the tab
 |Add a volume container</br>Modify a volume container</br>Delete a volume container|StorSimple Manager service → Devices → Volume Containers|[Manage volume containers](storsimple-manage-volume-containers)|
 |Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume|StorSimple Manager service → Devices → Volume Containers → Volumes|[Manage volumes](storsimple-manage-volumes)|
 |Modify device settings</br>Modify time settings</br>Modify DNS settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure|[Modify device configuration for your StorSimple device](storsimple-modify-device-config)|
-|View web proxy settings|StorSimple Manager service → Devices → Configure|[Configure web proxy for your device](https://msdn.microsoft.com/library/azure/dn764937.aspx)|
+|View web proxy settings|StorSimple Manager service → Devices → Configure|[Configure web proxy for your device](storsimple-configure-web-proxy)|
 |Modify device administrator password</br>Modify StorSimple Snapshot Manager password|StorSimple Manager service → Devices → Configure|[Change StorSimple passwords](storsimple-change-passwords)|
-|Configure remote management|StorSimple Manager service → Devices → Configure|[Connect remotely to your StorSimple device](https://msdn.microsoft.com/en-us/library/dn772393.aspx)|
+|Configure remote management|StorSimple Manager service → Devices → Configure|[Connect remotely to your StorSimple device](https://msdn.microsoft.com/library/azure/dn772393.aspx)|
 |Configure alert settings|StorSimple Manager service → Devices → Configure|[View and manage StorSimple alerts](storsimple-manage-alerts)|
-|Configure CHAP for your StorSimple device|StorSimple Manager service → Devices → Configure|[Configure CHAP for your StorSimple device](https://msdn.microsoft.com/library/dn772351.aspx)|
+|Configure CHAP for your StorSimple device|StorSimple Manager service → Devices → Configure|[Configure CHAP for your StorSimple device](storsimple-configure-chap)|
 |Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules|StorSimple Manager service → Devices → Backup policies|[Manage backup policies](storsimple-manage-backup-policies)|
-|Manage device controllers|StorSimple Manager service → Devices → Maintenance|[Manage StorSimple device controller](storsimple-manage-device-controller)|
+|Manage device controllers (on-premises device only)|StorSimple Manager service → Devices → Maintenance|[Manage StorSimple device controller](storsimple-manage-device-controller)|
 |Monitor hardware status (on-premises device only)|StorSimple Manager service → Devices → Maintenance|[Monitor hardware components](storsimple-monitor-hardware-status)|
-|Create a support package|StorSimple Manager service → Devices → Maintenance|[Create and manage a Support package](https://msdn.microsoft.com/library/azure/dn757780.aspx#sec04)|
+|Create a support package|StorSimple Manager service → Devices → Maintenance|[Create and manage a Support package](storsimple-create-manage-support-package)|
 |Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your device](storsimple-update-device)|
 
 ##Next steps
@@ -107,9 +107,8 @@ If you experience any issues with the day-to-day operation of your StorSimple de
 
 - [Troubleshoot an operational device](storsimple-troubleshoot-operational-device/)
 - [Use StorSimple monitoring indicator LEDs](storsimple-monitoring-indicators/)
-- [Use alerts and errors quick reference](https://msdn.microsoft.com/library/azure/dn905365.aspx)
 
 
-For technical assistance:
+If you cannot resolve the issues and you need to create a service request, refer to:
 
 -  [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx)
