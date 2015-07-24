@@ -32,11 +32,7 @@ The following diagram depicts the high-level Chef architecture.
 
 ![][2]
 
-Chef has three main architectural components:
-
-- Chef Server
-- Chef Client (node)
-- Chef Workstation
+Chef has three main architectural components: Chef Server, Chef Client (node), and Chef Workstation.
 
 The Chef Server is our management point and there are two options for the Chef Server: a hosted solution or an on-premises solution. We will be using a hosted solution.
 
