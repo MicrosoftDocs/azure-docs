@@ -3,7 +3,7 @@
 	description="An introduction to backing up DPM servers using the Azure Backup service"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="SamirMehta"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="07/16/2015"
 	ms.author="sammehta"; "jimpark"/>
 
 # Introduction to Azure DPM Backup

@@ -3,7 +3,7 @@
 	description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="markusvi" 
 	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
@@ -14,8 +14,8 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/23/2015" 
+	ms.author="markusvi"/>
 
 
 # Install a new Active Directory forest on an Azure virtual network
@@ -79,7 +79,7 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-For more information about setting a static IP address, see [Configure a Static Internal IP Address for a VM](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+For more information about setting a static IP address, see [Configure a Static Internal IP Address for a VM](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## Install Windows Server Active Directory
 

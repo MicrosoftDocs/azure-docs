@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="masnider"
    manager="timlt"
-   editor="jessebenson"/>
+   editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/13/2015"
+   ms.date="07/17/2015"
    ms.author="masnider;jesseb"/>
 
 # Reliable Services Overview
-Service Fabric simplifies writing and managing reliable stateless and stateful services. This guide will talk about:
+Service Fabric simplifies writing and managing reliable stateless and stateful services. This document will talk about:
 
-1. The Reliable Service programming model for stateless and stateful services
-2. The different choices you have to make when writing a reliable service
+1. The Reliable Service programming model for stateless and stateful services.
+2. The different choices you have to make when writing a reliable service.
 3. Some of the different scenarios and examples of when you would use Reliable Services and how they are written.
 
-Reliable Services are one of the programming models available on Service Fabric. For more information on the Reliable Actors programming model, check out [the introduction](../service-fabric/service-fabric-reliable-actors-introduction.md).
+Reliable Services is one of the programming models available on Service Fabric. For more information on the Reliable Actors programming model, check out [the introduction](../service-fabric/service-fabric-reliable-actors-introduction.md).
 
 In Service Fabric, a service is composed of configuration, application code, and optionally state.
 
@@ -32,20 +32,20 @@ Service Fabric manages the lifetime of services from provisioning and deployment
 ## What Are Reliable Services?
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. With the Reliable Service programming model you get:
 
-1. For stateful services, the Reliable Service programming model allows you to consistently and reliably store your state right inside your service using Reliable Collections: a simple set of highly-available collection classes that will be familiar to anyone who's used C# collections. Traditionally, services needed external systems for reliable state management. With Reliable Collections, you can store your state next to your compute with the same high-availability and reliability you've come to expect from highly-available external stores.
+1. For stateful services, the Reliable Service programming model allows you to consistently and reliably store your state right inside your service using Reliable Collections: a simple set of highly-available collection classes that will be familiar to anyone who's used C# collections. Traditionally, services needed external systems for reliable state management. With Reliable Collections, you can store your state next to your compute with the same high-availability and reliability you've come to expect from highly-available external stores, and with the additional latency improvements co-locating the compute and the state provide.
 
 2. A simple model for running your own code that looks like programming models you are used to: your code has a well-defined entry point and easily managed lifecycle.
 
 3. A pluggable communication model - use the transport of your choice, like HTTP with [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, etc. Reliable Services provides some great out of the box options you can use, or allows you to provide your own.
 
 ## What Makes Reliable Services Different?
-Reliable Services in Service Fabric are different from services you may have written before. Service Fabric helps to guarantee reliability, availability, consistency, and scalability.  
+Reliable Services in Service Fabric are different from services you may have written before. Service Fabric provides reliability, availability, consistency, and scalability.  
 
-+ <u>Reliability</u> - your service will stay up, even if bad things are happening in the environment like machines failing or networking issues.
++ <u>Reliability</u> - your service will stay up even in unreliable environments where your machines may fail or hit network issues.
 
-+ <u>Availability</u> - your service will actually be reachable and responsive (you can have up services which can't be found or reached).
++ <u>Availability</u> - your service will be reachable and responsive (this doesn't mean that you can't have services which can't be found or reached from outside).
 
-+ <u>Scalability</u> – Services are decoupled from specific hardware and can grow or shrink as necessary through the addition or removal of hardware or virtual resources. Services are easily partitioned (especially in the stateful case) in order to ensure that independent portions of the service can scale and respond to failures independently. Finally Service Fabric encourages services to be lightweight by allowing thousands of services to be provisioned within a single process, rather than requiring or dedicating entire OS instances to a single instance of a particular workload.
++ <u>Scalability</u> – Services are decoupled from specific hardware and can grow or shrink as necessary through the addition or removal of hardware or virtual resources. Services are easily partitioned (especially in the stateful case) to ensure that independent portions of the service can scale and respond to failures independently. Finally, Service Fabric encourages services to be lightweight by allowing thousands of services to be provisioned within a single process, rather than requiring or dedicating entire OS instances to a single instance of a particular workload.
 
 + <u>Consistency</u> - this means that any information stored in this service can be guaranteed consistent (this only applies to stateful services - more on this later)
 
@@ -54,14 +54,18 @@ Whether your service is stateful or stateless, Reliable Services provide a simpl
 
 + CreateCommunicationListener - This is where the service defines the communications stack that it wants to use. The communication stack, such as [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), is what defines the listening endpoint(s) for the service (how clients will reach it), as well as how those messages which show up end up interacting with the rest of the service code.
 
-+ RunAsync - This is where your service can "do work". The cancellation token that is provided is a signal for when that work should stop. For example, if you have a service that needs to constantly pull messages out of a ReliableQueue and process them, this would be where that work would happen.
++ RunAsync - This is where your service runs its business logic. The cancellation token that is provided is a signal for when that work should stop. For example, if you have a service that needs to constantly pull messages out of a ReliableQueue and process them, this would be where that work would happen.
 
 The major events in the lifecycle of a Reliable Service are as follows:
+
 1. The Service Object (the thing that derives from StatelessService or StatefulService) is constructed.
+
 2. The CreateCommunicationListener method is called, giving the service a chance to return a communication listener of its choice.
   + Note that this is optional, though most services will expose some endpoint directly.
+
 3. Once the CommunicationListener is created it is opened
   + CommunicationListeners have a method called Open(), which is called at this point and which returns the listening address for the service. If your Reliable Service uses one of the built in ICommunicationListeners, then this is handled for you.
+
 4. Once the communication listener is Open(), the RunAsync() call on the main service is called.
   + Note that RunAsync is optional - if the service does all its work directly in response to user calls only, then there is no need for it to implement RunAsync().
 

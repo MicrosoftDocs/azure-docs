@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/18/2015"
+   ms.date="07/15/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restore a deleted Azure SQL database in the Azure portal
