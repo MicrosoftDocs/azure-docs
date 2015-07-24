@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/22/2015"
 	ms.author="msolhab;bradsev" />
 
 
-# Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning
+# Scenarios for advanced analytics in Azure Machine Learning
 
 This article outlines the variety of sample data sources and target scenarios that can be handled with the Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
 

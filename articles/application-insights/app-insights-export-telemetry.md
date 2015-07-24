@@ -110,17 +110,7 @@ On a small scale, you can write some code to pull apart your data, read it into 
 
 For a larger code sample, see [using a worker role][exportasa].
 
-#### Export to SQL
 
-Another option is to move the data to a SQL database, where you can perform more powerful analytics.
-
-We have samples showing two alternative methods of moving the data from the blob storage to a database:
-
-* [Export to SQL using a worker role][exportcode]
-* [Export to SQL using Stream Analytics][exportasa]
-
-
-On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
 
 ## <a name="delete"></a>Delete your old data
 Please note that you are responsible for managing your storage capacity and deleting the old data if necessary. 
@@ -134,6 +124,27 @@ Open the Continuous Export blade and edit your export. Edit the Export Destinati
 ![Edit the continuous export, open and close thee export destination.](./media/app-insights-export-telemetry/07-resetstore.png)
 
 The continuous export will restart.
+
+## Export to Power BI
+
+[Microsoft Power BI](https://powerbi.microsoft.com/) presents your data in rich and varied visuals, with the ability to bring together information from multiple sources. You can stream telemetry data about the performance and usage of your apps from Application Insights to Power BI.
+
+[Stream Application Insights to Power BI](app-insights-export-power-bi.md)
+
+![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-telemetry/210.png)
+
+## Export to SQL
+
+Another option is to move the data to a SQL database, where you can perform more powerful analytics.
+
+We have samples showing two alternative methods of moving the data from the blob storage to a database:
+
+* [Export to SQL using a worker role][exportcode]
+* [Export to SQL using Stream Analytics][exportasa]
+
+
+On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
+
 
 
 ## Q & A

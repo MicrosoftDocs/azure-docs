@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="06/30/2015"
+	ms.date="07/22/2015"
 	ms.author="danlep"/>
 
 # Articles for Virtual Machines in Service Management
@@ -45,8 +45,6 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 ## Plan
 
 [Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[About VM Configuration Settings](https://msdn.microsoft.com/library/azure/dn763935.aspx)
 
 [Do I need a virtual network?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
@@ -92,15 +90,23 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [Active Directory](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
+[BizTalk Server](https://msdn.microsoft.com/library/azure/jj248689)
+
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
 [Docker](virtual-machines-docker-with-xplat-cli.md)
 
+[Dynamics AX](https://technet.microsoft.com/library/dn741581.aspx)
+
 [Dynamics NAV](https://msdn.microsoft.com/library/azure/dn168977.aspx)
+
+[Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
 [HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)
 
 [LAMP Stack](virtual-machines-linux-install-lamp-stack.md)
+
+[Message Queuing (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx)
 
 [MongoDB on Windows Server](virtual-machines-install-mongodb-windows-server.md)
 
@@ -108,9 +114,19 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [Oracle](virtual-machines-oracle-azure-virtual-machines.md)
 
+[SAP](https://msdn.microsoft.com/library/azure/dn745892.aspx)
+
 [SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
 [SQL Server](virtual-machines-sql-server-infrastructure-services.md)
+
+[System Center App Controller](https://technet.microsoft.com/library/dn249764.aspx)
+
+[System Center Operations Manager](https://technet.microsoft.com/library/dn249696.aspx#BKMK_Azure)
+
+[Team Foundation Server](https://msdn.microsoft.com/library/azure/dn769056.aspx)
+
+[Windows Server Essentials Experience](https://msdn.microsoft.com/library/azure/dn520827.aspx)
 
 ## Monitor
 
