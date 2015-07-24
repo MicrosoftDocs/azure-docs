@@ -142,6 +142,7 @@ The tags section uses this syntax:
  - **automation**
  - **backup**
  - **biztalk-services**
+ - **billing**
  - **cache**
  - **cdn**
  - **cloud-services**

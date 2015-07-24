@@ -9,6 +9,7 @@
 - [(Node.js | Windows. Starter)](sql-database-develop-nodejs-simple-windows.md)
 - [(Node.js | Mac. Starter)](sql-database-develop-nodejs-simple-mac.md)
 - [(PHP | Windows. Starter)](sql-database-develop-php-simple-windows.md)
+- [(PHP | Windows. Retry)](sql-database-develop-php-retry-windows.md)
 - [(Python | Linux. Starter)](sql-database-develop-python-simple-ubuntu-linux.md)
 - [(Python | Windows. Starter)](sql-database-develop-python-simple-windows.md)
 - [(Python | Mac. Starter)](sql-database-develop-python-simple-mac-osx.md)

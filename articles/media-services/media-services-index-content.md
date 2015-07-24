@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Indexing Media Files with Azure Media Indexer
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-content.md#index)
+- [.NET](media-services-index-content.md)
+
 
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch.  
 
