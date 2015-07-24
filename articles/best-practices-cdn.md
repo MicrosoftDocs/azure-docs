@@ -50,7 +50,18 @@ Typical uses for the CDN include:
 
 - The following table shows examples of the median time to first byte from various geographic locations. The target web role is deployed to Azure West US. There is a strong correlation between greater boost due to the CDN and proximity to a CDN node. A list of Azure CDN node locations is available at [Azure Content Delivery Network (CDN) Node Locations](http://msdn.microsoft.com/library/azure/gg680302.aspx).  
 
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><a name="_MailEndCompose" href="#"><span /></a><br /></th><th><p>Time to First Byte (Origin)</p></th><th><p>Time to First Byte (CDN)</p></th><th><p>% faster for CDN</p></th></tr><tr><td><p>* San Jose, CA</p></td><td><p>47.5</p></td><td><p>46.5</p></td><td><p>2 %</p></td></tr><tr><td><p>** Dulles, VA</p></td><td><p>109</p></td><td><p>40.5</p></td><td><p>169 %</p></td></tr><tr><td><p>Buenos Aires, AR</p></td><td><p>210</p></td><td><p>151</p></td><td><p>39 %</p></td></tr><tr><td><p>* London, UK</p></td><td><p>195</p></td><td><p>44</p></td><td><p>343 %</p></td></tr><tr><td><p>Shanghai, CN</p></td><td><p>242</p></td><td><p>206</p></td><td><p>17 %</p></td></tr><tr><td><p>* Singapore</p></td><td><p>214</p></td><td><p>74</p></td><td><p>189%</p></td></tr><tr><td><p>* Tokyo, JP</p></td><td><p>163</p></td><td><p>48</p></td><td><p>240 %</p></td></tr><tr><td><p>Seoul, KR</p></td><td><p>190</p></td><td><p>190</p></td><td><p>0 %</p></td></tr></table>* Has an Azure CDN node in the same city.  
+City|Time to First Byte (Origin|Time to First Byte (CDN)|% faster for CDN
+--|--|--|--
+* San Jose, CA|47.5|46.5|2 %
+** Dulles, VA|109|40.5|169 %
+Buenos Aires,AR|210|151|39 %
+* London, UK|195|44|343 %
+Shanghai, CN|242|206|17 %
+* Singapore|214|74|189%
+* Tokyo, JP|163|48|240 %
+Seoul, KR|190|190|0 %
+
+* Has an Azure CDN node in the same city.  
 * Has an Azure CDN node in a neighboring city.  
 
 
