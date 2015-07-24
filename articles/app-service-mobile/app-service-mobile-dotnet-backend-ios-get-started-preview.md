@@ -18,6 +18,8 @@
 
 # <a name="getting-started"> </a>iOS Quick Start with Azure Mobile Apps
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
 This tutorial walks you through a simple _Todo list_ iOS app. You'll use Azure Mobile Apps as the backend for storing data and server-side logic. 
