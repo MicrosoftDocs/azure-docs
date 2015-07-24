@@ -600,7 +600,7 @@ The following code sample is an example of how the JavaScript Query API can be u
       }
     }
 
-## SQL to Javascript query API cheat sheet
+## SQL to Javascript cheat sheet
 The following table presents various SQL queries and the corresponding JavaScript queries.
 
 As with SQL queries, document property keys (e.g. `doc.id`) are case-sensitive.
