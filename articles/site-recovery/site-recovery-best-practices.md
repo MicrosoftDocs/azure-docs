@@ -156,7 +156,7 @@ Providers and agents are installed on on-premises servers so that they can conne
 	- Configure logical and VM networks correctly in VMM. Read about [logical networks](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx) and [VM networks](https://technet.microsoft.com/library/jj721575.aspx).
 	- Make sure that all virtual machines on the source VMM server are connected to a VM network.
 	- Check that VM networks are linked to a logical network associated with the cloud.
-	- If you're replicating to Azure create virtual networks in Azure. Note that multiple VM networks can be mapped to a single Azure network. Read [Virtual network configuration tasks](https://msdn.microsoft.com/library/azure/dn133795.aspx).
+	- If you're replicating to Azure create virtual networks in Azure. Note that multiple VM networks can be mapped to a single Azure network. Read [Virtual network configuration tasks](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 ## Optimizing performance
 

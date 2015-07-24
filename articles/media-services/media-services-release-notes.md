@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,11 +84,11 @@ Media Encoder Standard uses presets described in [this](http://go.microsoft.com/
 
 Azure Media Services .NET SDK is now version 3.4.0.0. The following functionality was added in this release:  
 
-- Implemented support for fragmented blobs
-- Implemented support for dynamic filters
-- Implemented functionality that allows users to keep storage container while deleting asset
-- Bug fixes related to retry policies in channels
-- Enabled  **Media Encoder Premium Workflow**
+- Implemented support for live archive. Note that you cannot download an asset that contains a live archive.
+- Implemented support for dynamic filters.
+- Implemented functionality that allows users to keep storage container while deleting asset.
+- Bug fixes related to retry policies in channels.
+- Enabled  **Media Encoder Premium Workflow**.
 
 ##<a id="june_changes_15"></a>June 2015 Release
 
