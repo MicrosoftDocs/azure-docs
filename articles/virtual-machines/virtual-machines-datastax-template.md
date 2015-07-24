@@ -104,7 +104,7 @@ In the "parameters" section at the top of the azuredeploy.json file, you’ll fi
 			"type": "string",
 			"defaultValue": "uniqueStorageAccountName",
 			"metadata": {
-				"Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
+				"Description": "Unique namespace for the storage account where the virtual machine's disks will be placed"
 			}
 		},
 		"dnsName": {
@@ -225,7 +225,7 @@ Fill in an Azure deployment name, resource group name, Azure location, and the f
 
 When you run the **New-AzureResourceGroupDeployment** command, this will extract parameter values from the JSON parameters file, and will start executing the template accordingly. Defining and using multiple parameter files with your different environments (test, production, etc.) will promote template reuse and simplify complex multi-environment solutions.
 
-When deploying, please keep in mind that a new Azure Storage account needs to be created, so the name you provide as the Storage account parameter must be unique and meet all requirements for an Azure Storage account (lowercase letters and numbers only).
+When deploying, please keep in mind that a new Azure storage account needs to be created, so the name you provide as the storage account parameter must be unique and meet all requirements for an Azure storage account (lowercase letters and numbers only).
 
 During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.  
 
@@ -365,7 +365,7 @@ From this first example, it is clear how azuredeploy.json in this scenario has b
 
 In particular, the following linked templates will be used for this deployment:
 
--	**shared-resource.json**: contains the definition of all resources that will be shared across the deployment. Examples are Storage accounts used to store a VM’s OS disks and virtual networks.
+-	**shared-resource.json**: contains the definition of all resources that will be shared across the deployment. Examples are storage accounts used to store a VM’s OS disks and virtual networks.
 -	**opscenter-resources.json**: deploys an OpsCenter VM and all related resources, including a network interface and public IP address.
 -	**opscenter-install-resources.json**: deploys the OpsCenter VM extension (custom script for Linux) that will invoke the specific bash script file (opscenter.sh) required to set up the OpsCenter service within that VM.
 -	**ephemeral-nodes-resources.json**: deploys all cluster node VMs and connected resources (network cards, private IPs, etc.). This template will also deploy VM extensions (custom scripts for Linux) and invoke a bash script (dsenode.sh) to physically install Apache Cassandra bits on each node.
