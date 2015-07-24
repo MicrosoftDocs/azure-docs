@@ -14,13 +14,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="07/22/2015" />
+	ms.date="07/24/2015" />
 
 # Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 
 > [AZURE.NOTE] This article describes scoring profiles in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here.
 
-## Overview ##
+## Overview
 
 Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search score calculated for each item.
 
@@ -59,7 +59,7 @@ This query searches on the term 'inn' and passes in the current location. Note t
 
 Click [Example](#example) to review a more detailed example of a scoring profile.
 
-## What is default scoring? ##
+## What is default scoring?
 
 Scoring computes a search score for each item in a rank ordered result set. Every item in a search result set is assigned a search score, then ranked highest to lowest. Items with the higher scores are returned to the application. By default, the top 50 are returned, but you can use the `$top` parameter to return a smaller or larger number of items (up to 1000 in a single response).
 
@@ -69,14 +69,14 @@ Assuming there is no custom sorting, results are then ranked by search score bef
 
 Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first.
 
-## When to use custom scoring##
+## When to use custom scoring
 
 You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives. For example, you might decide that search relevance should favor newly added items. Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential. Boosting hits that bring benefits to your business can be an important factor in deciding to use scoring profiles.
 
 Relevancy-based ordering is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Search, scoring profiles drive the 'relevance' option. The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.
 
 <a name="example"></a>
-## Example##
+## Example
 
 As noted, customized scoring is implemented through scoring profiles defined in an index schema.
 
@@ -148,7 +148,7 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
     }
 
 
-##Workflow##
+##Workflow
 
 To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query.
 
@@ -204,7 +204,7 @@ The body of the scoring profile is constructed from weighted fields and function
 After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview/#createindex) and [Add or Update Documents](search-api-2015-02-28-preview/#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 <a name="bkmk_template"></a>
-##Template##
+##Template
 This section shows the syntax and template for scoring profiles. Refer to [Index attribute reference](#bkmk_indexref) in the next section for descriptions of the attributes.
 
     ...
@@ -258,7 +258,7 @@ This section shows the syntax and template for scoring profiles. Refer to [Index
     ...
 
 <a name="bkmk_indexref"></a>
-##Index attributes reference##
+##Index attributes reference
 
 **Note**
 A scoring function can only be applied to fields that are filterable.
@@ -283,7 +283,7 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>Fieldname</td>	<td>Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, distance with location fields and tag with string or string collection fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field.</td>
 </tr><tr>
-<td>Interpolation</td>	<td>Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See [Set interpolations]([#bkmk_interpolation]) for details.</td>
+<td>Interpolation</td>	<td>Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See [Set interpolations](#bkmk_interpolation) for details.</td>
 </tr><tr>
 <td>magnitude</td>	<td>The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are:
 <br>
@@ -320,10 +320,10 @@ A scoring function can only be applied to fields that are filterable.
 <td>defaultScoringProfile</td>	<td>When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only).
 A default scoring profile name can be set here, causing Azure Search to use that profile when no specific profile is given in the search request. </td>
 </tr>
-</table></br>
+</table>
 
 <a name="bkmk_interpolation"></a>
-##Set interpolations##
+##Set interpolations
 
 Interpolations allow you to define the slope for which the score boosting increases from the start of the range to the end of the range. The following interpolations can be used:
 
@@ -339,11 +339,11 @@ Interpolations allow you to define the slope for which the score boosting increa
  ![][1]
 
 <a name="bkmk_boostdur"></a>
-##Set boostingDuration##
+##Set boostingDuration
 
 `boostingDuration` is an attribute of the freshness function. You use it to set an expiration period after which boosting will stop for a particular document. For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents.
 
-`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is: "P(nD)(T(nH)(nM)(nS))".
+`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is: "P[nD][T[nH][nM][nS]]".
 
 The following table provides several examples.
 
