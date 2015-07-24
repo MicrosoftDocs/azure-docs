@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure Resource Manager Overview"
    description="Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Overview

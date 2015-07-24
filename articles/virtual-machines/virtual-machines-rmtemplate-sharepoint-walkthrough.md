@@ -1,31 +1,30 @@
-<properties 
-	pageTitle="The three-server SharePoint farm Resource Manager template" 
-	description="Step through the structure of the Azure Resource Manager template for the three-server SharePoint farm." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""
-	tags="azure-resource-manager"/>
+<properties
+	pageTitle="The Three-Server SharePoint Farm Resource Manager Template"
+	description="Step through the structure of the Azure Resource Manager template for the three-server SharePoint farm."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="davidmu"/>
 
-# The three-server SharePoint farm Resource Manager template
+# The Three-Server SharePoint Farm Resource Manager Template
 
 This topic steps you through the structure of the azuredeploy.json template file for the three-server SharePoint farm. You can see the contents of this template in your browser from [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Alternately, to examine a local copy of the azuredeploy.json file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\SharePointFarm). Fill in the folder name and run these commands at the Azure PowerShell command prompt. 
+Alternately, to examine a local copy of the azuredeploy.json file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\SharePointFarm). Fill in the folder name and run these commands at the Azure PowerShell command prompt.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"	
+	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath)
 
@@ -33,7 +32,7 @@ Open the azuredeploy.json template in a text editor or tool of your choice. The 
 
 ## "parameters" section
 
-The "parameters" section specifies parameters that are used to input data into a template that must be supplied by you when the template is executed. A maximum of 50 parameters can be defined. Here is an example of a parameter for the Azure location:
+The "parameters" section specifies parameters that are used to input data into this template. A maximum of 50 parameters can be defined. Here is an example of a parameter for the Azure location:
 
 	"deploymentLocation": {
 		"type": "string",
@@ -52,7 +51,7 @@ The "parameters" section specifies parameters that are used to input data into a
 
 ## "variables" section
 
-The "variables" section specifies variables that can be used throughout a template and, in contrast to parameters, are not supplied by you when you execute the template. A maximum of 100 variables can be defined. Here are some examples:
+The "variables" section specifies variables that can be used throughout this template. A maximum of 100 variables can be defined. Here are some examples:
 
 	"LBFE": "LBFE",
 	"LBBE": "LBBE",
@@ -239,9 +238,9 @@ These sections create one network interface for each virtual machine and configu
 
 ### Microsoft.Compute/virtualMachines
 
-These sections create and configure the three virtual machines in the deployment. 
+These sections create and configure the three virtual machines in the deployment.
 
-The first section creates and configures the domain controller, which: 
+The first section creates and configures the domain controller, which:
 
 - Specifies the storage account, availability set, network interface, and load balancer instance
 - Adds an extra disk
@@ -367,14 +366,12 @@ Your own JSON template to build a multi-tier infrastructure in Azure should foll
 
 For more information, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-## Additional resources
+## Additional Resources
 
 [Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure Resource Manager Overview](../resource-group-overview.md)
+[Azure Resource Manager Overview](resource-group-overview.md)
 
-[Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
+[Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
- 
