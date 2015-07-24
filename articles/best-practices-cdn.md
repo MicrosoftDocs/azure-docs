@@ -52,17 +52,17 @@ Typical uses for the CDN include:
 
 City|Time to First Byte (Origin|Time to First Byte (CDN)|% faster for CDN
 --|--|--|--
-* San Jose, CA|47.5|46.5|2 %
-** Dulles, VA|109|40.5|169 %
+San Jose, CA<sub>1</sub>|47.5|46.5|2 %
+Dulles, VA<sub>2</sub>|109|40.5|169 %
 Buenos Aires,AR|210|151|39 %
-* London, UK|195|44|343 %
+London, UK<sub>1</sub>|195|44|343 %
 Shanghai, CN|242|206|17 %
-* Singapore|214|74|189%
-* Tokyo, JP|163|48|240 %
+Singapore<sub>1</sub>|214|74|189%
+Tokyo, JP<sub>1</sub>|163|48|240 %
 Seoul, KR|190|190|0 %
 
-* Has an Azure CDN node in the same city.  
-* Has an Azure CDN node in a neighboring city.  
+Has an Azure CDN node in the same city.<sub>1</sub>  
+Has an Azure CDN node in a neighboring city.<sub>2</sub>  
 
 
 ## Challenges  
