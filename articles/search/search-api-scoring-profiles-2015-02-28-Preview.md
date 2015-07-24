@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="07/22/2015" />
+	ms.date="07/24/2015" />
 
 # Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 
@@ -320,7 +320,7 @@ A scoring function can only be applied to fields that are filterable.
 <td>defaultScoringProfile</td>	<td>When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only).
 A default scoring profile name can be set here, causing Azure Search to use that profile when no specific profile is given in the search request. </td>
 </tr>
-</table><br/>
+</table>
 
 <a name="bkmk_interpolation"></a>
 ##Set interpolations
