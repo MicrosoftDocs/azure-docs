@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/13/2015"
+	ms.date="07/21/2015"
 	ms.author="kathydav"/>
 
 #How to create a custom virtual machine

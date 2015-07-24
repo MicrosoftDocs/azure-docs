@@ -3,7 +3,7 @@
 	description="You can run Windows Server Active Directory Domain Services (AD DS) or Active Directory Federation Services (AD FS) on Azure virtual machines." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="markusvi" 
 	manager="terrylan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="04/27/2015" 
-	ms.author="justinha"/>
+	ms.date="07/23/2015" 
+	ms.author="markusvi"/>
 
 
 # Windows Server Active Directory on Azure VMs
