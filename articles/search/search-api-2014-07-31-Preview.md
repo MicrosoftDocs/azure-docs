@@ -4,7 +4,7 @@
 
 # Azure Search Service REST API Version: 2014-07-31-Preview
 
-This document describes the older **2014-07-31-Preview** version of the Azure Search Service REST API, released for the Azure Search Public Preview in August 2014. Because this version will be phased out soon, we strongly recommend that you use the version associated with the generally available release instead. For guidance code migration, see [Transition from preview to the generally available API version](search-transition-from-preview.md).
+This document describes the older **2014-07-31-Preview** version of the Azure Search Service REST API, released for the Azure Search Public Preview in August 2014. Because this version will be phased out soon, we strongly recommend that you use the version associated with the generally available release instead. For guidance on code migration, see [Transition from preview to the generally available API version](search-transition-from-preview.md).
 
 Other API content related to **2014-07-31-Preview** includes the following:
 
@@ -904,7 +904,7 @@ ________________________________________
 
 In Azure Search, an index is stored in the cloud and populated using JSON documents that you upload to the service. All the documents that you upload comprise the corpus of your search data. Documents contain fields, some of which are tokenized into search terms as they are uploaded. The `/docs` URL segment in the Azure Search API represents the collection of documents in an index. All operations performed on the collection such as uploading, merging, deleting, or querying documents take place in the context of a single index, so the URLs for these operations will always start with `/indexes/[index name]/docs` for a given index name.
 
-Your application code must either generate JSON documents to upload to Azure Search or you can use an [indexer](https://msdn.microsoft.com/library/dn946891.aspx) to load documents if the data source is either Azure SQL Database or DocumentDB. Typically, indexes are populated from a single dataset that you provide.
+Your application code must generate JSON documents to upload to Azure Search. Typically, indexes are populated from a single dataset that you provide.
 
 You should plan on having one document for each item that you want to search. A movie rental application might have one document per movie, a storefront application might have one document per SKU, an online courseware application might have one document per course, a research firm might have one document for each academic paper in their repository, and so on.
 

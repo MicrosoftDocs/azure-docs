@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/29/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
