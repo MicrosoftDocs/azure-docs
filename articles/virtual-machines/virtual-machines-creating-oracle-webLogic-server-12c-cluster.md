@@ -256,7 +256,7 @@ At this point, you could deploy your application using the following steps. Letâ
 
 12.Â  To see the shopping cart application running on the Internet, open a browser to the URL in the form of `http://<<unique_domain_name>>/shoppingcart`. (You can determine the value for `<<unique_domain_name>>` within the [Azure portal](https://ms.portal.azure.com/) by clicking **Virtual Machines** and then selecting the virtual machine that you are using to run Oracle WebLogic Server).
 
-## Next Steps
+## Next steps
 
 To further see that your cluster is operating as expected, you could modify the shoppingcart.war project to display the machine name that services the browser session, start a browser session, stop the machine that serviced the browser session, and refresh the browser session to see that a different machine continues to service the browser session.
 
@@ -285,7 +285,7 @@ For example:
 
 6. Refresh the browser session that is running the shoppingcart application, and see that a different machine is servicing the browser session.
 
-7. Click the shopping cart link, and see the items previously added are still in the shopping cart.
+7. Click the shopping cart link. The items previously added are still in the shopping cart.
 
 ## Additional resources
 
