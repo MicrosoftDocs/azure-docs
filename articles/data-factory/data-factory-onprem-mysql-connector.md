@@ -225,7 +225,7 @@ The following table provides description for JSON elements specific to MySQL lin
 
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTableLocation** (which includes MySQL dataset) has the following properties
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes MySQL dataset) has the following properties
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -245,7 +245,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## Type Mapping for MySQL
+### Type Mapping for MySQL
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 
@@ -256,9 +256,9 @@ When moving data to MySQL the following mappings will be used from MySQL type to
 
 | MySQL Database type | .NET Framework type |
 | ------------------- | ------------------- | 
-| bigint unsigned | Int64 (Decimal)? |
+| bigint unsigned | Decimal |
 | bigint | Int64 |
-| bit | Byte[] (Decimal)? |
+| bit | Decimal |
 | blob | Byte[] |
 | bool |  Boolean | 
 | char | String |
@@ -268,7 +268,7 @@ When moving data to MySQL the following mappings will be used from MySQL type to
 | double precision | Double |
 | double | Double |
 | enum | String |
-| float | Double (Single)? |
+| float | Single |
 | int unsigned | Int64 |
 | int | Int32 |
 | integer unsigned | Int64 |
@@ -278,30 +278,28 @@ When moving data to MySQL the following mappings will be used from MySQL type to
 | longblob | Byte[] |
 | longtext | String | 
 | mediumblob | 	Byte[] | 
-| mediumint unsigned | Int32 (System.Int64)? |
+| mediumint unsigned | Int64 |
 | mediumint | Int32 | 
 | mediumtext | String |
 | numeric | Decimal |
-| real |  |
+| real |  Double |
 | set | String |
 | smallint unsigned | Int32 |
 | smallint | Int16 |
 | text | String |
-| time | String (TimeSpan)? |
+| time | TimeSpan |
 | timestamp | Datetime |
 | tinyblob | Byte[] |
 | tinyint unsigned |  Int16 | 
-| tinyint | Byte (SByte)? |
+| tinyint | Int16 |
 | tinytext | String | 
 | varchar | String | 
-| year | Datetime (Int?) | 
-| bigint unsigned | Int64 (Decimal)? |
-
-
-[AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
+| year | Int | 
 
 
 [AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
+
+[AZURE.INCLUDE [data-factory-type-repetability-for-relational-sources](../../includes/data-factory-type-repetability-for-relational-sources.md)]
 
 
 

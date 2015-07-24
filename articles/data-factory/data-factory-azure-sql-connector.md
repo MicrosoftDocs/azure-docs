@@ -26,7 +26,8 @@ The sample below shows:
 
 1. The linked service of type AzureSqlDatabase.
 2. The linked service of type AzureStorage. 
-3. The input and output datasets.
+3. The input dataset of type AzureSqlTable. 
+4. The output dataset of type AzureBlob.
 4. The pipeline with Copy Activity.
 
 The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples. 
