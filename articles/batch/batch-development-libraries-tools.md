@@ -34,7 +34,7 @@
 + [Batch Apps Client SDK](http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/2.3.0-preview) (NuGet) – Interact with applications enabled to offload jobs to the Batch service
 + [Batch Apps Python Client](https://github.com/Azure/azure-batch-apps-python) (GitHub) - Python client module to interact with applications set up in a Batch Apps service
 
->[AZURE.IMPORTANT]Azure will only release the Batch Apps API as a Preview. You should only develop with it for test or proof-of-concept projects. Key Batch Apps capabilities will be integrated into the Batch API in future service releases
+>[AZURE.IMPORTANT]Azure will only release the Batch Apps API as a Preview. You should only develop with it for test or proof-of-concept projects. Key Batch Apps capabilities will be integrated into the Batch API in future service releases.
 
 ## Additional resources
 
