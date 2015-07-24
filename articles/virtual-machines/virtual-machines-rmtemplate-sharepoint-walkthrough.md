@@ -10,8 +10,7 @@
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
@@ -67,7 +66,7 @@ The **"variables"** section specifies variables and their values that the templa
 
 ## "resources" section
 
-The **"resources"** section specifies information that is needed to deploy the resources for the SharePoint farm in a resource group. A maximum of 250 resources can be defined and resource dependencies can only be defined 5 levels deep.
+The **"resources"** section specifies information that is needed to deploy the resources for the SharePoint farm in a resource group. A maximum of 250 resources can be defined, and resource dependencies can only be defined 5 levels deep.
 
 This section contains the following subsections:
 
@@ -370,9 +369,9 @@ For more information, see [Azure Resource Manager template language](https://msd
 ## Additional resources
 
 [Azure compute, network and storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
-
 [Azure Resource Manager overview](../resource-group-overview.md)
 
 [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md)
+
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
