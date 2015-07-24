@@ -516,15 +516,14 @@ a.  You need to select the recovery side **Datastore** – this is the
 
 The different options you need to provide per VM are
 
-<table>
-<tr><td>Option</td><td>Option recommended value</td></tr>
-<tr><td>Process Server IP</td><td>Select the PS which you have deployed on Azure</td></tr>
-<tr><td>Retention size in MB</td><td></td></tr>
-<tr><td>Retention value</td><td>1</td></tr>
-<tr><td>Days/Hours</td><td>Days</td></tr>
-<tr><td>Consistency Interval</td><td>1</td></tr>
-<tr><td>Select Target Datastore</td><td>The datastore available on the recovery side. This data store should have enough space and also be available to the ESX host on which you want to realise the virtual machine.</td></tr>
-</table>
+Option|Option recommended value
+--|--
+Process Server IP|Select the PS which you have deployed on Azure
+Retention size in MB| 
+Retention value|1
+Days/Hours|Days
+Consistency Interval|1
+Select Target Datastore|The datastore available on the recovery side. This data store should have enough space and also be available to the ESX host on which you want to realise the virtual machine.
 
 
 1.  Next you can configure the properties that the virtual machine will
@@ -534,18 +533,13 @@ The different options you need to provide per VM are
 ![](./media/site-recovery-failback-azure-to-vmware/image26.png)
 
 
-  <table>
-<tr><td>Property</td><td>How to configure</td></tr>
-<tr><td>Network Configuration</td><td>For each NIC detected, configure the failback IP address for the virtual machine. Select the NIC and click **Change** to specify the IP address details.
-
-</td></tr>
-<tr><td>Hardware Configuration</td><td>You can specify the CPU and the Memory values for the VM. This setting can be applied to all the VMs you are trying to protect.
-
-To identify the correct values for the CPU and Memory, you can refer to the IAAS VMs role size and see the number of cores and Memory assigned.
-</td></tr>
-<tr><td>Display Name</td><td>After failover back to on-premises, you can choose to rename the virtual machines as it will be seen in the inventory of vCenter. Note that the default value seen here is the virtual machine computer host name. To identify the VM name, you can refer to the VM list in the Protection group.</td></tr>
-<tr><td>NAT Configuration</td><td>Discussed in detail below</td></tr>
-</table>
+Property|How to configure
+--|--
+Network Configuration|For each NIC detected, configure the failback IP address for the virtual machine. Select the NIC and click **Change** to specify the IP address details.
+Hardware Configuration|You can specify the CPU and the Memory values for the VM. This setting can be applied to all the VMs you are trying to protect.
+Display Name|To identify the correct values for the CPU and Memory, you can refer to the IAAS VMs role size and see the number of cores and Memory assigned.
+Display Name|After failover back to on-premises, you can choose to rename the virtual machines as it will be seen in the inventory of vCenter. Note that the default value seen here is the virtual machine computer host name. To identify the VM name, you can refer to the VM list in the Protection group.
+NAT Configuration|Discussed in detail below
 
 ![](./media/site-recovery-failback-azure-to-vmware/image27.png)
 
