@@ -33,7 +33,7 @@ Follow these steps to create a web app and enable Git publishing.
 
 1. Log in to the [Azure Portal](https://portal.azure.com).
 
-2. Click the **+ NEW** icon on the bottom left of the portal
+2. Click the **+ NEW** icon on the top left of the portal
 
 3. Click **Web + Mobile**, then **Web app**.
 

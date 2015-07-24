@@ -13,10 +13,26 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/06/2015" 
+	ms.date="07/09/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 07/09/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>Custom Blob Output Partitioning</td>
+<td>Blob storage outputs now allow an option to specify the frequency that output blobs are written and the structure and format of the output data path folder structure. </td>
+</tr>
+</table>
 
 ## Notes for 05/03/2015 release of Stream Analytics ##
 

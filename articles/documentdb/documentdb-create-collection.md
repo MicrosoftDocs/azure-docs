@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/26/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mimig"/>
 
 # Create a DocumentDB collection using the Azure preview portal
@@ -36,11 +36,19 @@ Collections do not have to be created using the preview portal, you can also cre
 
 6. Select a pricing tier for the new collection. Each collection you create is a billable entity. For more information about the performance levels available, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
 
-6. Click **OK** at the bottom of the screen to create the new collection. 
+7. Select one of the following **Indexing Policies**. 
+
+	- **Default**. This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers.  This policy has a lower index storage overhead than **Range**.
+	- **Hash**. This policy is best when you’re performing equality queries for both numbers and strings.  This policy has the lowest index storage overhead.
+	- **Range**. This policy is best you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than **Default** or **Hash**.
+
+	For more information about the indexing policies, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
+
+8. Click **OK** at the bottom of the screen to create the new collection. 
 
 	![Screen shot highlighting the Add Collection button on the Database blade, the ID box on the Add Collection blade, and the OK button](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
 
-8. The new collection now appears in the **Collections** lens on the **Database** blade.
+9. The new collection now appears in the **Collections** lens on the **Database** blade.
  
 	![Screen shot of the new database in the DocumentDB Account blade](./media/documentdb-create-collection/docdb-collection-creation-8.png)
 

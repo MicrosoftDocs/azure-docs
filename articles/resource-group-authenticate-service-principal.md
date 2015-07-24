@@ -1,22 +1,22 @@
 <properties
    pageTitle="Authenticating a Service Principal with Azure Resource Manager"
    description="Describes how to grant access to a Service Principal through role-based access control and authenticate it. Shows how to perform these tasks with PowerShell and Azure CLI."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
-# Authenticating a Service Principal with Azure Resource Manager
+# Authenticating a service principal with Azure Resource Manager
 
 This topic shows you how to permit a service principal (such as an automated process, application, or service) to access other resources in your subscription. With Azure Resource Manager, you can use role-based access control to grant permitted actions to a service principal, and authenticate that service principal. This topic shows you how to use PowerShell and Azure CLI to assign a role to service prinicpal and authenticate the serivce principal.
 
@@ -149,32 +149,10 @@ If you do not have Azure CLI for Mac, Linux and Windows installed, see [Install 
     You should now be authenticated as the service principal for the AAD application that you created.
 
 ## Next Steps
-Getting Started  
-
-- [Azure Resource Manager Overview](./resource-group-overview.md)  
-- [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md)
-
   
-Creating and Deploying Applications  
-  
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)  
-- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)  
-- [Troubleshooting Resource Group Deployments in Azure](virtual-machines/resource-group-deploy-debug.md)  
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)  
-- [Advanced Template Operations](./resource-group-advanced-template.md)  
-- [Deploy Azure Resources Using .NET Libraries and a Template](virtual-machines/arm-template-deployment.md)
-  
-Organizing Resources  
-  
-- [Using tags to organize your Azure resources](./resource-group-using-tags.md)  
-  
-Managing and Auditing Access  
-  
-- [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
-- [Create a new Azure Service Principal using the Azure portal](./resource-group-create-service-principal-portal.md)  
-  
+- For an overivew of role-based access control, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
+- To learn about using the portal with service principals, see [Create a new Azure Service Principal using the Azure portal](./resource-group-create-service-principal-portal.md)  
+- For guidance on implementing security with Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
 
 
 <!-- Images. -->

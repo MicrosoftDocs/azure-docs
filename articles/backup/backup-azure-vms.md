@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/26/2015"
+	ms.date="07/06/2015"
 	ms.author="aashishr"/>
 
 
@@ -24,7 +24,7 @@ Backing up Azure virtual machines involves three key steps:
 
 ![Three steps to backup an Azure virtual machine](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## Discover Azure virtual machines
+## 1. Discover Azure virtual machines
 The discovery process queries Azure for the list of virtual machines in the subscription, along with additional information like the Cloud Service name and the Region.
 
 > [AZURE.NOTE] The discovery process should always be run as the first step. This is to ensure that any new virtual machines added to the subscription are identified.
@@ -37,7 +37,7 @@ The discovery process queries Azure for the list of virtual machines in the subs
   ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. Click on the **DISCOVER** button at the bottom of the page.
-  ![discover button](./media/backup-azure-vms/discover-button.png)
+  ![discover button](./media/backup-azure-vms/discover-button-only.png)
 
 4. The discovery process can run for a few minutes while the virtual machines are being tabulated. A toast notification at the bottom of the screen appears while the discovery process is running.
   ![discover vms](./media/backup-azure-vms/discovering-vms.png)
@@ -45,7 +45,7 @@ The discovery process queries Azure for the list of virtual machines in the subs
 5. Once the discovery process is complete, a toast notification appears.
   ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
-## Register Azure virtual machines
+##  2. Register Azure virtual machines
 Before a virtual machine can be protected it needs to be registered with the Azure Backup service. The Registration process has two primary goals:
 
 1. To have the backup extension plugged-in to the VM agent in the virtual machine
@@ -62,7 +62,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
   ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. Click on the **REGISTER** button at the bottom of the page.
-  ![register button](./media/backup-azure-vms/register-button.png)
+![register button](./media/backup-azure-vms/register-button-only.png)
 
 4. In the **Register Items** pop-up, choose the virtual machines that you would like to register. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
 
@@ -70,7 +70,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 
     >[AZURE.NOTE] Only the virtual machines that are not registered and are in the same region as the backup vault, will show up.
 
-5. A job is created for each virtual machine that should be registered. The toast notification shows the status of this activity. Click on **View Job** to go to the **Jobs** page.
+5. A job is created for each virtual machine that should be registered. The toast notification shows the status of this activity. Click **View Job** to go to the **Jobs** page.          
   ![register job](./media/backup-azure-vms/register-create-job.png)
 
 6. The virtual machine also appears in the list of registered items and the status of the registration operation is shown
@@ -79,7 +79,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 7. Once the operation is completed, the status in the portal will change to reflect the registered state.
   ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
-## Back up Azure virtual machines
+## 3. Protect: Back up Azure virtual machines
 This step involves setting up a backup and retention policy for the virtual machine. To protect a virtual machine, do the following steps:
 
 ### To back up Azure virtual machines
@@ -116,7 +116,7 @@ This step involves setting up a backup and retention policy for the virtual mach
   ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## Viewing backup status and details
-Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the Dashboard page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking on any one category will drill down into that category in the **Jobs** page.
+Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the Dashboard page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking on any one category will drill down into that category in the **Jobs** page.  
   ![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## Troubleshooting errors

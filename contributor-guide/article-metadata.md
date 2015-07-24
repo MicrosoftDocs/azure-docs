@@ -117,7 +117,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**editor**: Not used. Do not use it for other purposes.
 
-![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the approved values. These values are meant to provide a way to group content together when the content grouping is not service-specific. These tags can also provide labeling that indicates the technology stack the article applies to. This value **does not** support free-form tags or hashtags; the tags must be enabled on the site. The approved values are:
+![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the approved values. These values are meant to provide a way to group content together when the content grouping is not service-specific. These tags can also provide labeling that indicates the technology stack the article applies to. This value **does not** support free-form tags or hashtags; the tags must be enabled on the site. You can supply multiple tags values to one article, separated by commas. The approved values are:
 
   - architecture
   - azure-resource-manager
@@ -142,6 +142,7 @@ The tags section uses this syntax:
  - **automation**
  - **backup**
  - **biztalk-services**
+ - **billing**
  - **cache**
  - **cdn**
  - **cloud-services**
@@ -254,7 +255,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**ms.workload**: Required. Specifies the Azure workload that the page applies to. One value only per article.
 
-	**update 7/7/15** The ms.workload value is being mapped by an xls, not the value in the .md file. The ms.workload value is still required for validation until the feature can be updated. That work in now being scheduled. 
+**update 7/7/15** The ms.workload value is being mapped by an xls, not the value in the .md file. The ms.workload value is still required for validation until the feature can be updated. That work in now being scheduled. 
 
 
  If a page applies to multiple workloads, choose the workload to which is most directly applies. If a page applies to multiple workloads equally, choose **multiple**. If a page applies to a service that does not yet map to a workload, choose **TBD**. If a page does not apply to any workloads (this will be rare), choose **NA**.

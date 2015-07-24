@@ -3,7 +3,7 @@
    description="This page provides instructions to create, configure, start, and delete an Azure Application Gateway"
    documentationCenter="na"
    services="application-gateway"
-   authors="cherylmc"
+   authors="joaoma"
    manager="jdial"
    editor="tysonn"/>
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="06/30/2015"
-   ms.author="cherylmc"/>
+   ms.author="joaoma"/>
 
 # Create, start, or delete an Application Gateway
 

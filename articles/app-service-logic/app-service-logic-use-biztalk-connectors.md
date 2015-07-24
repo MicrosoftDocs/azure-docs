@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="07/07/2015"
    ms.author="prkumar"/>
 
 #Connectors#
+
+> [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
+
+
 Connectors are API Apps that allow you to connect to data and services running in the cloud or on-premises. Connectors make it easy to get to the data with a variety of built-in triggers and actions that can be easily accessed in Logic Apps and more.
 
 Azure App Services provides a number of connectors out of the box:

@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/19/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search
@@ -332,7 +332,7 @@ Ready for the next step? The following links take you to additional material tha
 
 - [Manage your search solution in Microsoft Azure](search-manage.md) 
 
-- [Azure Search Technical Overview](http://msdn.microsoft.com/library/dn798933.aspx)
+- [What is Azure Search?](search-what-is-azure-search.md)
 
 - [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 

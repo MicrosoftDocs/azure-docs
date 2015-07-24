@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="josephd"/>
 
 # Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing
@@ -175,7 +176,7 @@ This is your current configuration.
  
 This environment is now ready for you to perform testing of Office 365 applications that rely on Office 365 DirSync functionality or to test DirSync functionality and performance from DS1.
 
-## Additional Resources
+## Additional resources
 
 [Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure](http://technet.microsoft.com/library/dn635310.aspx)
 
@@ -191,7 +192,7 @@ This environment is now ready for you to perform testing of Office 365 applicati
 
 [Azure hybrid cloud test environments](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
 
-[Azure Infrastructure Services Implementation Guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Azure infrastructure services implementation guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 
  

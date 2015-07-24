@@ -37,6 +37,11 @@ After you upgrade, you'll need to merge back any customizations you made to Appl
  
 Compare the old and new ApplicationInsights.xml. Many of the changes you see are because we added and removed modules. Reinstate any customizations that you made.
 
+## Version 1.0.0
+- Adding support for the Application Insights writer plugin for CollectD.
+- Adding support for the Application Insights Java agent.
+- Fix for a compatibility issue with supporting HttpClient versions 4.2 and later.
+
 ## Version 0.9.6
 - Make the Java SDK compatible with servlet v2.5 and HttpClient pre-v4.3.
 - Adding support for Java EE interceptors.

@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Using tags to organize your Azure resources" 
-	description="" 
-	services="" 
+	description="Shows how to apply tags to organize resources for billing and managing." 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 

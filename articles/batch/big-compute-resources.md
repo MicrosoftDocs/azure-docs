@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)"
-   description="This article lists technical resources to help you run your large-scale parallel, batch and HPC workloads in Azure."
+   pageTitle="Big Compute: Technical Resources for Batch and High Performance Computing (HPC) | Microsoft Azure"
+   description="Lists technical resources to help you run your large-scale parallel, batch, and HPC workloads in Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/01/2015"
+   ms.date="07/14/2015"
    ms.author="danlep"/>
 
 # Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)
@@ -32,8 +32,6 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 
 [Batch](http://azure.microsoft.com/services/batch/) is a platform service that makes it easy to cloud-enable your applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through a variety of languages, stage data to Azure, and build job execution pipelines.
 
-* Sign up for the [Preview](http://azure.microsoft.com/services/preview/)
-
 * [Documentation](http://azure.microsoft.com/documentation/services/batch/)
 
 * [API Reference](https://msdn.microsoft.com/library/azure/dn820177.aspx)
@@ -50,13 +48,13 @@ Deploy or extend your existing Windows or Linux HPC cluster to Azure to run your
 
 ### Microsoft HPC Pack
 
-[HPC Pack](https://technet.microsoft.com/library/cc514029) is Microsoft's free cluster manager and job scheduling solution for on-premises, hybrid, and cloud-based HPC.
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) is Microsoft's free cluster manager and job scheduling solution for on-premises, hybrid, and cloud-based HPC.
 
 * [Burst to Azure with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [HPC Pack in Azure VMs](https://msdn.microsoft.com/library/azure/dn518135.aspx)
 
-* [Tutorial: Set up a Hybrid Cluster with HPC Pack in Azure](../cloud-services-setup-hybrid-hpcpack-cluster.md)
+* [Tutorial: Set up a Hybrid Cluster with HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 * [Windows HPC Forums](https://social.microsoft.com/Forums/home?category=windowshpc)
 
@@ -82,7 +80,9 @@ Use these Azure Resource Manager templates to deploy Linux HPC clusters.
 
 ## Compute intensive instances
 
-Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.md), including compute intensive [A8, A9, A10, and A11 instances](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), to run your Batch and HPC workloads.
+Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.md), including compute intensive [A8, A9, A10, and A11 instances](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), to run your Linux and Windows HPC workloads.
+
+* [Set up a Linux RDMA cluster to run MPI applications](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
 * [A8 and A9 Instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
