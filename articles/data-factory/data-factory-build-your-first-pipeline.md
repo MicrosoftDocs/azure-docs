@@ -64,7 +64,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 
 1. Launch notepad, paste the following text, and save it as **partitionweblogs.hql** in the C:\adfgettingstarted folder on your hard drive. This Hive scripts creates two external tables: **WebLogsRaw** and **WebLogsPartitioned**.
 
-	[AZURE.IMPORTANT] Replace **storageaccountname** in the last line with the name of your storage account. 
+	> [AZURE.IMPORTANT] Replace **storageaccountname** in the last line with the name of your storage account. 
 
 		set hive.exec.dynamic.partition.mode=nonstrict;
 
