@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create and manage a support package"
-   description="Learn how to start a support session to generate, decrypt and edit a support package"
+   pageTitle="Create and manage a support package | Microsoft Azure"
+   description="Learn how to create, decrypt and edit a support package for your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="07/24/2015"
    ms.author="alkohli" />
 
 

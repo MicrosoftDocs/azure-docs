@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Contact Microsoft Support"
-   description="Contact Microsoft Support"
+   pageTitle="Contact Microsoft Support | Microsoft Azure"
+   description="Learn how to create a support request and start a support session on your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,20 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="07/24/2015"
    ms.author="alkohli" />
 
 # Contact Microsoft Support
 
-If you encounter any issues with your Microsoft Azure StorSimple solution, you can create a service request for Technical Support. In an online session with your Support Engineer, you may also need to start a Support session on your StorSimple device. This article walks you through the process of creating a Support request and also starting a Support session in the Windows PowerShell interface of your StorSimple device.
+If you encounter any issues with your Microsoft Azure StorSimple solution, you can create a service request for Technical Support. In an online session with your Support Engineer, you may also need to start a support session on your StorSimple device. This article walks you through the process of creating a support request and also starting a support session in the Windows PowerShell interface of your StorSimple device.
 
-## Create a Support request
+## Create a support request
 
-Perform the following steps to create a Support request:
+Perform the following steps to create a support request:
 
-#### To create a Support request
+#### To create a support request
 
-1. A Support request can be created through the [Management Portal](http://manage.windowsazure.com/). In [Management Portal](http://manage.windowsazure.com/), click your Account Name and then click **Contact Microsoft Support**.
+1. A Support request can be created through the [Management Portal](http://manage.windowsazure.com/). In the [Management Portal](http://manage.windowsazure.com/), click your **Account Name** and then click **Contact Microsoft Support**.
 
 	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/IC777286.png)
 
@@ -46,7 +46,9 @@ After you have submitted your request, a Support engineer will contact you as so
 
 ## Start a support session in Windows PowerShell for StorSimple
 
-To troubleshoot any issues that you might experience with the StorSimple device, you will need to engage with the Microsoft Support team. Microsoft Support may need to use a support session to log on to your device. Perform the following steps to start a support session on the Windows PowerShell interface of your StorSimple device.
+To troubleshoot any issues that you might experience with the StorSimple device, you will need to engage with the Microsoft Support team. Microsoft Support may need to use a support session to log on to your device. 
+
+Perform the following steps to start a support session:
 
 #### To start a support session
 
@@ -58,7 +60,7 @@ To troubleshoot any issues that you might experience with the StorSimple device,
 
 1. At the prompt, type the following password: 
 
-	`*Password1*`
+	`Password1`
 
 1. At the prompt, type the following command:
 
