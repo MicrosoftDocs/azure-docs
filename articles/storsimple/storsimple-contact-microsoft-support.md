@@ -25,25 +25,20 @@ Perform the following steps to create a Support request:
 
 #### To create a Support request
 
-1. A Support request can be created through the [Management Portal](http://manage.windowsazure.com/). In [Management Portal](http://manage.windowsazure.com/), click your Account Name and then click Contact Microsoft Support.
+1. A Support request can be created through the [Management Portal](http://manage.windowsazure.com/). In [Management Portal](http://manage.windowsazure.com/), click your Account Name and then click **Contact Microsoft Support**.
 
-![Contact MS Support via ManagementPortal](./media/contact-microsoft-support/IC777286.png)
+	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/IC777286.png)
 
-1. In the Contact Microsoft Support dialog:
-											From the dropdown, select the target Subscription associated with your StorSimple Manager service. Specify Support Type as Technical. You need a paid Support plan to enable Technical Support.
-											Click  icon to Create Ticket.
+1. In the **Contact Microsoft Support** dialog:								
 
-![Contact Microsoft Support](./media/contact-microsoft-support/IC801318.png)
 
-1. From the dropdown, select the target Subscription associated with your StorSimple Manager service. Specify Support Type as Technical. You need a paid Support plan to enable Technical Support.
+	- From the dropdown, select the target **Subscription** associated with your StorSimple Manager service. Specify **Support Type** as **Technical**. You need a paid Support plan to enable Technical Support.
 
-1. Click  icon to Create Ticket.
+	1. Click check icon ![Check icon](./media/storsimple-contact-microsoft-support/IC740895.png) to **Create Ticket**.
 
-![Check icon](./media/contact-microsoft-support/IC740895.png)
+1. In the **Microsoft Support** window, from the **Product** dropdown, choose **StorSimple**.
 
-1. In the Microsoft Support window, from the Product dropdown, choose StorSimple.
-
-![Contact Microsoft Support - Product](./media/contact-microsoft-support/IC777288.png)
+	![Contact Microsoft Support - Product](./media/storsimple-contact-microsoft-support/IC777288.png)
 
 1. Follow the on-screen instructions to properly classify your request and provide a clear and specific description of your problem.
 
