@@ -48,140 +48,10 @@ Number of question required to register|Determines the minimum number of questio
 Number of question required to reset |Determines the minimum number of questions a user must answer when resetting a password.<p><p>(Only visible if the **Security Questions** checkbox is enabled).|**Note:**<p>Can be set to 3 – 5 questions required to reset.<p><p> * Number of questions required to reset must be less than or equal to the number of questions required to register.<p><p>**Password reset portal:** <p> * Determines the minimum number of questions a user must answer before the user’s password can be reset.<p> * At the time of password reset, this number of questions will be selected at random from the user’s total list of registered questions.  For example, if the user has 5 questions registered, 3 of those 5 questions will be selected at random when the user comes to reset a password.  The user must then answer all of these questions correctly before the password can be reset.
 Security question | Defines the security questions your users may choose from when registering for password reset and when resetting their passwords.<p>(Only visible if the **Security Questions** checkbox is enabled).|**Note:**<p> * Up to 20 questions can be defined.<p> * Max question character limit is 200 characters.<p> * Min answer character limit is 3 characters.<p> * Max answer character limit is 40 characters.<p> * Users may not answer the same question twice.<p> * Users may not provide the same answer to two different questions twice.<p> * Any character set may be used to define questions and answer (including Unicode characters).<p> * The number of questions defined must be greater than or equal to the number of questions required to register.<p> * Defining different questions for different locales is not yet supported, but will be in the future.<p> **Registration portal:**<p> * Determines which questions a user is able to provide answers for when registering for password reset.<p> **Password reset portal:**<p> * Determines which questions a user is able to use to reset a password.
 Require users to register when signing in to the access panel?|Determines if a user is required to register contact data for password reset the next time he or she signs in to the access panel.<p><p>(Only visible if **users enabled for password reset** is set to **yes**).|**Note:**<p> If you disable this feature, you can also manually send users to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) to register their contact data. <p> * Users can also reach the registration portal by clicking the **register for password reset** link under the profile tab in the access panel.<p> * Registration via this method can be dismissed by clicking the cancel button or closing the window, but users will be nagged every time they sign in if they do not register.<p> **Registration portal:**<p> This setting does not affect the behavior of the registration portal itself, rather, it determines whether or not the registration portal is shown to users when they sign in to the access panel.
-Number of days before users must confirm their contact data|When **require users to register** is turned on, this setting determines the period of time which can elapse before a user must re-confirm their data. <p><p>(Only visible if **require users to register when signing in to the access panel** is set to **yes**).|**Note:**<p>Values between 0-730 days are accepted, with 0 days meaning that users will never be asked to re-confirm their contact data.<br><br></li>
-                </ul>
-                <p>
-                  **Registration portal:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												This setting does not affect the behavior of the registration portal itself, rather, it determines whether or not the registration portal is shown to users when their contact data needs to be reconfirmed. <br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Customize the contact your administrator link?</p>
-              </td>
-              <td>
-                <p>Controls whether or not the contact your administrator link (shown to the left) that appears on the password reset portal when an error occurs or a user waits too long on an operation points to a custom URL or email address.</p>
-                <p>
-                  
-                </p>
-                <p>(Only visible if **users enabled for password reset** is set to **yes**).</p>
-              </td>
-              <td>
-                <p>
-                  **Note: **
-                </p>
-                <ul>
-                  <li class="unordered">
-												If you enable this setting, you must choose a custom URL or email address by filling out the **custom email address or url** field immediately below this setting.<br><br></li>
-                </ul>
-                <p>
-                  **Password reset portal:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												If set to no, users clicking the highlighted link will dispatch an email to the primary email address of all tenant administrators requesting that his or her password be reset.  This email is dispatched by following the logic below:<br><br></li>
-                  <li class="unordered">
-                    <ul>
-                      <li class="unordered">
-														If there are password administrators, send the email to all password administrators, up to a maximum of 100 total recipients.<br><br></li>
-                      <li class="unordered">
-														If there are no password administrators, send the email to all user administrators, up to a maximum of 100 total recipients.<br><br></li>
-                      <li class="unordered">
-														If there are no user administrators, send the email to all global administrators, up to a maximum of 100 total recipients.<br><br></li>
-                    </ul>
-                  </li>
-                  <li class="unordered">
-												If set to yes, this setting will customize the behavior of the highlighted link above to point to a custom URL or email address to which your users can navigate to get help with password reset.<br><br></li>
-                  <li class="unordered">
-												If you specify a URL, it will be opened in a new tab.<br><br></li>
-                  <li class="unordered">
-												If you specify an email address, we’ll create a mailto link to that email address.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Custom email address or URL</p>
-              </td>
-              <td>
-                <p>Controls the email address or URL to which the **contact your administrator** link points. </p>
-                <p>
-                  
-                </p>
-                <p>(Only visible if **customize contact your administrator link** is set to **yes**).</p>
-              </td>
-              <td>
-                <p>
-                  **Note:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												Must be a valid intranet or extranet URL or email address.<br><br></li>
-                </ul>
-                <p>
-                  **Password reset portal:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												Changes where the **contact your administrator** link points.<br><br></li>
-                  <li class="unordered">
-												If you provide an email address, the link will become a “mailto” link to that email address.<br><br></li>
-                  <li class="unordered">
-												If you provide a URL, the link will become a standard href pointing to that URL which will open in a new tab.  <br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Write back password to on-premises directory</p>
-              </td>
-              <td>
-                <p>Controls whether or not Password Writeback is enabled for this directory and, if writeback is on, indicates the status of the on-premises writeback service.</p>
-                <p>
-                  
-                </p>
-                <p>This is useful if you want to temporarily disable the service due to an outage.</p>
-              </td>
-              <td>
-                <p>
-                  
-                </p>
-                <p>
-                  **Note:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												This control only appears if you have installed Password Writeback by downloading the latest version of Azure AD Connect and enabling the **Password Writeback** option under the **optional features** selection screen.<br><br></li>
-                  <li class="unordered">
-												If you have enabled Password Writeback and feel there is a configuration issue with the service, you can come to this tab and look at the **password write back service status** label to see if something is wrong.<br><br></li>
-                  <li class="unordered">
-												Statuses that can be shown are:<br><br><ul><li class="unordered">**Configured **– everything is working as expected<br><br></li><li class="unordered">**Not configured** – you have writeback installed, but we can’t reach the service, check to make sure you are not blocking outbound connections to 443 and try re-installing the service if you still have problems.<br><br></li></ul></li>
-                </ul>
-                <p>
-                  **Registration portal:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												If writeback is deployed and configured and this switch is set to **no**, then writeback will be disabled, and federated and password hash sync’d users will not be able to register for password reset their passwords.<br><br></li>
-                  <li class="unordered">
-												If the switch is set to **yes**, then writeback will be enabled, and federated and password hash sync’d users will be able to reset their passwords.<br><br></li>
-                </ul>
-                <p>
-                  **Password reset portal:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												If writeback is deployed and configured and this switch is set to **no**, then writeback will be disabled, and federated and password hash sync’d users will not be able to reset their passwords.<br><br></li>
-                  <li class="unordered">
-												If the switch is set to **yes**, then writeback will be enabled, and federated and password hash sync’d users will be able to reset their passwords.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody></table>
+Number of days before users must confirm their contact data|When **require users to register** is turned on, this setting determines the period of time which can elapse before a user must re-confirm their data. <p><p>(Only visible if **require users to register when signing in to the access panel** is set to **yes**).|**Note:**<p>Values between 0-730 days are accepted, with 0 days meaning that users will never be asked to re-confirm their contact data.<p><p>**Registration portal:**<p><p>This setting does not affect the behavior of the registration portal itself, rather, it determines whether or not the registration portal is shown to users when their contact data needs to be reconfirmed. 
+Customize the contact your administrator link?|Controls whether or not the contact your administrator link (shown to the left) that appears on the password reset portal when an error occurs or a user waits too long on an operation points to a custom URL or email address.<p><p>(Only visible if **users enabled for password reset** is set to **yes**).|**Note:**<p><p>If you enable this setting, you must choose a custom URL or email address by filling out the **custom email address or url** field immediately below this setting.<p><p>**Password reset portal:**<p><p>If set to no, users clicking the highlighted link will dispatch an email to the primary email address of all tenant administrators requesting that his or her password be reset.  This email is dispatched by following the logic below:<p> * If there are password administrators, send the email to all password administrators, up to a maximum of 100 total recipients.<p> * If there are no password administrators, send the email to all user administrators, up to a maximum of 100 total recipients.<p> * If there are no user administrators, send the email to all global administrators, up to a maximum of 100 total recipients.<p> * If set to yes, this setting will customize the behavior of the highlighted link above to point to a custom URL or email address to which your users can navigate to get help with password reset.<p> * If you specify a URL, it will be opened in a new tab.<p> * If you specify an email address, we’ll create a mailto link to that email address.
+Custom email address or URL|Controls the email address or URL to which the **contact your administrator** link points. <p><p>(Only visible if **customize contact your administrator link** is set to **yes**).|**Note:**<p><p>Must be a valid intranet or extranet URL or email address.<p><p>**Password reset portal:**<p><p>Changes where the **contact your administrator** link points.<p> * If you provide an email address, the link will become a “mailto” link to that email address.<p> * If you provide a URL, the link will become a standard href pointing to that URL which will open in a new tab.
+Write back password to on-premises directory|Controls whether or not Password Writeback is enabled for this directory and, if writeback is on, indicates the status of the on-premises writeback service.<p><p>This is useful if you want to temporarily disable the service due to an outage.|**Note:**<p><p>This control only appears if you have installed Password Writeback by downloading the latest version of Azure AD Connect and enabling the **Password Writeback** option under the **optional features** selection screen.<p> * If you have enabled Password Writeback and feel there is a configuration issue with the service, you can come to this tab and look at the **password write back service status** label to see if something is wrong.<p> Statuses that can be shown are:<p> **Configured**– everything is working as expected<p>  **Not configured** – you have writeback installed, but we can’t reach the service, check to make sure you are not blocking outbound connections to 443 and try re-installing the service if you still have problems.<p> * **Registration portal:**<p><p>If writeback is deployed and configured and this switch is set to **no**, then writeback will be disabled, and federated and password hash sync’d users will not be able to register for password reset their passwords.<p> * If the switch is set to **yes**, then writeback will be enabled, and federated and password hash sync’d users will be able to reset their passwords.<p><p>**Password reset portal:**<p><p>If writeback is deployed and configured and this switch is set to **no**, then writeback will be disabled, and federated and password hash sync’d users will not be able to reset their passwords.<p> * If the switch is set to **yes**, then writeback will be enabled, and federated and password hash sync’d users will be able to reset their passwords.
 
 ## Password Management notifications
 The following table describes how each control affects the experience for users and admins who receive password reset notifications.  You can configure these options under the **Notifications** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).
@@ -191,61 +61,28 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>
                   **Policy Control**
-                </p>
-              </td>
-              <td>
-                <p>
+                |
                   **Description**
-                </p>
-              </td>
-              <td>
-                <p>
+                |
                   **Affects?**
                 </p>
               </td>
             </tr>
             <tr>
               <td>
-                <p>Notify admins when other admins reset their own passwords</p>
-              </td>
-              <td>
-                <p>Determines whether or not all global admins will be notified via an email to their primary email address when another admin of any type resets his or her own password.</p>
-              </td>
-              <td>
-                <p>
-                  **Password reset portal:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												If set to no, then no notifications will be sent.<br><br></li>
+                <p>Notify admins when other admins reset their own passwords|Determines whether or not all global admins will be notified via an email to their primary email address when another admin of any type resets his or her own password.|
+                  **Password reset portal:**<p><p>If set to no, then no notifications will be sent.<br><br></li>
                   <li class="unordered">
 												If set to yes, then all other global administrators will be notified when any single admin resets his or her own password.<br><br></li>
                   <li class="unordered">
-												This notification is sent via an email to the primary email addresses of all other global admins in the organization.<br><br></li>
-                </ul>
-                <p>
-                  **Example:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												If this option was enabled when admin A resets his password, and there are 3 other admins in the tenant, B, C, and D, then admins B, C, and D would receive an email indicating admin A reset his password.<br><br></li>
+												This notification is sent via an email to the primary email addresses of all other global admins in the organization.<p><p>**Example:**<p><p>If this option was enabled when admin A resets his password, and there are 3 other admins in the tenant, B, C, and D, then admins B, C, and D would receive an email indicating admin A reset his password.<br><br></li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td>
-                <p>Notify users and admins when their own password has been reset</p>
-              </td>
-              <td>
-                <p>Determines whether or not end users or admins who reset their own passwords will receive an email notification that their password has been reset.</p>
-              </td>
-              <td>
-                <p>
-                  **Password reset portal:**
-                </p>
-                <ul>
-                  <li class="unordered">
-												If set to no, then no notifications will be sent.<br><br></li>
+                <p>Notify users and admins when their own password has been reset|Determines whether or not end users or admins who reset their own passwords will receive an email notification that their password has been reset.|
+                  **Password reset portal:**<p><p>If set to no, then no notifications will be sent.<br><br></li>
                   <li class="unordered">
 												If set to yes, then whenever a user or admin resets his own password, he or she will receive a notification indicating his or her password has been reset.<br><br></li>
                   <li class="unordered">
