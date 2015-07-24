@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
    ms.date="05/20/2015"
-   ms.author="john.harvey@microsoft.com"/>
+   ms.author=jharve/>
 
 
 #  Microsoft Azure Government Image Gallery
