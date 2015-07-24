@@ -328,101 +328,20 @@ The following example shows the definition of an environment setting:
 
 For every task that is scheduled under a job, a specific set of environment variables are set by the Batch service. The following table lists the environment variables that are set by the Batch service for all tasks.
 
-<table>
-  <tr>
-   <th>Environment Variable Name
-   </th>
-   <th>
-   Description
-   </th>
-  </tr>
- <tr>
-  <td>
-  AZ_BATCH_ACCOUNT_NAME
-  </td>
-  <td>
-  The name of the account to which the task belongs.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_JOB_ID
-  </td>
-  <td >The name of the job to which the task belongs.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_TASK_ID
-  </td>
-  <td >The name of the current task.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_POOL_ID
-  </td>
-  <td >The name of the pool on which the task is running.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_NODE_ID
-  </td>
-  <td >The name of the Node on which the task is running.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_NODE_ROOT_DIR
-  </td>
-  <td >The full path of the root directory on the node.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_NODE_SHARED_DIR
-  </td>
-  <td >The full path of the shared directory on the node.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_NODE_STARTUP_DIR
-  </td>
-  <td >The full path of the pool node startup task directory on the node.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_NODE_TASK_DIR
-  </td>
-  <td >The full path of the task directory on the node.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_NODE_TASK_WORKING_DIR
-  </td>
-  <td >The full path of the task working directory on the node.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_NODE_JOB_PREP_DIR
-  </td>
-  <td >The full path of the job preparation task directory on the node.
-  </td>
- </tr>
- <tr>
-  <td>
-  AZ_BATCH_NODE_JOB_PREP_WORKING_DIR
-  </td>
-  <td >The full path of the job preparation task working directory on the node.
-  </td>
- </tr>
-
-</table>
+| Environment Variable Name          | Description                                                              |
+|------------------------------------|--------------------------------------------------------------------------|
+| AZ_BATCH_ACCOUNT_NAME              | The name of the account to which the task belongs.                       |
+| AZ_BATCH_JOB_ID                    | The name of the job to which the task belongs.                           |
+| AZ_BATCH_TASK_ID                   | The name of the current task.                                            |
+| AZ_BATCH_POOL_ID                   | The name of the pool on which the task is running.                       |
+| AZ_BATCH_NODE_ID                   | The name of the Node on which the task is running.                       |
+| AZ_BATCH_NODE_ROOT_DIR             | The full path of the root directory on the node.                         |
+| AZ_BATCH_NODE_SHARED_DIR           | The full path of the shared directory on the node.                       |
+| AZ_BATCH_NODE_STARTUP_DIR          | The full path of the pool node startup task directory on the node.       |
+| AZ_BATCH_NODE_TASK_DIR             | The full path of the task directory on the node.                         |
+| AZ_BATCH_NODE_TASK_WORKING_DIR     | The full path of the task working directory on the node.                 |
+| AZ_BATCH_NODE_JOB_PREP_DIR         | The full path of the job preparation task directory on the node.         |
+| AZ_BATCH_NODE_JOB_PREP_WORKING_DIR | The full path of the job preparation task working directory on the node. |
 
 **Note** 
 
