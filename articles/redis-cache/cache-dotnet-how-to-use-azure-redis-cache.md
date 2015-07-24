@@ -143,7 +143,7 @@ The cache endpoint and keys can be obtained from the **Redis Cache** blade for y
 
 Once the connection is established, return a reference to the redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method.
 
-	// connection referes to a previously configured ConnectionMultiplexer
+	// connection refers to a previously configured ConnectionMultiplexer
 	IDatabase cache = connection.GetDatabase();
 
 >[AZURE.NOTE] The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
