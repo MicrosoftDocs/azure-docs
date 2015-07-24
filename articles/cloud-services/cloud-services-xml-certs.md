@@ -68,4 +68,4 @@ Here is an example of a certificate defined in the service config.
 **Note** the matching `name` attributes.
 
 ## Next steps
-Review the [Service Definition XML](https://msdn.microsoft.com/en-us/library/azure/ee758711.aspx) schema and the [Service Config XML](https://msdn.microsoft.com/en-us/library/azure/ee758710.aspx) schema.
+Review the [Service Definition XML](https://msdn.microsoft.com/library/azure/ee758711.aspx) schema and the [Service Config XML](https://msdn.microsoft.com/library/azure/ee758710.aspx) schema.
