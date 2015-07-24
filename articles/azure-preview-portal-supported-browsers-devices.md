@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="7/23/2015" 
+	ms.date="07/23/2015" 
 	ms.author="micflan"/>
 
 #Supported browsers and devices
