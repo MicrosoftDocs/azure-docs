@@ -54,7 +54,7 @@ Note that **JDK 6 Windows Server 2012** is available if you have legacy applicat
     2. For **Storage Account**, select **Use an automatically generated storage account**.
     3. For **Availability Set**, select **(None)**.
     4. Click **Next**.
-7. In the final <strong>Virtual machine configuration</strong> dialog box:
+7. In the final **Virtual machine configuration** dialog box:
     1. Accept the default endpoint entries.
     2. Click **Complete**.
 
