@@ -32,7 +32,10 @@ The following diagram depicts the high-level Chef architecture.
 
 ![][2]
 
-Chef has three main architectural components. The Chef Server, Chef Client (node), and the Chef Workstation.
+Chef has three main architectural components:
+- Chef Server
+- Chef Client (node)
+- Chef Workstation
 
 The Chef Server is our management point and there are two options for the Chef Server: a hosted solution or an on-premises solution. We will be using a hosted solution.
 
@@ -46,15 +49,15 @@ There is also the concept of “Cookbooks” and “Recipes”. These are effect
 
 First, lets prep the workstation. I’m using a standard Windows workstation. We need to create a directory to store our config files and cookbooks.
 
-First create a directory called **C:\chef**.
+First create a directory called C:\chef.
 
-Then create a second directory **c:\chef\cookbooks**.
+Then create a second directory called c:\chef\cookbooks.
 
 We now need to download our Azure settings file so Chef can communicate with our Azure subscription.
 
 Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).
 
-Save the publish settings file in **C:\chef**.
+Save the publish settings file in C:\chef.
 
 ##Creating a managed Chef account
 
@@ -74,15 +77,15 @@ This starter kit zip file contains your organization config files and keys.
 
 ##Configuring the Chef workstation
 
-Extract the content of the chef-starter.zip to **C:\chef**.
+Extract the content of the chef-starter.zip to C:\chef.
 
-Copy all files under **chef-starter\chef-repo\.chef** to your **c:\chef** directory.
+Copy all files under chef-starter\chef-repo\.chef to your c:\chef directory.
 
 Your directory should now look something like the following example.
 
 ![][5]
 
-You should now have 4 files including the Azure publishing file in the root of c:\chef.
+You should now have four files including the Azure publishing file in the root of c:\chef.
 
 The PEM files contain your organization and admin private keys for communication while the knife.rb file contains your knife configuration. We will need to edit the knife.rb file.
 
@@ -94,7 +97,7 @@ Also add the following line reflecting the name of your Azure publish settings f
 
 	knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 
-Your knife.rb file should now look similar to this:
+Your knife.rb file should now look similar to the following example.
 
 ![][6]
 
@@ -175,7 +178,7 @@ Run the following command to generate the template.
 
 	chef generate template webserver Default.htm
 
-Now navigate to the C:\chef\cookbooks\webserver\templates\default\Default.htm.erb file. Edit the file by adding some simple “Hello World” html code, and then save the file.
+Now navigate to the C:\chef\cookbooks\webserver\templates\default\Default.htm.erb file. Edit the file by adding some simple “Hello World” HTML code, and then save the file.
 
 
 
@@ -213,7 +216,7 @@ Once the deployment is complete, we should be able to connect to the web service
 
 ![][11]
 
-As you can see, I got creative with my html code.
+As you can see, I got creative with my HTML code.
 
 Don’t forget we can also connect through an RDP session from the Azure portal via port 3389.
 
