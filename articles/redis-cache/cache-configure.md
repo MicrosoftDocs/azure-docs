@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="07/16/2015"
+   ms.date="07/24/2015"
    ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -115,22 +115,12 @@ New Azure Redis Cache instances are configured with the following default Redis 
 |Setting|Default value|Description|
 |---|---|---|
 |databases|16|The default database is DB 0, you can select a different one on a per-connection basis using connection.GetDataBase(dbid) where dbid is a number between 0 and 15.|
-|maxclients|Depends on the pricing tier<sup>1</sup>|This is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis will close all the new connections sending an error 'max number of clients reached'.|
+|maxclients|10,000|This is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis will close all the new connections sending an error 'max number of clients reached'.|
 |maxmemory-policy|volatile-lru|Maxmemory policy is the setting for how Redis will select what to remove when maxmemory (the size of the cache offering you selected when you created the cache) is reached. With Azure Redis Cache the default setting is volatile-lru, which removes the keys with an expire set using an LRU algorithm. This setting can be configured in the portal. For more information, see [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|LRU and minimal TTL algorithms are not precise algorithms but approximated algorithms (in order to save memory), so you can select as well the sample size to check. For instance for default Redis will check three keys and pick the one that was used less recently.|
 |lua-time-limit|5,000|Max execution time of a Lua script in milliseconds. If the maximum execution time is reached Redis will log that a script is still in execution after the maximum allowed time and will start to reply to queries with an error.|
 |lua-event-limit|500|This is the max size of script event queue.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [http://redis.io/topics/clients](http://redis.io/topics/clients).|
-
-<sup>1</sup>`maxclients` is different for each Azure Redis Cache pricing tier.
-
--	C0 (250 MB) cache - up to 256 connections
--	C1 (1 GB) cache - up to 1,000 connections
--	C2 (2.5 GB) cache - up to 2,000 connections
--	C3 (6 GB) cache - up to 5,000 connections
--	C4 (13 GB) cache - up to 10,000 connections
--	C5 (26 GB) cache - up to 15,000 connections
--	C6 (53 GB) cache - up to 20,000 connections
 
 ## Redis commands not supported in Azure Redis Cache
 

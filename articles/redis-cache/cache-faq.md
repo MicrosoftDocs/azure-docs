@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -95,6 +95,11 @@ For instructions on downloading the Redis tools such as `redis-benchmark.exe`, s
 ## In what region should I locate my cache?
 
 For best performance and lowest latency, locate your Azure Redis Cache in the same region as your cache client application.
+
+<a name="cache-billing"></a>
+## How am I billed for Azure Redis Cache?
+
+Azure Redis Cache pricing is [here](http://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
 <a name="cache-timeouts"></a>
 ## Why am I seeing timeouts?
