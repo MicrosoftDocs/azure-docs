@@ -32,9 +32,9 @@ You can also create VMs using your own images, with Resource Manager templates, 
 
 ## Video walkthrough
 
-Here's a [video walkthrough](http://azure.microsoft.com/documentation/videos/creating-a-windows-vm-on-azure-portal) of this tutorial.
+Here's a [video walkthrough](../../videos/creating-a-windows-vm-on-azure-portal) of this tutorial.
 
-[![Video Walkthrough](./media/virtual-machines-windows-tutorial/video_thumb.jpg)](http://azure.microsoft.com/documentation/videos/creating-a-windows-vm-on-azure-portal)
+[![Video Walkthrough](./media/virtual-machines-windows-tutorial/video_thumb.jpg)](../../videos/creating-a-windows-vm-on-azure-portal)
 
 ## Select the image
 
