@@ -31,7 +31,7 @@ Follow these instructions to create a virtual machine.
 > [AZURE.NOTE] You can add an endpoint for MongoDB while creating the virtual machine, and configure it as follows: name it as **Mongo**, use **TCP** as the protocol, and set both the public and private ports to **27017**.
 
 ## Attach a data disk
-To provide a storage for the virtual machine, attach a data disk and then initialize it so that Windows can use it. You can either attach an existing disk if you already have data you want to use, or attach an empty disk.
+To provide storage for the virtual machine, attach a data disk and then initialize it so that Windows can use it. You can either attach an existing disk if you already have data you want to use, or attach an empty disk.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
