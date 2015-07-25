@@ -407,13 +407,15 @@ In case of Copy activity when source is of type **SqlSource** the following prop
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. See repeatability section below for more details. | A query statement.  | No |
 | sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. See repeatability section below for more details. | Column name of a column with data type of binary(32). | No |
 
-[AZURE.INCLUDE [data-factory-type-repetability-for-sql-sources](../../includes/data-factory-type-repetability-for-sql-sources.md)]
+[AZURE.INCLUDE [data-factory-type-repetability-for-sql-sources](../../includes/data-factory-type-repetability-for-sql-sources.md)] 
+
 
 [AZURE.INCLUDE [data-factory-sql-invoke-stored-procedure](../../includes/data-factory-sql-invoke-stored-procedure.md)] 
 
 
+[AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## Type Mapping for SQL server & Azure SQL
+### Type Mapping for SQL server & Azure SQL
 
 As mentioned in the [data movement activities](data-factory-data-movements.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 
