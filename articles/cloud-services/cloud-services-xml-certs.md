@@ -45,7 +45,7 @@ Here is an example of a certificate defined in the service definition.
 Permissions (`permisionLevel` attribute) can be set to one of the following:
 
 | Permission Value  | Description |
-| ----------------  |             |
+| ----------------  | ----------- |
 | limitedOrElevated | **(Default)** All role processes can access the private key. |
 | elevated          | Only elevated processes can access the private key.|
 
