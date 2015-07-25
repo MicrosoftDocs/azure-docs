@@ -47,9 +47,9 @@ The following table covers the connection-loss errors, and other transient error
 Transient errors are also called transient faults. When your program catches a `SqlException`, your program can check whether the `sqlException.Number` value is a value listed in this section of transient faults. If the `Number` value indicates a transient fault, your program can retry establishing a connection, and then retry querying through the connection. For code examples of retry logic, see:
 
 
-- [Client development and quick start code samples to SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-develop-quick-start-client-code-samples/)
+- [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-- [How to: Reliably connect to Azure SQL Database](https://msdn.microsoft.com/en-us/library/azure/dn864744.aspx)
+- [How to: Reliably connect to Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
 
 
 | Error number | Severity | Description |
@@ -125,7 +125,7 @@ For additional discussion of resource governance and associated errors, see:
 ## Federation errors
 
 
-The following table covers the errors that you might encounter while working with federations. For more information, see [Managing Database Federations (Azure SQL Database)](https://msdn.microsoft.com/en-us/library/azure/hh597455.aspx).
+The following table covers the errors that you might encounter while working with federations. For more information, see [Managing Database Federations (Azure SQL Database)](http://msdn.microsoft.com/library/azure/hh597455.aspx).
 
 
 	> [AZURE.IMPORTANT] The current implementation of Federations will be retired with Web and Business service tiers. Version V12 of Azure SQL Database does not support the Web and Business service tiers.
@@ -235,5 +235,5 @@ The following table lists all the general errors that do not fall into any previ
 
 ## Related links
 
-- [Azure SQL Database General Guidelines and Limitations](https://msdn.microsoft.com/en-us/library/azure/ee336245.aspx)
-- [Resource Management](https://msdn.microsoft.com/en-us/library/azure/dn338083.aspx)
+- [Azure SQL Database General Guidelines and Limitations](http://msdn.microsoft.com/library/azure/ee336245.aspx)
+- [Resource Management](http://msdn.microsoft.com/library/azure/dn338083.aspx)
