@@ -1,4 +1,4 @@
-### Type Conversion Sample
+### Type conversion sample
 The following sample is for copying data from a Blob to Azure SQL with type conversions.
 
 Suppose the Blob dataset is in CSV format and contains 3 columns. One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week.

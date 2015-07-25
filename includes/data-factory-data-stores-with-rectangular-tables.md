@@ -1,4 +1,4 @@
-## Column Mapping with Translator Rules
+## Column mapping with translator rules
 Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. **columnMapping** property is available in the **typeProperties** section of the Copy activity.
 
 Column mapping supports the following scenarios:
@@ -12,7 +12,7 @@ The following are error conditions and will result in an exception:
 2.	Duplicate mapping.
 3.	SQL query result does not have a column name that is specified in the mapping.
 
-## Column Mapping Samples
+## Column mapping samples
 > [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable the same way for any data store that supports rectangular tables. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.
 
 ### Sample 1 – column mapping from Azure SQL to Azure blob
@@ -75,7 +75,6 @@ In this sample, the output table has a structure and it points to a blob in an A
 	    }
 	}
 
-##### Defining Column mapping
 The JSON for the activity is shown below. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
 
 	{
@@ -105,7 +104,7 @@ The JSON for the activity is shown below. The columns from source mapped to colu
 	        }
 	}
 
-**Column Mapping Flow:**
+**Column mapping flow:**
 
 ![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
@@ -143,7 +142,7 @@ In this sample, a SQL query is used to extract data from Azure SQL instead of si
 
 In this case, the query results are first mapped to columns specified in “structure” of source. Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.  Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.
 
-#### Column Mapping Flow
+**Column mapping flow**
 
 ![Column mapping flow-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 

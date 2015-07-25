@@ -1,4 +1,4 @@
-## Invoking Stored Procedure for SQL Sink
+## Invoking stored procedure for SQL Sink
 
 When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked with additional parameters. 
 

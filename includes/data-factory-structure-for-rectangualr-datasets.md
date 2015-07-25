@@ -1,4 +1,4 @@
-## Specifying Structure Definition for Rectangular Datasets
+## Specifying Structure definition for rectangular datasets
 The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mapping, the details of which you can find in corresponding sections below.
 
 Each column contains the following properties:
@@ -28,7 +28,7 @@ Please use the following guidelines for when to include “structure” informat
 	1. You want to do column mapping.
 	2. When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move Data To and From Azure Blob article](../articles/data-factory/data-factory-azure-blob-connector.md) for more information.
 
-### Supported .NET Based Type Values
+### Supported .NET-based types 
 Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
 
 - Int16
