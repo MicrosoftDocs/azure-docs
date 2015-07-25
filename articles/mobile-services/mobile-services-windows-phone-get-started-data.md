@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="07/25/2015" 
 	ms.author="glenga"/>
 
 
@@ -24,8 +24,6 @@
 ##Overview
 
 This topic shows you how to use Azure Mobile Services to leverage data in a Windows Phone 8 app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
-
-> [AZURE.VIDEO windows-phone-app-getting-started-with-data-connecting-your-app-to-windows-azure-mobile-services]
 
 ##Prerequisites 
 
