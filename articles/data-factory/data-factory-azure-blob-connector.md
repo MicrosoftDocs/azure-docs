@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Blob Connector - Move Data To and From Azure Blob" 
+	pageTitle="Azure Blob Connector - Move data to and from Azure Blob" 
 	description="Learn about Azure Blob Connector for the Data Factory service that lets you move data to/from Azure Blob Storage" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,19 +16,19 @@
 	ms.date="07/24/2015" 
 	ms.author="spelluru"/>
 
-# Azure Blob Connector - Move Data To and From Azure Blob
-This article outlines how you can use data factory Copy Activity to move data to Azure Blob from another data store and move data from another data store to Azure Blob. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and supported data store combinations.
+# Azure Blob Connector - Move data to and from Azure Blob
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Blob from another data store and move data from another data store to Azure Blob. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
 ## Sample: Copy data from Azure Blob to Azure SQL
 The sample below shows:
 
-1.	The linked service of type AzureSqlDatabase.
-2.	The linked service of type AzureStorage.
-3.	The input dataset of type AzureBlob.
-4.	The output dataset of type AzureSqlTable.
-4.	The pipeline with a Copy activity that uses BlobSource as source and SqlSink as sink.
+1.	A linked service of type AzureSqlDatabase.
+2.	A linked service of type AzureStorage.
+3.	An input dataset of type AzureBlob.
+4.	An output dataset of type AzureSqlTable.
+4.	A pipeline with a Copy activity that uses BlobSource as source and SqlSink as sink.
 
-The sample copies data belonging to a time series from an Azure blob to a table in an Azure SQL database every hour. For more information on various properties used in the sample below please refer to the sections that follow the Sample section in this article.
+The sample copies data belonging to a time series from an Azure blob to a table in an Azure SQL database every hour. For more information on various properties used in the sample below, please refer to the sections that follow the Sample sections in this article.
 
 **Azure SQL linked service:**
 
@@ -42,7 +42,7 @@ The sample copies data belonging to a time series from an Azure blob to a table 
 	  }
 	}
 
-**Azure Blob storage linked service:**
+**Azure Storage linked service:**
 
 	{
 	  "name": "StorageLinkedService",
@@ -56,7 +56,7 @@ The sample copies data belonging to a time series from an Azure blob to a table 
 
 **Azure Blob input dataset:**
 
-Data is picked up from a new blob every hour with the folder path & file name for the blob for the specific date-time with hour granularity. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
+Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
 
 	{
 	  "name": "AzureBlobInput",
@@ -142,7 +142,7 @@ The sample copies data to a table named “MyTable” in an Azure SQL database. 
 
 **Pipeline with a Copy activity:**
 
-Copy activity specifies the input and output datasets and is scheduled to run every hour.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **SqlSink**. 
 
 	{  
 	    "name":"SamplePipeline",
@@ -192,11 +192,11 @@ Copy activity specifies the input and output datasets and is scheduled to run ev
 ## Sample: Copy data from Azure SQL to Azure Blob
 The sample below shows:
 
-1.	The linked service of type AzureSqlDatabase.
-2.	The linked service of type AzureStorage.
-3.	The input dataset of type AzureSqlTable.
-4.	and output dataset of type AzureBlob.
-4.	The pipeline with Copy activity that uses SqlSource as source and BlobSink as sink.
+1.	A linked service of type AzureSqlDatabase.
+2.	A linked service of type AzureStorage.
+3.	An input dataset of type AzureSqlTable.
+4.	An output dataset of type AzureBlob.
+4.	A pipeline with Copy activity that uses SqlSource as source and BlobSink as sink.
 
 The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
 
@@ -212,7 +212,7 @@ The sample copies data belonging to a time series from a table in Azure SQL data
 	  }
 	}
 
-**Azure Blob storage linked service:**
+**Azure Storage linked service:**
 
 	{
 	  "name": "StorageLinkedService",
@@ -228,7 +228,7 @@ The sample copies data belonging to a time series from a table in Azure SQL data
 
 The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data. 
 
-Setting “external”: ”true” and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” and specifying externalData policy informs the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
 	{
 	  "name": "AzureSqlInput",
@@ -255,7 +255,7 @@ Setting “external”: ”true” and specifying externalData policy tells data
 
 **Azure Blob output dataset:**
 
-Data is copied to a new blob every hour with the path for the blob reflecting the specific date-time with hour granularity.
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
 	
 	{
 	  "name": "AzureBlobOutput",
@@ -313,7 +313,8 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 
 **Pipeline with the Copy activity:**
 
-Copy activity specifies the input and output datasets and is scheduled to run every hour. The SQL query specified with SqlReaderQuery property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
+
 
 	{  
 	    "name":"SamplePipeline",
@@ -360,7 +361,7 @@ Copy activity specifies the input and output datasets and is scheduled to run ev
 	   }
 	}
 
-## Azure Storage Linked Service Properties
+## Azure Storage Linked Service properties
 
 You can link an Azure storage account to an Azure data factory using an Azure Storage linked service. The following table provides description for JSON elements specific to Azure Storage linked service.
 
@@ -369,9 +370,9 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | type | The type property must be set to: **AzureStorage** | Yes |
 | connectionString | Specify information needed to connect to Azure storage for the connectionString property. You can get the connectionString for the Azure storage from the Azure Portal. | Yes |
 
-## Azure Blob Dataset Type Properties
+## Azure Blob Dataset type properties
 
-For a full list of sections & properties available for defining datasets, please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of JSON sections & properties available for defining datasets, please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location, format etc. of the data in the data store. The typeProperties section for dataset of type **AzureBlob** dataset has the following properties.
 
@@ -383,7 +384,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. Please refer to the [Specifying TextFormat](#specifying-textformat) section below for more details. | No
 
 ### Leveraging partionedBy property
-As mentioned above, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do that with data factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice.
+As mentioned above, you can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
 
 Please refer to [Creating Datasets](data-factory-create-datasets.md) and [Scheduling & Execution](data-factory-scheduling-and-execution.md) articles to understand more details on time series datasets, scheduling and slices.
 
@@ -455,12 +456,12 @@ If the format is set to AvroFormat, you do not need to specify any properties in
 
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
-## Copy Activity Type Properties for Azure Blob 
-For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
+## Azure Blob Source/Sink type properties in Copy Activity  
+For a full list of sections & properties available for defining activities, please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks
 
-**BlobSource** supports the following properties in **typeProperties** section:
+**BlobSource** supports the following properties in the **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- | 
