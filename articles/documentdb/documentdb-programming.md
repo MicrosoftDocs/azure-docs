@@ -471,7 +471,7 @@ The UDF can subsequently be used in queries like in the following sample:
 	    console.log("Error" , error);
 	});
 
-## Fluent JavaScript query API
+## JavaScript language-integrated query API
 In addition to issuing queries using DocumentDB’s SQL grammar, the server-side SDK allows you to perform optimized queries using fluent JavaScript interfaces without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing anonymous functions into chainable function calls. Queries are parsed by the JavaScript runtime to be executed efficiently directly over DocumentDB’s indices.
 
 > [AZURE.NOTE] `__` (double-underscore) is an alias to `getContext().getCollection()`.
