@@ -1,4 +1,5 @@
 <properties
+<<<<<<< HEAD
 	pageTitle="Create a Windows-based virtual machine with Resource Manager and Azure PowerShell"
 	description="Use the Resource Management mode of Azure PowerShell to easily create a new Windows-based virtual machine."
 	services="virtual-machines"
@@ -7,10 +8,20 @@
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
+=======
+	pageTitle="Create a Windows virtual machine with Azure Resource Manager and PowerShell"
+	description="Use the Resource Management mode of Azure PowerShell to easily create a new Windows virtual machine."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""/>
+>>>>>>> f208c7d9c5b47e70740361403d730c0ebd757610
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
+<<<<<<< HEAD
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -20,10 +31,21 @@
 # Create a Windows-based virtual machine with Resource Manager and Azure PowerShell
 
 This topic describes how to quickly create a Windows-based Azure virtual machine by using Azure Resource Manager and Azure PowerShell.
+=======
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="davidmu"/>
+
+# Create a Windows virtual machine with Azure Resource Manager and PowerShell
+
+This topic describes how to quickly create a Windows-based Azure virtual machine using Azure Resource Manager and PowerShell.
+>>>>>>> f208c7d9c5b47e70740361403d730c0ebd757610
 
 [AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
 
-- [Create a Windows virtual machine with Azure PowerShell and Service Management](virtual-machines-create-windows-powershell-service-manager.md)
+- [Create a Windows virtual machine with PowerShell and Azure Service Management](virtual-machines-create-windows-powershell-service-manager.md)
 
 ## Create the Windows-based virtual machine
 
@@ -31,7 +53,7 @@ If you have already installed Azure PowerShell, you must have Azure PowerShell v
 
 	Get-Module azure | format-table version
 
-If you haven't done so already or need to update the version of Azure PowerShell installed, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell.md) to install Azure PowerShell on your local computer. Then, open an Azure PowerShell command prompt.
+If you haven't done so already or need to update the version of Azure PowerShell installed, use the instructions in [How to install and configure Azure PowerShell](install-configure-powershell.md) to install Azure PowerShell on your local computer. Then, open an Azure PowerShell command prompt.
 
 First, you must sign in to Azure with this command.
 
@@ -133,10 +155,15 @@ Here is an example of what you might see:
 
 [Azure Compute, Network and Storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
+<<<<<<< HEAD
 [Azure Resource Manager overview](../resource-group-overview.md)
+=======
+[Azure Resource Manager Overview](resource-group-overview.md)
+>>>>>>> f208c7d9c5b47e70740361403d730c0ebd757610
 
 [Create a Windows-based virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
+<<<<<<< HEAD
 [Create and preconfigure a Windows-based virtual machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 [Create a Windows-based virtual machine with Windows PowerShell and Azure Service Management](virtual-machines-create-windows-powershell-service-manager.md)
@@ -144,3 +171,10 @@ Here is an example of what you might see:
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
+=======
+[Create a Windows virtual machine with PowerShell and Azure Service Management](virtual-machines-create-windows-powershell-service-manager.md)
+
+[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
+
+[How to install and configure Azure PowerShell](install-configure-powershell.md)
+>>>>>>> f208c7d9c5b47e70740361403d730c0ebd757610

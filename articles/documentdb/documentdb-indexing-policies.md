@@ -1,6 +1,6 @@
 <properties 
     pageTitle="DocumentDB Indexing Policies | Azure" 
-    description="Understand how indexing works in DocumentDB and learn how to configure the indexing policy." 
+    description="Understand how indexing works in DocumentDB and learn how to configure and change the indexing policy." 
     services="documentdb" 
     documentationCenter="" 
     authors="mimig1" 
@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="07/06/2015" 
+    ms.date="07/19/2015" 
     ms.author="mimig"/>
 
 
@@ -41,14 +41,13 @@ After reading this article, you'll be able to answer the following questions:
 - How can I configure the index for eventual updates?
 - How can I configure indexing to perform Order By or range queries?
 
-
 ## How DocumentDB indexing works
 
 The indexing in DocumentDB takes advantage of the fact that JSON grammar allows documents to be **represented as trees**. For a JSON document to be represented as a tree, a dummy root node needs to be created which parents the rest of the actual nodes in the document underneath. Each label including the array indices in a JSON document becomes a node of the tree. The figure below illustrates an example JSON document and its corresponding tree representation.
 
 ![Indexing Policies](media/documentdb-indexing-policies/image001.png)
 
-For example, the JSON property {"headquarters": "Belgium"} property in the above example corresponds to the path /"headquarters"/"Belgium". The JSON array {"exports": [{"city": “Moscow"}, {"city": Athens"}]} correspond to the paths /"exports"/0/"city"/"Moscow" and /"exports"/1/"city"/"Athens".
+For example, the JSON property `{"headquarters": "Belgium"}` property in the above example corresponds to the path `/headquarters/Belgium`. The JSON array `{"exports": [{"city": “Moscow"}, {"city": Athens"}]}` corresponds to the paths `/exports/[]/city/Moscow` and `/exports/[]/city/Athens`.
 
 >[AZURE.NOTE] The path representation blurs the boundary between the structure/schema and the instance values in documents, allowing DocumentDB to be truly schema-free.
 
@@ -56,67 +55,41 @@ In DocumentDB, documents are organized into collections that can be queried usin
 
 ## Configuring the indexing policy of a collection
 
-The following sample shows how to set a custom indexing policy during  the creation of a collection, by using the DocumentDB REST API. The sample shows the indexing policy expressed in terms of paths, index types, and precisions.
+For every DocumentDB collection, you can configure the following options:
 
-    POST https://<REST URI>/colls HTTP/1.1
-    Accept: application/json 
+- Indexing mode: **Consistent**, **Lazy** (for asynchronous updates), or **None** (only "id" based access)
+- Included and excluded paths: Choose which paths within JSON are included and excluded
+- Index kind: **Hash** (for equality queries), **Range** (for equality, range, and order by queries with higher storage)
+- Index precision: 1-8 or Maximum (-1) to tradeoff between storage and performance
+- Automatic: **true** or **false** to enable, or **manual** (opt-in with each insert)
 
-    {
-       "id":"customIndexCollection",
-       "indexingPolicy":{
-          "automatic":true,
-          "indexingMode":"Consistent",
-          "includedPaths":[
-             {
-                "path":"/*",
-                "indexes":[
+The following .NET code snippet shows how to set a custom indexing policy during the creation of a collection. Here we set the policy with Range index for strings and numbers at the maximum precision. This policy lets us execute Order By queries against strings.
+
+    var collection = new DocumentCollection { Id = "myCollection" };
     
-                ]
-             }
-          ],
-          "excludedPaths":[
-             {
-                "path":"/nonIndexedContent/*"
-             }
-          ]
-       }
-    }
-     ...
+    collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+    
+    collection.IndexingPolicy.IncludedPaths.Add(
+        new IncludedPath { 
+            Path = "/*", 
+            Indexes = new Collection<Index> { 
+                new RangeIndex(DataType.String) { Precision = -1 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }
+        });
+
+    await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
 
 
-     HTTP/1.1 201 Created
-
->[AZURE.NOTE] The JSON schema for indexing policy has been changed with the release of REST API version 2015-06-03 to support Range indexes against strings. .NET SDK 1.2.0 and Java, Python, and Node.js SDKs 1.1.0 support the new policy schema. Older SDKs use the REST API version 2015-04-08 and support the older schema of Indexing Policy.
+>[AZURE.NOTE] The JSON schema for indexing policy was changed with the release of REST API version 2015-06-03 to support Range indexes against strings. .NET SDK 1.2.0 and Java, Python, and Node.js SDKs 1.1.0 support the new policy schema. Older SDKs use the REST API version 2015-04-08 and support the older schema of Indexing Policy.
 >
->The indexing policy of a collection must be specified at the time of creation. Modifying the indexing policy after collection creation is not allowed, but will be supported in a future release of DocumentDB.
->
->By default, DocumentDB indexes all paths within documents consistently with a hash index. The internal Timestamp (\_ts) path is stored with a range index.
-
-### Automatic indexing
-
-You can choose if you want the collection to automatically index all documents or not. By default, all documents are automatically indexed, but you can choose to turn it off. When indexing is turned off, documents can be accessed only through their self-links or by
-queries using ID.
-
-With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
-
-You can configure the default policy by specifying the value for the automatic property to be true or false. To override for a single document, you can set the x-ms-indexingdirective request header while inserting or replacing a document.
-
-For example, the following sample shows how to include a document explicitly using the [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
-
-    // If you want to override the default collection behavior to either
-    // exclude (or include) a Document from indexing,
-    // use the RequestOptions.IndexingDirective property.
-    client.CreateDocumentAsync(defaultCollection.SelfLink,
-        new { id = "AndersenFamily", isRegistered = true },
-        new RequestOptions { IndexingDirective = IndexingDirective.Include });
-        
-
+>By default, DocumentDB indexes all string properties within documents consistently with a Hash index, and numeric properties with a Range index.  
 
 ### Indexing modes
 
-You can choose between synchronous (**Consistent**) and asynchronous (**Lazy**) index updates. By default, the index is updated synchronously on each insertion, replacement, or deletion action taken on a document in the collection. This enables the queries to honor the same consistency level as that of the document reads without any delay for the index to catch up.
+You can choose between synchronous (**Consistent**), asynchronous (**Lazy**) and no (**None**) index updates. By default, the index is updated synchronously on each insertion, replacement, or deletion action taken on a document in the collection. This enables the queries to honor the same consistency level as that of the document reads without any delay for the index to catch up.
 
-While DocumentDB is write optimized and supports sustained volumes of document writes along with synchronous index maintenance, you can configure certain collections to update their index lazily. Lazy indexing is great for scenarios where data is written in bursts, and you want to amortize the work required to index content over a longer period of time. This allows you to use your provisioned throughput effectively, and serve write requests at peak times with minimal latency.  With lazy indexing turned on, query results will eventually be consistent regardless of the consistency level configured for the database account.
+While DocumentDB is write optimized and supports sustained volumes of document writes along with synchronous index maintenance, you can configure certain collections to update their index lazily. Lazy indexing is great for scenarios where data is written in bursts, and you want to amortize the work required to index content over a longer period of time. This allows you to use your provisioned throughput effectively, and serve write requests at peak times with minimal latency.  With lazy indexing turned on, query results will be eventually consistent regardless of the consistency level configured for the database account.
 
 The following sample show how create a DocumentDB collection using the .NET SDK with consistent automatic indexing on all document insertions.
 
@@ -135,37 +108,6 @@ The following sample show how create a DocumentDB collection using the .NET SDK 
      collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
      
      collection = await client.CreateDocumentCollectionAsync(database.SelfLink, collection);
-
-### Index types and precision
-
-The type or scheme used for index entries has a direct impact on index storage and performance. For a scheme using higher precision, queries are typically faster. However, there is also a higher storage overhead for the index. Choosing a lower precision means that more documents might have to be processed during query execution, but the storage
-overhead will be lower.
-
-The index precision for values at any path can be between 1 and 8, or set to -1 indicating that the path must utilize the maximum required precision. Each path can be configured with an array of indexes, one for each data type (String and Number) and specifying the precision for each.
-
-There are also two supported kinds of index types: Hash and Range. Choosing an index type of **Hash** enables efficient equality queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes.
-
-Choosing an index type of **Range** enables range queries (using >, <, >=, <=, !=) as well as **Order By** queries. Order By queries also by default require that the range index is created with the maximum index precision (-1) in order to guarantee the total order of results.
-
-For paths that have large ranges of values, it is recommended to use a higher precision like 6 bytes. A common use case that requires a higher precision range index is timestamps stored as epoch time.
-
-If your use case does not require Order BY and/or efficient range queries, then the default of hash indexes offer the best trade off of storage and performance. Note that to support order by or range queries, you must specify a custom/non-default index policy.
-
-The following example shows how to increase the precision for range indexes in a collection using the .NET SDK. Note that this uses a special path "/" – which is explained in the next section.
-
-    var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
-    
-    rangeDefault.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
-
-    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
-
 
 ### Index paths
 
@@ -219,6 +161,9 @@ Here are the common patterns for specifying index paths:
                 <p>
                     SELECT * FROM collection c WHERE c.prop &gt; 5
                 </p>
+                <p>
+                    SELECT * FROM collection c ORDER BY c.prop
+                </p>                
             </td>
         </tr>
         <tr>
@@ -240,7 +185,9 @@ Here are the common patterns for specifying index paths:
                 <p>
                     SELECT * FROM collection c WHERE c.prop.subprop.nextprop = "value"
                 </p>
-
+                <p>
+                    SELECT * FROM collection c ORDER BY c.prop
+                </p>
             </td>
         </tr>
         <tr>
@@ -295,6 +242,9 @@ Here are the common patterns for specifying index paths:
                 <p>
                     SELECT * FROM collection c WHERE c.prop.subprop &gt; 5
                 </p>
+                <p>
+                    SELECT * FROM collection c ORDER BY c.prop.subprop
+                </p>                
             </td>
         </tr>
     </tbody>
@@ -313,17 +263,62 @@ The following example configures a specific path with range indexing and a custo
                 new RangeIndex(DataType.String) { Precision = 20 } } 
             });
 
+    // Default for everything else
     collection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
-            Path = "/*" 
+            Path = "/*" ,
+            Indexes = new Collection<Index> {
+                new HashIndex(DataType.String) { Precision = 3 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 } 
+            }
         });
         
     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);
 
+### Index data types, kinds and precisions
 
-DocumentDB returns an error when a query uses a Order By but does not have a range index against the queried path with the maximum precision. An error is returned for queries with range operators like >= if there is no range index (of any precision), but those can be served if there are other filters that can be served from the index. Range queries can be performed without a range index using the x-ms-documentdb-enable-scans header in the REST API or the EnableScanInQuery request option using the .NET SDK. 
+Now that we've taken a look at how to specify paths, let's look at the options we can use to configure the indexing policy for a path. You can specify one or more indexing definitions for every path:
 
-Similarly paths can be completely excluded from indexing. The next example shows how to exclude an entire section of the documents (a.k.a. a sub-tree) from indexing using the "*" wildcard.
+- Data type: **String** or **Number** (can contain only one entry per data type per path)
+- Index kind: **Hash** (equality queries) or **Range** (equality, range or Order By queries)
+- Precision: 1-8 or -1 (Maximum precision) for numbers, 1-100 (Maximum precision) for string
+
+#### Index kind
+
+DocumentDB supports two Index Kinds for every path and data type pair.
+
+- **Hash** supports efficient equality queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes.
+- **Range** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and Order By queries. Order By queries by default also require maximum index precision (-1).
+
+#### Index precision
+
+Index precision lets you trade off between index storage overhead and query performance. For numbers, we recommend using the default precision configuration of -1. Since numbers are 8 bytes in JSON, this is equivalent to a configuration of 8 bytes. Picking a lower value for precision, such as 1-7, means that values within some ranges map to the same index entry. Therefore you will reduce index storage space, but query execution might have to process more documents and consequently consume more throughput i.e., request units. 
+
+Index precision configuration is more practically useful with string ranges. Since strings can be any arbitrary length, the choice of the index precision can impact the performance of string range queries, and impact the amount of index storage space required. String range indexes can be configured with 1-100 or the maximum precision value (-1). If you need Order By on strings, then you must specify over the specified path (-1).
+
+The following example shows how to increase the precision for range indexes in a collection using the .NET SDK. Note that this uses the default path "/*".
+
+    var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
+    
+    rangeDefault.IndexingPolicy.IncludedPaths.Add(
+        new IncludedPath { 
+            Path = "/*", 
+            Indexes = new Collection<Index> { 
+                new RangeIndex(DataType.String) { Precision = -1 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }
+        });
+
+    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
+
+
+> [AZURE.NOTE] DocumentDB returns an error when a query uses Order By but does not have a range index against the queried path with the maximum precision. 
+>
+> An error is returned for queries with range operators such as >= if there is no range index (of any precision), but those can be served if there are other filters that can be served from the index. 
+> 
+> Range queries can be performed without a range index using the x-ms-documentdb-enable-scans header in the REST API or the EnableScanInQuery request option using the .NET SDK. 
+
+Similarly, paths can be completely excluded from indexing. The next example shows how to exclude an entire section of the documents (a.k.a. a sub-tree) from indexing using the "*" wildcard.
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -332,9 +327,24 @@ Similarly paths can be completely excluded from indexing. The next example shows
     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
 
 
+### Automatic indexing
+
+You can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can choose to turn it off. When indexing is turned off, documents can be accessed only through their self-links or by queries using ID.
+
+With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
+
+For example, the following sample shows how to include a document explicitly using the [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
+
+    // If you want to override the default collection behavior to either
+    // exclude (or include) a Document from indexing,
+    // use the RequestOptions.IndexingDirective property.
+    client.CreateDocumentAsync(defaultCollection.SelfLink,
+        new { id = "AndersenFamily", isRegistered = true },
+        new RequestOptions { IndexingDirective = IndexingDirective.Include });
+
 ## Performance tuning
 
-As you evaluate different indexing policy configurations, you should measure the storage and throughput implications of the policy through the DocumentDB APIs.
+The DocumentDB APIs provide information about performance metrics such as the index storage used, and the throughput cost (request units) for every operation. This information can be used to compare various indexing policies and for performance tuning.
 
 To check the storage quota and usage of a collection, run a HEAD or GET request against the collection resource, and inspect the x-ms-request-quota and the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contain these corresponding values.
 
@@ -375,7 +385,7 @@ The following changes were implemented in the JSON specification:
 
 If you have code that provisions collections with a custom indexing policy written with version 1.1.0 of the .NET SDK or older, you will need to change your application code to handle these changes in order to move to SDK version 1.2.0. If you do not have code that configures indexing policy, or plan to continue using an older SDK version, no changes are required.
 
-Here are some samples showing the difference between the API version 2015-06-03 and the previous version 2015-04-08.
+For a practical comparison, here is one example custom indexing policy written using the REST API version 2015-06-03 as well as the previous version 2015-04-08.
 
 **Previous Indexing Policy JSON**
 

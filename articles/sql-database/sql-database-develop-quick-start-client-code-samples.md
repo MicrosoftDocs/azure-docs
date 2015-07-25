@@ -14,24 +14,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
-# Client quick start code samples to SQL Database
+# Client quick-start code samples to SQL Database
 
 
-This topic provides links to quick start code samples you can use to connect to Azure SQL Database. The samples cover:
+This topic provides links to quick-start code samples you can use to connect to Azure SQL Database:
+
+
+- Short samples connect and query.
+- Retry samples connect and query, but automatically retry if an encountered error is classified as a [*transient fault*](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors) (such as a connection timeout).
+
+
+The samples cover:
 
 
 - A variety of programming languages.
 - Windows, Linux, and Mac OS as the operating systems that your client program can run on.
+- Links for downloads to any necessary connection drivers.
 - Short quick start code samples.
-- Longer samples that handle transient errors with automated retry logic.
+- Longer samples that contain transient fault handling in the form of automated retry logic.
 - Code samples that convert relational result sets into an object  oriented format.
 
 
-> [AZURE.NOTE] As of June 10 2015, code samples for more languages are being prepared, and links to them will be added to this topic.
+> [AZURE.NOTE] Code samples for more languages are being prepared, and links to them will be added to this topic.
 
 
 ## Clients on Linux
@@ -40,10 +48,11 @@ This topic provides links to quick start code samples you can use to connect to 
 This section provides links to code sample topics for client programs that run on Linux.
 
 
-| Language | Short | Retry | Relational to object |
+| Language | Short sample | Retry sample | Relational to object |
 | :-- | :-- | :-- | :-- |
 | Node.js | [Tedious](sql-database-develop-nodejs-simple-linux.md) | . | . |
 | Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Ruby | [FreeTDS, TinyTDS](sql-database-develop-ruby-simple-linux.md) | . | . |
 
 
 ## Clients on Mac OS
@@ -52,9 +61,10 @@ This section provides links to code sample topics for client programs that run o
 This section provides links to code sample topics for client programs that run on Mac OS.
 
 
-| Language | Short | Retry | Relational to object |
+| Language | Short sample | Retry sample | Relational to object |
 | :-- | :-- | :-- | :-- |
 | Python | [pymssql](sql-database-develop-python-simple-mac-osx.md) | . | . |
+| Ruby | [Homebrew<br/>FreeTDS, TinyTDS](sql-database-develop-ruby-simple-mac-osx.md) | . | . |
 
 
 ## Clients on Windows
@@ -63,13 +73,13 @@ This section provides links to code sample topics for client programs that run o
 This section provides links to code sample topics for client programs that run on Windows.
 
 
-| Language | Short | Retry | Relational to object |
+| Language | Short sample | Retry sample | Relational to object |
 | :-- | :-- | :-- | :-- |
 | C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET with Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [ODBC driver](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
-| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | . | . |
+| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC](sql-database-develop-php-retry-windows.md) | . |
 | Python | [pymssql](sql-database-develop-python-simple-windows.md) | . | . |
 
 
@@ -83,4 +93,4 @@ This section provides links to code sample topics for client programs that run o
 - [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
 - [Create your first Azure SQL Database](sql-database-get-started.md)
 
- 
+

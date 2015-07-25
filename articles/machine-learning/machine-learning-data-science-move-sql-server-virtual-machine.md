@@ -19,7 +19,7 @@
 
 #Move data to SQL Server on Azure
 
-This document covers the movement of data from flat files (csv/tsv) or an on-premise SQL Server to a SQL Server on Azure. This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning.
+This document covers the movement of data from flat files (csv/tsv) or an on-premises SQL Server to a SQL Server on Azure. This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning.
 
 
 <table>
@@ -43,7 +43,7 @@ This document covers the movement of data from flat files (csv/tsv) or an on-pre
   </td>
 </tr>
 <tr>
-  <td><b>On-Premise SQL Server</b></td>
+  <td><b>On-Premises SQL Server</b></td>
   <td>
     1. <a href="#export-flat-file">Export to a flat File </a><br>
     2. <a href="#sql-migration">SQL Database Migration Wizard </a> <br>    
@@ -64,7 +64,7 @@ This section documents the process of moving data to a SQL Server VM on Azure. I
 This document describes moving data from the following data sources: 
   
 1. [From flat files](#filesource_to_sqlonazurevm) 
-2. [From an On-Premise SQL Server](#sqlonprem_to_sqlonazurevm)
+2. [From an On-Premises SQL Server](#sqlonprem_to_sqlonazurevm)
 
 
 ### <a name="filesource_to_sqlonazurevm"></a>File source
@@ -78,7 +78,7 @@ If your data is in a flat file (arranged in a row/column format), it can be move
 
 ### <a name="insert-tables-bcp"></a>Command line bulk copy utility (BCP)
 
-BCP is a command line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premise SQL Server, SQL Azure and SQL Server VM on Azure). 
+BCP is a command line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premises SQL Server, SQL Azure and SQL Server VM on Azure). 
 
 > [AZURE.NOTE] **Where should my data be for BCP?**  
 > While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
@@ -180,7 +180,7 @@ SSIS is available in two studio environments. For details, see [Integration Serv
 - For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
 - For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](https://msdn.microsoft.com/library/ms141209.aspx)
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from On-Premise SQL Server
+### <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from On-Premises SQL Server
 
 Data can be moved from an on premise SQL Server as follows:
 
@@ -192,9 +192,9 @@ We describe each of these below:
 
 #### <a name="export-flat-file"></a>Export to Flat File
 
-Various methods can be used to bulk export data from an On-Premise SQL Server as documented [here](https://msdn.microsoft.com/library/ms175937.aspx). This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import. 
+Various methods can be used to bulk export data from an On-Premises SQL Server as documented [here](https://msdn.microsoft.com/library/ms175937.aspx). This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import. 
 
-1. Export the data from on-premise SQL Server to a File using the bcp utility as follows
+1. Export the data from on-premises SQL Server to a File using the bcp utility as follows
 
 	`bcp dbname..tablename out datafile.tsv -S	servername\sqlinstancename -T -t \t -t \n -c`
 

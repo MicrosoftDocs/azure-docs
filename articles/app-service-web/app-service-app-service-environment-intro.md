@@ -66,7 +66,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
 [LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
 [NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
-[SiteToSite]: https://msdn.microsoft.com/library/azure/dn133795.aspx
+[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 

@@ -4,23 +4,23 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/07/2015"
 	ms.author="piyushjo" />
 	
 #Windows Phone Silverlight SDK content
 
 This document lists and describes the content deployed by the SDK in your application.
 
-##The `/Resources` folder
+##The `/Resources` folder 
 
 This folder contains all the resources that Mobile Engagement needs. You can also customize them to fit your app.
 

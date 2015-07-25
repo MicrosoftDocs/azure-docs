@@ -3,9 +3,10 @@
 	description="Describes installing and configuring the Symantec Endpoint Protection security extension on a new or existing VM in Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="kathydav"/>
+	ms.date="07/14/2015"
+	ms.author="dkshir"/>
 
 # How to install and configure Symantec Endpoint Protection on an Azure VM
 
@@ -45,11 +46,11 @@ For general instructions, see [Create a Virtual Machine Running Windows Server][
 
 Before you begin, you'll need the following:
 
-- The Azure PowerShell module, version 0.8.2 or later. You can check the version of Azure PowerShell that you have installed with the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell][PS].  
+- The Azure PowerShell module, version 0.8.2 or later, on your work computer. You can check the version of Azure PowerShell that you have installed with the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell][PS]. Make sure to login to your Azure subscription.
 
-- The VM Agent.
+- The VM Agent running on the Azure Virtual Machine.
 
-First, verify that the VM Agent is already installed. Fill in the cloud service name and virtual machine name, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.
+First, verify that the VM Agent is already installed on the virtual machine. Fill in the cloud service name and virtual machine name, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.
 
 > [AZURE.TIP] If you don't know the cloud service and virtual machine names, run **Get-AzureVM** to list the names for all virtual machines in your current subscription.
 
@@ -63,6 +64,7 @@ If the **write-host** command displays **True**, the VM Agent is installed. If i
 If the VM Agent is installed, run these commands to install the Symantec Endpoint Protection agent.
 
 	$Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
+
 	Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionName SymantecEndpointProtection -VM $vm | Update-AzureVM
 
 To verify that the Symantec security extension has been installed and is up-to-date:

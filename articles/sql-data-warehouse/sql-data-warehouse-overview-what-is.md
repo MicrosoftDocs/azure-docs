@@ -68,7 +68,7 @@ Learn about the [data warehouse workload].
 <!--Image references-->
 
 <!--Article references-->
-[data warehouse workload] sql-data-warehouse-overview-workload.md
+[data warehouse workload]: ./sql-data-warehouse-overview-workload.md
 
 <!--MSDN references-->
 
