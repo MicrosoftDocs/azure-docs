@@ -28,7 +28,7 @@ The sample below shows:
 2. A linked service of type AzureStorage. 
 3. An input dataset of type AzureSqlTable. 
 4. An output dataset of type AzureBlob.
-4. A pipeline with Copy Activity.
+4. A pipeline with Copy Activity that uses SqlSource and BlobSink.
 
 The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples. 
 
@@ -60,7 +60,7 @@ The sample copies data belonging to a time series from a table in Azure SQL data
 
 The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data. 
 
-Setting “external”: ”true” and specifying externalData policy information the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” and specifying externalData policy informs the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
 	{
 	  "name": "AzureSqlInput",
@@ -198,8 +198,9 @@ The sample below shows:
 
 1.	A linked service of type AzureSqlDatabase.
 2.	A linked service of type AzureStorage.
-3.	An input and output datasets.
-4.	A pipeline with Copy activity.
+3.	An input dataset of type AzureBlob.
+4.	An output dataset of type AzureSqlTable.
+4.	A pipeline with Copy activity that uses BlobSource and SqlSink.
 
 The sample copies data belonging to a time series from Azure blob to a table in Azure SQL database every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
 

@@ -26,7 +26,7 @@ The sample below shows:
 2.	A linked service of type AzureStorage.
 3.	An input dataset of type AzureBlob.
 4.	An output dataset of type AzureSqlTable.
-4.	A pipeline with a Copy activity that uses BlobSource as source and SqlSink as sink.
+4.	A pipeline with a Copy activity that uses BlobSource and SqlSink.
 
 The sample copies data belonging to a time series from an Azure blob to a table in an Azure SQL database every hour. For more information on various properties used in the sample below, please refer to the sections that follow the Sample sections in this article.
 
@@ -196,7 +196,7 @@ The sample below shows:
 2.	A linked service of type AzureStorage.
 3.	An input dataset of type AzureSqlTable.
 4.	An output dataset of type AzureBlob.
-4.	A pipeline with Copy activity that uses SqlSource as source and BlobSink as sink.
+4.	A pipeline with Copy activity that uses SqlSource and BlobSink.
 
 The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
 

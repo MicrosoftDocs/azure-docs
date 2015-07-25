@@ -16,16 +16,15 @@
 	ms.date="07/23/2015" 
 	ms.author="spelluru"/>
 
-# SQL Server Connector - Move Data To and From SQL Server On-premises or on IaaS
+# SQL Server Connector - Move Data To and From SQL Server on-premises or on IaaS
 
-This article outlines how you can use data factory copy activity to move data to SQL Server from another data store and move data from another data store to SQL Server. This article builds on the [data movement activities](data-factory-data-movements.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to SQL Server from another data store and move data from another data store to SQL Server. This article builds on the [data movement activities](data-factory-data-movements.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-## Enabling Connectivity
+## Enabling connectivity
 
-The concepts and steps needed for connecting with SQL Server hosted on-premises or in Azure IaaS VMs remain same. In both cases you need to leverage Data Management Gateway for connectivity. 
+The concepts and steps needed for connecting with SQL Server hosted on-premises or in Azure IaaS (Infrastructure-as-a-Service) VMs are the same. In both cases, you need to leverage Data Management Gateway for connectivity. 
 
-Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. Setting up a gateway instance is a pre-requisite for connecting with SQL Server.
-
+Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Setting up a gateway instance is a pre-requisite for connecting with SQL Server.
 
 While you can install the gateway on the same on-premises machine or cloud VM instance as the SQL Server for better performance it is recommended to install them on separate machines or cloud VM to avoid resource contention. 
 
@@ -33,14 +32,15 @@ While you can install the gateway on the same on-premises machine or cloud VM in
 
 The sample below shows:
 
-1.	The linked service of type OnPremisesSqlServer.
-2.	The linked service of type AzureStorage.
-3.	The input and output datasets.
-4.	The pipeline with Copy activity.
+1.	A linked service of type OnPremisesSqlServer.
+2.	A linked service of type AzureStorage.
+3.	An input dataset of type SqlServerTable. 
+4.	An output dataset of type AzureBlob.
+4.	The pipeline with Copy activity that uses SqlSource and BlobSink.
 
-The sample copies data belonging to a time series from a table in SQL Server database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
+The sample copies data belonging to a time series from a table in SQL Server database to a blob every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
 
-As a first step please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
+As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **SQL Server linked service**
 
@@ -71,7 +71,7 @@ As a first step please setup the data management gateway as per the instructions
 
 The sample assumes you have created a table “MyTable” in SQL Server and it contains a column called “timestampcolumn” for time series data. 
 
-Setting “external”: ”true” and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” and specifying externalData policy information the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
 	{
 	  "name": "SqlServerInput",
@@ -98,7 +98,7 @@ Setting “external”: ”true” and specifying externalData policy tells data
 
 **Azure Blob output dataset**
 
-Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
 	
 	{
 	  "name": "AzureBlobOutput",
@@ -156,7 +156,8 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 
 **Pipeline with Copy activity**
 
-Copy activity specifies the input, output dataset and is scheduled for runs every hour. The SQL query specified with SqlReaderQuery property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
+
 
 	{  
 	    "name":"SamplePipeline",
@@ -209,10 +210,11 @@ The sample below shows:
 
 1.	The linked service of type OnPremisesSqlServer.
 2.	The linked service of type AzureStorage.
-3.	The input and output datasets.
-4.	The pipeline with Copy activity.
+3.	An input dataset of type AzureBlob.
+4.	An output dataset of type SqlServerTable.
+4.	The pipeline with Copy activity that uses BlobSource and SqlSink.
 
-The sample copies data belonging to a time series from Azure blob to a table in SQL Server database every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
+The sample copies data belonging to a time series from Azure blob to a table in SQL Server database every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
 
 **SQL Server linked service**
 	
@@ -241,7 +243,7 @@ The sample copies data belonging to a time series from Azure blob to a table in 
 
 **Azure Blob input dataset**
 
-Data is picked up from a new blob every hour with the path & filename for the blob reflecting the specific datetime with hour granularity. “external”: “true” tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
+Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
 	
 	{
 	  "name": "AzureBlobInput",
@@ -327,7 +329,7 @@ The sample copies data to a table named “MyTable” in SQL Server. You should 
 
 **Pipeline with Copy activity**
 
-Copy activity specifies the input, output dataset and is scheduled for runs every hour.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **SqlSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -374,7 +376,7 @@ Copy activity specifies the input, output dataset and is scheduled for runs ever
 	   }
 	}
 
-## SQL Server Linked Service Properties
+## SQL Server Linked Service properties
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
@@ -416,17 +418,17 @@ If username and password are specified, gateway will use them to impersonate the
 	     } 
 	}
 
-## SQL Server - Dataset Type Properties
+## SQL Server Dataset type properties
 
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (SQL Server, Azure blob, Azure table, etc...). 
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for the dataset of type SqlServerTable has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **SqlServerTable** has the following properties.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the SQL Server Database instance that linked service refers to. | Yes |
 
-## SQL Server - Copy Activity Type Properties
+## SQL Server Source/Sink type properties in Copy Activity
 
 For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. 
 
@@ -459,7 +461,7 @@ In case of Copy activity when source is of type **SqlSource** the following prop
 
 ### Type Mapping for SQL server & Azure SQL
 
-As mentioned in the [data movement activities](data-factory-data-movements.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movements.md) article, the  Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
