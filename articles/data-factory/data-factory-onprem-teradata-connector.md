@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="PostgreSQL Connector - Move Data From PostgreSQL" 
-	description="Learn about PostgreSQL Connector for the Data Factory service that lets you move data from PostgreSQL Database" 
+	pageTitle="Teradata Connector - Move Data From Teradata" 
+	description="Learn about Teradata Connector for the Data Factory service that lets you move data from Teradata Database" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,39 +16,39 @@
 	ms.date="07/24/2015" 
 	ms.author="spelluru"/>
 
-# PostgreSQL Connector - Move data from PostgreSQL using Azure Data Factory
+# Teradata Connector - Move data from Teradata
 
-This article outlines how you can use data factory copy activity to move data to from PostgreSQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use data factory copy activity to move data to from Teradata to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-Currently data factory supports connecting to on-premises PostgreSQL sources via the Data Management Gateway. Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. 
+Currently data factory supports connecting to on-premises Teradata sources via the Data Management Gateway. Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. 
 
-Note: Currently you need to leverage the gateway to connect to PostgreSQL even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of PostgreSQL hosted in cloud you can also install the gateway instance in the IaaS VM.
+Note: Currently you need to leverage the gateway to connect to Teradata even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of Teradata hosted in cloud you can also install the gateway instance in the IaaS VM.
 
-Data factory currently only supports moving data from PostgreSQL to other data stores as for now.
+Data factory currently only supports moving data from Teradata to other data stores as for now.
 
 ## Installation 
 
-For Data Management Gateway to connect to the PostgreSQL Database, you need to install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) on the same system as the Data Management Gateway.
+For Data Management Gateway to connect to the Teradata Database, you need to install the [Teradata Connector/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) on the same system as the Data Management Gateway.
 
-## Sample: Copy data from PostgreSQL to Azure Blob
+### Sample: Copy data from Teradata to Azure Blob
 
 The sample below shows:
 
-1.	The linked service of type PostgreSQL.
+1.	The linked service of type Teradata.
 2.	The linked service of type Azure Storage.
 3.	The input and output datasets.
 4.	The pipeline with Copy Activity.
 
-The sample copies data from a query result in PostgreSQL database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
+The sample copies data from a query result in Teradata database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
 
 As a first step please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
-**PostgreSQL linked service:**
+**Teradata linked service:**
 
 	{
-	    "name": "OnPremPostgreSqlLinkedService",
+	    "name": "OnPremTeradataLinkedService",
 	    "properties": {
-	        "type": "OnPremisesPostgreSql",
+	        "type": "OnPremisesTeradata",
 	        "typeProperties": {
 	            "server": "<server>",
 	            "database": "<database>",
@@ -62,29 +62,30 @@ As a first step please setup the data management gateway as per the instructions
 	}
 
 **Azure Blob storage linked service:**
-		
+
 	{
-	  "name": "AzureStorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
+	    "name": "AzureStorageLinkedService",
+	    "properties": {
+	        "type": "AzureStorageLinkedService",
+			"typeProperties": {
+	        	"connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
+			}
 	    }
-	  }
 	}
 
-**PostgreSQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in PostgreSQL and it contains a column called “timestamp” for time series data.
+**Teradata input dataset:**
+
+The sample assumes you have created a table “MyTable” in Teradata and it contains a column called “timestamp” for time series data.
 
 Setting “external”: true and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
 	{
-	    "name": "PostgreSqlDataSet",
+	    "name": "TeradataDataSet",
 	    "properties": {
 	        "published": false,
 	        "type": "RelationalTable",
-	        "linkedServiceName": "OnPremPostgreSqlLinkedService",
+	        "linkedServiceName": "OnPremTeradataLinkedService",
 	        "typeProperties": {
 	            "tableName": "MyTable"
 	        },
@@ -107,7 +108,7 @@ Setting “external”: true and specifying externalData policy tells data facto
 Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
 
 	{
-	  "name": "AzureBlobPostgreSqlDataSet",
+	  "name": "AzureBlobTeradataDataSet",
 	  "properties": {
 	    "published": false,
 	    "type": "AzureBlob",
@@ -164,9 +165,9 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 **Copy activity:**
 
 Copy activity specifies the input, output dataset and is scheduled for runs every hour. The SQL query specified with query property selects the data in the past hour to copy.
-	
+
 	{
-	    "name": "CopyPostgreSqlToBlob",
+	    "name": "CopyTeradataToBlob",
 	    "properties": {
 	        "description": "pipeline for copy activity",
 	        "activities": [
@@ -185,19 +186,19 @@ Copy activity specifies the input, output dataset and is scheduled for runs ever
 	                },
 	                "inputs": [
 	                    {
-	                        "name": "PostgreSqlDataSet"
+	                        "name": "TeradataDataSet"
 	                    }
 	                ],
 	                "outputs": [
 	                    {
-	                        "name": "AzureBlobPostgreSqlDataSet"
+	                        "name": "AzureBlobTeradataDataSet"
 	                    }
 	                ],
 	                "policy": {
 	                    "timeout": "01:00:00",
 	                    "concurrency": 1
 	                },
-	                "name": "PostgreSqlToBlob"
+	                "name": "TeradataToBlob"
 	            }
 	        ],
 	        "start": "2014-06-01T18:00:00Z",
@@ -206,38 +207,38 @@ Copy activity specifies the input, output dataset and is scheduled for runs ever
 	    }
 	}
 
-## PostgreSQL Linked Service Properties
+## Teradata Linked Service Properties
 
-The following table provides description for JSON elements specific to PostgreSQL linked service.
+The following table provides description for JSON elements specific to Teradata linked service. 
 
 Property | Description | Required
 -------- | ----------- | --------
-type | The type property must be set to: **OnPremisesPostgreSql** | Yes
-server | Name of the PostgreSQL server. | Yes 
-database | Name of the PostgreSQL database. | Yes 
-schema | Name of the schema in the database. | No 
-authenticationType | Type of authentication used to connect to the PostgreSQL database. Possible values are: Anonymous, Basic, and Windows. | Yes 
+type | The type property must be set to: **OnPremisesTeradata** | Yes
+server | Name of the Teradata server. | Yes
+database | Name of the Teradata database. | Yes 
+schema  | Name of the schema in the database. | No
+authenticationType | Type of authentication used to connect to the Teradata database. Possible values are: Anonymous, Basic, and Windows. | Yes
 username | Specify user name if you are using Basic or Windows authentication. | No 
 password | Specify password for the user account you specified for the username. | No 
-gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises PostgreSQL database. | Yes 
+gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises Teradata database. | Yes
 
-## PostgreSQL Dataset Type Properties
+## Teradata Dataset Type Properties
 
-For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes PostgreSQL dataset) has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type RelationalTable (which includes Teradata dataset) has the following properties.
 
 Property | Description | Required
 -------- | ----------- | --------
-tableName | Name of the table in the PostgreSQL Database instance that linked service refers to. | Yes 
+tableName | Name of the table in the Teradata Database instance that linked service refers to. | Yes 
 
-## PostgreSQL Copy Activity Type Properties
+## Teradata Copy Activity Type Properties
 
 For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
-In case of Copy Activity when source is of type **RelationalSource** (which includes PostgreSQL) the following properties are available in typeProperties section:
+In case of Copy Activity when source is of type RelationalSource (which includes Teradata) the following properties are available in typeProperties section:
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
@@ -245,60 +246,58 @@ query | Use the custom query to read data. | SQL query string. For example: sele
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## Type Mapping for PostgreSQL
+## Type Mapping for Teradata
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 
 1. Convert from native source types to .NET type
-1. Convert from .NET type to native sink type
+2. Convert from .NET type to native sink type
 
-When moving data to PostgreSQL the following mappings will be used from PostgreSQL type to .NET type.
+When moving data to Teradata the following mappings will be used from Teradata type to .NET type.
 
-PostgreSQL Database type |	PostgresSQL aliases | .NET Framework type
------------------------- | -------------------- | ---------------------
-abstime	|  | Datetime
-bigint | int8 | Int64
-bigserial | serial8 | Int64
-bit [ (n) ] |  | Byte[], String
-bit varying [ (n) ]	| varbit | Byte[], String
-boolean | bool | Boolean
-box |  | Byte[], String
-bytea |  | Byte[], String
-character [ (n) ] | char [ (n) ] | String
-character varying [ (n) ] | varchar [ (n) ] | String
-cid |  | String
-cidr | | String
-circle | | Byte[], String
-date | | Datetime
-daterange | | String
-double precision| float8 | Double
-inet | | Byte[], String
-intarry | | String
-int4range | | String
-int8range | | String
-integer	| int, int4 | Int32
-interval [ fields ] [ (p) ] | | Timespan
-json | | String
-jsonb | | Byte[]
-line | | Byte[], String
-lseg | | Byte[], String
-macaddr | | Byte[], String
-money | | Decimal
-numeric [ (p, s) ] | decimal [ (p, s) ] | Decimal
-numrange | | String
-oid | | Int32
-path | | Byte[], String
-pg_lsn | | Int64
-point | | Byte[], String
-polygon | | Byte[], String
-real | float4 | Single
-smallint | int2 | Int16
-smallserial | serial2 | Int16
-serial | serial4 | Int32
-text | | String
+Teradata Database | type	.NET Framework type
+----------------- | ---------------------------
+Char | String
+Clob | String
+Graphic | String
+VarChar | String
+VarGraphic | String
+Blob | Byte[]
+Byte | Byte[]
+VarByte | Byte[]
+BigInt | Int64
+ByteInt | Int16
+Decimal | Decimal
+Double | Double
+Integer | Int32
+Number | Double
+SmallInt | Int16
+Date | DateTime
+Time | TimeSpan
+Time With Time Zone | String
+Timestamp | DateTime
+Timestamp With Time Zone | DateTimeOffset
+Interval Day | TimeSpan
+Interval Day To Hour | TimeSpan
+Interval Day To Minute | TimeSpan
+Interval Day To Second | TimeSpan
+Interval Hour | TimeSpan
+Interval Hour To Minute | TimeSpan
+Interval Hour To Second | TimeSpan
+Interval Minute | TimeSpan
+Interval Minute To Second | TimeSpan
+Interval Second | TimeSpan
+Interval Year | String
+Interval Year To Month | String
+Interval Month | String
+Period(Date) | String
+Period(Time) | String
+Period(Time With Time Zone) | String
+Period(Timestamp) | String
+Period(Timestamp With Time Zone) | String
+Xml | String
 
 
 [AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
-
 
 [AZURE.INCLUDE [data-factory-type-repetability-for-relational-sources](../../includes/data-factory-type-repetability-for-relational-sources.md)]

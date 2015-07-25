@@ -2,7 +2,7 @@
 
 When copying data from and to relational stores one needs to keep repeatability in mind to avoid unintended outcomes. 
 
-**Note: **a slice can be re-run automatically in Azure Data Factory too as per the retry policy specified. It is recommended to set a retry policy to guard against transient failures. Hence repeatability is an important aspect to take care of during data movement. 
+**Note:** A slice can be re-run automatically in Azure Data Factory too as per the retry policy specified. It is recommended to set a retry policy to guard against transient failures. Hence repeatability is an important aspect to take care of during data movement. 
 
 **As a source:**
 
