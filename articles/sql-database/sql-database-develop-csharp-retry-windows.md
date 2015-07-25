@@ -34,6 +34,8 @@ Dx  4d7936fd-341c-4a37-8796-25e385ae6c5b
 -->
 
 
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
 
 This topic provides a C# code sample that demonstrates custom retry logic. The retry logic is designed to gracefully process temporary errors or *transient faults* that tend to go away if the program waits a few seconds and retries.
 
