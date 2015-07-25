@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure SQL Connector - Move Data To and From SQL Server" 
+	pageTitle="SQL Server Connector - Move Data To and From SQL Server" 
 	description="Learn about SQL Server Connector for the Data Factory service that lets you move data to/from SQL Server database that is on-premises or in an Azure VM." 
 	services="data-factory" 
 	documentationCenter="" 

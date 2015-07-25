@@ -382,12 +382,12 @@ The **typeProperties** section is different for each type of dataset and provide
 | partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. Please refer to the [Leverage partitionedBy prperty](#leveraging-partionedby-property) section below for details and examples. | No
 | format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. Please refer to the [Specifying TextFormat](#specifying-textformat) section below for more details. | No
 
-## Leveraging partionedBy property
+### Leveraging partionedBy property
 As mentioned above, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do that with data factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice.
 
 Please refer to [Creating Datasets](data-factory-create-datasets.md) and [Scheduling & Execution](data-factory-scheduling-and-execution.md) articles to understand more details on time series datasets, scheduling and slices.
 
-### Sample 1
+#### Sample 1
 
 	folderPath: "wikidatagateway/wikisampledataout/{Slice}",
 	partitionedBy: 
@@ -397,7 +397,7 @@ Please refer to [Creating Datasets](data-factory-create-datasets.md) and [Schedu
 
 In the above example {Slice} is replaced with the value of Data Factory system variable SliceStart in the format (YYYYMMDDHH) specified. The SliceStart refers to start time of the slice. The folderPath is different for each slice. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104
 
-### Sample 2
+#### Sample 2
 
 	folderPath: "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 	fileName: "{Hour}.csv",
@@ -411,7 +411,7 @@ In the above example {Slice} is replaced with the value of Data Factory system v
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
-## Specifying TextFormat
+### Specifying TextFormat
 
 If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section within the Location section.
 
@@ -424,7 +424,7 @@ If the format is set to **TextFormat**, you can specify the following **optional
 | nullValue | <p>The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N”.</p><p>For example, based on above sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server.</p> | No |
 | encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). For example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
 
-### Samples
+#### Samples
 The following sample shows some of the format properties for TextFormat.
 
 	"typeProperties":
@@ -445,7 +445,7 @@ To use an escapeChar instead of quoteChar, replace the line with quoteChar with 
 
 	"escapeChar": "$",
 
-## Specifying AvroFormat
+### Specifying AvroFormat
 If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the Location section. Example:
 
 	"format":

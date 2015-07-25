@@ -477,13 +477,13 @@ fileFilter | Specify a filter to be used to select a subset of files in the fold
 
 > [AZURE.NOTE] filename and fileFilter cannot be used simultaneously.
 
-## Leveraging partionedBy property
+### Leveraging partionedBy property
 
 As mentioned above you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do that with Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice. 
 
 Please refer to [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) article to understand more details on time series datasets, scheduling and slices.
 
-### Sample 1:
+#### Sample 1:
 
 	folderPath: "wikidatagateway/wikisampledataout/{Slice}",
 	partitionedBy: 
@@ -493,7 +493,7 @@ Please refer to [Creating Datasets](data-factory-create-datasets.md), [Schedulin
 
 In the above example {Slice} is replaced with the value of Data Factory system variable SliceStart in the format (YYYYMMDDHH) specified. The SliceStart refers to start time of the slice. The folderPath is different for each slice. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104.
 
-### Sample 2:
+#### Sample 2:
 
 	folderPath: "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 	fileName: "{Hour}.csv",
@@ -507,7 +507,7 @@ In the above example {Slice} is replaced with the value of Data Factory system v
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
-## Specifying TextFormat
+### Specifying TextFormat
 
 If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section within the **typeProperties** section. 
 
@@ -520,7 +520,7 @@ quoteChar | The special character is used to quote the string value. The column 
 nullValue | The character(s) used to represent null value in blob file content. The default value is “\N”.> | No
 encodingName | Specify the encoding name. For the list of valid encoding names, see: Encoding.EncodingName Property. <p>For example: windows-1250 or shift_jis. The default value is: UTF-8.</p> | No
 
-### Samples:
+#### Samples:
 
 The following sample shows some of the format properties for **TextFormat**.
 
@@ -542,7 +542,7 @@ To use an escapeChar instead of quoteChar, replace the line with quoteChar with 
 
 	"escapeChar": "$",
 
-## Specifying AvroFormat
+### Specifying AvroFormat
 
 If the format is set to **AvroFormat**, you do not need to specify any properties in the Format section within the Location section. Example:
 

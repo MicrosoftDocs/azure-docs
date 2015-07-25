@@ -88,7 +88,7 @@ You can find the mapping for a given native type system to .NET for the data sto
 ### Working with different file formats
 For file based sources Copy activity supports variety of file format including binary, text and Avro formats.
 
-## Copy Activity Properties
+### Copy Activity Properties
 Properties like name, description, input and output tables, various policies etc are available for all types of activities. Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. 
 
 In case of Copy activity the **typeProperties** section varies depending on the types of sources and sinks. Each of the data store specific page listed above documents these properties specific to the data store type.

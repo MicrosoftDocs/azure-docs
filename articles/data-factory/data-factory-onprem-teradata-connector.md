@@ -255,7 +255,7 @@ As mentioned in the [data movement activities](data-factory-data-movement-activi
 
 When moving data to Teradata the following mappings will be used from Teradata type to .NET type.
 
-Teradata Database | type	.NET Framework type
+Teradata Database type | .NET Framework type
 ----------------- | ---------------------------
 Char | String
 Clob | String

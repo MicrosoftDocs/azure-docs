@@ -143,7 +143,7 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 	  }
 	}
 
-## Pipeline with Copy activity
+**Pipeline with Copy activity**
 
 Copy activity specifies the input, output dataset and is scheduled for runs every hour. The SQL query specified with SqlReaderQuery property selects the data in the past hour to copy.
 
@@ -313,7 +313,7 @@ The sample copies data to a table named “MyTable” in Azure SQL. You should c
 	  }
 	}
 
-## Pipeline with Copy activity
+**Pipeline with Copy activity**
 
 Copy activity specifies the input, output dataset and is scheduled for runs every hour.
 
