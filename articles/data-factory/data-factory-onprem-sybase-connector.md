@@ -20,7 +20,7 @@
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data from Sybase to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-Data Factory service supports connecting to on-premises Sybase sources using the Data Management Gateway. Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
+Data Factory service supports connecting to on-premises Sybase sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
 
 **Note:** You need to leverage the gateway to connect to Sybase even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of Sybase hosted in cloud, you can also install the gateway instance in the IaaS VM.
 
@@ -40,7 +40,7 @@ The sample below shows:
 4.	An output dataset of type AzureBlob.
 4.	The pipeline with Copy Activity that uses RelationalSource and BlobSink.
 
-The sample copies data from a query result in Sybase database to a blob every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
+The sample copies data from a query result in Sybase database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
@@ -106,7 +106,7 @@ Setting “external”: true and specifying externalData policy tells data facto
 
 **Azure Blob output dataset:**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
 	{
 	  "name": "AzureBlobSybaseDataSet",
@@ -226,9 +226,9 @@ gatewayName | Name of the gateway that the Data Factory service should use to co
 
 ## Sybase Dataset type properties
 
-For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes Sybase dataset) has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for dataset of type **RelationalTable** (which includes Sybase dataset) has the following properties.
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -236,7 +236,7 @@ tableName | Name of the table in the Sybase Database instance that linked servic
 
 ## Sybase Copy Activity type properties 
 
-For a full list of sections & properties available for defining activities, please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
+For a full list of sections & properties available for defining activities, please see  [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
@@ -255,7 +255,7 @@ As mentioned in the data movement activities article Copy activity performs auto
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-Sybase supports T-SQL and T-SQL types. For a mapping table from sql types to .NET type please refer to the [Azure SQL Connector](data-factory-azure-sql-connector.md) article.
+Sybase supports T-SQL and T-SQL types. For a mapping table from sql types to .NET type, see  [Azure SQL Connector](data-factory-azure-sql-connector.md) article.
 
 [AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
 

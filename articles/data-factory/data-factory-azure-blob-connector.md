@@ -28,7 +28,7 @@ The sample below shows:
 4.	An output dataset of type AzureSqlTable.
 4.	A pipeline with a Copy activity that uses BlobSource and SqlSink.
 
-The sample copies data belonging to a time series from an Azure blob to a table in an Azure SQL database every hour. For more information on various properties used in the sample below, please refer to the sections that follow the Sample sections in this article.
+The sample copies data belonging to a time series from an Azure blob to a table in an Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
@@ -198,7 +198,7 @@ The sample below shows:
 4.	An output dataset of type AzureBlob.
 4.	A pipeline with Copy activity that uses SqlSource and BlobSink.
 
-The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
+The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
@@ -255,7 +255,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 
 **Azure Blob output dataset:**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
 	
 	{
 	  "name": "AzureBlobOutput",
@@ -372,21 +372,21 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 
 ## Azure Blob Dataset type properties
 
-For a full list of JSON sections & properties available for defining datasets, please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location, format etc. of the data in the data store. The typeProperties section for dataset of type **AzureBlob** dataset has the following properties.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
 | folderPath | Path to the container and folder in the blob storage. Example: myblobcontainer\myblobfolder\ | Yes |
-| fileName | <p>Name of the blob. fileName is optional. </p><p>If you specify a filename the activity (including Copy) works on the specific Blob.</p><p>When fileName is not specified Copy will include all Blobs in the folderPath for input dataset.</p><p>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
-| partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. Please refer to the [Leverage partitionedBy prperty](#leveraging-partionedby-property) section below for details and examples. | No
-| format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. Please refer to the [Specifying TextFormat](#specifying-textformat) section below for more details. | No
+| fileName | <p>Name of the blob. fileName is optional. </p><p>If you specify a filename, the activity (including Copy) works on the specific Blob.</p><p>When fileName is not specified Copy will include all Blobs in the folderPath for input dataset.</p><p>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
+| partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the [Leverage partitionedBy prperty](#leveraging-partionedby-property) section below for details and examples. | No
+| format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. See the [Specifying TextFormat](#specifying-textformat) section below for more details. | No
 
 ### Leveraging partionedBy property
 As mentioned above, you can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
 
-Please refer to [Creating Datasets](data-factory-create-datasets.md) and [Scheduling & Execution](data-factory-scheduling-and-execution.md) articles to understand more details on time series datasets, scheduling and slices.
+See [Creating Datasets](data-factory-create-datasets.md) and [Scheduling & Execution](data-factory-scheduling-and-execution.md) articles to understand more details on time series datasets, scheduling and slices.
 
 #### Sample 1
 
@@ -414,7 +414,7 @@ In the above example, year, month, day, and time of SliceStart are extracted int
 
 ### Specifying TextFormat
 
-If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section within the Location section.
+If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -457,7 +457,7 @@ If the format is set to AvroFormat, you do not need to specify any properties in
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 ## Azure Blob Copy Activity type properties  
-For a full list of sections & properties available for defining activities, please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks
 
@@ -465,7 +465,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Specifies whether to treat null or empty string as null value. | TRUE, FALSE | No |
+| treatEmptyAsNull | Specifies whether to treat null or empty string as null value. | TRUE<br/>FALSE | No |
 | skipHeaderLineCount | Indicate how many lines need be skipped. It is applicable only when input dataset is using **TextFormat**. | Integer from 0 to Max. | No | 
 
 
@@ -473,7 +473,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| blobWriterAddHeader | Specifies whether to add header of column definitions. | TRUE, FALSE (default) | No |
+| blobWriterAddHeader | Specifies whether to add header of column definitions. | TRUE<br/>FALSE (default) | No |
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

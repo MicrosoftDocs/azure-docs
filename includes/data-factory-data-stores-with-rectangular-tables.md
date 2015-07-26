@@ -1,5 +1,5 @@
 ## Column mapping with translator rules
-Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. **columnMapping** property is available in the **typeProperties** section of the Copy activity.
+Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
 
 Column mapping supports the following scenarios:
 
@@ -13,7 +13,7 @@ The following are error conditions and will result in an exception:
 3.	SQL query result does not have a column name that is specified in the mapping.
 
 ## Column mapping samples
-> [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable the same way for any data store that supports rectangular tables. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.
+> [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable in the same way for any data store that supports rectangular tables. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.
 
 ### Sample 1 – column mapping from Azure SQL to Azure blob
 In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
@@ -27,7 +27,7 @@ In this sample, the input table has a structure and it points to a SQL table in 
 	           { "name": "name"},
 	           { "name": "group"}
 	         ],
-	        "type": "AzureSqlTableLocation",
+	        "type": "AzureSqlTable",
 	        "linkedServiceName": "AzureSqlLinkedService",
 	        "typeProperties": {
 	            "tableName": "MyTable"
@@ -56,7 +56,7 @@ In this sample, the output table has a structure and it points to a blob in an A
 	                { "name": "myname" },
 	                { "name": "mygroup"}
 	          ],
-	        "type": "AzureBlobLocation",
+	        "type": "AzureBlob",
 	        "linkedServiceName": "StorageLinkedService",
 	        "typeProperties": {
 	            "folderPath": "MyContainer/MySubFolder",

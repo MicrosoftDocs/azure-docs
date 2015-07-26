@@ -24,12 +24,12 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 The sample below shows:
 
-1.	A linked service of type AzureStorage (Used for both table & blob).
+1.	A linked service of type AzureStorage (used for both table & blob).
 2.	An input dataset of type AzureTable.
 3.	An output dataset of type AzureBlob. 
 3.	The pipeline with Copy activity that uses AzureTableSource and BlobSink. 
 
-The sample copies data belonging to the default partition in an Azure Table to a blob every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
+The sample copies data belonging to the default partition in an Azure Table to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure storage linked service:**
 
@@ -74,7 +74,7 @@ Setting “external”: ”true” and specifying externalData policy tells data
 
 **Azure Blob output dataset:**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
 
 	{
 	  "name": "AzureBlobOutput",
@@ -180,12 +180,12 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 The sample below shows:
 
-1.	A linked service of type AzureStorage (Table & Blob)
+1.	A linked service of type AzureStorage (used for both table & blob)
 3.	An input dataset of type AzureBlob.
 4.	An output dataset of type AzureTable. 
 4.	The pipeline with Copy activity that uses BlobSource and AzureTableSink. 
 
-The sample copies data belonging to a time series from Azure blob to a table in Azure Table database every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
+The sample copies data belonging to a time series from Azure blob to a table in Azure Table database every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure storage (for both Azure Table & Blob) linked service:**
 
@@ -339,7 +339,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 ## Azure Storage Linked Service properties
 
-You can link an Azure storage account to an Azure data factory with Azure Storage linked service. The following table provides description for JSON elements specific to Azure Storage linked service.
+You can link an Azure storage account to an Azure data factory with Azure Storage linked service. The following table provides descriptions for JSON elements specific to Azure Storage linked service.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -348,9 +348,9 @@ You can link an Azure storage account to an Azure data factory with Azure Storag
 
 ## Azure Table Dataset type properties
 
-For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).  
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).  
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for the dataset of type AzureTable has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **AzureTable** has the following properties.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -358,7 +358,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 ## Azure Table Copy Activity type properties
 
-For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. 
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
@@ -385,12 +385,12 @@ Properties available in the typeProperties section of the activity on the other 
 
 ### Type Mapping for Azure Table
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach.
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach.
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to & from Azure Table the following [mappings defined by Azure Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx) will be used from Azure Table OData types to .NET type and vice versa. 
+When moving data to & from Azure Table, the following [mappings defined by Azure Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx) will be used from Azure Table OData types to .NET type and vice versa. 
 
 | OData Data Type | .NET Type | Details |
 | --------------- | --------- | ------- |
