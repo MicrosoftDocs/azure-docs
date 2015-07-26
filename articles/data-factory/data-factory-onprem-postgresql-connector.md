@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="PostgreSQL Connector - Move Data From PostgreSQL" 
+	pageTitle="PostgreSQL Connector - Move data From PostgreSQL" 
 	description="Learn about PostgreSQL Connector for the Data Factory service that lets you move data from PostgreSQL Database" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -18,13 +18,13 @@
 
 # PostgreSQL Connector - Move data from PostgreSQL using Azure Data Factory
 
-This article outlines how you can use data factory copy activity to move data to from PostgreSQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from PostgreSQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-Currently data factory supports connecting to on-premises PostgreSQL sources via the Data Management Gateway. Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. 
+Data Factory service supports connecting to on-premises PostgreSQL sources using the Data Management Gateway. Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
 
-Note: Currently you need to leverage the gateway to connect to PostgreSQL even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of PostgreSQL hosted in cloud you can also install the gateway instance in the IaaS VM.
+**Note:** You need to leverage the gateway to connect to PostgreSQL even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of PostgreSQL hosted in cloud, you can also install the gateway instance in the IaaS VM.
 
-Data factory currently only supports moving data from PostgreSQL to other data stores as for now.
+Data factory only supports moving data from PostgreSQL to other data stores, not from other data stores to PostgreSQL.
 
 ## Installation 
 
@@ -34,12 +34,13 @@ For Data Management Gateway to connect to the PostgreSQL Database, you need to i
 
 The sample below shows:
 
-1.	The linked service of type PostgreSQL.
-2.	The linked service of type Azure Storage.
-3.	The input and output datasets.
-4.	The pipeline with Copy Activity.
+1.	A linked service of type OnPremisesPostgreSql.
+2.	A linked service of type AzureStorage.
+3.	An input dataset of type RelationalTable.
+4.	An output dataset of type BlobSink.
+4.	The pipeline with Copy Activity that uses RelationalSource and BlobSink. 
 
-The sample copies data from a query result in PostgreSQL database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
+The sample copies data from a query result in PostgreSQL database to a blob every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
 
 As a first step please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
@@ -104,7 +105,7 @@ Setting “external”: true and specifying externalData policy tells data facto
 
 **Azure Blob output dataset:**
 
-Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
 	{
 	  "name": "AzureBlobPostgreSqlDataSet",
@@ -163,7 +164,7 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 
 **Copy activity:**
 
-Copy activity specifies the input, output dataset and is scheduled for runs every hour. The SQL query specified with query property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 	
 	{
 	    "name": "CopyPostgreSqlToBlob",
@@ -206,7 +207,7 @@ Copy activity specifies the input, output dataset and is scheduled for runs ever
 	    }
 	}
 
-## PostgreSQL Linked Service Properties
+## PostgreSQL Linked Service properties
 
 The following table provides description for JSON elements specific to PostgreSQL linked service.
 
@@ -221,7 +222,7 @@ username | Specify user name if you are using Basic or Windows authentication. |
 password | Specify password for the user account you specified for the username. | No 
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises PostgreSQL database. | Yes 
 
-## PostgreSQL Dataset Type Properties
+## PostgreSQL Dataset type properties
 
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
@@ -231,7 +232,7 @@ Property | Description | Required
 -------- | ----------- | --------
 tableName | Name of the table in the PostgreSQL Database instance that linked service refers to. | Yes 
 
-## PostgreSQL Copy Activity Type Properties
+## PostgreSQL Copy Activity type properties
 
 For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
@@ -245,7 +246,7 @@ query | Use the custom query to read data. | SQL query string. For example: sele
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## Type Mapping for PostgreSQL
+## Type mapping for PostgreSQL
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 

@@ -456,7 +456,7 @@ If the format is set to AvroFormat, you do not need to specify any properties in
 
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
-## Azure Blob Source/Sink type properties in Copy Activity  
+## Azure Blob Copy Activity type properties  
 For a full list of sections & properties available for defining activities, please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks

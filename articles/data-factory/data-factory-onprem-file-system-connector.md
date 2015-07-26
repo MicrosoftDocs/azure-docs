@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="File System Connector - Move Data To and From File System" 
+	pageTitle="File System Connector - Move data to and from File System" 
 	description="Learn about File System Connector for the Data Factory service that lets you move data to/from on-premises File System" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="07/24/2015" 
 	ms.author="spelluru"/>
 
-# File System Connector - Move data from On-premises File System
+# File System Connector - Move data to and from On-premises File System
 
 This article outlines how you can use data factory copy activity to move data to and from on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
@@ -35,12 +35,13 @@ Perform the following two steps to use a Linux file share with the File Server L
 
 The sample below shows:
 
-1.	The linked service of type OnPremisesFileServer
-2.	The linked service of type AzureStorage
-3.	The input and output datasets
-4.	The pipeline with Copy activity
+1.	A linked service of type OnPremisesFileServer
+2.	A linked service of type AzureStorage
+3.	An input dataset of type FileShare.
+4.	An output dataset of type AzureBlob.
+4.	The pipeline with Copy Activity that uses FileSystemSource and BlobSink. 
 
-The sample below copies data belonging to a time series from on-premises file system to Azure blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
+The sample below copies data belonging to a time series from on-premises file system to Azure blob every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
 
 As a first step, do setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
 
@@ -75,7 +76,7 @@ As a first step, do setup the data management gateway as per the instructions in
 
 Data is picked up from a new file every hour with the path & filename reflecting the specific datetime with hour granularity. 
 
-Setting “external”: ”true” and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” and specifying externalData policy informs the Azure Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
 
 	{
 	  "name": "OnpremisesFileSystemInput",
@@ -137,7 +138,7 @@ Setting “external”: ”true” and specifying externalData policy tells data
 
 **Azure Blob output dataset:**
 
-Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
 
 	{
 	  "name": "AzureBlobOutput",
@@ -195,7 +196,7 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 
 **Copy activity:**
 
-Copy activity specifies the input, output dataset and is scheduled for runs every hour.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. 
 	
 	{  
 	    "name":"SamplePipeline",
@@ -245,12 +246,13 @@ Copy activity specifies the input, output dataset and is scheduled for runs ever
 
 The sample below shows:
 
-1.	The LinkedService of type AzureSqlDatabase
-2.	The LinkedService of type OnPremisesFileServer
-3.	The input and output Datasets
-4.	Pipeline with Copy activity
+1.	A linked service of type AzureSqlDatabase.
+2.	A linked service of type OnPremisesFileServer.
+3.	An input dataset of type AzureSqlTable. 
+3.	An output dataset of type FileShare.
+4.	A pipeline with Copy activity that uses SqlSource and FileSystemSink.
 
-The sample copies data belonging to a time series from a table in Azure SQL database to a On-premises File System every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
+The sample copies data belonging to a time series from a table in Azure SQL database to a On-premises File System every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
 
 **Azure SQL linked service:**
 
@@ -283,7 +285,7 @@ The sample copies data belonging to a time series from a table in Azure SQL data
 
 The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data. 
 
-Setting “external”: ”true” and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” and specifying externalData policy tells data factory that the table is external to the data factory and not produced by an activity in the data factory.
 
 	{
 	  "name": "AzureSqlInput",
@@ -370,9 +372,9 @@ Data is copied to a new file every hour with the path for the blob reflecting th
 	  }
 	}
 
-**Copy activity:**
+**Pipeline with a Copy activity:**
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **FileSystemSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
 
-Copy activity specifies the input, output dataset and is scheduled for runs every hour. The SQL query specified with SqlReaderQuery property selects the data in the past hour to copy.
 	
 	{  
 	    "name":"SamplePipeline",
@@ -419,7 +421,7 @@ Copy activity specifies the input, output dataset and is scheduled for runs ever
 	   }
 	}
 
-## OnPremisesFileServer Linked Service Properties
+## OnPremisesFileServer Linked Service properties
 
 You can link an On-premises File System to an Azure Data Factory with On-Premises File Server Linked Service. The following table provides description for JSON elements specific to On-Premises File Server Linked Service. 
 
@@ -461,7 +463,7 @@ Gatewayname | Name of the gateway that the Data Factory service should use to co
 	  }
 	}
 
-## On-premises File System Dataset Type Properties
+## On-premises File System Dataset type properties
 
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure Blob, Azure Table, On-premises File System, etc...). 
 
@@ -553,7 +555,7 @@ If the format is set to **AvroFormat**, you do not need to specify any propertie
 	
 To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).		
 
-## File Share Copy Activity Type Properties
+## File Share Copy Activity type properties
 
 **FileSystemSource** and **FileSystemSink** do not support any properties at this time.
 

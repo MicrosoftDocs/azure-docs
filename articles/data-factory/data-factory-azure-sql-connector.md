@@ -384,7 +384,7 @@ The typeProperties section is different for each type of dataset and provides in
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the Azure SQL Database instance that linked service refers to. | Yes |
 
-## Azure SQL Source/Sink type properties in Copy Activity
+## Azure SQL Copy Activity type properties
 
 For a full list of sections & properties available for defining activities, please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
 

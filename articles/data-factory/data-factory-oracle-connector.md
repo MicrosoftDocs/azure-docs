@@ -82,7 +82,7 @@ Setting “external”: ”true” and specifying externalData policy tells data
 
 **Azure Blob output dataset:**
 
-Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 	
 	{
 	  "name": "AzureBlobOutput",
@@ -141,7 +141,7 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 
 **Pipeline with Copy activity:**
 
-Copy activity specifies the input, output dataset and is scheduled for runs every hour. The SQL query specified with OracleReaderQuery property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**.  The SQL query specified with **oracleReaderQuery** property selects the data in the past hour to copy.
 
 	
 	{  
@@ -209,7 +209,7 @@ Property | Description | Required
 -------- | ----------- | --------
 tableName | Name of the table in the Oracle Database that the linked service refers to. | Yes
 
-## Oracle Source/Sink type properties in Copy Activity
+## Oracle Copy Activity type properties
 
 For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. 
 

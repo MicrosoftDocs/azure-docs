@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DB2 Connector - Move Data From DB2" 
+	pageTitle="DB2 Connector - Move data from DB2" 
 	description="Learn about DB2 Connector for the Data Factory service that lets you move data from DB2 Database" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -17,31 +17,32 @@
 	ms.author="spelluru"/>
 
 # DB2 Connector - Move data from DB2
-This article outlines how you can use data factory copy activity to move data to from DB2 to another data store. This article builds on the [data movement activities](data-factory-data-movements.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from DB2 to another data store. This article builds on the [data movement activities](data-factory-data-movements.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-Currently data factory supports connecting to on-premises DB2 sources via the Data Management Gateway. Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. 
+Data factory supports connecting to on-premises DB2 sources using the Data Management Gateway. Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
 
-**Note:** Currently you need to leverage the gateway to connect to DB2 even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of DB2 hosted in cloud you can also install the gateway instance in the IaaS VM.
+**Note:** You need to leverage the gateway to connect to DB2 even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of DB2 hosted in cloud you can also install the gateway instance in the IaaS VM.
 
-Data factory currently only supports moving data from DB2 to other data stores as for now.
+Data factory currently supports only moving data from DB2 to other data stores, not from other data stores to DB2. 
 
 ## Installation 
 
 For Data Management Gateway to connect to the DB2 Database, you need to install [IBM DB2 Data Server Driver](http://go.microsoft.com/fwlink/p/?LinkID=274911) on the same system as the Data Management Gateway.
 
-There are known issues reported by IBM installing the IBM DB2 Data Server Driver on Windows 8, where additional installation steps are needed. For more information about the IBM DB2 Data Server Driver on Windows 8, see [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
+There are known issues reported by IBM on installing the IBM DB2 Data Server Driver on Windows 8, where additional installation steps are needed. For more information about the IBM DB2 Data Server Driver on Windows 8, see [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
 
 ## Sample: Copy data from DB2 to Azure Blob
 
 The sample below shows:
-1.	The linked service of type DB2.
-2.	The linked service of type Azure Storage.
-3.	The input and output Datasets.
-4.	The pipeline with Copy Activity
+1.	A linked service of type OnPremisesDb2.
+2.	A linked service of type AzureStorage. 
+3.	An input dataset of type RelationalTable.
+4.	An output dataset of type AzureBlob. 
+5.	A pipeline with Copy Activity that uses RelationalSource and BlobSink. 
 
-The sample copies data from a query result in DB2 database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
+The sample copies data from a query result in DB2 database to a blob every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
 
-As a first step please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
+As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **DB2 linked service:**
 
@@ -61,6 +62,7 @@ As a first step please setup the data management gateway as per the instructions
 	    }
 	}
 
+
 **Azure Blob storage linked service:**
 
 	{
@@ -77,7 +79,7 @@ As a first step please setup the data management gateway as per the instructions
 
 The sample assumes you have created a table “MyTable” in DB2 and it contains a column called “timestamp” for time series data.
 
-Setting “external”: true and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: true and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory. Note that the **type** is set to **RelationalTable**. 
 
 	{
 	    "name": "Db2DataSet",
@@ -104,7 +106,7 @@ Setting “external”: true and specifying externalData policy tells data facto
 
 **Azure Blob output dataset:**
 
-Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
 	{
 	  "name": "AzureBlobDb2DataSet",
@@ -161,9 +163,9 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 	  }
 	}
 
-**Copy activity:**
+**Pipeline with Copy activity:**
 
-Copy activity specifies the input, output dataset and is scheduled for runs every hour. The SQL query specified with query property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 
 	{
 	    "name": "CopyDb2ToBlob",
@@ -206,7 +208,7 @@ Copy activity specifies the input, output dataset and is scheduled for runs ever
 	    }
 	}
 
-## DB2 Linked Service Properties
+## DB2 Linked Service properties
 
 The following table provides description for JSON elements specific to DB2 linked service. 
 
@@ -221,7 +223,7 @@ The following table provides description for JSON elements specific to DB2 linke
 | password | Specify password for the user account you specified for the username. | No |
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. | Yes |
 
-## DB2 Dataset Type Properties
+## DB2 Dataset type properties
 
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
@@ -231,7 +233,7 @@ The typeProperties section is different for each type of dataset and provides in
 | -------- | ----------- | -------- | 
 | tableName | Name of the table in the DB2 Database instance that linked service refers to. | Yes |
 
-## DB2 Copy Activity Type Properties
+## DB2 Copy Activity type properties
 
 For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
