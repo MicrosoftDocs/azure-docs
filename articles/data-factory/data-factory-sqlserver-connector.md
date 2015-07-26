@@ -450,7 +450,7 @@ In case of Copy activity when source is of type **SqlSource** the following prop
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute to make sure  that data of a specific slice will be cleaned up.  | A query statement.  | No | 
 | sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. | Column name of a column with data type of binary(32). | No |
 
-[AZURE.INCLUDE [data-factory-type-repetability-for-sql-sources](../../includes/data-factory-type-repetability-for-sql-sources.md)] 
+[AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 
 
 [AZURE.INCLUDE [data-factory-sql-invoke-stored-procedure](../../includes/data-factory-sql-invoke-stored-procedure.md)] 
