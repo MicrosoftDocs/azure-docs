@@ -364,22 +364,22 @@ Properties available in the typeProperties section of the activity on the other 
 
 **AzureTableSource** supports the following properties in typeProperties section:
 
-| Property | Description | Allowed values | Required | 
-| -------- | ----------- | -------------- | -------- | 
-| azureTableSourceQuery | Use the custom query to read data. | Azure table query string.Sample: “ColumnA eq ValueA” | No |
-| azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE, FALSE | No |
+Property | Description | Allowed values | Required
+-------- | ----------- | -------------- | -------- 
+azureTableSourceQuery | Use the custom query to read data. | Azure table query string. Sample: **ColumnA eq ValueA** | No
+azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE<br/>FALSE | No |
 
 **AzureTableSink** supports the following properties in typeProperties section:
 
 
-| Property | Description | Allowed values | Required | 
-| -------- | ----------- | -------------- | -------- |
-| azureTableDefaultPartitionKeyValue | Default partition key value that can be used by the sink. | A string value. | No |
-| azureTablePartitionKeyName | User specified column name, whose column values are used as partition key. If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key. | A column name. | No |
-| azureTableRowKeyName | User specified column name, whose column values are used as row key. If not specified, use a GUID for each row. | A column name. | No | 
-| azureTableInsertType | The mode to insert data into Azure table. | “merge”, “replace” | No |
-| writeBatchSize | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. | Integer from 1 to 100 (unit = Row Count) | No (Default = 100) |
-| writeBatchTimeout | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit | (Unit = timespan)Sample: “00:20:00” (20 minutes) | No (Default to storage client default timeout value 90 sec) |
+Property | Description | Allowed values | Required  
+-------- | ----------- | -------------- | -------- 
+azureTableDefaultPartitionKeyValue | Default partition key value that can be used by the sink. | A string value. | No 
+azureTablePartitionKeyName | User specified column name, whose column values are used as partition key. If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key. | A column name. | No |
+azureTableRowKeyName | User specified column name, whose column values are used as row key. If not specified, use a GUID for each row. | A column name. | No  
+azureTableInsertType | The mode to insert data into Azure table. | merge<br/>replace | No 
+writeBatchSize | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. | Integer from 1 to 100 (unit = Row Count) | No (Default = 100) 
+writeBatchTimeout | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit | (Unit = timespan)Sample: “00:20:00” (20 minutes) | No (Default to storage client default timeout value 90 sec)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -403,8 +403,78 @@ When moving data to & from Azure Table, the following [mappings defined by Azure
 | Edm.Int64 | Int64 or long |  A 64-bit integer. |
 | Edm.String | String | A UTF-16-encoded value. String values may be up to 64 KB in size. |
 
+### Type Conversion Sample
 
-[AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
+The following sample is for copying data from an Azure Blob to Azure Table with type conversions. 
+
+Suppose the Blob dataset is in CSV format and contains 3 columns. One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week. 
+
+You will define the Blob Source dataset as follows along with type definitions for the columns.
+	
+	{
+	    "name": " AzureBlobInput",
+	    "properties":
+	    {
+	         "structure": 
+	          [
+	                { "name": "userid", “type”: “Int64”},
+	                { "name": "name", “type”: “String},
+	                { "name": "lastlogindate", “type”: “Datetime”, “culture”: “fr-fr”, “fomat”: “ddd-MM-YYYY”}
+	          ],
+	        "type": "AzureBlob",
+	        "linkedServiceName": "StorageLinkedService",
+	        "typeProperties": {
+	            "folderPath": "MyContainer/MySubFolder",
+	            "fileName":"MyFile.csv",
+	            "format":
+	            {
+	                "type": "TextFormat",
+	                "columnDelimiter": ","
+	            }
+	        },
+	        “external”: “true”,
+	        "availability":
+	        {
+	            "frequency": "Hour",
+	            "interval": 1,
+	            "externalData": {
+	                "retryInterval": "00:01:00",
+	                "retryTimeout": "00:10:00",
+	                "maximumRetry": 3
+	            }
+	        }
+	    }
+	}
+
+Given the type mapping from Azure Table OData type to .NET type above you would define the table in Azure Table with the following schema. 
+
+**Azure Table schema:**
+
+Column name | Type
+----------- | --------
+userid | Edm.Int64
+name | Edm.String 
+lastlogindate | Edm.DateTime
+
+Next, you will define the Azure Table dataset as follows. You do not need to specify “structure” section with the type information since the type information is already specified in the underlying data store.
+
+	{
+	  "name": "AzureTableOutput",
+	  "properties": {
+	    "type": "AzureTable",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyOutputTable"
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
+	}
+
+In this case data factory will automatically do the type conversions including the Datetime field with the custom datetime format using the fr-fr culture when moving data from Blob to Azure Table.
+
 
 
 [AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
