@@ -301,7 +301,7 @@ Xml | Byte[]
 Char | String
 
 
-[AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
+[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 
 [AZURE.INCLUDE [data-factory-type-repetability-for-relational-sources](../../includes/data-factory-type-repetability-for-relational-sources.md)]

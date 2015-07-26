@@ -477,7 +477,7 @@ In this case data factory will automatically do the type conversions including t
 
 
 
-[AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
+[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 
 

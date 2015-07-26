@@ -20,7 +20,7 @@
 
 This article outlines how you can use data factory copy activity to move data to and from on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-Data factory supports connecting to and from on-premises File System via the Data Management Gateway. Please refer to [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. 
+Data factory supports connecting to and from on-premises File System via the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. 
 
 **Note:** Apart from the Data Management Gateway no other binaries need to be installed to communicate to and from on-premises File System. 
 
@@ -41,7 +41,7 @@ The sample below shows:
 4.	An output dataset of type AzureBlob.
 4.	The pipeline with Copy Activity that uses FileSystemSource and BlobSink. 
 
-The sample below copies data belonging to a time series from on-premises file system to Azure blob every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
+The sample below copies data belonging to a time series from on-premises file system to Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 As a first step, do setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
 
@@ -81,7 +81,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	{
 	  "name": "OnpremisesFileSystemInput",
 	  "properties": {
-	    "type": " FileShare ",
+	    "type": " FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
 	      "folderPath": "MyContainer/MyFolder/yearno={Year}/monthno={Month}/dayno={Day}",
@@ -138,7 +138,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 
 **Azure Blob output dataset:**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
 
 	{
 	  "name": "AzureBlobOutput",
@@ -252,7 +252,7 @@ The sample below shows:
 3.	An output dataset of type FileShare.
 4.	A pipeline with Copy activity that uses SqlSource and FileSystemSink.
 
-The sample copies data belonging to a time series from a table in Azure SQL database to a On-premises File System every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples.
+The sample copies data belonging to a time series from a table in Azure SQL database to a On-premises File System every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
@@ -285,7 +285,7 @@ The sample copies data belonging to a time series from a table in Azure SQL data
 
 The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data. 
 
-Setting “external”: ”true” and specifying externalData policy tells data factory that the table is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” and specifying externalData policy informs the Data Factory service that  the table is external to the data factory and is not produced by an activity in the data factory.
 
 	{
 	  "name": "AzureSqlInput",
@@ -465,25 +465,25 @@ Gatewayname | Name of the gateway that the Data Factory service should use to co
 
 ## On-premises File System Dataset type properties
 
-For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure Blob, Azure Table, On-premises File System, etc...). 
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure Blob, Azure Table, On-premises File System, etc...). 
 
 The typeProperties section is different for each type of dataset and provides information about the location, format etc. of the data in the data store. The typeProperties section for dataset of type **FileShare** dataset has the following properties.
 
 Property | Description | Required
 -------- | ----------- | --------
-folderPath | Path to the folder. Example: myfolder\<p>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\subfolder and for d:\samplefolder, specify d:\\samplefolder.</p><p>You can combine this with **partitionBy** to have folder paths based on slice start/end date-times.</p> | Yes
+folderPath | Path to the folder. Example: myfolder<p>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\subfolder and for d:\samplefolder, specify d:\\samplefolder.</p><p>You can combine this with **partitionBy** to have folder paths based on slice start/end date-times.</p> | Yes
 fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<p>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: </p><p>Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No
 partitionedBy | partitionedBy can be leveraged to specify a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data. | No
-Format | Two formats types are supported: **TextFormat**, ****. You need to set the type property under format to either if this value. When the forAvroFormatmat is TextFormat you can specify additional optional properties for format. Please refer to format section below for more details. | No
-fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <p>Allowed values are: * (multiple characters) and ? (single character).</p><p>Examples 1: "fileFilter": "*.log"</p>Example 2: "fileFilter": 2014-1-?.txt"</p><p>Note: fileFilter is applicable for an input FileShare dataset</p> | No
+Format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either if this value. When the forAvroFormatmat is TextFormat you can specify additional optional properties for format. See the format section below for more details. | No
+fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <p>Allowed values are: * (multiple characters) and ? (single character).</p><p>Examples 1: "fileFilter": "*.log"</p>Example 2: "fileFilter": 2014-1-?.txt"</p><p>**Note**: fileFilter is applicable for an input FileShare dataset</p> | No
 
 > [AZURE.NOTE] filename and fileFilter cannot be used simultaneously.
 
 ### Leveraging partionedBy property
 
-As mentioned above you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do that with Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice. 
+As mentioned above, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice. 
 
-Please refer to [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) article to understand more details on time series datasets, scheduling and slices.
+See the [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) article to understand more details on time series datasets, scheduling and slices.
 
 #### Sample 1:
 
@@ -561,7 +561,7 @@ To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutoria
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-[AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
+[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 
 

@@ -1,15 +1,15 @@
 ## Repeatability during Copy
 
-When copying data to Azure SQL from other data stores one needs to keep repeatability in mind to avoid unintended outcomes. 
+When copying data to Azure SQL/SQL Server from other data stores one needs to keep repeatability in mind to avoid unintended outcomes. 
 
-When copying data to Azure SQL Database, copy activity will by default APPEND the data set to the sink table by default. For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL Database, this is what the table looks like:
+When copying data to Azure SQL Database, copy activity will by default APPEND the data set to the sink table by default. For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL/SQL Server Database, this is what the table looks like:
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
 	6	Flat Washer	3			2015-05-01 00:00:00
 	7 	Down Tube	2			2015-05-01 00:00:00
 
-Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4 in the source file. If you re-run the data slice for that period, you’ll find two new records appended to Azure SQL Database. The below assumes none of the columns in the table have the primary key constraint.
+Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4 in the source file. If you re-run the data slice for that period, you’ll find two new records appended to Azure SQL/SQL Server Database. The below assumes none of the columns in the table have the primary key constraint.
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...

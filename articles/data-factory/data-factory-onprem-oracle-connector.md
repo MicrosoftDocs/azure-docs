@@ -224,5 +224,11 @@ Property | Description |Allowed values | Required
 oracleReaderQuery | Use the custom query to read data. | SQL query string. 
 For example: select * from MyTable <p>If not specified, the SQL statement that is executed: select * from MyTable</p> | No
 
+[AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+
+[AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
+
+[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+
 
 

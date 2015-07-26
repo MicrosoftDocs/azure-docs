@@ -257,7 +257,7 @@ As mentioned in the data movement activities article Copy activity performs auto
 
 Sybase supports T-SQL and T-SQL types. For a mapping table from sql types to .NET type, see  [Azure SQL Connector](data-factory-azure-sql-connector.md) article.
 
-[AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
+[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-type-repetability-for-relational-sources](../../includes/data-factory-type-repetability-for-relational-sources.md)]
 

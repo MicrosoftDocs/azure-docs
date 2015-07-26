@@ -1,6 +1,6 @@
 ## Invoking stored procedure for SQL Sink
 
-When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked with additional parameters. 
+When copying data into SQL Server or Azure SQL/SQL Server Database, a user specified stored procedure could be configured and invoked with additional parameters. 
 
 A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose. This is typically leveraged when extra processing (merging columns, looking up additional values, insertion into multiple tables…) needs to be done before the final insertion of source data in the destination table. 
 
@@ -9,10 +9,10 @@ You may invoke a stored procedure of choice. The following sample shows how to u
 **Output dataset**
 
 	{
-	  "name": "SqlServerOutput",
+	  "name": "SqlOutput",
 	  "properties": {
 	    "type": "SqlServerTable",
-	    "linkedServiceName": "SqlServerLinkedService",
+	    "linkedServiceName": "SqlLinkedService",
 	    "typeProperties": {
 	      "tableName": "Marketing"
 	    },

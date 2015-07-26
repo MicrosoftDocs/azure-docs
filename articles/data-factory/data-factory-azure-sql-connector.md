@@ -30,7 +30,7 @@ The sample below shows:
 4. An output dataset of type AzureBlob.
 4. A pipeline with Copy Activity that uses SqlSource and BlobSink.
 
-The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. For more information on various properties used in the sample below, please refer to documentation on different properties in the sections following the samples. 
+The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.  
 
 **Azure SQL linked service**
 
@@ -87,7 +87,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 
 **Azure Blob output dataset**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
 
 	{
 	  "name": "AzureBlobOutput",
@@ -202,7 +202,8 @@ The sample below shows:
 4.	An output dataset of type AzureSqlTable.
 4.	A pipeline with Copy activity that uses BlobSource and SqlSink.
 
-The sample copies data belonging to a time series from Azure blob to a table in Azure SQL database every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
+The sample copies data belonging to a time series from Azure blob to a table in Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
+
 
 **Azure SQL linked service**
 	
@@ -372,7 +373,7 @@ The following table provides description for JSON elements specific to Azure SQL
 | type | The type property must be set to: AzureSqlDatabase | Yes |
 | connectionString | Specify information needed to connect to the Azure SQL Database instance for the connectionString property. | Yes |
 
-Note: You need to configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). You need to configure the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL from outside Azure including from on-premises data sources with data factory gateway you need to configure appropriate IP address range for the machine that is sending data to Azure SQL. 
+**Note:** You need to configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). You need to configure the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL from outside Azure including from on-premises data sources with data factory gateway you need to configure appropriate IP address range for the machine that is sending data to Azure SQL. 
 
 ## Azure SQL Dataset type properties
 
@@ -410,9 +411,8 @@ In case of Copy activity when source is of type **SqlSource** the following prop
 
 [AZURE.INCLUDE [data-factory-type-repetability-for-sql-sources](../../includes/data-factory-type-repetability-for-sql-sources.md)] 
 
-
-[AZURE.INCLUDE [data-factory-sql-invoke-stored-procedure](../../includes/data-factory-sql-invoke-stored-procedure.md)] 
-
+[AZURE.INCLUDE [data-factory-sql-invoke-stored-procedure](../../includes/data-factory-sql-invoke-stored-procedure.md)]
+ 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -466,7 +466,7 @@ The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
 
-[AZURE.INCLUDE [data-factory-data-stores-with-rectangular-tables](../../includes/data-factory-data-stores-with-rectangular-tables.md)]
+[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 
 
