@@ -144,7 +144,7 @@ We author content using simple "markdown" notation in the files, rather than com
 
 If you use Atom, you'll need to set a few things up.
 
-- Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. So, configure Atom to use 4 spaces - you can find this setting under Editor Settings>File-Settings>Tab Length. 
+- Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. So, configure Atom to use 4 spaces - you can find this setting under File>Settings>Editor Settings>Tab Length. 
 - You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad. 
 - To turn on the markdown preview, click Packages>Markdown Preview>Toggle Preview. You can use Ctrl-Shift-M to toggle the preview HTML view. 
 
