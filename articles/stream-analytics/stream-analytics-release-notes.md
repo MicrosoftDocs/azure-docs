@@ -28,16 +28,16 @@ This release contains the following updates.
 <th>Description</th>
 </tr>
 <tr>
-<td>Multiple Power BI outputs</td>
-<td>Now it is an option to configure multiple Power BI outputs to a single Stream Analytics job.</td>
+<td>Added support for multiple Power BI accounts</td>
+<td>Now it is an option to configure multiple Power BI accounts to a single Stream Analytics job.</td>
 </tr>
 <tr>
-<td>Added Service Bus Queue outputs</td>
-<td>Service Bus Queue outputs are now available in Stream Analytics jobs.</td>
+<td>Added support for Service Bus Queues output</td>
+<td>Service Bus Queues outputs are now available in Stream Analytics jobs.</td>
 </tr>
 <tr>
-<td>Added Service Bus Topic outputs</td>
-<td>Service Bus Topic outputs are now available in Stream Analytics jobs.</td>
+<td>Added support for Service Bus Topics output</td>
+<td>Service Bus Topics outputs are now available in Stream Analytics jobs.</td>
 </tr>
 <tr>
 <td>Added new Array functions</td>
