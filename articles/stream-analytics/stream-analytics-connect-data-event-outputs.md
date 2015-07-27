@@ -110,39 +110,40 @@ There are a few parameters that customers need to configure for Event Hub data s
 5. Event Hub Consumer Group: Optional parameter for Event Hub inputs.  The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   It is recommended to utilize a distinct consumer Group for each Stream Analytics job.
 6. Partition Key Column:  Optional parameter for Event Hub outputs. The data attribute column that is used as the partition key for Event Hub output. 
 
-## Service Bus Queue ##
+## Service Bus Queues ##
 ---
-### Introduction to Service Bus Queue concepts ###
+### Introduction to Service Bus Queues concepts ###
 Service Bus Queues offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
 
 Some benefits of using Service Bus Queues are:
+
 - The senders and receivers do not need to transmit/receive messages at the same time, a queue exists for buffering the messages.
 - The sender does not need to wait for an acknowledgment of reception of the sent message to continue processing messages.
 - Because there is a queue and ability to buffer messages, the senders and receivers of messages can send and receive/process messages at differing rates. This is very useful in the event the events have sporadic or unpredictable rates and your receivers can only process events at a fixed rate.
 
 For further information on Service Bus Queues see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Queues](http://blogs.msdn.com/b/appfabric/archive/2011/05/17/an-introduction-to-service-bus-queues.aspx "An Introduction to Service Bus Queues").
 
-### Adding a Service Bus Queue via the Azure Portal ###
+### Adding Service Bus Queues via the Azure Portal ###
 
-## Service Bus Topic ##
+## Service Bus Topics ##
 ---
-### Introduction to Service Bus Topic concepts ###
+### Introduction to Service Bus Topics concepts ###
 Whereas Service Bus Queues provide a one to one communication method from sender to receiver, Service Bus Topics and subscriptions provide a one-to-many form of communication.
 
 Some benefits of using Service Bus Topics are:
 - Scaling capabilities where each published message is made available to each subscription registered with a topic.
 - Filter rules can be set on a per-subscription basis to control what messages the subscription receives.
 
-For further informaiton on Service Bus Topics see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Topics](http://blogs.msdn.com/b/appfabric/archive/2011/05/25/an-introduction-to-service-bus-topics.aspx "An Introduction to Service Bus Topics")
+For further information on Service Bus Topics see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Topics](http://blogs.msdn.com/b/appfabric/archive/2011/05/25/an-introduction-to-service-bus-topics.aspx "An Introduction to Service Bus Topics")
 
-### Adding a Service Bus Topic via the Azure Portal ###
+### Adding Service Bus Topics via the Azure Portal ###
 
 ## Power BI as an output ##
 ---
 ### Overview ###
 Power BI can be utilized as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting. Note that multiple Power BI outputs may exist on a single Stream Analytics job. For more information on Power BI visit the [POwer BI](https://powerbi.microsoft.com/) site.
 
-### Adding Power Bi as an output ###
+### Adding Power BI as an output ###
 1.  Click **Output** from the top of the page, and then click **Add Output**. Power BI listed as an output option.
 
     ![graphic22][graphic22]

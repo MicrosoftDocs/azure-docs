@@ -26,7 +26,7 @@ Stream Analytics has first-class integration with input sources Event Hub and Bl
 ---
 At a basic level, Stream Analytics job definitions must include at least one data stream input source to be consumed and transformed by the job. Azure Blob storage and Azure Event Hubs are supported as data stream input sources. Azure Event Hubs input sources are used to collect event streams from multiple devices and services Examples of data streams may be things such as social media activity feeds, stock trade information or data from sensors. 
 
-Alternately, Azure Blob storage can be used as an input source for ingesting bulk data. It is important to note that when using Azure Blobs the data is at rest and therefore Stream Analytics will interpret all data contained in a blob as having the timestamp of the creation timestamp of the blob itself. That is, unless the records in the blob contain timestamps.
+Alternately, Azure Blob storage can be used as an input source for ingesting bulk data. It is important to note that when using Azure Blobs the data is at rest and therefore Stream Analytics will interpret all data contained in a blob as having the timestamp of the creation timestamp of the blob itself. That is, unless the records in the blob contain timestamps and the TIMESTAMP BY keyword is used.
 
 ## Reference data inputs
 ---
