@@ -324,7 +324,7 @@ using (BrokerClient<IService1> client = new BrokerClient<IService1>(session, bin
 using (BrokerClient<IService1> client = new BrokerClient<IService1>(session))
 ```
 
-Or set explicitly using the basicHttpBinding.
+    Or set explicitly using the basicHttpBinding.
 
     ```
 BasicHttpBinding binding = new BasicHttpBinding(BasicHttpSecurityMode.TransportWithMessageCredential);
@@ -333,7 +333,7 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 
 * Optionally, set the UseAzureQueue flag to true in SessionStartInfo. If not set, it will be set to true by default when the cluster name has Azure domain suffixes and the TransportScheme is Http.
 
-```
+    ```
     info.UseAzureQueue = true;
 ```
 
