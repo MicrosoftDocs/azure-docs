@@ -28,9 +28,13 @@ Azure SQL DB Workload Insight is aiming to make DB performance tuning easy and s
 
 The goals of Query Performance Insights are to help users:​
 
-•answer the question “where my DTUs are spent?”/understand the impact of their top queries to the resource consumption of the database over time​
+- answer the question “where my DTUs are spent?”/understand the impact of their top queries to the resource consumption of the database over time​
 
-• identify the queries to fix, before (or after) they become a problem ​
+- identify the queries to fix, before (or after) they become a problem 
+
+- identify most DTU consuming queries
+
+- drill down into the details of a query​
 
 Query Performance Insights allows the users to spend less time troubleshooting their database performance and focus time and energy on making an impact to the bottom line of their business.​
 
@@ -73,6 +77,10 @@ Query Performance Insights is easy to use. To simplify performance tuning for yo
 - Select an individual query to view it's details. 
 
 
+### Review the list of top resource consuming queries
+
+
+
 Portal
 SQL Databases
 Select Database
@@ -100,7 +108,8 @@ view query details
 
 •User can change the period to observe, as well as baseline function
 
-### Edit Chart
+
+## Edit Chart
 
 ## Viewing Optimizing Hints
 
@@ -134,7 +143,7 @@ Index advisor provides a list of index recommendations on the database blade in 
 4. On the **SQL databases** blade, click the database that you want to review recommended indexes for.
 5. Click **Index Advisor** to open and view the available **Index recommendations** for the selected database.
 
-> [AZURE.NOTE] To get index recommendations a database needs to have about a week of usage, and within that week there needs to be some activity. There also needs to be some consistent activity as well. The index advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity.
+> [AZURE.NOTE] To provide query performance insight a database needs to have about a week of usage, and within that week there needs to be some activity. There also needs to be some consistent activity as well. 
 
 
 Recommendations are sorted by their potential impact on performance into the following 4 categories:
@@ -146,77 +155,6 @@ Recommendations are sorted by their potential impact on performance into the fol
 | Moderate | Moderate impact recommendations should improve performance, but not substantially. |
 | Low | Low impact recommendations should provide better performance than without the index, but improvements might not be significant. 
 Use the Impact tag to determine the best candidates for creating new indexes.
-
-### Managing the list of recommended indexes
-
-If your list of recommended indexes contains indexes that you don't think will be beneficial, Index Advisor lets you discard index recommendations (you can add discarded indexes back to the **Recommended indexes** list later if needed).
-
-#### Discard an index recommendation
-
-1. Select the index in the list of **Recommended indexes**.
-1. Click **Discard index** on the **Index details** blade.
-
-#### Viewing discarded indexes, and adding them back to the main list
-
-1. On the **Index recommendations** blade click **View discarded index recommendations**.
-1. Select a discarded index from the list to view its details.
-1. Optionally, click **Undo Discard** to add the index back to the main list of **Index recommendations**.
-
-
-
-## Create new indexes
-
-Index Advisor gives you full control over how indexes are created. Each recommendation provides a T-SQL index creation script and you can review exact details of how the index will be created before any action is taken on a database.
-
-Index recommendations are available for all Azure SQL Database servers, but only V12 servers provide automated index creation. Non-V12 servers can still benefit from Index Advisor, but you have to manually create indexes as described below.
-
-For both automatic and manual index creation simply select a recommended index from the **Index recommendations** blade and do the following:
-
-### Automatic index creation (V12 servers only)
-
-If the database is on a V12 server then you can easily create a recommended index by selecting the desired index on the  and then clicking **Create Index**. 
-
-The database remains online during index creation, using Index Advisor to create an index does not take the database offline.
-
-In addition, indexes created with **Create Index** do not require any further performance monitoring. If the index has a negative impact on performance, then the index is reverted automatically. After using Create Index, metrics on the impact of the new index are available in the portal. 
-
-
-### Manual index creation (all servers)
-
-Select any recommended index in the portal and then click **View Script**. Run this script against your database to create the recommended index. Indexes that are manually created are not monitored and validated for actual performance impact so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
-
-
-### Canceling index creation
-
-Indexes that are in a **Pending** status can be canceled. Indexes that are being created (**Executing** status) cannot be canceled.
-
-1. Select any **Pending** index in the **Index operations** area to open the **Index details** blade.
-1. Click **Cancel** to abort the index creation process.
-
-## Monitoring index operations after creating indexes
-
-Creating an index does not happen instantaneously. The portal provides details regarding the status of index operations. When managing indexes the following are possible states that an index can be in:
-
-| Status | Description |
-| :--- | :--- |
-| Pending | Create index command has been received and the index is scheduled for creation. |
-| Executing | The create index command is running and the index is currently being created. |
-| Success | The index has successfully been created. |
-| Failed | Index has not been created. This can be a transient issue, or possibly a schema change to the table and the script is no longer valid. |
-| Reverting | The index creation process has been canceled or has been deemed non-performant and is being automatically reverted. |
-
-
-
-![ALT TEXT][4]
-
-
-
-## Removing an index
-You can remove indexes that have been created with the Index Advisor.
-
-
-1. Select a successfully created index in the list of **Index operations**.
-1. Click **Remove index** on the **Index details** blade, or click **View Script** for a DROP INDEX script.
 
 
 
