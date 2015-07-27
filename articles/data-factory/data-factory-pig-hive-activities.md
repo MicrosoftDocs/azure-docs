@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
