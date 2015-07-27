@@ -116,11 +116,11 @@ To test your remote connection to the MySQL Server service running on the Azure 
 
 3.	From a local computer running MySQL or the MySQL client, run the following command to log in as a MySQL user.
 
-		**mysql -u <yourMysqlUsername> -p -h <yourDNSname>**
+		mysql -u <yourMysqlUsername> -p -h <yourDNSname>
 
 	For example, for the MySQL user name dbadmin3 and the testmysql.cloudapp.net DNS name for the virtual machine, use the following command.
 
-		**mysql -u dbadmin3 -p -h testmysql.cloudapp.net**
+		mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 
 ## Additional resources
