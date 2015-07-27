@@ -681,12 +681,12 @@ By familiarizing yourself with the other files included in this deployment, you 
 
 ![mongodb-template-structure](media/virtual-machines-mongodb-template/mongodb-template-structure.png)
 
-In essence, this approach suggests to:
+In essence, this approach suggests that you:
 
 -	Define your core template file as a central orchestration point for all specific deployment activities, leveraging template linking to invoke sub template executions.
 -	Create specific template files that will deploy all resources shared across all other specific deployment tasks (for example, storage accounts, vnet configuration, etc.). This can be heavily reused between deployments that have similar requirements in terms of common infrastructure.
 -	Include optional resource templates for spot requirements specific of a given resource.
--	For identical members of a group of resources (nodes in a cluster, etc.), create specific templates that leverage resource looping in order to deploy multiple instances with unique properties
--	For all post deployment tasks (for example, product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology
+-	For identical members of a group of resources (nodes in a cluster, etc.), create specific templates that leverage resource looping in order to deploy multiple instances with unique properties.
+-	For all post deployment tasks (for example, product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology.
 
 For more information, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
