@@ -128,9 +128,11 @@ For additional discussion of resource governance and associated errors, see:
 The following table covers the errors that you might encounter while working with federations. For more information, see [Managing Database Federations (Azure SQL Database)](http://msdn.microsoft.com/library/azure/hh597455.aspx).
 
 
-	> [AZURE.IMPORTANT] The current implementation of Federations will be retired with Web and Business service tiers. Version V12 of Azure SQL Database does not support the Web and Business service tiers.
-	> The Elastic Scale feature is designed to create sharding applications with minimal effort.
-	> For more information about Elastic Scale, see [Azure SQL Database Elastic Scale Topics](http://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). Consider deploying custom sharding solutions to maximize scalability, flexibility, and performance. For more information about custom sharding, see [Scaling Out Azure SQL Databases](http://msdn.microsoft.com/library/azure/dn495641.aspx).
+> [AZURE.IMPORTANT] The current implementation of Federations will be retired with Web and Business service tiers. Version V12 of Azure SQL Database does not support the Web and Business service tiers.
+> 
+> The Elastic Scale feature is designed to create sharding applications with minimal effort.
+> 
+> For more information about Elastic Scale, see [Azure SQL Database Elastic Scale Topics](http://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). Consider deploying custom sharding solutions to maximize scalability, flexibility, and performance. For more information about custom sharding, see [Scaling Out Azure SQL Databases](http://msdn.microsoft.com/library/azure/dn495641.aspx).
 
 
 |Error number|Severity|Description|Mitigation|
