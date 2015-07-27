@@ -85,7 +85,7 @@ Then check the **Complete** checkbox and the Event Hub input is now created.
 
 ## Creating a Blob storage input data stream
 ---
-For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. For further information on Blob storage visit the portal at [Blob storage](http://azure.microsoft.com/services/storage/blobs/)
+For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. This data is generally considered data 'at rest'. One scenario where a Blob might be useful for a data stream input would be log analysis where logs are already captured from systems and need to be parsed and meaningful data extracted from them. Another might be analysis of data warehousing data at rest. For further information on Blob storage visit the portal at [Blob storage](http://azure.microsoft.com/services/storage/blobs/)
 
 Below is a walk-through to configure Blob storage as an input. To start using an Azure Blob storage input, the following information is required:
 
