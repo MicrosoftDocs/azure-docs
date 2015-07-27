@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 pageTitle="Install and set up tools for authoring in GitHub" 
 description="Tools and steps to get set up for authoring Azure content in GitHub." 
 services="contributor-guide" 
@@ -132,17 +132,21 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
 
 We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor.
 
-- We recommend GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. **Note**: Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. You find this setting under File-Settings in the Editor Settings section with the title "Tab Length". You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad. Also, the hotkey Ctrl-Shift-M toggles the preview HTML view. It's and extra package under Packages-Markdown Preview menu option. 
+- **Atom**: Most of us use GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. It has spell check. 
 
 - **Notepad**: You can use Notepad for a very lightweight option.
 
 - **Prose**: This is a lightweight, elegant, on-line, and open source markdown editor that offers a preview. Visit [http://prose.io](http://prose.io) and authorize Prose in your repository.
 
+- **[Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)** - Microsoft's entry in this space.
+
 ## Configure Atom
 
-Atom defaults to using 2 spaces for tabs.  If you leave it at the default of two, your article will look as expected in local preview, but it will not render correctly when it’s imported into Azure.
+If you use Atom, you'll need to set a few things up.
 
-To view a preview of your edits in Atom, turn on the preview function (Packages>Markdown Preview>Toggle Preview).
+- Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. So, configure Atom to use 4 spaces - you can find this setting under Editor Settings>File-Settings>Tab Length. 
+- You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad. 
+- To turn on the markdown preview, click Packages>Markdown Preview>Toggle Preview. You can use Ctrl-Shift-M to toggle the preview HTML view. 
 
 ## Fork the repository and copy it to your computer
 
