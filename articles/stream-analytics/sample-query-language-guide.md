@@ -64,7 +64,6 @@ e.g. How many unique make of cars passed through the toll booth in a 2 second wi
 		TumblingWindow(second, 1)
 
 **Explanation:**
-We do an initial aggregation to get unique makes with their count over the window.
-We then do an aggregation of how many makes we got – given all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.
+The query does an initial aggregation to get unique makes with their count during the window. Then it performs an aggregation of how many makes there are – given that all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.
 
 ----
