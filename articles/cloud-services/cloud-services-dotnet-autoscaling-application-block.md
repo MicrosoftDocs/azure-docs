@@ -15,13 +15,6 @@
 	ms.topic="article" 
 	ms.date="05/18/2015" 
 	ms.author="rasquill"/>
-
-
-
-
-
-
-
 # How to Use the Autoscaling Application Block
 
 This guide will demonstrate how to perform common scenarios using the
@@ -29,20 +22,9 @@ Autoscaling Application Block from the [Microsoft Enterprise Library 5.0
 Integration Pack for Azure][]. The samples are written in C\#
 and use the .NET API. The scenarios covered include **hosting the
 block**, **using constraint rules**, and **using reactive rules**. For
-more information on the Autoscaling Application Block, see the [Next Steps][] section.
+more information on the Autoscaling Application Block, see the [Next Steps](#next-steps) section.
 
-## Table of Contents
-
-[What is the Autoscaling Application Block?][]   
- [Concepts][]   
- [Collect Performance Counter Data from your Target Azure Application][]   
- [Set up a Host Application for the Autoscaling Application Block][]   
- [How to: Instantiate and Run the Autoscaler][] [How To: Define your Service Model][]   
- [How To: Define your Autoscaling Rules][]   
- [How To: Configure the Autoscaling Application Block][]   
- [Next Steps][]
-
-## <a id="WhatIs"> </a>What is the Autoscaling Application Block?
+## What is the Autoscaling Application Block?
 
 The Autoscaling Application Block can automatically scale your 
 Azure application based on rules that you define specifically for your
@@ -60,7 +42,7 @@ on-premises application.
 
 The Autoscaling Application Block is part of the [Microsoft Enterprise Library 5.0 Integration Pack for Azure][].
 
-## <a id="Concepts"> </a>Concepts
+## Concepts
 
 In the following diagram, the green line shows a plot of the number of
 running instances of an Azure role over two days. The number of
@@ -107,7 +89,7 @@ The block stores its configuration settings in two stores:
     collect data points from the target Azure application and to
     perform scaling operations.
 
-## <a id="PerfCounter"> </a>Collect Performance Counter Data from your Target Azure Application
+## Collect Performance Counter Data from your Target Azure Application
 
 Reactive rules can use performance counter data from roles as part of
 the rule definition. For example, a reactive rule may monitor the CPU
@@ -122,7 +104,7 @@ should modify the roles from which you need to collect performance
 counter data to save this data. For details about how to enable
 performance counters in your application, see [Using performance counters in Azure][].
 
-## <a id="CreateHost"> </a>Set up a Host Application for the Autoscaling Application Block
+## Set up a Host Application for the Autoscaling Application Block
 
 You can host the Autoscaling Application Block either in an Azure
 role or in an on-premises application. The Autoscaling Application Block
@@ -186,7 +168,7 @@ Block:
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.Autoscaling;
 
-## <a id="Instantiate"> </a>How to: Instantiate and Run the Autoscaler
+## How to: Instantiate and Run the Autoscaler
 
 Use the **IServiceLocator.GetInstance** method to instantiate the
 Autoscaler, and then call the **Autoscaler.Start** method to run the
@@ -196,7 +178,7 @@ Autoscaler, and then call the **Autoscaler.Start** method to run the
         EnterpriseLibraryContainer.Current.GetInstance<Autoscaler>();
     scaler.Start();
 
-## <a id="DefineServiceModel"> </a>How To: Define your Service Model
+## How To: Define your Service Model
 
 Typically, you store your service model (a description of your 
 Azure environment that includes information about subscriptions, hosted
@@ -323,7 +305,7 @@ Sign in to the management portal.
 To find out more about the content of the service model file, see
 [Storing Your Service Information Data][].
 
-## <a id="DefineAutoscalingRules"> </a>How To: Define your Autoscaling Rules
+## How To: Define your Autoscaling Rules
 
 Typically, you store the autoscaling rules that control the number of
 role instances in your target application in an XML file. You can find a
@@ -407,7 +389,7 @@ the **service model**:
     instance count of the target role by one if the average CPU
     utilization over the last five minutes has been less than 60%.
 
-## <a id="Configure"> </a>How To: Configure the Autoscaling Application Block
+## How To: Configure the Autoscaling Application Block
 
 After you have defined your service model and autoscaling rules, you
 must configure the Autoscaling Application Block to use them. This
@@ -532,7 +514,7 @@ the block and what actions the block is taking.
     "InstanceChanges":{"AutoscalingApplicationRole":{"CurrentValue":1,"DesiredValue":2}},
     "SettingChanges":{},"RequestID":"f8ca3ada07c24559b1cb075534f02d44"}
 
-## <a id="NextSteps"> </a>Next Steps
+## Next Steps
 
 Now that you've learned the basics of using the Autoscaling Application
 Block, follow these links to learn how to implement more complex
@@ -552,15 +534,6 @@ autoscaling scenarios:
 
   [Microsoft Enterprise Library 5.0 Integration Pack for Azure]:
     http://go.microsoft.com/fwlink/?LinkID=235134
-  [Next Steps]: #NextSteps
-  [What is the Autoscaling Application Block?]: #WhatIs
-  [Concepts]: #Concepts
-  [Collect Performance Counter Data from your Target Azure Application]: #PerfCounter
-  [Set up a Host Application for the Autoscaling Application Block]: #CreateHost
-  [How to: Instantiate and Run the Autoscaler]: #Instantiate
-  [How To: Define your Service Model]: #DefineServiceModel
-  [How To: Define your Autoscaling Rules]: #DefineAutoscalingRules
-  [How To: Configure the Autoscaling Application Block]: #Configure
   [Using performance counters in Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Azure Management Portal]: http://manage.windowsazure.com
