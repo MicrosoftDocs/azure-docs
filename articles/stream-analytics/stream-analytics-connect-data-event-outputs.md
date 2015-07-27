@@ -76,14 +76,14 @@ In this example, the credentials that were provided were incorrect. You can corr
 ---
 For an introduction on Azure Blob Storage and its usage, review the article [An introduction to Windows Azure Blob Storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
 
-To start using an Azure Blog Storage Output, you should have the following information collect about your Table:
+To start using an Azure Blob Storage Output, you should have the following information collect about your Table:
 
 1. If your storage is in a different subscription than your streaming job you will need the Storage Account Name and Storage Account Key.
 2. The container name.
 3. The file name prefix.
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
 
-Select output to Blog storage.
+Select output to Blob storage.
 ![graphic20][graphic20]
 
 Then fill out the details as shown below:
