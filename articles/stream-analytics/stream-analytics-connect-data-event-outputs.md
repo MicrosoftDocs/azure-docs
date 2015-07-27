@@ -135,8 +135,10 @@ For further informaiton on Service Bus Topics see [Service Bus Queues, Topics, a
 
 ### Adding a Service Bus Topic via the Azure Portal ###
 
-## Add Power BI output ##
+## Power BI as an output ##
 ---
+Power BI can be utilized as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting. Note that multiple Power BI outputs may exist on a single Stream Analytics job.
+
 1.  Click **Output** from the top of the page, and then click **Add Output**. Power BI listed as an output option.
 
     ![graphic22][graphic22]
