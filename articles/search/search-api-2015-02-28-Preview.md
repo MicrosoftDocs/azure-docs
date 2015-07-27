@@ -22,7 +22,7 @@ This article is the reference documentation for `api-version=2015-02-28-Preview`
 
 - [Natural language processors](#LanguageSupport) from Microsoft (the same ones used by Office and Bing) offer greater precision over query results and more languages.
 - `moreLikeThis` is a a query parameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
-- A POST alternative to the GET syntax for the [Suggestions](#Suggestions) API, useful when the overall URL length exceeds 8KB.
+- A POST alternative to the GET syntax for both the [Search](#SearchDocs) and [Suggestions](#Suggestions) API, useful when the overall URL length would otherwise exceed 8KB.
 
 A few additional features in `2015-02-28-Preview` are documented separately. These include:
 
