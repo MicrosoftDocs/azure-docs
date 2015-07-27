@@ -132,7 +132,7 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
 
 We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor.
 
-- Most of us use GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. It has spell check. 
+- **Atom**: Most of us use GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. It has spell check. 
 
 - **Notepad**: You can use Notepad for a very lightweight option.
 
