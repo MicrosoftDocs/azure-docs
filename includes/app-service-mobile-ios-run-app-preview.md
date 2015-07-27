@@ -7,3 +7,4 @@
 
    	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
+[Azure Portal]: https://portal.azure.com/
