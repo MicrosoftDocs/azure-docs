@@ -28,7 +28,7 @@ This release contains the following updates.
 <th>Description</th>
 </tr>
 <tr>
-<td>Mulitple Power BI outputs</td>
+<td>Multiple Power BI outputs</td>
 <td>Now it is an option to configure multiple Power BI outputs to a single Stream Analytics job.</td>
 </tr>
 <tr>
