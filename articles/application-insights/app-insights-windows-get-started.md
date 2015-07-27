@@ -66,18 +66,20 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 3. Pick **Application Insights for Windows Applications**
 
-4. Add an ApplicationInsights.config file to the root of your solution and insert the instrumentation key copied from above. A sample xml for this config file is shown below. **Make sure to mark the ApplicationInsights.config file Build Action to "Content" and Copy to Output Directory to "Copy always"**.
+4. Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal. A sample xml for this config file is shown below. 
 
 	```xml
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
-			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
+
+    Set the properties of the ApplicationInsights.config file: **Build Action** == **Content** and **Copy to Output Directory** == **Copy always**.
 	
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-5. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
+5. Add the following initialization code. It is best to add this code to the `App()` constructor. If you do it somewhere else, you might miss auto collection of the first pageviews.  
 
 ```C#
 	public App()

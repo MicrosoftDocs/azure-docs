@@ -69,6 +69,11 @@
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
+<tr>
+   <td valign="middle"><p>Alert rules per subscription</p></td>
+   <td valign="middle"><p>250</p></td>
+   <td valign="middle"><p>250</p></td>
+</tr>
 </table>
 
 <sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
