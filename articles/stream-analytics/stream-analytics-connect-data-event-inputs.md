@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/14/2015" 
+	ms.date="07/27/2015" 
 	ms.author="jeffstok"/>
 
 # Connect Stream Analytics inputs
@@ -23,11 +23,13 @@
 When creating a Stream Analytics job, the user must understand the type of data being analyzed. As long as the job is composed of at least a single streaming data source, Stream Analytics jobs can process it. If the data also includes additional auxiliary data sources or even stored time-based events, it is important to understand the two input methods for Stream Analytics and which is appropriate for each dataset in the present use case.
 
 ## Data stream inputs
+---
 At a basic level, Stream Analytics job definitions must include at least one data stream input source to be consumed and transformed by the job. Azure Blob storage and Azure Event Hubs are supported as data stream input sources. Azure Event Hubs input sources are used to collect event streams from multiple devices and services
 
 Alternately, Azure Blob storage can be used as an input source for ingesting bulk data. It is important to note that when using Azure Blobs the data is rest and therefore Stream Analytics will interpret all data contained in a blob as having the timestamp of the creation timestamp of the blob itself. That is, unless the records in the blob contain timestamps.
 
 ## Reference data inputs
+---
 Stream Analytics also supports a second type of input source data known as reference data. This is auxiliary data which is typically used for performing correlation and look-ups, and the data here is usually static or infrequently changed. Azure Blob storage is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
 
 To enable support for refreshing reference data the user may specify a list of blobs in the input configuration using the {date} and {time} tokens inside the path pattern. The job will load the corresponding blob based on the date and time encoded in the blob names using UTC time zone.
@@ -47,14 +49,15 @@ To create a data stream input, simply go to the **Inputs** tab of the Stream Ana
 ## Creating an Event hub input data stream
 ---
 ### Overview of Event hubs
-
+---
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can publish web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining. Event Hubs can be used for data egress also.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job. For further details on Event Hubs visit the portal at [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs").
 
 ### Consumer groups
+---
 Each Stream Analytics job output should be configured to have its own event-hub consumer group. When a job contains self-join or multiple outputs, some input may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
 
 ## Creating the Event hub input data stream
-
+---
 Below is a walkthrough to configure an Event hub as an input. To start using an Event hub input, the user should have the following information collect about the Table:
 
 1. The name of the Service Bus Namespace. 

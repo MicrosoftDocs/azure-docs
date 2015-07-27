@@ -13,12 +13,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/14/2015" 
+	ms.date="07/27/2015" 
 	ms.author="jeffstok"/>
 
 # Connect Stream Analytics outputs
 
 ## Understanding Stream Analytics outputs
+---
 When creating a Stream Analytics job, one of the considerations is how the output of the job is consumed. Who are the consumers of the data transformation and what tool(s) will they be using to analyze the output? Azure Stream Analytics provides five different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Power BI and Table storage. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.
 
 ## Using SQL as output
