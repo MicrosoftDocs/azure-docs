@@ -16,11 +16,12 @@
 	ms.date="07/24/2015"
 	ms.author="krisragh"/>
 
-# <a name="getting-started"> </a>iOS Quick Start with Azure Mobile Apps
+# <a name="getting-started"> </a>iOS quick start with Azure Mobile Apps
+
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
 This tutorial walks you through a simple _Todo list_ iOS app. You'll learn to use Azure Mobile Apps as a backend for storing data and server-side logic. 
 
@@ -30,11 +31,11 @@ To complete this tutorial, you need the following:
 * A Mac with the latest Xcode 
 * An active Azure account. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/) and [App Service Pricing](http://azure.microsoft.com/en-us/pricing/details/app-service/). With [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), try an hour of Azure App Service experience with no Azure subscription, free of charge and commitment.
 
-## Create Azure Backend
+## Create Azure backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Download Azure Backend Code
+## Download Azure backend code
 
 1. On your PC, visit [Azure Portal], click **Browse All** > **Mobile Apps** > the backend that you just created.
 
@@ -42,11 +43,11 @@ To complete this tutorial, you need the following:
 
 3. Click **Download and publish your service to the cloud** > **Download**.
 
-## Deploy Azure Backend
+## Deploy Azure backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Download and Run iOS App
+## Download and run iOS app
 
 [AZURE.INCLUDE [app-service-mobile-ios-run-app-preview](../../includes/app-service-mobile-ios-run-app-preview.md)]
 
