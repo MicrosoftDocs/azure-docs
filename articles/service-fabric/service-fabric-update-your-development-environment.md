@@ -11,8 +11,8 @@
    ms.service="service-fabric"
    ms.devlang="dotNet"
    ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
    ms.date="07/21/2015"
    ms.author="seanmck"/>
 
