@@ -18,7 +18,7 @@
 # Application Gateway technical overview 
 
 
-Microsoft Azure Application Gateway is an Azure-managed service similar to the Azure VPN Gateway. Application Gateway provides an Azure-managed HTTP load balancing solution based on IIS Application Request Routing (ARR). The application gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
+Microsoft Azure Application Gateway is provides an Azure-managed HTTP load balancing solution based on IIS Application Request Routing (ARR). Application Request Routing enables IT administrators and developers to create routing rules based on HTTP. The routing is made at the application level allowing a granular control over HTTP requests.  The application gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
 Application Gateway currently supports layer 7 application delivery for the following:
 
@@ -29,7 +29,9 @@ Application Gateway currently supports layer 7 application delivery for the foll
 ![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
 
 ## HTTP layer 7 load balancing
-Azure provides layer 4 load balancing via a software load-balancer. This happens implicitly for every cloud service that has a load balanced VIP (public or internal). However, there are many applications that can use layer 7 (HTTP) based load balancing. 
+
+Azure provides layer 4 load balancing via Azure load-balancer. This happens implicitly for every cloud service that has a load balanced VIP (public or internal). Application Gateway works together with Azure load balancer to allow applications to use layer 7 (HTTP) based load balancing. When you create an application gateway, you are also implicitly creating an Azure load balancer to use its endpoints (VIP).
+ 
 
 
 HTTP layer 7 load balancing is useful for:
