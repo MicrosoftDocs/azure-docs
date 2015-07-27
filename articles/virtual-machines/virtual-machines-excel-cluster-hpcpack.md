@@ -263,13 +263,11 @@ To run Excel UDFs, follow the preceding steps 1 – 3 to set up the client compu
 
 >[AZURE.NOTE] There is a 34 character limit in the Excel 2010 and 2013 cluster connector dialog box. If the full cluster name is longer, e.g. hpcexcelhn01.southeastasia.cloudapp.azure.com, it won't fit and the UDFs won't run. The workaround is to use the IaaS Deployment script to deploy a cluster with a shorter name such as hpcexcelhn01.cloudapp.net. This issue will be fixed in a later version of the SOA Session API.
 
-After the cluster is successfully deployed, continue with the following steps to run a sample built-in Excel UDF.
+After the cluster is successfully deployed, continue with the following steps to run a sample built-in Excel UDF. For customized Excel UDFs, see these [resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) to build the XLLs and deploy them on the IaaS cluster.
 
 1.	Open a new Excel workbook. On the **Develop** ribbon, click **Add-Ins**. Then, in the dialog box, click **Browse**, navigate to the %CCP_HOME%Bin\XLL32 folder, and select the sample ClusterUDF32.xll.
 
     ![Select the UDF][udf]
-
-    >{AZURE.NOTE]For customized Excel UDFs, see these [resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) to build the XLLs and deploy them on the IaaS cluster.
 
 2.	Click **File** > **Options** > **Advanced**. Under **Formulas** check **Allow user-defined XLL functions to run a compute cluster**. Then click **Options** and enter the full cluster name in **Cluster head node name**. (As noted previously this input box is limited to 34 characters, so a long cluster name may not fit. You can configure a shorter full name when you deploy a clusters via the IaaS deployment script.)
 
@@ -280,7 +278,6 @@ After the cluster is successfully deployed, continue with the following steps to
     ![Run UDF][run]
 
     When there are a lot of cells to calculate, press Alt-Shift-Ctrl + F9 to run the calculation on all cells.
-
 
 ## Step 3. Run a SOA workload from an on-premises client
 
