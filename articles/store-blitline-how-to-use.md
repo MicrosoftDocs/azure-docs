@@ -112,7 +112,7 @@ Here is an example:
 
 By filling in the CAPITALIZED values with your own, you can submit this JSON to http://api.blitline.com/job and the "src" image will be processed with a blur filter and then pushed to you Azure destination.
 
-<h3>Please note:</h3>
+###Please note:
 
 The SAS must contain the entire SAS url, including the filename of the destination file.
 
