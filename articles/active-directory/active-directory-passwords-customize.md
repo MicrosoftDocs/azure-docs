@@ -56,46 +56,10 @@ Write back password to on-premises directory|Controls whether or not Password Wr
 ## Password Management notifications
 The following table describes how each control affects the experience for users and admins who receive password reset notifications.  You can configure these options under the **Notifications** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  **Policy Control**
-                |
-                  **Description**
-                |
-                  **Affects?**
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Notify admins when other admins reset their own passwords|Determines whether or not all global admins will be notified via an email to their primary email address when another admin of any type resets his or her own password.|
-                  **Password reset portal:**<p><p>If set to no, then no notifications will be sent.<br><br></li>
-                  <li class="unordered">
-												If set to yes, then all other global administrators will be notified when any single admin resets his or her own password.<br><br></li>
-                  <li class="unordered">
-												This notification is sent via an email to the primary email addresses of all other global admins in the organization.<p><p>**Example:**<p><p>If this option was enabled when admin A resets his password, and there are 3 other admins in the tenant, B, C, and D, then admins B, C, and D would receive an email indicating admin A reset his password.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Notify users and admins when their own password has been reset|Determines whether or not end users or admins who reset their own passwords will receive an email notification that their password has been reset.|
-                  **Password reset portal:**<p><p>If set to no, then no notifications will be sent.<br><br></li>
-                  <li class="unordered">
-												If set to yes, then whenever a user or admin resets his own password, he or she will receive a notification indicating his or her password has been reset.<br><br></li>
-                  <li class="unordered">
-												This notification is sent via an email to the primary, and alternate (or authentication) email address of the user who reset his or her password.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody></table>
-
-
-<br/>
-<br/>
-<br/>
+Policy Control | Description | Affects?
+--|--|--
+Notify admins when other admins reset their own passwords|Determines whether or not all global admins will be notified via an email to their primary email address when another admin of any type resets his or her own password.| **Password reset portal:**<p><p>- If set to no, then no notifications will be sent.<p><p>- If set to yes, then all other global administrators will be notified when any single admin resets his or her own password.<p><p>- This notification is sent via an email to the primary email addresses of all other global admins in the organization.<p><p>**Example:**<p><p>If this option was enabled when admin A resets his password, and there are 3 other admins in the tenant, B, C, and D, then admins B, C, and D would receive an email indicating admin A reset his password.
+Notify users and admins when their own password has been reset|Determines whether or not end users or admins who reset their own passwords will receive an email notification that their password has been reset.|**Password reset portal:**<p><p>If set to no, then no notifications will be sent.<p><p>- If set to yes, then whenever a user or admin resets his own password, he or she will receive a notification indicating his or her password has been reset.<p><p>- This notification is sent via an email to the primary, and alternate (or authentication) email address of the user who reset his or her password.
 
 **Additional Resources**
 
