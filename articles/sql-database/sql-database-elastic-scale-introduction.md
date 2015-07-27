@@ -16,7 +16,7 @@
     ms.date="04/24/2015" 
     ms.author="sidneyh"/>
 
-# Azure SQL Database - elastic database tools
+# Azure SQL Database Elastic Database tools
 
 ## Promises and challenges
 
