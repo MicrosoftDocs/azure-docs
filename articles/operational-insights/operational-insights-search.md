@@ -583,37 +583,11 @@ Syntax:
 
 
 
-<table border="1" cellspacing="4" cellpadding="4">
-	<tr>
-		<th>Operator</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>
-		<p>/</p>
-		</td>
-		<td>
-		<p>Rounds Date/Time to the specified unit. </p>
-		<p>Example:&nbsp;NOW/DAY rounds the current Date/Time to the midnight of the
-		current day. </p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>+ or -</p>
-		</td>
-		<td>
-		<p>Offsets Date/Time by the specified number of units</p>
-		<p>Examples:&nbsp; </p>
-		<ul>
-			<li class="unordered">NOW+1HOUR offsets the current Date/Time by one
-			hour ahead.<br><br></li>
-			<li class="unordered">2013-10-01T12:00-10DAYS offsets the Date value
-			back by 10 days.</li>
-		</ul>
-		</td>
-	</tr>
-</table>
+
+Operator|Description
+--|--
+/ | Rounds Date/Time to the specified unit. <p><p>Example: NOW/DAY rounds the current Date/Time to the midnight of the current day. 
++ or -|Offsets Date/Time by the specified number of units<p><p>Examples:<p><p>- NOW+1HOUR offsets the current Date/Time by one hour ahead.<p><p>- 2013-10-01T12:00-10DAYS offsets the Date valueback by 10 days.
 
 
 
@@ -788,80 +762,14 @@ Syntax:
 Aggregates the results by **groupField** and calculates the aggregated measure values by using **aggregatedField**.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table>
-	<tr>
-		<th>Measure statistical function </th>
-		<th>Description </th>
-	</tr>
-	<tr>
-		<td>
-		<p><em>aggregateFunction</em> </p>
-		<p></p>
-		</td>
-		<td>
-		<p>The name of the aggregate function (case insensitive). The following
-		aggregate functions are supported :</p>
-		<ul>
-			<li class="unordered">COUNT<br><br></li>
-			<li class="unordered">MAX<br><br></li>
-			<li class="unordered">MIN<br><br></li>
-			<li class="unordered">SUM<br><br></li>
-			<li class="unordered">AVG<br><br></li>
-			<li class="unordered">STDDEV<br><br></li>
-		</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p><em>aggregatedField</em> </p>
-		</td>
-		<td>
-		<p>The field that is being aggregated. This field is optional for the
-		COUNT aggregate function, but has to be an existing numeric field for
-		SUM, MAX, MIN, AVG, or STDDEV.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p><em>fieldAlias</em> </p>
-		</td>
-		<td>
-		<p>The (optional) alias for the calculated aggregated value. If not
-		specified, the field name will be <em>AggregatedValue.</em></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p><em>groupField</em> </p>
-		</td>
-		<td>
-		<p>The name of the field that the result set is grouped by. </p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p><em>Interval</em> </p>
-		</td>
-		<td>
-		<p>The time interval in the format: </p>
-		<p><em>nnnNAME</em> </p>
-		<p></p>
-		<p>Where: </p>
-		<p>nnn is the positive integer number</p>
-		<p><em>NAME</em> is the interval name</p>
-		<p>Supported interval names include (case sensitive): </p>
-		<ul>
-			<li class="unordered">MILLISECOND[S]<br><br></li>
-			<li class="unordered">SECOND[S]<br><br></li>
-			<li class="unordered">MINUTE[S]<br><br></li>
-			<li class="unordered">HOUR[S]<br><br></li>
-			<li class="unordered">DAY[S]<br><br></li>
-			<li class="unordered">MONTH[S]<br><br></li>
-			<li class="unordered">YEAR[S]<br></li>
-		</ul>
-		</td>
-	</tr>
-</table>
+Measure statistical function|Description 
+--|--
+*aggregateFunction* |The name of the aggregate function (case insensitive). The following aggregate functions are supported :<p><p>- COUNT<p><p> - MAX<p> - MIN<p> - SUM<p> - AVG<p>-STDDEV
+*aggregatedField* |The field that is being aggregated. This field is optional for the COUNT aggregate function, but has to be an existing numeric field for SUM, MAX, MIN, AVG, or STDDEV.
+*fieldAlias* |The (optional) alias for the calculated aggregated value. If not specified, the field name will be *AggregatedValue.*
+*groupField* |The name of the field that the result set is grouped by. 
+*Interval* |The time interval in the format: 
+*nnnNAME* |Where: <p><p>nnn is the positive integer number *NAME* is the interval name<p><p>Supported interval names include (case sensitive): <p><p>- MILLISECOND[S]<p><p>- SECOND[S]<p><p>- MINUTE[S]<p><p>- HOUR[S]<p><p>- DAY[S]<p><p>- MONTH[S]<p><p>- YEAR[S]
 
 
 
