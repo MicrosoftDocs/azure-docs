@@ -75,7 +75,7 @@ If a user has a subscription for Azure or Office 365 and has been using the Azur
 If the organization has configured federation, then typing the username is sufficient.
 
 Once authenticated, users will be able to interact with the applications that have been integrated with the directory by the administrator. 
- To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/?rnd=1 ).
+ To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
  
 
 
@@ -198,7 +198,7 @@ For example, if there is an application that is configured to authenticate users
 
 ## Additional Resources
 
-* [What is application access and single sign-on with Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/?rnd=1 )
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png

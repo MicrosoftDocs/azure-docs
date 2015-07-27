@@ -416,6 +416,6 @@ If the state code doesn't match any of the predefined options, use default value
 
 ## Additional Resources
 
-* [What is application access and single sign-on with Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/?rnd=1 )
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

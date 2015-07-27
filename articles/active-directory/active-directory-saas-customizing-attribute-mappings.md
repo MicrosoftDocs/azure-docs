@@ -92,7 +92,7 @@ Microsoft Azure AD provides a very efficient implementation of a synchronization
 
 ## Additional Resources
 
-* [What is application access and single sign-on with Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/?rnd=1 )
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
