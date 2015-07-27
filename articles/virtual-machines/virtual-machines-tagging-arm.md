@@ -3,7 +3,7 @@
    description="Learn about Tagging a Virtual Machine in Azure"
    services="virtual-machines"
    documentationCenter=""
-   authors="dsk-2015"
+   authors="mmccrory"
    manager="timlt"
    editor="tysonn"
    tags="azure-resource-manager"/>
