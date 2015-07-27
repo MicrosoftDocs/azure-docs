@@ -160,11 +160,11 @@ For more information about configuring CHAP on the Windows host server, go to [A
 
 ## Additional considerations
 
-- The **Quick Connect** feature does not support connections that have CHAP enabled. When CHAP is enabled, make sure that you use the **Connect** button that is available on the **Targets** tab to connect to a target.
+The **Quick Connect** feature does not support connections that have CHAP enabled. When CHAP is enabled, make sure that you use the **Connect** button that is available on the **Targets** tab to connect to a target.
 
-    ![Connect to target](./media/storsimple-configure-chap/IC740947.png)
+![Connect to target](./media/storsimple-configure-chap/IC740947.png)
 
-- In the **Connect to Target** dialog box that is presented, select the **Add this connection to the list of Favorite Targets** check box. This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.
+In the **Connect to Target** dialog box that is presented, select the **Add this connection to the list of Favorite Targets** check box. This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.
 
 ## Errors during configuration
 
