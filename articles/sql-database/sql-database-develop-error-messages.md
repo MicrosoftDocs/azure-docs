@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="07/27/2015" 
 	ms.author="genemi"/>
 
 
@@ -132,7 +132,7 @@ The following table covers the errors that you might encounter while working wit
 > 
 > The Elastic Scale feature is designed to create sharding applications with minimal effort.
 > 
-> For more information about Elastic Scale, see [Azure SQL Database Elastic Scale Topics](http://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). Consider deploying custom sharding solutions to maximize scalability, flexibility, and performance. For more information about custom sharding, see [Scaling Out Azure SQL Databases](http://msdn.microsoft.com/library/azure/dn495641.aspx).
+> For more information about Elastic Scale, see [Azure SQL Database Elastic Scale Topics](sql-database-elastic-scale-documentation-map.md). Consider deploying custom sharding solutions to maximize scalability, flexibility, and performance. For more information about custom sharding, see [Scaling Out Azure SQL Databases](http://msdn.microsoft.com/library/azure/dn495641.aspx).
 
 
 |Error number|Severity|Description|Mitigation|
