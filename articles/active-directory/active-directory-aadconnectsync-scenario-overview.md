@@ -1,5 +1,6 @@
 <properties
 	pageTitle="Azure AD Connect Sync: Multi-forest Scenario Overview"
+    description="The objective of this topic is to cover some common scenarios and how they are represented in the sync service of Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
