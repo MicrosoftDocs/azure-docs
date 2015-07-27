@@ -13,10 +13,41 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/09/2015" 
+	ms.date="07/27/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 07/30/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Mulitple Power BI outputs</td>
+<td>Now it is an option to configure multiple Power BI outputs to a single Stream Analytics job.</td>
+</tr>
+<tr>
+<td>Added Service Bus Queue outputs</td>
+<td>Service Bus Queue outputs are now available in Stream Analytics jobs.</td>
+</tr>
+<tr>
+<td>Added Service Bus Topic outputs</td>
+<td>Service Bus Topic outputs are now available in Stream Analytics jobs.</td>
+</tr>
+<tr>
+<td>Added new Array functions</td>
+<td>Added the Array functions GetArrayElement, GetArrayElements, GetArrayLength</td>
+</tr>
+<tr>
+<td>Added new Record functions</td>
+<td>Added the Record functions GetRecordProperties and GetRecordPropertyValue</td>
+</tr>
+</table>
 
 ## Notes for 07/09/2015 release of Stream Analytics ##
 
