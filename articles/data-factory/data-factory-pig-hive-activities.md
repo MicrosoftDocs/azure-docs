@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
@@ -133,7 +133,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 						"transformation":
 						{
                     		"type": "Hive",
-                    		"extendedProperties":
+                    		"defines":
                     		{
                         		"RESULTOUTPUT": "wasb://adftutorial@<your storage account>.blob.core.windows.net/hiveoutput/",
 		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
@@ -184,7 +184,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property m
 		{
 			"type": "Pig",
 			"script": "pig script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
  			}
@@ -197,7 +197,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property m
 - **linkedServiceName** is set to **MyHDInsightLinkedService**. See the HDInsight linked service section below for details on creating an HDInsight linked service.
 - The **type** of the **transformation** is set to **Pig**.
 - You can specify Pig script inline for the **script** property or store script files in an Azure blob storage and refer to the file using **scriptPath** property, which is explained later in this article. 
-- You specify parameters for the Pig script by using the **extendedProperties**. More details are provided later in this article. 
+- You specify parameters for the Pig script by using the **defines**. More details are provided later in this article. 
 
 
 ## Hive JSON example
@@ -214,7 +214,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property m
 		{
 			"type": "Hive",
 			"script": "Hive script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
             }
@@ -227,7 +227,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property m
 - **linkedServiceName** is set to **MyHDInsightLinkedService**. 
 - The **type** of the **transformation** is set to **Hive**.
 - You can specify Hive script inline for the **script** property or store script files in an Azure blob storage and refer to the file using **scriptPath** property, which is explained later in this article. 
-- You specify parameters for the Hive script by using the **extendedProperties**. More details are provided later in this article. 
+- You specify parameters for the Hive script by using the **defines**. More details are provided later in this article. 
 
 > [AZURE.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
 
@@ -260,7 +260,7 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
     					"type": "Hive",
     					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
-						"extendedProperties":
+						"defines":
 						{
 						}		
 					},
@@ -282,11 +282,11 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
 > See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
 
 ## Parameterized Pig and Hive Queries
-The Data Factory Pig and Hive activities enable you to specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties**. The extendedProperties section consists of the name of the parameter, and value of the parameter.
+The Data Factory Pig and Hive activities enable you to specify values for parameters used in the Pig and Hive scripts, by using **defines**. The defines section consists of the name of the parameter, and value of the parameter.
 
-See the following example for specifying parameters for a Hive script using **extendedProperties**. To use parameterized Hive  scripts, do the following:
+See the following example for specifying parameters for a Hive script using **defines**. To use parameterized Hive  scripts, do the following:
 
-1.	Define the parameters in **extendedProperties**.
+1.	Define the parameters in **defines**.
 2.	In the in-line Hive script (or) Hive script file stored in the blog storage, refer to the parameter using **${hiveconf:parameterName}**.
 
    
@@ -307,7 +307,7 @@ See the following example for specifying parameters for a Hive script using **ex
 				  		"transformation":
 				  		{
 							"type": "Hive", 
-							"extendedProperties":
+							"defines":
 							{
 								"Param1": "$$Text.Format('{0:yyyy-MM-dd}', SliceStart)",
 								"Param2": "value"
