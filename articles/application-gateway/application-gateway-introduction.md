@@ -18,7 +18,7 @@
 # Application Gateway technical overview 
 
 
-Microsoft Azure Application Gateway is provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. Application load balancing  enables IT administrators and developers to create routing rules based on HTTP.  The application gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
+Microsoft Azure Application Gateway is provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. Application load balancing  enables IT administrators and developers to create routing rules for network traffic based on HTTP.  The application gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
 Application Gateway currently supports layer 7 application delivery for the following:
 
