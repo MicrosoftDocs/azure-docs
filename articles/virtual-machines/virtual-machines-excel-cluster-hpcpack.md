@@ -178,6 +178,7 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
 ```
 
 **Run the script**
+
 1. Open the PowerShell console on the client computer as an administrator.
 
 2. Change directory to the script folder (E:\IaaSClusterScript in this example).
@@ -270,7 +271,7 @@ After the cluster is successfully deployed, continue with the following steps to
 
     >{AZURE.NOTE]For customized Excel UDFs, see these [resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) to build the XLLs and deploy them on the IaaS cluster.
 
-2.	Click **File** > **Options** > **Advanced**. Under **Formulas** check **Allow user-defined XLL functions to run a compute cluster**. Then click **Options** and enter the full cluster name in **Cluster head node name**. (As noted previously this input box is limited to 34 characters, so a long cluster name may not be fit in. You can configure a shorter full name when you deploy a clusters via the IaaS deployment script.)
+2.	Click **File** > **Options** > **Advanced**. Under **Formulas** check **Allow user-defined XLL functions to run a compute cluster**. Then click **Options** and enter the full cluster name in **Cluster head node name**. (As noted previously this input box is limited to 34 characters, so a long cluster name may not fit. You can configure a shorter full name when you deploy a clusters via the IaaS deployment script.)
 
     ![Configure the UDF][options]
 
