@@ -16,7 +16,7 @@
 	ms.date="07/27/2015" 
 	ms.author="jeffstok"/>
 
-# Connect Stream Analytics inputs
+# Create Stream Analytics inputs
 
 ## Understanding Stream Analytics inputs
 ---
@@ -87,7 +87,7 @@ Then check the **Complete** checkbox and your Event hub input is now created.
 ---
 For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. For further information on Blog storage visit the portal at [Blog storage](http://azure.microsoft.com/services/storage/blobs/)
 
-Below is a walkthrough to configure Blog storage as an input. To start using an Azure Blog storage input, the user should have the following information collect about the Table:
+Below is a walk-through to configure Blog storage as an input. To start using an Azure Blog storage input, the user should have the following information collect about the Table:
 
 1. If the storage account is in a different subscription than the streaming job the user will need the Storage Account Name and Storage Account Key.
 2. The container name.

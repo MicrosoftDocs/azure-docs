@@ -109,6 +109,9 @@ There are a few parameters that customers need to configure for Event Hub data s
 5. Event Hub Consumer Group: Optional parameter for Event Hub inputs.  The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   We recommend using a distinct consumer Group for each Stream Analytics job.
 6. Partition Key Column:  Optional parameter for Event Hub outputs. The data attribute column that is used as the partition key for Event Hub output. 
 
+## Service Bus Queue ##
+---
+
 ## Add Power BI output ##
 ---
 1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
