@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started using Azure Data Factory" 
+	pageTitle="Tutorial: Copy data from an Azure blob to Azure SQL" 
 	description="This tutorial shows you how to create a sample data pipeline that copies data from a blob to an Azure SQL Database instance." 
 	services="data-factory" 
 	documentationCenter="" 

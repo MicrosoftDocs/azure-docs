@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/23/2015"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # Build your first pipeline using Azure Data Factory
@@ -166,7 +166,7 @@ In this step, you will create your first pipeline.
 
 1. In the **Solution Explorer**, right-click **Pipelines**, point to **Add**, and click **New Item.** 
 2. Select **Hive Transformation Pipeline** from the list, and click **Add**. 
-3. Replace the **JSON** with the following snippet and replace **storageaccountname** with the storage account name that you are using in this tutorial.
+3. Replace the **JSON** with the following snippet and replace **storageaccountname** with the name of your storage account.
 
 		{
 			"name": "MyFirstPipeline",
@@ -218,8 +218,28 @@ In this step, you will create your first pipeline.
 
 	![Publish button](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
-23. You should see the status of publishing in the Data Factory Task List window that is shown in the picture above. Confirm that publishing has succeeded.
+23. You should see the status of publishing in the **Data Factory Task List** window that is shown in the picture above. Confirm that publishing has succeeded.
 
+
+## Use Server Explorer to review Data Factory entities
+
+1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
+2. In the Server Explorer window, expand **Azure** and expand **Data Factory**. If you see **Sign in to Visual Studio**, enter the **account** associated with your Azure subscription and click **Continue**. Enter **password**, and click **Sign in**. Visual Studio tries to get information about all Azure data factories in your subscription. You will see the status of this operation in the **Data Factory Task List** window.
+
+	![Server Explorer](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
+3. You can right-click on a data factory, and select **Export Data Factory to New Project** to create a Visual Studio project based on an existing data factory.
+
+	![Export data factory](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
+
+## Update Data Factory tools for Visual Studio
+
+To update Azure Data Factory tools for Visual Studio, do the following:
+
+1. Click **Tools** on the menu and select **Extensions and Updates**.
+2. Select **Updates** in the left pane and then select **Visual Studio Gallery**.
+3. Select **Azure Data Factory tools for Visual Studio** and click **Update**. If you do not see this entry, you already have the latest version of the tools. 
+
+See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
  
 
 ## Next Steps

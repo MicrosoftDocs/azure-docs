@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/06/2015"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # Build your first Azure Data Factory pipeline using Azure PowerShell
@@ -159,7 +159,7 @@ In this step, you will create your first pipeline.
 
 1.	Create a JSON file named **MyFirstPipelinePSH.json** in the **C:\ADFGetStartedPSH** folder with the following content: 
 
-	> [AZURE.IMPORTANT] Replace **storageaccountname** with the storage account name that you are using in this tutorial. 
+	> [AZURE.IMPORTANT] Replace **storageaccountname** with the name of your storage account in the  JSON. 
 
 		{
 		  "name": "MyFirstPipeline",

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/16/2015"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # Build your first pipeline using Azure Data Factory
@@ -69,7 +69,7 @@ In this step, you will link your Azure Storage account and an on-demand Azure HD
 
 ### Create Azure Storage linked service
 1.	Click **Author and deploy** on the **DATA FACTORY** blade for **DataFactoryFirstPipeline**. This launches the Data Factory Editor. 
-	
+	 
 	![Author and deploy tile](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 2.	Click **New data store** and choose **Azure storage**
 	
@@ -157,7 +157,7 @@ In this step, you will create your first pipeline.
 	![new pipeline button](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copy and paste the snippet below to the Draft-1 window.
 
-	> [AZURE.IMPORTANT] Replace **storageaccountname** with the storage account name that you are using in this tutorial.
+	> [AZURE.IMPORTANT] Replace **storageaccountname** with the name of your storage account in the  JSON.
 
 		{
 		  "name": "MyFirstPipeline",

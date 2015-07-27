@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: create and monitor an Azure data factory using Azure PowerShell" 
+	pageTitle="Tutorial: Copy data from an Azure blob to Azure SQL" 
 	description="Learn how to use Azure PowerShell to create and monitor Azure data factories." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Azure PowerShell
