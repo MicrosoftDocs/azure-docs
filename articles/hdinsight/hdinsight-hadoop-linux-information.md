@@ -84,9 +84,7 @@ HDInsight also allows you to associate multiple Blob storage accounts with a clu
 
 ### What Blob storage is the cluster using?
 
-During cluster creation, you selected to either use an existing Azure Storage account and container, or create a new one. Then, you probably forgot about it. You can find the Storage account and container by using the following methods.
-
-**Ambari API**
+During cluster creation, you selected to either use an existing Azure Storage account and container, or create a new one. Then, you probably forgot about it. You can find the default storage account and container by using the Ambari REST API.
 
 1. Use the following command to retrieve HDFS configuration information:
 
@@ -110,16 +108,6 @@ During cluster creation, you selected to either use an existing Azure Storage ac
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-
-**Azure portal**
-
-1. In the [Azure portal](https://manage.windowsazure.com/), select your HDInsight cluster.
-
-2. Select **Dashboard** at the top of the page.
-
-3. The Storage account(s) and container(s) are listed in the **linked resources** section of the page.
-
-	![linked resources](./media/hdinsight-hadoop-linux-information/storageportal.png)
 
 ### How do I access Blob storage?
 
@@ -150,4 +138,3 @@ Other than through the Hadoop command from the cluster, there are a variety of w
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
- 
