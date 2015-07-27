@@ -56,6 +56,7 @@ Execute Hadoop Pig queries using the HDInsightPig transformation activity in Dat
 ## Syntax details
 
 Property | Description | Required
+-------- | ----------- | --------
 name | Name of the activity | Yes
 description | Text describing what the activity is used for | No
 type | HDinsightPig | Yes
