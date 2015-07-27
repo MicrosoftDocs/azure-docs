@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="get-started-article"
-	ms.date="07/24/2015"
+	ms.date="07/27/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>iOS quick start with Azure Mobile Apps
