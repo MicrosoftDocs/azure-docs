@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="07/23/2015"
+   ms.date="07/27/2015"
    ms.author="alkohli" />
 
 # Configure CHAP for your StorSimple device
@@ -89,13 +89,8 @@ In unidirectional authentication, the target authenticates the initiator. This a
 
     > [AZURE.IMPORTANT] If you change the iSCSI name, the new name will be used for new iSCSI sessions. New settings are not used for existing sessions until you log off and log on again.
 
-**Additional considerations:**
+For more information about configuring CHAP on the Windows host server, go to [Additional considerations](#additional-considerations).
 
-- The **Quick Connect** feature does not support connections that have CHAP enabled. When CHAP is enabled, make sure that you use the **Connect** button that is available on the **Targets** tab to connect to a target.
-
-    ![Connect to target](./media/storsimple-configure-chap/IC740947.png)
-
-- In the **Connect to Target** dialog box that is presented, select the **Add this connection to the list of Favorite Targets** check box. This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.
 
 ## Bidirectional or mutual authentication
 
@@ -160,6 +155,16 @@ In bidirectional authentication, the target authenticates the initiator and then
 		![Advanceds settings mutual authentication](./media/storsimple-configure-chap/IC740950.png)
 
 	5. Click **OK** to complete the CHAP configuration.
+
+For more information about configuring CHAP on the Windows host server, go to [Additional considerations](#additional-considerations).
+
+## Additional considerations
+
+- The **Quick Connect** feature does not support connections that have CHAP enabled. When CHAP is enabled, make sure that you use the **Connect** button that is available on the **Targets** tab to connect to a target.
+
+    ![Connect to target](./media/storsimple-configure-chap/IC740947.png)
+
+- In the **Connect to Target** dialog box that is presented, select the **Add this connection to the list of Favorite Targets** check box. This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.
 
 ## Errors during configuration
 
