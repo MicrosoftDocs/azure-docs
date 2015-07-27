@@ -16,13 +16,13 @@
 	ms.date="07/27/2015" 
 	ms.author="jeffstok"/>
 
-# Connect Stream Analytics outputs
+# Create Stream Analytics outputs
 
 ## Understanding Stream Analytics outputs
 ---
 When creating a Stream Analytics job, one of the considerations is how the output of the job is consumed. Who are the consumers of the data transformation and what tool(s) will they be using to analyze the output? Azure Stream Analytics provides five different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Power BI and Table storage. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.
 
-## Using SQL as output
+## Using a SQL Database as an output
 ---
 You can use Azure SQL databases as output for data that is relational in nature or for applications that depend on content being hosted in a database. For more information on Azure SQL databases see [Azure SQL Databases](http://azure.microsoft.com/services/sql-database/).
 
@@ -72,7 +72,24 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ![graphic10][graphic10]
 
-## Using Event Hubs as your output
+## Using Blob Storage as an Output
+---
+For an introduction on Azure Blob Storage and its usage, review the article [An introduction to Windows Azure Blob Storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
+
+To start using an Azure Blog Storage Output, you should have the following information collect about your Table:
+
+1. If your storage is in a different subscription than your streaming job you will need the Storage Account Name and Storage Account Key.
+2. The container name.
+3. The file name prefix.
+4. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+Select output to Blog storage.
+![graphic20][graphic20]
+
+Then fill out the details as shown below:
+![graphic21][graphic21]
+
+## Using an Event Hub as an output
 ---
 ### Overview
  
@@ -83,7 +100,6 @@ Each Stream Analytics job output should be configured to have its own event-hub 
 
  
 ### Parameters
- 
 There are a few parameters that customers need to configure for Event Hub data streams.  These parameters apply to both Event Hub input and output data streams, unless noted otherwise.
 
 1. Service Bus Namespace: Service Bus Namespace of the Event Hub. A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace. 
@@ -93,7 +109,58 @@ There are a few parameters that customers need to configure for Event Hub data s
 5. Event Hub Consumer Group: Optional parameter for Event Hub inputs.  The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   We recommend using a distinct consumer Group for each Stream Analytics job.
 6. Partition Key Column:  Optional parameter for Event Hub outputs. The data attribute column that is used as the partition key for Event Hub output. 
 
-## Using Azure Table storage for your output
+## Add Power BI output ##
+---
+1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
+
+    ![graphic22][graphic22]
+
+    > [AZURE.NOTE] Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
+
+2.  Select **Power BI** and then click the right button.
+3.  You will see a screen like the following:
+
+    ![graphic23][graphic23]
+
+4.  In this step, you have to be careful to use the same Org Id that you are using for your Stream Analytics job. At this point, Power BI output has to use the same Org Id that your Stream Analytics job uses. If you already have Power BI account using the same Org Id, select “Authorize Now”. If not, choose “Sign up now” and use same Org Id as your azure account while signing up for Power BI. [Here is a good blog with a walkthrough of a Power BI sign-up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx). You can also assign your Azure account as your Power BI login account if you chose. Details are [here](https://support.powerbi.com/knowledgebase/articles/499083-how-to-use-the-same-account-login-for-power-bi-and).
+5.  Next you will see a screen like the following:
+
+    ![graphic24][graphic24]
+
+Provide values as below:
+
+* **Output Alias** – You can put any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In that case, you have to refer to this output in your query. For example, let’s use the output alias value = “OutPbi”.
+* **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use “pbidemo”.
+*	**Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.
+
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
+
+*	Click **OK**, **Test Connection** and now you output configuraiton is complete.
+
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
+
+
+### Write a Query ###
+Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following SQL query:
+
+    SELECT
+    	MAX(hmdt) AS hmdt,
+    	MAX(temp) AS temp,
+    	System.TimeStamp AS time,
+    	dspl
+    INTO
+        OutPBI
+    FROM
+    	Input TIMESTAMP BY time
+    GROUP BY
+    	TUMBLINGWINDOW(ss,1),
+    	dspl
+
+    
+    
+Start your job. Validate that your event hub is receiving events and your query generates the expected results. If your query outputs 0 rows, Power BI dataset and tables will not be automatically created.
+
+## Using Azure Table storage for an output
 ---
 Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval. For further information on Azure Table storage visit [Azure Table storage](./articles/storage/storage-introduction.md).
 
@@ -151,134 +218,9 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ![graphic19][graphic19]
 
-## Using Blob Storage as an Output
----
-For an introduction on Azure Blob Storage and its usage, review the article [An introduction to Windows Azure Blob Storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
-
-To start using an Azure Blog Storage Output, you should have the following information collect about your Table:
-
-1. If your storage is in a different subscription than your streaming job you will need the Storage Account Name and Storage Account Key.
-2. The container name.
-3. The file name prefix.
-4. What serialization format is utilized for the data (Avro, CSV, JSON).
-
-Select output to Blog storage.
-![graphic20][graphic20]
-
-Then fill out the details as shown below:
-![graphic21][graphic21]
-
-## Add Power BI output ##
----
-1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
-
-    ![graphic22][graphic22]
-
-    > [AZURE.NOTE] Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
-
-2.  Select **Power BI** and then click the right button.
-3.  You will see a screen like the following:
-
-    ![graphic23][graphic23]
-
-4.  In this step, you have to be careful to use the same Org Id that you are using for your Stream Analytics job. At this point, Power BI output has to use the same Org Id that your Stream Analytics job uses. If you already have Power BI account using the same Org Id, select “Authorize Now”. If not, choose “Sign up now” and use same Org Id as your azure account while signing up for Power BI. [Here is a good blog with a walkthrough of a Power BI sign-up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx). You can also assign your Azure account as your Power BI login account if you chose. Details are [here](https://support.powerbi.com/knowledgebase/articles/499083-how-to-use-the-same-account-login-for-power-bi-and).
-5.  Next you will see a screen like the following:
-
-    ![graphic24][graphic24]
-
-Provide values as below:
-
-* **Output Alias** – You can put any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In that case, you have to refer to this output in your query. For example, let’s use the output alias value = “OutPbi”.
-* **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use “pbidemo”.
-*	**Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.
-
->	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
-
-*	Click **OK**, **Test Connection** and now you output configuraiton is complete.
-
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
-## Write Query ##
 
-Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following SQL query:
-
-    SELECT
-    	MAX(hmdt) AS hmdt,
-    	MAX(temp) AS temp,
-    	System.TimeStamp AS time,
-    	dspl
-    INTO
-        OutPBI
-    FROM
-    	Input TIMESTAMP BY time
-    GROUP BY
-    	TUMBLINGWINDOW(ss,1),
-    	dspl
-
-    
-    
-Start your job. Validate that your event hub is receiving events and your query generates the expected results. If your query outputs 0 rows, Power BI dataset and tables will not be automatically created.
-
-## Create the Dashboard in Power BI ##
-
-Go to [Powerbi.com](https://powerbi.com) and login with your Org Id. If the Stream Analytics job query outputs results, you will see your dataset is already created:
-
-![graphic25][graphic25]
-
-For creating the dashboard, go to the Dashboards option and create a new Dashboard.
-
-![graphic26][graphic26]
-
-In this example we'll lable it "Demo Dashboard".
-
-Now click on the dataset created by your Stream Analytics job (pbidemo in our current example). You will be taken to a page to create a chart on top of this dataset. The following is but one example of the reports you can create:
-
-Select Σ temp and time fields. They will automatically go to Value and Axis for the chart:
-
-![graphic27][graphic27]
-
-With this, you will automatically get a chart as below:
-
-![graphic28][graphic28]
-
-In the value section, click on the drop down for temp and choose **average** for the temperature and on the chart, click on **visualization** and choose **line chart**:
-
-![graphic29][graphic29]
-
-You will now get a line chart of average over time.  Using the pin option as below, you can pin this to your dashboard that you previously created:
-
-![graphic30][graphic30]
-
-Now when you view the dashboard with this pinned report, you will see report updating in real time. Try changing the data in your events – spike temp or something like that and you will see the real-time effect of that reflected in your dashboard.
-
-Note that this tutorial demonstrated how to create but one kind of chart for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
-
-Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
-
-## Limitations and best practices ##
-Power BI employs both concurrency and throughput constraints as described here: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI Pricing")
-
-Because of those Power BI lands itself most naturally to cases where Azure Stream Analytics does a significant data load reduction.
-We recommend using TumblingWindow or HoppingWindow to ensure that data push would be at most 1 push/second and that your query lands within the throughput requirements – you can use the following equation to compute the value to give your window in seconds: ![equation1](./media/stream-analytics-connect-data-event-outputs/equation1.png).
-
-As an example – If you have 1,000 devices sending data every second, you are on the Power BI Pro SKU that supports 1,000,000 rows/hour and you want to get average data per device on Power BI you can do at most a push every 4 seconds per device (as shown below):
-![equation2](./media/stream-analytics-connect-data-event-outputs/equation2.png)
-
-Which means we would change the original query to:
-
-    SELECT
-    	MAX(hmdt) AS hmdt,
-    	MAX(temp) AS temp,
-    	System.TimeStamp AS time,
-    	dspl
-    INTO
-    	OutPBI
-    FROM
-    	Input TIMESTAMP BY time
-    GROUP BY
-    	TUMBLINGWINDOW(ss,4),
-    	dspl
 
 
 
