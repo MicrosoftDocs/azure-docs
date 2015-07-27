@@ -52,6 +52,11 @@ If you do not already have an Azure account, you can sign up for a free trial at
 
 > [AZURE.NOTE] Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Pricing Calculator](http://azure.microsoft.com/pricing/calculator/). To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
 
+[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
+
+- [Base Configuration test environment](virtual-machines-base-configuration-test-environment.md)
+
+
 ## Phase 1: Create the virtual network
 
 First, if needed, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell.md) to install Azure PowerShell on your local computer. Open an Azure PowerShell prompt.
@@ -240,6 +245,7 @@ Next, create a shared folder and a text file within the folder on APP1 with thes
 	New-SmbShare -name files -path c:\files -changeaccess CORP\User1
 
 This is your current configuration.
+
 ![](./media/virtual-machines-base-configuration-test-environment-resource-manager/BC_TLG03.png)
 
 ## Phase 4: Configure CLIENT1
@@ -299,6 +305,8 @@ Your base configuration in Azure is now ready for application development and te
 ## Additional resources
 
 [Hybrid cloud test environments](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
+
+[Base Configuration test environment](virtual-machines-base-configuration-test-environment.md)
 
 
 ## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure
