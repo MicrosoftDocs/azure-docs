@@ -148,6 +148,6 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [Azure Service Management cmdlets](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
-[Service Management REST APIs](https://msdn.microsoft.com/library/azure/ee460799.aspx)
+[Service Management REST API reference](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md)
