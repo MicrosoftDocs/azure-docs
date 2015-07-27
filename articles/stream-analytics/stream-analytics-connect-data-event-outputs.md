@@ -83,9 +83,11 @@ To start using a Blob storage output, the following information will be needed a
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
 
 Select output to Blob storage.
+
 ![graphic20][graphic20]
 
 Then supply the details as shown below:
+
 ![graphic21][graphic21]
 
 ## Using an Event Hub as an output
