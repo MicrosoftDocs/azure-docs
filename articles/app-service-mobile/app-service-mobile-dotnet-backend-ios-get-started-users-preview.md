@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add Add Authentication to iOS Apps using Azure Mobile Apps"
+	pageTitle="Add Authentication on iOS with Azure Mobile Apps"
 	description="Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="ios"
@@ -38,7 +38,7 @@ In Xcode, press **Run** to  start the app. An exception will be raised because t
 
 [AZURE.INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
 
-##<a name="store-authentication"></a>Store authentication tokens in app
+##<a name="store-authentication"></a>Store authentication token in app
 
 [AZURE.INCLUDE [app-service-mobile-ios-authenticate-app-with-token](../../includes/app-service-mobile-ios-authenticate-app-with-token.md)]
 
