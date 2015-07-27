@@ -71,14 +71,23 @@ Setting “external”: ”true” and specifying externalData policy tells data
 	        "typeProperties": {
 	            "tableName": "MyTable"
 	        },
+	           "external": true,
 	        "availability": {
 	            "offset": "01:00:00",
 	            "interval": "1",
 	            "anchorDateTime": "2014-02-27T12:00:00",
 	            "frequency": "Hour"
-	        }
+	        },
+	      "policy": {     
+	           "externalData": {        
+	                "retryInterval": "00:01:00",    
+	                "retryTimeout": "00:10:00",       
+	                "maximumRetry": 3       
+	            }     
+	          }
 	    }
 	}
+
 
 **Azure Blob output dataset:**
 
@@ -225,6 +234,42 @@ oracleReaderQuery | Use the custom query to read data. | SQL query string.
 For example: select * from MyTable <p>If not specified, the SQL statement that is executed: select * from MyTable</p> | No
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+
+### Type Mapping for Oracle
+
+As mentioned in the [data movement activities](data-factory-data-movements.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
+
+1. Convert from native source types to .NET type
+2. Convert from .NET type to native sink type
+
+When moving data from Oracle, the following mappings will be used from Oracle data type to .NET type and vice versa.
+
+Oracle data type | .NET Framework data type
+---------------- | ------------------------
+BFILE | Byte[]
+BLOB | Byte[]
+CHAR | String
+CLOB | String
+DATE | DateTime
+FLOAT | Decimal
+INTEGER | Decimal
+INTERVAL YEAR TO MONTH | Int32
+INTERVAL DAY TO SECOND | TimeSpan
+LONG | String
+LONG RAW | Byte[]
+NCHAR | String
+NCLOB | String
+NUMBER | Decimal
+NVARCHAR2 | String
+RAW | Byte[]
+ROWID | String
+TIMESTAMP | DateTime
+TIMESTAMP WITH LOCAL TIME ZONE | DateTime
+TIMESTAMP WITH TIME ZONE | DateTime
+UNSIGNED INTEGER | Number
+VARCHAR2 | String
+XML | String
+
 
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
