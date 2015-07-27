@@ -146,10 +146,10 @@ In this sample, an activity in a pipeline is defined as follows. The columns fro
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
     		}
 		}
 	}
@@ -176,10 +176,10 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
     		}
 		}
 	}
