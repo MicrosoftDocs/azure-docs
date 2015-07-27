@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Data Movement Activities
@@ -37,8 +37,6 @@ Copy activity copies data from a **source** data store to a **sink** data store.
 | [On-premises Teradata Database](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises Sybase Database](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises PostgreSQL Database](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| Generic ODBC | | 
-| General OData | | 
 | Azure SQL Data Warehouse | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB, Azure SQL Data Warehouse |
 
 ## Copy Activity

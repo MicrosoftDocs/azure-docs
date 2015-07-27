@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Oracle Connector - Move data to on-premises Oracle 

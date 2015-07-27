@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # DB2 Connector - Move data from DB2

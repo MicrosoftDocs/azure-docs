@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # SQL Server Connector - Move data to and from SQL Server on-premises or on IaaS (Azure VM)
