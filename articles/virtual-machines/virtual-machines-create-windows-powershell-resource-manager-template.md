@@ -1,6 +1,6 @@
-﻿<properties
-	pageTitle="Create a Windows-based virtual machine with a Resource Manager template"
-	description="Use a Resource Manager template to easily create a new Windows-based virtual machine with PowerShell or the Azure CLI."
+<properties
+	pageTitle="Create a Windows virtual machine with a Resource Manager template"
+	description="Use a Resource Manager template to easily create a new Windows virtual machine with PowerShell or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -16,9 +16,9 @@
 	ms.date="04/29/2015"
 	ms.author="davidmu"/>
 
-# Create a Windows-based virtual machine with a Resource Manager template
+# Create a Windows virtual machine with a Resource Manager template
 
-You can easily create a new Windows-based Azure virtual machine using a Resource Manager template with Azure PowerShell or the Azure CLI. This template creates a single virtual machine running Windows in a new virtual network with a single subnet in a new resource group.
+You can easily create a new Windows-based Azure virtual machine by using a Resource Manager template with Azure PowerShell or the Azure CLI. This template creates a single virtual machine running Windows in a new virtual network with a single subnet in a new resource group.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
@@ -28,9 +28,9 @@ Before you dive in, make sure you have Azure, PowerShell, and Azure CLI configur
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Create a Windows-based virtual machine with a Resource Manager template using Azure PowerShell
+## Create a Windows virtual machine with a Resource Manager template using Azure PowerShell
 
-Follow these steps to create a Windows-based virtual machine using a Resource Manager template in the Github template repository with Azure PowerShell.
+Follow these steps to create a Windows virtual machine using a Resource Manager template in the Github template repository with Azure PowerShell.
 
 ### Step 1: Examine the JSON file for the template
 
@@ -43,25 +43,25 @@ Here are the contents of the JSON file for the template.
         "newStorageAccountName": {
             "type": "string",
             "metadata": {
-                "Description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
+                "Description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
             }
         },
         "adminUsername": {
             "type": "string",
             "metadata": {
-               "Description": "User name for the virtual machine."
+               "Description": "Username for the Virtual Machine."
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "Description": "Password for the virtual machine."
+                "Description": "Password for the Virtual Machine."
             }
         },
         "dnsNameForPublicIP": {
             "type": "string",
             "metadata": {
-                  "Description": "Unique DNS name for the public IP used to access the virtual machine."
+                  "Description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
             }
         },
         "windowsOSVersion": {
@@ -273,11 +273,11 @@ You will see something like this:
 
 	Outputs           :
 
-You now have a new Windows-based virtual machine named MyWindowsVM in your new resource group.
+You now have a new Windows virtual machine named MyWindowsVM in your new resource group.
 
-## Create a Windows-based virtual machine with a Resource Manager template using Azure CLI
+## Create a Windows virtual machine with a Resource Manager template using Azure CLI
 
-Follow these steps to create a Windows-based virtual machine using a Resource Manager template in the Github template repository with Azure CLI commands.
+Follow these steps to create a Windows virtual machine by using a Resource Manager template in the Github template repository with Azure CLI commands.
 
 Fill in a resource group name and Azure location (such as westus for West US), remove the brackets), and then run these commands.
 
@@ -289,7 +289,7 @@ Here is an example of the Azure CLI command set for the template.
 	azure group create testrg westus
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
 
-You will see something like this:
+You would see something like this:
 
 	azure group create testrg westus
 	info:    Executing command group create
@@ -320,7 +320,7 @@ You will see something like this:
 
 ## Additional resources
 
-[Azure compute, network and storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
+[Azure compute, network, and storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
 [Azure Resource Manager overview](resource-group-overview.md)
 
