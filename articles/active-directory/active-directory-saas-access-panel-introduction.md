@@ -39,7 +39,7 @@ The Access Panel allows users to edit some of their profile settings, including 
 
 - View and launch cloud-based applications to which you have been granted access by the Azure AD administrator. For more information about the Access Panel from the end users’ perspective, see [Using the Access Panel](https://msdn.microsoft.com/library/azure/dn756411.aspx).
 
-- Self-manage groups. More specifically, you can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641267.aspx) and [Manage your groups](https://msdn.microsoft.com/en-us/library/azure/dn641268.aspx). 
+- Self-manage groups. More specifically, you can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](https://msdn.microsoft.com/library/azure/dn641267.aspx) and [Manage your groups](https://msdn.microsoft.com/library/azure/dn641268.aspx). 
 
 
 
