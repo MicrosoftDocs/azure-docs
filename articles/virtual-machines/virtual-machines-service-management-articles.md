@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="07/22/2015"
+	ms.date="07/28/2015"
 	ms.author="danlep"/>
 
 # Articles for virtual machines in Service Management
@@ -100,7 +100,7 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)
 
-[LAMP Stack](virtual-machines-linux-install-lamp-stack.md)
+[LAMP stack](virtual-machines-linux-install-lamp-stack.md)
 
 [Message Queuing (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx)
 
@@ -129,8 +129,6 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 [Windows Server Essentials Experience](https://msdn.microsoft.com/library/azure/dn520827.aspx)
 
 ## Monitor
-
-[Understanding monitoring alerts and notifications in Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx)
 
 [Enabling diagnostics in Azure cloud services and virtual machines](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
