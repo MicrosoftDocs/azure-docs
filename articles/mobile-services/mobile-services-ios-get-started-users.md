@@ -20,7 +20,9 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-In this tutorial, you add authentication to the [Mobile Services Quick Start tutorial] using a supported identity provider. You must complete the [Mobile Services Quick Start tutorial] first.
+In this tutorial, you add authentication to the [Mobile Services Quick Start tutorial] using a supported identity provider.
+
+We recommend that you complete the [Mobile Services Quick Start tutorial] first. Alternatively, just download the Quick Start iOS project: click Azure Portal > **Mobile Services** > your mobile service > the cloud sign on top left > **iOS** > **Create a New iOS App** > **Download and run your app** > **Objective-C** > **Download**. Remember to click **Create TodoItem Table** before you click **Download**, if you haven't already created the table.
 
 ##<a name="register"></a>Register App for Authentication
 
