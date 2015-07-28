@@ -16,11 +16,11 @@
    ms.date="07/21/2015"
    ms.author="seanmck"/>
 
- # Update your Service Fabric development environment
+# Update your Service Fabric development environment
 
  Service Fabric periodically provides new releases of the runtime, SDK, and tools for use in local development. Keeping your local development environment updated with these releases ensures that you always have access to the latest features, bug fixes, and performance improvements when building and testing your applications locally.
 
- ## Clean up your local cluster
+## Clean up your local cluster
 
  Service Fabric does not currently support upgrading the Service Fabric runtime while a local cluster is running. In order to ensure a clean upgrade, it is important to clean up your local cluster first.
 
@@ -36,7 +36,7 @@
  3. Run `.\CleanCluster.ps1`
 
 
- ## Update the runtime, SDK, and tools
+## Update the runtime, SDK, and tools
 
  Once you have successfully cleaned up your existing cluster, you can proceed with the upgrade as follows:
 
