@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and PowerShell
@@ -26,8 +26,8 @@
 
 This topic will walk you through creating an Azure Resource Manager virtual network and a site-to-site VPN connection to your on-premises network. 
 
-Azure currently has two management modes: Azure Service Management, and Azure Resource Manager (ARM). The site-to-site setup is different, depending on the mode your virtual network was created in.
-These instructions apply to ARM. If you want to create a Azure Service Management site-to-site VPN connection instead, see [Create a site-to-site VPN connection in the Management Portal](vpn-gateway-site-to-site-create.md).
+Azure currently has two deployment models: the classic deployment model, and the Azure Resource Manager deployment model. The site-to-site setup is different, depending on the model that was used to deploy your virtual network.
+These instructions apply to Resource Manager. If you want to create a site-to-site VPN gateway connection using the classic deployment model, see [Create a site-to-site VPN connection in the Management Portal](vpn-gateway-site-to-site-create.md).
 
 
 ## Before you begin
@@ -121,9 +121,13 @@ The gateway configuration defines the subnet and the public IP address to use. U
 
 ## Create the gateway
 
-In this step, you'll create the virtual network gateway. 
+In this step, you'll create the virtual network gateway.
 
-		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig
+- The GatewayType is Vpn. 
+- VpnType can be RouteBased (referred to as a Dynamic Gateway in some documentation), or Policy Based (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md).
+
+
+		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 ## Configure your VPN device
 
