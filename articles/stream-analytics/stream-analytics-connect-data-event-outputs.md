@@ -329,8 +329,8 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic28]: ./media/stream-analytics-connect-data-event-outputs/28-stream-analytics-connect-data-event-input-output.png
 [graphic29]: ./media/stream-analytics-connect-data-event-outputs/29-stream-analytics-connect-data-event-input-output.png
 [graphic30]: ./media/stream-analytics-connect-data-event-outputs/30-stream-analytics-connect-data-event-input-output.png
-[graphic31]: ./media/stream-analytics-connect-data-event-outputs/service-bus-queues-1.png
-[graphic32]: ./media/stream-analytics-connect-data-event-outputs/service-bus-queues-2.png
-[graphic33]: ./media/stream-analytics-connect-data-event-outputs/service-bus-queues-3.png
-[graphic34]: ./media/stream-analytics-connect-data-event-outputs/service-bus-topics-1.png
-[graphic35]: ./media/stream-analytics-connect-data-event-outputs/service-bus-topics-2.png
+[graphic31]: ./media/stream-analytics-connect-data-event-outputs/31-stream-analytics-connect-data-event-input-output.png
+[graphic32]: ./media/stream-analytics-connect-data-event-outputs/32-stream-analytics-connect-data-event-input-output.png
+[graphic33]: ./media/stream-analytics-connect-data-event-outputs/33-stream-analytics-connect-data-event-input-output.png
+[graphic34]: ./media/stream-analytics-connect-data-event-outputs/34-stream-analytics-connect-data-event-input-output.png
+[graphic35]: ./media/stream-analytics-connect-data-event-outputs/35-stream-analytics-connect-data-event-input-output.png
