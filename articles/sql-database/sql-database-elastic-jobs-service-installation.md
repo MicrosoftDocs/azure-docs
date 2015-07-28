@@ -79,7 +79,6 @@ The parameters provided on this sample invocation can be modified for your desir
 	</tr>
 
 </tr>
-
 	<tr>
 	<td>-ServiceVmSize</td>
 	<td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of A0/A1/A2/A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. Fo more information on worker role sizes, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
@@ -102,7 +101,6 @@ The parameters provided on this sample invocation can be modified for your desir
 	<td>-SqlServerAdministratorPassword</td>
 	<td>Provides the admin password for the newly created Azure SQL Database server. When not provided, a PowerShell credentials window will open to prompt for the credentials.</td>
 </tr>
-
 </table>
 
 For systems that target having large numbers of jobs running in parallel against a large number of databases, it is recommended to specify parameters such as: -ServiceWorkerCount 2 -ServiceVmSize A2 -SqlServerDatabaseSlo S2.
