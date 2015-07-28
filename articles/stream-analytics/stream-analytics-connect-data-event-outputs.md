@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics outputs
@@ -75,7 +75,7 @@ In this example, the credentials that were provided were incorrect. Simply suppl
 ---
 For an introduction on Azure Blob storage and its usage, review the article [An introduction to Windows Azure Blob storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
 
-To start using a Blob storage output, the following information will be needed about the Table:
+To start using a Blob storage output, the following information will be needed:
 
 1. If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.
 2. The container name.
@@ -121,6 +121,24 @@ For further information on Service Bus Queues see [Service Bus Queues, Topics, a
 
 ### Adding Service Bus Queues ###
 
+To start using a Service Bus Queues output, the following information will be needed:
+
+1. If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.
+2. The namespace name.
+3. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+Select output to Service Bus Queues.
+
+![graphic31][graphic31]
+
+Then supply the details as shown below and select next.
+
+![graphic32][graphic32]
+
+Verify your data format and serialization are correct.
+
+![graphic33][graphic33]
+
 ## Service Bus Topics ##
 ---
 ### Introduction to Service Bus Topics concepts ###
@@ -133,6 +151,25 @@ Some benefits of using Service Bus Topics are:
 For further information on Service Bus Topics see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Topics](http://blogs.msdn.com/b/appfabric/archive/2011/05/25/an-introduction-to-service-bus-topics.aspx "An Introduction to Service Bus Topics")
 
 ### Adding Service Bus Topics ###
+
+To start using a Service Bus Topics output, the following information will be needed:
+
+1. If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.
+2. The namespace name.
+3. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+Select output to Service Bus Topics.
+
+![graphic34][graphic34]
+
+Then supply the details as shown below and select next.
+
+![graphic35][graphic35]
+
+Verify your data format and serialization are correct.
+
+![graphic33][graphic33]
+
 
 ## Power BI as an output ##
 ---
@@ -223,6 +260,7 @@ Enter the Azure Table information on the next page. The output alias is the name
 
 
 ![graphic14][graphic14]
+
 ![graphic15][graphic15]
 
 Batch Size is the number of records for a batch operation. Typically the default is sufficient for most jobs, refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting.
@@ -291,3 +329,8 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic28]: ./media/stream-analytics-connect-data-event-outputs/28-stream-analytics-connect-data-event-input-output.png
 [graphic29]: ./media/stream-analytics-connect-data-event-outputs/29-stream-analytics-connect-data-event-input-output.png
 [graphic30]: ./media/stream-analytics-connect-data-event-outputs/30-stream-analytics-connect-data-event-input-output.png
+[graphic31]: ./media/stream-analytics-connect-data-event-outputs/service-bus-queues-1.png
+[graphic32]: ./media/stream-analytics-connect-data-event-outputs/service-bus-queues-2.png
+[graphic33]: ./media/stream-analytics-connect-data-event-outputs/service-bus-queues-3.png
+[graphic34]: ./media/stream-analytics-connect-data-event-outputs/service-bus-topics-1.png
+[graphic35]: ./media/stream-analytics-connect-data-event-outputs/service-bus-topics-2.png
