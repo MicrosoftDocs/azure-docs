@@ -127,7 +127,10 @@ To start using a Service Bus Queues output, the following information will be ne
 2. The namespace name.
 3. What serialization format is utilized for the data (Avro, CSV, JSON).
 
-Select output to Service Bus Queues.
+Also values for friendly-name items will be required:
+
+* **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
+* **Queue Name** - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When you created your queue, you also gave it a specific name.
 
 ![graphic31][graphic31]
 
@@ -157,6 +160,13 @@ To start using a Service Bus Topics output, the following information will be ne
 1. If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.
 2. The namespace name.
 3. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+Also values for friendly-name items will be required:
+
+Also values for friendly-name items will be required:
+
+* **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
+* **Topic Name** - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When you create your topic, you also gave it a specific name.
 
 Select output to Service Bus Topics.
 
