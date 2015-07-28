@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure CHAP for your StorSimple device"
-   description="Configure CHAP for your StorSimple device"
+   pageTitle="Configure CHAP for your StorSimple device | Microsoft Azure"
+   description="Describes how to configure Challenge Handshake Authentication Protocol on a StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
