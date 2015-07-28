@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/13/2015"
+   ms.date="07/24/2015"
    ms.author="jroth" />
 
 # Azure SQL Database Resource Limits
@@ -148,7 +148,7 @@ In certain scenarios like the usage of federated database feature, it is possibl
 
 [Azure SQL Database Resource Management](https://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-[Error Messages (Azure SQL Database)](https://msdn.microsoft.com/library/azure/ff394106.aspx)
+[Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
 
 [Azure SQL Database Best Practices to Prevent Request Denials or Connection Termination](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
