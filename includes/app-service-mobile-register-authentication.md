@@ -1,24 +1,10 @@
 
+First, you need to register your app with an identity provider at their site, then set those credentials in the Azure backend.
 
-To be able to authenticate users, you must register your app with an identity provider. You must then register the provider-generated client secret with your App Service.
+* In the [Azure portal], click **Browse**> **Web Apps** > your backend. Click **Settings** > **Mobile App** > **User authentication** > your preferred identity provider. Make a note of the pre-populated URI/URL values for your preferred identity providers; you'll need this for the next step. 
 
-1. Log on to the [Azure preview portal], click **Browse**, **Resource Group**, and then select the resource group of your Mobile App.
-
-2. Select your gateway, and make a note of the **URL** value under **Properties**. You may need to provide this value to the identity provider when you register your app.
-
-   	![](./media/app-service-mobile-register-authentication/gateway-uri.png)
-
-3. Choose a supported identity provider from the list below and follow the steps to configure your app with that provider:
-
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication-preview/" target="_blank">Azure Active Directory</a>
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication-preview/" target="_blank">Facebook login</a>
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-google-authentication-preview/" target="_blank">Google login</a>
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-microsoft-authentication-preview/" target="_blank">Microsoft Account</a>
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-twitter-authentication-preview/" target="_blank">Twitter login</a>
-
-	Your application is now configured to work with your chosen authentication provider.
-
-4. (Optional) Repeat the previous step to configure any other identity provider that you want your app to support. 
+* Configure one or more of your preferred identity providers by following the provider's instructions -- [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication-preview.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication-preview.md), [Google](app-service-mobile-how-to-configure-google-authentication-preview.md), 
+[Microsoft](app-service-mobile-how-to-configure-microsoft-authentication-preview.md), or [Twitter](app-service-mobile-how-to-configure-twitter-authentication-preview.md).
 
 <!-- URLs. -->
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
