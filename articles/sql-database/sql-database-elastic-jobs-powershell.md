@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/27/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Create and manage a SQL Database elastic database jobs using PowerShell (preview)
@@ -235,7 +235,7 @@ While the credential passwords are encrypted within the Elastic Database Jobs ta
 
 There are some security best practices for Elastic Database Jobs usage:
 * Limit usage of the Elastic Database Jobs APIs to trusted individuals.
-* Credentials should have the least privileges necessary to perform the job task.  More information can be seen within this [Authorization and Permissions](https://msdn.microsoft.com/en-us/library/bb669084(v=vs.110).aspx) SQL Server MSDN article.
+* Credentials should have the least privileges necessary to perform the job task.  More information can be seen within this [Authorization and Permissions](https://msdn.microsoft.com/en-us/library/bb669084.aspx) SQL Server MSDN article.
 
 The following PowerShell script can be used to insert a provided user name and password as a credential:
 
