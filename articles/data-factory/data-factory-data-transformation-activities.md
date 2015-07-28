@@ -33,7 +33,7 @@ Transformation activity |  Compute linked service | Compute linked service confi
 [Hadoop Streaming](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop]  | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx) 
 [DotNet](data-factory-use-custom-activities.md) | [Azure Batch](https://msdn.microsoft.com/library/mt185713.aspx) | [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
-[Machine Learning Batch Scoring](data-factory-create-predictive-pipelines.md) | Azure VM | On-Demand
+[Machine Learning Batch Scoring](data-factory-create-predictive-pipelines.md) | Azure VM | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx)
 [Stored Procedure](https://msdn.microsoft.com/library/mt185717.aspx) | Azure SQL | [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
 
 
