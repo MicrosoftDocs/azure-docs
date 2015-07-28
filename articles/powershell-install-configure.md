@@ -18,7 +18,9 @@
 
 # How to install and configure Azure PowerShell#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure  CLI</a></div>
+[AZURE.SELECTOR]
+[Powershell](../manage/install-and-configure-windows-powershell/)
+[Azure CLI](../manage/install-and-configure-cli/)
 
 You can use Windows PowerShell to perform a variety of tasks in Azure, either interactively at a command prompt or automatically through scripts. Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, you can use the cmdlets to perform the same tasks that you can perform through the Azure Management Portal. For example, you can create and configure cloud services, virtual machines, virtual networks, and web apps.
 
@@ -203,44 +205,15 @@ These resources provide help for specific cmdlets:
 
 -   From within the console, you can use the built-in Help system. The **Get-Help** cmdlet provides access to this system. The following table provides some examples of commands you can use to get Help. You can get more information from within the console by typing **help**.
 
-    <table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Command</b></td>
-		<td><b>Result</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Get-Help</td>
-		<td>Describes how to use the Help system. <p><b>Note</b>: The description includes some information about Help files that does not apply to the Azure module. Specifically, Help files are installed when the module is installed. They are not available for download separately.</p>
-</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Get-Help Azure</td>
-		<td>Gets all cmdlets in the Azure module.</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Get-Help &lt;<b>language</b>&gt;-dev</td>
-		<td>Gets cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.</td>
-    </tr>
-	    <tr align="left" valign="top">
-		<td>Get-Help &lt;<b>cmdlet</b>&gt;</td>
-		<td>Gets help about a Windows PowerShell cmdlet. Replace <cmdlet> with the cmdlet name.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Get-Help &lt;<b>cmdlet</b>&gt; -Parameter *</td>
-		<td>Gets descriptions of the cmdlet parameters. The asterisk (*) means "all".</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Get-Help &lt;<b>cmdlet</b>&gt; -Examples</td>
-		<td>Gets the syntax and examples of using the cmdlet.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Get-Help &lt;<b>cmdlet</b>&gt; -Full</td>
-		<td>Gets all help for a cmdlet, including technical details.</td>
-    </tr>
-    </tbody>
-    </table>
-
+Command|Result
+--|--
+Get-Help|Describes how to use the Help system. <p><p>**Note**: The description includes some information about Help files that does not apply to the Azure module. Specifically, Help files are installed when the module is installed. They are not available for download separately.
+Get-Help Azure|Gets all cmdlets in the Azure module.
+Get-Help <**language**>-dev|Gets cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.
+Get-Help <**cmdlet**>|Gets help about a Windows PowerShell cmdlet. Replace <cmdlet> with the cmdlet name.
+Get-Help <**cmdlet**> -Parameter * |Gets descriptions of the cmdlet parameters. The asterisk ( * ) means "all".
+Get-Help <**cmdlet**> -Examples|Gets the syntax and examples of using the cmdlet.
+Get-Help <**cmdlet**> -Full|Gets all help for a cmdlet, including technical details.
 
 
 - Reference information about the cmdlets in the Azure PowerShell modules is also available in the Azure library. For information, see [Azure Cmdlet Reference](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
