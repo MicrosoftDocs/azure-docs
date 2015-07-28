@@ -56,7 +56,7 @@ Use the instructions in this section to deploy a new Azure virtual machine using
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
-Follow these steps to create a Windows virtual machine using a Resource Manager template in the Github template repository with Azure PowerShell.
+Follow these steps to create a Windows virtual machine using a Resource Manager template in the GitHub template repository with Azure PowerShell.
 
 ### Step 1: Examine the JSON file for the template
 
@@ -432,7 +432,7 @@ Use the instructions in these sections to deploy a multi-virtual-machine applica
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
-Follow these steps to deploy a multi-virtual-machine application that uses a virtual network and a load balancer using a Resource Manager template in the Github template repository by using Azure PowerShell commands.
+Follow these steps to deploy a multi-virtual-machine application that uses a virtual network and a load balancer using a Resource Manager template in the GitHub template repository by using Azure PowerShell commands.
 
 ### Step 1: Examine the JSON file for the template
 
