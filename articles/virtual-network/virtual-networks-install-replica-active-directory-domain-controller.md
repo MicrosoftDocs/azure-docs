@@ -3,9 +3,9 @@
 	description="A tutorial that explains how to install a domain controller from an on-premises Active Directory forest on an Azure virtual machine."
 	services="virtual-network"
 	documentationCenter=""
-	authors="Justinha"
-	manager="TerryLan"
-	editor="LisaToft"
+	authors="curtand"
+	manager="swadwha"
+	editor=""
 	tags="azure-classic-portal"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="Justinha"/>
+	ms.author="curtand"/>
 
 
 # Install a replica Active Directory domain controller in an Azure virtual network
