@@ -175,24 +175,17 @@ To start using an Azure Table storage, the following information is needed:
 For a better design of Partition key and Row key, please refer article below
 [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
-
 ![graphic11][graphic11]
-
 
 Go to the outputs tab of the job, and click on the "ADD OUTPUT" command and click next.
 
-
 ![graphic12][graphic12]
-
 
 Choose "Table storage" as the output.
 
-
 ![graphic13][graphic13]
 
-
 Enter the Azure Table information on the next page. The output alias is the name that can be used in the query to direct the query output to this table.
-
 
 ![graphic14][graphic14]
 
@@ -231,14 +224,10 @@ For further information on Service Bus Queues see [Service Bus Queues, Topics, a
 
 To start using a Service Bus Queues output, the following information will be needed:
 
-1. Output Alias. A friendly-named output alias that is easy to refer to.
-2. The namespace name.
-3. What serialization format is utilized for the data (Avro, CSV, JSON).
-
-Also values for friendly-name items will be required:
-
-* **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
-* **Queue Name** - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When you created your queue, you also gave it a specific name.
+1. **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
+2. The namespace and service bus name.
+3. **Queue Name** - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When you created your queue, you also gave it a specific name.
+4. What serialization format is utilized for the data (Avro, CSV, JSON).
 
 ![graphic31][graphic31]
 
@@ -261,14 +250,10 @@ For further information on Service Bus Topics see [Service Bus Queues, Topics, a
 
 To start using a Service Bus Topics output, the following information will be needed:
 
-1. If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.
-2. The namespace name.
-3. What serialization format is utilized for the data (Avro, CSV, JSON).
-
-Also values for friendly-name items will be required:
-
-* **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
-* **Topic Name** - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When you create your topic, you also gave it a specific name.
+1. **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
+2. The namespace and service bus name.
+3. **Topic Name** - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When you create your topic, you also gave it a specific name. The messages sent to Topic will not be available unless a subscription is created, so ensure there are one or more subscriptions under your topic.
+4. What serialization format is utilized for the data (Avro, CSV, JSON).
 
 Select output to Service Bus Topics.
 
