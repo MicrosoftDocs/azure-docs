@@ -41,7 +41,7 @@ The setup wizard does not perform the operations related to password collection 
 The following table describes the errors that you might encounter when you run the setup wizard on an operational device, possible causes for the errors, and recommended actions to resolve them. 
 
 | No. | Error message or condition | Possible causes | Recommended action |
-| --- | -------------------------- | --------------- | ------------------ |
+|:--- |:-------------------------- |:--------------- |:------------------ |
 |  1  | Error 350032: This device has already been deactivated. | You will see this error if you run the setup wizard on a device that is deactivated. | [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx) for next steps. A deactivated device cannot be put in service. A factory reset may be required before the device can be activated again. |
 |  2  | Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION(Exception from HRESULT: 0x80070001) | The DNS server update is failing. DNS settings are global settings and are applied across all the enabled network interfaces. | Enable the interface and apply the DNS settings again. This may disrupt the network for other enabled interfaces because these settings are global. |
 |  3  | The device appears to be online in the StorSimple Manager service portal, but when you try to complete the minimum setup and save the configuration, the operation fails. | During initial setup, the web proxy was not configured, even though there was an actual proxy server in place. | Use the [Test-HcsmConnection](https://msdn.microsoft.com/library/azure/eedae62d-0957-4005-b346-9248724f90e0#sec05) cmdlet to locate the error. [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx) if you are unable to correct the problem. |
@@ -52,7 +52,7 @@ The following table describes the errors that you might encounter when you run t
 Errors are listed in numeric order.
 
 |Error Number|Error text or description|Recommended user action|
-|---|---|---|
+|:---|:---|:---|
 |10502|An error was encountered while accessing your storage account.|Wait for a few minutes and then try again. If the error persists, please Contact Microsoft Support for next steps.|
 |40017|Unable to resolve a disk in a backup set.|If the error persists, please Contact Microsoft Support for next steps.|
 |40018|Unable to resolve any of the disks in  backup set.|If the error persists, please Contact Microsoft Support for next steps.|
