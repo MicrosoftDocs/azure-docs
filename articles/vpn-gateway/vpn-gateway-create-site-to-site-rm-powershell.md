@@ -146,7 +146,7 @@ Next, you'll create the site-to-site VPN connection between your virtual network
 
 		New-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-After a few minutes, the connection should be established. Note that at this time, site-to-site VPN connections created with ARM are not visible in the Portal.
+After a few minutes, the connection should be established. At this time, the site-to-site VPN connections created with Resource Manager are not visible in the Portal.
 
 
 ## Next Steps
