@@ -106,81 +106,6 @@ There are a few parameters that customers need to configure for Event Hub data s
 5. Event Hub Consumer Group: Optional parameter for Event Hub inputs.  The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   It is recommended to utilize a distinct consumer Group for each Stream Analytics job.
 6. Partition Key Column:  Optional parameter for Event Hub outputs. This column contains the partition key for Event Hub output.
 
-## Service Bus Queues ##
----
-### Introduction to Service Bus Queues concepts ###
-Service Bus Queues offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
-
-Some benefits of using Service Bus Queues are:
-
-- The senders and receivers do not need to transmit/receive messages at the same time, a queue exists for buffering the messages.
-- The sender does not need to wait for an acknowledgment of reception of the sent message to continue processing messages.
-- Because there is a queue and ability to buffer messages, the senders and receivers of messages can send and receive/process messages at differing rates. This is very useful in the event the events have sporadic or unpredictable rates and your receivers can only process events at a fixed rate.
-
-For further information on Service Bus Queues see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Queues](http://blogs.msdn.com/b/appfabric/archive/2011/05/17/an-introduction-to-service-bus-queues.aspx "An Introduction to Service Bus Queues").
-
-### Adding Service Bus Queues ###
-
-To start using a Service Bus Queues output, the following information will be needed:
-
-1. If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.
-2. The namespace name.
-3. What serialization format is utilized for the data (Avro, CSV, JSON).
-
-Also values for friendly-name items will be required:
-
-* **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
-* **Queue Name** - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When you created your queue, you also gave it a specific name.
-
-![graphic31][graphic31]
-
-Then supply the details as shown below and select next.
-
-![graphic32][graphic32]
-
-Verify your data format and serialization are correct.
-
-![graphic33][graphic33]
-
-## Service Bus Topics ##
----
-### Introduction to Service Bus Topics concepts ###
-Whereas Service Bus Queues provide a one to one communication method from sender to receiver, Service Bus Topics and subscriptions provide a one-to-many form of communication.
-
-Some benefits of using Service Bus Topics are:
-- Scaling capabilities where each published message is made available to each subscription registered with a topic.
-- Filter rules can be set on a per-subscription basis to control what messages the subscription receives.
-
-For further information on Service Bus Topics see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Topics](http://blogs.msdn.com/b/appfabric/archive/2011/05/25/an-introduction-to-service-bus-topics.aspx "An Introduction to Service Bus Topics")
-
-### Adding Service Bus Topics ###
-
-To start using a Service Bus Topics output, the following information will be needed:
-
-1. If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.
-2. The namespace name.
-3. What serialization format is utilized for the data (Avro, CSV, JSON).
-
-Also values for friendly-name items will be required:
-
-Also values for friendly-name items will be required:
-
-* **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
-* **Topic Name** - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When you create your topic, you also gave it a specific name.
-
-Select output to Service Bus Topics.
-
-![graphic34][graphic34]
-
-Then supply the details as shown below and select next.
-
-![graphic35][graphic35]
-
-Verify your data format and serialization are correct.
-
-![graphic33][graphic33]
-
-
 ## Power BI as an output ##
 ---
 ### Overview ###
@@ -293,6 +218,81 @@ If that was the later, click "DETAILS" to view the exact details of the error.
 In this example, the credentials that were provided were incorrect. Correcting the credentials and test again by clicking the "TEST CONNECTION" button if necessary.
 
 ![graphic19][graphic19]
+
+
+## Service Bus Queues ##
+---
+### Introduction to Service Bus Queues concepts ###
+Service Bus Queues offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
+
+Some benefits of using Service Bus Queues are:
+
+- The senders and receivers do not need to transmit/receive messages at the same time, a queue exists for buffering the messages.
+- The sender does not need to wait for an acknowledgment of reception of the sent message to continue processing messages.
+- Because there is a queue and ability to buffer messages, the senders and receivers of messages can send and receive/process messages at differing rates. This is very useful in the event the events have sporadic or unpredictable rates and your receivers can only process events at a fixed rate.
+
+For further information on Service Bus Queues see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Queues](http://blogs.msdn.com/b/appfabric/archive/2011/05/17/an-introduction-to-service-bus-queues.aspx "An Introduction to Service Bus Queues").
+
+### Adding Service Bus Queues ###
+
+To start using a Service Bus Queues output, the following information will be needed:
+
+1. If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.
+2. The namespace name.
+3. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+Also values for friendly-name items will be required:
+
+* **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
+* **Queue Name** - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When you created your queue, you also gave it a specific name.
+
+![graphic31][graphic31]
+
+Then supply the details as shown below and select next.
+
+![graphic32][graphic32]
+
+Verify your data format and serialization are correct.
+
+![graphic33][graphic33]
+
+## Service Bus Topics ##
+---
+### Introduction to Service Bus Topics concepts ###
+Whereas Service Bus Queues provide a one to one communication method from sender to receiver, Service Bus Topics and subscriptions provide a one-to-many form of communication.
+
+Some benefits of using Service Bus Topics are:
+- Scaling capabilities where each published message is made available to each subscription registered with a topic.
+- Filter rules can be set on a per-subscription basis to control what messages the subscription receives.
+
+For further information on Service Bus Topics see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Topics](http://blogs.msdn.com/b/appfabric/archive/2011/05/25/an-introduction-to-service-bus-topics.aspx "An Introduction to Service Bus Topics")
+
+### Adding Service Bus Topics ###
+
+To start using a Service Bus Topics output, the following information will be needed:
+
+1. If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.
+2. The namespace name.
+3. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+Also values for friendly-name items will be required:
+
+Also values for friendly-name items will be required:
+
+* **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
+* **Topic Name** - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When you create your topic, you also gave it a specific name.
+
+Select output to Service Bus Topics.
+
+![graphic34][graphic34]
+
+Then supply the details as shown below and select next.
+
+![graphic35][graphic35]
+
+Verify your data format and serialization are correct.
+
+![graphic33][graphic33]
 
 
 ## Get help
