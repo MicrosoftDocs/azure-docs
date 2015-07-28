@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="aashishr"/>
+	ms.date="07/17/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # Deploy and manage back up to Azure for Windows Server/Windows Client using Azure PowerShell
