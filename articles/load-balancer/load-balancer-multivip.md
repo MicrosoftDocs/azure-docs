@@ -3,7 +3,7 @@
    description="Overview of multiVIP and how to set multiple VIPs on a cloud service"
    services="load-balancer"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
