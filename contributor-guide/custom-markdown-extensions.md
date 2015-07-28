@@ -187,7 +187,7 @@ Example:
     - [Kindle](../articles/notification-hubs-kindle-get-started/)
     - [Baidu](../articles/notification-hubs-baidu-get-started/)
     - [Xamarin.iOS](../articles/partner-xamarin-notification-hubs-ios-get-started/)
-    -[Xamarin.Android](../articles/partner-xamarin-notification-hubs-android-get-started/)
+    - [Xamarin.Android](../articles/partner-xamarin-notification-hubs-android-get-started/)
 
 #### Rendering
 
