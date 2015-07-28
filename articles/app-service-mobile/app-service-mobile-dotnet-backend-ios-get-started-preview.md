@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="get-started-article"
-	ms.date="07/26/2015"
+	ms.date="07/27/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>iOS quick start with Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
-
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
+
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 This tutorial walks you through a simple _Todo list_ iOS app. You'll learn to use Azure Mobile Apps as a backend for storing data and server-side logic. 
 
