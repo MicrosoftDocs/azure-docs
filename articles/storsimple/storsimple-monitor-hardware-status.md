@@ -21,7 +21,7 @@
 
 This article describes the various physical and logical components in your on-premises StorSimple device. It also explains how to monitor the device component status using the **Maintenance** page in the StorSimple Manager service. 
 
-The **Maintenance** page in the StorSimple Manager service shows the hardware status of all the StorSimple device components. Under the list of components for 8100, there are three sections that describe:
+The **Maintenance** page shows the hardware status of all the StorSimple device components. Under the list of components for 8100, there are three sections that describe:
 
 - **Shared Components** – These are not part of the controllers, such as disk drives, enclosure, PCM components and PCM temperature, line voltage, and line current sensors.
 
@@ -41,6 +41,8 @@ An 8600 device has additional components that correspond to the Extended Bunch o
 
 
 ## Monitor the hardware status
+
+Perform the following steps to view the hardware status of a device component:
 
 1. Navigate to **Devices**, select a specific StorSimple device. Click to go into the device-level menu and then click the **Maintenance** tab. 
 2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for primary enclosure](Component-list-for-primary-enclosure) and the [detailed component list for EBOD enclosure](Component-list-for-EBOD-enclosure).
@@ -123,7 +125,7 @@ The following table outlines the physical and logical components contained in yo
 |Connection to device controller|I/O|Physical|Controller|No|Indicates the state of the connection between the EBOD I/O module and the device controller.|
 
 ## Next step
-If you need troubleshoot a device components that has a degraded or failed status, refer to 
+If you need to troubleshoot a device component that has a degraded or failed status, refer to 
 [Troubleshoot with monitoring indicators](storsimple-monitoring-indicators). 
 
 To replace a failed hardware component, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx).
