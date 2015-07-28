@@ -27,14 +27,14 @@ Azure Data Factory supports the following transformation activities that can be 
 
 Transformation activity |  Compute linked service | Compute linked service configuration
 ----------------------- | ----------------------- | ------------------------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] | On-demand and Bring Your Own
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  | On-demand and Bring Your Own
-MapReduce | HDInsight [Hadoop] | On-demand and Bring Your Own 
-Hadoop Streaming | HDInsight [Hadoop] | On-demand and Bring Your Own
-DotNet | HDInsight [Hadoop]  | On-demand and Bring Your Own 
-DotNet | Azure Batch | Bring your Own
-Machine Learning Batch Scoring | Azure VM | On-Demand
-Stored Procedure | Azure SQL | Bring your own
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx) 
+[Hadoop Streaming](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
+[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop]  | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx) 
+[DotNet](data-factory-use-custom-activities.md) | [Azure Batch](https://msdn.microsoft.com/library/mt185713.aspx) | [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
+[Machine Learning Batch Scoring](data-factory-create-predictive-pipelines.md) | Azure VM | On-Demand
+[Stored Procedure](https://msdn.microsoft.com/library/mt185717.aspx) | Azure SQL | [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
 
 
 
