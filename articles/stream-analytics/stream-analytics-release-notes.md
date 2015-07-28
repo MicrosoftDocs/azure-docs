@@ -28,8 +28,8 @@ This release contains the following updates.
 <th>Description</th>
 </tr>
 <tr>
-<td>Added support for multiple Power BI accounts</td>
-<td>Now it is an option to configure multiple Power BI accounts to a single Stream Analytics job.</td>
+<td>Power BI Org Id decoupled from Azure Id</td>
+<td>This feature will now enable you to have Power BI output for ASA jobs under any Azure account Id’s (Live Id or Org Id). Additionally, you can also choose to have one org id for Azure account and use a different one for authorizing Power BI output.</td>
 </tr>
 <tr>
 <td>Added support for Service Bus Queues output</td>
