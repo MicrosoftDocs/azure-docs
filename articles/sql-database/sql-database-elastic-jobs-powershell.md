@@ -45,7 +45,7 @@ To select the subscription you need your subscription Id (**-SubscriptionId**) o
 
 	PS C:\>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-The [PowerShell ISE](https://technet.microsoft.com/en-us/library/dd315244.aspx) is recommended for usage to develop and execute PowerShell scripts against the Elastic Database jobs.  To load the Elastic Database jobs PowerShell module, execute the following from an Azure PowerShell prompt such as the one within powershell_ise.exe:
+The [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) is recommended for usage to develop and execute PowerShell scripts against the Elastic Database jobs.  To load the Elastic Database jobs PowerShell module, execute the following from an Azure PowerShell prompt such as the one within powershell_ise.exe:
 
 ## Elastic Database jobs objects
 
@@ -78,7 +78,7 @@ The following table lists out different object types within **Elastic Database j
 
   <tr>
     <td>DACPAC</td>
-    <td><a href="https://msdn.microsoft.com/en-us/library/ee210546.aspx">Data-tier application </a> package to be applied across databases.
+    <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">Data-tier application </a> package to be applied across databases.
 
 	</td>
 	<td>
@@ -234,7 +234,7 @@ While the credential passwords are encrypted within the Elastic Database Jobs ta
 
 There are some security best practices for Elastic Database Jobs usage:
 * Limit usage of the Elastic Database Jobs APIs to trusted individuals.
-* Credentials should have the least privileges necessary to perform the job task.  More information can be seen within this [Authorization and Permissions](https://msdn.microsoft.com/en-us/library/bb669084.aspx) SQL Server MSDN article.
+* Credentials should have the least privileges necessary to perform the job task.  More information can be seen within this [Authorization and Permissions](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN article.
 
 The following PowerShell script can be used to insert a provided user name and password as a credential:
 
