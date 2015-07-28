@@ -13,17 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-<<<<<<< HEAD
-	ms.date="07/21/2015" 
+	ms.date="07/27/2015" 
 	ms.author="ddove; sidneyh" />
-=======
-	ms.date="07/24/2015" 
-	ms.author="sidneyh" />
->>>>>>> 4cba5f1cdf01605f893e44fdb7d72731b927047e
 
 # How to add users to an Elastic Database pool
 
-The **Elastic Database jobs** feature (preview) enables you to run a Transact-SQL script across a group of databases including custom-defined collection of databases, an **Elastic Database pool** or an **Elastic Database Shard set** in Azure SQL Database. To run the script, a user with the appropriate permissions must be added to every database in which the job will execute. For more information, see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) or [Adding Users to Your SQL Azure Database](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+The **Elastic Database jobs** feature (preview) enables you to run a Transact-SQL script across a group of databases including custom-defined collection of databases, an **Elastic Database pool** or an **Elastic Database shard set** in Azure SQL Database. To run the script, a user with the appropriate permissions must be added to every database in which the job will execute. For more information, see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx) or [Adding Users to Your SQL Azure Database](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Prerequisites
 * Install the [elastic job components](sql-database-elastic-jobs-service-installation.md). 

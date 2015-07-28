@@ -56,13 +56,12 @@ The following table lists out different object types within **Elastic Database j
     <th>Object Type</th>
     <th>Description</th>
     <th>Related PowerShell APIs</th>
-
   </tr>
   <tr>
     <td>Credential</td>
     <td>Username and password to use when connecting to databases for execution of scripts or application of DACPACs. <p>The password is encrypted before sending to and storing in the Elastic Database Jobs database.  The password is decrypted by the Elastic Database Jobs service via the credential created and uploaded from the installation script.</td>
 	<td><p>Get-AzureSqlJobCredential</p>
-	<p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td><.P</td>
+	<p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
 
   <tr>
@@ -499,6 +498,7 @@ The following PowerShell script can be used to wait for a job task to complete:
 Elastic Database Jobs supports creating custom execution policies that can be applied when starting jobs.
   
 Execution policies currently allow for defining:
+
 * Name: Identifier for the execution policy.
 * Job Timeout: Total time before a job will be canceled by Elastic Database Jobs.
 * Initial Retry Interval: Interval to wait before first retry.
@@ -507,6 +507,7 @@ Execution policies currently allow for defining:
 * Maximum Attempts: The maximum number of retry attempts to perform within a job.
 
 Elastic Database Jobs default execution policy uses the following values:
+
 * Name: Default execution policy
 * Job Timeout: 1 week
 * Initial Retry Interval:  100 milliseconds
@@ -528,11 +529,12 @@ Create an execution policy:
 	PS C:\>$executionPolicy = New-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
 	PS C:\>Write-Output $executionPolicy
 
-#### Updating a Custom Execution Policy
+#### Updating a custom execution Policy
 
-Elastic Database jobs supports updating existing custom execution policies. 
+Elastic Database jobs supports updating an existing custom execution policy. 
 
 Set the following variables to reflect the desired execution policy to update:
+
 	PS C:\>$executionPolicyName = "{Execution Policy Name}"
 	PS C:\>$initialRetryInterval = New-TimeSpan -Seconds 15
 	PS C:\>$jobTimeout = New-TimeSpan -Minutes 30
@@ -540,7 +542,8 @@ Set the following variables to reflect the desired execution policy to update:
 	PS C:\>$maximumRetryInterval = New-TimeSpan -Minutes 1
 	PS C:\>$retryIntervalBackoffCoefficient = 1.5
 
-Create an execution policy:
+Update an execution policy:
+
 	PS C:\>$updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
 	PS C:\>Write-Output $updatedExecutionPolicy
  
@@ -595,11 +598,13 @@ Set the following variables to refect the desired custom collection target confi
 Database targets can be associated with custom database collection targets to create a group of databases. Whenever a job is created that targets a custom database collection target, it will be expanded to target the databases associated to the group at the time of execution.
 
 Set the following variables to add the desired database to a specific custom collection:
+
 	PS C:\>$serverName = "{Database Server Name}"
 	PS C:\>$databaseName = "{Database Name}"
 	PS C:\>$customCollectionName = "{Custom Database Collection Name}"
 
 Add a database target association to a custom collection:
+
 	PS C:\>Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
 
 ##### Obtaining the Databases within a Custom Database Collection Target
@@ -618,12 +623,14 @@ Set the custom collection name to use:
 The following PowerShell script starts a job against a defined custom database collection targets. The Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target.
 
 Set the following variables to reflect the desired script and custom collection target:
+
 	PS C:\>$jobName = "{Job Name}"
 	PS C:\>$scriptName = "{Script Name}"
 	PS C:\>$customCollectionName = "{Custom Collection Name}"
 	PS C:\>$credentialName = "{Credential Name}"
 
 Create a job that uses a custom collection:
+
 	PS C:\>$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 	PS C:\>$job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
 	PS C:\>Write-Output $job
@@ -660,7 +667,7 @@ Set the following to reflect the desired destination table and credential to use
 
 ### Create a schedule for job execution using a job trigger
 
-The following PowerShell script can be used to create a reoccurring schedule. This script uses a minute interval, but New-AzureSqlJobSchedule also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters.  Schedules that execute only once can be created by passing -OneTime.
+The following PowerShell script can be used to create a reoccurring schedule. This script uses a minute interval, but New-AzureSqlJobSchedule also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters. Schedules that execute only once can be created by passing -OneTime.
 
 Set the following variables to correspond to the desired schedule:
 
@@ -673,7 +680,7 @@ Create a new schedule:
 	PS C:\>$schedule = New-AzureSqlJobSchedule -MinuteInterval $minuteInterval -ScheduleName $scheduleName -StartTime $startTime 
 	PS C:\>Write-Output $schedule
 
-Create a job trigger to have a job executed on a time schedule
+#### Create a job trigger to have a job executed on a time schedule
 
 A job trigger can be defined to have a job executed according to a time schedule. The following PowerShell script can be used to create a job trigger.
 
@@ -689,10 +696,12 @@ Set the following variables to correspond to the desired job and schedule:
 To discontinue reoccurring job execution through a job trigger, the job trigger can be removed.  The following PowerShell script can be used to remove a job trigger:
  
 Set the following variables to correspond to the desired job and schedule:
+
 	PS C:\>$jobName = "{Job Name}"
 	PS C:\>$scheduleName = "{Schedule Name}"
 
 Remove a job trigger to stop a job from being executed according to a schedule:
+
 	PS C:\>Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
 
 #### Retrieve job triggers bound to a time schedule
@@ -703,15 +712,17 @@ Set the following to reflect the desired schedule name to use to identify job tr
 
 	PS C:\>$scheduleName = "{Schedule Name}"
 
-Display the jobs registered to the schedule
+Display the jobs registered to the schedule:
+
 	PS C:\>$jobTriggers = Get-AzureSqlJobTrigger -ScheduleName $scheduleName
 	PS C:\>Write-Output $jobTriggers
 
-Retrieve job triggers bound to a job 
+#### Retrieve job triggers bound to a job 
 
-The following PowerShell script can be used to obtain and display schedules containing a registered job:
+The following PowerShell script can be used to obtain and display schedules containing a registered job.
 
 Set the following to reflect the desired job name to use to identify job triggers:
+
 	PS C:\>$jobName = "{Job Name}"
 
 Display the job triggers containing the specified job:
@@ -737,8 +748,6 @@ The following PowerShell script can be used to update the DACPAC URI on an exist
 
 	PS C:\>$dacpacName = "{Dacpac Name}"
 	PS C:\>$newDacpacUri = "{Uri}"
-
-#### Update to a new DACPAC
 	PS C:\>$updatedDacpac = Set-AzureSqlJobDacpacDefinition -ContentName $dacpacName -DacpacUri $newDacpacUri
 	PS C:\>Write-Output $updatedDacpac
 
@@ -747,12 +756,13 @@ The following PowerShell script can be used to update the DACPAC URI on an exist
 After a DACPAC has been created within Elastic Database Jobs, a job can be created to apply the DACPAC across a group of databases.  The following PowerShell script can be used to create a DACPAC job across a custom collection of databases:
 
 Set the following variables to reflect the desired script and target:
+
 	PS C:\>$jobName = "{Job Name}"
 	PS C:\>$dacpacName = "{Dacpac Name}"
 	PS C:\>$customCollectionName = "{Custom Collection Name}"
 	PS C:\>$credentialName = "{Credential Name}"
 
-Create a Elastic Database jobs *job* to apply a DACPAC across a custom collection:
+Create a job to apply a DACPAC across a custom collection:
 
 	PS C:\>$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 	PS C:\>$job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $dacpacName -TargetId $target.TargetId
