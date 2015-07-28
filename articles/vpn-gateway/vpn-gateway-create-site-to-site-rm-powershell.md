@@ -121,13 +121,13 @@ The gateway configuration defines the subnet and the public IP address to use. U
 
 ## Create the gateway
 
-In this step, you'll create the virtual network gateway. Note the following values:
+In this step, you'll create the virtual network gateway. Use the following values:
 
 - The GatewayType is *Vpn*.
 - The VpnType can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *Policy Based* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 
+    New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 ## Configure your VPN device
 
@@ -139,7 +139,7 @@ To find the public IP address of your virtual network gateway, use the following
 
 ## Create the VPN connection
 
-Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. Note that the shared key must match the value you used for your VPN device configuration.
+Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. The shared key must match the value you used for your VPN device configuration.
 
 		$gateway1 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
