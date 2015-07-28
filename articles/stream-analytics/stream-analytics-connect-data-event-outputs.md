@@ -71,7 +71,7 @@ In this example, the credentials that were provided were incorrect. Simply suppl
 
 ![graphic10][graphic10]
 
-## Using Blob storage as an Output
+## Using Blob storage as an output
 ---
 For an introduction on Azure Blob storage and its usage, review the article [An introduction to Windows Azure Blob storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
 
@@ -95,10 +95,6 @@ Then supply the details as shown below:
 ### Overview
  
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. Their robust handling of high numbers of events also make them perfect for job output.  One use of an Event Hub as output is when the output of an Stream Analytics job will be the input of another streaming job. For further details on Event Hubs visit the portal at [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs").
-
-### Consumer groups
-Each Stream Analytics job output should be configured to have its own Event Hub consumer group. When a job contains self-join or multiple outputs, some output may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
-
  
 ### Parameters
 There are a few parameters that customers need to configure for Event Hub data streams.  These parameters apply to both Event Hub input and output data streams, unless noted otherwise.
@@ -108,7 +104,7 @@ There are a few parameters that customers need to configure for Event Hub data s
 3. Event Hub Policy Name: The name of the shared access policy for accessing the Event Hub.  Shared access policies can be configured for an Event Hub on the Configure tab. Each shared access policy will have a name, permissions set, and access keys generated.
 4. Event Hub Policy Key:  The primary or secondary key of the shared access policy for accessing the Event Hub.  
 5. Event Hub Consumer Group: Optional parameter for Event Hub inputs.  The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   It is recommended to utilize a distinct consumer Group for each Stream Analytics job.
-6. Partition Key Column:  Optional parameter for Event Hub outputs. The data attribute column that is used as the partition key for Event Hub output. 
+6. Partition Key Column:  Optional parameter for Event Hub outputs. This column contains the partition key for Event Hub output.
 
 ## Service Bus Queues ##
 ---
@@ -123,7 +119,7 @@ Some benefits of using Service Bus Queues are:
 
 For further information on Service Bus Queues see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Queues](http://blogs.msdn.com/b/appfabric/archive/2011/05/17/an-introduction-to-service-bus-queues.aspx "An Introduction to Service Bus Queues").
 
-### Adding Service Bus Queues via the Azure Portal ###
+### Adding Service Bus Queues ###
 
 ## Service Bus Topics ##
 ---
@@ -136,7 +132,7 @@ Some benefits of using Service Bus Topics are:
 
 For further information on Service Bus Topics see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Topics](http://blogs.msdn.com/b/appfabric/archive/2011/05/25/an-introduction-to-service-bus-topics.aspx "An Introduction to Service Bus Topics")
 
-### Adding Service Bus Topics via the Azure Portal ###
+### Adding Service Bus Topics ###
 
 ## Power BI as an output ##
 ---
@@ -192,7 +188,7 @@ Go to the **Query** tab of the job. Write the query, the output of which is desi
         
 Start the job. Validate that the Event hub is receiving events and that the query generates the expected results. If the query outputs 0 rows, the Power BI dataset and tables will not be automatically created.
 
-## Using Azure Table storage for an output
+## Using Azure Table storage for an output ##
 ---
 Table storage offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval. For further information on Azure Table storage visit [Azure Table storage](./articles/storage/storage-introduction.md).
 
