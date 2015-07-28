@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/09/2015"
+   ms.date="07/28/2015"
    ms.author="v-sharos" />
 
 # Troubleshoot an operational StorSimple device
@@ -20,6 +20,8 @@
 ## Overview
 
 This article provides helpful troubleshooting guidance for resolving configuration issues that you might encounter after your StorSimple device is deployed and operational. It describes common issues, possible causes, and recommended steps to help you resolve problems that you might experience when you run StorSimple. This information applies to both the StorSimple on-premises physical device and the StorSimple virtual device.
+
+At the end of this article you can find a list of error codes that you might encounter during Microsoft Azure StorSimple operation, as well as steps you can take to resolve the errors. 
 
 ## Setup wizard process for operational devices
 
@@ -45,5 +47,18 @@ The following table describes the errors that you might encounter when you run t
 |  3  | The device appears to be online in the StorSimple Manager service portal, but when you try to complete the minimum setup and save the configuration, the operation fails. | During initial setup, the web proxy was not configured, even though there was an actual proxy server in place. | Use the [Test-HcsmConnection](https://msdn.microsoft.com/library/azure/eedae62d-0957-4005-b346-9248724f90e0#sec05) cmdlet to locate the error. [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx) if you are unable to correct the problem. |
 |  4  | Invoke-HcsSetupWizard: Value does not fall within the expected range. | An incorrect subnet mask produces this error. Possible causes are: <ul><li> The subnet mask is missing or empty.</li><li>The Ipv6 prefix format is incorrect.</li><li>The interface is cloud-enabled, but the gateway is missing or incorrect.</li></ul>Note that DATA 0 is automatically cloud-enabled if configured through the setup wizard. | To determine the problem, use subnet 0.0.0.0 or 256.256.256.256, and then look at the output. Enter correct values for the subnet mask, gateway, and Ipv6 prefix, as needed. |
  
+## Error codes
+
+Errors are listed in numeric order.
+
+|Error Number|Error text or description|Recommended user action|
+|---|---|---|
+|10502|An error was encountered while accessing your storage account.|Wait for a few minutes and then try again. If the error persists, please Contact Microsoft Support for next steps.|
+|40017|Unable to resolve a disk in a backup set.|If the error persists, please Contact Microsoft Support for next steps.|
+|40018|Unable to resolve any of the disks in  backup set.|If the error persists, please Contact Microsoft Support for next steps.|
+|390061|The system is busy or unavailable.|Wait for a few minutes and then try again. If the error persists, please Contact Microsoft Support for next steps.|
+|390143|An error has occurred with error code 390143. (Unknown error.)|If the error persists, please contact Microsoft Support for next steps.|
+
 ## Next steps
+
 If you are unable to resolve the problem, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx) for assistance. 
