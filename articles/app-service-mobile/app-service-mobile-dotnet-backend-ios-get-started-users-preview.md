@@ -45,7 +45,7 @@ In Xcode, press **Run** to  start the app. An exception will be raised because t
 
 <!-- URLs. -->
 
-[quick start]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[iOS quick start]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
  
