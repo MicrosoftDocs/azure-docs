@@ -60,131 +60,15 @@ Here is an example of a SAS URI that provides read and write permissions to a bl
 
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
-<table border="1" cellpadding="0" cellspacing="0">
-    <tbody>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Blob URI
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    The address of the blob. Note that using HTTPS is highly recommended.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Storage services version
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sv=2012-02-12
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    For storage services version 2012-02-12 and later, this parameter indicates the version to use.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Start time
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    st=2013-04-29T22%3A18%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Specified in an ISO 8061 format. If you want the SAS to be valid immediately, omit the start time.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Expiry time
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    se=2013-04-30T02%3A23%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Specified in an ISO 8061 format.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Resource
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sr=b
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    The resource is a blob.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Permissions
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sp=rw
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    The permissions granted by the SAS include Read (r) and Write (w).
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Signature
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Used to authenticate access to the blob. The signature is an HMAC computed over a string-to-sign and key using the SHA256 algorithm, and
-                    then encoded using Base64 encoding.
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
+Name|Link section|Description
+--|--|--
+Blob URI|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt|The address of the blob. Note that using HTTPS is highly recommended.
+Storage services version|sv=2012-02-12|For storage services version 2012-02-12 and later, this parameter indicates the version to use.
+Start time|st=2013-04-29T22%3A18%3A26Z|Specified in an ISO 8061 format. If you want the SAS to be valid immediately, omit the start time.
+Expiry time|se=2013-04-30T02%3A23%3A26Z|Specified in an ISO 8061 format.
+Resource|sr=b|The resource is a blob.
+Permissions|sp=rw|The permissions granted by the SAS include Read (r) and Write (w).
+Signature|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Used to authenticate access to the blob. The signature is an HMAC computed over a string-to-sign and key using the SHA256 algorithm, and then encoded using Base64 encoding.
 
 ## Controlling Shared Access Signatures with a Stored Access Policy ##
 
