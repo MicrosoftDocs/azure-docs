@@ -174,7 +174,7 @@ Verify your data format and serialization are correct.
 ## Power BI as an output ##
 ---
 ### Overview ###
-Power BI can be utilized as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting. Note that multiple Power BI outputs may exist on a single Stream Analytics job. For more information on Power BI visit the [POwer BI](https://powerbi.microsoft.com/) site.
+Power BI can be utilized as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting. Note that multiple Power BI outputs may exist on a single Stream Analytics job. For more information on Power BI visit the [Power BI](https://powerbi.microsoft.com/) site.
 
 ### Adding Power BI as an output ###
 1.  Click **Output** from the top of the page, and then click **Add Output**. Power BI listed as an output option.
