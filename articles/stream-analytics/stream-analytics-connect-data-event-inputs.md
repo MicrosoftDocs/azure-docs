@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics inputs
@@ -46,30 +46,30 @@ To create a data stream input, simply go to the **Inputs** tab of the Stream Ana
 
 ![image2](./media/stream-analytics-connect-data-event-inputs/02-stream-analytics-create-inputs.png)
 
-## Creating an Event hub input data stream
+## Creating an Event Hub input data stream
 ---
-### Overview of Event hubs
+### Overview of Event Hubs
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers to feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can publish web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining. Event Hubs can be used for data egress also.  A potential use of Event Hubs as output is when the output of a Stream Analytics job will be the input of another streaming job. For further details on Event Hubs visit the portal at [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs").
 
 ### Consumer groups
-Each Stream Analytics job input should be configured to have its own Event hub consumer group. When a job contains self-join or multiple inputs, some input may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
+Each Stream Analytics job input should be configured to have its own Event Hub consumer group. When a job contains self-join or multiple inputs, some input may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the Event Hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional Event Hubs. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
 
-## Example of creating an Event hub input in the Azure Portal
+## Example of creating an Event Hub input in the Azure Portal
 ---
 Below is a walk-through to configure an Event Hub as an input. To start using an Event Hub input, the user should have the following information collect about the Table:
 
 1. The name of the Service Bus Namespace. 
-2. The name of the Event hub.
+2. The name of the Event Hub.
 3. The Event hub Policy Name.
 4. Optional: Event Hub Consumer Group name.
 	- The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub. It is recommended to use a distinct consumer Group for each Stream Analytics job.
-5. What serialization format is utilized for the data stream (Avro, CSV, JSON).
+5. The serialization format is utilized for the data stream (Avro, CSV, JSON).
 
 First select **ADD INPUT** from the Inputs page of the Stream Analytics job.
 
 ![image1](./media/stream-analytics-connect-data-event-inputs/01-stream-analytics-create-inputs.png)
 
-Then select the Event hub as the input.
+Then select the Event Hub as the input.
 
 ![image6](./media/stream-analytics-connect-data-event-inputs/06-stream-analytics-create-inputs.png)
 
