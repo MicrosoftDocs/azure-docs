@@ -105,7 +105,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 ## Scheduler Limits
 
-[AZURE.INCLUDE [Table of Scheduler Quotas, Limits, Defaults, and Throttles](../../includes/scheduler-limits-table.md)]
+[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
 ## Batch Limits
 
