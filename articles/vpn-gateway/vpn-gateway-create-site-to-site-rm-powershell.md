@@ -121,10 +121,9 @@ The gateway configuration defines the subnet and the public IP address to use. U
 
 ## Create the gateway
 
-In this step, you'll create the virtual network gateway.
+In this step, you'll create the virtual network gateway. Note the following values:
 
-
-- The GatewayType is *Vpn* 
+- The GatewayType is *Vpn*.
 - The VpnType can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *Policy Based* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 
 
