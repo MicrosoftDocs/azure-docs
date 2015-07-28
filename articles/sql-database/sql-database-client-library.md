@@ -54,7 +54,7 @@ You must first enable your application to access the REST API by setting up the 
 
 The [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs. 
 
-To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Azure management portal](https://manage.windowsazure.com/). 
+To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [management portal](https://manage.windowsazure.com/). 
 
 To create a new application and register it in the correct active directory do the following:
 
@@ -91,7 +91,7 @@ To create a new application and register it in the correct active directory do t
 
 1. On the bottom of the page click on **Add application**.
 1. Select **Microsoft Apps**.
-1. Select **Windows Azure Service Management API**, and then complete the wizard.
+1. Select **Azure Service Management API**, and then complete the wizard.
 2. With the API selected you now need to grant the specific permissions required to access this API by selecting **Access Azure Service Management (preview)**.
 
     ![permissions][2]
