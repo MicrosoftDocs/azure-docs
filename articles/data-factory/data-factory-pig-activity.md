@@ -18,7 +18,7 @@
 
 # Pig Activity
 
-Execute Hadoop Pig queries using the HDInsightPig transformation activity in Data Factory. 
+The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Pig queries on [your own](https://msdn.microsoft.com/library/mt185697.aspx) or [on-demand](https://msdn.microsoft.com/library/mt185733.aspx) HDInsight cluster.  
 
 ## Syntax
 
@@ -62,7 +62,7 @@ description | Text describing what the activity is used for | No
 type | HDinsightPig | Yes
 inputs | Input(s) consumed by the Pig activity | No
 outputs | Output(s) produced by the Pig activity | Yes
-linkedServiceName | Reference to the HDInsight cluster registered as a Linked Service in Data Factory | Yes
+linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes
 script | Specify the Pig script inline | No
 script path | Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptpath' property. Both cannot be used together | No
 defines | Specify parameters as key/value pairs for referencing within the Pig script | No
@@ -71,7 +71,7 @@ defines | Specify parameters as key/value pairs for referencing within the Pig s
 
 Let’s consider an example of game logs analytics where you want to identify the time spent by users playing games launched by your company.
  
-Below is a sample game log which is comma (,) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
+Below is a sample game log, which is comma (,) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
 
 	1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
 	1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
@@ -91,12 +91,12 @@ The **Pig script** to process this data looks like this:
 
 To execute this Pig script in a Data Factory pipeline, you need to the do the following:
 
-1.	Create a linked service to register your own HDInsight compute cluster or configure on-demand HDInsight compute cluster. Let’s call this linked service “HDInsightLinkedService”.
-2.	Create a [linked service](data-factory-azure-storage-connector.md) to configure the connection for Azure Blob storage hosting the data. Let’s call this linked service “StorageLinkedService”.
+1.	Create a linked service to register [your own HDInsight compute cluster](https://msdn.microsoft.com/library/mt185697.aspx) or configure [on-demand HDInsight compute cluster](https://msdn.microsoft.com/library/mt185733.aspx). Let’s call this linked service “HDInsightLinkedService”.
+2.	Create a [linked service](data-factory-azure-storage-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service “StorageLinkedService”.
 3.	Create [datasets](data-factory-create-datasets.md) pointing to the input and the output data. Let’s call the input dataset “PigSampleIn” and the output dataset “PigSampleOut”.
-4.	Copy the Pig query to Azure Blob Storage configured in step #2 above. This can also be configured as a separate linked service and referenced in the activity.
+4.	Copy the Pig query in a file the Azure Blob Storage configured in step #2 above. if the linked service for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity configuration. Use **scriptPath **to specify the path to pig script file and **scriptLinkedService** to specify the Azure storage that contains the script file. 
 	
-	> [AZURE.NOTE] You can also provide the Pig script inline in the activity definition by using the script property but this is not recommended as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues. The best practice is to follow step #4.
+	> [AZURE.NOTE] You can also provide the Pig script inline in the activity definition by using the **script** property but this is not recommended as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues. The best practice is to follow step #4.
 5. Create the below pipeline with the HDInsightPig activity to process the data.
 
 		{
@@ -118,7 +118,7 @@ To execute this Pig script in a Data Factory pipeline, you need to the do the fo
 		        ],
 		        "linkedServiceName": "HDInsightLinkedService",
 		        "typeproperties": {
-		          "scriptpath": "adfwalkthrough\\scripts\\samplepig.hql",
+		          "scriptpath": "adfwalkthrough\\scripts\\enrichlogs.pig",
 		          "scriptLinkedService": "StorageLinkedService"
 		        }
 		      }
@@ -130,7 +130,7 @@ To execute this Pig script in a Data Factory pipeline, you need to the do the fo
 
 ## Specifying parameters for a Pig script using the defines element
 
-Consider the example where the game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned with date and time. You want to parametrize the Pig script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.
+Consider the example where the game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned with date and time. You want to parameterize the Pig script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.
  
 To use parameterize Pig script, do the following:
 
@@ -167,7 +167,7 @@ To use parameterize Pig script, do the following:
 		  }
 		}  
 	  
-- In the Pig Script, refer to the parameters using '$' as shown in the following example:
+- In the Pig Script, refer to the parameters using '**$parameterName**' as shown in the following example:
 
 		PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);	
 		GroupProfile = Group PigSampleIn all;		

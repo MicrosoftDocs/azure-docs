@@ -17,7 +17,8 @@
 	ms.author="spelluru"/>
 
 # Hive Activity
-Executes Hadoop Hive queries using the **HDInsightHive** transformation activity in Data Factory. 
+
+The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Hive queries on [your own](https://msdn.microsoft.com/library/mt185697.aspx) or [on-demand](https://msdn.microsoft.com/library/mt185733.aspx) HDInsight cluster. 
 
 ## Syntax
 
@@ -54,7 +55,7 @@ description | Text describing what the activity is used for | No
 type | HDinsightHive | Yes
 inputs | Input(s) consumed by the Hive activity | No
 outputs | Output(s) produced by the Hive activity | Yes 
-linkedServiceName | Reference to the HDInsight cluster registered as a Linked Service in Data Factory | Yes 
+linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes 
 script | Specify the Hive script inline | No
 script path | Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptpath' property. Both cannot be used together | No 
 defines | Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf'  | No
@@ -98,10 +99,10 @@ The **Hive script** to process this data looks like this:
 
 To execute this Hive script in a Data Factory pipeline, you need to the do the following
 
-1. Create a linked service to register your own HDInsight compute cluster or configure on-demand HDInsight compute cluster. Let’s call this linked service “HDInsightLinkedService”.
-2. Create a [linked service](data-factory-azure-storage-connector.md) to configure the connection for Azure Blob storage hosting the data. Let’s call this linked service “StorageLinkedService”
+1. Create a linked service to register [your own HDInsight compute cluster](https://msdn.microsoft.com/library/mt185697.aspx) or configure [on-demand HDInsight compute cluster](https://msdn.microsoft.com/library/mt185733.aspx). Let’s call this linked service “HDInsightLinkedService”.
+2. Create a [linked service](data-factory-azure-storage-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service “StorageLinkedService”
 3. Create [datasets](data-factory-create-datasets.md) pointing to the input and the output data. Let’s call the input dataset “HiveSampleIn” and the output dataset “HiveSampleOut”
-4. Copy the Hive query as a file to Azure Blob Storage configured in step #2 above. This can also be configured as a separate linked service and referenced in the activity 
+4. Copy the Hive query as a file to Azure Blob Storage configured in step #2 above. if the linked service for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity configuration. Use **scriptPath **to specify the path to hive query file and **scriptLinkedService** to specify the Azure storage that contains the script file. 
 
 	> [AZURE.NOTE] You can also provide the Hive script inline in the activity definition by using the **script** property but this is not recommended as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues. The best practice is to follow step #4.
 5.	Create the below pipeline with the HDInsightHive activity to process the data.
