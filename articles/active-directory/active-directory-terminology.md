@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD terminology | Microsoft Azure" 
+	pageTitle="Azure AD terminology | Microsoft Azure"
 	description="Terms and definitions related to Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="07/28/2015"
 	ms.author="curtand"/>
 
 # Azure AD terminology
