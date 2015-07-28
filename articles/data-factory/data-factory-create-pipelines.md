@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/28/2015" 
 	ms.author="spelluru"/>
 
 # Understanding Pipelines & Activities
 This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. This article assumes you have gone through the [Overview](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles prior to this.
 
 ## What is a pipeline?
-**Pipelines are a logical grouping of Activities**. They are used to group activities into a unit that performs a task. To understand pipelines better lets understand an activity first and then we will come back to a pipeline. 
+**Pipelines are a logical grouping of Activities**. They are used to group activities into a unit that performs a task. To understand pipelines better, you need to understand an activity first. 
 
 ### What is an activity?
-Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets) as inputs and produces one or more datasets as output. **An activity is a unit of orchestration in Azure Data Factory.** Scheduling and execution are covered in more detail later in this article. 
+Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets) as inputs and produces one or more datasets as output. **An activity is a unit of orchestration in Azure Data Factory.** 
 
 For example, you may use a Copy activity to orchestrate copying data from one dataset to another. Similarly you may use a Hive activity which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of data transformation, analysis, and [data movement activities](data-factory-data-movement-activities.md). You may also choose to run your own code. 
 
@@ -58,7 +58,7 @@ Table ‘MyTable’ contains a column ‘timestampcolumn’ which helps in speci
 
 #### Azure Blob Dataset 
 
-Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
+Data is copied to a new blob every hour with the path for the blob reflecting the specific date-time with hour granularity.
 
 	{
 	  "name": "AzureBlobOutput",
@@ -115,7 +115,7 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
 	}
 
 
-The Copy activity in the pipeline below will help copy data from Azure SQL to Azure Blob Storage. It takes Azure SQL table as the input dataset with hourly frequency and writes the data to Azure Blob storage represented by the ‘AzureBlobOutput’ dataset. The output dataset also has an hourly frequency. Refer to the Scheduling and Execution section to understand how the data is copied over the unit of time. This pipeline have an active period of 3 hours from “2015-01-01T08:00:00” to “2015-01-01T11:00:00”. 
+The Copy activity in the pipeline below copies data from Azure SQL to Azure Blob Storage. It takes Azure SQL table as the input dataset with hourly frequency and writes the data to Azure Blob storage represented by the ‘AzureBlobOutput’ dataset. The output dataset also has an hourly frequency. Refer to the Scheduling and Execution section to understand how the data is copied over the unit of time. This pipeline have an active period of 3 hours from “2015-01-01T08:00:00” to “2015-01-01T11:00:00”. 
 
 **Pipeline:**
 	
@@ -168,7 +168,7 @@ Now that we have a brief understanding on what an activity is, let’s re-visit 
  
 Pipelines are a logical grouping of Activities. They are used to group activities into a unit that performs a task. **A pipeline is also the unit of deployment and management for activities.** For example, you may wish to put logically related activities together as one pipeline and such that they can need to be in active or in paused state together. 
 
-An output dataset from an activity in a pipeline can be the input dataset to another activity in the same/different pipeline and via this dependencies among activities can be defined. Data dependencies is covered in detail in scheduling and execution section below. 
+An output dataset from an activity in a pipeline can be the input dataset to another activity in the same/different pipeline by defining dependencies among activities. The scheduling and execution section covers this in detail. 
 
 Typical steps when creating a pipeline in Azure Data Factory are:
 
@@ -199,7 +199,7 @@ The generic structure for a pipeline looks as follows:
 	    }
 	}
 
-The activities section can have one or more activities defined within it. Each activity has the following top level structure:
+The **activities** section can have one or more activities defined within it. Each activity has the following top level structure:
 
 	{
 	    "name": "ActivityName",
@@ -238,7 +238,7 @@ isPaused | If set to true the pipeline will not get executed. Default value = fa
 scheduler | “scheduler” property is used it define desired scheduling for the activity. Its sub-properties are the same as those under [availability property in a dataset](data-factory-create-datasets.md#Availability). | No |   
 
 ### Activity types
-TAzure Data Factory provides a wide range of [Data movement](data-factory-data-movement-activities.md) and [Data transformation](data-factory-data-transformation-activities.md) activities.
+Azure Data Factory provides a wide range of [Data movement](data-factory-data-movement-activities.md) and [Data transformation](data-factory-data-transformation-activities.md) activities.
 
 ### Policies
 Policies affect the run-time behavior of an activity, specifically when the slice of a table is processed. The following table provides the details.
@@ -292,11 +292,11 @@ You can create and deploy pipeline via .NET SDK too. This mechanism can be lever
 
 
 ## Scheduling & Execution
-So far we have understood what pipelines and activities are. We have also taken a look at how are they defined and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed. 
+So far you have understood what pipelines and activities are. You have also taken a look at how are they defined and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed. 
 
-A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. 
+A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused, it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. 
 
-In fact it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. Let us take a closer look at how scheduling and execution works in Azure Data Factory in the [Scheduling and Execution](data-factory-scheduling-and-execution.md).
+In fact, it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. Let us take a closer look at how scheduling and execution works in Azure Data Factory in the [Scheduling and Execution](data-factory-scheduling-and-execution.md).
 
 ## Manage & Monitor  
 Once a pipeline is deployed, you can manage and monitor your pipelines, slices and runs. Read more about it here: [Monitor and Manage Pipelines](data-factory-monior-manage-pipelines.md).
