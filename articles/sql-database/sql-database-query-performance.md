@@ -53,7 +53,8 @@ Query Performance Insights is easy to use:
 
 - First review the list of top resource-consuming queries. 
 - Select or clear the individual queries in the list to display them in the overall consumption chart.
-- Select an individual query to view it's details. 
+- Select an individual query to view it's details.
+- **Edit chart** to customize how DTU consumption data is displayed.
 
 
 
@@ -63,11 +64,13 @@ Query Performance Insights is easy to use:
 
 In the [preview portal](https://portal.azure.com) do the following:
 
-1. Browse to a SQL database and click **Query Performance Insights** <br>The top queries view opens and the list of top DTU consuming queries are listes. The top line is overall DTU% (all queries), and the bars are DTU% consumed by the selected queries. Select or clear individual queries to include or exclude them from the chart.
+1. Browse to a SQL database and click **Query Performance Insights**. 
 
     ![Query Performance Insights][1]
 
-1. Click around the chart for details
+    The top queries view opens and the list of top DTU consuming queries are listed.
+
+1. Click around the chart for details.<br>The top line is overall DTU% (all queries), and the bars are DTU% consumed by the selected queries. Select or clear individual queries to include or exclude them from the chart.
 
     ![top queries][2]
 
@@ -77,8 +80,8 @@ In the [preview portal](https://portal.azure.com) do the following:
 
 To view query details:
 
-1. Click any query in the list of top queries.<br>The details view opens and the queries DTU consumption is broken down over time. The top line is overall DTU% (all queries), and the bars are DTU% consumed by the selected query.
-3. Click around the chart for details.
+1. Click any query in the list of top queries.<br>The details view opens and the queries DTU consumption is broken down over time. 
+3. Click around the chart for details.<br>The top line is overall DTU% (all queries), and the bars are DTU% consumed by the selected query.
     
     ![query details][3]
 
