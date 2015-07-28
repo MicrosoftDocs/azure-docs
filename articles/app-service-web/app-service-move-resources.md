@@ -3,7 +3,7 @@
 	description="Describes the scenarios where you can move Web Apps and App Services from one Resource Group to another."
 	services="app-service\web"
 	documentationCenter=""
-	authors="zarizvi"
+	authors="ZainRizvi"
 	manager="wpickett"
 	editor=""/>
 
