@@ -117,50 +117,15 @@ Create an export job to notify the Import/Export service that you'll be shipping
 
 	The table shows examples of valid blob paths:
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-		<tbody>
-			<tr>
-				<td><strong>Selector</strong></td>
-				<td><strong>Blob Path</strong></td>
-				<td><strong>Description</strong></td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/</td>
-				<td>Exports all blobs in the storage account</td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/$root/</td>
-				<td>Exports all blobs in the root container</td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/book</td>
-				<td>Exports all blobs in any container that begins with prefix <strong>book</strong></td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/music/</td>
-				<td>Exports all blobs in container <strong>music</strong></td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/music/love</td>
-				<td>Exports all blobs in container <strong>music</strong> that begin with prefix <strong>love</strong></td>
-			</tr>
-			<tr>
-				<td>Equal To</td>
-				<td>$root/logo.bmp</td>
-				<td>Exports blob <strong>logo.bmp</strong> in the root container</td>
-			</tr>
-			<tr>
-				<td>Equal To</td>
-				<td>videos/story.mp4</td>
-				<td>Exports blob <strong>story.mp4</strong> in container <strong>videos</strong></td>
-			</tr>
-		</tbody>
-	</table>
+	Selector|Blob Path|Description
+	--|--|--
+	Starts With|/|Exports all blobs in the storage account
+	Starts With|/$root/|Exports all blobs in the root container
+	Starts With|/book|Exports all blobs in any container that begins with prefix **book**
+	Starts With|/music/|Exports all blobs in container **music**
+	Starts With|/music/love|Exports all blobs in container **music** that begin with prefix **love**
+	Equal To|$root/logo.bmp|Exports blob **logo.bmp** in the root container
+	Equal To|videos/story.mp4|Exports blob **story.mp4** in container **videos**
 
 
 4.	In Step 4, enter a descriptive name for the export job. The name you enter may contain only lowercase 	letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces.
@@ -187,34 +152,14 @@ You can track the status of your import or export jobs from the Management Porta
 
 The table describes what each job status designation means:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Job Status</strong></td>
-			<td><strong>Description</strong></td>
-		</tr>
-		<tr>
-			<td>Creating</td>
-			<td>Your job has been created, but you have not yet provided your shipping information.</td>
-		</tr>
-		<tr>
-			<td>Shipping</td>
-			<td>Your job has been created and you have provided your shipping information.</td>
-		</tr>
-		<tr>
-			<td>Transferring</td>
-			<td>Your data is being transferred from your hard drive (for an import job) or to your hard drive (for an export job).</td>
-		</tr>
-		<tr>
-			<td>Packaging</td>
-			<td>The transfer of your data is complete, and your hard drive is being prepared for shipping back to you.</td>
-		</tr>
-		<tr>
-			<td>Complete</td>
-			<td>Your hard drive has been shipped back to you.</td>
-		</tr>
-	</tbody>
-</table>
+Job Status|Description
+--|--
+Creating|Your job has been created, but you have not yet provided your shipping information.
+Shipping|Your job has been created and you have provided your shipping information.
+Transferring|Your data is being transferred from your hard drive (for an import job) or to your hard drive (for an export job).
+Packaging|The transfer of your data is complete, and your hard drive is being prepared for shipping back to you.
+Complete|Your hard drive has been shipped back to you.
+
 
 ## View BitLocker Keys for an Export Job ##
 
