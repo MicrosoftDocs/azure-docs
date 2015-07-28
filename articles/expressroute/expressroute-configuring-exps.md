@@ -15,7 +15,7 @@
    ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
-#  Configure an ExpressRoute Connection through an Exchange Provider
+#  Configure an ExpressRoute connection through an Exchange Provider
 
 To configure your ExpressRoute connection through an exchange provider, you’ll need to complete multiple steps in the proper order. These instructions will help you do the following:
 
