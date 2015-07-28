@@ -249,7 +249,3 @@ To add a default route on the secondary NIC, follow the steps below:
 ### Configure Linux VMs
 
 For Linux VMs, since the default behavior uses weak host routing, we recommend that the secondary NICs are restricted to traffic flows only within the same subnet. However if certain scenarios demand connectivity outside the subnet, users should enable policy based routing to ensure that the ingress and egress traffic uses the same NIC.
-
-## Next steps
-
-- Learn about the use of [multiple VM NICs and VNet Appliances in Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
