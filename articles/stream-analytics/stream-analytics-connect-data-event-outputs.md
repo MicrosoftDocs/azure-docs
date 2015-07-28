@@ -116,14 +116,12 @@ Power BI can be utilized as an output for a Stream Analytics job to provide for 
 
     ![graphic22][graphic22]
 
-    > [AZURE.NOTE] Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
-
 2.  Select **Power BI** and then click the right button.
 3.  A screen like the following is presented.
 
     ![graphic23][graphic23]
 
-4.  In this step, it is important to use the same Org Id that is being for the Stream Analytics job. At this point, Power BI output has to use the same Org Id that the Stream Analytics job uses. If there is already a Power BI account using the same Org Id, select “Authorize Now”. If not, choose “Sign up now” and use same Org Id as your azure account while signing up for Power BI. [Here is a good blog with a walkthrough of a Power BI sign-up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx). One may also assign an Azure account as a Power BI login account if desired. Details are [here](https://support.powerbi.com/knowledgebase/articles/499083-how-to-use-the-same-account-login-for-power-bi-and).
+4.  In this step, provide the Azure account ID for authorizing the Power BI output. If you are not already signed up for Power BI, choose “Sign up now”.
 5.  Next a screen like the following will be presented.
 
     ![graphic24][graphic24]
@@ -139,26 +137,6 @@ Provide values as below:
 *	Click **OK**, **Test Connection** and now the output configuration is complete.
 
 >	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data will be overwritten.
-
-
-### Write a Query ###
-Go to the **Query** tab of the job. Write the query, the output of which is desired in the Power BI dashboard. For example, it could be something such as the following SQL query:
-
-    SELECT
-    	MAX(hmdt) AS hmdt,
-    	MAX(temp) AS temp,
-    	System.TimeStamp AS time,
-    	dspl
-    INTO
-        OutPBI
-    FROM
-    	Input TIMESTAMP BY time
-    GROUP BY
-    	TUMBLINGWINDOW(ss,1),
-    	dspl
-
-        
-Start the job. Validate that the Event hub is receiving events and that the query generates the expected results. If the query outputs 0 rows, the Power BI dataset and tables will not be automatically created.
 
 ## Using Azure Table storage for an output ##
 ---
