@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tomfitz"/>
 
 # Provision an API app with an existing gateway

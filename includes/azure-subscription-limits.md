@@ -65,9 +65,14 @@
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Batch Preview</a> accounts per region per subscription</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Batch</a> accounts per region per subscription</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Alert rules per subscription</p></td>
+   <td valign="middle"><p>250</p></td>
+   <td valign="middle"><p>250</p></td>
 </tr>
 </table>
 

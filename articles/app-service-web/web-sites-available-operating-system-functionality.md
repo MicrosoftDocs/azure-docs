@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/02/2015" 
 	ms.author="cephalin"/>
 
 # Operating System Functionality on Azure App Service Web Apps #
@@ -22,6 +22,7 @@ This article describes the common baseline operating system functionality that i
 
 <a id="tiers"></a>
 ## App Service plan tiers
+
 Web Apps runs customer apps in a multi-tenant hosting environment. Web apps deployed in the **Free** and **Shared** tiers run in worker processes on shared virtual machines, while web apps deployed in the **Standard** and **Premium** tiers run on virtual machine(s) dedicated specifically for the web apps associated with a single customer.
 
 Because Web Apps supports a seamless scaling experience between different tiers, the security configuration enforced for web apps remains the same. This ensures that web applications don't suddenly behave differently, failing in unexpected ways, when a web app switches from one tier to another.
@@ -34,7 +35,6 @@ Web Apps tiers control the amount of compute resources (CPU, disk storage, memor
 Web Apps supports a variety of development frameworks, including ASP.NET, classic ASP, node.js, PHP and python - all of which run as extensions within IIS. In order to simplify and normalize security configuration, Web apps typically run the various development frameworks with their default settings. One approach to configuring web apps could have been to customize the API surface area and functionality for each individual development framework. Web Apps instead takes a more generic approach by enabling a common baseline of operating system functionality regardless of a web app's development framework.
 
 The following sections summarize the general kinds of operating system functionality available to web apps on Azure.
-
 
 <a id="FileAccess"></a>
 ##File Access

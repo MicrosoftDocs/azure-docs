@@ -13,12 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="07/02/2015" 
 	ms.author="mwasson"/>
-
-
-
-
 
 
 # How to Use Service Bus topics and subscriptions
@@ -28,13 +24,13 @@ from Node.js applications. The scenarios covered include **creating
 topics and subscriptions, creating subscription filters, sending
 messages** to a topic, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**. For more information on topics
-and subscriptions, see the [Next Steps][] section.
+and subscriptions, see the [Next steps](#next-steps) section.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or Web Site with WebMatrix.
 
 ## Configure your application to use Service Bus
 
@@ -182,9 +178,9 @@ add new filters to an existing subscription.
 
 > Since the default filter is applied automatically to all new
 subscriptions, you must first remove the default filter or the
-<strong>MatchAll</strong> will override any other filters you may specify. You can
-remove the default rule by using the <strong>deleteRule</strong> method of the
-<strong>ServiceBusService</strong> object.
+**MatchAll** will override any other filters you may specify. You can
+remove the default rule by using the **deleteRule** method of the
+**ServiceBusService** object.
 
 The example below creates a subscription named 'HighMessages' with a
 **SqlFilter** that only selects messages that have a custom
@@ -418,26 +414,12 @@ links to learn more.
 -   Visit the [Azure SDK for Node] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
-  [Next Steps]: #nextsteps
-  [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Create a Node.js Application]: #Create_a_Nodejs_Application
-  [Configure Your Application to Use Service Bus]: #Configure_Your_Application_to_Use_Service_Bus
-  [How to: Create a Topic]: #How_to_Create_a_Topic
-  [How to: Create Subscriptions]: #How_to_Create_Subscriptions
-  [How to: Send Messages to a Topic]: #How_to_Send_Messages_to_a_Topic
-  [How to: Receive Messages from a Subscription]: #How_to_Receive_Messages_from_a_Subscription
-  [How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
-  [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
-  [1]: #Next_Steps
   [Azure Management Portal]: http://manage.windowsazure.com
-  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
+  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
  

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to use Blob storage from .NET | Microsoft Azure"
-	description="Learn how to use Microsoft Azure Blob storage to upload, download, list, and delete blob content. Samples are written in C#."
+	description="Learn about Azure Blob storage, and how to create a container and to upload, download, list, and delete blob content."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="07/06/2015"
 	ms.author="tamram"/>
 
 

@@ -16,8 +16,8 @@
 	ms.date="03/04/2015" 
 	ms.author="cephalin"/>
 
-<a name="intro"></a>
 # Integrate an Azure web app with Azure CDN #
+<a name="intro"></a>
 
 Azure App Service can be integrated with [Azure CDN](http://azure.microsoft.com/services/cdn/), adding to the global scaling capabilities inherent in App Service Web App by serving your web app content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx). This integration dramatically increases the performance of your Azure App Service Web App and significantly improves your web app's user experience worldwide. 
 
@@ -573,7 +573,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 7. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
 
-# More Information #
+## More Information ##
 - [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [Serve Content from Azure CDN in Your Web Application](../cdn-serve-content-from-cdn-in-your-web-application.md)
 - [Integrate a cloud service with Azure CDN](../cdn-cloud-service-with-cdn.md)

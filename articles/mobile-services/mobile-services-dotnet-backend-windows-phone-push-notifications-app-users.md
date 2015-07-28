@@ -40,7 +40,7 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 
 ##<a name="update-app"></a>Update the app to log in before registration
 
-[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](mobile-services-windows-phone-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../../includes/mobile-services-windows-phone-push-notifications-app-users.md)] 
 
 
 ##<a name="test"></a>Test the app

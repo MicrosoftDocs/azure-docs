@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Manage infrastructure capacity
@@ -161,4 +161,5 @@ By using the projection tool, you can view historical trends for your disk space
 3. In the **Disk Performance** area, you can view disk throughput and latency information.
 
 4. In the **Projection tool**, move the date slider to display a projection of the capacity that will be used on the date you choose.
- 
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]

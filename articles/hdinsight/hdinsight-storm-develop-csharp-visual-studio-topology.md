@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/21/2015"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -26,23 +26,46 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 
 -	One of the following versions of Visual Studio
 
-	-	Visual Studio 2012 with <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
+	-	Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	-	Visual Studio 2013 with <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	-	Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	<a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	-	Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
 -	Azure SDK 2.5.1 or later
 
--	HDInsight Tools for Visual Studio: See <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
+-	HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
 
--	Apache Storm on HDInsight cluster: See <a href="../hdinsight-storm-getting-started/" target="_blank">Getting started with Apache Storm on HDInsight</a> for steps to create a cluster.
+    > [AZURE.NOTE] HDInsight Tools for Visual Studio are not supported on Visual Studio Express
+
+-	Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-storm-getting-started.md) for steps to create a cluster.
 
 	> [AZURE.NOTE] Currently, the HDInsight Tools for Visual Studio only support Storm on HDInsight versions 3.2 clusters.
 
+##Templates
+
+The HDInsight Tools for Visual Studio provide the following templates::
+
+| Project type | Demonstrates |
+| ------------ | ------------- |
+| Storm Application | An empty Storm topology project |
+| Storm Azure SQL Writer Sample | How to write to Azure SQL Database |
+| Storm DocumentDB Reader Sample | How to read from Azure DocumentDB |
+| Storm DocumentDB Writer Sample | How to write to Azure DocumentDB |
+| Storm EventHub Reader Sample | How to read from Azure Event Hubs |
+| Storm EventHub Writer Sample | How to write to Azure Event Hubs |
+| Storm HBase Reader Sample | How to read from HBase on HDInsight clusters |
+| Storm HBase Writer Sample | How to write to HBase on HDInsight clusters |
+| Storm Hybrid Sample | How to use a Java component |
+| Storm Sample | A basic word count topology |
+
+> [AZURE.NOTE] The HBase reader and writer samples use the HBase REST API to communicate with an HBase on HDInsight cluster, not the HBase Java API.
+
+In the steps in this document, you will use the basic Storm Application project type to create a new topology.
+
 ##Create a C# topology
 
-1.	If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
+1.	If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2.	Open Visual Studio, select **File** > **New**, and then **Project**.
 
@@ -58,7 +81,7 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 
 	-	**Bolt.cs**: An example bolt that keeps a count of numbers emitted by the spout.
 
-	As part of project creation, the latest <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">SCP.NET packages</a> will be downloaded from NuGet.
+	As part of project creation, the latest [SCP.NET packages](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) will be downloaded from NuGet.
 
 In the next sections, you will modify this project into a basic WordCount application.
 
@@ -426,27 +449,20 @@ SCP.Net version 0.9.4.203 introduces a new class and method specifically for wor
 
 > [AZURE.NOTE] While these make it easier to work with the Event Hub Spout than other Java components, you must still use the CustomizedInteropJSONSerializer to serialize data produced by the spout.
 
+##How to update SCP.NET
+
+Recent releases of SCP.NET support package upgrade through NuGet. When a new update is available, you will receive an upgrade notification. To manually check for an upgrade, perform these steps:
+
+1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
+
+2. From the package manager, select **Updates**. If an update is available, it will be listed. Click the **Update** button for the package to install it.
+
+> [AZURE.IMPORTANT] If your project was created with one of the earlier versions of SCP.NET that did not use NuGet for package updates, you must perform the following steps to update to the new version:
+>
+> 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
+> 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
+
 ##Troubleshooting
-
-###Updating SCP.Net components
-
-When you first create a C# Storm topology, the latest version of SCP.Net will be installed. However, you must perform manual steps to update existing projects to the latest version.
-
-1.	In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
-
-2.	When the package manager appears, use the search field to find and install the latest version of SCP.Net.
-
-	> [AZURE.IMPORTANT] Once the installation completes, you will be able to use the updated version of SCP.Net in your topology, but may receive errors when deploying the topology to an HDInsight cluster. This is because the version used during deployment must also be updated.
-
-3.	After installation, go to the directory that contains your solution and open the **packages** directory. There should be a sub-directory named **Microsoft.SCP.Net.SDK.#.#.#.###** where the '#' represents the version number.
-
-4.	Open the **Microsoft.SCP.Net.SDK.#.#.#.###** directory and copy the contents.
-
-5.	In the directory that contains your solution, open the directory that contains your C# Storm topology project and locate the **Microsoft.SCP.Net.SDK** folder. This contains the SCP.Net components that will be used to package and deploy your application to the HDInsight cluster.
-
-6.	Delete the existing contents of the **Microsoft.SCP.Net.SDK** directory, and replace them with the version copied from **packages/Microsoft.SCP.Net.SDK.#.#.#.###**.
-
-At this point, your project has been updated to use the version installed from NuGet for both local development and deployment to the HDInsight cluster.
 
 ###Test a topology locally
 
@@ -638,4 +654,3 @@ For more ways to work with HDInsight and more Storm on HDinsight samples, see th
 **Apache HBase on HDInsight**
 
 -	[Getting started with HBase on HDInsight](../hdinsight-hbase-get-started.md)
- 

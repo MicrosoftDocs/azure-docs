@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/22/2015" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -43,7 +43,6 @@ You can create, monitor, and manage Azure data factories programmatically using 
 3.	In the <b>Package Manager Console</b>, execute the following commands one-by-one.</b>. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
-		Install-Package Microsoft.DataFactories.Runtime –Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. Add the following **appSetttings** section to the **App.config** file. These are used by the helper method: **GetAuthorizationHeader**. 
 
@@ -57,24 +56,26 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="49fb6e5f-3098-4fb2-ba2f-6d6eed843a65" />
-    		<add key="ActiveDirectoryTenantId" value="37330244-7828-4a28-99b7-c8c3a437c7ac" />
+		    <add key="SubscriptionId" value="<subscription ID>" />
+    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
 		</appSettings>
 6. Add the following **using** statements to the source file (Program.cs) in the project.
 
 		using System.Threading;
 		using System.Configuration;
 		using System.Collections.ObjectModel;
-				
+		
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
+		using Microsoft.Azure.Management.DataFactories.Common.Models;
+		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure; 
+		using Microsoft.Azure;
 6. Add the following code that creates an instance of  **DataPipelineManagementClient** class to the **Main** method. You will use this object to create a data factory, a linked service, input and output tables, and a pipeline. You will also this object to monitor slices of a table at runtime.    
 
-        // create data pipeline management client
-        string resourceGroupName = "ADF";
-        string dataFactoryName = "APITutorialFactory";
+        // create data factory management client
+        string resourceGroupName = "resourcegroupname";
+        string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
             new TokenCloudCredentials(
@@ -83,7 +84,10 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
-        DataPipelineManagementClient client = new DataPipelineManagementClient(aadTokenCredentials, resourceManagerUri);
+        DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
+	> [AZURE.NOTE] Replace the **resourcegroupname** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet.
+
 7. Add the following code that creates a **data factory** to the **Main** method.
 
         // create a data factory
@@ -99,10 +103,11 @@ You can create, monitor, and manage Azure data factories programmatically using 
                 }
             }
         );
+
 8. Add the following code that creates a **linked service** to the **Main** method. 
 	> [AZURE.NOTE] Use **account name** and **account key** of your Azure storage account for the **ConnectionString**. 
 
-		// create a linked service
+        // create a linked service
         Console.WriteLine("Creating a linked service");
         client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
             new LinkedServiceCreateOrUpdateParameters()
@@ -110,10 +115,10 @@ You can create, monitor, and manage Azure data factories programmatically using 
                 LinkedService = new LinkedService()
                 {
                     Name = "LinkedService-AzureStorage",
-                    Properties = new AzureStorageLinkedService()
-                    {
-                        ConnectionString = "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=account key",
-                    }
+                    Properties = new LinkedServiceProperties
+                    (
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                    )
                 }
             }
         );
@@ -137,17 +142,17 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     Name = Table_Source,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/",
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            FileName = "emp.txt"
                         },
-
+                        External = true,
                         Availability = new Availability()
                         {
                             Frequency = SchedulePeriod.Hour,
                             Interval = 1,
-                            WaitOnExternal = new WaitOnExternal()
                         },
 
                         Policy = new Policy()
@@ -169,7 +174,9 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     Name = Table_Destination,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/apifactoryoutput/{Slice}",
                             PartitionedBy = new Collection<Partition>()
@@ -183,8 +190,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                                         Format = "yyyyMMdd-HH"
                                     }
                                 }
-                            },
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            }
                         },
 
                         Availability = new Availability()
@@ -195,9 +201,10 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     }
                 }
             });
-10. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink. 
 
-        // create a pipeline
+11. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.
+
+            // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
         DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
@@ -217,48 +224,36 @@ You can create, monitor, and manage Azure data factories programmatically using 
                         Start = PipelineActivePeriodStartTime,
                         End = PipelineActivePeriodEndTime,
 
-                        Activities = new List<BaseActivity>()
-                        {
-                            new CopyActivity()
-                            {
+                        Activities = new List<Activity>()
+                        {                                
+                            new Activity()
+                            {   
                                 Name = "BlobToBlob",
                                 Inputs = new List<ActivityInput>()
                                 {
-                                    new ActivityInput()
-                                    {
-                                        Name = Table_Source,
+                                    new ActivityInput() {
+                                        Name = Table_Source
                                     }
                                 },
-                        
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination, 
+                                        Name = Table_Destination
                                     }
                                 },
-                     
-                                Transformation = new CopyActivityProperties()
+                                TypeProperties = new CopyActivity()
                                 {
                                     Source = new BlobSource()
                                     {
                                         BlobColumnSeparators = ",",
                                     },
-                            
+                        
                                     Sink = new BlobSink()
                                     {
                                         WriteBatchSize = 10000,
                                         WriteBatchTimeout = TimeSpan.FromMinutes(10)
-                                    },
-
-                                },
-
-                                Policy = new ActivityPolicy()
-                                {
-                                    ExecutionPriorityOrder = ExecutionPriorityOrder.NewestFirst,
-                                    Concurrency = 1,
-                                    Retry = 2,
-                                    Timeout = TimeSpan.FromMinutes(10),
+                                    }
                                 }
                             }
 
@@ -267,7 +262,9 @@ You can create, monitor, and manage Azure data factories programmatically using 
                 }
             });
 
-11. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure portal. 
+	
+
+12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure portal. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -334,13 +331,23 @@ You can create, monitor, and manage Azure data factories programmatically using 
             }
         }
 
-14. Add the following code to get run details for a data slice slice to the **Main** method.
+14. **(optional)** Add the following code to get run details for a data slice slice to the **Main** method.
 
         Console.WriteLine("Getting run details of a data slice");
 
-        var datasliceRunListResponse = client.DataSliceRuns.List(resourceGroupName, dataFactoryName, Table_Destination,
-                PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString());
+		// give it a few minutes for the output slice to be ready
+        Console.ReadKey();
 
+        var datasliceRunListResponse = client.DataSliceRuns.List(
+                resourceGroupName,
+                dataFactoryName,
+                Table_Destination,
+                new DataSliceRunListParameters()
+                {
+                    DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+                }
+            );
+        
         foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
         {
             Console.WriteLine("Status: \t\t{0}", run.Status);
@@ -354,15 +361,14 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
-    }
 
-15. Build the console application. Click **Build** on the menu and click **Build Solution**.
+15. Build the console application. Click **Build** on the menu and click **Build Solution**. If you get an error about **ConfigurationManager** class, add a reference to the **System.Configuration** assembly and try to build again. 
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
 
         John, Doe
 		Jane, Doe
 	 
-17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu.
+17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**. 
 18. Use the Azure Preview Portal to verify that the data factory: **APITutorialFactory** is created with the following artifacts: 
 	- Linked service: **LinkedService_AzureStorage** 
 	- Tables: **TableBlobSource** and **TableBlobDestination**.

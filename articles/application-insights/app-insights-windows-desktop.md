@@ -49,14 +49,9 @@ Support for Windows desktop apps and services are provided by the Application In
 
     ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
+3. Set your InstrumentationKey in code through the `TelemetryConfiguration.Active` object. 
 
-    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
-
-    As an alternative you can achieve the same effect with this code:
-    
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
-
 
 ## <a name="telemetry"></a>Insert telemetry calls
 

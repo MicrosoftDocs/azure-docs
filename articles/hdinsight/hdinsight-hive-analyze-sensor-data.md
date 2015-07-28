@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Analyze sensor data using Hive and Hadoop | Microsoft Azure" 
-	description="Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel with PowerView." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Analyze sensor data using Hive and Hadoop | Microsoft Azure"
+	description="Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel with PowerView."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/24/2015" 
 	ms.author="larryfr"/>
 
 #Analyze sensor data using the Hive Query Console on Hadoop in HDInsight
@@ -43,7 +43,7 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 
 ##To run the sample
 
-1. From the Azure Portal, click the cluster on which you want to run the sample, and then click **Query Console** at the bottom. Alternatively, you can directly open the Query Console by using the following URL:
+1. From your web browser, navigate to the following URL. Replace `<clustername>` with the name of your HDInsight cluster.
 
 	 	https://<clustername>.azurehdinsight.net
 
@@ -52,4 +52,3 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Solutions with Sample Data** category, click the **Sensor Data Analysis** sample.
 
 3. Follow the instructions provided on the web page to finish the sample.
- 

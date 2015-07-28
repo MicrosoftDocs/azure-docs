@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Create an Operational Insights account and sign in"
    description="Learn about how to create an Operational Insights account and then sign in"
    services="operational-insights"
@@ -6,13 +6,13 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Create an Operational Insights account and sign in
@@ -38,4 +38,4 @@ If you want to get a Microsoft Account (previously called a â€œWindows Live IDâ€
 ## Next steps
 To learn more about getting started with Operational Insights, see:
 
-- [Setup and configure your workspace](operational-insights-setup-workspace.md) 
+- [Setup and configure your workspace](operational-insights-setup-workspace.md)

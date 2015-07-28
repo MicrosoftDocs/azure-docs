@@ -3,7 +3,7 @@
 > [AZURE.NOTE]
 > Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a snap.
 
-You can secure the communication between the web app and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your App are secure. This article discusses how to configure HTTPS for a web app in Azure App Service. 
+You can secure the communication between the web app and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your App are secure. This article discusses how to configure HTTPS for a web app in Azure App Service. This article does not cover client certificate authentication; for information about that, see [How To Configure TLS Mutual Authentication for Web Apps](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS for the \*.azurewebsites.net domain
 
@@ -175,7 +175,7 @@ You can now upload the exported PFX file to your Azure web app.
 	>
 	>
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure App Service.
@@ -294,7 +294,7 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 	>
 	> 
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure App Service.
@@ -522,7 +522,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 * For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
+[customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

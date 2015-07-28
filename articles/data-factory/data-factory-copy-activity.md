@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -40,167 +40,22 @@ To learn more, you can:
 ## Supported sources and sinks
 The Copy Activity supports the following data movement scenarios: 
 
-- Copy data from an Azure Blob to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, or SQL Server on IaaS.
-- Copy data from an Azure SQL Database to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS
-- Copy data from an Azure Table to an Azure Blob, Azure Table, or Azure SQL Database.
-- Copy data from an On-premises SQL Server/SQL Server on IaaS to Azure Blob or Azure SQL Database
-- Copy data from an On-premises Oracle database to an Azure blob
-- Copy data from an On-premises file system to Azure Blob
- 
+| *Source/Sink* | Azure Blob | Azure Table | Azure SQL Database | Azure DocumentDB | SQL Server on Azure VM | On-premises SQL Server |
+| ------------- | ---------- | ----------- | ------------------ | ---------------- | ------------------ | ------------------- |
+| Azure Blob | X | X | X | X | X | X |
+| Azure Table | X | X | X | X | X | X |
+| Azure SQL Database | X | X | X | X | X | X |
+| Azure DocumentDB | X | X | X |  |  |  |  
+| On-premises SQL Server | X | X | X |  | X | X |
+| SQL Server on Azure VM | X | X | X |  | X | X |
+| On-premises File System | X | X | X |  | X | X |
+| On-premises Oracle Database | X | X | X |  | X | X |
+| On-premises MySQL Database| X | X | X |  | X | X |
+| On-premises DB2 Database | X | X | X |  | X | X |
+| On-premises Teradata Database | X | X | X |  | X | X |
+| On-premises Sybase Database | X | X | X |  | X | X |
+| On-premises PostgreSQL Database | X | X | X |  | X | X |
 
-<table border="1">	
-	<tr>
-		<th><i>Source/Sink<i></th>
-		<th>Azure Blob</th>
-		<th>Azure Table</th>
-		<th>Azure SQL Database</th>
-		<th>On-premises SQL Server</th>
-		<th>SQL Server on IaaS</th>
-		<th>Azure DocumentDB</th>
-	</tr>	
-
-	<tr>
-		<td><b>Azure Blob</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Azure Table</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td>X</td>
-	</tr>	
-
-	<tr>
-		<td><b>Azure SQL Database</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-
-	<tr>
-		<td><b>On-premises SQL Server</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>SQL Server on IaaS</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises File System</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises Oracle Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises File System</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises MySQL Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises DB2 Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises Teradata Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises Sybase Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises PostgreSQL Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Azure DocumentDB</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-</table>
 
 See [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx) topic on MSDN Library for more details.  
 
@@ -261,57 +116,15 @@ Each activity within the **activities** section has the following top-level stru
 
 The following table describes the tags used with an activity section. 
 
-<table border="1">	
-	<tr>
-		<th align="left">Tag</th>
-		<th align="left">Descritpion</th>
-		<th align="left">Required</th>
-	</tr>	
-
-	<tr>
-		<td>name</td>
-		<td>Name of the activity.</td>
-		<td>Y</td>
-	</tr>	
-
-	<tr>
-		<td>description</td>
-		<td>Text describing what the activity is used for.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>type</td>
-		<td>Specifies the type of the activity. <br/><br/>The <b>type</b> should be set to <b>CopyActivity</b>.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>inputs</td>
-		<td>Input tables used by the activity.  Specify only one input table for the Copy Activity.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>outputs</td>
-		<td>Output tables used by the activity.  Specify only one output table for the Copy Activity.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>transformation</td>
-		<td>Properties in the transformation is dependent on type.  The <b>Copy Activity</b> requires you to specify a <b>source</b> and a <b>sink</b> section within the <b>transformation</b> section. More details are provided later in this article. </td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>policy</td>
-		<td>Policies which affect the run-time behavior of the activity. If it is not specified, default values will be used.</td>
-		<td>N</td>
-	</tr>
-
-
-</table>
+| Tag | Description | Required |
+|-----|-------------|----------|
+|name|Name of the activity.|Y|
+|description|Text describing what the activity is used for|Y|
+|type|Specifies the type of the activity. The type should be set to **Copy** |Y|
+|inputs|Input tables used by the activity. Specify only one input table for the Copy Activity | Y
+|outputs|Output tables used by the activity. Specify only one output table for the Copy Activity | Y
+|transformation|Properties in the transformation is dependent on type. The Copy Activity requires you to specify a source and a sink section within the transformation section. More details are provided later in this article.|Y
+|policy| Policies which affect the run-time behavior of the activity. If it is not specified, default values will be used. | N
 
 See [JSON Scripting Reference][json-script-reference] for detailed information about JSON properties/tags.
 
@@ -445,7 +258,7 @@ For data stores offering HTTPS connection, choose HTTPS connection for the copy 
 
 For **Azure SQL Database**, explicitly request an encrypted connection and do not trust the server certificates to avoid the "man in the middle" attack. To achieve this, use **Encrypt=True** and **TrustServerCertificate=False** in the connection string. See Azure [SQL Database Security Guidelines and Limitations](https://msdn.microsoft.com/library/azure/ff394108.aspx) for details.
 
-For traditional databases such as **SQL Server**, especially when the instances are in an Azure Virtual Machine, enable encrypted connection option by configuring a signed certificate, with **Encrypt=True** and **TrustServerCertificate=False** in the connection string. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) and [Connection String Syntax.](https://msdn.microsoft.com/library/ms254500.aspx).
+For traditional databases such as **SQL Server**, especially when the instances are in an Azure Virtual Machine, enable encrypted connection option by configuring a signed certificate, with **Encrypt=True** and **TrustServerCertificate=False** in the connection string. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192(v=sql.110)) and [Connection String Syntax.](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Advanced scenarios
 - **Column filtering using structure definition**. Depending on the type of the table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source.

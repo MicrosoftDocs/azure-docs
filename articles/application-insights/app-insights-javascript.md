@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
 # Application Insights for JavaScript web apps
@@ -135,17 +135,22 @@ In the Diagnostic Search blade, set Filters to Page View.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Select any event to see more detail.
+Select any event to see more detail. In the details page, click "..." to see even more detail.
 
 > [AZURE.NOTE] If you use [Search][diagnostic], notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About". 
 
 > [Learn more about diagnostic search][diagnostic]
 
+### Page view properties
+
+* **Page view duration** The time taken to load the page and start running scripts. Specifically, the interval between starting to load the page and execution of the trackPageView. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value. 
+
 ## Custom usage tracking
 
 Want to find out what your users do with your app? By inserting calls in your client and server code, you can send your own telemetry to Application Insights. For example, you could find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.
 
-[Learn about the custom events and metrics API][track].
+* [Learn about the custom events and metrics API][track].
+* [API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Server telemetry
 
@@ -173,6 +178,6 @@ If you haven't done this yet, you can get insights from your server and display 
 [java]: app-insights-java-get-started.md
 [new]: app-insights-create-new-resource.md
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

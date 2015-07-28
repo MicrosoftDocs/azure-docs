@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 
 # BizTalk Integration API Apps in Microsoft Azure App Service
+
+> [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
+
 
 Microsoft Azure App Service (or App Service for short) includes many BizTalk API Apps that are vital to integration environments. These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Azure App Service. 
 
@@ -137,6 +140,6 @@ The following steps add BizTalk API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 
 ## More Connectors
-[Business-to-Business connectors](app-service-logic-b2b-connectors.md)<br/>
+
 [Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md) 

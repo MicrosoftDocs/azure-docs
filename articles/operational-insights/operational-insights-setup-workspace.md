@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Set up your workspace and manage settings
@@ -37,7 +37,7 @@ By default, the Microsoft account or Organizational account used to create the w
 
 ## Link an existing workspace to an Azure subscription
 
-It is possible to create a workspace from [opinsights.azure.com](http://opinsights.azure.com).  However, certain limits exist for these workspaces, the most notable being a limit of 500MB/day of data uploads if you're using a free account.  To make changes to this workspace you will need to **link your existing workspace to an Azure subscription**.
+It is possible to create a workspace from [microsoft.com/oms](https://microsoft.com/oms).  However, certain limits exist for these workspaces, the most notable being a limit of 500MB/day of data uploads if you're using a free account.  To make changes to this workspace you will need to **link your existing workspace to an Azure subscription**.
 
 >[AZURE.IMPORTANT] In order to link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal should be **the same** as the account you use to access your Operational Insights workspace. If this is not the case, see [Add a user to an existing workspace](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
@@ -197,4 +197,3 @@ If you are an administrator, and there are multiple users associated with the wo
 2. Select one of the reasons for closing your workspace, or enter a different reason in the text box.
 
 3. Click **Close workspace**.
- 

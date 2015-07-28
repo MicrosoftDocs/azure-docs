@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Explore Operational Insights security and audit data
@@ -45,6 +45,8 @@ In this article, you will:
  ![Image of detailed search information](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. Search displays detailed information about the process, including the computers where the process ran, the user account that the process ran under, and the date and time that an event was created for the process.
 9. Using the information that you find, you can take corrective action as needed. For example, if you determine that the executable is malware then you'll want to take action to remove it from all the computer systems that it affects. After the executable is removed and Operational Insights receives updated log and audit events for your computer systems, values on the NOTABLE ISSUES blade will change on the following day.
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
 ## Best practices for forensic analysis
 
@@ -103,4 +105,3 @@ Any auditing data that you want to collect and send to Operational Insights is f
 **Use AppLocker to gather auditing data**
 
 In addition to local policy settings, if you use AppLocker to gather auditing data, Operational Insights will gather the data and then you can view it.
- 

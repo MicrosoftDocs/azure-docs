@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/19/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -69,7 +69,7 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
     ```
 
-  A successful Get call would output all workspaces tied to the subscription. For example:
+    A successful Get call would output all workspaces tied to the subscription. For example:
 
     ```
     {
@@ -345,4 +345,3 @@ You may specify the start and end markers that will be used by search to wrap th
 ```
 
 Notice that the result above contains an error message that has been prefixed and appended.
- 

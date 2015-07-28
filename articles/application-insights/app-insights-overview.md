@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,24 +12,57 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
 # What is Application Insights?
 
-Visual Studio Application Insights lets you track the performance and usage of your live web or device application.
+Application Insights is an extensible analytics service that helps you understand the performance and usage of your live application. It's designed for developers, to help you continuously improve the performance and usability of your app. 
 
+It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud; device apps on Windows, iOS, Android, OSX and other platforms. 
+
+It is aimed at the development team. With it, you can:
+
+* [Analyze usage patterns][knowUsers] to understand your users better and continuously improve your app. 
+ * Page view counts, new and returning users, geolocation, platforms, and other core usage statistics
+ * Trace usage paths to assess the success of each feature.
 * [Detect, triage and diagnose][detect] performance issues and fix them before most of your users are aware.
  *  Alerts on performance changes or crashes.
  *  Metrics to help diagnose performance issues, such as response times, CPU usage, dependency tracking.
  *  Availability tests for web apps.
  *  Crash and exception reports and alerts
  *  Powerful diagnostic log search (including log traces from your favorite logging frameworks).
-* [Continuously improve your application][knowUsers] by understanding what your users do with it. 
- * Page view counts, new and returning users, and other core usage analytics
- * Track your own events to assess usage patterns and the success of each feature.
 
-## How does it work?
+The SDK for each platform includes a range of modules that monitor the app straight out of the box. In addition, you can code your own telemetry for more detailed and tailored analytics.
+
+Telemetry data collected from your application is stored and analysed in the Azure Portal, where there are intuitive views and powerful tools for fast diagnosis and analysis.
+
+![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
+
+Want even deeper analysis? [Export](app-insights-export-telemetry.md) your data [to SQL](app-insights-code-sample-export-telemetry-sql-database.md), [to Power BI](app-insights-export-power-bi.md), or your own tools.
+
+![Viewing data in Power BI](./media/app-insights-overview/210.png)
+
+## Platforms and languages
+
+There are SDKs for a growing range of platforms. Currently the list includes:
+
+ * [ASP.NET servers][greenbrown] on Azure or your IIS server
+ * [Azure Cloud Services](app-insights-cloudservices.md)
+ * [J2EE servers][java]
+ * [Web pages][client]: HTML+JavaScript
+ * [Windows Phone, Windows Store, Windows 10 universal apps, and direct integration with the Windows 10 developer portal][windows]
+ * [Windows desktop][desktop]
+ * [iOS][ios]
+ * [Android][android]
+ * [Other platforms][platforms] - Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
+
+Application Insights can also get telemetry from existing ASP.NET web apps on IIS without rebuilding them.
+
+If your app has client, server and other components, you can instrument them all. The data will be integrated in the Application Insights portal so that, for example, you can correlate events at the client with events at the server.
+
+
+## How it works
 
 You install a small SDK in your application, and set up an account in the Application Insights portal. The SDK monitors your app and sends telemetry data to the portal. The portal shows you statistical charts and provides powerful search tools to help you diagnose any problems.
 
@@ -42,49 +75,55 @@ For ASP.NET servers and Azure web apps, you can also install [Status Monitor][re
 * Monitor a web app without re-building or re-installing it.
 * Track calls to dependent modules.
 
-## What platforms and languages can it work with?
-
-There are currently SDKs for:
-
- * [ASP.NET servers][greenbrown] on Azure or your IIS server
- * [J2EE servers][java]
- * [Web pages][client]: HTML+JavaScript
- * [Windows Phone, Windows Store and Desktop apps][windows]
- * [iOS][ios]
- * [Android][android]
- * [Other platforms][platforms]
-
-If your app has client, server and other components, you can instrument them all. The data will be integrated in the Application Insights portal so that, for example, you can correlate events at the client with events at the server.
 
 
-## How would I use it?
+### What's the overhead?
 
-Both to make sure your app is performing well, and to find out what users are doing with it. Read more:
-
-* [Detect, triage, and diagnose problems][detect]
-* [Analyse the usage of your app][knowUsers]
+The impact on your performance is very small. Tracking calls non-blocking, and are batched and sent in a separate thread. 
 
 
 
-## How do I get started?
+## To get started
 
-Choose your platform from the Get Started menu on the left. 
+1. You'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and you can choose the free [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights.
 
-In all cases, the basic procedure is:
+2. Sign into [Azure Preview Portal](http://portal.azure.com)
+3. Create an Application Insights resource. This is where you'll see data from your app.
 
-1. Create an Application Insights resource in [Azure][portal] (and get its instrumentation key).
-2. Instrument your application with the appropriate SDK (and configure it with the instrumentation key).
-3. Run your application  either in debug mode or live.
-4. See the results in your resource in [Azure][portal].
+    ![Add, Developer Services, Application Insights.](./media/app-insights-overview/11-new.png)
 
-In some cases an plug-in is available for your IDE (such as Visual Studio or Eclipse) that performs the first two steps for you. But you can always go through the procedure manually.
+    Choose your application type.
 
-If your app is a web site or service, there are some optional additions and variations on the basic procedure:
+4. Open your new resource, and open the Quick Start guide.
+    
+    ![Browse, ](./media/app-insights-overview/quickstart.png)
 
-* Add an SDK both to the server-side application, and to the client [device][windows] or [web page][client]. The telemetry data is merged in the portal so that you can correlate events at the two ends.
-* Set up web tests to monitor the availability of your site from points around the world.
-* Instrument an already-live server-side application without rebuilding or redeploying it. This is available for [IIS servers][redfield] and [Azure web apps][azure].
-* Monitor dependency calls that your app makes to other components such as databases or through REST APIs. Available for [IIS servers][redfield] and [Azure web apps][azure].
+    This explains how to install the SDK in your app. If it's a web app, you'll also find out how to add the SDK to web pages, and to set up availability tests.
+
+
+For more details, choose your app type under Get Started in the navigation bar on the left of this page.
+
+
+## Support and feedback
+
+* Questions and Issues:
+ * [Troubleshooting][qna]
+ * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* Bugs:
+ * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
+* Suggestions:
+ * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+
+
+## Videos
+
+
+> [AZURE.VIDEO 218]
+
+> [AZURE.VIDEO usage-monitoring-application-insights]
+
+> [AZURE.VIDEO performance-monitoring-application-insights]
 
 
 <!--Link references-->
@@ -92,6 +131,7 @@ If your app is a web site or service, there are some optional additions and vari
 [android]:app-insights-android.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
+[desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [ios]: app-insights-ios.md
@@ -99,6 +139,7 @@ If your app is a web site or service, there are some optional additions and vari
 [knowUsers]: app-insights-overview-usage.md
 [platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 

@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/02/2015"
 	ms.author="cephalin"/>
-
-
 
 #<a name="howtomonitor"></a>Monitor Web Apps in Azure App Service
 
@@ -24,7 +22,7 @@
 
 ##<a name="websitemetrics"></a>How to: Add web app metrics
 
-1. In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), from the web app's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page.
+1. In the [Azure portal](https://manage.windowsazure.com), from the web app's page, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page.
 
 2. To view additional metrics for the web app, click **Add Metrics** at the bottom of the page to display the **Choose Metrics** dialog box.
 
@@ -37,25 +35,25 @@
 6. To remove metrics from the **Monitor** page, select the metric that you want to remove and then click the **Delete Metric** icon at the bottom of the page.
 
 ##<a name="howtoreceivealerts"></a>How to: Receive alerts from web app metrics
-In **Standard** web app mode, you can receive alerts based on your web app monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
+
+In **Standard** web app mode, you can receive alerts based on your web app monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. You can also choose to have email sent when a metric you choose reaches a value that you specify. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
 
 ##<a name="howtoviewusage"></a>How to: View usage quotas for a web app
 
-Web apps can be configured to run in either **Shared** or **Standard** mode from the web app's **Scale** management page. Each Azure subscription has access to a pool of resources provided for the purpose of running up to 100 web apps per region in **Shared** mode. The pool of resources available to each web app subscription for this purpose is shared by other web app in the same geo-region that are configured to run in **Shared** mode. Because these resources are shared for use by other web apps, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each web app's **Dashboard** management page.
+Web apps can be configured to run in either **Shared** or **Standard** mode from the web app's **Scale** management page in the [Azure portal](https://manage.windowsazure.com). Each Azure subscription has access to a pool of resources provided for the purpose of running up to 100 web apps per region in **Shared** mode. The pool of resources available to each web app subscription for this purpose is shared by other web app in the same geo-region that are configured to run in **Shared** mode. Because these resources are shared for use by other web apps, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each web app's **Dashboard** management page.
 
 >[AZURE.NOTE] When a web app is configured to run in **Standard** mode, it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]. There are no limits to the resources a subscription can use for running web apps in **Standard** mode. However, the number of **Standard** mode web apps that can be created per region is 500.
 
 ### How to: View usage quotas for web apps configured for Shared mode ###
 To determine the extent that a web app is impacting resource usage quotas, follow these steps:
 
-1. Open the web app's **Dashboard** management page.
+1. Open the web app's **Dashboard** management page in the [Azure portal](https://manage.windowsazure.com).
 2. Under the **usage overview** section the usage quotas for your respective [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan are displayed, which is a subset of the following:
 	-	**Data Out**, **CPU Time**, and **Memory** - when the quota is exceeded, Azure stops the web app for the remainder of the current quota interval. Azure will start the web app at the beginning of the next quota interval.
 	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to an App Service plan with a higher quota.
 	-	**Linked Resources** - quotas for any linked resources of the web app, such as database or storage, are displayed here as well.
 
 	Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Websites Limits](azure-subscription-service-limits.md#websiteslimits).
-
 
 ##<a name="resourceusage"></a> How to: Avoid exceeding your quotas
 
@@ -64,10 +62,9 @@ Quotas are not a matter of performance or cost, but it's the way Azure governs r
 - Move your web app(s) to a higher-tier App Service plan to take advantage of a larger quota. For example, the only quota for **Basic** and **Standard** plans is File System Storage.
 - As the number of instances of a web app is increased, so is the likelihood of exceeding shared resource quotas. If appropriate, consider scaling back additional instances of a web app when shared resource quotas are being exceeded.
 
-
 ##<a name="howtoconfigdiagnostics"></a>How to: Configure diagnostics and download logs for a web app
 
-Diagnostics are enabled on the **Configure** management page for the web app. There are two types of diagnostics: **application diagnostics** and **site diagnostics**.
+Diagnostics are enabled on the **Configure** tab for the web app in the [Azure portal](https://manage.windowsazure.com). There are two types of diagnostics: **application diagnostics** and **site diagnostics**.
 
 #### Application Diagnostics ####
 
@@ -95,16 +92,14 @@ For more information about Azure Storage Accounts, see [How to Manage Storage Ac
 
 Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
 
-> [AZURE.NOTE] **Application diagnostics (file system)**, **Application diagnostics (table storage)**, and **Application diagnostics (blob storage)** can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.
+**Application diagnostics (file system)**, **Application diagnostics (table storage)**, and **Application diagnostics (blob storage)** can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.
 
-> [AZURE.NOTE] Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet.
->
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE] Application logging relies on log information generated by your application. The method used to generate log information, as well as the format of the information is specific to the language your application is written in. For language-specific information on using application logging, see the following articles:
 >
-> - **.NET** - [Enable diagnostic logging for Azure Websites](/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
-> - **Node.js** - [How to debug a Node.js application in Azure Websites](/develop/nodejs/how-to-guides/Debug-Website/)
+> - **.NET** - [Troubleshoot a web app in Azure App Service using Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
+> - **Node.js** - [How to debug a Node.js application in Azure Websites](web-sites-nodejs-debug.md)
 >
 > Application logging to table or blob storage is only supported for .NET applications.
 
@@ -127,7 +122,7 @@ The **site diagnostics** section of the **Configure** management page controls t
 
 After enabling diagnostics for a web app, click the **Save** icon at the bottom of the **Configure** management page to apply the options that you have set.
 
-> [AZURE.IMPORTANT] Logging and tracing place significant demands on a web app. We recommend turning off logging and tracing once you have reproduced the problem(s) that you are troubleshooting.
+> [AZURE.IMPORTANT] Detailed Error Messages and Failed Request Tracing place significant demands on a web app. We recommend turning off these features once you have reproduced the problem(s) that you are troubleshooting.
 
 ### Advanced configuration ###
 
@@ -157,7 +152,7 @@ Log files can be downloaded using either FTP, Azure PowerShell, or the Azure CLI
 
 **FTP**
 
-1. Open the web app's **Dashboard** management page and make note of the FTP site listed under **Diagnostics Logs** and the account listed under **Deployment User**. The FTP site is where the log files are located and the account listed under Deployment User is used to authenticate to the FTP site.
+1. Open the web app's **Dashboard** management page in the [Azure portal](https://manage.windowsazure.com) and make note of the FTP site listed under **Diagnostics Logs** and the account listed under **Deployment User**. The FTP site is where the log files are located and the account listed under Deployment User is used to authenticate to the FTP site.
 2. If you have not yet created deployment credentials, the account listed under **Deployment User** is listed as **Not set**. In this case you must create deployment credentials as described in the Reset Deployment Credentials section of the Dashboard because these credentials must be used to authenticate to the FTP site where the log files are stored. Azure does not support authenticating to this FTP site using Live ID credentials.
 3. Consider using an FTP client such as [FileZilla][fzilla] to connect to the FTP site. An FTP client provides greater ease of use for specifying credentials and viewing folders on an FTP site than is typically possible with a browser.
 4. Copy the log files from the FTP site to your local computer.
@@ -266,7 +261,6 @@ After you configure endpoint monitoring, you can drill down into the individual 
 
 	Azure will now actively monitor the endpoint and send an email alert when it takes more than 3 seconds to reply.
 
-
 For more on web app endpoint monitoring, see the following videos:
 
 - [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring](/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
@@ -277,7 +271,7 @@ For more on web app endpoint monitoring, see the following videos:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the Azure portal to the Azure preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169

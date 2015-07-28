@@ -58,9 +58,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 3. Make sure that **.NET Framework 4.5** is selected as the target framework.
 
-4. Clear the **Add Application Insights to Project** check box.
- 
-	Application Insights monitors your web app for availability, performance, and usage. Check the box if you’d like to try Application Insights. For more information, see [Application Insights – Overview](app-insights-overview.md)
+4.  [Application Insights](app-insights-overview.md) monitors your web app for availability, performance, and usage. Clear the **Add Application Insights to Project** check box if you don't want to try it.
 
 4. Name the application **MyExample** and click **OK**.
 

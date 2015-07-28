@@ -12,7 +12,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="07/21/2015"
 	ms.author="evanhi"/>
 
 # Operational Insights dashboards
@@ -80,4 +80,3 @@ To organize your dashboard, navigate to the My Dashboard view and click on the '
 ## Remove a tile
 To remove a tile, navigate to the My Dashboard view and click on the **customize** gear at the bottom of the page to enter customize mode. Select the tile you want to remove, then on the right panel select **Remove Tile**.
 ![Remove a Tile](./media/operational-insights-use-dashboards/remove-tile.png)
- 

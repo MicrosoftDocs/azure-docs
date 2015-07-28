@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Optimize your environment with Assessment solutions
@@ -133,4 +133,5 @@ You can summary compliance assessments for your infrastructure and then drill-in
 3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation to view its details about why the recommendation is made and it appears under **Affected Objects**.
 
 4. Take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
- 
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]

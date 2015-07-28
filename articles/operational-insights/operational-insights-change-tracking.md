@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Identify differences with Change Tracking
@@ -52,5 +52,5 @@ You can view changes to your infrastructure and then drill-into details for the 
 
 3. On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
 
-4. On any page in Log Search, you can **Export** the results details into a CSV file that you can open with Excel or other application that you can then view or modify.
- 
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]

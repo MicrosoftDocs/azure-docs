@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="04/09/2015" 
+	ms.date="07/07/2015" 
 	ms.author="cephalin"/>
 
 # Create a .NET MVC web app in Azure App Service with AD FS authentication

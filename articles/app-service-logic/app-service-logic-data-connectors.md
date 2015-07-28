@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/08/2015" 
 	ms.author="deonhe"/>
 
 
 # Data Connectors in Microsoft Azure App Service
 
-< [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
+> [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
 
 
 ## What is an App + Data Services API App Connector
@@ -242,8 +242,7 @@ Connectors use either OAuth or user names and passwords.
 
 
 ## More Connectors
-[BizTalk Integration connectors](app-service-logic-integration-connectors.md) |
-[Business-to-Business connectors](app-service-logic-b2b-connectors.md) |
+
 [Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
  

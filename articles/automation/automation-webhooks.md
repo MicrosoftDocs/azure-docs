@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
+   ms.date="07/05/2015"
    ms.author="bwren" />
 
 # Azure Automation webhooks
@@ -94,6 +94,7 @@ The client will receive one of the following return codes from the POST request.
 |:---|:----|:---|
 | 202 | Accepted | The request was accepted, and the runbook was successfully queued. |
 | 400 | Bad Request | The request was not accepted for one of the following reasons. <ul> <li>The webhook has expired.</li> <li>The webhook is disabled.</li> <li>The token in the URL is invalid.</li>  </ul>|
+| 404 | Not Found |  The request was not accepted for one of the following reasons. <ul> <li>The webhook was not found.</li> <li>The runbook was not found.</li> <li>The account was not found.</li>  </ul> |
 | 500 | Internal Server Error | The URL was valid, but an error occurred.  Please resubmit the request.  |
 
 Assuming the request is successful, the webhook response contains the job id in JSON format as follows. It will contain a single job id, but the JSON format allows for potential future enhancements.

@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="06/02/2015"
+	ms.topic="article"
+	ms.date="07/02/2015"
 	ms.author="curtand"/>
 
 # How to get started using Azure AD
@@ -47,4 +47,3 @@ Azure AD provides a number of reports for administrators. Even more reports are 
 
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
- 

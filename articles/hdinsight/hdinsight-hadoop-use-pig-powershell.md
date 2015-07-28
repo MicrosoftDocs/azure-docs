@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Run Pig jobs using PowerShell
@@ -22,7 +22,7 @@
 
 This document provides an example of using Azure PowerShell to submit Pig jobs to a Hadoop on HDInsight cluster. Pig allows you to write MapReduce jobs by using a language (Pig Latin,) that models data transformations, rather than map and reduce functions.
 
-> [AZURE.NOTE] This document does not provide a detailed description of what the Pig Latin statements used in the examples do. For information about the Pig Latin used in this example, see <a href="hdinsight-use-pig.md" target="_blank">Use Pig with Hadoop on HDInsight</a>.
+> [AZURE.NOTE] This document does not provide a detailed description of what the Pig Latin statements used in the examples do. For information about the Pig Latin used in this example, see [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -35,7 +35,7 @@ To complete the steps in this article, you will need the following.
 
 ##<a id="powershell"></a>Run Pig jobs using PowerShell
 
-Azure PowerShell provides *cmdlets* that allow you to remotely run Pig jobs on HDInsight. Internally, this is accomplished by using REST calls to <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (formerly called Templeton) running on the HDInsight cluster.
+Azure PowerShell provides *cmdlets* that allow you to remotely run Pig jobs on HDInsight. Internally, this is accomplished by using REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (formerly called Templeton) running on the HDInsight cluster.
 
 The following cmdlets are used when running Pig jobs on a remote HDInsight cluster:
 
@@ -49,7 +49,7 @@ The following cmdlets are used when running Pig jobs on a remote HDInsight clust
 
 * **Get-AzureHDInsightJobOutput**: Used to retrieve the output of the job
 
-The following steps demonstrate how to use these cmdlets to run a job on your HDInsight cluster. 
+The following steps demonstrate how to use these cmdlets to run a job on your HDInsight cluster.
 
 1. Using an editor, save the following code as **pigjob.ps1**. You must replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
@@ -141,4 +141,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
- 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/02/2015" 
 	ms.author="hangzh;bradsev" />
 
  
@@ -67,7 +67,8 @@ Here are the descriptions of the fields that users need to plug in and other con
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
 - `<path to blob data>`: If the blob file to be uploaded to Hive table is in the default container of the HDInsight Hadoop cluster, the `<path to blob data>` should be in the format `'wasb:///<directory in this container>/<blob file name>'`. The blob file can also be in the additional container of the HDInsight Hadoop cluster. In this case, `<path to blob data>` should be in the format `'wasb://<container name>@<storage account name>.blob.windows.core.net/<blob file name>'`.
->[AZURE.NOTE] The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the `LOAD DATa` query will fail complaining that it cannot access the data. 
+
+> [AZURE.NOTE] The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the `LOAD DATA` query will fail complaining that it cannot access the data. 
 
 
 ## <a name="partition-orc"></a>Advanced topics: partitioned table and store Hive data in ORC format
@@ -131,7 +132,7 @@ Users cannot directly load data in blob to Hive tables in ORC storage format. He
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> SELECT * FROM <database name>.<external textfile table name>;
 
-[AZURE.NOTE] If the TEXTFILE table `<database name>.<external textfile table name>` has partitions, in STEP 3, `SELECT * FROM <database name>.<external textfile table name>` will select the partition variable as a field in the returned data set. Inserting it to the `<database name>.<ORC table name>` will fail since `<database name>.<ORC table name>` does not have the partition variable as a field in the table schema. In this case, users need to specifically select the fields to be inserted to `<database name>.<ORC table name>` like follows:
+> [AZURE.NOTE] If the TEXTFILE table `<database name>.<external textfile table name>` has partitions, in STEP 3, `SELECT * FROM <database name>.<external textfile table name>` will select the partition variable as a field in the returned data set. Inserting it to the `<database name>.<ORC table name>` will fail since `<database name>.<ORC table name>` does not have the partition variable as a field in the table schema. In this case, users need to specifically select the fields to be inserted to `<database name>.<ORC table name>` like follows:
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		      SELECT field1, field2, ..., fieldN

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="07/02/2015"
 	ms.author="alfran"/>
 
 # Solutions in Operational Insights
@@ -128,4 +128,3 @@ Server search results include:
 - Automatic update enabling method
 - Days since last update
 - Windows Update agent version
- 

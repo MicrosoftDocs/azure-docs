@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -55,4 +55,5 @@ On the **Alert Management** dashboard, you can view all the alerts that Microsof
 2. On the **Alert Management** dashboard, view the alert categories and choose one to work with.
 3. Click a tile or any item to view detailed information about it in the **Search** page.
 4. By using the information you've found, you can investigate the alert and determine additional actions you might need to take to resolve it.
- 
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]

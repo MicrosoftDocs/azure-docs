@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/12/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Update servers with System Updates
@@ -38,4 +38,5 @@ Before you can use system updates in Microsoft Azure Operational Insights, you m
 5. Your web browser opens the Knowledge Base article that describes the update.
 ![image of the Updates page](./media/operational-insights-updates/updates05.png)
 6. Using the using the information you've found, you can create a plan to apply missing updates.
- 
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]

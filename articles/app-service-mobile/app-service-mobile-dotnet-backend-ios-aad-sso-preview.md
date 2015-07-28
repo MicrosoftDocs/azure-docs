@@ -18,6 +18,8 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library.
 
 To be able to authenticate users, you must register your application with your Azure Active Directory (AAD) tenant. This is done in two steps. First, you must register your App Service and expose permissions on it. Second, you must register your iOS app and grant it access to those permissions.
@@ -28,6 +30,10 @@ This tutorial requires the following:
 * Completion of the [Get started with Mobile Apps] tutorial.
 * Microsoft Azure Mobile Services SDK
 * The [Active Directory Authentication Library for iOS]
+
+##<a name="review"></a>Review your server project configuration (optional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)] 
 
 ## <a name="register-application"></a>Register your application with the Azure Active Directory
 

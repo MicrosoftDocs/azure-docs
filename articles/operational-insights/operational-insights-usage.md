@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Manage servers and usage data
@@ -56,4 +56,5 @@ The **Usage** dashboard displays the following information:
 2. On the **Usage** dashboard, view information about the management groups that aren’t sending data.
 
 3. If there’s a management group that isn’t sending data, you can click **Troubleshoot** to get detailed troubleshooting information. If you no longer want to keep a management group and all the agents that report to it, click **Remove**.
- 
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
