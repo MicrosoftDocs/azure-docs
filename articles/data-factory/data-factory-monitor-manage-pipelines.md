@@ -474,20 +474,3 @@ You should see following message after successful deployment:
 	Outputs           
 
 
-
-These metrics are very useful and allow users to get an overview of overall failed and successful runs in their data factory.
-
-In order to enable metrics, click on the **Data factory metrics** tile and click **Diagnostic Settings**. Turn the status to **On** and select a storage account where the metrics will be stored.
-
-![Data Factory Metrics](./media/data-factory-monitor-manage-pipelines/metrics.png)
-
-Once you enable the metrics, you will be able to see the number of **Failed Runs** and **Successful Runs** for slice runs in your data factory.
-
-You can now create alerts on these metrics by clicking ‘Add Alert’ and providing details for creating the alert.
-
-![Add alert on metric](./media/data-factory-monitor-manage-pipelines/add-alert-on-metric.png)
-
-You will receive an email to the configured email address when the alert gets fired.
-
-
-
