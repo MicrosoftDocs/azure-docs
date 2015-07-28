@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="How to use Blob storage from Java | Microsoft Azure" 
-	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="How to use blob storage from Java | Microsoft Azure"
+	description="Learn how to use the Azure Blob storage service to upload, download, list, and delete blob content. Samples written in Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="robmcm"/>
 
-# How to use Blob storage from Java
+# How to use blob storage from Java
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
@@ -24,7 +24,7 @@
 
 This guide will show you how to perform common scenarios using the Microsoft Azure Blob storage service. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
 
-> [AZURE.NOTE] An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][]. 
+> [AZURE.NOTE] An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][].
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -32,44 +32,46 @@ This guide will show you how to perform common scenarios using the Microsoft Azu
 
 ## Create a Java application
 
-In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.
+In this article, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.
 
 To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription. Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the [Azure Storage SDK for Java][] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.
 
-## Configure your application to access Blob Storage
+## Configure your application to access blob storage
 
-Add the following import statements to the top of the Java file where you want to use the Azure storage APIs to access blobs:
+Add the following import statements to the top of the Java file where you want to use the Azure storage APIs to access blobs.
 
     // Include the following imports to use blob APIs.
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
 
-## Setup an Azure storage connection string
+## Set up an Azure storage connection string
 
 An Azure storage client uses a storage connection string to store
-endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
+endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Azure portal for the *AccountName* and *AccountKey* values. The following example shows how you can declare a static field to hold the connection string.
 
     // Define the connection-string with your values
-    public static final String storageConnectionString = 
-        "DefaultEndpointsProtocol=http;" + 
-        "AccountName=your_storage_account;" + 
+    public static final String storageConnectionString =
+        "DefaultEndpointsProtocol=http;" +
+        "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
-In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file:
+In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. The followng example gets the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file.
 
     // Retrieve storage account from connection-string.
-    String storageConnectionString = 
+    String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 The following samples assume that you have used one of these two methods to get the storage connection string.
 
 ## How to: Create a container
 
-A CloudBlobClient object lets you get reference objects for containers and blobs. The following code creates a **CloudBlobClient** object. (Note: There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].)
+A **CloudBlobClient** object lets you get reference objects for containers and blobs. The following code creates a **CloudBlobClient** object.
+
+> [AZURE.NOTE] There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn't exist with the **createIfNotExists** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container.
+Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn't exist with the **createIfNotExists** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container.
 
 	try
     {
@@ -107,7 +109,7 @@ A container's permissions are configured for private access by default, but you 
 
 ## How to: Upload a blob into a container
 
-To upload a file to a blob, get a container reference and use it to get a blob reference. Once you have a blob reference, you can upload any stream by calling upload on the blob reference. This operation will create the blob if it doesn't exist, or overwrite it if it does. This code sample shows this, and assumes that the container has already been created.
+To upload a file to a blob, get a container reference and use it to get a blob reference. Once you have a blob reference, you can upload any stream by calling upload on the blob reference. This operation will create the blob if it doesn't exist, or overwrite it if it does. The following code sample shows this, and assumes that the container has already been created.
 
 	try
     {
@@ -119,7 +121,7 @@ To upload a file to a blob, get a container reference and use it to get a blob r
 
 	   // Retrieve reference to a previously created container.
     	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-			
+
         // Define the path to a local file.
         final String filePath = "C:\\myimages\\myimage.jpg";
 
@@ -148,7 +150,7 @@ To list the blobs in a container, first get a container reference like you did t
 
     	// Retrieve reference to a previously created container.
     	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-			
+
     	// Loop over blobs within the container and output the URI to each of them.
     	for (ListBlobItem blobItem : container.listBlobs()) {
 	       System.out.println(blobItem.getUri());
@@ -160,7 +162,7 @@ To list the blobs in a container, first get a container reference like you did t
         e.printStackTrace();
     }
 
-The blob service has the concept of directories within containers, as well. This is so that you can organize your blobs in a more folder-like structure.
+The blob service has the concept of directories within containers, as well. This is so you can organize your blobs in a more folder-like structure.
 
 For example, you could have a container named "photos", in which you might upload blobs named "rootphoto1", "2010/photo1", "2010/photo2", and "2011/photo1". This would create the virtual directories "2010" and "2011" within the "photos" container. When you call **listBlobs** on the "photos" container, the collection returned will contain **CloudBlobDirectory** and **CloudBlob** objects representing the directories and blobs contained at the top level. In this case, directories "2010" and "2011", as well as photo "rootphoto1" would be returned. You can use the **instanceof** operator to distinguish these objects.
 
@@ -183,7 +185,7 @@ To download blobs, follow the same steps as you did for uploading a blob in orde
 
 	   // Retrieve reference to a previously created container.
 	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-			
+
 	   // Loop through each blob item in the container.
 	   for (ListBlobItem blobItem : container.listBlobs()) {
 	       // If the item is a blob, not a virtual directory.
@@ -214,7 +216,7 @@ To delete a blob, get a blob reference, and call **deleteIfExists**.
 
 	   // Retrieve reference to a previously created container.
 	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-			
+
 	   // Retrieve reference to a blob named "myimage.jpg".
 	   CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
 
@@ -242,7 +244,7 @@ call **deleteIfExists**.
 
 	   // Retrieve reference to a previously created container.
 	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-			
+
 	   // Delete the blob container.
 	   container.deleteIfExists();
     }
@@ -267,4 +269,3 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
- 
