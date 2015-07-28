@@ -43,19 +43,19 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-##Create a new universal Windows app
+##Download the quickstart projects
 
 Once you have created your mobile app backend, you can follow an easy quickstart in the Azure Portal to either create a new app or modify an existing app to connect to your mobile app backend.
 
-In this section you will create a new universal Windows app that is connected to your mobile app backend. 
+In this section you download the mobile app backend project and a new universal Windows app that is customized to connect to the mobile app backend. 
 
 1. If you haven't already done so, download and install Visual Studio Community 2013 or a later version on your local computer or virtual machine.
 
-1. In the Azure Portal, click **Browse all** > **Mobile Apps**, and then click the mobile app that you just created.
+2. In the Azure Portal, click **Browse all** > **Mobile Apps**, and then click the mobile app that you just created.
 
-2. At the top of the blade, click **Add Client** > **Windows (C#)**.
+3. At the top of the blade, click **Add Client** > **Windows (C#)**.
 
-    This displays the three easy steps to create a universal Windows app connected to your mobile app backend.
+    This displays the steps to download a universal Windows app connected to your mobile app backend.
 
 4. Under **Download and run your server project**, click **Download**, extract the compressed project files to your local computer, and make a note of where you save it.    
 
