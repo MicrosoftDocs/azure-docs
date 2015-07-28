@@ -55,7 +55,7 @@ Datasets are named references/pointers to the data you want to use as an input o
 Linked services define the information needed for Data Factory to connect to external resources.  Linked services are used for two purposes in Data Factory:
 
 - To represent a data store  including, but not limited to, an on-premises SQL Server, Oracle DB, File share or an Azure Blob Storage account.   As discussed above, Datasets represent the structures within the data stores connected to Data Factory through a Linked service.
-- To represent a resource that can host the execution of an Activity.  For example, the “HDInsightHive Activity”executes on an HDInsight Hadoop cluster.
+- To represent a compute resource that can host the execution of an Activity.  For example, the “HDInsightHive Activity”executes on an HDInsight Hadoop cluster.
 
 With the four simple concepts of datasets, activities, pipelines and linked services, you are ready to get started!  You can [build your first pipeline](data-factory-build-your-first-pipeline.md)  from the ground up, or deploy a ready-made sample by following the instructions in our [blog post](https://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/).
 

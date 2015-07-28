@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
@@ -115,7 +115,7 @@ Noice the following:
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1"
+	            "interval": 1
 	        }
 	    }
 	}
