@@ -306,8 +306,6 @@ To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureResourceGroupDe
 
 	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
 
-The StorageAccountName specifies the storage account for storing the deployed alert JSON file.
-
 Once the resource group deployment has completed successfully, you will see the following messages:
 
 	VERBOSE: 7:00:48 PM - Template is valid.
@@ -345,7 +343,7 @@ You can see all the events generated after clicking on the **Operations** tile, 
 
 ![Operations](./media/data-factory-monitor-manage-pipelines/operations.png)
 
-To see the alerts setup using Power shell, you can run the following command, and see all the alerts created.  This will show the alerts set up for both metrics and events with resource type as microsoft.insights/alertrules.
+To see the alerts setup using Power shell, you can run the following command, and see all the alerts created.  This will show the alerts set up for both metrics and events with resource type as **microsoft.insights/alertrules**.
 
 	Get-AzureResourceGroup -Name $resourceGroupName
 
@@ -360,7 +358,7 @@ To see the alerts setup using Power shell, you can run the following command, an
                     FailedValidationRuns  microsoft.insights/alertrules        eastus
 
 
-If you can see the alert generation events on the portal blade and still didn’t receive email notification. Please check whether e-mail address specified is set to receive emails from external senders. 
+If you see the alert generation events on the portal blade but you don't receive email notifications, check whether e-mail address specified is set to receive emails from external senders. The alert e-mails may have been blocked by your e-mail settings.
 
 ### Alerts on Metrics
 Data Factory allows you to capture various metrics and create alerts on metrics. You can monitor and create alerts on the following metrics for the slices in your data factory.
@@ -368,10 +366,11 @@ Data Factory allows you to capture various metrics and create alerts on metrics.
 - Failed Runs
 - Successful Runs
 
-These metrics are very useful and allow users to get an overview of overall failed and successful runs in their data factory. Metrics are emitted every time there is a slice run. On top of the hour, these metrics are aggregated and pushed to the customer storage account. So to enable metrics, customers will need to setup a storage account.
+These metrics are very useful and allow users to get an overview of overall failed and successful runs in their data factory. Metrics are emitted every time there is a slice run. On top of the hour, these metrics are aggregated and pushed to your storage account. Therefore, to enable metrics, you will need to setup a storage account.
 
 #### Enabling Metrics:
-To enable metrics, click on the following from Data Factory blade:
+To enable metrics, please click on the following from Data Factory blade:
+
 **Monitoring** -> **Metric** -> **Diagnostic settings** -> **Diagnostic**
 
 On the **Diagnostic** blade, click **On** and select the storage account and save.
@@ -398,12 +397,12 @@ Once done, you should see a new alert rule enabled on Alert rules tile as follow
 Congratulations! You have set up your first alert on Metrics. Now you should get notifications every time alert rule matches in the given time window.
 
 ### Alert notifications:
-Once the setup rule matches the condition, user should get an alert activated email. Once the issue is resolved and the alert condition doesn’t match any more, user will get alert resolved email.
+Once the setup rule matches the condition, you should get an alert activated email. Once the issue is resolved and the alert condition doesn’t match any more, you will get alert resolved email.
 
 This behavior is different than events where a notification will be sent on each and every failure for which alert rule qualify.
 
 ### Deploying alerts using PowerShell
-User can deploy the alerts for metrics the same way, we deploy for events. 
+You can deploy alerts for metrics in the same way as you do for events. 
 
 **Alert definition:**
 
