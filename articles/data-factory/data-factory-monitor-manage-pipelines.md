@@ -42,13 +42,8 @@ Click **Diagram** on the data factory home page above to see the diagram view of
 
 ![Diagram view](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the diagram, automaticaly position pipelines and tables, and show lineage (show upstream and downstream items of selected items). 
-
-for example, the following diagram shows the lineage of the **PersonBlobOutput** dataset. You select the dataset and click the **show lineage** button.
-	
-![Show lineage](./media/data-factory-monitor-manage-pipelines/show-lineage.png)  
-
-Note that all other pipelines and datasets not in the lineage are dimmed.
+You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the diagram, automaticaly position pipelines and tables, and show lineage (show upstream and downstream items of selected items).
+ 
 
 ### Activities inside a pipeline 
 1. Right-click on the pipeline and click **Open pipeline** to see all activities in the pipeline along with input and output datasets for the activities. This is useful when your pipeline comprises of more than 1 Activity and you want to understand the operational lineage of a single pipeline.
