@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 #  Configure an ExpressRoute Connection through an Exchange Provider
@@ -218,7 +218,7 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 
 8. **Configure your Virtual Network and Gateway.**
 
-	See [Configure a Virtual Network and Gateway for ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Note that the gateway subnet must be /28 in order to work with an ExpressRoute connection.
+	See [Configure a Virtual Network and Gateway for ExpressRoute](expressroute-configuring-vnet-gateway.md). Note that the gateway subnet must be /28 in order to work with an ExpressRoute connection.
 
 9. **Link your network to a circuit.** Proceed with the following instructions only after you have confirmed that your circuit has moved to the following state and status:
 	- ServiceProviderProvisioningState: Provisioned
