@@ -284,12 +284,11 @@ Set the following variables to reflect the shard map configuration with the prov
 	PS C:\>$shardMapDatabaseServerName = "{ShardMapServerName}.database.windows.net"
 	PS C:\>$shardMapName = "MyShardMap"
 
-Create a database target pointing to the Elastic Scale shard map manager:
+Create a database target pointing to the shard map:
 
-	PS C:\>$shardMapCredential = Get-FleetManagementCredential -Name $shardMapCredentialName
-	PS C:\>$shardMapDatabaseTarget = New-FleetManagementDatabaseTarget -DatabaseName $shardMapDatabaseName -ServerName $shardMapDatabaseServerName
-	PS C:\>$shardMapTarget = New-FleetManagementShardMapTarget -ShardMapManagerCredential $shardMapCredential -ShardMapManagerDatabase $shardMapDatabaseTarget -ShardMapName $shardMapName
-	PS C:\>Write-Output $shardMapTarget  
+	PS C:\>$shardMapDatabaseTarget = New-AzureSqlJobTarget -DatabaseName $shardMapDatabaseName -ServerName $shardMapDatabaseServerName
+	PS C:\>$shardMapTarget = New-AzureSqlJobTarget -ShardMapManagerCredentialName $shardMapCredentialName -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapServerName $shardMapDatabaseServerName -ShardMapName $shardMapName
+	PS C:\>Write-Output $shardMapTarget
 
 ### Creating a Transact-SQL Script for Execution across Databases
 

@@ -116,7 +116,7 @@ For systems that target having large numbers of jobs running in parallel against
 
 To update the VM size of an installation, run the following script with parameters updated to the values of your choice.
 
-    PS C:\>Unblock-File .\InstallElasticDatabaseJobs.ps1
+    PS C:\>Unblock-File .\UpdateElasticDatabaseJobs.ps1
     PS C:\>.\UpdateElasticDatabaseJobs.ps1 -ServiceVmSize A1 -ServiceWorkerCount 2
 
 <table style="width:100%">
