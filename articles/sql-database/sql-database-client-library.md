@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/18/2015"
+   ms.date="07/25/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with the Azure SQL Database Library for .NET
@@ -26,10 +26,10 @@
 
 This article provides commands to perform many Azure SQL Database management tasks using C#. Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
-The Azure SQL Database Library for .NET provides an [Azure Resource Management](resource-group-overview.md)(ARM)-based API that wraps the [ARM-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for ARM-based client libraries. 
+The Azure SQL Database Library for .NET provides an [Azure Resource Manager](resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. 
 
 
-ARM requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD), so code examples are provided for this as well.
+Resource Manager requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -52,7 +52,7 @@ Get the required management libraries by installing the following packages using
 
 You must first enable your application to access the REST API by setting up the required authentication.
 
-The [Azure Resource Management (ARM) REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs. 
+The [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs. 
 
 To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Azure management portal](https://manage.windowsazure.com/). 
 
@@ -153,7 +153,7 @@ To create automated scripts where no user interaction is required, you can authe
 
 ## Create a resource group
 
-With ARM, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. With Azure SQL Database the database server must be created first within an existing resource group and then the database created on the server. Then before an application can connect to the server or database using TDS to submit T-SQL you must also create a firewall rule on the server to open access from the client IP address.
+With Resource Manager, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. With Azure SQL Database the database server must be created first within an existing resource group and then the database created on the server. Then before an application can connect to the server or database using TDS to submit T-SQL you must also create a firewall rule on the server to open access from the client IP address.
 
 
     // Create a resource management client 
@@ -245,7 +245,8 @@ The following command will create a new Basic database if a database with the sa
 
 ## Change the service tier and performance level of a database
 
-To change the service tier and performance level of a database, set the Edition and RequestedServiceObjectiveName properties. Note that when changing the Edition to or from **Premium**, the update can take some time depending on the size of your database.
+To change the service tier and performance level of a database you call the Databases.CreateOrUpdate method just like creating or updating a database above. Set the **Edition** and **RequestedServiceObjectiveName** properties to the desired service tier and performance level.
+ Note that when changing the Edition to or from **Premium**, the update can take some time depending on the size of your database.
 
 The following updates a SQL database to the Standard (S2) level:
 
