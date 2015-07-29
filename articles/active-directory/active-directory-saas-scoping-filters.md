@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Attribute-based app provisioning with scoping filters"
-	description="Provides an overview of how to customize attribute mappings."
+	description="Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from actually being provisioned if an object doesn’t satisfy your business requirements."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"

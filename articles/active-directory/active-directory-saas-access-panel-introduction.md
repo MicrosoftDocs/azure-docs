@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduction to the Access Panel"
-	description="Provides an overview of the Access Panel."
+	description="Learn how to use the various flavors of the Access Panel (Web browser, Android app, iPhone and iPad app) to access the SaaS apps that are assigned to you."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
