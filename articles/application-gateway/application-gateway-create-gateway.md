@@ -29,31 +29,28 @@ This article walks you through the steps to create and configure, start, and del
 ## What is required to create an Application Gateway?
  
 
-When you use New-azureapplicationgateway command to create the Application gateway, no configuration is set at this point and the newly created resource will have to be configured either using XML or configuration items. 
+When you use New-AzureApplicationGateway command to create the Application gateway, no configuration is set at this point and the newly created resource will have to be configured either using XML or configuration object. 
 
 
 The values are:
 
-- **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the VNet subnet, or should be a public IP/VIP. 
-- **Backend server pool settings:** Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-- **Frontend Port:** This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the backend servers.
+- **Back end server pool:** The list of IP addresses of the back end servers. The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP. 
+- **Back end server pool settings:** Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
+- **Front end Port:** This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back end servers.
 - **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
-- **Rule:** The rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
+- **Rule:** The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 
-You can construct your configuration either by creating a configuration object, or by using a configuration XML file. 
-To construct your configuration by using a configuration XML file, use the sample below.
-To create a new application gateway, perform the following steps in the order listed. 
+ 
+## Create a new Application Gateway
 
-1. [Create a new application gateway](#create-a-new-application-gateway)
-2. [Configure the gateway](#configure-application-gateway)
-3. [Set the gateway configuration](#set-the-gateway-configuration)
-4. [Start the gateway](#start-the-gateway)
-4. [Verify the gateway status](#verify-the-gateway-status)
+There is an order of steps you will have to follow to create an Application gateway:
 
-If you want to delete an application gateway, go to [Delete an application gateway](#delete-an-application-gateway).
+1. Create Application Gateway resource
+2. Create configuration XML file or configuration object
+3. Commit the configuration to newly created Application gateway resource
 
-## Create a new application gateway
+### Create an Application Gateway Resource
 
 **To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
@@ -91,18 +88,15 @@ The following example shows the creating a new Application Gateway.
 
 ## Configure Application Gateway
 
-You can configure application gateway using the following methods: XML or configuration objects. 
-
+You can configure application gateway using the following methods below: XML or configuration object. 
 
 ## Configure Application gateway using XML 
 
-When using an xml file, allows you to have all the configuration items (front end port, listener, back end address pool,rules) to configure an Application gateway instead of individually configuring it. 
-
-The following example shows how to use a configuration file setting up the Application gateway to load balance Http traffic on public port 80 and sending network traffic to back end port 80 between 2 IP addresses:
+In the example below, you will use an XML file to configure all Application Gateway settings and commit them to the Application Gateway resource.  
 
 ### Step 1  
 
-Copy the following example below and paste it on notepad or any word editor:
+Copy text below and paste it on notepad:
 
 <?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -147,8 +141,9 @@ Copy the following example below and paste it on notepad or any word editor:
 	    </HttpLoadBalancingRules>
 	</ApplicationGatewayConfiguration>
 
-Edit the values between parenthesis for the configuration items.Save the file.
+Edit the values between parenthesis for the configuration items. Save the file with extension .xml
 
+>[AZURE.IMPORTANT] The protocol item Http or Https is case sensitive.
 
 The following example shows how to use a configuration file setting up the Application gateway to load balance Http traffic on public port 80 and sending network traffic to back end port 80 between 2 IP addresses:
 
@@ -197,9 +192,12 @@ The following example shows how to use a configuration file setting up the Appli
 	    </HttpLoadBalancingRules>
 	</ApplicationGatewayConfiguration>
 
+
+
+
 ### Step 2
 
-Next, you'll set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration XML file. 
+Next, you'll set the application gateway. You will use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration XML file. 
 
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
@@ -212,7 +210,7 @@ Next, you'll set the application gateway. You can use the `Set-AzureApplicationG
 
 ## Configure Application Gateway using configuration object
 
-The following example will show how to configure the application gateway using configuration objects. All configuration items have to be configured individually and then added to a Application gateway configuration object. After creating the configuration object, you will use `Set-AzureApplicationGateway` command to commit the configuration to the previously created Application Gateway resource.
+The following example will show how to configure the application gateway using configuration objects. All configuration items have to be configured individually and then added to an Application gateway configuration object. After creating the configuration object, you will use `Set-AzureApplicationGateway` command to commit the configuration to the previously created Application Gateway resource.
 
 >[AZURE.NOTE] Before assigning a value to each configuration object, you need to declare what kind of object PowerShell will be storing it. The first line to create the individual items defines what Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name) will be used.
 
