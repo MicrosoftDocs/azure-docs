@@ -227,6 +227,6 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
- ## Next Steps
+## Next Steps
 
 - For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
