@@ -33,7 +33,7 @@ The process of mapping your custom domain to your blob endpoint can, however, re
 The following table shows sample URLs for accessing blob data in a storage account named **mystorageaccount**. The custom domain registered for the storage account is **www.contoso.com**:
 
 Resource Type|URL Formats
---|--
+---|---
 Storage account|**Default URL:** http://mystorageaccount.blob.core.windows.net<p>**Custom domain URL:** http://www.contoso.com</td>
 Blob|**Default URL:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**Custom domain URL:** http://www.contoso.com/mycontainer/myblob
 Root container|**Default URL:** http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob<p>**Custom domain URL:** http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob
