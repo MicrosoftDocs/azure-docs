@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Factory - Customer Profiling Usecase" 
+	pageTitle="Use Case - Customer Profiling" 
 	description="Learn how Azure Data Factory is used to create a data-driven workflow (pipeline) to profile gaming customers." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,11 +16,15 @@
 	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
-# Customer Profiling
+# Use Case - Customer Profiling
 
+## Scenario
 Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). These games produce a lot of logs and Contoso’s goal is to collect and analyze these logs to gain insights into customer preferences, demographics, usage behavior etc. to identify up-sell and cross-sell opportunities, develop new compelling features to drive business growth and provide a better experience to customers.
 
 This sample specifically evaluates the effectiveness of a marketing campaign that Contoso has recently launched by collecting sample logs, processing and enriching them with reference data, and transforming the data. It has the following three pipelines:
+
+
+## Solution Overview
 
 ![Data Factory pipelines](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
 
