@@ -54,7 +54,8 @@ There is an order of steps you will have to follow to create an Application gate
 
 **To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
-The following example shows the creating a new Application Gateway. 
+The following example shows creating a new Application Gateway using a virtual network called "testvnet1" and a subnet called "subnet-1":
+
     
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
