@@ -231,14 +231,15 @@ Create front end port:
 	PS C:\> $fep.Port = 80
 	
 Create back end server pool:
-	
-1. Define the IP addresses which will be added to the back end server pool:
+
+ Define the IP addresses which will be added to the back end server pool:
+
 
 	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection 
 	PS C:\> $servers.Add("10.0.0.1") 
 	PS C:\> $servers.Add("10.0.0.2")
 
-2. Using the $server object, add the values to the back end pool object ($pool)
+ Using the $server object, add the values to the back end pool object ($pool)
 
 	PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool 
 	PS C:\> $pool.BackendServers = $servers 
