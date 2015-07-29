@@ -72,7 +72,7 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 	Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks. The following table lists the current maximum IOPS and throughput (bandwidth) values per DS-series VM across all the disks attached to the VM:
 
 	**VM Size** |**CPU cores** |**Max. IOPS** |**Max. Disk Bandwidth**
-	--|--|--|--
+	---|---
 	**STANDARD_DS1** |1|3,200|32 MB per second
 	**STANDARD_DS2** |2|6,400|64 MB per second
 	**STANDARD_DS3** |4|12,800|128 MB per second
@@ -104,7 +104,7 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 When you provision a disk against a Premium Storage account, how much input/output operations per second (IOPS) and throughput (bandwidth) it can get depends on the size of the disk. Currently, there are three types of Premium Storage disks: P10, P20, and P30. Each one has specific limits for IOPS and throughput as specified in the following table:
 
 Premium Storage Disk Type|P10|P20*|P30
---|--|--|--
+---|---
 **Disk size** |128 GiB|512 GiB|1024 GiB (1 TB)
 **IOPS per disk** |500|2300|5000
 **Throughput per disk** | 100 MB per second * |150 MB per second * |200 MB per second *
