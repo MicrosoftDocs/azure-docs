@@ -20,21 +20,23 @@
 
 **Elastic Database** features enables you to use the virtually unlimited database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the following:
 
-* Elastic Database tools: Designed to simplify development and management of sharded database solutions. [Elastic Database client library](sql-database-elastic-client-overview.md) and [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), known together as **Elastic Database tools**.
-* [Elastic Database pools](sql-database-elastic-pool-guidance.md) (preview): An elastic database pool is a collection of available resources shared by the elastic databases in the pool. You can add databases to the pool or remove them at any time. The databases in the pool share the resources (expressed as elastic database throughput units, or eDTUs) and storage capacity of the pool, but each database uses only the resources it needs when it needs them, leaving resources free for other databases when they need them.
-* [Elastic Database jobs](sql-database-elastic-jobs-overview.md) (preview): Designed for the management of large numbers of Azure SQL Databases. Elastic Database jobs gives you the ability to run a T-SQL script against a group of databases — for example, if you need to change the schema of a table.
-* [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases allowing you to connect Microsoft and third party tools (Excel, PowerBI, Tableau, etc).
+* Elastic Database tools: These two tools simplify development and management of sharded database solutions. The tools are: the [Elastic Database client library](sql-database-elastic-client-overview.md) and the [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
+* [Elastic Database pools](sql-database-elastic-pool-guidance.md) (preview): A pool is a collection of databases to which you can add or remove databases at any time. The databases in the pool share a fixed amount of resources (known as database throughput units, or DTUs). You pay a fixed price for the resources, which enables you to easily calculate costs while managing performance. 
+* [Elastic Database jobs](sql-database-elastic-jobs-overview.md) (preview): Use jobs to manage large numbers of Azure SQL databases. A **job** is an idempotent T-SQL script that is run against a predefined set of databases. Failures are automatically retried (configurable) and all errors are logged for debugging. 
+* [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, PowerBI, Tableau, etc.
 
-The graphic below shows the architecture of using the **Elastic Database features** in relation to a collection of SQL databases. 
+The graphic below shows the architecture of using the **Elastic Database features** in relation to a collection of databases. 
 
 ![Elastic Database tools][1]
 
+In this graphic, colors of the database represent schemas. Databases with the same color share the same schemas.
+
 1. A set of **Azure SQL databases** are hosted on Azure using sharding architecture. 
 2. The **Elastic Database client library** is used to manage a shard set.
-3. A subset of the databases are put into an **Elastic Database pool**. (See [Tame explosive growth with elastic databases](sql-database-elastic-pool.md).  
+3. A subset of the databases are put into an **Elastic Database pool**. (See [Tame explosive growth with elastic databases](sql-database-elastic-pool.md)). 
 4. An **Elastic Database job** runs T-SQL scripts against all databases.
 5. The **split-merge tool** is used to move data from one shard to another.
-6. The **Elastic Database query** allows you to write a simple query that spans all databases in the shard set.
+6. The **Elastic Database query** allows you to write a query that spans all databases in the shard set.
   
 ## Promises and challenges
 
