@@ -44,7 +44,7 @@ The only time past reference data blobs are considered is when the job starts. A
     “Initializing input without a valid reference data blob for UTC time <job start time>.”
 
  
-## Creation of a data stream input
+## Creating a data stream input
 ---
 To create a data stream input, simply go to the **Inputs** tab of the Stream Analytics job and click **Add Input** at the bottom of the page.
 
