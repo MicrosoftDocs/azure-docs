@@ -20,18 +20,18 @@
 This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. This article assumes you have gone through the [Overview](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles prior to this.
 
 ## What is a pipeline?
-**Pipelines are a logical grouping of Activities**. They are used to group activities into a unit that performs a task. To understand pipelines better, you need to understand an activity first. 
+**Pipeline is a logical grouping of Activities**. They are used to group activities into a unit that performs a task. To understand pipelines better, you need to understand an activity first. 
 
 ### What is an activity?
 Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets) as inputs and produces one or more datasets as output. **An activity is a unit of orchestration in Azure Data Factory.** 
 
-For example, you may use a Copy activity to orchestrate copying data from one dataset to another. Similarly you may use a Hive activity which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of data transformation, analysis, and [data movement activities](data-factory-data-movement-activities.md). You may also choose to run your own code. 
+For example, you may use a Copy activity to orchestrate copying data from one dataset to another. Similarly you may use a Hive activity which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of [data transformation, analysis](data-factory-data-transformation-activities.md), and [data movement activities](data-factory-data-movement-activities.md). You may also choose to create a custom .NET activity to run your own code. 
 
-Consider 2 datasets as follows:
+Consider the following 2 datasets:
 
-#### Azure SQL Dataset
+**Azure SQL Dataset**
 
-Table ‘MyTable’ contains a column ‘timestampcolumn’ which helps in specifying the datetime of when the data was inserted into the DB. 
+Table ‘MyTable’ contains a column ‘timestampcolumn’ which helps in specifying the datetime of when the data was inserted into the database. 
 
 	{
 	  "name": "AzureSqlInput",
@@ -56,7 +56,7 @@ Table ‘MyTable’ contains a column ‘timestampcolumn’ which helps in speci
 	  }
 	}
 
-#### Azure Blob Dataset 
+**Azure Blob Dataset** 
 
 Data is copied to a new blob every hour with the path for the blob reflecting the specific date-time with hour granularity.
 
@@ -166,16 +166,16 @@ The Copy activity in the pipeline below copies data from Azure SQL to Azure Blob
 
 Now that we have a brief understanding on what an activity is, let’s re-visit the pipeline.
  
-Pipelines are a logical grouping of Activities. They are used to group activities into a unit that performs a task. **A pipeline is also the unit of deployment and management for activities.** For example, you may wish to put logically related activities together as one pipeline and such that they can need to be in active or in paused state together. 
+Pipeline is a logical grouping of Activities. They are used to group activities into a unit that performs a task. **A pipeline is also the unit of deployment and management for activities.** For example, you may wish to put logically related activities together as one pipeline such that they can be in active or paused state together. 
 
-An output dataset from an activity in a pipeline can be the input dataset to another activity in the same/different pipeline by defining dependencies among activities. The scheduling and execution section covers this in detail. 
+An output dataset from an activity in a pipeline can be the input dataset to another activity in the same/different pipeline by defining dependencies among activities. The [scheduling and execution](#scheduling-and-execution) section covers this in detail. 
 
 Typical steps when creating a pipeline in Azure Data Factory are:
 
-1.	Create a Data Factory (if not created)
-2.	Create a linked service for each data store or compute
-3.	Create input and output dataset(s)
-4.	Create a pipeline with activities which operate on the datasets defined above
+1.	Create a data factory (if not created).
+2.	Create a linked service for each data store or compute.
+3.	Create input and output dataset(s).
+4.	Create a pipeline with activities which operate on the datasets defined above.
 
 ![Data Factory entities](./media/data-factory-create-pipelines/entities.png)
 
@@ -235,7 +235,7 @@ policy | Policies which affect the run-time behavior of the activity. If it is n
 start | Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. | No<p>Active period for a pipeline can also be set using the Set-AzureDataFactoryPipelineActivePeriod cmdlet</p>
 End | End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41Z <p>If not specified, it is calculated as "start + 48 hours". To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property.</p>| No
 isPaused | If set to true the pipeline will not get executed. Default value = false. You can use this property to enable or disable. | No 
-scheduler | “scheduler” property is used it define desired scheduling for the activity. Its sub-properties are the same as those under [availability property in a dataset](data-factory-create-datasets.md#Availability). | No |   
+scheduler | “scheduler” property is used to define desired scheduling for the activity. Its sub-properties are the same as those under [availability property in a dataset](data-factory-create-datasets.md#Availability). | No |   
 
 ### Activity types
 Azure Data Factory provides a wide range of [Data movement](data-factory-data-movement-activities.md) and [Data transformation](data-factory-data-transformation-activities.md) activities.
@@ -246,7 +246,7 @@ Policies affect the run-time behavior of an activity, specifically when the slic
 Property | Permitted values | Default Value | Description
 -------- | ----------- | -------------- | ---------------
 concurrency | Integer <p>Max value: 10</p> | 1 | Number of concurrent executions of the activity.<p>It determines the number of parallel activity executions that can happen on different slices. For example, if an activity needs to go through a large set of available data, having a larger concurrency speeds up the data processing.</p> 
-executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | Determines the ordering of data slices that is processed.<p>For example, if you have 2 slices (one happening at 4pm, and another one at 5pm), and both are pending execution. If you set the executionPriorityOrder to be NewestFirst, the slice at 5pm will be processed first. Similarly if you set the executionPriorityORder to be OldestFIrst, then the slice at 4pm will be processed.</p> 
+executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | Determines the ordering of data slices that are being processed.<p>For example, if you have 2 slices (one happening at 4pm, and another one at 5pm), and both are pending execution. If you set the executionPriorityOrder to be NewestFirst, the slice at 5pm will be processed first. Similarly if you set the executionPriorityORder to be OldestFIrst, then the slice at 4pm will be processed.</p> 
 retry | Integer<p>Max value can be 10</p> | 3 | Number of retries before the data processing for the slice is marked as Failure. Activity execution for a data slice is retried up to the specified retry count. The retry is done as soon as possible after the failure.
 timeout | TimeSpan | 00:00:00 | Timeout for the activity. Example: 00:10:00 (implies timeout 10 mins)<p>If a value is not specified or is 0, the timeout is infinite.</p><p>If the data processing time on a slice exceeds the timeout value, it is canceled, and the system attempts to retry the processing. The number of retries depends on the retry property. When timeout occurs, the status will be TimedOut.</p>
 delay | TimeSpan | 00:00:00 | Specify the delay before data processing of the slice starts.<p>The execution of activity for a data slice is started after the Delay is past the expected execution time.</p><p>Example: 00:10:00 (implies delay of 10 mins)</p>
@@ -272,7 +272,9 @@ Azure Data Factory provides various mechanisms to author and deploy pipelines (w
 
 	![Pipeline editor](./media/data-factory-create-pipelines/pipeline-in-editor.png)
 
-6. After you have finished authoring the pipeline, then click on **Deploy** on the command bar to deploy the pipeline. **Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline. You can use the editor to update and delete a pipeline.
+6. After you have finished authoring the pipeline, then click on **Deploy** on the command bar to deploy the pipeline. 
+
+	**Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline. You can use the editor to update and delete a pipeline.
 
 ### Using Visual Studio plugin
 You can use Visual Studio to author and deploy pipelines to Azure Data Factory. To learn more, refer to [Tutorial: Copy data from Azure Storage to Azure SQL (Visual Studio)](data-factory-get-started-using-vs.md).
@@ -287,7 +289,7 @@ To learn more about this cmdlet, see [New-AzureDataFactoryPipeline cmdlet](https
 ### Using REST API
 You can create and deploy pipeline using REST APIs too. This mechanism can be leveraged to create pipelines programmatically. To learn more on this, see [Create or Update a Pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
 
-### Via .NET SDK
+### Using .NET SDK
 You can create and deploy pipeline via .NET SDK too. This mechanism can be leveraged to create pipelines programmatically. To learn more on this refer to [Create, manage, and monitor data factories programmatically](data-factory-create-data-factories-programmatically.md).
 
 
@@ -303,8 +305,8 @@ Once a pipeline is deployed, you can manage and monitor your pipelines, slices a
 
 ## Next Steps
 
-- •	Understand [scheduling and execution in Azure Data Factory](data-factory-scheduling-execution.md).  
-- Read about the [data movement](data-factory-data-movement-activities.md) and [data transformation capabilities](data-factory-data-transformation-activities) in Azure Data Factory
+- Understand [scheduling and execution in Azure Data Factory](data-factory-scheduling-and-execution.md).  
+- Read about the [data movement](data-factory-data-movement-activities.md) and [data transformation capabilities](data-factory-data-transformation-activities.md) in Azure Data Factory
 - Understand [management and monitoring in Azure Data Factory](data-factory-monitor-manage-pipelines.md).
 - [Build and deploy your fist pipeline](data-factory-build-your-first-pipeline.md). 
 
