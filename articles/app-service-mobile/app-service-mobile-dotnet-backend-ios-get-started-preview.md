@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="get-started-article"
-	ms.date="07/27/2015"
+	ms.date="07/29/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>iOS quick start with Azure Mobile Apps
@@ -32,11 +32,11 @@ To complete this tutorial, you need the following:
 * A Mac with the latest Xcode 
 * An active Azure account. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/) and [App Service Pricing](http://azure.microsoft.com/en-us/pricing/details/app-service/). With [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), try an hour of Azure App Service experience with no Azure subscription, free of charge and commitment.
 
-## Create the Mobile App backend
+## Create Mobile App backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Download the server project
+## Download server project
 
 1. On your PC, visit [Azure Portal], click **Browse All** > **Mobile Apps** > the backend that you just created.
 
@@ -44,11 +44,11 @@ To complete this tutorial, you need the following:
 
 3. Click **Download and publish your service to the cloud** > **Download**, extract the compressed project files to your PC, and open the solution in Visual Studio.
 
-##Publish the server project to Azure
+## Publish server project to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Download and run the iOS app
+## Download and run iOS app
 
 [AZURE.INCLUDE [app-service-mobile-ios-run-app-preview](../../includes/app-service-mobile-ios-run-app-preview.md)]
 
