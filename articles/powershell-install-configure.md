@@ -206,13 +206,13 @@ These resources provide help for specific cmdlets:
 -   From within the console, you can use the built-in Help system. The **Get-Help** cmdlet provides access to this system. The following table provides some examples of commands you can use to get Help. You can get more information from within the console by typing **help**.
 
 
-|Command|Result|
+Command | Result
 |--|--|
-|Get-Help|Describes how to use the Help system. <p><p>**Note**: The description includes some information about Help files that does not apply to the Azure module. Specifically, Help files are installed when the module is installed. They are not available for download separately.|
-|Get-Help Azure|Gets all cmdlets in the Azure module.|
-|Get-Help <**language**>-dev|Gets cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.|
+|Get-Help | Describes how to use the Help system.<p><p>**Note**: The description includes some information about Help files that does not apply to the Azure module. Specifically, Help files are installed when the module is installed. They are not available for download separately.|
+|Get-Help Azure | Gets all cmdlets in the Azure module.|
+|Get-Help <**language**>-dev | Gets cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.|
 |Get-Help <**cmdlet**>|Gets help about a Windows PowerShell cmdlet. Replace <cmdlet> with the cmdlet name.|
-|Get-Help <**cmdlet**> -Parameter * |Gets descriptions of the cmdlet parameters. The asterisk ( * ) means "all".|
+|Get-Help <**cmdlet**> -Parameter * | Gets descriptions of the cmdlet parameters. The asterisk ( * ) means "all".|
 |Get-Help <**cmdlet**> -Examples|Gets the syntax and examples of using the cmdlet.|
 |Get-Help <**cmdlet**> -Full|Gets all help for a cmdlet, including technical details.|
 
