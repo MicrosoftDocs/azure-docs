@@ -87,7 +87,7 @@ For the examples outlined here, the connection string will be passed directly.
 
 ## How to: Create a table
 
-A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting timeouts for Table service operations][table-service-timeouts].)
+A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table service timeout. (For more information about the Table service timeout, see [Setting timeouts for Table service operations][table-service-timeouts].)
 
 	require_once 'vendor\autoload.php';
 
