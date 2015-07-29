@@ -44,6 +44,8 @@ You use either of the following to configure web proxy settings:
 
 - Cmdlets in Windows PowerShell for StorSimple.
 
+Each of these methods are discussed in the following sections.
+
 
 ## Configure web proxy via setup wizard
 
@@ -53,7 +55,7 @@ You can use the setup wizard to guide you through the steps for web proxy config
 
 1. In the serial console menu, choose option 1, **Log in with full access** and provide the **device administrator password**. Type the following command to start a setup wizard session:
 
-    Invoke-HcsSetupWizard
+    `Invoke-HcsSetupWizard`
 
 
 1. If this is the first time that you have used the setup wizard for device registration, you will need to configure all the required network settings until you reach the web proxy configuration. If your device is already registered, you can accept all the configured network settings until you reach the web proxy configuration.In the setup wizard, when prompted to configure web proxy settings, type **Yes**.
@@ -82,7 +84,7 @@ An alternate way to configure web proxy settings is via the Windows PowerShell f
 
 #### To configure web proxy via cmdlets
 
-1. In the serial console menu, choose option 1, Log in with full access. When prompted, provide the device administrator password. The default password is  `Password1`.
+1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is  `Password1`.
 
 1. At the command prompt, type:
 
@@ -104,7 +106,7 @@ Perform the following steps in Windows PowerShell for StorSimple to enable web p
 
 #### To enable web proxy
 
-1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the password. The default password is  `Password1`.
+1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is  `Password1`.
 
 1. At the command prompt, type:
 
@@ -143,5 +145,5 @@ If the web proxy settings have been configured incorrectly, error messages will 
 > - Errors related to web proxy settings will not be displayed in the Management Portal in your StorSimple Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the Management Portal.|
 
 ## Next Steps
-If you experience any issues related to web proxy settings, refer to 
+If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshooting your StorSimple device](storsimple-troubleshoot-deployment.md).
 
