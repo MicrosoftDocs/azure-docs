@@ -34,7 +34,7 @@ Follow these steps to create a new mobile app.
  
 	When you use an existing database, provide the administrator login credentials for that database server. 
 
-You now have created the most basic mobile app backend that can be used by your mobile apps.
+You now have created the most basic mobile app backend that can be used by your mobile apps. Next, you will download the Visual Studio project that implements the backend and publish it to Azure.
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/
