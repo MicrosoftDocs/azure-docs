@@ -25,7 +25,7 @@
 * [Elastic Database jobs](sql-database-elastic-jobs-overview.md) (preview): Use jobs to manage large numbers of Azure SQL databases. A **job** is an idempotent T-SQL script that is run against a predefined set of databases. Failures are automatically retried (configurable) and all errors are logged for debugging. 
 * [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, PowerBI, Tableau, etc.
 
-The graphic below shows the architecture of using the **Elastic Database features** in relation to a collection of databases. 
+The graphic below shows an architecture that includes the **Elastic Database features** in relation to a collection of databases. 
 
 ![Elastic Database tools][1]
 
