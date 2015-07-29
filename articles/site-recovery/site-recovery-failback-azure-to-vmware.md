@@ -517,7 +517,7 @@ a.  You need to select the recovery side **Datastore** – this is the
 The different options you need to provide per VM are
 
 Option|Option recommended value
---|--
+---|---
 Process Server IP|Select the PS which you have deployed on Azure
 Retention size in MB| 
 Retention value|1
@@ -534,7 +534,7 @@ Select Target Datastore|The datastore available on the recovery side. This data 
 
 
 Property|How to configure
---|--
+---|---
 Network Configuration|For each NIC detected, configure the failback IP address for the virtual machine. Select the NIC and click **Change** to specify the IP address details.
 Hardware Configuration|You can specify the CPU and the Memory values for the VM. This setting can be applied to all the VMs you are trying to protect.
 Display Name|To identify the correct values for the CPU and Memory, you can refer to the IAAS VMs role size and see the number of cores and Memory assigned.
