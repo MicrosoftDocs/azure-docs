@@ -118,10 +118,10 @@ Note that the **frequency** is set to **Hour** and **interval** is set to **1** 
 	                        "name": "AzureBlobOutput"
 	                    }
 	                ],
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        }
+	       			"scheduler": {
+	          			"frequency": "Hour",
+	          			"interval": 1
+	        		}
 	            }
 	        ],
 	        "start": "2015-01-01T08:00:00Z",
@@ -233,25 +233,26 @@ Consider the following example which shows two activities. Activity1 produces a 
 
 The above diagram shows that out of 3 recent slices there was a failure producing the 9-10 AM slice for **Dataset2**. Data factory automatically tracks dependency for time series dataset and as a result holds off kicking off the activity run for 9-10 AM downstream slice.
 
-Data factory monitoring & management tools allow you to drill into the diagnostic logs   for the failed slice easily to root cause the issue and fix it. Once you have fixed the issue you can also easily kick off the activity run to produce the failed slice. For more details on how to kick off reruns, understand state transitions for data slices please refer to the [monitoring & management](data-factory-monitor-manage-pipelines.md) article.
+Data factory monitoring & management tools allow you to drill into the diagnostic logs for the failed slice easily find the root cause for the issue and fix it. Once you have fixed the issue you can also easily kick off the activity run to produce the failed slice. For more details on how to kick off reruns, understand state transitions for data slices please refer to the [monitoring & management](data-factory-monitor-manage-pipelines.md) article.
 
-Once you kick off the rerun and the 9-10AM slice for dataset2 is ready data factory kicks off the run for the 9-10AM dependent slice on Final Dataset as shown in the diagram below.
+Once you kick off the rerun and the 9-10AM slice for dataset2 is ready, data factory kicks off the run for the 9-10 AM dependent slice on final dataset as shown in the diagram below.
 
 ![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
-For deeper dive on specifying dependency and data factory internals for tracking the dependencies for complex chain of activities and datasets please refer to sections below.
+For deeper dive on specifying dependency and tracking the dependencies for complex chain of activities and datasets, refer to sections below.
 
-## Modelling Datasets with Different Frequencies
+## Modeling datasets with different frequencies
 
 In the samples shown above, the frequencies for input and output datasets and activity schedule window were same. Some scenarios require the ability to produce output at a frequency different than frequencies of one or more inputs. Data factory supports modeling these scenarios.
 
 ### Sample 1: Producing daily output report for input data that is available every hour
 
-Consider a scenario where we have input measurement data from sensors available every hour in Azure Blob and we want to produce a daily aggregate report with statistics like mean, average etc for the day with data factory [Hive activity](data-factory-hive-activity.md).
+Consider a scenario where we have input measurement data from sensors available every hour in Azure Blob and we want to produce a daily aggregate report with statistics like mean, max, min etc... for the day with data factory [Hive activity](data-factory-hive-activity.md).
 
-Here is how you can model this with data factory.
+Here is how you can model this with data factory:
 
 **Input Azure blob dataset:**
+
 The hourly input files are dropped in the folder for the given day. Availability for input is set Hourly (frequency: Hour, interval: 1).
 
 	{
@@ -270,6 +271,7 @@ The hourly input files are dropped in the folder for the given day. Availability
 	        "type": "TextFormat"
 	      }
 	    },
+		"external": "true",
 	    "availability": {
 	      "frequency": "Hour",
 	      "interval": 1
@@ -278,6 +280,7 @@ The hourly input files are dropped in the folder for the given day. Availability
 	}
 
 **Output Azure blob dataset**
+
 One output file will be dropped every day in the folder for the day. Availability of output is set Daily (frequency: Day and interval: 1).
 
 
@@ -368,6 +371,7 @@ The simple approach so far where data factory automatically figures out the righ
 You need a way to specify for every activity run the data factory should use last week’s data slice for the weekly input dataset. You can do that with the help of Azure Data Factory functions as shows below.
 
 **Input1: Azure Blob**
+
 First input is Azure blob updated **daily**.
 	
 	{
@@ -386,6 +390,7 @@ First input is Azure blob updated **daily**.
 	        "type": "TextFormat"
 	      }
 	    },
+		"external": "true",
 	    "availability": {
 	      "frequency": "Hour",
 	      "interval": 1
@@ -394,6 +399,7 @@ First input is Azure blob updated **daily**.
 	}
 
 **Input2: Azure Blob**
+
 Input2 is Azure blob updated **weekly**.
 
 	{
@@ -412,6 +418,7 @@ Input2 is Azure blob updated **weekly**.
 	        "type": "TextFormat"
 	      }
 	    },
+		"external": "true",
 	    "availability": {
 	      "frequency": "Day",
 	      "interval": 7
@@ -420,6 +427,7 @@ Input2 is Azure blob updated **weekly**.
 	}
 
 **Output: Azure Blob**
+
 One output file will be dropped every day in the folder for the day. Availability of output is set Daily (frequency: Day, interval: 1).
 	
 	{
@@ -446,6 +454,7 @@ One output file will be dropped every day in the folder for the day. Availabilit
 	}
 
 **Activity: Hive activity in a pipeline**
+
 The hive activity takes the 2 inputs and produces an output slice every day. You can specify every day’s output slice to depend on last week’s input slice for weekly input as follows.
 	
 	{  
@@ -566,9 +575,7 @@ In order to generate a dataset slice by an activity run, data factory uses the f
 
 The time range of the input dataset(s) required to generate the output dataset slice called the **dependency period**.
 
-An activity run generates a dataset slice only after:
-
-The data slices in input dataset(s) within the dependency period are available. In terms of the dataset slice status, it means all the input slices comprising the dependency period must be in **Ready** status  for the output dataset slice to be produced by an activity run. 
+An activity run generates a dataset slice only after the data slices in input dataset(s) within the dependency period are available. It means that all the input slices comprising the dependency period must be in **Ready** status  for the output dataset slice to be produced by an activity run. 
 
 To generate the dataset slice [start, end], a function is needed to map the dataset slice to its dependency period. This function is essentially a formula that converts the start and end of the dataset slice to the start and end of the dependency period. More formally, 
 	
@@ -579,18 +586,17 @@ where f and g are mapping functions that calculate the start and end of the depe
 
 As seen in samples shown above in most cases the dependency period is same as the period for the data slice to be produced. In these cases data factory automatically computes the input slices that fall in the dependency period.  
 
-For example:
-In the aggregation sample above where output is produced daily and input data is available every hour, the data slice period is 24 hours. Data factory finds the relevant hourly input slices for this time period and makes the output slice dependent on the input slice.
+For example: In the aggregation sample above where output is produced daily and input data is available every hour, the data slice period is 24 hours. Data factory finds the relevant hourly input slices for this time period and makes the output slice dependent on the input slice.
 
 You can also provide your own mapping for the dependency period as shown in the sample above where one of the inputs was weekly and the output slice is produced daily.
    
 ## Data Dependency and Validation
 
-A dataset can optionally have validation policy defined that specifies how the data generated by a slice execution can be validated before it is ready for consumption. See [Creating datasets](data-factory-create-datasets.md) article for details. 
+A dataset can optionally have a validation policy defined that specifies how the data generated by a slice execution can be validated before it is ready for consumption. See [Creating datasets](data-factory-create-datasets.md) article for details. 
 
 In such cases, once the slice has finished execution, the output slice status is changed to **Waiting** with a substatus of **Validation**. Once the slices are validated, the slice status changes to **Ready**.
    
-If a data slice has been produced but did not pass validation, activity runs for downstream slices depending on the slice that failed validation will not be kicked off.
+If a data slice has been produced but did not pass the validation, activity runs for downstream slices depending on the slice that failed validation will not be processed.
 
 The various states of data slices in data factory are covered in the [Monitor and manage pipelines](data-factory-monitor-manage-pipelines.md) article.
 
