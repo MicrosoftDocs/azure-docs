@@ -85,7 +85,7 @@ For the examples outlined here, the connection string will be passed directly.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 
-## How to: Create a table
+## Create a table
 
 A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table service timeout. (For more information about the Table service timeout, see [Setting timeouts for Table service operations][table-service-timeouts].)
 
@@ -111,7 +111,7 @@ A **TableRestProxy** object lets you create a table with the **createTable** met
 
 For information about restrictions on table names, see [Understanding the Table service data model][table-data-model].
 
-## How to: Add an entity to a table
+## Add an entity to a table
 
 To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity, you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
@@ -188,7 +188,7 @@ The **TableRestProxy** class offers two alternative methods for inserting entiti
 	}
 
 
-## How to: Retrieve a single entity
+## Retrieve a single entity
 
 The **TableRestProxy->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. In the example below, the partition key `tasksSeattle` and row key `1` are passed to the **getEntity** method.
 
@@ -216,7 +216,7 @@ The **TableRestProxy->getEntity** method allows you to retrieve a single entity 
 
 	echo $entity->getPartitionKey().":".$entity->getRowKey();
 
-## How to: Retrieve all entities in a partition
+## Retrieve all entities in a partition
 
 Entity queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). To retrieve all entities in partition, use the filter "PartitionKey eq *partition_name*". The following example shows how to retrieve all entities in the `tasksSeattle` partition by passing a filter to the **queryEntities** method.
 
@@ -248,7 +248,7 @@ Entity queries are constructed using filters (for more information, see [Queryin
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-## How to: Retrieve a subset of entities in a partition
+## Retrieve a subset of entities in a partition
 
 The same pattern used in the previous example can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve are determined by the filter you use (for more information, see [Querying tables and entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
 
@@ -280,7 +280,7 @@ The same pattern used in the previous example can be used to retrieve any subset
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-## How to: Retrieve a subset of entity properties
+## Retrieve a subset of entity properties
 
 A query can retrieve a subset of entity properties. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities. To specify a property to be retrieved, pass the name of the property to the **Query->addSelectField** method. You can call this method multiple times to add more properties. After executing **TableRestProxy->queryEntities**, the returned entities will only have the selected properties. (If you want to return a subset of Table entities, use a filter as shown in the queries above.)
 
@@ -318,7 +318,7 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 		echo $description."<br />";
 	}
 
-## How to: Update an entity
+## Update an entity
 
 An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that you can remove a property by setting its value to **null**.
 
@@ -354,7 +354,7 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 		echo $code.": ".$error_message."<br />";
 	}
 
-## How to: Delete an entity
+## Delete an entity
 
 To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **TableRestProxy->deleteEntity** method.
 
@@ -381,7 +381,7 @@ To delete an entity, pass the table name, and the entity's `PartitionKey` and `R
 
 Note that for concurrency checks, you can set the Etag for an entity to be deleted by using the **DeleteEntityOptions->setEtag** method and passing the **DeleteEntityOptions** object to **deleteEntity** as a fourth parameter.
 
-## How to: Batch table operations
+## Batch table operations
 
 The **TableRestProxy->batch** method allows you to execute multiple operations in a single request. The pattern here involves adding operations to **BatchRequest** object and then passing the **BatchRequest** object to the **TableRestProxy->batch** method. To add an operation to a **BatchRequest** object, you can call any of the following methods multiple times:
 
@@ -437,7 +437,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 
 For more information about batching Table operations, see [Performing entity group transactions][entity-group-transactions].
 
-## How to: Delete a table
+## Delete a table
 
 Finally, to delete a table, pass the table name to the **TableRestProxy->deleteTable** method.
 
