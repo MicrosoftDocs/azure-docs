@@ -210,11 +210,11 @@ Command | Result
 ---|---
 Get-Help | Describes how to use the Help system.<p><p>**Note**: The description includes some information about Help files that does not apply to the Azure module. Specifically, Help files are installed when the module is installed. They are not available for download separately.
 Get-Help Azure | Gets all cmdlets in the Azure module.
-Get-Help <**language**>-dev | Gets cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.
-Get-Help <**cmdlet**>|Gets help about a Windows PowerShell cmdlet. Replace <cmdlet> with the cmdlet name.
-Get-Help <**cmdlet**> -Parameter * | Gets descriptions of the cmdlet parameters. The asterisk ( * ) means "all".
-|Get-Help <**cmdlet**> -Examples|Gets the syntax and examples of using the cmdlet.
-Get-Help <**cmdlet**> -Full|Gets all help for a cmdlet, including technical details.
+Get-Help *language*-dev | Gets cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.
+Get-Help *cmdlet* |Gets help about a Windows PowerShell cmdlet. Replace <cmdlet> with the cmdlet name.
+Get-Help *cmdlet* -Parameter * | Gets descriptions of the cmdlet parameters. The asterisk ( * ) means "all".
+Get-Help *cmdlet* -Examples|Gets the syntax and examples of using the cmdlet.
+Get-Help *cmdlet* -Full|Gets all help for a cmdlet, including technical details.
 
 
 - Reference information about the cmdlets in the Azure PowerShell modules is also available in the Azure library. For information, see [Azure Cmdlet Reference](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
