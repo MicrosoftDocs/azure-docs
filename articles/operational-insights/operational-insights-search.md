@@ -585,7 +585,7 @@ Syntax:
 
 
 Operator|Description
---|--
+---|---
 / | Rounds Date/Time to the specified unit. <p><p>Example: NOW/DAY rounds the current Date/Time to the midnight of the current day. 
 + or -|Offsets Date/Time by the specified number of units<p><p>Examples:<p><p>- NOW+1HOUR offsets the current Date/Time by one hour ahead.<p><p>- 2013-10-01T12:00-10DAYS offsets the Date valueback by 10 days.
 
@@ -763,7 +763,7 @@ Aggregates the results by **groupField** and calculates the aggregated measure v
 
 
 Measure statistical function|Description 
---|--
+---|---
 *aggregateFunction* |The name of the aggregate function (case insensitive). The following aggregate functions are supported :<p><p>- COUNT<p><p> - MAX<p> - MIN<p> - SUM<p> - AVG<p>-STDDEV
 *aggregatedField* |The field that is being aggregated. This field is optional for the COUNT aggregate function, but has to be an existing numeric field for SUM, MAX, MIN, AVG, or STDDEV.
 *fieldAlias* |The (optional) alias for the calculated aggregated value. If not specified, the field name will be *AggregatedValue.*
@@ -881,7 +881,7 @@ Examples:
 When you use Search to find data, results display various field and facets. However, some of the information you’ll see might not appear very descriptive. You can use the following information to help you understand the results.
 
 Field|Search Type|Description
---|--|--
+---|---|---
 TenantId|All|Used to partition data
 TimeGenerated|All|Used to drive the timeline, timeselectors (in search and in other	screens). It represents when the piece of data was generated (typically	on the agent). The time is expressed in ISO format and is always UTC. In the case of 'types' that are based on existing instrumentation (i.e.events in a log) this is typically the real time that the log entry/line/record was logged at; for some of the other types that are produced either via management packs or in the cloud - i.e. recommendations/alerts/updateagent/etc, this is the time when this new	piece of data with a snapshot of a configuration of some sort was collected or a recommendation/alert was produced based on it
 EventID|Event|EventID in the Windows event log
