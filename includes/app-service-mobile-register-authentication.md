@@ -1,5 +1,5 @@
 
-First, you need to register your app with an identity provider at their site, then set those credentials in the Mobile App backend.
+First, you need to register your app with an identity provider at their site, then set those credentials in the backend.
 
 * In the [Azure portal], click **Browse** > **Web Apps** > your backend. Click **Settings** > **Mobile App** > **User authentication** > your preferred identity provider. Make a note of the pre-populated URI values for your preferred identity provider; you'll need this for the next step. 
 
