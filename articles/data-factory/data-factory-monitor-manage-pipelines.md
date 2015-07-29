@@ -68,6 +68,7 @@ Double clicking the **PartitionedProductsUsageTable** in the diagram view will s
 The dataset slices in data factory can have one of the following status:
 
 Status | Sub status | Description
+------ | ---------- | -----------
 Waiting | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | Waiting for pre-conditions to be met before executing. Refer to the sub status to figure out what the slice is waiting for.
 In-Progress | Starting<br/>Configuring<br/>Allocating Resources<br/>Running<br/>Validating | Currently, the activity is executing and producing/validating the data for a specific slice.
 Failed | | Slice processing failed. Refer to error logs to figure out what caused the failure
