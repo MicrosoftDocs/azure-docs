@@ -300,4 +300,5 @@ Configuration Server (CS), Process Server (PS), Master Targer (MT)
     screen of
     death.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
-
+### Remote desktop troubleshooting after failover
+Many customers have faced issues to connect to the failed over VM in Azure. Use the troubleshooting document to RDP into the VM. [Document Link](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
