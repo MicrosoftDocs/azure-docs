@@ -78,13 +78,13 @@ Encode with **Media Encoder Premium Workflow** using **.NET**. For more informat
 
 ###<a id="billing"></a>Billing meter used by each encoder
 
-<table border="1">
-<tr><th>Media Processor Name</th><th>Applicable Pricing</th><th>Notes</th></tr>
-<tr><td><b>Windows Azure Media Encoder</b></td><td>LEGACY ENCODER</td><td>Encoding Tasks will be charged according to the sum of sizes of the input Asset(s) and output Asset, in GBytes, at the rate specified <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">here</a>, under the LEGACY ENCODER column.</td></tr>
-<tr><td><b>Azure Media Encoder</b></td><td>ENCODER</td><td>Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified  <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">here</a>, under the ENCODER column.</td></tr>
-<tr><td><b>Media Encoder Standard</b></td><td>ENCODER</td><td>Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified  <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">here</a>, under the ENCODER column.</td></tr>
-<tr><td><b>Media Encoder Premium Workflow</b></td><td>PREMIUM ENCODER</td><td>Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified  <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">here</a>, under the PREMIUM ENCODER column.</td></tr>
-</table>
+Media Processor Name|Applicable Pricing<|Notes
+--|--|--
+**Windows Azure Media Encoder** |LEGACY ENCODER|Encoding Tasks will be charged according to the sum of sizes of the input Asset(s) and output Asset, in GBytes, at the rate specified [here](http://azure.microsoft.com/en-us/pricing/details/media-services/), under the LEGACY ENCODER column.
+**Azure Media Encoder** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here](http://azure.microsoft.com/en-us/pricing/details/media-services/), under the ENCODER column.
+**Media Encoder Standard** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here](http://azure.microsoft.com/en-us/pricing/details/media-services/), under the ENCODER column.
+**Media Encoder Premium Workflow** |PREMIUM ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here](http://azure.microsoft.com/en-us/pricing/details/media-services/), under the PREMIUM ENCODER column.
+
 
 
 This section compares the encoding capabilities of **Azure Media Encoder**, **Media Encoder Premium Workflow**, and **Media Encoder Standard**.
@@ -94,98 +94,92 @@ This section compares the encoding capabilities of **Azure Media Encoder**, **Me
 
 Input Container/File Formats
 
-<table border="1">
-<tr><th>Input Container/File Formats</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder
-</th><th>Media Encoder Standard</th></tr>
-<tr><td>Adobe® Flash® F4V</td><td>Yes</td><td>No</td><td>Yes</td></tr>
-<tr><td>MXF/SMPTE 377M</td><td>Yes</td><td>Limited</td><td>Yes</td></tr>
-<tr><td>GXF</td><td>Yes</td><td>No</td><td>Yes</td></tr>
-<tr><td>MPEG-2 Transport Streams</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>MPEG-2 Program Streams</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>MPEG-4/MP4</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>Windows Media/ASF</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>AVI (Uncompressed 8bit/10bit)</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>3GPP/3GPP2</td><td>No</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>Smooth Streaming File Format (PIFF 1.3)</td><td>No</td><td>Yes</td><td>Yes</td></tr>
-<tr><td><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd692984(v=vs.85).aspx">Microsoft Digital Video Recording(DVR-MS)</a></td><td>No</td><td>No</td><td>Yes</td></tr>
-<tr><td>Matroska/WebM</td><td>No</td><td>No</td><td>Yes</td></tr></table>
+Input Container/File Formats|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+--|--|--|--
+Adobe® Flash® F4V|Yes|No|Yes
+MXF/SMPTE 377M|Yes|Limited|Yes
+GXF|Yes|No|Yes
+MPEG-2 Transport Streams|Yes|Yes|Yes
+MPEG-2 Program Streams|Yes|Yes|Yes
+MPEG-4/MP4|Yes|Yes|Yes
+Windows Media/ASF|Yes|Yes|Yes
+AVI (Uncompressed 8bit/10bit)|Yes|Yes|Yes
+3GPP/3GPP2|No|Yes|Yes
+Smooth Streaming File Format (PIFF 1.3)|No|Yes|Yes
+[Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd692984)|No|No|Yes
+Matroska/WebM|No|No|Yes
 
 Input Video Codecs
 
-<table border="1">
-<tr><th>Input Video Codecs</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra</td><td>Yes</td><td>Only 8bit 4:2:0</td><td>8 bit 4:2:0 and 4:2:2</td></tr>
-<tr><td>Avid DNxHD (in MXF)</td><td>Yes</td><td>No</td><td>Yes</td></tr>
-<tr><td>DVCPro/DVCProHD (in MXF)</td><td>Yes</td><td>No</td><td>Yes</td></tr>
-<tr><td>JPEG2000</td><td>Yes</td><td>No</td><td>Yes</td></tr>
-<tr><td>MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)</td><td>Yes</td><td>Up to 422 Profile</td><td>Up to 422 Profile</td></tr>
-<tr><td>MPEG-1</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>Windows Media Video/VC-1</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>Canopus HQ/HQX</td><td>No</td><td>Yes</td><td>No</td></tr>
-<tr><td>MPEG-4 Part 2</td><td>No</td><td>No</td><td>Yes</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Theora">Theora</a></td><td>No</td><td>No</td><td>Yes</td></tr>
-</table>
+Input Video Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+--|--|--
+AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra|Yes|Only 8bit 4:2:0|8 bit 4:2:0 and 4:2:2
+Avid DNxHD (in MXF)|Yes|No|Yes
+DVCPro/DVCProHD (in MXF)|Yes|No|Yes
+JPEG2000|Yes|No|Yes
+MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)|Yes|Up to 422 Profile|Up to 422 Profile
+MPEG-1|Yes|Yes|Yes
+Windows Media Video/VC-1|Yes|Yes|Yes
+Canopus HQ/HQX|No|Yes|No
+MPEG-4 Part 2|No|No|Yes
+[Theora](https://en.wikipedia.org/wiki/Theora)|No|No|Yes
 
 Input Audio Codecs
 
-<table border="1">
-<tr><th>Input Audio Codecs</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>AES (SMPTE 331M and 302M, AES3-2003)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>Dolby® E</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>Dolby® Digital (AC3)</td><td>Yes</td><td>Yes</td><td>No</td></tr>
-<tr><td>Dolby® Digital Plus (E-AC3)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>MPEG Layer 2</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>Windows Media Audio</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>WAV/PCM</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/FLAC">FLAC</a></td><td>No</td><td>No</td><td>Yes</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Opus_(audio_format)">Opus</a></td><td>No</td><td>No</td><td>Yes</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a></td><td>No</td><td>No</td><td>Yes</td></tr>
-</table>
+Input Audio Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+--|--|--|--
+AES (SMPTE 331M and 302M, AES3-2003)|Yes|No|No
+Dolby® E|Yes|No|No
+Dolby® Digital (AC3)|Yes|Yes|No
+Dolby® Digital Plus (E-AC3)|Yes|No|No
+AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)|Yes|Yes|Yes
+MPEG Layer 2|Yes|Yes|Yes
+MP3 (MPEG-1 Audio Layer 3)|Yes|Yes|Yes
+Windows Media Audio|Yes|Yes|Yes
+WAV/PCM|Yes|Yes|Yes
+[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|No|No|Yes
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |No|No|Yes
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|No|No|Yes
 
 ###Output formats
 
 Output Container/File Formats
 
-<table border="1">
-<tr><th>Output Container/File Formats</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>Adobe® Flash® F4V</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>MXF (OP1a, XDCAM and AS02)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>DPP (including AS11)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>GXF</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>MPEG-4/MP4</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>MPEG-TS</td><td>Yes</td><td>No</td><td>Yes</td></tr>
-<tr><td>Windows Media/ASF</td><td>Yes</td><td>Yes</td><td>No</td></tr>
-<tr><td>AVI (Uncompressed 8bit/10bit)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>Smooth Streaming File Format (PIFF 1.3)</td><td>Yes</td><td>Yes</td><td>No</td></tr>
-</table>
+Output Container/File Formats|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+--|--|--|--
+Adobe® Flash® F4V|Yes|No|No
+MXF (OP1a, XDCAM and AS02)|Yes|No|No
+DPP (including AS11)|Yes|No|No
+GXF|Yes|No|No
+MPEG-4/MP4|Yes|Yes|Yes
+MPEG-TS|Yes|No|Yes
+Windows Media/ASF|Yes|Yes|No
+AVI (Uncompressed 8bit/10bit)|Yes|No|No
+Smooth Streaming File Format (PIFF 1.3)|Yes|Yes|No
 
 Output Video Codecs
 
-<table border="1">
-<tr><th>Output Video Codecs</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>AVC (H.264; 8-bit; up to High Profile, Level 5.2; 4K Ultra HD; AVC Intra)</td><td>Yes</td><td>Only 8 bit 4:2:0 up to 1080p</td><td>Only 8 bit 4:2:0</td></tr>
-<tr><td>Avid DNxHD (in MXF)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>DVCPro/DVCProHD (in MXF)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>MPEG-1</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>Windows Media Video/VC-1</td><td>Yes</td><td>Yes</td><td>No</td></tr>
-<tr><td>JPEG thumbnail creation</td><td>Yes</td><td>Yes</td><td>No</td></tr>
-</table>
+Output Video Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+--|--|--|--
+AVC (H.264; 8-bit; up to High Profile, Level 5.2; 4K Ultra HD; AVC Intra)|Yes|Only 8 bit 4:2:0 up to 1080p|Only 8 bit 4:2:0
+Avid DNxHD (in MXF)|Yes|No|No
+DVCPro/DVCProHD (in MXF)|Yes|No|No
+MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)|Yes|No|No
+MPEG-1|Yes|No|No
+Windows Media Video/VC-1|Yes|Yes|No
+JPEG thumbnail creation|Yes|Yes|No
 
 Output Audio Codecs
 
-<table border="1">
-<tr><th>Output Audio Codecs</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>AES (SMPTE 331M and 302M, AES3-2003)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>Dolby® Digital (AC3)</td><td>Yes</td><td>Yes</td><td>No</td></tr>
-<tr><td>Dolby® Digital Plus (E-AC3) up to 7.1</td><td>Yes</td><td>Up to 5.1</td><td>No</td></tr>
-<tr><td>AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>MPEG Layer 2</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>Yes</td><td>No</td><td>No</td></tr>
-<tr><td>Windows Media Audio</td><td>Yes</td><td>Yes</td<td>No</td></tr>
-</table>
+Output Audio Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+--|--|--|--
+AES (SMPTE 331M and 302M, AES3-2003)|Yes|No|No
+Dolby® Digital (AC3)|Yes|Yes|No
+Dolby® Digital Plus (E-AC3) up to 7.1|Yes|Up to 5.1|No
+AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)|Yes|Yes|Yes
+MPEG Layer 2|Yes|No|No
+MP3 (MPEG-1 Audio Layer 3)|Yes|No|No
+Windows Media Audio|Yes|Yes|No
 
 ##Related articles
 
