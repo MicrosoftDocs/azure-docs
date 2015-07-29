@@ -197,107 +197,35 @@ __Table storage__
 
 When logging to table storage, additional properties are used to facilitate searching the data stored in the table as well as more granular information on the event. The following properties (columns) are used for each entity (row) stored in the table.
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Property name</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Value/format</th>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">PartitionKey</td>
-<td style="border:1px solid black;vertical-align:top">Date/time of the event in yyyyMMddHH format</td>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">A GUID value that uniquely identifies this entity</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Timestamp</td>
-<td style="border:1px solid black;vertical-align:top">The date and time that the event occurred</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">The date and time that the event occurred, in Tick format (greater precision)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">The web app name</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Event level (e.g. error, warning, information)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">The event ID of this event<br>Defaults to 0 if none specified</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instance of the web app that the even occurred on</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">Process ID</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">The thread ID of the thread that produced the event</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">Event detail message</td>
-</tr>
-</table>
+Property name|Value/format
+--|--
+PartitionKey|Date/time of the event in yyyyMMddHH format
+RowKey|A GUID value that uniquely identifies this entity
+Timestamp|The date and time that the event occurred'
+EventTickCount|The date and time that the event occurred, in Tick format (greater precision)
+ApplicationName|The web app name
+Level|Event level (e.g. error, warning, information)
+EventId|The event ID of this event<br>Defaults to 0 if none specified
+InstanceId|Instance of the web app that the even occurred on
+Pid|Process ID
+Tid|The thread ID of the thread that produced the event
+Message|Event detail message
 
 __Blob storage__
 
 When logging to blob storage, data is stored in comma-separated values (CSV) format. Similar to table storage, additional fields are logged to provide more granular information about the event. The following properties are used for each row in the CSV:
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Property name</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Value/format</th>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Date</td>
-<td style="border:1px solid black;vertical-align:top">The date and time that the event occurred</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Event level (e.g. error, warning, information)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">The web app name</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instance of the web app that the even occurred on</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">The date and time that the event occurred, in Tick format (greater precision)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">The event ID of this event<br>Defaults to 0 if none specified</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">Process ID</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">The thread ID of the thread that produced the event</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">Event detail message</td>
-</tr>
-</table>
+Property name|Value/format
+--|--
+Date|The date and time that the event occurred
+Level|Event level (e.g. error, warning, information)
+ApplicationName|The web app name
+InstanceId|Instance of the web app that the even occurred on
+EventTickCount|The date and time that the event occurred, in Tick format (greater precision)
+EventId|The event ID of this event<br>Defaults to 0 if none specified
+Pid|Process ID
+Tid|The thread ID of the thread that produced the event
+Message|Event detail message
 
 The data stored in a blob would similar to the following:
 

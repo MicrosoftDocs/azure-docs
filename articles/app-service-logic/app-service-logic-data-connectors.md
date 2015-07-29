@@ -30,148 +30,22 @@ For example, an instance of the Dropbox connector can be configured with a *new 
 
 Here's a brief overview of each of the App and Data Services connectors that are available on the Azure gallery:
 
-<table>
-<tr>
-<th> Name</th>
-<th> Description</th>
-<th> Triggers</th>
-<th>Actions</th>
-
-<tr>
-<td>Azure Media Services
-<td>Azure Media Services connector allows you to create end-to-end media workflows with flexible and scalable encoding, packaging, and distribution. You can also securely upload, store, encode and stream video or audio content for both on-demand and live streaming delivery to a wide array of TV, PC and mobile device endpoints.
-<td>None
-<td>None 
-</tr>
-
-<tr>
-<td>Azure Service Bus
-<td>Azure Service Bus connector lets you send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.
-<td>New messages
-<td>Send message
-</tr>
-
-<tr>
-<td>Box
-<td>Box Connector lets you connect to Box and perform various actions on your files. 
-<td>New files added
-<td><li>Upload File
-<li>Get File
-<li>Delete File
-<li>List Files
-</tr>
-
-<tr>
-<td>DB2
-<td>The DB2 Connector lets you connect to an IBM DB2 database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes the Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
-<td>None
-<td><li>Table Select
-<li>Insert
-<li>Update
-<li>Delete
-<li>Custom Statement
-</tr>
-
-<tr>
-<td>Dropbox
-<td>Dropbox Connector lets you connect to Dropbox and perform various actions such as Upload File, Get File, Delete File, List Files and a trigger to retrieve files.
-<td>New files added
-<td><li>Upload File
-<li>Get File
-<li>Delete File
-<li>List Files
-</tr>
-
-<tr>
-<td>HDInsight
-<td>An HDInsight connector lets you create a Hadoop cluster on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce, and Streaming MapReduce. Using this connector, you can spin a cluster, submit a job, and wait for the job to complete.
-<td>None
-<td><li>Create Cluster
-		<li>Wait For Cluster Creation
-		<li>Submit Pig Job
-		<li>Submit Hive Job
-		<li>Submit MapReduce Job
-		<li>Wait For Job Completion
-		<li>Delete Cluster
-<li>Submit MapReduce Job
-<li>Submit Streaming MapReduce Job
-</tr>
-
-<tr>
-<td>Informix
-<td>The Informix connector connects to an on-premises IBM Informix database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes a Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
-<td>None
-<td><li>Table Select
-<li>Insert
-<li>Update
-<li>Delete
-<li>Custom Statement
-</tr>
-
-<tr>
-<td>Microsoft SQL
-<td>A Microsoft SQL connector lets you create and modify entries in Microsoft SQL Server and Azure SQL database tables.
-<td>Poll data
-<td><li>Insert Into Table
-	<li>Update Table
-	<li>Select From Table
-	<li>Delete From Table
-	<li>Call Stored Procedure
-</tr>
-
-
-<tr>
-<td>MQ
-<td>The MQ Connector connects to IBM WebSphere MQ Server version 8, on-premises and on an Azure virtual machine running a Windows operating system. When using on-premises, VPN or Azure ExpressRoute can be used. The connector also includes the Microsoft Client for MQ.<br/><br/><strong>Note</strong> Currently cannot be used with Logic Apps.
-<td>None
-<td>None
-</tr>
-
-<tr>
-<td>Office 365
-<td>An Office 365 connector lets you send and receive emails and manage your calendar and contacts.
-<td>New message
-<td>	<li>Send Mail
-		<li>Reply To Mail
-		<li>Send Event
-		<li>Add Contact
-</tr>
-
-<tr>
-<td>OneDrive
-<td>OneDrive Connector lets you connect to your personal Microsoft OneDrive storage account and perform various actions such as upload, get, delete, list files.
-<td>New file
-<td><li>Files: upload, delete, list, download
-</tr>
-
-<tr>
-<td>Oracle
-<td>An Oracle database connector lets you create and modify entries in an Oracle database table.
-<td>New data, based on query
-<td><li>Table: Insert Into, update, select from, delete from
-<li>Call Stored Procedure
-</tr>
-
-<tr>
-<td>SharePoint Online
-<td>A Microsoft SharePoint connector lets you create and modify documents and list items in SharePoint Server or Microsoft SharePoint Online.
-<td><li>New document
-<li>New list item
-<td><li>Document library: Upload, delete and get
-<li>List: Insert item
-
-</tr>
-
-<tr>
-<td>SharePoint Server
-<td>SharePoint Server connector lets you manage documents and list items in your SharePoint server. Default credentials, Windows authentication and forms based authentication are supported. You need to provide a Service Bus Connection String and install the on-premises listener agent before you can connect to the server.
-<td><li>New document
-<li>New list item
-<td><li>Document library: Upload, delete and get
-<li>List: Insert item
-</tr>
-</table>
-
+Name|Description|Triggers|Actions
+--|--|--|--
+Azure Media Services|Azure Media Services connector allows you to create end-to-end media workflows with flexible and scalable encoding, packaging, and distribution. You can also securely upload, store, encode and stream video or audio content for both on-demand and live streaming delivery to a wide array of TV, PC and mobile device endpoints.|None|None 
+Azure Service Bus|Azure Service Bus connector lets you send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.|New messages|Send message
+Box|Box Connector lets you connect to Box and perform various actions on your files. |New files added| - Upload File<p><p> - Get File<p><p> - Delete File<p><p> - List Files
+DB2|The DB2 Connector lets you connect to an IBM DB2 database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes the Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.|None| - Table Select<p><p> - Insert<p><p> - Update<p><p> - Delete<p><p> - Custom Statement
+Dropbox|Dropbox Connector lets you connect to Dropbox and perform various actions such as Upload File, Get File, Delete File, List Files and a trigger to retrieve files.|New files added| - Upload File<p><p> - Get File<p><p> - Delete File<p><p> - List Files
+HDInsight|An HDInsight connector lets you create a Hadoop cluster on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce, and Streaming MapReduce. Using this connector, you can spin a cluster, submit a job, and wait for the job to complete.|None| - Create Cluster<p><p> - Wait For Cluster Creation<p><p> - Submit Pig Job<p><p> - Submit Hive Job<p><p> - Submit MapReduce Job<p><p> - Wait For Job Completion<p><p> - Delete Cluster<p><p> - Submit MapReduce Job<p><p> - Submit Streaming MapReduce Job
+Informix|The Informix connector connects to an on-premises IBM Informix database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes a Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.|None|<p><p> - Table Select<p><p> - Insert<p><p> - Update<p><p> - Delete<p><p> - Custom Statement
+Microsoft SQL|A Microsoft SQL connector lets you create and modify entries in Microsoft SQL Server and Azure SQL database tables.|Poll data|<p><p> - Insert Into Table	<p><p> - Update Table	<p><p> - Select From Table	<p><p> - Delete From Table	<p><p> - Call Stored Procedure
+MQ|The MQ Connector connects to IBM WebSphere MQ Server version 8, on-premises and on an Azure virtual machine running a Windows operating system. When using on-premises, VPN or Azure ExpressRoute can be used. The connector also includes the Microsoft Client for MQ.<p><p>**Note** Currently cannot be used with Logic Apps.|None|None
+Office 365|An Office 365 connector lets you send and receive emails and manage your calendar and contacts.|New message| - Send Mail	<p><p> - Reply To Mail<p><p> - Send Event<p><p> - Add Contact
+OneDrive|OneDrive Connector lets you connect to your personal Microsoft OneDrive storage account and perform various actions such as upload, get, delete, list files.|New file| - Files: upload, delete, list, download
+Oracle|An Oracle database connector lets you create and modify entries in an Oracle database table.|New data, based on query| - Table: Insert Into, update, select from, delete from<p><p> - Call Stored Procedure
+SharePoint Online|A Microsoft SharePoint connector lets you create and modify documents and list items in SharePoint Server or Microsoft SharePoint Online.| - New document<p><p> - New list item|<p><p> - Document library: Upload, delete and get<p><p> - List: Insert item
+SharePoint Server|SharePoint Server connector lets you manage documents and list items in your SharePoint server. Default credentials, Windows authentication and forms based authentication are supported. You need to provide a Service Bus Connection String and install the on-premises listener agent before you can connect to the server.|<p><p> - New document<p><p> - New list item|<p><p> - Document library: Upload, delete and get<p><p> - List: Insert item
 
 ## Why Use Connectors?
 
@@ -192,16 +66,17 @@ Connector API Apps can be created using the Azure Portal
 1. In the Azure portal, select **NEW** > **Web + mobile** > **Azure Marketplace**
 2. **Search** for the connector or select it from the list. Once selected, a new blade or window opens. Select **Create**. 
 3. Enter the following properties for the connector: 
-	<table>
-	    <tr><th>Property</th> <th>Description</th> </tr>
-	    <tr><td>Name</td> <td>Enter any name for your API App. For example, you can name it RulesDiscountTaxCode or APIAppValidateXML</td> </tr>
-	    <tr><td>App Service Plan</td> <td>Lists your payment plan. You can change it if you need more or less resources</th> </td>
-	    <tr><td>Pricing Tier</td> <td>Read-only property that lists the pricing category within your Azure subscription.</td> </tr>
-	    <tr><td>Resource Group</td> <td>Create a new one or use an existing group. Using resource groups explains this property</td> </tr>
-	    <tr><td>Subscription</td> <td>Read-only property that lists your current subscription</td> </tr>
-	    <tr><td>Location</td> <td>The Geographic location that hosts your Azure service </td></tr>
-        <tr><td>Add to Startboard</td> <td>Select this to add the API App to your Starboard (the home page)</td></tr>
-	</table> 
+
+Property|Description
+--|--
+Name|Enter any name for your API App. For example, you can name it RulesDiscountTaxCode or APIAppValidateXML
+App Service Plan|Lists your payment plan. You can change it if you need more or less resources
+Pricing Tier|Read-only property that lists the pricing category within your Azure subscription.
+Resource Group|Create a new one or use an existing group. Using resource groups explains this property
+Subscription|Read-only property that lists your current subscription
+Location|The Geographic location that hosts your Azure service 
+Add to Startboard|Select this to add the API App to your Starboard (the home page)
+
 4. Select **Create**. Your connector will be created. It may take a while to complete and the Home screen will be displayed during the creation of the connector. Use the Notifications menu item on the left to monitor the status of your connector.
 
 Now that you've created your first connector, consider building a web, mobile or logic app with it. 
