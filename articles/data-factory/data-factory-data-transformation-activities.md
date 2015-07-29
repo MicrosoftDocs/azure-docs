@@ -31,9 +31,9 @@ Transformation activity |  Compute linked service | Compute linked service confi
 [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx) 
 [Hadoop Streaming](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop]  | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx) and [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx) 
-[DotNet](data-factory-use-custom-activities.md) | Azure Batch | [Bring Your Own]((https://msdn.microsoft.com/library/mt185713.aspx) )
-[Machine Learning Batch Scoring](data-factory-create-predictive-pipelines.md) | Azure VM | [On-demand](https://msdn.microsoft.com/library/mt185733.aspx)
-[Stored Procedure](https://msdn.microsoft.com/library/mt185717.aspx) | Azure SQL | [Bring Your Own](https://msdn.microsoft.com/library/mt185697.aspx)
+[DotNet](data-factory-use-custom-activities.md#AzureBatch) | Azure Batch | [Bring Your Own](https://msdn.microsoft.com/library/mt185713.aspx) 
+[Machine Learning Batch Scoring](data-factory-create-predictive-pipelines.md) | Azure VM | [On-demand](https://msdn.microsoft.com/library/mt185726.aspx)
+[Stored Procedure](https://msdn.microsoft.com/library/mt185717.aspx) | Azure SQL | [Bring Your Own](https://msdn.microsoft.com/library/mt185705.aspx)
 
 
 
