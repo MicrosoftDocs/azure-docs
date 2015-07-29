@@ -71,7 +71,7 @@ The following example shows creating a new Application Gateway using a virtual n
 
 **To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet. 
 
->[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium and Large.
+
 
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
@@ -84,6 +84,9 @@ The following example shows creating a new Application Gateway using a virtual n
 	State         : Stopped
 	VirtualIPs    : {}
 	DnsName       :
+
+>[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium and Large.
+
 
  *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state. 
 
