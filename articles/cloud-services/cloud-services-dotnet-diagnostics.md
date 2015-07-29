@@ -469,12 +469,12 @@ Worker role|Yes|Yes
 IaaS|No|Yes
 
 Configuration and deployment|Diagnostics 1.0|Diagnostics 1.1/1.2/1.3
----|---
+---|---|---
 Integration with Visual Studio- Integrated into the Azure web/worker development experience.|Yes|No
 PowerShell Scripts- Scripts to manage the installation and configuration of Diagnostics on the role.|Yes|Yes
 
 Data Source|Default Collection|Format|Description|Diagnostics 1.0|Diagnostics 1.1/1.2|Diagnostics 1.3
----|---
+---|---|---|---
 System.Diagnostics.Trace Logs|Yes|Table|Logs trace messages sent from your code to the trace listener (a trace listener must be added to the web.config or app.config file). Log data will be transferred at the scheduledTransferPeriod transfer interval to storage table WADLogsTable.|Yes|No (Use EventSource)|Yes
 IIS logs|Yes|Blob|Logs information about IIS sites. Log data will be transferred at the scheduledTransferPeriod transfer interval to the container you specify.|Yes|Yes|Yes
 Azure Diagnostic infrastructure logs|Yes|Table|Logs information about the diagnostic infrastructure, the RemoteAccess module, and the RemoteForwarder module. Log data will transferred at the scheduledTransferPeriodtransfer interval to storage table WADDiagnosticInfrastructureLogsTable.|Yes|Yes|Yes
