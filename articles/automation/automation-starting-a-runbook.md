@@ -21,7 +21,7 @@ The following table will help you determine the method to start a runbook in Azu
 
 
 METHOD|CHARACTERISTICS
---|--
+---|---
 [Azure portal](#starting-a-runbook-with-the-azure-portal)| * Simplest method with interactive user interface.<p> * Form to provide simple parameter values.<p> * Easily track job state.<p> * Access authenticated with Azure logon.
 [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx)| * Call from command line with Windows PowerShell cmdlets.<p> * Can be included in automated solution with multiple steps.<p> * Request is authenticated with certificate or OAuth user principal / service  principal.<p> * Provide simple and complex parameter values.<p> * Track job state.<p> * Client required to support PowerShell cmdlets.
 [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163849.aspx)| * Most flexible method but also most complex.<p> * Call from any custom code that can make HTTP requests.<p> * Request authenticated with certificate, or Oauth user principal / service principal.<p> * Provide simple and complex parameter values.<p> * Track job state.
