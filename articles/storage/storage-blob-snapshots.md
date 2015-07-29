@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creating a snapshot of a blob"
+	pageTitle="Create a snapshot of a blob"
 	description="A guide for creating snapshots of Azure storage blobs"
 	services="storage"
 	documentationCenter=""
@@ -30,7 +30,7 @@ When you create a snapshot of a blob, the blob's system properties are copied to
 
 Any leases associated with the base blob do not affect the snapshot. You cannot acquire a lease on a snapshot.
 
-## Copying snapshots
+## Copy snapshots
 
 Copy operations involving blobs and snapshots follow these rules:
 
@@ -42,11 +42,11 @@ Copy operations involving blobs and snapshots follow these rules:
 
 - When you create a snapshot of a block blob, the blob's committed block list is also copied to the snapshot. Any uncommitted blocks are not copied.
 
-## Specifying an access condition
+## Specify an access condition
 
 You can specify an access condition so that the snapshot is created only if a condition is met. To specify an access condition, use the **AccessCondition** property. If the specified condition is not met, the snapshot is not created, and the Blob service returns status code HTTPStatusCode.PreconditionFailed.
 
-## Deleting snapshots
+## Delete snapshots
 
 A blob that has snapshots cannot be deleted unless the snapshots are also deleted. You can delete a snapshot individually, or tell the storage service to delete all snapshots when deleting the source blob. If you attempt to delete a blob that still has snapshots, you'll get an error.
 
@@ -61,7 +61,7 @@ Using snapshots with Premium Storage follow these rules:
 
 - To read a snapshot, you can use the Copy Blob operation to copy a snapshot to another page blob in the account. The destination blob for the copy operation must not have any existing snapshots. If the destination blob does have snapshots, then the Copy Blob operation returns error code 409 (**SnapshotsPresent**).
 
-## Returning the absolute URI to a snapshot
+## Return the absolute URI to a snapshot
 
 This C# code example creates a new snapshot and writes out the absolute URI for the primary location.
 
@@ -81,7 +81,7 @@ This C# code example creates a new snapshot and writes out the absolute URI for 
     CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
     Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
-## Understanding how snapshots accrue charges
+## Understand how snapshots accrue charges
 
 Creating a snapshot, which is a read-only copy of a blob, can result in additional data storage charges to your account. When designing your application, it is important to be aware how these charges might accrue so that you can minimize unnecessary costs.
 
