@@ -124,7 +124,41 @@ Now choose the correct serialization setting for the data. The options are JSON,
 
 ![image5](./media/stream-analytics-connect-data-event-inputs/05-stream-analytics-create-inputs.png)
 
-Then check the **Complete** checkbox and the blob storage input is now created.
+Then select **Complete** and the Blob storage data stream input is now created.
+
+## Creating a Blob storage reference data stream
+---
+To utilize reference data stream capabilities Blob storage can be leveraged.
+
+Below is a walk-through to configure Blob storage as a reference data stream. To start, the following information is required:
+
+1. If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.
+2. The container name.
+3. The file name prefix.
+4. What serialization format is utilized for the data (CSV, JSON).
+5. The Path Pattern. The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables: {date} and {time}.
+
+
+On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Reference stream**.
+
+![image9](./media/stream-analytics-connect-data-event-inputs/09-stream-analytics-create-inputs.png)
+
+Then input the information into the fields as shown below for the Blob storage and storage account.
+
+![image10](./media/stream-analytics-connect-data-event-inputs/10-stream-analytics-create-inputs.png)
+
+Making sure to scroll down to specify the prefix pattern for path hierarchy that contains the blob as well as the format of the date and time fields.
+
+![image12](./media/stream-analytics-connect-data-event-inputs/12-stream-analytics-create-inputs.png)
+
+Now choose the correct serialization setting for the data. The options are JSON, CSV, and Avro.
+
+![image11](./media/stream-analytics-connect-data-event-inputs/11-stream-analytics-create-inputs.png)
+
+Then select **Complete** and the Blob storage reference data input is now created.
+
+
+
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
