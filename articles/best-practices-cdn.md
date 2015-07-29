@@ -53,7 +53,7 @@ Typical uses for the CDN include:
 
 
 |City |Time to First Byte (Origin) |Time to First Byte (CDN) | % faster for CDN|
-|--|--|--|--|
+|---|---|---|---|
 |San Jose, CA<sub>1</sub> |47.5 |46.5 |2%|
 |Dulles, VA<sub>2</sub> |109 |40.5 |169%|
 |Buenos Aires,AR |210 |151 |39%|

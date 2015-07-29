@@ -32,7 +32,7 @@ The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel mo
 The Azure Linux Agent is already pre-installed on the Azure Gallery images and are typically available from the distribution's package repository.  Source code can be found on [GitHub](https://github.com/azure/walinuxagent).
 
 Distribution|Version|Drivers|Agent
---|--|--|--
+---|---|---|---
 Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 and 15.04|In Kernel|Package: In repo under "walinuxagent" <p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: In Kernel|Package: In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo   under "WALinuxAgent"<p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494.4.0+ |In Kernel|Source: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
