@@ -36,6 +36,14 @@ Support for refreshing reference data can be enabled by specifying a list of blo
 
 For example if the job has a reference input configured in the portal with the path pattern such as: /sample/{date}/{time}/products.csv where the date format is “YYYY-MM-DD” and the time format is “HH:mm” then the job will pick up a file named /sample/2015-04-16/17:30/products.csv at 5:30 PM on April 16th 2015 UTC time zone .
 
+> [AZURE.NOTE]currently Stream Analytics jobs look for reference blob refresh data only when the time coincides with the time encoded in the blob name:
+e.g. jobs look for /sample/2015-04-16/17:30/products.csv between 5:30 PM and 5:30:59.999999999PM on April 16th 2015 UTC time zone. When the clock strikes 5:31PM it stops looking for /sample/2015-04-16/17:30/products.csv and starts looking for /sample/2015-04-16/17:31/products.csv
+
+The only time past data is considered is when the job starts. Then all blobs that match the path pattern are loaded and as well as the reference data blob that has a latest time encoded in its name with a value before than the job start time (the newest reference data blob from before the job start time). This is done to ensure there is a non-empty reference data set at the start of the job. If one cannot be found, the job will fail and display a diagnostic notice to the user:
+
+    “Initializing input without a valid reference data blob for UTC time <job start time>.”
+
+ 
 ## Creation of a data stream input
 ---
 To create a data stream input, simply go to the **Inputs** tab of the Stream Analytics job and click **Add Input** at the bottom of the page.
@@ -46,7 +54,7 @@ To create a data stream input, simply go to the **Inputs** tab of the Stream Ana
 
 ![image2](./media/stream-analytics-connect-data-event-inputs/02-stream-analytics-create-inputs.png)
 
-## Creating an Event Hub input data stream
+## Creating an Event Hub data input stream
 ---
 ### Overview of Event Hubs
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers to feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can publish web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining. Event Hubs can be used for data egress also.  A potential use of Event Hubs as output is when the output of a Stream Analytics job will be the input of another streaming job. For further details on Event Hubs visit the portal at [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs").
