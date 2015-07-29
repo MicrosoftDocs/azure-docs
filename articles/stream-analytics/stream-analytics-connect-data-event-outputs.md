@@ -18,15 +18,17 @@
 
 # Create Stream Analytics outputs
 
-## Understanding Stream Analytics outputs
+## Understanding Stream Analytics outputs ##
 ---
 When creating a Stream Analytics job, one of the considerations is how the output of the job is consumed. How are the consumers of the data transformation viewing the results of the Stream Analytics job? What tool(s) will they be using to analyze the output? Is data retention or warehousing a requirement?
 
 Azure Stream Analytics provides seven different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Service Bus Queues, Service Bus Topics, Power BI and Table storage. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.
 
-## Using a SQL Database as an output
+## Using a SQL Database as an output ##
 ---
 A SQL Database can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. For more information on Azure SQL databases see [Azure SQL Databases](http://azure.microsoft.com/services/sql-database/).
+
+### Parameters ###
 
 To start using a SQL Database, the following information will be needed about the SQL Database:
 
@@ -34,6 +36,8 @@ To start using a SQL Database, the following information will be needed about th
 2. Database Name
 3. A valid username/password combination
 4. Output table name
+
+### Adding SQL Database as an output ###
 
 ![graphic1][graphic1]
 
@@ -71,9 +75,11 @@ In this example, the credentials that were provided were incorrect. Simply suppl
 
 ![graphic10][graphic10]
 
-## Using Blob storage as an output
+## Using Blob storage as an output ##
 ---
 For an introduction on Azure Blob storage and its usage, review the article [An introduction to Windows Azure Blob storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
+
+### Parameters ###
 
 To start using a Blob storage output, the following information will be needed:
 
@@ -81,6 +87,8 @@ To start using a Blob storage output, the following information will be needed:
 2. The container name.
 3. The file name prefix.
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+### Adding Blob storage as an output ###
 
 Select output to Blob storage.
 
@@ -90,49 +98,66 @@ Then supply the details as shown below:
 
 ![graphic21][graphic21]
 
-## Using an Event Hub as an output
+## Using an Event Hub as an output ##
 ---
-### Overview
+### Overview ###
  
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. Their robust handling of high numbers of events also make them perfect for job output.  One use of an Event Hub as output is when the output of an Stream Analytics job will be the input of another streaming job. For further details on Event Hubs visit the portal at [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs").
  
-### Parameters
-There are a few parameters that customers need to configure for Event Hub data streams.  These parameters apply to both Event Hub input and output data streams, unless noted otherwise.
+### Parameters ###
+
+There are a few parameters that are needed to configure Event Hub data streams.
 
 1. Service Bus Namespace: Service Bus Namespace of the Event Hub. A Service Bus namespace is a container for a set of messaging entities. When creating a new Event Hub, a Service Bus namespace is also created. 
 2. Event Hub Name: Name of the Event Hub.  It’s the name specified when creating a new Event Hub. 
 3. Event Hub Policy Name: The name of the shared access policy for accessing the Event Hub.  Shared access policies can be configured for an Event Hub on the Configure tab. Each shared access policy will have a name, permissions set, and access keys generated.
 4. Event Hub Policy Key:  The primary or secondary key of the shared access policy for accessing the Event Hub.  
-5. Event Hub Consumer Group: Optional parameter for Event Hub inputs.  The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   It is recommended to utilize a distinct consumer Group for each Stream Analytics job.
-6. Partition Key Column:  Optional parameter for Event Hub outputs. This column contains the partition key for Event Hub output.
+5. Partition Key Column:  Optional parameter for Event Hub outputs. This column contains the partition key for Event Hub output.
+
+### Adding an Event Hub as an output ###
+
+1. Click **Output** from the top of the page, and then click **Add Output**. Select Event Hub as the output option and click the right button at the bottom of the window.
+
+    ![graphic38][graphic38]
+
+2. Provide the relevant information into the fields for the output and when finished click the right button at the bottom of the window to proceed.
+
+    ![graphic36][graphic36]
+
+3. Validate the Event Serialization Format, Encoding type and Format are set to the appropriate values and click the check box to complete the action.
+
+    ![graphic37][graphic37]
 
 ## Power BI as an output ##
 ---
 ### Overview ###
 Power BI can be utilized as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting. Note that multiple Power BI outputs may exist on a single Stream Analytics job. For more information on Power BI visit the [Power BI](https://powerbi.microsoft.com/) site.
 
-### Adding Power BI as an output ###
-1.  Click **Output** from the top of the page, and then click **Add Output**. Power BI listed as an output option.
+### Parameters ###
 
-    ![graphic22][graphic22]
-
-2.  Select **Power BI** and then click the right button.
-3.  A screen like the following is presented.
-
-    ![graphic23][graphic23]
-
-4.  In this step, provide the Azure account ID for authorizing the Power BI output. If you are not already signed up for Power BI, choose “Sign up now”.
-5.  Next a screen like the following will be presented.
-
-    ![graphic24][graphic24]
-
-Provide values as below:
+There are a few parameters that are needed to configure a Power BI output.
 
 * **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query. For example, use the output alias value = “OutPbi”.
 * **Dataset Name** - Provide a dataset name that it is desired for the Power BI output to use. For example, use “pbidemo”.
 *	**Table Name** - Provide a table name under the dataset of the Power BI output. For example, use “pbidemo”. **Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.**
 
->	[AZURE.NOTE] One should not explicitly create this dataset and table in the Power BI dashboard. The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t return any results, the dataset and table will not be created.
+### Adding Power BI as an output ###
+
+1.  Click **Output** from the top of the page, and then click **Add Output**. Select Power BI as the output option.
+
+    ![graphic22][graphic22]
+
+2.  A screen like the following is presented.
+
+    ![graphic23][graphic23]
+
+3.  In this step, provide the Azure account ID for authorizing the Power BI output. If you are not already signed up for Power BI, choose “Sign up now”.
+4.  Next a screen like the following will be presented.
+
+    ![graphic24][graphic24]
+
+
+>	[AZURE.NOTE] One should not explicitly create the dataset and table in the Power BI dashboard. The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t return any results, the dataset and table will not be created.
 
 *	Click **OK**, **Test Connection** and now the output configuration is complete.
 
@@ -141,6 +166,8 @@ Provide values as below:
 ## Using Azure Table storage for an output ##
 ---
 Table storage offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval. For further information on Azure Table storage visit [Azure Table storage](./articles/storage/storage-introduction.md).
+
+### Parameters ###
 
 To start using an Azure Table storage, the following information is needed:
 
@@ -152,6 +179,8 @@ To start using an Azure Table storage, the following information is needed:
 
 For a better design of Partition key and Row key, please refer article below
 [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
+
+### Adding Azure Table storage as an output ###
 
 ![graphic11][graphic11]
 
@@ -170,7 +199,6 @@ Enter the Azure Table information on the next page. The output alias is the name
 ![graphic15][graphic15]
 
 Batch Size is the number of records for a batch operation. Typically the default is sufficient for most jobs, refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting.
-
 
 If an Azure Storage account exists within the same subscription being used to create the job, select "Use Storage Account from Current Subscription", and select the Storage Account from the drop down.
 
@@ -198,7 +226,7 @@ Service Bus Queues offer a First In, First Out (FIFO) message delivery to one or
 
 For further information on Service Bus Queues see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Queues](http://blogs.msdn.com/b/appfabric/archive/2011/05/17/an-introduction-to-service-bus-queues.aspx "An Introduction to Service Bus Queues").
 
-### Adding Service Bus Queues ###
+### Parameters ###
 
 To start using a Service Bus Queues output, the following information will be needed:
 
@@ -206,6 +234,8 @@ To start using a Service Bus Queues output, the following information will be ne
 2. The namespace and service bus name.
 3. **Queue Name** - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When you created your queue, you also gave it a specific name.
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+### Adding Service Bus Queues as an output ###
 
 ![graphic31][graphic31]
 
@@ -224,7 +254,7 @@ Whereas Service Bus Queues provide a one to one communication method from sender
 
 For further information on Service Bus Topics see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Topics](http://blogs.msdn.com/b/appfabric/archive/2011/05/25/an-introduction-to-service-bus-topics.aspx "An Introduction to Service Bus Topics")
 
-### Adding Service Bus Topics ###
+### Parameters ###
 
 To start using a Service Bus Topics output, the following information will be needed:
 
@@ -232,6 +262,8 @@ To start using a Service Bus Topics output, the following information will be ne
 2. The namespace and service bus name.
 3. **Topic Name** - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When you create your topic, you also gave it a specific name. The messages sent to Topic will not be available unless a subscription is created, so ensure there are one or more subscriptions under your topic.
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+### Adding Service Bus Topics as an output ###
 
 Select output to Service Bus Topics.
 
@@ -295,3 +327,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic33]: ./media/stream-analytics-connect-data-event-outputs/33-stream-analytics-connect-data-event-input-output.png
 [graphic34]: ./media/stream-analytics-connect-data-event-outputs/34-stream-analytics-connect-data-event-input-output.png
 [graphic35]: ./media/stream-analytics-connect-data-event-outputs/35-stream-analytics-connect-data-event-input-output.png
+[graphic36]: ./media/stream-analytics-connect-data-event-outputs/36-stream-analytics-connect-data-event-input-output.png
+[graphic37]: ./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png
+[graphic38]: ./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png
