@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="07/29/2015" 
 	ms.author="mimig"/>
 
 
@@ -97,8 +97,8 @@ DocumentDB supports language-integrated transactions via JavaScript stored proce
 ### How can I bulk insert documents into DocumentDB? 
 There are three ways to bulk insert documents into DocumentDB:
 
-- Document Explorer in the Azure Preview portal, as described in [Bulk add documents with Document Explorer](documentdb-view-json-document-explorer.md#BulkAdd)
-- The data migration tool, as described in [Import data to DocumentDB](documentdb-import-data.md)
+- The data migration tool, as described in [Import data to DocumentDB](documentdb-import-data.md).
+- Document Explorer in the Azure preview portal, as described in [Bulk add documents with Document Explorer](documentdb-view-json-document-explorer.md#BulkAdd).
 - Stored procedures, as described in [DocumentDB server-side programming](documentdb-programming.md).
 
 ### Does DocumentDB support resource link caching?
