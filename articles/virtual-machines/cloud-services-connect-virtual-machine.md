@@ -18,6 +18,6 @@
 	ms.author="kathydav"/>
 
 
-# How to Connect Virtual Machines with a Virtual Network or Cloud Service
+# How to connect virtual machines with a virtual network or cloud service
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
