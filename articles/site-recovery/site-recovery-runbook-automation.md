@@ -166,7 +166,7 @@ Below is an example of how the context variable looks.
 Table below contains name and description for each variable in the context.
   
 Variable name|Variable description
---|--
+---|---
 RecoveryPlanName|Name of the recovery plan being executed. <p> This variable can help you take different actions based on the Recovery Plan name using the same script.
 FailoverType|Specifies whether the execution is **Test**, **Planned** or **Unplanned**. <p> This variable helps you take different actions based on the type of failover.
 FailoverDirection|Specifies whether the recovery is from primary side to recovery or vice versa. <p>The two values it takes is **PrimaryToSecondary** and **SecondaryToPrimary** 

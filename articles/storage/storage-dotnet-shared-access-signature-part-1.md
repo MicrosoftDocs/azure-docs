@@ -61,7 +61,7 @@ Here is an example of a SAS URI that provides read and write permissions to a bl
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
 Name|Link section|Description
----|---
+---|---|---
 Blob URI|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt | The address of the blob. Note that using HTTPS is highly recommended.
 Storage services version|sv=2012-02-12|For storage services version 2012-02-12 and later, this parameter indicates the version to use.
 Start time|st=2013-04-29T22%3A18%3A26Z|Specified in an ISO 8061 format. If you want the SAS to be valid immediately, omit the start time.
