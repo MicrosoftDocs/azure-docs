@@ -174,7 +174,7 @@ To use parameterize Pig script, do the following:
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
+
  
--  
 
 
