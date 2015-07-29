@@ -80,10 +80,10 @@ Encode with **Media Encoder Premium Workflow** using **.NET**. For more informat
 
 Media Processor Name|Applicable Pricing<|Notes
 --|--|--
-**Windows Azure Media Encoder** |LEGACY ENCODER|Encoding Tasks will be charged according to the sum of sizes of the input Asset(s) and output Asset, in GBytes, at the rate specified [here](http://azure.microsoft.com/en-us/pricing/details/media-services/), under the LEGACY ENCODER column.
-**Azure Media Encoder** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here](http://azure.microsoft.com/en-us/pricing/details/media-services/), under the ENCODER column.
-**Media Encoder Standard** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here](http://azure.microsoft.com/en-us/pricing/details/media-services/), under the ENCODER column.
-**Media Encoder Premium Workflow** |PREMIUM ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here](http://azure.microsoft.com/en-us/pricing/details/media-services/), under the PREMIUM ENCODER column.
+**Windows Azure Media Encoder** |LEGACY ENCODER|Encoding Tasks will be charged according to the sum of sizes of the input Asset(s) and output Asset, in GBytes, at the rate specified [here][1], under the LEGACY ENCODER column.
+**Azure Media Encoder** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the ENCODER column.
+**Media Encoder Standard** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the ENCODER column.
+**Media Encoder Premium Workflow** |PREMIUM ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the PREMIUM ENCODER column.
 
 
 
@@ -106,7 +106,7 @@ Windows Media/ASF|Yes|Yes|Yes
 AVI (Uncompressed 8bit/10bit)|Yes|Yes|Yes
 3GPP/3GPP2|No|Yes|Yes
 Smooth Streaming File Format (PIFF 1.3)|No|Yes|Yes
-[Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd692984)|No|No|Yes
+[Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|No|No|Yes
 Matroska/WebM|No|No|Yes
 
 Input Video Codecs
@@ -188,3 +188,5 @@ Windows Media Audio|Yes|Yes|No
 - [Quotas and Limitations](media-services-quotas-and-limitations.md)
 
  
+<!--Reference links in article-->
+[1]: http://azure.microsoft.com/pricing/details/media-services/
