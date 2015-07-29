@@ -1,0 +1,5 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/articles/app-service-api/media/app-service-api-hybrid-on-premises-sql-server/Thumbs.db
