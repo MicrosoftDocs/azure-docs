@@ -18,7 +18,7 @@
 
 # How to install and configure Azure PowerShell#
 
-[AZURE.SELECTOR]
+> [AZURE.SELECTOR]
 [Powershell](../manage/install-and-configure-windows-powershell/)
 [Azure CLI](../manage/install-and-configure-cli/)
 
@@ -194,7 +194,7 @@ After you've installed the module and configured your computer to connect to you
 
 		Remove-AzureWebsite -Name mySite
 
-7. To complete the task, confirm that the web app is deleted.
+8. To complete the task, confirm that the web app is deleted.
 
 		Get-AzureWebsite -Name mySite
 
@@ -204,6 +204,7 @@ These resources provide help for specific cmdlets:
 
 
 -   From within the console, you can use the built-in Help system. The **Get-Help** cmdlet provides access to this system. The following table provides some examples of commands you can use to get Help. You can get more information from within the console by typing **help**.
+
 
 |Command|Result|
 |--|--|
