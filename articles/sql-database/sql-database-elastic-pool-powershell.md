@@ -16,7 +16,7 @@
    ms.date="07/28/2015"
    ms.author="adamkr; sstein"/>
 
-# Create and manage a SQL Database elastic database pool with PowerShell (preview)
+# Create and manage a SQL Database elastic database pool with PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
