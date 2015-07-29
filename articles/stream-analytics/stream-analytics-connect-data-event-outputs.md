@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/28/2015" 
+	ms.date="07/29/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics outputs
@@ -41,7 +41,7 @@ To start using a SQL Database, the following information will be needed about th
 
 ![graphic1][graphic1]
 
-Go to the outputs tab of the job, and click on the "ADD OUTPUT" command and click next.
+Go to the outputs tab of the job, and click on the **ADD OUTPUT** command and click next.
 
 ![graphic2][graphic2]
 
@@ -184,11 +184,11 @@ For a better design of Partition key and Row key, please refer article below
 
 ![graphic11][graphic11]
 
-Go to the outputs tab of the job, and click on the "ADD OUTPUT" command and click next.
+Go to the outputs tab of the job, and click on the **ADD OUTPUT** command and click next.
 
 ![graphic12][graphic12]
 
-Choose "Table storage" as the output.
+Choose **Table storage** as the output.
 
 ![graphic13][graphic13]
 
@@ -230,9 +230,9 @@ For further information on Service Bus Queues see [Service Bus Queues, Topics, a
 
 To start using a Service Bus Queues output, the following information will be needed:
 
-1. **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
+1. **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in the job query.
 2. The namespace and service bus name.
-3. **Queue Name** - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When you created your queue, you also gave it a specific name.
+3. **Queue Name** - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When a queue is created it is also given a specific name.
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
 
 ### Adding Service Bus Queues as an output ###
@@ -250,7 +250,7 @@ Verify your data format and serialization are correct.
 ## Service Bus Topics ##
 ---
 ### Introduction to Service Bus Topics concepts ###
-Whereas Service Bus Queues provide a one to one communication method from sender to receiver, Service Bus Topics and subscriptions provide a one-to-many form of communication.
+While Service Bus Queues provide a one to one communication method from sender to receiver, Service Bus Topics and subscriptions provide a one-to-many form of communication.
 
 For further information on Service Bus Topics see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Topics](http://blogs.msdn.com/b/appfabric/archive/2011/05/25/an-introduction-to-service-bus-topics.aspx "An Introduction to Service Bus Topics")
 
@@ -260,7 +260,7 @@ To start using a Service Bus Topics output, the following information will be ne
 
 1. **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
 2. The namespace and service bus name.
-3. **Topic Name** - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When you create your topic, you also gave it a specific name. The messages sent to Topic will not be available unless a subscription is created, so ensure there are one or more subscriptions under your topic.
+3. **Topic Name** - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When a topic is created, it is also given a specific name. The messages sent to a Topic will not be available unless a subscription is created, so ensure there are one or more subscriptions under the topic.
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
 
 ### Adding Service Bus Topics as an output ###
