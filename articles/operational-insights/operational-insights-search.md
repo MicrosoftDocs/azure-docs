@@ -583,37 +583,10 @@ Syntax:
 
 
 
-<table border="1" cellspacing="4" cellpadding="4">
-	<tr>
-		<th>Operator</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>
-		<p>/</p>
-		</td>
-		<td>
-		<p>Rounds Date/Time to the specified unit. </p>
-		<p>Example:&nbsp;NOW/DAY rounds the current Date/Time to the midnight of the
-		current day. </p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>+ or -</p>
-		</td>
-		<td>
-		<p>Offsets Date/Time by the specified number of units</p>
-		<p>Examples:&nbsp; </p>
-		<ul>
-			<li class="unordered">NOW+1HOUR offsets the current Date/Time by one
-			hour ahead.<br><br></li>
-			<li class="unordered">2013-10-01T12:00-10DAYS offsets the Date value
-			back by 10 days.</li>
-		</ul>
-		</td>
-	</tr>
-</table>
+Operator|Description
+---|---
+Rounds Date/Time to the specified unit. |<p><p>Example:&nbsp;NOW/DAY rounds the current Date/Time to the midnight of the	current day. <p>+ or -<p>
+Offsets Date/Time by the specified number of units|Examples:&nbsp; <p>- NOW+1HOUR offsets the current Date/Time by one hour ahead.<p>- 2013-10-01T12:00-10DAYS offsets the Date value back by 10 days.
 
 
 
