@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Azure Stream Analytics Sample Query Language Guide | Microsoft Azure"
+	pageTitle="Azure Stream Analytics Query Patterns | Microsoft Azure"
 	description="Azure Stream Analytics Sample Query Language Guide"
-	keywords="stream analytics, sample, query, language, guide"
+	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2015"
+	ms.date="07/29/2015"
 	ms.author="jeffstok"/>
 
 
