@@ -185,7 +185,7 @@ There are some [limits on the number of properties, property values, and metrics
     metrics.put("Score", currentGame.getScore());
     metrics.put("Opponents", currentGame.getOpponentCount());
     
-    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
+    telemetry.trackEvent("WinGame", properties, metrics);
 
 
 > [AZURE.NOTE] Take care not to log personally identifiable information in properties.
@@ -740,6 +740,7 @@ There are some limits on the number of metrics and events per application.
 
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Questions
 

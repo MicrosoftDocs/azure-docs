@@ -3,7 +3,7 @@
 	description="Use Azure PowerShell to quickly create a new Windows-based virtual machine in Service Management and perform management functions."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
-	ms.author="josephd"/>
+	ms.author="kathydav"/>
 
 # Create and manage a Windows-based virtual machine in Service Management by using Azure PowerShell
 

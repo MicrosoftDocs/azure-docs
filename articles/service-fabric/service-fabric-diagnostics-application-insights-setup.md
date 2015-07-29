@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/20/2015"
    ms.author="mattrow"/>
 
 # Setting up Application Insights for your Service Fabric application
