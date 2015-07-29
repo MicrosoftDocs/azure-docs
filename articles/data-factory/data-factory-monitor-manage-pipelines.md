@@ -211,9 +211,9 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
 
 
-### Re-run failures in a pipeline
+## Re-run failures in a pipeline
 
-#### Using Azure Portal
+### Using Azure Portal
 
 Once you troubleshoot and debug failures in a pipeline, you can re-run failures by navigating to the error slice and clicking the **Run** button on the command bar.
 
@@ -222,7 +222,7 @@ Once you troubleshoot and debug failures in a pipeline, you can re-run failures 
 In case the slice has failed validation due to a policy failure (for ex: data not available), you can fix the failure and validate again by clicking the **Validate** button on the command bar.
 ![Fix errors and validate](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
-#### Using Azure PowerShell
+### Using Azure PowerShell
 
 You can re-run failures by using the ‘Set-AzureDataFactorySliceStatus’ cmdlet.
 
