@@ -45,7 +45,7 @@ Go to the outputs tab of the job, and click on the **ADD OUTPUT** command and cl
 
 ![graphic2][graphic2]
 
-Choose "SQL Database" as the output.
+Choose **SQL Database** as the output.
 
 ![graphic3][graphic3]
 
@@ -67,7 +67,7 @@ The second operation is to test the connection. Azure Stream Analytics will try 
 
 ![graphic8][graphic8]
 
-If that was "Connection testing has failed" , click "DETAILS" to view the exact details of the error.
+If that was "Connection testing has failed" , click **DETAILS** to view the exact details of the error.
 
 ![graphic9][graphic9]
 
@@ -151,7 +151,7 @@ There are a few parameters that are needed to configure a Power BI output.
 
     ![graphic23][graphic23]
 
-3.  In this step, provide the Azure account ID for authorizing the Power BI output. If you are not already signed up for Power BI, choose “Sign up now”.
+3.  In this step, provide the Azure account ID for authorizing the Power BI output. If you are not already signed up for Power BI, choose **Sign up now**.
 4.  Next a screen like the following will be presented.
 
     ![graphic24][graphic24]
@@ -212,9 +212,9 @@ The second one is to test the connection. Azure Stream Analytics will try to con
 
 ![graphic18][graphic18]
 
-If that was the later, click "DETAILS" to view the exact details of the error.
+If that was the later, click **DETAILS** to view the exact details of the error.
 
-In this example, the credentials that were provided were incorrect. Correcting the credentials and test again by clicking the "TEST CONNECTION" button if necessary.
+In this example, the credentials that were provided were incorrect. Correcting the credentials and test again by clicking the **TEST CONNECTION** button if necessary.
 
 ![graphic19][graphic19]
 
