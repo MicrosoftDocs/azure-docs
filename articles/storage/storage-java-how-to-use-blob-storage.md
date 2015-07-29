@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to use blob storage from Java | Microsoft Azure"
-	description="Learn how to use the Azure Blob storage service to upload, download, list, and delete blob content. Samples written in Java."
+	description="Learn how to use the Azure blob storage service to upload, download, list, and delete blob content. Samples written in Java."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -22,7 +22,7 @@
 
 ## Overview
 
-This guide will show you how to perform common scenarios using the Microsoft Azure Blob storage service. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
+This article will show you how to perform common scenarios using the Microsoft Azure blob storage. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
 
 > [AZURE.NOTE] An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][].
 
@@ -34,19 +34,19 @@ This guide will show you how to perform common scenarios using the Microsoft Azu
 
 In this article, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.
 
-To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription. Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the [Azure Storage SDK for Java][] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.
+To do so, you will need to install the Java Development Kit (JDK) and create an Azure Storage account in your Azure subscription. Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the [Azure Storage SDK for Java][] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.
 
 ## Configure your application to access blob storage
 
-Add the following import statements to the top of the Java file where you want to use the Azure storage APIs to access blobs.
+Add the following import statements to the top of the Java file where you want to use the Azure Storage APIs to access blobs.
 
     // Include the following imports to use blob APIs.
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
 
-## Set up an Azure storage connection string
+## Set up an Azure Storage connection string
 
-An Azure storage client uses a storage connection string to store
+An Azure Storage client uses a storage connection string to store
 endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Azure portal for the *AccountName* and *AccountKey* values. The following example shows how you can declare a static field to hold the connection string.
 
     // Define the connection-string with your values
