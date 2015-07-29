@@ -32,14 +32,14 @@ Alternately, Azure Blob storage can be used as an input source for ingesting bul
 ---
 Stream Analytics also supports a second type of input source data known as reference data. This is auxiliary data which is typically used for performing correlation and look-ups, and the data here is usually static or infrequently changed. Azure Blob storage is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
 
-Support for refreshing reference data can be enabled by specifying a list of blobs in the input configuration using the {date} and {time} tokens inside the path pattern. The job will load the corresponding blob based on the date and time encoded in the blob names using UTC time zone.
+Support for refreshing reference data can be enabled by specifying a list of blobs in the input configuration using the {date} and {time} tokens inside the path pattern. The job will load the corresponding blob based on the date and time encoded in the blob names using UTC time zone. This sequence of reference data blobs is needed to be able to guarantee consistence of results in case delays in processing requires that the job load an earlier version of reference data. If the earlier version of reference data is not present or changed it will result in different output.
 
 For example if the job has a reference input configured in the portal with the path pattern such as: /sample/{date}/{time}/products.csv where the date format is “YYYY-MM-DD” and the time format is “HH:mm” then the job will pick up a file named /sample/2015-04-16/17:30/products.csv at 5:30 PM on April 16th 2015 UTC time zone .
 
 > [AZURE.NOTE]currently Stream Analytics jobs look for reference blob refresh data only when the time coincides with the time encoded in the blob name:
 e.g. jobs look for /sample/2015-04-16/17:30/products.csv between 5:30 PM and 5:30:59.999999999PM on April 16th 2015 UTC time zone. When the clock strikes 5:31PM it stops looking for /sample/2015-04-16/17:30/products.csv and starts looking for /sample/2015-04-16/17:31/products.csv
 
-The only time past data is considered is when the job starts. Then all blobs that match the path pattern are loaded and as well as the reference data blob that has a latest time encoded in its name with a value before than the job start time (the newest reference data blob from before the job start time). This is done to ensure there is a non-empty reference data set at the start of the job. If one cannot be found, the job will fail and display a diagnostic notice to the user:
+The only time past reference data blobs are considered is when the job starts. At that time the job is looking for the blob which has a latest date/time encoded in its name with a value before than the job start time (the newest reference data blob from before the job start time). This is done to ensure there is a non-empty reference data set at the start of the job. If one cannot be found, the job will fail and display a diagnostic notice to the user:
 
     “Initializing input without a valid reference data blob for UTC time <job start time>.”
 
