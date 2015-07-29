@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="07/29/2015"
    ms.author="seanmck"/>
 
 # Update your Service Fabric development environment
@@ -29,7 +29,7 @@
  You can clean your local cluster as follows:
 
 
- 1. Close all other PowerShell windows and launch a new one as an administrator.
+ 1. Close all other PowerShell windows and launch a new one as an Administrator.
 
  2. Navigate to the cluster setup directory with `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
 
@@ -41,9 +41,9 @@
  Once you have successfully cleaned up your existing cluster, you can proceed with the upgrade as follows:
 
 
- 1. Launch the Web Platform Installer to [update to the new release](1).
+ 1. Launch the Web Platform Installer to [update to the new release][1].
 
- 2. Upon completion, launch a new PowerShell window as an administrator and navigate to the cluster setup directory with `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
+ 2. Upon completion, launch a new PowerShell window as an Administrator and navigate to the cluster setup directory with `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
 
  3. Run `.\DevClusterSetup.ps1` to setup your local cluster.
 
