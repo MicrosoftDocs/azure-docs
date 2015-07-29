@@ -98,7 +98,7 @@ In the example below, you will use an XML file to configure all Application Gate
 
 Copy text below and paste it on notepad:
 
-<?xml version="1.0" encoding="utf-8"?>
+	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
 	    <FrontendPorts>
 	        <FrontendPort>
@@ -147,8 +147,6 @@ Edit the values between parenthesis for the configuration items. Save the file w
 
 The following example shows how to use a configuration file setting up the Application gateway to load balance Http traffic on public port 80 and sending network traffic to back end port 80 between 2 IP addresses:
 
-
-
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
 	    <FrontendPorts>
@@ -191,6 +189,7 @@ The following example shows how to use a configuration file setting up the Appli
 	        </HttpLoadBalancingRule>
 	    </HttpLoadBalancingRules>
 	</ApplicationGatewayConfiguration>
+
 
 
 
