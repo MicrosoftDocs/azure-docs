@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2015"
+	ms.date="05/20/2015"
 	ms.author="kathydav"/>
 
 #About Chef and Azure virtual machines
