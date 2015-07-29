@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started using Azure mobile app backends for Windows Store development in C#, VB, or JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="christopheranderson"
+	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="07/24/2015"
-	ms.author="chrande"/>
+	ms.date="07/28/2015"
+	ms.author="glenga"/>
 
 
 #Create a Windows app
@@ -39,43 +39,53 @@ To complete this tutorial, you need the following:
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter mobile app in App Service. No credit cards required; no commitments.
 
-##Create a new mobile app backend
+##Create a new Azure Mobile App backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-##Download the quickstart projects
+## Download the server project
 
-Once you have created your mobile app backend, you can follow an easy quickstart in the Azure Portal to either create a new app or modify an existing app to connect to your mobile app backend.
+1. In the [Azure Portal], click **Browse All** > **Mobile Apps**, then click the Mobile App backend that you just created.
 
-In this section you download the mobile app backend project and a new universal Windows app that is customized to connect to the mobile app backend. 
+2. At the top of the blade, click **Add Client** > **Windows (C#)**.
 
-1. If you haven't already done so, download and install Visual Studio Community 2013 or a later version on your local computer or virtual machine.
+3. Under **Download and run your server project**, click **Download**, extract the compressed project files to your local computer, and open the solution in Visual Studio.
 
-2. In the Azure Portal, click **Browse all** > **Mobile Apps**, and then click the mobile app that you just created.
-
-3. At the top of the blade, click **Add Client** > **Windows (C#)**.
-
-    This displays the steps to download a universal Windows app connected to your mobile app backend.
-
-4. Under **Download and run your server project**, click **Download**, extract the compressed project files to your local computer, and make a note of where you save it.    
-
-5. Repeat the previous step for the Windows project, extract the compressed universal Windows app to your local computer, open the solution in Visual Studio, then add the service project that you downloaded in the previous step to the solution. 
-
-Now, you can debug and test both the app and the backend in the same Visual Studio solution.
-
-##Test the mobile app
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
-
-##Publish your mobile app backend
+##Publish the server project to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-##Run the Windows app
+##Download and run the client project
 
-Now that the mobile app backend is published and the client is connected to the remote mobile app backend hosted in Azure, we can run the app using Azure for item storage.
+Once you have created your mobile app backend, you can follow an easy quickstart in the Azure Portal to either create a new app or modify an existing app to connect to your mobile app backend.
 
-[AZURE.INCLUDE [app-service-mobile-windows-universal-test-app-preview](../../includes/app-service-mobile-windows-universal-test-app-preview.md)]
+In this section you download a universal Windows app template project that is customized to connect to your Azure Mobile App backend. 
+
+1. Back in the Azure Portal, reopen your Mobile App and at the top of the blade, click **Add Client** > **Windows (C#)** > **Create a new app**, then under **Download and run your Windows project**, click **Download**, extract the compressed project files to your local computer. 
+  
+5. (Optional) Add the universal Windows app project to the solution with the server project. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution, if you choose to do so.
+
+2. With the Windows Store app as the start-up project, press the F5 key to rebuild the project and start the Windows Store app.
+
+2. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** textbox, and then click **Save**.
+
+	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/mobile-quickstart-startup.png)
+
+	This sends a POST request to the new mobile app backend hosted in Azure.
+
+3. Stop debugging, right click the `<your app name>.WindowsPhone` project, click **Set as StartUp Project**, then press F5 again.
+
+	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/mobile-quickstart-completed-wp8.png)
+
+	Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.
+
+##Next steps
+
+* [Add authentication to your app ](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md)
+  <br/>Learn how to authenticate users of your app with an identity provider.
+
+* [Add push notifications to your app](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md)
+  <br/>Learn how to send a very basic push notification to your app.
 
 <!-- Anchors. -->
 <!-- Images. -->

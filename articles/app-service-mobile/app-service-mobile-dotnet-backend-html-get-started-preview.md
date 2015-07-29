@@ -47,7 +47,7 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Download the Mobile App backend code
+## Download the server project
 
 1. In the [Azure Portal], click **Browse All** > **Mobile Apps**, then click the Mobile App backend that you just created.
 
@@ -55,7 +55,7 @@ To complete this tutorial, you need the following:
 
 3. Under **Download and run your server project**, click **Download**, extract the compressed project files to your local computer, and open the solution in Visual Studio.
 
-##Enable CORS
+##Enable CORS in the server project
 
 1. In Visual Studio in the Tools menu, click **NuGet Package Manager** > **Package Manager Console**, select Nuget.org as the **Package source** and execute the following command in the console window:
  
@@ -75,13 +75,13 @@ To complete this tutorial, you need the following:
 
 Next, you will deploy your CORS-enabled project to Azure.
 
-##Publish your Mobile App backend
+##Publish the server project to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-##Download and run the web app
+##Download and run the client project
 
-1. Back in the blade for your Mobile App, click **Add Client** > **HTML/JavaScript**, and under **Download and run your HTML/Javascript project**, click **Download** and save the compressed project files to your local computer.
+1. Back in the blade for your Mobile App, click **Add Client** > **HTML/JavaScript** > **Create a new app**, then under **Download and run your HTML/Javascript project** click **Download** and save the compressed project files to your local computer.
 
 2. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
 

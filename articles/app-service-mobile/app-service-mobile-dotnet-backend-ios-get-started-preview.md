@@ -36,7 +36,7 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Download the Mobile App backend code
+## Download the server project
 
 1. On your PC, visit [Azure Portal], click **Browse All** > **Mobile Apps** > the backend that you just created.
 
@@ -44,7 +44,7 @@ To complete this tutorial, you need the following:
 
 3. Click **Download and publish your service to the cloud** > **Download**, extract the compressed project files to your PC, and open the solution in Visual Studio.
 
-## Deploy the Mobile App backend
+##Publish the server project to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
