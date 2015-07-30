@@ -337,7 +337,14 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 </table>
 
 
-    > [AZURE.NOTE] On OpenLogic CentOS, run the following command to install the latest drivers: **sudo yum install microsoft-hyper-v**.  A reboot will then be required to activate the updated drivers.
+### LIS Drivers for Openlogic CentOS
+
+Customers running OpenLogic CentOS VMs should run the following command to install the latest drivers:
+
+	sudo yum install microsoft-hyper-v
+
+A reboot will then be required to activate the new drivers.
+
 
 
 ## Pricing and Billing when using Premium Storage
