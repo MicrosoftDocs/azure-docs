@@ -106,4 +106,4 @@ In order for an application to support automated user provisioning, it must firs
 
 To contact the Azure AD engineering team to request provisioning support for additional applications, please submit a message through the [Azure Active Directory feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-[AZURE.INCLUDE [saas-toc](../includes/active-directory-sass-toc.md)]
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-sass-toc.md)]
