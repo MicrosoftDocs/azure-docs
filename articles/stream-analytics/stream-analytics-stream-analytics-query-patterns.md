@@ -375,4 +375,34 @@ There are two steps in the query – the first one finds latest timestamp in 10 
 **Description**: Check that a stream has no value that matches a certain criteria.
 e.g. Have 2 consecutive cars from the same make entered the toll road within 90 seconds?
 
+**Input**:
+
+| Make | License plate | Time |
+| --- | --- | --- |
+| Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
+| Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
+| Toyota | DEF-987 | 2015-01-01T00:00:03.0000000Z |
+| Honda | GHI-345 | 2015-01-01T00:00:04.0000000Z |
+
+**Output**:
+
+| Make | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| --- | --- | --- | --- | --- |
+| Honda | 2015-01-01T00:00:02.0000000Z | AAA-999 | ABC-123 | 2015-01-01T00:00:01.0000000Z |
+
+**Solution**:
+
+	SELECT
+	    Make,
+	    Time,
+	    LicensePlate AS CurrentCarLicensePlate,
+	    LAG(LicensePlate, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarLicensePlate,
+	    LAG(Time, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarTime
+	FROM
+	    Input TIMESTAMP BY Time
+	WHERE
+	    LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
+
+**Explanation**:
+Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.
 
