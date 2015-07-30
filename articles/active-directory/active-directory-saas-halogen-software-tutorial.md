@@ -41,11 +41,11 @@ To configure Azure AD integration with Halogen Software, you need the following 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - You should not use your production environment, unless this is necessary.
-- If you don't have a Windows Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/en-us/pricing/free-trial/). 
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Scenario Description
-The objective of this tutorial is to enable you to test Windows Azure AD single sign-on in a test environment. <br>
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. <br>
 The scenario outlined in this tutorial consists of three main building blocks:
 
 1. Adding Halogen Software from the gallery 
@@ -97,7 +97,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 1. In the Azure AD portal, on the **Halogen Software** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br>
 ![Configure Single Sign-On][8]
 
-2. On the **How would you like users to sign on to Halogen Software** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.<br>
+2. On the **How would you like users to sign on to Halogen Software** page, select **Azure AD Single Sign-On**, and then click **Next**.<br>
 ![Azure AD Single Sign-On][9]
 
 3. On the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][10]
