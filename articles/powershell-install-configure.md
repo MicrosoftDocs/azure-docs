@@ -18,9 +18,7 @@
 
 # How to install and configure Azure PowerShell#
 
-> [AZURE.SELECTOR]
-[PowerShell](../manage/install-and-configure-windows-powershell/) 
-[Azure  CLI](../manage/install-and-configure-cli/)
+<div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure  CLI</a></div>
 
 You can use Windows PowerShell to perform a variety of tasks in Azure, either interactively at a command prompt or automatically through scripts. Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, you can use the cmdlets to perform the same tasks that you can perform through the Azure Management Portal. For example, you can create and configure cloud services, virtual machines, virtual networks, and web apps.
 
@@ -85,24 +83,24 @@ For more information about authentication and subscription management in Azure, 
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred
 
-		> [AZURE.NOTE] For more information on security and using credentials, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure Websites](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
-		
-			> [AZURE.NOTE] This non-interactive login method only works with a work or school account.  A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
-			>
-			> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
-			>
-			> 2. If no directory exists, select **Create your directory** and provide the requested information.
-			>
-			> 3. Select your directory and add a new user. This new user can sign in using a work or school account.
-			>
-			>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
-			>
-			> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
-			>
-			> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
-			>
-			>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
-			
+	> [AZURE.NOTE] For more information on security and using credentials, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure Websites](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+
+	> [AZURE.NOTE] This non-interactive login method only works with a work or school account.  A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	>
+	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
+	>
+	> 2. If no directory exists, select **Create your directory** and provide the requested information.
+	>
+	> 3. Select your directory and add a new user. This new user can sign in using a work or school account.
+	>
+	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
+	>
+	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
+	>
+	> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
+	>
+	>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
+
 ### Use the certificate method
 
 The Azure module includes cmdlets that help you download and import the certificate.
@@ -205,14 +203,44 @@ These resources provide help for specific cmdlets:
 
 -   From within the console, you can use the built-in Help system. The **Get-Help** cmdlet provides access to this system. The following table provides some examples of commands you can use to get Help. You can get more information from within the console by typing **help**.
 
-| Command                        | Result|                                                                                                                                                                                                                         |---|---|
-| Get-Help                       | Describes how to use the Help system.<p><p>                                                                                                                                                                                         *Note:* The description includes some information about Help files that does not apply to the Azure module. Specifically, Help files are installed when the module is installed. They are not available for download separately. |
-| Get-Help Azure                 | Gets all cmdlets in the Azure module.                                                                                                                                                                                          |
-| Get-Help *language*-dev        | Gets cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.                                                                                    |
-| Get-Help *cmdlet*              | Gets help about a Windows PowerShell cmdlet. Replace with the cmdlet name.                                                                                                                                                     |
-| Get-Help *cmdlet* -Parameter * | Gets descriptions of the cmdlet parameters. The asterisk (*) means "all".                                                                                                                                                      |
-| Get-Help *cmdlet* -Examples    | Gets the syntax and examples of using the cmdlet.                                                                                                                                                                              |
-| Get-Help *cmdlet* -Full        | Gets all help for a cmdlet, including technical details.      
+    <table border="1" cellspacing="4" cellpadding="4">
+    <tbody>
+    <tr align="left" valign="top">
+		<td><b>Command</b></td>
+		<td><b>Result</b></td>
+    </tr>
+    <tr align="left" valign="top">
+		<td>Get-Help</td>
+		<td>Describes how to use the Help system. <p><b>Note</b>: The description includes some information about Help files that does not apply to the Azure module. Specifically, Help files are installed when the module is installed. They are not available for download separately.</p>
+</td>
+    </tr>
+    <tr align="left" valign="top">
+		<td>Get-Help Azure</td>
+		<td>Gets all cmdlets in the Azure module.</td>
+    </tr>
+	<tr align="left" valign="top">
+		<td>Get-Help &lt;<b>language</b>&gt;-dev</td>
+		<td>Gets cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.</td>
+    </tr>
+	    <tr align="left" valign="top">
+		<td>Get-Help &lt;<b>cmdlet</b>&gt;</td>
+		<td>Gets help about a Windows PowerShell cmdlet. Replace <cmdlet> with the cmdlet name.</td>
+    </tr>
+    <tr align="left" valign="top">
+		<td>Get-Help &lt;<b>cmdlet</b>&gt; -Parameter *</td>
+		<td>Gets descriptions of the cmdlet parameters. The asterisk (*) means "all".</td>
+    </tr>
+    <tr align="left" valign="top">
+		<td>Get-Help &lt;<b>cmdlet</b>&gt; -Examples</td>
+		<td>Gets the syntax and examples of using the cmdlet.</td>
+    </tr>
+    <tr align="left" valign="top">
+		<td>Get-Help &lt;<b>cmdlet</b>&gt; -Full</td>
+		<td>Gets all help for a cmdlet, including technical details.</td>
+    </tr>
+    </tbody>
+    </table>
+
 
 
 - Reference information about the cmdlets in the Azure PowerShell modules is also available in the Azure library. For information, see [Azure Cmdlet Reference](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
