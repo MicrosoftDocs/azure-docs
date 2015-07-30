@@ -126,7 +126,7 @@ When using an on-premises live encoder to generate multi-bitrate stream, the key
 The following table shows how the segment duration is being calculated:
 
 Keyframe Interval|HLS segment packaging ratio (FragmentsPerSegment)|Example
---|--|--
+---|---|---
 less than or equal to 3 seconds|3:1|If the KeyFrameInterval (or GOP) is 2 seconds long, the default HLS segment packaging ratio will be 3 to 1, which will create a 6 seconds HLS segment.
 3 to 5  seconds|2:1|If the KeyFrameInterval (or GOP) is 4 seconds long, the default HLS segment packaging ratio will be 2 to 1, which will create a 8 seconds HLS segment.
 greater than 5 seconds|1:1|If the KeyFrameInterval (or GOP) is 6 seconds long, the default HLS segment packaging ratio will be 1 to 1, which will create a 6 second long HLS segment.
@@ -202,7 +202,7 @@ The current state of a Channel. Possible values include:
 The following table shows how Channel states map to the billing mode. 
  
 Channel state|Portal UI Indicators|Billed?
---|--|--|--
+---|---|---|---
 Starting|Starting|No (transient state)
 Running|Ready (no running programs)<p>or<p>Streaming (at least one running program)|Yes
 Stopping|Stopping|No (transient state)
@@ -213,7 +213,7 @@ Stopped|Stopped|No
 The following table demonstrates supported closed captioning and ad insertion standards.
 
 Standard|Notes
---|--
+---|---
 CEA-708 and EIA-608 (708/608)|CEA-708 and EIA-608 are closed captioning standards for the United States and Canada.<p><p>Currently, captioning is only supported if carried in the encoded input stream. You need to use a live media encoder that can insert 608 or 708 captions into the encoded stream which is sent to Media Services. Media Services will deliver the content with inserted captions to your viewers.
 TTML inside ismt (Smooth Streaming Text Tracks)|Media Services dynamic packaging enables your clients to stream content in any of the following formats: MPEG DASH, HLS or Smooth Streaming. However, if you ingest fragmented MP4 (Smooth Streaming) with captions inside .ismt (Smooth Streaming text tracks), you would only be able to deliver the stream to Smooth Streaming clients.
 SCTE-35|Digital signaling system used to cue advertising insertion. Downstream receivers use the signal to splice advertising into the stream for the allotted time. SCTE-35 must be sent as a sparse track in the input stream.<p><p>Note that currently, the only supported input stream format that carries ad signals is fragmented MP4 (Smooth Streaming). The only supported output format is also Smooth Streaming.

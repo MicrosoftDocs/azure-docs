@@ -28,7 +28,7 @@ For every call you make into Media Services, there is a set of required headers 
 
 
 Header|Type|Value
---|--
+---|---|---
 Authorization|Bearer|Bearer is the only accepted authorization mechanism. The value must also include the access token provided by ACS.
 x-ms-version|Decimal|2.11
 DataServiceVersion|Decimal|3.0
@@ -41,7 +41,7 @@ MaxDataServiceVersion|Decimal|3.0
 The following is a set of optional headers:
 
 Header|Type|Value
---|--
+---|---|---
 Date|RFC 1123 date|Timestamp of the request
 Accept|Content type|The requested content type for the response such as the following:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Responses may have a different content type, such as a blob fetch, where a successful response will contain the blob stream as the payload.
 Accept-Encoding|Gzip, deflate|GZIP and DEFLATE encoding, when applicable. Note: For large resources, Media Services may ignore this header and return noncompressed data.
@@ -57,7 +57,7 @@ The following is a set of headers that may be returned to you depending on the r
 
 
 Header|Type|Value
---|--
+---|---|---
 request-id|String|A unique identifier for the current operation, service generated.
 client-request-id|String|An identifier specified by the caller in the original request, if present.
 Date|RFC 1123 date|The date that the request was processed.
@@ -71,7 +71,7 @@ The following is a complete list of HTTP verbs that can be used when making HTTP
 
 
 Verb|Description
---|--
+---|---
 GET|Returns the current value of an object.
 POST|Creates an object based on the data provided, or submits a command.
 PUT|Replaces an object, or creates a named object (when applicable).

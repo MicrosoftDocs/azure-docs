@@ -407,6 +407,7 @@ In the **WebRole1** project that you created in [Deploy a cloud service with an 
                     "~/Scripts/jquery-{version}.js"));
 		...
     }
+	```
 
 The first `bundles.Add()` statement adds a script bundle at the virtual directory `~/bundles/jquery`. Then, open *Views\Shared\_Layout.cshtml* to see how the script bundle tag is rendered. You should be able to find the following line of Razor code:
 
@@ -425,6 +426,7 @@ This enables you to debug the JavaScript code in your development environment wh
 Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.
 
 1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
+
 ```
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -452,7 +454,9 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 	                &quot;~/Content/bootstrap.css&quot;,
 	                &quot;~/Content/site.css&quot;));
 	}
+	
 ```
+
 
 	Be sure to replace `<yourCDNName>` with the name of your Azure CDN.
 
@@ -553,7 +557,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 	                &quot;~/Content/bootstrap.css&quot;,
 	                &quot;~/Content/site.css&quot;));
 	}
-	```
+```
 
 	When `CdnFallbackExpression` is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server. This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly. The expression needed to test each bundle differs according to the content. For the default bundles above:
 	

@@ -50,7 +50,7 @@ The computer on which you install the on-premises Hybrid Connection Manager agen
 - Must have outbound connectivity to Azure over:
 
 Port|Why
---|--
+---|---
 80|**Required** for HTTP port for certificate validation and optionally for data connectivity.
 443|**Optional** for data connectivity. If outbound connectivity to 443 is unavailable, TCP port 80 is used.
 5671 and 9352|**Recommended** but Optional for data connectivity. Note this mode usually yields higher throughput. If outbound connectivity to these ports is unavailable, TCP port 443 is used.

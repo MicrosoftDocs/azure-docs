@@ -57,7 +57,7 @@ The following section lists the codecs and file format that are supported for im
 ###Video File Formats
  
 File format|File Extensions
---|--
+---|---
 3GPP, 3GPP2|.3gp, .3g2, .3gp2
 Advanced Systems Format (ASF)|.asf
 Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream]|.mts, .m2ts
@@ -78,7 +78,7 @@ Some uncompressed formats are supported. For more information, see [Supported Un
 ###Audio File Formats
 
 File Format|File Extensions
---|--
+---|---
 AC-3 (Dolby Digital) audio|.ac3
 Audio Interchange File Format (AIFF)|.aiff
 Broadcast Wave Format|.bwf
@@ -91,7 +91,7 @@ Windows Media Audio|.wma
 ###Image File Formats
 
 File Format|File Extensions
---|--
+---|---
 Bitmap|.bmp
 GIF, Animated GIF|.gif
 JPEG|.jpeg, .jpg
@@ -105,8 +105,8 @@ WPF Canvas XAML|.xaml
 The following table lists the codecs and file formats that are supported for export.
 
 
-File Format|Video Codec</th><th>Audio Codec
---|--
+File Format|Video Codec|Audio Codec
+---|---
 Windows Media (* .wmv; * .wma)|VC-1 (Advanced, Main, and Simple Profiles)|Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless
 MP4 (* .mp4)|H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus
 Smooth Streaming File Format (PIFF 1.1) (* .ismv; * .isma)|VC-1 (Advanced Profile)<p>H.264 (High, Main, and Baseline Profiles) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
@@ -120,7 +120,7 @@ Azure Media Services provides support for importing uncompressed video data.
 This is a partial list of the supported uncompressed formats.
 
 Uncompressed Video Format|Description
---|--
+---|---
 Standard YVU9 format uncompressed data|A planar YUV format. A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; a Y sample on every vertical line, a U and V sample at every fourth vertical line.9 bits per pixel.
 YUV 411 format data|A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled. Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 12-byte block is 8 image pixels.
 Y41P format data|A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 12-byte block is 8 image pixels.

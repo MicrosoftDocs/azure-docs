@@ -56,7 +56,7 @@ The following section lists the codecs and file format that are supported for im
 ###Formats
 
 File format|File Extensions
---|--
+---|---
 FLV (with H.264 and AAC codecs) |.flv
 MP4/ISMV|* .ismv
 MPEG2-PS, MPEG2-TS, 3GP|.ts, .ps, .3gp
@@ -75,7 +75,7 @@ The following table lists the codecs and file formats that are supported for exp
 
 
 File Format|Video Codec|Audio Codec
---|--
+---|---|---
 MP4 (* .mp4)<br/><br/>(including multi-bitrate MP4 containers) |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
 

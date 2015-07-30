@@ -78,8 +78,8 @@ Encode with **Media Encoder Premium Workflow** using **.NET**. For more informat
 
 ###<a id="billing"></a>Billing meter used by each encoder
 
-Media Processor Name|Applicable Pricing<|Notes
---|--|--
+Media Processor Name|Applicable Pricing|Notes
+---|---|---
 **Windows Azure Media Encoder** |LEGACY ENCODER|Encoding Tasks will be charged according to the sum of sizes of the input Asset(s) and output Asset, in GBytes, at the rate specified [here][1], under the LEGACY ENCODER column.
 **Azure Media Encoder** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the ENCODER column.
 **Media Encoder Standard** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the ENCODER column.
@@ -95,7 +95,7 @@ This section compares the encoding capabilities of **Azure Media Encoder**, **Me
 Input Container/File Formats
 
 Input Container/File Formats|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
---|--|--|--
+---|---|---|---
 Adobe® Flash® F4V|Yes|No|Yes
 MXF/SMPTE 377M|Yes|Limited|Yes
 GXF|Yes|No|Yes
@@ -112,7 +112,7 @@ Matroska/WebM|No|No|Yes
 Input Video Codecs
 
 Input Video Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
---|--|--
+---|---|---
 AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra|Yes|Only 8bit 4:2:0|8 bit 4:2:0 and 4:2:2
 Avid DNxHD (in MXF)|Yes|No|Yes
 DVCPro/DVCProHD (in MXF)|Yes|No|Yes
@@ -127,7 +127,7 @@ MPEG-4 Part 2|No|No|Yes
 Input Audio Codecs
 
 Input Audio Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
---|--|--|--
+---|---|---|---
 AES (SMPTE 331M and 302M, AES3-2003)|Yes|No|No
 Dolby® E|Yes|No|No
 Dolby® Digital (AC3)|Yes|Yes|No
@@ -146,7 +146,7 @@ WAV/PCM|Yes|Yes|Yes
 Output Container/File Formats
 
 Output Container/File Formats|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
---|--|--|--
+---|---|---|---
 Adobe® Flash® F4V|Yes|No|No
 MXF (OP1a, XDCAM and AS02)|Yes|No|No
 DPP (including AS11)|Yes|No|No
@@ -160,7 +160,7 @@ Smooth Streaming File Format (PIFF 1.3)|Yes|Yes|No
 Output Video Codecs
 
 Output Video Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
---|--|--|--
+---|---|---|---
 AVC (H.264; 8-bit; up to High Profile, Level 5.2; 4K Ultra HD; AVC Intra)|Yes|Only 8 bit 4:2:0 up to 1080p|Only 8 bit 4:2:0
 Avid DNxHD (in MXF)|Yes|No|No
 DVCPro/DVCProHD (in MXF)|Yes|No|No
@@ -172,7 +172,7 @@ JPEG thumbnail creation|Yes|Yes|No
 Output Audio Codecs
 
 Output Audio Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
---|--|--|--
+---|---|---|---
 AES (SMPTE 331M and 302M, AES3-2003)|Yes|No|No
 Dolby® Digital (AC3)|Yes|Yes|No
 Dolby® Digital Plus (E-AC3) up to 7.1|Yes|Up to 5.1|No

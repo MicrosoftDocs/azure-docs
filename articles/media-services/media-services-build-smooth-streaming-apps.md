@@ -58,7 +58,7 @@ This lesson contains the following procedures:
 3.	From the New Project dialog, type or select  the following values:
 
 Name|Value
---|--
+---|---
 Template group|Installed/Templates/Visual C#/Windows Store
 Template|Blank App (XAML)
 Name|SSPlayer
@@ -74,7 +74,7 @@ Create directory for solution|(selected)
 2.	Type or select the following values:
 
 Name|Value
---|--
+---|---
 Reference group|Windows/Extensions
 Reference|Select Microsoft Smooth Streaming Client SDK for Windows 8 and Microsoft Visual C++ Runtime Package
 	

@@ -270,6 +270,7 @@ Follow the steps above to setup this controller action:
 	        }
 	    }
 	}
+	
 	```
 
 2. Right-click in the default `Index()` action and select **Add View**.
@@ -329,9 +330,9 @@ After URL rewrite rule previously applied, the actual file that gets cached to y
 	http://<yourSiteName>.azurewebsites.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 You can then use the `OutputCacheAttribute` attribute on the `Generate` method to specify how the action result should be cached, which Azure CDN will honor. The code below specify a cache expiration of 1 hour (3,600 seconds).
-
+```
     [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
-
+```
 Likewise, you can serve up content from any controller action in your Azure web app through your Azure CDN, with the desired caching option.
 
 In the next section, I will show you how to serve the bundled and minified scripts and CSS through Azure CDN. 

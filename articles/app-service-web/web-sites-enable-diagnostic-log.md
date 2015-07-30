@@ -198,7 +198,7 @@ __Table storage__
 When logging to table storage, additional properties are used to facilitate searching the data stored in the table as well as more granular information on the event. The following properties (columns) are used for each entity (row) stored in the table.
 
 Property name|Value/format
---|--
+---|---
 PartitionKey|Date/time of the event in yyyyMMddHH format
 RowKey|A GUID value that uniquely identifies this entity
 Timestamp|The date and time that the event occurred'
@@ -216,7 +216,7 @@ __Blob storage__
 When logging to blob storage, data is stored in comma-separated values (CSV) format. Similar to table storage, additional fields are logged to provide more granular information about the event. The following properties are used for each row in the CSV:
 
 Property name|Value/format
---|--
+---|---
 Date|The date and time that the event occurred
 Level|Event level (e.g. error, warning, information)
 ApplicationName|The web app name

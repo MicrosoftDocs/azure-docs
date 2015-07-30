@@ -29,7 +29,7 @@ In Media Services a media processor is a component that handles a specific proce
 The following table provides the name and description of each available media processor.
 
 Media Processor Name|Description|More Information
---|--
+---|---|---
 Azure Media Encoder|Lets you run encoding tasks using the Azure Media Encoder.|[Task Preset Strings for the Azure Media Encoder](http://msdn.microsoft.com/library/jj129582.aspx)
 Media Encoder Premium Workflow|Lets you run encoding tasks using Media Encoder Premium Workflow.|[Encode with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
 Azure Media Indexer| Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords.|[Indexing Media Files with Azure Media Indexer](media-services-index-content.md).

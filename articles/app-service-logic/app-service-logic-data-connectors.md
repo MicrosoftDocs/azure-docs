@@ -31,7 +31,7 @@ For example, an instance of the Dropbox connector can be configured with a *new 
 Here's a brief overview of each of the App and Data Services connectors that are available on the Azure gallery:
 
 Name|Description|Triggers|Actions
---|--|--|--
+---|---|---|---
 Azure Media Services|Azure Media Services connector allows you to create end-to-end media workflows with flexible and scalable encoding, packaging, and distribution. You can also securely upload, store, encode and stream video or audio content for both on-demand and live streaming delivery to a wide array of TV, PC and mobile device endpoints.|None|None 
 Azure Service Bus|Azure Service Bus connector lets you send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.|New messages|Send message
 Box|Box Connector lets you connect to Box and perform various actions on your files. |New files added| - Upload File<p><p> - Get File<p><p> - Delete File<p><p> - List Files
@@ -68,7 +68,7 @@ Connector API Apps can be created using the Azure Portal
 3. Enter the following properties for the connector: 
 
 Property|Description
---|--
+---|---
 Name|Enter any name for your API App. For example, you can name it RulesDiscountTaxCode or APIAppValidateXML
 App Service Plan|Lists your payment plan. You can change it if you need more or less resources
 Pricing Tier|Read-only property that lists the pricing category within your Azure subscription.

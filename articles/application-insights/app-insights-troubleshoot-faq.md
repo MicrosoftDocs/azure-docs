@@ -214,7 +214,7 @@ See [Data Retention and Privacy][data].
 ## <a name="q17"></a> Have I enabled everything in Application Insights?
 
 What you should see|How to get it|Why you want it
---|--|--
+---|---|---
 Availability charts| [Web tests](app-insights-monitor-web-app-availability.md)|Know your web app is up
 Server app perf: response times, ...|[Add Application Insights to your project](app-insights-start-monitoring-app-health-usage.md)<p>or<p>[Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md)|Detect perf issues
 Dependency telemetry|[Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md)|Diagnose issues with databases or other external components

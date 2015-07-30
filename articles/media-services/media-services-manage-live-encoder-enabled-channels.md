@@ -279,7 +279,7 @@ Specifies the preset to be used by the live encoder within this Channel. Current
 ####Output Video Stream
 
 BitRate|Width|Height|MaxFPS|Profile|Output Stream Name
---|--
+---|---|---|---|---|---
 3500|1280|720|30|High|Video_1280x720_30fps_3500kbps
 2200|960|540|30|Main|Video_960x540_30fps_2200kbps
 1350|704|396|30|Main|Video_704x396_30fps_1350kbps
@@ -386,7 +386,7 @@ The current state of a Channel. Possible values include:
 The following table shows how Channel states map to the billing mode. 
  
 Channel state|Portal UI Indicators|Billed?
---|--
+---|---|---
 Starting|Starting|No (transient state)
 Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running program)|Yes
 Stopping|Stopping|No (transient state)

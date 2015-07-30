@@ -45,7 +45,7 @@ Both castLabs and AMS support JWT (JSON Web Token) token format used to authoriz
 The following table describes JWT token in AMS. 
 
 Issuer|Issuer string from the chosen Secure Token Service (STS)
---|--
+---|---
 Audience|Audience string from the used STS
 Claims|A set of claims
 NotBefore|Start validity of the token
@@ -57,7 +57,7 @@ SigningCredentials|The key that is shared among PlayReady License Server, castLa
 The following table describes JWT token in castLabs. 
 
 Name|Description
---|--
+---|---
 optData|A JSON string containing information about you. 
 crt|A JSON string containing information about the asset, its license info and playback rights.
 iat|The current datetime in epoch.
