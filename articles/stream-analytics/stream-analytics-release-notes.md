@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/29/2015" 
+	ms.date="07/30/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
@@ -29,22 +29,22 @@ This release contains the following updates.
 </tr>
 <tr>
 <td>Power BI Org Id decoupled from Azure Id</td>
-<td>This feature will now enable you to have Power BI output for ASA jobs under any Azure account Id’s (Live Id or Org Id). Additionally, you can also choose to have one org id for Azure account and use a different one for authorizing Power BI output.</td>
+<td>This feature enables Power BI output for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output.</td>
 </tr>
 <tr>
-<td>Added support for Service Bus Queues output</td>
+<td>Support for Service Bus Queues output</td>
 <td>Service Bus Queues outputs are now available in Stream Analytics jobs.</td>
 </tr>
 <tr>
-<td>Added support for Service Bus Topics output</td>
+<td>Support for Service Bus Topics output</td>
 <td>Service Bus Topics outputs are now available in Stream Analytics jobs.</td>
 </tr>
 <tr>
-<td>Added new Array functions</td>
+<td>New Array functions</td>
 <td>Added the Array functions GetArrayElement, GetArrayElements, GetArrayLength</td>
 </tr>
 <tr>
-<td>Added new Record functions</td>
+<td>New Record functions</td>
 <td>Added the Record functions GetRecordProperties and GetRecordPropertyValue</td>
 </tr>
 </table>
