@@ -88,16 +88,16 @@ To configure and test Azure AD single sign-on with Halogen Software, you need to
 5. **Assigning the Azure AD test user** - to enable Britta Simon to use Azure AD single sign-on.
 5. **Testing Single Sign-On** - to verify whether the configuration works.
 
-### Configuring Azure Single Single Sign-On
+### Configuring Azure AD Single Single Sign-On
 
 The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Halogen Software application.<br>
 
-**To configure Azure single sign-on with Halogen Software, perform the following steps:**
+**To configure Azure AD single sign-on with Halogen Software, perform the following steps:**
 
-1. In the Azure AD portal, on the **Halogen Software** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br>
+1. In the Azure AD portal, on the **Halogen Software** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br><br>
 ![Configure Single Sign-On][8]
 
-2. On the **How would you like users to sign on to Halogen Software** page, select **Azure AD Single Sign-On**, and then click **Next**.<br>
+2. On the **How would you like users to sign on to Halogen Software** page, select **Azure AD Single Sign-On**, and then click **Next**.<br><br>
 ![Azure AD Single Sign-On][9]
 
 3. On the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][10]
@@ -177,7 +177,7 @@ The objective of this section is to create a user called Britta Simon in Halogen
 <br><br>![What is Azure AD Connect][301]
   1. In the **First Name** textbox, type **Britta**. 
   2. In the **Last Name** textbox, type **Simon**.
-  3. In the **Username** textbox, type Brita Simon's user name in the Azure AD portal.
+  3. In the **Username** textbox, type **Brita Simon's user name in the Azure AD portal**.
   4. In the **Password** textbox, type a password for Britta.
   5. Click **Save**.
 
