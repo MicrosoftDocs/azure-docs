@@ -64,7 +64,7 @@ This tutorial will show you how to connect your NetSuite environment to your Azu
 
 	![Select Azure AD Single Sign-On][7]
 
-	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](active-directory-appssoaccess-whatis.md/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](./active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 3. On the **Configure App Settings** page, for the **Sign On URL** field, type in your NetSuite tenant URL using one of the following formats:
 	- `https://<tenant-name>.netsuite.com`

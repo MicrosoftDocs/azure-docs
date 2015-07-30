@@ -64,7 +64,7 @@ This tutorial will show you how to connect your Google Apps environment to your 
 
 	![Select Azure AD Single Sign-On][7]
 
-	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](active-directory-appssoaccess-whatis.md/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](./active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 3. On the **Configure App Settings** page, for the **Sign On URL** field, type in your Google Apps tenant URL using the following format: `https://mail.google.com/a/<yourdomain>`
 
