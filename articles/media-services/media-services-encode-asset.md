@@ -112,7 +112,7 @@ Matroska/WebM|No|No|Yes
 Input Video Codecs
 
 Input Video Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
----|---|---
+---|---|---|---
 AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra|Yes|Only 8bit 4:2:0|8 bit 4:2:0 and 4:2:2
 Avid DNxHD (in MXF)|Yes|No|Yes
 DVCPro/DVCProHD (in MXF)|Yes|No|Yes

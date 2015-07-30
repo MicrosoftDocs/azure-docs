@@ -65,7 +65,7 @@ Media Services throttling mechanism restricts the resource usage for application
 ### <a id="dotnet_issues"></a>Media Services SDK for .NET Issues
 
 Issue|Description
---|--
+---|---
 Media Services objects in the SDK cannot be serialized and as a result do not work with Azure Caching.|If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown.
 
 ##<a id="rest_version_history"></a>REST API Version History

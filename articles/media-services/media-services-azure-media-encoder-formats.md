@@ -106,7 +106,7 @@ The following table lists the codecs and file formats that are supported for exp
 
 
 File Format|Video Codec|Audio Codec
----|---
+---|---|---
 Windows Media (* .wmv; * .wma)|VC-1 (Advanced, Main, and Simple Profiles)|Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless
 MP4 (* .mp4)|H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus
 Smooth Streaming File Format (PIFF 1.1) (* .ismv; * .isma)|VC-1 (Advanced Profile)<p>H.264 (High, Main, and Baseline Profiles) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2

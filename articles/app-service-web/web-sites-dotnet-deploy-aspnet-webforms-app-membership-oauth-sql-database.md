@@ -251,7 +251,8 @@ You begin by creating a simple data model using code. This data model will be co
 
 2. Name this new class *Contacts.cs*.  
 	![Add New Item dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)  
-3. Replace the default code with the following code:  
+3. Replace the default code with the following code:
+  
 	```
 	using System.ComponentModel.DataAnnotations;
 	using System.Globalization;
@@ -320,7 +321,8 @@ The next task is to enable the Code First Migrations feature in order to create 
 	```
 	using ContactManager.Models;
 	``` 
-6. Replace the `Seed` method with the following code:  
+6. Replace the `Seed` method with the following code:
+  
 	```
 	protected override void Seed(ContactManager.Models.ApplicationDbContext context)
 	{
@@ -378,6 +380,7 @@ The next task is to enable the Code First Migrations feature in order to create 
 	        );
 	}
 ```
+
 This code initializes (seeds) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
 7. In the **Package Manager Console** enter the command:  
 	```
