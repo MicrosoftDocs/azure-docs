@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="alkohli" />
 
 # Connecting remotely to your StorSimple device
@@ -25,7 +25,7 @@ For more information about using Windows PowerShell remoting to connect to your 
 
 You can use HTTP or HTTPS to connect via Windows PowerShell remoting. 
 
-## Connecting through HTTP
+## Connect through HTTP
 
 Connecting to Windows PowerShell for StorSimple through an HTTP session offers more security than connecting through the serial console of your StorSimple device. Although this is not the most secure method, it is acceptable on trusted networks.
 
@@ -53,7 +53,7 @@ Perform the following steps on the device serial console to enable remote manage
 
      ![Serial Https and Http Enabled](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
-### Prepare ### the client for remote connection
+### Prepare the client for remote connection
 
 Perform the following steps on the client to enable remote management.
 
@@ -88,15 +88,15 @@ Perform the following steps on the client to enable remote management.
 
     ![PS Remoting Using HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
-## Connecting through HTTPS
+## Connect through HTTPS
 
 Connecting to Windows PowerShell for StorSimple through an HTTPS session is the most secure and recommended method of remotely connecting to your Microsoft Azure StorSimple device. The following procedures explain how to set up the serial console and client computers so that you can use HTTPS to connect to Windows PowerShell for StorSimple:
 
-- [Enable remote management on the device](#enable-remote-management-on-the-device).
+- [Enable remote management on the device](#enable-remote-management-on-the-device)
 
-- [Prepare the host for remote management](#prepare-the-host-for-remote-management).
+- [Prepare the host for remote management](#prepare-the-host-for-remote-management)
 
-- [Connect to the device from the remote host](#connect-to-the-device-from-the-remote-host).
+- [Connect to the device from the remote host](#connect-to-the-device-from-the-remote-host)
 
 ### Enable remote management on the device
 
