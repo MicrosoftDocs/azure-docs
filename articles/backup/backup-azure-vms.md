@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure virtual machine backup - Backup"
+	pageTitle="Azure virtual machine backup - Backup | Microsoft Azure"
 	description="Learn how to backup an Azure virtual machine after registration"
 	services="backup"
 	documentationCenter=""
@@ -31,18 +31,21 @@ The discovery process queries Azure for the list of virtual machines in the subs
 
 ### To trigger the discovery process
 
-1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click on the **Registered Items** tab.
+1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click the **Registered Items** tab.
 
-2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine**, and click on the **Select** button.
+2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine**, and click the **Select** button.
+
   ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Click on the **DISCOVER** button at the bottom of the page.
+3. Click the **DISCOVER** button at the bottom of the page.
   ![discover button](./media/backup-azure-vms/discover-button-only.png)
 
 4. The discovery process can run for a few minutes while the virtual machines are being tabulated. A toast notification at the bottom of the screen appears while the discovery process is running.
+
   ![discover vms](./media/backup-azure-vms/discovering-vms.png)
 
 5. Once the discovery process is complete, a toast notification appears.
+
   ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
 ##  2. Register Azure virtual machines
@@ -56,13 +59,15 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 
 ### To register virtual machines
 
-1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click on the **Registered Items** tab
+1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click the **Registered Items** tab
 
-2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine** and click on the select button.
+2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine** and click the select button.
+
   ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Click on the **REGISTER** button at the bottom of the page.
-![register button](./media/backup-azure-vms/register-button-only.png)
+3. Click the **REGISTER** button at the bottom of the page.
+
+  ![register button](./media/backup-azure-vms/register-button-only.png)
 
 4. In the **Register Items** pop-up, choose the virtual machines that you would like to register. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
 
@@ -71,23 +76,27 @@ Registration is typically a one-time activity. The Azure Backup service seamless
     >[AZURE.NOTE] Only the virtual machines that are not registered and are in the same region as the backup vault, will show up.
 
 5. A job is created for each virtual machine that should be registered. The toast notification shows the status of this activity. Click **View Job** to go to the **Jobs** page.
+
   ![register job](./media/backup-azure-vms/register-create-job.png)
 
 6. The virtual machine also appears in the list of registered items and the status of the registration operation is shown
+
   ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
 7. Once the operation is completed, the status in the portal will change to reflect the registered state.
+
   ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
 ## 3. Protect: Back up Azure virtual machines
 This step involves setting up a backup and retention policy for the virtual machine. To protect a virtual machine, do the following steps:
 
 ### To back up Azure virtual machines
-1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click on the **Registered Items** tab.
-2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine**, and click on the **Select** button.
+1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click the **Registered Items** tab.
+2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine**, and click the **Select** button.
+
   ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
 
-3. Click on the **PROTECT** button at the bottom of the page.
+3. Click the **PROTECT** button at the bottom of the page.
 
 4. This will bring up a **Protect Items** wizard where the virtual machines to be protected can be selected. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
 
@@ -103,20 +112,24 @@ This step involves setting up a backup and retention policy for the virtual mach
 
     Each backup policy can have multiple virtual machines that are associated with the policy. The virtual machine can be associated with only one policy at any given point in time.
 
-6. A job is created for each virtual machine to configure the protection policy and to associate the virtual machines to the policy. Click on the **Jobs** tab and choose the right filter to view the list of **Configure Protection** jobs.
+6. A job is created for each virtual machine to configure the protection policy and to associate the virtual machines to the policy. Click the **Jobs** tab and choose the right filter to view the list of **Configure Protection** jobs.
+
   ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
 
 7. Once completed, the virtual machines are protected with a policy and must wait until the scheduled backup time for the initial backup to be completed. The virtual machine will now appear under the **Protected Items** tab and will have a Protected Status of *Protected* (pending initial backup).
     >[AZURE.NOTE] Starting the initial backup immediately after configuring protection is not available as an option today.
 
-8. At the scheduled time, the Azure Backup service creates a backup job for each virtual machine that needs to be backed up. Click on the **Jobs** tab to view the list of **Backup** jobs. As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machines to flush all writes and take a consistent snapshot.
+8. At the scheduled time, the Azure Backup service creates a backup job for each virtual machine that needs to be backed up. Click the **Jobs** tab to view the list of **Backup** jobs. As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machines to flush all writes and take a consistent snapshot.
+
   ![Backup in progress](./media/backup-azure-vms/protect-inprogress.png)
 
 9. Once completed, the Protection Status of the virtual machine in the **Protected Items** tab will show as *Protected*.
+
   ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## Viewing backup status and details
-Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the Dashboard page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking on any one category will drill down into that category in the **Jobs** page.  
+Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the Dashboard page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking on any one category will drill down into that category in the **Jobs** page.
+
   ![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## Troubleshooting errors
@@ -157,7 +170,7 @@ Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http:
 How to check for the VM Agent version on Windows VMs:
 
 1. Log on to the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*. You should find the WaAppAgent.exe file present.
-2. Right-click on the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
+2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
 
 ### Troubleshooting networking issues
 Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of of ways:
