@@ -38,7 +38,7 @@ The following diagram shows the dynamic packaging workflow.
 
 ##Common scenario
 
-1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see Formats Supported by the Media Services Encoder).
+1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Services Encoder](media-services-azure-media-encoder-formats)).
  
 1. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
  
