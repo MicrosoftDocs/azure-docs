@@ -227,7 +227,7 @@ You can also build these configurations in this test environment:
 
 [Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configure a VNet to VNet Connection](http://msdn.microsoft.com/library/azure/dn690122.aspx)
+[Configure a VNet to VNet Connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 [Base Configuration Test Environment](../virtual-machines/virtual-machines-base-configuration-test-environment.md)
 

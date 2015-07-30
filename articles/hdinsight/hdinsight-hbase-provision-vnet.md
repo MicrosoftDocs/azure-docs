@@ -27,6 +27,13 @@ With virtual network integration, HBase clusters can be deployed to the same vir
 - Improved performance by not having your traffic go over multiple gateways and load-balancers.
 - The ability to process sensitive information in a more secure manner without exposing a public endpoint.
 
+>[AZURE.NOTE] Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks. Use Azure PowerShell cmdlet Get-AzureVNetConfig to check whether an existing Azure virtual network is location-based. If your virtual network is not location-based, you have the following options:
+>
+> - Export the existing Virtual Network configuration and then create a new Virtual Network. All new Virtual Networks are location based  by default.
+> - Migrate to a location-based Virtual Network.  See [Migrate existing services to regional scope](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
+
+
+
 ##Prerequisites
 Before you begin this tutorial, you must have the following:
 

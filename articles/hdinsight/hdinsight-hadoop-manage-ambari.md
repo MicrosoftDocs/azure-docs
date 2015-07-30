@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/01/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using Ambari (preview)
@@ -40,9 +40,7 @@ Use the following articles to create an SSH tunnel from a port on your local mac
 
 ##Ambari web UI
 
-The Ambari web UI is available on each Linux-based HDInsight cluster you create at **https://&lt;clustername>.azurehdinsight.net**. You can also reach this page by using the **Ambari Web** button at the bottom of your cluster dashboard in the Azure portal.
-
-![ambari web icon](./media/hdinsight-hadoop-manage-ambari/ambari-web.png)
+The Ambari web UI is available on each Linux-based HDInsight cluster you create at **https://&lt;clustername>.azurehdinsight.net**.
 
 You will be prompted to authenticate to the page twice. The first prompt is to authenticate to the HDInsight cluster, while the second is to authenticate to Ambari.
 
