@@ -54,7 +54,7 @@ e.g. Car weight is coming on the input stream as strings and needs to be convert
     	TumblingWindow(second, 10)
 
 **Explanation**:
-Use a CAST statement on the Weight field to specify its type (see the list of supported Data Types [here](https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx)).
+Use a CAST statement on the Weight field to specify its type (see the list of supported Data Types [here](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
 ## Using Like/Not like to do pattern matching ##
 **Description**: Check that a field value on the event matches a certain pattern
