@@ -224,6 +224,8 @@ This tutorial will show you how to connect your NetSuite environment to your Azu
 - [Application Access in Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 - [Introduction to the Access Panel](https://msdn.microsoft.com/library/azure/dn308586.aspx)
 
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+
 [0]: ./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-netsuite-tutorial/applications-tab.png
 [2]: ./media/active-directory-saas-netsuite-tutorial/add-app.png

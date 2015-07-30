@@ -1,4 +1,4 @@
-##Related Content
+##Related Articles
 
 This article is part of a series on how to manage SaaS applications with Azure Active Directory. Below are all of the articles in the series:
 
@@ -15,6 +15,5 @@ This article is part of a series on how to manage SaaS applications with Azure A
 	- [How to integrate Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [How to integrate ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
 	- [How to integrate Dropbox for Business](https://msdn.microsoft.com/en-us/library/azure/dn510978.aspx)
-	- [How to integrate Citrix GoToMeeting](https://msdn.microsoft.com/en-us/library/azure/dn440168.aspx)
 	- [How to integrate Workday](https://msdn.microsoft.com/en-us/library/azure/dn510972.aspx) 
 	- [More SaaS App Tutorials...](active-directory-saas-tutorial-list.md)

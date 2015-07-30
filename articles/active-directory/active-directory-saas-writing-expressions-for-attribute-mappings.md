@@ -418,4 +418,4 @@ If the state code doesn't match any of the predefined options, use default value
 
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!--Image references-->
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]

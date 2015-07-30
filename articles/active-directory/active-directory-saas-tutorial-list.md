@@ -154,3 +154,5 @@ Logo | App Name
 ##See Also
 
 - [Applicaiton Access](https://msdn.microsoft.com/library/azure/dn308590.aspx)
+
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
