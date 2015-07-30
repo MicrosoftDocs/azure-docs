@@ -61,6 +61,7 @@ Use a CAST statement on the Weight field to specify its type (see the list of su
 e.g. Return license plates that start with A and end with 9
 
 **Input**:
+
 | Make | LicensePlate | Time |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
@@ -68,6 +69,7 @@ e.g. Return license plates that start with A and end with 9
 | Nissan | ABC-369 | 2015-01-01T00:00:03.0000000Z |
 
 **Output**:
+
 | Make | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -90,6 +92,7 @@ Use the LIKE statement to check that the LicensePlate field value starts with A 
 e.g. Provide a string description for how many cars passed of the same make with a special case for 1.
 
 **Input**:
+
 | Make | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
@@ -97,6 +100,7 @@ e.g. Provide a string description for how many cars passed of the same make with
 | Toyota | 2015-01-01T00:00:03.0000000Z |
 
 **Output**:
+
 | CarsPassed | Time |
 | --- | --- | --- |
 | 1 Honda | 2015-01-01T00:00:10.0000000Z |
@@ -124,6 +128,7 @@ The CASE clause allows us to provide a different computation based on some crite
 e.g. Analyze data for a threshold-based alert and archive all events to blob storage
 
 **Input**:
+
 | Make | Time |
 | --- | --- |
 | Honda	| 2015-01-01T00:00:01.0000000Z |
@@ -133,7 +138,7 @@ e.g. Analyze data for a threshold-based alert and archive all events to blob sto
 | Toyota | 2015-01-01T00:00:03.0000000Z |
 
 **Output1**:
-Output1:
+
 | Make | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
@@ -143,6 +148,7 @@ Output1:
 | Toyota | 2015-01-01T00:00:03.0000000Z |
 
 **Output2**:
+
 | Make | Time | Count |
 | --- | --- | --- |
 | Toyota | 2015-01-01T00:00:10.0000000Z | 3 |
@@ -192,7 +198,7 @@ e.g.
 
 ## Counting unique values
 **Description**: count the number of unique field values that appear in the stream within a time window.
-e.g. How many unique make of cars passed through the toll booth in a 2 second window?
+e.g. How many unique makes of cars passed through the toll booth in a 2 second window?
 
 **Input**:
 
@@ -232,6 +238,21 @@ e.g. How many unique make of cars passed through the toll booth in a 2 second wi
 		TumblingWindow(second, 1)
 
 **Explanation:**
-The query does an initial aggregation to get unique makes with their count during the window. Then it performs an aggregation of how many makes there are – given that all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.
+We do an initial aggregation to get unique makes with their count over the window.
+We then do an aggregation of how many makes we got – given all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.
 
-----
+## Determine if a value has changed ##
+**Description**: Look at a previous value to determine if it is different than the current value
+e.g. Is the previous car on the Toll Road the same make as the current car?
+
+**Input**:
+
+| Make | Time | 
+| --- | --- |
+| Honda | 2015-01-01T00:00:01.0000000Z |
+| Toyota | 2015-01-01T00:00:02.0000000Z |
+
+**Output**:
+
+Make	Time
+Toyota	2015-01-01T00:00:02.0000000Z
