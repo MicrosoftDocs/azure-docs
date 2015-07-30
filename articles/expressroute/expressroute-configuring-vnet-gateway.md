@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 
 <tags 
@@ -13,19 +13,21 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/25/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 #  Configure a Virtual Network for ExpressRoute
 
+These steps will walk you through configuring a virtual network and a gateway for ExpressRoute.
+
 1. Log in to the **Management Portal**.
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
-3. On the **Virtual Network Details** page, enter the information below. For more information about the settings on the details page, see the [Virtual Network Details page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+3. On the **Virtual Network Details** page, enter the information below.
 
 	- **Name** – Name your virtual network. You’ll use this virtual network name when you deploy your VMs and PaaS instances, so you may not want to make the name too complicated.
 	- **Location** – The location is directly related to the physical location (region) where you want your resources (VMs) to reside. For example, if you want the VMs that you deploy to this virtual network to be physically located in East US, select that location. You can’t change the region associated with your virtual network after you create it.
 
-4. On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the next arrow on the lower right. For more information about the settings on this page, see [DNS Servers and VPN Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+4. On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the next arrow on the lower right. 
 
 	- **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
 	- **Configure Site-To-Site VPN** - Select the checkbox for **Configure a site-to-site VPN**.
@@ -34,16 +36,14 @@
 
 	If you select an existing local network, skip step 5.
 
-5. If you’re creating a new local network, you’ll see the **Site-To-Site Connectivity** page. If you selected a local network that you previously created, this page will not appear in the wizard and you can move on to the next section. To configure your local network, enter the following information and then click the next arrow. For more information about the settings on this page, see [Site-To-Site Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETSITE).
+5. If you’re creating a new local network, you’ll see the **Site-To-Site Connectivity** page. If you selected a local network that you previously created, this page will not appear in the wizard and you can move on to the next section. To configure your local network, enter the following information and then click the next arrow. 
 
 	- **Name** - The name you want to call your local (on-premises) network site.
 	- **Address space** - including Starting IP and CIDR (Address Count). You can specify any address range as long as it doesn't overlap with the address range for your virtual network.
 	- **Add address space** - This setting is not relevant for ExpressRoute.
-	- 
 **Note:** You are required to create a local network site for ExpressRoute. THe address prefixes specified for the local network site will be ignored. Adress prefixes advertised to Microsoft through the ExpressRoute circuit will be used for routing purposes.
 
-6. On the **Virtual Network Address Spaces** page, enter the following information and then click the checkmark on the lower right to configure your network. There are quite a few rules regarding virtual network address space, so you may want to see the 
-[Virtual Network Address Spaces page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) for more information.
+6. On the **Virtual Network Address Spaces** page, enter the following information and then click the checkmark on the lower right to configure your network. 
 
 	- **Address space** - including starting IP and address count. Verify that the address spaces you specify don’t overlap any of the address spaces that you have on your local network.
 	- **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have dynamic IP addresses (DIPS). Or you might want to have your VMs in a subnet that is separate from your PaaS instances.
@@ -72,6 +72,5 @@ If you want to add virtual machines to your virtual network, see [How to Create 
 
 If you want to learn more about ExpressRoute, see [ExpressRoute Technical Overview](expressroute-introduction.md).
 
-If you want to learn more about virtual networks, see the [Virtual Network FAQ](https://msdn.microsoft.com/library/azure/dn133803.aspx).
 
  
