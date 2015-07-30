@@ -23,9 +23,9 @@ This tutorial will walk you through the creation of the vault you will use to st
 
 ## Video walkthrough
 
-Here's a [video walkthrough](../../videos/azure-backup-vault-creation) of this tutorial.
+Here's a walkthrough of this tutorial.
 
-[![Video Walkthrough](./media/backup-azure-backup-create-vault/video_thumb.jpg)](../../videos/azure-backup-vault-creation)
+[AZURE.VIDEO azure-backup-vault-creation]
 
 ## Creating the Backup Vault
 

@@ -22,9 +22,9 @@ Applications are typically made up of many components – maybe a web app, datab
 
 Azure Resource Manager natively integrates access control into the management platform so you can specify which actions a user in your organization can take for a resource group.  
 
-Here's a [video demonstration](../../videos/azure-resource-manager-overview/) of this overview.
+Here's a demonstration of this overview.
 
-[![Video Demonstration](./media/resource-group-overview/video_thumb.jpg)](../../videos/azure-resource-manager-overview/)
+[AZURE.VIDEO azure-resource-manager-overview]
 
 > [AZURE.NOTE] This topic describes resources, groups, and templates using the preview portal to demonstrate the concepts. However, you can also create, manage, and delete Azure resources using the [Azure CLI for Mac, Linux, and Windows](virtual-machines/xplat-cli-azure-resource-manager.md) as well as [PowerShell](powershell-azure-resource-manager.md).
 
