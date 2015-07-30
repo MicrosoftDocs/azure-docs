@@ -57,7 +57,7 @@ There are two different ways that you can download the Azure Multi-Factor Authen
 2. On the left, select Active Directory.
 3. Double click on your instance of Azure AD.
 4. At the top click **Configure**
-5. Under multi-factor authentitcation select **Manage service settings**
+5. Under multi-factor authentication select **Manage service settings**
 ![Download](./media/multi-factor-authentication-sdk/download2.png)
 6. On the services settings page, at the bottom of the screen click **Go to the portal**.
 ![Download](./media/multi-factor-authentication-sdk/download3.png)
