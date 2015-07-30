@@ -308,12 +308,18 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td rowspan="2"><strong>CentOS</strong></td>
 	<td>6.5, 6.6, 7.0</td>
 	<td></td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a></td>
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a> </br>
+		*See note below
+	</td>
 </tr>
 <tr>
 	<td>7.1</td>
 	<td>3.10.0-229.1.2.el7</td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a></td>
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a> <br/>
+		*See note below
+	</td>
 </tr>
 
 <tr>
@@ -329,6 +335,9 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 </tr>
 </tbody>
 </table>
+
+
+    > [AZURE.NOTE] On OpenLogic CentOS, run the following command to install the latest drivers: **sudo yum install microsoft-hyper-v**.  A reboot will then be required to activate the updated drivers.
 
 
 ## Pricing and Billing when using Premium Storage
