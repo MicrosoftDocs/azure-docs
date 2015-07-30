@@ -43,7 +43,7 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 
 * **Privileged logins** - A set of logins that will get the unmasked data in the SQL queries results.
   
-* **Masking rules** - A set of rules that define the designated fields that will be masked and the masking function that will be used. The designated fields can be defined using a database table name and column name or using an alias name.
+* **Masking rules** - A set of rules that define the designated fields that will be masked and the masking function that will be used. The designated fields can be defined using a database table name and column name.
 
 * **Masking by** - Can be done at the source or destination. Masking can be configured at the source level by identifying the **Table** name and the **Column** name, or at the results level by identifying the **Alias** which is used in the query. If you are familiar with the data architecture of your database and want to limit the exposure of all query results, you may prefer a source mask rule. You may add a results mask rule when you want to limit the exposure to query results without analyzing the database data architecture or for a field that may arrive from different sources.  
   
