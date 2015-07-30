@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="04/02/2015"
+   ms.date="07/30/2015"
    ms.author="nadavh; ronmat; v-romcal; sstein"/>
 
 # Get started with SQL Database Dynamic Data Masking (Azure Preview portal)
