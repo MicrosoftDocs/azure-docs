@@ -65,7 +65,7 @@ The second operation is to test the connection. Azure Stream Analytics will try 
 
 ## Using Blob storage as an output ##
 ---
-For an introduction on Azure Blob storage and its usage, review the article [An introduction to Windows Azure Blob storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
+For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](hhttps://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/).
 
 ### Parameters ###
 
