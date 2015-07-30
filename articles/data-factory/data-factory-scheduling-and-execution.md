@@ -274,7 +274,7 @@ The hourly input files are dropped in the folder for the given day. Availability
 	        "type": "TextFormat"
 	      }
 	    },
-		"external": "true",
+		"external": true,
 	    "availability": {
 	      "frequency": "Hour",
 	      "interval": 1
@@ -393,7 +393,7 @@ First input is Azure blob updated **daily**.
 	        "type": "TextFormat"
 	      }
 	    },
-		"external": "true",
+		"external": true,
 	    "availability": {
 	      "frequency": "Hour",
 	      "interval": 1
@@ -421,7 +421,7 @@ Input2 is Azure blob updated **weekly**.
 	        "type": "TextFormat"
 	      }
 	    },
-		"external": "true",
+		"external": true,
 	    "availability": {
 	      "frequency": "Day",
 	      "interval": 7
