@@ -18,7 +18,7 @@
 
 # MySQL Connector - Move data From MySQL
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from MySQL to another data store. This article builds on the [data movement activities](data-factory-data-movements.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from MySQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data Factory service supports connecting to on-premises MySQL sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
 

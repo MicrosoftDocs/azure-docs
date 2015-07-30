@@ -483,28 +483,28 @@ fileFilter | Specify a filter to be used to select a subset of files in the fold
 
 As mentioned above, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice. 
 
-See the [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) article to understand more details on time series datasets, scheduling and slices.
+See [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) articles to understand more details on time series datasets, scheduling and slices.
 
 #### Sample 1:
 
-	folderPath: "wikidatagateway/wikisampledataout/{Slice}",
-	partitionedBy: 
+	"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+	"partitionedBy": 
 	[
-	    { name: "Slice", value: { type: "DateTime", date: "SliceStart", format: "yyyyMMddHH" } },
+	    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 	],
 
 In the above example {Slice} is replaced with the value of Data Factory system variable SliceStart in the format (YYYYMMDDHH) specified. The SliceStart refers to start time of the slice. The folderPath is different for each slice. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104.
 
 #### Sample 2:
 
-	folderPath: "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-	fileName: "{Hour}.csv",
-	partitionedBy: 
+	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+	"fileName": "{Hour}.csv",
+	"partitionedBy": 
 	 [
-	    { name: "Year", value: { type: "DateTime", date: "SliceStart", format: "yyyy" } },
-	    { name: "Month", value: { type: "DateTime", date: "SliceStart", format: "MM" } }, 
-	    { name: "Day", value: { type: "DateTime", date: "SliceStart", format: "dd" } }, 
-	    { name: "Hour", value: { type: "DateTime", date: "SliceStart", format: "hh" } } 
+	    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
 	],
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
