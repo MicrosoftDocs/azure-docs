@@ -76,7 +76,7 @@ Use Azure AD method to login:
 
 	When prompted, type your username and password.
 
-**OR**, to use a PublishSettings file instead:
+**OR**, use a PublishSettings file instead:
 
 1. Open an Azure CLI window
 
@@ -107,7 +107,7 @@ Use Azure AD method to login:
 
 	`Add-AzureAccount`
 
-	When prompted in a pop-up, enter your organizational user id and password.
+	When prompted, enter your organizational user id and password.
 
 **OR**, use the PublishSettings files instead:
 
