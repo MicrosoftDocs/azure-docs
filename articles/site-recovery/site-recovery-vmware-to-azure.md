@@ -184,7 +184,7 @@ The graphic summarizes the deployment steps.
 
 You have two options to configure network connectivity between your on-premises site and the Azure virtual network on which your Infrastructure components (Configuration Server, Master target Servers) are deployed. You'll need to decide which network connectivity option to use before you can deploy your Configuration Server. This is a deployment time choice, and cannot be changed later.
 
-**Public Internet :** Communication and replication of data between the on-premises servers (Process Server, Protected Servers) and the Azure Infrastructure component servers (Configuration Server, Master Target Server) happens over a secure SSL/TLS connection from on-premises to the Public endpoints on the Configuration Server and the Master Target server. (The only exception is the connection between the Process Server and the Master Target server on port 9080 which is unencrypted, however only connection handshake information is exchanged on this port.)
+**Public Internet :** Communication and replication of data between the on-premises servers (Process Server, Protected Servers) and the Azure Infrastructure component servers (Configuration Server, Master Target Server) happens over a secure SSL/TLS connection from on-premises to the Public endpoints on the Configuration Server and the Master Target server. (The only exception is the connection between the Process Server and the Master Target server on TCP port 9080 which is un-encrypted. Only control information related to the replication protocol related used to setup the replication is exchanged on this connection.)
 
 ![Deployment diagram internet](./media/site-recovery-vmware-to-azure/ASRVmware_deploymentInternet.png)
 
