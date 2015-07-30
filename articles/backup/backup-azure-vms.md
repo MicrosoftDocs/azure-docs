@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/06/2015"
-	ms.author="aashishr"/>
+	ms.date="07/30/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # Back up Azure virtual machines
@@ -70,7 +70,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 
     >[AZURE.NOTE] Only the virtual machines that are not registered and are in the same region as the backup vault, will show up.
 
-5. A job is created for each virtual machine that should be registered. The toast notification shows the status of this activity. Click **View Job** to go to the **Jobs** page.          
+5. A job is created for each virtual machine that should be registered. The toast notification shows the status of this activity. Click **View Job** to go to the **Jobs** page.
   ![register job](./media/backup-azure-vms/register-create-job.png)
 
 6. The virtual machine also appears in the list of registered items and the status of the registration operation is shown
@@ -194,4 +194,4 @@ The table below explains the types of consistency that are encountered during Az
 To learn more about getting started with Azure Backup, see:
 
 - [Restore virtual machines](backup-azure-restore-vms.md)
-- [Manage virtual machines](backup-azure-manage-vms)
+- [Manage virtual machines](backup-azure-manage-vms.md)
