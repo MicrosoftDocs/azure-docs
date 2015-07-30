@@ -254,5 +254,125 @@ e.g. Is the previous car on the Toll Road the same make as the current car?
 
 **Output**:
 
-Make	Time
-Toyota	2015-01-01T00:00:02.0000000Z
+| Make | Time | 
+| --- | --- |
+| Toyota | 2015-01-01T00:00:02.0000000Z |
+
+**Solution**:
+
+	SELECT
+		Make,
+		Time
+	FROM
+		Input TIMESTAMP BY Time
+	WHERE
+		LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
+
+**Explanation**:
+Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are different.
+
+## Find first event in a window ##
+**Description**: Find first car in every 10 minute interval?
+
+**Input**:
+
+| License plate | Make | Time |
+| --- | --- | --- |
+| DXE 5291 | Honda | 2015-07-27T07:00:00:05 |
+| YZK 5704 | Ford | 2015-07-27T07:00:02:17 |
+| RMV 8282 | Honda | 2015-07-27T07:00:05:01 |
+| YHN 6970 | Toyota | 2015-07-27T07:00:06:00 |
+| VFE 1616 | Toyota | 2015-07-27T07:00:09:31 |
+| QYF 9358 | Honda | 2015-07-27T07:00:12:02 |
+| MDR 6128 | BMW | 2015-07-27T07:00:13:45 |
+
+**Output**:
+
+| License plate | Make | Time |
+| --- | --- | --- |
+| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
+| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
+
+**Solution**:
+
+	SELECT 
+		LicensePlate,
+		Make,
+		Time
+	FROM 
+		Input TIMESTAMP BY Time
+	WHERE 
+		IsFirst(minute, 10) = 1
+
+Now let’s change the problem and find first car of particular Make in every 10 minute interval.
+
+| License plate | Make | Time |
+| --- | --- | --- |
+| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
+| YZK 5704 | Ford | 2015-07-27T07:02:17.000Z |
+| YHN 6970 | Toyota | 2015-07-27T07:06:00.000Z |
+| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
+| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+
+**Solution**:
+
+	SELECT 
+		LicensePlate,
+		Make,
+		Time
+	FROM 
+		Input TIMESTAMP BY Time
+	WHERE 
+		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+
+## Find last event in a window ##
+**Description**: Find last car in every 10 minute interval.
+
+**Input**:
+
+| License plate | Make | Time |
+| --- | --- | --- |
+| DXE 5291 | Honda | 2015-07-27T07:00:00:05 |
+| YZK 5704 | Ford | 2015-07-27T07:00:02:17 |
+| RMV 8282 | Honda | 2015-07-27T07:00:05:01 |
+| YHN 6970 | Toyota | 2015-07-27T07:00:06:00 |
+| VFE 1616 | Toyota | 2015-07-27T07:00:09:31 |
+| QYF 9358 | Honda | 2015-07-27T07:00:12:02 |
+| MDR 6128 | BMW | 2015-07-27T07:00:13:45 |
+
+**Output**:
+
+| License plate | Make | Time |
+| --- | --- | --- |
+| VFE 1616 | Toyota | 2015-07-27T07:09:31.000Z |
+| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+
+**Solution**:
+
+	WITH LastInWindow AS
+	(
+		SELECT 
+			MAX(Time) AS LastEventTime
+		FROM 
+			Input TIMESTAMP BY Time
+		GROUP BY 
+			TumblingWindow(minute, 10)
+	)
+	SELECT 
+		Input.LicensePlate,
+		Input.Make,
+		Input.Time
+	FROM
+		Input TIMESTAMP BY Time 
+		INNER JOIN LastInWindow
+		ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
+		AND Input.Time = LastInWindow.LastEventTime
+
+**Explanation**:
+There are two steps in the query – the first one finds latest timestamp in 10 minute windows. The second step joins results of the first query with original stream to find events matching last timestamps in each window. 
+
+## Detect the absence of events ##
+**Description**: Check that a stream has no value that matches a certain criteria.
+e.g. Have 2 consecutive cars from the same make entered the toll road within 90 seconds?
+
+
