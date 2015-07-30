@@ -30,25 +30,9 @@ The sample below shows:
 4. An output dataset of type AzureBlob.
 4. A pipeline with Copy Activity that uses DocumentDbCollectionSource and BlobSink.
 
-**Sample JSON document in the Person collection in a DocumentDB database:**
+The sample copies data in Azure DocumentDB to Azure Blob. The JSON properties used in these samples are described in sections following the samples.
 
-	
-	{
-	  "PersonId": 2,
-	  "Name": {
-	    "First": "Jane",
-	    "Middle": "",
-	    "Last": "Doe"
-	  }
-	}
-
-DocumentDB supports querying documents using a SQL like syntax over hierarchical JSON documents. Example:
-
-	SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
-
-This is the query we will use when defining a pipeline later. 
-
-**DocumentDb linked service**
+**Azure DocumentDB linked service:**
 
 	{
 	  "name": "DocumentDbLinkedService",
@@ -60,7 +44,7 @@ This is the query we will use when defining a pipeline later.
 	  }
 	}
 
-**Azure Blob storage linked service**
+**Azure Blob storage linked service:**
 
 	{
 	  "name": "StorageLinkedService",
@@ -72,11 +56,11 @@ This is the query we will use when defining a pipeline later.
 	  }
 	}
 
-**DocumentDB input dataset**
+**Azure Document DB input dataset:**
 
-The sample assumes you have created a collection “Person” in DocumentDb that contains the input data.
-
-Setting “external”: ”true” and specifying externalData policy informs the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
+The sample assumes you have a collection named **Person** in an Azure DocumentDB database.
+ 
+Setting “external”: ”true” and specifying externalData policy information the Azure Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
 
 	{
 	  "name": "PersonDocumentDbTable",
@@ -94,9 +78,10 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	  }
 	}
 
-**Azure Blob output dataset**
 
-Data is written to a new blob every day (frequency: day, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day parts of the start time. Therefore, a folder is created for each day the slice is processed. 
+**Azure Blob output dataset:**
+
+Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
 
 	{
 	  "name": "PersonBlobTableOut",
@@ -104,37 +89,11 @@ Data is written to a new blob every day (frequency: day, interval: 1). The folde
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "MyContainer/MyFolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        }
-	      ],
+	      "folderPath": "docdb",
 	      "format": {
 	        "type": "TextFormat",
-	        "columnDelimiter": "\t",
-	        "rowDelimiter": "\n"
+	        "columnDelimiter": ",",
+	        "nullValue": "NULL"
 	      }
 	    },
 	    "availability": {
@@ -144,12 +103,24 @@ Data is written to a new blob every day (frequency: day, interval: 1). The folde
 	  }
 	}
 
-**Pipeline with Copy activity**
+Sample JSON document in the Person collection in a DocumentDB database: 
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **DocumentDbCollectionSource** and **sink** type is set to **BlobSink**. 
+	{
+	  "PersonId": 2,
+	  "Name": {
+	    "First": "Jane",
+	    "Middle": "",
+	    "Last": "Doe"
+	  }
+	}
 
-The following pipeline copies data from the Person collection in the DocumentDB database to an Azure blob in the docdb container. 
+DocumentDB supports querying documents using a SQL like syntax over hierarchical JSON documents. 
 
+Example: 
+	SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
+
+The following pipeline copies data from the Person collection in the DocumentDB database to an Azure blob. As part of the copy activity the input and output datasets have been specified.  
+	
 	{
 	  "name": "DocDbToBlobPipeline",
 	  "properties": {
@@ -190,37 +161,20 @@ The following pipeline copies data from the Person collection in the DocumentDB 
 	  }
 	}
 
-
-## Sample: Copy data from Azure Blob to DocumentDB
+## Sample: Copy data from Azure Blob to Azure DocumentDB
 
 The sample below shows:
 
-1.	A linked service of type DocumentDb.
-2.	A linked service of type AzureStorage.
-3.	An input dataset of type AzureBlob.
-4.	An output dataset of type DocumentDbCollection.
-4.	A pipeline with Copy activity that uses BlobSource and DocumentDbCollectionSink.
+1. A linked service of type DocumentDb.
+2. A linked service of type AzureStorage.
+3. An input dataset of type AzureBlob.
+4. An output dataset of type DocumentDbCollection. 
+4. A pipeline with Copy Activity that uses BlobSource and DocumentDbCollectionSink.
 
+The sample copies data from Azure blob to Azure DocumentDB. The JSON properties used in these samples are described in sections following the samples.
 
-**Sample blob input:**
-
-1,John,,Doe
-2, Jane,,Doe
-
-**DocumentDb linked service**
-
-	{
-	  "name": "DocumentDbLinkedService",
-	  "properties": {
-	    "type": "DocumentDb",
-	    "typeProperties": {
-	      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
-	    }
-	  }
-	}
-
-**Azure Blob storage linked service**
-
+**Azure Blob storage linked service:**
+	
 	{
 	  "name": "StorageLinkedService",
 	  "properties": {
@@ -231,11 +185,19 @@ The sample below shows:
 	  }
 	}
 
-**Azure Blob input dataset**
+**Azure DocumentDB linked service:**
+	
+	{
+	  "name": "DocumentDbLinkedService",
+	  "properties": {
+	    "type": "DocumentDb",
+	    "typeProperties": {
+	      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+	    }
+	  }
+	}
 
-Data is picked up from a new blob every day (frequency: day, interval: 1). 
-
-“external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
+**Azure Blob input dataset:**
 
 	{
 	  "name": "PersonBlobTableIn",
@@ -277,10 +239,9 @@ Data is picked up from a new blob every day (frequency: day, interval: 1).
 	  }
 	}
 
+**Azure DocumentDB output dataset:**
 
-**DocumentDB output dataset**
-
-Output Azure DocumentDB table is defined as follows:
+The sample copies data to a collection named “Person”.
 
 	{
 	  "name": "PersonDocumentDbTableOut",
@@ -315,13 +276,8 @@ Output Azure DocumentDB table is defined as follows:
 	  }
 	}
 
-
-**Pipeline with Copy activity**
-
-Pipeline is defined as follows: 
-
-In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **DocumentCollectionSink**.
-
+The following pipeline copies data from Azure Blob to the Person collection in the 	DocumentDB. As part of the copy activity the input and output datasets have been specified. 
+	
 	{
 	  "name": "BlobToDocDbPipeline",
 	  "properties": {
@@ -363,8 +319,12 @@ In the pipeline JSON definition, the **source** type is set to **BlobSource** an
 	    "end": "2015-04-15T00:00:00Z"
 	  }
 	}
+ 
+If the sample blob input is as 
 
-**Ouput JSON in the DocumentDB will look like:**
+	1,John,,Doe
+
+Then the output JSON in DocumentDB will be as:
 
 	{
 	  "Id": 1,
@@ -375,52 +335,83 @@ In the pipeline JSON definition, the **source** type is set to **BlobSource** an
 	  },
 	  "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
 	}
+	
+DocumentDB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via **nestingSeparator**, which is “.” in this example. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition.
 
-## DocumentDB Linked Service Properties
+## Azure DocumentDB Linked Service properties
 
-The following table provides description for JSON elements specific to DocumentDB linked service.
+The following table provides description for JSON elements specific to Azure DocumentDB linked service. 
 
-| Property | Description | Required |
-| -------- | ----------- | -------- |
-| type | The type property must be set to: **DocumentDb** | Yes |
+| **Property** | **Description** | **Required** |
+| -------- | ----------- | --------- |
+| type | The type property must be set to: DocumentDb | Yes |
 | connectionString | Specify information needed to connect to Azure DocumentDB database. | Yes |
 
-## DocumentDB Dataset type properties
+## Azure DocumentDB Dataset type properties
 
-For a full list of sections & properties available for defining datasets, please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...). 
+For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+ 
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for the dataset of type **DocumentDbCollection** has the following properties.
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **DocumentDbCollection** has the following properties.
-
-| Property | Description | Required |
+| **Property** | **Description** | **Required** |
 | -------- | ----------- | -------- |
 | collectionName | Name of the DocumentDB document collection. | Yes |
 
-## DocumentDB Copy Activity type properties
 
-For a full list of sections & properties available for defining activities, please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
+Example:
 
-> [AZURE.NOTE] The Copy Activity takes only one input and produces only one output.
+	{
+	  "name": "PersonDocumentDbTable",
+	  "properties": {
+	    "type": "DocumentDbCollection",
+	    "linkedServiceName": "DocumentDbLinkedService",
+	    "typeProperties": {
+	      "collectionName": "Person"
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Day",
+	      "interval": 1
+	    }
+	  }
+	}
+
+## Azure DocumentDB Copy Activity type properties
+
+For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
+ 
+**Note:** The Copy Activity takes only one input and produces only one output.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
-In case of Copy activity when source is of type **DocumentDbCollectionSource** the following properties are available in **typeProperties** section:
+In case of Copy activity when source is of type **DocumentDbCollectionSource**
+the following properties are available in **typeProperties** section:
 
-| Property | Description | Allowed values | Required |
-| -------- | ----------- | -------------- | -------- |
-| query | Specify the query to read data. | Query string supported by DocumentDB. <p>Example: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\".</p> | No. <p>If not specified, the SQL statement that is executed: select <columns defined in structure> from mycollection.</p> |
-| nestingSeparator | Special character to indicate that the document is nested. | Any character. | No |
+| **Property** | **Description** | **Allowed values** | **Required** |
+| ------------ | --------------- | ------------------ | ------------ |
+| query | Specify the query to read data. | Query string supported by DocumentDB. <p>Example: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"</p> | No <p>If not specified, the SQL statement that is executed: select <columns defined in structure> from mycollection </p>
+| nestingSeparator | Special character to indicate that the document is nested | Any character. <p>DocumentDB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via nestingSeparator, which is “.” in the above examples. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition.</p> | No
 
 **DocumentDbCollectionSink** supports the following properties:
 
-| Property | Description | Allowed values | Required |
-| -------- | ----------- | -------------- | -------- |
-| nestingSeparator | A special character in the source column name to indicate that nested document is needed. | Character that is used to separate nesting levels. Default value is . (dot). | No |
-| writeBatchSize | Number of parallel requests to DocumentDB service to create documents. <p>You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".</p><p>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better (e.g. S3) collection to have the most throughput available (2,500 request units/second), or reduce writeBatchSize to have a more robust although slower copy activity.</p> | Integer value. | No
+| **Property** | **Description** | **Allowed values** | **Required** | 
+| ------------ | --------------- | ------------------ | ------------ |
+| nestingSeparator | A special character in the source column name to indicate that nested document is needed.<p>For example above: Name.First in the output table produces the following JSON structure in the DocumentDB document:</p><p>"Name": {<br/>	"First": "John"<br/>},</p> | Character that is used to separate nesting levels.<p>Default value is . (dot).</p> | No |
 
-**Example for using nesting separator**
-Name.First in the output table produces the following JSON structure in the DocumentDB document: 
+| writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<p>You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".</p><p>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second).</p> | Integer Value | No |
 
-	
-	"Name": {
-	    "First": "John"
-	  },
+| writeBatchTimeout | Wait time for the operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No |
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
