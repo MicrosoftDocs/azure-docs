@@ -237,7 +237,7 @@ For example: select * from MyTable <p>If not specified, the SQL statement that i
 
 ### Type Mapping for Oracle
 
-As mentioned in the [data movement activities](data-factory-data-movements.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type

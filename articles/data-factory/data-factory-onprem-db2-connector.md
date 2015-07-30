@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # DB2 Connector - Move data from DB2
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from DB2 to another data store. This article builds on the [data movement activities](data-factory-data-movements.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from DB2 to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory supports connecting to on-premises DB2 sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
 
@@ -251,7 +251,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Type mapping for DB2
-As mentioned in the [data movement activities](data-factory-data-movements.md) article, the  Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, the  Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
