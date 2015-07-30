@@ -122,7 +122,7 @@ In this sample, a SQL query is used to extract data from Azure SQL instead of si
 	        "source":
 	        {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
+	            "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
 	        },
 	        "sink":
 	        {
