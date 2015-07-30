@@ -72,6 +72,9 @@ The data gateway provides the following capabilities:
 2.	Model on-premises data stores and cloud data stores within the same data factory and move data.
 3.	Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud based dashboard.
 
+
+See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) for more details.
+
 ### Reliable and cost effective data movement
 Copy activity is designed to move large volumes of data in a reliable way, resistant to transient errors across a large variety of data sources. Data can be copied in a cost effective way with the option to enable compression over the wire.
 
