@@ -202,13 +202,13 @@ e.g. How many unique makes of cars passed through the toll booth in a 2 second w
 
 **Input**:
 
-| Make | Time | 
+| Make | Time |
 | --- | --- |
-| Honda | 00:00:00 | 
-| Honda | 00:00:01 | 
-| Toyota | 00:00:00 | 
-| Toyota | 00:00:01 | 
-| Toyota | 00:00:02 | 
+| Honda | 00:00:00 |
+| Honda | 00:00:01 |
+| Toyota | 00:00:00 |
+| Toyota | 00:00:01 |
+| Toyota | 00:00:02 |
 
 **Output:**
 
@@ -247,14 +247,14 @@ e.g. Is the previous car on the Toll Road the same make as the current car?
 
 **Input**:
 
-| Make | Time | 
+| Make | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
 **Output**:
 
-| Make | Time | 
+| Make | Time |
 | --- | --- |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
