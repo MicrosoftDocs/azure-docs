@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="piyushjo" />
 
 #iOS SDK for Azure Mobile Engagement

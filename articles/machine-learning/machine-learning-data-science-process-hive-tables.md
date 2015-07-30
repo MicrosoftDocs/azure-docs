@@ -21,7 +21,7 @@
 
 This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning. Several data wrangling tasks are discussed: data exploration and feature generation. Generic Hive queries that show how to explore data or generate features using Hive in an Azure HDInsight Hadoop cluster. These Hive queries use embedded Hive User Defined Functions (UDFs) which are provided.
 
-Examples of queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
+Examples of queries that are specific to <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">NYC Taxi Trip Data</a> scenarios are also provided in <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">Github repository</a>. These queries already have data schema specified and are ready to be submitted to run.
 
 In the final section, parameters that users can tune so that the performance of Hive queries can be improved are discussed.
 
@@ -41,6 +41,8 @@ Hive queries can be submitted by using:
 * the IPython Notebook
 * the Hive Editor
 * Azure PowerShell scripts
+
+Hive queries are SQL-like. Users familiar with SQL may find the <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL-to-Hive Cheat Sheet</a> useful.
 
 When submitting a Hive query, you can also control the destination of the output from Hive queries, whether it be on the screen or to a local file on the head node or to an Azure blob.
 
@@ -74,19 +76,17 @@ When the Hive query is more complicated and has multiple lines, editing queries 
 
 	`hive -f "<path to the .hql file>"`
 
-![Create workspace][15]
-
 
 #### Suppress progress status screen print of Hive queries
 
-By default, after Hive query is submitted in the Hadoop Command Line console, the progress of the Map/Reduce job will be printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use the argument `-S` ("S" must in upper case) argument in the command line as follows:
+By default, after Hive query is submitted in the Hadoop Command Line console, the progress of the Map/Reduce job will be printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use the argument `-S` (case-sensitive) argument in the command line as follows:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
 #### Submit Hive queries in Hive command console.
 
-Users can also enter the Hive command console by running the  `hive` command from the Hadoop command line, and then submit Hive queries from Hive command console. Here is an example.  
+Users can also enter the Hive command console by running the  `hive` command from the Hadoop command line, and then submit Hive queries from Hive command console at the **hive>** prompt. Here is an example.  
 
 ![Create workspace][11]
 
@@ -100,9 +100,6 @@ To output Hive query results to a local directory on the head node, users have t
 
 	`hive -e "<hive query>" > <local path in the head node>`
 
-In the following example, the output of Hive query is written into a file *hivequeryoutput.txt* in directory *C:\apps\temp*.
-
-![Create workspace][12]
 
 #### Output Hive query results to an Azure blob
 
@@ -279,17 +276,17 @@ The fields that are used in this query are the GPS coordinates of pickup and dro
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-The mathematical equations that calculate the distance between two GPS coordinates can be found on the [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html) site, authored by Peter Lapisu. In his Javascript, the function `toRad()` is just *lat_or_lon*pi/180*, which converts degrees to radians. Here, *lat_or_lon* is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
+The mathematical equations that calculate the distance between two GPS coordinates can be found on the <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> site, authored by Peter Lapisu. In his Javascript, the function `toRad()` is just *lat_or_lon*pi/180*, which converts degrees to radians. Here, *lat_or_lon* is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Create workspace][1]
 
-A full list of Hive embedded UDFs can be found in the **Built-in Functions** section on the [Apache Hive wiki](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions).
+A full list of Hive embedded UDFs can be found in the **Built-in Functions** section on the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
 ## <a name="tuning"></a> Advanced topics: Tune Hive Parameters to Improve Query Speed
 
 The default parameter settings of Hive cluster might not be suitable for the Hive queries and the data that the queries are processing. In this section, we discuss some parameters that users can tune that improve the performance of Hive queries. Users need to add the parameter tuning queries before the queries of processing data.
 
-1. **Java heap space**: For queries involving joining large datasets, or processing long records, a typical error is **running out of heap space**. This can be tuned by setting parameters *mapreduce.map.java.opts* and *mapreduce.task.io.sort.mb* to desired values. Here is an example:
+1. **Java heap space**: For queries involving joining large datasets, or processing long records, **running out of heap space** is one of the common error. This can be tuned by setting parameters *mapreduce.map.java.opts* and *mapreduce.task.io.sort.mb* to desired values. Here is an example:
 
 		set mapreduce.map.java.opts=-Xmx4096m;
 		set mapreduce.task.io.sort.mb=-Xmx1024m;

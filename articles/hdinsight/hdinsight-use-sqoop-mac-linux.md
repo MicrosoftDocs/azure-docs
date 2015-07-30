@@ -244,9 +244,6 @@ Now you have learned how to use Sqoop. To learn more, see:
 
 
 
-
-[azure-management-portal]: https://manage.windowsazure.com/
-
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: ../hdinsight-get-started.md

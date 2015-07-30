@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 #Encoding On-Demand Content with Azure Media Services
@@ -26,7 +26,7 @@ Media Services supports the following encoders:
 
 - [Media Encoder Standard](#media_encoder_standard)
 - [Azure Media Encoder](#azure_media_encoder)
-- [Media Encoder Premium Workflow](#media_encoder_premium_workflow) (public preview)
+- [Media Encoder Premium Workflow](#media_encoder_premium_workflow)
 
 The [following section](#compare_encoders) compares encoding capabilities of supported encoders.
 
@@ -61,7 +61,7 @@ Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**,
 [Encoding your media with Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md) – Describes how to encode audio tracks using Dolby Digital Plus encoding.
 
 
-##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow (preview)
+##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow 
 
 **Note** Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 

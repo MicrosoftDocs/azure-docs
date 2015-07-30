@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Overview
@@ -38,13 +38,16 @@ There are some important factors to consider when defining your resource group:
 
 In the Azure preview portal, all new resources are created in a resource group. Even if you create just a single resource such as a web site, you must decide whether to add that resource to an existing group or create a new group for that resource.
 
-The following image shows a resource group with a web site, a database, and Application Insights.
+The following image shows a resource group with Application Insights, database server, database, app service plan, and web site.
 
-![resource group summary](./media/resource-group-overview/resourcegroupsummary.png)
+![resource group summary](./media/resource-group-overview/resourcegroupsummary2.png)
 
-A resource group can also be linked to a resource in another resource group. A resource is considered linked when a deployment dependency exists between resources in different resource groups. For example, if a web app in one resource group connects to database in another resource group, those resources are linked.
+A resource group can also be linked to a resource in another resource group. A resource is considered linked when a deployment dependency exists between resources in different resource groups. For example, if a web app in one resource group connects to database in another resource group, those resources are linked. 
+You can also explicitly define links between resources in other resource group.
 
-![linked resource](./media/resource-group-overview/linkedresource.png)
+For more information about linking resources, see [Linking resources in Azure Resource Manager](resource-group-link-resources.md)
+
+If you need to move a resource to a new resource group, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
 From the preview portal, you can easily view costs, monitor events, and manage alerts. The following image shows the consolidated billing for a group.
 
@@ -72,6 +75,8 @@ For template schemas, see [Azure Resource Manager Schemas](https://github.com/Az
 
 For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md) and [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
+For guidance about how to structure your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md).
+
 ## Tags
 
 Azure Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. You might want to use tags when you have a complex collection of resource groups and resources, and need to visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department.
@@ -94,11 +99,13 @@ In the preview portal, you can define access control by clicking on the access b
 
 Azure Resource Manager automatically logs user actions for auditing.
 
-You can also explicitly lock critical resources to prevent users from deleting or modifying them.
+You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
 For more information about role-based access control, see [Role-based access control in the Microsoft Azure preview portal](./role-based-access-control-configure.md).
 
 For examples of setting access policies, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md).
+
+For best practices, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
 
 ## Consistent Management Layer
 
@@ -110,31 +117,12 @@ For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Wi
 
 For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
+For information about using the preview portal, see [Using the Azure Preview Portal to manage your Azure resources](azure-portal/resource-group-portal.md).
+
 ## Next Steps
-Getting Started
 
-- [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI with Resource Manager](./virtual-machines/xplat-cli-azure-resource-manager.md)
-- [Using the Azure Portal to manage resources](azure-portal/resource-group-portal.md)
+- To learn about creating templates, see [Authoring templates](./resource-group-authoring-templates.md)
+- To deploy the template you created, see [Deploying templates](azure-portal/resource-group-template-deploy.md)
+- To understand the functions you can use in a template, see [Template functions](./resource-group-template-functions.md)
+- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md)
 
-Creating and Deploying Applications
-
-- [Authoring templates](./resource-group-authoring-templates.md)
-- [Deploying templates](azure-portal/resource-group-template-deploy.md)
-- [Troubleshooting deployments](virtual-machines/resource-group-deploy-debug.md)
-- [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Deploy using .NET libraries and template](virtual-machines/arm-template-deployment.md)
-- [Template functions](./resource-group-template-functions.md)
-- [Advance template operations](./resource-group-advanced-template.md)
-- [Template Schemas](https://github.com/Azure/azure-resource-manager-schemas)
-
-Organizing Resources
-
-- [Using tags to organize your resources](./resource-group-using-tags.md)
-
-Managing and Auditing Access
-
-- [Managing and auditing access to resources](azure-portal/resource-group-rbac.md)
-- [Role-based access control in the preview portal](./role-based-access-control-configure.md)
-- [Authenticating a service principal](./resource-group-authenticate-service-principal.md)
-- [Create a new service principal using the Azure portal](./resource-group-create-service-principal-portal.md)
