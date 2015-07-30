@@ -16,7 +16,7 @@
    ms.date="02/19/2015"
    ms.author="kundanap"/>
 
-# Custom Script Extension for Windows
+# Using Custom Script Extension With Azure Resource Manager Templates
 
 This article gives an overview of writing Azure Resource Manager Templates with Custom Script Extension for bootstrapping workloads on a Linux or a Windows VM.
 
