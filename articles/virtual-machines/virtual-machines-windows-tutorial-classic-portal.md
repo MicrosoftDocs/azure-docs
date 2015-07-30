@@ -33,10 +33,10 @@ You can also create VMs using [your own images](virtual-machines-create-upload-v
 
 ## Video walkthrough
 
-Here's a [video walkthrough](../../videos/creating-a-windows-vm-on-microsoft-azure-classic-portal/) of this tutorial.
-
-[![Video Walkthrough](./media/virtual-machines-windows-tutorial-classic-portal/video_thumb.jpg)](../../videos/creating-a-windows-vm-on-microsoft-azure-classic-portal/)
-
+Here's a video walkthrough of this tutorial.
+<div style="max-width:400px">
+[AZURE.VIDEO creating-a-windows-vm-on-microsoft-azure-classic-portal]
+</div>
 
 ## <a id="createvirtualmachine"> </a>How to create the virtual machine
 
