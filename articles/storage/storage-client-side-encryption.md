@@ -54,7 +54,7 @@ The storage client library uses [AES](http://en.wikipedia.org/wiki/Advanced_Encr
 
 ### Blobs
 
-The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use **UploadFrom*** methods or **BlobWriteStream**. For downloads, both full and range downloads are supported.
+The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **UploadFrom*** methods or the **OpenWrite** method. For downloads, both complete and range downloads are supported.
 
 During encryption, the client library will generate a random Initialization Vector (IV) of 16 bytes, together with a random content encryption key (CEK) of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob on the service. 
 
@@ -129,10 +129,10 @@ Encryption support is available only in the storage client library for .NET. Win
 
 >[AZURE.IMPORTANT] Be aware of these important points when using client-side encryption:
 >
->- When reading from or writing to an encrypted blob, use full blob upload commands and range/full blob download commands. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, Clear Pages, or Append Block; otherwise you may corrupt the encrypted blob and make it unreadable.
+>- When reading from or writing to an encrypted blob, use whole blob upload commands and range/whole blob download commands. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, Clear Pages, or Append Block; otherwise you may corrupt the encrypted blob and make it unreadable.
 >- For tables, a similar constraint exists. Be careful to not update encrypted properties without updating the encryption metadata.
->- If you set metadata on the encrypted blob, you may overwrite the encryption-related metadata required for decryption, since setting metadata is not additive. This is also true for snapshots; avoid specifying metadata while creating a snapshot of an encrypted blob.
->- Enable the RequireEncryption mode in the default request options for users that should work only with encrypted data. See below for more info.
+>- If you set metadata on the encrypted blob, you may overwrite the encryption-related metadata required for decryption, since setting metadata is not additive. This is also true for snapshots; avoid specifying metadata while creating a snapshot of an encrypted blob. If metadata must be set, be sure to call the **FetchAttributes** method first to get the current encryption metadata, and avoid concurrent writes while metadata is being set.
+>- Enable the **RequireEncryption** property in the default request options for users that should work only with encrypted data. See below for more info.
 
 
 ## Client API / Interface
@@ -148,7 +148,7 @@ The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/
 
 ### RequireEncryption mode
 
-Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **RequireEncryption** property of **BlobRequestOptions** controls this behavior. Users who only work with encrypted data are advised to enable this option in their default request options on **CloudBlobClient**. There are corresponding properties for the queue and table services as well.
+Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **RequireEncryption** property of the request options object controls this behavior. If your application will encrypt all objects stored in Azure Storage, then you can set the **RequireEncryption** property on the default request options for the service client object. For example, set **CloudBlobClient.DefaultRequestOptions.RequireEncryption** to **true** to require encryption for all blob operations performed through that client object.
 
 ### Blobs
 
