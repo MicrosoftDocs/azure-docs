@@ -96,7 +96,7 @@ Primary | Readable Secondary | Yes
 Secondary | Readable Secondary | Yes
 
 9.	Click **Next**.
-10.	On the **Select Initial Data Synchronization** page, click **Join only**, and then click **Next**. Data synchronization is executed manually by taking the full and transaction backups on the primary server, and restoring it on the backup. You can instead choose to select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, synchronization is not recommended for large databases that are found in some enterprises.
+10.	On the **Select Initial Data Synchronization** page, click **Join only**, and then click **Next**. Data synchronization is executed manually by taking the full and transaction backups on the primary server, and restoring them on the backup. You can instead choose to select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, synchronization is not recommended for large databases that are found in some enterprises.
 11.	On the **Validation** page, click **Next**. There is a warning for a missing listener configuration because an availability group listener is not configured.
 12.	On the **Summary** page, click **Finish**. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created. If so, click **Close** to exit the wizard.
 13.	From the Start screen, type **Failover**, and then click **Failover Cluster Manager**. In the left pane, open the name of your cluster, and then click **Roles**. A new role with the name of your availability group should be present.
