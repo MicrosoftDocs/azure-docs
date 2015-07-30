@@ -22,7 +22,7 @@ Hybrid Connections can connect [Azure App Service](http://go.microsoft.com/fwlin
 
 In this tutorial, you will learn how to create an App Service API app in the [Azure preview](http://go.microsoft.com/fwlink/?LinkId=529715) that connects to a local on-premises SQL Server database using the new Hybrid Connection feature. The tutorial assumes no prior experience using Azure or SQL Server.
 
-[AZURE.INCLUDE app-service-web-try-app-service.md]
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## Prerequisites
 
