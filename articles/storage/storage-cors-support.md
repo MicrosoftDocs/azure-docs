@@ -135,7 +135,7 @@ The following example shows a partial request body for an operation to set CORS 
 Next, consider the following CORS requests:
 
 Request||| Response||
----|---
+---|---|---|---|---
 **Method** |**Origin** |**Request Headers** |**Rule Match** |**Result**
 **PUT** | http://www.contoso.com |x-ms-blob-content-type | First rule |Success
 **GET** | http://www.contoso.com| x-ms-blob-content-type | Second rule |Success
@@ -168,7 +168,7 @@ Note that for requests using methods other than GET/HEAD, the storage services w
 The following table indicates how Azure storage will respond to GET/HEAD requests based on the previously mentioned cases:
 
 Request|Account setting and result of rule evaluation|||Response|||
----|---
+---|---|---|---|---|---|---|---|---
 **Origin header present on request** | **CORS rule(s) specified for this service ** | **Matching rule exists that allows all origins(*)** | **Matching rule exists for exact origin match** | **Response includes Vary header set to Origin** | **Response includes Access-Control-Allowed-Origin: "*"** | **Response includes Access-Control-Exposed-Headers**
 No|No|No|No|No|No|No
 No|Yes|No|No|Yes|No|No

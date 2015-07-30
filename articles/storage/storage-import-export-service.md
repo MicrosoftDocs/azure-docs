@@ -74,11 +74,11 @@ The Microsoft Azure Import/Export Tool generates a *drive journal* file for each
 
 ### Create the Import Job
 
-1.	Once you have prepared your drive, navigate to your storage account in the Management Portal, and view the 	Dashboard. Under <strong>Quick Glance</strong>, click <strong>Create an Import Job</strong>. 
+1.	Once you have prepared your drive, navigate to your storage account in the Management Portal, and view the 	Dashboard. Under **Quick Glance**, click **Create an Import Job**. 
  
 2.	In Step 1 of the wizard, indicate that you have prepared your drive and that you have the drive journal file 	available.
  
-3.	In Step 2, provide contact information for the person responsible for this import job. If you wish to save 	verbose log data for the import job, check the option to <strong>Save the verbose log in my 'waimportexport' 	blob container</strong>.
+3.	In Step 2, provide contact information for the person responsible for this import job. If you wish to save 	verbose log data for the import job, check the option to **Save the verbose log in my 'waimportexport' 	blob container**.
 
 4.	In Step 3, upload the drive journal files that you obtained during the drive preparation step. You'll need 	to upload one file for each drive that you have prepared.
 
@@ -104,9 +104,9 @@ The Microsoft Azure Import/Export Tool generates a *drive journal* file for each
 
 Create an export job to notify the Import/Export service that you'll be shipping one or more empty drives to the data center, so that data can be exported from your storage account to the drives, and the drives then shipped to you.
 
-1. 	To create an export job, navigate to your storage account in the Management Portal, and view the Dashboard. 	Under <strong>Quick Glance</strong>, click <strong>Create an Export Job</strong>, and proceed through the 	wizard.
+1. 	To create an export job, navigate to your storage account in the Management Portal, and view the Dashboard. 	Under **Quick Glance**, click **Create an Export Job**, and proceed through the 	wizard.
 
-2. 	In Step 2, provide contact information for the person responsible for this export job. If you wish to save 	verbose log data for the export job, check the option to <strong>Save the verbose log in my 'waimportexport' 	blob container</strong>.
+2. 	In Step 2, provide contact information for the person responsible for this export job. If you wish to save 	verbose log data for the export job, check the option to **Save the verbose log in my 'waimportexport' 	blob container**.
 
 3.	In Step 3, specify which blob data you wish to export from your storage account to your blank drive or 	drives. You can choose to export all blob data in the storage account, or you can specify which blobs 	or 	sets of blobs to export.
 
@@ -136,7 +136,7 @@ Create an export job to notify the Import/Export service that you'll be shipping
 
 	If you have your tracking number, then select your delivery carrier from the list, and enter your tracking number. 
 
-	If you do not have a tracking number yet, choose <strong>I will provide my shipping information for this export job once I have shipped my package</strong>, then complete the export process.
+	If you do not have a tracking number yet, choose **I will provide my shipping information for this export job once I have shipped my package**, then complete the export process.
 
 6. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2. 
 	
@@ -153,7 +153,7 @@ You can track the status of your import or export jobs from the Management Porta
 The table describes what each job status designation means:
 
 Job Status|Description
---|--
+---|---
 Creating|Your job has been created, but you have not yet provided your shipping information.
 Shipping|Your job has been created and you have provided your shipping information.
 Transferring|Your data is being transferred from your hard drive (for an import job) or to your hard drive (for an export job).

@@ -100,7 +100,7 @@ Scenarios where CDN may be less useful include:
 
 Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. You should consider this for all of the appropriate content and resources you application uses. Consider the following points when designing your strategy to use the CDN:  
 
-- **Origin ** Deploying content through the CDN simply requires you to specify an HTTP (port 80) endpoint that the CDN service will use to access and cache the content. + The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN. The container must be marked as public. Only blobs in a public container that have public read access will be available through the CDN.
+- **Origin** Deploying content through the CDN simply requires you to specify an HTTP (port 80) endpoint that the CDN service will use to access and cache the content. + The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN. The container must be marked as public. Only blobs in a public container that have public read access will be available through the CDN.
 
 - The endpoint can specify a folder named **cdn** in the root of one of application’s compute layers (such as a web role or a virtual machine). The results from requests for resources, including dynamic resources such as ASPX pages, will be cached on the CDN. The minimum cacheability period is 300 seconds. Any shorter period will prevent the content from being deployed to the CDN (see the section "<a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Cache control</a>" for more information).
 
@@ -219,7 +219,7 @@ The following except from a Web.config file in the root of a Cloud Services host
 
 The addition of the rewrite rules performs the following redirections:  
 
-- The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, **Filename_v123.jpg **is rewritten as **Filename.jpg**.
+- The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, **Filename_v123.jpg** is rewritten as **Filename.jpg**.
 
 - The next four rules show how to redirect requests if you do not want to store the resources in a folder named **cdn** in the root of the web role. The rules map the **cdn/Images**, **cdn/Content**, **cdn/Scripts**, and **cdn/bundles** URLs to their respective root folders in the web role.
 Using URL rewriting requires you to make some changes to the bundling of resources.  
