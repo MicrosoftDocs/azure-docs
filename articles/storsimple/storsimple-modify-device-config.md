@@ -83,7 +83,10 @@ For each network interface, the following parameters are displayed:
 
 - **Speed** – Not a user-configurable parameter. DATA 0, DATA 1, DATA 4, and DATA 5 are always 1 GbE, whereas DATA 2 and DATA 3 are 10 GbE interfaces.
 
-       >[AZURE.NOTE] Speed and duplex are always auto-negotiated. Jumbo frames are not supported.
+     >[AZURE.NOTE] 
+     >
+     >- Speed and duplex are always auto-negotiated.
+     >- Jumbo frames are not supported.
  
 - **Interface state** – An interface can be enabled or disabled. If enabled, the device will attempt to use the interface. We recommend that only those interfaces that are connected to the network and used be enabled. Disable any interfaces that you are not using.
 
