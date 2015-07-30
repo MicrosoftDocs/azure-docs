@@ -64,7 +64,7 @@ The following tables list the common errors that you might encounter when you:
 - Set up the device administrator and StorSimple Snapshot Manager passwords. 
 - Register the device. 
 
-### Errors that occur when you configure the required network settings
+## Errors during the required network settings
 
 | No.| Error message | Possible causes | Recommended action |
 | ---| ------------- | --------------- | ------------------ |
@@ -76,7 +76,7 @@ The following tables list the common errors that you might encounter when you:
 | 6 | Invoke-HcsSetupWizard: Invalid IPv6 address. | The IP address is provided in an incorrect format.| Check the format and supply your IP address again. For more information, see [Ipv6 Addressing][2].|
 | 7 | Invoke-HcsSetupWizard: There are no more endpoints available from the endpoint mapper.(Exception from HRESULT: 0x800706D9) | The cluster functionality is not working. | [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx) for next steps.
 
-### Errors that occur when you configure the optional web proxy settings
+## Errors during the optional web proxy settings
 
 | No.| Error message | Possible causes | Recommended action |
 | ---| ------------- | --------------- | ------------------ |
@@ -86,7 +86,7 @@ The following tables list the common errors that you might encounter when you:
 | 4 | Invoke-HcsSetupWizard: Cluster resource not found (Exception from HRESULT: 0x8007138f) | The cluster resource is not found. This can happen when the installation was not correct. | You may need to reset the device to the factory default settings. [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx) to create a cluster resource.|
 | 5 | Invoke-HcsSetupWizard: Cluster resource not online (Exception from HRESULT: 0x8007138c)| Cluster resources are not online. | [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx) for next steps.|
 
-### Errors that occur when you set up the device administrator and StorSimple Snapshot Manager passwords
+## Errors related to device administrator and StorSimple Snapshot Manager passwords
 
 The default device administrator password is **Password1**. This password expires after the first log on; therefore, you will need to use the setup wizard to change it. You must provide a new device administrator password when you register the device for the first time. 
 
@@ -125,7 +125,7 @@ You can reset the passwords from the Management Portal of your StorSimple Manage
 - [Configure the device administrator password](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
 - [Configure the StorSimple Snapshot Manager password](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 
-### Errors that occur when you register the device
+## Errors during device registration
 
 You use the StorSimple Manager service running in Microsoft Azure to register the device. You could encounter one or more of the following issues during device registration.
 

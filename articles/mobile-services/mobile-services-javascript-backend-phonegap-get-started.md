@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center"
+	pageTitle="Get started with Azure Mobile Services for PhoneGap/cordova apps"
 	description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.date="07/21/2015"
 	ms.author="ggailey777"/>
 
 # Get started with Mobile Services

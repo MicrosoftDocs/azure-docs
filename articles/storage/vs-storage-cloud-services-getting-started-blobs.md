@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (Cloud Service projects)
@@ -33,7 +33,7 @@ Azure Blob storage is a service for storing large amounts of unstructured data t
 Just as files live in folders, storage blobs live in containers. After you have created a storage, you create one or more containers in the storage. For example, in a storage called “Scrapbook,” you can create containers in the storage called “images” to store pictures and another called “audio” to store audio files. After you create the containers, you can upload individual blob files to them. See [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md "How to use Blob Storage from .NET") for more information on programmatically manipulating blobs.
 
 
-This article will demonstrate how to perform common scenarios using the
+This article demonstrates how to perform common scenarios using the
 Azure Blob storage service. The samples are written in C\# and
 use the Azure Storage Client Library for .NET. The scenarios covered include
 **uploading**, **listing**, **downloading**, and **deleting** blobs. 
