@@ -165,17 +165,17 @@ Below is an example of how the context variable looks.
 
 Table below contains name and description for each variable in the context.
   
-Variable name|Variable description
----|---
-RecoveryPlanName|Name of the recovery plan being executed. <p> This variable can help you take different actions based on the Recovery Plan name using the same script.
-FailoverType|Specifies whether the execution is **Test**, **Planned** or **Unplanned**. <p> This variable helps you take different actions based on the type of failover.
-FailoverDirection|Specifies whether the recovery is from primary side to recovery or vice versa. <p>The two values it takes is **PrimaryToSecondary** and **SecondaryToPrimary** 
-GroupId|Identifies the group number within the recovery plan where the runbook is executing. <p> For example, if the runbook is post group 2, the GroupId will be 2. 
-VmMap|This is an array of all the virtual machines in the group. 
-VmMap key|Each virtual machine has a unique key identified by a GUID. This GUID is same as the VMM ID of the virtual machine. <p> You can use this GUID to deterministically specify which virtual machine you want to operate on.
-RoleName|This specifies the name of the Azure virtual machine being recovered.
-CloudServiceName| This specifies the Azure Cloud Service name under which the virtual machine is being created. 
-
+<table border="1">
+  <tr><th>Variable name</th><th>Variable description</th></tr>
+  <tr><td>RecoveryPlanName</td><td>Name of the recovery plan being executed. <p> This variable can help you take different actions based on the Recovery Plan name using the same script.</td></tr>
+  <tr><td>FailoverType</td><td>Specifies whether the execution is **Test**, **Planned** or **Unplanned**. <p> This variable helps you take different actions based on the type of failover. </td></tr>
+  <tr><td>FailoverDirection</td><td>Specifies whether the recovery is from primary side to recovery or vice versa. <p>The two values it takes is **PrimaryToSecondary** and **SecondaryToPrimary** </td></tr>
+  <tr><td>GroupId</td><td> Identifies the group number within the recovery plan where the runbook is executing. <p> For example, if the runbook is post group 2, the GroupId will be 2. </td></tr>
+  <tr><td>VmMap</td><td> This is an array of all the virtual machines in the group. </td></tr>
+  <tr><td>VmMap key</td><td>Each virtual machine has a unique key identified by a GUID. This GUID is same as the VMM ID of the virtual machine. <p> You can use this GUID to deterministically specify which virtual machine you want to operate on. </td></tr>
+  <tr><td>RoleName</td><td>This specifies the name of the Azure virtual machine being recovered.</td></tr>
+  <tr><td>CloudServiceName</td><td> This specifies the Azure Cloud Service name under which the virtual machine is being created. </td></tr>
+  </table><br />
 
 To identify the VmMap Key in the context you could also go to the VM properties page in ASR and look at the VM GUID property.
 

@@ -71,16 +71,64 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 
 	Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks. The following table lists the current maximum IOPS and throughput (bandwidth) values per DS-series VM across all the disks attached to the VM:
 
-	VM Size |CPU cores |Max. IOPS |Max. Disk Bandwidth
-	---|---|---|---
-	**STANDARD_DS1** |1|3,200|32 MB per second
-	**STANDARD_DS2** |2|6,400|64 MB per second
-	**STANDARD_DS3** |4|12,800|128 MB per second
-	**STANDARD_DS4** |8|25,600|256 MB per second
-	**STANDARD_DS11** |2|6,400|64 MB per second
-	**STANDARD_DS12** |4|12,800|128 MB per second
-	**STANDARD_DS13** |8|25,600|256 MB per second
-	**STANDARD_DS14** |16|50,000|512 MB per second
+	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>VM Size</strong></td>
+	<td><strong>CPU cores</strong></td>
+	<td><strong>Max. IOPS</strong></td>
+	<td><strong>Max. Disk Bandwidth</strong></td>
+</tr>
+<tr>
+	<td><strong>STANDARD_DS1</strong></td>
+	<td>1</td>
+	<td>3,200</td>
+	<td>32 MB per second</td>
+</tr>
+<tr>
+	<td><strong>STANDARD_DS2</strong></td>
+	<td>2</td>
+	<td>6,400</td>
+	<td>64 MB per second</td>
+</tr>
+<tr>
+	<td><strong>STANDARD_DS3</strong></td>
+	<td>4</td>
+	<td>12,800</td>
+	<td>128 MB per second</td>
+</tr>
+<tr>
+	<td><strong>STANDARD_DS4</strong></td>
+	<td>8</td>
+	<td>25,600</td>
+	<td>256 MB per second</td>
+</tr>
+<tr>
+	<td><strong>STANDARD_DS11</strong></td>
+	<td>2</td>
+	<td>6,400</td>
+	<td>64 MB per second</td>
+</tr>
+<tr>
+	<td><strong>STANDARD_DS12</strong></td>
+	<td>4</td>
+	<td>12,800</td>
+	<td>128 MB per second</td>
+</tr>
+<tr>
+	<td><strong>STANDARD_DS13</strong></td>
+	<td>8</td>
+	<td>25,600</td>
+	<td>256 MB per second</td>
+</tr>
+<tr>
+	<td><strong>STANDARD_DS14</strong></td>
+	<td>16</td>
+	<td>50,000</td>
+	<td>512 MB per second</td>
+</tr>
+</tbody>
+</table>
 
 	For the most up-to-date information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section in this article.
 
@@ -103,11 +151,34 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 
 When you provision a disk against a Premium Storage account, how much input/output operations per second (IOPS) and throughput (bandwidth) it can get depends on the size of the disk. Currently, there are three types of Premium Storage disks: P10, P20, and P30. Each one has specific limits for IOPS and throughput as specified in the following table:
 
-Premium Storage Disk Type|P10|P20*|P30
----|---|---|---
-**Disk size** |128 GiB|512 GiB|1024 GiB (1 TB)
-**IOPS per disk** |500|2300|5000
-**Throughput per disk** | 100 MB per second * |150 MB per second * |200 MB per second *
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>Premium Storage Disk Type</strong></td>
+	<td><strong>P10</strong></td>
+	<td><strong>P20</strong></td>
+	<td><strong>P30</strong></td>
+</tr>
+<tr>
+	<td><strong>Disk size</strong></td>
+	<td>128 GiB</td>
+	<td>512 GiB</td>
+	<td>1024 GiB (1 TB)</td>
+</tr>
+<tr>
+	<td><strong>IOPS per disk</strong></td>
+	<td>500</td>
+	<td>2300</td>
+	<td>5000</td>
+</tr>
+<tr>
+	<td><strong>Throughput per disk</strong></td>
+	<td>100 MB per second *</td>
+	<td>150 MB per second *</td>
+	<td>200 MB per second *</td>
+</tr>
+</tbody>
+</table>
 
 > [AZURE.NOTE] Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic as explained in the [Using Premium Storage for Disks](#using-premium-storage-for-disks) section earlier in this article. Otherwise, your disk throughput and IOPS will be constrained to lower values based on the VM limits rather than the disk limits mentioned in the previous table.  
 
@@ -123,8 +194,24 @@ When you create your disks in Azure, select the most appropriate Premium Storage
 
 The following table describes the scalability targets for Premium storage accounts:
 
-Total Account Capacity | Total Bandwidth for a Locally Redundant Storage Account
-- Disk capacity: 35 TB <p><p>- Snapshot capacity: 10 TB|Up to 50 gigabits per second for Inbound + Outbound
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>Total Account Capacity</strong></td>
+	<td><strong>Total Bandwidth for a Locally Redundant Storage Account</strong></td>
+</tr>
+<tr>
+	<td>
+	<ul>
+       <li type=round>Disk capacity: 35 TB</li>
+       <li type=round>Snapshot capacity: 10 TB</li>
+    </ul>
+	</td>
+	<td>Up to 50 gigabits per second for Inbound + Outbound</td>
+</tr>
+</tbody>
+</table>
+
 - Inbound refers to all data (requests) being sent to a storage account.
 - Outbound refers to all data (responses) being received from a storage account.
 
