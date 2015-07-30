@@ -406,3 +406,72 @@ e.g. Have 2 consecutive cars from the same make entered the toll road within 90 
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.
 
+## Detect duration of a condition ##
+**Description**: Find out how long a condition occurred for.
+e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,000 pounds) – we want to compute the duration of the bug.
+
+**Input**:
+
+| Make | Time | Weight |
+| --- | --- | --- |
+| Honda | 2015-01-01T00:00:01.0000000Z | 2000 |
+| Toyota | 2015-01-01T00:00:02.0000000Z | 25000 |
+| Honda | 2015-01-01T00:00:03.0000000Z | 26000 |
+| Toyota | 2015-01-01T00:00:04.0000000Z | 25000 |
+| Honda | 2015-01-01T00:00:05.0000000Z | 26000 |
+| Toyota | 2015-01-01T00:00:06.0000000Z | 25000 |
+| Honda | 2015-01-01T00:00:07.0000000Z | 26000 |
+| Toyota | 2015-01-01T00:00:08.0000000Z | 2000 |
+
+**Output**:
+
+| StartFault | EndFault | FaultDurationSeconds |
+| --- | --- | --- |
+| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
+| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
+| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
+| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
+| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
+| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
+
+**Solution**:
+
+	SELECT
+	    PrevGood.Time AS StartFault,
+	    ThisGood.Time AS Endfault,
+	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
+	FROM
+	    Input AS ThisGood TIMESTAMP BY Time
+	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
+	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
+	    AND PrevGood.Weight < 20000
+	    INNER JOIN Input AS Bad TIMESTAMP BY Time
+	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
+	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
+	    AND Bad.Weight >= 20000
+	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
+	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
+	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
+	    AND MidGood.Weight < 20000
+	WHERE
+	    ThisGood.Weight < 20000
+	    AND MidGood.Weight IS NULL
+
+**Explanation**:
+We are looking for 2 good events with a bad event in between and without a good event in between which means the 2 events are the first events before and after at least 1 bad event. Getting 2 good events with 1 bad event in the middle is simple using 2 JOINs and validating that we get good -> bad -> good by checking the weight and comparing the time stamps. 
+
+Using what we learned on “LEFT Outer Join to include NULLs or to do absence of events” we know how to check that no good event has occurred between the 2 good events we picked up.
+
+Composing those together and we get good -> bad -> good with no other good event in between. We can now compute the duration between the beginning and end good events which gives us the duration of the bug.
+
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+
+## Next steps
+
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](../stream.analytics.get.started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
