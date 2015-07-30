@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="07/30/2015" 
 	ms.author="femila"/>
 
 # Usage scenarios for Azure AD Join 
@@ -47,45 +47,18 @@ In this scenario, Wendy can join a Contoso-owned device directly to Azure AD. Af
 
 
 
-## Domain Join a company-owned device to on-premises Active Directory and extend to Azure AD
-
-In this scenario, a user receives a company-owned device joined to on-premises Active Directory. In a hybrid environment where Active Directory and Azure AD are connected, domain joined devices are automatically represented in the company cloud directory. Users enjoy the best of both worlds.
-For example, Martin is an employee at Contoso. Contoso is an enterprise organization that has both Active Directory Domain Services on-premises and in the cloud (Azure AD). Martin’s primary device is a domain joined Surface Pro running Windows 8.1. His device has finished upgrading to Windows 10 and excited he’s ready to use it.
-
-### Prerequisites
-**At the enterprise level (administrator)**
-
-*	Windows Server 2012 R2 with AD DS and AD FS
-*	Azure AD Subscription
-
-**At the user level**
-
-*	Windows 10 (Professional and Enterprise SKUs)
--or-
-*	Windows 8.1 upgraded to Windows 10
-
-### Administrator Tasks
-* [Set up device registration and MFA](active-directory-azureadjoin-setup.md)
-* [Configure Group Policy for registering Windows 10 domain joined computers as devices](active-directory-azureadjoin-devices-group-policy.md)
-
-
-### User Tasks
-Next time the user signs-in to Windows, the device will auto-register with Azure AD. The user needs to take no additional steps. The user now will enjoy SSO to the cloud from everywhere and enjoy experiences in Windows like roaming of settings, access to store, Windows notifications and live tiles.
 
 ## Join a personal device to Azure AD
 In this scenario a user can add his or her Azure AD accounts to a personal Windows device to access work resources in a secure and compliant fashion. 
 
 ### Prerequisites
 **At the enterprise level (administrator)**
-
-*	Windows Server 2012 R2 with AD DS and AD FS
 *	Azure AD Subscription
 
 **At the user level**
 
 *	Windows 10 (Professional and Enterprise SKUs)
--or-
-*	Windows 8.1 upgraded to Windows 10
+
 
 ### Administrator Tasks
 

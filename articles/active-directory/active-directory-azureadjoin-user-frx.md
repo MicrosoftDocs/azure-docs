@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="07/30/2015" 
 	ms.author="femila"/>
 
 # Set up a new device with Azure AD through the first-run experience
@@ -31,7 +31,7 @@ To join a device to Azure AD
 ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png) </center> 
 3. Select the network to connect to the internet.
 4. Select if it’s a personal device or a company-owned device:
-5. Click **this device belongs to my organization**. This starts the Azure AD Join experience. 
+5. Click **this device belongs to my organization**. This starts the Azure AD Join experience. Following is a screen that you see in Windows 10 Professional SKU. 
 <center>
 ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png) </center>
 

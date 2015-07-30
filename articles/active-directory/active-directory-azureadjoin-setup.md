@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="07/30/2015" 
 	ms.author="femila"/>
 
 # Setting up Azure AD Join in your organization
@@ -26,8 +26,7 @@ Detailed instructions for syncing your on-prem users to Azure AD is covered in [
 
 To manually create and manage users in Azure AD, refer to [User management in Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
-## Set up device registration and multi-factor authentication 
-
+## Set up device registration 
 1. Log on to the Azure Portal as Administrator.
 2. On the left pane, select Active Directory.
 3. On the **Directory** tab, select your directory.
