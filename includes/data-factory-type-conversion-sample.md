@@ -15,7 +15,7 @@ You will define the Blob Source dataset as follows along with type definitions f
 	                { "name": "name", "type": "String"},
 	                { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
 	          ],
-	        "type": "AzureBlobLocation",
+	        "type": "AzureBlob",
 	        "linkedServiceName": "StorageLinkedService",
 	        "typeProperties": {
 	            "folderPath": "mycontainer/myfolder",
@@ -53,7 +53,7 @@ Next you will define the Azure SQL dataset as follows. Note: You do not need to 
 	{
 	    "name": "AzureSQLOutput",
 	    "properties": {
-	        "type": "AzureSqlTableLocation",
+	        "type": "AzureSqlTable",
 	        "linkedServiceName": "AzureSqlLinkedService",
 	        "typeProperties": {
 	            "tableName": "MyTable"

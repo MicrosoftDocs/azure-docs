@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Data Movement Activities
-Data factory has a [globally available service](#global) to support data movement with [Copy activity](data-factory-data-movement-activities.md) across a variety of data stores listed below. Data factory also has built-in support for [securely moving data between on-premises locations and cloud](#moveonpremtocloud) using the data management gateway.
+Data factory has a [globally available service](#global) to support data movement with [Copy activity](#copyactivity) across a variety of data stores listed below. Data factory also has built-in support for [securely moving data between on-premises locations and cloud](#moveonpremtocloud) using the data management gateway.
 
 ## Supported data stores for Copy Activity
 Copy activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and source, sink combinations. Click on a data store to learn how to copy data from/to that store.
@@ -39,7 +39,7 @@ Copy activity copies data from a **source** data store to a **sink** data store.
 | [On-premises Sybase Database](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises PostgreSQL Database](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 
-## Copy Activity
+## <a name="copyactivity"></a>Copy Activity
 Copy activity takes one input dataset (**source**) and copies data per activity configuration to one output dataset (**sink**). Data copy is done in a batch fashion according to the schedule specified on the activity.
 
 > [AZURE.NOTE] To learn about defining activities in general at a high level such as various JSON sections and properties available for all activities, see [Understanding Pipelines & Activities](data-factory-create-pipelines.md) article.
