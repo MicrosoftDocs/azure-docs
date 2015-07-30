@@ -3,7 +3,7 @@
 	description="Create an API app on Microsoft Azure and connect it to an on-premises SQL Server database"
 	services="app-service\api" 
 	documentationCenter="" 
-	authors="tarcher" 
+	authors="TomArcher" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
