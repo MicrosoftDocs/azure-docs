@@ -37,6 +37,7 @@ Before setting up dynamic data masking check if you are using a ["Downlevel Clie
 
 > [AZURE.NOTE] To set up dynamic data masking in the Azure Preview portal, see [Get started with SQL Database Dynamic Data Masking (Azure Preview portal)](sql-database-dynamic-data-masking-get-started.md). 
 
+
 ### Dynamic data masking permissions
 
 Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.
