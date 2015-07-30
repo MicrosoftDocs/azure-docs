@@ -208,7 +208,7 @@ A pool of compute nodes is the first set of resources that you must create when 
 			  newPool.Commit();
 			  Console.WriteLine("Created the pool. Press Enter to continue.");
 			  Console.ReadLine();
-		  }
+		  	}
 
 4. Add this code to Main that calls the method you just added:
 
@@ -266,7 +266,7 @@ Create a job that is used to manage tasks that run in the pool. All tasks must b
 				Console.WriteLine("Job id: " + job.Id);
 				Console.WriteLine("   Job status: " + job.State);
 			}
-			Console.WriteLine("Press Enter to continue.")
+			Console.WriteLine("Press Enter to continue.");
 			Console.ReadLine();
 		}
 
