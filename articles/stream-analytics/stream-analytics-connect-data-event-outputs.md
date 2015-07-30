@@ -35,7 +35,7 @@ To start using a SQL Database, the following information will be needed about th
 1. Server Name
 2. Database Name
 3. A valid username/password combination
-4. Output table name
+4. Output table name. This table must already exist, the job will not create it.
 
 ### Adding SQL Database as an output ###
 
@@ -61,19 +61,7 @@ Click next to add this output. Two operations should start, the first is to add 
 
 ![graphic6][graphic6]
 
-The second operation is to test the connection. Azure Stream Analytics will try to connect to the SQL Database and verify the credentials entered are correct and that the table is accessible. After this is complete, one of two messages will appear:
-
-![graphic7][graphic7]
-
-![graphic8][graphic8]
-
-If that was "Connection testing has failed" , click **DETAILS** to view the exact details of the error.
-
-![graphic9][graphic9]
-
-In this example, the credentials that were provided were incorrect. Simply supplying the correct credentials and retesting the connection is sufficient for remediation.
-
-![graphic10][graphic10]
+The second operation is to test the connection. Azure Stream Analytics will try to connect to the SQL Database and verify the credentials entered are correct and that the table is accessible.
 
 ## Using Blob storage as an output ##
 ---
@@ -128,18 +116,18 @@ There are a few parameters that are needed to configure Event Hub data streams.
 
     ![graphic37][graphic37]
 
-## Power BI as an output ##
+## Using Power BI as an output ##
 ---
 ### Overview ###
-Power BI can be utilized as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting. Note that multiple Power BI outputs may exist on a single Stream Analytics job. For more information on Power BI visit the [Power BI](https://powerbi.microsoft.com/) site.
+Power BI can be utilized as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting. For more information on Power BI visit the [Power BI](https://powerbi.microsoft.com/) site.
 
 ### Parameters ###
 
 There are a few parameters that are needed to configure a Power BI output.
 
-* **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query. For example, use the output alias value = “OutPbi”.
-* **Dataset Name** - Provide a dataset name that it is desired for the Power BI output to use. For example, use “pbidemo”.
-*	**Table Name** - Provide a table name under the dataset of the Power BI output. For example, use “pbidemo”. **Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.**
+1. Output Alias – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query. For example, use the output alias value = “OutPbi”.
+2. Dataset Name - Provide a dataset name that it is desired for the Power BI output to use. For example, use “pbidemo”.
+2. Table Name - Provide a table name under the dataset of the Power BI output. For example, use “pbidemo”. **Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.**
 
 ### Adding Power BI as an output ###
 
@@ -151,7 +139,7 @@ There are a few parameters that are needed to configure a Power BI output.
 
     ![graphic23][graphic23]
 
-3.  In this step, provide the Azure account ID for authorizing the Power BI output. If you are not already signed up for Power BI, choose **Sign up now**.
+3.  In this step, provide the Org ID for authorizing the Power BI output. If you are not already signed up for Power BI, choose **Sign up now**.
 4.  Next a screen like the following will be presented.
 
     ![graphic24][graphic24]
@@ -208,17 +196,6 @@ Click next to add this output. Two two operations should start, the first is to 
 
 The second one is to test the connection. Azure Stream Analytics will try to connect to that Storage Account and verify the credentials entered are correct.
 
-![graphic17][graphic17]
-
-![graphic18][graphic18]
-
-If that was the later, click **DETAILS** to view the exact details of the error.
-
-In this example, the credentials that were provided were incorrect. Correcting the credentials and test again by clicking the **TEST CONNECTION** button if necessary.
-
-![graphic19][graphic19]
-
-
 ## Service Bus Queues ##
 ---
 ### Introduction to Service Bus Queues concepts ###
@@ -230,9 +207,9 @@ For further information on Service Bus Queues see [Service Bus Queues, Topics, a
 
 To start using a Service Bus Queues output, the following information will be needed:
 
-1. **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in the job query.
+1. Output Alias – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in the job query.
 2. The namespace and service bus name.
-3. **Queue Name** - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When a queue is created it is also given a specific name.
+3. Queue Name - Queues are messaging entities, similar to event hubs and topics. They're designed to collect event streams from a number of different devices and services. When a queue is created it is also given a specific name.
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
 
 ### Adding Service Bus Queues as an output ###
@@ -250,7 +227,7 @@ Verify your data format and serialization are correct.
 ## Service Bus Topics ##
 ---
 ### Introduction to Service Bus Topics concepts ###
-While Service Bus Queues provide a one to one communication method from sender to receiver, Service Bus Topics and subscriptions provide a one-to-many form of communication.
+While Service Bus Queues provide a one to one communication method from sender to receiver, Service Bus Topics provide a one-to-many form of communication.
 
 For further information on Service Bus Topics see [Service Bus Queues, Topics, and Subscriptions](https://msdn.microsoft.com/library/azure/hh367516.aspx "Service Bus Queues, Topics, and Subscriptions") and [An Introduction to Service Bus Topics](http://blogs.msdn.com/b/appfabric/archive/2011/05/25/an-introduction-to-service-bus-topics.aspx "An Introduction to Service Bus Topics")
 
@@ -258,9 +235,9 @@ For further information on Service Bus Topics see [Service Bus Queues, Topics, a
 
 To start using a Service Bus Topics output, the following information will be needed:
 
-1. **Output Alias** – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
+1. Output Alias – Any friendly-named output alias that is easy to refer to. This output alias is particularly helpful if it is decided to have multiple outputs for a job. In that case, this alias will be referred to in your query.
 2. The namespace and service bus name.
-3. **Topic Name** - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When a topic is created, it is also given a specific name. The messages sent to a Topic will not be available unless a subscription is created, so ensure there are one or more subscriptions under the topic.
+3. Topic Name - Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When a topic is created, it is also given a specific name. The messages sent to a Topic will not be available unless a subscription is created, so ensure there are one or more subscriptions under the topic.
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
 
 ### Adding Service Bus Topics as an output ###
