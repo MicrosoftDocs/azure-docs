@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Table storage from Python | Microsoft Azure" 
-	description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." 
-	services="storage" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="How to use Table storage from Python | Microsoft Azure"
+	description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table."
+	services="storage"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="03/11/2015"
 	ms.author="huvalo"/>
 
 
@@ -33,7 +33,7 @@ table, inserting and querying entities in a table**.
 [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install.md).
 
 
-## How to Create a Table
+## Create a table
 
 The **TableService** object lets you work with table services. The
 following code creates a **TableService** object. Add the following near
@@ -47,7 +47,7 @@ The following code creates a **TableService** object using the storage account n
 
 	table_service.create_table('tasktable')
 
-## How to Add an Entity to a Table
+## Add an entity to a table
 
 To add an entity, first create a dictionary that defines your entity
 property names and values. Note that for every entity you must
@@ -74,7 +74,7 @@ You can also pass an instance of the **Entity** class to the **insert\_entity** 
 	task.priority = 100
 	table_service.insert_entity('tasktable', task)
 
-## How to Update an Entity
+## Update an entity
 
 This code shows how to replace the old version of an existing entity
 with an updated version.
@@ -84,7 +84,7 @@ with an updated version.
 
 If the entity that is being updated does not exist, then the update
 operation will fail. If you want to store an entity
-regardless of whether it already existed before, use **insert\_or\_replace_entity**. 
+regardless of whether it already existed before, use **insert\_or\_replace_entity**.
 In the following example, the first call will replace the existing entity. The second call will insert a new entity, since no entity with the specified **PartitionKey** and **RowKey** exists in the table.
 
 	task = {'description' : 'Take out the garbage again', 'priority' : 250}
@@ -93,7 +93,7 @@ In the following example, the first call will replace the existing entity. The s
 	task = {'description' : 'Buy detergent', 'priority' : 300}
 	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '3', task)
 
-## How to Change a Group of Entities
+## Change a group of entities
 
 Sometimes it makes sense to submit multiple operations together in a
 batch to ensure atomic processing by the server. To accomplish that, you
@@ -108,7 +108,7 @@ batch, you call **commit\_batch**. Note that all entities must be in the same pa
 	table_service.insert_entity('tasktable', task11)
 	table_service.commit_batch()
 
-## How to Query for an Entity
+## Query for an entity
 
 To query an entity in a table, use the **get\_entity** method, by
 passing the **PartitionKey** and **RowKey**.
@@ -117,7 +117,7 @@ passing the **PartitionKey** and **RowKey**.
 	print(task.description)
 	print(task.priority)
 
-## How to Query a Set of Entities
+## Query a set of entities
 
 This example finds all tasks in Seattle based on the **PartitionKey**.
 
@@ -126,7 +126,7 @@ This example finds all tasks in Seattle based on the **PartitionKey**.
 		print(task.description)
 		print(task.priority)
 
-## How to Query a Subset of Entity Properties
+## Query a subset of entity properties
 
 A query to a table can retrieve just a few properties from an entity.
 This technique, called *projection*, reduces bandwidth and can improve
@@ -145,19 +145,19 @@ Emulator.*
 	for task in tasks:
 		print(task.description)
 
-## How to Delete an Entity
+## Delete an entity
 
 You can delete an entity using its partition and row key.
 
 	table_service.delete_entity('tasktable', 'tasksSeattle', '1')
 
-## How to Delete a Table
+## Delete a table
 
 The following code deletes a table from a storage account.
 
 	table_service.delete_table('tasktable')
 
-## Next Steps
+## Next steps
 
 Now that you have learned the basics of table storage, follow these links
 to learn about more complex storage tasks.
@@ -168,4 +168,3 @@ to learn about more complex storage tasks.
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure package]: https://pypi.python.org/pypi/azure  
- 

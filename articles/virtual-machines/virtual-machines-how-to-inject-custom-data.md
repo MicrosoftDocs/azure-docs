@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Injecting Custom Data into Azure Virtual Machines"
-	description="This topic describes how to inject custom data into an Azure Virtual Machine when the instance is created and how to locate the custom data on either Windows or Linux."
+	description="This topic describes how to inject custom data into an Azure virtual machine when the instance is created and how to locate the custom data on either Windows or Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -22,17 +22,17 @@
 
 Injecting a script or other data into an Azure virtual machine when it is being provisioned is a very common scenario, regardless of whether the operating system is Windows or a Linux distribution. This topic describes how to:
 
-- Inject data into an Azure virtual machine when it is being provisioned
+- Inject data into an Azure virtual machine when it is being provisioned.
 
-- Retrieve it for both Windows and Linux
+- Retrieve it for both Windows and Linux.
 
-- Use special tools available on some systems to detect and handle custom data automatically
+- Use special tools available on some systems to detect and handle custom data automatically.
 
-> [AZURE.NOTE] This article describes how custom data can be injected using a VM created with the Azure Service Management compute stack. To see how to use the Azure Resource Management compute stack, see [the example template here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> [AZURE.NOTE] This article describes how custom data can be injected by using a VM created with the Azure Service Management API. To see how to use the Azure Resource Management API, see [the example template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 ## Injecting custom data into your Azure virtual machine
 
-This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-xplat-cli). Although you may use any of the options for the `azure vm create` command, the following approach demonstrates one very basic approach.
+This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-xplat-cli). Although you may use any of the options for the `azure vm create` command, the following demonstrates one very basic approach.
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
