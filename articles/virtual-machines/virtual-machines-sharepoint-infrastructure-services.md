@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/07/2015"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # SharePoint farms hosted in Azure infrastructure services
@@ -51,8 +51,14 @@ This configuration uses virtual machines created in Service Management.
 
 ## Additional resources
 
-[SharePoint Server on Azure Virtual Machines](https://msdn.microsoft.com/library/dn275955.aspx)
+See these resources for additional SharePoint in Azure information and configurations:
 
-[Planning for SharePoint 2013 on Azure Infrastructure Services](https://msdn.microsoft.com/library/dn275958.aspx)
+- [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-[Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
+- [Internet Sites in Microsoft Azure using SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
+
+- [SharePoint Server 2013 Disaster Recovery in Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
+
+- [Using Microsoft Azure Active Directory for SharePoint 2013 authentication](https://technet.microsoft.com/library/dn635311.aspx)
+
+- [Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)

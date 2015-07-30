@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (ASP.NET Projects)
@@ -43,13 +43,7 @@ deleting a table**, as well as **working with table entities**.
 
 ##Access tables in code 
 
-## Programmatically access Table storage
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
-
-### Namespace declarations
-Add the following code namespace declarations to the top of any C\# file
-in which you wish to programmatically access Azure Storage:
 
 1. Make sure the namespace declarations at the top of the C# file include these `using` statements.
 
@@ -193,7 +187,7 @@ You can delete an entity after you find it. The following code looks for a custo
 
 ## Next steps
 
-[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+[AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
 
 

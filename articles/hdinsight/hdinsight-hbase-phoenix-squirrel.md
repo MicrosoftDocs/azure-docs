@@ -108,7 +108,7 @@ There are 3 steps involved configuring a point-to-site VPN connection:
 2. [Create your certificates](#Create-your-certificates)
 3. [Configure your VPN client](#Configure-your-VPN-client)
 
-See [Configure a Point-to-Site VPN connection to an Azure Virtual Network](https://msdn.microsoft.com/library/azure/dn133792.aspx) for more information.
+See [Configure a Point-to-Site VPN connection to an Azure Virtual Network](../vpn-gateway/vpn-gateway-point-to-site-create.md) for more information.
 
 #### Configure a virtual network and a dynamic routing gateway
 
