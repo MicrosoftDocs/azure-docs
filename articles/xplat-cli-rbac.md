@@ -18,7 +18,7 @@
 
 # Managing Role-Based Access Control with the Azure Command-Line Interface (Azure CLI)#
 
-[AZURE.SELECTOR]
+> [AZURE.SELECTOR]
 - [Azure PowerShell](powershell-rbac)
 - [Azure CLI](xplat-cli-rbac)
 
