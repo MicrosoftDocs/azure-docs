@@ -59,8 +59,8 @@ In this sample, the output table has a structure and it points to a blob in an A
 	        "type": "AzureBlob",
 	        "linkedServiceName": "StorageLinkedService",
 	        "typeProperties": {
-	            "folderPath": "MyContainer/MySubFolder",
-	            "fileName":"MyFile.csv",
+	            "folderPath": "mycontainer/myfolder",
+	            "fileName":"myfile.csv",
 	            "format":
 	            {
 	                "type": "TextFormat",

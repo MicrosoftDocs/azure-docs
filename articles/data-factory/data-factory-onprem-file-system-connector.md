@@ -84,7 +84,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	    "type": " FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "MyContainer/MyFolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "filename": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -116,7 +116,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "%H"
 	          }
 	        }
 	      ]
@@ -146,7 +146,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "MyContainer/MyFolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -320,7 +320,7 @@ Data is copied to a new file every hour with the path for the blob reflecting th
 	    "type": "FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "MyContainer/MyFolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "filename": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -400,7 +400,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', SliceStart, SliceEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -546,7 +546,7 @@ To use an escapeChar instead of quoteChar, replace the line with quoteChar with 
 
 ### Specifying AvroFormat
 
-If the format is set to **AvroFormat**, you do not need to specify any properties in the Format section within the Location section. Example:
+If the format is set to **AvroFormat**, you do not need to specify any properties in the Format section within the typeProperties section. Example:
 
 	"format":
 	{

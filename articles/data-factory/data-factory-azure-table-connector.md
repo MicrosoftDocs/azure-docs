@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
 # Azure Table Connector - Move data to and from Azure Table
@@ -82,7 +82,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "MyContainer/MyFolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -113,7 +113,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "%H"
 	          }
 	        }
 	      ],
@@ -209,7 +209,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "MyContainer/MyFolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "filename": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -241,7 +241,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "%H"
 	          }
 	        }
 	      ],
@@ -417,22 +417,22 @@ You will define the Blob Source dataset as follows along with type definitions f
 	    {
 	         "structure": 
 	          [
-	                { "name": "userid", “type”: “Int64”},
-	                { "name": "name", “type”: “String},
-	                { "name": "lastlogindate", “type”: “Datetime”, “culture”: “fr-fr”, “fomat”: “ddd-MM-YYYY”}
+	                { "name": "userid", "type": "Int64"},
+	                { "name": "name", "type": "String"},
+	                { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
 	          ],
 	        "type": "AzureBlob",
 	        "linkedServiceName": "StorageLinkedService",
 	        "typeProperties": {
-	            "folderPath": "MyContainer/MySubFolder",
-	            "fileName":"MyFile.csv",
+	            "folderPath": "mycontainer/myfolder",
+	            "fileName":"myfile.csv",
 	            "format":
 	            {
 	                "type": "TextFormat",
 	                "columnDelimiter": ","
 	            }
 	        },
-	        “external”: “true”,
+	        "external": true,
 	        "availability":
 	        {
 	            "frequency": "Hour",

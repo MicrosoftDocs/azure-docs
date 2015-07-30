@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
 # Teradata Connector - Move data from Teradata
@@ -94,6 +94,7 @@ Setting “external”: true and specifying externalData policy tells data facto
 	            "frequency": "Hour",
 	            "interval": 1
 	        },
+			"external": true,
 	        "policy": {
 	            "externalData": {
 	                "retryInterval": "00:01:00",
@@ -151,7 +152,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "%H"
 	          }
 	        }
 	      ]
@@ -177,7 +178,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
+	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",

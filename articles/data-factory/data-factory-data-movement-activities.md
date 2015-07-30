@@ -13,21 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
 # Data Movement Activities
-Data factory has a globally available service to support data movement with Copy activity across a variety of data stores listed below. Data factory also has built-in support for securely moving data between on-premises locations and cloud using the data management gateway.
+Data factory has a [globally available service](#global) to support data movement with [Copy activity](data-factory-data-movement-activities.md) across a variety of data stores listed below. Data factory also has built-in support for [securely moving data between on-premises locations and cloud](#moveonpremtocloud) using the data management gateway.
 
 ## Supported data stores for Copy Activity
 Copy activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and source, sink combinations. Click on a data store to learn how to copy data from/to that store.
 
-| Source | Sink |
+| **Source** | **Sink** |
 | ------ | ---- |
 | [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB |
 | [Azure Table](data-factory-azure-table-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB |
 | [Azure SQL Database](data-factory-azure-sql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB |
 | [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob, Azure Table, Azure SQL Database |
+| [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB, Azure SQL Data Warehouse |
 | [SQL Server on IaaS](data-factory-sqlserver-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises File System](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
@@ -37,12 +38,11 @@ Copy activity copies data from a **source** data store to a **sink** data store.
 | [On-premises Teradata Database](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises Sybase Database](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises PostgreSQL Database](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB, Azure SQL Data Warehouse |
 
 ## Copy Activity
 Copy activity takes one input dataset (**source**) and copies data per activity configuration to one output dataset (**sink**). Data copy is done in a batch fashion according to the schedule specified on the activity.
 
-> [AZURE.NOTE] To learn about defining activities in general at a high level such as various JSON sections and properties available for all activities, see [Creating Pipelines](data-factory-creating-pipelines.md) article.
+> [AZURE.NOTE] To learn about defining activities in general at a high level such as various JSON sections and properties available for all activities, see [Understanding Pipelines & Activities](data-factory-create-pipelines.md) article.
 
 Copy activity provides the following capabilities:
 

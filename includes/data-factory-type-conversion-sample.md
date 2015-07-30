@@ -6,20 +6,20 @@ Suppose the Blob dataset is in CSV format and contains 3 columns. One of them is
 You will define the Blob Source dataset as follows along with type definitions for the columns.
 
 	{
-	    "name": " AzureBlobInput",
+	    "name": " AzureBlobTypeSystemInput",
 	    "properties":
 	    {
 	         "structure": 
 	          [
-	                { "name": "userid", “type”: “Int64”},
-	                { "name": "name", “type”: “String},
-	                { "name": "lastlogindate", “type”: “Datetime”, “culture”: “fr-fr”, “fomat”: “ddd-MM-YYYY”}
+	                { "name": "userid", "type": "Int64"},
+	                { "name": "name", "type": "String"},
+	                { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
 	          ],
 	        "type": "AzureBlobLocation",
 	        "linkedServiceName": "StorageLinkedService",
 	        "typeProperties": {
-	            "folderPath": "MyContainer/MySubFolder",
-	            "fileName":"MyFile.csv",
+	            "folderPath": "mycontainer/myfolder",
+	            "fileName":"myfile.csv",
 	            "format":
 	            {
 	                "type": "TextFormat",

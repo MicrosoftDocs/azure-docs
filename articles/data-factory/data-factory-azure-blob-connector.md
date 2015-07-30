@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
 # Azure Blob Connector - Move data to and from Azure Blob
@@ -64,7 +64,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "MyContainer/MyFolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "filename": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -96,7 +96,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "%H"
 	          }
 	        }
 	      ],
@@ -263,7 +263,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "MyContainer/MyFolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -294,7 +294,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "%H"
 	          }
 	        }
 	      ],
@@ -430,8 +430,8 @@ The following sample shows some of the format properties for TextFormat.
 
 	"typeProperties":
 	{
-	    "folderPath": "MyContainer/MySubFolder",
-	    "fileName": "MyBlobName"
+	    "folderPath": "mycontainer/myfolder",
+	    "fileName": "myblobname"
 	    "format":
 	    {
 	        "type": "TextFormat",
@@ -447,7 +447,7 @@ To use an escapeChar instead of quoteChar, replace the line with quoteChar with 
 	"escapeChar": "$",
 
 ### Specifying AvroFormat
-If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the Location section. Example:
+If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
 
 	"format":
 	{

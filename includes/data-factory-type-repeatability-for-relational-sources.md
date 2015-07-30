@@ -10,7 +10,7 @@ In most cases when reading from relational stores, you would want to read only t
 	
 	  "source": {
 	    "type": "SqlSource",
-	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd-HH\\' AND timestampcolumn < \\'{1:yyyy-MM-dd-HH\\'', SliceStart, SliceEnd)"
+	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 	  },
 
 The above query will read data from ‘MyTable’ that falls in the slice duration range. Re-run of this slice would also always ensure this behavior. 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
 # MySQL Connector - Move data From MySQL
@@ -92,6 +92,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	            "frequency": "Hour",
 	            "interval": 1
 	        },
+			"external": true,
 	        "policy": {
 	            "externalData": {
 	                "retryInterval": "00:01:00",
@@ -108,58 +109,58 @@ Setting “external”: ”true” and specifying externalData policy informs th
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
 	{
-	    "name": "AzureBlobMySqlDataSet",
-	    "properties": {
-	        "published": false,
-	        "location": {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "mycontainer/mysql/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	            "format": {
-	                "type": "TextFormat",
-	                "rowDelimiter": "\n",
-	                "columnDelimiter": "\t"
-	            },
-	            "partitionedBy": [
-	                {
-	                    "name": "Year",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "yyyy"
-	                    }
-	                },
-	                {
-	                    "name": "Month",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "%M"
-	                    }
-	                },
-	                {
-	                    "name": "Day",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "%d"
-	                    }
-	                },
-	                {
-	                    "name": "Hour",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "%HH"
-	                    }
-	                }
-	            ],
-	            "linkedServiceName": "AzureStorageLinkedService"
+	  "name": "AzureBlobMySqlDataSet",
+	  "properties": {
+	    "published": false,
+	    "type": "AzureBlob",
+	    "linkedServiceName": "AzureStorageLinkedService",
+	    "typeProperties": {
+	      "folderPath": "mycontainer/mysql/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "format": {
+	        "type": "TextFormat",
+	        "rowDelimiter": "\n",
+	        "columnDelimiter": "\t"
+	      },
+	      "partitionedBy": [
+	        {
+	          "name": "Year",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "yyyy"
+	          }
 	        },
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
+	        {
+	          "name": "Month",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%M"
+	          }
+	        },
+	        {
+	          "name": "Day",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%d"
+	          }
+	        },
+	        {
+	          "name": "Hour",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%H"
+	          }
 	        }
+	      ]
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
 	    }
+	  }
 	}
 
 
@@ -177,7 +178,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
+	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
