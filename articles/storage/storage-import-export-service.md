@@ -118,7 +118,7 @@ Create an export job to notify the Import/Export service that you'll be shipping
 	The table shows examples of valid blob paths:
 
 	Selector|Blob Path|Description
-	--|--|--
+	---|---|---
 	Starts With|/|Exports all blobs in the storage account
 	Starts With|/$root/|Exports all blobs in the root container
 	Starts With|/book|Exports all blobs in any container that begins with prefix **book**
