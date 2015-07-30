@@ -31,12 +31,14 @@ You will define the Blob Source dataset as follows along with type definitions f
 	        {
 	            "frequency": "Hour",
 	            "interval": 1,
+	        },
+			"policy": {
 	            "externalData": {
 	                "retryInterval": "00:01:00",
 	                "retryTimeout": "00:10:00",
 	                "maximumRetry": 3
 	            }
-	        }
+			}
 	    }
 	}
 

@@ -35,12 +35,14 @@ In this sample, the input table has a structure and it points to a SQL table in 
 	        "availability": {
 	            "frequency": "Hour",
 	            "interval": "1",
+	        },
+			"policy": {
 	            "externalData": {
 	                "retryInterval": "00:01:00",
 	                "retryTimeout": "00:10:00",
 	                "maximumRetry": "3"
 	            }
-	        }
+			}
 	    }
 	}
 
