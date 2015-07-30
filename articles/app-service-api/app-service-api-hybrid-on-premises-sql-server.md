@@ -32,8 +32,6 @@ To complete this tutorial, you'll need the following products. All are available
 
 - **Visual Studio** - To download a free trial version of Visual Studio 2013 or Visual Studio 2015, see [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs). Install one of these before continuing. (The screen shots in this tutorial were taken using Visual Studio 2013)
 
-- **Microsoft .NET Framework 3.5 Service Pack 1** - If your operating system is Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7, or Windows Server 2008 R2, you can enable this in Control Panel > Programs and Features > Turn Windows features on or off. Otherwise, you can download it from the [Microsoft Download Center](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
-
 - **SQL Server 2014 Express with Tools** - download Microsoft SQL Server Express for free at the [Microsoft Web Platform Database page](https://www.microsoft.com/en-us/download/details.aspx?id=42299). Later in this tutorial, you'll see how to [install SQL Server](#InstallSQLDB) to ensure that it is properly configured.
 
 - **SQL Server Management Studio Express** - This is included with the SQL Server 2014 Express with Tools download mentioned above, but if you need to install it separately, you can download and install it from the [SQL Server Express download page](https://www.microsoft.com/en-us/download/details.aspx?id=42299).
