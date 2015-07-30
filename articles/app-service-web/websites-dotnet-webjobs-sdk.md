@@ -68,13 +68,13 @@ The `JobHost` object is a container for a set of background functions. The `JobH
 
 Because the `ProcessQueueMessage` method in this example has a `QueueTrigger` attribute, the trigger for that function is the reception of a new queue message. The `JobHost` object watches for new queue messages on the specified queue ("webjobsqueue" in this sample) and when one is found, it calls `ProcessQueueMessage`. The `QueueTrigger` attribute also notifies the framework to bind the `inputText` parameter to the value of the queue message: 
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]] <mark>string inputText</mark>, 
-    [Blob("containername/blobname")]TextWriter writer)</pre>
+		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
+		    [Blob("containername/blobname")]TextWriter writer)
 
 The framework also binds a `TextWriter` object to a blob named "blobname" in a container named "containername":
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]] string inputText, 
-    <mark>[Blob("containername/blobname")]TextWriter writer</mark>)</pre>
+		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
+		    [Blob("containername/blobname")]TextWriter writer)
 
 The function then uses these parameters to write the value of the queue message to the blob:
 
