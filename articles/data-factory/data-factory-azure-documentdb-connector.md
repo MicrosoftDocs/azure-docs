@@ -394,22 +394,11 @@ the following properties are available in **typeProperties** section:
 
 **DocumentDbCollectionSink** supports the following properties:
 
-| **Property** | **Description** | **Allowed values** | **Required** | 
-| ------------ | --------------- | ------------------ | ------------ |
-| nestingSeparator | A special character in the source column name to indicate that nested document is needed. | Character that is used to separate nesting levels.<p>Default value is . (dot).</p> | No |
-| writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<p>You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".</p><p>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second).</p> | Integer Value | No |
+| **Property** | **Description** | **Allowed values** | **Required** |
+| -------- | ----------- | -------------- | -------- |
+| nestingSeparator | A special character in the source column name to indicate that nested document is needed. | Character that is used to separate nesting levels. <p>Default value is . (dot).</p> | No | 
+| writeBatchSize | Number of parallel requests to DocumentDB service to create documents.
+You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<p>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second).</p> | Integer Value | No |
 | writeBatchTimeout | Wait time for the operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No |
-
-
  
-
-
-
-
-
-
-
-
-
-
-
+ 
