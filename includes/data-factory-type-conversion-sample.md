@@ -26,7 +26,7 @@ You will define the Blob Source dataset as follows along with type definitions f
 	                "columnDelimiter": ","
 	            }
 	        },
-	        "external": "true",
+	        "external": true,
 	        "availability":
 	        {
 	            "frequency": "Hour",
