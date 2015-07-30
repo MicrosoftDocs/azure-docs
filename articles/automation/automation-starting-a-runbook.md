@@ -19,15 +19,85 @@
 
 The following table will help you determine the method to start a runbook in Azure Automation that is most suitable to your particular scenario.    This article includes details on starting a runbook with the Azure portal and with Windows PowerShell.  Details on the other methods are provided in other documentation that you can access from the links below.
 
+<table>
+ <tr>
+  <td>METHOD</td>
+  <td>CHARACTERISTICS</td>
+ </tr>
+ <tr>           
+  <td><a href="#starting-a-runbook-with-the-azure-portal">Azure portal</a></td>
+  <td>
+   <ul>
+    <li>Simplest method with interactive user interface.</li>
+    <li>Form to provide simple parameter values.</li>
+    <li>Easily track job state.</li>
+    <li>Access authenticated with Azure logon.</li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+  <td><a href="https://msdn.microsoft.com/library/dn690259.aspx">Windows PowerShell</a></td>
+  <td>
+   <ul>
+     <li>Call from command line with Windows PowerShell cmdlets.</li>
+     <li>Can be included in automated solution with multiple steps.</li>
+     <li>Request is authenticated with certificate or OAuth user principal / service  principal.</li>
+     <li>Provide simple and complex parameter values.</li>
+     <li>Track job state.</li>
+     <li>Client required to support PowerShell cmdlets.</li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+ <tr>
+  <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">Azure Automation API</a></td>
+  <td>
+   <ul>
+    <li>Most flexible method but also most complex.</li>
+    <li>Call from any custom code that can make HTTP requests.</li>
+    <li>Request authenticated with certificate, or Oauth user principal / service principal.</li>
+    <li>Provide simple and complex parameter values.</li>
+    <li>Track job state.</li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+ <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
+  <td>
+   <ul>
+    <li>Start runbook from single HTTP request.</li>
+    <li>Authenticated with security token in URL.</li>
+    <li>Client cannot override parameter values specified when webhook created.  Runbook can define single parameter that is populated with the HTTP request details.</li>
+    <li>No ability to track job state through webhook URL.</li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+ <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">Schedule</a></td>
+  <td>
+   <ul>
+    <li>Automatically start runbook on hourly, daily, or weekly schedule.</li>
+    <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.</li>
+    <li>Provide parameter values to be used with schedule.</li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+  <td><a href="http://msdn.microsoft.com/library/azure/dn857355.aspx">From another runbook</a></td>
+  <td>
+   <ul>
+    <li>Use a runbook as an activity in another runbook</li>
+    <li>Useful for functionality used by multiple runbooks.</li>
+    <li>Provide parameter values to child runbook and use output in parent runbook.</li>
+   </ul>
+  </td>
+ </tr>
+</table>
+<br>
 
-METHOD|CHARACTERISTICS
----|---
-[Azure portal](#starting-a-runbook-with-the-azure-portal)| * Simplest method with interactive user interface.<p> * Form to provide simple parameter values.<p> * Easily track job state.<p> * Access authenticated with Azure logon.
-[Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx)| * Call from command line with Windows PowerShell cmdlets.<p> * Can be included in automated solution with multiple steps.<p> * Request is authenticated with certificate or OAuth user principal / service  principal.<p> * Provide simple and complex parameter values.<p> * Track job state.<p> * Client required to support PowerShell cmdlets.
-[Azure Automation API](http://msdn.microsoft.com/library/azure/mt163849.aspx)| * Most flexible method but also most complex.<p> * Call from any custom code that can make HTTP requests.<p> * Request authenticated with certificate, or Oauth user principal / service principal.<p> * Provide simple and complex parameter values.<p> * Track job state.
-[Webhook](automation-webhooks.md)| * Start runbook from single HTTP request.<p> * Authenticated with security token in URL.<p> * Client cannot override parameter values specified when webhook created.  Runbook can define single parameter that is populated with the HTTP request details.<p> * No ability to track job state through webhook URL.
-[Schedule](automation-scheduling-a-runbook.md)| * Automatically start runbook on hourly, daily, or weekly schedule.<p> * Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.<p> * Provide parameter values to be used with schedule.
-[From another runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)| * Use a runbook as an activity in another runbook<p> * Useful for functionality used by multiple runbooks.<p>   * Provide parameter values to child runbook and use output in parent runbook.
+
 
 ## Starting a runbook with the Azure portal
 
