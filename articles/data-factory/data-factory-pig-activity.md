@@ -20,6 +20,8 @@
 
 The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Pig queries on [your own](https://msdn.microsoft.com/library/mt185697.aspx) or [on-demand](https://msdn.microsoft.com/library/mt185733.aspx) HDInsight cluster.  
 
+**Note:** This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
+
 ## Syntax
 
 	{
