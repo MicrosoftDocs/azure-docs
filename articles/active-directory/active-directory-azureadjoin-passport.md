@@ -97,6 +97,7 @@ At the user level
 
 ## Additional information
 
-* [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Learn about usage and deployment scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
 
