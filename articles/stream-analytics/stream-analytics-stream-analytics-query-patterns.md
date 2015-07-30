@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/29/2015"
+	ms.date="07/30/2015"
 	ms.author="jeffstok"/>
 
 
@@ -198,44 +198,45 @@ e.g.
 
 ## Counting unique values
 **Description**: count the number of unique field values that appear in the stream within a time window.
-e.g. How many unique makes of cars passed through the toll booth in a 2 second window?
+e.g. How many unique make of cars passed through the toll booth in a 2 second window?
 
 **Input**:
 
 | Make | Time |
 | --- | --- |
-| Honda | 00:00:00 |
-| Honda | 00:00:01 |
-| Toyota | 00:00:00 |
-| Toyota | 00:00:01 |
-| Toyota | 00:00:02 |
+| Honda | 2015-01-01T00:00:01.0000000Z |
+| Honda | 2015-01-01T00:00:02.0000000Z |
+| Toyota | 2015-01-01T00:00:01.0000000Z |
+| Toyota | 2015-01-01T00:00:02.0000000Z |
+| Toyota | 2015-01-01T00:00:03.0000000Z |
 
 **Output:**
 
 | Count | Time |
 | --- | --- |
-| 2 | 00:00:01 |
-| 1 | 00:00:03 |
+| 2 | 2015-01-01T00:00:02.000Z |
+| 1 | 2015-01-01T00:00:04.000Z |
 
 **Solution:**
 
-    WITH Makes AS (
-    	SELECT
-    		Make,
-    		COUNT(*) AS CountMake,
-    	FROM
-    		Entry TIMESTAMP BY EntryTime
-    	GROUP BY
-              Make,
-              TumblingWindow(second, 2)
-    )
-    SELECT
-		COUNT(*) AS Count,
-		System.TimeStamp AS Time
+	WITH Makes AS (
+	    SELECT
+	        Make,
+	        COUNT(*) AS CountMake
+	    FROM
+	        Input TIMESTAMP BY Time
+	    GROUP BY
+	          Make,
+	          TumblingWindow(second, 2)
+	)
+	SELECT
+	    COUNT(*) AS Count,
+	    System.TimeStamp AS Time
 	FROM
-		Makes
+	    Makes
 	GROUP BY
-		TumblingWindow(second, 1)
+	    TumblingWindow(second, 1)
+
 
 **Explanation:**
 We do an initial aggregation to get unique makes with their count over the window.
@@ -278,13 +279,13 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 
 | License plate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05 |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17 |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01 |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00 |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31 |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02 |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45 |
+| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
 
 **Output**:
 
@@ -332,13 +333,13 @@ Now let’s change the problem and find first car of particular Make in every 10
 
 | License plate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05 |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17 |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01 |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00 |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31 |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02 |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45 |
+| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
 
 **Output**:
 
