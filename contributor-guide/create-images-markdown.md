@@ -36,7 +36,7 @@ After you create the folder and added images to it, use the following syntax to 
 ```
 Example:
 
-See [the markdown template](https://raw.githubusercontent.com/Azure/azure-content/master/markdown%20templates/markdown-template-for-new-articles.md) for an example.  The image reference links in this markdown template are designed to be at the bottom of the template.
+See [the markdown template](../markdown%20templates/markdown-template-for-new-articles.md) for an example.  The image reference links in this markdown template are designed to be at the bottom of the template.
 
 ## Guidelines specific to azure.microsoft.com
 
