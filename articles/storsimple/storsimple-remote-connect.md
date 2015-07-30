@@ -29,7 +29,15 @@ You can use HTTP or HTTPS to connect via Windows PowerShell remoting.
 
 Connecting to Windows PowerShell for StorSimple through an HTTP session offers more security than connecting through the serial console of your StorSimple device. Although this is not the most secure method, it is acceptable on trusted networks.
 
-The following procedures explain how to set up the serial console and client computers so that you can use HTTP to connect to Windows PowerShell for StorSimple.
+The following procedures explain how to perform the following tasks so that you can use HTTP to connect to Windows PowerShell for StorSimple:
+
+- [Enable remote management through the device serial console](#enable-remote-management-on-the-device)
+
+- [Prepare the client for remote connection](#prepare-the-client-for-remote-connection)
+
+### Enable remote management on the device
+
+Perform the following steps on the device serial console to enable remote management.
 
 #### To enable remote management through the device serial console
 
@@ -44,6 +52,10 @@ The following procedures explain how to set up the serial console and client com
 5. Verify that the **RemoteManagementMode** field shows **HttpsAndHttpEnabled**.The following illustration shows these settings in PuTTY.
 
      ![Serial Https and Http Enabled](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
+
+### Prepare ### the client for remote connection
+
+Perform the following steps on the client to enable remote management.
 
 #### To prepare the client for remote connection
 
@@ -80,11 +92,11 @@ The following procedures explain how to set up the serial console and client com
 
 Connecting to Windows PowerShell for StorSimple through an HTTPS session is the most secure and recommended method of remotely connecting to your Microsoft Azure StorSimple device. The following procedures explain how to set up the serial console and client computers so that you can use HTTPS to connect to Windows PowerShell for StorSimple:
 
-1. [Enable remote management on the device](#enable-remote-management-on-the-device).
+- [Enable remote management on the device](#enable-remote-management-on-the-device).
 
-2. [Prepare the host for remote management](#prepare-the-host-for-remote-management).
+- [Prepare the host for remote management](#prepare-the-host-for-remote-management).
 
-3. [Connect to the device from the remote host](#connect-to-the-device-from-the-remote-host).
+- [Connect to the device from the remote host](#connect-to-the-device-from-the-remote-host).
 
 ### Enable remote management on the device
 
@@ -128,25 +140,25 @@ Perform the following steps on the device serial console to enable remote manage
 
 To prepare the host computer for a remote connection that uses an HTTPS session, perform the following procedures:
 
-1. Import the .cer file into the root store of the client or remote host.
+- [Import the .cer file into the root store of the client or remote host](to-import-the-certificate-on-the-remote-host).
 
-2. Add the device serial numbers to the hosts file on your remote host.
+- [Add the device serial numbers to the hosts file on your remote host](to-add-device-serial-numbers-to-the-remote-host).
 
 Each of these procedures is described below.
 
 #### To import the certificate on the remote host
 
-1. Right-click the .cer file and select Install certificate. This will start the Certificate Import Wizard.
+1. Right-click the .cer file and select **Install certificate**. This will start the Certificate Import Wizard.
 
     ![Certificate Import Wizard 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
 
-2. For Store location, select **Local Machine**, and then click **Next**.
+2. For **Store location**, select **Local Machine**, and then click **Next**.
 
-2. Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
+3. Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
 
     ![Certificate Import Wizard 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 
-3. Click **Finish**. A message that tells you that the import was successful appears.
+4. Click **Finish**. A message that tells you that the import was successful appears.
 
     ![Certificate Import Wizard 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
