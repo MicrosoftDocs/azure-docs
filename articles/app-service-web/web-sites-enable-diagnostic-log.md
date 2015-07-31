@@ -201,11 +201,11 @@ Property name|Value/format
 ---|---
 PartitionKey|Date/time of the event in yyyyMMddHH format
 RowKey|A GUID value that uniquely identifies this entity
-Timestamp|The date and time that the event occurred'
+Timestamp|The date and time that the event occurred
 EventTickCount|The date and time that the event occurred, in Tick format (greater precision)
 ApplicationName|The web app name
 Level|Event level (e.g. error, warning, information)
-EventId|The event ID of this event<br>Defaults to 0 if none specified
+EventId|The event ID of this event<p><p>Defaults to 0 if none specified
 InstanceId|Instance of the web app that the even occurred on
 Pid|Process ID
 Tid|The thread ID of the thread that produced the event
@@ -222,7 +222,7 @@ Level|Event level (e.g. error, warning, information)
 ApplicationName|The web app name
 InstanceId|Instance of the web app that the even occurred on
 EventTickCount|The date and time that the event occurred, in Tick format (greater precision)
-EventId|The event ID of this event<br>Defaults to 0 if none specified
+EventId|The event ID of this event<p><p>Defaults to 0 if none specified
 Pid|Process ID
 Tid|The thread ID of the thread that produced the event
 Message|Event detail message
