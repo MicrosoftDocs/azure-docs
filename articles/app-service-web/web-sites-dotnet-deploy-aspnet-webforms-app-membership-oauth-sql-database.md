@@ -118,7 +118,7 @@ The new site needs the application name and a link updated. The link will point 
 2. If the page is in **Design** view, switch to **Source** view.
 3. Update the master page by modifying or adding the markup highlighted in yellow:
 
-```
+<pre class="prettyprint">
 &lt;%@ Master Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;Site.master.cs&quot; Inherits=&quot;ContactManager.SiteMaster&quot; %&gt;
 
 &lt;!DOCTYPE html&gt;
@@ -205,7 +205,7 @@ The new site needs the application name and a link updated. The link will point 
     &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-``` 
+</pre>  
 
 Later in this tutorial you will add Web Forms scaffolding. Scaffolding will create the page that the above “Contact Demo” link references.
 ###Run the Application Locally 
@@ -251,9 +251,8 @@ You begin by creating a simple data model using code. This data model will be co
 
 2. Name this new class *Contacts.cs*.  
 	![Add New Item dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)  
-3. Replace the default code with the following code:
-  
-	```
+3. Replace the default code with the following code:  
+	<pre class="prettyprint">
 	using System.ComponentModel.DataAnnotations;
 	using System.Globalization;
 	
@@ -273,7 +272,7 @@ You begin by creating a simple data model using code. This data model will be co
 	        public string Email { get; set; }
 	    }
 	}
-```
+	</pre>
 
 The **Contacts** class defines the data that you will store for each contact, plus a primary key (`ContactID`) that is needed by the database. The **Contacts** class represents the contact data that will be displayed. Each instance of a Contacts object will correspond to a row within a relational database table, and each property of the Contacts class will map to a column in the relational database table. Later in this tutorial, you'll review the contact data contained in the database.
 
@@ -307,23 +306,22 @@ The next task is to enable the Code First Migrations feature in order to create 
 1. In the **Tools** menu, select **NuGet Package Manager** and then **Package Manager Console**.  
 	![Add Web Forms Pages dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
 2. In the Package Manager Console window, enter the following command:  
-	```
+	<pre class="prettyprint">
 	enable-migrations
-	``` 
+	</pre>  
 	The enable-migrations command creates a *Migrations* folder, and it puts in that folder a *Configuration.cs* file that you can edit to seed the database and configure data migrations.  
 3. In the **Package Manager Console** window, enter the following command:  
-	```
+	<pre class="prettyprint">
 	add-migration Initial
-	``` 
+	</pre>  
 	The `add-migration Initial` command generates a file named <date_stamp>Initial in the *Migrations* folder that creates the database. The first parameter ( Initial ) is arbitrary and is used to create the name of the file. You can see the new class files in **Solution Explorer**. In the `Initial` class, the `Up` method creates the `Contact` table, and the `Down` method (used when you want to return to the previous state) drops it.  
 4. Open the *Migrations\Configuration.cs* file. 
 5. Add the following namespace:  
-	```
+	<pre class="prettyprint">
 	using ContactManager.Models;
-	``` 
-6. Replace the `Seed` method with the following code:
-  
-	```
+	</pre>  
+6. Replace the `Seed` method with the following code:  
+	<pre class="prettyprint">
 	protected override void Seed(ContactManager.Models.ApplicationDbContext context)
 	{
 	    context.Contacts.AddOrUpdate(p => p.Name,
@@ -379,13 +377,12 @@ The next task is to enable the Code First Migrations feature in order to create 
 	        }
 	        );
 	}
-```
-
+	</pre>
 This code initializes (seeds) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
 7. In the **Package Manager Console** enter the command:  
-	```
+	<pre class="prettyprint">
 	update-database
-	``` 
+	</pre>  
 The `update-database` runs the first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database.  
 	![Package Manager Console](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)  
 
@@ -434,13 +431,13 @@ The following steps will allow you to add a Google authentication provider.
 
 1. Open the *App_Start\Startup.Auth.cs* file. 
 2. Remove the comment characters from the `app.UseGoogleAuthentication()` method so that the method appears as follows:  
-	```
+	<pre class="prettyprint">
 	            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
 	            {
 	                ClientId = "",
 	                ClientSecret = ""
 	            });
-	```
+	</pre>
 3. Navigate to the [Google Developers Console](https://console.developers.google.com/). You will also need to sign-in with your Google developer email account (gmail.com). If you do not have a Google account, select the **Create an account** link.  
 	Next, you'll see the **Google Developers Console**.
 	![Google Developers Console](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)  
@@ -457,13 +454,13 @@ The following steps will allow you to add a Google authentication provider.
 	This URL is the origin for your application. For this sample, you will only enter the localhost test URL. However, you can enter multiple URL to account for localhost and production.  
 
 9. Set the **Authorized Redirect URI** to the following:  
-	```  
+	<pre class="prettyprint">  
 	https://localhost:44300/signin-google  
-	``` 
+	</pre>  
 	This value is the URI that ASP.NET OAuth users to communicate with the google OAuth server. Remember to the SSL URL you used above (**https://localhost:44300/** unless you've created other SSL projects).  
 10. Click the **Create Client ID** button.
 11. In Visual Studio, update the `UseGoogleAuthentication` method of the *Startup.Auth.cs* page by copying and pasting the **AppId** and **App Secret** into the method. The **AppId** and **App Secret** values shown below are samples and will not work.  
-	```  
+	<pre class="prettyprint">  
 	using System;
 	using Microsoft.AspNet.Identity;
 	using Microsoft.AspNet.Identity.EntityFramework;
@@ -524,7 +521,7 @@ The following steps will allow you to add a Google authentication provider.
 	        }
 	    }
 	}
-	``` 
+	</pre>  
 12. Press **CTRL+F5** to build and run the application. Click the **Log in** link.
 13. Under **Use another service to log in**, click **Google**.  
 	![Log in](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21d.png)  
@@ -546,12 +543,12 @@ Using ASP.NET Identity, you can add an administrator role and assign a user to t
 
 1. In **Solution Explorer**, open the *Configuration.cs* file in the *Migrations* folder.
 2. Add the following `using` statements within the `ContactManger.Migrations` namespace:  
-	```
+	<pre class="prettyprint">
 	using Microsoft.AspNet.Identity;
 	using Microsoft.AspNet.Identity.EntityFramework;
-```
+	</pre>
 3. Add the following `AddUserAndRole` method to the `Configuration` class after the `Seed` method:  
-	```
+	<pre class="prettyprint">
         public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
         {
             IdentityResult IdRoleResult;
@@ -582,17 +579,17 @@ Using ASP.NET Identity, you can add an administrator role and assign a user to t
                 IdUserResult = userMgr.AddToRole(userMgr.FindByEmail(&quot;canEditUser@wideworldimporters.com&quot;).Id, &quot;canEdit&quot;);
             }
         }
-```
+	</pre>
 4. Add a call to the `AddUserAndRole` method from within the beginning of the `Seed` method. Note that only the beginning of the `Seed` method is being shown.  
-	```
+	<pre class="prettyprint">
         protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
             <mark>AddUserAndRole(context);</mark>
-	``` 
+	</pre>  
 5. After saving all your changes, in the **Package Manager Console** run the following command:  
-	```
+	<pre class="prettyprint">
 	Update-Database
-```
+	</pre>
 	This code creates a new role called `canEdit` and creates a new local user with the email of canEditUser@wideworldimporters.com. Then, the code adds canEditUser@wideworldimporters.com to the `canEdit` role. For more information, see the [ASP.NET Identity](http://www.asp.net/identity) resource page.  
 
 ###Restrict Access to the Administration Folder 
@@ -606,7 +603,7 @@ You will create a folder named *Admin* where only users that are assigned to the
 	- *Edit.aspx *and* Edit.aspx.cs*
 	- *Insert.aspx *and* Insert.aspx.cs*
 3. Update the link references in *Contacts/Default.aspx* by adding "Admin/" before the pages references that link to *Insert.aspx*, *Edit.aspx*, and *Delete.aspx*:  
-	```
+	<pre class="prettyprint">
 	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
 	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
 	
@@ -671,7 +668,7 @@ You will create a folder named *Admin* where only users that are assigned to the
 	        &lt;/asp:ListView&gt;
 	    &lt;/div&gt;
 	&lt;/asp:Content&gt;
-```
+	</pre>
 4. Update the six references of the `Response.Redirect("Default.aspx")` code to `Response.Redirect("~/Contacts/Default.aspx")` for the following three files:  
 	- *Delete.aspx.cs*
 	- *Edit.aspx.cs*
@@ -681,7 +678,7 @@ You will create a folder named *Admin* where only users that are assigned to the
 5. To restrict access to the *Admin* folder, from the **Solution Explorer** right-click the *Admin* folder and select **Add New Item**.
 6. From the list of Visual C# Web templates, select **Web Configuration File** from the middle list, accept the default name of *Web.config*, and then select **Add**.
 7. Replace the existing XML content in the *Web.config* file with the following:
-	```
+	<pre class="prettyprint">
 	&lt;?xml version=&quot;1.0&quot;?&gt;
 	&lt;configuration&gt;
 	  &lt;system.web&gt;
@@ -691,7 +688,7 @@ You will create a folder named *Admin* where only users that are assigned to the
 	    &lt;/authorization&gt;
 	  &lt;/system.web&gt;
 	&lt;/configuration&gt;
-```
+	</pre>
 8. Save the *Web.config* file. 
 	The *Web.config* file specifies that only users assigned to the "canEdit" role can access the pages contained in the *Admin* folder. 
 
