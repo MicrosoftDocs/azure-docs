@@ -230,7 +230,7 @@ The following table provides description for JSON elements specific to MySQL lin
 
 ## MySQL Dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes MySQL dataset) has the following properties
 
