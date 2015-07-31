@@ -1,4 +1,4 @@
-<properties pageTitle="Tutorial: Azure Active Directory integration integration with Druva | Microsoft Azure" description="Learn how to use Druva with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi" documentCenter="na" manager="stevenpo"/>
+<properties pageTitle="Tutorial: Azure Active Directory integration integration with Druva | Microsoft Azure" description="Learn how to use Druva with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
 <tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Tutorial: Azure Active Directory integration integration with Druva
 >[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=534089).
