@@ -253,7 +253,7 @@ The following command will create a new Basic database if a database with the sa
 To update a database, (for example, changing the service tier and performance level) you call the **Databases.CreateOrUpdate** method just like creating or updating a database above. Set the **Edition** and **RequestedServiceObjectiveName** properties to the desired service tier and performance level.
  Note that when changing the Edition to or from **Premium**, the update can take some time depending on the size of your database.
 
-The following updates a SQL database to the Standard (S2) level:
+The following updates a SQL database to the Standard (S0) level:
 
     // Retrieve current database properties 
     var currentDatabase = sqlClient.Databases.Get("resourecegroup-name", "server-name", "Database1").Database;
@@ -768,7 +768,7 @@ To delete a resource group:
             Console.ReadKey();
         }
     }
-}
+    }
 
 
 
