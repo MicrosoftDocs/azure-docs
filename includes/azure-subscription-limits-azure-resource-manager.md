@@ -35,6 +35,11 @@
    <td valign="middle"><p>1200 per hour</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>Resource Manager API request size</p></td>
+   <td valign="middle"><p>4194304 bytes</p></td>
+   <td valign="middle"><p>4194304 bytes</p></td>
+</tr>
+<tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Cloud services</a> per subscription</p></td>
    <td valign="middle"><p>Deprecated<sup>3</sup></p></td>
    <td valign="middle"><p>Deprecated<sup>3</sup></p></td>
