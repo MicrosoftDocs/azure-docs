@@ -137,43 +137,46 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	{  
 	    "name":"SamplePipeline",
 	    "properties":{  
-	    "start":"2014-06-01T18:00:00",
-	    "end":"2014-06-01T19:00:00",
-	    "description":"pipeline for copy activity",
-	    "activities":[  
-	        "name": "AzureTabletoBlob",
-	        "description": "copy activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": "AzureTableInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureBlobOutput"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "AzureTableSource",
-	            "AzureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'"
-	          },
-	          "sink": {
-	            "type": "BlobSink"
-	          }
-	        },
-	        "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },				
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }     ]
-	   }
+	    	"start":"2014-06-01T18:00:00",
+		    "end":"2014-06-01T19:00:00",
+	    	"description":"pipeline for copy activity",
+	    	"activities":[  
+				{
+	        		"name": "AzureTabletoBlob",
+	        		"description": "copy activity",
+	        		"type": "Copy",
+	        		"inputs": [
+	          			{
+		            		"name": "AzureTableInput"
+		        		}
+	        		],
+	        		"outputs": [
+	          			{
+	          	  			"name": "AzureBlobOutput"
+		          		}
+		        	],
+		        	"typeProperties": {
+		          		"source": {
+		            		"type": "AzureTableSource",
+				            "AzureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'"
+		          		},
+		          		"sink": {
+		            		"type": "BlobSink"
+		          		}
+    	    		},
+		        	"scheduler": {
+		          		"frequency": "Hour",
+		          		"interval": 1
+		        	},				
+		        	"policy": {
+		          		"concurrency": 1,
+		          		"executionPriorityOrder": "OldestFirst",
+		          		"retry": 0,
+		          		"timeout": "01:00:00"
+		        	}
+				}
+		     ]	
+		}
 	}
 
 ## Sample: Copy data from Azure Blob to Azure Table
@@ -210,7 +213,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
 	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "filename": "{Hour}.csv",
+	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",

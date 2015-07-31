@@ -22,11 +22,11 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 ## Sample: Copy data from Azure Blob to Azure SQL
 The sample below shows:
 
-1.	A linked service of type AzureSqlDatabase.
-2.	A linked service of type AzureStorage.
-3.	An input dataset of type AzureBlob.
-4.	An output dataset of type AzureSqlTable.
-4.	A pipeline with a Copy activity that uses BlobSource and SqlSink.
+1.	A linked service of type [AzureSqlDatabase](data-factory-azure-sql-connector.md).
+2.	A linked service of type [AzureStorage](#LinkedService).
+3.	An input dataset of type [AzureBlob](#Dataset).
+4.	An output dataset of type [AzureSqlTable](data-factory-azure-sql-connector.md).
+4.	A pipeline with a Copy activity that uses [BlobSource](#CopyActivity) and [SqlSink](data-factory-azure-sql-connector.md).
 
 The sample copies data belonging to a time series from an Azure blob to a table in an Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -65,7 +65,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
 	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "filename": "{Hour}.csv",
+	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -319,49 +319,49 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	{  
 	    "name":"SamplePipeline",
 	    "properties":{  
-	    "start":"2014-06-01T18:00:00",
-	    "end":"2014-06-01T19:00:00",
-	    "description":"pipeline for copy activity",
-	    "activities":[  
-	      {
-	        "name": "AzureSQLtoBlob",
-	        "description": "copy activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": "AzureSQLInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureBlobOutput"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
-	          },
-	          "sink": {
-	            "type": "BlobSink"
-	          }
-	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	     ]
-	   }
+	    	"start":"2014-06-01T18:00:00",
+	    	"end":"2014-06-01T19:00:00",
+	    	"description":"pipeline for copy activity",
+	    	"activities":[  
+	      		{
+	        		"name": "AzureSQLtoBlob",
+		    	    "description": "copy activity",
+		    	    "type": "Copy",
+		    	    "inputs": [
+		    	      {
+		    	        "name": "AzureSQLInput"
+		    	      }
+		    	    ],
+		    	    "outputs": [
+		    	      {
+		    	        "name": "AzureBlobOutput"
+		    	      }
+		    	    ],
+		    	    "typeProperties": {
+		    	    	"source": {
+		            		"type": "SqlSource",
+			            	"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+		          		},
+		          		"sink": {
+		            		"type": "BlobSink"
+		          		}
+		        	},
+		       		"scheduler": {
+		          		"frequency": "Hour",
+		          		"interval": 1
+		        	},
+		        	"policy": {
+		          		"concurrency": 1,
+		          		"executionPriorityOrder": "OldestFirst",
+		          		"retry": 0,
+		          		"timeout": "01:00:00"
+		        	}
+		      	}
+		     ]
+		}
 	}
 
-## Azure Storage Linked Service properties
+## <a name="LinkedService"></a> Azure Storage Linked Service properties
 
 You can link an Azure storage account to an Azure data factory using an Azure Storage linked service. The following table provides description for JSON elements specific to Azure Storage linked service.
 
@@ -370,7 +370,7 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | type | The type property must be set to: **AzureStorage** | Yes |
 | connectionString | Specify information needed to connect to Azure storage for the connectionString property. You can get the connectionString for the Azure storage from the Azure Portal. | Yes |
 
-## Azure Blob Dataset type properties
+## <a name="Dataset"></a> Azure Blob Dataset type properties
 
 For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
@@ -456,7 +456,7 @@ If the format is set to AvroFormat, you do not need to specify any properties in
 
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
-## Azure Blob Copy Activity type properties  
+## <a name="CopyActivity"></a> Azure Blob Copy Activity type properties  
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks

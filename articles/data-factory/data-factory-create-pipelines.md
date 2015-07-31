@@ -298,7 +298,7 @@ So far you have understood what pipelines and activities are. You have also take
 
 A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused, it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. 
 
-In fact, it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. Let us take a closer look at how scheduling and execution works in Azure Data Factory in the [Scheduling and Execution](data-factory-scheduling-and-execution.md).
+In fact, it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to understand how scheduling and execution works in Azure Data Factory.
 
 ## Manage & Monitor  
 Once a pipeline is deployed, you can manage and monitor your pipelines, slices and runs. Read more about it here: [Monitor and Manage Pipelines](data-factory-monior-manage-pipelines.md).
