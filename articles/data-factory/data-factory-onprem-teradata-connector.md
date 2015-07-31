@@ -197,10 +197,14 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                    {
 	                        "name": "AzureBlobTeradataDataSet"
 	                    }
-	                ],
+	                ],					
 	                "policy": {
 	                    "timeout": "01:00:00",
 	                    "concurrency": 1
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
 	                },
 	                "name": "TeradataToBlob"
 	            }
