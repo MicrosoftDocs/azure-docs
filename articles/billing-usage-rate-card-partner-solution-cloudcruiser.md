@@ -20,7 +20,7 @@
 
 This article describes how the information collected from the new Microsoft Azure Billing APIs can be used in Cloud Cruiser for workflow cost simulation and analysis.
 
-## 1. Azure RateCard API
+# Azure RateCard API
 The RateCard API provides rate information from Azure. After authenticating with the proper credentials, you can query the API to collect metadata about the services available on Azure, along with the rates associated with your Offer ID.
 
 Below is a sample response from the API showing the prices for the A0 (Windows) instance:
@@ -112,7 +112,7 @@ The top graph shows a cost comparison broken by services and compares the price 
 
 The bottom graph shows the same data but broken down by department, demonstrating the costs for each department to run their workload on WAP and Azure, along with the difference between these two – Savings bar (green color).
 
-## 2. Azure Usage API
+# Azure Usage API
 
 
 ## Introduction
