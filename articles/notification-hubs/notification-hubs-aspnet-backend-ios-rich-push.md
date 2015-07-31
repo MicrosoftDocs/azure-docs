@@ -18,9 +18,6 @@
 
 #Azure Notification Hubs Rich Push
 
-<div class="dev-center-tutorial-selector sublanding">
-        <a href="/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
-</div>
 
 ##Overview
 
