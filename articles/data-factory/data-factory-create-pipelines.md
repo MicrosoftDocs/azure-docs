@@ -23,7 +23,7 @@ This article will help you understand pipelines and activities in Azure Data Fac
 **Pipeline is a logical grouping of Activities**. They are used to group activities into a unit that performs a task. To understand pipelines better, you need to understand an activity first. 
 
 ### What is an activity?
-Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets) as inputs and produces one or more datasets as output. **An activity is a unit of orchestration in Azure Data Factory.** 
+Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets.md) as inputs and produces one or more datasets as output. **An activity is a unit of orchestration in Azure Data Factory.** 
 
 For example, you may use a Copy activity to orchestrate copying data from one dataset to another. Similarly you may use a Hive activity which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of [data transformation, analysis](data-factory-data-transformation-activities.md), and [data movement activities](data-factory-data-movement-activities.md). You may also choose to create a custom .NET activity to run your own code. 
 
