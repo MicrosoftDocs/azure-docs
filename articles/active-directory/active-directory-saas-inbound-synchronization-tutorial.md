@@ -1,5 +1,5 @@
 <properties pageTitle="Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Azure" description="Learn how to use Inbound Synchronization with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="07/31/2015" ms.author="markvi" />
 #Tutorial: Configuring Workday for Inbound Synchronization
 >[AZURE.NOTE] Azure Active Directory (AD) Premium is available for customers in China using the worldwide instance of Azure AD.  
 Azure AD Premium is not currently supported in the Windows Azure service operated by 21Vianet in China.
