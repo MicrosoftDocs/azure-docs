@@ -54,21 +54,18 @@ An alternate way to reconfigure DATA 0 network interface is through the use of `
 
 	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
 
-	If you are using IPv6 addresses, use the following command:
-
-	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv6Address <> -IPv6Netmask <> -IPv6Gateway <> -Controller0IPv6Address <> -Controller1IPv6Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-
+	
 1. Type values for DATA 0 in the angle brackets (< >) for the following:
 											
-	- IPv4/IPv6 address
+	- IPv4 address
 	
-	- IPv4/IPv6 gateway
+	- IPv4 gateway
 	
-	- IPv4/IPv6 subnet mask
+	- IPv4 subnet mask
 	
-	- Fixed IPv4/IPv6 address for Controller 0
+	- Fixed IPv4 address for Controller 0
 
-	- Fixed IPv4/IPv6 address for Controller 1
+	- Fixed IPv4 address for Controller 1
 
 ## Next steps
 If you experience any issues when configuring your network interfaces, refer to [Troubleshoot deployment issues](storsimple-troubleshoot-deployment.md).
