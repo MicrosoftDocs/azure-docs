@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Different ways to create a Windows-based virtual machine"
-	description="Lists the different ways to create a Windows-based virtual machine and gives links to instructions."
+	pageTitle="Different ways to create a Windows virtual machine"
+	description="Lists the different ways to create a Windows virtual machine and gives links to instructions."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
@@ -17,7 +17,7 @@
 	ms.date="07/15/2015"
 	ms.author="kathydav"/>
 
-# Different ways to create a Windows-based virtual machine
+# Different ways to create a Windows virtual machine
 
 Azure offers different ways to create a virtual machine because virtual machines are suited for different users and purposes. This means that you need to make some choices about the virtual machine and how to create it. This article gives you a summary of these choices and links to instructions.
 
@@ -37,7 +37,7 @@ If you prefer working in a command shell, choose between the Azure command-line 
 
 For Azure CLI, see [Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows][]. To use a template, see [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI][].
 
-For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines][] To use a template, see [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell][]. To create virtual machines in the Service Management stack, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines][].
+For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Windows virtual machines][] To use a template, see [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell][]. To create virtual machines in the Service Management stack, see [Use Azure PowerShell to create and preconfigure Windows virtual machines][].
 
 ### Development environment: Visual Studio
 
@@ -57,7 +57,7 @@ These instructions show you how to use an Azure image to create a virtual machin
 
 Use an image based on an existing Azure virtual machine by *capturing* that virtual machine, or upload an image of your own, stored in a virtual hard disk (VHD):
 
-- [How to capture a Windows-based virtual machine to use as a template][].
+- [How to capture a Windows virtual machine to use as a template][].
 - [Create and upload a Windows Server VHD to Azure][]
 
 ## Next steps
@@ -82,7 +82,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that virt
 [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell]:  virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
-[Use Azure PowerShell to create and preconfigure Windows-based virtual machines]: virtual-machines-ps-create-preconfigure-windows-vms.md
+[Use Azure PowerShell to create and preconfigure Windows virtual machines]: virtual-machines-ps-create-preconfigure-windows-vms.md
 [How to create a custom virtual machine running Windows]: virtual-machines-windows-create-custom.md
 
 [How to capture a Windows virtual machine]: virtual-machines-capture-image-windows-server.md
