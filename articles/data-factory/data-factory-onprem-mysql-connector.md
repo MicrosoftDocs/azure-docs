@@ -85,9 +85,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	        "published": false,
 	        "type": "RelationalTable",
 	        "linkedServiceName": "OnPremMySqlLinkedService",
-	        "typeProperties": {
-	            "tableName": "MyTable"
-	        },
+	        "typeProperties": {},
 	        "availability": {
 	            "frequency": "Hour",
 	            "interval": 1
@@ -104,64 +102,65 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	}
 
 
+
 **Azure Blob output dataset**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
 	{
-	  "name": "AzureBlobMySqlDataSet",
-	  "properties": {
-	    "published": false,
-	    "type": "AzureBlob",
-	    "linkedServiceName": "AzureStorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/mysql/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	      "format": {
-	        "type": "TextFormat",
-	        "rowDelimiter": "\n",
-	        "columnDelimiter": "\t"
-	      },
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
+	    "name": "AzureBlobMySqlDataSet",
+	    "properties": {
+	        "type": "AzureBlob",
+	        "linkedServiceName": "AzureStorageLinkedService",
+	        "typeProperties": {
+	            "folderPath": "mycontainer/mysql/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	            "format": {
+	                "type": "TextFormat",
+	                "rowDelimiter": "\n",
+	                "columnDelimiter": "\t"
+	            },
+	            "partitionedBy": [
+	                {
+	                    "name": "Year",
+	                    "value": {
+	                        "type": "DateTime",
+	                        "date": "SliceStart",
+	                        "format": "yyyy"
+	                    }
+	                },
+	                {
+	                    "name": "Month",
+	                    "value": {
+	                        "type": "DateTime",
+	                        "date": "SliceStart",
+	                        "format": "%M"
+	                    }
+	                },
+	                {
+	                    "name": "Day",
+	                    "value": {
+	                        "type": "DateTime",
+	                        "date": "SliceStart",
+	                        "format": "%d"
+	                    }
+	                },
+	                {
+	                    "name": "Hour",
+	                    "value": {
+	                        "type": "DateTime",
+	                        "date": "SliceStart",
+	                        "format": "%H"
+	                    }
+	                }
+	            ]
 	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%H"
-	          }
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
 	        }
-	      ]
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
 	    }
-	  }
 	}
+
 
 
 **Pipeline with Copy activity**
@@ -196,20 +195,19 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                        "name": "AzureBlobMySqlDataSet"
 	                    }
 	                ],
-	                "scheduler": {
-	                "frequency": "Hour",
-	                "interval": 1
-	                },
 	                "policy": {
 	                    "timeout": "01:00:00",
 	                    "concurrency": 1
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
 	                },
 	                "name": "MySqlToBlob"
 	            }
 	        ],
 	        "start": "2014-06-01T18:00:00Z",
-	        "end": "2014-06-01T19:00:00Z",
-	        "isPaused": false
+	        "end": "2014-06-01T19:00:00Z"
 	    }
 	}
 

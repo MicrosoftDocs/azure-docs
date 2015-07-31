@@ -178,6 +178,10 @@ In this step, you will create your first pipeline.
 		            "name": "AzureBlobOutput"
 		          }
 		        ],
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
 		        "policy": {
 		          "concurrency": 1,
 		          "retry": 3

@@ -105,64 +105,66 @@ Setting “external”: true and specifying externalData policy tells data facto
 	    }
 	}
 
+
 **Azure Blob output dataset:**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
 	{
-	  "name": "AzureBlobTeradataDataSet",
-	  "properties": {
-	    "published": false,
-	    "type": "AzureBlob",
-	    "linkedServiceName": "AzureStorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/postgresql/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	      "format": {
-	        "type": "TextFormat",
-	        "rowDelimiter": "\n",
-	        "columnDelimiter": "\t"
-	      },
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
+	    "name": "AzureBlobTeradataDataSet",
+	    "properties": {
+	        "published": false,
+	        "location": {
+	            "type": "AzureBlobLocation",
+	            "folderPath": "mycontainer/teradata/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	            "format": {
+	                "type": "TextFormat",
+	                "rowDelimiter": "\n",
+	                "columnDelimiter": "\t"
+	            },
+	            "partitionedBy": [
+	                {
+	                    "name": "Year",
+	                    "value": {
+	                        "type": "DateTime",
+	                        "date": "SliceStart",
+	                        "format": "yyyy"
+	                    }
+	                },
+	                {
+	                    "name": "Month",
+	                    "value": {
+	                        "type": "DateTime",
+	                        "date": "SliceStart",
+	                        "format": "%M"
+	                    }
+	                },
+	                {
+	                    "name": "Day",
+	                    "value": {
+	                        "type": "DateTime",
+	                        "date": "SliceStart",
+	                        "format": "%d"
+	                    }
+	                },
+	                {
+	                    "name": "Hour",
+	                    "value": {
+	                        "type": "DateTime",
+	                        "date": "SliceStart",
+	                        "format": "%H"
+	                    }
+	                }
+	            ],
+	            "linkedServiceName": "AzureStorageLinkedService"
 	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%H"
-	          }
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
 	        }
-	      ]
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
 	    }
-	  }
 	}
+
 
 **Pipeline with Copy activity:**
 
@@ -178,7 +180,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
@@ -208,6 +210,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        "isPaused": false
 	    }
 	}
+
 
 ## Teradata Linked Service properties
 
