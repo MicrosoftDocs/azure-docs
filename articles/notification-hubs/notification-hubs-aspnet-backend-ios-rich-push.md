@@ -23,7 +23,9 @@
 
 In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](notification-hubs-aspnet-backend-ios-notify-users.md) topic, and shows how to send push notifications that incorporate payloads (for example, image).
 
+
 This tutorial is compatible with iOS 7 & 8.
+
     ![][IOS1]
 
 At a high level:

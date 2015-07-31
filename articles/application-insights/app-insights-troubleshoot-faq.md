@@ -212,16 +212,19 @@ See [Data Retention and Privacy][data].
 
 
 ## <a name="q17"></a> Have I enabled everything in Application Insights?
-What you should see|How to get it|Why you want it|
----|---|---
-Availability charts|[Web tests](../app-insights-monitor-web-app-availability/)|Know your web app is up
-Server app perf: response times|[Add Application Insights to your project](../app-insights-start-monitoring-app-health-usage/)<br/>or <br/>[Install AI Status Monitor on server](../app-insights-monitor-performance-live-website-now/)|Detect perf issues
-Dependency telemetry|[Install AI Status Monitor on server](../app-insights-monitor-performance-live-website-now/)|Diagnose issues with databases or other external components
-Get stack traces from exceptions|[Insert TrackException calls in your code](../app-insights-search-diagnostic-logs/#exceptions) (but some are reported automatically)|Detect and diagnose exceptions
-Search log traces|[Add a logging adapter](../app-insights-search-diagnostic-logs/)|Diagnose exceptions, perf issues
-Client usage basics: page views, sessions|[JavaScript initializer in web pages](../app-insights-start-monitoring-app-health-usage/#webclient)|Usage analytics
-Client custom metrics|[Tracking calls in web pages](../app-insights-web-track-usage-custom-events-metrics/)|Enhance user experience
-Server custom metrics|[Tracking calls in server code](../app-insights-web-track-usage-custom-events-metrics/)|Business intelligence
+
+<table border="1">
+<tr><th>What you should see</th><th>How to get it</th><th>Why you want it</th></tr>
+<tr><td>Availability charts</td><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Know your web app is up</td></tr>
+<tr><td>Server app perf: response times, ...
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your project</a><br/>or <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Detect perf issues</td></tr>
+<tr><td>Dependency telemetry</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose issues with databases or other external components</td></tr>
+<tr><td>Get stack traces from exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insert TrackException calls in your code</a> (but some are reported automatically)</td><td>Detect and diagnose exceptions</td></tr>
+<tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
+<tr><td>Client usage basics: page views, sessions, ...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">JavaScript initializer in web pages</a></td><td>Usage analytics</td></tr>
+<tr><td>Client custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
+<tr><td>Server custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
+</table>
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
