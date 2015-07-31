@@ -1,6 +1,4 @@
 
-## <a id="register"></a>Register App for Push Notifications
-
 * [Register an App ID for your app](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Check the optional **Push Notifications** checkbox in **App Services** when registering the app.
 
 > [AZURE.NOTE] Create an explicit App ID (not a wildcard App ID) and for **Bundle ID**, use the exact **Bundle ID** that is in your Xcode quickstart project. It is also crucial that you check the **Push Notifications** option in **App Services** when registering the App ID. Push notifications will not work if you don't check this box.
