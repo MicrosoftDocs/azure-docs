@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/23/2015"
+   ms.date="07/21/2015"
    ms.author="abhisram"/>
 
 # How Fabric Actors use the Service Fabric platform
@@ -242,4 +242,3 @@ Please note that changing the state provider requires the actor service to be re
 [2]: ./media/service-fabric-reliable-actors-platform/app-deployment-scripts.png
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
- 

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="07/23/2015"
    ms.author="elfish"/>
 
-# Recovery an Azure SQL Database from a user error
+# Recover an Azure SQL Database from a user error
 
 Azure SQL Database offers two core capabilities for recovering from user error or unintended data modification.
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="06/29/2015"
+   ms.date="07/24/2015"
    ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -122,6 +122,8 @@ New Azure Redis Cache instances are configured with the following default Redis 
 |lua-event-limit|500|This is the max size of script event queue.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
+## Redis commands not supported in Azure Redis Cache
+
 >[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is done using the Azure portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
@@ -134,6 +136,20 @@ New Azure Redis Cache instances are configured with the following default Redis 
 >-	SLAVEOF
 
 For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
+
+## Redis console
+
+You can securely issue commands to your Azure Redis Cache instances using the **Redis Console**, which is available for Standard caches. To access the Redis Console, click **Console** from the **Redis Cache** blade.
+
+![Redis console](./media/cache-configure/redis-console-menu.png)
+
+>[AZURE.IMPORTANT] The Redis Console is only available for Standard caches.
+
+To issue commands against your cache instance, simply type in the desired command into the console.
+
+![Redis console](./media/cache-configure/redis-console.png)
+
+For list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands). 
 
 ## Next steps
 -	For more information on working with Redis commands, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands).

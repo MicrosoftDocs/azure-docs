@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="07/21/2015" 
+    ms.date="07/19/2015" 
     ms.author="mimig"/>
 
 
@@ -40,7 +40,6 @@ After reading this article, you'll be able to answer the following questions:
 - How can I override the properties to include or exclude from indexing?
 - How can I configure the index for eventual updates?
 - How can I configure indexing to perform Order By or range queries?
-- How do I make changes to the collection indexing policy?
 
 ## How DocumentDB indexing works
 
@@ -342,44 +341,6 @@ For example, the following sample shows how to include a document explicitly usi
     client.CreateDocumentAsync(defaultCollection.SelfLink,
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
-
-## Modifying the indexing policy of a collection
-
-DocumentDB allows you to make changes to the indexing policy of a collection on the fly. This is supported through the REST API's POST on /colls or the ReplaceDocumentCollectionAsync method in the .NET SDK. Here's a code snippet that shows how to modify a collection's indexing policy from Consistent indexing mode to Lazy.
-
-    // Switch to lazy indexing.
-    Console.WriteLine("Changing from Default to Lazy IndexingMode.");
-
-    collection.IndexingPolicy.IndexingMode = IndexingMode.Lazy;
-
-    await client.ReplaceDocumentCollectionAsync(collection);
-
-When you change the indexing policy of a collection, the DocumentDB service kicks off a transformation of the underlying index of that collection. This transformation is an online, asynchronous and *in situ* operation. 
-
-- Online: While an index transformation is in progress, the collection is available for all operations including reads, writes, and queries. 
-- Asynchronous: Index transformations are performed asynchronously. While the index is being transformed, the queries can potentially return stale results. Once the transformation is complete, queries will return results matching the indexing policy configuration. You can track the progress of an ongoing index transformation by calling ReadDocumentCollectionAsync and extracting the ResourceResponse<T>.IndexTransformationProgress property in .NET. 
-- In situ: Index transformations are performed in-place or in-situ. While the index is being transformed, no additional on-disk storage is consumed. 
-
-You can check the progress of an index transformation by calling ReadDocumentCollectionAsync. Here's a snippet in .NET that shows how to do this.
-
-    long smallWaitTimeMilliseconds = 1000;
-    long progress = 0;
-
-    while (progress >= 0 && progress < 100)
-    {
-        ResourceResponse<DocumentCollection> collectionReadResponse = await client.ReadDocumentCollectionAsync(collection.SelfLink);
-        progress = collectionReadResponse.IndexTransformationProgress;
-
-        await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
-
-Custom indexing policies are an advanced construct in DocumentDB, but can be powerful in configuring the service to adapt to your workloads. Consider including index transformations when you need to do the following:
-
-- Hand select the properties to be indexed and change them over time
-- Serve consistent results during normal operation, but fall back to lazy indexing during bulk data imports
-- Change or fine-tune the kind of index (Hash or Range) and index precision for best performance
-- Use Order By on strings, or perform string range queries on a collection containing data
-
->[AZURE.NOTE] To modify indexing policy using ReplaceDocumentCollectionAsync, you need version >= 1.3.0 of the .NET SDK
 
 ## Performance tuning
 

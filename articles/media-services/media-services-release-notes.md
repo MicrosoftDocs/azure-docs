@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -78,6 +78,17 @@ For information about the Media Services REST API version history, see [Azure Me
 Announcing the general availability of Media Encoder Standard. For more information, see [this blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
 Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium ** reserved unit type. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
+
+
+###Media Services .NET SDK Updates
+
+Azure Media Services .NET SDK is now version 3.4.0.0. The following functionality was added in this release:  
+
+- Implemented support for live archive. Note that you cannot download an asset that contains a live archive.
+- Implemented support for dynamic filters.
+- Implemented functionality that allows users to keep storage container while deleting asset.
+- Bug fixes related to retry policies in channels.
+- Enabled  **Media Encoder Premium Workflow**.
 
 ##<a id="june_changes_15"></a>June 2015 Release
 

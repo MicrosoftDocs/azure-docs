@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -95,6 +95,11 @@ For instructions on downloading the Redis tools such as `redis-benchmark.exe`, s
 ## In what region should I locate my cache?
 
 For best performance and lowest latency, locate your Azure Redis Cache in the same region as your cache client application.
+
+<a name="cache-billing"></a>
+## How am I billed for Azure Redis Cache?
+
+Azure Redis Cache pricing is [here](http://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
 <a name="cache-timeouts"></a>
 ## Why am I seeing timeouts?
@@ -204,12 +209,14 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 <a name="cache-commands"></a>
 ## How can I run Redis commands?
 
-You can use any of the commands listed at [Redis commands](http://redis.io/commands#). To run these commands you can use the following tools.
+You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Redis Cache](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). To run Redis commands you have several options.
 
--	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
--	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
-	-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
--	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+-	If you have a Standard cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the Azure portal.
+-	You can also use the Redis command line tools. To use them, perform the following steps.
+	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
+		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
+	-	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
 
 <a name="cache-common-patterns"></a>
 ## What are some common cache patterns and considerations?

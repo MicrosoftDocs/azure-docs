@@ -179,8 +179,13 @@ What you see is what gets exported. Change the time range or filters if you want
 
 *Export works only for Internet Explorer and Chrome at present. We’re working on adding support for other browsers.*
 
+### Continuous Export
+
 If you want data continuously exported so that you can process it externally, consider using [Continous export](app-insights-export-telemetry.md).
 
+### Power BI
+
+If you want even richer views of your data, you can [export to Power BI](app-insights-export-power-bi.md).
 
 ## Next steps
 
