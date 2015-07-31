@@ -170,7 +170,7 @@ To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. T
 		echo $code.": ".$error_message."<br />";
 	}
 
-Note that the example above uploads a blob as a stream. However, a blob can also be uploaded as a string using, for example, the [file\_get\_contents][file_get_contents] function. To do this, change `$content = fopen("c:\myfile.txt", "r");` and in the example above, to `$content = file_get_contents("c:\myfile.txt");`.
+Note that the example above uploads a blob as a stream. However, a blob can also be uploaded as a string using, for example, the [file\_get\_contents][file_get_contents] function. To do this, change `$content = fopen("c:\myfile.txt", "r");` in the example above, to `$content = file_get_contents("c:\myfile.txt");`.
 
 ## List the blobs in a container
 
