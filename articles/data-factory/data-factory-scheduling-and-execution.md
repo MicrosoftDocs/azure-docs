@@ -92,7 +92,7 @@ Note that the **frequency** is set to **Hour** and **interval** is set to **1** 
 	    "properties": {
 	        "published": false,
 	        "type": "AzureBlob",
-	        "linkedServiceName": "AzureBlobLinkedService",
+	        "linkedServiceName": "StorageLinkedService",
 	        "typeProperties": {
 	            "folderPath": "mypath/{Year}/{Month}/{Day}/{Hour}",
 	            "format": {
@@ -155,8 +155,7 @@ Note that the **frequency** is set to **Hour** and **interval** is set to **1** 
 	            {
 	                "type": "Copy",
 	                "name": "AzureSQLtoBlob",
-	                "description": "copy activity"
-	
+	                "description": "copy activity",	
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "SqlSource",
@@ -295,7 +294,7 @@ One output file will be dropped every day in the folder for the day. Availabilit
 	    "typeProperties": {
 	      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
 	      "partitionedBy": [
-	        { "name": "Year", "value": {"type": "DateTime","date": ": "SliceStart","format": "yyyy"}},
+	        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
 	        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
 	        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
 	      ],
@@ -314,49 +313,50 @@ One output file will be dropped every day in the folder for the day. Availabilit
 
 The hive script receives the appropriate datetime information as parameters leveraging the **WindowStart** variable as shown below. The hive script uses this variable to load the data from the right folder for the day and run the aggregation to generate the output.
 
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2015-01-01T08:00:00",
-	    "end":"2015-01-01T11:00:00",
-	    "description":"hive activity",
-	    "activities": [
-	      {
-	        "name": "SampleHiveActivity",
-	        "inputs": [
-	          {
-	            "name": "AzureBlobInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureBlobOutput"
-	          }
-	        ],
-	        "linkedServiceName": "HDInsightLinkedService",
-	        "type": "HDInsightHive",
-	        "typeProperties": {
-	          "scriptpath": "adftutorial\\hivequery.hql",
-	          "scriptLinkedService": "StorageLinkedService",
-	          "defines": {
-	            "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
-	            "Month": "$$Text.Format('{0:%M}',WindowStart)",
-	            "Day": "$$Text.Format('{0:%d}',WindowStart)"
-	          }
-	        },
-	        "scheduler": {
-	          "frequency": "Day",
-	          "interval": 1
-	        },			
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 2,
-	          "timeout": "01:00:00"
-	        } 
-	     ]
-	   }
-	}
+		{  
+		    "name":"SamplePipeline",
+		    "properties":{  
+		    "start":"2015-01-01T08:00:00",
+		    "end":"2015-01-01T11:00:00",
+		    "description":"hive activity",
+		    "activities": [
+		        {
+		            "name": "SampleHiveActivity",
+		            "inputs": [
+		                {
+		                    "name": "AzureBlobInput"
+		                }
+		            ],
+		            "outputs": [
+		                {
+		                    "name": "AzureBlobOutput"
+		                }
+		            ],
+		            "linkedServiceName": "HDInsightLinkedService",
+		            "type": "HDInsightHive",
+		            "typeProperties": {
+		                "scriptPath": "adftutorial\\hivequery.hql",
+		                "scriptLinkedService": "StorageLinkedService",
+		                "defines": {
+		                    "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+		                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
+		                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
+		                }
+		            },
+		            "scheduler": {
+		                "frequency": "Day",
+		                "interval": 1
+		            },			
+		            "policy": {
+		                "concurrency": 1,
+		                "executionPriorityOrder": "OldestFirst",
+		                "retry": 2,
+		                "timeout": "01:00:00"
+		            }
+	             }
+		     ]
+		   }
+		}
 
 Here is how this looks like from data dependency point of view.
 
@@ -395,7 +395,7 @@ First input is Azure blob updated **daily**.
 	    },
 		"external": true,
 	    "availability": {
-	      "frequency": "Hour",
+	      "frequency": "Day",
 	      "interval": 1
 	    }
 	  }
@@ -441,7 +441,7 @@ One output file will be dropped every day in the folder for the day. Availabilit
 	    "typeProperties": {
 	      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
 	      "partitionedBy": [
-	        { "name": "Year", "value": {"type": "DateTime","date": ": "SliceStart","format": "yyyy"}},
+	        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
 	        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
 	        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
 	      ],
@@ -475,8 +475,8 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 	          },
 	          {
 	            "name": "AzureBlobInputWeekly",
-	            "startTime": "Date.AddDays(SliceStart,  -7 - Date.DayofWeek(SliceStart))",
-	            "endTime": "Date.AddDays(SliceEnd,  -Date.DayofWeek(SliceEnd))"  
+	            "startTime": "Date.AddDays(SliceStart,  -7 - Date.DayOfWeek(SliceStart))",
+	            "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
 	          }
 	        ],
 	        "outputs": [
@@ -487,7 +487,7 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 	        "linkedServiceName": "HDInsightLinkedService",
 	        "type": "HDInsightHive",
 	        "typeProperties": {
-	          "scriptpath": "adftutorial\\hivequery.hql",
+	          "scriptPath": "adftutorial\\hivequery.hql",
 	          "scriptLinkedService": "StorageLinkedService",
 	          "defines": {
 	            "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
@@ -504,7 +504,8 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 	          "executionPriorityOrder": "OldestFirst",
 	          "retry": 2,  
 	          "timeout": "01:00:00"
-	        } 
+	        }
+		   } 
 	     ]
 	   }
 	}
@@ -520,6 +521,8 @@ WindowEnd | End of time interval for current activity run window | activity | sa
 SliceStart | Start of time interval for data  slice being produced | activity<br/>dataset | <ol><li>Specify dynamic folder paths and file names while working with [Azure Blob](data-factory-azure-blob-connector.md) and [File System datasets](data-factory-onprem-file-system-connector.md).</li><li>Specify input dependencies with data factory functions in activity inputs collection.</li></ol>
 SliceEnd | End of time interval for current data slice being produced | activity<br/>dataset | same as above. 
 
+> [AZURE.NOTE] Currently data factory requires that the schedule specified in the activity exactly match the schedule specified in availability of the output dataset. This means WindowStart, WindowEnd and SliceStart and SliceEnd always map to the same time period and a single output slice.
+ 
 ## Data Factory Functions Reference
 
 You can use functions in data factory along with above mentioned system variables for the following purposes:

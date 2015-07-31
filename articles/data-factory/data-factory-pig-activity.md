@@ -45,7 +45,7 @@ The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipe
 	        "linkedServiceName": "MyHDInsightLinkedService",
 	        "typeProperties": {
 	          "script": "Pig script",
-	          "scriptpath": "<pathtothePigscriptfileinAzureblobstorage>",
+	          "scriptPath": "<pathtothePigscriptfileinAzureblobstorage>",
 	          "defines": {
 	            "param1": "param1Value"
 	          }
@@ -66,7 +66,7 @@ inputs | Input(s) consumed by the Pig activity | No
 outputs | Output(s) produced by the Pig activity | Yes
 linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes
 script | Specify the Pig script inline | No
-script path | Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptpath' property. Both cannot be used together | No
+script path | Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together | No
 defines | Specify parameters as key/value pairs for referencing within the Pig script | No
 
 ## Example
@@ -120,7 +120,7 @@ To execute this Pig script in a Data Factory pipeline, you need to the do the fo
 		        ],
 		        "linkedServiceName": "HDInsightLinkedService",
 		        "typeproperties": {
-		          "scriptpath": "adfwalkthrough\\scripts\\enrichlogs.pig",
+		          "scriptPath": "adfwalkthrough\\scripts\\enrichlogs.pig",
 		          "scriptLinkedService": "StorageLinkedService"
 		        }
 		      }
@@ -157,7 +157,7 @@ To use parameterize Pig script, do the following:
 		        ],
 		        "linkedServiceName": "HDInsightLinkedService",
 		        "typeproperties": {
-		          "scriptpath": "adfwalkthrough\\scripts\\samplepig.hql",
+		          "scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
 		          "scriptLinkedService": "StorageLinkedService",
 		          "defines": {
 		            "Input": "$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
