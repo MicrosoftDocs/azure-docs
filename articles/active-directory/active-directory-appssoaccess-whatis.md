@@ -82,6 +82,8 @@ For password-based SSO, the end user’s browsers can be:
 *	IE 8, IE9 and IE10 on Windows 7 or later
 *	Chrome on Windows 7 or later or MacOS X or later
 
+**Note:** The password-based SSO extension will become available for Edge in Windows 10 when browser extensions become supported for Edge.
+
 ###Existing Single Sign-On
 
 When configuring single sign-on for an application, the Azure management portal provides a third option of “Existing Single Sign-On”. This option simply allows the administrator to create a link to an application, and place it on the access panel for selected users.
