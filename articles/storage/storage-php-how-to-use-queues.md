@@ -22,7 +22,7 @@
 
 ## Overview
 
-This guide will show you how to perform common scenarios by using the Azure Queue storage service. The samples are written via classes from the Windows SDK for PHP. The covered scenarios include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues. For more information on queues, see the [Next steps](#NextSteps) section.
+This guide will show you how to perform common scenarios by using the Azure Queue storage service. The samples are written via classes from the Windows SDK for PHP. The covered scenarios include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues.
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
