@@ -21,9 +21,36 @@
 
 You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language. 
 
-For more information about using Windows PowerShell remoting to connect to your device, go to [Administer your device using Windows PowerShell for StorSimple](storsimple-windows-powershell-administration.md).
+For more information about using Windows PowerShell remoting to manage your device, go to [Administer your device using Windows PowerShell for StorSimple](storsimple-windows-powershell-administration.md).
 
-You can use HTTP or HTTPS to connect via Windows PowerShell remoting. 
+This tutorial explains how to configure your device for remote management and then how to connect to Windows PowerShell for StorSimple. You can use HTTP or HTTPS to connect via Windows PowerShell remoting. However, when you are deciding how to connect to Windows PowerShell for StorSimple, consider the following: 
+
+- Connecting directly to the device serial console is secure but connecting to the serial console over network switches is not. Be cautious of the security risk when connecting to the device serial console over network switches. 
+
+- Connecting through an HTTP session might offer more security than connecting through the serial console over the network. Although this is not the most secure method, it is acceptable on trusted networks. 
+
+- Connecting through an HTTPS session with a self-signed certificate is the most secure and the recommended option.
+
+## Configure your device for remote management
+
+You can connect remotely to the Windows PowerShell interface. However, remote access to your StorSimple device via the Windows PowerShell interface is not enabled by default. You need to enable remote management on the device first, and then on the client that is used to access your device.
+
+Perform the following steps to enable remote management of your StorSimple device from the Management Portal.
+
+#### To enable remote management
+
+1. Access **Devices** > **Configure** for your device.
+
+2. Scroll down to the **Remote Management** section.
+
+3. Set **Enable Remote Management** to **Yes**.
+
+4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
+
+5. Click **Download Remote Management Certificate**. Specify a location to save this file. You will need to install this certificate on the client or host machine that you will use to connect to the device.
+
+6. Click **Save** at the bottom of the page.
+
 
 ## Connect through HTTP
 
