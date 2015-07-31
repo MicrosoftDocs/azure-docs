@@ -45,7 +45,11 @@ The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pip
 	      "defines": {
 	        "param1": "param1Value"
 	      }
-	    }
+	    },
+       "scheduler": {
+          "frequency": "Day",
+          "interval": 1
+        }
 	}
 	
 ## Syntax details
@@ -130,7 +134,11 @@ To execute this Hive script in a Data Factory pipeline, you need to the do the f
 		        "typeproperties": {
 		          "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
 		          "scriptLinkedService": "StorageLinkedService"
-		        }
+		        },
+       			"scheduler": {
+          			"frequency": "Hour",
+          			"interval": 1
+        		}
 		      }
 		    ]
 		  }
@@ -149,32 +157,36 @@ To use parameterize Hive script, do the following
 - Define the parameters in **defines**.
 
 		{
-		  "name": "HiveActivitySamplePipeline",
-		  "properties": {
+			"name": "HiveActivitySamplePipeline",
+		  	"properties": {
 		    "activities": [
-		      {
-		        "name": "HiveActivitySample",
-		        "type": "HDInsightHive",
-		        "inputs": [
-		          {
-		            "name": "HiveSampleIn"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "HiveSampleOut"
-		          }
-		        ],
-		        "linkedServiceName": "HDInsightLinkedService",
-		        "typeproperties": {
-		          "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-		          "scriptLinkedService": "StorageLinkedService",
-		          "defines": {
-		            "Input": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            "Output": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
-		          }
-		        }
-		      }
+		     	{
+		        	"name": "HiveActivitySample",
+		        	"type": "HDInsightHive",
+			        "inputs": [
+			          	{
+				            "name": "HiveSampleIn"
+				          }
+		        	],
+		        	"outputs": [
+		          		{
+				            "name": "HiveSampleOut"
+				        }
+		        	],
+		        	"linkedServiceName": "HDInsightLinkedService",
+		        	"typeproperties": {
+		          		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+		          		"scriptLinkedService": "StorageLinkedService",
+		          		"defines": {
+		            		"Input": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
+		            		"Output": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		          		},
+       					"scheduler": {
+          					"frequency": "Hour",
+          					"interval": 1
+        				}
+		        	}
+		      	}
 		    ]
 		  }
 		}
