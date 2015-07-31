@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/25/2015"
+   ms.date="07/29/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with the Azure SQL Database Library for .NET
@@ -222,49 +222,57 @@ The following example creates a rule that opens access to the server from any IP
 To allow other Azure services to access a server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from *any* Azure subscription to access the server.
 
 
-## Create or update a database
+## Create a database
 
 The following command will create a new Basic database if a database with the same name does not exist on the server; if a database with the same name does exist it will be updated. 
 
+        // Create a database
 
-    // Create a database
-    DatabaseCreateOrUpdateProperties databaseProperties = new DatabaseCreateOrUpdateProperties()
-    {
-        Edition = "Basic"
-    };
+        // Retrieve the server on which the database will be created
+        Server currentServer = sqlClient.Servers.Get("resourcegroup-name", "server-name").Server;
+ 
+        // Create a database: configure create or update parameters and properties explicitly
+        DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
+        {
+            Location = currentServer.Location,
+            Properties = new DatabaseCreateOrUpdateProperties()
+            {
+                Edition = "Basic",
+                RequestedServiceObjectiveName = "Basic",
+                MaxSizeBytes = 2147483648,
+                Collation = "SQL_Latin1_General_CP1_CI_AS"
+            }
+        };
 
-    DatabaseCreateOrUpdateParameters databaseParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = "South Central US",
-        Properties = databaseProperties
-    };
-
-    var databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
+        var dbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", newDatabaseParameters);
 
 
 
-## Change the service tier and performance level of a database
+## Update a database 
 
-To change the service tier and performance level of a database you call the Databases.CreateOrUpdate method just like creating or updating a database above. Set the **Edition** and **RequestedServiceObjectiveName** properties to the desired service tier and performance level.
+To update a database, (for example, changing the service tier and performance level) you call the **Databases.CreateOrUpdate** method just like creating or updating a database above. Set the **Edition** and **RequestedServiceObjectiveName** properties to the desired service tier and performance level.
  Note that when changing the Edition to or from **Premium**, the update can take some time depending on the size of your database.
 
 The following updates a SQL database to the Standard (S2) level:
 
-    // Update the service objective of the database
-    DatabaseCreateOrUpdateProperties databaseProperties = new DatabaseCreateOrUpdateProperties()
+    // Retrieve current database properties 
+    var currentDatabase = sqlClient.Databases.Get("resourecegroup-name", "server-name", "Database1").Database;
+
+    // Configure create or update parameters with existing property values, override those to be changed.
+    DatabaseCreateOrUpdateParameters updateDatabaseParameters = new DatabaseCreateOrUpdateParameters()
     {
-        Edition = "Standard",
-        RequestedServiceObjectiveName = "S2"
-    };
+        Location = currentDatabase.Location,
+        Properties = new DatabaseCreateOrUpdateProperties()
+        {
+            Edition = "Standard",
+            RequestedServiceObjectiveName = "S0", // alternatively set the RequestedServiceObjectiveId
+            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
+            Collation = currentDatabase.Properties.Collation
+        }
+     };
 
-    DatabaseCreateOrUpdateParameters databaseParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = "South Central US",
-        Properties = databaseProperties
-    };
-
-
-    databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
+    // Update the database
+    dbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updateDatabaseParameters);
 
 
 ## List all databases on a server
@@ -286,23 +294,43 @@ To list all databases on a server, pass the server and resource group names to t
 To create a new pool on a server:
 
 
-    // Create an elastic database pool
-    ElasticPoolCreateOrUpdateProperties poolProperties = new ElasticPoolCreateOrUpdateProperties()
-    {
-        Edition = "Standard",
-        Dtu = 100,
-        DatabaseDtuMin = 0,
-        DatabaseDtuMax = 100
-    };
 
-    ElasticPoolCreateOrUpdateParameters poolParameters = new ElasticPoolCreateOrUpdateParameters()
+    // Create elastic pool: configure create or update parameters and properties explicitly
+    ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
     {
         Location = "South Central US",
-        Properties = poolProperties
+        Properties = new ElasticPoolCreateOrUpdateProperties()
+        {
+            Edition = "Standard",
+            Dtu = 100,  // alternatively set StorageMB, if both are specified they must agree based on the DTU:storage ratio of the edition
+            DatabaseDtuMin = 0,
+            DatabaseDtuMax = 100
+         }
     };
 
-    var poolResult = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", poolParameters);
+    // Create the pool
+    var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
+
+## Update an elastic database pool
+
+    // Retrieve existing pool properties
+    var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
+
+    // Configure create or update parameters with existing property values, override those to be changed.
+    ElasticPoolCreateOrUpdateParameters updatePoolParameters = new ElasticPoolCreateOrUpdateParameters()
+    {
+        Location = currentPool.Location,
+        Properties = new ElasticPoolCreateOrUpdateProperties()
+        {
+            DatabaseDtuMax = 50, /* DatabaseDtuMax reduces the maximum DTUs that any one database can consume */
+            DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
+            Dtu = (int)currentPool.Properties.Dtu,
+            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU; setting StorageMB will change the pool DTU also. */
+        }
+    };
+
+    newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
 
 
@@ -310,25 +338,54 @@ To create a new pool on a server:
 
 To move an existing database into a pool:
 
-
-    // update database service objective to add the database to a pool
-    databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
-    databaseProperties.ElasticPoolName = "ElasticPool1";
-
-    databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
-
+    
+    // Update database service objective to add the database to a pool
+    
+    // Retrieve current database properties 
+    currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
+    
+    // Configure create or update parameters with existing property values, override those to be changed.
+    DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
+    {
+        Location = currentDatabase.Location,
+        Properties = new DatabaseCreateOrUpdateProperties()
+        {
+            Edition = "Standard",
+            RequestedServiceObjectiveName = "ElasticPool",
+            ElasticPoolName = "ElasticPool1",
+            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
+            Collation = currentDatabase.Properties.Collation,
+        }
+    };
+    
+    // Update the database
+    var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
+    
+    
 
 
 ## Create a new database in an elastic database pool
 
 To create a new database directly in a pool:
 
-    // create a new database in the pool
-    databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
-    databaseProperties.ElasticPoolName = "ElasticPool1";
-
-    databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", databaseParameters);
-
+    
+    // Create a new database in the pool
+    
+    // Create a database: configure create or update parameters and properties explicitly
+    DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
+    {
+        Location = currentServer.Location,
+        Properties = new DatabaseCreateOrUpdateProperties()
+        {
+            Edition = "Standard",
+            RequestedServiceObjectiveName = "ElasticPool",
+            ElasticPoolName = "ElasticPool1",
+            MaxSizeBytes = 268435456000, // 250 GB,
+            Collation = "SQL_Latin1_General_CP1_CI_AS"
+        }
+    };
+    
+    var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
 
 
@@ -363,15 +420,17 @@ To delete a resource group:
 ## Sample console application
 
 
-
-    using System;
     using Microsoft.Azure;
+    using Microsoft.Azure.Insights;
+    using Microsoft.Azure.Insights.Models;
     using Microsoft.Azure.Management.Resources;
     using Microsoft.Azure.Management.Resources.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    
+    using System;
+    using System.Security;
+
     namespace AzureSqlDatabaseRestApiExamples
     {
     class Program
@@ -395,17 +454,40 @@ To delete a resource group:
             return token;
         }
 
+        private static AuthenticationResult GetAccessTokenUsingUserCredentials(UserCredential userCredential)
+        {
+            AuthenticationContext authContext = new AuthenticationContext
+                ("https://login.windows.net/" /* AAD URI */
+                + "YOU.onmicrosoft.com" /* Tenant ID or AAD domain */);
+
+            AuthenticationResult token = authContext.AcquireToken(
+                "https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
+                userCredential);
+
+            return token;
+        }
+        private static SecureString convertToSecureString(string secret)
+        {
+            var secureStr = new SecureString();
+            if (secret.Length > 0)
+            {
+                foreach (var c in secret.ToCharArray()) secureStr.AppendChar(c);
+            }
+            return secureStr;
+        }
+
         static void Main(string[] args)
         {
             var token = GetAccessToken();
             
-            // List token information
+            // Who am I?
             Console.WriteLine("Identity is {0} {1}", token.UserInfo.GivenName, token.UserInfo.FamilyName);
             Console.WriteLine("Token expires on {0}", token.ExpiresOn);
             Console.WriteLine("");
 
             // Create a resource management client 
-            ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
+            ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken));
 
             // Resource group parameters
             ResourceGroup resourceGroupParameters = new ResourceGroup()
@@ -415,106 +497,173 @@ To delete a resource group:
 
             //Create a resource group
             var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("resourcegroup-name", resourceGroupParameters);
-                        
+
             Console.WriteLine("Resource group {0} create or update completed with status code {1} ", resourceGroupResult.ResourceGroup.Name, resourceGroupResult.StatusCode);
 
             //create a SQL Database management client
-            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* Subscription id*/, token.AccessToken));
+            TokenCloudCredentials tokenCredentials = new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* Subscription id*/, token.AccessToken);
+
+            SqlManagementClient sqlClient = new SqlManagementClient(tokenCredentials);
 
             // Create a server
-            ServerCreateOrUpdateProperties serverProperties = new ServerCreateOrUpdateProperties ()
-            {
-                AdministratorLogin = "ServerAdmin",
-                AdministratorLoginPassword = "P@ssword1",
-                Version = "12.0"
-            };
-
             ServerCreateOrUpdateParameters serverParameters = new ServerCreateOrUpdateParameters()
             {
                 Location = "South Central US",
-                Properties = serverProperties 
+                Properties = new ServerCreateOrUpdateProperties()
+                {
+                    AdministratorLogin = "ServerAdmin",
+                    AdministratorLoginPassword = "P@ssword1",
+                    Version = "12.0"
+                }
             };
 
             var serverResult = sqlClient.Servers.CreateOrUpdate("resourcegroup-name", "server-name", serverParameters);
 
+            var serverGetResult = sqlClient.Servers.Get("resourcegroup-name", "server-name");
+
+
             Console.WriteLine("Server {0} create or update completed with status code {1}", serverResult.Server.Name, serverResult.StatusCode);
 
             // Create a firewall rule on the server to allow TDS connection 
-            FirewallRuleCreateOrUpdateProperties firewallProperties = new FirewallRuleCreateOrUpdateProperties()
-            {
-                StartIpAddress = "0.0.0.0",
-                EndIpAddress = "255.255.255.255"
-            };
 
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
-                Properties = firewallProperties
+                Properties = new FirewallRuleCreateOrUpdateProperties()
+                {
+                    StartIpAddress = "0.0.0.0",
+                    EndIpAddress = "255.255.255.255"
+                }
             };
 
             var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("resourcegroup-name", "server-name", "FirewallRule1", firewallParameters);
 
             Console.WriteLine("Firewall rule {0} create or update completed with status code {1}", firewallResult.FirewallRule.Name, firewallResult.StatusCode);
-                        
+
             // Create a database
-            DatabaseCreateOrUpdateProperties databaseProperties = new DatabaseCreateOrUpdateProperties()
+
+            // Retrieve the server on which the database will be created
+            Server currentServer = sqlClient.Servers.Get("resourcegroup-name", "server-name").Server;
+
+            // Create a database: configure create or update parameters and properties explicitly
+            DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
             {
-                Edition = "Basic"
+                Location = currentServer.Location,
+                Properties = new DatabaseCreateOrUpdateProperties()
+                {
+                    Edition = "Basic",
+                    RequestedServiceObjectiveName = "Basic",
+                    MaxSizeBytes = 2147483648,
+                    Collation = "SQL_Latin1_General_CP1_CI_AS"
+                }
             };
 
-            DatabaseCreateOrUpdateParameters databaseParameters = new DatabaseCreateOrUpdateParameters()
+            var dbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", newDatabaseParameters);
+
+            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective {2} ", dbResponse.Database.Name, dbResponse.StatusCode, dbResponse.Database.Properties.ServiceObjective);
+
+            // ...
+            // Update database: retrieve current database properties 
+            var currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
+
+            // Update database: configure create or update parameters with existing property values, override those to be changed.
+            DatabaseCreateOrUpdateParameters updateDatabaseParameters = new DatabaseCreateOrUpdateParameters()
+            {
+                Location = currentDatabase.Location,
+                Properties = new DatabaseCreateOrUpdateProperties()
+                {
+                    Edition = "Standard",
+                    RequestedServiceObjectiveName = "S0", // alternatively set the RequestedServiceObjectiveId
+                    MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
+                    Collation = currentDatabase.Properties.Collation
+                }
+            };
+
+            // Update the database
+            dbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updateDatabaseParameters);
+
+            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2} ", dbResponse.Database.Name, dbResponse.StatusCode, dbResponse.Database.Properties.ServiceObjective);
+
+            // Create elastic pool: configure create or update parameters and properties explicitly
+            ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
             {
                 Location = "South Central US",
-                Properties = databaseProperties
+                Properties = new ElasticPoolCreateOrUpdateProperties()
+                {
+                    Edition = "Standard",
+                    Dtu = 100,  // alternatively set StorageMB, if both are specified they must agree based on the DTU:storage ratio of the edition
+                    DatabaseDtuMin = 0,
+                    DatabaseDtuMax = 100
+                }
             };
 
-            var databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
+           // Create the pool
+            var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective {2} ", databaseResult.Database.Name, databaseResult.StatusCode, databaseResult.Database.Properties.ServiceObjective);
-            
-            // Update the service objective of the database
-            databaseProperties.Edition = "Standard";
-            databaseProperties.RequestedServiceObjectiveName = "S0";
+            Console.WriteLine("Elastic pool {0} create or update completed with status code {1}.", newPoolResponse.ElasticPool.Name, newPoolResponse.StatusCode);
 
-            databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
+            // Update pool: retrieve existing pool properties
+            var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
 
-            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2} ", databaseResult.Database.Name, databaseResult.StatusCode, databaseResult.Database.Properties.ServiceObjective);
-
-            // Create an elastic pool
-            ElasticPoolCreateOrUpdateProperties poolProperties = new ElasticPoolCreateOrUpdateProperties()
+            // Update pool: configure create or update parameters with existing property values, override those to be changed.
+            ElasticPoolCreateOrUpdateParameters updatePoolParameters = new ElasticPoolCreateOrUpdateParameters()
             {
-                Edition = "Standard",
-                Dtu = 100,
-                DatabaseDtuMin = 0,
-                DatabaseDtuMax = 100
+                Location = currentPool.Location,
+                Properties = new ElasticPoolCreateOrUpdateProperties()
+                {
+                    DatabaseDtuMax = 50, /* DatabaseDtuMax reduces the maximum DTUs that any one database can consume */
+                    DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
+                    Dtu = (int)currentPool.Properties.Dtu,
+                    StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU; setting StorageMB will change the pool DTU also. */
+                }
             };
+            newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-            ElasticPoolCreateOrUpdateParameters poolParameters = new ElasticPoolCreateOrUpdateParameters()
+            Console.WriteLine("Elastic pool {0} create or update completed with status code {1}.", newPoolResponse.ElasticPool.Name, newPoolResponse.StatusCode);
+
+            // Update database service objective to add the database to a pool
+
+            // Update database: retrieve current database properties 
+            currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
+
+            // Update database: configure create or update parameters with existing property values, override those to be changed.
+            DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
             {
-                Location = "South Central US",
-                Properties = poolProperties
+                Location = currentDatabase.Location,
+                Properties = new DatabaseCreateOrUpdateProperties()
+                {
+                    Edition = "Standard",
+                    RequestedServiceObjectiveName = "ElasticPool",
+                    ElasticPoolName = "ElasticPool1",
+                    MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
+                    Collation = currentDatabase.Properties.Collation,
+                }
             };
 
-            var poolResult = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", poolParameters);
+            // Update the database
+            var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
-            Console.WriteLine("Elastic pool {0} create or update completed with status code {1}.", poolResult.ElasticPool.Name, poolResult.StatusCode);
+            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2}({3}) ", dbUpdateResponse.Database.Name, dbUpdateResponse.StatusCode, dbUpdateResponse.Database.Properties.ServiceObjective, dbUpdateResponse.Database.Properties.ElasticPoolName);
 
-            // update database service objective to add the database to a pool
-            databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
-            databaseProperties.ElasticPoolName = "ElasticPool1";
+            // Create a new database in the pool
 
-            databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", databaseParameters);
+            // Create a database: configure create or update parameters and properties explicitly
+            DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
+            {
+                Location = currentServer.Location,
+                Properties = new DatabaseCreateOrUpdateProperties()
+                {
+                    Edition = "Standard",
+                    RequestedServiceObjectiveName = "ElasticPool",
+                    ElasticPoolName = "ElasticPool1",
+                    MaxSizeBytes = 268435456000, // 250 GB,
+                    Collation = "SQL_Latin1_General_CP1_CI_AS"
+                }
+            };
 
-            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2}({3}) ", databaseResult.Database.Name, databaseResult.StatusCode, databaseResult.Database.Properties.ServiceObjective, databaseResult.Database.Properties.ElasticPoolName);
+            var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
-            // create a new database in the pool
+            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2}({3}) ", poolDbResponse.Database.Name, poolDbResponse.StatusCode, poolDbResponse.Database.Properties.ServiceObjective, poolDbResponse.Database.Properties.ElasticPoolName);
 
-            databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
-            databaseProperties.ElasticPoolName = "ElasticPool1";
-
-            databaseResult = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", databaseParameters);
-
-            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2}({3}) ", databaseResult.Database.Name, databaseResult.StatusCode, databaseResult.Database.Properties.ServiceObjective, databaseResult.Database.Properties.ElasticPoolName);
-            
             // List databases on the server
             DatabaseListResponse dbListOnServer = sqlClient.Databases.List("resourcegroup-name", "server-name");
             Console.WriteLine("Databases on Server {0}", "server-name");
@@ -523,12 +672,81 @@ To delete a resource group:
                 Console.WriteLine("  Database {0}, Service Objective {1}", db.Name, db.Properties.ServiceObjective);
             }
 
-            //List databases in the elastic pool
-            DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
-            Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
-            foreach (Database db in dbListInPool)
+            // List all servers, pools and databases in the resource group
+            ServerListResponse serverList = new ServerListResponse();
+            ElasticPoolListResponse poolList = new ElasticPoolListResponse();
+            DatabaseListResponse dbListInPool = new DatabaseListResponse();
+
+            Console.WriteLine("Servers in resource group {0}", "resourcegroup-name");
+            serverList = sqlClient.Servers.List("resourcegroup-name");
+            foreach (Server server in serverList)
             {
-                Console.WriteLine("  Database {0}", db.Name);
+                Console.WriteLine("  Server '{0}' location: {1}", server.Name, server.Location);
+                poolList = sqlClient.ElasticPools.List("resourcegroup-name", server.Name);
+                foreach (ElasticPool pool in poolList)
+                {
+                    Console.WriteLine("    Elastic Pool '{0}' edition: {1} DTU: {2} storage GB: {3} database DTU min: {4} database DTU max: {5}", pool.Name, pool.Properties.Edition, pool.Properties.Dtu, (pool.Properties.StorageMB/1024), pool.Properties.DatabaseDtuMin, pool.Properties.DatabaseDtuMax);
+                    dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", server.Name, pool.Name);
+                    foreach(Database db in dbListInPool)
+                    {
+                        Console.WriteLine("      Database '{0}'", db.Name);                       
+                    }
+                }
+            }
+
+            // Metrics
+
+            var endTime = String.Format(DateTime.Now.ToUniversalTime().ToString("s")) + "Z"; // as UTC in sortable time format yyyy-mm-ddThh:mm:ssZ
+            var duration = TimeSpan.FromHours(2);
+            var startTime = String.Format(DateTime.Now.Subtract(duration).ToUniversalTime().ToString("s")) + "Z";  // as UTC in sortable time format yyyy-mm-ddThh:mm:ssZ
+
+            Console.WriteLine("");
+            Console.WriteLine("Elastic pool metrics for 'ElasticPool1'");
+
+            ElasticPoolMetricDefinitions poolMetricDefinition = new ElasticPoolMetricDefinitions();
+            poolMetricDefinition = sqlClient.ElasticPools.ListMetricDefinitions("resourcegroup-name", "server-name", "ElasticPool1");
+
+            Console.WriteLine("  Metric definitions: ");
+            foreach (Microsoft.Azure.Management.Sql.Models.MetricDefinition metricDefinition in poolMetricDefinition.MetricDefinitions)
+            {
+                Console.WriteLine("    '{0}' unit: {1} aggregation type: {2}", metricDefinition.Name.LocalizedValue, metricDefinition.Unit, metricDefinition.PrimaryAggregationType);
+            }
+            Console.WriteLine("  Metric values: ");
+            ElasticPoolMetrics elasticPoolMetrics = new ElasticPoolMetrics();
+            elasticPoolMetrics = sqlClient.ElasticPools.ListMetrics("resourcegroup-name", "server-name", "ElasticPool1", "name.value eq 'dtu_consumption_percent'", "PT5M", startTime, endTime);
+            foreach (Microsoft.Azure.Management.Sql.Models.Metric metric in elasticPoolMetrics.Metrics)
+            {
+                Console.WriteLine("    '{0}' unit: {1} time grain: {2} start time: {3} end time: {4} values: {5}", metric.Name.LocalizedValue, metric.Unit, metric.TimeGrain, metric.StartTime, metric.EndTime, metric.Values.Count);
+                foreach (Value metricValue in metric.Values)
+                {
+                    Console.WriteLine("      Timestamp: {0} average: {1} minimum: {2} maximum {3} total {4}", metricValue.Timestamp, metricValue.Average, metricValue.Maximum, metricValue.Minimum, metricValue.Total);
+                }
+            }
+
+            // List database metrics
+            Console.WriteLine("");
+            Console.WriteLine("Database metrics for 'Database1'");
+            Console.WriteLine("  Metric definitions"); 
+
+            Microsoft.Azure.Insights.InsightsClient insightsClient = new InsightsClient(tokenCredentials);
+
+            Microsoft.Azure.Insights.Models.MetricDefinitionListResponse metricDefinitionListResponse = insightsClient.MetricDefinitionOperations.GetMetricDefinitions("subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourcegroups/resourcegroup-name/providers/microsoft.sql/servers/server-name/databases/Database1/", "");
+            foreach (Microsoft.Azure.Insights.Models.MetricDefinition metricDefinition in metricDefinitionListResponse.MetricDefinitionCollection.Value)
+            {
+                Console.WriteLine("    {0} unit: {1} aggregation: {2}" , metricDefinition.Name.LocalizedValue, metricDefinition.Unit, metricDefinition.PrimaryAggregationType);
+            }
+            var resourceURI = "subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourcegroups/resourcegroup-name/providers/microsoft.sql/servers/server-name/databases/Database1/";
+            var filter = "(name.value eq 'dtu_consumption_percent') and startTime eq " + startTime + " and endTime eq " + endTime + " and timeGrain eq duration'PT5M'";
+
+            Console.WriteLine("  Metric values");
+            MetricListResponse mlr = insightsClient.MetricOperations.GetMetrics(resourceURI,filter);
+            foreach (Microsoft.Azure.Insights.Models.Metric metric in mlr.MetricCollection.Value)
+            {
+                Console.WriteLine("    {0}", metric.Name.LocalizedValue);
+                foreach (MetricValue metricValue in metric.MetricValues)
+                {
+                    Console.WriteLine("      Timestamp: {0} minimum: {1} maximum: {2} average: {3}", metricValue.Timestamp, metricValue.Minimum, metricValue.Maximum, metricValue.Average);
+                }
             }
 
             Console.WriteLine("");
@@ -549,8 +767,8 @@ To delete a resource group:
             Console.WriteLine("Execution complete.  Press any key to continue.");
             Console.ReadKey();
         }
-      }
     }
+}
 
 
 
