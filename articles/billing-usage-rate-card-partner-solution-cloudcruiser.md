@@ -115,7 +115,7 @@ The bottom graph shows the same data but broken down by department, demonstratin
 ## 2. Azure Usage API
 
 
-### Introduction
+## Introduction
 
 Microsoft recently
 introduced the Azure Usage API, allowing subscribers to programmatically pull
@@ -150,7 +150,7 @@ consumption based on the account structure populated by the tags.
 
  
 
-### Microsoft Azure Tags
+## Microsoft Azure Tags
 
 The data available
 through the Azure Usage API includes not only consumption information, but also
@@ -196,7 +196,7 @@ Division, Project, etc.). This automation provides a huge improvement and can
 ensure a consistent and auditable charging process.
  
 
-### Creating a Resource Group with tags on Microsoft Azure
+## Creating a Resource Group with tags on Microsoft Azure
  
 
 The first step in this
@@ -299,7 +299,7 @@ The next step is to pull the information from the Usage API into Cloud Cruiser. 
 
 
 
-### Import data from the Usage API into Cloud Cruiser
+## Import data from the Usage API into Cloud Cruiser
 
  
 
@@ -330,7 +330,7 @@ We are going to extract and process the information from the Usage API on the _U
 
  
 
-### Processing the tag information from the Usage API
+## Processing the tag information from the Usage API
 
  
 
@@ -355,7 +355,7 @@ Next step is to create a lookup table associating the information from the tags 
 
  
 
-### Adding the tag information to the consumption data
+## Adding the tag information to the consumption data
 
  
 
@@ -416,13 +416,10 @@ insights from your cloud usage.
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "Figure 7 - Transforming WAP data to normalize services"
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figure 8 - Workbook scheduling"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figure 9 - Sample Report for the Workload cost comparison scenario"
-
-[10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figure 10 - Report with breakdowns using tags"
-
+[10]:
+./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figure 10 - Report with breakdowns using tags"
 [11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 11 - Resource Group with associated tags on Azure Portal"
-
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figure 12 - Usage API data imported into the UsageAPI sheet"
-
-[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 - Create new fields for the tag information"
-
+[13]:
+./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 - Create new fields for the tag information"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 14 - Populating the account structure with the information from the lookups"
