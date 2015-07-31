@@ -9,9 +9,9 @@
 
 <tags
    ms.service="active-directory"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="07/31/2015"
    ms.author="curtand"/>
