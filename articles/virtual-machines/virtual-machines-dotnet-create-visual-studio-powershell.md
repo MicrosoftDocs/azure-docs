@@ -67,4 +67,4 @@ If you want to customize the published scripts you created, read more in-depth i
 [2]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_CreateVM.PNG
 [3]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
-[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_CreateVM_Connect.png
+[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_Connect.png
