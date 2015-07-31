@@ -19,8 +19,8 @@
 # Register the current user for push notifications by using a mobile service
 
 > [AZURE.SELECTOR]
-[Windows Store C#](../documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/)
-[Windows Store C#](../documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/)
+[Windows Store C#](notification-hubs-windows-store-mobile-services-register-user-push-notifications.md)
+[Windows Store C#](notification-hubs-ios-mobile-services-register-user-push-notifications.md)
 
 This topic shows you how to request push notification registration with Azure Notification Hubs when registration is performed by Azure Mobile Services. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
 

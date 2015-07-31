@@ -20,8 +20,8 @@
 # Work with a JavaScript backend mobile service
 
 > [AZURE.SELECTOR]
-[.NET backend](../documentation/articles/mobile-services-dotnet-backend-how-to-use/)
-[JavaScript backend](../documentation/articles/mobile-services-how-to-use-server-scripts/)
+[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
+[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
  
 This article provides detailed information about and examples of how to work with a JavaScript backend in Azure Mobile Services. 
 
