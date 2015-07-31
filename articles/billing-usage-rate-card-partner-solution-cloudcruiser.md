@@ -133,22 +133,12 @@ present one example of how Cloud Cruiser can benefit from the Usage API
 information. More specifically, we will create a new Resource Group on Azure,
 associate tags for the account structure, and then describe the process of
 pulling and processing the tag information into Cloud Cruiser.
-
  
-
 The final goal is to be able
 to create reports like the one below, and be able to analyze cost and
 consumption based on the account structure populated by the tags.
 
- 
-
- 
-
- 
 ![Figure 10 - Report with breakdowns using tags][10]
-
-
- 
 
 ### Microsoft Azure Tags
 
@@ -156,13 +146,9 @@ The data available
 through the Azure Usage API includes not only consumption information, but also
 resource metadata including any tags associated with it.
 
- 
-
 Tags provide an easy way
 to organize your resources, but in order to be effective, you need to ensure
 that:
-
- 
 
 -     
 Tags are correctly applied
@@ -173,7 +159,6 @@ Tags are properly used on
 the Showback/Chargeback process to tie the usage to the organization’s account
 structure.
  
-
 Both of these
 requirements can be challenging, especially when there is some sort of manual
 process on the provision or charging side. Mistyped, incorrect or even missing
@@ -181,9 +166,7 @@ tags are common complaints from customers when using tags and these errors can
 make life on the charging side very difficult.
  
 
-With the new Azure Usage
-API, Cloud Cruiser can pull resource tagging information, and through a very
-sophisticated ETL tool called workbooks, fix these common tagging errors.
+With the new Azure Usage API, Cloud Cruiser can pull resource tagging information, and through a very sophisticated ETL tool called workbooks, fix these common tagging errors.
 Through transformation steps leveraging regular expressions and data
 correlation, Cloud Cruiser is able to identify incorrectly tagged resources and
 apply the correct tags, filling the gaps and ensuring the correct association
@@ -204,7 +187,6 @@ tutorial is to create a new Resource Group on the Azure Portal and then create
 new tags to associate to the resources. For this example, we will be creating
 the following tags:
 
- 
 Department
 
 Environment
@@ -213,95 +195,15 @@ Owner
 
 Project
 
- 
 The screenshot below of the Azure Portal shows a sample Resource Group with the associated tags.
                                                                                                   
-
-
 ![Figure 11 - Resource Group with associated tags on Azure Portal][11]
 
 
- 
 
 The next step is to pull the information from the Usage API into Cloud Cruiser. The Usage API currently provides responses in JSON format. Here is a sample of the data retrieved:
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-
-
 ### Import data from the Usage API into Cloud Cruiser
-
- 
 
 Cloud Cruiser workbooks
 provide an automated way to collect and process information from the Usage API.
@@ -309,67 +211,47 @@ An ETL (extract-transform-load) workbook allows you to configure the
 collection, transformation, and publishing of data into the Cloud Cruiser
 database.
 
- 
-
 Each workbook can have one or multiple collections. This allows you to correlate information from
 different sources to complement or augment the usage data. For this example, we
 will create a new sheet in the Azure template workbook (_UsageAPI)_ and set a new _collection_
 to import information from the Usage API.
-
  
 
 ![Figure 3 - Usage API data imported into the UsageAPI sheet][12]
  
-
 Notice that this workbook already has other sheets to import services from Azure (_ImportServices_), and process the consumption information from the
 Billing API (_PublishData_).
 
- 
-
 We are going to extract and process the information from the Usage API on the _UsageAPI_ sheet, and correlate the information with the consumption data from the Billing API on the _PublishData_ sheet.
 
- 
-
 ### Processing the tag information from the Usage API
-
- 
 
 After importing the data into the workbook, we will create transformation steps in the _UsageAPI_ sheet in order to process the information from the API. First step is to use a “JSON split” processor to
 extract the tags from a single field (as they are imported from the API) and
 create new fields for each one of them (Department, Project, Owner and
 Environment).
 
- 
-
 ![Figure 4 - Create new fields for the tag information][13]
-
- 
 
 Notice that the
 “Networking” service is missing the tag information (yellow box), but we can
 tell that this service is part of the same Resource Group by looking at the _ResourceGroupName_ field. Since we have the tags for the other resources from this same Resource Group, we can use this information to apply the missing tags to this resource later in the process.
 
- 
-
 Next step is to create a lookup table associating the information from the tags to the _ResourceGroupName_. This lookup table will be used on the next step to enrich the consumption data with tag information.
 
- 
 
 ### Adding the tag information to the consumption data
 
- 
 
 Now we can jump to the _PublishData_ sheet, which processes the
 consumption information from the Billing API, and add the fields extracted from
 the tags. This process is performed by looking at the lookup table created on
 the previous step, using the _ResourceGroupName_
 as the key for the lookups.
-
  
 
 ![Figure 5 - Populating the account structure with the information from the lookups][14]
 
- 
 
 Notice that the
 appropriate account structure fields for the “Networking” service were applied,
@@ -377,14 +259,10 @@ fixing the issue with the missing tags. We also populated the account structure
 fields for resources other than our target Resource Group with “Other”, in
 order to differentiate them on the reports.
 
- 
-
 Now we just need to add
 another step to publish the usage data. During this step, the appropriate rates
 for each service defined on our Rate Plan will be applied to the usage
 information, and the resulting charge is then loaded into the database.
-
- 
 
 The best part is that you
 only have to go through this process once. When the workbook is completed, you
@@ -392,8 +270,6 @@ just need to add it to the scheduler and it will run hourly or daily at the
 scheduled time. Then it’s just a matter of creating new reports, or customizing
 existing ones, in order to visualize and analyze the data to get meaningful
 insights from your cloud usage.
-
- 
 
 ### Next Steps
 
