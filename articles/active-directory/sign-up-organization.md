@@ -3,9 +3,9 @@
 	description="Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="Justinha"
-	manager="terrylan"
-	editor="Lisatoft"/>
+	authors="markvi"
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/30/2015"
-	ms.author="terrylan"/>
+	ms.author="markvi"/>
 
 
 # Sign up for Azure as an organization
@@ -27,7 +27,7 @@ Until recently, you could only sign up for a new Microsoft Azure subscription us
 
 	After this directory has been created, an admin can then create users and assign licenses to them based on which cloud service subscriptions they need access to, such as Azure.
 
-Want to sign up for Azure as an organization? [**Sign up now**](https://azure.microsoft.com/en-us/pricing/purchase-options/)
+Want to sign up for Azure as an organization? [**Sign up now**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **Additional Resources**
 
