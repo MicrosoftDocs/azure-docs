@@ -123,15 +123,10 @@ in usage data to gain insights into their consumption. This is great news for Cl
 Cruiser customers that can take advantage of the richer dataset available
 through this API.
 
- 
-
-Cloud Cruiser can
-leverage the integration with the Usage API in several ways. The granularity
+Cloud Cruiser can leverage the integration with the Usage API in several ways. The granularity
 (hourly usage information) and resource metadata information available through
 the API provides the necessary dataset to support flexible Showback or
-Chargeback models.
-
- 
+Chargeback models. 
 
 In this tutorial, we will
 present one example of how Cloud Cruiser can benefit from the Usage API
@@ -150,7 +145,7 @@ consumption based on the account structure populated by the tags.
  
 
  
-![Figure 1 - Report with breakdowns using tags][10]
+![Figure 10 - Report with breakdowns using tags][10]
 
 
  
@@ -177,7 +172,6 @@ to the resources at provision time;
 Tags are properly used on
 the Showback/Chargeback process to tie the usage to the organization’s account
 structure.
-
  
 
 Both of these
@@ -185,7 +179,6 @@ requirements can be challenging, especially when there is some sort of manual
 process on the provision or charging side. Mistyped, incorrect or even missing
 tags are common complaints from customers when using tags and these errors can
 make life on the charging side very difficult.
-
  
 
 With the new Azure Usage
@@ -196,18 +189,14 @@ correlation, Cloud Cruiser is able to identify incorrectly tagged resources and
 apply the correct tags, filling the gaps and ensuring the correct association
 of the resources with the consumer.
 
- 
-
 On the charging side,
 Cloud Cruiser automates the Showback/Chargeback process, and can leverage the
 tag information to tie the usage to the appropriate consumer (Department,
 Division, Project, etc.). This automation provides a huge improvement and can
 ensure a consistent and auditable charging process.
-
  
 
 ### Creating a Resource Group with tags on Microsoft Azure
-
  
 
 The first step in this
@@ -216,7 +205,6 @@ new tags to associate to the resources. For this example, we will be creating
 the following tags:
 
  
-
 Department
 
 Environment
@@ -226,14 +214,11 @@ Owner
 Project
 
  
-
 The screenshot below of the Azure Portal shows a sample Resource Group with the associated tags.
+                                                                                                  
 
-                                                                                                           
 
- 
-
-![Figure 2 - Resource Group with associated tags on Azure Portal][11]
+![Figure 11 - Resource Group with associated tags on Azure Portal][11]
 
 
  
@@ -432,12 +417,12 @@ insights from your cloud usage.
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figure 8 - Workbook scheduling"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figure 9 - Sample Report for the Workload cost comparison scenario"
 
- [10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figure 1 - Report with breakdowns using tags"
+[10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figure 10 - Report with breakdowns using tags"
 
- [11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 2 - Resource Group with associated tags on Azure Portal"
+[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 11 - Resource Group with associated tags on Azure Portal"
 
- [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figure 3 - Usage API data imported into the UsageAPI sheet"
+[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figure 12 - Usage API data imported into the UsageAPI sheet"
 
- [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 4 - Create new fields for the tag information"
+[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 - Create new fields for the tag information"
 
- [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 5 - Populating the account structure with the information from the lookups"
+[14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 14 - Populating the account structure with the information from the lookups"
