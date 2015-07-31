@@ -132,14 +132,14 @@ The alternative is to determine which content to serve from Azure CDN on a case-
 ## Configure caching options for static files in your Azure web app ##
 
 With Azure CDN integration in your Azure web app, you can specify how you want static content to be cached in the CDN endpoint. To do this, open *Web.config* from your ASP.NET project (e.g. **cdnwebapp**) and add a `<staticContent>` element to `<system.webServer>`. The XML below configures the cache to expire in 3 days.  
-```
+<pre class="prettyprint">
 &lt;system.webServer&gt;
-  <mark>&lt;staticContent&gt;
+  &lt;staticContent&gt;
     &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
-  &lt;/staticContent&gt;</mark>
+  &lt;/staticContent&gt;
   ...
 &lt;/system.webServer&gt;
-```
+</pre>
 
 Once you do this, all static files in your Azure web app will observe the same rule in your CDN cache. For more granular control of cache settings, add a *Web.config* file into a folder and add your settings there. For example, add a *Web.config* file to the *\Content* folder and replace the content with the following XML:
 
@@ -171,9 +171,8 @@ You have a simple `Index` action that allows the customers to specify the superl
 
 Follow the steps above to setup this controller action:
 
-1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Be sure to replace the highlighted portion with your your file path and CDN name.
-
-```
+1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Substitute your file path for `~/Content/chuck.bmp` and your CDN name for `yourCDNName`.
+	<pre class="prettyprint">
 	using System;
 	using System.Collections.Generic;
 	using System.Diagnostics;
@@ -223,14 +222,14 @@ Follow the steps above to setup this controller action:
 	            }
 	            else // Get content from Azure CDN
 	            {
-	                return Redirect(string.Format(&quot;http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
+	                return Redirect(string.Format(&quot;http://&lt;yourCDNName&gt;.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
 	            }
 	        }
 
 	        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 	        public ActionResult Generate(string top, string bottom)
 	        {
-	            string imageFilePath = HostingEnvironment.MapPath(&quot;<mark>~/Content/chuck.bmp</mark>&quot;);
+	            string imageFilePath = HostingEnvironment.MapPath(&quot;~/Content/chuck.bmp&quot;);
 	            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
 	
 	            using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -270,8 +269,7 @@ Follow the steps above to setup this controller action:
 	        }
 	    }
 	}
-	
-	```
+	</pre>
 
 2. Right-click in the default `Index()` action and select **Add View**.
 
@@ -296,7 +294,7 @@ Follow the steps above to setup this controller action:
 5. Publish to the Azure web app again and navigate to **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** in your browser. 
 
 When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` action method returns a link to the `Show` action method with the respective input identifier. When you click the link, you reach the following code:  
-```
+<pre class="prettyprint">
 [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
 public ActionResult Show(string id)
 {
@@ -312,10 +310,10 @@ public ActionResult Show(string id)
     }
     else // Get content from Azure CDN
     {
-        return Redirect(string.Format(&quot;http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
+        return Redirect(string.Format(&quot;http://&lt;yourCDNName&gt;.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
     }
 }
-```
+</pre>
 
 If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the Azure web app, then it will redirect to:
 
@@ -330,9 +328,9 @@ After URL rewrite rule previously applied, the actual file that gets cached to y
 	http://<yourSiteName>.azurewebsites.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 You can then use the `OutputCacheAttribute` attribute on the `Generate` method to specify how the action result should be cached, which Azure CDN will honor. The code below specify a cache expiration of 1 hour (3,600 seconds).
-```
+
     [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
-```
+
 Likewise, you can serve up content from any controller action in your Azure web app through your Azure CDN, with the desired caching option.
 
 In the next section, I will show you how to serve the bundled and minified scripts and CSS through Azure CDN. 
@@ -374,34 +372,34 @@ This enables you to debug the JavaScript code in your development environment wh
 Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.
 
 1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
-	```
+	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
-	    <mark>bundles.UseCdn = true;
+	    bundles.UseCdn = true;
 	    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
 	        .GetName().Version.ToString();
-	    var cdnUrl = &quot;http://&lt;yourCDNName&gt;.vo.msecnd.net/{0}?v=&quot; + version;</mark>
+	    var cdnUrl = &quot;http://&lt;yourCDNName&gt;.vo.msecnd.net/{0}?v=&quot; + version;
 	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jquery&quot;)</mark>).Include(
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;, string.Format(cdnUrl, &quot;bundles/jquery&quot;)).Include(
 	                &quot;~/Scripts/jquery-{version}.js&quot;));
 	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)</mark>).Include(
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)).Include(
 	                &quot;~/Scripts/jquery.validate*&quot;));
 	
 	    // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
 	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;<mark>, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)</mark>).Include(
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)).Include(
 	                &quot;~/Scripts/modernizr-*&quot;));
 	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;<mark>, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)</mark>).Include(
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)).Include(
 	                &quot;~/Scripts/bootstrap.js&quot;,
 	                &quot;~/Scripts/respond.js&quot;));
 	
-	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;<mark>, string.Format(cdnUrl, &quot;Content/css&quot;)</mark>).Include(
+	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;, string.Format(cdnUrl, &quot;Content/css&quot;)).Include(
 	                &quot;~/Content/bootstrap.css&quot;,
 	                &quot;~/Content/site.css&quot;));
 	}
-	```
+	</pre>
 
 	Be sure to replace `<yourCDNName>` with the name of your Azure CDN.
 
@@ -426,7 +424,7 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 3. Republish the ASP.NET application and access the home page.
  
 4. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your Azure web app. For example:  
-	```
+	<pre class="prettyprint">
 	...
 
     &lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449&quot; rel=&quot;stylesheet&quot;/&gt;
@@ -439,12 +437,12 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 
     &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
-	...```
+	...</pre>
 
 5. In Visual Studio, debug the ASP.NET application in Visual Studio by typing `F5`., 
 
 6. View the HTML code for the page. You will still see each script file individually rendered so that you can have a consistent debug experience in Visual Studio.  
-	```
+	<pre class="prettyprint">
 	...
 	
 	    &lt;link href=&quot;/Content/bootstrap.css&quot; rel=&quot;stylesheet&quot;/&gt;
@@ -460,7 +458,7 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 	&lt;script src=&quot;/Scripts/respond.js&quot;&gt;&lt;/script&gt;
 	
 	...    
-	```
+	</pre>
 
 <a name="fallback"></a>
 ## Fallback mechanism for CDN URLs ##
@@ -469,8 +467,8 @@ When your Azure CDN endpoint fails for any reason, you want your Web page to be 
 
 The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) class contains a property called [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) that enables you to configure the fallback mechanism for CDN failure. To use this property, follow the steps below:
 
-1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and make the following highlighted changes to add fallback mechanism to the default bundles:  
-	```
+1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and add `CdnFallbackExpression` code in four places as shown to add a fallback mechanism to the default bundles.  
+	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
 	    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
@@ -479,21 +477,21 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 	    bundles.UseCdn = true;
 	
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;, string.Format(cdnUrl, &quot;bundles/jquery&quot;)) 
-					<mark>{ CdnFallbackExpression = &quot;window.jquery&quot; }</mark>
+					{ CdnFallbackExpression = &quot;window.jquery&quot; }
 	                .Include(&quot;~/Scripts/jquery-{version}.js&quot;));
 	
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)) 
-					<mark>{ CdnFallbackExpression = &quot;$.validator&quot; }</mark>
+					{ CdnFallbackExpression = &quot;$.validator&quot; }
 	            	.Include(&quot;~/Scripts/jquery.validate*&quot;));
 	
 	    // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
 	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)) 
-					<mark>{ CdnFallbackExpression = &quot;window.Modernizr&quot; }</mark>
+					{ CdnFallbackExpression = &quot;window.Modernizr&quot; }
 					.Include(&quot;~/Scripts/modernizr-*&quot;));
 	
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)) 	
-					<mark>{ CdnFallbackExpression = &quot;$.fn.modal&quot; }</mark>
+					{ CdnFallbackExpression = &quot;$.fn.modal&quot; }
 	        		.Include(
 		              		&quot;~/Scripts/bootstrap.js&quot;,
 		              		&quot;~/Scripts/respond.js&quot;));
@@ -501,7 +499,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;, string.Format(cdnUrl, &quot;Content/css&quot;)).Include(
 	                &quot;~/Content/bootstrap.css&quot;,
 	                &quot;~/Content/site.css&quot;));
-	}```
+	}</pre>
 
 	When `CdnFallbackExpression` is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server. This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly. The expression needed to test each bundle differs according to the content. For the default bundles above:
 	
@@ -518,23 +516,23 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 4. In *App_Start\StyleFundleExtensions.cs*, rename the namespace to your ASP.NET application's namespace (e.g. **cdnwebapp**). 
 
-3. Go back to `App_Start\BundleConfig.cs` and modify the last `bundles.Add` statement with the following highlighted code:  
-	```
+3. Go back to `App_Start\BundleConfig.cs` and replace the last `bundles.Add` statement with the following code:  
+	<pre class="prettyprint">
 	bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
-	    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
+	    .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
 	    .Include(
 	          "~/Content/bootstrap.css",
 	          "~/Content/site.css"));
-	```
+	</pre>
 
 	This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.
 
 4. Publish to your Azure web app again and access the home page. 
 5. View the HTML code for the page. You should find injected scripts similar to the following:    
-	```...
+	<pre class="prettyprint">...
 	
 		&lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
-	<mark>&lt;script&gt;(function() {
+	&lt;script&gt;(function() {
 	                var loadFallback,
 	                    len = document.styleSheets.length;
 	                for (var i = 0; i &lt; len; i++) {
@@ -551,21 +549,21 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 	                    }
 	                }
 	                return true;
-	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;
 	
 	...	
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;
 	
 	...
-	```
+	</pre>
 
 	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 

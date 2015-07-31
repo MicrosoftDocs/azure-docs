@@ -30,7 +30,6 @@ You can also create VMs using your own images, with Resource Manager templates, 
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-
 ## Select the image
 
 Go to the Azure Marketplace in the preview portal to find the Windows Server VM image you want.
