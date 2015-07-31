@@ -27,7 +27,7 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/media/active-directory-saas-policystat-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-policystat-tutorial/IC700993.jpg "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
