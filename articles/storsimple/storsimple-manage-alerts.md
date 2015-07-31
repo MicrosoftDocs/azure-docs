@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/22/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # View and manage StorSimple alerts
@@ -215,4 +215,4 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 
 ## Next steps
 
-[Learn more about StorSimple errors](storsimple-review-errors.md)
+[Learn more about StorSimple errors](storsimple-troubleshoot-operational-device.md)

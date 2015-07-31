@@ -41,20 +41,20 @@ For the purposes of this tutorial, an Apache Tomcat application server will be i
 3. In the **Virtual machine image select** dialog box, select **JDK 7 Windows Server 2012**.
 Note that **JDK 6 Windows Server 2012** is available if you have legacy applications that are not ready to run in JDK 7.
 4. Click **Next**.
-5. In the <strong>Virtual machine configuration</strong> dialog box:
+5. In the **Virtual machine configuration** dialog box:
     1. Specify a name for the virtual machine.
     2. Specify the size to use for the virtual machine.
     3. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely sign in to the virtual machine.
     4. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. This is the Administrator account password.
     5. Click **Next**.
-6. In the next <strong>Virtual machine configuration</strong> dialog box:
+6. In the next **Virtual machine configuration** dialog box:
     1. For **Cloud service**, use the default **Create a new cloud service**.
     2. The value for **Cloud service DNS name** must be unique across cloudapp.net. If needed, modify this value so that Azure indicates it is unique.
     2. Specify a region, affinity group, or virtual network. For the purposes of this tutorial, specify a region such as **West US**.
     2. For **Storage Account**, select **Use an automatically generated storage account**.
     3. For **Availability Set**, select **(None)**.
     4. Click **Next**.
-7. In the final <strong>Virtual machine configuration</strong> dialog box:
+7. In the final **Virtual machine configuration** dialog box:
     1. Accept the default endpoint entries.
     2. Click **Complete**.
 
@@ -92,7 +92,7 @@ To see Tomcat running from external machines, you need to create an endpoint and
 4. Click **Endpoints**.
 5. Click **Add**.
 6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
-7. In the <strong>New endpoint details</strong> dialog box:
+7. In the **New endpoint details** dialog box:
     1. Specify a name for the endpoint; for example, **HttpIn**.
     2. Specify **TCP** for the protocol.
     3. Specify **80** for the public port.

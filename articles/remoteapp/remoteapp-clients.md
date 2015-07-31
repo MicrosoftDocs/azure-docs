@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/22/2015"
+    ms.date="07/23/2015"
     ms.author="elizapo" />
 
 
@@ -59,23 +59,23 @@ Once you have installed the client on your device and launched it, jump to the c
 
 Once you have installed the Microsoft Remote Desktop app from the Google Play store, you can find it in your app list under **Remote Desktop**.
 
- 1. Launching the app brings you to an empty Connection Center, unless you've already been using the app. To get started with Azure RemoteApp, tap the add button **""+""** and tap **Azure RemoteApp**.
+1. Launching the app brings you to an empty Connection Center, unless you've already been using the app. To get started with Azure RemoteApp, tap the add button **""+""** and tap **Azure RemoteApp**.	
 
-	![Empty Connection Center](./media/remoteapp-clients/Android1.png)
+	 ![Empty Connection Center](./media/remoteapp-clients/Android1.png)
 
-2. You need to sign in with your email address to access the service, to start that process, tap **Get started**.
+2. You need to sign in with your email address to access the service. Tap **Get started**.
 
 	![Sign in prompt](./media/remoteapp-clients/Android2.png)
 
-3. On the next page, type in your **email address** and tap **Continue**. This begins the sign in process using Azure Active Directory.
+3. On the next page, type in your **email address** and tap **Continue**. This begins the sign-in process using Azure Active Directory.
 
 	![First Azure Active Directory page](./media/remoteapp-clients/Android3.png)
 
-4. Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID. Once signed in, you may be presented with a page listing all the invitations you have received. If you are, select the invitations you trust and tap **Done**.
+4. Follow the instructions on the screen to sign in with your Microsoft account (previously called "LiveID") or organization ID. Once signed in, you may be presented with a page listing all the invitations you have received. If you are, select the invitations you trust and tap **Done**.	
 
 	![Invitations page](./media/remoteapp-clients/Android4.png)
 
-5. After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center. Tap one of the apps to launch it and start using it.
+5. After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center. Tap one of the apps to start using it.
 
 	![Connection Center with a feed](./media/remoteapp-clients/Android5.png)
 
