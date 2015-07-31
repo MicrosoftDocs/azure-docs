@@ -70,10 +70,6 @@ According to this scoping filter, users must satisfy the following criteria, in 
 3. They must be work in either San Francisco or Canada.
 
 
-## Additional Resources
-
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->

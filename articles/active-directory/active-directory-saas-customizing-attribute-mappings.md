@@ -90,11 +90,6 @@ Microsoft Azure AD provides a very efficient implementation of a synchronization
 
 
 
-
-## Additional Resources
-
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->

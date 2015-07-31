@@ -220,11 +220,6 @@ You may follow this tutorial using the videos below.
 
 4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](https://myapps.microsoft.com/), then sign into the test account, and click on **Salesforce**.
 
-##See also
-
-- [List of SaaS Application Integration Tutorials](active-directory-saas-tutorial-list.md)
-- [Application Access in Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Introduction to the Access Panel](https://msdn.microsoft.com/library/azure/dn308586.aspx)
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 

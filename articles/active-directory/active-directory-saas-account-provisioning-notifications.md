@@ -43,12 +43,6 @@ If you have account provisioning notifications enabled, you will receive emails 
  However, to avoid an email overload, you will only receive one notification email per day for each SaaS application the notification email is enabled for.
 
 
-
-
-## Additional Resources
-
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
