@@ -22,7 +22,7 @@ This article describes how to invoke a **MapReduce** program from an Azure Data 
 ## Introduction 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. This article describes using the MapReduce transformation of the HDInsight Activity.
  
-See [Pig][data-factory-pig-activity] and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on an HDInsight cluster from an Azure data factory pipeline by using Pig/Hive transformations of the HDInsight Activity. 
+See [Pig](data-factory-pig-activity) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on an HDInsight cluster from an Azure data factory pipeline by using Pig/Hive transformations of the HDInsight Activity. 
 
 ## JSON for HDInsight Activity using MapReduce transformation 
 
@@ -87,14 +87,7 @@ In the JSON definition for the HDInsight Activity:
 You can use the MapReduce transformation to run any MapReduce jar file on an HDInsight cluster. In the following sample JSON definition of a pipeline, the HDInsight Activity is configured to run a Mahout JAR file.
 
 ## Sample
-You can download a sample for using the HDInsight Activity with MapReduce Transformation from: [Data Factory Samples on GitHub][data-factory-samples].  
-
-## See Also
-
-Article | Description
------- | ---------------
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights. In this tutorial, you will use both Pig and Hive transformations to process data. 
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
+You can download a sample for using the HDInsight Activity with MapReduce Transformation from: [Data Factory Samples on GitHub](data-factory-samples.md).  
 
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
