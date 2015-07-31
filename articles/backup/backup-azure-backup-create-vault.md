@@ -21,6 +21,14 @@ To back up files and data from your Windows Server or System Center Data Protect
 
 This tutorial will walk you through the creation of the vault you will use to store backups.
 
+## Video walkthrough
+
+Here's a walkthrough of this tutorial.
+
+[AZURE.VIDEO azure-backup-vault-creation]
+
+## Creating the Backup Vault
+
 1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
 2. Click **New** -> **Data Services** -> **Recovery Services** -> **Backup Vault** and choose **Quick Create**
 
