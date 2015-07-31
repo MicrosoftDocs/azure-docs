@@ -28,7 +28,7 @@ Data factory supports only moving data from Teradata to other data stores, not f
 
 ## Installation 
 
-For Data Management Gateway to connect to the Teradata Database, you need to install the [Teradata Connector/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) on the same system as the Data Management Gateway.
+For Data Management Gateway to connect to the Teradata Database, you need to install the [.NET Data Provider for Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) on the same system as the Data Management Gateway.
 
 ### Sample: Copy data from Teradata to Azure Blob
 
