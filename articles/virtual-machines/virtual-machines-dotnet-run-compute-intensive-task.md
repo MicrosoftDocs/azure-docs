@@ -26,7 +26,7 @@ You will learn:
 
 * How to create a virtual machine.
 * How to remotely log in to your virtual machine.
-* How to create a Azure Service Bus namespace.
+* How to create an Azure Service Bus namespace.
 * How to create a .NET application that performs a compute-intensive task.
 * How to create a .NET application that monitors the progress of the compute-intensive task.
 * How to run the .NET applications.
