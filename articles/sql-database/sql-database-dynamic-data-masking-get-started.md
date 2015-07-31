@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="04/02/2015"
+   ms.date="07/30/2015"
    ms.author="nadavh; ronmat; v-romcal; sstein"/>
 
 # Get started with SQL Database Dynamic Data Masking (Azure Preview portal)
@@ -53,8 +53,8 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 | **Credit card** |**Masking method which exposes the last four digits of the designated fields** and adds a constant string as a prefix in the form of a credit card.<br/><br/>XXXX-XXXX-XXXX-1234|
 | **Social security number** |**Masking method which exposes the last two digits of the designated fields** and adds a constant string as a prefix in the form of an American social security number.<br/><br/>XXX-XX-XX12 |
 | **Email** | **Masking method which exposes the first letter and replaces the domain with XXX.com** using a constant string prefix in the form of an email address.<br/><br/>aXX@XXXX.com |
-| **Random number** | **Masking method which generates a random number** according to the selected boundaries and actual data types. If the designated boundaries are equal, then the masking function will be a constant number.<br/><br/>![Navigation pane][Image1] |
-| **Custom text** | **Masking method which exposes the first and last characters** and adds a custom padding string in the middle.<br/>prefix[padding]suffix<br/><br/>![Navigation pane][Image2] |
+| **Random number** | **Masking method which generates a random number** according to the selected boundaries and actual data types. If the designated boundaries are equal, then the masking function will be a constant number.<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
+| **Custom text** | **Masking method which exposes the first and last characters** and adds a custom padding string in the middle.<br/>prefix[padding]suffix<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
   
 <a name="Anchor1"></a>
@@ -72,23 +72,23 @@ If you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-m
 
 	* Alternatively, you can scroll down to the **Operations** section and click **Dynamic Data Masking**.
 	 
-	![Navigation pane][Image4]<br/><br/>
+	![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/4_DDM_Activation.png)<br/><br/>
 
 4. In the **Dynamic Data Masking** configuration blade, click **Add Mask** to open the **Add Masking Rule** configuration blade.
 
-	![Navigation pane][Image5]<br/><br/>
+	![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/5_ddm_policy_tile.png)<br/><br/>
 
 5. Select the **Table** and **Column**, to define the designated fields that will be masked.
 
 6. Choose a **Masking Field Format** from the list of sensitive data masking categories.
 
-	![Navigation pane][Image7]<br/><br/>		
+	![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/7_DDM_Add_Masking_Rule.png)<br/><br/>		
 
 7. Click **Save** in the data masking rule blade to update the set of masking rules in the dynamic data masking policy.
 
 8. Type the privileged logins that should have access to the unmasked sensitive data.
  
-	![Navigation pane][Image6]
+	![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/6_DDM_Privileged_Logins.png)
 
 	>[AZURE.TIP] To make it so the application layer can display sensitive data for application privileged users, add the SQL login of the application that is being used to query the database. It is highly recommended that this list contain a minimal number of logins to minimize exposure of the sensitive data.
 
@@ -104,10 +104,3 @@ See [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt1635
 ## Set up dynamic data masking for your database using REST API
 
 See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
-
-[Image1]: ./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png
-[Image2]: ./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png
-[Image4]: ./media/sql-database-dynamic-data-masking-get-started/4_DDM_Activation.png
-[Image5]: ./media/sql-database-dynamic-data-masking-get-started/5_DMM_Policy_Tile.png
-[Image6]: ./media/sql-database-dynamic-data-masking-get-started/6_DDM_Privileged_Logins.png
-[Image7]: ./media/sql-database-dynamic-data-masking-get-started/7_DDM_Add_Masking_Rule.png
