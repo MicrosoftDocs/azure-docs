@@ -38,7 +38,7 @@ This is defined as the normal operational mode for a fully configured StorSimple
 
 ### Maintenance mode
 
-Sometimes the StorSimple device may need to be placed into Maintenance mode. This mode allows you to perform maintenance on the device and install disruptive updates, such as those related to disk firmware and USM firmware (can be both regular and disruptive).
+Sometimes the StorSimple device may need to be placed into Maintenance mode. This mode allows you to perform maintenance on the device and install disruptive updates, such as those related to disk firmware.
 
 You can put the system into Maintenance mode only via the Windows PowerShell for StorSimple. All I/O requests are paused in this mode. Services such as non-volatile random access memory (NVRAM) or the clustering service are also stopped. Both the controllers are rebooted when you enter or exit this mode. When you exit the maintenance mode, all the services will resume and should be healthy. This may take a few minutes.
 
@@ -53,7 +53,7 @@ If your system goes into Recovery mode, you should contact Microsoft Support for
 
 >[AZURE.NOTE] **You cannot place the device in Recovery mode. If the device is in a bad state, Recovery mode tries to get the device into a state in which Microsoft Support personnel can examine it.**
 
-## Figure out StorSimple device modes
+## Figure out StorSimple device mode
 
 To figure out the device mode, perform the following steps:
 
