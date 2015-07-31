@@ -56,8 +56,8 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 | **Credit card** |**Masking method which exposes the last four digits of the designated fields** and adds a constant string as a prefix in the form of a credit card.<br/><br/>XXXX-XXXX-XXXX-1234|
 | **Social security number** |**Masking method which exposes the last two digits of the designated fields** and adds a constant string as a prefix in the form of an American social security number.<br/><br/>XXX-XX-XX12 |
 | **Email** | **Masking method which exposes the first letter and replaces the domain with XXX.com** using a constant string prefix in the form of an email address.<br/><br/>aXX@XXXX.com |
-| **Random number** | **Masking method which generates a random number** according to the selected boundaries and actual data types. If the designated boundaries are equal, then the masking function will be a constant number.<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/1_ddm_random_number.png) |
-| **Custom text** | **Masking method which exposes the first and last characters** and adds a custom padding string in the middle.<br/>prefix[padding]suffix<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/2_ddm_custom_text.png) |
+| **Random number** | **Masking method which generates a random number** according to the selected boundaries and actual data types. If the designated boundaries are equal, then the masking function will be a constant number.<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png) |
+| **Custom text** | **Masking method which exposes the first and last characters** and adds a custom padding string in the middle.<br/>prefix[padding]suffix<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png) |
 
   
 <a name="Anchor1"></a>
@@ -86,7 +86,7 @@ If you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-m
 
 7. Choose a **MASKING FUNCTION** from the list of sensitive data masking categories.
 
-	![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/5_ddm_add_masking_rule_classic_portal.png) 
+	![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png) 
  	
 8. Click **OK** in the data masking rule window to update the set of masking rules in the dynamic data masking policy.
 
