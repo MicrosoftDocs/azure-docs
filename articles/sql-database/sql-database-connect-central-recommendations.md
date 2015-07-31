@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -91,7 +91,7 @@ During the shift, the database might be temporarily unavailable. This might bloc
 When any error occurs with SQL Database, an [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) is thrown. The `SqlException` contains a numeric error code in its **Number** property. If the error code identifies a transient error, your program should retry the call.
 
 
-- [Error Messages (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+- [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
  - Its **Transient Errors, Connection-Loss Errors** section is a list of the transient errors that warrant an automatic retry.
  - For example, retry if the error number 40613 occurs, which says something similar to<br/>*Database 'mydatabase' on server 'theserver' is not currently available.*
 
@@ -138,7 +138,7 @@ The gateway had retry logic handle some transient errors for you. Now your progr
  - Has links to code samples that contain retry logic, and to simpler samples that connect-and-query.
 - [How to: Reliably connect to Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
 - [How to: Connect to Azure SQL Database by using ADO.NET with Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [How to: Connect to Azure SQL Database by using ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [Code sample: Retry logic in C# for connecting to SQL Database](sql-database-develop-csharp-retry-windows.md)
 
 
 ## Technologies

@@ -13,8 +13,8 @@
 	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
-	ms.author="josephd"/>
+	ms.date="07/28/2015"
+	ms.author="davidmu"/>
 
 # The three-server SharePoint farm Resource Manager template
 
@@ -368,10 +368,9 @@ For more information, see [Azure Resource Manager template language](https://msd
 
 ## Additional resources
 
-[Azure compute, network and storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
+[Azure compute, network, and storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 [Azure Resource Manager overview](../resource-group-overview.md)
 
 [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md)
-
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)

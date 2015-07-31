@@ -160,7 +160,7 @@ Providers and agents are installed on on-premises servers so that they can conne
 
 ## Optimizing performance
 
-- **Operating system volume size**: When you replicate a virtual machine to Azure the operating system volume must be less than 127 GB. If you have more volumes than this you can manually move them to a different disk before you start deployment.
+- **Operating system volume size**: When you replicate a virtual machine to Azure the operating system volume must be less than 1TB. If you have more volumes than this you can manually move them to a different disk before you start deployment.
 - **Data disk size**: If you're replicating to Azure you can have up to 32 data disks on a virtual machine, each with a maximum of 1 TB. You can effectively replicate and fail over a ~32 TB virtual machine.
 - **Recovery plan limits**: Site Recovery can scale to thousands of virtual machines. Recovery plans are designed as a model for applications that should fail over together so we limit the number of machines in a recovery plan to 50.
 - **Azure service limits**: Every Azure subscription comes with a set of default limits on cores, cloud services etc. We recommend that you run a test failover to validate the availability of resources in your subscription. You can modify these limits via Azure support.
