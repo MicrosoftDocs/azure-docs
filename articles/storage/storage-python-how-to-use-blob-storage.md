@@ -78,17 +78,11 @@ The following example uploads the contents of the **sunset.png** file into the *
 
 ## How to: List the Blobs in a Container
 
-To list the blobs in a container, use the **list\_blobs** method with a
-**for** loop to display the name of each blob in the container. The
-following code outputs the **name** of each blob in a container to the
-console.
-
-	blobs = blob_service.list_blobs('mycontainer')
-	for blob in blobs:
-		print(blob.name)
-
-**list\_blobs** will only return a maximum of 5000 blobs.  If the container
-contains more than 5000 blobs use the following code.
+To list the blobs in a container, use the **list\_blobs** method. Each
+call to **list\_blobs** will return a segment of results. To get all results,
+check the **next\_marker** of the results and call **list\_blobs** again as
+needed. The following code outputs the **name** of each blob in a container
+to the console.
 
 	blobs = []
 	marker = None
@@ -100,6 +94,10 @@ contains more than 5000 blobs use the following code.
 		marker = batch.next_marker
 	for blob in blobs:
 		print(blob.name)
+
+Each segment of results can contain a variable number of blobs up to a maximum
+of 5000. If **next\_marker** exists for a particular segment, there may be
+more blobs in the container.
 
 ## How to: Download Blobs
 

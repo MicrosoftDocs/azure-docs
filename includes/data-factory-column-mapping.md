@@ -36,6 +36,7 @@ In this sample, the input table has a structure and it points to a SQL table in 
 	            "frequency": "Hour",
 	            "interval": "1",
 	        },
+			"external": true,
 			"policy": {
 	            "externalData": {
 	                "retryInterval": "00:01:00",

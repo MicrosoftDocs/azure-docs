@@ -41,11 +41,15 @@ The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pip
 	    "linkedServiceName": "MyHDInsightLinkedService",
 	    "typeProperties": {
 	      "script": "Hive script",
-	      "scriptpath": "<pathtotheHivescriptfileinAzureblobstorage>",
+	      "scriptPath": "<pathtotheHivescriptfileinAzureblobstorage>",
 	      "defines": {
 	        "param1": "param1Value"
 	      }
-	    }
+	    },
+       "scheduler": {
+          "frequency": "Day",
+          "interval": 1
+        }
 	}
 	
 ## Syntax details
@@ -59,7 +63,7 @@ inputs | Input(s) consumed by the Hive activity | No
 outputs | Output(s) produced by the Hive activity | Yes 
 linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes 
 script | Specify the Hive script inline | No
-script path | Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptpath' property. Both cannot be used together | No 
+script path | Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together | No 
 defines | Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf'  | No
 
 ## Example
@@ -128,9 +132,13 @@ To execute this Hive script in a Data Factory pipeline, you need to the do the f
 		        ],
 		        "linkedServiceName": "HDInsightLinkedService",
 		        "typeproperties": {
-		          "scriptpath": "adfwalkthrough\\scripts\\samplehive.hql",
+		          "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
 		          "scriptLinkedService": "StorageLinkedService"
-		        }
+		        },
+       			"scheduler": {
+          			"frequency": "Hour",
+          			"interval": 1
+        		}
 		      }
 		    ]
 		  }
@@ -149,32 +157,36 @@ To use parameterize Hive script, do the following
 - Define the parameters in **defines**.
 
 		{
-		  "name": "HiveActivitySamplePipeline",
-		  "properties": {
+			"name": "HiveActivitySamplePipeline",
+		  	"properties": {
 		    "activities": [
-		      {
-		        "name": "HiveActivitySample",
-		        "type": "HDInsightHive",
-		        "inputs": [
-		          {
-		            "name": "HiveSampleIn"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "HiveSampleOut"
-		          }
-		        ],
-		        "linkedServiceName": "HDInsightLinkedService",
-		        "typeproperties": {
-		          "scriptpath": "adfwalkthrough\\scripts\\samplehive.hql",
-		          "scriptLinkedService": "StorageLinkedService",
-		          "defines": {
-		            "Input": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            "Output": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
-		          }
-		        }
-		      }
+		     	{
+		        	"name": "HiveActivitySample",
+		        	"type": "HDInsightHive",
+			        "inputs": [
+			          	{
+				            "name": "HiveSampleIn"
+				          }
+		        	],
+		        	"outputs": [
+		          		{
+				            "name": "HiveSampleOut"
+				        }
+		        	],
+		        	"linkedServiceName": "HDInsightLinkedService",
+		        	"typeproperties": {
+		          		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+		          		"scriptLinkedService": "StorageLinkedService",
+		          		"defines": {
+		            		"Input": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
+		            		"Output": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		          		},
+       					"scheduler": {
+          					"frequency": "Hour",
+          					"interval": 1
+        				}
+		        	}
+		      	}
 		    ]
 		  }
 		}
