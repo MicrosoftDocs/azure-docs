@@ -87,7 +87,7 @@ The rules are evaluated in order starting with the first rule and ending with th
 
 To use an Azure PowerShell cmdlet to set this up, see [Managing access control lists (ACLs) for endpoints by using PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
 
-## Additional Resources
+## Additional resources
 
 [Load balancing for Azure infrastructure services](virtual-machines-load-balance.md)
 
