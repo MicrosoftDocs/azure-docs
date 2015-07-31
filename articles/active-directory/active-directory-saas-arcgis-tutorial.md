@@ -59,7 +59,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784738.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to ArcGIS** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to ArcGIS** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784739.jpg "Configure Single Sign-On")
 

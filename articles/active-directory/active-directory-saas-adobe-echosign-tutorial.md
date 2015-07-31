@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/IC789516.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Adobe EchoSign** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Adobe EchoSign** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/IC789517.jpg "Configure Single Sign-On")
 

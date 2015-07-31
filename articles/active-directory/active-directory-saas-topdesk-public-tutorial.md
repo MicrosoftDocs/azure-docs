@@ -90,7 +90,7 @@ Configuring single sign-on for TOPdesk - Public requires you to upload a logo ic
 
     ![Configure Single Sign-On](./media/active-directory-saas-topdesk-public-tutorial/IC790620.jpg "Configure Single Sign-On")
 
-8.  On the **How would you like users to sign on to TOPdesk - Public** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+8.  On the **How would you like users to sign on to TOPdesk - Public** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-topdesk-public-tutorial/IC790621.jpg "Configure Single Sign-On")
 

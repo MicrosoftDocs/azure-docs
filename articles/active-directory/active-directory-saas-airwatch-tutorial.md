@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/IC791916.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to AirWatch** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to AirWatch** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/IC791917.jpg "Configure Single Sign-On")
 

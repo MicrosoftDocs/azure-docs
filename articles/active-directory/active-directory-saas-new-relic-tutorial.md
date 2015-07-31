@@ -59,7 +59,7 @@ This section outlines how to enable users to authenticate to New Relic with thei
 
     ![Configure single sign-on](./media/active-directory-saas-new-relic-tutorial/IC769534.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to New Relic** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to New Relic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797033.jpg "Configure Single Sign-On")
 
@@ -88,8 +88,8 @@ This section outlines how to enable users to authenticate to New Relic with thei
     ![SAML](./media/active-directory-saas-new-relic-tutorial/IC797038.jpg "SAML")
 
     1.  Click **Choose File** to upload your downloaded Azure Active Directory certificate.
-    2.  In the Windows Azure portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Login URL** value, and then paste it into the **Remote login URL** textbox.
-    3.  In the Windows Azure portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Logout URL** value, and then paste it into the **Logout landing URL** textbox.
+    2.  In the Microsoft Azure portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Login URL** value, and then paste it into the **Remote login URL** textbox.
+    3.  In the Microsoft Azure portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Logout URL** value, and then paste it into the **Logout landing URL** textbox.
     4.  Click **Save my changes**.
 
 9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.

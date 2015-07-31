@@ -57,7 +57,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single Sign-On](./media/active-directory-saas-rightanswers-tutorial/IC802927.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to RightAnswers** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to RightAnswers** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-rightanswers-tutorial/IC802928.jpg "Configure Single Sign-On")
 

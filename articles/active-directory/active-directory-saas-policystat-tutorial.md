@@ -64,7 +64,7 @@ The following screenshot shows an example for this.
 
     ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808629.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to PolicyStat** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to PolicyStat** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808630.jpg "Configure Single Sign-On")
 

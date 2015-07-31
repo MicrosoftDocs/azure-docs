@@ -64,7 +64,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795884.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Sugar CRM** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Sugar CRM** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795885.jpg "Configure Single Sign-On")
 

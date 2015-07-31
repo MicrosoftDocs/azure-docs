@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Scenario](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.jpg "Scenario")
 
-2.  On the **How would you like users to sign on to BambooHR** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to BambooHR** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-bamboo-hr-tutorial/IC796688.jpg "Configure single sign-on")
 

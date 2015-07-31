@@ -59,7 +59,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784670.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to 15Five** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to 15Five** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784671.jpg "Configure single sign-on")
 

@@ -62,9 +62,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/IC783964.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Igloo Software** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Igloo Software** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Windows Azure AD Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/IC783965.jpg "Windows Azure AD Single Sign-On")
+    ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/IC783965.jpg "Microsoft Azure AD Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **Igloo Software Sign In URL** textbox, type your URL using the following pattern "*https://company.igloocommunities.com/?signin*", and then click **Next**.
 

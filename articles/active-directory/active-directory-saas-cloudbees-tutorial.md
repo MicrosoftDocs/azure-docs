@@ -64,7 +64,7 @@ Configuring single sign-on for CloudBees requires you to retrieve a thumbprint v
 
     ![Configure Single Sign-On](./media/active-directory-saas-cloudbees-tutorial/IC790418.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to CloudBees** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to CloudBees** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-cloudbees-tutorial/IC790419.jpg "Configure Single Sign-On")
 

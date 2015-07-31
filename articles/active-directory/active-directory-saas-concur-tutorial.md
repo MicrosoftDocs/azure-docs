@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769767.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Concur** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Concur** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769768.jpg "Configure single sign-on")
 
@@ -107,7 +107,7 @@ For the following reasons, this action should not be done with the profile they 
 
 4.  From the **Enable Application** list, select **Azure Active Directory**, and then click **Enable**.
 
-    ![Windows Azure Active Directory](./media/active-directory-saas-concur-tutorial/IC721731.jpg "Windows Azure Active Directory")
+    ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-tutorial/IC721731.jpg "Microsoft Azure Active Directory")
 
 5.  Click **Yes** to close the **Confirm Action** dialog.
 

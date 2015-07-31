@@ -2,11 +2,11 @@
 <tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="07/31/2015" ms.author="markvi" />
 #Tutorial: Configuring Workday for Inbound Synchronization
 >[AZURE.NOTE] Azure Active Directory (AD) Premium is available for customers in China using the worldwide instance of Azure AD.  
-Azure AD Premium is not currently supported in the Windows Azure service operated by 21Vianet in China.
+Azure AD Premium is not currently supported in the Microsoft Azure service operated by 21Vianet in China.
 
 >[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=330042).
   
-The objective of this tutorial is to show you the steps you need to perform in Workday and Windows Azure AD to import people from Workday to Windows Azure AD.  
+The objective of this tutorial is to show you the steps you need to perform in Workday and Microsoft Azure AD to import people from Workday to Microsoft Azure AD.  
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 -   A valid Azure subscription
@@ -20,7 +20,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 4.  Assigning the integration system user to the security group
 5.  Configuring security group options
 6.  Activating security policy changes
-7.  Configuring user import in Windows Azure AD
+7.  Configuring user import in Microsoft Azure AD
 ##Enabling the application integration for Workday
   
 The objective of this section is to outline how to enable the application integration for Salesforce.
@@ -133,11 +133,11 @@ In this step, you grant to the new security group permissions for Get and Put
 3.  Complete the task on the next screen by checking the checkbox labelled Confirm and clicking on the button labelled, OK. 
 
     ![Activate Pending Security](./media/active-directory-saas-inbound-synchronization-tutorial/IC750994.jpg "Activate Pending Security")
-##Configuring user import in Windows Azure AD
+##Configuring user import in Microsoft Azure AD
   
-The objective of this section is to outline how to configure Windows Azure AD to import people from Workday.
+The objective of this section is to outline how to configure Microsoft Azure AD to import people from Workday.
 
-###To configure user import in Windows Azure AD, perform the following steps:
+###To configure user import in Microsoft Azure AD, perform the following steps:
 
 1.  On the **Workday** application integration page, click **Configure user import** to open the **Configure Provisioning** dialog.
 

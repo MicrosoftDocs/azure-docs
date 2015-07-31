@@ -61,7 +61,7 @@ As part of this procedure, you are required to upload a certificate to Zscaler.
 
     ![Enable single sign-on](./media/active-directory-saas-zscaler-tutorial/IC769229.jpg "Enable single sign-on")
 
-2.  On the **How would you like users to sign on to Zscaler** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Zscaler** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign on](./media/active-directory-saas-zscaler-tutorial/IC769230.jpg "Configure single sign on")
 

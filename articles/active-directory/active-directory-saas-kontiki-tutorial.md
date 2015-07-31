@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790238.jpg "Configure Single SignOn")
 
-2.  On the **How would you like users to sign on to Kontiki** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Kontiki** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790239.jpg "Configure Single SignOn")
 

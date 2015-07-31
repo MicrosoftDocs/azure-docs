@@ -61,9 +61,9 @@ This section outlines how to enable users to authenticate to Syncplicity with th
 
     ![Configure single sign-on](./media/active-directory-saas-syncplicity-tutorial/IC769534.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Syncplicity** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Syncplicity** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Windows Azure AD Single Sign-On](./media/active-directory-saas-syncplicity-tutorial/IC769535.jpg "Windows Azure AD Single Sign-On")
+    ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-syncplicity-tutorial/IC769535.jpg "Microsoft Azure AD Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **Syncplicity Sign In URL** textbox, type the URL users are using to sign into your Syncplicity application click **Next**. 
 
@@ -87,10 +87,10 @@ This section outlines how to enable users to authenticate to Syncplicity with th
 
     1.  In the **Custom Domain** textbox, type the name of your domain.
     2.  Select **Enabled** as **Single Sign-On Status**.
-    3.  In the Windows Azure portal, on the **Configure single sign-on at Syncplicity** page, copy the **Entity ID** value, and then paste it into the **Entity Id** textbox.
-    4.  In the Windows Azure portal, on the **Configure single sign-on at Syncplicity** page, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
-    5.  In the Windows Azure portal, on the **Configure single sign-on at Syncplicity** page, copy the **Remote Logout URL** value, and then paste it into the **Logout page URL** textbox.
-    6.  In **Identity Provider Certificate**, click **Choose file**, and then upload the certificate you have downloaded from the Windows Azure portal.
+    3.  In the Microsoft Azure portal, on the **Configure single sign-on at Syncplicity** page, copy the **Entity ID** value, and then paste it into the **Entity Id** textbox.
+    4.  In the Microsoft Azure portal, on the **Configure single sign-on at Syncplicity** page, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
+    5.  In the Microsoft Azure portal, on the **Configure single sign-on at Syncplicity** page, copy the **Remote Logout URL** value, and then paste it into the **Logout page URL** textbox.
+    6.  In **Identity Provider Certificate**, click **Choose file**, and then upload the certificate you have downloaded from the Microsoft Azure portal.
     7.  Click **Save Changes**.
 
 8.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.

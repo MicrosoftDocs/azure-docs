@@ -62,9 +62,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure single sign-on](./media/active-directory-saas-samanage-tutorial/IC771709.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Samanage** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Samanage** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Windows Azure AD Single Sign-On](./media/active-directory-saas-samanage-tutorial/IC771710.jpg "Windows Azure AD Single Sign-On")
+    ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-samanage-tutorial/IC771710.jpg "Microsoft Azure AD Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **Samanage Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.samanage.com*", and then click **Next**.
 

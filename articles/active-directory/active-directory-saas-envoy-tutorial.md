@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Enable single sign-on](./media/active-directory-saas-envoy-tutorial/IC776778.jpg "Enable single sign-on")
 
-2.  On the **How would you like users to sign on to Envoy** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Envoy** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-envoy-tutorial/IC776779.jpg "Configure single sign-on")
 

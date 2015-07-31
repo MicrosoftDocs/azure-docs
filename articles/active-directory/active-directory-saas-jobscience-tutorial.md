@@ -78,7 +78,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784360.jpg "Configure Single Sign-On")
 
-7.  On the **How would you like users to sign on to Jobscience** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+7.  On the **How would you like users to sign on to Jobscience** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784361.jpg "Configure Single Sign-On")
 

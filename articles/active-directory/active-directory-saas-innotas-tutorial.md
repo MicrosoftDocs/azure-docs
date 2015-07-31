@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777334.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Innotas** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Innotas** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777335.jpg "Configure single sign-on")
 

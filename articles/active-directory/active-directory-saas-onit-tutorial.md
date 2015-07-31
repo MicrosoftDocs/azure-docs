@@ -96,7 +96,7 @@ The following screenshot shows an example for this.
 
     ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791170.jpg "Configure Single Sign-On")
 
-6.  On the **How would you like users to sign on to Onit** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+6.  On the **How would you like users to sign on to Onit** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791171.jpg "Configure Single Sign-On")
 

@@ -64,7 +64,7 @@ To get single sign-on configured, you will have to contact your SuccessFactors s
 
     ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791138.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to SuccessFactors** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to SuccessFactors** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791139.jpg "Configure Single Sign-On")
 

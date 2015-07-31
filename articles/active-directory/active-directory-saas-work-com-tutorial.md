@@ -82,7 +82,7 @@ As part of this procedure, you are required to upload a certificate to Work.com.
 
     ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794109.jpg "Configure Single Sign-On")
 
-7.  On the **How would you like users to sign on to Work.com** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+7.  On the **How would you like users to sign on to Work.com** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794110.jpg "Configure Single Sign-On")
 

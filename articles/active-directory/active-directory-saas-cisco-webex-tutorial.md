@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure single sign-on](./media/active-directory-saas-cisco-webex-tutorial/IC777617.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Cisco Webex** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Cisco Webex** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-cisco-webex-tutorial/IC777618.jpg "Configure single sign-on")
 

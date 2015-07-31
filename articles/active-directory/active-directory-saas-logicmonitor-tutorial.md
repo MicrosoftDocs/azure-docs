@@ -58,7 +58,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790048.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to LogicMonitor** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to LogicMonitor** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790049.jpg "Configure Single Sign-On")
 

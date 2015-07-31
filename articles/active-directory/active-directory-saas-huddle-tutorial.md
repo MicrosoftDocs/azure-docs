@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787833.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Huddle** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Huddle** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787834.jpg "Configure Single Sign-On")
 

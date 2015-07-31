@@ -64,7 +64,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777515.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to UserVoice** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to UserVoice** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777516.jpg "Configure single sign-on")
 

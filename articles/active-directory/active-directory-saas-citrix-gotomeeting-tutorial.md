@@ -61,7 +61,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Enable single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.jpg "Enable single sign-on")
 
-2.  On the **How would you like users to sign on to Citrix GoToMeeting** page, select **Windows Azure AD Single Sign-On**.
+2.  On the **How would you like users to sign on to Citrix GoToMeeting** page, select **Microsoft Azure AD Single Sign-On**.
 
     ![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.jpg "Configure single sign-on")
 

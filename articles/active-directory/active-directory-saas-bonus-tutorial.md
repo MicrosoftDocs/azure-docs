@@ -59,7 +59,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC749323.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Bonus.ly** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Bonus.ly** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773683.jpg "Configure single sign-on")
 
@@ -92,7 +92,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 9.  Click **save**.
 
-10. On the Windows Azure AD portal, select the configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. On the Microsoft Azure AD portal, select the configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773689.jpg "Configure single sign-on")
 ##Configuring user provisioning

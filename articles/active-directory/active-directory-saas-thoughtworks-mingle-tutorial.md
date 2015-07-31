@@ -61,7 +61,7 @@ As part of this procedure, you are required to upload a certificate to Thoughtwo
 
     ![Configure single sign-on](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Thoughtworks Mingle** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Thoughtworks Mingle** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.jpg "Configure single sign-on")
 

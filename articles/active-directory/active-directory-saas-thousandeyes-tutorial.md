@@ -61,7 +61,7 @@ This section outlines how to enable users to authenticate to ThousandEyes with t
 
     ![Configure Single SignOn](./media/active-directory-saas-thousandeyes-tutorial/IC790062.jpg "Configure Single SignOn")
 
-2.  On the **How would you like users to sign on to ThousandEyes** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to ThousandEyes** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single SignOn](./media/active-directory-saas-thousandeyes-tutorial/IC790063.jpg "Configure Single SignOn")
 
@@ -92,10 +92,10 @@ This section outlines how to enable users to authenticate to ThousandEyes with t
     ![Setup Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/IC790069.jpg "Setup Single Sign-On")
 
     1.  Select **Enable Single Sign-On**.
-    2.  In the Windows Azure portal, on the **Configure single sign-on at ThousandEyes** page, copy the **Remote Login URL** value, and then paste it into the **Login Page URL** textbox.
-    3.  In the Windows Azure portal, on the **Configure single sign-on at ThousandEyes** page, copy the **Remote Logout URL** value, and then paste it into the **Logout Page URL** textbox.
-    4.  In the Windows Azure portal, on the **Configure single sign-on at ThousandEyes** page, copy the **Issuer URL** value, and then paste it into the **Identity Provider Issuer** textbox.
-    5.  In **Identity Provider Certificate**, click **Choose file**, and then upload the certificate you have downloaded from the Windows Azure portal.
+    2.  In the Microsoft Azure portal, on the **Configure single sign-on at ThousandEyes** page, copy the **Remote Login URL** value, and then paste it into the **Login Page URL** textbox.
+    3.  In the Microsoft Azure portal, on the **Configure single sign-on at ThousandEyes** page, copy the **Remote Logout URL** value, and then paste it into the **Logout Page URL** textbox.
+    4.  In the Microsoft Azure portal, on the **Configure single sign-on at ThousandEyes** page, copy the **Issuer URL** value, and then paste it into the **Identity Provider Issuer** textbox.
+    5.  In **Identity Provider Certificate**, click **Choose file**, and then upload the certificate you have downloaded from the Microsoft Azure portal.
     6.  Click **Save**.
 
 10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.

@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776764.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Freshdesk** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Freshdesk** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776765.jpg "Configure Single Sign-On")
 

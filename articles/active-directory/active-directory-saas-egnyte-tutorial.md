@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787815.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Egnyte** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Egnyte** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787816.jpg "Configure Single Sign-On")
 

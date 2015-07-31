@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Enable single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784465.jpg "Enable single sign-on")
 
-2.  On the **How would you like users to sign on to OverDrive** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to OverDrive** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784466.jpg "Configure single sign-on")
 

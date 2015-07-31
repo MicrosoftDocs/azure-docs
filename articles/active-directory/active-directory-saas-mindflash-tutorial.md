@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787135.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Mindflash** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Mindflash** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787136.jpg "Configure Single Sign-On")
 

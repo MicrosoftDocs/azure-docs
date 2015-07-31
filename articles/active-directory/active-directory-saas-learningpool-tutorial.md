@@ -91,7 +91,7 @@ The following screenshot shows an example for this.
 
     ![Configure Singel Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795076.jpg "Configure Singel Sign-On")
 
-6.  On the **How would you like users to sign on to Learningpool** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+6.  On the **How would you like users to sign on to Learningpool** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795077.jpg "Configure Single Sign-On")
 

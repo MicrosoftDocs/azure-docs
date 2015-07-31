@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794122.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to SCC LifeCycle** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to SCC LifeCycle** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.jpg "Configure Single Sign-On")
 

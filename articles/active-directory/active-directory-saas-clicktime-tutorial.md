@@ -64,7 +64,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Enable single sign-on](./media/active-directory-saas-clicktime-tutorial/IC777277.jpg "Enable single sign-on")
 
-2.  On the **How would you like users to sign on to ClickTime** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to ClickTime** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-clicktime-tutorial/IC777278.jpg "Configure single sign-on")
 

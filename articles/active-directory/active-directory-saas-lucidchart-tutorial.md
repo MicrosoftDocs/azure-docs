@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791186.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Lucidchart** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Lucidchart** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791187.jpg "Configure Single Sign-On")
 

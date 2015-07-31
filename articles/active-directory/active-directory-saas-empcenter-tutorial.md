@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802919.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to EmpCenter** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to EmpCenter** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802920.jpg "Configure Single Sign-On")
 

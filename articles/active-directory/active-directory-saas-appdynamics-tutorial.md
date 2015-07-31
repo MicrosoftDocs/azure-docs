@@ -61,7 +61,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790212.jpg "Configure Single SignOn")
 
-2.  On the **How would you like users to sign on to AppDynamics** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to AppDynamics** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790213.jpg "Configure Single SignOn")
 

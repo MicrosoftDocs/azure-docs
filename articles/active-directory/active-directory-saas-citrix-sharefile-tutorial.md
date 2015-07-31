@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Enable single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.jpg "Enable single sign-on")
 
-2.  On the **How would you like users to sign on to Citrix ShareFile** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Citrix ShareFile** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-citrix-sharefile-tutorial/IC773624.jpg "Configure Single Sign-On")
 

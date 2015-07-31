@@ -59,9 +59,9 @@ As part of this procedure, you are required to upload a certificate to Rally Sof
 
     ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC749323.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Rally** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Rally** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Windows Azure AD Single Sign-On](./media/active-directory-saas-rally-software-tutorial/IC769528.jpg "Windows Azure AD Single Sign-On")
+    ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-rally-software-tutorial/IC769528.jpg "Microsoft Azure AD Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **Rally Software Tenant URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.rally.com*", and then click **Next**.
 

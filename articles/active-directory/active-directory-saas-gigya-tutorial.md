@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789528.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Gigya** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Gigya** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789529.jpg "Configure Single Sign-On")
 

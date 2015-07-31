@@ -62,9 +62,9 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Enable Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.jpg "Enable Single Sign-On")
 
-2.  On the **How would you like users to sign on to Directions on Microsoft** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Directions on Microsoft** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Windows Azure AD Singel Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.jpg "Windows Azure AD Singel Sign-On")
+    ![Microsoft Azure AD Singel Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.jpg "Microsoft Azure AD Singel Sign-On")
 
 3.  On the **Configure App URL** page, in the Sign On URL textbox, type **https://www.directionsonmicrosoft.com/user/login**, and then click **Next**.
 

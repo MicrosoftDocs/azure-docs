@@ -74,7 +74,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Configure Single Sign-On](./media/active-directory-saas-coupa-tutorial/IC791902.jpg "Configure Single Sign-On")
 
-6.  On the **How would you like users to sign on to Coupa** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+6.  On the **How would you like users to sign on to Coupa** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-coupa-tutorial/IC791903.jpg "Configure Single Sign-On")
 

@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805640.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Adaptive Suite** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Adaptive Suite** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805641.jpg "Configure Single Sign-On")
 

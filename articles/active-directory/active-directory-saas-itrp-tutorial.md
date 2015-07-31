@@ -62,7 +62,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Configure single sign-on](./media/active-directory-saas-itrp-tutorial/IC771709.jpg "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to ITRP** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to ITRP** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775567.jpg "Configure Single Sign-On")
 

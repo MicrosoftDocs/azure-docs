@@ -64,7 +64,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789621.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to TeamSeer** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to TeamSeer** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789628.jpg "Configure Single Sign-On")
 

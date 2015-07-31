@@ -89,7 +89,7 @@ Configuring single sign-on for TOPdesk - Secure requires you to upload a logo ic
 
     ![Configure Single Sign-On](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.jpg "Configure Single Sign-On")
 
-8.  On the **How would you like users to sign on to TOPdesk - Secure** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+8.  On the **How would you like users to sign on to TOPdesk - Secure** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-topdesk-secure-tutorial/IC790603.jpg "Configure Single Sign-On")
 

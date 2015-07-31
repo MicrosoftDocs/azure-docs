@@ -67,7 +67,7 @@ The following screenshot shows an example for this.
 
     ![Configure Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802907.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Veracode** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Veracode** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802908.jpg "Configure Single Sign-On")
 

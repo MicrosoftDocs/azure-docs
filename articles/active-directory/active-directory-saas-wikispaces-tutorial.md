@@ -62,7 +62,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787188.jpg "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Wikispaces** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Wikispaces** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787189.jpg "Configure Single Sign-On")
 
