@@ -37,7 +37,7 @@ You should agree on a set of naming conventions up front. There are some conside
 
 ### Affixes
 
-When creating certain resources, Azure uses some defaults to simplify management of the resources that are associated with these resources. For example, when creating the first virtual machine for a new cloud service, the Azure management portal attempts to use the virtual machine’s name for the name of a new cloud service for the virtual machine.
+When creating certain resources, Azure uses some defaults to simplify management of the resources that are associated with these resources. For example, when creating the first virtual machine for a new cloud service, the Azure portal attempts to use the virtual machine’s name for the name of a new cloud service for the virtual machine.
 
 Therefore, it is beneficial to identify types of resources that need an affix to identify that type. In addition, clearly specify whether the affix will be at:
 
@@ -202,11 +202,11 @@ Decisions:
 
 Task:
 
-- Create the set of storage accounts using your naming convention. You can use the Azure preview portal, the Azure management portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
+- Create the set of storage accounts using your naming convention. You can use the Azure preview portal, the Azure portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
 
 ## 4. Cloud services
 
-Cloud services are a fundamental building block in Azure Service Management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
+Cloud services are a fundamental building block in Azure service management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
 
 In the case of IaaS, cloud services offer similar functionality, although in most cases, the load balancer functionality is used to forward traffic to specific TCP or UDP ports from the Internet to the many virtual machines within that cloud service.
 
@@ -230,7 +230,7 @@ Decision:
 
 Task:
 
-- Create the set of cloud services using your naming convention. You can use the Azure management portal or the **New-AzureService** PowerShell cmdlet.
+- Create the set of cloud services using your naming convention. You can use the Azure portal or the **New-AzureService** PowerShell cmdlet.
 
 ## 5. Virtual networks
 
@@ -327,7 +327,7 @@ Decision:
 Tasks:
 
 - Define each virtual machine name using your naming convention.
-- Create your virtual machines with the Azure preview portal, the Azure management portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
+- Create your virtual machines with the Azure preview portal, the Azure portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
 
 ## Example of an IT workload: The Contoso financial analysis engine
 
