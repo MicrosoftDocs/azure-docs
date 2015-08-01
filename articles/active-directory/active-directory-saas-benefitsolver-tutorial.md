@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-benefitsolver-tutorial/IC804820.jpg "Scenario")
+![Scenario](./media/active-directory-saas-benefitsolver-tutorial/IC804820.png "Scenario")
 ##Enabling the application integration for Benefitsolver
 
 The objective of this section is to outline how to enable the application integration for Benefitsolver.
@@ -27,50 +27,50 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-benefitsolver-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-benefitsolver-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-benefitsolver-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-benefitsolver-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-benefitsolver-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-benefitsolver-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Benefitsolver**.
 
-    ![Application Gallery](./media/active-directory-saas-benefitsolver-tutorial/IC804821.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-benefitsolver-tutorial/IC804821.png "Application Gallery")
 
 7.  In the results pane, select **Benefitsolver**, and then click **Complete** to add the application.
 
-    ![Benefitssolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.jpg "Benefitssolver")
+    ![Benefitssolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.png "Benefitssolver")
 ##Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Benefitsolver with their account in Azure AD using federation based on the SAML protocol.  
 Your Benefitsolver application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
 The following screenshot shows an example for this.
 
-![Attributes](./media/active-directory-saas-benefitsolver-tutorial/IC804823.jpg "Attributes")
+![Attributes](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
 ###To configure single sign-on, perform the following steps:
 
 1.  In the Azure AD portal, on the **Benefitsolver** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804824.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to Benefitsolver** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804825.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Configure Single Sign-On")
 
 3.  On the **Configure App Settings** page, perform the following steps:
 
-    ![Configure App Settings](./media/active-directory-saas-benefitsolver-tutorial/IC804826.jpg "Configure App Settings")
+    ![Configure App Settings](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configure App Settings")
 
     1.  In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Benefitsolver application (e.g.: “*http://azure-dev.benefitsolver.com*
     2.  In the **Reply URL** textbox, type your Benefitsolver AssertionConsumerService URL (e.g.: “*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”).
@@ -80,7 +80,7 @@ The following screenshot shows an example for this.
 
 4.  On the **Configure single sign-on at Benefitsolver** page, to download your metadata, click **Download metadata**, and then save the metadata file locally on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804827.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Configure Single Sign-On")
 
 5.  Send the downloaded metadata file to your Benefitsolver support team.
 
@@ -89,15 +89,15 @@ The following screenshot shows an example for this.
 
 6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804828.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configure Single Sign-On")
 
 7.  In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
-    ![Attributes](./media/active-directory-saas-benefitsolver-tutorial/IC795920.jpg "Attributes")
+    ![Attributes](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Attributes")
 
 8.  To add the required attribute mappings, perform the following steps:
 
-    ![Attributes](./media/active-directory-saas-benefitsolver-tutorial/IC804823.jpg "Attributes")
+    ![Attributes](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
 	|Attribute Name|Attribute Value|
     |---|---|
@@ -129,10 +129,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Benefitsolver **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-benefitsolver-tutorial/IC804829.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-benefitsolver-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

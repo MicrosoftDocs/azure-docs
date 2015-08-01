@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-netdocuments-tutorial/IC795040.jpg "Scenario")
+![Scenario](./media/active-directory-saas-netdocuments-tutorial/IC795040.png "Scenario")
 ##Enabling the application integration for NetDocuments
   
 The objective of this section is to outline how to enable the application integration for NetDocuments.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-netdocuments-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-netdocuments-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-netdocuments-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-netdocuments-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-netdocuments-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-netdocuments-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-netdocuments-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-netdocuments-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **NetDocuments**.
 
-    ![Application Gallery](./media/active-directory-saas-netdocuments-tutorial/IC795041.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-netdocuments-tutorial/IC795041.png "Application Gallery")
 
 7.  In the results pane, select **NetDocuments**, and then click **Complete** to add the application.
 
-    ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.jpg "NetDocuments")
+    ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to NetDocuments with their account in Azure AD using federation based on the SAML protocol.  
@@ -60,15 +60,15 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 1.  In the Azure AD portal, on the **NetDocuments** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795043.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to NetDocuments** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795044.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795044.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, perform the following steps:
 
-    ![Configure App URL](./media/active-directory-saas-netdocuments-tutorial/IC795045.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configure App URL")
 
     1.  In the **Sign On URL** textbox, type your URL used by your users to sign on to your NetDocuments application (e.g.: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
     2.  In the **NetDocuments Reply URL** textbox, type the same value you have typed into the the **Sign On URL** textbox.
@@ -78,7 +78,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 4.  On the **Configure single sign-on at NetDocuments** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795046.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795046.png "Configure Single Sign-On")
 
 5.  In a different web browser window, log into your NetDocuments company site as an administrator.
 
@@ -86,15 +86,15 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 7.  Click **Add and remove users and groups**.
 
-    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.jpg "Repository")
+    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Repository")
 
 8.  Click **Configure advanced authentication options**.
 
-    ![Configure advanced authentication options](./media/active-directory-saas-netdocuments-tutorial/IC795048.jpg "Configure advanced authentication options")
+    ![Configure advanced authentication options](./media/active-directory-saas-netdocuments-tutorial/IC795048.png "Configure advanced authentication options")
 
 9.  On **the Federated Identity** dialog, perform the following steps:
 
-    ![Federated Identitty](./media/active-directory-saas-netdocuments-tutorial/IC795049.jpg "Federated Identitty")
+    ![Federated Identitty](./media/active-directory-saas-netdocuments-tutorial/IC795049.png "Federated Identitty")
 
     1.  As **Federated identity server type**, select **Active Directory Federation Services**.
     2.  Click **Choose file**, to upload the downloaded metadata file.
@@ -102,7 +102,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795050.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configure Single Sign-On")
 ##Configuring user provisioning
   
 In order to enable Azure AD users to log into NetDocuments, they must be provisioned into NetDocuments.  
@@ -114,15 +114,15 @@ In the case of NetDocuments, provisioning is a manual task.
 
 2.  In the menu on the top, click **Admin**.
 
-    ![Admin](./media/active-directory-saas-netdocuments-tutorial/IC795051.jpg "Admin")
+    ![Admin](./media/active-directory-saas-netdocuments-tutorial/IC795051.png "Admin")
 
 3.  Click **Add and remove users and groups**.
 
-    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.jpg "Repository")
+    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Repository")
 
 4.  In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
 
-    ![Email Address](./media/active-directory-saas-netdocuments-tutorial/IC795053.jpg "Email Address")
+    ![Email Address](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Email Address")
 
     >[AZURE.NOTE]The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active.
 
@@ -137,10 +137,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **NetDocuments **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-netdocuments-tutorial/IC795054.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-netdocuments-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-projectplace-tutorial/IC790217.jpg "Scenario")
+![Scenario](./media/active-directory-saas-projectplace-tutorial/IC790217.png "Scenario")
 ##Enabling the application integration for Projectplace
   
 The objective of this section is to outline how to enable the application integration for Projectplace.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-projectplace-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-projectplace-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-projectplace-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-projectplace-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-projectplace-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-projectplace-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-projectplace-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-projectplace-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Projectplace**.
 
-    ![Application Gallery](./media/active-directory-saas-projectplace-tutorial/IC790218.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-projectplace-tutorial/IC790218.png "Application Gallery")
 
 7.  In the results pane, select **Projectplace**, and then click **Complete** to add the application.
 
-    ![ProjectPlace](./media/active-directory-saas-projectplace-tutorial/IC790219.jpg "ProjectPlace")
+    ![ProjectPlace](./media/active-directory-saas-projectplace-tutorial/IC790219.png "ProjectPlace")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to Projectplace with their account in Azure AD using federation based on the SAML protocol.
@@ -58,19 +58,19 @@ The objective of this section is to outline how to enable users to authenticate 
 
 1.  In the Azure AD portal, on the **Projectplace** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790220.jpg "Configure Single SignOn")
+    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790220.png "Configure Single SignOn")
 
 2.  On the **How would you like users to sign on to Projectplace** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790221.jpg "Configure Single SignOn")
+    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790221.png "Configure Single SignOn")
 
 3.  On the **Configure App URL** page, in the **Projectplace Sign On URL** textbox, type your ProjectPlace tenant URL (e.g.: "*http://company.projectplace.com*"), and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-projectplace-tutorial/IC790222.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-projectplace-tutorial/IC790222.png "Configure App URL")
 
 4.  On the **Configure single sign-on at Projectplace** page, click **Download metadata**, and then save the metadata file on your computer.
 
-    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790223.jpg "Configure Single SignOn")
+    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Configure Single SignOn")
 
 5.  Send the metadatafile to the Projectplace support team.
 
@@ -78,7 +78,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790227.jpg "Configure Single SignOn")
+    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Configure Single SignOn")
 ##Configuring user provisioning
   
 In order to enable Azure AD users to log into Projectplace, they must be provisioned into Projectplace.  
@@ -90,15 +90,15 @@ In the case of Projectplace, provisioning is a manual task.
 
 2.  Go to **People**, and then click **Members**.
 
-    ![People](./media/active-directory-saas-projectplace-tutorial/IC790228.jpg "People")
+    ![People](./media/active-directory-saas-projectplace-tutorial/IC790228.png "People")
 
 3.  Click **Add Member**.
 
-    ![Add Members](./media/active-directory-saas-projectplace-tutorial/IC790232.jpg "Add Members")
+    ![Add Members](./media/active-directory-saas-projectplace-tutorial/IC790232.png "Add Members")
 
 4.  In the **Add Member** section, perform the following steps:
 
-    ![New Members](./media/active-directory-saas-projectplace-tutorial/IC790233.jpg "New Members")
+    ![New Members](./media/active-directory-saas-projectplace-tutorial/IC790233.png "New Members")
 
     1.  In the **New Members** textbox, type the email address of a valid AAD account you want to provision into the related textboxes.
     2.  Click **Send**
@@ -117,10 +117,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Projectplace **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-projectplace-tutorial/IC790234.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-projectplace-tutorial/IC790234.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-projectplace-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-projectplace-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

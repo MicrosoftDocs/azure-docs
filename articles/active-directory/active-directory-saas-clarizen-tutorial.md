@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-clarizen-tutorial/IC784679.jpg "Scenario")
+![Scenario](./media/active-directory-saas-clarizen-tutorial/IC784679.png "Scenario")
 ##Enabling the application integration for Clarizen
 
 The objective of this section is to outline how to enable the application integration for Clarizen.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-clarizen-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-clarizen-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-clarizen-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-clarizen-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-clarizen-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-clarizen-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-clarizen-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-clarizen-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Clarizen**.
 
-    ![Application Gallery](./media/active-directory-saas-clarizen-tutorial/IC784680.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-clarizen-tutorial/IC784680.png "Application Gallery")
 
 7.  In the results pane, select **Clarizen**, and then click **Complete** to add the application.
 
-    ![Clarizen](./media/active-directory-saas-clarizen-tutorial/IC784681.jpg "Clarizen")
+    ![Clarizen](./media/active-directory-saas-clarizen-tutorial/IC784681.png "Clarizen")
 ##Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Clarizen with their account in Azure AD using federation based on the SAML protocol.
@@ -58,29 +58,29 @@ The objective of this section is to outline how to enable users to authenticate 
 
 1.  In the Azure AD portal, on the **Clarizen** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784682.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784682.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to Clarizen** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784683.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784683.png "Configure Single Sign-On")
 
 3.  On the **Configure single sign-on at Clarizen** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784684.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784684.png "Configure Single Sign-On")
 
 4.  In a different web browser window, log into your **Clarizen** company site as an administrator (e.g.: *https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx*).
 
 5.  Click your user name, and then click **Settings**.
 
-    ![Settings](./media/active-directory-saas-clarizen-tutorial/IC784685.jpg "Settings")
+    ![Settings](./media/active-directory-saas-clarizen-tutorial/IC784685.png "Settings")
 
 6.  Click the **Global Settings** tab, and then, next to **Federated Authentication**, click **edit**.
 
-    ![Global Settings](./media/active-directory-saas-clarizen-tutorial/IC786906.jpg "Global Settings")
+    ![Global Settings](./media/active-directory-saas-clarizen-tutorial/IC786906.png "Global Settings")
 
 7.  On the **Federated Authentication** dialog, perform the following steps:
 
-    ![Federated Authentication](./media/active-directory-saas-clarizen-tutorial/IC785892.jpg "Federated Authentication")
+    ![Federated Authentication](./media/active-directory-saas-clarizen-tutorial/IC785892.png "Federated Authentication")
 
     1.  Click **Upload** to upload your downloaded certificate.
     2.  In the Azure portal, on the **Configure single sign-on at Clarizen** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in URL** textbox.
@@ -90,7 +90,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 8.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784688.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784688.png "Configure Single Sign-On")
 ##Configuring user provisioning
 
 In order to enable Azure AD users to log into Clarizen, they must be provisioned into Clarizen.  
@@ -102,15 +102,15 @@ In the case of Clarizen, provisioning is a manual task.
 
 2.  Click **People**.
 
-    ![People](./media/active-directory-saas-clarizen-tutorial/IC784689.jpg "People")
+    ![People](./media/active-directory-saas-clarizen-tutorial/IC784689.png "People")
 
 3.  Click **Invite User**.
 
-    ![Invite Users](./media/active-directory-saas-clarizen-tutorial/IC784690.jpg "Invite Users")
+    ![Invite Users](./media/active-directory-saas-clarizen-tutorial/IC784690.png "Invite Users")
 
 4.  On the Invite People dialog page, perform the following steps:
 
-    ![Invite People](./media/active-directory-saas-clarizen-tutorial/IC784691.jpg "Invite People")
+    ![Invite People](./media/active-directory-saas-clarizen-tutorial/IC784691.png "Invite People")
 
     1.  In the **Email** textbox, type the email address of a valid Azure Active Directory account you want to provision.
     2.  Click **Invite**.
@@ -127,10 +127,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Clarizen **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-clarizen-tutorial/IC784692.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-clarizen-tutorial/IC784692.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-clarizen-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-clarizen-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

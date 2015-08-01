@@ -17,7 +17,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776788.jpg "Scenario")
+![Scenario](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776788.png "Scenario")
 
 ##Enabling the application integration for xMatters OnDemand
   
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-xmatters-ondemand-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-xmatters-ondemand-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-xmatters-ondemand-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-xmatters-ondemand-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **xMatters OnDemand**.
 
-    ![Application gallery](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776789.jpg "Application gallery")
+    ![Application gallery](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776789.png "Application gallery")
 
 7.  In the results pane, select **XMatters OnDemand**, and then click **Complete** to add the application.
 
-    ![xMatters OnDemand](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776790.jpg "xMatters OnDemand")
+    ![xMatters OnDemand](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776790.png "xMatters OnDemand")
 
 ##Configuring single sign-on
   
@@ -59,42 +59,42 @@ The objective of this section is to outline how to enable users to authenticate 
 
 1.  In the Azure AD portal, on the **XMatters OnDemand** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Configure single sign-on")
 
 2.  On the **How would you like users to sign on to XMatters OnDemand** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure single sign-on](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.png "Configure single sign-on")
 
 3.  On the **Configure App URL** page, in the **XMatters OnDemand Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.XMattersOnDemandapp.com*", and then click **Next**.
 
-    ![Configure app URL](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776793.jpg "Configure app URL")
+    ![Configure app URL](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776793.png "Configure app URL")
 
 4.  On the **Configure single sign-on at XMatters OnDemand** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\XMatters OnDemand.cer**.
 
     >[AZURE.IMPORTANT] You need to forward the certificate to the xMatters support team. The certificate needs to be uploaded by the xMatters support team before you can finalize the single sign-on configuration.
 
-    ![Configure single sign on](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.jpg "Configure single sign on")
+    ![Configure single sign on](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Configure single sign on")
 
 5.  In a different web browser window, log into your XMatters OnDemand company site as an administrator.
 
 6.  In the toolbar on the top, click **Admin**, and then click **Company Details** in the navigation bar on the left side.
 
-    ![Admin](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.jpg "Admin")
+    ![Admin](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "Admin")
 
 7.  On the **SAML Configuration** page, perform the following steps:
 
-    ![SAML configuration](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.jpg "SAML configuration")
+    ![SAML configuration](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML configuration")
 
     1.  Select **Enable SAML**.
     2.  In the Azure portal, on the **Configure single sign-on at XMatters OnDemand** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider ID** textbox.
     3.  In the Azure portal, on the **Configure single sign-on at XMatters OnDemand** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Single Sign On URL** textbox.
     4.  In the Azure portal, on the **Configure single sign-on at XMatters OnDemand** dialog page, copy the **Single Sign-Out Service URL** value, and then paste it into the **Single Logout URL** textbox.
     5.  On the Company Details page, at the top, click **Save Changes**.
-        ![Company details](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.jpg "Company details")
+        ![Company details](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Company details")
 
 8.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure single sign on](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.jpg "Configure single sign on")
+    ![Configure single sign on](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "Configure single sign on")
 
 ##Configuring user provisioning
   
@@ -109,13 +109,13 @@ In the case of XMatters OnDemand, provisioning is a manual task.
 
 3.  Click **Add User**.
 
-    ![Users](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.jpg "Users")
+    ![Users](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "Users")
 
 4.  Select **Active**.
 
 5.  In the **Add a User** section, perform the following steps:
 
-    ![Add a User](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.jpg "Add a User")
+    ![Add a User](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Add a User")
 
     1.  Enter the **UserID**, **First name**, **Last name**, **Site** of a valid AAD account you want to provision.
     2.  Click **Save**.
@@ -132,10 +132,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **XMatters OnDemand **application integration page, click **Assign users**.
 
-    ![Assign users](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.jpg "Assign users")
+    ![Assign users](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "Assign users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

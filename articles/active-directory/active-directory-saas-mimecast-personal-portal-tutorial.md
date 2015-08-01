@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794991.jpg "Scenario")
+![Scenario](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794991.png "Scenario")
 ##Enabling the application integration for Mimecast Personal Portal
   
 The objective of this section is to outline how to enable the application integration for Mimecast Personal Portal.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Mimecast Personal Portal**.
 
-    ![Application Gallery](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794992.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794992.png "Application Gallery")
 
 7.  In the results pane, select **Mimecast Personal Portal**, and then click **Complete** to add the application.
 
-    ![Mimecast Personal Portal](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794993.jpg "Mimecast Personal Portal")
+    ![Mimecast Personal Portal](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794993.png "Mimecast Personal Portal")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to Mimecast Personal Portal with their account in Azure AD using federation based on the SAML protocol.  
@@ -60,39 +60,39 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 1.  In the Azure AD portal, on the **Mimecast Personal Portal** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794994.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794994.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to Mimecast Personal Portal** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794995.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794995.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **Mimecast Personal Portal Sign On URL** textbox, type the URL used by your users to sign on to your Mimecast Personal Portal application (e.g.: “https://webmail-uk.mimecast.com” or “https://webmail-us.mimecast.com”), and then click **Next**.
 
     >[AZURE.NOTE] The sign on URL is region specific.
 
-    ![Configure App URL](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794996.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794996.png "Configure App URL")
 
 4.  On the **Configure single sign-on at Mimecast Personal Portal** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794997.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794997.png "Configure Single Sign-On")
 
 5.  In a different web browser window, log into your Mimecast Personal Portal as an administrator.
 
 6.  Go to **Services \> Application**.
 
-    ![Applications](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794998.jpg "Applications")
+    ![Applications](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794998.png "Applications")
 
 7.  Click **Authentication Profiles**.
 
-    ![Authentication Profiles](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794999.jpg "Authentication Profiles")
+    ![Authentication Profiles](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794999.png "Authentication Profiles")
 
 8.  Click **New Authentication Profile**.
 
-    ![New Authentication Profil](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795000.jpg "New Authentication Profil")
+    ![New Authentication Profil](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795000.png "New Authentication Profil")
 
 9.  In the **Authentication Profile** section, perform the following steps:
 
-    ![Authentication Profil](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795001.jpg "Authentication Profil")
+    ![Authentication Profil](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795001.png "Authentication Profil")
 
     1.  In the **Description** textbox, type a name for your configuration.
     2.  Select **Enforce SAML Authentication for Mimecast Personal Portal**.
@@ -111,7 +111,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795002.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795002.png "Configure Single Sign-On")
 ##Configuring user provisioning
   
 In order to enable Azure AD users to log into Mimecast Personal Portal, they must be provisioned into Mimecast Personal Portal.  
@@ -125,19 +125,19 @@ You need to register a domain before you can create users.
 
 2.  Go to **Directories \> Internal**.
 
-    ![Directories](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795003.jpg "Directories")
+    ![Directories](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795003.png "Directories")
 
 3.  Click **Register New Domain**.
 
-    ![Register New Domain](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795004.jpg "Register New Domain")
+    ![Register New Domain](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795004.png "Register New Domain")
 
 4.  After your new domain has been created, click **New Address**.
 
-    ![New Address](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795005.jpg "New Address")
+    ![New Address](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795005.png "New Address")
 
 5.  In the new address dialog, perform the following steps:
 
-    ![Save](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795006.jpg "Save")
+    ![Save](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795006.png "Save")
 
     1.  Type the **Email Address**, **Global Name**, **Password** and **Confirm Password** attributes of a valid AAD account you want to provision into the related textboxes.
     2.  Click **Save**.
@@ -153,10 +153,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Mimecast Personal Portal **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795007.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795007.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

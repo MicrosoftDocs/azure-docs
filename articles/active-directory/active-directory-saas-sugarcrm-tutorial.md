@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-sugarcrm-tutorial/IC795881.jpg "Scenario")
+![Scenario](./media/active-directory-saas-sugarcrm-tutorial/IC795881.png "Scenario")
 
 ##Enabling the application integration for Sugar CRM
   
@@ -28,29 +28,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-sugarcrm-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-sugarcrm-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-sugarcrm-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-sugarcrm-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-sugarcrm-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-sugarcrm-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-sugarcrm-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-sugarcrm-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Sugar CRM**.
 
-    ![Application Gallery](./media/active-directory-saas-sugarcrm-tutorial/IC795882.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-sugarcrm-tutorial/IC795882.png "Application Gallery")
 
 7.  In the results pane, select **Sugar CRM**, and then click **Complete** to add the application.
 
-    ![Sugar CRM](./media/active-directory-saas-sugarcrm-tutorial/IC795883.jpg "Sugar CRM")
+    ![Sugar CRM](./media/active-directory-saas-sugarcrm-tutorial/IC795883.png "Sugar CRM")
 
 ##Configuring single sign-on
   
@@ -62,37 +62,37 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 1.  In the Azure AD portal, on the **Sugar CRM** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795884.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795884.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to Sugar CRM** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795885.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **Sugar CRM Sign On URL** textbox, type the URL used by your users to sign-on to your Sugar CRM application (e.g.: "*http://company.sugarondemand.com*", and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-sugarcrm-tutorial/IC795886.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configure App URL")
 
 4.  On the **Configure single sign-on at Sugar CRM** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC796918.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC796918.png "Configure Single Sign-On")
 
 5.  In a different web browser window, log into your Sugar CRM company site as an administrator.
 
 6.  Go to **Admin**.
 
-    ![Admin](./media/active-directory-saas-sugarcrm-tutorial/IC795888.jpg "Admin")
+    ![Admin](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Admin")
 
 7.  In the **Administration** section, click **Password Management**.
 
-    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795889.jpg "Administration")
+    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795889.png "Administration")
 
 8.  Select **Enable SAML Authentication**.
 
-    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795890.jpg "Administration")
+    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795890.png "Administration")
 
 9.  In the **SAML Authentication** section, perform the following steps:
 
-    ![SAML Authentication](./media/active-directory-saas-sugarcrm-tutorial/IC795891.jpg "SAML Authentication")
+    ![SAML Authentication](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "SAML Authentication")
 
     1.  In the Azure portal, on the **Configure single sign-on at Sugar CRM** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
     2.  In the Azure portal, on the **Configure single sign-on at Sugar CRM** dialog page, copy the **Remote Login URL** value, and then paste it into the **SLO URL** textbox.
@@ -105,7 +105,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 10. In the Azure portal, on the **Configure single sign-on at Sugar CRM** dialog page, select the single sign-on configuration confirmation, and then click **Complete**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC796919.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC796919.png "Configure Single Sign-On")
 
 ##Configuring user provisioning
   
@@ -118,19 +118,19 @@ In the case of Sugar CRM, provisioning is a manual task.
 
 2.  Go to **Admin**.
 
-    ![Admin](./media/active-directory-saas-sugarcrm-tutorial/IC795888.jpg "Admin")
+    ![Admin](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Admin")
 
 3.  In the **Administration** section, click **User Management**.
 
-    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795893.jpg "Administration")
+    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795893.png "Administration")
 
 4.  Go to **Users \> Create New User**.
 
-    ![Create New User](./media/active-directory-saas-sugarcrm-tutorial/IC795894.jpg "Create New User")
+    ![Create New User](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Create New User")
 
 5.  On the **User Profile** tab, perform the following steps:
 
-    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795895.jpg "New User")
+    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795895.png "New User")
 
     1.  Type the user name, last name and email address of a valid Azure Active Directory user into the related textboxes.
 
@@ -138,7 +138,7 @@ In the case of Sugar CRM, provisioning is a manual task.
 
 7.  On the Password tab, perform the following steps:
 
-    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795896.jpg "New User")
+    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795896.png "New User")
 
     1.  Type the password into the related textbox.
     2.  Click **Save**.
@@ -155,10 +155,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Sugar CRM** application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-sugarcrm-tutorial/IC795897.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-sugarcrm-tutorial/IC795897.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-sugarcrm-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-sugarcrm-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

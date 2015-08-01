@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-sprinklr-tutorial/IC782900.jpg "Scenario")
+![Scenario](./media/active-directory-saas-sprinklr-tutorial/IC782900.png "Scenario")
 
 ##Enabling the application integration for Sprinklr
   
@@ -28,29 +28,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-sprinklr-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-sprinklr-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-sprinklr-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-sprinklr-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-sprinklr-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-sprinklr-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-sprinklr-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-sprinklr-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Sprinklr**.
 
-    ![Application Gallery](./media/active-directory-saas-sprinklr-tutorial/IC782901.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-sprinklr-tutorial/IC782901.png "Application Gallery")
 
 7.  In the results pane, select **Sprinklr**, and then click **Complete** to add the application.
 
-    ![Sprinklr](./media/active-directory-saas-sprinklr-tutorial/IC782902.jpg "Sprinklr")
+    ![Sprinklr](./media/active-directory-saas-sprinklr-tutorial/IC782902.png "Sprinklr")
 
 ##Configuring single sign-on
   
@@ -62,37 +62,37 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 1.  In the Azure AD portal, on the **Sprinklr** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782903.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782903.png "Configure single sign-on")
 
 2.  On the **How would you like users to sign on to Sprinklr** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782904.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782904.png "Configure single sign-on")
 
 3.  On the **Configure App URL** page, in the **Sprinklr Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.sprinklr.com*", and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-sprinklr-tutorial/IC782905.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-sprinklr-tutorial/IC782905.png "Configure App URL")
 
 4.  On the **Configure single sign-on at Sprinklr** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782906.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782906.png "Configure single sign-on")
 
 5.  In a different web browser window, log into your Sprinklr company site as an administrator.
 
 6.  Go to **Administration \> Settings**.
 
-    ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.jpg "Administration")
+    ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
 
 7.  Go to **Manage Partner \> Single Sign** on from the left pane.
 
-    ![Manage Partner](./media/active-directory-saas-sprinklr-tutorial/IC782908.jpg "Manage Partner")
+    ![Manage Partner](./media/active-directory-saas-sprinklr-tutorial/IC782908.png "Manage Partner")
 
 8.  Click **+Add Single Sign Ons**.
 
-    ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/IC782909.jpg "Single Sign-Ons")
+    ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/IC782909.png "Single Sign-Ons")
 
 9.  On the **Single Sign on** page, perform the following steps:
 
-    ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/IC782910.jpg "Single Sign-Ons")
+    ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/IC782910.png "Single Sign-Ons")
 
     1.  In the **Name** textbox, type a name for your configuration (e.g.: *WAADSSOTest*).
     2.  Select **Enabled**.
@@ -108,11 +108,11 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     10. As **SAML User ID Location**, select **User ID is in the Name Identifier element of the Subject statement**.
     11. Close **Save**.
 
-        ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.jpg "SAML")
+        ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.png "SAML")
 
 10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782912.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configure single sign-on")
 
 ##Configuring user provisioning
   
@@ -125,19 +125,19 @@ This section describes how to create AAD user accounts inside Sprinklr.
 
 2.  Go to **Administration \> Settings**.
 
-    ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.jpg "Administration")
+    ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
 
 3.  Go to **Manage Client \> Users** from the left pane.
 
-    ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782914.jpg "Settings")
+    ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Settings")
 
 4.  Click **Add User**.
 
-    ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782915.jpg "Settings")
+    ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782915.png "Settings")
 
 5.  On the **Edit user** dialog, perform the following steps:
 
-    ![Edit user](./media/active-directory-saas-sprinklr-tutorial/IC782916.jpg "Edit user")
+    ![Edit user](./media/active-directory-saas-sprinklr-tutorial/IC782916.png "Edit user")
 
     1.  In the **Email**, **First Name** and **Last Name** textboxes, type the information of an Azure AD user account you want to provision.
     2.  Select **Password Disabled**.
@@ -149,7 +149,7 @@ This section describes how to create AAD user accounts inside Sprinklr.
 
 6.  Go to **Role**, and then perform the following steps:
 
-    ![Partner Roles](./media/active-directory-saas-sprinklr-tutorial/IC782917.jpg "Partner Roles")
+    ![Partner Roles](./media/active-directory-saas-sprinklr-tutorial/IC782917.png "Partner Roles")
 
     1.  From the **Global** list, select **ALL\_Permissions**.
     2.  Click **Update**.
@@ -166,10 +166,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Sprinklr **application integration page, click **Assign users**.
 
-    ![Assign users](./media/active-directory-saas-sprinklr-tutorial/IC782918.jpg "Assign users")
+    ![Assign users](./media/active-directory-saas-sprinklr-tutorial/IC782918.png "Assign users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-sprinklr-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-sprinklr-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

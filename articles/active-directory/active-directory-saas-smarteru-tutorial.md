@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-smarteru-tutorial/IC777320.jpg "Scenario")
+![Scenario](./media/active-directory-saas-smarteru-tutorial/IC777320.png "Scenario")
 
 ##Enabling the application integration for SmarterU
   
@@ -28,29 +28,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-smarteru-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-smarteru-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-smarteru-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-smarteru-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-smarteru-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-smarteru-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-smarteru-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-smarteru-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **SmarterU**.
 
-    ![Application fallery](./media/active-directory-saas-smarteru-tutorial/IC777321.jpg "Application fallery")
+    ![Application fallery](./media/active-directory-saas-smarteru-tutorial/IC777321.png "Application fallery")
 
 7.  In the results pane, select **SmarterU**, and then click **Complete** to add the application.
 
-    ![SmarterU](./media/active-directory-saas-smarteru-tutorial/IC777322.jpg "SmarterU")
+    ![SmarterU](./media/active-directory-saas-smarteru-tutorial/IC777322.png "SmarterU")
 
 ##Configuring single sign-on
   
@@ -60,25 +60,25 @@ The objective of this section is to outline how to enable users to authenticate 
 
 1.  In the Azure AD portal, on the **SmarterU** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777323.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777323.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to SmarterU** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777324.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777324.png "Configure Single Sign-On")
 
 3.  On the **Configure single sign-on at SmarterU** page, to download your metadata, click **Download metadata**, and then the data file locally as **c:\\SmarterUMetaData.cer**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777325.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777325.png "Configure Single Sign-On")
 
 4.  In a different web browser window, log into your SmarterU company site as an administrator.
 
 5.  In the toolbar on the top, click **Account Settings**.
 
-    ![Account Settings](./media/active-directory-saas-smarteru-tutorial/IC777326.jpg "Account Settings")
+    ![Account Settings](./media/active-directory-saas-smarteru-tutorial/IC777326.png "Account Settings")
 
 6.  On the account configuration page, perform the following steps:
 
-    ![External Authorization](./media/active-directory-saas-smarteru-tutorial/IC777327.jpg "External Authorization")
+    ![External Authorization](./media/active-directory-saas-smarteru-tutorial/IC777327.png "External Authorization")
 
     1.  Select **Enable External Authorization**.
     2.  In the **Master Login Control** section, select the **SmarterU** tab.
@@ -89,7 +89,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 7.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777328.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Configure Single Sign-On")
 
 ##Configuring user provisioning
   
@@ -104,7 +104,7 @@ In the case of SmarterU, provisioning is a manual task.
 
 3.  In the user section, perform the following steps:
 
-    ![New User](./media/active-directory-saas-smarteru-tutorial/IC777329.jpg "New User")
+    ![New User](./media/active-directory-saas-smarteru-tutorial/IC777329.png "New User")
 
     1.  Click **+User**.
     2.  Type the related attribute values of the Azure AD user account into the following textboxes: **Primary Email**, **Employee ID**, **Password**, **Verify Password**, **Given Name**, **Surname**.
@@ -123,10 +123,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **SmarterU **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-smarteru-tutorial/IC777330.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-smarteru-tutorial/IC777330.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-smarteru-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-smarteru-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

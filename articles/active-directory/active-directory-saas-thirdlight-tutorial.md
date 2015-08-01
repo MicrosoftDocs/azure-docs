@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-thirdlight-tutorial/IC805836.jpg "Scenario")
+![Scenario](./media/active-directory-saas-thirdlight-tutorial/IC805836.png "Scenario")
 
 ##Enabling the application integration for Thirdlight
   
@@ -28,29 +28,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-thirdlight-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-thirdlight-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-thirdlight-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-thirdlight-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-thirdlight-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-thirdlight-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-thirdlight-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-thirdlight-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Thirdlight**.
 
-    ![Application Gallery](./media/active-directory-saas-thirdlight-tutorial/IC805837.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-thirdlight-tutorial/IC805837.png "Application Gallery")
 
 7.  In the results pane, select **Thirdlight**, and then click **Complete** to add the application.
 
-    ![ThirdLight](./media/active-directory-saas-thirdlight-tutorial/IC805838.jpg "ThirdLight")
+    ![ThirdLight](./media/active-directory-saas-thirdlight-tutorial/IC805838.png "ThirdLight")
 
 ##Configuring single sign-on
   
@@ -62,29 +62,29 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 1.  In the Azure AD portal, on the **Thirdlight** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805839.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805839.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to Thirdlight** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805840.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **Thirdlight Sign In URL** textbox, type your URL used by your users to sign on to your Thirdlight application (e.g.: "*http://azuresso2.thirdlight.com/*"), and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-thirdlight-tutorial/IC805841.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Configure App URL")
 
 4.  On the **Configure single sign-on at Thirdlight** page, to download your metadata, click **Download metadata**, and then save the metadata file locally on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805842.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805842.png "Configure Single Sign-On")
 
 5.  In a different web browser window, log into your Thirdlight company site as an administrator.
 
 6.  Go to **Configuration \> System Administration**, and then click **SAML2**.
 
-    ![System Administration](./media/active-directory-saas-thirdlight-tutorial/IC805843.jpg "System Administration")
+    ![System Administration](./media/active-directory-saas-thirdlight-tutorial/IC805843.png "System Administration")
 
 7.  In the SAML2 configuration section, perform the following steps:
 
-    ![SAML Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805844.jpg "SAML Single Sign-On")
+    ![SAML Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805844.png "SAML Single Sign-On")
 
     1.  Select **Enable SAML2 Single Sign-On**.
     2.  As **Source for IdP Metadata**, select **Load IdP Metadata from XML**.
@@ -93,7 +93,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 8.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805845.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805845.png "Configure Single Sign-On")
 
 ##Configuring user provisioning
   
@@ -126,10 +126,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Thirdlight **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-thirdlight-tutorial/IC805846.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-thirdlight-tutorial/IC805846.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-thirdlight-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-thirdlight-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

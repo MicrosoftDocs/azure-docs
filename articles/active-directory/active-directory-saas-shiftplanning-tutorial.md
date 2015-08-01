@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-shiftplanning-tutorial/IC786612.jpg "Scenario")
+![Scenario](./media/active-directory-saas-shiftplanning-tutorial/IC786612.png "Scenario")
 ##Enabling the application integration for ShiftPlanning
   
 The objective of this section is to outline how to enable the application integration for ShiftPlanning.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-shiftplanning-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-shiftplanning-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-shiftplanning-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-shiftplanning-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-shiftplanning-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **ShiftPlanning**.
 
-    ![Application Gallery](./media/active-directory-saas-shiftplanning-tutorial/IC786613.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-shiftplanning-tutorial/IC786613.png "Application Gallery")
 
 7.  In the results pane, select **ShiftPlanning**, and then click **Complete** to add the application.
 
-    ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.jpg "ShiftPlanning")
+    ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to ShiftPlanning with their account in Azure AD using federation based on the SAML protocol.  
@@ -60,33 +60,33 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 1.  In the Azure AD portal, on the **ShiftPlanning** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786615.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to ShiftPlanning** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786616.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786616.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **ShiftPlanning Sign On URL** textbox, type your URL using the following pattern "*https://company.shiftplanning.com/includes/saml/*", and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-shiftplanning-tutorial/IC786617.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-shiftplanning-tutorial/IC786617.png "Configure App URL")
 
 4.  On the **Configure single sign-on at ShiftPlanning** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786618.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786618.png "Configure Single Sign-On")
 
 5.  In a different web browser window, log into your **ShiftPlanning** company site as an administrator.
 
 6.  In the menu on the top, click **Admin**.
 
-    ![Admin](./media/active-directory-saas-shiftplanning-tutorial/IC786619.jpg "Admin")
+    ![Admin](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
 
 7.  Under **Integration**, click **Single Sign-On**.
 
-    ![Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786620.jpg "Single Sign-On")
+    ![Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786620.png "Single Sign-On")
 
 8.  In the **Single Sign-On** section, perform the following steps:
 
-    ![Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786905.jpg "Single Sign-On")
+    ![Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Single Sign-On")
 
     1.  Select **SAML Enabled**.
     2.  Select **Allow Password Login**
@@ -100,7 +100,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786621.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configure Single Sign-On")
 ##Configuring user provisioning
   
 In order to enable Azure AD users to log into ShiftPlanning, they must be provisioned into ShiftPlanning.  
@@ -112,19 +112,19 @@ In the case of ShiftPlanning, provisioning is a manual task.
 
 2.  Click **Admin**.
 
-    ![Admin](./media/active-directory-saas-shiftplanning-tutorial/IC786619.jpg "Admin")
+    ![Admin](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
 
 3.  Click **Staff**.
 
-    ![Staff](./media/active-directory-saas-shiftplanning-tutorial/IC786623.jpg "Staff")
+    ![Staff](./media/active-directory-saas-shiftplanning-tutorial/IC786623.png "Staff")
 
 4.  Under **Actions**, click **Add Employee**.
 
-    ![Add Employees](./media/active-directory-saas-shiftplanning-tutorial/IC786624.jpg "Add Employees")
+    ![Add Employees](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Add Employees")
 
 5.  In the **Add Employees** section, perform the following steps:
 
-    ![Save Employees](./media/active-directory-saas-shiftplanning-tutorial/IC786625.jpg "Save Employees")
+    ![Save Employees](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Save Employees")
 
     1.  Type the **First Name**, **Last Name** and **Email** of a valid AAD account you want to provision into the related textboxes.
     2.  Click **Save Employees**.
@@ -141,10 +141,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **ShiftPlanning **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-shiftplanning-tutorial/IC786626.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-shiftplanning-tutorial/IC786626.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-shiftplanning-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-shiftplanning-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

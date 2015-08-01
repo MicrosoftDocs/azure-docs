@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-officespace-software-tutorial/IC777764.jpg "Scenario")
+![Scenario](./media/active-directory-saas-officespace-software-tutorial/IC777764.png "Scenario")
 ##Enabling the application integration for OfficeSpace Software
   
 The objective of this section is to outline how to enable the application integration for OfficeSpace Software.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-officespace-software-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-officespace-software-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-officespace-software-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-officespace-software-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-officespace-software-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-officespace-software-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-officespace-software-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-officespace-software-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **OfficeSpace Software**.
 
-    ![Application gallery](./media/active-directory-saas-officespace-software-tutorial/IC777765.jpg "Application gallery")
+    ![Application gallery](./media/active-directory-saas-officespace-software-tutorial/IC777765.png "Application gallery")
 
 7.  In the results pane, select **OfficeSpace Software**, and then click **Complete** to add the application.
 
-    ![OfficeSpace Software](./media/active-directory-saas-officespace-software-tutorial/IC781007.jpg "OfficeSpace Software")
+    ![OfficeSpace Software](./media/active-directory-saas-officespace-software-tutorial/IC781007.png "OfficeSpace Software")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to OfficeSpace Software with their account in Azure AD using federation based on the SAML protocol.  
@@ -60,33 +60,33 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 1.  In the Azure AD portal, on the **OfficeSpace Software** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure single sign=on](./media/active-directory-saas-officespace-software-tutorial/IC777766.jpg "Configure single sign=on")
+    ![Configure single sign=on](./media/active-directory-saas-officespace-software-tutorial/IC777766.png "Configure single sign=on")
 
 2.  On the **How would you like users to sign on to OfficeSpace Software** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC777767.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Configure single sign-on")
 
 3.  On the **Configure App URL** page, in the **OfficeSpace Software Sign On URL** textbox, type the URL used by your users to sign on to your OfficeSpace Software application (e.g.: "*https://company.officespacesoftware.com*"), and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-officespace-software-tutorial/IC775556.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Configure App URL")
 
 4.  On the **Configure single sign-on at OfficeSpace Software** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC793769.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC793769.png "Configure single sign-on")
 
 5.  In a different web browser window, log into your OfficeSpace Software company site as an administrator.
 
 6.  Go to **Admin \> Connectors**.
 
-    ![Admin](./media/active-directory-saas-officespace-software-tutorial/IC777769.jpg "Admin")
+    ![Admin](./media/active-directory-saas-officespace-software-tutorial/IC777769.png "Admin")
 
 7.  Click **SAML Authorization**.
 
-    ![Connectors](./media/active-directory-saas-officespace-software-tutorial/IC777770.jpg "Connectors")
+    ![Connectors](./media/active-directory-saas-officespace-software-tutorial/IC777770.png "Connectors")
 
 8.  In the **SAML Authorization** section, perform the following steps:
 
-    ![SAML configuration](./media/active-directory-saas-officespace-software-tutorial/IC777771.jpg "SAML configuration")
+    ![SAML configuration](./media/active-directory-saas-officespace-software-tutorial/IC777771.png "SAML configuration")
 
     1.  In the Azure portal, on the **Configure single sign-on at OfficeSpace Software** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Logout provider url** textbox.
     2.  In the Azure portal, on the **Configure single sign-on at OfficeSpace Software** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Client idp target url** textbox.
@@ -98,7 +98,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC777772.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configure single sign-on")
 ##Configuring user provisioning
   
 In order to enable Azure AD users to log into OfficeSpace Software, they must be provisioned into OfficeSpace Software. In the case of OfficeSpace Software, provisioning is an automated task.  
@@ -116,10 +116,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **OfficeSpace Software **application integration page, click **Assign users**.
 
-    ![Assign users](./media/active-directory-saas-officespace-software-tutorial/IC777773.jpg "Assign users")
+    ![Assign users](./media/active-directory-saas-officespace-software-tutorial/IC777773.png "Assign users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-officespace-software-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-officespace-software-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

@@ -17,7 +17,7 @@ After completing this tutorial, the Azure Active Directory users you have assign
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-new-relic-tutorial/IC797030.jpg "Scenario")
+![Scenario](./media/active-directory-saas-new-relic-tutorial/IC797030.png "Scenario")
 ##Enabling the application integration for New Relic
   
 The objective of this section is to outline how to enable the application integration for New Relic.
@@ -26,29 +26,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-new-relic-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-new-relic-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-new-relic-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-new-relic-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-new-relic-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-new-relic-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-new-relic-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-new-relic-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **New Relic**.
 
-    ![Application Gallery](./media/active-directory-saas-new-relic-tutorial/IC797031.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-new-relic-tutorial/IC797031.png "Application Gallery")
 
 7.  In the results pane, select **New Relic**, and then click **Complete** to add the application.
 
-    ![New Relic](./media/active-directory-saas-new-relic-tutorial/IC797032.jpg "New Relic")
+    ![New Relic](./media/active-directory-saas-new-relic-tutorial/IC797032.png "New Relic")
 ##Configuring Single Sign-On
   
 This section outlines how to enable users to authenticate to New Relic with their account in Azure Active Directory, using federation based on the SAML protocol.
@@ -57,35 +57,35 @@ This section outlines how to enable users to authenticate to New Relic with thei
 
 1.  In the Azure AD portal, on the **New Relic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-new-relic-tutorial/IC769534.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configure single sign-on")
 
 2.  On the **How would you like users to sign on to New Relic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797033.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797033.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **New Relic Sign On URL** textbox, type the URL used by your users to sign on to your New Relic application, and then click **Next**. 
 
     The app URL is your New Relic tenant URL (e.g.: *https://rpm.newrelic.com*):
 
-    ![Configure App URL](./media/active-directory-saas-new-relic-tutorial/IC797034.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-new-relic-tutorial/IC797034.png "Configure App URL")
 
 4.  On the **Configure single sign-on at New Relic** page, to download your certificate, click **Download certificate**, and then save the certificate file locally to your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797035.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797035.png "Configure Single Sign-On")
 
 5.  In a different web browser window, sign on to your **New Relic** company site as administrator.
 
 6.  In the menu on the top, click **Account Settings**.
 
-    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797036.jpg "Account Settings")
+    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797036.png "Account Settings")
 
 7.  Click the **Security and authentication** tab, and then click the **Single sign on** tab.
 
-    ![Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797037.jpg "Single Sign-On")
+    ![Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797037.png "Single Sign-On")
 
 8.  On the SAML dialog page, perform the following steps:
 
-    ![SAML](./media/active-directory-saas-new-relic-tutorial/IC797038.jpg "SAML")
+    ![SAML](./media/active-directory-saas-new-relic-tutorial/IC797038.png "SAML")
 
     1.  Click **Choose File** to upload your downloaded Azure Active Directory certificate.
     2.  In the Microsoft Azure portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Login URL** value, and then paste it into the **Remote login URL** textbox.
@@ -94,7 +94,7 @@ This section outlines how to enable users to authenticate to New Relic with thei
 
 9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797039.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Configure Single Sign-On")
 ##Configuring user provisioning
   
 In order to enable Azure Active Directory users to log into New Relic, they must be provisioned into New Relic.  
@@ -106,15 +106,15 @@ In the case of New Relic, provisioning is a manual task.
 
 2.  In the menu on the top, click **Account Settings**.
 
-    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797040.jpg "Account Settings")
+    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797040.png "Account Settings")
 
 3.  In the **Account** pane on the left side, click **Summary**, and then click **Add user**.
 
-    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797041.jpg "Account Settings")
+    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797041.png "Account Settings")
 
 4.  On the **Active users** dialog, perform the following steps:
 
-    ![Active Users](./media/active-directory-saas-new-relic-tutorial/IC797042.jpg "Active Users")
+    ![Active Users](./media/active-directory-saas-new-relic-tutorial/IC797042.png "Active Users")
 
     1.  In the **Email** textbox, type the email address of a valid Azure Active Directory user you want to provision.
     2.  As **Role** select **User**.
@@ -131,11 +131,11 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **New Relic** application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-new-relic-tutorial/IC797043.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-new-relic-tutorial/IC797043.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-new-relic-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
 

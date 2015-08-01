@@ -17,7 +17,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-clever-tutorial/IC798977.jpg "Scenario")
+![Scenario](./media/active-directory-saas-clever-tutorial/IC798977.png "Scenario")
 ##Enabling the application integration for Clever
 
 The objective of this section is to outline how to enable the application integration for Clever.
@@ -26,64 +26,64 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-clever-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-clever-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-clever-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-clever-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-clever-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-clever-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-clever-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-clever-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Clever**.
 
-    ![Application Gallery](./media/active-directory-saas-clever-tutorial/IC798978.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-clever-tutorial/IC798978.png "Application Gallery")
 
 7.  In the results pane, select **Clever**, and then click **Complete** to add the application.
 
-    ![Clever](./media/active-directory-saas-clever-tutorial/IC798979.jpg "Clever")
+    ![Clever](./media/active-directory-saas-clever-tutorial/IC798979.png "Clever")
 ##Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Clever with their account in Azure AD using federation based on the SAML protocol.  
 Your Clever application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
 The following screenshot shows an example for this.
 
-![Attributes](./media/active-directory-saas-clever-tutorial/IC798980.jpg "Attributes")
+![Attributes](./media/active-directory-saas-clever-tutorial/IC798980.png "Attributes")
 
 ###To configure single sign-on, perform the following steps:
 
 1.  In the Azure AD portal, on the **Clever** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC784682.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC784682.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to Clever** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC798981.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC798981.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **Clever Sign On URL** textbox, type the URL used by your users to sign-on to your Clever application (e.g.: *https://clever.com/in/azsandbox*), and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-clever-tutorial/IC798982.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-clever-tutorial/IC798982.png "Configure App URL")
 
 4.  On the **Configure single sign-on at Clever** page, to download your metadata, click **Download metadata**, and then save the metadata file locally on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC798983.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC798983.png "Configure Single Sign-On")
 
 5.  In a different web browser window, log into your Clever company site as an administrator.
 
 6.  In the toolbar, click **Instant Login**.
 
-    ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798984.jpg "Instant Login")
+    ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798984.png "Instant Login")
 
 7.  On the **Instant Login** page, perform the following steps:
 
-    ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798985.jpg "Instant Login")
+    ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798985.png "Instant Login")
 
     1.  Type the **Login URL**.
         >[AZURE.NOTE] The **Login URL** is a custom value.
@@ -94,15 +94,15 @@ The following screenshot shows an example for this.
 
 8.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC798986.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC798986.png "Configure Single Sign-On")
 
 9.  In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
-    ![Attributes](./media/active-directory-saas-clever-tutorial/IC795920.jpg "Attributes")
+    ![Attributes](./media/active-directory-saas-clever-tutorial/IC795920.png "Attributes")
 
 10. To add the required attribute mappings, perform the following steps:
 
-    ![saml token attributes](./media/active-directory-saas-clever-tutorial/IC795921.jpg "saml token attributes")
+    ![saml token attributes](./media/active-directory-saas-clever-tutorial/IC795921.png "saml token attributes")
 
 |Attribute Name|Attribute Value|
     |---|
@@ -131,10 +131,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Clever **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-clever-tutorial/IC798987.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-clever-tutorial/IC798987.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-clever-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-clever-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

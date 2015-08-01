@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-adaptive-suite-tutorial/IC805637.jpg "Scenario")
+![Scenario](./media/active-directory-saas-adaptive-suite-tutorial/IC805637.png "Scenario")
 ##Enabling the application integration for Adaptive Suite
 
 The objective of this section is to outline how to enable the application integration for Adaptive Suite.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-adaptive-suite-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-adaptive-suite-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-adaptive-suite-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-adaptive-suite-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-adaptive-suite-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-adaptive-suite-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-adaptive-suite-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-adaptive-suite-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Adaptive Suite**.
 
-    ![Application Gallery](./media/active-directory-saas-adaptive-suite-tutorial/IC805638.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-adaptive-suite-tutorial/IC805638.png "Application Gallery")
 
 7.  In the results pane, select **Adaptive Suite**, and then click **Complete** to add the application.
 
-    ![Adaptive Suite](./media/active-directory-saas-adaptive-suite-tutorial/IC805639.jpg "Adaptive Suite")
+    ![Adaptive Suite](./media/active-directory-saas-adaptive-suite-tutorial/IC805639.png "Adaptive Suite")
 ##Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Adaptive Suite with their account in Azure AD using federation based on the SAML protocol.  
@@ -60,35 +60,35 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 1.  In the Azure AD portal, on the **Adaptive Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805640.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805640.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to Adaptive Suite** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805641.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805641.png "Configure Single Sign-On")
 
 3.  On the **Configure App Settings** page, in the **Reply URL** textbox, type your URL using the following pattern "*https://login.adaptiveinsights.com:443/samlsso/RlJFRVRSSUFMMTI3MTE=*", and then click **Next**.
 
     >[AZURE.NOTE] You can get this value from the Adaptive Suite’s **SAML SSO Settings** page.
 
-    ![Configure App Settings](./media/active-directory-saas-adaptive-suite-tutorial/IC805642.jpg "Configure App Settings")
+    ![Configure App Settings](./media/active-directory-saas-adaptive-suite-tutorial/IC805642.png "Configure App Settings")
 
 4.  On the **Configure single sign-on at Adaptive Suite** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805643.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805643.png "Configure Single Sign-On")
 
 5.  In a different web browser window, log into your Adaptive Suite company site as an administrator.
 
 6.  Go to **Admin**.
 
-    ![Admin](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.jpg "Admin")
+    ![Admin](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "Admin")
 
 7.  In the **Users and Roles** section, click **Manage SAML SSO Settings**.
 
-    ![Manage SAML SSO Settings](./media/active-directory-saas-adaptive-suite-tutorial/IC805645.jpg "Manage SAML SSO Settings")
+    ![Manage SAML SSO Settings](./media/active-directory-saas-adaptive-suite-tutorial/IC805645.png "Manage SAML SSO Settings")
 
 8.  On the **SAML SSO Settings** page, perform the following steps:
 
-    ![SAML SSO Settings](./media/active-directory-saas-adaptive-suite-tutorial/IC805646.jpg "SAML SSO Settings")
+    ![SAML SSO Settings](./media/active-directory-saas-adaptive-suite-tutorial/IC805646.png "SAML SSO Settings")
 
     1.  In the **Identity provider name** textbox, type a name for your configuration.
     2.  In the Azure portal, on the **Configure single sign-on at Adaptive Suite** dialog page, copy the **Entity ID** value, and then paste it into the **Identity provider Entity ID** textbox.
@@ -103,7 +103,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805647.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805647.png "Configure Single Sign-On")
 ##Configuring user provisioning
 
 In order to enable Azure AD users to log into Adaptive Suite, they must be provisioned into Adaptive Suite.  
@@ -115,15 +115,15 @@ In the case of Adaptive Suite, provisioning is a manual task.
 
 2.  Go to **Admin**.
 
-    ![Admin](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.jpg "Admin")
+    ![Admin](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "Admin")
 
 3.  In the **Users and Roles** section, click **Add User**.
 
-    ![Add User](./media/active-directory-saas-adaptive-suite-tutorial/IC805648.jpg "Add User")
+    ![Add User](./media/active-directory-saas-adaptive-suite-tutorial/IC805648.png "Add User")
 
 4.  In the **New User** section, perform the following steps:
 
-    ![Submit](./media/active-directory-saas-adaptive-suite-tutorial/IC805649.jpg "Submit")
+    ![Submit](./media/active-directory-saas-adaptive-suite-tutorial/IC805649.png "Submit")
 
     1.  Type the **Name**, **Login**, **Email**, **Password** of a valid Azure Active Directory user you want to provision into the related textboxes.
     2.  Select a **Role**.
@@ -141,10 +141,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Adaptive Suite **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-adaptive-suite-tutorial/IC805650.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-adaptive-suite-tutorial/IC805650.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-adaptive-suite-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-adaptive-suite-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

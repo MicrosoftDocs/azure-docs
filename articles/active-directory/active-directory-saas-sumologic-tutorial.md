@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-sumologic-tutorial/IC778549.jpg "Scenario")
+![Scenario](./media/active-directory-saas-sumologic-tutorial/IC778549.png "Scenario")
 
 ##Enabling the application integration for SumoLogic
   
@@ -28,29 +28,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-sumologic-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-sumologic-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-sumologic-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-sumologic-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-sumologic-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-sumologic-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-sumologic-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-sumologic-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **sumologic**.
 
-    ![Application gallery](./media/active-directory-saas-sumologic-tutorial/IC778550.jpg "Application gallery")
+    ![Application gallery](./media/active-directory-saas-sumologic-tutorial/IC778550.png "Application gallery")
 
 7.  In the results pane, select **SumoLogic**, and then click **Complete** to add the application.
 
-    ![SumoLogic](./media/active-directory-saas-sumologic-tutorial/IC778551.jpg "SumoLogic")
+    ![SumoLogic](./media/active-directory-saas-sumologic-tutorial/IC778551.png "SumoLogic")
 
 ##Configuring single sign-on
   
@@ -62,37 +62,37 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 1.  In the Azure AD portal, on the **SumoLogic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778552.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configure single sign-on")
 
 2.  On the **How would you like users to sign on to SumoLogic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778553.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778553.png "Configure single sign-on")
 
 3.  On the **Configure App URL** page, in the **SumoLogic Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.SumoLogic.com*", and then click **Next**.
 
-    ![Configure aoo URL](./media/active-directory-saas-sumologic-tutorial/IC778554.jpg "Configure aoo URL")
+    ![Configure aoo URL](./media/active-directory-saas-sumologic-tutorial/IC778554.png "Configure aoo URL")
 
 4.  On the **Configure single sign-on at SumoLogic** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778555.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778555.png "Configure single sign-on")
 
 5.  In a different web browser window, log into your SumoLogic company site as an administrator.
 
 6.  Go to **Manage \> Security**.
 
-    ![Manage](./media/active-directory-saas-sumologic-tutorial/IC778556.jpg "Manage")
+    ![Manage](./media/active-directory-saas-sumologic-tutorial/IC778556.png "Manage")
 
 7.  Click **SAML**.
 
-    ![Global security settings](./media/active-directory-saas-sumologic-tutorial/IC778557.jpg "Global security settings")
+    ![Global security settings](./media/active-directory-saas-sumologic-tutorial/IC778557.png "Global security settings")
 
 8.  From the **Select a configuration or create a new one** list, select **Azure AD**, and then click **Configure**.
 
-    ![Configure SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778558.jpg "Configure SAML 2.0")
+    ![Configure SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778558.png "Configure SAML 2.0")
 
 9.  On the **Configure SAML 2.0** dialog, perform the following steps:
 
-    ![Configure SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778559.jpg "Configure SAML 2.0")
+    ![Configure SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778559.png "Configure SAML 2.0")
 
     1.  In the **Configuration Name** textbox, type **Azure AD**.
     2.  Select **Debug Mode**.
@@ -109,7 +109,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 10. In the Azure portal, on the **Configure single sign-on at SumoLogic** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778560.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778560.png "Configure single sign-on")
 
 ##Configuring user provisioning
   
@@ -122,15 +122,15 @@ In the case of SumoLogic, provisioning is a manual task.
 
 2.  Go to **Manage \> Users**.
 
-    ![Users](./media/active-directory-saas-sumologic-tutorial/IC778561.jpg "Users")
+    ![Users](./media/active-directory-saas-sumologic-tutorial/IC778561.png "Users")
 
 3.  Click **Add**.
 
-    ![Users](./media/active-directory-saas-sumologic-tutorial/IC778562.jpg "Users")
+    ![Users](./media/active-directory-saas-sumologic-tutorial/IC778562.png "Users")
 
 4.  On the **New User** dialog, perform the following steps:
 
-    ![New User](./media/active-directory-saas-sumologic-tutorial/IC778563.jpg "New User")
+    ![New User](./media/active-directory-saas-sumologic-tutorial/IC778563.png "New User")
 
     1.  Type the related information of the Azure AD account you want to provision into the **First Name**, **Last Name** and **Email** textboxes.
     2.  Select a role.
@@ -149,10 +149,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **SumoLogic** application integration page, click **Assign users**.
 
-    ![Assign users](./media/active-directory-saas-sumologic-tutorial/IC778564.jpg "Assign users")
+    ![Assign users](./media/active-directory-saas-sumologic-tutorial/IC778564.png "Assign users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-sumologic-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-sumologic-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

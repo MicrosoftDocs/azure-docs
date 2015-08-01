@@ -16,7 +16,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-rally-software-tutorial/IC769525.jpg "Scenario")
+![Scenario](./media/active-directory-saas-rally-software-tutorial/IC769525.png "Scenario")
 ##Enabling the application integration for Rally Software
   
 The objective of this section is to outline how to enable the application integration for Rally Software.
@@ -25,29 +25,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-rally-software-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-rally-software-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-rally-software-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-rally-software-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-rally-software-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-rally-software-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-rally-software-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-rally-software-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **rally**.
 
-    ![Application gallery](./media/active-directory-saas-rally-software-tutorial/IC769526.jpg "Application gallery")
+    ![Application gallery](./media/active-directory-saas-rally-software-tutorial/IC769526.png "Application gallery")
 
 7.  In the results pane, select **Rally Software**, and then click **Complete** to add the application.
 
-    ![Rally Software](./media/active-directory-saas-rally-software-tutorial/IC769527.jpg "Rally Software")
+    ![Rally Software](./media/active-directory-saas-rally-software-tutorial/IC769527.png "Rally Software")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to Rally Software with their account in Azure AD using federation based on the SAML protocol.  
@@ -57,31 +57,31 @@ As part of this procedure, you are required to upload a certificate to Rally Sof
 
 1.  In the Azure AD portal, on the **Rally Software **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC749323.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Configure single sign-on")
 
 2.  On the **How would you like users to sign on to Rally** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-rally-software-tutorial/IC769528.jpg "Microsoft Azure AD Single Sign-On")
+    ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-rally-software-tutorial/IC769528.png "Microsoft Azure AD Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **Rally Software Tenant URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.rally.com*", and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-rally-software-tutorial/IC769529.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-rally-software-tutorial/IC769529.png "Configure App URL")
 
 4.  On the **Configure single sign-on at Rally** page, click Download metadata, and then save it on your computer.
 
-    ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC769530.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC769530.png "Configure single sign-on")
 
 5.  Log in to your **Rally Software** tenant.
 
 6.  In the toolbar on the top, click **Setup**, and then select **Subscription**.
 
-    ![Subscription](./media/active-directory-saas-rally-software-tutorial/IC769531.jpg "Subscription")
+    ![Subscription](./media/active-directory-saas-rally-software-tutorial/IC769531.png "Subscription")
 
 7.  Click the **Action** button In the tool bar on the top at the right side and then select **Edit Subscription**.
 
 8.  On the **Subscription** dialog page, perform the following steps, and then click **Save & Close**:
 
-    ![Authentication](./media/active-directory-saas-rally-software-tutorial/IC769542.jpg "Authentication")
+    ![Authentication](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Authentication")
 
     1.  Select **Rally or SSO authentication** from Authentication dropdown
     2.  In the Azure portal, on the **Configure single sign-on at Rally Software** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL** textbox
@@ -89,7 +89,7 @@ As part of this procedure, you are required to upload a certificate to Rally Sof
 
 9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC769547.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC769547.png "Configure single sign-on")
 ##Configuring user provisioning
   
 For AAD users to be able to sign in, they must be provisioned to the Rally Software application using their Azure Active Directory user names.
@@ -100,13 +100,13 @@ For AAD users to be able to sign in, they must be provisioned to the Rally Softw
 
 2.  Go to **Setup \> USERS**, and then click **+ Add New**.
 
-    ![Users](./media/active-directory-saas-rally-software-tutorial/IC781039.jpg "Users")
+    ![Users](./media/active-directory-saas-rally-software-tutorial/IC781039.png "Users")
 
 3.  Type the name in the New User textbox, and then click **Add with Details**.
 
 4.  In the **Create User** section, perform the following steps:
 
-    ![Create User](./media/active-directory-saas-rally-software-tutorial/IC781040.jpg "Create User")
+    ![Create User](./media/active-directory-saas-rally-software-tutorial/IC781040.png "Create User")
 
     1.  In the **User Name** textbox, type the name of the Azure AD user you want to provision.
     2.  In the **Email Address** textbox, type the email address of the Azure AD user you want to provision.
@@ -124,11 +124,11 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Rally Software** application integration page, click **Assign users**.
 
-    ![Assign users](./media/active-directory-saas-rally-software-tutorial/IC769548.jpg "Assign users")
+    ![Assign users](./media/active-directory-saas-rally-software-tutorial/IC769548.png "Assign users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-rally-software-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-rally-software-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
 

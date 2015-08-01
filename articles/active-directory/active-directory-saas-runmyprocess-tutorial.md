@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-runmyprocess-tutorial/IC789614.jpg "Scenario")
+![Scenario](./media/active-directory-saas-runmyprocess-tutorial/IC789614.png "Scenario")
 ##Enabling the application integration for RunMyProcess
   
 The objective of this section is to outline how to enable the application integration for RunMyProcess.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-runmyprocess-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-runmyprocess-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-runmyprocess-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-runmyprocess-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-runmyprocess-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-runmyprocess-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-runmyprocess-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-runmyprocess-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **RunMyProcess**.
 
-    ![Application Gallery](./media/active-directory-saas-runmyprocess-tutorial/IC789615.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-runmyprocess-tutorial/IC789615.png "Application Gallery")
 
 7.  In the results pane, select **RunMyProcess**, and then click **Complete** to add the application.
 
-    ![RunMyProcess](./media/active-directory-saas-runmyprocess-tutorial/IC789616.jpg "RunMyProcess")
+    ![RunMyProcess](./media/active-directory-saas-runmyprocess-tutorial/IC789616.png "RunMyProcess")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to RunMyProcess with their account in Azure AD using federation based on the SAML protocol.  
@@ -60,31 +60,31 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 1.  In the Azure AD portal, on the **RunMyProcess** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/IC789617.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/IC789617.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to RunMyProcess** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/IC789622.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/IC789622.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **RunMyProcess Sign On URL** textbox, type your URL using the following pattern "*http://company.runmyprocess.com*", and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-runmyprocess-tutorial/IC789623.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-runmyprocess-tutorial/IC789623.png "Configure App URL")
 
 4.  On the **Configure single sign-on at RunMyProcess** page, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/IC789624.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/IC789624.png "Configure Single Sign-On")
 
 5.  In a different web browser window, log into your RunMyProcess company site as an administrator.
 
 6.  Go to **Account \> Configuration**.
 
-    ![Account](./media/active-directory-saas-runmyprocess-tutorial/IC789625.jpg "Account")
+    ![Account](./media/active-directory-saas-runmyprocess-tutorial/IC789625.png "Account")
 
 7.  Click the **Authentication method** tab.
 
 8.  In the **Authentication method** section, perform the following steps:
 
-    ![SSO](./media/active-directory-saas-runmyprocess-tutorial/IC789626.jpg "SSO")
+    ![SSO](./media/active-directory-saas-runmyprocess-tutorial/IC789626.png "SSO")
 
     1.  As **Method**, select **SSO with Samlv2**.
     2.  In the Azure portal, on the **Configure single sign-on at RunMyProcess** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SSO redirect** textbox.
@@ -98,7 +98,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/IC789627.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/IC789627.png "Configure Single Sign-On")
 ##Configuring user provisioning
   
 In order to enable Azure AD users to log into RunMyProcess, they must be provisioned into RunMyProcess.  
@@ -110,11 +110,11 @@ In the case of RunMyProcess, provisioning is a manual task.
 
 2.  Go to **Account \> Users**, and then click **New User**.
 
-    ![New User](./media/active-directory-saas-runmyprocess-tutorial/IC789631.jpg "New User")
+    ![New User](./media/active-directory-saas-runmyprocess-tutorial/IC789631.png "New User")
 
 3.  In the **User Settings** section, perform the following steps:
 
-    ![Profile](./media/active-directory-saas-runmyprocess-tutorial/IC789632.jpg "Profile")
+    ![Profile](./media/active-directory-saas-runmyprocess-tutorial/IC789632.png "Profile")
 
     1.  Type the **Name** and **E-mail** of a valid AAD account you want to provision into the related textboxes.
     2.  Select an **IDE language**, a **Language** and a **Profile**.
@@ -133,10 +133,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **RunMyProcess **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-runmyprocess-tutorial/IC789633.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-runmyprocess-tutorial/IC789633.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-runmyprocess-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-runmyprocess-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-successfactors-tutorial/IC791135.jpg "Scenario")
+![Scenario](./media/active-directory-saas-successfactors-tutorial/IC791135.png "Scenario")
 
 ##Enabling the application integration for SuccessFactors
   
@@ -28,29 +28,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-successfactors-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-successfactors-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-successfactors-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-successfactors-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-successfactors-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-successfactors-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-successfactors-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-successfactors-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **SuccessFactors**.
 
-    ![Appliation Gallery](./media/active-directory-saas-successfactors-tutorial/IC791136.jpg "Appliation Gallery")
+    ![Appliation Gallery](./media/active-directory-saas-successfactors-tutorial/IC791136.png "Appliation Gallery")
 
 7.  In the results pane, select **SuccessFactors**, and then click **Complete** to add the application.
 
-    ![SuccessFactors](./media/active-directory-saas-successfactors-tutorial/IC791137.jpg "SuccessFactors")
+    ![SuccessFactors](./media/active-directory-saas-successfactors-tutorial/IC791137.png "SuccessFactors")
 
 ##Configuring single sign-on
   
@@ -62,15 +62,15 @@ To get single sign-on configured, you will have to contact your SuccessFactors s
 
 1.  In the Azure AD portal, on the **SuccessFactors** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791138.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to SuccessFactors** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791139.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791139.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, perform the following steps, and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-successfactors-tutorial/IC791140.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configure App URL")
 
     1.  In the **SuccessFactors Sign On URL** textbox, type your URL used by your users to sign on to your SuccessFactors application (e.g.: "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
     2.  In the **SuccessFactors Reply URL** textbox, type **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
@@ -82,7 +82,7 @@ To get single sign-on configured, you will have to contact your SuccessFactors s
 
 4.  On the **Configure single sign-on at SuccessFactors** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791141.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791141.png "Configure Single Sign-On")
 
 5.  To get SAML based single sign-on configured, contact your SuccessFactors support team and provide them with the following items:
 
@@ -96,7 +96,7 @@ To get single sign-on configured, you will have to contact your SuccessFactors s
 
 6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791142.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791142.png "Configure Single Sign-On")
 
 ##Configuring user provisioning
   
@@ -115,10 +115,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **SuccessFactors **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-successfactors-tutorial/IC791143.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-successfactors-tutorial/IC791143.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-successfactors-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-successfactors-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

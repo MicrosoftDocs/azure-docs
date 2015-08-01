@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-onit-tutorial/IC791166.jpg "Scenario")
+![Scenario](./media/active-directory-saas-onit-tutorial/IC791166.png "Scenario")
 ##Enabling the application integration for Onit
   
 The objective of this section is to outline how to enable the application integration for Onit.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-onit-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-onit-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-onit-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-onit-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-onit-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-onit-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-onit-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-onit-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Onit**.
 
-    ![Application Gallery](./media/active-directory-saas-onit-tutorial/IC791167.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-onit-tutorial/IC791167.png "Application Gallery")
 
 7.  In the results pane, select **Onit**, and then click **Complete** to add the application.
 
-    ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.jpg "Onit")
+    ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.png "Onit")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to Onit with their account in Azure AD using federation based on the SAML protocol.  
@@ -59,13 +59,13 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 Your Onit application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
 The following screenshot shows an example for this.
 
-![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791168.jpg "Single Sign-On")
+![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791168.png "Single Sign-On")
 
 ###To configure single sign-on, perform the following steps:
 
 1.  In the Azure AD portal, on the **Onit** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
-    ![Attributes](./media/active-directory-saas-onit-tutorial/IC791169.jpg "Attributes")
+    ![Attributes](./media/active-directory-saas-onit-tutorial/IC791169.png "Attributes")
 
 2.  To add the required attribute mappings, perform the following steps:
 
@@ -94,37 +94,37 @@ The following screenshot shows an example for this.
 
 5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791170.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791170.png "Configure Single Sign-On")
 
 6.  On the **How would you like users to sign on to Onit** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791171.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791171.png "Configure Single Sign-On")
 
 7.  On the **Configure App URL** page, in the **Onit Sign On URL** textbox, type the URL used by your users to sign on to your Onit application (e.g.: "*https://ms-sso-test.onit.com*”), and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-onit-tutorial/IC791172.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-onit-tutorial/IC791172.png "Configure App URL")
 
 8.  On the **Configure single sign-on at Onit** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791173.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791173.png "Configure Single Sign-On")
 
 9.  In a different web browser window, log into your Onit company site as an administrator.
 
 10. In the menu on the top, click **Administration**.
 
-    ![Administration](./media/active-directory-saas-onit-tutorial/IC791174.jpg "Administration")
+    ![Administration](./media/active-directory-saas-onit-tutorial/IC791174.png "Administration")
 
 11. Click **Edit Corporation**.
 
-    ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791175.jpg "Edit Corporation")
+    ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791175.png "Edit Corporation")
 
 12. Click the **Security** tab.
 
-    ![Edit Company Information](./media/active-directory-saas-onit-tutorial/IC791176.jpg "Edit Company Information")
+    ![Edit Company Information](./media/active-directory-saas-onit-tutorial/IC791176.png "Edit Company Information")
 
 13. On the **Security** tab, perform the following steps:
 
-    ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.jpg "Single Sign-On")
+    ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
 
     1.  As **Authentication Strategy**, select **Single Sign On and Password**.
     2.  In the Azure portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Login URL** value, and then paste it into the **Idp Target URL** textbox.
@@ -135,11 +135,11 @@ The following screenshot shows an example for this.
     5.  As **SSO Type**, select **SAML**.
     6.  In the **SSO login button text** textbox, type a button text you like.
     7.  Select **Login with SSO: Required for the following domains/users**, type the email address of a test user into the related textbox, and then click **Update**.
-        ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791178.jpg "Edit Corporation")
+        ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791178.png "Edit Corporation")
 
 14. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791179.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791179.png "Configure Single Sign-On")
 ##Configuring user provisioning
   
 In order to enable Azure AD users to log into Onit, they must be provisioned into Onit.  
@@ -151,11 +151,11 @@ In the case of Onit, provisioning is a manual task.
 
 2.  Click **Add User**.
 
-    ![Administration](./media/active-directory-saas-onit-tutorial/IC791180.jpg "Administration")
+    ![Administration](./media/active-directory-saas-onit-tutorial/IC791180.png "Administration")
 
 3.  On the **Add User** dialog page, perform the following steps:
 
-    ![Add User](./media/active-directory-saas-onit-tutorial/IC791181.jpg "Add User")
+    ![Add User](./media/active-directory-saas-onit-tutorial/IC791181.png "Add User")
 
     1.  Type the **Name** and the **Email Address** of a valid AAD account you want to provision into the related textboxes.
     2.  Click **Create**.
@@ -173,10 +173,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Onit **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-onit-tutorial/IC791182.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-onit-tutorial/IC791182.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-onit-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-onit-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807723.jpg "Scenario")
+![Scenario](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807723.png "Scenario")
 ##Enabling the application integration for Aba Sainsburys Connect
 
 The objective of this section is to outline how to enable the application integration for Aba Sainsburys Connect.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **Aba Sainsburys Connect**.
 
-    ![Aba Sainsburys Connect](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807724.jpg "Aba Sainsburys Connect")
+    ![Aba Sainsburys Connect](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807724.png "Aba Sainsburys Connect")
 
 7.  In the results pane, select **Aba Sainsburys Connect**, and then click **Complete** to add the application.
 
-    ![Aba Sainsburys Connect](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807725.jpg "Aba Sainsburys Connect")
+    ![Aba Sainsburys Connect](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807725.png "Aba Sainsburys Connect")
 ##Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Aba Sainsburys Connect with their account in Azure AD using federation based on the SAML protocol.
@@ -58,22 +58,22 @@ The objective of this section is to outline how to enable users to authenticate 
 
 1.  In the Azure AD portal, on the **Aba Sainsburys Connect** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807726.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807726.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to Aba Sainsburys Connect** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807727.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807727.png "Configure Single Sign-On")
 
 3.  On the **Configure App Settings** page, perform the following steps:
 
-    ![Configure App Settings](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.jpg "Configure App Settings")
+    ![Configure App Settings](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "Configure App Settings")
 
     1.  In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Aba Sainsburys Connect application (e.g.: *https://myaba.co.uk/client-access/sainsburys/saml.php*).
     2.  Click **Next**
 
 4.  On the **Configure single sign-on at Aba Sainsburys Connect** page, to download your metadata, click **Download metadata**, and then save the metadata file on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807729.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807729.png "Configure Single Sign-On")
 
 5.  Send the downloaded metadata file to your Aba Sainsburys Connect support team.
 
@@ -82,7 +82,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807730.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807730.png "Configure Single Sign-On")
 ##Configuring user provisioning
 
 In order to enable Azure AD users to log into Aba Sainsburys Connect, they must be provisioned into Aba Sainsburys Connect.  
@@ -100,10 +100,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **Aba Sainsburys Connect **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807731.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807731.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

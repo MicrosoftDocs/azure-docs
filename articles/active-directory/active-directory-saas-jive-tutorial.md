@@ -22,25 +22,25 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-jive-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-jive-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-jive-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-jive-tutorial/IC700994.png "Applications")
 
 4.  To open the **Application Gallery**, click **Add An App**, and then click **Add an application for my organization to use**.
 
-    ![What do you want to do?](./media/active-directory-saas-jive-tutorial/IC700995.jpg "What do you want to do?")
+    ![What do you want to do?](./media/active-directory-saas-jive-tutorial/IC700995.png "What do you want to do?")
 
 5.  In the **search box**, type **Jive**.
 
-    ![Jive](./media/active-directory-saas-jive-tutorial/IC701001.jpg "Jive")
+    ![Jive](./media/active-directory-saas-jive-tutorial/IC701001.png "Jive")
 
 6.  In the results pane, select **Jive**, and then click **Complete** to add the application.
 
-    ![Jive](./media/active-directory-saas-jive-tutorial/IC701005.jpg "Jive")
+    ![Jive](./media/active-directory-saas-jive-tutorial/IC701005.png "Jive")
 ##Configuring user provisioning
   
 The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Jive.  
@@ -48,7 +48,7 @@ As part of this procedure, you are required to provide a user security token you
   
 The following screenshot shows an example of the related dialog in Azure AD:
 
-![Configure User Provisioning](./media/active-directory-saas-jive-tutorial/IC698794.jpg "Configure User Provisioning")
+![Configure User Provisioning](./media/active-directory-saas-jive-tutorial/IC698794.png "Configure User Provisioning")
 
 ###To configure user provisioning, perform the following steps:
 

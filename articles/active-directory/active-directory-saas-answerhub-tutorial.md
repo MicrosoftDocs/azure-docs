@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-answerhub-tutorial/IC785165.jpg "Scenario")
+![Scenario](./media/active-directory-saas-answerhub-tutorial/IC785165.png "Scenario")
 ##Enabling the application integration for AnswerHub
 
 The objective of this section is to outline how to enable the application integration for AnswerHub.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-answerhub-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-answerhub-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-answerhub-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-answerhub-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-answerhub-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-answerhub-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-answerhub-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-answerhub-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **AnswerHub**.
 
-    ![Application Gallery](./media/active-directory-saas-answerhub-tutorial/IC785166.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-answerhub-tutorial/IC785166.png "Application Gallery")
 
 7.  In the results pane, select **AnswerHub**, and then click **Complete** to add the application.
 
-    ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.jpg "AnswerHub")
+    ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
 ##Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to AnswerHub with their account in Azure AD using federation based on the SAML protocol.  
@@ -60,19 +60,19 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 1.  In the Azure AD portal, on the **AnswerHub** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785168.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configure single sign-on")
 
 2.  On the **How would you like users to sign on to AnswerHub** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785169.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configure single sign-on")
 
 3.  On the **Configure App URL** page, in the **AnswerHub Sign In URL** textbox, type your URL using the following pattern "*https://company.answerhub.com*", and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-answerhub-tutorial/IC785170.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configure App URL")
 
 4.  On the **Configure single sign-on at AnswerHub** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785171.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configure single sign-on")
 
 5.  In a different web browser window, log into your AnswerHub company site as an administrator.
 
@@ -86,7 +86,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 10. On the **IDP Config** tab, perform the following steps:
 
-    ![SAML Setup](./media/active-directory-saas-answerhub-tutorial/IC785172.jpg "SAML Setup")
+    ![SAML Setup](./media/active-directory-saas-answerhub-tutorial/IC785172.png "SAML Setup")
 
     1.  In the Azure portal, on the **Configure single sign-on at AnswerHub** dialog page, copy the **Remote Login URL** value, and then paste it into the **IDP Login URL** textbox.
     2.  In the Azure portal, on the **Configure single sign-on at AnswerHub** dialog page, copy the **Remote Logout URL** value, and then paste it into the **IDP Logout URL** textbox.
@@ -95,7 +95,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 11. On the Keys and Certificates tab, perform the following steps:
 
-    ![Keys and Certificates](./media/active-directory-saas-answerhub-tutorial/IC785173.jpg "Keys and Certificates")
+    ![Keys and Certificates](./media/active-directory-saas-answerhub-tutorial/IC785173.png "Keys and Certificates")
 
     1.  Create a **base-64 encoded** file from your downloaded certificate.
         >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
@@ -107,7 +107,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 13. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785174.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configure single sign-on")
 ##Configuring user provisioning
 
 In order to enable Azure AD users to log into AnswerHub, they must be provisioned into AnswerHub.  
@@ -123,7 +123,7 @@ In the case of AnswerHub, provisioning is a manual task.
 
 4.  In the navigation pane on the left side, in the **Manage Users** section, click **Create or import users**.
 
-    ![Users & Groups](./media/active-directory-saas-answerhub-tutorial/IC785175.jpg "Users & Groups")
+    ![Users & Groups](./media/active-directory-saas-answerhub-tutorial/IC785175.png "Users & Groups")
 
 5.  Type the **Email address**, **Username** and **Password** of a valid Azure Active Directory account you want to provision into the related textboxes, and then click **Save**.
 
@@ -139,10 +139,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **AnswerHub **application integration page, click **Assign users**.
 
-    ![Assign users](./media/active-directory-saas-answerhub-tutorial/IC785176.jpg "Assign users")
+    ![Assign users](./media/active-directory-saas-answerhub-tutorial/IC785176.png "Assign users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-answerhub-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

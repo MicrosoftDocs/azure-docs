@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-overdrive-books-tutorial/IC784462.jpg "Scenario")
+![Scenario](./media/active-directory-saas-overdrive-books-tutorial/IC784462.png "Scenario")
 ##Enabling the application integration for OverDrive
   
 The objective of this section is to outline how to enable the application integration for OverDrive.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-overdrive-books-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-overdrive-books-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-overdrive-books-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-overdrive-books-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-overdrive-books-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-overdrive-books-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-overdrive-books-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **OverDrive**.
 
-    ![Application Gallery](./media/active-directory-saas-overdrive-books-tutorial/IC784463.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-overdrive-books-tutorial/IC784463.png "Application Gallery")
 
 7.  In the results pane, select **OverDrive**, and then click **Complete** to add the application.
 
-    ![OverDrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.jpg "OverDrive")
+    ![OverDrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.png "OverDrive")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to OverDrive with their account in Azure AD using federation based on the SAML protocol.
@@ -58,25 +58,25 @@ The objective of this section is to outline how to enable users to authenticate 
 
 1.  In the Azure AD portal, on the **OverDrive** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Enable single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784465.jpg "Enable single sign-on")
+    ![Enable single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Enable single sign-on")
 
 2.  On the **How would you like users to sign on to OverDrive** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784466.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Configure single sign-on")
 
 3.  On the **Configure App URL** page, in the **OverDrive Sign In URL** textbox, type your URL using the following pattern "*http://mslibrarytest.libraryreserve.com*", and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-overdrive-books-tutorial/IC784467.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configure App URL")
 
 4.  On the **Configure single sign-on at OverDrive** page, to download the metadata file, and then send it to the OverDrive support team.
 
-    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784468.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configure single sign-on")
 
     >[AZURE.NOTE]The OverDrive support team configures single sign-on for you and sends you a notification when the configuration has been completed.
 
 5.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784469.jpg "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Configure single sign-on")
 ##Configuring user provisioning
   
 There is no action item for you to configure user provisioning to OverDrive.  
@@ -93,10 +93,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **OverDrive **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-overdrive-books-tutorial/IC784470.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-overdrive-books-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).

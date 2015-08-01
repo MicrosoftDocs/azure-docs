@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-teamseer-tutorial/IC789618.jpg "Scenario")
+![Scenario](./media/active-directory-saas-teamseer-tutorial/IC789618.png "Scenario")
 
 ##Enabling the application integration for TeamSeer
   
@@ -28,29 +28,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-teamseer-tutorial/IC700993.jpg "Active Directory")
+    ![Active Directory](./media/active-directory-saas-teamseer-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-teamseer-tutorial/IC700994.jpg "Applications")
+    ![Applications](./media/active-directory-saas-teamseer-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-teamseer-tutorial/IC749321.jpg "Add application")
+    ![Add application](./media/active-directory-saas-teamseer-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-teamseer-tutorial/IC749322.jpg "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-teamseer-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **TeamSeer**.
 
-    ![Application Gallery](./media/active-directory-saas-teamseer-tutorial/IC789619.jpg "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-teamseer-tutorial/IC789619.png "Application Gallery")
 
 7.  In the results pane, select **TeamSeer**, and then click **Complete** to add the application.
 
-    ![TeamSeer](./media/active-directory-saas-teamseer-tutorial/IC789620.jpg "TeamSeer")
+    ![TeamSeer](./media/active-directory-saas-teamseer-tutorial/IC789620.png "TeamSeer")
 
 ##Configuring single sign-on
   
@@ -62,37 +62,37 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 1.  In the Azure AD portal, on the **TeamSeer** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789621.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789621.png "Configure Single Sign-On")
 
 2.  On the **How would you like users to sign on to TeamSeer** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789628.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789628.png "Configure Single Sign-On")
 
 3.  On the **Configure App URL** page, in the **TeamSeer Sign In URL** textbox, type your URL using the following pattern "*http://www.teamseer.com/companyid*", and then click **Next**.
 
-    ![Configure App URL](./media/active-directory-saas-teamseer-tutorial/IC789629.jpg "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-teamseer-tutorial/IC789629.png "Configure App URL")
 
 4.  On the **Configure single sign-on at TeamSeer** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789630.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789630.png "Configure Single Sign-On")
 
 5.  In a different web browser window, log into your TeamSeer company site as an administrator.
 
 6.  Go to **HR Admin**.
 
-    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789634.jpg "HR Admin")
+    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789634.png "HR Admin")
 
 7.  Click **Setup**.
 
-    ![Setup](./media/active-directory-saas-teamseer-tutorial/IC789635.jpg "Setup")
+    ![Setup](./media/active-directory-saas-teamseer-tutorial/IC789635.png "Setup")
 
 8.  Click **Set up SAML provider details**.
 
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789636.jpg "SAML Settings")
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789636.png "SAML Settings")
 
 9.  In the SAML provider details section, perform the following steps:
 
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789637.jpg "SAML Settings")
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789637.png "SAML Settings")
 
     1.  In the Azure portal, on the **Configure single sign-on at TeamSeer** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **URL** textbox.
     2.  Create a **base-64 encoded** file from your downloaded certificate.
@@ -102,7 +102,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 10. To complete the SAML provider configuration, perform the following steps:
 
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789638.jpg "SAML Settings")
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789638.png "SAML Settings")
 
     1.  In the **Test Email Addresses**, type the test user’s email address.
     2.  In the **Issuer** textbox, type the Issuer URL of the service provider.
@@ -110,7 +110,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 11. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789639.jpg "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789639.png "Configure Single Sign-On")
 
 ##Configuring user provisioning
   
@@ -123,14 +123,14 @@ In the case of TeamSeer, provisioning is a manual task.
 
 2.  Perform the following steps:
 
-    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789640.jpg "HR Admin")
+    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789640.png "HR Admin")
 
     1.  Go to **HR Admin \> Users**.
     2.  Click **Run the New User wizard**.
 
 3.  In the **User Details** section, perform the following steps:
 
-    ![User Details](./media/active-directory-saas-teamseer-tutorial/IC789641.jpg "User Details")
+    ![User Details](./media/active-directory-saas-teamseer-tutorial/IC789641.png "User Details")
 
     1.  Type the **First Name**, **Surname**, **User name (Email address)** of a valid AAD account you want to provision into the related textboxes.
     2.  Click **Next**.
@@ -149,10 +149,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **TeamSeer **application integration page, click **Assign users**.
 
-    ![Assign Users](./media/active-directory-saas-teamseer-tutorial/IC789642.jpg "Assign Users")
+    ![Assign Users](./media/active-directory-saas-teamseer-tutorial/IC789642.png "Assign Users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-teamseer-tutorial/IC767830.jpg "Yes")
+    ![Yes](./media/active-directory-saas-teamseer-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
