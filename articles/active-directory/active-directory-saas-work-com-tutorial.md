@@ -115,7 +115,8 @@ As part of this procedure, you are required to upload a certificate to Work.com.
 
     ![SAML Single Sign-On Setting](./media/active-directory-saas-work-com-tutorial/IC794114.png "SAML Single Sign-On Setting")
 
-    1.  In the **Name** textbox, type a name for your configuration.
+    1.  In the **Name** textbox, type a name for your configuration.  
+
         >[AZURE.NOTE] Providing a value for **Name** does automatically populate the **API Name** textbox.
 
     2.  In the Azure portal, on the **Configure single sign-on at Work.com** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
@@ -171,7 +172,8 @@ In the case of Work.com, provisioning is a manual task.
 
     1.  Type the **Last Name**, **Alias**, **Email**, **Username** and **Nickname** attributes of a valid Azure Active Directory account you want to provision into the related textboxes.
     2.  Select **Role**, **User License** and **Profile**.
-    3.  Click **Save**.
+    3.  Click **Save**.  
+
         >[AZURE.NOTE] The Azure Active Directory account holder will get an email including a link to confirm the account before it becomes active.
 
 >[AZURE.NOTE] You can use any other Work.com user account creation tools or APIs provided by Work.com to provision AAD user accounts.

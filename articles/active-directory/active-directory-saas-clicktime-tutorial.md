@@ -114,7 +114,8 @@ In the case of ClickTime, provisioning is a manual task.
     ![People](./media/active-directory-saas-clicktime-tutorial/IC777284.png "People")
 
     1.  In the **email address** textbox, type the email address of your Azure AD account.
-    2.  In the **full name** textbox, type the name of your Azure AD account.
+    2.  In the **full name** textbox, type the name of your Azure AD account.  
+
         >[AZURE.NOTE] If you want to, you can set additional properties of the new person object.
 
     3.  Click **Save**.

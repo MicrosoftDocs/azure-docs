@@ -125,7 +125,8 @@ In the case of Zoho Mail, provisioning is a manual task.
     ![Add User](./media/active-directory-saas-zoho-mail-tutorial/IC789612.png "Add User")
 
     1.  Type the **First Name**, **Last Name**, **Email ID**, **Password** of a valid Azure Active Directory account you want to provision into the related textboxes.
-    2.  Click **OK**.
+    2.  Click **OK**.  
+
         >[AZURE.NOTE] The Azure Active Directory account holder will receive an email with a link to confirm the account before it becomes active.
 
 >[AZURE.NOTE] You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision AAD user accounts.

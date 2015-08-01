@@ -92,7 +92,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     1.  Click **Add Row**.
     2.  In the **Login Redirect URL** textbox and the **Mobile Redirect URL** textbox, type the **Workday Tenant URL** you have entered on the **Configure App URL** page of the Azure portal.
-    3.  In **Environment** textbox, type the environment name.
+    3.  In **Environment** textbox, type the environment name.  
+
         >[AZURE.NOTE] The value of the Environment attribute is tied to the value of the tenant URL:
 
         -   If the domain name of the Workday tenant URL starts with impl (e.g.: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.
@@ -122,8 +123,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
         3.  In the **Valid To** textbox, type the valid to attribute value of your certificate.
             >[AZURE.NOTE] You can get the valid from date and the valid to date from the downloaded certificate by double-clicking it. The dates are listed under the **Details** tab.
 
-        4.  Create a **Base-64 encoded** file from your downloaded certificate.
-            >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        4.  Create a **Base-64 encoded** file from your downloaded certificate.  
+
+			>[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
         5.  Open your base-64 encoded certificate in notepad, and then copy the content of it.
         6.  In the **Certificate** textbox, paste the content of your clipboard.

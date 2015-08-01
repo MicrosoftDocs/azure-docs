@@ -99,7 +99,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     3.  As **Provider**, select **Azure Active Directory**.
     4.  In the Azure portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer URL** textbox.
     5.  In the Azure portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
-    6.  In the Azure portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Remote Login URL** value, and then paste it into the **Logout URL** textbox.
+    6.  In the Azure portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Remote Login URL** value, and then paste it into the **Logout URL** textbox.  
+
         >[AZURE.NOTE]The Login URL value and the Logout URL value are for the Mimecast Admin Console the same.
 
     7.  Create a **base-64 encoded** file from your downloaded certificate.  

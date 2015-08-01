@@ -80,7 +80,8 @@ Configuring single sign-on for TOPdesk - Secure requires you to upload a logo ic
     1.  Click **Download** to download the public metadata file, and then save it locally on your computer.
     2.  Open the metadata file, and then locate the **AssertionConsumerService** node.
         ![Assertion Consumer Service](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Assertion Consumer Service")
-    3.  Copy the **AssertionConsumerService** value.
+    3.  Copy the **AssertionConsumerService** value.  
+
         >[AZURE.NOTE] You will need the value in the **Configure App URL** section later in this tutorial.
 
 6.  In a different web browser window, log into your **Azure Active Directory** portal as an administrator.

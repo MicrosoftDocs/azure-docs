@@ -104,7 +104,8 @@ In the case of Wikispaces, provisioning is a manual task.
     ![Invite People](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invite People")
 
     1.  Type the **Usernames or Email Address** of a valid AAD account you want to provision into the related textboxes.
-    2.  Click **Send**.
+    2.  Click **Send**.  
+
         >[AZURE.NOTE] The Azure Active Directory account holder receives an email including a link to confirm the account before it becomes active.
 
 >[AZURE.NOTE] You can use any other Wikispaces user account creation tools or APIs provided by Wikispaces to provision AAD user accounts.

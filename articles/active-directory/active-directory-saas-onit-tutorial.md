@@ -129,7 +129,8 @@ The following screenshot shows an example for this.
     1.  As **Authentication Strategy**, select **Single Sign On and Password**.
     2.  In the Azure portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Login URL** value, and then paste it into the **Idp Target URL** textbox.
     3.  In the Azure portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Idp logout URL** textbox.
-    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Idp Cert Fingerprint (SHA1)** textbox.
+    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Idp Cert Fingerprint (SHA1)** textbox.  
+
         >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
     5.  As **SSO Type**, select **SAML**.
@@ -158,7 +159,8 @@ In the case of Onit, provisioning is a manual task.
     ![Add User](./media/active-directory-saas-onit-tutorial/IC791181.png "Add User")
 
     1.  Type the **Name** and the **Email Address** of a valid AAD account you want to provision into the related textboxes.
-    2.  Click **Create**.
+    2.  Click **Create**.  
+
         >[AZURE.NOTE] The account owner will get an email including a link to confirm the account before it becomes active.
 
 >[AZURE.NOTE] 

@@ -89,7 +89,8 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     ![Settings](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Settings")
 
     1.  In the Azure portal, on the **Configure single sign-on at Panorama9** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity provider URL** textbox.
-    2.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate fingerprint** textbox.
+    2.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate fingerprint** textbox.  
+
         >[AZURE.TIP]For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
     3.  Click **Save**.

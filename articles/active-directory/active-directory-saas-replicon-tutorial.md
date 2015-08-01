@@ -68,7 +68,8 @@ The objective of this section is to outline how to enable users to authenticate 
     ![Configure app URL](./media/active-directory-saas-replicon-tutorial/IC777803.png "Configure app URL")
 
     1.  In the **Replicon Sign On URL** textbox, type your Replicon tenant URL (e.g.: *https://na2.replicon.com/company/saml2/sp-sso/post*).
-    2.  In the **Replicon Reply URL** textbox, type your Replicon **AssertionConsumerService** URL(e.g.: *https://global.replicon.com/!/saml2/company/sso/post*).
+    2.  In the **Replicon Reply URL** textbox, type your Replicon **AssertionConsumerService** URL(e.g.: *https://global.replicon.com/!/saml2/company/sso/post*).  
+
         >[AZURE.NOTE] You can get the URL from the Replicon metadata at:
         **https://global.replicon.com/!/saml2/\<YourCompanyKey\>**.
 

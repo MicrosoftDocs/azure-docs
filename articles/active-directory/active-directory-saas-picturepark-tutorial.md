@@ -92,7 +92,8 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     2.  Type a name for your configuration.
     3.  Select **Set as default**.
     4.  In the Azure portal, on the **Configure single sign-on at Picturepark** dialog page, copy the **SAML SSO URL** value, and then paste it into the **Issuer URI** textbox.
-    5.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Trusted Issuer Thumb Print** textbox.
+    5.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Trusted Issuer Thumb Print** textbox.  
+
         >[AZURE.TIP]For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
     6.  Click **JoinDefaultUsersGroup**.

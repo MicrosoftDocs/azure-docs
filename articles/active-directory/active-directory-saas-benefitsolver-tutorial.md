@@ -73,7 +73,8 @@ The following screenshot shows an example for this.
     ![Configure App Settings](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configure App Settings")
 
     1.  In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Benefitsolver application (e.g.: “*http://azure-dev.benefitsolver.com*
-    2.  In the **Reply URL** textbox, type your Benefitsolver AssertionConsumerService URL (e.g.: “*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”).
+    2.  In the **Reply URL** textbox, type your Benefitsolver AssertionConsumerService URL (e.g.: “*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”).  
+
         >[AZURE.NOTE] You can get the actual value for your environment from your Benefitsolver support team.
 
     3.  Click **Next**.

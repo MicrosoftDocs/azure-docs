@@ -85,7 +85,8 @@ The following screenshot shows an example for this.
 
     ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798985.png "Instant Login")
 
-    1.  Type the **Login URL**.
+    1.  Type the **Login URL**.  
+
         >[AZURE.NOTE] The **Login URL** is a custom value.
          You can get the actual value from your Clever support team.
 

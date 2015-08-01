@@ -95,7 +95,8 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     1.  Select **Enable SAML**.
     2.  Click **Manual Configuration**.
     3.  In the Azure portal, on the **Configure single sign-on at Tinfoil Security** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SAML Post URL** textbox.
-    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **SAML Certificate Fingerprint** textbox.
+    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **SAML Certificate Fingerprint** textbox.  
+
         >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
     5.  Copy **Your Account ID**.
