@@ -1,5 +1,5 @@
 <properties pageTitle="Tutorial: Azure Active Directory integration with Kudos | Microsoft Azure" description="Learn how to use Kudos with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/1/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Tutorial: Azure Active Directory integration with Kudos
 >[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=528191).
   
@@ -87,7 +87,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
 
     1.  In the Azure portal, on the **Configure single sign-on at Kudos** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign on URL ** textbox.
-    2.  Create a **base-64 encoded** file from your downloaded certificate.
+    2.  Create a **base-64 encoded** file from your downloaded certificate.  
+
         >[AZURE.TIP]
         For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 

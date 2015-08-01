@@ -1,5 +1,5 @@
 <properties pageTitle="Tutorial: Azure Active Directory integration with TimeOffManager | Microsoft Azure" description="Learn how to use TimeOffManager with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/1/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Tutorial: Azure Active Directory integration with TimeOffManager
 >[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=534748).
   
@@ -90,7 +90,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Single Sign-On Settings](./media/active-directory-saas-timeoffmanager-tutorial/IC795918.png "Single Sign-On Settings")
 
-    1.  Create a **Base-64 encoded** file from your downloaded certificate.
+    1.  Create a **Base-64 encoded** file from your downloaded certificate.  
+
         >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
     2.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.

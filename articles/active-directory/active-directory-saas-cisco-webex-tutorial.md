@@ -1,5 +1,5 @@
 <properties pageTitle="Tutorial: Azure Active Directory Integration with Cisco Webex | Microsoft Azure" description="Learn how to use Cisco Webex with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/1/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Tutorial: Azure Active Directory Integration with Cisco Webex
 >[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=524907).
 
@@ -92,7 +92,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     ![Federated SSO Configuration](./media/active-directory-saas-cisco-webex-tutorial/IC777623.png "Federated SSO Configuration")
 
     1.  From the **Federation Protocol** list, select **SAML 2.0**.
-    2.  Create a **Base-64 encoded** file from your downloaded certificate.
+    2.  Create a **Base-64 encoded** file from your downloaded certificate.  
+
         >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Open your base-64 encoded certificate in notepad, and then copy the content of it.

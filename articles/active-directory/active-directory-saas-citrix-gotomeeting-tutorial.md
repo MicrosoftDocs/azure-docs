@@ -1,5 +1,5 @@
 <properties pageTitle="Tutorial: Azure Active Directory integration with Citrix GoToMeeting | Microsoft Azure" description="Learn how to use Citrix GoToMeeting with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/1/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Tutorial: Azure Active Directory integration with Citrix GoToMeeting  
 Applies To: Azure
 
@@ -78,7 +78,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     1.  Select **Configure manually**.
     2.  In the Azure portal, on the **Configure single sign-on at Citrix GoToMeeting** dialogue page, copy the **Sign-Out Page URL** value, and then paste it into the **Sign-out page URL** textbox.
     3.  In the Azure portal, on the **Configure single sign-on at Citrix GoToMeeting** dialogue page, copy the **Sign-In Page URL** value, and then paste it into the **Sign-in page URL** textbox.
-    4.  Create a **Base-64 encoded** file from your downloaded certificate.
+    4.  Create a **Base-64 encoded** file from your downloaded certificate.  
+
         >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
     5.  Click **Replace certificate**, and then upload your **base-64 encoded certificate file**.

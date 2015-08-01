@@ -1,5 +1,5 @@
 <properties pageTitle="Tutorial: Azure Active Directory integration with ClickTime | Microsoft Azure" description="Learn how to use ClickTime with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/1/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Tutorial: Azure Active Directory integration with ClickTime
 >[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=%20524782).
 
@@ -82,7 +82,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     1.  Select **Allow** sign-in using Single Sign-On (SSO) with **OneLogin**.
     2.  In the Azure portal, on the **Configure single sign-on at ClickTime** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity Provider Endpoint** textbox.
-    3.  Create a **base-64 encoded** file from your downloaded certificate.
+    3.  Create a **base-64 encoded** file from your downloaded certificate.  
+
         >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Open the base-64 encoded certificate in **Notepad**, copy the content, and then paste it into the **X.509 Certificate** textbox.
