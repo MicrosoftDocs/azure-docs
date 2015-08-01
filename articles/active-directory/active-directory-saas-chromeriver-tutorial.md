@@ -78,7 +78,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 5.  Send the downloaded metadata file to your Chromeriver support team.
 
-    >[AZURE.NOTE] Your Chromeriver support team has to do the actual SSO configuration.
+    >[AZURE.NOTE] Your Chromeriver support team has to do the actual SSO configuration.  
     You will get a notification when SSO has been enabled for your subscription.
 
 6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
