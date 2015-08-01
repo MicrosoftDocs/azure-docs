@@ -68,9 +68,9 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 
 	```
 	REM Set the value of netfx to install appropriate .NET Framework. 
-	REM ***** To install .NET 4.5.2 set the variable netfx to NDP452 *****
-	REM ***** To install .NET 4.6 set the variable netfx to NDP46 *****
-	set netfx=NDP452
+	REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
+	REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
+	set netfx="NDP452"
 	
 	REM ***** Setup .NET filenames and registry keys *****
 	if %netfx%=="NDP46" goto NDP46
@@ -101,7 +101,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	:end
 	echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
 	```
-	> [AZURE.IMPORTANT] Update the value of the *netfx* variable in the script to match the framework version you want to install. To install .NET 4.5.2 the *netfx* variable should be set to *NDP452* and to install .NET 4.6 the *netfx* variable should be set to *NDP46*
+	> [AZURE.IMPORTANT] Update the value of the *netfx* variable in the script to match the framework version you want to install. To install .NET 4.5.2 the *netfx* variable should be set to *"NDP452"* and to install .NET 4.6 the *netfx* variable should be set to *"NDP46"*
 		
 	The install script checks whether the specified .NET framework version is already installed on the machine by querying the registry. If the .NET version is not installed then the .Net Web Installer is launched. To help troubleshoot with any issues the script will log all activity to a file named *startuptasklog-(currentdatetime).txt* stored in *InstallLogs* local storage.
  
