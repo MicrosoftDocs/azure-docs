@@ -66,7 +66,8 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure App Settings](./media/active-directory-saas-chromeriver-tutorial/IC802759.png "Configure App Settings")
 
-    1.  In the **Reply URL** textbox, type your Chromeriver **AssertionConsumerService URL** (e.g.: *https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911*).
+    1.  In the **Reply URL** textbox, type your Chromeriver **AssertionConsumerService URL** (e.g.: *https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911*).  
+
         >[AZURE.NOTE] You can get this value from your Chromeriver support team.
 
     2.  Click **Next**
