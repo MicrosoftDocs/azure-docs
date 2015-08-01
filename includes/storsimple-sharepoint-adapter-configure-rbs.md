@@ -43,7 +43,7 @@
 
           ![Configure StorSimple Adapter Enable Disable](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-    4. Click the **Update** button to apply the configuration. When you click the Update button, the RBS configuration status will be updated on all WFE servers, and the entire farm will be RBS-enabled. The following message appears.
+    4. Click the **Update** button to apply the configuration. When you click the **Update** button, the RBS configuration status will be updated on all WFE servers, and the entire farm will be RBS-enabled. The following message appears.
 
            ![Adapter configuration message](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
 
@@ -112,7 +112,7 @@
  
      If you store BLOBs and the content database in separate volumes on the StorSimple device, we recommend that you configure them in the same volume container. This ensures that they will be backed up together.
 
-     >[AZURE.WARNING] If you have not enabled RBS, we do not recommend moving the content database to the StorSimple device. This is an untested configuration.
+       >[AZURE.WARNING] If you have not enabled RBS, we do not recommend moving the content database to the StorSimple device. This is an untested configuration.
  
 9. Go to the next step: [Configure garbage collection](#configure-garbage-collection).
 
