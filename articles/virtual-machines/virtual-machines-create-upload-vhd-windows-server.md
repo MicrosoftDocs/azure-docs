@@ -96,7 +96,7 @@ From the virtual machine that the operating system was installed to, complete th
 6.  Click **OK**.
 
 
-## Step 2: Create a Storage account in Azure ##
+## Step 2: Create a storage account in Azure ##
 
 You need a Storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine. You can use the Azure portal to create a storage account.
 

@@ -47,7 +47,7 @@ This FAQ answers questions about Azure Multi-Factor Authentication. This FAQ cov
 
 
 
-**Q: How does the Azure Multi-Factor Authentication Server handles user data?**
+**Q: How does the Azure Multi-Factor Authentication Server handle user data?**
 
 When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’s data is stored in the on-premises servers. No persistent user data is stored in the cloud. When the user performs a two-factor authentication, the MFA Server sends data to the Azure MFA cloud service to perform the authentication. When these authentication requests are sent to the cloud service, the following fields are sent in the request and logs so that they are available in the customer's authentication/usage reports. Some of the fields are optional so they can be enabled or disabled within the Multi-Factor Authentication Server. The communication from the MFA Server to the MFA cloud service uses SSL/TLS over port 443 outbound. These fields are:
 

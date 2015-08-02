@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a virtual machine running Windows in the Azure Preview portal | Microsoft Azure"
-	description="Learn how to create an Azure virtual machine (VM) resource running Windows, using the Azure Marketplace in the Azure Preview Portal"
+	pageTitle="Create a virtual machine running Windows in the Azure preview portal | Microsoft Azure"
+	description="Learn how to create an Azure virtual machine (VM) resource running Windows, using the Azure Marketplace in the Azure preview portal"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
@@ -16,26 +16,25 @@
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
-# Create a Virtual Machine running Windows in the Azure Preview Portal#
+# Create a virtual machine running Windows in the Azure preview portal#
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell - Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource manager](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-This tutorial shows you how easy it is to create an Azure virtual machine (VM) in just a few minutes in the Azure Preview portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the VM in Azure Resource Manager, but that's just one of the many images Azure offers. Note that your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
+This tutorial shows you how easy it is to create an Azure virtual machine (VM) in just a few minutes in the preview portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the VM in Azure Resource Manager, but that's just one of the many images Azure offers. Note that your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
 You can also create VMs using your own images, with Resource Manager templates, or with automation tools. To learn about the different methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-
 ## Select the image
 
-Go to the Azure Marketplace in the Preview portal to find the Windows Server VM image you want.
+Go to the Azure Marketplace in the preview portal to find the Windows Server VM image you want.
 
-1. Sign in to the [Preview portal](https://portal.azure.com).
+1. Sign in to the [preview portal](https://portal.azure.com).
 
 2. On the Hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
 
@@ -79,7 +78,7 @@ After you create the VM, you'll want to log on to it so you can manage its setti
 
 >[AZURE.NOTE] For requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. If you haven't already done so, sign in to the [Preview portal](https://portal.azure.com).
+1. If you haven't already done so, sign in to the [preview portal](https://portal.azure.com).
 
 2. Click your VM on the Startboard. If you need to find it, click **Browse All** > **Recent** or **Browse All** > **Virtual machines**. Then, select your VM from the list.
 
