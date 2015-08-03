@@ -1,6 +1,6 @@
 <properties
-	pageTitle="v2.0 Endpoint | Microsoft Azure"
-	description="A list of limitations & restrictions with the Azure AD v2.0 endpoint."
+	pageTitle="App Model v2.0 | Microsoft Azure"
+	description="A list of limitations & restrictions with the Azure AD v2.0 app model."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,74 +13,76 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="08/02/2015"
 	ms.author="dastrock"/>
 
-# v2.0 Endpoint Preview: Limitations & Restrictions
+# App Model v2.0 Preview: Limitations & Restrictions
 
-There are several features & functionalities of the v2.0 endpoint that are not yet supported in the public preview period.  Each of these limitations will be removed before the v2.0 endpoint reaches general availability, but you should be aware of them if you are building applications during the public preview.
+There are several features & functionalities of the v2.0 app model that are not yet supported in the public preview period.  Each of these limitations will be removed before the v2.0 app model reaches general availability, but you should be aware of them if you are building applications during the public preview.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 endpoint public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 ## Support for Production Applications
-Applications that integrate with the v2.0 Endpoint should not be released to the public as production level applications.  The v2.0 endpoint is in public preview at this time - breaking changes may be introduced at any point in time, and there is no SLA guaranteed by the service.  Support will not be provided for any incidents that may occur.  If you are willing to accept the risks of taking a dependency on a service that is still in development, you must contact us @AzureAD to discuss the scope of your application or service.
+Applications that integrate with the v2.0 app model should not be released to the public as production level applications.  The v2.0 app model is in public preview at this time - breaking changes may be introduced at any point in time, and there is no SLA guaranteed by the service.  Support will not be provided for any incidents that may occur.  If you are willing to accept the risks of taking a dependency on a service that is still in development, you must contact us @AzureAD to discuss the scope of your application or service.
 
 ## Restrictions on Applications
-The following types of applications are not currently supported in the v2.0 endpoint public preview.  For a description of the supported types of applications, refer to [this article]().
+The following types of applications are not currently supported in the v2.0 app model public preview.  For a description of the supported types of applications, refer to [this article](active-directory-v2-flows.md).
 
-##### Single Page Apps (Javascript)
-Many modern applications have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow]() - however, this flow is not yet available in the v2.0 endpoint.  It will be in short order.
+##### Single Page Apps (Javascripta
+Many modern applications have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth-2.0-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
 
-If you're anxious to get a SPA working with the v2.0 endpoint, you can implement authentication using the [web server app auth flow]() described above.  But this is not the recommended approach, and documentation for this scenario will be limited.  If you'd like to get a feel for the SPA scenario, you can check out the [generally available Azure AD SPA code sample]().
+If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the [web server app auth flow](active-directory-v2-flows.md#web-apps).  But this is not the recommended approach, and documentation for this scenario will be limited.  If you'd like to get a feel for the SPA scenario, you can check out the [generally available Azure AD SPA code sample](active-directory-devquickstarts-angular.md).
 
 ##### Daemons/Server Side Apps
-Applications that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow]().  
+Applications that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-v2-protocols.md#oauth-2.0-client-credentials-grant-flow).  
 
-This flow is not currently supported by the v2.0 endpoint - which is to say that apps can only get tokens after an interactive user sign-in flow has occurred.  The client credentials flow will be added in the near future.  If you would like to see the client credentials flow in the generally available Azure AD endpoint, check out the [Daemon sample on GitHub]().
+This flow is not currently supported by the v2.0 app model - which is to say that apps can only get tokens after an interactive user sign-in flow has occurred.  The client credentials flow will be added in the near future.  If you would like to see the client credentials flow in the generally available Azure AD app model, check out the [Daemon sample on GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ##### Chained Web APIs (On-Behalf-Of)
-Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as Office 365 or the Graph API.
+Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 app model.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as Office 365 or the Graph API.
 
-This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the [On-Behalf-Of Flow]().  However, the On-Behalf-Of flow is not currently implemented in the v2.0 endpoint preview.  To see how this flow works in the generally available Azure AD service, check out the [On-Behalf-Of code sample on GitHub]().
+This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the [On-Behalf-Of Flow](active-directory-v2-protocols.md#OAuth-2.0-On-Behalf-Of-Flow).  However, the On-Behalf-Of flow is not currently implemented in the v2.0 app model preview.  To see how this flow works in the generally available Azure AD service, check out the [On-Behalf-Of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
 ##### Standalone Web APIs
-In the v2.0 endpoint preview, you have the ability to [build a Web API that is secured using OAuth tokens]() from the v2.0 endpoint.  However, that Web API will only be able to receive tokens from a client that shares the same Application Id.  Building a third party web service that is accessed from several different clients is not supported.
+In the v2.0 app model preview, you have the ability to [build a Web API that is secured using OAuth tokens]() from the v2.0 endpoint.  However, that Web API will only be able to receive tokens from a client that shares the same Application Id.  Building a third party web service that is accessed from several different clients is not supported.
+<!-- TODO: Link above -->
 
-To see how to build a Web API that accepts tokens from a well-known client with the same Application Id, see the v2.0 endpoint Web API samples in our [Getting Started]() section.
+To see how to build a Web API that accepts tokens from a well-known client with the same Application Id, see the v2.0 app model Web API samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
 ## Restrictions on Users
-Currently every application built with the v2.0 endpoint will be publicly exposed to all users with a Microsoft Account or Azure Active Directory account. Any user with either type of account will be able to successfully navigate to or install your application, enter their credentials at the v2.0 endpoint, and consent to your app's permissions.  You can write your application's code to reject sign ins from certain sets of users - but that will not prevent them from being able to consent to the application.
+Currently every application built with the v2.0 app model will be publicly exposed to all users with a Microsoft Account or Azure Active Directory account. Any user with either type of account will be able to successfully navigate to or install your application, enter their credentials at the v2.0 app model, and consent to your app's permissions.  You can write your application's code to reject sign ins from certain sets of users - but that will not prevent them from being able to consent to the application.
 
 Effectively, your applications can not restrict the types of users that can sign into the application.  You will not be able to build Line of Business applications (restricted to users in one organization), applications available to only enterprise users (with an Azure AD account), or applications only available to consumers (with a Microsoft Account).
 
 ## Restrictions on App Registrations
-At this point in time, all apps that want to integrate with the v2.0 endpoint must create a new app registration at [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  Any existing Azure AD or Microsoft Account applications will not be compatible with the v2.0 endpoint, nor will applications registered in any portal besides the new App Registration Portal.  There is no migration path for an application from the generally available Azure AD service to the v2.0 endpoint.
+At this point in time, all apps that want to integrate with the v2.0 app model must create a new app registration at [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  Any existing Azure AD or Microsoft Account applications will not be compatible with the v2.0 app model, nor will applications registered in any portal besides the new App Registration Portal.  There is no migration path for an application from the generally available Azure AD service to the v2.0 app model.
 
-Similarly, apps registered in the new App Registration Portal will work exclusively with the v2.0 endpoint.  You can not use the App Registration Portal to create apps that will integrate successfully with the Azure Active Directory or Microsoft Account services.
+Similarly, apps registered in the new App Registration Portal will work exclusively with the v2.0 app model.  You can not use the App Registration Portal to create apps that will integrate successfully with the Azure Active Directory or Microsoft Account services.
 
 Applications that are registered in the new Application Registration Portal are currently restricted to a limited set of redirect_uri values.  The redirect_uri for web applications and services must begin with the scheme `http` or `https`, while the redirect_uri for all other platforms must use the hard-coded value of `urn:ietf:oauth:2.0:oob`.
 
-To learn how to register an application in the new Application Registration Portal, refer to [this article]().
+To learn how to register an application in the new Application Registration Portal, refer to [this article](active-directory-v2-app-registration.md).
 
 ## Restrictions on Services & APIs
-The v2.0 endpoint currently supports sign-in for any application registered in the new Application Registration Portal, provided it falls into the list of [supported authentication flows]().  However, these applications will only be able to acquire OAuth 2.0 access tokens for a very limited set of resources.  The v2.0 endpoint will only issue access_tokens for:
+The v2.0 app model currently supports sign-in for any application registered in the new Application Registration Portal, provided it falls into the list of [supported authentication flows](active-directory-v2-flows.md).  However, these applications will only be able to acquire OAuth 2.0 access tokens for a very limited set of resources.  The v2.0 endpoint will only issue access_tokens for:
 
-- The application that requested the token.  An app can acquire an access_token for itself, if the logical application is comprised of several different components or tiers.  To see this scenario in action, check out our [Getting Started]() tutorials.
+- The application that requested the token.  An app can acquire an access_token for itself, if the logical application is comprised of several different components or tiers.  To see this scenario in action, check out our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) tutorials.
 - The Outlook Mail, Calendar and Contacts REST APIs, all of which are located at https://outlook.office.com.  To learn how to write an app that accesses these APIs, refer to these [Office Getting Started]() tutorials.
 
+<!-- TODO: Need links above -->
 More Microsoft Online services will be added in the near future, as well as support for your own Web APIs and services.
 
 ## Restrictions on Libraries & SDKs
-Not all languages and platforms have auth libraries that support the v2.0 endpoint preview.  The set of authentication libraries is currently limited to .NET, iOS, Android, NodeJS, and Javascript.  Corresponding code samples and tutorials for each are available in our [Getting Started]() section.
+Not all languages and platforms have auth libraries that support the v2.0 app model preview.  The set of authentication libraries is currently limited to .NET, iOS, Android, NodeJS, and Javascript.  Corresponding code samples and tutorials for each are available in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-If you wish to integrate an app with the v2.0 endpoint using another language or platform, refer to the [OAuth 2.0 and OpenID Connect Protocol Reference]() which will instruct you on how to construct the HTTP messages necessary to communicate with the v2.0 endpoint.
+If you wish to integrate an app with the v2.0 app model using another language or platform, refer to the [OAuth 2.0 and OpenID Connect Protocol Reference](active-directory-v2-protocols.md) which will instruct you on how to construct the HTTP messages necessary to communicate with the v2.0 endpoint.
 
 ## Restrictions on Protocols
-The v2.0 Endpoint supports Open ID Connect & OAuth 2.0.  However, not all features and capabilities of each protocol have been incorporated into the v2.0 endpoint.  Some examples include:
+The v2.0 app model supports Open ID Connect & OAuth 2.0.  However, not all features and capabilities of each protocol have been incorporated into the v2.0 app model.  Some examples include:
 
 - Full support for the OpenID Connect `prompt` parameter
 - The OpenID Connect `login_hint` parameter
 - The OpenID Conncet `domain_hint` parameter
 
-To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect & OAuth 2.0 Protocol Reference]().
+To better understand the scope of protocol functionality supported in the v2.0 app model, read through our [OpenID Connect & OAuth 2.0 Protocol Reference](active-directory-v2-protocols.md).
