@@ -19,6 +19,10 @@
 
 # My first graphical runbook
 
+> [AZURE.SELECTOR]
+- [Graphical](automation-first-runbook-graphical.md)
+- [Textual](automation-first-runbook-textual.md)
+
 This tutorial walks you through the creation of a [graphical runbook](automation-graphical-authoring-intro.md) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters and a conditional link.  
 
 ## Prerequisites
@@ -32,7 +36,7 @@ To complete this tutorial, you will need the following.
 
 ## Step 1 - Create new runbook
 
-We'll by creating a simple runbook that outputs the text *Hello World*.
+We'll start by creating a simple runbook that outputs the text *Hello World*.
 
 1. In the Azure Preview Portal, open your Automation account.  
 The Automation account page gives you a quick view of the resources in this account.  You should already have some Assets.  Most of those are the modules that are automatically included in a new Automation account.  You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).

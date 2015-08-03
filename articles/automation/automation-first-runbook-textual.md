@@ -19,6 +19,10 @@
 
 # My first textual runbook
 
+> [AZURE.SELECTOR]
+- [Graphical](automation-first-runbook-graphical.md)
+- [Textual](automation-first-runbook-textual.md)
+
 This tutorial walks you through the creation of a [textual runbook](automation-powershell-workflow.md) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters.  
 
 ## Prerequisites
