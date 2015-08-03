@@ -102,25 +102,12 @@ When you download the usage CSV for services that support tags with billing, the
 ![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
 
 ## Next Steps
-Getting Started  
 
-- [Azure Resource Manager Overview](./resource-group-overview.md)  
-- [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md)  
-- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)  
+- For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md).
+- For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
+- For an introduction to using the preview portal, see [Using the Azure preview portal to manage your Azure resources](./resource-group-portal.md)  
   
-Creating and Deploying Applications  
+
   
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)  
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)  
-- [Troubleshooting Resource Group Deployments in Azure](./resource-group-deploy-debug.md)  
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)  
-- [Advanced Template Operations](./resource-group-advanced-template.md)  
-  
-Managing and Auditing Access  
-  
-- [Managing and Auditing Access to Resources](./resource-group-rbac.md)  
-- [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
-- [Create a new Azure Service Principal using the Azure classic portal](./resource-group-create-service-principal-portal.md)  
-  
+
 
