@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/01/2015"
+   ms.date="08/03/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with the Azure SQL Database Library for .NET
@@ -441,7 +441,7 @@ To delete a resource group:
         {
             AuthenticationContext authContext = new AuthenticationContext
                 ("https://login.windows.net/" /* AAD URI */ 
-                + "YOU.onmicrosoft.com" /* Tenant ID or AAD domain */);
+                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
                 ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
