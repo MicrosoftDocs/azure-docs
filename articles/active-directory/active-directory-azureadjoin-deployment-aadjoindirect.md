@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Setting up Azure AD Join for your users| Microsoft Azure" 
+	pageTitle="Usage scenarios and deployment considerations for Azure AD Join| Microsoft Azure" 
 	description="A topic that explains how administrators can set up Azure AD Join for their end users (employees, students, other users)." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="08/02/2015" 
 	ms.author="femila"/>
 
 # Usage scenarios and deployment considerations for Azure AD Join 
@@ -32,9 +32,9 @@ Scenario 3: Retail businesses
 ---------------------------------------------------------------------------------------
 Retail business have seasonal workers and long-term employees. Longer term full time employees can be created as on-premises accounts and would typically use domain joined machines. But seasonal workers are shorter term members of the organization and thus are desired to managed where user licenses can be more easily moved around. Creating these users in the cloud with Office 365 licenses allows these users to get the benefits of signing in to Windows and Office applications with an Azure AD account while maintaining more mobility of their licenses once they leave. 
 
-Scenario 4: Other scenarios
+Scenario 4: Additional scenarios
 ------------------------------------------------------------------------------------------
-And broader than these specific scenarios, you might find that even though you maintain users in your on-premises AD directory, you could still benefit with having users Azure AD join because of simplified joining experience, device management in Azure AD, automatic MDM enrollment, and single sign-on to Azure AD and on-premises resources.  
+Other than the scenarios discussed above, you can benefit with having your users  join their devices joined to Azure AD because of a simplified joining experience, device management in Azure AD, automatic MDM enrollment, and single sign-on to Azure AD and on-premises resources.  
 
 
 ##Deployment Considerations for Azure AD Join

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="08/02/2015" 
 	ms.author="femila"/>
 
 # Authenticating identities without passwords through Microsoft Passport

@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="08/02/2015" 
 	ms.author="femila"/>
 
 # Join a personal device to your organization
 
-To Join a Windows 10 device to your organization
+To join a Windows 10 device to your organization
 --------------------------------------------------------------------------------------------
 1.	From the **Start** menu, select **Settings**. 
 2.	Select **Accounts**, and then click **Your account**.
@@ -33,5 +33,5 @@ To Join a Windows 10 device to your organization
 
 ## Additional Information
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
-* [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Learn about usage scenarios and deployment considerations for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Set up a new device with Azure AD through the first-run experience| Microsoft Azure" 
+	pageTitle="Set up a new device with Azure AD during Setup| Microsoft Azure" 
 	description="A topic that explains how users can set up Azure AD Join during their first run experience." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date=08/02/2015" 
 	ms.author="femila"/>
 
-# Set up a new device with Azure AD through the first-run experience
+# Set up a new device with Azure AD during Setup
 
 In Windows 10, end-users can join their device to Azure AD in the first run experience (FRX). This will allow organizations to distribute shrink-wrapped devices to their employees or students, or let them choose their own device (CYOD).
 If you install either the Professional or Enterprise SKU for Windows 10, the experience defaults to the setup for company-owned devices.
