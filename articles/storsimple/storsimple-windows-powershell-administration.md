@@ -33,7 +33,7 @@ After reading this article, you will be able to:
 
 >[AZURE.NOTE] 	
 
->- Windows PowerShell for StorSimple cmdlets allow you to manage your StorSimple device from a serial console or remotely via Windows PowerShell remoting. For more information about each of the individual cmdlets that can be used in this interface, go to [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/azure/dn688168.aspx).
+>- Windows PowerShell for StorSimple cmdlets allow you to manage your StorSimple device from a serial console or remotely via Windows PowerShell remoting. For more information about each of the individual cmdlets that can be used in this interface, go to [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 >- The Azure PowerShell StorSimple cmdlets are a different collection of cmdlets that allow you to automate StorSimple service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [Azure StorSimple cmdlet reference](https://msdn.microsoft.com/library/azure/dn920427.aspx).
 
@@ -66,11 +66,11 @@ The following image shows the various runspace options that are available in the
 You can choose from the following settings:
 
 1. **Log in with full access**
-This option allows you to connect (with the proper credentials) to the **SSAdminConsole **runspace on the local controller. (The local controller is the controller that you are currently accessing through the serial console of your StorSimple device.) 
+This option allows you to connect (with the proper credentials) to the **SSAdminConsole** runspace on the local controller. (The local controller is the controller that you are currently accessing through the serial console of your StorSimple device.) 
 This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues. After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet. For details, refer to [Start a support session](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple). This option connects to a runspace on the local controller.
 
 1. **Log in to peer controller with full access**
-This option is the same as option 1, except that you can connect (with the proper credentials) to the **SSAdminConsole runspace** on the peer controller. Because the StorSimple device is a high availability device with two controllers in an active-passive configuration, peer refers to the other controller in the device that you are accessing through the serial console).
+This option is the same as option 1, except that you can connect (with the proper credentials) to the **SSAdminConsole** runspace on the peer controller. Because the StorSimple device is a high availability device with two controllers in an active-passive configuration, peer refers to the other controller in the device that you are accessing through the serial console).
 Similar to option 1, this option can also be used to allow Microsoft Support to access unrestricted runspace on a peer controller.
 
 1. **Connect with limited access**
@@ -156,7 +156,7 @@ The following table shows a summary of all the common management tasks and compl
 
 |If you want to do this ...|Use this procedure.|
 |---|---|
-|Register your device|[Configure and register the device using Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md/#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
+|Register your device|[Configure and register the device using Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
 |Configure web proxy</br>View web proxy settings|[Configure web proxy for your StorSimple device](storsimple-configure-web-proxy.md)|
 |Modify DATA 0 network interface settings on your device|[Modify DATA 0 network interface for your StorSimple device](storsimple-modify-data-0.md)|
 |Stop a controller </br> Restart or shut down a controller </br> Shut down a device</br>Reset the device to factory default settings|[Manage device controllers](storsimple-manage-device-controller.md)|
