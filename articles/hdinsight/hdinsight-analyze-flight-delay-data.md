@@ -41,6 +41,7 @@ The main portion of the tutorial shows you how to use one Windows PowerShell scr
 
 In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.
 
+> [AZURE.NOTE] While the steps in this document are specific to Windows-based clusters. For steps that will work with a Linux-based cluster, see [Analyze flight delay data using Hive in HDInsight](hdinsight-flight-delay-data-linux.md)
 
 ###Prerequisites
 
