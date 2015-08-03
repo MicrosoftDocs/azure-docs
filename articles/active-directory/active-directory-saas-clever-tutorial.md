@@ -105,8 +105,8 @@ The following screenshot shows an example for this.
 
     ![saml token attributes](./media/active-directory-saas-clever-tutorial/IC795921.png "saml token attributes")
 
-|Attribute Name|Attribute Value|
-    |---|
+	|Attribute Name|Attribute Value|
+    |---|---|
     |clever.student.credentials.district\_username|User.userprincipalname|
 
     1.  For each data row in the table above, click **add user attribute**.
@@ -115,6 +115,7 @@ The following screenshot shows an example for this.
     4.  Click **Complete**.
 
 11. Click **Apply Changes**.
+
 ##Configuring user provisioning
 
 In order to enable Azure AD users to log into Clever, they must be provisioned into Clever.  
