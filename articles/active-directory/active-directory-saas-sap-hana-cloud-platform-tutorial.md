@@ -86,7 +86,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     ![Configure App URL](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configure App URL")
 
     1.  In the **Sign On URL** textbox, type the URL used by your users to sign into your **SAP HANA Cloud Platform** application. This is the account-specific URL of a protected resource in your SAP HANA Cloud Platform application. The URL is based on the following pattern: *https://\<applicationName\>\<accountName\>.\<landscape host\>.ondemand.com/\<path\_to\_protected\_resource\>* (e.g.: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
-        >[AZURE.NOTE]This is the URL in your SAP HANA Cloud Platform application that requires the user to authenticate.
+
+		>[AZURE.NOTE]This is the URL in your SAP HANA Cloud Platform application that requires the user to authenticate.
 
     2.  Open the downloaded SAP HANA Cloud Platform metadata file, and then locate the **ns3:AssertionConsumerService** tag.
     3.  Copy the value of the **Location** attribute, and then paste it into the **SAP HANA Cloud Platform Reply URL** textbox.
@@ -127,8 +128,6 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     1.  By clicking **Add Assertion-Based Attribute**, add the following assertion-based attributes:
 
-        ###  
-
         |Assertion Attribute| Principal Attribute|
 		|-------------------|--------------------|
         |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname|   firstname|--------------------|--------------------|
@@ -136,9 +135,10 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 		|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]The configuration of the Attributes depends on how the application(s) on HCP are developed, i.e. which attribute(s) they expect in the SAML response and under which name (Principal Attribute) they access this attribute in the code.
-
-    1.  The **Default Attribute** in the screenshot is just for illustration purposes. It is not required to make the scenario work.
-    2.  The names and values for **Principal Attribute** shown in the screenshot depend on how the application is developed. It is possible that your application requires different mappings.
+    >  
+    >a.  The **Default Attribute** in the screenshot is just for illustration purposes. It is not required to make the scenario work.  
+    >
+    >b.  The names and values for **Principal Attribute** shown in the screenshot depend on how the application is developed. It is possible that your application requires different mappings.
 
 13. In the Azure portal, on the **Configure single sign-on at SAP HANA Cloud Platform** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
 
@@ -147,8 +147,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 As an optional step, you can configure assertion-based groups for your Azure Active Directory Identity Provider
 
 >[AZURE.NOTE]Using groups on SAP HANA Cloud Platform allows you to dynamically assign one or more users to one or more roles in your SAP HANA Cloud Platform applications, determined by values of attributes in the SAML 2.0 assertion. For example, if the assertion contains the attribute "*contract=temporary*", you may want all affected users to be added to the group "*TEMPORARY*". The group “*TEMPORARY*” may contain one or more roles from one or more applications deployed in your SAP HANA Cloud Platform account.
-  
-Use assertion-based groups if you want to mass-assign many users to one or more roles of applications in your SAP HANA Cloud Platform account. If you only want to assign a single or small number of users to (a) specific role(s) we recommend assigning them directly in the “**Authorizations**” tab of the SAP HANA Cloud Platform cockpit.
+>  
+>Use assertion-based groups if you want to mass-assign many users to one or more roles of applications in your SAP HANA Cloud Platform account. If you only want to assign a single or small number of users to (a) specific role(s) we recommend assigning them directly in the “**Authorizations**” tab of the SAP HANA Cloud Platform cockpit.
+
 ##Assigning a role to a user
   
 In order to enable Azure AD users to log into SAP HANA Cloud Platform, you must assign roles in the SAP HANA Cloud Platform to them.

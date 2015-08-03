@@ -83,6 +83,7 @@ There is no action item for you to configure user provisioning to OverDrive.
 When an assigned user tries to log into OverDrive, an OverDrive account is automatically created if necessary.
 
 >[AZURE.NOTE]You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

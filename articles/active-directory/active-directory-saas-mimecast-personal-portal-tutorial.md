@@ -145,8 +145,9 @@ You need to register a domain before you can create users.
     2.  Click **Save**.
 
 >[AZURE.NOTE]You can use any other Mimecast Personal Portal user account creation tools or APIs provided by Mimecast Personal Portal to provision AAD user accounts.
+
 ##Assigning users
-  
+
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 ###To assign users to Mimecast Personal Portal, perform the following steps:

@@ -114,7 +114,8 @@ For AAD users to be able to sign in, they must be provisioned to the LogicMonito
     2.  Select **Roles**, **View Permissions** and the **Status**.
     3.  Click **Submit**.
 
-[AZURE.NOTE]You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.
+>[AZURE.NOTE]You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

@@ -126,8 +126,8 @@ In the case of Kudos, provisioning is a manual task.
     1.  Type the **First Name**, **Last Name**, **Email** and other details of a valid Azure Active Directory account you want to provision into the related textboxes.
     2.  Click **Create User**.
 
->[AZURE.NOTE]You can use any other Kudos user account creat
->ion tools or APIs provided by Kudos to provision AAD user accounts.
+>[AZURE.NOTE]You can use any other Kudos user account creation tools or APIs provided by Kudos to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

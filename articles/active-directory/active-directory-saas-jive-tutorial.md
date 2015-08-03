@@ -14,6 +14,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 
 1.  Enabling the application integration for Jive
 2.  Configuring user provisioning
+
 ##Enabling the application integration for Jive
   
 The objective of this section is to outline how to enable the application integration for Jive.

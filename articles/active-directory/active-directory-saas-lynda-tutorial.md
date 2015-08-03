@@ -85,8 +85,8 @@ There is no action item for you to configure user provisioning to Lynda.com.
 When an assigned user tries to log into Lynda.com using the access panel, Lynda.com checks whether the user exists.  
 If there is no user account available yet, it is automatically created by Lynda.com.
 
->[AZURE.NOTE]You can use any other Lynda.com user account creat
->ion tools or APIs provided by Lynda.com to provision AAD user accounts.
+>[AZURE.NOTE]You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

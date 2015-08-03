@@ -101,8 +101,8 @@ In the case of Mindflash, provisioning is a manual task.
     1.  Type the **First name**, **Last name** and **Email** of a valid AAD account you want to provision into the related textboxes.
     2.  Click **Add**.
 
->[AZURE.NOTE]You can use any other M
-mindflash user account creation tools or APIs provided by Mindflash to provision AAD user accounts.
+>[AZURE.NOTE]You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

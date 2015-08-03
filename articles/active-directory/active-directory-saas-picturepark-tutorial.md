@@ -104,6 +104,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Configure Single Sign-On")
+
 ##Configuring user provisioning
   
 In order to enable Azure AD users to log into Picturepark, they must be provisioned into Picturepark.  
@@ -130,6 +131,7 @@ In the case of Picturepark, provisioning is a manual task.
     3.  Click **Create**.
 
 >[AZURE.NOTE]You can use any other Picturepark user account creation tools or APIs provided by Picturepark to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

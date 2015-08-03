@@ -120,7 +120,8 @@ In the case of Panorama9, provisioning is a manual task.
     1.  In the **Email** textbox, type the email address of a valid Azure Active Directory user you want to provision.
     2.  Click **Save**.
 
-[AZURE.NOTE]You can use any other Panorama9 user account creation tools or APIs provided by Panorama9 to provision AAD user accounts.
+>[AZURE.NOTE]You can use any other Panorama9 user account creation tools or APIs provided by Panorama9 to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
@@ -129,13 +130,11 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Panorama9 **application integration page, click **Assign users**.
+2.  On the **Panorama9** application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-panorama9-tutorial/IC790029.png "Assign Users")
 
-3.  Select your test user, click **Assign**, and th
-4.  
-5.  en click **Yes** to confirm your assignment.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
     ![Yes](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Yes")
   

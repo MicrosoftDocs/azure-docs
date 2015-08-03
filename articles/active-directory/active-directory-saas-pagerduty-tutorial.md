@@ -123,6 +123,7 @@ In the case of Pagerduty, provisioning is a manual task.
     >[AZURE.NOTE] All added users will receive an invite to create a PagerDuty account.
 
 >[AZURE.NOTE] You can use any other Pagerduty user account creation tools or APIs provided by Pagerduty to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

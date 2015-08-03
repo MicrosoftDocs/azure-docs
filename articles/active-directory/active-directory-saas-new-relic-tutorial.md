@@ -121,6 +121,7 @@ In the case of New Relic, provisioning is a manual task.
     3.  Click **Add this user**.
 
 >[AZURE.NOTE]You can use any other New Relic user account creation tools or APIs provided by New Relic to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

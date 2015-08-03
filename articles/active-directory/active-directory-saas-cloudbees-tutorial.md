@@ -54,8 +54,8 @@ The objective of this section is to outline how to enable the application integr
 
 ##Configuring single sign-on
 
-The objective of this section is to outline how to enable users to authenticate to CloudBees with their account in Azure AD using federation based on the SAML protocol.
-Configuring single sign-on for CloudBees requires you to retrieve a thumbprint value from a certificate.
+The objective of this section is to outline how to enable users to authenticate to CloudBees with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for CloudBees requires you to retrieve a thumbprint value from a certificate.  
  If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
 ###To configure single sign-on, perform the following steps:
@@ -91,7 +91,7 @@ Configuring single sign-on for CloudBees requires you to retrieve a thumbprint v
     1.  In the Azure AD portal, on the **Configure single sign-on at CloudBees** page, copy the **Remote Login URL** value, and then paste it into the **Remote login URL** textbox.
     2.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Existing certificate fingerprint** textbox.
     
-        >[AZURE.NOTE]For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
     3.  In the **Authentication domains** textbox, type your company’s domain.
     4.  Click **Save**.
@@ -102,7 +102,7 @@ Configuring single sign-on for CloudBees requires you to retrieve a thumbprint v
 
 ##Configuring user provisioning
 
-In order to enable Azure AD users to log into **CloudBees**, they must be provisioned into **CloudBees**.
+In order to enable Azure AD users to log into **CloudBees**, they must be provisioned into **CloudBees**.  
  In the case of **CloudBees**, provisioning is a manual task.
 
 ###To provision a user account to CloudBees, perform the following steps:

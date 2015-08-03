@@ -145,6 +145,7 @@ You need to register a domain before you can create users.
     2.  Click **Save**.
 
 >[AZURE.NOTE]You can use any other Mimecast Admin Console user account creation tools or APIs provided by Mimecast Admin Console to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

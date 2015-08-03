@@ -85,9 +85,9 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Enable SAML authentication](./media/active-directory-saas-replicon-tutorial/IC777805.png "Enable SAML authentication")
 
-    1.  To display the **EnableSAML Authentication2** dialog, append the following to your URL, after your company key:
-        **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**
-        The following shows the schema of the complete URL:
+    1.  To display the **EnableSAML Authentication2** dialog, append the following to your URL, after your company key:  
+        **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**  
+        The following shows the schema of the complete URL:  
         **https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**
     2.  Click the **+** to expand the **v20Configuration** section.
     3.  Click the **+** to expand the **metaDataConfiguration** section.

@@ -129,8 +129,9 @@ In the case of Mozy Enterprise, provisioning is a manual task.
     >[AZURE.NOTE]After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.
 
 >[AZURE.NOTE]You can use any other Mozy Enterprise user account creation tools or APIs provided by Mozy Enterprise to provision AAD user accounts.
+
 ##Assigning users
-  
+ 
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 ###To assign users to Mozy Enterprise, perform the following steps:

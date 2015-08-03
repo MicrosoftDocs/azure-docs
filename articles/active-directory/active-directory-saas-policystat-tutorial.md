@@ -68,7 +68,7 @@ The following screenshot shows an example for this.
 
     ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808630.png "Configure Single Sign-On")
 
-3.  On the **Configure App Settings** page, in the **Sign On URL** textbox, type the URL used by your users to sign-on to your URL PolicyStat application (e.g.: “*https://demo-azure.policystat.com*”), and then click **Next**.
+3.  On the **Configure App Settings** page, in the **Sign On URL** textbox, type the URL used by your users to sign-on to your URL PolicyStat application (e.g.: *“https://demo-azure.policystat.com”*), and then click **Next**.
 
     ![Configure App Settings](./media/active-directory-saas-policystat-tutorial/IC808631.png "Configure App Settings")
 

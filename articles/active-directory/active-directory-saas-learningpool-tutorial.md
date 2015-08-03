@@ -119,6 +119,7 @@ There is no action item for you to configure user provisioning to Learningpool.
 Users need to be created by your Learningpool support team.
 
 >[AZURE.NOTE]You can use any other Learningpool user account creation tools or APIs provided by Learningpool to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

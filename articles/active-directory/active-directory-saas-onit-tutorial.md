@@ -69,19 +69,11 @@ The following screenshot shows an example for this.
 
 2.  To add the required attribute mappings, perform the following steps:
 
-    ###  
-
-    Attribute Name
-
-    Attribute Value
-
-    name
-
-    User.userprincipalname
-
-    email
-
-    User.mail
+    
+    |Attribute Name|Attribute Value|
+	|---|---|
+	|name|User.userprincipalname|
+    |email|User.mail|
 
     1.  For each data row in the table above, click **add user attribute**.
     2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
@@ -163,8 +155,8 @@ In the case of Onit, provisioning is a manual task.
 
         >[AZURE.NOTE] The account owner will get an email including a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] 
-You can use any other Onit user account creation tools or APIs provided by Onit to provision AAD user accounts.
+>[AZURE.NOTE] You can use any other Onit user account creation tools or APIs provided by Onit to provision AAD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

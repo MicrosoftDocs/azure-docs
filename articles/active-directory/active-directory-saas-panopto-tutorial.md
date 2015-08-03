@@ -111,6 +111,7 @@ When an assigned user tries to log into Panopto using the access panel, Panopto 
 If there is no user account available yet, it is automatically created by Panopto.
 
 >[AZURE.NOTE]You can use any other Panopto user account creation tools or APIs provided by Panopto to provision Azure AD user accounts.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
