@@ -95,9 +95,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     3.  In **Environment** textbox, type the environment name.  
 
         >[AZURE.NOTE] The value of the Environment attribute is tied to the value of the tenant URL:
-
-        -   If the domain name of the Workday tenant URL starts with impl (e.g.: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.
-        -   If the domain name starts with something else, you need to contact Workday to get the matching **Environment** value.
+		>
+        >-   If the domain name of the Workday tenant URL starts with impl (e.g.: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.
+        >-   If the domain name starts with something else, you need to contact Workday to get the matching **Environment** value.
 
 10. In the **SAML Setup** section, perform the following steps:
 
@@ -121,6 +121,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
         1.  In the **Name** textbox, type a name for your certificate (e.g.: *PPE\_SP*).
         2.  In the **Valid From** textbox, type the valid from attribute value of your certificate.
         3.  In the **Valid To** textbox, type the valid to attribute value of your certificate.
+		
             >[AZURE.NOTE] You can get the valid from date and the valid to date from the downloaded certificate by double-clicking it. The dates are listed under the **Details** tab.
 
         4.  Create a **Base-64 encoded** file from your downloaded certificate.  

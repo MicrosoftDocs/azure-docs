@@ -130,7 +130,7 @@ In the case of ThousandEyes, provisioning is a manual task.
     1.  Type the **Name**, **Email** and other details of a valid Azure Active Directory account you want to provision into the related textboxes.
     2.  Click **Add New User to Account**.
 
-        >[AZURE>NOTE] The AAD account holder will get an email including a link to confirm and activate the account.
+        >[AZURE.NOTE] The AAD account holder will get an email including a link to confirm and activate the account.
 
 >[AZURE.NOTE] You can use any other ThousandEyes user account creation tools or APIs provided by ThousandEyes to provision AAD user accounts.
 

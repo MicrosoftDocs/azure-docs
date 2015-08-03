@@ -167,6 +167,7 @@ In order to enable Azure AD users to log into SAP HANA Cloud Platform, you must 
     3.  In the **User** textbox, type the user’s email address.
     4.  Click **Assign** to assign the user to a role.
     5.  Click **Save**.
+
 ##Assigning users
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

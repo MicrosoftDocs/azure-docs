@@ -13,7 +13,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 After completing this tutorial, the AAD users to whom you have assign Syncplicity access will be able to single sign into the application at your Syncplicity company site (service provider initiated sign on), or using the AAD Access Panel.
 
 1.  Enabling the application integration for Syncplicity
-2.  [Configuring Single Sign-On](https://msdn.microsoft.com/library/6b6388ce-79f5-4a7e-a7b0-451017e3cb2f#configuresso)
+2.  Configuring Single Sign-On
 3.  Configuring user provisioning
 4.  Assigning users
 

@@ -75,10 +75,10 @@ To get single sign-on configured, you will have to contact your SuccessFactors s
     1.  In the **SuccessFactors Sign On URL** textbox, type your URL used by your users to sign on to your SuccessFactors application (e.g.: "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
     2.  In the **SuccessFactors Reply URL** textbox, type **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
-        >[AZURE.NOTE] This value is only a temporary placeholder.
-         You get the actual value from your SuccessFactors support team.
-         Later in this tutorial, you find instructions for contacting your SuccessFactors support team.
-        In the context of this conversation, you will receive your actual SuccessFactors Reply URL.
+        >[AZURE.NOTE] This value is only a temporary placeholder.  
+        >You get the actual value from your SuccessFactors support team.  
+        >Later in this tutorial, you find instructions for contacting your SuccessFactors support team.  
+        >In the context of this conversation, you will receive your actual SuccessFactors Reply URL.
 
 4.  On the **Configure single sign-on at SuccessFactors** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
