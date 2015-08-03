@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jgao"/>
 
 # Submit Hadoop jobs in HDInsight
@@ -693,7 +693,9 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 
 	hivesampletable
 
+##Submit jobs using the HDInsight Tools for Visual Studio
 
+Using the HDInsight Tools for Visual Studio, you can run Hive queries and Pig scripts. See [Get started using Visual Studio Hadoop tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 
 ##Next steps
@@ -708,7 +710,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 
 
 [azure-certificate]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
-[azure-management-portal]: http://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-visual-studio-tools]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
