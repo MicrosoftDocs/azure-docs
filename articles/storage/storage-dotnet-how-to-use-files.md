@@ -34,7 +34,7 @@ This getting started tutorial demonstrates the basics of using Microsoft Azure F
 	- Copy a file to another file in the same storage account
 	- Copy a file to a blob in the same storage account
 
-> [AZURE.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 5.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
