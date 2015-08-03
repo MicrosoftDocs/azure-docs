@@ -41,8 +41,8 @@ After reading this article, you will be able to:
 
 You can access the Windows PowerShell for StorSimple using one of the following methods:
 
-- [Connect to StorSimple device serial console](#Connect-to-Windows-PowerShell-for-StorSimple-via-device-serial-console)
-- [Connect remotely to StorSimple using Windows PowerShell](#Connect-remotely-to-StorSimple-using-Windows-PowerShell-for-StorSimple)
+- [Connect to StorSimple device serial console](#connect-to-windows-powershell-for-storsimple-via-device-serial-console)
+- [Connect remotely to StorSimple using Windows PowerShell](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
 	
 
 ## Connect to Windows PowerShell for StorSimple via device serial console
