@@ -121,7 +121,7 @@ Now start the unit instances on the CoreOS cluster. You should see that they're 
 fleetctl --tunnel coreos-cluster.cloudapp.net:22 start apache@{1,2,3}.service
 
 unit apache@3.service launched on 00c927e4.../100.79.62.16
-unit apache@1.service launched on 62f0f66e.../100.79.86.62
+unit apache@1.\service launched on 62f0f66e.../100.79.86.62
 unit apache@2.service launched on df85f2d1.../100.78.126.15
 
 ```
@@ -132,7 +132,7 @@ To reach the Apache server running on one of the units, send a simple request to
 You'll see default text returned from the Apache server similar to:
 
 ```
-\<htm\l>\<body\>\<h1\>It works!\</h1\>
+\<html>\<body\>\<h1\>It works!\</h1\>
 \<p\>This is the default web page for this server.\</p\>
 \<p\>The web server software is running but no content has been added, yet.\</p\>
 \</body\>\</html\>
