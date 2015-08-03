@@ -59,12 +59,12 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
    ![][8]
 
-	- **Application Name**: type the name of your application. Feel free to use any character.
-	- **Platform**: Select the target platform (**iOS**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
-	- **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto generated name should provide you a strong basis. You should also append the platform name to avoid any name clash as this name must be unique.
-	- **Location**: Select the data center where this app (and more importantly its Collection) will be hosted.
-	- **Collection**: If you have already created an application, select a previously created Collection, otherwise select New Collection.
-	- **Collection Name**: This represents your group of applications. It will also ensure all your apps are in a group that will allow aggregated calculations of metrics. You should use your company name or department here if applicable.
+   - **Application Name**: type the name of your application. Feel free to use any character.
+   - **Platform**: Select the target platform (**iOS**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
+   - **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto generated name should provide you a strong basis. You should also append the platform name to avoid any name clash as this name must be unique.
+   - **Location**: Select the data center where this app (and more importantly its Collection) will be hosted.
+   - **Collection**: If you have already created an application, select a previously created Collection, otherwise select New Collection.
+   - **Collection Name**: This represents your group of applications. It will also ensure all your apps are in a group that will allow aggregated calculations of metrics. You should use your company name or department here if applicable.
 
 4. Select the app you just created in the **Applications** tab.
 

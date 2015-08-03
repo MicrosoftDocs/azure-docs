@@ -20,6 +20,7 @@
 
 > [AZURE.IMPORTANT] You must follow the integration procedure described in the How to Integrate Engagement on iOS document before following this guide.
 
+
 ### Enable your app to receive Silent Push Notifications
 
 [AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
@@ -50,11 +51,11 @@
 -   Modify **'icon.png'** string with the image name you want as your notification icon.
 -   If you want to use the option *Update badge value* in Reach campaigns or if you want to use native push \</SaaS/Reach API/Campaign format/Native Push\> campaigns, you must let the Reach module manage the badge icon itself (it will automatically clear the application badge and also reset the value stored by Engagement every time the application is started or foregrounded). This is done by adding the following line after Reach module initialization:
 
-			[reach setAutoBadgeEnabled:YES];
+		[reach setAutoBadgeEnabled:YES];
 
 -   If you want to handle Reach data push, you must let your Application delegate conform to the `AEReachDataPushDelegate` protocol. Add the following line after Reach module initialization:
 
-			[reach setDataPushDelegate:self];
+		[reach setDataPushDelegate:self];
 
 -   Then you can implement the methods `onDataPushStringReceived:` and `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` in your application delegate:
 
@@ -115,13 +116,13 @@ Finally, you have to inform the Engagement SDK when your application receives a 
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-
 > [AZURE.IMPORTANT] By default, Engagement Reach controls the completionHandler. If you want to manually respond to the `handler` block in your code, you can pass nil for the `handler` argument and control the completion block yourself. See the `UIBackgroundFetchResult` type for a list of possible values.
 
-> [AZURE.IMPORTANT] The method above is introduced in iOS 7. If you are targeting iOS <7, make sure to implement method `application:applicationDidReceiveRemoteNotification:` in your application delegate and call  `applicationDidReceiveRemoteNotification` on the EngagementAgent by passing nil instead of the `handler` argument:
+
+> [AZURE.NOTE]
+The method above is introduced in iOS 7. If you are targeting iOS <7, make sure to implement method `application:applicationDidReceiveRemoteNotification:` in your application delegate and call `applicationDidReceiveRemoteNotification` on the EngagementAgent by passing nil instead of the `handler` argument:
 
 	[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
-
 
 
 ### Full example
