@@ -35,7 +35,7 @@ Every app that uses the v2.0 app model will need to be registered at [apps.dev.m
 
 In nearly all OAuth & OpenID Connect flows, there are four parties involved in the auth exchange:
 
-![OAuth 2.0 Roles](./media/active-directory-v2-flows/protocols_roles.png)
+![OAuth 2.0 Roles](../media/active-directory-v2-flows/protocols_roles.png)
 
 - The **Authorization Server** is the v2.0 Endpoint.  It is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens.  It is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in an auth flow.
 - The **Resource Owner** is typically the end-user.  It is the party that owns the data, and has the power to allow third parties to access that data, or resource.
@@ -47,7 +47,7 @@ In nearly all OAuth & OpenID Connect flows, there are four parties involved in t
 The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAuth 2.0 specification](active-directory-v2-scopes.md).  It is used to perform authentication and authorization in the majority of application types, including [web apps](active-directory-v2-flows.md#web-apps) and [natively installed applications](active-directory-v2-flows.md#native/installed-apps).  It enables apps to securely acquire access_tokens which can be used to access resources that are secured using the v2.0 app model.  
 
 Here is the entire flow for a native application; each request is detailed in the sections below:
-![OAuth Auth Code Flow](./media/active-directory-v2-flows/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 #### Request an Authorization Code
 The authorization code flow begins with the client directing the user to the `/oauth2/authorize` endpoint.  In this request, the client indicates the permissions it needs to acquire from the user:
@@ -246,7 +246,7 @@ Error responses will look like:
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol, which allows you to perform single sign-on using OAuth.  It introduces the concept of an `id_token`, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
 
 OpenID Connect for the v2.0 app model is the recommended way to implement sign in for a [web application](active-directory-v2-flows.md#web-apps).  The most basic sign-in flow contains the following steps:
-![OpenId Connect Swimlanes](./media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
 #### Send the Sign In Request
 When your web application needs to authenticate the user, it can direct the user to the `/oauth2/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](#OAuth-2.0-Authorization-Code-Flow), with a few important distinctions:
@@ -358,7 +358,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ## OpenID Connect with OAuth Code Flow
 Many web applications need to sign the user in and then access a web service on behalf of that user using OAuth.  This scenario combines the two above sections - it uses OpenID Connect for user authentication while simultaneously acquiring an authorization_code that can be used to get access_tokens using the OAuth Authorization Code Flow:
 
-![OpenId Connect Swimlanes](./media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
+![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
 This flow only slightly differs from the above sections, in how you send the sign-in request.
 

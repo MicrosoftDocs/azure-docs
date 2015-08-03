@@ -38,7 +38,7 @@ The app model v2.0 will be in preview for the next few months.  During the previ
 To get your own app up & running with the v2.0 endpoint, try out one of our quick start tutorials below.
 <!-- TODO: Write & finalize this table  -->
 
-[AZURE.INCLUDE [active-directory-v2-quickstart-table](../includes/active-directory-v2-quickstart-table.md)]
+[AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
 ## What's New
 Check back here often to learn about future changes to the v2.0 endpoint public preview.  We'll also tweet about any updates using @AzureAD.

@@ -64,7 +64,7 @@ You can learn about all of the types of tokens and claims available to an app in
 
 In web server apps, the sign-in authentication flow takes these high level steps:
 
-![Web App Swimlanes Image](./media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+![Web App Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
 The validation of the id_token using a public signing key received from the v2.0 endpoint is sufficient to ensure the user's identity, and set a session cookie that can be used to identify the user on subsequent page requests.
 
@@ -89,7 +89,7 @@ A Web API can give users the power to opt-in/opt-out of certain functionality or
 
 A Web API can receive access_tokens from all types of apps, including web server apps, desktop and mobile apps, single page apps, server side daemons, and even other Web APIs.  As an example, let's look at the complete auth flow for a web server app that calls a Web API.
 
-![Web App Web API Swimlanes Image](./media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
+![Web App Web API Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
 To learn more about authorization_codes, refresh_tokens, and the detailed steps of getting access_tokens, read about the [OAuth 2.0 protocol](active-directory-v2-protocols.md).
 
@@ -101,7 +101,7 @@ Apps that are installed on a device, such as mobile and desktop apps, often need
 
 In this auth flow, a the app receives an authorization_code from the v2.0 endpoint upon user sign in, which represents the app's permission to call backend services on behalf of the currently signed-in user.  The app can then exchange the authoriztion_code in the background for an OAuth 2.0 access_token and a refresh_token.  The app can use the access_token to authenticate to Web APIs in HTTP requests, and can use the refresh_token to get new access_tokens when older ones expire.
 
-![Native App Swimlanes Image](./media/active-directory-v2-flows/convergence_scenarios_native.png)
+![Native App Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 ## Current Preview Limitations
 These types of apps are not currently supported by the v2.0 app model preview, but are on the roadmap to be supported in time for general availability.  Additional limitations and restrictions for the v2.0 app model public preview are described in the [v2.0 preview limitations doc](active-directory-v2-limitations.md).

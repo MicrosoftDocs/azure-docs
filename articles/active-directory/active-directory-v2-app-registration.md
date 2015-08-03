@@ -48,4 +48,4 @@ Now that you have a Microsoft app, you can complete one of our quick start
 tutorials to get up & running with app model v2.0.  Here are a few
 recommendations:
 
-[AZURE.INCLUDE [active-directory-v2-quickstart-table](../includes/active-directory-v2-quickstart-table.md)]
+[AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]

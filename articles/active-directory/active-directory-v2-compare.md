@@ -44,7 +44,7 @@ Note that today, applications registered in the new App Registration Portal will
 ## One App Id for All Platforms
 In the GA Azure Active Directory service, you may have registered several different applications for a single project.  You were forced to use separate app registrations for your native clients and web apps:
 
-![Old Application Registration UI](./media/active-directory-v2-flows/old_app_registration.png)
+![Old Application Registration UI](../media/active-directory-v2-flows/old_app_registration.png)
 
 For example, if you've built both a website and an iOS app, you had to register them separately, using two different Application Ids.  If you had a website and a backend web api, you might have registered each as a separate application in Azure AD.  If you had an iOS app and an Android app, you also might have registered two different apps.  
 
@@ -86,7 +86,7 @@ where the **scope** parameter indicates which resource and permissions the app i
 ## Incremental & Dynamic Consent
 Applications registered in the generally available Azure AD service needed to specify their required OAuth 2.0 permissions in the Azure Portal, at app creation time:
 
-![Permissions Registration UI](./media/active-directory-v2-flows/app_reg_permissions.png)
+![Permissions Registration UI](../media/active-directory-v2-flows/app_reg_permissions.png)
 
 The permissions an app required were configured **statically**.  While this allowed configuration of the app to exist in the Azure Portal and kept the code nice and simple, it presents a few issues for developers:
 
