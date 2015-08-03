@@ -123,7 +123,7 @@ Start your job. Validate that your event hub is receiving events and your query 
 
 ## Create the Dashboard in Power BI ##
 
-Go to [Powerbi.com](https://powerbi.com) and login with your Org Id. If the Stream Analytics job query outputs results, you will see your dataset is already created:
+Go to [Powerbi.com](https://powerbi.com) and login with your work or school account. If the Stream Analytics job query outputs results, you will see your dataset is already created:
 
 ![graphic5][graphic5]
 
