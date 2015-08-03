@@ -76,6 +76,13 @@ Regardless of which connection technology you use, certain firewall settings for
  - When retrying a query, first close the connection, and then open another connection.
 
 
+### Ports other than just 1433 in V12
+
+
+Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important. For details see:<br/>
+[Ports beyond 1433 for ADO.NET 4.5, ODBC 11, and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+
+
 The next section has more to say about retry logic and transient fault handling.
 
 

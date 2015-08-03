@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Ports beyond 1433 for ADO.NET 4.5, ODBC 11, and SQL Database V12 | Microsoft Azure"
-	description="Starting with ADO.NET 4.6, the driver interacts with a different software module between the client and Azure SQL Database, with implications for port settings in your firewall."
+	description="Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
