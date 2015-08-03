@@ -119,9 +119,9 @@ For code samples that demonstrate retry logic, see:<br/>[Client quick-start code
 ## Related links
 
 
-- [What's new in SQL Database V12](http://azure.microsoft.com/documentation/articles/sql-database-v12-whats-new/)
+- [What's new in SQL Database V12](sql-database-v12-whats-new.md)
 
-- Retry logic considerations: ["Gateway no longer provides retry logic in V12" section, in topic "Connecting to SQL Database: Links, Best Practices and Design Guidelines"](http://azure.microsoft.com/documentation/articles/sql-database-connect-central-recommendations/#gatewaynoretry)
+- Retry logic considerations: ["Gateway no longer provides retry logic in V12" section, in topic "Connecting to SQL Database: Links, Best Practices and Design Guidelines"](sql-database-connect-central-recommendations.md#gatewaynoretry)<br/><br/>
 
 - ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
