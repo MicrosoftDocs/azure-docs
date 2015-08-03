@@ -146,7 +146,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
   
 As an optional step, you can configure assertion-based groups for your Azure Active Directory Identity Provider
 
->[AZURE.NOTE]Using groups on SAP HANA Cloud Platform allows you to dynamically assign one or more users to one or more roles in your SAP HANA Cloud Platform applications, determined by values of attributes in the SAML 2.0 assertion. For example, if the assertion contains the attribute "*contract=temporary*", you may want all affected users to be added to the group "*TEMPORARY*". The group “*TEMPORARY*” may contain one or more roles from one or more applications deployed in your SAP HANA Cloud Platform account.
+>[AZURE.NOTE]Using groups on SAP HANA Cloud Platform allows you to dynamically assign one or more users to one or more roles in your SAP HANA Cloud Platform applications, determined by values of attributes in the SAML 2.0 assertion. For example, if the assertion contains the attribute "*contract=temporary*", you may want all affected users to be added to the group "*TEMPORARY*". The group "*TEMPORARY*" may contain one or more roles from one or more applications deployed in your SAP HANA Cloud Platform account.
 >  
 >Use assertion-based groups if you want to mass-assign many users to one or more roles of applications in your SAP HANA Cloud Platform account. If you only want to assign a single or small number of users to (a) specific role(s) we recommend assigning them directly in the “**Authorizations**” tab of the SAP HANA Cloud Platform cockpit.
 

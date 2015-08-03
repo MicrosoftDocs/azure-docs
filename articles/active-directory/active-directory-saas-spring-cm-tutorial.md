@@ -13,7 +13,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 After completing this tutorial, the Azure Active Directory users you have assigned to SpringCM will be able to single sign-on using the AAD Access Panel.
 
 1.  Enabling the application integration for SpringCM
-2.  [Configuring Single Sign-On](https://msdn.microsoft.com/library/cfe81e28-0778-475d-b773-af79e1ab6c63#configuresso)
+2.  Configuring Single Sign-On
 3.  Configuring user provisioning
 4.  Assigning users
 
