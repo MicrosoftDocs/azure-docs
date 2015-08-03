@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X (preview)
@@ -72,15 +73,17 @@ When creating a Linux-based HDInsight cluster, you have the option of using a pa
 
 When creating a Linux-based HDInsight cluster, you must provide the public key created previously. From Linux, Unix, or OS X clients, there are two ways to create an HDInsight cluster:
 
-* **Azure portal** - Uses a web-based portal to create the cluster.
+* **Azure preview portal** - Uses a web-based portal to create the cluster.
 
 * **Azure CLI for Mac, Linux and Windows** - Uses command-line commands to create the cluster.
 
 Each of these methods will require either a password or a public key. For complete information on creating a Linux-based HDInsight cluster, see [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Azure portal
+###Azure preview portal
 
-When using the portal to create a Linux-based HDInsight cluster, you must enter an **SSH USER NAME**, and select to enter a **PASSWORD** or **SSH PUBLIC KEY**. If you select **SSH PUBLIC KEY**, you must paste the public key (contained in the file with the **.pub** extension) into the following form:
+When using the [Azure preview portal][preview-portal] to create a Linux-based HDInsight cluster, you must enter an **SSH USER NAME**, and select to enter a **PASSWORD** or **SSH PUBLIC KEY**.
+
+If you select **SSH PUBLIC KEY**, you can either paste the public key (contained in the file with the **.pub** extension) into the __SSH PublicKey__ field, or select __Select a file__ to browse and select the public key file.
 
 ![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
@@ -295,3 +298,5 @@ Now that you understand how to authenticate by using an SSH key, learn how to us
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
+
+[preview-portal]: https://portal.azure.com/
