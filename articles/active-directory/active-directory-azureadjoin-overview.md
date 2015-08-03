@@ -51,7 +51,7 @@ With Azure AD Join, you get the following:
 * **Automatic MDM enrollment**: Devices can get automatically enrolled in management when connected to Azure AD. This will work with Microsoft Intune and with 3rd party MDMs. When managed with Intune, IT will be able to monitor/manage Azure AD Joined devices alongside domain joined devices in the SCCM management console.
 
 
-* **Single Sign-On to company resources**: Users enjoy single sign-on from the Windows desktop to apps and resources in the cloud, such as Office 365 and thousands of business applications that rely on Azure AD for authentication through [Azure AD Connect](active-directory-azureadjoin-deployment-aadjoindirect.md) Corp-owned devices that are joined to Azure AD will also enjoy SSO to on-premises resources when the device is on corpnet, and from anywhere when these resources are exposed via the [Azure AD Application Proxy](https://msdn.microsoft.com/en-us/library/azure/Dn768219.aspx). 
+* **Single Sign-On to company resources**: Users enjoy single sign-on from the Windows desktop to apps and resources in the cloud, such as Office 365 and thousands of business applications that rely on Azure AD for authentication through [Azure AD Connect](active-directory-azureadjoin-deployment-aadjoindirect.md) Corp-owned devices that are joined to Azure AD will also enjoy SSO to on-premises resources when the device is on corpnet, and from anywhere when these resources are exposed via the [Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/Dn768219.aspx). 
 
 
 * **OS State Roaming**: Things like accessibility settings, websites and Wi-Fi passwords will be synchronized across corp-owned devices without requiring a personal Microsoft account.
