@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics outputs
