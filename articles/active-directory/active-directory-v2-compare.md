@@ -86,7 +86,7 @@ where the **scope** parameter indicates which resource and permissions the app i
 ## Incremental & Dynamic Consent
 Applications registered in the generally available Azure AD service needed to specify their required OAuth 2.0 permissions in the Azure Portal, at app creation time:
 
-![Permissions Registration UI](../media/active-directory-v2-flows/app_reg_permissions.png)
+![Permissions Registration UI](../media/active-directory-v2-flows/app_reg_permissions.PNG)
 
 The permissions an app required were configured **statically**.  While this allowed configuration of the app to exist in the Azure Portal and kept the code nice and simple, it presents a few issues for developers:
 
