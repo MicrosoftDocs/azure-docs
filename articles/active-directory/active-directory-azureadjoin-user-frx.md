@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date=08/02/2015" 
+	ms.date="08/02/2015" 
 	ms.author="femila"/>
 
 # Set up a new device with Azure AD during Setup
