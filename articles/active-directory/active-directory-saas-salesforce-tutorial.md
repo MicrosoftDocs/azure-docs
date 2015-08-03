@@ -84,7 +84,7 @@ You may follow this tutorial using the videos below.
 
 	![Select Azure AD Single Sign-On][7]
 
-	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](https://msdn.microsoft.com/library/azure/dn308588.aspx)
+	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 4. On the **Configure App Settings** page, fill out the **Sign On URL** by typing in your Salesforce domain URL using the following format:
  - Enterprise account: `https://<domain>.my.salesforce.com`
@@ -224,7 +224,7 @@ You may follow this tutorial using the videos below.
 
 - [List of SaaS Application Integration Tutorials](active-directory-saas-tutorial-list.md)
 - [Application Access in Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Introduction to the Access Panel](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+- [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
