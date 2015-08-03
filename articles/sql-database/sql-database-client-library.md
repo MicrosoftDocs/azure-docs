@@ -131,11 +131,11 @@ The client application must retrieve the application access token for the curren
     {
         AuthenticationContext authContext = new AuthenticationContext
             ("https://login.windows.net/" /* AAD URI */ 
-                + "username.onmicrosoft.com" /* Tenant ID or AAD domain */);
+                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
             ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/, 
+                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/, 
         new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
