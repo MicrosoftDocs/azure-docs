@@ -24,14 +24,6 @@
 
 In this tutorial, you add push notifications to the [Xamarin.Android quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Xamarin.Android quick start] tutorial, which you must complete first. 
 
-This tutorial walks you through these basic steps to enable push notifications:
-
-1. [Enable Google Cloud Messaging](#register)
-2. [Configure Mobile Services](#configure)
-3. [Configure the project for push notifications](#configure-app)
-4. [Add push notifications code to your app](#add-push)
-5. [Insert data to receive notifications](#test)
-
 You'll need the following to complete this tutorial:
 
 + An active Google account.
