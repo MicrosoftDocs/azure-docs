@@ -665,7 +665,7 @@ Add machines as follows:
 
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)	
 
-4. In **Specify Target Resources** select the master target servers and storage to use for replication and select whether the settings should be used for all workloads.  Select [Premium Storage Account](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal) while configuring protection for workloads which require consistent high IO performance and low latency in order to host IO intensive workloads.
+4. In **Specify Target Resources** select the master target servers and storage to use for replication and select whether the settings should be used for all virtual machines.
 
 	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
