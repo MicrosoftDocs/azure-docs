@@ -3,8 +3,6 @@
 #Tutorial: Azure Active Directory integration with Veracode
 >[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=615291).
   
->[AZURE.TIP] For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=615291).
-  
 The objective of this tutorial is to show the integration of Azure and Veracode. The scenario outlined in this tutorial assumes that you already have the following items:
 
 -   A valid Azure subscription
