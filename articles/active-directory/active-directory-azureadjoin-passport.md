@@ -58,38 +58,10 @@ The above diagram illustrates the private-public key pair and the validation by 
 
 5. IDP then validates and issues the authentication token that lets the user and device access protected resources. IDPs can write cross-platform apps or use browser support via JS/Webcrypto APIs) to create and use Microsoft Passport credentials for their users.
 
-## Types of keys
-Microsoft Passport consists of three sets of keys:
-
-
-* KNGC pair of asymmetric keys
-  * Always require a user gesture (pin or bio) for an authentication operation
-  * HW attested, SW as a last resort
-  * KIDP key(s) (symmetric or asymmetric)
-
-* Delegated by KNGC keys
-  * Do not require a user gesture
-  *long lived
-  *If symmetric, wrapped with a transport key (transport key is attested)
-
-* KRP, used to access RP resources
-
-  * Delegated by KIDP key
-  * Do not require user gesture
-  * Symmetric and short lived
-
 ## Deployment Requirements
 At the enterprise level
 ---------------------------
 * Azure Subscription
-
-or
-
-* Azure Subscription + AAD Connect if it’s a hybrid environment
-
-or
-
-* Windows Server 10 Active Directory and AD FS Server 10 if on-prem-only (Certificate-based Passport does not require Active Directory upgrade if your organization has a PKI infrastructure)
 
 At the user level
 -------------------------------------------------------------
@@ -97,7 +69,6 @@ At the user level
 
 ## Additional information
 
-* [Learn about usage and deployment scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
 

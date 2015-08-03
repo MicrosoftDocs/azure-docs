@@ -17,16 +17,32 @@
 	ms.date="07/30/2015" 
 	ms.author="femila"/>
 
-# Usage scenarios for Azure AD Join 
+# Usage scenarios and deployment considerations for Azure AD Join 
 
-##Join a company-owned device directly to Azure AD
+## Usage scenarios for Azure AD Join
+Scenario 1: Businesses largely in the cloud
+--------------------------------------------------------
+Azure AD join can benefit you if you currently operate and manage identities for your business in the cloud or moving to the cloud soon. You can use an account that you have created in Azure AD to sign in to Windows 10. Through either [the first run experience (FRX) process]((active-directory-azureadjoin-user-frx.md)) or joining Azure AD through [the Settings experience](active-directory-azureadjoin-user-upgrade.md), your users can join their machines to Azure AD.  Your users now enjoy SSO access to their cloud resources like Office 365 either in the browser or in the Office applications. 
 
-Enterprises can provide cloud-only accounts to partner companies and organizations. These partners are then provided easy access and single-sign on to their company apps and resources. This scenario is applicable to users who use their devices to primarily access resources in the cloud such as Office 365 or SaaS apps that rely on Azure AD for authentication
+Scenario 2: Educational institutions 
+----------------------------------------------------------------------------------
+Education institutions usually have two user types: faculty and students. Faculty members are considered longer term members of the organization and creating on-premises accounts for them is desired. But students are shorter term members of the organization and thus can be managed in Azure AD so directory scale can be pushed to the cloud instead of on-premises. These students can now sign in to Windows with their Azure AD account and get access to the Office 365 resources in the Office applications. 
 
-**Example scenario:**
-A company like Contoso, which is a 10.000+ employee company works with another consulting company, Fabrikam that provides specific services to Contoso.
-Wendy is an employee of Fabrikam and working with Contoso on a project. Contoso provides cloud-only accounts (Azure AD) to its partners when necessary. Wendy is in a long term engagement which requires her to have an Azure AD Contoso account.
-In this scenario, Wendy can join a Contoso-owned device directly to Azure AD. After signing-in to Windows with her Contoso Azure AD account, she can enjoy single-sign on to Office 365 and all the SaaS apps that Contoso has deployed.
+Scenario 3: Retail businesses
+---------------------------------------------------------------------------------------
+Retail business have seasonal workers and long-term employees. Longer term full time employees can be created as on-premises accounts and would typically use domain joined machines. But seasonal workers are shorter term members of the organization and thus are desired to managed where user licenses can be more easily moved around. Creating these users in the cloud with Office 365 licenses allows these users to get the benefits of signing in to Windows and Office applications with an Azure AD account while maintaining more mobility of their licenses once they leave. 
+
+Scenario 4: Other scenarios
+------------------------------------------------------------------------------------------
+And broader than these specific scenarios, you might find that even though you maintain users in your on-premises AD directory, you could still benefit with having users Azure AD join because of simplified joining experience, device management in Azure AD, automatic MDM enrollment, and single sign-on to Azure AD and on-premises resources.  
+
+
+##Deployment Considerations for Azure AD Join
+
+Enabling your users to join a company-owned device directly to Azure AD
+-----------------------------------------------------------------------------------------
+
+Enterprises can provide cloud-only accounts to partner companies and organizations. These partners are then provided easy access and single-sign on to their company apps and resources. This scenario is applicable to users who use their devices to primarily access resources in the cloud such as Office 365 or SaaS apps that rely on Azure AD for authentication.
 
 ### Prerequisites
 **At the enterprise level (administrator)**
@@ -41,18 +57,18 @@ In this scenario, Wendy can join a Contoso-owned device directly to Azure AD. Af
 * [Set up device registration and MFA](active-directory-azureadjoin-setup.md)
 
 ### User Tasks
-* [Setting up a new Windows 10 device with Azure AD via FRX](active-directory-azureadjoin-user-frx.md)
+* [Setting up a new Windows 10 device with Azure AD during Setup](active-directory-azureadjoin-user-frx.md)
 * [Set up a Windows 10 device with Azure AD from Settings](active-directory-azureadjoin-user-upgrade.md)
 * [Join a personal Windows 10 device to your organization](active-directory-azureadjoin-personal-device.md)
+  
 
 
-
-
-## Join a personal device to Azure AD
-In this scenario a user can add his or her Azure AD accounts to a personal Windows device to access work resources in a secure and compliant fashion. 
+## Enabling BYOD in your organization for Windows 10
+You can set up your users and employees to user their personal Windows devices to access company apps and resources. Your users can add their Azure AD accounts (work accounts) to a personal Windows device through to access work resources in a secure and compliant fashion. 
 
 ### Prerequisites
 **At the enterprise level (administrator)**
+
 *	Azure AD Subscription
 
 **At the user level**
