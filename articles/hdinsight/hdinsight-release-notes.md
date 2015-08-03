@@ -13,11 +13,62 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/26/2015"
+	ms.date="07/30/2015"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 07/31/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.640.1695824 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.640.1695824  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.4.640.1695824  (HDP 2.1.15.0-2334 - unchanged)
+* HDInsight		3.2.6.640.1695824  (HDP 2.2.6.1-0012 - unchanged)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Fix Spark cluster node re-imaging workflow | Fixed a bug that was causing Spark cluster nodes to not recover after re-image | Service    | Spark| N/A                  |
+
+
+## Notes for 07/31/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.635.1684502 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.635.1684502  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.4.635.1684502  (HDP 2.1.15.0-2334 - unchanged)
+* HDInsight		3.2.6.635.1684502  (HDP 2.2.6.1-0012 - unchanged)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDInsight versions for all HDInsight clusters | With this release, HDInsight versions have been updated | Service    | All| N/A                  |
+
+
+## Notes for 07/07/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.610.1630216	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.610.1630216	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.4.610.1630216	(HDP 2.1.15.0-2334 - unchanged)
+* HDInsight		3.2.4.610.1630216	(HDP 2.2.6.1-0012)
+* SDK			1.5.8
+
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDP versions for HDInsight 3.2 clusters | With this release, HDInsight 3.2 deploys HDP 2.2.6.1-0012 | Service    | All                                                 | N/A                  |
 
 
 ## Notes for 06/26/2015 release of HDInsight ##
