@@ -13,27 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/14/2015"
+   ms.date="07/17/2015"
    ms.author="pehteh"/>
 
 #Update database in place then deploy to Azure SQL Database
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/01VSSSDTDiagram.png)
 
-Use this Option when migrating a database to the of the Azure SQL Database V12 requires schema changes that cannot be addressed using the SQL Azure Migration Wizard (SAMW). This will occur if the database uses SQL Server features that are not or not yet supported in Azure SQL Database.  In this Option, Visual Studio is first used to create a database project from the source database. The project’s target platform is then set to Azure SQL Database V12 and the project is built to identify all compatibility issues. SAMW can fix many but not all compatibility issues, so is used to process all the scripts in the projects as a first pass. Using SAMW is optional but highly recommended. Building the project after processing the script files with SAMW will identify remaining issues which must then be addressed manually using the T-SQL editing tools in Visual Studio. Once the project builds successfully the schema is published back to a copy (recommended) of the source database to update its schema and data in-situ. The updated database is then deployed to Azure, either directly or by exporting and importing a BACPAC file, using the techniques described in Option #1.
+Use this Option when the migration of a database to Azure SQL Database V12 requires schema changes that cannot be addressed using the SQL Azure Migration Wizard (SAMW) because the database uses SQL Server features that are not supported in Azure SQL Database.  With this option, Visual Studio is first used to create a database project from the source database. The project’s target platform is then set to Azure SQL Database V12 and the project is built to identify all compatibility issues. SAMW can fix many compatibility issues, but not all of them, so SAMW is used to process all the scripts in the projects as a first pass. Using SAMW is optional but highly recommended. Building the project after processing the script files with SAMW will identify remaining issues which must then be addressed manually using the Transact-SQL editing tools in Visual Studio. Once the project builds successfully, the schema is published back to a copy (recommended) of the source database to update its schema and data in situ. The updated database is then deployed to Azure, either directly or by exporting and importing a BACPAC file, using the techniques described in Option #1.
  
-As this Option involves updating the schema of the database in-situ before deploying to Azure it is strongly recommended to perform this on a copy of the database. The Visual Studio Schema Compare tool can be used to review the full set of changes that will be applied to the database before publishing the project.
+As this Option involves updating the schema of the database in situ before deploying to Azure it is strongly recommended to perform this on a copy of the database. The Visual Studio Schema Compare tool can be used to review the full set of changes that will be applied to the database before publishing the project.
 
-Use of the SQL Azure Migration Wizard (SAMW) is optional but recommended. SAMW will detect compatibility issues within the body of functions, stored procedures and triggers which will not otherwise be detected until deployment. 
-If a schema-only deployment is required the updated schema can be published directly from Visual Studio to Azure SQL Database.
+Use of the SQL Azure Migration Wizard (SAMW) is optional but recommended. SAMW will detect compatibility issues within the body of functions, stored procedures and triggers which will not otherwise be detected until deployment.
+
+If a schema-only deployment is required, the updated schema can be published directly from Visual Studio to Azure SQL Database.
 
 ## Migration Steps
 
-1.	Open the **SQL Server Object Explorer** in Visual Studio. Use **Add SQL Server** to connect to the SQL Server instance containing the database being migrated. Locate the database in the explorer, right click on it and select **Create New Project…** 
+1.	Open the **SQL Server Object Explorer** in Visual Studio. Use **Add SQL Server** to connect to the SQL Server instance containing the database being migrated. Locate the database in the explorer, right click it and select **Create New Project…** 
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
 
-2.	Configure the import settings to **Import application-scoped objects only**. Deselect the options to import referenced logins, permissions and database settings.
+2.	Configure the import settings to **Import application-scoped objects only**. Uncheck the options to import referenced logins, permissions and database settings.
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/03MigrateSSDT.png)
 
@@ -66,9 +67,9 @@ If a schema-only deployment is required the updated schema can be published dire
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)
 
->Note that temporary copies are made of both the original files before processing and the impacted files after processing at the locations indicated at the top of the page.
+> [AZURE.NOTE] Temporary copies are made of both the original files before processing and the impacted files after processing at the locations indicated at the top of the page.
 
-10.	Click Overwrite and OK in the confirmation dialog and the original files will overwritten with the changed files. Note that only files that have actually been changed will be overwritten. 
+10.	Click **Overwrite** and **OK** in the confirmation dialog and the original files will overwritten with the changed files. Only files that have actually been changed will be overwritten. 
  
 11.	Optional. Use Schema Compare to compare the project to an earlier snapshot or to the original database to understand what changes have been made by the wizard. You might want to take another snapshot at this point also. 
 
@@ -100,5 +101,3 @@ Once you have completed the migration it is a good idea to compare the schema in
 In the schema comparison below the Adventure Works 2014 database in Azure SQL Database V12 on the left as transformed and migrated by the SQL Azure Migration Wizard, is compared with the source database in SQL Server on the right. 
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
-
- 

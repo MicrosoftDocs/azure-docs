@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Create a Windows virtual machine with a Resource Manager template" 
-	description="Use a Resource Manager template to easily create a new Windows virtual machine with PowerShell or the Azure CLI." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Create a Windows virtual machine with a Resource Manager template"
+	description="Use a Resource Manager template to easily create a new Windows virtual machine with PowerShell or the Azure CLI."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="davidmu"/>
 
 # Create a Windows virtual machine with a Resource Manager template
 
 You can easily create a new Windows-based Azure virtual machine (VM) using a Resource Manager template with Azure PowerShell or the Azure CLI. This template creates a single virtual machine running Windows in a new virtual network with a single subnet in a new resource group.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
- 
+
 Before you dive in, make sure you have Azure, PowerShell, and Azure CLI configured and ready to go.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
@@ -69,9 +69,9 @@ Here are the contents of the JSON file for the template.
             "type": "string",
             "defaultValue": "2012-R2-Datacenter",
             "allowedValues": [
-                "2008-R2-SP1", 
-                "2012-Datacenter", 
-                "2012-R2-Datacenter", 
+                "2008-R2-SP1",
+                "2012-Datacenter",
+                "2012-R2-Datacenter",
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
@@ -81,11 +81,11 @@ Here are the contents of the JSON file for the template.
     },
     "variables": {
         "location": "West US",
-        "imagePublisher": "MicrosoftWindowsServer", 
-        "imageOffer": "WindowsServer", 
+        "imagePublisher": "MicrosoftWindowsServer",
+        "imageOffer": "WindowsServer",
         "OSDiskName": "osdiskforwindowssimple",
         "nicName": "myVMNic",
-        "addressPrefix": "10.0.0.0/16", 
+        "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "storageAccountType": "Standard_LRS",
@@ -94,10 +94,10 @@ Here are the contents of the JSON file for the template.
         "vmStorageAccountContainerName": "vhds",
         "vmName": "MyWindowsVM",
         "vmSize": "Standard_D1",
-        "virtualNetworkName": "MyVNET",        
+        "virtualNetworkName": "MyVNET",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-    },    
+    },
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
@@ -211,7 +211,7 @@ Here are the contents of the JSON file for the template.
             }
         }
     ]
-	} 
+	}
 
 
 ### Step 2: Create the virtual machine with the template.
@@ -225,7 +225,7 @@ Fill in an Azure deployment name, Resource Group name, and Azure datacenter loca
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-When you run the **New-AzureResourceGroupDeployment** command, you will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, the command creates the resource group and the virtual machine. 
+When you run the **New-AzureResourceGroupDeployment** command, you will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, the command creates the resource group and the virtual machine.
 
 Here is an example.
 
@@ -255,8 +255,8 @@ You will see something like this:
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
 	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	
-	
+
+
 	DeploymentName    : TestDeployment
 	ResourceGroupName : TestRG
 	ProvisioningState : Succeeded
@@ -271,7 +271,7 @@ You will see something like this:
 	                    adminPassword    SecureString
 	                    dnsNameForPublicIP  String                     contoso9875
 	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
+
 	Outputs           :
 
 You now have a new Windows virtual machine named MyWindowsVM in your new resource group.
@@ -294,15 +294,15 @@ You would see something like this:
 
 	azure group create testrg westus
 	info:    Executing command group create
-	+ Getting resource group testrg                                             
-	+ Creating resource group testrg                                            
+	+ Getting resource group testrg
+	+ Creating resource group testrg
 	info:    Created resource group testrg
 	data:    Id:                  /subscriptions/2c73c582-4b11-4800-96f9-a9bd790a861c/resourceGroups/testrg
 	data:    Name:                testrg
 	data:    Location:            westus
 	data:    Provisioning State:  Succeeded
-	data:    Tags: 
-	data:    
+	data:    Tags:
+	data:
 	info:    group create command OK
 
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
@@ -313,23 +313,22 @@ You would see something like this:
 	adminPassword: Pa$$W0rd1
 	dnsNameForPublicIP: contoso
 	windowsOSVersion: 2012-R2-Datacenter
-	+ Initializing template configurations and parameters                          
-	+ Creating a deployment                                                        
+	+ Initializing template configurations and parameters
+	+ Creating a deployment
 	info:    Created template deployment "firstdeployment"
-	+ Registering providers                                                        
+	+ Registering providers
 
 
-## Additional resources
+## Additional Resources
 
 [Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure Resource Manager Overview](../resource-group-overview.md)
+[Azure Resource Manager Overview](resource-group-overview.md)
 
 [Create a Windows virtual machine with Azure Resource Manager and PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Create a Windows virtual machine with PowerShell and Azure Service Management](virtual-machines-create-windows-powershell-service-manager.md)
+[Create a Windows virtual machine with PowerShell and Azure Service Manager](virtual-machines-create-windows-powershell-service-manager.md)
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
- 
+[How to install and configure Azure PowerShell](install-configure-powershell.md)
