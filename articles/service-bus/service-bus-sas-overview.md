@@ -165,7 +165,7 @@ private static string createToken(string resourceUri, string keyName, string key
 }
 ```
 
-## Using the Shared Access Signature
+## Using the Shared Access Signature (at HTTP level)
  
 Now that you know how to create Shared Access Signatures for any entities in Service Bus, you are ready to perform an HTTP POST:
 
@@ -179,6 +179,74 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 Remember, this works for everything. You can create SAS for a queue, topic, subscription, Event Hub, or relay. If you use per-publisher identity for Event Hubs, you simply append `/publishers/< publisherid>`.
 
 If you give a sender or client a SAS token, they don't have the key directly, and they cannot reverse the hash to obtain it. As such, you have control over what they can access, and for how long. An important thing to remember is that if you change the primary key in the policy, any Shared Access Signatures created from it will be invalidated.
+
+## Using the Shared Access Signature (at AMQP level)
+
+In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus. As you know, you can access Service Bus using the AMQP (Advanced Message Queue Protocol) protocol that is the mainly and preferred protocol to use for performance reasons in a lot of scenarios. The SAS token usage with AMQP is described in the following document [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) that is in working draft since 2013 but it's well supported by Azure today.
+
+Before starting to send data to the Service Bus, the publisher needs to send the SAS token inside an AMQP message to a well defined AMQP node named **"$cbs"** (you can see it like a "special" queue used by the service to acquire and validate all the SAS tokens). The publisher needs to specify the **"ReplyTo"** field inside the AMQP message; this is the node where the service will reply to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service). This reply node is created "on fly" speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification. After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.
+
+The following steps will show how to send the SAS token with AMQP protocol using the [AMQP.Net Lite](http://amqpnetlite.codeplex.com) library useful if you can't use the official Service Bus SDK (for example on WinRT, .Net Compact Framework, .Net Micro Framework and Mono) developing in C&#35;. Of corse, this library is useful to understand how Claim-Based Security works at AMQP level as you saw how it works at HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header). However, don't worry ! If you don't need such deep knowledge about AMQP, you can use official Service Bus SDK with .Net Framework applications that will do it for you or the [Azure SB Lite](http://azuresblite.codeplex.com) library for all the other platforms (see above).
+
+### C&#35;
+
+```
+/// <summary>
+/// Send Claim Based Security (CBS) token
+/// </summary>
+/// <param name="shareAccessSignature">Shared access signature (token) to send</param>
+private bool PutCbsToken(Connection connection, string sasToken)
+{
+    bool result = true;
+    Session session = new Session(connection);
+
+    string cbsClientAddress = "cbs-client-reply-to";
+    var cbsSender = new SenderLink(session, "cbs-sender", "$cbs");
+    var cbsReceiver = new ReceiverLink(session, cbsClientAddress, "$cbs");
+
+    // construct the put-token message
+    var request = new Message(sasToken);
+    request.Properties = new Properties();
+    request.Properties.MessageId = "1";
+    request.Properties.ReplyTo = cbsClientAddress;
+    request.ApplicationProperties = new ApplicationProperties();
+    request.ApplicationProperties["operation"] = "put-token";
+    request.ApplicationProperties["type"] = "servicebus.windows.net:sastoken";
+    request.ApplicationProperties["name"] = Fx.Format("amqp://{0}/{1}", sbNamespace, entity);
+    cbsSender.Send(request);
+
+    // receive the response
+    var response = cbsReceiver.Receive();
+    if (response == null || response.Properties == null || response.ApplicationProperties == null)
+    {
+        result = false;
+    }
+    else
+    {
+        int statusCode = (int)response.ApplicationProperties["status-code"];
+        if (statusCode != (int)HttpStatusCode.Accepted && statusCode != (int)HttpStatusCode.OK)
+        {
+            result = false;
+        }
+    }
+
+    // the sender/receiver may be kept open for refreshing tokens
+    cbsSender.Close();
+    cbsReceiver.Close();
+    session.Close();
+
+    return result;
+}
+```
+
+The above *PutCbsToken()* method receives the *connection* (AMQP Connection class instance as provided by AMQP .Net Lite library) that represents the TCP connection to the service and the *sasToken* parameter that is the SAS token to send. 
+NOTE : it's important that the connection is created with **SASL authentication mechanism set to EXTERNAL** (and not the default PLAIN with username and password used when you don't need to send the SAS token).
+
+Next the publisher creates two AMQP links for sending the SAS token and receiving the reply (token validation result) from the service.
+
+The AMQP message is a litte complex with a bunch of properties and more information than a simple message. The SAS token is put as the body of the message (using its constructor). The **"ReplyTo"** property is set to the node name for receiving the validation result on the receiver link (you can change its name as you want and it will be created dynamically by the service). The last three application/custom properties are used by the service to understand what kind of operation it has to execute. As described by the CBS draft specification they must be the **operation name** (so "put-token"), the **type of token** being put (so a "servicebus.windows.net:sastoken") and finally the **"name" of the audience** to which the token applies (the entire entity).
+
+After sending the SAS token on the sender link, the publisher needs to read the reply on the receiver link. The reply is a simple AMQP message with an application properties named **"status-code"** that can contain the same values as an HTTP status code. 
 
 ## Next steps
 
