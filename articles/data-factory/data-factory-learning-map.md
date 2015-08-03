@@ -19,7 +19,7 @@
 
 #Learning Map for Azure Data Factory
 
-Azure DocumentDB is a NoSQL document database service designed from the ground up to natively support JSON and JavaScript directly inside the database engine. Follow the guidance on this page for an effective learning path through DocumentDB content. 
+Data Factory is a cloud-based information management service that automates the movement and transformation of data. Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/adf-learning-map.svg" width="100%" height="100%">
 </object>
