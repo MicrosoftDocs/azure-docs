@@ -166,7 +166,7 @@ the `photos` container.
 		}
 	}
 
-As shown in previous example, the blob service has the concept of directories within containers, as
+As shown in the previous example, the blob service has the concept of directories within containers, as
 well. This is so that you can organize your blobs in a more folder-like
 structure. For example, consider the following set of block blobs in a container
 named `photos`.
