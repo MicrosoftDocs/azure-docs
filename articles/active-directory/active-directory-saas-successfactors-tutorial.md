@@ -90,7 +90,7 @@ To get single sign-on configured, you will have to contact your SuccessFactors s
     2.  The Remote Login URL
     3.  The Remote Logout URL
 
-    >[AZURE.IMPORTANT] Please ask your SuccessFactors support team to set the NameId Format parameter to “*Unspecified*”.
+    >[AZURE.IMPORTANT] Please ask your SuccessFactors support team to set the NameId Format parameter to "*Unspecified*".
 
     Your Successfactors support team will send you the correct **Successfactors Reply URL** you need for the **Configure App URL** dialog.
 
