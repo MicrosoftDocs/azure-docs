@@ -252,7 +252,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
 	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "filename": "{Hour}.csv",
+	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
