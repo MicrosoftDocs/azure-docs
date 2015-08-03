@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/28/2015"
+   ms.date="07/31/2015"
    ms.author="alkohli" />
 
 # StorSimple hardware components and status
@@ -63,7 +63,7 @@ The following table outlines the physical and logical components contained in yo
 
 |Component|Module|Type|Location|Field replaceable unit (FRU)?|Description|
 |---|---|---|---|---|---|
-|Drive in slot *n*|Disk Drives|Physical|Shared|Yes|One line is presented for each of the SSD or the HDD drives in the primary enclosure.|
+|Drive in slot [0-11]|Disk Drives|Physical|Shared|Yes|One line is presented for each of the SSD or the HDD drives in the primary enclosure.|
 |Ambient temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature within the chassis.|
 |Mid-plane temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature of the mid-plane.|
 |Audible alarm|Enclosure|Physical|Shared|No|Indicates whether the audible alarm subsystem within the chassis is functional.|
@@ -72,9 +72,9 @@ The following table outlines the physical and logical components contained in yo
 |Line voltage sensors|PCM|Physical|Shared|No|Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.|
 |Line current sensors|PCM|Physical|Shared|No|Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.|
 |Temperature sensors in PCM|PCM|Physical|Shared|No|Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, indicating whether the measured temperature is within tolerance.|
-|Power supply n|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
-|Cooling *n*|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
-|Battery *n*|PCM|Physical|Shared|Yes|One line is presented for each of the backup battery modules that are seated in the PCM.|
+|Power supply [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
+|Cooling [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
+|Battery [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the backup battery modules that are seated in the PCM.|
 |Metis|N/A|Logical|Shared|N/A|Displays the state of the batteries: whether they need charging and are approaching end-of-life.|
 |Cluster|N/A|Logical|Shared|N/A|Displays the state of the cluster that is created between the two integrated controller modules.|
 |Cluster node|N/A|Logical|Shared|N/A|Indicates the state of the controller as part of the cluster.|
@@ -87,10 +87,10 @@ The following table outlines the physical and logical components contained in yo
 |SSD NVRAM space|N/A|Logical|Shared|N/A|The storage space in the SSD storage pool that is dedicated for NVRAM logic.|
 |HDD storage pool|N/A|Logical|Shared|N/A|Displays the state of the logical storage pool that is created from device HDDs.|
 |SSD storage pool|N/A|Logical|Shared|N/A|Displays the state of the logical storage pool that is created from device SSDs.|
-|Controller *n* [state]|I/O|Physical|Controller|Yes|Displays the state of the controller, and whether it is in active or standby mode within the chassis.|
+|Controller [0-1] [state]|I/O|Physical|Controller|Yes|Displays the state of the controller, and whether it is in active or standby mode within the chassis.|
 |Temperature sensors in controller|I/O|Physical|Controller|No|Numerous temperature sensors such as I/O module, CPU temperature, DIMM and PCIe sensors have their state displayed, which indicates whether or not the temperature encountered is within tolerance.|
 |﻿SAS expander|I/O|Physical|Controller|No|Indicates the state of the serial attached SCSI (SAS) expander, which is used to connect the integrated storage to the controller.|
-|SAS connector *n*|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
+|SAS connector [0-1]|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
 |SBB mid-plane interconnect|I/O|Physical|Controller|No|Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.|
 |Processor core|I/O|Physical|Controller|No|Indicates the state of the processor cores within each controller.|
 |Enclosure electronics power|I/O|Physical|Controller|No|Indicates the state of the power system used by the enclosure.|
@@ -103,7 +103,7 @@ The following table outlines the physical and logical components contained in yo
 
 |Component|Module|Type|Location|FRU?|Description|
 |---|---|---|---|---|---|
-|Drive in slot *n*|Disk Drives|Physical|Shared|Yes|One line is presented for each of the HDD drives in the front of the EBOD enclosure.|
+|Drive in slot [0-11]|Disk Drives|Physical|Shared|Yes|One line is presented for each of the HDD drives in the front of the EBOD enclosure.|
 |Ambient temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature within the chassis.|
 |Mid-plane temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature of the mid-plane.|
 |Audible alarm|Enclosure|Physical|Shared|No|Indicates whether the audible alarm subsystem within the chassis is functional.|
@@ -112,13 +112,13 @@ The following table outlines the physical and logical components contained in yo
 |Line voltage sensors|PCM|Physical|Shared|No|Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.|
 |Line current sensors|PCM|Physical|Shared|No|Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.|
 |Temperature sensors in PCM|PCM|Physical|Shared|No|Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, which indicates whether the measured temperature is within tolerance.|
-|Power supply *n*|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
-|Cooling *n*|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
+|Power supply [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
+|Cooling [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
 |Local storage [HDD]|N/A|Logical|Shared|N/A|Displays the state of the logical storage pool that is created from device HDDs.|
-|Controller *n* [state]|I/O|Physical|Controller|Yes|Displays the state of the controllers in the EBOD module.|
+|Controller [0-1] [state]|I/O|Physical|Controller|Yes|Displays the state of the controllers in the EBOD module.|
 |Temperature sensors in EBOD|I/O|Physical|Controller|No|Numerous temperature sensors from each controller have their state displayed, which indicates whether the temperature encountered is within tolerance.|
 |﻿SAS expander|I/O|Physical|Controller|No|Indicates the state of the SAS expander, which is used to connect the integrated storage to the controller.|
-|SAS connector *n*|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
+|SAS connector [0-2]|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
 |SBB mid-plane interconnect|I/O|Physical|Controller|No|Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.|
 |Enclosure electronics power|I/O|Physical|Controller|No|Indicates the state of the power system used by the enclosure.|
 |Enclosure electronics diagnostics|I/O|Physical|Controller|No|Indicates the state of the diagnostics subsystems provided by the controller.|

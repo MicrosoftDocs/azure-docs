@@ -73,7 +73,7 @@ There are four different mapping types supported:
 
 
 - **Expression** - the target attribute is populated based on the result of a script-like expression. 
-For more details, see Writing Expressions for Attribute Mappings in Azure Active Directory.
+For more details, see [Writing Expressions for Attribute Mappings in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
 
 - **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it will be populated with the Default value that you specify.
