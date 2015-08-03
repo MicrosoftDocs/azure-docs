@@ -153,7 +153,7 @@ Details of the expected values for these claims are included above in the [id_to
 
 The following token lifetimes are provided purely for your understanding, as they can help in developing and debugging applications.  Your apps should not be written to expect any of these lifetimes to remain constant - they can and will change at any given point in time.
 
-<!-- TODO: Validate all of this. --> 
+<!-- TODO: Validate all of this. -->
 
 | Token | Lifetime | Description |
 | ----------------------- | ------------------------------- | ------------ |

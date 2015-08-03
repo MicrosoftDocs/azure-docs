@@ -16,7 +16,7 @@
 	ms.date="08/02/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: What's Different About App Model v2.0?
+# App Model v2.0 Preview: What's Different?
 
 If you're familiar with the generally available Azure AD service or have integrated apps with Azure AD in the past, there may be some differences in the v2.0 app model that you would not expect.  This document calls out those differences for your understanding.
 
@@ -27,8 +27,7 @@ If you're familiar with the generally available Azure AD service or have integra
 ## Microsoft Accounts and Azure AD Accounts
 The v2.0 app model allows developers to write apps that accept sign in from both Microsoft Accounts and Azure Active Directory accounts, using a single auth endpoint.  This gives you the ability to write your app completely account-agnostic; it can be ignorant of the type of account that the user signs in with.  Of course, you *can* make your app aware of the type of account being used in a particular session, but you don't have to.
 
-<!-- TODO: O365 Links -->
-For instance, if your app calls the [Office REST APIs](), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data.  But for many actions, such as [Reading a user's mail](), the code can be written exactly the same for both Microsoft Account and Azure Active Directory accounts.  
+For instance, if your app calls the [Office REST APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data.  But for many actions, such as [Reading a user's mail](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), the code can be written exactly the same for both Microsoft Accounts and Azure Active Directory accounts.  
 
 Integrating your app with Microsoft Accounts and Azure Active Directory accounts is now one simple process.  You can use a single set of auth endpoints, a single auth library, and a single app registration to gain access to both the consumer and enterprise worlds.  To learn more about the v2.0 app model preview, check out [the overview](active-directory-appmodel-v2-overview.md).
 
@@ -36,9 +35,9 @@ Integrating your app with Microsoft Accounts and Azure Active Directory accounts
 ## New App Registration Portal
 The v2.0 app model requires you to register your Microsoft applications in a new location: [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is the portal where you can obtain an Application Id, customize the appearance of your app's sign in page, and more.  We will continue to add more and more functionality to this App Registration Portal, largely based on feedback we receive during the preview.  The intent is that this portal will be the new location where you can go to manage anything and everything having to do with your Microsoft applications.
 
-And the best part is, you don't need an Azure or Office subscription to use it.  All you need is a Microsoft Account or a work/school account.
+And the best part is, you don't need an Azure or Office subscription to use it.  All you need is a personal Microsoft account or a work/school account.
 
-Note that today, applications registered in the new App Registration Portal will only work with app model v2.0, and only applications registered in the new App Registration Portal will work with the app model v2.0.  If you try to use one of these apps with the generally available Microsoft Account or Azure AD services, or try to use an existing application with the v2.0 app model, you may run into incompatibilities.
+Note that today, applications registered in the new App Registration Portal will only work with app model v2.0, and *only* applications registered in the new App Registration Portal will work with the app model v2.0.  If you try to use one of these apps with the generally available Microsoft Account or Azure AD services, or try to use an existing application with the v2.0 app model, you may run into incompatibilities.
 
 
 ## One App Id for All Platforms
@@ -58,7 +57,7 @@ Our aim is that this will lead to a more simplified app management and developme
 
 
 ## Scopes, Not Resources
-In the Azure AD generally available service, an application can behave as a *resource*, or a recipient of tokens.  A resource can define a number of *scopes* or *oAuth2Permissions* that it understands, allowing client applications to request tokens to that resource for a certain set of scopes.  Consider the Azure AD Graph API as an example of a resource:
+In the Azure AD generally available service, an application can behave as a **resource**, or a recipient of tokens.  A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client applications to request tokens to that resource for a certain set of scopes.  Consider the Azure AD Graph API as an example of a resource:
 
 - Resource Identifier, or `AppID URI`: `https://graph.windows.net/`
 - Scopes, or `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
@@ -81,9 +80,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-where the **scope** parameter indicates which resource and permissions the app is requesting authorization for. The desired resource is still very present in the request - it is simply encompassed in each of the values of the scope parameter.  Using the scope parameter in this manner allows the v2.0 app model to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices.  It also enables apps to perform [incremental consent](#incremental-&-dynamic-consent), which is described in the next section.
+where the **scope** parameter indicates which resource and permissions the app is requesting authorization for. The desired resource is still very present in the request - it is simply encompassed in each of the values of the scope parameter.  Using the scope parameter in this manner allows the v2.0 app model to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices.  It also enables apps to perform [incremental consent](#incremental-and-dynamic-consent), which is described in the next section.
 
-## Incremental & Dynamic Consent
+## Incremental and Dynamic Consent
 Applications registered in the generally available Azure AD service needed to specify their required OAuth 2.0 permissions in the Azure Portal, at app creation time:
 
 ![Permissions Registration UI](../media/active-directory-v2-flows/app_reg_permissions.PNG)
@@ -103,18 +102,19 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-The above requests permission for the app to read an Azure AD user's directory data, as well as write data to their directory.  If the user has consented to those permissions in the past for this particular application, they will simply enter their credentials and be signed into the application.  If the user has not consented to any of these permissions, the v2.0 endpoint will ask the user for consent to those permissions.  To learn more, you can read up on [permissions, consent, and scopes](active-directory-v2-scopes).
+The above requests permission for the app to read an Azure AD user's directory data, as well as write data to their directory.  If the user has consented to those permissions in the past for this particular application, they will simply enter their credentials and be signed into the application.  If the user has not consented to any of these permissions, the v2.0 endpoint will ask the user for consent to those permissions.  To learn more, you can read up on [permissions, consent, and scopes](active-directory-v2-scopes.md).
 
 Allowing an app to request permissions dynamically via the `scope` parameter gives you full control over your user's experience.  If you wish, you can choose to frontload your consent experience and ask for all permissions in one initial authorization request.  Or if your app requires a large number of permissions, you can choose to gather those permissions from the user incrementally, as they attempt to use certain features of your app over time.
 
 ## Offline Access
 The v2.0 app model introduces a new well-known permission for web applications - the `offline_access` scope.  Web applications will need to request this permission if they need to access other resources on the behalf of a user for a prolonged period of time, even when the user may not be actively using the web application.  The `offline_accesss` scope will appear to the user in consent dialogs as "Access your data offline", which the user must agree to.  Requesting the `offline_access` permission will enable your web application to receive OAuth 2.0 refresh_tokens from the v2.0 endpoint.  Refresh_tokens are long-lived, and can be exchanged for new OAuth 2.0 access_tokens for extended periods of access.  
 
-If your web app does not request the `offline_access` scope, it will not receive refresh_tokens.  This means that when you redeem an authorization_code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth-2.0-authorization-code-flow), you will only receive back an access_token from the `/oauth2/token` endpoint.  That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.  At that point in time, your web application will need to redirect the user back to the `/oauth2/authorize` endpoint to retrieve a new authorization_code.  During this redirect, the user may not need to enter their credentials again or re-consent to any permissions, but they will experience a redirect to the v2.0 authorize endpoint.
+If your web app does not request the `offline_access` scope, it will not receive refresh_tokens.  This means that when you redeem an authorization_code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow), you will only receive back an access_token from the `/oauth2/token` endpoint.  That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.  At that point in time, your web application will need to redirect the user back to the `/oauth2/authorize` endpoint to retrieve a new authorization_code.  During this redirect, the user may not need to enter their credentials again or re-consent to any permissions, but they will experience a redirect to the v2.0 authorize endpoint.
 
-To learn more about OAuth 2.0, refresh_tokens, and access_tokens, check out the [v2.0 app model protocol reference](active-directory-v2-protocols).
+To learn more about OAuth 2.0, refresh_tokens, and access_tokens, check out the [v2.0 app model protocol reference](active-directory-v2-protocols.md).
 
 Note that the `offline_access` permission is not required for native applications, such as iOS, Android, Windows Desktop, and Windows Phone applications.  These types of applications receive refresh_tokens by default, and no additional consent is required.
+<!-- TODO: Is this true -->
 
 ## Token Claims
 The claims in tokens issued by the v2.0 endpoint will not be identical to tokens issued by the generally available Azure AD endpoints - applications migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens.   Tokens issued by the v2.0 endpoint are compliant with the OAuth 2.0 and OpenID Connect specifications, but may follow different semantics than the generally available Azure AD service.

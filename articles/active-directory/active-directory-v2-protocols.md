@@ -19,7 +19,7 @@
 # App Model v2.0 Preview: Auth Protocols - OAuth 2.0 & OpenID Connect
 
 The v2.0 app model provides identity-as-a-service for your apps by supporting industry standard authentication protocols, OpenID Connect and OAuth 2.0.  While the service is standard compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests, rather than using one of our open source libraries.
-<!-- TODO: Need link above -->
+<!-- TODO: Need link to libraries above -->
 
 ## Tokens
 The v2.0 app model's implementation of OAuth 2.0 and OpenID Connect make extensive use of bearer tokens, including bearer tokens represented as JWTs. A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your application transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
@@ -33,6 +33,13 @@ Every app that uses the v2.0 app model will need to be registered at [apps.dev.m
 - A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
 - A few other scenario-specific values.  For more detail, learn how to [register an app](active-directory-v2-app-registration.md).
 
+Once registered, the application communicates with Azure AD my sending requests to the v2.0 endpoint:
+
+```
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+https://login.microsoftonline.com/common/oauth2/v2.0/token
+```
+
 In nearly all OAuth & OpenID Connect flows, there are four parties involved in the auth exchange:
 
 ![OAuth 2.0 Roles](../media/active-directory-v2-flows/protocols_roles.png)
@@ -42,18 +49,17 @@ In nearly all OAuth & OpenID Connect flows, there are four parties involved in t
 - The **OAuth Client** is your app, identified by its Application Id.  It is usually the party that the end-user interacts with, and it requests tokens from the authorization server.  The client must be granted permission to access the resource by the resource owner.
 - The **Resource Server** is where the resource or data resides.  It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access_tokens to ensure that access to a resource can be granted.
 
-<!-- TODO: Links below -->
-## OAuth 2.0 Authorization Code Flow
-The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAuth 2.0 specification](active-directory-v2-scopes.md).  It is used to perform authentication and authorization in the majority of application types, including [web apps](active-directory-v2-flows.md#web-apps) and [natively installed applications](active-directory-v2-flows.md#native/installed-apps).  It enables apps to securely acquire access_tokens which can be used to access resources that are secured using the v2.0 app model.  
+## OAuth2 Authorization Code Flow
+The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749).  It is used to perform authentication and authorization in the majority of application types, including [web apps](active-directory-v2-flows.md#web-apps) and [natively installed applications](active-directory-v2-flows.md#mobile-and-native-apps).  It enables apps to securely acquire access_tokens which can be used to access resources that are secured using the v2.0 app model.  
 
 Here is the entire flow for a native application; each request is detailed in the sections below:
 ![OAuth Auth Code Flow](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 #### Request an Authorization Code
-The authorization code flow begins with the client directing the user to the `/oauth2/authorize` endpoint.  In this request, the client indicates the permissions it needs to acquire from the user:
+The authorization code flow begins with the client directing the user to the `/authorize` endpoint.  In this request, the client indicates the permissions it needs to acquire from the user:
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		// Your registered Application Id
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
@@ -65,7 +71,7 @@ https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ```
 
 | Parameter | | Description |
-| ----------------------- | ------------------------------- |
+| ----------------------- | ------------------------------- | ----------------------- |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | response_type | required | Must include `code` for the authorization code flow. |
 | redirect_uri | required | The redirect_uri of your app, where authentication responses can be sent and receieved by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
@@ -84,8 +90,7 @@ A successful response using `response_mode=query` looks like:
 GET https://localhost/myapp/?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq... 	// the authorization_code, truncated
 &session_state=7B29111D-C220-4263-99AB-6F6E135D75EF			   // a value generated by the v2.0 endpoint
-&state=12345												  	// the value provided in the request
-
+&state=12345												  							// the value provided in the request
 ```
 
 | Parameter | Description |
@@ -95,6 +100,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq... 	// the authorizat
 | state | If a state parameter is included in the request, the same value should appear in the response. The application should verify that the state values in the request and response are identical. |
 
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
+
 ```
 GET https://localhost/myapp/?
 error=access_denied
@@ -107,7 +113,7 @@ error=access_denied
 | message | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 #### Request an Access Token
-Now that you've acquired an authorization_code and have been granted permission by the user, you can redeem the `code` for an `access_token` to the desired resource, by sending a `POST` request to the `/oauth2/token` endpoint:
+Now that you've acquired an authorization_code and have been granted permission by the user, you can redeem the `code` for an `access_token` to the desired resource, by sending a `POST` request to the `/token` endpoint:
 
 ```
 POST common/v2.0/oauth2/token HTTP/1.1
@@ -124,7 +130,7 @@ Content-Type: application/json
 ```
 
 | Parameter | | Description |
-| ----------------------- | ------------------------------- |
+| ----------------------- | ------------------------------- | --------------------- |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | grant_type | required | Must be `authorization_code` for the authorization code flow. |
 | scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the first leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
@@ -155,6 +161,7 @@ A successful token response will look like:
 | id_token | An unsigned JSON Web Token (JWT). The application can base64Url decode the segments of this token to request information about the user who signed in. The application can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
 
 Error responses will look like:
+
 ```
 {
 	"error": "access_denied",
@@ -177,7 +184,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 #### Refresh the Access Token
-Access_tokens are short lived, and you must refresh them after they expire to continue accessing resources.  You can do so by submitting another `POST` request to the `/oauth2/authorize` endpoint, this time providing the `refresh_token` instead of the `code`:
+Access_tokens are short lived, and you must refresh them after they expire to continue accessing resources.  You can do so by submitting another `POST` request to the `/authorize` endpoint, this time providing the `refresh_token` instead of the `code`:
 
 ```
 POST common/v2.0/oauth2/token HTTP/1.1
@@ -194,7 +201,7 @@ Content-Type: application/json
 ```
 
 | Parameter | | Description |
-| ----------------------- | ------------------------------- |
+| ----------------------- | ------------------------------- | -------- |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | grant_type | required | Must be `refresh_token` for this leg of the authorization code flow. |
 | scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the original authorization_code request leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
@@ -225,6 +232,7 @@ A successful token response will look like:
 | id_token | An unsigned JSON Web Token (JWT). The application can base64Url decode the segements of this token to request information about the user who signed in. The application can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
 
 Error responses will look like:
+
 ```
 {
 	"error": "access_denied",
@@ -246,16 +254,17 @@ Error responses will look like:
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol, which allows you to perform single sign-on using OAuth.  It introduces the concept of an `id_token`, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
 
 OpenID Connect for the v2.0 app model is the recommended way to implement sign in for a [web application](active-directory-v2-flows.md#web-apps).  The most basic sign-in flow contains the following steps:
+
 ![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
 #### Send the Sign In Request
-When your web application needs to authenticate the user, it can direct the user to the `/oauth2/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](#OAuth-2.0-Authorization-Code-Flow), with a few important distinctions:
+When your web application needs to authenticate the user, it can direct the user to the `/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](#oauth2-authorization-code-flow), with a few important distinctions:
 - The request must include the scope `openid` in the `scope` parameter.
 - The `response_type` parameter must include `id_token`
 - The request must include the `nonce` parameter
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		// Your registered Application Id
 &response_type=id_token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
@@ -266,7 +275,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		// Your registered Application I
 ```
 
 | Parameter | | Description |
-| ----------------------- | ------------------------------- |
+| ----------------------- | ------------------------------- | --------------- |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | response_type | required | Must include `id_token` for OpenID Connect sign-in.  It may also include other response_types, as described in the [OpenID Connect with OAuth Code Flow ](#OpenID-Connect-with-OAuth-Code-Flow) section. |
 | redirect_uri | required | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
@@ -297,6 +306,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 	/
 | state | If a state parameter is included in the request, the same value should appear in the response. The application should verify that the state values in the request and response are identical. |
 
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
+
 ```
 GET https://localhost/myapp/?
 error=access_denied
@@ -328,7 +338,7 @@ Once you've validated the signature of the id_token, there are a few claims you 
 
 - You should validate the `nonce` claim to prevent token replay attacks.  Its value should be what you specified in the sign in request.
 - You should validate the `aud` claim to ensure the id_token was issued for your app.  Its value should be the `client_id` of your app.
-- You should validate the `nbf` and `exp` claims to ensure the id_token has not expired.
+- You should validate the `iat` and `exp` claims to ensure the id_token has not expired.
 
 You may also wish to validate additional claims depending on your scenario.  Some common validations include:
 
@@ -346,12 +356,12 @@ When you wish to sign the user out of the application, it is not sufficient to c
 You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/logout?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
 | Parameter | | Description |
-| ----------------------- | ------------------------------- |
+| ----------------------- | ------------------------------- | ------------ |
 | post_logout_redirect_uri | recommended | The URL which the user should be redirected to after successful logout.  If not included, the user will be shown a generic message by the v2.0 endpoint.  |
 
 
@@ -363,10 +373,10 @@ Many web applications need to sign the user in and then access a web service on 
 This flow only slightly differs from the above sections, in how you send the sign-in request.
 
 #### Send the Sign In Request
-When your web application needs to authenticate the user & get the permissions it needs to access resources, it can direct the user to the `/oauth2/authorize` endpoint.  In this case, your app must ask for both an `id_token` and a `code` in the response:
+When your web application needs to authenticate the user & get the permissions it needs to access resources, it can direct the user to the `/authorize` endpoint.  In this case, your app must ask for both an `id_token` and a `code` in the response:
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		// Your registered Application Id
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
@@ -379,7 +389,7 @@ https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ```
 
 | Parameter | | Description |
-| ----------------------- | ------------------------------- |
+| ----------------------- | ------------------------------- | ----------------- |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | response_type | required | Must include `id_token` and `code` for this scenario. |
 | redirect_uri | required | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
@@ -412,6 +422,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 	/
 | state | If a state parameter is included in the request, the same value should appear in the response. The application should verify that the state values in the request and response are identical. |
 
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
+
 ```
 GET https://localhost/myapp/?
 error=access_denied
@@ -430,34 +441,34 @@ This process is exactly the same as described above in the [OpenID Connect Sign 
 This process is exactly the same as described above in the [OpenID Connect Sign In Flow](#OpenID-Connect-Sign-In-Flow).
 
 #### Request an Access Token
-This process is exactly the same as described above in the [OAuth 2.0 Authorization Code Flow](#OAuth-2.0-Authorization-Code-Flow).
+This process is exactly the same as described above in the [OAuth 2.0 Authorization Code Flow](#oauth2-authorization-code-flow).
 
 #### Use the Access Token
-This process is exactly the same as described above in the [OAuth 2.0 Authorization Code Flow](#OAuth-2.0-Authorization-Code-Flow).
+This process is exactly the same as described above in the [OAuth 2.0 Authorization Code Flow](#oauth2-authorization-code-flow).
 
 #### Refresh the Access Token
-This process is exactly the same as described above in the [OAuth 2.0 Authorization Code Flow](#OAuth-2.0-Authorization-Code-Flow).
+This process is exactly the same as described above in the [OAuth 2.0 Authorization Code Flow](#oauth2-authorization-code-flow).
 
 
 
 
 
-## OAuth 2.0 Client Credentials Grant Flow
+## OAuth2 Client Credentials Grant Flow
 The OAuth 2.0 Client Credentials Grant is described in the [OAuth 2.0 Specification](http://tools.ietf.org/html/rfc6749#section-4.4).  It is useful for long running processes and other server to server scenarios, where the application can authenticate to a resource using its own "Application Identity", rather than a user's delegated identity.
 
 This flow is not currently supported by the v2.0 app model preview.  To see how it works in the generally available Azure AD service, see [this Azure AD code sample](https://github/com/AzureADSamples/Daemon-DotNet).
 
-## OAuth 2.0 Implicit Flow
+## OAuth2 Implicit Flow
 The OAuth 2.0 Implicit Flow is described in the [OAuth 2.0 Specification](http://tools.ietf.org/html/rfc6749#section-4.2).  It is often used for single-page/javascript apps that run in a browser.
 
 This flow is not currently supported by the v2.0 app model preview.  To see how it works in the generally available Azure AD service, see [this Azure AD code sample](active-directory-devquickstarts-angular.md).
 
-## OAuth 2.0 Resource Owner Password Credentials Grant
+## OAuth2 Resource Owner Password Credentials Grant
 The OAuth 2.0 Resource Owner Password Credentials Grant is described in the [OAuth 2.0 Specification](http://tools.ietf.org/html/rfc6749#section-4.3).  It allows an app to acquire access_tokens by providing a user's username & password in a token request.
 
 This flow is not currently supported by the v2.0 app model preview.  To see how it works in the generally available Azure AD service, see [this Azure AD code sample](https://github.com/AzureADSamples/NativeClient-Headless-DotNet).
 
-## OAuth 2.0 On Behalf Of Flow
+## OAuth2 On Behalf Of Flow
 The On Behalf Of Flow, or JWT Bearer Credentials Grant is described in this [OAuth 2.0 Extension Grant Draft](https://tools.ietf.org/html/draft-ietf-oauth-jwt-bearer-12).  It allows a Web API that receives an access_token to use that access_token as a credential for acquiring access_tokens to other resources.  This allows a Web API to securely call another downstream Web API.
 
 This flow is not currently supported by the v2.0 app model preview.  To see how it works in the generally available Azure AD service, see [this Azure AD code sample](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).

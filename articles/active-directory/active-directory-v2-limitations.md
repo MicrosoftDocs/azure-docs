@@ -29,13 +29,13 @@ Applications that integrate with the v2.0 app model should not be released to th
 ## Restrictions on Applications
 The following types of applications are not currently supported in the v2.0 app model public preview.  For a description of the supported types of applications, refer to [this article](active-directory-v2-flows.md).
 
-##### Single Page Apps (Javascripta
-Many modern applications have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth-2.0-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
+##### Single Page Apps (Javascript)
+Many modern applications have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth2-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
 
-If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the [web server app auth flow](active-directory-v2-flows.md#web-apps).  But this is not the recommended approach, and documentation for this scenario will be limited.  If you'd like to get a feel for the SPA scenario, you can check out the [generally available Azure AD SPA code sample](active-directory-devquickstarts-angular.md).
+If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the [web app auth flow](active-directory-v2-flows.md#web-apps).  But this is not the recommended approach, and documentation for this scenario will be limited.  If you'd like to get a feel for the SPA scenario, you can check out the [generally available Azure AD SPA code sample](active-directory-devquickstarts-angular.md).
 
 ##### Daemons/Server Side Apps
-Applications that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-v2-protocols.md#oauth-2.0-client-credentials-grant-flow).  
+Applications that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).  
 
 This flow is not currently supported by the v2.0 app model - which is to say that apps can only get tokens after an interactive user sign-in flow has occurred.  The client credentials flow will be added in the near future.  If you would like to see the client credentials flow in the generally available Azure AD app model, check out the [Daemon sample on GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 
@@ -45,8 +45,7 @@ Many architectures include a Web API that needs to call another downstream Web A
 This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the [On-Behalf-Of Flow](active-directory-v2-protocols.md#OAuth-2.0-On-Behalf-Of-Flow).  However, the On-Behalf-Of flow is not currently implemented in the v2.0 app model preview.  To see how this flow works in the generally available Azure AD service, check out the [On-Behalf-Of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
 ##### Standalone Web APIs
-In the v2.0 app model preview, you have the ability to [build a Web API that is secured using OAuth tokens]() from the v2.0 endpoint.  However, that Web API will only be able to receive tokens from a client that shares the same Application Id.  Building a third party web service that is accessed from several different clients is not supported.
-<!-- TODO: Link above -->
+In the v2.0 app model preview, you have the ability to [build a Web API that is secured using OAuth tokens](active-directory-v2-flows.md#web-apis) from the v2.0 endpoint.  However, that Web API will only be able to receive tokens from a client that shares the same Application Id.  Building a third party web service that is accessed from several different clients is not supported.
 
 To see how to build a Web API that accepts tokens from a well-known client with the same Application Id, see the v2.0 app model Web API samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
@@ -60,7 +59,7 @@ At this point in time, all apps that want to integrate with the v2.0 app model m
 
 Similarly, apps registered in the new App Registration Portal will work exclusively with the v2.0 app model.  You can not use the App Registration Portal to create apps that will integrate successfully with the Azure Active Directory or Microsoft Account services.
 
-Applications that are registered in the new Application Registration Portal are currently restricted to a limited set of redirect_uri values.  The redirect_uri for web applications and services must begin with the scheme `http` or `https`, while the redirect_uri for all other platforms must use the hard-coded value of `urn:ietf:oauth:2.0:oob`.
+Applications that are registered in the new Application Registration Portal are currently restricted to a limited set of redirect_uri values.  The redirect_uri for web applications and services must begin with the scheme or `https`, while the redirect_uri for all other platforms must use the hard-coded value of `urn:ietf:oauth:2.0:oob`.
 
 To learn how to register an application in the new Application Registration Portal, refer to [this article](active-directory-v2-app-registration.md).
 
@@ -68,9 +67,8 @@ To learn how to register an application in the new Application Registration Port
 The v2.0 app model currently supports sign-in for any application registered in the new Application Registration Portal, provided it falls into the list of [supported authentication flows](active-directory-v2-flows.md).  However, these applications will only be able to acquire OAuth 2.0 access tokens for a very limited set of resources.  The v2.0 endpoint will only issue access_tokens for:
 
 - The application that requested the token.  An app can acquire an access_token for itself, if the logical application is comprised of several different components or tiers.  To see this scenario in action, check out our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) tutorials.
-- The Outlook Mail, Calendar and Contacts REST APIs, all of which are located at https://outlook.office.com.  To learn how to write an app that accesses these APIs, refer to these [Office Getting Started]() tutorials.
+- The Outlook Mail, Calendar and Contacts REST APIs, all of which are located at https://outlook.office.com.  To learn how to write an app that accesses these APIs, refer to these [Office Getting Started](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) tutorials.
 
-<!-- TODO: Need links above -->
 More Microsoft Online services will be added in the near future, as well as support for your own Web APIs and services.
 
 ## Restrictions on Libraries & SDKs

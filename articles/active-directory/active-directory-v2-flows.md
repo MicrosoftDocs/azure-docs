@@ -17,7 +17,7 @@
 	ms.author="dastrock"/>
 
 # App Model v2.0 Preview: Types of Applications
-The v2.0 app model supports authentication for a variety of modern app architectures, all of which are based on the industry standard auth protocols [OAuth 2.0](active-directory-v2-protocols.md) and/or [OpenID Connect](active-directory-v2-protocols.md).  This doc briefly describes the types of applications you can build, independent of the language or platform you prefer.  It will help you understand the high level scenarios before you [jump right into the code](active-directory-appmodel-v2-overview.md#getting-started).
+The v2.0 app model supports authentication for a variety of modern app architectures, all of which are based on the industry standard auth protocols [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) and/or [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  This doc briefly describes the types of applications you can build, independent of the language or platform you prefer.  It will help you understand the high level scenarios before you [jump right into the code](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [AZURE.NOTE]
 	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
@@ -29,7 +29,14 @@ Every app that uses the v2.0 app model will need to be registered at [apps.dev.m
 - A **Redirect URI** that can be used to direct responses back to your app
 - A few other scenario-specific values.  For more detail, learn how to [register an app](active-directory-v2-app-registration.md).
 
-Once registered, every app will follow a similar auth pattern:
+Once registered, the application communicates with Azure AD my sending requests to the v2.0 endpoint:
+
+```
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+https://login.microsoftonline.com/common/oauth2/v2.0/token
+```
+
+Every app's interaction with the v2.0 endpoint will follow a similar high level auth pattern:
 
 1. The app directs the end-user to the v2.0 endpoint for sign-in.
 2. The user authenticates, entering their username and password or otherwise.
@@ -42,9 +49,7 @@ Once registered, every app will follow a similar auth pattern:
 <!-- TODO: Need a page for libraries to link to -->
 Each of these seven steps will differ slightly based on the type of app you're building, and we have open source libraries that take care of the details for you.  You can learn more about [permissions, consent, and scopes](active-directory-v2-scopes.md), or read on to explore some concrete examples.
 
-## Currently Supported Scenarios
-
-### Web Apps
+## Web Apps
 For web apps (.NET, PHP, Java, Ruby, Python, Node, etc) that are accessed through a browser, the v2.0 app model supports user sign in using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  In OpenID Connect the web app receives an `id_token`, a security token that verifies the user's identity and provides information about the user in the form of claims:
 
 ```
@@ -70,11 +75,11 @@ The validation of the id_token using a public signing key received from the v2.0
 
 To see this scenario in action, try out one of the web app sign-in code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-In addition to simple sign-in, a web server app might also need to access some other web service such as a REST API.  In this case the web server app can engage in a combined OpenID Connect & OAuth 2.0 auth flow, using the [OAuth 2.0 Authorization Code flow](active-directory-v2-protocols.md#oauth-2.0-authorization-code-flow). This scenario is covered below in the [Web APIs section](#web-apis), and in our [WebApp-WebAPI Getting Started topic]().
-<!-- TODO: link -->
+In addition to simple sign-in, a web server app might also need to access some other web service such as a REST API.  In this case the web server app can engage in a combined OpenID Connect & OAuth 2.0 auth flow, using the [OAuth 2.0 Authorization Code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow). This scenario is covered below in the [Web APIs section](#web-apis), and in our [WebApp-WebAPI Getting Started topic](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
 
-### Web APIs
+## Web APIs
 You can use the v2.0 app model to secure web services as well, such as your app's RESTful Web API.  Instead of id_tokens and session cookies, Web APIs use OAuth 2.0 access_tokens to secure their data and authenticate incoming requests.  The caller of a Web API appends an access_token in the authorization header of an HTTP request:
+
 ```
 GET /api/items HTTP/1.1
 Host: www.mywebapi.com
@@ -91,13 +96,13 @@ A Web API can receive access_tokens from all types of apps, including web server
 
 ![Web App Web API Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-To learn more about authorization_codes, refresh_tokens, and the detailed steps of getting access_tokens, read about the [OAuth 2.0 protocol](active-directory-v2-protocols.md).
+To learn more about authorization_codes, refresh_tokens, and the detailed steps of getting access_tokens, read about the [OAuth 2.0 protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
 
 To learn how to secure a Web API with the v2.0 app model and OAuth 2.0 access_tokens, check out the Web API code samples in our [Getting Started section](active-directory-appmodel-v2-overview.md#getting-started).
 
 
-### Native/Installed Apps
-Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs that store data and perform various functions on behalf of a user.  These apps can add sign-in and authorization to backend services using the v2.0 model and the [OAuth 2.0 Authorization Code flow](active-directory-v2-protocols.md#oauth-2.0-authorization-code-flow).  
+## Mobile and Native Apps
+Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs that store data and perform various functions on behalf of a user.  These apps can add sign-in and authorization to backend services using the v2.0 model and the [OAuth 2.0 Authorization Code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow).  
 
 In this auth flow, a the app receives an authorization_code from the v2.0 endpoint upon user sign in, which represents the app's permission to call backend services on behalf of the currently signed-in user.  The app can then exchange the authoriztion_code in the background for an OAuth 2.0 access_token and a refresh_token.  The app can use the access_token to authenticate to Web APIs in HTTP requests, and can use the refresh_token to get new access_tokens when older ones expire.
 
@@ -107,7 +112,7 @@ In this auth flow, a the app receives an authorization_code from the v2.0 endpoi
 These types of apps are not currently supported by the v2.0 app model preview, but are on the roadmap to be supported in time for general availability.  Additional limitations and restrictions for the v2.0 app model public preview are described in the [v2.0 preview limitations doc](active-directory-v2-limitations.md).
 
 ### Single Page Apps (Javascript)
-Many modern applications have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth-2.0-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
+Many modern applications have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth2-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
 
 If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the [web server app auth flow](#web-apps) described above.  But this is not the recommended approach, and documentation for this scenario will be limited.  If you'd like to get a feel for the SPA scenario, you can check out the [generally available Azure AD SPA code sample](active-directory-devquickstarts-angular.md).
 
