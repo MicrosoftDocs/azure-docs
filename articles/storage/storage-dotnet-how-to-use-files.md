@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="07/28/2015"
+      ms.date="08/03/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with PowerShell and .NET
@@ -25,12 +25,16 @@ The Azure File service exposes file shares using the standard SMB 2.1 protocol. 
 
 This getting started tutorial demonstrates the basics of using Microsoft Azure File storage. In this tutorial, we will:
 
-- Use PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
-- Mount the file share from an Azure virtual machine, just as you would any SMB share.
+- Use Azure PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
+- Mount the file share from an Azure virtual machine, just as you would mount any SMB share.
+- Use the Azure storage client library for .NET to access the file share from an on-premise application. Create a console application and perform these actions with the file share:
+	- Write the contents of a file in the share to the console window
+	- Set the quota (maximum size) for the file share
+	- Create a shared access signature for a file that uses a shared access policy defined on the share
+	- Copy a file to another file in the same storage account
+	- Copy a file to a blob in the same storage account
 
-For users who may want to access files in a share from an on-premises application as well as from an Azure virtual machine or cloud service, we show how to use the Azure .NET Storage Client Library to work with the file share from a desktop application.
-
-> [AZURE.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 4.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
+> [AZURE.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 5.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -403,18 +407,21 @@ You can copy a blob to a file in the same way. If the source object is a blob, t
 
 To create and manage a file share from Linux, use the Azure CLI. See [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares) for information about using the Azure CLI with File storage.
 
-You can mount an Azure file share from a virtual machine running Linux. When you create your Azure virtual machine, you can specify an Ubuntu image from the disk images gallery to ensure support for SMB 2.1. However, any Linux distribution that supports SMB 2.1 can mount an Azure File share.
+You can mount an Azure file share from a virtual machine running Linux. When you create your Azure virtual machine, you can specify a Linux image which supports SMB 2.1 from Azure image gallery, such as the latest version of Ubuntu. However, any Linux distribution that supports SMB 2.1 can mount the Azure file share.
 
-For a demonstration of how to mount an Azure File share on Linux, see [Shared storage on Linux via Azure Files Preview - Part 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) on Channel 9.
+To learn more about how to mount an Azure File share on Linux, see [Shared storage on Linux via Azure Files Preview - Part 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) on Channel 9.
 
 ## Next steps
 
 See these links for more information about Azure File storage.
 
-### Reference
+### Tutorials and Reference
 
 - [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 - [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+- [Use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
+- [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
+- [Using the Azure CLI with Azure Storage](storage-azure-cli.md)
 
 ### Blog posts
 
