@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="Erikre" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="07/31/2015" 
 	ms.author="erikre"/>
 
 
@@ -116,7 +116,7 @@ The new site needs the application name and a link updated. The link will point 
 
 1. In **Solution Explorer**, find and open the *Site.Master* page. 
 2. If the page is in **Design** view, switch to **Source** view.
-3. Update the master page by modifying or adding the markup highlighted in yellow:
+3. Update the master page by modifying or adding markup so that the markup for the page appears as follows:
 
 <pre class="prettyprint">
 &lt;%@ Master Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;Site.master.cs&quot; Inherits=&quot;ContactManager.SiteMaster&quot; %&gt;
@@ -127,7 +127,7 @@ The new site needs the application name and a link updated. The link will point 
 &lt;head runat=&quot;server&quot;&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-    &lt;title&gt;&lt;%: Page.Title %&gt; - <mark>Contact Manager</mark>&lt;/title&gt;
+    &lt;title&gt;&lt;%: Page.Title %&gt; - Contact Manager&lt;/title&gt;
 
     &lt;asp:PlaceHolder runat=&quot;server&quot;&gt;
         &lt;%: Scripts.Render(&quot;~/bundles/modernizr&quot;) %&gt;
@@ -167,7 +167,7 @@ The new site needs the application name and a link updated. The link will point 
                         &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
                         &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
                     &lt;/button&gt;
-                    &lt;a class=&quot;navbar-brand&quot; runat=&quot;server&quot; <mark>id=&quot;ContactDemoLink&quot;</mark> href=&quot;~/<mark>Contacts/Default.aspx</mark>&quot;&gt;<mark>Contact Demo</mark>&lt;/a&gt;
+                    &lt;a class=&quot;navbar-brand&quot; runat=&quot;server&quot; id=&quot;ContactDemoLink&quot; href=&quot;~/Contacts/Default.aspx&quot;&gt;Contact Demo&lt;/a&gt;
                 &lt;/div&gt;
                 &lt;div class=&quot;navbar-collapse collapse&quot;&gt;
                     &lt;ul class=&quot;nav navbar-nav&quot;&gt;
@@ -199,7 +199,7 @@ The new site needs the application name and a link updated. The link will point 
             &lt;/asp:ContentPlaceHolder&gt;
             &lt;hr /&gt;
             &lt;footer&gt;
-                &lt;p&gt;&amp;copy; &lt;%: DateTime.Now.Year %&gt; - <mark>Contact Manager</mark>&lt;/p&gt;
+                &lt;p&gt;&amp;copy; &lt;%: DateTime.Now.Year %&gt; - Contact Manager&lt;/p&gt;
             &lt;/footer&gt;
         &lt;/div&gt;
     &lt;/form&gt;
@@ -515,8 +515,8 @@ The following steps will allow you to add a Google authentication provider.
 	
 	            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
 	            {
-	                ClientId = "<mark>000000000000.apps.googleusercontent.com</mark>",
-	                ClientSecret = "<mark>00000000000</mark>"
+	                ClientId = "000000000000.apps.googleusercontent.com",
+	                ClientSecret = "00000000000"
 	            });
 	        }
 	    }
@@ -584,7 +584,7 @@ Using ASP.NET Identity, you can add an administrator role and assign a user to t
 	<pre class="prettyprint">
         protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
-            <mark>AddUserAndRole(context);</mark>
+            AddUserAndRole(context);
 	</pre>  
 5. After saving all your changes, in the **Package Manager Console** run the following command:  
 	<pre class="prettyprint">
@@ -602,7 +602,7 @@ You will create a folder named *Admin* where only users that are assigned to the
 	- *Delete.aspx *and* Delete.aspx.cs*
 	- *Edit.aspx *and* Edit.aspx.cs*
 	- *Insert.aspx *and* Insert.aspx.cs*
-3. Update the link references in *Contacts/Default.aspx* by adding "Admin/" before the pages references that link to *Insert.aspx*, *Edit.aspx*, and *Delete.aspx*:  
+3. Update the link references in *Contacts/Default.aspx* by adding "Admin/" before the pages references that link to *Insert.aspx*, *Edit.aspx*, and *Delete.aspx* as shown below:  
 	<pre class="prettyprint">
 	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
 	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
@@ -610,7 +610,7 @@ You will create a folder named *Admin* where only users that are assigned to the
 	&lt;asp:Content runat=&quot;server&quot; ContentPlaceHolderID=&quot;MainContent&quot;&gt;
 	    &lt;h2&gt;Contacts List&lt;/h2&gt;
 	    &lt;p&gt;
-	        &lt;asp:HyperLink runat=&quot;server&quot; NavigateUrl=&quot;<mark>Admin/</mark>Insert.aspx&quot; Text=&quot;Create new&quot; /&gt;
+	        &lt;asp:HyperLink runat=&quot;server&quot; NavigateUrl=&quot;Admin/Insert.aspx&quot; Text=&quot;Create new&quot; /&gt;
 	    &lt;/p&gt;
 	    &lt;div&gt;
 	        &lt;asp:ListView runat=&quot;server&quot;
@@ -660,8 +660,8 @@ You will create a folder named *Admin* where only users that are assigned to the
 	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Email&quot; ID=&quot;Email&quot; Mode=&quot;ReadOnly&quot; /&gt;
 	                    &lt;/td&gt;
 	                    &lt;td&gt;
-	                        &lt;a href=&quot;<mark>Admin/</mark>Edit.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Edit&lt;/a&gt; | 
-	                        &lt;a href=&quot;<mark>Admin/</mark>Delete.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Delete&lt;/a&gt;
+	                        &lt;a href=&quot;Admin/Edit.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Edit&lt;/a&gt; | 
+	                        &lt;a href=&quot;Admin/Delete.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Delete&lt;/a&gt;
 	                    &lt;/td&gt;
 	                &lt;/tr&gt;
 	            &lt;/ItemTemplate&gt;
