@@ -53,11 +53,11 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 2. Click on **App Services**, then **Mobile Engagement**, and then **Create**.
 
-   	![][7]
+	![][7]
 
 3. In the popup that appears, enter the following information:
 
-   	![][8]
+   ![][8]
 
 	- **Application Name**: type the name of your application. Feel free to use any character.
 	- **Platform**: Select the target platform (**iOS**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
@@ -70,11 +70,11 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 5. Click on **Connection Info** in order to display the connection settings to put into your SDK integration in your mobile app.
 
-   	![][10]
+	![][10]
 
 6. Copy the **Connection String** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your Phone App.
 
-   	![][11]
+	![][11]
 
 ##<a id="connecting-app"></a>Connecting your app to the Mobile Engagement backend
 
@@ -88,15 +88,15 @@ You may skip this step if you already have an app and are familiar with iOS deve
 
 1. Launch Xcode and in the popup, select **Create a new Xcode project**
 
-   	![][12]
+	![][12]
 
 2. Select **Single View Application** and click Next
 
-   	![][14]
+	![][14]
 
 3. Fill in the **Product Name**, **Organization Name** and **Organization Identifier**. Make sure that you have selected **Objective-C** in the language.
 
-   	![][13]
+	![][13]
 
 Xcode will create the demo app to which we will integrate Mobile Engagement
 

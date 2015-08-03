@@ -53,11 +53,11 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 2. Click on **App Services**, then **Mobile Engagement**, and then **Create**.
 
-   	![][7]
+	![][7]
 
 3. In the popup that appears, enter the following information:
 
-   	![][8]
+	![][8]
 
 	- **Application Name**: type the name of your application. Feel free to use any character.
 	- **Platform**: Select the target platform (**iOS**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
@@ -70,11 +70,11 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 5. Click on **Connection Info** in order to display the connection settings to put into your SDK integration in your mobile app.
 
-   	![][10]
+	![][10]
 
 6. Copy the **Connection String** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your Phone App.
 
-   	![][11]
+	![][11]
 
 ##<a id="connecting-app"></a>Connecting your app to the Mobile Engagement backend
 
@@ -88,15 +88,15 @@ You may skip this step if you already have an app and are familiar with iOS deve
 
 1. Launch Xcode and in the popup, select **Create a new Xcode project**
 
-   	![][12]
+	![][12]
 
 2. Select **Single View Application** and click Next
 
-   	![][14]
+	![][14]
 
 3. Fill in the **Product Name**, **Organization Name** and **Organization Identifier**. Make sure that you have selected **Swift** in the language.
 
-   	![][40]
+	![][40]
 
 Xcode will create the demo app to which we will integrate Mobile Engagement
 
@@ -319,11 +319,11 @@ We will now create a simple Push Notification campaign that will send a push to 
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
 
 <!-- Images. -->
-[7]: ./media/mobile-engagement-common/create-mobile-engagement-app.png
-[8]: ./media/mobile-engagement-common/create-azme-popup.png
-[10]: ./media/mobile-engagement-common/app-main-page-select-connection-info.png
-[11]: ./media/mobile-engagement-common/app-connection-info-page.png
-[12]: ./media/mobile-engagement-ios-get-started/xcode-new-project.png
+[7]: ./media/mobile-engagement-ios-swift-get-started/create-mobile-engagement-app.png
+[8]: ./media/mobile-engagement-ios-swift-get-started/create-azme-popup.png
+[10]: ./media/mobile-engagement-ios-swift-get-started/app-main-page-select-connection-info.png
+[11]: ./media/mobile-engagement-ios-swift-get-started/app-connection-info-page.png
+[12]: ./media/mobile-engagement-ios-swift-get-started/xcode-new-project.png
 [13]: ./media/mobile-engagement-ios-get-started/xcode-project-props.png
 [14]: ./media/mobile-engagement-ios-get-started/xcode-simple-view.png
 [17]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
