@@ -21,9 +21,7 @@
 Deployments can fail for any number of reasons. It is far better to prevent deployment errors by checking a few things in advance. This document describes tools and operations to prevent simple mistakes, to download template files, and to examine deployment logs. It also discusses the main areas to think about when examining deployment logs for failures.
 
 ## Useful tools to interact with Azure
-The AzureResourceManager module includes cmdlets that
-
-When you work with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure resource management API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.
+When you work with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure Resource Manager API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.
 
 ### Mac, Linux, and Windows tools
 If you use the Azure Command-Line Interface for Mac, Linux, and Windows, you are probably familiar with standard download tools such as **[curl](http://curl.haxx.se/)** and **[wget](https://www.gnu.org/software/wget/)**, or **[Resty](https://github.com/beders/Resty)**, and JSON utilities such as **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, and language libraries that handle JSON well. (Many of these tools also have ports for Windows, such as [wget](http://gnuwin32.sourceforge.net/packages/wget.htm); in fact, there are several ways to get Linux and other open-source software tools running on Windows as well.)
@@ -43,7 +41,7 @@ The Azure CLI has several commands to help prevent errors and detect what went w
 
 - **azure location list**. This command gets the locations that support each type of resource, such as the provider for virtual machines. Before you enter a location for a resource, use this command to verify that the location supports the resource type.
 
-    Because the list of locations can be long, and there are many providers, you can use tools to examine providers and locations before you use a location that isn't available yet. The following script uses **jq** to discover the locations where the resource provider for Azure virtual machines is available. ()
+    Because the list of locations can be long, and there are many providers, you can use tools to examine providers and locations before you use a location that isn't available yet. The following script uses **jq** to discover the locations where the resource provider for Azure virtual machines is available.
 
         azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
         {
@@ -211,7 +209,7 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 
 There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory. Regardless how you manage your Azure resource groups, the identity you use to sign in to your account must be either Azure Active Directory objects or Service Principals, which are also called work or school accounts, or organizational Ids.
 
-But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, and examine the deployment logs for your resource group. You might find that while you have permissions for some resources, you do not have permissions for others. Using the Azure CLI, you can examine Azure Active Directory tenants and users using the `azure ad` commands. (For a complete list of Azure CLI commands, see [Using the Azure CLI for Mac, Linux, and Windows with Azure resource management](azure-cli-arm-commands.md).)
+But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, and examine the deployment logs for your resource group. You might find that while you have permissions for some resources, you do not have permissions for others. Using the Azure CLI, you can examine Azure Active Directory tenants and users using the `azure ad` commands. (For a complete list of Azure CLI commands, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](azure-cli-arm-commands.md).)
 
 You might also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, and other scopes. Confirm to your satisfaction that you have the resources available to deploy correctly. For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
@@ -233,7 +231,7 @@ If you were to try to deploy a template that creates more than 4 cores into the 
 
 In these cases, you should go to the portal and file a support issue to raise your quota for the region into which you want to deploy.
 
-> [AZURE.NOTE] Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 resource management cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 resource management cores in all regions.
+> [AZURE.NOTE] Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 Resource Manager cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 resource Manager cores in all regions.
 <!-- -->
 To be specific about cores, for example, you can check the regions for which you should request the appropriate quota amount by using the following command, which pipes out to **jq** for json parsing.
 <!-- -->
@@ -256,7 +254,7 @@ To be specific about cores, for example, you can check the regions for which you
 
 ## Azure CLI and PowerShell mode issues
 
-You might have the experience that Azure resources deployed using the service management API or using the classic portal are not visible using the resource management API or the Azure portal. It is important to manage resources using the same management API or portal that you used to create them. If a resource has disappeared, check to see if it is available using the other management API or portal.
+You might have the experience that Azure resources deployed using the service management API or using the portal are not visible using the Resource Manager API or the Azure portal. It is important to manage resources using the same Resource Manager API or portal that you used to create them. If a resource has disappeared, check to see if it is available using the other management API or portal.
 
 ## Azure resource provider registration issues
 
@@ -314,7 +312,7 @@ If a provider requires registration, use the `azure provider register <namespace
 
 ## Understanding when a deployment succeeds for custom templates
 
-If you are using templates that you created, it's important to understand that the Azure resource management system reports success on a deployment when all providers return from deployment successfully. This means that all of your template items were deployed for your usage.
+If you are using templates that you created, it's important to understand that the Azure Resource Manager system reports success on a deployment when all providers return from deployment successfully. This means that all of your template items were deployed for your usage.
 
 Note however, that this does not necessarily mean that your resource group is "active and ready for your users". For example, most deployments request the deployment to download upgrades, wait on other, non-template resources, or to install complex scripts or some other executable activity that Azure does not know about because it is not an activity that a provider is tracking. In these cases, it can be some time before your resources are ready for real-world use. As a result, you should expect that the deployment status succeeds some time before your deployment can be used.
 
