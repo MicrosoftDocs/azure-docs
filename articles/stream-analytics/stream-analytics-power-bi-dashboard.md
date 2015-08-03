@@ -76,12 +76,12 @@ For this tutorial, we are assuming you are using Event Hub as an input with JSON
 
 ## Add Power BI output ##
 
-1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
-![graphic2][graphic2]
-2.  Select **Power BI** and then click the right button.
-3.  You will see a screen like the following:
-![graphic3][graphic3]
-4.  In this step, supply an Ord Id for the Stream Analytics job output. If you already have Power BI account, select **Authorize Now**. If not, choose **Sign up now**. [Here is a good blog walking through details of Power BI sign up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option. 
+![graphic2][graphic2] 
+2.  Select **Power BI** and then click the right button. 
+3.  You will see a screen like the following: 
+![graphic3][graphic3] 
+4.  In this step, supply a work or school account for the Stream Analytics job output. If you already have Power BI account, select **Authorize Now**. If not, choose **Sign up now**. [Here is a good blog walking through details of Power BI sign up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx). 
 ![graphic11][graphic11]
 5.  Next you will see a screen like the following:
 
