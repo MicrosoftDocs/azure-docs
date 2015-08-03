@@ -382,7 +382,16 @@ See [Get started with Azure Data Factory][adfgetstarted] for detailed steps for 
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage. 
     
 ## <a name="AzureBatch"></a> Using Azure Batch linked service 
-> [AZURE.NOTE] See [Azure Batch Technical Overview][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.  
+> [AZURE.NOTE] See [Azure Batch Technical Overview][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.
+
+You can run your custom .NET activities using Azure Batch as a compute resource. You will have to create your own Azure Batch pools and specify the number of VMs along with other configurations. Azure Batch pools provides the following features to customers:
+
+1. Create pools containing a single core to thousands of cores.
+2. Auto scale VM count based on a formula
+3. Support VMs of any size
+4. Configurable number of tasks per VM
+5. Queue unlimited number of tasks
+
 
 Here are the high-level steps for using the Azure Batch Linked Service in the walkthrough described in the previous section:
 
