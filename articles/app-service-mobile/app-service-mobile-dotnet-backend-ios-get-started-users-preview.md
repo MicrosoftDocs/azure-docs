@@ -24,7 +24,7 @@
 
 In this tutorial, you add authentication to the [iOS quick start] project using a supported identity provider. This tutorial is based on the [iOS quick start] tutorial, which you must complete first.
 
-##<a name="register"></a>Register app and configure Azure backend
+##<a name="register"></a>Register app and configure backend
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -32,7 +32,7 @@ In this tutorial, you add authentication to the [iOS quick start] project using 
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-In Xcode, press **Run** to  start the app. An exception will be raised because the app attempts to access the Azure backend as an unauthenticated user, but _TodoItem_ table now requires authentication.
+In Xcode, press **Run** to  start the app. An exception will be raised because the app attempts to access the backend as an unauthenticated user, but _TodoItem_ table now requires authentication.
 
 ##<a name="add-authentication"></a>Add authentication to app
 
@@ -45,7 +45,7 @@ In Xcode, press **Run** to  start the app. An exception will be raised because t
 
 <!-- URLs. -->
 
-[quick start]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[iOS quick start]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
  

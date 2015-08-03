@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Install a replica domain controller in Azure" 
-	description="A tutorial that explains how to install a domain controller from an on-premises Active Directory forest on an Azure virtual machine." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+<properties
+	pageTitle="Install a replica domain controller in Azure  | Microsoft Azure"
+	description="A tutorial that explains how to install a domain controller from an on-premises Active Directory forest on an Azure virtual machine."
+	services="virtual-network"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadwha"
+	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 
 # Install a replica Active Directory domain controller in an Azure virtual network
 
-This topic shows how to install additional domain controllers (also known as replica DCs) for an on-premises Active Directory domain on Azure virtual machines (VMs) in an Azure virtual network. 
+This topic shows how to install additional domain controllers (also known as replica DCs) for an on-premises Active Directory domain on Azure virtual machines (VMs) in an Azure virtual network.
 
 You might also be interested in these related topics:
 
@@ -30,9 +30,9 @@ You might also be interested in these related topics:
 
 ## Scenario Diagram
 
-In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by a [site-to-site VPN](https://msdn.microsoft.com/library/azure/dn133795.aspx) connection, as shown in the following diagram, or you can use [ExpressRoute](../../services/expressroute/) for a faster connection. 
+In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connection, as shown in the following diagram, or you can use [ExpressRoute](../../services/expressroute/) for a faster connection.
 
-The application servers and the DCs are deployed within separate [cloud services](../cloud-services-what-is.md) to distribute compute processing and within [availability sets](../virtual-machines/virtual-machines-manage-availability.md) for improved fault tolerance. 
+The application servers and the DCs are deployed within separate [cloud services](../cloud-services-what-is.md) to distribute compute processing and within [availability sets](../virtual-machines/virtual-machines-manage-availability.md) for improved fault tolerance.
 The DCs replicate with each other and with on-premises DCs by using Active Directory replication. No synchronization tools are needed.
 
 ![][1]
@@ -89,8 +89,8 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 ## Reconfigure DNS server for the virtual network
 
 1. In the Azure classic portal, click the name of the virtual network, and then click the **Configure** tab to [reconfigure the DNS server IP addresses for your virtual network](https://msdn.microsoft.com/library/azure/dn275925.aspx) to use the static IP addresses assigned to the replica DCs instead of the IP addresses of an on-premises DNS servers.
- 
-2. To ensure that all the replica DC VMs on the virtual network are configured with to use DNS servers on the virtual network, click **Virtual Machines**, click the status column for each VM, and then click **Restart**. Wait until the VM shows **Running** state before you try to sign into it. 
+
+2. To ensure that all the replica DC VMs on the virtual network are configured with to use DNS servers on the virtual network, click **Virtual Machines**, click the status column for each VM, and then click **Restart**. Wait until the VM shows **Running** state before you try to sign into it.
 
 ## Create VMs for application servers
 
@@ -123,4 +123,3 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
- 
