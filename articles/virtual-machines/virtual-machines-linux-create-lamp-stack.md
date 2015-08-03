@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2015"
+	ms.date="07/10/2015"
 	ms.author="ningk"/>
 
 #How to create a LAMP Stack with Microsoft Azure
@@ -32,9 +32,7 @@ It is assumed that the reader already has an Azure subscription.  If not you can
 
 In addition to this topic, if you already have a virtual machine and are just looking for the basics of installing a  LAMP stack on different Linux distributions, refer to [Install the LAMP Stack on a Linux virtual machine in Azure](virtual-machines-linux-install-lamp-stack.md).
 
-You can also deploy pre-configured LAMP images from the Azure Marketplace. The following 10 minute video introduces deploying pre-built LAMP images from the Azure Marketplace:  
-
-> [AZURE.VIDEO lamp-stack-on-azure-vms-with-guy-bowerman]
+You can also deploy pre-configured LAMP images from the Azure Marketplace. The following 10 minute video introduces deploying pre-built LAMP images from the Azure Marketplace: (LAMP stack on Azure VMs](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##Phase 1: Create an image
 In this phase, you will create a virtual machine using a Linux image in Azure.  
@@ -53,8 +51,8 @@ Follow these steps to generate the SSH Authentication Key.
 -	Select and copy the public key in **Key** and save it in a file named **publicKey.pem**. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
 -	Click **Save private key** and save it in a file named **privateKey.ppk**.
 
-###Step 2: Create the image in the Azure Preview Portal.
-In the [Azure Preview Portal](https://portal.azure.com/), click **New** in the task bar and create an image by following these instructions, choosing the Linux image based on your needs. This example uses the Ubuntu 14.04 image.
+###Step 2: Create the image in the Azure Portal.
+In the [Azure Portal](https://portal.azure.com/), click **New** in the task bar and create an image by following these instructions, choosing the Linux image based on your needs. This example uses the Ubuntu 14.04 image.
 
 ![][3]
 
@@ -76,7 +74,7 @@ Endpoints in Azure consists of a protocol (TCP or UDP), along with a public and 
 
 TCP port 80 is the default port number on which Apache listens. Opening this port with an Azure endpoint will allow you and other Internet clients access to the Apache web server.  
 
-In the Azure Preview Portal, click **Browse -> Virtual Machine**, and then click the virtual machine that you created.
+In the Azure Portal, click **Browse -> Virtual Machine**, and then click the virtual machine that you created.
 
 ![][5]
 
@@ -104,7 +102,7 @@ Click **OK** to add the endpoint to your virtual machine.
 ###Step 2: Connect to the image you created
 You can choose any SSH tool to connect to your new virtual machine. In this example, we use Putty.  
 
-First, get the DNS name of your virtual machine from the Azure Preview Portal. Click **Browse -> Virtual machines ->** the name of your virtual machine **-> Properties**, and then look in the **Domain Name** field of the **Properties** tile.
+First, get the DNS name of your virtual machine from the Azure Portal. Click **Browse -> Virtual machines ->** the name of your virtual machine **-> Properties**, and then look in the **Domain Name** field of the **Properties** tile.
 
 Get the port number for SSH connections from the **SSH** field.   Here is an example.  
 

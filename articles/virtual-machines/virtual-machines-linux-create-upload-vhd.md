@@ -3,7 +3,7 @@
 	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains the Linux operating system."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
-	ms.author="kathydav"/>
+	ms.date="07/29/2015"
+	ms.author="dkshir"/>
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
 
@@ -66,6 +66,8 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 ### If using Azure CLI
 
+Use Azure AD method to login:
+
 1. Open an Azure CLI window
 
 2. Type:
@@ -74,7 +76,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	When prompted, type your username and password.
 
-**OR**, to use a PublishSettings file instead:
+**OR**, use a PublishSettings file instead:
 
 1. Open an Azure CLI window
 
@@ -92,8 +94,22 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	Where `<PathToFile>` is the full path to the .publishsettings file.
 
+	For more information, read [Connect to Azure from Azure CLI](../xplat-cli-connect.md).
+
 
 ### If using Azure PowerShell
+
+Use Azure AD method to login:
+
+1. Open an Azure PowerShell window.
+
+2. Type:
+
+	`Add-AzureAccount`
+
+	When prompted, enter your organizational user id and password.
+
+**OR**, use the PublishSettings files instead:
 
 1. Open an Azure PowerShell window.
 
@@ -113,6 +129,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md)
 
+> [AZURE.NOTE] We recommend you use the newer Azure Active Directory method to login to your Azure subscription, either from the Azure CLI or the Azure PowerShell.
 
 ## <a id="upload"> </a>Step 3: Upload the image to Azure ##
 
@@ -140,4 +157,3 @@ For more information, see [Add-AzureVhd]((https://msdn.microsoft.com/library/azu
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
- 

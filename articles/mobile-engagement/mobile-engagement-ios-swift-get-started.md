@@ -19,10 +19,10 @@
 # Get Started with Azure Mobile Engagement for iOS Apps in Swift
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md)
-- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -330,16 +330,16 @@ We will now create a simple Push Notification campaign that will send a push to 
 [18]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [19]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [22]: ./media/mobile-engagement-ios-get-started/xcode-view-controller.png
-[26]: ./media/mobile-engagement-common/engage-button.png
-[27]: ./media/mobile-engagement-common/engagement-portal.png
-[28]: ./media/mobile-engagement-ios-get-started/native-push-settings.png
-[30]: ./media/mobile-engagement-common/clic-monitor-tab.png
-[31]: ./media/mobile-engagement-common/monitor.png
-[33]: ./media/mobile-engagement-ios-get-started/monitor-0.png
-[35]: ./media/mobile-engagement-common/new-announcement.png
-[36]: ./media/mobile-engagement-ios-get-started/campaign-first-params.png
-[37]: ./media/mobile-engagement-common/campaign-content.png
-[38]: ./media/mobile-engagement-common/campaign-create.png
-[39]: ./media/mobile-engagement-common/campaign-activate.png
-[40]: ./media/mobile-engagement-ios-get-started/SwiftSelection.png
-[41]: ./media/mobile-engagement-ios-get-started/AddHeaderFile.png
+[26]: ./media/mobile-engagement-ios-swift-get-started/engage-button.png
+[27]: ./media/mobile-engagement-ios-swift-get-started/engagement-portal.png
+[28]: ./media/mobile-engagement-ios-swift-get-started/native-push-settings.png
+[30]: ./media/mobile-engagement-ios-swift-get-started/clic-monitor-tab.png
+[31]: ./media/mobile-engagement-ios-swift-get-started/monitor.png
+[33]: ./media/mobile-engagement-ios-swift-get-started/monitor-0.png
+[35]: ./media/mobile-engagement-ios-swift-get-started/new-announcement.png
+[36]: ./media/mobile-engagement-ios-swift-get-started/campaign-first-params.png
+[37]: ./media/mobile-engagement-ios-swift-get-started/campaign-content.png
+[38]: ./media/mobile-engagement-ios-swift-get-started/campaign-create.png
+[39]: ./media/mobile-engagement-ios-swift-get-started/campaign-activate.png
+[40]: ./media/mobile-engagement-ios-swift-get-started/SwiftSelection.png
+[41]: ./media/mobile-engagement-ios-swift-get-started/AddHeaderFile.png

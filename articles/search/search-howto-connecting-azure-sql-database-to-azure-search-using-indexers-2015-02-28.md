@@ -69,70 +69,20 @@ You can get the connection string from the [Azure portal](https://portal.azure.c
 Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table. See the following table for the mapping between SQL and Azure search data types.
 
 **Mapping between SQL Data Types and Azure Search Data Types**
-<table style="font-size:12">
-<tr>
-<td>SQL data type</td>	
-<td>Allowed target index field types</td>
-<td>Notes</td>
-</tr>
-<tr>
-<td>bit</td>
-<td>Edm.Boolean, Edm.String</td>
-<td></td>
-</tr>
-<tr>
-<td>int, smallint, tinyint</td>
-<td>Edm.Int32, Edm.Int64, Edm.String</td>
-<td></td>
-</tr>
-<tr>
-<td>bigint</td>
-<td>Edm.Int64, Edm.String</td>
-<td></td>
-</tr>
-<tr>
-<td>real, float</td>
-<td>Edm.Double, Edm.String</td>
-<td></td>
-</tr>
-<tr>
-<td>smallmoney, money<br/>decimal<br/>numeric
-</td>
-<td>Edm.String</td>
-<td>Azure Search does not support converting decimal types into Edm.Double because this would lose precision
-</td>
-</tr>
-<tr>
-<td>char, nchar, varchar, nvarchar</td>
-<td>Edm.String<br/>Collection(Edm.String)</td>
-<td>Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#create-indexer) for details</td>
-</tr>
-<tr>
-<td>smalldatetime, datetime, datetime2, date, datetimeoffset</td>
-<td>Edm.DateTimeOffset, Edm.String</td>
-<td></td>
-</tr>
-<tr>
-<td>uniqueidentifer</td>
-<td>Edm.String</td>
-<td></td>
-</tr>
-<tr>
-<td>geography</td>
-<td>Edm.GeographyPoint</td>
-<td>Only geography instances of type POINT with SRID 4326 (which is the default) are supported</td>
-</tr>
-<tr>
-<td>rowversion</td>
-<td>N/A</td>
-<td>Row-version columns cannot be stored in the search index, but they can be used for change tracking</td>
-</tr>
-<tr>
-<td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, CLR types</td>
-<td>N/A</td>
-<td>Not supported</td>
-</tr>
-</table>
+
+|SQL data type | Allowed target index field types |Notes 
+|------|-----|----|
+|bit|Edm.Boolean, Edm.String| |
+|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
+| bigint | Edm.Int64, Edm.String | |
+| real, float |Edm.Double, Edm.String | |
+| smallmoney, money decimal numeric | Edm.String| Azure Search does not support converting decimal types into Edm.Double because this would lose precision |
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#create-indexer) for details| 
+|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
+|uniqueidentifer | Edm.String | |
+|geography | Edm.GeographyPoint | Only geography instances of type POINT with SRID 4326 (which is the default) are supported | | 
+|rowversion| N/A |Row-version columns cannot be stored in the search index, but they can be used for change tracking | |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types | N/A |Not supported |
 
 Finally, create the indexer by giving it a name and referencing the data source and target index:
 

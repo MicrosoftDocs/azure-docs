@@ -1,37 +1,36 @@
-<properties 
-	pageTitle="List of Connectors and API Apps | Azure" 
-	description="Read about the Connectors and API Apps in Azure App Service; microservices architecture" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="List of Connectors and API Apps | Azure"
+	description="Read about the Connectors and API Apps in Azure App Service; microservices architecture"
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2015" 
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2015"
 	ms.author="mandia"/>
 
 
 # Connectors and API Apps List in Microsoft Azure App Service
-This topic lists all the available connectors and API Apps created by Microsoft. 
+This topic lists all the available connectors and API Apps created by Microsoft.
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/).
 
 
 ## Standard Connectors
-The following table lists all the available connectors and API Apps created by Microsoft that are available with the Standard Connectors: 
+The following table lists all the available connectors and API Apps created by Microsoft that are available with the Standard Connectors:
 
 Name | Description
 --- | ---
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | Use this connector to create a Hadoop cluster on Azure and submit different Hadoop jobs such as Hive, Pig, MapReduce, and Streaming MapReduce. Using this connector, you can also spin a cluster, submit a job, and wait for the job to complete.
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Using this connector, you can send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.
 [Azure Storage Blob](app-service-logic-connector-azurestorageblob.md) | Connects to Blob storage and can Upload Blob, Get Blob, Delete Blob, List Blobs in Container, Snapshot Blob, Copy Blob, and use a trigger to retrieve Blobs.
-Azure WebJobs | Connects to WebJobs.
 [Box](app-service-logic-connector-box.md) | Connects to Box and can Upload File, Get File, Delete File, List Files, and uses a trigger to retrieve files.
 [Chatter](app-service-logic-connector-chatter.md) | Connects to Chatter and can Post Message, Search, and use a trigger to retrieve new messages.
 [Dropbox](app-service-logic-connector-dropbox.md) | Connect to Dropbox and can Upload File, Get File, Delete File, List Files, and use a trigger to retrieve files.
@@ -57,7 +56,7 @@ Azure WebJobs | Connects to WebJobs.
 
 
 ## Premium Connectors
-The following table lists all the available Connectors and API Apps created by Microsoft available in Premium Connectors: 
+The following table lists all the available Connectors and API Apps created by Microsoft available in Premium Connectors:
 
 Name  | Description
 ------------- | -------------
@@ -69,7 +68,7 @@ Name  | Description
 [BizTalk Rules](app-service-logic-use-biztalk-rules.md) | BizTalk Rules define and control the structure, operation, and strategy of an organization. Business policies can be updated without recompiling and redeploying the associated applications.
 DB2 Connector | Connects to an IBM DB2 database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. <br/><br/>No triggers. Actions include table select, insert, update, delete, and custom statement<br/><br/>This connector also includes the Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
 Informix | Connects to an IBM Informix database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands.<br/><br/>No triggers. Actions include table select, insert, update, delete, and custom statement.<br/><br/>When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes a Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
-MQ | Connects to IBM WebSphere MQ Server version 8, on-premises and on an Azure virtual machine running a Windows operating system. When using on-premises, VPN or Azure ExpressRoute can be used. The connector also includes the Microsoft Client for MQ.<br/><br/>No triggers. No actions.<br/><br/><strong>Note</strong> Currently cannot be used with Logic Apps.
+MQ | Connects to IBM WebSphere MQ Server version 8, on-premises and on an Azure virtual machine running a Windows operating system. When using on-premises, VPN or Azure ExpressRoute can be used. The connector also includes the Microsoft Client for MQ.<br/><br/>No triggers. No actions.<br/><br/>**Note** Currently cannot be used with Logic Apps.
 [Oracle Database](app-service-logic-connector-oracle.md) | The Oracle Database connector connects to on-premises Oracle Database and  can create, update, get, and delete entries on a database table.
 [SAP](app-service-logic-connector-sap.md) | The SAP connector connects to an on-premises SAP server and invokes RFCs, BAPIs and tRFCs, and send IDOCs.
 [BizTalk Flat File Encoder](app-service-logic-flatfile-encoder.md) | Provides interoperability between flat file data (like excel and csv) and XML data. This API App can convert a flat file instance to XML and vice versa.
@@ -88,7 +87,8 @@ Connectors can also be used as actions within your Logic App. Actions are useful
 
 ## Create your own Connectors and API Apps
 [Connectors and API Apps Reference](http://aka.ms/appservicesconnectorreference)<br/>
-[Azure App Service API app triggers](../app-service-api/app-service-api-dotnet-triggers.md)
+[Azure App Service API app triggers](../app-service-api/app-service-api-dotnet-triggers.md)<br/>
+[Logic App Reference](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
 ## More on Connectors and API Apps

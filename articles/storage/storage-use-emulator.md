@@ -127,8 +127,6 @@ The service endpoints for the storage emulator are:
 	Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
 	Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-> [AZURE.NOTE] You cannot use HTTPS with the storage emulator, although HTTPS is the recommended protocol for accessing resources in Azure storage.
- 
 ### Addressing the account secondary with RA-GRS
 
 Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS). For storage resources both in the cloud and in the local emulator, you can access the secondary location by appending -secondary to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in the storage emulator:

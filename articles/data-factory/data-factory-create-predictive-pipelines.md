@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
@@ -42,48 +42,47 @@ This example uses Azure Storage to hold both the input and output data. You can 
 We recommend that you go through the [Get started with Azure Data Factory][adf-getstarted] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.   
  
 
-1. Create a linked service for your Azure Storage. If the scoring input and output files will be in different storage accounts, you will need two linked services. Here is a JSON example:
+1. Create a **linked service** for your **Azure Storage**. If the scoring input and output files will be in different storage accounts, you will need two linked services. Here is a JSON example:
 
 		{
-		    "name": "StorageLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureStorageLinkedService",
-		        "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
+		  "name": "StorageLinkedService",
+		  "properties": {
+		    "type": "AzureStorage",
+		    "typeProperties": {
+		      "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
 		    }
+		  }
 		}
 
-2. Create the input and output Azure Data Factory tables. Note that unlike some other Data Factory tables, these must both contain both **folderPath** and **fileName** values. You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files. You will likely need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice. In that case, you would not include the “waitOnExternal” settings shown in the example below, and your ScoringInputBlob would be the output table of a different Activity.
+2. Create the **input** Azure Data Factory **table**. Note that unlike some other Data Factory tables, these must both contain both **folderPath** and **fileName** values. You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files. You will likely need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice. In that case, you would not include the **external** and **externalData** settings shown in the example below, and your ScoringInputBlob would be the output table of a different Activity.
 
-		{  
-			"name":"ScoringInputBlob",
-			"properties":
-			{  
-					"location":
-					{  
-						"type":"AzureBlobLocation",
-						"folderPath":"azuremltesting/input",
-						"fileName":"in.csv",
-						"format":
-						{ 
-							"type":"TextFormat",
-							"columnDelimiter":","
-						},
-						"linkedServiceName":"StorageLinkedService"
-					},
-					"availability":
-					{  
-						"frequency":"Day",
-						"interval":1,
-						"waitOnExternal":
-						{
-		                	"retryInterval": "00:01:00",
-		                	"retryTimeout": "00:10:00",
-		                	"maximumRetry": 3
-		            	}
-		      		}
-		   		}
-			}
+		{
+		  "name": "ScoringInputBlob",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "azuremltesting/input",
+		      "fileName": "in.csv",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Day",
+		      "interval": 1
+		    },
+		    "policy": {
+		      "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+		      }
+		    }
+		  }
+		}
 	
 	Your batch scoring csv file must have the column header row. If you are using the **Copy Activity** to create/move the csv into the blob storage, you should set the sink property **blobWriterAddHeader** to **true**. For example:
 	
@@ -94,76 +93,91 @@ We recommend that you go through the [Get started with Azure Data Factory][adf-g
 	     }
 	 
 	If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
-3. This output example uses partitioning to create a unique output path for each slice execution. Without this, the activity would overwrite the file.
+3. Create the **output** Azure Data Factory **table**. This example uses partitioning to create a unique output path for each slice execution. Without this, the activity would overwrite the file.
 
-		{  
-		   "name":"ScoringResultBlob",
-		   "properties":
-			{  
-		        "location":
-				{  
-		            "type":"AzureBlobLocation",
-		            "folderPath": "azuremltesting/scored/{folderpart}/",
-		            "fileName": "{filepart}result.csv",
-		            "partitionedBy": [ 
-		                 { "name": "folderpart", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMdd" } },
-		                 { "name": "filepart", "value": { "type": "DateTime", "date": "SliceStart", "format": "HHmmss" } } 
-		             ], 
-		            "format":{  
-		              "type":"TextFormat",
-		              "columnDelimiter":","
-		            },
-		            "linkedServiceName":"StorageLinkedService"
+		{
+		  "name": "ScoringResultBlob",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "azuremltesting/scored/{folderpart}/",
+		      "fileName": "{filepart}result.csv",
+		      "partitionedBy": [
+		        {
+		          "name": "folderpart",
+		          "value": {
+		            "type": "DateTime",
+		            "date": "SliceStart",
+		            "format": "yyyyMMdd"
+		          }
 		        },
-		        "availability":
-				{  
-		            "frequency":"Day",
-		            "interval":15
+		        {
+		          "name": "filepart",
+		          "value": {
+		            "type": "DateTime",
+		            "date": "SliceStart",
+		            "format": "HHmmss"
+		          }
 		        }
-		   }
+		      ],
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Day",
+		      "interval": 15
+		    }
+		  }
 		}
 
-
-4. Create a linked service of type: **AzureMLLinkedService**, providing the API key and model batch scoring URL.
+4. Create a **linked service** of type: **AzureMLLinkedService**, providing the API key and model batch scoring URL.
 		
 		{
-		    "name": "MyAzureMLLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureMLLinkedService",
-		        "mlEndpoint":"https://[batch scoring endpoint]/jobs",
-		        "apiKey":"[apikey]"
+		  "name": "MyAzureMLLinkedService",
+		  "properties": {
+		    "type": "AzureML",
+		    "typeProperties": {
+		      "mlEndpoint": "https://[batch scoring endpoint]/jobs",
+		      "apiKey": "[apikey]"
 		    }
+		  }
 		}
-
 5. Finally, author a pipeline containing an **AzureMLBatchScoringActivity**. It will get the location of the input file from your input tables, call the AzureML batch scoring API, and copy the batch scoring output to the blob given in your output table. Unlike some other Data Factory activities, AzureMLBatchScoringActivity can have only one input and one output table.
 
-		 {
-		    "name": "PredictivePipeline",
-		    "properties":
-		    {
-		        "description" : "use AzureML model",
-		        "activities":
-		        [
-		         {  
-		            "name":"MLActivity",
-		            "type":"AzureMLBatchScoringActivity",
-		            "description":"prediction analysis on batch input",
-		            "inputs": [ { "name": "ScoringInputBlob" } ],
-		            "outputs":[ { "name": "ScoringResultBlob" } ],
-		            "linkedServiceName":"MyAzureMLLinkedService",
-		            "policy":{  
-		               "concurrency":3,
-		               "executionPriorityOrder":"NewestFirst",
-		               "retry":1,
-		               "timeout":"02:00:00"
-		            }
-		         }
+		{
+		  "name": "PredictivePipeline",
+		  "properties": {
+		    "description": "use AzureML model",
+		    "activities": [
+		      {
+		        "name": "MLActivity",
+		        "type": "AzureMLBatchScoring",
+		        "description": "prediction analysis on batch input",
+		        "inputs": [
+		          {
+		            "name": "ScoringInputBlob"
+		          }
 		        ],
-
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z"
-		    }
+		        "outputs": [
+		          {
+		            "name": "ScoringResultBlob"
+		          }
+		        ],
+		        "linkedServiceName": "MyAzureMLLinkedService",
+		        "policy": {
+		          "concurrency": 3,
+		          "executionPriorityOrder": "NewestFirst",
+		          "retry": 1,
+		          "timeout": "02:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-02-13T00:00:00Z",
+		    "end": "2015-02-14T00:00:00Z"
+		  }
 		}
 
 	Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
@@ -172,10 +186,10 @@ We recommend that you go through the [Get started with Azure Data Factory][adf-g
 You can use Web service parameters that are exposed by a published Azure Machine Learning Web service in Azure Data Factory (ADF) pipelines. You can create an experiment in Azure Machine Learning and publish it as a web service, and then use that web service in multiple ADF pipelines or activities, passing in different inputs via the Web Service Parameters.
 
 ### Passing values for Web service parameters
-Add a **transformation** section to the **AzureMLBatchScoringActivty** section in the pipeline JSON to specify values for Web service parameters in that section as shown in the following example: 
+Add a **typeProperties** section to the **AzureMLBatchScoringActivty** section in the pipeline JSON to specify values for Web service parameters in that section as shown in the following example: 
 
-	transformation: {
-		webServiceParameters: {
+	"typeProperties": {
+		"webServiceParameters": {
 			"Param 1": "Value 1",
 			"Param 2": "Value 2"
 		}
@@ -184,9 +198,9 @@ Add a **transformation** section to the **AzureMLBatchScoringActivty** section i
 
 You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn835056.aspx) in passing values for the Web service parameters as shown in the following example:
 
-	transformation: {
-    	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, 0))"
+	"typeProperties": {
+    	"webServiceParameters": {
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -206,47 +220,18 @@ If you have any additional Web service parameters, use the **webServiceParameter
 To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following: 
 
 - Create an **Azure SQL linked service**. 
-- Create a Data Factory **table** that uses **AzureSqlTableLocation**.
+- Create a Data Factory **table** that uses **AzureSqlTable**.
 - Set that Data Factory **table** as the **input** for the **AzureMLBatchScoringActivity** in the pipeline JSON. 
 
 
 
 #### Azure SQL Writer
-As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters. An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table. The following table describes when the input linked service is used vs. output linked service.   
+As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters. An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table. The following table describes when the input linked service is used vs. output linked service. 
 
-<table>
-<tr>
-<td>Output/Input</td>
-<td><b>Input is Azure SQL</b></td>
-<td><b>Input is Azure Blob</b></td>
-</tr>
-<tr>
-<td><b>Output is Azure SQL</b></td>
-<td><p>The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p>
-<p>If the Azure SQL Reader and Azure SQL Writer in your Azure ML model share the same Web service parameters mentioned above, you are fine. If they do not share same Web service paramers, for example, if the Azure SQL Writer uses parameters names: Database server name1, Database name1, Server user account name1, Server user account password1 (with '1' at the end), you must pass values for these OUTPUT web service parameters in the webServiceParameters section of activity JSON.</p>
-<p>
-You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON.  
-</p>
-
-</td>
-<td>
-<p>The Data Factory service uses the connection string information from the OUTPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p>
-<p>You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON . <p>Input blob will be used as input location.</p>
-</td>
-</tr>
-<tr>
-<td><b>Output is Azure Blob</b></td>
-<td>The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.
-</td>
-<td>
-<p>You must pass values for any Web service parameters using the WebServiceParameters section of activity JSON.</p> 
-
-<p>Blobs will be used as input and output locations.</p>
-
-</td>
-<tr>
-
-</table>
+| Output/Input | Input is Azure SQL | Input is Azure Blob |
+| ------------ | ------------------ | ------------------- |
+| Output is Azure SQL | <p>The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p><p>If the Azure SQL Reader and Azure SQL Writer in your Azure ML model share the same Web service parameters mentioned above, you are fine. If they do not share same Web service paramers, for example, if the Azure SQL Writer uses parameters names: Database server name1, Database name1, Server user account name1, Server user account password1 (with '1' at the end), you must pass values for these OUTPUT web service parameters in the webServiceParameters section of activity JSON.</p><p>You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON.</p> | <p>The Data Factory service uses the connection string information from the OUTPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p><p>You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON . <p>Input blob will be used as input location.</p> |
+|Output is Azure Blob | The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio. | <p>You must pass values for any Web service parameters using the WebServiceParameters section of activity JSON.</p><p>Blobs will be used as input and output locations.</p> |
     
 
 > [AZURE.NOTE] Azure SQL Writer may encounter key violations if it is overwriting an identity column. You should ensure that you structure your output table to avoid this situation. 
@@ -257,39 +242,46 @@ You can pass values for any other Web service parameters using the webServicePar
 #### Pipeline with AzureMLBatchScoringActivity with Web Service Parameters
 
 	{
-		"name": "MLWithSqlReaderSqlWriter",
-	  	"properties": {
-		    "description": "Azure ML model with sql azure reader/writer",
-		    "activities": [
-		    	{
-		    	    "name": "MLSqlReaderSqlWriterActivity",
-		    	    "type": "AzureMLBatchScoringActivity",
-		    	    "description": "test",
-		        	"inputs": [ { "name": "MLSqlInput" } ],
-		        	"outputs": [ { "name": "MLSqlOutput" } ],
-		        	"linkedServiceName": "MLSqlReaderSqlWriterScoringModel",
-		        	"policy": {
-		          		"concurrency": 1,
-			          	"executionPriorityOrder": "NewestFirst",
-			          "retry": 1,
-			          "timeout": "02:00:00"
-			        },
-			        transformation: {
-			        	webServiceParameters: {
-		            		"Database server name1": "output.database.windows.net",
-				            "Database name1": "outputDatabase",
-		            		"Server user account name1": "outputUser",
-		            		"Server user account password1": "outputPassword",
-			           		"Comma separated list of columns to be saved": "CustID, Scored Labels, Scored Probabilities",
-		    		        "Data table name": "BikeBuyerPredicted" 
-		          		}  
-		        	}
-		      	}
-	    	],
-
-			"start": "2015-02-13T00:00:00Z",
-        	"end": "2015-02-14T00:00:00Z"
-		}
+	  "name": "MLWithSqlReaderSqlWriter",
+	  "properties": {
+	    "description": "Azure ML model with sql azure reader/writer",
+	    "activities": [
+	      {
+	        "name": "MLSqlReaderSqlWriterActivity",
+	        "type": "AzureMLBatchScoring",
+	        "description": "test",
+	        "inputs": [
+	          {
+	            "name": "MLSqlInput"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "MLSqlOutput"
+	          }
+	        ],
+	        "linkedServiceName": "MLSqlReaderSqlWriterScoringModel",
+	        "policy": {
+	          "concurrency": 1,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "02:00:00"
+	        },
+	        "typeProperties": {
+	          "webServiceParameters": {
+	            "Database server name1": "output.database.windows.net",
+	            "Database name1": "outputDatabase",
+	            "Server user account name1": "outputUser",
+	            "Server user account password1": "outputPassword",
+	            "Comma separated list of columns to be saved": "CustID, Scored Labels, Scored Probabilities",
+	            "Data table name": "BikeBuyerPredicted"
+	          }
+	        }
+	      }
+	    ],
+	    "start": "2015-02-13T00:00:00Z",
+	    "end": "2015-02-14T00:00:00Z"
+	  }
 	}
  
 In the above JSON example:

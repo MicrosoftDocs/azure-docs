@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Getting Started with Microsoft Azure Service Fabric Reliable Services
@@ -30,15 +30,19 @@ In this tutorial, you'll implement both a stateless service and a stateful servi
 
 Let's start with a stateless service.
 
-Launch Visual Studio 2015 RC as **Administrator**, and create a new **Service Fabric Stateless Service** Project named *HelloWorld*:
+Launch Visual Studio 2015 RC as **Administrator**, and create a new **Service Fabric Application** Project named *HelloWorld*:
 
-![Use the New Project dialog to create a new Service Fabric Stateless Service](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Use the New Project dialog to create a new Service Fabric Application](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-You will see 2 projects in the created solution:
+Then create a **Stateless Service** project named *HelloWorldStateless*:
 
- + **HelloWorldApplication**   
+![In the second dialog, create a stateless service](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+Your solution now contains 2 projects:
+
+ + **HelloWorld**
     This is the *application* project that contains your *services*. It also contains the application manifest that describes the application and a number of PowerShell scripts that help you to deploy your application.
- + **HelloWorld**  
+ + **HelloWorldStateless**  
     This is the service project, which contains the stateless service implementation.
 
 
@@ -91,7 +95,7 @@ The platform calls this method when an instance of your service is placed and re
 - The system may move your service instances around for resource balancing.
 - Faults occured within your code.
 - During application or system upgrades.
-- When the underlying hardware experiences an outage. 
+- When the underlying hardware experiences an outage.
 
 This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.
 
@@ -111,7 +115,7 @@ Select **Service Fabric Stateful Service** and name it "HelloWorldStateful". Cli
 
 ![Use the New Project dialog to create a new Service Fabric Stateful Service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-Your application should now have two services: the stateless service *HelloWorld* and the stateful service *HelloWorldStateful*. 
+Your application should now have two services: the stateless service *HelloWorld* and the stateful service *HelloWorldStateful*.
 
 Open **HelloWorldStateful.cs** in *HelloWorldStateful* which contains the following `RunAsync` method:
 
@@ -157,8 +161,8 @@ Reliable Collections can store any .NET type - including your custom types - wit
 
  1. Service Fabric makes your state highly-available by *replicating* state across nodes and storing it to local disk. This means everything that is stored in a Reliable Collection must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when using the default serializer.
 
- 2. Objects are replicated for high-availability when you commit a transaction on a Reliable Collection. Objects stored in Reliable Collections are kept in local memory in your service, which means you have a local reference to the object. 
- 
+ 2. Objects are replicated for high-availability when you commit a transaction on a Reliable Collection. Objects stored in Reliable Collections are kept in local memory in your service, which means you have a local reference to the object.
+
     It is important that you do not mutate local instances of those objects without performing an update operation on the Reliable Collection in a transaction, as those changes will not be replicated automatically.
 
 The *StateManager* takes care of managing Reliable Collections for you. Simply ask the StateManager for a reliable collection by name at any time, any place in your service and it ensures you get a reference back. Saving references to Reliable Collection instances in class member variables or properties is not recommended, as special care must be taken to ensure the reference is set to an instance at all times in the service lifecycle. The StateManager handles this work for you, optimized for repeat visits.
@@ -182,7 +186,7 @@ They also support *transactional* operations so you can keep state consistent be
 
 ## Run the application
 
-Back to the *HelloWorld* application. You can now build and deploy your services. Press **F5**, and your application will be built and deployed to your local cluster. 
+Back to the *HelloWorld* application. You can now build and deploy your services. Press **F5**, and your application will be built and deployed to your local cluster.
 
 Once the services are running, you can see the generated ETW events in a **Diagnostic Events** window. Note that there are events displayed from both the stateless service and the stateful service in the application. You can pause the stream by clicking the *Pause* button, and then examine message details by expanding a message.
 
@@ -202,4 +206,3 @@ Once the services are running, you can see the generated ETW events in a **Diagn
 [Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
 
 [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
- 
