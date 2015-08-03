@@ -65,68 +65,19 @@ Edifact Connector can be used either as a trigger or as an action.
 
 	![Encode configured][10]
 
-<table>
-	<tr>
-		<th>Parameter</th>
-		<th>Type</th>
-		<th>Description of the parameter</th>
-	</tr>
-	<tr>
-		<td>Content</td>
-		<td>string</td>
-		<td>XML Message</td>
-	</tr>
-	<tr>
-		<td>Agreement ID</td>
-		<td>integer</td>
-		<td>Agreement ID</td>
-	</tr>
-	<tr>
-		<td>Is Batched Message</td>
-		<td>boolean</td>
-		<td>Is Batched Message</td>
-	</tr>
-	<tr>
-		<td>Data Element Separator</td>
-		<td>string</td>
-		<td>Data Element Separator</td>
-	</tr>
-	<tr>
-		<td>Component Separator</td>
-		<td>string</td>
-		<td>Component Separator</td>
-	</tr>
-	<tr>
-		<td>Segment Terminator</td>
-		<td>string</td>
-		<td>Segment Terminator</td>
-	</tr>
-	<tr>
-		<td>Decimal Point Indicator</td>
-		<td>string</td>
-		<td>Decimal Point Indicator</td>
-	</tr>
-	<tr>
-		<td>Repetition Separator</td>
-		<td>string</td>
-		<td>Repetition Separator</td>
-	</tr>
-	<tr>
-		<td>Escape Character</td>
-		<td>string</td>
-		<td>Escape Character</td>
-	</tr>
-	<tr>
-		<td>Replacement Character</td>
-		<td>string</td>
-		<td>Replacement Character</td>
-	</tr>
-	<tr>
-		<td>Segment Terminator Suffix</td>
-		<td>string</td>
-		<td>Segment Terminator Suffix</td>
-	</tr>
-</table>
+Parameter|Type|Description of the parameter
+---|---|---
+Content|string|XML Message
+Agreement ID|integer|Agreement ID
+Is Batched Message|boolean|Is Batched Message
+Data Element Separator|string|Data Element Separator
+Component Separator|string|Component Separator
+Segment Terminator|string|Segment Terminator
+Decimal Point Indicator|string|Decimal Point Indicator
+Repetition Separator|string|Repetition Separator
+Escape Character|string|Escape Character
+Replacement Character|string|Replacement Character
+Segment Terminator Suffix|string|Segment Terminator Suffix
 
 The action returns an object containing the EDIFACT payload on successful completion.
 
