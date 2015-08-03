@@ -463,7 +463,7 @@ When your Azure CDN endpoint fails for any reason, you want your Web page to be 
 
 The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) class contains a property called [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) that enables you to configure the fallback mechanism for CDN failure. To use this property, follow the steps below:
 
-1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and make the following highlighted changes to add fallback mechanism to the default bundles:  
+1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and add `CdnFallbackExpression` code as shown to add fallback functionality to the default bundles:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -512,7 +512,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 4. In *App_Start\StyleFundleExtensions.cs*, rename the namespace to your ASP.NET application's namespace (e.g. **cdnwebapp**). 
 
-3. Go back to `App_Start\BundleConfig.cs` and modify the last `bundles.Add` statement with the following highlighted code:  
+3. Go back to `App_Start\BundleConfig.cs` and modify the last `bundles.Add` statement as shown below.  
 	<pre class="prettyprint">
 	bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
 	    .IncludeFallback("~/Content/css", "sr-only", "width", "1px")

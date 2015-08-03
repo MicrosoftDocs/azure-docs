@@ -25,32 +25,36 @@ The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipe
 ## Syntax
 
 	{
-	  "name": "HiveActivitySamplePipeline",
-	  "properties": {
+		"name": "HiveActivitySamplePipeline",
+	  	"properties": {
 	    "activities": [
-	      {
-	        "name": "Pig Activity",
-	        "description": "description",
-	        "type": "HDInsightPig",
-	        "inputs": [
-	          {
-	            "name": "input tables"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "output tables"
-	          }
-	        ],
-	        "linkedServiceName": "MyHDInsightLinkedService",
-	        "typeProperties": {
-	          "script": "Pig script",
-	          "scriptPath": "<pathtothePigscriptfileinAzureblobstorage>",
-	          "defines": {
-	            "param1": "param1Value"
-	          }
-	        }
-	      }
+	    	{
+	        	"name": "Pig Activity",
+	        	"description": "description",
+	        	"type": "HDInsightPig",
+	        	"inputs": [
+	          		{
+	            		"name": "input tables"
+	          		}
+	        	],
+	        	"outputs": [
+	          		{
+	            		"name": "output tables"
+	          		}
+        		],
+	        	"linkedServiceName": "MyHDInsightLinkedService",
+	        	"typeProperties": {
+	          		"script": "Pig script",
+	          		"scriptPath": "<pathtothePigscriptfileinAzureblobstorage>",
+	          		"defines": {
+	            		"param1": "param1Value"
+	          		}
+	        	},
+       			"scheduler": {
+          			"frequency": "Day",
+          			"interval": 1
+        		}
+	      	}
 	    ]
 	  }
 	}
@@ -122,7 +126,11 @@ To execute this Pig script in a Data Factory pipeline, you need to the do the fo
 		        "typeproperties": {
 		          "scriptPath": "adfwalkthrough\\scripts\\enrichlogs.pig",
 		          "scriptLinkedService": "StorageLinkedService"
-		        }
+		        },
+       			"scheduler": {
+          			"frequency": "Day",
+          			"interval": 1
+        		}
 		      }
 		    ]
 		  }
@@ -139,32 +147,36 @@ To use parameterize Pig script, do the following:
 - Define the parameters in **defines**.
 
 		{
-		  "name": "PigActivitySamplePipeline",
-		  "properties": {
+			"name": "PigActivitySamplePipeline",
+		  	"properties": {
 		    "activities": [
-		      {
-		        "name": "PigActivitySample",
-		        "type": "HDInsightPig",
-		        "inputs": [
-		          {
-		            "name": "PigSampleIn"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "PigSampleOut"
-		          }
-		        ],
-		        "linkedServiceName": "HDInsightLinkedService",
-		        "typeproperties": {
-		          "scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
-		          "scriptLinkedService": "StorageLinkedService",
-		          "defines": {
-		            "Input": "$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
-		            "Output": "Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
-		          }
-		        }
-		      }
+		    	{
+		        	"name": "PigActivitySample",
+		        	"type": "HDInsightPig",
+		        	"inputs": [
+		          		{
+		            		"name": "PigSampleIn"
+		          		}
+		        	],
+		        	"outputs": [
+		          		{
+		            		"name": "PigSampleOut"
+		          		}
+		        	],
+		        	"linkedServiceName": "HDInsightLinkedService",
+		        	"typeproperties": {
+		          		"scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
+		          		"scriptLinkedService": "StorageLinkedService",
+		          		"defines": {
+		            		"Input": "$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
+				            "Output": "Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		          		}
+		        	},
+       				"scheduler": {
+          				"frequency": "Day",
+	          			"interval": 1
+    	    		}
+		      	}
 		    ]
 		  }
 		}  

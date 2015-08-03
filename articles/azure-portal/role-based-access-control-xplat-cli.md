@@ -18,7 +18,9 @@
 
 # Managing Role-Based Access Control with the Azure Command-Line Interface (Azure CLI) #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-../xplat-cli.md" title="Azure CLI">Azure CLI</a></div>
+> [AZURE.SELECTOR]
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](/role-based-access-control-xplat-cli.md)
 
 Role-based access control (RBAC) in Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 

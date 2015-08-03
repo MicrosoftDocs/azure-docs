@@ -80,6 +80,7 @@ Text | Enter the text of the message to be posted.
 Channel Name | Enter the Slack Channel where this message is posted. If the channel is not entered, then the message is posted to #general.
 Advanced Properties | **Bot User name**: Name of the bot to use for this message. The message is posted as "Bot" if this is not entered.<p><p>**Icon URL**: The image URL to use as the icon for this message.<p><p>**Icon Emoji**: Emoji to use as the icon for this message. This property overrides the Icon URL property.
 
+
 The Slack connector has REST APIs available so you can use the connector outside of a Logic App. Open your Slack Connector and select **API definition**:
 
 ![][9]
