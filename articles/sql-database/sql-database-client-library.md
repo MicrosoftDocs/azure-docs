@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/29/2015"
+   ms.date="08/01/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with the Azure SQL Database Library for .NET
@@ -179,20 +179,19 @@ SQL databases are contained in servers. The server name must be globally unique 
     SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* Subscription id*/, token.AccessToken));
 
     // Create a server
-    ServerCreateOrUpdateProperties serverProperties = new ServerCreateOrUpdateProperties ()
-    {
-        AdministratorLogin = "ServerAdmin",
-        AdministratorLoginPassword = "P@ssword1",
-        Version = "12.0"
-    };
-
     ServerCreateOrUpdateParameters serverParameters = new ServerCreateOrUpdateParameters()
     {
         Location = "South Central US",
-        Properties = serverProperties 
+        Properties = new ServerCreateOrUpdateProperties()
+        {
+            AdministratorLogin = "ServerAdmin",
+            AdministratorLoginPassword = "P@ssword1",
+            Version = "12.0"
+        }
     };
 
     var serverResult = sqlClient.Servers.CreateOrUpdate("resourcegroup-name", "server-name", serverParameters);
+
 
 
 
@@ -203,19 +202,18 @@ By default a server cannot be connected to from any location. In order to connec
 The following example creates a rule that opens access to the server from any IP address. It is recommended that you create appropriate SQL logins and passwords to secure your database and not rely on firewall rules as a primary defense against intrusion. 
 
 
-    // Create a firewall rule on the server to allow TDS connections 
-    FirewallRuleCreateOrUpdateProperties firewallProperties = new FirewallRuleCreateOrUpdateProperties()
-    {
-        StartIpAddress = "0.0.0.0",
-        EndIpAddress = "255.255.255.255"
-    };
-
+    // Create a firewall rule on the server to allow TDS connection 
     FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
     {
-        Properties = firewallProperties
+        Properties = new FirewallRuleCreateOrUpdateProperties()
+        {
+            StartIpAddress = "0.0.0.0",
+            EndIpAddress = "255.255.255.255"
+        }
     };
 
     var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("resourcegroup-name", "server-name", "FirewallRule1", firewallParameters);
+
 
 
 
@@ -326,7 +324,7 @@ To create a new pool on a server:
             DatabaseDtuMax = 50, /* DatabaseDtuMax reduces the maximum DTUs that any one database can consume */
             DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
             Dtu = (int)currentPool.Properties.Dtu,
-            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU; setting StorageMB will change the pool DTU also. */
+            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU. */
         }
     };
 
@@ -613,7 +611,7 @@ To delete a resource group:
                     DatabaseDtuMax = 50, /* DatabaseDtuMax reduces the maximum DTUs that any one database can consume */
                     DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
                     Dtu = (int)currentPool.Properties.Dtu,
-                    StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU; setting StorageMB will change the pool DTU also. */
+                    StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU. */
                 }
             };
             newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
