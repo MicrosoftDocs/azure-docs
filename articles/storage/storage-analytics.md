@@ -41,26 +41,26 @@ Log entries are created only if there is storage service activity. For example, 
 
 The following types of authenticated requests are logged:
 
-- Successful requests
+- Successful requests.
 
-- Failed requests, including timeout, throttling, network, authorization, and other errors
+- Failed requests, including timeout, throttling, network, authorization, and other errors.
 
-- Requests using a Shared Access Signature (SAS), including failed and successful requests
+- Requests using a Shared Access Signature (SAS), including failed and successful requests.
 
-- Requests to analytics data
+- Requests to analytics data.
 
 Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) and [Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx) topics.
 
 ### Logging anonymous requests
 The following types of anonymous requests are logged:
 
-- Successful requests
+- Successful requests.
 
-- Server errors
+- Server errors.
 
-- Timeout errors for both client and server
+- Timeout errors for both client and server.
 
-- Failed GET requests with error code 304 (Not Modified)
+- Failed GET requests with error code 304 (Not Modified).
 
 All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) and [Storage Analytics Log Format](](https://msdn.microsoft.com/library/hh343259.aspx)) topics.
 
@@ -73,21 +73,21 @@ As requests are logged, Storage Analytics will upload intermediate results as bl
 Duplicate records may exist for logs created in the same hour. You can determine if a record is a duplicate by checking the **RequestId** and **Operation** number.
 
 ### Log naming conventions
-Each log will be written in the following format:
+Each log will be written in the following format.
 
     <service-name>/YYYY/MM/DD/hhmm/<counter>.log
 
-The following table describes each attribute in the log name:
+The following table describes each attribute in the log name.
 
 | Attribute      	| Description                                                                                                                                                                                	|
 |----------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| <service-name> 	| The name of the storage service. For example: blob, table, or queue                                                                                                                        	|
-| YYYY           	| The four digit year for the log. For example: 2011                                                                                                                                         	|
-| MM             	| The two digit month for the log. For example: 07                                                                                                                                           	|
-| DD             	| The two digit month for the log. For example: 07                                                                                                                                           	|
-| hh             	| The two digit hour that indicates the starting hour for the logs, in 24 hour UTC format. For example: 18                                                                                   	|
-| mm             	| The two digit number that indicates the starting minute for the logs. >[AZURE.NOTE]This value is unsupported in the current version of Storage Analytics, and its value will always be 00. 	|
-| <counter>      	| A zero-based counter with six digits that indicates the number of log blobs generated for the storage service in an hour time period. This counter starts at 000000. For example: 000001   	|
+| <service-name> 	| The name of the storage service. For example: blob, table, or queue.                                                                                                                        	|
+| YYYY           	| The four digit year for the log. For example: 2011.                                                                                                                                         	|
+| MM             	| The two digit month for the log. For example: 07.                                                                                                                                           	|
+| DD             	| The two digit month for the log. For example: 07.                                                                                                                                           	|
+| hh             	| The two digit hour that indicates the starting hour for the logs, in 24 hour UTC format. For example: 18.                                                                                   	|
+| mm             	| The two digit number that indicates the starting minute for the logs. This value is unsupported in the current version of Storage Analytics, and its value will always be 00. 	|
+| <counter>      	| A zero-based counter with six digits that indicates the number of log blobs generated for the storage service in an hour time period. This counter starts at 000000. For example: 000001.   	|
 
 The following is a complete sample log name that combines the previous examples.
 
@@ -104,10 +104,10 @@ All log blobs are stored with metadata that can be used to identify what logging
 
 | Attribute  	| Description                                                                                                                                                                                                                                               	|
 |------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| LogType    	| Describes whether the log contains information pertaining to read, write, or delete operations. This value can include one type or a combination of all three, separated by commas.   Example 1: write Example 2: read,write Example 3: read,write,delete 	|
-| StartTime  	| The earliest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:21:46Z                                                                                                                                          	|
-| EndTime    	| The latest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:22:09Z                                                                                                                                            	|
-| LogVersion 	| The version of the log format. Currently the only supported value is: 1.0                                                                                                                                                                                 	|
+| LogType    	| Describes whether the log contains information pertaining to read, write, or delete operations. This value can include one type or a combination of all three, separated by commas.   Example 1: write Example 2: read,write Example 3: read,write,delete. 	|
+| StartTime  	| The earliest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:21:46Z.                                                                                                                                          	|
+| EndTime    	| The latest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:22:09Z.                                                                                                                                           	|
+| LogVersion 	| The version of the log format. Currently the only supported value is 1.0.                                                                                                                                                                                 	|
 
 The following list displays complete sample metadata using the prevous examples.
 
@@ -179,9 +179,9 @@ Storage Analytics is enabled by a storage account owner; it is not enabled by de
 
 The following actions performed by Storage Analytics are billable:
 
-- Requests to create blobs for logging
+- Requests to create blobs for logging.
 
-- Requests to create table entities for metrics
+- Requests to create table entities for metrics.
 
 If you have configured a data retention policy, you are not charged for delete transactions when Storage Analytics deletes old logging and metrics data. However, delete transactions from a client are billable. For more information about retention policies, see [Setting a Storage Analytics Data Retention Policy](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
@@ -197,12 +197,12 @@ When looking at Storage Analytics data, you can use the tables in the [Storage A
 - [How To monitor a storage account](../how-to-monitor-a-storage-account.md)
 - [Enabling and Configuring Storage Analytics](https://msdn.microsoft.com/library/hh360996.aspx)
 
-### Storage Analytics Logging  
+### Storage Analytics logging  
 - [About Storage Analytics Logging](https://msdn.microsoft.com/library/hh343262.aspx)
 - [Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx)
 - [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoftcom/library/hh343260.aspx)
 
-### Storage Analytics Metrics
+### Storage Analytics metrics
 - [About Storage Analytics Metrics](https://msdn.microsoft.com/library/hh343258.aspx)
 - [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx)  
