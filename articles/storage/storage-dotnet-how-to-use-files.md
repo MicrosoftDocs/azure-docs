@@ -222,7 +222,7 @@ Run the console application to see the output.
 
 ## Set the maximum size for a file share
 
-Beginning with version 5.x of the Azure storage client library, you can set set quota (or maximum size) for a share, in gigabytes. By setting the quota for a share, you can limit the total size of the files stored on the share.
+Beginning with version 5.x of the Azure storage client library, you can set set the quota (or maximum size) for a share, in gigabytes. By setting the quota for a share, you can limit the total size of the files stored on the share.
 
 If the total size of files on the share exceeds the quota set on the share, then clients will be unable to increase the size of existing files or create new files, unless they are empty.
 
@@ -238,9 +238,13 @@ The example below shows how to set the quota for an existing file share.
     //Get a reference to the file share we created previously.
     CloudFileShare share = fileClient.GetShareReference("logs");
 
-	//Specify the maximum size of the share, in GB.
-    share.Properties.Quota = 100;
-    share.SetProperties();
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+		//Specify the maximum size of the share, in GB.
+	    share.Properties.Quota = 100;
+	    share.SetProperties();
+	}
 
 To get the value of any existing quota for the share, call the **FetchAttributes()** method to retrieve the share's properties.
 
@@ -343,9 +347,6 @@ The example below copies a file to another file in the same share. Because this 
                 //Fetch the files's attributes in order to check the copy status.
                 destFile.FetchAttributes();
 
-                //Output the status of the copy operation.
-                Console.WriteLine("Copy operation status: {0}", destFile.CopyState.Status);
-
                 //Write the contents of the destination file to the console window.
                 Console.WriteLine(destFile.DownloadText());
             }
@@ -397,9 +398,6 @@ The example below creates a file and copies it to a blob within the same storage
 
     //Fetch the blob's attributes in order to check the copy status.
     destBlob.FetchAttributes();
-
-    //Output the status of the copy operation.
-    Console.WriteLine("Copy operation status: {0}", destBlob.CopyState.Status);
 
     //Write the contents of the file to the console window.
     Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
