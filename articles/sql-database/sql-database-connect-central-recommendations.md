@@ -123,7 +123,7 @@ In a production environment, clients that connect to Azure SQL Database V11 or V
 The middleware proxy that mediates between V11 and your ADO.NET 4.5 client handles a small subset of transient faults gracefully with retry logic. In cases where the proxy successfully connects on its second attempt, your client program is blissfully unaware that the first attempt failed.
 
 
-In contrast, the V12 proxy does not provide any retry functionality. In some V12 cases the the proxy is bypassed for the superior speed of connecting to SQL Database directly. Therefore the recommendation for retry logic is more pressing after upgrade from V11 to V12.
+In contrast, the V12 proxy does not provide any retry functionality. Further, in other V12 cases the the proxy is bypassed for the superior speed of connecting to SQL Database directly. Therefore the recommendation for retry logic is more pressing after upgrade from V11 to V12.
 
 
 To a client ADO.NET 4.5 program, these changes make Azure SQL Database V12 look more like Microsoft SQL Server.
