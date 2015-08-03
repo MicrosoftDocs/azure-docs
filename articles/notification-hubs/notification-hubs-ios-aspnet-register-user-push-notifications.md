@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 # Register the current user for push notifications by using ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+
+
 
 ##Overview
 
