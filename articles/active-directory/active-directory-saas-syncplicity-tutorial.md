@@ -83,7 +83,7 @@ This section outlines how to enable users to authenticate to Syncplicity with th
 
 7.  On the **Single Sign-On (SSO)** dialog page, perform the following steps:
 
-    ![Single Sign-On (SSO)](./media/active-directory-saas-syncplicity-tutorial/IC769550.png "Single Sign-On (SSO)")
+    ![Single Sign-On \(SSO\)](./media/active-directory-saas-syncplicity-tutorial/IC769550.png "Single Sign-On \(SSO\)")
 
     1.  In the **Custom Domain** textbox, type the name of your domain.
     2.  Select **Enabled** as **Single Sign-On Status**.

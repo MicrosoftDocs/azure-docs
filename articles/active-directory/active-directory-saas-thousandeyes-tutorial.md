@@ -65,7 +65,7 @@ This section outlines how to enable users to authenticate to ThousandEyes with t
 
     ![Configure Single SignOn](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configure Single SignOn")
 
-3.  On the **Configure App URL** page, in the **ThousandEyes Sign On URL** textbox, type the URL users are using to sign into your ThousandEyes application (e.g.: “*https://app.thousandeyes.com/login/sso*”), and then click **Next**. 
+3.  On the **Configure App URL** page, in the **ThousandEyes Sign On URL** textbox, type the URL users are using to sign into your ThousandEyes application (e.g.: "*https://app.thousandeyes.com/login/sso*"), and then click **Next**. 
 
     ![Configure App URL](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configure App URL")
 
@@ -129,6 +129,7 @@ In the case of ThousandEyes, provisioning is a manual task.
 
     1.  Type the **Name**, **Email** and other details of a valid Azure Active Directory account you want to provision into the related textboxes.
     2.  Click **Add New User to Account**.
+
         >[AZURE>NOTE] The AAD account holder will get an email including a link to confirm and activate the account.
 
 >[AZURE.NOTE] You can use any other ThousandEyes user account creation tools or APIs provided by ThousandEyes to provision AAD user accounts.

@@ -119,7 +119,7 @@ In the case of Thoughtworks Mingle, provisioning is a manual task.
     2.  As **User type**, select **Full user**.
     3.  Click **Create This Profile**.
 
->[Azure.NOTE] You can use any other Thoughtworks Mingle user account creation tools or APIs provided by Thoughtworks Mingle to provision AAD user accounts.
+>[AZURE.NOTE] You can use any other Thoughtworks Mingle user account creation tools or APIs provided by Thoughtworks Mingle to provision AAD user accounts.
 
 ##Assigning users
   
