@@ -53,7 +53,7 @@ This section describes how to create an Azure cloud cervice with three CoreOS vi
 5. Test your CoreOS cluster from an Azure VM
 6. Test your CoreOS cluster from localhost
 
-### Create public and private keys For communication
+### Create public and private keys for communication
 
 Use the instructions in [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md) to create a public and private key for SSH. (The basic steps are in the instructions below.) You are going to use these keys to connect to VMs in the cluster to verify that they are working and can communicate with each other.
 
