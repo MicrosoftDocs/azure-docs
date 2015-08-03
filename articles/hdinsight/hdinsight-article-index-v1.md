@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/30/2015"
+   ms.date="08/07/2015"
    ms.author="cjgronlund"/>
 
 # HDInsight article index for the Azure portal
@@ -31,16 +31,15 @@ HDInsight on the Azure portal will not receive upgrades after July 2015.
 > For an explanation of the advantages of the preview portal, see [DevOps just got a whole lot more awesome](/overview/preview-portal/).
 
 ## Get started
-* [Get started with Hadoop and a Hive query on Windows](hdinsight-hadoop-tutorial-get-started-windows-v1.md)
-* [Get started with the Storm Starter samples for big data analytics](hdinsight-apache-storm-tutorial-get-started-v1.md)
-* []()
+If you're new to Hadoop on HDInsight, go to the [HDInsight documentation page](/documentation/services/hdinsight/) to get started with the Azure preview portal.
 
+* [Get started with Hadoop and a Hive query on Windows](hdinsight-hadoop-tutorial-get-started-windows-v1.md)
+* **[NO-v1-ARTICLE *** Get started using Apache HBase with Hadoop](hdinsight-hbase-tutorial-get-started-v1.md)**
+* [Get started with the Storm Starter samples for big data analytics](hdinsight-apache-storm-tutorial-get-started-v1.md)
 
 ## Linux
-* []()
-* []()
-* []()
-* []()
+For a complete set of articles about using Linux and Linux clusters, go to the [HDInsight documentation page](/documentation/services/hdinsight/).
+
 
 ## Hadoop: Batch query
 * [Run four easy samples](hdinsight-run-samples.md)
@@ -83,8 +82,9 @@ HDInsight on the Azure portal will not receive upgrades after July 2015.
 
 ## Apache Spark
 
-Go to the [HDInsight documentation page](/documentation/services/hdinsight/) for articles about using Apache Spark in HDInsight on the Azure preview portal.
+For articles about using native Apache Spark clusters, go to the [HDInsight documentation page](/documentation/services/hdinsight/).
 
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 * [Install and use Spark on Hadoop clusters](hdinsight-hadoop-spark-install.md)
 * [Spark job server on HDInsight clusters](hdinsight-apache-spark-job-server.md) 
 * [Provision Apache Spark and run interactive queries using Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
@@ -105,9 +105,13 @@ Go to the [HDInsight documentation page](/documentation/services/hdinsight/) for
 ## Extensibility
 * [Extend HDInsight capabilities with Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
 * [Install and use Spark on Hadoop clusters](hdinsight-hadoop-spark-install.md)
+* [Use Giraph on HDInsight clusters to process large-scale graphs](hdinsight-hadoop-giraph-install-v1.md)
+* [Install and use Solr on Hadoop clusters](hdinsight-hadoop-solr-install-v1.md)
 
 ## Operations
 * [Provision clusters on Windows](hdinsight-provision-clusters-v1.md)
+* [Provision HBase clusters on Azure Virtual Network](hdinsight-hbase-provision-vnet.md)
+* [](hdinsight-hadoop-customize-cluster-v1.md)
 * [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability.md)
 
 ## Reference
