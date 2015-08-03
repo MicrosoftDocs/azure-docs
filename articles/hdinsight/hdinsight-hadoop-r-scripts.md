@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jgao"/>
 
 # Install and use R on HDInsight Hadoop clusters
@@ -23,20 +23,20 @@ You can install R on any type of cluster in Hadoop on HDInsight by using **Scrip
 Script action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight cluster using script action][hdinsight-cluster-customize].
 
 
-## <a name="whatIs"></a>What is R?
+## What is R?
 
 The <a href="http://www.r-project.org/" target="_blank">R Project for Statistical Computing</a> is an open source language and environment for statistical computing. R provides hundreds of build-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities. R is the preferred programming environment for most professional statisticians and scientists in a wide variety of fields. 
 
 R scripts can be run on Hadoop clusters in HDInsight that were customized using Script Action when created to install the R environment. R is compatible with Azure Blob Storage (WASB) so that data that is stored there can be processed using R on HDInsight.  
 
-## <a name="install"></a>How do I install R?
+## Install R
 
 A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) to install R on an HDInsight cluster is available from a read-only blob in Azure Storage. This section provides instructions about how to use the sample script while provisioning the cluster using the Azure portal.
 
 > [AZURE.NOTE] The sample script was introduced with HDInsight cluster version 3.1. For more information about  HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
 
-1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](../hdinsight-provision-clusters/#portal). 
-2. On the **Script Actions** page of the wizard, click **Add script action** to provide details about the script actions, as follows:
+1. When you provision an HDInsight cluster from the portal, click **Optional Configuration**, and then click **Script Actions**.
+2. On the **Script Actions** page, enter the following values:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
 	
@@ -56,7 +56,7 @@ A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv0
 
 You can also use the script to install R on HDInsight by using Azure PowerShell or the HDInsight .NET SDK. Instructions for these procedures are provided later in this article.
 
-## <a name="useR"></a>How do I run R scripts with HDInsight?
+## Run R scripts
 This section describes how to run an R script on the Hadoop cluster with HDInsight.
 
 1. **Establish a Remote Desktop connection to the cluster**: From the Azure portal, enable Remote Desktop for the cluster you created with R installed, and then connect to the cluster. For instructions, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
@@ -82,7 +82,7 @@ The first two lines call the RHadoop libraries that are installed with R. The fi
 	[99,]  99 198
 	[100,] 100 200
 
-## <a name="usingPS"></a>Install R on HDInsight by using Azure PowerShell
+## Install R using Azure PowerShell
 
 In this section, we use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
 
@@ -147,7 +147,7 @@ Perform the following steps:
 When prompted, enter the credentials for the cluster. It can take several minutes before the cluster is created.
 
 
-## <a name="usingSDK"></a>Install R on HDInsight by using the .NET SDK
+## Install R using the .NET SDK
 
 The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight from a .NET application. 
 
@@ -160,16 +160,16 @@ Perform the following procedures to provision an HDInsight cluster using the SDK
 
 The following sections show how to perform these procedures.
 
-### <a name="installSDK"></a>To install the HDInsight .NET SDK
+**To install the HDInsight .NET SDK**
 
 You can install latest published build of the SDK from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). The instructions will be shown in the next procedure.
 
-### <a name="createCert"></a>To create a self-signed certificate
+**To create a self-signed certificate**
 
 Create a self-signed certificate, install it on your workstation, and upload it to your Azure subscription. For instructions, see [Create a self-signed certificate](http://go.microsoft.com/fwlink/?LinkId=511138). 
 
 
-### <a name="createApp"></a>To create a .NET application in Visual Studio
+**To create a .NET application in Visual Studio**
 
 1. Open Visual Studio 2013.
 
@@ -265,7 +265,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 
 11. Save changes to the application and build the solution. 
 
-### <a name="runApp"></a>To run the application
+**To run the application**
 
 Open the Azure PowerShell console, navigate to the location where you saved the project, navigate to the \bin\debug directory within the project, and then run the following command:
 
@@ -273,7 +273,7 @@ Open the Azure PowerShell console, navigate to the location where you saved the 
 
 Provide a cluster name and press ENTER to provision a cluster with R installed.
 
-## <a name="seeAlso"></a>See also
+## See also
 
 - [Install and use Spark on HDInsight clusters][hdinsight-install-spark] for  instructions about how to use cluster customization to install and use Spark on HDInsight Hadoop clusters. Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications.
 - [Install Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.

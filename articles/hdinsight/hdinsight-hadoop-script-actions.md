@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jgao"/> 
 
 # Develop Script Action scripts for HDInsight 
