@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/03/2015"
+	ms.date="08/03/2015"
 	ms.author="bwren"/>
 
 
-# My first runbook
+# My first graphical runbook
 
 This tutorial walks you through the creation of a [graphical runbook](automation-graphical-authoring-intro.md) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters and a conditional link.  
 
@@ -196,6 +196,6 @@ We will now modify the runbook so that it will only attempt to start the runbook
 ## Related articles
 
 - [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
-
+- [My first textual runbook](automation-first-runbook-textual.md)
 
  
