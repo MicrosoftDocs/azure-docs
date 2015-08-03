@@ -117,6 +117,7 @@ Then input the information into the fields as shown below for the storage accoun
 ![image3](./media/stream-analytics-connect-data-event-inputs/03-stream-analytics-create-inputs.png)
 
 > [AZURE.NOTE]If the user checks the box for 'Configure Advanced Setting', it leads to the following the configuration . Otherwise, Stream Analytics will scan all the blobs in the storage container.
+
     ![image4](./media/stream-analytics-connect-data-event-inputs/04-stream-analytics-create-inputs.png)  
 
 Next choose the correct serialization setting for the data. The options are JSON, CSV, and Avro.
