@@ -344,9 +344,6 @@ The example below copies a file to another file in the same share. Because this 
                 //Start the copy operation.
                 destFile.StartCopy(sourceFile);
 
-                //Fetch the files's attributes in order to check the copy status.
-                destFile.FetchAttributes();
-
                 //Write the contents of the destination file to the console window.
                 Console.WriteLine(destFile.DownloadText());
             }
@@ -395,9 +392,6 @@ The example below creates a file and copies it to a blob within the same storage
 
     //Copy the file to the blob.
     destBlob.StartCopy(fileSasUri);
-
-    //Fetch the blob's attributes in order to check the copy status.
-    destBlob.FetchAttributes();
 
     //Write the contents of the file to the console window.
     Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
