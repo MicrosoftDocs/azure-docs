@@ -99,6 +99,8 @@ In this step, you grant to the new security group permissions for Get and Put
 -   Worker Data: Current Staffing Information  
 -   Worker Data: Business Title on Worker Profile  
 
+&npsp;  
+
 1.  Enter domain security policies in the search box, and then click on the link, Domain Security Policies for Functional Area.     
 
 	![Domain Security Policies](./media/active-directory-saas-inbound-synchronization-tutorial/IC750986.png "Domain Security Policies")  
