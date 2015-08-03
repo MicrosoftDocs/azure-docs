@@ -67,6 +67,13 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+### Traffic Manager Limits
+
+[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+### DNS Limits
+
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### Networking Limits – Azure Resource Manager
 
@@ -77,7 +84,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 ## Storage Limits
 
-### Standard Storage Limits 
+### Standard Storage Limits
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
@@ -102,6 +109,10 @@ For additional details on storage account limits, see [Azure Storage Scalability
 ## App Service Limits - Web Apps, Mobile Apps, API Apps, Logic Apps
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+
+## Scheduler Limits
+
+[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
 ## Batch Limits
 

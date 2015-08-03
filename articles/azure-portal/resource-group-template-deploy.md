@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
@@ -48,9 +48,13 @@ With Resource Manager templates, you can:
 
 ## Deploy with the preview portal
 
-Guess what?  Every application in the Gallery is backed by an Azure Resource Manager template!  By simply creating a Virtual Machine, Virtual Network, Storage Account, App Service, or database through the portal, you're already reaping the benefits of Azure Resource Manager without additional effort.
+Guess what?  Every application that you create through the [preview portal](https://portal.azure.com/) is backed by an Azure Resource Manager template!  By simply creating a Virtual Machine, Virtual Network, Storage Account, App Service, or database through the portal, you're already reaping the benefits of Azure Resource Manager without additional effort. 
+Simply, select the **New** icon and you will be on your way toward deploying an application through Azure Resource Manager.
 
-To troubleshoot deployments through the preview portal, click **Browse** -> **Resource Groups** -> *YourResourceGroupName*.  From here, click on the **Events** tile under the **Monitoring** lens.  Finally, you can select an individual **operation** and **event** to view details.
+![New](./media/resource-group-template-deploy/new.png)
+
+For more information about using the portal with Azure Resource Manager, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).  
+
 
 ## Deploy with PowerShell
 
@@ -247,11 +251,9 @@ If you use a parameter file to pass the parameter values to your template during
     }
 
 ## Next steps
-- [Azure Resource Manager Overview](../resource-group-overview.md)
-- [Deploy resources using .NET libraries and a template](../arm-template-deployment.md)
-- [Deploy a complex application predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Authoring templates](../resource-group-authoring-templates.md)
-- [Template functions](../resource-group-template-functions.md)
-- [Advanced template operations](../resource-group-advanced-template.md)  
+- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../arm-template-deployment.md)
+- For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../resource-group-authoring-templates.md)
+- For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../resource-group-template-functions.md)
 
  

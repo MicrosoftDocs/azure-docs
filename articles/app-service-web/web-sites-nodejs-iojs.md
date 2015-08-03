@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="08/03/2015"
 	ms.author="mwasson" />
 
 # How to use io.js with Azure App Service Web Apps

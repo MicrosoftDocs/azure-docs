@@ -40,18 +40,9 @@ Wait Connector can be used as an action. It does not have any triggers.
 
 	![Action configured][3]
 
-<table>
-	<tr>
-		<th>Parameter</th>
-		<th>Type</th>
-		<th>Description of the parameter</th>
-	</tr>
-	<tr>
-		<td>Duration In Minutes</td>
-		<td>integer</td>
-		<td>Delay duration in minutes</td>
-	</tr>
-</table>
+Parameter|Type|Description of the parameter
+---|---|---
+Duration In Minutes|integer|Delay duration in minutes
 
 
 ## Do more with your Connector

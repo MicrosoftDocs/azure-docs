@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="07/28/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -47,7 +47,7 @@ You can follow an easy Quick Start in the Management Portal to create a new app 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
 <ol start="4">
-<li><p>Back in the Management Portal, click the <strong>DATA</strong> tab and then click the <strong>TodoItem</strong> table. This lets you browse the data inserted by the app into the table.<p></li></ol></p>
+<li><p>Back in the Management Portal, click the **DATA** tab and then click the **TodoItem** table. This lets you browse the data inserted by the app into the table.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Next Steps
 Learn how to perform additional important tasks in Mobile Services:
@@ -92,4 +92,3 @@ Learn how to perform additional important tasks in Mobile Services:
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET backend version]: mobile-services-dotnet-backend-ios-get-started.md
- 
