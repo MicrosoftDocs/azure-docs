@@ -26,7 +26,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
 ## Tutorial
 This tutorial walks you through creating an automation account, importing a sample "Hello World" runbook into Azure Automation, executing that runbook, and then viewing its output.
 
-To complete this tutorial, you will need an Azure subscription. If you don't have one yet, you can <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/pricing/free-trial/" target="_blank">sign up for a free trial</a>.
+To complete this tutorial, you will need an Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](../pricing/member-offers/msdn-benefits-details/) or [sign up for a free trial](../pricing/free-trial.md)</a>.
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
@@ -138,5 +138,5 @@ Microsoft and the Azure Automation community provide sample runbooks, which can 
 
 ## Feedback
 
-<strong>Give us feedback!</strong>  If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center. If you have feedback or feature requests for Azure Automation, post them on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Thanks!
+**Give us feedback!**  If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center. If you have feedback or feature requests for Azure Automation, post them on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Thanks!
  

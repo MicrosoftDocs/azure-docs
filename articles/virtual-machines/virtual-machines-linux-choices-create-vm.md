@@ -13,7 +13,7 @@ ms.service="virtual-machines"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/14/2015"
+	ms.date="07/20/2015"
 	ms.author="dkshir"/>
 
 # Different Ways to Create a Linux Virtual Machine
@@ -26,13 +26,13 @@ Azure Resource Manager templates were recently introduced as a way to create and
 
 ### GUI: The Azure Portal or Preview Portal
 
-The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the Azure portal or the Azure preview portal to create the VM. For general instructions, see [Create a Virtual Machine Running Linux][].
+The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the Azure portal or the Azure preview portal to create the VM. For general instructions, see [Create a Custom Virtual Machine][] and select any Linux image from the **Gallery**.
 
 ### Command Shell: Azure CLI or Azure PowerShell
 
 If you prefer working in a command shell, choose between the Azure command-line interface (CLI) for Mac and Linux users, or Azure PowerShell, which has Windows PowerShell cmdlets for Azure and a custom console.
 
-For Azure CLI, see [Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows][]. To use a template, see [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI][].
+For Azure CLI, see [Create a Virtual Machine Running Linux][]. To use a template, see [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI][].
 
 For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines][]. To use a template, see [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell][].
 
@@ -70,6 +70,8 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 
 [Azure hybrid cloud test environments][]
 
+[Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows][]
+
 <!-- LINKS -->
 [overview]: ../resource-group-overview.md
 
@@ -82,7 +84,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines]: virtual-machines-ps-create-preconfigure-linux-vms.md
 
 [How to Create a Custom Virtual Machine Running Linux in Azure]: virtual-machines-linux-create-custom.md
-[How to Capture a Linux Virtual Machine to Use as a Template with the CLI]: virtual-machines-vm-capture-image-cli.md
+[How to Capture a Linux Virtual Machine to Use as a Template with the CLI]: virtual-machines-linux-capture-image.md
 
 [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System]: virtual-machines-linux-create-upload-vhd.md
 
@@ -96,3 +98,6 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [About Azure VM configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 [Base Configuration Test Environment]: virtual-machines-base-configuration-test-environment.md
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
+
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
+[Create a Custom Virtual Machine]: virtual-machines-create-custom.md

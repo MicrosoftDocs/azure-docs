@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/25/2014" 
+	ms.date="08/02/2015" 
 	ms.author="microsofthelp@twilio.com"/>
 
 
@@ -23,7 +23,7 @@
 
 This guide demonstrates how to use Twilio to make a call from a web page hosted in Azure. The resulting application prompts the user for phone call values, as shown in the following screenshot.
 
-![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_f
+![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
 
 ## <a name="twilio-prereqs"></a>Prerequisites
 
