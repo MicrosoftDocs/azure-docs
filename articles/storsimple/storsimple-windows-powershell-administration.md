@@ -57,7 +57,10 @@ The banner message contains basic StorSimple device information such as the mode
 
 ![Serial Banner Message](./media/storsimple-windows-powershell-administration/IC741098.png)
 
->[AZURE.IMPORTANT] **You can use the banner message to identify whether the controller you are connected to is Active or Passive.**
+
+
+>[AZURE.IMPORTANT] You can use the banner message to identify whether the controller you are connected to is Active or Passive.
+
 
 The following image shows the various runspace options that are available in the serial console menu.
 
@@ -201,4 +204,5 @@ You can easily update the Help in the Windows PowerShell interface. Perform the 
 >[AZURE.NOTE] **To get a list of all the available cmdlets in any of the runspaces, log in to the corresponding menu option and run the `Get-Command` cmdlet.**
 
 ## Next steps
+If you are experiencing any issues, refer to [troubleshooting with cmdlets](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting).
 
