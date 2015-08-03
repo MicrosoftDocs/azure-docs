@@ -67,6 +67,13 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+### Traffic Manager Limits
+
+[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+### DNS Limits
+
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### Networking Limits – Azure Resource Manager
 
