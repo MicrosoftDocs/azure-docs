@@ -95,21 +95,11 @@ Secondary | Synchronous Commit (Up to 3) | Selected
 Primary | Readable Secondary | Yes
 Secondary | Readable Secondary | Yes
 
-<ol start="9">
-<li>
-On the <b>Select Initial Data Synchronization</b> page, click <b>Join only</b>, and then click <b>Next</b>. Data synchronization is executed manually by taking the full and transaction backups on the primary server, and restoring them on the backup. You can instead choose to select <b>Full</b> to let the New Availability Group Wizard perform data synchronization for you. However, synchronization is not recommended for large databases that are found in some enterprises.
-</li>
-<li>
-On the <b>Validation</b> page, click <b>Next</b>. There is a warning for a missing listener configuration because an availability group listener is not configured.
-</li>
-<li>
-On the <b>Summary</b> page, click <b>Finish</b>. Once the wizard is finished, inspect the <b>Results</b> page to verify that the availability group is successfully created. If so, click <b>Close</b> to exit the wizard.
-</li>
-<li>
-From the Start screen, type <b>Failover</b>, and then click <b>Failover Cluster Manager</b>. In the left pane, open the name of your cluster, and then click <b>Roles</b>. A new role with the name of your availability group should be present.
-</li>
-</ol>
-
+9.	Click **Next**.  
+10.	On the **Select Initial Data Synchronization** page, click **Join only**, and then click **Next**. Data synchronization is executed manually by taking the full and transaction backups on the primary server, and restoring it on the backup. You can instead choose to select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, we don't recommend synchronization for large databases that are found in some enterprises.  
+11.	On the **Validation** page, click **Next**. There is a warning for a missing listener configuration because an availability group listener is not configured.
+12.	On the **Summary** page, click **Finish**. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created. If so, click **Close** to exit the wizard.
+13.	From the Start screen, type **Failover**, and then click **Failover Cluster Manager**. In the left pane, open the name of your cluster, and then click **Roles**. A new role with the name of your availability group should be present.  
 
 You have successfully configured a SQL Server AlwaysOn availability group for your SharePoint databases.
 
