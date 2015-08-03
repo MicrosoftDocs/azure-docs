@@ -46,31 +46,7 @@ You'll also need the following to complete this tutorial:
 
 ##<a id="update-server"></a>Update the server project to send push notifications
 
-1. In Visual Studio, right-click the solution, then click **Manage NuGet Packages**.
-
-2. Search for **Microsoft.Azure.NotificationHubs** and click **Install** for all projects in the solution.
-
-3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile backend project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
-
-        using System.Collections.Generic;
-        using Microsoft.Azure.NotificationHubs;
-
-4. Add the following snippet to the `PostTodoItem` method after the **InsertAsync** call:  
-
-        // get Notification Hubs credentials associated with this Mobile App
-        string notificationHubName = this.Services.Settings.NotificationHubName;
-        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-        // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-
-        // iOS payload
-        var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
-
-        await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
-
-    This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
-
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
 ## <a name="publish-the-service"></a>Deploy server project to Azure
 
@@ -78,7 +54,9 @@ You'll also need the following to complete this tutorial:
 
 ## <a name="configure-app"></a>Configure your Xamarin.iOS application
 
-1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the ID you created earlier.
+###In Xamarin Studio
+
+1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the ID that you created earlier.
 
     ![][121]
 
@@ -92,13 +70,40 @@ You'll also need the following to complete this tutorial:
 
     ![][120]
 
-    This ensures that the Xamarin project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+
+### In Visual Studio
+
+1. In Visual Studio, right-click the project, and then click **Properties**.
+
+3. In the properties pages, click the **iOS Application** tab, and update the **Identifier** with the ID that you created earlier.
+
+    ![][123]
+
+4. In the **iOS Bundle Signing** tab, select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
+
+    ![][124]
+
+    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
 
 ## <a name="add-push"></a>Add push notifications to your app
 
 1. In **QSTodoService**, override the existing client declaration so **AppDelegate** can acquire the mobile client:
         
-        public MobileServiceClient client { get; private set; }
+            public MobileServiceClient GetClient {
+            get
+            {
+                return client;
+            }
+            private set
+            {
+                client = value;
+            }
+        }
+
+1. Add the following `using` statement to the top of the **AppDelegate.cs** file.
+
+        using Microsoft.WindowsAzure.MobileServices;
 
 2. In **AppDelegate**, override the **FinishedLaunching** event: 
 
@@ -206,6 +211,8 @@ You have successfully completed this tutorial.
 [120]:./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-20.png
 [121]:./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-21.png
 [122]:./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-22.png
+[123]:./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-23.png
+[124]:./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-24.png
 
 [Xamarin Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
