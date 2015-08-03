@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Getting started with Azure Storage"
-	description="Describes what happened when Azure Storage is used in a Visual Studio cloud service project"
+	description="Describes what happens when Azure Storage is used in a Visual Studio cloud service project"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
