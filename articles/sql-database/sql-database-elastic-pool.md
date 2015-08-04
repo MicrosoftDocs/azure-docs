@@ -59,7 +59,7 @@ You can perform Geo-Restore operations using the Azure Portal or REST API. Power
 
 ### Geo-Replication
 
-Databases that already have Geo-Replication enabled can be moved in and out of an elastic database pool and replication will continue to work as always. You can enable Geo-replication on a database that is already in the pool if the taerget server you specify has a pool with the same name as the source pool. Currently in the preview, you cannot enable Geo-Replication on a database that is already in a pool to a pool with a different name or to a singleton database secondary.
+Databases that already have Geo-Replication enabled can be moved in and out of an elastic database pool and replication will continue to work as always. You can enable Geo-replication on a database that is already in the pool if the target server you specify has a pool with the same name as the source pool. Currently in the preview, you cannot enable Geo-Replication on a database that is already in a pool to a pool with a different name or to a singleton database secondary.
 
 
 
