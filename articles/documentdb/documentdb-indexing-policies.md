@@ -3,7 +3,7 @@
     description="Understand how indexing works in DocumentDB and learn how to configure and change the indexing policy." 
     services="documentdb" 
     documentationCenter="" 
-    authors="mimig1" 
+    authors="arramac" 
     manager="jhubbard" 
     editor="monicar"/>
 
@@ -19,7 +19,7 @@
 
 # DocumentDB indexing policies
 
-While many customers are happy to let DocumentDB automatically handle [all aspects of indexing,](documentdb-indexing.md) DocumentDB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in DocumentDB are more flexible and powerful than secondary indexes offered in other database platforms, in that they let you design and customize the shape of the index without sacrificing schema flexibility. By managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
+While many customers are happy to let DocumentDB automatically handle [all aspects of indexing](documentdb-indexing.md), DocumentDB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in DocumentDB are more flexible and powerful than secondary indexes offered in other database platforms, in that they let you design and customize the shape of the index without sacrificing schema flexibility. By managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
 
 In this article, we take a close look at DocumentDB indexing policies, how you can customize indexing policy, and the associated trade-offs. 
 
