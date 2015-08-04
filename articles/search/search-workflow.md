@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="04/23/2015"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Typical workflow for Azure Search development
@@ -22,7 +22,7 @@ This article is a roadmap for including Azure Search as a component that provide
 
 In the following sections, we break out a typical workflow for an initial prototype that will help you evaluate how well Azure Search meets the search requirements of your application. Part two of this article covers important design decisions that factor into a more serious application development effort.
 
-Before you start prototyping, we recommend that you ramp up with one of our Getting Started tutorials or this [one-hour deep dive presentation video](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Get Started tutorials are offered in these languages: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
+Before you start prototyping, we recommend that you ramp up with one of our Getting Started tutorials or this [one-hour deep dive presentation video](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Get Started tutorials are offered in these languages: [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md), [Node.JS](search-get-started-nodejs.md).
 
 ##Prototype development
 
@@ -34,7 +34,7 @@ For applications with volatile data (for example, if the common case includes ra
 
 ###Step 1: Provision the service
 
-Azure Search is a fully-managed online service available through an Azure subscription. [Once you sign up for Azure](http://azure.microsoft.com/pricing/free-trial/), adding the Search service is quick. Visit [Create a Search service in the portal](../search-create-service-portal/) for instructions on how to add a Search service to your subscription.
+Azure Search is a fully-managed online service available through an Azure subscription. [Once you sign up for Azure](http://azure.microsoft.com/pricing/free-trial/), adding the Search service is quick. Visit [Create a Search service in the portal](search-create-service-portal.md) for instructions on how to add a Search service to your subscription.
 
 There are two pricing tiers to choose from. We recommend the shared (free) service for prototyping, with the caveat that you will need to work with a small subset of your data. The shared service is free to existing subscribers (through trial or regular memberships) and is fast to setup, but it constrains the number of indexes and documents you can use to 3 indexes, up to 10,000 documents per index, or 50 MB of storage total, whichever comes first.
 
@@ -42,7 +42,7 @@ There are two pricing tiers to choose from. We recommend the shared (free) servi
 
 After you create the service, you are ready to create an index, starting with its schema definition.
 
-The fastest and easiest way to create an index is through the portal. At a minimum, each document must have a unique key and at least one field that contains searchable data. To get started, see [Create an index in the portal](../search-create-index-portal/).
+The fastest and easiest way to create an index is through the portal. At a minimum, each document must have a unique key and at least one field that contains searchable data. To get started, see [Create an index in the portal](search-create-index-portal.md).
 
 > [AZURE.NOTE] **Inside an Azure Search Index**
 >
@@ -66,14 +66,14 @@ There are several ways to load documents, but right now, all of them require an 
 
 ####How to load data into an index
 
-One approach is to use an indexer. For Azure DocumentDB or SQL Server relational data sources in Azure (specifically Azure SQL Database, or SQL Server in an Azure VM), you can use [indexers](https://msdn.microsoft.com/library/dn946891.aspx) to retrieve documents from a supported data source. Code samples that use indexers for loading documents can be found in any of these Getting started tutorials: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
+One approach is to use an indexer. For Azure DocumentDB or SQL Server relational data sources in Azure (specifically Azure SQL Database, or SQL Server in an Azure VM), you can use [indexers](https://msdn.microsoft.com/library/dn946891.aspx) to retrieve documents from a supported data source. Code samples that use indexers for loading documents can be found in any of these Getting started tutorials: [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md), [Node.JS](search-get-started-nodejs.md).
 
 A second option is to write a simple program using either the REST API or the .NET library that loads the documents:
 
 - [Add, update, or delete documents (REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions Class](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-A third option that works for very small datasets is to use [Fiddler](../search-fiddler/) or [Chrome Postman](../search-chrome-postman/) to upload documents.
+A third option that works for very small datasets is to use [Fiddler](search-fiddler.md) or [Chrome Postman](search-chrome-postman.md) to upload documents.
 
 A fourth option, perhaps the easiest one, is to borrow code from either the [Adventure Works C# REST API Example](https://azuresearchadventureworksdemo.codeplex.com/) that loads documents from an embedded database (.mdf) in the solution, or [Scoring Profiles C# REST API Example](https://azuresearchscoringprofiles.codeplex.com/) that loads data from JSON data files included in the solution.
 
@@ -83,7 +83,7 @@ A fourth option, perhaps the easiest one, is to borrow code from either the [Adv
 
 Once documents are loaded into the index, you can write your first query.
 
-The fastest way to get initial search results back from your Search service is to use [Fiddler](../search-fiddler/) or [Chrome Postman](../search-chrome-postman/) to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format.
+The fastest way to get initial search results back from your Search service is to use [Fiddler](search-fiddler.md) or [Chrome Postman](search-chrome-postman.md) to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format.
 
 APIs for search operations include:
 
@@ -100,19 +100,19 @@ Queries in Azure Search can be very simple. Including `search=*` on the URI will
 
 Now that you have a service and index, you can experiment with features to further evolve the search experience. A short list of features to investigate are listed next.
 
-**Search pages** often include document counts in a result set, or use pagination to subdivide results into more manageable numbers. See [Pagination](../search-pagination-page-layout/) for details.
+**Search pages** often include document counts in a result set, or use pagination to subdivide results into more manageable numbers. See [Pagination](search-pagination-page-layout.md) for details.
 
 **searchMode=all** is a query parameter that changes how Azure Search evaluates the NOT operator. By default, queries that include NOT (-) expand rather than narrow the results. You can set this parameter to change how the operator is evaluated. It’s documented in [Search Documents](https://msdn.microsoft.com/library/dn798927.aspx) or [SearchMode Enumeration](https://msdn.microsoft.com/library/microsoft.azure.search.models.searchmode.aspx).
 
-**Scoring profiles** are used to boost search scores, causing items that meet predefined criteria to appear higher in the search results. See [Get started with scoring profiles](../search-get-started-scoring-profiles/) to step through this feature.
+**Scoring profiles** are used to boost search scores, causing items that meet predefined criteria to appear higher in the search results. See [Get started with scoring profiles](search-get-started-scoring-profiles.md) to step through this feature.
 
 **Filters** are used to narrow search results by providing additional criteria on the selection. Filter expressions are placed within the query. See [Search Documents](https://msdn.microsoft.com/library/dn798927.aspx) for details.
 
-**Faceted navigation** is used for self-directed filtering. Azure Search builds and returns the structure, and your code renders the faceted navigation structure in a search results page. See [Faceted Navigation](../search-faceted-navigation/) for details.
+**Faceted navigation** is used for self-directed filtering. Azure Search builds and returns the structure, and your code renders the faceted navigation structure in a search results page. See [Faceted Navigation](search-faceted-navigation.md) for details.
 
 **Suggesters** refers to type-ahead or auto-complete queries that return suggested search terms as the user types in the first characters of a search phrase. See [Suggestions operation](https://msdn.microsoft.com/library/dn798936.aspx) or [Suggesters Class](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx) for more information.
 
-**Language analyzers** provide the linguistic rules used during text analysis. The default language analyzer for Azure Search is Lucene English, but you can use different, or even multiple, analyzers by specifying them in your index. Lucene analyzers are available in all APIs. Microsoft natural language processors are only available in [2015-02-28-Preview REST API](../search-api-2015-02-28-preview/). See [Language Support](https://msdn.microsoft.com/library/dn879793.aspx) for more information.
+**Language analyzers** provide the linguistic rules used during text analysis. The default language analyzer for Azure Search is Lucene English, but you can use different, or even multiple, analyzers by specifying them in your index. Lucene analyzers are available in all APIs. Microsoft natural language processors are only available in [2015-02-28-Preview REST API](search-api-2015-02-28-preview.md). See [Language Support](https://msdn.microsoft.com/library/dn879793.aspx) for more information.
 
 ###Step 6: Update indexes and documents
 
@@ -144,7 +144,7 @@ Currently, a small subset of features are not yet in the .NET library, so even i
 - [moreLikeThis feature - preview only](../search-api-2015-02-28-preview/)
 - [Management API](https://msdn.microsoft.com/library/dn832684.aspx)
 
-You can periodically check the [What’s New](../search-latest-updates/) article to monitor changes in feature status.
+You can periodically check the [What’s New](search-latest-updates.md) article to monitor changes in feature status.
 
 ###Determine data synchronization methods: Push or Pull
 

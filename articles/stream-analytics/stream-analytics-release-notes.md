@@ -13,10 +13,57 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/06/2015" 
+	ms.date="07/30/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 07/30/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Power BI Org Id decoupled from Azure Id</td>
+<td>This feature enables Power BI output for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output.</td>
+</tr>
+<tr>
+<td>Support for Service Bus Queues output</td>
+<td>Service Bus Queues outputs are now available in Stream Analytics jobs.</td>
+</tr>
+<tr>
+<td>Support for Service Bus Topics output</td>
+<td>Service Bus Topics outputs are now available in Stream Analytics jobs.</td>
+</tr>
+<tr>
+<td>New Array functions</td>
+<td>Added the Array functions GetArrayElement, GetArrayElements, GetArrayLength</td>
+</tr>
+<tr>
+<td>New Record functions</td>
+<td>Added the Record functions GetRecordProperties and GetRecordPropertyValue</td>
+</tr>
+</table>
+
+## Notes for 07/09/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>Custom Blob Output Partitioning</td>
+<td>Blob storage outputs now allow an option to specify the frequency that output blobs are written and the structure and format of the output data path folder structure. </td>
+</tr>
+</table>
 
 ## Notes for 05/03/2015 release of Stream Analytics ##
 

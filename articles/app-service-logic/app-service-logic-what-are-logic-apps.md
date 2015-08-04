@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="07/08/2015"
 	ms.author="klam"/>
 
 #What are Logic Apps?
@@ -63,7 +63,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[connectors]: app-service-logic-use-biztalk-connectors.md
+[connectors]: app-service-logic-connectors-list.md
 [tpm]: app-service-logic-create-a-trading-partner-agreement.md
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md

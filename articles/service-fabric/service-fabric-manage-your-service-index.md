@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="ryanwi"/>
 
 # Manage a Service Fabric service
@@ -30,6 +30,7 @@ The following topics discuss the Service Fabric application model as well as how
 - [Service Manifest Resources](service-fabric-service-manifest-resources.md)
 - [Package an Application](service-fabric-application-model.md)
 - [Deploy and Remove an Application](service-fabric-deploy-remove-applications.md)
+- [Deploy an existing application](service-fabric-deploy-existing-app.md)
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 ## Upgrade an application

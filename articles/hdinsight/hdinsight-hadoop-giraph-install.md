@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # Install Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
@@ -77,7 +77,7 @@ We use the SimpleShortestPathsComputation example to demonstrate the basic <a hr
 
 	Drawn out, and using the value (or weight) as the distance between objects, the above data might look like this:
 
-	![tiny_graph.txt drawn as circles with lines of varying distance between](.\media\hdinsight-hadoop-giraph-install\giraph-graph.png)
+	![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 	
 
@@ -147,7 +147,7 @@ We use the SimpleShortestPathsComputation example to demonstrate the basic <a hr
 	
 	Visualizing this, you can verify the results by traveling the shortest paths between ID 1 and all other objects. Note that the shortest path between ID 1 and ID 4 is 5. This is the total distance between <span style="color:orange">ID 1 and 3</span>, and then <span style="color:red">ID 3 and 4</span>.
 
-	![Drawing of objects as circles with shortest paths drawn between](.\media\hdinsight-hadoop-giraph-install\giraph-graph-out.png) 
+	![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png) 
 
 
 ## <a name="usingPS"></a>Install Giraph on HDInsight Hadoop clusters by using Azure PowerShell

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tdykstra"/>
 
 # Deploy and configure a SaaS connector API app in Azure App Service
@@ -229,7 +229,7 @@ In the following steps you make a Get request to the Dropbox connector to look a
 
 You've seen how to install, configure, and test a SaaS connector. For more information, see these resources:
 
-* [Using connectors](../app-service-logic/app-service-logic-use-biztalk-connectors.md)
+* [Using connectors](../app-service-logic/app-service-logic-connectors-list.md)
 * [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md)  
 
 [Azure preview portal]: https://portal.azure.com/

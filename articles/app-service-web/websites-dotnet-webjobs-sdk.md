@@ -66,15 +66,12 @@ Here is a simple program that polls a queue and creates a blob for each queue me
 
 The `JobHost` object is a container for a set of background functions. The `JobHost` object monitors the functions, watches for events that trigger them, and executes the functions when trigger events occur. You call a `JobHost` method to indicate whether you want the container process to run on the current thread or a background thread. In the example, the `RunAndBlock` method runs the process continuously on the current thread.
 
-Because the `ProcessQueueMessage` method in this example has a `QueueTrigger` attribute, the trigger for that function is the reception of a new queue message. The `JobHost` object watches for new queue messages on the specified queue ("webjobsqueue" in this sample) and when one is found, it calls `ProcessQueueMessage`. The `QueueTrigger` attribute also notifies the framework to bind the `inputText` parameter to the value of the queue message: 
+Because the `ProcessQueueMessage` method in this example has a `QueueTrigger` attribute, the trigger for that function is the reception of a new queue message. The `JobHost` object watches for new queue messages on the specified queue ("webjobsqueue" in this sample) and when one is found, it calls `ProcessQueueMessage`. 
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]] <mark>string inputText</mark>, 
-    [Blob("containername/blobname")]TextWriter writer)</pre>
+The `QueueTrigger` attribute binds the `inputText` parameter to the value of the queue message. And the `Blob` attribute binds a `TextWriter` object to a blob named "blobname" in a container named "containername".  
 
-The framework also binds a `TextWriter` object to a blob named "blobname" in a container named "containername":
-
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]] string inputText, 
-    <mark>[Blob("containername/blobname")]TextWriter writer</mark>)</pre>
+		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
+		    [Blob("containername/blobname")]TextWriter writer)
 
 The function then uses these parameters to write the value of the queue message to the blob:
 

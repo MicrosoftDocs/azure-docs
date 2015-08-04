@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 
@@ -77,7 +77,11 @@ Azure Load balancer configuration supports full cone NAT for UDP. Full cone NAT 
 
 ![snat](./media/load-balancer-overview/load-balancer-snat.png)
 
-Note that for each new outbound connection initiated by a VM, an outbound port is also allocated by Azure Load Balancer. The external host will see traffic coming as VIP: allocated port.  If your scenarios require large number of outbound connections, it is recommended that the VMs uses Instance-Level public IPs so that it has dedicated outbound IP for Source Network Address Translation (SNAT). This will reduce the risk of port exhaustion.
+
+>[AZURE.NOTE]Note that for each new outbound connection initiated by a VM, an outbound port is also allocated by Azure Load Balancer. The external host will see traffic coming as VIP: allocated port.  If your scenarios require large number of outbound connections, it is recommended that the VMs uses Instance-Level public IPs so that it has dedicated outbound IP for Source Network Address Translation (SNAT). This will reduce the risk of port exhaustion. 
+>
+>The maximum number of ports that can be used by VIP or ILPIP is 64k. This is a TCP standard limitation.
+
 
 **Support for multiple load balanced IP for Virtual machines**
 

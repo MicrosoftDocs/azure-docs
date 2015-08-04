@@ -38,11 +38,11 @@ To step through this tutorial, you need:
 First, you will create the objects that PolyBase requires for connecting to and querying data in Azure blob storage.
 
 ## Create database master key
-Connect to master database on your server to create a database master key. This key is used to encrypt your credential secret in the next step. 
+Connect to user database on your server to create a database master key. This key is used to encrypt your credential secret in the next step. 
 
 ```
 -- Creating master key
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'S0me!nfo';
+CREATE MASTER KEY;
 ```
 
 Reference topic: [CREATE MASTER KEY (Transact-SQL)][].
@@ -50,8 +50,13 @@ Reference topic: [CREATE MASTER KEY (Transact-SQL)][].
 ## Create a database scoped credential
 To access Azure blob storage, you need to create a database scoped credential that stores authentication information for your Azure storage account. Connect to your data warehouse database and create a database scoped credential for each Azure storage account you want to access. Specify an identity name and your Azure storage account key as the Secret. The identity name does not affect authentication to Azure Storage.
 
+To see if a database-scoped credential already exists, use   sys.database_credentials, not sys.credentials which only shows the server credentials.
+
 ```
--- Creating credential
+-- Check for existing database-scoped credentials.
+SELECT * FROM sys.database_credentials;
+
+-- Create a database scoped credential
 CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe', 
 	Secret = 'myazurestoragekey==';
 ```

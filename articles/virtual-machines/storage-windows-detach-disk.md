@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
 
@@ -24,4 +25,6 @@
 
 ## Additional resources
 
-[How to attach a data disk to a Windows virtual machine](storage-windows-attach-disk.md)
+[About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md)
+
+[How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md)

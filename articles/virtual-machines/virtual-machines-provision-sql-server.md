@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jroth"/>
 
 # Provisioning a SQL Server Virtual Machine on Azure #
@@ -304,24 +304,15 @@ If you can connect to an instance of SQL Server running on an Azure virtual mach
 For more information, see [How to Troubleshoot Connecting to the SQL Server Database Engine](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
 ##<a id="Optional">Next Steps</a>
-You've seen how to create and configure a SQL Server on an Azure virtual machine using the platform image. When using SQL Server in Azure Virtual Machines, we recommend that you follow the detailed guidance given in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation in the library. This documentation set includes a series of articles and tutorials that provide detailed guidance. The series includes the following sections:
+You've seen how to create and configure a SQL Server on an Azure virtual machine using the platform image. In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
+
+In addition to these resources, we recommend that you follow the detailed guidance given in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation in the library. This documentation set includes a series of articles and tutorials that provide detailed guidance. The series includes the following sections:
 
 [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719)
 
 [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720)
 
 [Getting Ready to Migrate to SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294721)
-
-- How to migrate SQL Server database files and schema between virtual machines in Azure using data disks
-
-[SQL Server Deployment in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294722)
-
-- How to copy SQL Server data and setup files in a data disk from on-premises to Azure using CSUpload
-- How to create a base virtual machine on-premises using Hyper-V
-- How to create a SQL Server virtual machine in Azure using the existing on-premises SQL Server disk
-- How to create a SQL Server virtual machine in Azure using the existing on-premises SQL Server virtual machine 
-- How to use PowerShell to set up a SQL Server virtual machine in Azure 
-- How to Use Attached Data Disk to Store Database Files
 
 [Connectivity Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
@@ -343,21 +334,13 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 
 [SQL Server Business Intelligence in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
-- Use PowerShell to Create an Azure VM With SQL Server BI and SharePoint 2010
-- Use PowerShell to Create an Azure VM With SQL Server BI and SharePoint 2013
-- Use PowerShell to Create an Azure VM With a Native Mode Report Server
-
-[SQL Server Data Warehousing in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+[SQL Server Data Warehousing and Transactional Workloads in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
 
 [Technical Articles for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
 - [White paper: Understand Azure SQL Database and SQL Server in Azure Virtual Machines](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [White paper: Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn574746.aspx)
-
-- [White paper: Deploy SQL Server Business Intelligence in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
-
-- [White paper: Reporting Services report viewer control and Microsoft Azure virtual machine based report servers](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
 [Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png

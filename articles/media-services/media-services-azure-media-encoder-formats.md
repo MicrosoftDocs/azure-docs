@@ -27,12 +27,12 @@ It is important to understand the difference between codecs and file formats. Co
 This document contains a list of the most common import and export file formats that you can use with Azure Media Encoder.
 
 
-[Media Encoder Import Formats ](#import_formats)
+[Azure Media Encoder Import Formats ](#import_formats)
 
-[Media Encoder Export Formats](#export_formats)
+[Azure Media Encoder Export Formats](#export_formats)
 
 
-##<a id="import_formats"></a>Media Encoder Import Formats 
+##<a id="import_formats"></a>Azure Media Encoder Import Formats 
 
 The following section lists the codecs and file format that are supported for import.
 
@@ -56,65 +56,60 @@ The following section lists the codecs and file format that are supported for im
 
 ###Video File Formats
  
-<table border="1">
-<tr><th>File format</th><th>File Extensions</th></tr>
-<tr><td>3GPP, 3GPP2</td><td>.3gp, .3g2, .3gp2</td></tr>
-<tr><td>Advanced Systems Format (ASF)</td><td>.asf</td></tr>
-<tr><td>Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream]</td><td>.mts, .m2ts</td></tr>
-<tr><td>Audio-Video Interleaved (AVI)</td><td>.avi</td></tr>
-<tr><td>Digital camcorder MPEG-2 (MOD)</td><td>.mod</td></tr>
-<tr><td>DVD transport stream (TS) file</td><td>.ts</td></tr>
-<tr><td>DVD video object (VOB) file</td><td>.vob</td></tr>
-<tr><td>Expression Encoder Screen Capture Codec file</td><td>.xesc</td></tr>
-<tr><td>MP4</td><td>.mp4</td></tr>
-<tr><td>MPEG-1 System Stream</td><td>.mpeg, .mpg</td></tr>
-<tr><td>MPEG-2 video file</td><td>.m2v</td></tr>
-<tr><td>Smooth Streaming File Format (PIFF 1.3)</td><td>.ismv</td></tr>
-<tr><td>Windows Media Video (WMV)</td><td>.wmv</td></tr>
-</table>
+File format|File Extensions
+---|---
+3GPP, 3GPP2|.3gp, .3g2, .3gp2
+Advanced Systems Format (ASF)|.asf
+Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream]|.mts, .m2ts
+Audio-Video Interleaved (AVI)|.avi
+Digital camcorder MPEG-2 (MOD)|.mod
+DVD transport stream (TS) file|.ts
+DVD video object (VOB) file|.vob
+Expression Encoder Screen Capture Codec file|.xesc
+MP4|.mp4
+MPEG-1 System Stream|.mpeg, .mpg
+MPEG-2 video file|.m2v
+Smooth Streaming File Format (PIFF 1.3)|.ismv
+Windows Media Video (WMV)|.wmv
+
 
 Some uncompressed formats are supported. For more information, see [Supported Uncompressed Video Formats](#uncompressed)
 
 ###Audio File Formats
 
-<table border="1">
-<tr><th>File Format</th><th>File Extensions</th></tr>
-<tr><td>AC-3 (Dolby Digital) audio</td><td>.ac3</td></tr>
-<tr><td>Audio Interchange File Format (AIFF)</td><td>.aiff</td></tr>
-<tr><td>Broadcast Wave Format</td><td>.bwf</td></tr>
-<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>.mp3</td></tr>
-<tr><td>MP4 audio</td><td>.m4A</td></tr>
-<tr><td>MPEG-4 audio book</td><td>.m4b</td></tr>
-<tr><td>WAVE file</td><td>.wav</td></tr>
-<tr><td>Windows Media Audio</td><td>.wma</td></tr>   
-</table>
+File Format|File Extensions
+---|---
+AC-3 (Dolby Digital) audio|.ac3
+Audio Interchange File Format (AIFF)|.aiff
+Broadcast Wave Format|.bwf
+MP3 (MPEG-1 Audio Layer 3)|.mp3
+MP4 audio|.m4A
+MPEG-4 audio book|.m4b
+WAVE file|.wav
+Windows Media Audio|.wma
 
 ###Image File Formats
 
-<table border="1">
-<tr><th>File Format</th><th>File Extensions</th></tr>
-<tr><td>Bitmap</td><td>.bmp</td></tr>
-<tr><td>GIF, Animated GIF</td><td>.gif</td></tr>
-<tr><td>JPEG</td><td>.jpeg, .jpg</td></tr>
-<tr><td>PNG</td><td>.png</td></tr>
-<tr><td>TIFF</td><td>.tif</td></tr>
-<tr><td>WPF Canvas XAML</td><td>.xaml</td></tr>
-</table>
+File Format|File Extensions
+---|---
+Bitmap|.bmp
+GIF, Animated GIF|.gif
+JPEG|.jpeg, .jpg
+PNG|.png
+TIFF|.tif
+WPF Canvas XAML|.xaml
 
 
-##<a id="export_formats"></a>Media Encoder Export Formats
+##<a id="export_formats"></a>Azure Media Encoder Export Formats
 
 The following table lists the codecs and file formats that are supported for export.
 
 
-<table border="1">
-<tr><th>File Format</th><th>Video Codec</th><th>Audio Codec</th></tr>
-<tr><td>Windows Media (*.wmv; *.wma)</td><td>VC-1 (Advanced, Main, and Simple Profiles)</td><td>Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless</td></tr>
-<tr><td>MP4 (*.mp4)</td><td>H.264 (High, Main, and Baseline Profiles)</td><td>AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus</td></tr>
-<tr><td>Smooth Streaming File Format (PIFF 1.1) (*.ismv; *.isma)</td><td>VC-1 (Advanced Profile)<br/><br/>
-H.264 (High, Main, and Baseline Profiles)</td><td>Windows Media Audio Standard, Windows Media Audio Professional<br/><br/>
-AAC-LC, HE-AAC v1, HE-AAC v2</td></tr>
-</table>
+File Format|Video Codec|Audio Codec
+---|---|---
+Windows Media (* .wmv; * .wma)|VC-1 (Advanced, Main, and Simple Profiles)|Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless
+MP4 (* .mp4)|H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus
+Smooth Streaming File Format (PIFF 1.1) (* .ismv; * .isma)|VC-1 (Advanced Profile)<p>H.264 (High, Main, and Baseline Profiles) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
 
 For additional supported codecs and filters in Media Services, see [Windows DirectShow Filters](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
@@ -124,16 +119,14 @@ Azure Media Services provides support for importing uncompressed video data.
 
 This is a partial list of the supported uncompressed formats.
 
-<table border="1">
-<tr><th>Uncompressed Video Format</th><th>Description</th></tr>
-<tr><td>Standard YVU9 format uncompressed data</td><td>A planar YUV format. A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; a Y sample on every vertical line, a U and V sample at every fourth vertical line.9 bits per pixel.</td></tr>
-<tr><td>YUV 411 format data</td><td>A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled. Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 12-byte block is 8 image pixels.</td></tr>
-<tr><td>Y41P format data</td><td>A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 12-byte block is 8 image pixels.</td></tr>
-<tr><td>YUY2 format data</td><td>Same as UYVY but with different pixel ordering. Byte ordering (lowest first) is Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 4-byte block is 2 image pixels.</td></tr>
-<tr><td>YVYU format data</td><td>A packed YUV format. Same as UYVY but with different pixel ordering. Byte ordering (lowest first) is Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 4-byte block is 2 image pixels.</td></tr>
-<tr><td>UYVY format data</td><td>A packed YUV format. A Y sample at every pixel, a U and V sample at every second pixel horizontally on each line; every vertical line sampled. Most popular of the various YUV 4:2:2 formats. Byte ordering (lowest first) is U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 4-byte block is 2 image pixels.</td></tr>
-<tr><td>YUV 211 format data</td><td>A packed YUV format. A Y sample at every second pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.Byte ordering (lowest first) is Y0, U0, Y2, V0, Y4, U4, Y6, V4, Y8, U8, Y10, V8, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 4-byte block is 4 image pixels.</td></tr>
-<tr><td>Cirrus Logic Jr YUV 411 format</td><td>Cirrus Logic Jr YUV 411 format with less than 8 bits per Y, U, and V sample. A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.</td></tr>
-<tr><td>Indeo-produced YVU9 format</td><td>Indeo-produced YVU9 format with additional information about differences from the last frame. 9.5 bits per pixel but reported as 9.</td></tr>
-</table>
- 
+Uncompressed Video Format|Description
+---|---
+Standard YVU9 format uncompressed data|A planar YUV format. A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; a Y sample on every vertical line, a U and V sample at every fourth vertical line.9 bits per pixel.
+YUV 411 format data|A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled. Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 12-byte block is 8 image pixels.
+Y41P format data|A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 12-byte block is 8 image pixels.
+YUY2 format data|Same as UYVY but with different pixel ordering. Byte ordering (lowest first) is Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 4-byte block is 2 image pixels.
+YVYU format data|A packed YUV format. Same as UYVY but with different pixel ordering. Byte ordering (lowest first) is Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 4-byte block is 2 image pixels.
+UYVY format data|A packed YUV format. A Y sample at every pixel, a U and V sample at every second pixel horizontally on each line; every vertical line sampled. Most popular of the various YUV 4:2:2 formats. Byte ordering (lowest first) is U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 4-byte block is 2 image pixels.
+YUV 211 format data|A packed YUV format. A Y sample at every second pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.Byte ordering (lowest first) is Y0, U0, Y2, V0, Y4, U4, Y6, V4, Y8, U8, Y10, V8, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right. Each 4-byte block is 4 image pixels.
+Cirrus Logic Jr YUV 411 format|Cirrus Logic Jr YUV 411 format with less than 8 bits per Y, U, and V sample. A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.
+Indeo-produced YVU9 format|Indeo-produced YVU9 format with additional information about differences from the last frame. 9.5 bits per pixel but reported as 9.

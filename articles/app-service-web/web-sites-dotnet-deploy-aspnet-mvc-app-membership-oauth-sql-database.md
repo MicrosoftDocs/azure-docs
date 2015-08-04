@@ -6,7 +6,7 @@
 	authors="Rick-Anderson" 
 	writer="Rick-Anderson" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="06/16/2015" 
 	ms.author="riande"/> 
 
 
@@ -37,7 +37,7 @@ You'll build a simple contact list web app that is built on ASP.NET MVC 5 and us
 
 ![login page][rxb]
 
->[AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>.
+>[AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](../en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](../en-us/pricing/free-trial/?WT.mc_id=A261C142F).
 
 >If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
@@ -84,7 +84,7 @@ To set up your development environment, you must install [Visual Studio 2013 Upd
 
 1. Replace the markup in the  *Layout.cshtml* file with the following code. The changes are highlighted below.
 
-<pre>
+```
 			&lt;!DOCTYPE html&gt;
 			&lt;html&gt;
 			&lt;head&gt;
@@ -129,7 +129,7 @@ To set up your development environment, you must install [Visual Studio 2013 Upd
 			    @RenderSection("scripts", required: false)
 			&lt;/body&gt;
 			&lt;/html&gt;
-</pre>
+```
 
 ### Run the application locally
 
@@ -419,7 +419,7 @@ In this section you will temporarily modify the **ExternalLoginConfirmation** me
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
    The code above adds the newly registered user to the "canEdit" role, which gives them access to action methods that change (edit) data.
-	<pre>
+```
 	      // POST: /Account/ExternalLoginConfirmation
 	      [HttpPost]
 	      [AllowAnonymous]
@@ -455,7 +455,7 @@ In this section you will temporarily modify the **ExternalLoginConfirmation** me
 	         ViewBag.ReturnUrl = returnUrl;
 	         return View(model);
 	      }
-	</pre>
+```
 
 Later in the tutorial you will deploy the application to Azure, where you will log-on with Google or another third party authentication provider. This will add your newly registered account to the *canEdit* role. Anyone who finds your web app's URL and has a Google ID can then register and update your database. To prevent other people from doing that, you can stop the site. You'll be able to verify who is in the *canEdit* role by examining the database.
 
@@ -470,7 +470,8 @@ Run the  **Update-Database** command which will run the **Seed** method, and tha
 In this section you will apply the [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) attribute to restrict access to the action methods. Anonymous users will be able to view the **Index** action method of the home controller only. Registered users will be able to see contact data (The **Index** and **Details** pages of the Cm controller), the About, and the Contact pages. Only users in the *canEdit* role will be able to access action methods that change data.
 
 1. Add the [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) filter and the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter to the application. An alternative approach is to add the [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) attribute and the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) attribute to each controller, but it's considered a security best practice to apply them to the entire application. By adding them globally, every new controller and action method you add will automatically be protected, you won't need to remember to apply them. For more information see [Securing your ASP.NET MVC  App and the new AllowAnonymous Attribute](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Open the *App_Start\FilterConfig.cs* file and replace the *RegisterGlobalFilters* method with the following (which adds the two filters):
-		<pre>
+
+```
         public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -478,7 +479,7 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/library
             <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
             filters.Add(new RequireHttpsAttribute());</mark>
         }
-		</pre>
+```
 
 
 
@@ -486,7 +487,8 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/library
 	The [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) filter applied in the code above will prevent anonymous users from accessing any methods in the application. You will use the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to opt out of the authorization requirement in a couple methods, so anonymous users can log in and can view the home page. The  [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) will require all access to the web app be through HTTPS.
 
 1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method of the Home controller. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute enables you to white-list the methods you want to opt out of authorization. 
-		<pre>
+
+```
 	public class HomeController : Controller
    {
       <mark>[AllowAnonymous]</mark>
@@ -494,11 +496,11 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/library
       {
          return View();
       }
-	</pre>
+```
 
 2. Do a global search for *AllowAnonymous*, you can see it is used in the log in and registration methods of the Account controller.
 1. In *CmController.cs*, add `[Authorize(Roles = "canEdit")]` to the HttpGet and HttpPost methods that change data (Create, Edit, Delete, every action method except Index and Details) in the *Cm* controller. A portion of the completed code is shown below: 
-		<pre>
+```
 	// GET: Cm/Create
        <mark>[Authorize(Roles = "canEdit")]</mark>
         public ActionResult Create()
@@ -538,7 +540,7 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/library
             }
             return View(contact);
         }
-		</pre>
+```
 
 1. If you are still logged in from a previous session, hit the **Log out** link.
 1. Click on the **About** or **Contact** links. You will be redirected to the log in page because anonymous users cannot view those pages. 
@@ -648,7 +650,7 @@ If you have not filled out the first and last name of your Google account inform
 
 	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-Verify the **UserId**s are from *user1@contoso.com* and the Google account you registered. 
+Verify the **UserId** is from *user1@contoso.com* and the Google account you registered. 
 
 
 ## Next steps

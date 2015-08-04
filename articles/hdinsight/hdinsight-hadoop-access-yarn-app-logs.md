@@ -3,7 +3,7 @@
 	description="Access application logs programmatically on a Hadoop cluster in HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # Access YARN application logs on Hadoop in HDInsight programmatically
 

@@ -31,29 +31,7 @@ Going forward, when creating new VNets, use *Region*. You'll see this as an opti
 
 ### About VNets currently associated with affinity groups
 
-VNets that are currently associated with affinity groups will be enabled for migration to regional VNets in the near future. We'll update this page to let you know the process is happening and when to take the next steps to complete the migration.
-
-Note that affinity groups will still exist, even though we no longer recommend using them for VNets. Because of this, you can choose to not migrate your VNet, or to delay migration. Your VNet will still work. But, you may run into limitations and you won't be able to take advantage of any of the many new features that require a regional VNet. We do highly encourage you to migrate your affinity group VNet to a regional VNet when your VNet is enabled.
-
-### Early migration
-
-Early migration is available to customers who have a support contract. To elect for early migration, follow these steps:
-
-1. In the **Management Portal**, from your VNet page, on the upper right corner, click **Contact Microsoft Support**.
-
-	![VNet Regional Migration Request](./media/virtual-networks-migrate-to-regional-vnet/IC790447.png)
-
-1. On the **Contact Microsoft Support** page, select the following: Subscription: If you have more than one subscription, select the subscription that corresponds to the VNet that you want to migrate.Support Type: TechnicalProduct Type: Virtual Networks (VNet)Problem Type: Migrate Virtual Network to Regional Virtual Network
-
-	- **Subscription:** If you have more than one subscription, select the subscription that corresponds to the VNet that you want to migrate.
-
-	- **Support Type:** *Technical*
-
-	- **Product Type:** *Virtual Networks (VNet)*
-
-	- **Problem Type:** *Migrate Virtual Network to Regional Virtual Network*
-
-1. Prerequisite: Your VNet must be already enabled for migration in order to perform the following steps. You'll know your VNet has been enabled when you either receive confirmation (in the case of an early migration request), or this page has been updated to reflect that all VNets are enabled for migration.
+VNets that are currently associated with affinity groups are enabled for migration to regional VNets. To migrate to a regional VNet, follow these steps:
 
 1. Export the network configuration file. You can use PowerShell or the Management Portal. For instructions using the Management Portal, see [Configure your VNet using a Network Configuration File](../virtual-networks-using-network-configuration-file/).
 
