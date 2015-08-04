@@ -2,7 +2,7 @@
 pageTitle="Respond to lifecycle events for a Cloud Services using .NET" 
 description="Learn how the lifecycle methods of a Cloud Service role can be used in .NET" 
 services="cloud-services" 
-documentationCenter="" 
+documentationCenter=".net" 
 authors="Thraka" 
 manager="timlt" 
 editor=""/>
