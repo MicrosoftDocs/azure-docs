@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/30/2015" 
+	ms.date="07/30/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure Stream Analytics & Power BI: Live dashboard for analytics in real-time on streaming data

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/16/2015"
+	ms.date="08/03/2015"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a **Channel** receives a multi-bitrate live stream from an on-premises live encoder. For a more detailed overview of working with channels and related components, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](../media-services-channels-overview.md).
+This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a **Channel** receives a multi-bitrate live stream from an on-premises live encoder. For a more detailed overview of working with channels and related components, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
 
 In this tutorial, the Azure Management Portal is used to accomplish the following tasks:
 
