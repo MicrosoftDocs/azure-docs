@@ -22,13 +22,8 @@
 - [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
-The **Elastic Database jobs** feature (preview) enables you to run a Transact-SQL script across a group of databases including custom-defined collection of databases, an **Elastic Database pool** or an **Elastic Database Shard set** in Azure SQL Database. In preview, **Elastic Database jobs** is currently a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called jobs. Using this feature, you can easily and reliably manage Azure SQL Database at scale across an entire group of databases by running Transact-SQL scripts to perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection. For more information about elastic database jobs, see [Elastic Database jobs overview](sql-database-elastic-jobs-overview.md).
 
-**Elastic Database jobs** is currently accessible through the Azure portal.  However, the Azure portal surfaces a reduced functionality set limited to **Elastic Database pools**. The PowerShell APIs included within this preview provides the full current functionality set of Elastic Database Jobs.  For more information on the Elastic Database Jobs exposed through the Azure portal, see SQL Database Elastic Jobs Overview.
-
-This article shows you how to create everything you need to install, create and manage **Elastic Database jobs** using PowerShell. **Elastic Database Jobs** is currently accessible through the Azure portal. However, the Azure portal surfaces a reduced functionality set limited to Elastic Database pools. The PowerShell APIs included within this preview provides the full preview feature set of **Elastic Database Jobs**. If you need an Azure subscription simply click **FREE TRIAL** in prerequisites.
-
-**Elastic Database pools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **Elastic Database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data.
+**Elastic Database jobs** enables easily and reliable management of a group of databases, by simplifying the execution of administrative operations such as schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection. Elastic Database jobs is currently available through the Azure portal and PowerShell cmdlets. However, the Azure portal surfaces reduced functionality limited to execution across all databases in an [Elastic Database pool (preview)](sql-database-elastic-pool.md). To access additional features and execution of scripts across a group of databases including a custom-defined collection or a shard set (created using [Elastic Database client library](sql-database-elastic-scale-introduction.md)), see [Creating and managing jobs using PowerShell](sql-database-elastic-jobs-powershell.md). For more information about jobs, see [Elastic Database jobs overview](sql-database-elastic-jobs-overview.md). 
 
 ## Prerequisites
 
@@ -38,7 +33,7 @@ This article shows you how to create everything you need to install, create and 
 
 ## Creating jobs
 
-1. In the elastic database job pool blade, click **Create job**.
+1. Using the [Azure portal](https://portal.azure.com), from an existing elastic database job pool, click **Create job**.
 2. Type in the username and password of the database administrator (created at installation of Jobs) for the jobs control database (metadata storage for jobs).
 
 	![Name the job, type or paste in code, and click Run][1]
