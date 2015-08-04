@@ -308,7 +308,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 		          "sink": {
 		            "type": "SqlSink",
 		            "writeBatchSize": 10000,
-		            "writeBatchTimeout": "60:00:00"
+		            "writeBatchTimeout": "00:60:00"
 		          }
 		        },
 		        "Policy": {
