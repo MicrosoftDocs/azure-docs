@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""
-	tags="azure-classic-portal"/>
+	editor=""/>
 
 <tags 
 	ms.service="active-directory" 
@@ -42,8 +41,8 @@ To join a device to Azure AD
 8.	You will then be prompted for a multi-factor authentication challenge. This is configurable by IT.
 9.	Azure AD will then check whether this user/device requires mobile device management (MDM) enrollment. 
 10.	Windows will then register the device in the organization’s directory in Azure AD and enroll it in MDM.
-11.	When this is done, if you are a managed user, Windows will wrap up the setup process and take the user to the desktop through the auto-logon.
-12.	If you are a federated user, you land on the Windows logon screen and have to enter your credentials to log on.
+11.	When this is done, if you are a managed user, Windows will wrap up the setup process and take the user to the desktop through the automatic sign-in.
+12.	If you are a federated user, you land on the Windows sign-in screen and have to enter your credentials to sign in.
 
 > [AZURE.NOTE] Joining an on-premises Active Directory domain in the Windows out-of-box experience is not supported. Therefore, if you plan to join a PC to a domain you should select the link “Set up Windows with a local account instead”. You can then join the domain from PC Settings as you’ve done before.
 
