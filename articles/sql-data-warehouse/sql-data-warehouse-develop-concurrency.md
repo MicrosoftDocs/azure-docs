@@ -39,13 +39,13 @@ Each concurrently executing query consumes one or more concurrency slots. The ex
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 32    | 32     |
 -->
 
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 
 
 Resource classes are an essential part of SQL Data Warehouse workload management as they also govern computational resources allocated to the query. These will be covered in the workload management section below.
 
