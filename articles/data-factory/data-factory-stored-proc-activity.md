@@ -46,7 +46,7 @@ name | Name of the activity | Yes
 description | Text describing what the activity is used for | No
 type | SqlServerStoredProcedure | Yes
 inputs | Input(s) that must be available (in ‘Ready’ status) for the stored procedure activity to execute | No
-outputs | Output(s) produced by the stored procedure activity | Yes
+outputs | Output(s) produced by the stored procedure activity. Ensure that the output table uses a linked service that links an Azure SQL Database to the data factory. | Yes
 storedProcedureName | Specify the name of the stored procedure in the Azure SQL database that is represented by the  linked service that the output table uses. | Yes
 storedProcedureParameters | Specify values for stored procedure parameters | No
 
