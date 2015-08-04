@@ -17,7 +17,7 @@
 #Manage virtual machine extensions
 Describes how to find, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.
 
-## Using VM Extensions
+##Using VM Extensions
 
 Azure VM Extensions implement behaviors or features that either help other programs work on Azure VMs (for example, the **WebDeployForVSDevTest** extension allows Visual Studio to Web Deploy solutions on your Azure VM) or provide the ability for you to interact with the VM to support some other behavior (for example, you can use the VM Access extensions from Powershell, the xplat-cli, and REST clients to reset or modify remote access values on your Azure VM).
 
@@ -33,7 +33,7 @@ The most common tasks are:
 
 4.  Removing Extensions
 
-## Find Available Extensions
+##Find Available Extensions
 
 Azure VM Extensions are (For a complete list of extensions by the features they support, see [Azure VM Extensions and Features](https://msdn.microsoft.com/library/dn606311.aspx).) You can locate the extension and extended information using:
 
@@ -43,7 +43,7 @@ Azure VM Extensions are (For a complete list of extensions by the features they 
 
 either [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) cmdlets or the [Service Management REST APIs](https://msdn.microsoft.com/library/ee460799.aspx) to find information about available extensions.
 
-### Azure PowerShell
+###Azure PowerShell
 
 Some extensions have Powershell cmdlets that are specific to them, which may make their configuration from PowerShell easier; but the following cmdlets work for all VM extensions.
 
@@ -80,7 +80,7 @@ You can use the following cmdlets to obtain information about available extensio
         CompanyName                 :
 
 
-### Azure Command Line Interface (xplat-cli)
+###Azure Command Line Interface (xplat-cli)
 
 Some extensions have xplat-cli commands that are specific to them (the Docker VM Extension is one example), which may make their configuration easier; but the following commands work for all VM extensions.
 
@@ -104,7 +104,7 @@ For example, the following code example shows how to list the information for th
 
 
 
-### Service Management REST APIs
+###Service Management REST APIs
 
 You can use the following REST APIs to obtain information about available extensions:
 
@@ -112,12 +112,12 @@ You can use the following REST APIs to obtain information about available extens
 
 -   For instances of Virtual Machines, you can use the [List Resource Extensions](https://msdn.microsoft.com/library/dn495441.aspx) operation. To list the versions of available extensions, you can use [List Resource Extension Versions](https://msdn.microsoft.com/library/dn495440.aspx).
 
-## Add, Update, or Disable Extensions
+##Add, Update, or Disable Extensions
 
 Extensions can be added when an instance is created or they can be added to a running instance. Extensions can be updated, disabled, or removed. You can perform these actions by using Azure PowerShell cmdlets or by using the Service Management REST API operations. Parameters are required to install and set up some extensions. Public and private parameters are supported for extensions.
 
 
-### Azure PowerShell
+###Azure PowerShell
 
 Using Azure PowerShell cmdlets is the easiest way to add and update extensions. When you use the extension cmdlets, most of the configuration of the extension is done for you. At times, you may need to programmatically add an extension. When you need to do this, you must provide the configuration of the extension.
 
@@ -127,7 +127,7 @@ You can use the following cmdlets to know whether an extension requires a config
 
 -   For instances of Virtual Machines, you can use the **Get-AzureVMAvailableExtension** cmdlet.
 
-### Service Management REST APIs
+###Service Management REST APIs
 
 When you retrieve a listing of available extensions by using the REST
 APIs, you receive information about how the extension is to be configured. The information that is returned might show parameter information represented by a public schema and private schema. Public parameter values are returned in queries about the instances. Private parameter values are not returned.
