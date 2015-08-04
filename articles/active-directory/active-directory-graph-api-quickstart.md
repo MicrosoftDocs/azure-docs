@@ -106,6 +106,7 @@ Content-Type: application/json
 > [AZURE.NOTE] Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
 
     a. In the **Request body** field, type the following:
+
 ```
         {
             "displayName":"MyTestGroup",
@@ -114,6 +115,7 @@ Content-Type: application/json
             "securityEnabled": true
         }
 ```
+
     For more information about creating groups, see [Create Group](https://msdn.microsoft.com/library/azure/dn151614.aspx)
 
 For more information on Azure AD entities and types that are exposed by Graph and information about the operations that can be performed on them with Graph, see [Azure AD Graph REST API Reference](https://msdn.microsoft.com/library/azure/hh974478.aspx).
