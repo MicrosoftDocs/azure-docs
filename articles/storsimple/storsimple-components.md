@@ -40,7 +40,7 @@ The StorSimple device includes solid state drives (SSDs) and hard disk drives (H
 
 Only one controller is active at any point in time. If the active controller fails, the second controller becomes active automatically. 
 
-For more information, see [StorSimple Devices](https://msdn.microsoft.com/library/azure/dn772363.aspx).
+For more information, see [StorSimple hardware components and status](storsimple-monitor-hardware-status.md).
 
 ## StorSimple virtual device
 
@@ -53,9 +53,9 @@ The StorSimple virtual device (also known as the StorSimple Virtual Appliance) r
 - You cannot regenerate the service data encryption key from a virtual device. During key rollover, you regenerate the key on the physical device, and then update the virtual device with the new key.
 - If you need to apply updates to the virtual device, you will experience some down time. This does not occur with a physical StorSimple device.
 
-We recommend that you use the StorSimple virtual device for disaster recovery scenarios in which a physical device is not available, such as test and small pilot deployments.
+We recommend that you use the StorSimple virtual device for disaster recovery scenarios in which a physical device is not available, such as cloud development an test scenarios.
 
-For more information, see [StorSimple Virtual Device](https://msdn.microsoft.com/library/azure/dn772390.aspx).
+For more information, see [StorSimple virtual device](storsimple-virtual-device.md).
 
 
 ## Storage management technologies
@@ -77,6 +77,16 @@ Microsoft Azure StorSimple automatically arranges data in logical tiers based on
 To enable quick access, StorSimple stores very active data (hot data) on SSDs in the StorSimple device. It stores data that is used occasionally (warm data) on HDDs in the device or on servers at the datacenter. It moves inactive data, backup data, and data retained for archival or compliance purposes to the cloud. 
 
 StorSimple adjusts and rearranges data and storage assignments as usage patterns change. For example, some information might become less active over time. As it becomes progressively less active, it is migrated from SSD to HDD and then to the cloud. If that same data becomes active again, it is migrated back to the storage device.
+
+The storage tiering process occurs as follows:
+
+1. A system administrator sets up a Microsoft Azure cloud storage account.
+2. The administrator uses the serial console and the StorSimple Manager service (running in the Azure Management Portal) to configure the device and file server, creating volumes and data protection policies. The on-premises file server uses the Internet Small Computer System Interface (iSCSI) to access the StorSimple device.
+3. Initially, StorSimple stores data on the fast SSD tier of the device.
+4. As the SSD tier approaches capacity, StorSimple deduplicates and compresses the oldest data blocks, and moves them to the HDD tier.
+5. As the HDD tier approaches capacity, StorSimple encrypts the oldest data blocks and sends them securely to the Microsoft Azure storage account via HTTPS.
+6. Microsoft Azure creates multiple replicas of the data in its datacenter and in a remote datacenter, ensuring that the data can be recovered if a disaster occurs. 
+7. When the file server requests data stored in the cloud, StorSimple returns it seamlessly and stores a copy on the SSD tier of the StorSimple device.
 
 ### Thin provisioning
 
@@ -117,7 +127,7 @@ Microsoft Azure StorSimple provides a web-based user interface (the StorSimple M
 
 You can use the StorSimple Manager service to perform all administration tasks except those that require system down time, such as initial setup and installation of updates.
 
-For more information, see [StorSimple Manager service](https://msdn.microsoft.com/library/azure/dn772396.aspx).
+For more information, see [Use StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
 ## StorSimple Snapshot Manager
 
@@ -132,7 +142,7 @@ Backups are captured as snapshots, which record only the changes since the last 
 
 If a disaster occurs or if you need to restore data for another reason, StorSimple Snapshot Manager restores it incrementally as it is needed. Data restoration does not require that you shut down the entire system while you restore a file, replace equipment, or move operations to another site.
 
-For more information, see [StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/dn772365.aspx).
+For more information, see [What is StorSimple Snapshot Manager](storsimple-what-is-snapshot-manager.md).
 
 ## StorSimple Adapter for SharePoint
 
@@ -140,10 +150,10 @@ Microsoft Azure StorSimple includes the StorSimple Adapter for SharePoint, an op
 
 The StorSimple Adapter for SharePoint is managed from within the SharePoint Central Administration portal. Consequently, SharePoint management remains centralized, and all storage appears to be in the SharePoint farm.
 
-For more information, see [StorSimple Adapter for SharePoint](https://msdn.microsoft.com/library/azure/dn757737.aspx). 
+For more information, see [StorSimple Adapter for SharePoint](storsimple-adapter-for-sharepoint.md). 
 
 
-## Microsoft Azure StorSimple terminology 
+## StorSimple terminology 
 
 Before deploying your Microsoft Azure StorSimple solution, we recommend that you review the following terms and definitions.
 
@@ -200,7 +210,10 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
  | volume container                | A grouping of volumes and the settings that apply to them. All volumes in your StorSimple device are grouped into volume containers. Volume container settings include storage accounts, encryption settings for data sent to cloud with associated encryption keys, and bandwidth consumed for operations involving the cloud.|
 | volume group                    | In StorSimple Snapshot Manager, a volume group is a collection of volumes configured to facilitate backup processing.|
 | Volume Shadow Copy Service (VSS)| A Windows Server operating system service that facilitates application consistency by communicating with VSS-aware applications to coordinate the creation of incremental snapshots. VSS ensures that the applications are temporarily inactive when snapshots are taken.|
-| Windows PowerShell for StorSimple | A Windows PowerShell–based command-line interface used to operate and manage your StorSimple device. While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing a StorSimple device.|## Next steps
+| Windows PowerShell for StorSimple | A Windows PowerShell–based command-line interface used to operate and manage your StorSimple device. While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing a StorSimple device.|
+
+
+## Next steps
 
 Review the [StorSimple release notes](https://msdn.microsoft.com/library/azure/dn772367.aspx)
 
