@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2015"
-	ms.author="mahender"/>
+	ms.date="08/03/2015"
+	ms.author="glenga"/>
 
 # Add authentication to your Windows app
 
@@ -24,7 +24,7 @@
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
 
-This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Get started with your mobile app].
+This tutorial is based on the Mobile App quickstart. You must first complete the tutorial [Get started with your mobile app].
 
 ##<a name="review"></a>Review your server project configuration (optional)
 
@@ -59,18 +59,9 @@ Next, you will update the app to authenticate users before requesting resources 
 
 [AZURE.INCLUDE [app-service-mobile-windows-store-dotnet-authenticate-app-with-token](../../includes/app-service-mobile-windows-store-dotnet-authenticate-app-with-token.md)]
 
-
-<!-- Anchors. -->
-[Register your app for authentication and configure the App Service]: #register
-[Restrict table permissions to authenticated users]: #permissions
-[Add authentication to the app]: #add-authentication
-[Store authentication tokens on the client]: #tokens
-[Next Steps]:#next-steps
+##Next Steps
 
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with your mobile app]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
