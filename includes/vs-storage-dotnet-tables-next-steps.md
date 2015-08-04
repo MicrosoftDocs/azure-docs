@@ -4,12 +4,7 @@ Now that you've learned the basics of Azure table storage, follow these links to
 - Learn about more advanced tasks you can perform with Azure Storage at [Storing and Accessing Data in Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx).    
 - Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service/websites-dotnet-webjobs-sdk.md)
 - View more feature guides to learn about additional options for storing data in Azure.
-<ul> 
- <ul>
-    <li>Use <a href="https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
-    <li>Use <a href="https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Table Storage</a> to store structured data.</li>
-    <li>Use <a href="https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store structured data.</li>
-    <li>Use <a href="https://azure.microsoft.com/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
-  </ul>
-</ul>
+  - Use [Blob Storage](./storage-dotnet-how-to-use-blobs.md) to store structured data.
+  - Use [Table Storage](./storage-dotnet-how-to-use-tables.md) to store structured data.
+  - Use [SQL Database](../sql-database/sql-database-dotnet-how-to-use.md) to store relational data.
 

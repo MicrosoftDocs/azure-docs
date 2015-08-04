@@ -44,7 +44,7 @@ In addition to making assembly references for Cache, the NuGet package adds stub
 1. Enter the values for `host`, `accessKey`, `port` (the SSL port should be 6380), and set `SSL` to `true`. These values can be obtained from the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) blade for your cache instance. For more information, see [Connect to the cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Note that the non-SSL port is disabled by default for new caches. For more information about enabling the non-SSL port, see the [Access Ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) section in the [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) topic. The following markup shows the changes to the *web.config* file.
 
 
-  <pre class="prettyprint">  
+```  
     &lt;system.web&gt;
     &lt;customErrors mode="Off" /&gt;
     &lt;authentication mode="None" /&gt;
@@ -71,10 +71,12 @@ In addition to making assembly references for Cache, the NuGet package adds stub
       &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
       &lt;/providers&gt;
     &lt;/sessionState&gt;
-  &lt;/system.web&gt;</pre>
+  &lt;/system.web&gt;
+```
 
 
-<a id="usesessionobject"></a>Use the Session Object in Code
+
+##<a id="usesessionobject"></a> Use the Session Object in Code
 The final step is to begin using the Session object in your ASP.NET code. You add objects to session state by using the **Session.Add** method. This method uses key-value pairs to store items in the session state cache.
 
     string strValue = "yourvalue";
