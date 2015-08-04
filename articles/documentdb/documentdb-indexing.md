@@ -32,15 +32,16 @@ With a goal to eliminate the impedance mismatch between the database and the app
 
 The indexing in DocumentDB takes advantage of the fact that JSON grammar allows documents to be **represented as trees**. For a JSON document to be represented as a tree, a dummy root node needs to be created which parents the rest of the actual nodes in the document underneath. Each label including the array indices in a JSON document becomes a node of the tree. The figure below illustrates an example JSON document and its corresponding tree representation.
 
-[AZURE.NOTE] Since JSON is self-describing i.e. each document includes both schema (metadata) and data, e.g. `{"locationId", 5, "city": "Moscow"}` reveals that there are two properties `locationId` and `city`, and that they have a numeric and string property values. DocumentDB is able to infer the schema of documents and index them when they are inserted or replaced, without you ever having to define schemas or secondary indexes.
+>[AZURE.NOTE] Since JSON is self-describing i.e. each document includes both schema (metadata) and data, e.g. `{"locationId", 5, "city": "Moscow"}` reveals that there are two properties `locationId` and `city`, and that they have a numeric and string property values. DocumentDB is able to infer the schema of documents and index them when they are inserted or replaced, without you ever having to define schemas or secondary indexes.
 
 ***JSON Documents as Trees:***
 
 ![Documents as Trees](media/documentdb-indexing/DocumentsAsTrees.png)
 
 For example, in the example shown above:
-•	The JSON property `{"headquarters": "Belgium"}` property in the above example corresponds to the path/headquarters/Belgium.
-•	The JSON array `{"exports": [{"city": “Moscow"}`, `{"city": Athens"}]}` corresponds to the paths `/exports/[]/city/Moscow` and `/exports/[]/city/Athens`.
+
+- The JSON property `{"headquarters": "Belgium"}` property in the above example corresponds to the path/headquarters/Belgium.
+- The JSON array `{"exports": [{"city": “Moscow"}`, `{"city": Athens"}]}` corresponds to the paths `/exports/[]/city/Moscow` and `/exports/[]/city/Athens`.
 
 With automatic indexing, (1) every path in a document tree is indexed (unless the developer has explicitly configured the indexing policy to exclude certain path patterns). (2) Each update of a document to a DocumentDB collection leads to update of the structure of the index (i.e., causes addition or removal of nodes). One of the primary requirements of automatic indexing of documents is to ensure that the cost to index and query a document with deeply nested structure, say 10 levels, is the same as that of a flat JSON document consisting of key-value pairs just one level deep. Therefore a normalized path representation is the foundation upon which both automatic indexing and query subsystems are built.
 
