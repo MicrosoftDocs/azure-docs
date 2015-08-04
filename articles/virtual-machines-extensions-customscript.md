@@ -76,9 +76,9 @@ Custom Script Extension can be uninstalled from the VM using the cmdlet below
 
       get-azureVM -ServiceName KPTRDemo -Name KPTRDemo | Set-AzureVMCustomScriptExtension -Uninstall | Update-AzureVM
 
-### Coming Soon
+### Using Custom Script Extension with Templates
 
-We'll be soon adding Custom Script For Linux usage and samples, stay tuned.
+To learn about using Custom Script Extension with Templates, click the documentation  <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-extensions-customscript%20-with%20template/ " target="_blank">here </a>.
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
