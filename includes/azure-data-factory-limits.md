@@ -17,6 +17,7 @@ Minimum interval between retry attempts | 1sec | 1sec
 Minimum retry timeout value | 1sec | 1sec
 
 <sup>1</sup> Pipeline, dataset, and linked service objects represent a logical grouping of your workload. Limits for these objects do not relate to amount of data you can move and process with the Azure Data Factory service. Data factory is designed to scale to handle petabytes of data.
+
 <sup>2</sup>On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
 
 **Web service call limits**
