@@ -34,6 +34,7 @@ In Graph API, in order to access directory data and objects (in other words, res
 ## Graph API versions
 
 The following versions have been released for the Graph API.
+
 - Version beta
 - Version 1.5
 - Version 2013-11-08
@@ -84,7 +85,7 @@ For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger 
 
 In the example below, you will use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.
 
-**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md). 
+**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
 **Compose and run a query**: Complete the following steps.
 
