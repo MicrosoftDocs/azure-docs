@@ -16,7 +16,7 @@
 	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
-# Hive Activity
+# SQL Server Stored Procedure Activity
 
 You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in an **Azure SQL** Database. 
 
