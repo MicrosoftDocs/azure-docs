@@ -13,55 +13,32 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="07/19/2015" 
+    ms.date="08/03/2015" 
     ms.author="mimig"/>
 
 
 # DocumentDB indexing policies
 
-DocumentDB is a true schema-free database. It does not assume or require any schema for the JSON documents it indexes. This allows you to quickly define and iterate on application data models. As you add documents to a collection, DocumentDB automatically indexes all document properties so they are available for you to query. Automatic indexing also allows you to store heterogeneous types of documents.
+While many customers are happy to let DocumentDB automatically handle [all aspects of indexing,](documentdb-indexing.md) DocumentDB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in DocumentDB are more flexible and powerful than secondary indexes offered in other database platforms, in that they let you design and customize the shape of the index without sacrificing schema flexibility. By managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
 
-Automatic indexing of documents is enabled by write optimized, lock free, and log structured index maintenance techniques. DocumentDB supports a sustained volume of fast writes while still serving consistent queries.
+In this article, we take a close look at DocumentDB indexing policies, how you can customize indexing policy, and the associated trade-offs. 
 
-The DocumentDB indexing subsystem is designed to support:
+After reading this article, you'll be able to answer the following questions:
 
--  Efficient, rich hierarchical and relational queries without any schema or index definitions.
--  Consistent query results while handling a sustained volume of writes. For high write throughput workloads with consistent queries, the index is updated incrementally, efficiently, and online while handling a sustained volume of writes.
-- Storage efficiency. For cost effectiveness, the on-disk storage overhead of the index is bounded and predictable.
-- Multi-tenancy. Index updates are performed within the budget of system resources allocated per DocumentDB collection. 
-
-For most applications, you can use the default automatic indexing policy as it allows for the most flexibility and sound tradeoffs between performance and storage efficiency. On the other hand, specifying a custom indexing policy allows you to make granular tradeoffs between query performance, write performance, and index storage overhead.  
-
-For example, by excluding certain documents or paths within documents from indexing, you can reduce both the storage space used for indexing, as well as the insert time cost for index maintenance. You can change the type of index to be better suited for range queries, or increase the index precision in bytes to improve query performance. This article describes the various indexing configuration options available in DocumentDB, and how to customize indexing policy for your workloads.
-
-After reading this article, you'll be able to answer the following questions: 
-
-- How does DocumentDB support indexing of all properties by default?
+- How does DocumentDB support automatic indexing by default?
 - How can I override the properties to include or exclude from indexing?
 - How can I configure the index for eventual updates?
 - How can I configure indexing to perform Order By or range queries?
+- How do I make changes to a collection’s indexing policy?
+- How do I compare storage and performance of different indexing policies?
 
-## How DocumentDB indexing works
+##<a id="CustomizingIndexingPolicy"></a> Customizing the indexing policy of a collection
 
-The indexing in DocumentDB takes advantage of the fact that JSON grammar allows documents to be **represented as trees**. For a JSON document to be represented as a tree, a dummy root node needs to be created which parents the rest of the actual nodes in the document underneath. Each label including the array indices in a JSON document becomes a node of the tree. The figure below illustrates an example JSON document and its corresponding tree representation.
+Developers can customize the trade-offs between storage, write/query performance, and query consistency, by overriding the default indexing policy on a DocumentDB collection and configuring the following aspects.
 
-![Indexing Policies](media/documentdb-indexing-policies/image001.png)
-
-For example, the JSON property `{"headquarters": "Belgium"}` property in the above example corresponds to the path `/headquarters/Belgium`. The JSON array `{"exports": [{"city": “Moscow"}, {"city": Athens"}]}` corresponds to the paths `/exports/[]/city/Moscow` and `/exports/[]/city/Athens`.
-
->[AZURE.NOTE] The path representation blurs the boundary between the structure/schema and the instance values in documents, allowing DocumentDB to be truly schema-free.
-
-In DocumentDB, documents are organized into collections that can be queried using SQL, or processed within the scope a single transaction. Each collection can be configured with its own indexing policy expressed in terms of paths. In the following section, we will take a look at how to configure the indexing behavior of a DocumentDB collection.
-
-## Configuring the indexing policy of a collection
-
-For every DocumentDB collection, you can configure the following options:
-
-- Indexing mode: **Consistent**, **Lazy** (for asynchronous updates), or **None** (only "id" based access)
-- Included and excluded paths: Choose which paths within JSON are included and excluded
-- Index kind: **Hash** (for equality queries), **Range** (for equality, range, and order by queries with higher storage)
-- Index precision: 1-8 or Maximum (-1) to tradeoff between storage and performance
-- Automatic: **true** or **false** to enable, or **manual** (opt-in with each insert)
+- **Including/Excluding documents and paths to/from index**. Developers can choose certain documents to be excluded or included in the index at the time of inserting or replacing them to the collection. Developers can also choose to include or exclude certain JSON properties a.k.a. paths (including wildcard patterns) to be indexed across documents which are included in an index.
+- **Configuring Various Index Types**. For each of the included paths, developers can also specify the type of index they require over a collection based on their data and expected query workload and the numeric/string “precision” for each path.
+- **Configuring Index Update Modes**. DocumentDB supports three indexing modes which can be configured via the indexing policy on a DocumentDB collection: Consistent, Lazy and None. 
 
 The following .NET code snippet shows how to set a custom indexing policy during the creation of a collection. Here we set the policy with Range index for strings and numbers at the maximum precision. This policy lets us execute Order By queries against strings.
 
@@ -87,12 +64,228 @@ The following .NET code snippet shows how to set a custom indexing policy during
 
 ### Indexing modes
 
-You can choose between synchronous (**Consistent**), asynchronous (**Lazy**) and no (**None**) index updates. By default, the index is updated synchronously on each insertion, replacement, or deletion action taken on a document in the collection. This enables the queries to honor the same consistency level as that of the document reads without any delay for the index to catch up.
+DocumentDB supports three indexing modes which can be configured via the indexing policy on a DocumentDB collection – Consistent, Lazy and None.
 
-While DocumentDB is write optimized and supports sustained volumes of document writes along with synchronous index maintenance, you can configure certain collections to update their index lazily. Lazy indexing is great for scenarios where data is written in bursts, and you want to amortize the work required to index content over a longer period of time. This allows you to use your provisioned throughput effectively, and serve write requests at peak times with minimal latency.  With lazy indexing turned on, query results will be eventually consistent regardless of the consistency level configured for the database account.
+**Consistent**: If a DocumentDB collection’s policy is designated as "consistent", the queries on a given DocumentDB collection follow the same consistency level as specified for the point-reads (i.e. strong, bounded-staleness, session or eventual). The index is updated synchronously as part of the document update (i.e. insert, replace, update, and delete of a document in a DocumentDB collection).  Consistent indexing supports consistent queries at the cost of possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the “consistency level”. Consistent indexing mode is designed for “write quickly, query immediately” workloads.
+
+**Lazy**: To allow maximum document ingestion throughput, a DocumentDB collection can be configured with lazy consistency; meaning queries are eventually consistent. The index is updated asynchronously when a DocumentDB collection is quiescent i.e. when the collection’s throughput capacity is not fully utilized to serve user requests. For "ingest now, query later" workloads requiring unhindered document ingestion, "lazy" indexing mode may be suitable.
+
+**None**: A collection marked with index mode of “None” has no index associated with it. Configuring the indexing policy with "None" has the side effect of dropping any existing index.
+
+>[AZURE.NOTE] Configuring the indexing policy with “None” has the side effect of dropping any existing index. Use this if your access patterns are only require “id” and/or “self-link”.
 
 The following sample show how create a DocumentDB collection using the .NET SDK with consistent automatic indexing on all document insertions.
 
+The following table shows the consistency for queries based on the indexing mode (Consistent and Lazy) configured for the collection and the consistency level specified for the query request. This applies to queries made using any interface - REST API, SDKs or from within stored procedures and triggers. 
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>Consistent</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>Lazy</strong>
+                </p>
+            </td>            
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Strong</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Strong
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>            
+        </tr>       
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Bounded Staleness</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Bounded Staleness
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>            
+        </tr>          
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Session</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Session
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>            
+        </tr>      
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Eventual</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>            
+        </tr>         
+    </tbody>
+</table>
+
+By default, an error is returned for all queries if the collection is setup with None indexing mode in order to signal that a scan might be necessary to serve the query. These queries can be performed without a range index using the `x-ms-documentdb-enable-scans` header in the REST API or the `EnableScanInQuery` request option using the .NET SDK. Some queries for example, that use ORDER BY will not be allowed with None even with `EnableScanInQuery`.
+
+The following table shows the consistency for queries based on the indexing mode (Consistent, Lazy, and None) when EnableScanInQuery is specified.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>Consistent</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>Lazy</strong>
+                </p>
+            </td>       
+            <td valign="top">
+                <p>
+                    <strong>None</strong>
+                </p>
+            </td>             
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Strong</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Strong
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>    
+            <td valign="top">
+                <p>
+                    Strong
+                </p>
+            </td>                
+        </tr>       
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Bounded Staleness</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Bounded Staleness
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>      
+            <td valign="top">
+                <p>
+                    Bounded Staleness
+                </p>
+            </td> 
+        </tr>          
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Session</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Session
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>   
+            <td valign="top">
+                <p>
+                    Session
+                </p>
+            </td>             
+        </tr>      
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Eventual</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>      
+            <td valign="top">
+                <p>
+                    Eventual
+                </p>
+            </td>              
+        </tr>         
+    </tbody>
+</table>
+
+The following code sample show how create a DocumentDB collection using the .NET SDK with consistent indexing on all document insertions.
 
      // Default collection creates a hash index for all string and numeric    
      // fields. Hash indexes are compact and offer efficient
@@ -100,14 +293,10 @@ The following sample show how create a DocumentDB collection using the .NET SDK 
      
      var collection = new DocumentCollection { Id ="defaultCollection" };
      
-     // Optional. Override Automatic to false for opt-in indexing of documents.
-     collection.IndexingPolicy.Automatic = true;
-     
-     // Optional. Set IndexingMode to Lazy for bulk import/read heavy        
-     // collections. Queries might return stale results with Lazy indexing.
      collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
      
      collection = await client.CreateDocumentCollectionAsync(database.SelfLink, collection);
+
 
 ### Index paths
 
