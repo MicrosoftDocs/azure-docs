@@ -460,7 +460,7 @@ Execution policies currently allow for defining:
 * Retry Interval Backoff Coefficient: Coefficient used to calculate the next interval between retries.  The following formula is used: (Initial Retry Interval) * Math.pow((Interval Backoff Coefficient), (Number of Retries) - 2). 
 * Maximum Attempts: The maximum number of retry attempts to perform within a job.
 
-Elastic Database Jobs default execution policy uses the following values:
+The default execution policy uses the following values:
 
 * Name: Default execution policy
 * Job Timeout: 1 week
@@ -482,8 +482,6 @@ Create the desired execution policy:
 
 ### Updating a custom execution Policy
 
-Elastic Database jobs supports updating an existing custom execution policy. 
-
 Update the desired execution policy to update:
 
 	$executionPolicyName = "{Execution Policy Name}"
@@ -495,7 +493,7 @@ Update the desired execution policy to update:
 	$updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
 	Write-Output $updatedExecutionPolicy
  
-## Cancel a jobs
+## Cancel jobs
 
 Elastic Database Jobs supports cancellation requests of jobs.  If Elastic Database Jobs detects a cancellation request for a job currently being executed, it will attempt to stop the job.
 
@@ -506,19 +504,19 @@ There are two different ways that Elastic Database Jobs can perform a cancellati
 
 If a job cancellation is requested for a parent job, the cancellation request will be honored for the parent job and for all of its child jobs.
  
-To submit a cancellation request, the following PowerShell script can be used:
+To submit a cancellation request, use the **Stop-AzureSqlJobExecution** cmdlet and set the **JobExecutionId** parameter.
 
-Set the following variables to reflect the job to be canceled:
 	$jobExecutionId = "{Job Execution Id}"
 	Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
-## Deleting jobs and job history
+## Deleting a job and the job history
 
 Elastic Database jobs supports asynchronous deletion of jobs. A job can be marked for deletion and the system will delete the job and all its job history after all job executions have completed for the job. The system will not automatically cancel active job executions.  
 
 Instead, Stop-AzureSqlJobExecution must be invoked to cancel active job executions.
 
-To trigger job deletion, the following PowerShell script can be used:
+To trigger job deletion, use the **Remove-AzureSqlJob** cmdlet and set the **JobName** parameter.
+
 	$jobName = "{Job Name}"
 	Remove-AzureSqlJob -JobName $jobName
  
@@ -552,14 +550,12 @@ Add the desired database to a specific custom collection:
 
 #### Obtaining the Databases within a Custom Database Collection Target
 
-The following PowerShell script can be used to view the child databases within a custom database collection target:
- 
-Set the custom collection name to use:
+Use the **Get-AzureSqlJobTarget** cmdlet to retrieve the child databases within a custom database collection target. 
  
 	$customCollectionName = "{Custom Database Collection Name}"
 	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 	$childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
-	Write-Output $childTargets 
+	Write-Output $childTargets
 
 ### Create a job to execute a script across a custom database collection target
 
@@ -627,9 +623,8 @@ Set the following variables to correspond to the desired job and schedule:
 
 ### Remove a scheduled association to stop job from executing on schedule
 
-To discontinue reoccurring job execution through a job trigger, the job trigger can be removed.  The following PowerShell script can be used to remove a job trigger:
- 
-Remove a job trigger to stop a job from being executed according to a schedule:
+To discontinue reoccurring job execution through a job trigger, the job trigger can be removed. 
+Remove a job trigger to stop a job from being executed according to a schedule using the **Remove-AzureSqlJobTrigger** cmdlet.
 
 	$jobName = "{Job Name}"
 	$scheduleName = "{Schedule Name}"
@@ -639,8 +634,6 @@ Remove a job trigger to stop a job from being executed according to a schedule:
 
 The following PowerShell script can be used to obtain and display the job triggers registered to a particular time schedule.
 
-Display the jobs registered to the schedule:
-
 	$scheduleName = "{Schedule Name}"
 	$jobTriggers = Get-AzureSqlJobTrigger -ScheduleName $scheduleName
 	Write-Output $jobTriggers
@@ -648,8 +641,6 @@ Display the jobs registered to the schedule:
 ### Retrieve job triggers bound to a job 
 
 The following PowerShell script can be used to obtain and display schedules containing a registered job.
-
-Display the job triggers containing the specified job:
 
 	$jobName = "{Job Name}"
 	$jobTriggers = Get-AzureSqlJobTrigger -JobName $jobName
@@ -679,8 +670,6 @@ The following PowerShell script can be used to update the DACPAC URI on an exist
 ## Create a Job to Apply a Data-tier Application Deployment (DACPAC) across databases
 
 After a DACPAC has been created within Elastic Database Jobs, a job can be created to apply the DACPAC across a group of databases.  The following PowerShell script can be used to create a DACPAC job across a custom collection of databases:
-
-Create a job to apply a DACPAC across a custom collection:
 
 	$jobName = "{Job Name}"
 	$dacpacName = "{Dacpac Name}"

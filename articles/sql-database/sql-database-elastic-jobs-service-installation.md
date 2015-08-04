@@ -35,12 +35,13 @@ If you have already installed **Elastic Database jobs** through the Portal from 
 
     The **Elastic Database jobs** files are placed in the local directory in a folder named **Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. The **Elastic Database jobs** PowerShell cmdlets (including required client .dlls) are located in the **content\ElasticDatabaseJobs** sub-directory and the PowerShell scripts to install, upgrade and uninstall reside in the **content** sub-directory.
 
-3. Navigate to the content sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x folder by typing cd \content, for example:
+3. Navigate to the content sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x folder by typing cd content, for example:
 
 		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>cd content
 
 4.	Execute the .\InstallElasticDatabaseJobsCmdlets.ps1 script to copy the ElasticDatabaseJobs directory into $home\Documents\WindowsPowerShell\Modules. This will also automatically import the module for use, for example:
 
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\content>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1 
 		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\content>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## Install the Elastic Database jobs components using PowerShell
