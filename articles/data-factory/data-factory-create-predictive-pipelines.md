@@ -19,7 +19,7 @@
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
 ## Overview
 
-Azure Data Factory enables you to easily create pipelines that leverages the published [Azure Machine Learning][azure-machine-learning] web service. This enables you to use Azure Data Factory to orchestrate  data movement and processing, and then perform batch scoring using Azure Machine Learning. To achieve this, you will need to do the following:
+Azure Data Factory enables you to easily create pipelines that leverages a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. This enables you to use Azure Data Factory to orchestrate  data movement and processing, and then perform batch scoring using Azure Machine Learning. To achieve this, you will need to do the following:
 
 1. Use the **AzureMLBatchScoring** activity.
 2. **Request URI** for the Batch Execution API. You can find the Request URI by clicking on the **BATCH EXECUTION** link in the web services page (shown below).
