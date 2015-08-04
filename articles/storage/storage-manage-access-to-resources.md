@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/03/2015" 
 	ms.author="micurd;tamram"/>
 
 # Manage Access to Azure Storage Resources
@@ -22,11 +22,11 @@
 
 By default, only the owner of the storage account may access storage resources within that account. If your service or application needs to make these resources available to other clients without sharing your access key, you have the following options for permitting access:
 
-- You can set a container's permissions to permit anonymous read access to the container and its blobs. This is not allowed for tables or queues.
+- You can set a container's permissions to permit anonymous read access to the container and its blobs. Anonymous read access is available only for containers and blobs. 
 
-- You can expose a resource via a shared access signature, which enables you to delegate restricted access to a container, blob, table or queue resource by specifying the interval for which the resources are available and the permissions that a client will have to it.
+- You can expose a resource via a shared access signature, which enables you to delegate restricted access to a container, blob, table, queue, file share, or file by specifying the interval for which the resources are available and the permissions that a client will have to it.
 
-- You can use a stored access policy to manage shared access signatures for a container or its blobs, for a queue, or for a table. The stored access policy gives you an additional measure of control over your shared access signatures and also provides a straightforward means to revoke them.
+- You can use a stored access policy to manage shared access signatures for a container or its blobs, for a queue, for a table, or for a file share or its files. The stored access policy gives you an additional measure of control over your shared access signatures and also provides a straightforward means to revoke them.
 
 ## Restrict Access to Containers and Blobs
 
@@ -74,25 +74,18 @@ The following table shows which operations may be called by anonymous users when
 | Get Page Ranges                                        | All                                     | All                                                  |
 
 ## Create and Use a Shared Access Signature
-A shared access signature is a URI that grants restricted access rights to containers, blobs, queues, and tables for a specific time interval. By providing a client with a shared access signature, you can enable them to access resources in your storage account without sharing your account key with them.
+A shared access signature (SAS) is a URI that grants restricted access rights to a storage resource for a specified time interval. You can create a SAS on these storage resources:
+
+- Containers and blobs
+- Queues
+- Tables
+- File shares and files 
+
+By providing a client with a shared access signature, you can enable them to access resources in your storage account without sharing your account key with them.
 
 >[AZURE.NOTE] For an in-depth conceptual overview and tutorial on shared access signatures, see [Shared Access Signatures](storage-dotnet-shared-access-signature-part-1.md).
 
-Supported operations using shared access signatures include:
-
-- Reading and writing page or block blob content, block lists, properties, and metadata
-
-- Deleting, leasing, and creating a snapshot of a blob
-
-- Listing the blobs within a container
-
-- Adding, removing, updating, and deleting queue messages (in Storage Client Library 2.0 and newer)
-
-- Getting queue metadata, including the message count (in Storage Client Library 2.0 and newer)
-
-- Querying, adding, updating, deleting, and upserting table entities (in Storage Client Library 2.0 and newer)
-
-The shared access signature URI query parameters incorporate all of the information necessary to grant controlled access to a storage resource. The URI query parameters specify the time interval over which the shared access signature is valid, the permissions that it grants, the resource that is to be made available, and the signature that the storage services should use to authenticate the request.
+The shared access signature URI query parameters incorporate all of the information necessary to grant controlled access to a storage resource. The URI query parameters on a SAS include the time interval over which the shared access signature is valid, the permissions that it grants, the resource that is to be made available, the version to use to execute the request, and the signature that the storage services will use to authenticate the request.
 
 Additionally, the shared access signature URI can reference a stored access policy that provides an additional level of control over a set of signatures, including the ability to modify or revoke access to the resource if necessary. 
 
@@ -178,18 +171,18 @@ A client who receives a shared access signature can use it from their code to co
 ## Use a Stored Access Policy
 A stored access policy provides an additional level of control over shared access signatures on the server side. Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy. You can use a stored access policy to change the start time, expiry time, or permissions for a signature, or to revoke it after it has been issued.
 
-A stored access policy gives you greater control over shared access signatures you have released. Instead of specifying the signature's lifetime and permissions on the URL, you can specify these parameters within the stored access policy stored on the blob, container, queue, or table that is being shared. To change these parameters for one or more signatures, you can modify the stored access policy, rather than reissuing the signatures. You can also quickly revoke the signature by modifying the stored access policy.
+A stored access policy gives you greater control over shared access signatures you have released. Instead of specifying the signature's lifetime and permissions on the URL, you can specify these parameters on a stored access policy that is stored on the container, file share, queue, or table that contains the resource being shared. To change these parameters for one or more signatures, you can modify the stored access policy, rather than reissuing the signatures. You can also quickly revoke the signature by modifying the stored access policy.
 
 For example, suppose you have issued a shared access signature that's associated with a stored access policy. If you've specified the expiry time within the stored access policy, you can modify the access policy to extend the life of the signature, without having to reissue a new signature.
 
 Best practices recommend specifying a stored access policy for any signed resource for which you are issuing a shared access signature, as the stored policy can be used to modify or revoke the signature after it has been issued. If you don't specify a stored policy, it's recommended that you limit the lifetime of your signature in order to minimize any risk to your storage account resources. 
 
 ### Associating a Shared Access Signature with a Stored Access Policy
-A stored access policy includes a name up to 64 characters long that is unique within the container, queue, or table. To associate a shared access signature with a stored access policy, you specify this identifier when creating the shared access signature. On the shared access signature URI, the *signedidentifier* field specifies the identifier for the stored access policy.
+A stored access policy includes a name up to 64 characters long that is unique within the container, file share, queue, or table. To associate a shared access signature with a stored access policy, you specify this identifier when creating the shared access signature. On the shared access signature URI, the *signedidentifier* field specifies the identifier for the stored access policy.
 
-A container, queue, or table can include up to 5 stored access policies. Each policy can be used by any number of shared access signatures.
+A container, file share, queue, or table can include up to 5 stored access policies. Each policy can be used by any number of shared access signatures.
 
->[AZURE.NOTE]When you establish a stored access policy on a container, queue, or table, it may take up to 30 seconds to take effect. During this interval, a shared access signature that is associated with the stored access policy will fail with status code 403 (Forbidden), until the access policy becomes active.
+>[AZURE.NOTE]When you establish a stored access policy on a container, file share, queue, or table, it may take up to 30 seconds to take effect. During this interval, a shared access signature that is associated with the stored access policy will fail with status code 403 (Forbidden), until the access policy becomes active.
 
 ### Specifying Access Policy Parameters for a Shared Access Policy
 The stored access policy can specify the following access policy parameters for the signatures with which it's associated:
