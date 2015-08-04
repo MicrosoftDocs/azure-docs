@@ -22,7 +22,7 @@ The name of the API app to create. The name must contain at least 8 characters a
 
 ### apiAppSecret
 
-The secret for the API app. This value must be a base64-encoded string.
+The secret for the API app. This value must be a base64-encoded string. It should be a random string with 64 characters, and consist of only integers and lowercase characters.
 
     "apiAppSecret": {
       "type": "securestring"
