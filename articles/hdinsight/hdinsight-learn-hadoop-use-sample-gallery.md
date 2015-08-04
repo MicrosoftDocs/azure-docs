@@ -12,7 +12,7 @@
    ms.workload="big-data"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="get-started-article"
    ms.date="07/09/2015"
    ms.author="jgao"/>
 
@@ -35,14 +35,14 @@ The following video clip shows how to run the Twitter trend analysis sample:
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-The Dashboard can be access by browsing to http://<YourHDInsightClusterName>.azurehdinsight.net/ or from the Azure portal.
+The Dashboard can be access by browsing to http://<YourHDInsightClusterName>.azurehdinsight.net/ or from the Azure preview portal.
 
 **To run a sample from the Getting Started Gallery**
 
-1. Sign in to the [Azure portal][azure.portal].
-2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name. 
+1. Sign in to the [Azure preview portal][azure.portal].
+2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
 3. Click **Dashboard** from the top menu.
-4. Enter the HTTP user (it is also called cluster user) username and password. 
+4. Enter the HTTP user (it is also called cluster user) username and password.
 6.	Click **Getting Started Gallery** at the top of the page.
 7.	Click one of the samples. Each sample gives detailed steps for running it. The following image shows the Twitter trend analysis sample:
 
@@ -62,4 +62,3 @@ Other ways to learn about HDInsight include:
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]:https://portal.azure.com
- 

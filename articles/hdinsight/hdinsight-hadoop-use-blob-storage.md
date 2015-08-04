@@ -93,9 +93,9 @@ Wherever it lives, each blob you create belongs to a container in your Azure Sto
 Don't share a default storage container with multiple HDInsight clusters. If you need to use a shared container to provide access to data for multiple HDInsight clusters then you should add it as an additional storage account in the cluster configuration. For more information, see [Provision HDInsight clusters][hdinsight-provision]. However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by provision a new HBase cluster using the default blob storage container that is used by an HBase cluster that has been deleted.
 
 
-###Using the Azure portal
+###Using the Azure preview portal
 
-When provisioning an HDInsight cluster from the Azure portal, you have the options to use an existing storage account or create a new storage account:
+When provisioning an HDInsight cluster from the preview portal, you have the options to use an existing storage account or create a new storage account:
 
 ![hdinsight hadoop provision data source](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
@@ -317,4 +317,3 @@ To learn more, see the following articles:
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png  
- 
