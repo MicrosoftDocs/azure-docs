@@ -4,7 +4,7 @@
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/07/2015"
+   ms.date="08/04/2015"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -28,6 +28,7 @@ You will have access to Azure services across all regions within a geopolitical 
 |**Geopolitical Region**|**Azure Regions**|**ExpressRoute Locations**|
 |---|---|---|
 |**US**|All US Regions - East US, West US,East US 2, Central US, South Central US, North Central US|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
+|**USGov**|Iowa, Virginia|Ashburn, Chicago|
 |**South America**|Brazil South|Sao Paulo|
 |**Europe**|North Europe, West Europe|Amsterdam, London|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
@@ -76,7 +77,7 @@ See [Configure your EXP connection](expressroute-configuring-exps.md) for steps 
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Not Supported | Singapore |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supported | Coming Soon | Amsterdam, Chennai+, Hong Kong, London, Mumbai+, Singapore |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Not Supported | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | London, Hong Kong, Silicon Valley, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | London, Hong Kong, Silicon Valley, Washington DC, USGov Iowa, USGov Virginia |
 
  **+** denotes coming soon
 
