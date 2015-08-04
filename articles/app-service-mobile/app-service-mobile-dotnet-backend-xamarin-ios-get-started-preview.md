@@ -31,15 +31,11 @@ You'll have to complete this tutorial before you try all the other tutorials for
 
     >[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
 
-* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio 2015 (any edition)</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. 
+* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio 2015 (any edition)</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. You need this to build and run the mobile app backend project.
 
 * A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it.  
 
-    If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
-
-* [Xamarin Studio] and [Xcode] v4.4 or later installed on your Mac.
-
-
+     >[AZURE.NOTE]If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
 
 ## Create a new mobile app backend
 
@@ -90,7 +86,7 @@ To get started, you'll download a .NET backend service project for your mobile a
 
 2. Press the **F5** key to build the project and start the app in the iPhone emulator.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the **+** button.
+3. In the app, type meaningful text, such as _Learn Xamarin_ and then click the **+** button.
 
 	![][10]
 
@@ -126,7 +122,7 @@ To get started, you'll download a .NET backend service project for your mobile a
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
+[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
