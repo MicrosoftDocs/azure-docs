@@ -1,7 +1,7 @@
 
 1. In Visual Studio, right-click the project, click **Publish** > **Publish Web** > **Microsoft Azure Web Apps**.
 
-2. Sign in with your Azure credentials, select your service from **Existing Web Apps** (your service may have a "-code" suffix), then click **Publish**.
+2. Sign in with your Azure credentials, select your service from **Existing Web Apps**, then click **Publish**.
 
 	Note that when you sign in Visual Studio downloads your publish settings directly from Azure and stores them in your profile. 
 
