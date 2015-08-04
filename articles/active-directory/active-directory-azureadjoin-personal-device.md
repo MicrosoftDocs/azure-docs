@@ -5,8 +5,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
-	editor=""
-	tags="azure-classic-portal"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -24,7 +23,7 @@ To join a Windows 10 device to your organization
 1.	From the **Start** menu, select **Settings**.
 2.	Select **Accounts**, and then click **Your account**.
 3.	Click **Add Work or School account**, and then type in your organizational account.
-4.	You will then be taken to the logon page for your organization. Enter your username and password and click **OK**.
+4.	You will then be taken to the sign-in page for your organization. Enter your username and password and click **OK**.
 5.	You will then be prompted for a multi-factor authentication challenge. This is configurable by IT.
 6.	Azure AD will then check whether this user/device requires mobile device management (MDM) enrollment.
 7.	Windows will then register the device in the organization’s directory in Azure AD and enroll it in MDM.
