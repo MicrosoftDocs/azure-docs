@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Data Factory - SQL Server Stored Procedure Activity" 
+	pageTitle="SQL Server Stored Procedure Activity" 
 	description="Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database from a Data Factory pipeline." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -18,9 +18,7 @@
 
 # SQL Server Stored Procedure Activity
 
-You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in an **Azure SQL** Database. 
-
-**Note:** This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
+You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in an **Azure SQL** Database. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
 
 ## Syntax
 	{
