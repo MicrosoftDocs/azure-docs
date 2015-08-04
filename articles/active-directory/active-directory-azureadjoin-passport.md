@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="swadhwa" 
-	editor=""
-	tags="azure-classic-portal"/>
+	editor=""/>
 
 <tags 
 	ms.service="active-directory" 
@@ -24,9 +23,9 @@ The current methods of authentication with passwords alone are not sufficient to
 ## What is Microsoft Passport
 Microsoft Passport is a new private/public key or certificate-based authentication approach for organizations and consumers that goes beyond passwords. This form of authentication relies on these key pair credentials that can replace passwords and be resistant to breaches, thefts and phishing Microsoft Passport lets users authenticate to a Microsoft account, an Active Directory account, a Microsoft Azure Active Directory (AD) account, or non-Microsoft service that supports Fast ID Online (FIDO) authentication. After an initial two-step verification during Microsoft Passport enrollment, a Microsoft Passport is set up on the user's device and the user sets a gesture, which can be Windows Hello or a PIN. The user provides the gesture to verify identity; Windows then uses Microsoft Passport to authenticate users and help them to access protected resources and services.
 
-The private key is made available solely through a “user gesture” like a PIN, biometrics, remote device like a smart card that the user used to log on to the device and this information is linked to a certificate or an asymmetrical key pair. This private-key is hardware attested if device has a Trusted Platform Module (TPM) chip. The private key never leaves the device.
+The private key is made available solely through a “user gesture” like a PIN, biometrics, remote device like a smart card that the user used to sign in to the device and this information is linked to a certificate or an asymmetrical key pair. This private-key is hardware attested if device has a Trusted Platform Module (TPM) chip. The private key never leaves the device.
 
-The public key is registered with Azure Active Directory and Windows Server Active Directory (for On-Premises). The Identity Providers (IDPs) validate the user by mapping the public key of the user to the private key and provides log on information through One Time Password (OTP), Phonefactor or a different notification mechanism.
+The public key is registered with Azure Active Directory and Windows Server Active Directory (for On-Premises). The Identity Providers (IDPs) validate the user by mapping the public key of the user to the private key and provides sign-in information through One Time Password (OTP), Phonefactor or a different notification mechanism.
 ## Why should enterprises adopt Microsoft Passport
 By enabling Microsoft Passport, enterprises can make their resources even more secure by:
 
