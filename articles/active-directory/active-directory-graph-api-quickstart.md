@@ -35,10 +35,10 @@ In Graph API, in order to access directory data and objects (in other words, res
 
 The following versions have been released for the Graph API.
 
-- Version beta
-- Version 1.5
-- Version 2013-11-08
-- Version 2013-04-05
+* Version beta
+* Version 1.5
+* Version 2013-11-08
+* Version 2013-04-05
 
 You specify the version for a Graph API request in the “api-version” query parameter. For version 1.5 you use a numerical version value; api-version=1.5. For previous versions, you use a date string that adheres to the format YYYY-MM-DD; for example, api-version=2013-11-08. For preview features, use the string “beta”; for example, api-version=beta. For more information about differences between Graph API versions, see [Azure AD Graph API Versioning](https://msdn.microsoft.com/library/azure/dn835125.aspx).
 
@@ -103,17 +103,17 @@ Authorization: your access token
 Content-Type: application/json
 ```
 
-    > [AZURE.NOTE] Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
+> [AZURE.NOTE] Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
 
     a. In the **Request body** field, type the following:
-
+```
         {
             "displayName":"MyTestGroup",
             "mailNickname":"MyTestGroup",
             "mailEnabled":"false",
             "securityEnabled": true
         }
-
+```
     For more information about creating groups, see [Create Group](https://msdn.microsoft.com/library/azure/dn151614.aspx)
 
 For more information on Azure AD entities and types that are exposed by Graph and information about the operations that can be performed on them with Graph, see [Azure AD Graph REST API Reference](https://msdn.microsoft.com/library/azure/hh974478.aspx).
