@@ -36,83 +36,27 @@ Retrieving property and metadata values for a storage resource is a two-step pro
 
 To set properties on a blob, specify the property value, then call the **SetProperties** or **SetPropertiesAsync** method.
 
-The following code example creates a container and a blob and writes property values to a console window. This example uses the storage emulator, so the emulated storage service must be running in order for the code to work:
+The following code example creates a container and writes property values to a console window:
 
-	// Use the storage emulator account.
-	CloudStorageAccount storageAccount = CloudStorageAccount.DevelopmentStorageAccount;
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	
+	//Create the service client object for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-	// As an alternative, you can create the credentials from the account name and key.
-	// string accountName = "myaccount";
-	// string accountKey = "SzlFqgzqhfkj594cFoveYqCuvo8v9EESAnOLcTBeBIo31p16rJJRZx/5vU/oY3ZsK/VdFNaVpm6G8YSD2K48Nw==";
-	// StorageCredentials credentials = new StorageCredentials(accountName, accountKey);
-	// CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
+    // Retrieve a reference to a container. 
+    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    // Create the container if it does not already exist.
+    container.CreateIfNotExists();
 
-	// Retrieve a reference to a container. 
-	CloudBlobContainer container = blobClient.GetContainerReference(<span style="color:#A31515;">"mycontainer");
-
-	// Create the container if it does not already exist.
-	container.CreateIfNotExists();
-
-	// Fetch container properties and write out their values.
-	container.FetchAttributes();
-	Console.WriteLine(<span style="color:#A31515;">"Properties for container " + container.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"LastModifiedUTC: " + container.Properties.LastModified);
-	Console.WriteLine(<span style="color:#A31515;">"ETag: " + container.Properties.ETag);
-	Console.WriteLine();
-
-	// Create a blob.
-	CloudBlockBlob blob = container.GetBlockBlobReference(<span style="color:#A31515;">"myblob.txt");
-
-	// Create or overwrite the "myblob.txt" blob with contents from a local file.
-	<span style="color:Blue;">using (<span style="color:Blue;">var fileStream = System.IO.File.OpenRead(<span style="color:#A31515;">@"c:\test\myblob.txt"))
-	{
-	   blob.UploadFromStream(fileStream);
-	} 
-
-	// Fetch container properties and write out their values.
-	container.FetchAttributes();
-	Console.WriteLine(<span style="color:#A31515;">"Properties for container " + container.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"LastModifiedUTC: " + container.Properties.LastModified);
-	Console.WriteLine(<span style="color:#A31515;">"ETag: " + container.Properties.ETag);
-	Console.WriteLine();
-
-	// Create a blob.
-	Uri blobUri =<span style="color:Blue;">new UriBuilder(containerUri.AbsoluteUri + <span style="color:#A31515;">"/ablob.txt").Uri;
-	CloudPageBlob blob = <span style="color:Blue;">new CloudPageBlob(blobUri, credentials);
-	blob.Create(1024);
-				
-
-	// Set the CacheControl property.
-	blob.Properties.CacheControl = <span style="color:#A31515;">"public, max-age=31536000";
-	blob.SetProperties();
-
-	// Fetch blob attributes.
-	blob.FetchAttributes();
-
-	Console.WriteLine(<span style="color:#A31515;">"Read-only properties for blob " + blob.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"BlobType: " + blob.Properties.BlobType);
-	Console.WriteLine(<span style="color:#A31515;">"ETag: " + blob.Properties.ETag);
-	Console.WriteLine(<span style="color:#A31515;">"LastModifiedUtc: " + blob.Properties.LastModified);
-	Console.WriteLine(<span style="color:#A31515;">"Length: " + blob.Properties.Length);
-	Console.WriteLine();
-
-	Console.WriteLine(<span style="color:#A31515;">"Read-write properties for blob " + blob.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"CacheControl: " +
-	   (blob.Properties.CacheControl == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.CacheControl));
-	Console.WriteLine(<span style="color:#A31515;">"ContentEncoding: " +
-	   (blob.Properties.ContentEncoding == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentEncoding));
-	Console.WriteLine(<span style="color:#A31515;">"ContentLanguage: " +
-	   (blob.Properties.ContentLanguage == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentLanguage));
-	Console.WriteLine(<span style="color:#A31515;">"ContentMD5: " +
-	   (blob.Properties.ContentMD5 == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentMD5));
-	Console.WriteLine(<span style="color:#A31515;">"ContentType: " +
-	   (blob.Properties.ContentType == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentType));
-
-	// Clean up.
-	blob.DeleteIfExists();
-	container.Delete();
+    // Fetch container properties and write out their values.
+    container.FetchAttributes();
+    Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
+    Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
+    Console.WriteLine("ETag: {0}", container.Properties.ETag);
+    Console.WriteLine();
 
 ## Setting and Retrieving Metadata
 

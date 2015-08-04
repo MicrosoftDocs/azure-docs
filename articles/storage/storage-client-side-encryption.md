@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Overview
 
-The [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) contains functionality to help developers encrypt data inside client applications before uploading to Azure Storage, and to decrypt data while downloading. The library also supports integration with Azure [Key Vault](http://azure.microsoft.com/services/key-vault/) for storage account key management.
+The [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage) contains functionality to help developers encrypt data inside client applications before uploading to Azure Storage, and to decrypt data while downloading. The library also supports integration with Azure [Key Vault](http://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 ## Encryption and decryption via the envelope technique
 
