@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/03/2015"
+   ms.date="08/04/2015"
    ms.author="rickbyh"/>
 
 # Azure SQL Database firewall
@@ -77,222 +77,36 @@ After you have configured the first server-level firewall, you may want to restr
 
 In addition to the Azure Management Portal, firewall rules can be managed programmatically using Transact-SQL, REST API, and Azure PowerShell. The tables below describe the set of commands available for each method. 
 
+
 ### Transact-SQL
 
-</table>
-    <table>
-      <thead>
-        <tr>
-          <TD>
-            <para>Catalog View or Stored Procedure</para>
-          </TD>
-          <TD>
-            <para>Level</para>
-          </TD>
-          <TD>
-            <para>Description</para>
-          </TD>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <TD>
-            <para>[sys.firewall\\_rules](https://msdn.microsoft.com/library/dn269980.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Displays the current server-level firewall rules</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[sp\\_set\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270017.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Creates or updates server-level firewall rules</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[sp\\_delete\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270024.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Removes server-level firewall rules</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[sys.database\\_firewall\\_rules](https://msdn.microsoft.com/library/dn269982.aspx)</para>
-          </TD>
-          <TD>
-            <para>database</para>
-          </TD>
-          <TD>
-            <para>Displays the current database-level firewall rules</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[sp_set\\_database\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270010.aspx)</para>
-          </TD>
-          <TD>
-            <para>database</para>
-          </TD>
-          <TD>
-            <para>Creates or updates the database-level firewall rules</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[sp\\_delete\\_database\\_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx)</para>
-          </TD>
-          <TD>
-            <para>database</para>
-          </TD>
-          <TD>
-            <para>Removes database-level firewall rules</para>
-          </TD>
-        </tr>
-      </tbody>
-    </table>
+| Catalog View or Stored Procedure                                                           | Level     | Description                                          |
+|--------------------------------------------------------------------------------------------|-----------|------------------------------------------------------|
+| [sys.firewall\\_rules](https://msdn.microsoft.com/library/dn269980.aspx)                   | Server    | Displays the current server-level firewall rules     |
+| [sp\\_set\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270017.aspx)             | Server    | Creates or updates server-level firewall rules       |
+| [sp\\_delete\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270024.aspx)          | Server    | Removes server-level firewall rules                  |
+| [sys.database\\_firewall\\_rules](https://msdn.microsoft.com/library/dn269982.aspx)        | Database  | Displays the current database-level firewall rules   |
+| [sp_set\\_database\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270010.aspx)    | Database  | Creates or updates the database-level firewall rules |
+| [sp\\_delete\\_database\\_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) | Databases | Removes database-level firewall rules                |
 
 ### REST API
 
-</table>
-    <table>
-      <thead>
-        <tr>
-          <TD>
-            <para>API</para>
-          </TD>
-          <TD>
-            <para>Level</para>
-          </TD>
-          <TD>
-            <para>Description</para>
-          </TD>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <TD>
-            <para>[List Firewall Rules](https://msdn.microsoft.com/library/azure/dn505715.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Displays the current server-level firewall rules</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[Create Firewall Rule](https://msdn.microsoft.com/library/azure/dn505712.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Creates or updates server-level firewall rules</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[Set Firewall Rule](https://msdn.microsoft.com/library/azure/dn505707.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Updates the properties of an existing server-level firewall rule</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[Delete Firewall Rule](https://msdn.microsoft.com/library/azure/dn505706.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Removes server-level firewall rules</para>
-          </TD>
-        </tr>
-        </tbody>
-    </table>
+| API                  | Level  | Description                                                      |
+|----------------------|--------|------------------------------------------------------------------|
+| [List Firewall Rules](https://msdn.microsoft.com/library/azure/dn505715.aspx)  | Server | Displays the current server-level firewall rules                 |
+| [Create Firewall Rule](https://msdn.microsoft.com/library/azure/dn505712.aspx) | Server | Creates or updates server-level firewall rules                   |
+| [Set Firewall Rule](https://msdn.microsoft.com/library/azure/dn505707.aspx)    | Server | Updates the properties of an existing server-level firewall rule |
+| [Delete Firewall Rule](https://msdn.microsoft.com/library/azure/dn505706.aspx) | Server | Removes server-level firewall rules                              |
+
 
 ### Azure PowerShell
 
-</table>
-    <table>
-      <thead>
-        <tr>
-          <TD>
-            <para>Cmdlet</para>
-          </TD>
-          <TD>
-            <para>Level</para>
-          </TD>
-          <TD>
-            <para>Description</para>
-          </TD>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <TD>
-            <para>[Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Returns the current server-level firewall rules</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Creates a new server-level firewall rule</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Updates the properties of an existing server-level firewall rule</para>
-          </TD>
-        </tr>
-        <tr>
-          <TD>
-            <para>[Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx)</para>
-          </TD>
-          <TD>
-            <para>server</para>
-          </TD>
-          <TD>
-            <para>Removes server-level firewall rules</para>
-          </TD>
-        </tr>
-        </tbody>
-    </table>
+| Cmdlet                                                                                              | Level  | Description                                                      |
+|-----------------------------------------------------------------------------------------------------|--------|------------------------------------------------------------------|
+| [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx)    | Server | Returns the current server-level firewall rules                  |
+| [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx)    | Server | Creates a new server-level firewall rule                         |
+| [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx)    | Server | Updates the properties of an existing server-level firewall rule |
+| [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) | Server | Removes server-level firewall rules                              |
 
 > [AZURE.NOTE] There can be up as much as a five-minute delay for changes to the firewall settings to take effect.
 
