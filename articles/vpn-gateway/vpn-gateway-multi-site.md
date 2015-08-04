@@ -37,7 +37,7 @@ Before you begin configuration, verify that you have the following:
 
 - An externally facing public IPv4 IP address for each VPN device. The IP address cannot be located behind a NAT. This is requirement.
 
--   The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
+-   The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Downloads](http://azure.microsoft.com/downloads/) page.
 
 - Someone who is proficient at configuring your VPN hardware. You won't be able to use the auto-generated VPN scripts from the Management Portal to configure your VPN devices. This means you'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.
 
@@ -56,10 +56,10 @@ Before you begin configuration, verify that you have the following:
 		
 	**If you need to create a site-to-site virtual network:**
 
-	- Step 1: Create the site-to-site virtual network using these instructions: [Configure a Cross-Premises Site-to-Site connection to an Azure Virtual Network](vpn-gateway-site-to-site-create.md).
-	- Step 2: Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway in the Management Portal](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
+	- Step 1: Create the site-to-site virtual network using these instructions: [Create a virtual network with a site-to-site VPN connection in the management portal](vpn-gateway-site-to-site-create.md).
+	- Step 2: Configure a dynamic routing gateway using these instructions: [Configure a VPN gateway in the management portal](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
 
-1. **<a name="export"></a>Export the virtual network configuration settings.** Use these instructions, [Export Virtual Network Settings to a Network Configuration File](../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal), to export your network settings to a network configuration file (netcfg file). This file will be used to configure your new multi-site settings.
+1. **<a name="export"></a>Export the virtual network configuration settings.** To export your network configuration file, see [To export your network settings](../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). The file that you export will be used to configure your new multi-site settings.
 
 1. **Open your network configuration file.** Open the network configuration file that you downloaded in the last step. Use any xml editor that you like. The file should look similar to the following:
 
@@ -127,7 +127,7 @@ Before you begin configuration, verify that you have the following:
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-1. **Save the network configuration file and import it.** To import the network configuration file, see [Import a Network Configuration File](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier.
+1. **Save the network configuration file and import it.** To import the network configuration file, see [To import your network settings](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier.
 
 
 
