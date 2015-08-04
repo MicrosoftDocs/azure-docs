@@ -16,6 +16,8 @@
 	ms.date="08/03/2015" 
 	ms.author="arramac"/>
 	
+# Automatic Indexing in Azure DocumentDB
+
 This article is an introduction to how automatic indexing works in DocumentDB and excerpted from the "Schema-Agnostic Indexing with Azure DocumentDB" paper which will be presented at the [VLDB conference in 2015](http://www.vldb.org/2015/). After reading this, you will be answer the following questions:
 
 - How does DocumentDB infer the schema from a JSON document?
