@@ -598,7 +598,7 @@ The following resources are available to provide more general information about 
 
 <!--Image references-->
 [1]: ./media/sec-azure-security-audit-log-management/sec-security-data-collection-flow.png
-[2]: ./media/sec-azure-security-audit-log-management/sec-storage-table-security-log.png
+[2]: ./media/sec-azure-security-audit-log-management/sec-storage-table-security-log.PNG
 [3]: ./media/sec-azure-security-audit-log-management/sec-wad-windows-event-logs-table.png
 [4]: ./media/sec-azure-security-audit-log-management/sec-edit-entity.png
 [5]: ./media/sec-azure-security-audit-log-management/sec-app-event-log-cmd.png
