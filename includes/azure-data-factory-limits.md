@@ -8,9 +8,9 @@ concurrent slices per dataset | 10 | 10
 bytes per object for pipeline objects <sup>1</sup> | 200 KB | 2000 KB
 bytes per object for dataset and linkedservice objects <sup>1</sup> | 30 KB | 2000 KB
 fields per object | 100 | 100
-bytes per field name or identifier | 2 KB | Contact support
-bytes per field | 30 KB | Contact support
-HDInsight on-demand cluster cores within a subscription <sup>2</sup> | 48 | Contact support
+bytes per field name or identifier | 2 KB | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+bytes per field | 30 KB | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+HDInsight on-demand cluster cores within a subscription <sup>2</sup> | 48 | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 Minimum scheduling interval | 15 | 5
 Retry count for pipeline activity runs | 1000 | MaxInt (32 bit)
 Minimum interval between retry attempts | 1sec | 1sec
