@@ -19,6 +19,8 @@
 
 # Manage Hadoop clusters in HDInsight by using the Azure preview portal
 
+[AZURE.INCLUDE [selector](../../include/hdinsight-administer-use-portal-linux.md)]
+
 Using the [Azure preview portal][preview-portal], you can provision and manage Linux-based Hadoop clusters in Azure HDInsight.
 
 > [AZURE.NOTE] The steps in this document are specific to working with Linux-based Hadoop clusters. For information on working with Windows-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure preview portal](hdinsight-administer-use-management-portal.md)
