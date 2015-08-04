@@ -101,7 +101,9 @@ The output looks like this:
 
 ## Create an API app
 
-To create an API app, perform the following steps:
+There are two ways to create an API app. You can use imperative CLI commands to create Azure resources individually, or you can use declarative syntax in a template to define all of the required resources together and deploy that template with a CLI command. For the declarative approach, see [Next steps](#next-steps).
+
+To create an API app using the imperative approach, perform the following steps:
 
 1. Choose a valid location
 1. Create or find a resource group to use
