@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="02/09/2015"
 	ms.author="huvalo"/>
 
