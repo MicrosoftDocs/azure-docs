@@ -51,7 +51,7 @@ The EntLib assembly .dll files are installed in a subdirectory. The two assembly
 - `Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll`
 
 
-## C&#x23; code files
+## C&#x23; code files explained
 
 
 The C# code sample consists of three .cs files whose content is pasted into the sections that follow. Their file names are:
@@ -170,15 +170,19 @@ The `Main` method is in `Program.cs`. The call stack runs as follows:
 	        private E.ReliableSqlConnection rsConnection;
 	        private E.RetryPolicy connectionRetryPolicy;
 	        private E.RetryPolicy commandRetryPolicy;
-	        private E.ExponentialBackoff exponentialBackoffStrategy;  // Also consider E.FixedInterval or E.Incremental.
-	        private Custom_SqlDatabaseTransientErrorDetectionStrategy // Replace with Test2_TransientErrorDetectionStrategy...
-	            custom_SqlDatabaseTransientErrorDetectionStrategy;  // ... TEST.PASSWORD_FIX.
-	        private ForcePersistent_SqlCommandTransientErrorDetectionStrategy
-	            forcePersistent_SqlCommandTransientErrorDetectionStrategy;
 	        private C.SqlConnectionStringBuilder scsBuilder;
 	        private Action EstablishConnection_action;
 	        private Action IssueQueryCommand_action;
 	        private string sqlSelectCode;
+	        private ForcePersistent_SqlCommandTransientErrorDetectionStrategy
+	            forcePersistent_SqlCommandTransientErrorDetectionStrategy;
+	
+	        // Also consider E.FixedInterval or E.Incremental.
+	        private E.ExponentialBackoff exponentialBackoffStrategy;
+	
+	        // TEST.PASSWORD_FIX.  Replace with Test2_TransientErrorDetectionStrategy.
+	        private Custom_SqlDatabaseTransientErrorDetectionStrategy
+	            custom_SqlDatabaseTransientErrorDetectionStrategy;
 	
 	
 	        static void Main(string[] args)
@@ -201,12 +205,13 @@ The `Main` method is in `Program.cs`. The call stack runs as follows:
 	            //-------------------------------------------------------
 	            // Preparations are complete.
 	            // Next is a call .ExecuteAction to invoke the method EstablishConnection.
-	            // Method EstablishConnection then calls another .ExecuteAction to invoke the method IssueQueryCommand.
+	            // Method EstablishConnection then calls another .ExecuteAction to
+	            //     invoke the method IssueQueryCommand.
 	            // Then control is returned to this method.
 	
 	            for (int cc = 1; cc <= maxCountTriesConnectAndQuery; cc++)
 	            {
-	                if (cc >= 2) { Console.WriteLine("--- Another iteration of the outer loop, cc=={0}. ---", cc); }
+	                if (cc >= 2) { Console.WriteLine("-- Another iteration of outer loop, cc=={0}. --", cc); }
 	
 	                try
 	                {
@@ -227,26 +232,28 @@ The `Main` method is in `Program.cs`. The call stack runs as follows:
 	                    if (isTransientErrorNumber == false)
 	                    {
 	                        Console.WriteLine();
-	                        Console.WriteLine("Persistent error suffered, SqlException.Number = {0}.  Will terminate.",
-	                            sqlExc.Number);
+	                        Console.WriteLine("Persistent error suffered, SqlException.Number = {0}."
+	                            + "  Will terminate.", sqlExc.Number);
 	                        Console.WriteLine(sqlExc.ToString());
 	
-	                        // [A.4] Either the connection attempt or the query command attempt suffered a persistent SqlException.
+	                        // [A.4] Either the connection attempt or the query command attempt
+	                        //     suffered a persistent SqlException.
 	                        // Break the query command loop, let the hopeless program end.
 	                        break;
 	                    }
 	
 	                    if (this.progressLocation == M_progressCreatingConnection)
 	                    {
-	                        // [A.5] The EntLib retry mechanisms already gave the Sql Connection enough retries,
-	                        // so this block will not give connection any more tries.
+	                        // [A.5] The EntLib retry mechanisms already gave the Sql Connection
+	                        //     enough retries, so this block will not give connection any more tries.
 	                        // This block gives retries to certain Sql Command only.
 	                        break;
 	                    }
 	
-	                    // [A.6] The SqlException identified a transient error from an attempt to issue a query command.
-	                    // So let this method reloop and try again. However, we recommend that the new query
-	                    // attempt should start at the beginning and establish a new connection.
+	                    // [A.6] The SqlException identified a transient error from an attempt
+	                    //     to issue a query command.
+	                    // So let this method reloop and try again. However, we recommend that the new
+	                    // query attempt should start at the beginning and establish a new connection.
 	                    Console.WriteLine();
 	                    Console.WriteLine("Transient error encountered.  SqlException.Number = {0}."
 	                        + "  Program might retry by itself.", sqlExc.Number);
@@ -371,7 +378,7 @@ The `Main` method is in `Program.cs`. The call stack runs as follows:
 	            this.scsBuilder["Trusted_Connection"] = false;
 	            this.scsBuilder["Integrated Security"] = false;
 	            this.scsBuilder["Encrypt"] = true;
-	            this.scsBuilder["Connection Timeout"] = 30; // Default is 15 seconds, too brief over the Internet!
+	            this.scsBuilder["Connection Timeout"] = 30; // Default is 15 seconds, too brief over Internet!
 	
 	            // [B.2] Prepare the Transact-SQL select statement.
 	            this.sqlSelectCode =
@@ -566,7 +573,8 @@ To implement this test in our demo program, search the source code for all occur
 	        public bool IsTransient(Exception exc)
 	        {
 	            bool returnValue = Test2_TransientErrorDetectionStrategy.IsTransientStatic(exc);
-	            Console.WriteLine("Inside Test2_TransientErrorDetectionStrategy .IsTransientStatic, returning {0}.", returnValue);
+	            Console.WriteLine("Inside Test2_TransientErrorDetectionStrategy .IsTransientStatic,"
+	                + " returning {0}.", returnValue);
 	            return returnValue;
 	        }
 	        static public bool IsTransientStatic(Exception exc)
