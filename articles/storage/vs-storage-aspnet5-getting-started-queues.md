@@ -55,7 +55,7 @@ To access queues in ASP.NET 5 projects, you need to include the following items 
 2. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
+		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
 3. Get a `CloudQueueClient` object to reference the queue objects in your storage account.  
 
