@@ -23,7 +23,7 @@ Azure Data Factory enables you to easily create pipelines that leverages the pub
 
 1. Use the **AzureMLBatchScoring** activity.
 2. **Request URI** for the Batch Execution API. You can find the Request URI by clicking on the **BATCH EXECUTION** link in the web services page (shown below).
-3. **API key** for the published Azure Machine Learning web service. 
+3. **API key** for the published Azure Machine Learning web service. You can find this information by clicking on the web service that you have published. 
 
 	![Machine Learning Dashboard][machine-learning-dashboard]
 
