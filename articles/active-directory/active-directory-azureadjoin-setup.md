@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""
-	tags="azure-classic-portal"/>
+	editor=""/>
 
 <tags 
 	ms.service="active-directory" 
@@ -27,7 +26,7 @@ Detailed instructions for syncing your on-prem users to Azure AD is covered in [
 To manually create and manage users in Azure AD, refer to [User management in Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## Set up device registration 
-1. Log on to the Azure Portal as Administrator.
+1. Sign in to the Azure Portal as Administrator.
 2. On the left pane, select Active Directory.
 3. On the **Directory** tab, select your directory.
 4. Select the **Configure** tab.
