@@ -34,7 +34,8 @@ The indexing in DocumentDB takes advantage of the fact that JSON grammar allows 
 
 >[AZURE.NOTE] Since JSON is self-describing i.e. each document includes both schema (metadata) and data, e.g. `{"locationId", 5, "city": "Moscow"}` reveals that there are two properties `locationId` and `city`, and that they have a numeric and string property values. DocumentDB is able to infer the schema of documents and index them when they are inserted or replaced, without you ever having to define schemas or secondary indexes.
 
-***JSON Documents as Trees:***
+
+**JSON Documents as Trees:**
 
 ![Documents as Trees](media/documentdb-indexing/DocumentsAsTrees.png)
 
@@ -46,6 +47,7 @@ For example, in the example shown above:
 With automatic indexing, (1) every path in a document tree is indexed (unless the developer has explicitly configured the indexing policy to exclude certain path patterns). (2) Each update of a document to a DocumentDB collection leads to update of the structure of the index (i.e., causes addition or removal of nodes). One of the primary requirements of automatic indexing of documents is to ensure that the cost to index and query a document with deeply nested structure, say 10 levels, is the same as that of a flat JSON document consisting of key-value pairs just one level deep. Therefore a normalized path representation is the foundation upon which both automatic indexing and query subsystems are built.
 
 An important implication of treating both the schema and instance values uniformly in terms of paths is that logically, just like the individual documents, an index of the two documents shown that keeps a map between paths and the document ids containing that path can also be represented as a tree. DocumentDB uses this fact to build an index tree which is constructed out of the union of all of the trees representing individual documents within the collection. The index tree in DocumentDB collections grows over time as new documents get added or updated to the collection.
+
 
 **DocumentDB Index as a Tree:**
 
