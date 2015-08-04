@@ -252,7 +252,7 @@ in the **HighMessages** subscription.
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-    subscriptionClientHigh.OnMessage((message) =>
+    Client.OnMessage((message) =>
     {
         try
         {

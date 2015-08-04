@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -41,7 +41,7 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 
 1. Launch the Jupyter notebook. Select your Spark cluster on the Azure portal, and from the portal task bar at the bottom, click **Jupyter Notebook**. When prompted, enter the admin credentials for the Spark cluster.
 
-2. Create a new notebook. Click **New**, and then click **Python2**.
+2. Create a new notebook. Click **New**, and then click **Python 2**.
 
 	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.CreateNotebook.png "Create a new Jupyter notebook")
 

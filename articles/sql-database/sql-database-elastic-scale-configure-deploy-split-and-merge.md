@@ -28,7 +28,7 @@ The steps above download the Split-Merge files to the current directory. The fil
 
 ## Prerequisites
 
-1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure preview portal](https://ms.portal.azure.com). Create a new **SQL Database**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
+1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure portal](https://ms.portal.azure.com). Create a new **SQL Database**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
 
 2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure that the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
 
@@ -118,7 +118,8 @@ For the worker role:
 Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ### Deploying your Split-Merge service
-1. Go to the [Azure preview portal](https://portal.azure.com).
+
+1. Go to the [Azure portal](https://manage.windowsazure.com).
 2. Click the **Cloud Services** tab on the left, and select the cloud service that you created earlier.
 3. Click **Dashboard**.
 4. Choose the staging environment, then click **Upload a new staging deployment**.
@@ -133,6 +134,7 @@ Please note that for production deployments separate certificates should be used
 
 
 ## Deployment troubleshooting
+
 If your web role fails to come online, it is likely a problem with the security configuration. Check that the SSL is configured as described above.
 
 If your worker role fails to come online, but your web role succeeds, it is most likely a problem connecting to the status database that you created earlier.
@@ -147,6 +149,7 @@ If your worker role fails to come online, but your web role succeeds, it is most
 * Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
 
 ## Testing your Split-Merge service deployment
+
 ### Connecting with a web browser
 
 Determine the web endpoint of your Split-Merge service. You can find this in the Azure Management Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.

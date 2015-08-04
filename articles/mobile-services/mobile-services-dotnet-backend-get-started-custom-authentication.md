@@ -166,7 +166,8 @@ At this point, you have everything you need to begin creating user accounts. In 
 
 ## Create the LoginProvider
 
-One of the fundamental constructs in the Mobile Services authentication pipeline is the **LoginProvider**. In this section, you will create your own `CustomLoginProvider`. It will not be plugged into the pipeline like the built-in providers, but it will provide you with some convenient functionality.
+One of the fundamental constructs in the Mobile Services authentication pipeline is the **LoginProvider**. In this section, you will create your own `CustomLoginProvider`. It will not be plugged into the pipeline like the built-in providers, but it will provide you with some convenient functionality.  
+If you use the visual studio 2013, you maybe need to install the `WindowsAzure.MobileServices.Backend.Security` nuget package to add the references to `LoginProvider` class.  
 
 1. Create a new class, `CustomLoginProvider`, which derives from **LoginProvider**, and add the following `using` statements:
 

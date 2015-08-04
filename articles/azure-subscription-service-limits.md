@@ -3,9 +3,9 @@
 	description="Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values."
 	services=""
 	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettem"
-	editor="cgronlun"/>
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
 	ms.service="multiple"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="07/15/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -67,6 +67,13 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+### Traffic Manager Limits
+
+[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+### DNS Limits
+
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### Networking Limits – Azure Resource Manager
 
@@ -77,7 +84,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 ## Storage Limits
 
-### Standard Storage Limits 
+### Standard Storage Limits
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
@@ -102,6 +109,10 @@ For additional details on storage account limits, see [Azure Storage Scalability
 ## App Service Limits - Web Apps, Mobile Apps, API Apps, Logic Apps
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+
+## Scheduler Limits
+
+[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
 ## Batch Limits
 
@@ -173,7 +184,23 @@ For additional details on SQL Database limits, please see the following topics:
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-##Multi-Factor Authentication
+## Site Recovery Limits
+
+[AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+
+## API Management Limits
+
+[AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
+
+## Azure Redis Cache Limits
+
+[AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
+
+## Key Vault Limits
+
+[AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
+
+## Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ## See Also

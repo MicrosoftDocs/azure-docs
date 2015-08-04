@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/07/2015"
+   ms.date="07/14/2015"
    ms.author="liviodlc"/>
 
 #Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory
@@ -84,7 +84,7 @@ Azure AD provisions users to SaaS apps by connecting to provisioning endpoints p
  - If a user was recently assigned to the application and they already had an account in the SaaS app, that account will be marked as enabled, and certain user properties may be updated if they are out-of-date compared to the directory.
  - If a user's information (such as phone number, office location, etc) has been changed in the directory, then that information will also be updated in the SaaS application.
 
-For more information on how attributes are mapped between Azure AD and your SaaS app, see the article on [Customizing Attribute Mappings](https://msdn.microsoft.com/library/azure/dn872469.aspx).
+For more information on how attributes are mapped between Azure AD and your SaaS app, see the article on [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md).
 
 ##List of Apps that Support Automated User Provisioning
 
