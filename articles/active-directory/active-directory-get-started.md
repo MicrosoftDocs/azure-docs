@@ -43,6 +43,9 @@ Create an account for every user who will access a Microsoft cloud service. By d
 ##View access and usage reports
 Azure AD provides a number of reports for administrators. Even more reports are available in the paid editions of Azure AD, and there's a reporting API for creating your own custom reports. [Learn more about Azure AD reports](active-directory-view-access-usage-reports.md).
 
+##Connect with your consumers
+Use Azure AD B2C (Business-to-Consumer) to provide low-friction, self-service identity experiences to large consumer and citizen populations. [Learn more about Azure AD B2C](active-directory-get-started-b2c.md).
+
 ## Additional Resources
 
 * [Sign up for Azure as an organization](sign-up-organization.md)
