@@ -474,18 +474,84 @@ Now that we've taken a look at how to specify paths, let's look at the options w
 
 #### Index kind
 
-DocumentDB supports two Index Kinds for every path and data type pair.
+DocumentDB supports two Index kinds for every path and data type pair.
 
-- **Hash** supports efficient equality queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes.
+- **Hash** supports efficient equality and JOIN queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes.
 - **Range** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and Order By queries. Order By queries by default also require maximum index precision (-1).
+
+Here are the supported index kinds and examples of queries that they can be used to serve:
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Index kind</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>Description/use case</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Index kind</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>Description/use case</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Hash
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Hash over /prop/? (or /*) can be used to serve the following queries efficiently:
+                      SELECT * FROM collection c WHERE c.prop = "value"
+                    Hash over /props/[]/? (or /* or /props/*) can be used to serve the following queries efficiently:
+                      SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Range
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Range over /prop/? (or /*) can be used to serve the following queries efficiently:
+                        SELECT * FROM collection c WHERE c.prop = "value"
+                        SELECT * FROM collection c WHERE c.prop > 5
+                        SELECT * FROM collection c ORDER BY c.prop
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+By default, an error is returned for queries with range operators such as >= if there is no range index (of any precision) in order to signal that a scan might be necessary to serve the query. Range queries can be performed without a range index using the x-ms-documentdb-enable-scans header in the REST API or the EnableScanInQuery request option using the .NET SDK. If there are any other filters in the query that DocumentDB can use the index to filter against, then no error will be returned.
 
 #### Index precision
 
-Index precision lets you trade off between index storage overhead and query performance. For numbers, we recommend using the default precision configuration of -1. Since numbers are 8 bytes in JSON, this is equivalent to a configuration of 8 bytes. Picking a lower value for precision, such as 1-7, means that values within some ranges map to the same index entry. Therefore you will reduce index storage space, but query execution might have to process more documents and consequently consume more throughput i.e., request units. 
+Index precision lets you tradeoff between index storage overhead and query performance. 
+For numbers, we recommend using the default precision configuration of -1 (“maximum”). Since numbers are 8 bytes in JSON, this is equivalent to a configuration of 8 bytes. Picking a lower value for precision, such as 1-7, means that values within some ranges map to the same index entry. Therefore you will reduce index storage space, but query execution might have to process more documents and consequently consume more throughput i.e., request units.
 
-Index precision configuration is more practically useful with string ranges. Since strings can be any arbitrary length, the choice of the index precision can impact the performance of string range queries, and impact the amount of index storage space required. String range indexes can be configured with 1-100 or the maximum precision value (-1). If you need Order By on strings, then you must specify over the specified path (-1).
+Index precision configuration is more useful with string ranges. Since strings can be any arbitrary length, the choice of the index precision can impact the performance of string range queries, and impact the amount of index storage space required. String range indexes can be configured with 1-100 or -1 (“maximum”). If you would like to perform Order By queries against string properties, then you must specify a precision of -1 for the corresponding paths.
 
 The following example shows how to increase the precision for range indexes in a collection using the .NET SDK. Note that this uses the default path "/*".
+
+**Create a collection with a custom index precision**
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
     
@@ -502,10 +568,6 @@ The following example shows how to increase the precision for range indexes in a
 
 
 > [AZURE.NOTE] DocumentDB returns an error when a query uses Order By but does not have a range index against the queried path with the maximum precision. 
->
-> An error is returned for queries with range operators such as >= if there is no range index (of any precision), but those can be served if there are other filters that can be served from the index. 
-> 
-> Range queries can be performed without a range index using the x-ms-documentdb-enable-scans header in the REST API or the EnableScanInQuery request option using the .NET SDK. 
 
 Similarly, paths can be completely excluded from indexing. The next example shows how to exclude an entire section of the documents (a.k.a. a sub-tree) from indexing using the "*" wildcard.
 
@@ -516,7 +578,7 @@ Similarly, paths can be completely excluded from indexing. The next example show
     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
 
 
-### Automatic indexing
+## Opting in and opting out of indexing
 
 You can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can choose to turn it off. When indexing is turned off, documents can be accessed only through their self-links or by queries using ID.
 
@@ -530,6 +592,59 @@ For example, the following sample shows how to include a document explicitly usi
     client.CreateDocumentAsync(defaultCollection.SelfLink,
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
+
+## Modifying the indexing policy of a collection
+
+DocumentDB allows you to make changes to the indexing policy of a collection on the fly. A change in indexing policy on a DocumentDB collection can lead to a change in the shape of the index including the paths can be indexed, their precision, as well as the consistency model of the index itself. Thus a change in indexing policy, effectively requires a transformation of the old index into a new one. 
+
+Index transformations are made online, meaning that the documents indexed per the old policy are efficiently transformed per the new policy **without affecting the write availability or the provisioned throughput** of the collection. The consistency of read and write operations made using the REST API, SDKs or from within stored procedures and triggers is not impacted during index transformation. This means that there is no performance degradation or downtime to your apps when you make an indexing policy change.
+
+However, during the time that index transformation is progress, queries are eventually consistent regardless of the indexing mode configuration (Consistent or Lazy). This also applies to queries from all interfaces – REST API, SDKs, and from within stored procedures and triggers. Just like with Lazy indexing, index transformation is performed asynchronously in the background on the replicas using the spare resources available for a given replica. 
+
+Index transformations are also made **in-situ** (in place), i.e. DocumentDB does not maintain two copies of the index and swap the old index out with the new one. This means that no additional disk space is required or consumed in your collections while performing index transformations.
+
+When you change indexing policy, how the changes are applied to move from the old index to the new one depend primarily on the indexing mode configurations more so than the other values like included/excluded paths, index kinds and precisions. If both your old and new policies use consistent indexing, then DocumentDB performs an online index transformation. You cannot apply another indexing policy change with consistent indexing mode while the transformation is in progress.
+
+You can however move to Lazy or None indexing mode while a transformation is in progress. 
+
+- When you move to Lazy, the index policy change is made effective immediately and DocumentDB starts recreating the index asynchronously. 
+- When you move to None, then the index is dropped effective immediately. Moving to None is useful when you want to cancel an in progress transformation and start fresh with a different indexing policy. 
+
+If you’re using the .NET SDK, you can kick of an indexing policy change using the new **ReplaceDocumentCollectionAsync** method and track the percentage progress of the index transformation using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs and the REST API support equivalent properties and methods for making indexing policy changes.
+
+Here's a code snippet that shows how to modify a collection's indexing policy from Consistent indexing mode to Lazy.
+Modify Indexing Policy from Consistent to Lazy
+
+    // Switch to lazy indexing.
+    Console.WriteLine("Changing from Default to Lazy IndexingMode.");
+
+    collection.IndexingPolicy.IndexingMode = IndexingMode.Lazy;
+
+    await client.ReplaceDocumentCollectionAsync(collection);
+
+
+You can check the progress of an index transformation by calling ReadDocumentCollectionAsync, for example, as shown below.
+Track Progress of Index Transformation
+
+    long smallWaitTimeMilliseconds = 1000;
+    long progress = 0;
+
+    while (progress < 100)
+    {
+        ResourceResponse<DocumentCollection> collectionReadResponse = await     client.ReadDocumentCollectionAsync(collection.SelfLink);
+        progress = collectionReadResponse.IndexTransformationProgress;
+
+        await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
+    }
+
+When would you make indexing policy changes to your DocumentDB collections? The following are the most common use cases:
+
+- Serve consistent results during normal operation, but fall back to lazy indexing during bulk data imports
+- Start using new indexing features on your current DocumentDB collections, e.g., like Order By and string range queries which require the newly introduced string Range index kind
+- Hand select the properties to be indexed and change them over time
+- Tune indexing precision to improve query performance or reduce storage consumed
+
+>[AZURE.NOTE] To modify indexing policy using ReplaceDocumentCollectionAsync, you need version >= 1.3.0 of the .NET SDK
 
 ## Performance tuning
 
