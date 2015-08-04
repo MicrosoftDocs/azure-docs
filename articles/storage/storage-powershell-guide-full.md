@@ -421,17 +421,17 @@ You may define up to 252 custom properties for an entity. For more information, 
 The following example demonstrates how to add entities to a table. The example shows how to retrieve the employee table and add several entities into it. First, it establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it retrieves the given table using the [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet. If the table does not exist, the [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) cmdlet is used to create a table in Azure Storage. Next, the example defines a custom function Add-Entity to add entities to the table by specifying each entity’s partition and row key. The Add-Entity function calls the [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet on the [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) class to create an entity object. Later, the example calls the [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) method on this entity object to add it to a table.
 
     #Function Add-Entity: Adds an employee entity to a table.
-    function Add-Entity()
-    {
-    param(
-       $table,
-       [String]$partitionKey,
-       [String]$rowKey,
-       [String]$name,
-       [Int]$id
-    )
+    function Add-Entity() {
+        [CmdletBinding()]
+        param(
+           $table,
+           [String]$partitionKey,
+           [String]$rowKey,
+           [String]$name,
+           [Int]$id
+        )
 
-      $entity = New-Object Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity $partitionKey, $rowKey
+      $entity = New-Object -TypeName Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity -ArgumentList $partitionKey, $rowKey
       $entity.Properties.Add("Name", $name)
       $entity.Properties.Add("ID", $id)
 
@@ -440,8 +440,8 @@ The following example demonstrates how to add entities to a table. The example s
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $TableName = "Employees"
 
     #Retrieve the table if it already exists.
@@ -454,19 +454,18 @@ The following example demonstrates how to add entities to a table. The example s
     }
 
     #Add multiple entities to a table.
-    Add-Entity $table "Partition1" "Row1" "Chris" 1
-    Add-Entity $table "Partition1" "Row2" "Jessie" 2
-    Add-Entity $table "Partition2" "Row1" "Christine" 3
-    Add-Entity $table "Partition2" "Row2" "Steven" 4
-
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
+    Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Steven -Id 4
 
 #### How to query table entities
 To query a table, use the [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) class. The following example assumes that you’ve already run the script given in the How to add entities section of this guide. The example first establishes a connection to Azure Storage using the storage context, which includes the storage account name and its access key. Next, it tries to retrieve the previously created “Employees” table using the [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet. Calling the [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet on the Microsoft.WindowsAzure.Storage.Table.TableQuery class creates a new query object. The example looks for the entities that have an ‘ID’ column whose value is 1 as specified in a string filter. For detailed information, see [Querying Tables and Entities](http://msdn.microsoft.com/library/azure/dd894031.aspx). When you run this query, it returns all entities that match the filter criteria.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary;
     $TableName = "Employees"
 
     #Get a reference to a table.
@@ -497,16 +496,15 @@ You can delete an entity using its partition and row keys. The following example
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the table.
     $TableName = "Employees"
     $table = Get-AzureStorageTable -Name $TableName -Context $Ctx -ErrorAction Ignore
 
     #If the table exists, start deleting its entities.
-    if ($table -ne $null)
-    {
+    if ($table -ne $null) {
        #Together the PartitionKey and RowKey uniquely identify every  
        #entity within a table.
        $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve(“Partition2”, "Row1"))
@@ -527,8 +525,8 @@ The following example first establishes a connection to Azure Storage using the 
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $QueueName = "queuename"
     $Queue = New-AzureStorageQueue –Name $QueueName -Context $Ctx
 
@@ -560,18 +558,17 @@ The following example demonstrates how to add message to a queue. The example fi
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"
     $Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
 
     #If the queue exists, add a new message.
-    if ($Queue -ne $null)
-    {
+    if ($Queue -ne $null) {
        # Create a new message using a constructor of the CloudQueueMessage class.
-       $QueueMessage = New-Object "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage" "MessageInfo"
+       $QueueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage -ArgumentList MessageInfo
 
        #Add a new message to the queue.
        $Queue.CloudQueue.AddMessage($QueueMessage)
@@ -583,8 +580,8 @@ Your code de-queues a message from a queue in two steps. When you call the [Micr
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"

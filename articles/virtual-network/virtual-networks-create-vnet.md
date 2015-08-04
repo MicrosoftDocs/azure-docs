@@ -19,7 +19,7 @@
 
 When you create a VNet, your services and VMs within the VNet can communicate securely with each other without having to go out through the Internet. Creating an Azure VNet is a relatively fast and easy process if the VNet isn’t intended to be connected to other VNets or to your on-premises network, since you will not need to acquire and configure a VPN device, or coordinate the IP addresses you choose with other VNets or the local network.
 
->[AZURE.WARNING] Don’t use this procedure to create a VNet that will later be connected other VNets or your on-premises network. If you want to create a secure cross-premises or hybrid connection, see [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx). If you want to create a VNet that connects to another VNet, see [Configure a VNet to VNet Connection](https://msdn.microsoft.com/library/azure/dn690122.aspx).
+>[AZURE.WARNING] Don’t use this procedure to create a VNet that will later be connected other VNets or your on-premises network. If you want to create a secure cross-premises or hybrid connection, see [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx). If you want to create a VNet that connects to another VNet, see [Configure a VNet to VNet Connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ## Configure your VNet
 

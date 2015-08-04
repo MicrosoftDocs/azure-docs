@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/02/2015"
+    ms.date="07/09/2015"
     ms.author="sidneyh" />
 
 # Azure SQL Database Elastic Database query (preview) overview
 
-The **Elastic Database query feature**, in preview, enables you to run a T-SQL query that spans multiple databases in Azure SQL Database. It allows you to connect Microsoft and third party tools (Excel, PowerBI, Tableau, etc.) to data tiers with multiple databases, especially when those databases share a common schema (also known as horizontal partitioning or sharding). Using this feature, you can scale out T-SQL queries to large data tiers in SQL Database and visualize the results in business intelligence (BI) reports.
+The **Elastic Database query feature**, in preview, enables you to run a Transact-SQL query that spans multiple databases in Azure SQL Database. It allows you to connect Microsoft and third party tools (Excel, PowerBI, Tableau, etc.) to data tiers with multiple databases, especially when those databases share a common schema (also known as horizontal partitioning or sharding). Using this feature, you can scale out queries to large data tiers in SQL Database and visualize the results in business intelligence (BI) reports.
 
 To begin building an elastic database query application, see [Getting started with  Elastic Database query](sql-database-elastic-query-getting-started.md).
 
@@ -35,12 +35,14 @@ An elastic database query also allows easy access to an entire collection of dat
 
 The data tier is scaled out across many databases using a common schema. This approach is also known as horizontal partitioning or sharding. The partitioning can be performed and managed using (1) the [Elastic Database client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) or (2) using an application-specific model for distributing data across multiple databases. With this topology, reports often have to span multiple databases. With an elastic database query, you can now connect to a single SQL database, and query results from the remote databases appear as if generated from a single virtual database.
 
+> [AZURE.NOTE] Elastic database query works best for occasional reporting scenarios where most of the processing can be performed on the data tier. For heavy reporting workloads or data warehousing scenarios with more complex queries, also consider using [Azure SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+
 
 ## Elastic Database query topology
 
 Using an elastic database query to perform reporting tasks over a horizontally partitioned data tier requires an elastic scale shard map to represent the databases of the data tier. Typically, only a single shard map is used in this scenario and a dedicated database with elastic database query capabilities serves as the entry point for reporting queries. Only this dedicated database needs to be configured with elastic database query objects, as described below. Figure 2 illustrates this topology and its configuration with the elastic database query database and shard map.
 
-**Note** The dedicated elastic database query database must be a SQL DB v12 database and initially only the Premium tier is supported. There are no restrictions on the shards themselves.
+> [AZURE.NOTE] The dedicated elastic database query database must be a SQL DB v12 database and initially only the Premium tier is supported. There are no restrictions on the shards themselves.
 
 **Figure 2**
 
@@ -74,7 +76,7 @@ To use the Elastic Database query feature, you must first create the shard map a
 
 ## Creating elastic database query database objects
 
-To describe the remote tables that can be accessed from an elastic database query endpoint, we introduce the ability to define external tables that will appear to your application and to 3rd party tools as if they were local tables. T-SQL queries can be submitted against these database objects implicitly through the tools, or explicitly from SQL Server Management Studio, Visual Studio Data Tools, or from an application. The elastic database query executes like any other T-SQL statement—with the notable difference that query will distribute the processing against the potentially many remote databases underlying the external objects you defined.
+To describe the remote tables that can be accessed from an elastic database query endpoint, we introduce the ability to define external tables that will appear to your application and to 3rd party tools as if they were local tables. Queries can be submitted against these database objects implicitly through the tools, or explicitly from SQL Server Management Studio, Visual Studio Data Tools, or from an application. The elastic database query executes like any other Transact-SQL statement—with the notable difference that query will distribute the processing against the potentially many remote databases underlying the external objects.
 
 The Elastic Database query feature relies on the these four DDL statements. Typically, these DDL statements are used once or rarely when the schema of your application changes.
 
@@ -184,8 +186,8 @@ The following example shows how to retrieve the list of external tables from the
 
 ## Reporting and querying
 
-### T-SQL queries
-Once you have defined your external data source and your external tables, you can use familiar SQL DB connection strings to connect to the database that has the Elastic Database query feature enabled. You can now use full read-only T-SQL over your external tables—with some limitations explained in the [limitations section](#preview-limitations) below.
+### Queries
+Once you have defined your external data source and your external tables, you can use familiar SQL Database connection strings to connect to the database that has the Elastic Database query feature enabled. You can now use execute full read-only queries over your external tables—with some limitations explained in the [limitations section](#preview-limitations) below.
 
 **Example**: The following query performs a three-way join between warehouses, orders and order lines and uses several aggregates and a selective filter. Assuming warehouses, orders and order lines are partitioned by the warehouse id column, an elastic database query can collocate the joins on the remote databases and can scale-out the processing of the expensive part of the query.
 
@@ -205,16 +207,17 @@ Once you have defined your external data source and your external tables, you ca
     group by w_id, o_c_id
 
 ### Stored procedure SP_ EXECUTE_FANOUT
-The Elastic Database query feature introduces a stored procedure that provides access to the databases represented by a shard map. The stored procedure is called sp_execute_fanout and takes the following parameters:
+
+SP\_EXECUTE\_FANOUT is a stored procedure that provides access to the databases represented by a shard map. The stored procedure takes the following parameters:
 
 -    **Server name** (nvarchar): Fully qualified name of the logical server hosting the shard map.
 -    **Shard map database name** (nvarchar): The name of the shard map database.
 -    **User name** (nvarchar): The user name to log into the shard map database and the remote databases.
 -    **Password** (nvarchar): Password for the user.
 -    **Shard map name** (nvarchar): The name of the shard map to be used for the query.
--    **Query**: The T-SQL query to be executed on each shard.
+-    **Query**: The query to be executed on each shard.
 
-It uses the shard map information provided in the invocation parameters to execute the given T-SQL statement on all shards registered with the shard map. Any results are merged using UNION ALL semantics similar to Multi-Shard Queries. The result also includes the additional ‘virtual’ column with the remote database name.
+It uses the shard map information provided in the invocation parameters to execute the given statement on all shards registered with the shard map. Any results are merged using UNION ALL semantics similar to Multi-Shard Queries. The result also includes the additional ‘virtual’ column with the remote database name.
 
 Note that the same credentials are used to connect to the shard map database and to the shards.
 
@@ -239,13 +242,13 @@ The Elastic Database query is included with the cost of Azure SQL Database datab
 There are a few things to keep in mind with the preview:
 
 *    The Elastic Database query feature will initially only be available in the SQL DB v12 Premium performance tier, although remote databases accessed by an elastic database query may be of any tier.
-* External tables referenced by your external data source only support read operations over the remote databases. You can, however, point full T-SQL functionality at the elastic database query database where the external table definition itself resides. This can be useful to, for example, to persist temporary results using SELECT column_list INTO local_table, or to define stored procedures on the elastic database query database which refer to external tables.
+* External tables referenced by your external data source only support read operations over the remote databases. You can, however, point full Transact-SQL functionality at the elastic database query database where the external table definition itself resides. This can be useful to, for example, to persist temporary results using SELECT column_list INTO local_table, or to define stored procedures on the elastic database query database which refer to external tables.
 *    Parameters in queries currently cannot be pushed to remote databases. Parameterized queries will need to bring all data to the head node and may suffer from bad performance depending on the data size. A temporary workaround is to avoid parameters in your queries or to use the RECOMPILE option to have parameters automatically replaced with their current values.
 * Column-level statistics over external tables are currently not supported.
 * The Elastic Database query currently does not perform shard elimination when predicates over the sharding key would allow to safely exclude certain remote databases from processing. As a result, queries will always touch all remote databases represented by the external data sources of the query.
 * Any queries that involve joins between tables on different databases may bring large numbers of rows back to the elastic database query database for processing, with a resulting performance cost. It is best to develop queries that can be processed locally on each remote database, or to use WHERE clauses to restrict rows involved from each database before performing the join.
 *    The syntax used for Elastic Database query metadata definition will change during the preview.
-*    T-SQL scripting functionality in SSMS or SSDT currently does not work with elastic database query objects.
+*    Transact-SQL scripting functionality in SSMS or SSDT currently does not work with elastic database query objects.
 
 ## Feedback
 Please share feedback on your experience with us on Disqus or Stackoverflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploy a complex application predictably in Azure"
-	description="Learn how to deploy a complex application in Azure as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting."
+	pageTitle="Provision and deploy microservices predictably in Azure"
+	description="Learn how to deploy an application composed of microservices in Azure App Service as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/08/2015"
 	ms.author="cephalin"/>
 
 
-# Deploy a complex application predictably in Azure #
+# Provision and deploy microservices predictably in Azure #
 
-This tutorial shows how to deploy a complex application in Azure as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting. 
+This tutorial shows how to provision and deploy an application composed of [microservices](https://en.wikipedia.org/wiki/Microservices) in [Azure App Service](/services/app-service/) as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting. 
 
-In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale complex application. [Azure App Service](/services/app-service/) enables you to create complex applications that includes web app, mobile, API, and logic apps. [Azure Resource Manager](../resource-group-overview.md) enables you to manage all the components of such an application as a unit. Now, you can also deploy such complex application using JSON templates and simple PowerShell scripting. 
+When provisioning and deploying high-scale applications that are composed of highly decoupled microservices, repeatability and predictability are crucial to success. [Azure App Service](/services/app-service/) enables you to create microservices that include web apps, mobile apps, API apps, and logic apps. [Azure Resource Manager](../resource-group-overview.md) enables you to manage all the microservices as a unit, together with resource dependencies such as database and source control settings. Now, you can also deploy such an application using JSON templates and simple PowerShell scripting. 
 
 ## What you will do ##
 
 In the tutorial, you will deploy an application that includes:
 
--	Two web apps
+-	Two web apps (i.e. two microservices)
 -	A backend SQL Database
 -	App settings, connection strings, and source control
 -	Application insights, alerts, autoscaling settings
@@ -90,7 +90,7 @@ So now let’s get right to it.
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
  
-Everything that you just saw in a few short minutes is a fully deployed complex application, with all the components, dependencies, settings, database, and continuous publishing, set up by an automated orchestration in Azure Resource Manager. All this was done by two things:
+Everything that you just saw in a few short minutes is a fully deployed two-microservice application, with all the components, dependencies, settings, database, and continuous publishing, set up by an automated orchestration in Azure Resource Manager. All this was done by two things:
 
 -	The Deploy to Azure button
 -	azuredeploy.json in the repo root
@@ -283,7 +283,11 @@ The last cmdlet, `New-AzureResourceGroup`, is the one that actually performs the
 
 ## Summary ##
 
-In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale complex application. In this tutorial, you have deployed an application to Azure as a single resource group using the Azure Resource Manager template. Hopefully, it has given you the knowledge you need in order to start converting your complex application in Azure into a template and can deploy it predictably in Azure. 
+In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale application composed of microservices. In this tutorial, you have deployed a two-microservice application to Azure as a single resource group using the Azure Resource Manager template. Hopefully, it has given you the knowledge you need in order to start converting your application in Azure into a template and can provision and deploy it predictably. 
+
+## Next Steps ##
+
+Find out how to [apply agile methodologies and continuously publish your microservices application with ease](app-service-agile-software-development.md).
 
 <a name="resources"></a>
 ## More resources ##
@@ -291,7 +295,6 @@ In DevOps, repeatability and predictability are keys to any successful deploymen
 -	[Azure Resource Manager Template Language](http://msdn.microsoft.com/library/azure/dn835138.aspx)
 -	[Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
 -	[Azure Resource Manager Template Functions](../resource-group-template-functions.md)
--	[Advanced Template Operations](../resource-group-advanced-template.md)
 -	[Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md)
 -	[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 -	[Troubleshooting Resource Group Deployments in Azure](../resource-group-deploy-debug.md)

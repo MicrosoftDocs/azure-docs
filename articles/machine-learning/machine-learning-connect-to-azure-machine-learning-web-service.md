@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/17/2015" 
 	ms.author="derrickv" />
 
 
@@ -71,75 +71,9 @@ In Microsoft Azure Machine Learning Studio:
 
 
 **Azure ML API help page**
-The Azure ML API help page contains details about a prediction web service including
+The Azure ML API help page contains details about a prediction web service.
 
 
-<table>
-	<tr>
-		<td>&nbsp;</td>
-		<td>Example </td>
-	</tr>
-	<tr>
-		<td>Request POST URI </td>
-
-		<td>https://ussouthcentral.services.azureml.net/workspaces/{WorkspaceId}/services/{ServiceId}/score
-		</td>
-	</tr>
-	<tr>
-		<td>Sample Request </td>
-		<td>{ <br/> 
-			&nbsp;&nbsp; "Id": "score00001",   <br/>
-			&nbsp;&nbsp; "Instance": <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; {  <br/>  
- 			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; "FeatureVector": { <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col1": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col2": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col3": "0", <br/>  
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  ...     },   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;   "GlobalParameters": {}   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; } <br/>
-		}</td>
-	</tr>
-	<tr>
-		<td>Response Body </td>
-		<td>
-		<table style="width: 100%">
-
-			<tr>
-				<td><B>Name</B></td>
-				<td><B>Data Type</B></td>
-			</tr>
-	
-			<tr>
-				<td>Feature</td>
-				<td>String</td>
-			</tr>
-			<tr>
-				<td>Count</td>
-				<td>Numeric</td>
-			</tr>
-			<tr>
-				<td>Unique Value Count </td>
-				<td>Numeric </td>
-			</tr>
-			<tr>
-				<td>... </td>
-				<td>... </td>
-			</tr>
-		</table>
-		</td>
-	</tr>
-	<tr>
-		<td>Sample Response </td>
-		<td>[&quot;Col1&quot;,&quot;1&quot;,&quot;1&quot;,…] </td>
-	</tr>
-	<tr>
-		<td>Sample Code </td>
-		<td>(Sample code in C#, Python, and R) </td>
-	</tr>
-</table>
-
-**NOTE** The examples are from Sample 1: Download dataset from UCI: Adult 2 class dataset part of the Azure ML sample collection.
 
 ### C# Sample ###
 
@@ -157,103 +91,7 @@ To connect to an ML web service, the **Microsoft.AspNet.WebApi.Client** Nuget pa
 
 1. Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Azure ML sample collection.
 2. Assign apiKey with the key from a web service. See How to get an Azure ML authorization key.
-3. Assign serviceUri with the Request URI. See How to get a Request URI.
-
-		using System;
-		using System.Collections.Generic;
-		using System.IO;
-		using System.Net.Http;
-		using System.Net.Http.Formatting;
-		using System.Net.Http.Headers;
-		using System.Text;
-		using System.Threading.Tasks;
-
-		namespace CallRequestResponseService
-		{
-	    public class ScoreData
-	    {
-	        public Dictionary<string, string> FeatureVector { get; set; }
-	        public Dictionary<string, string> GlobalParameters { get; set; }
-	    }
-	
-	    public class ScoreRequest
-	    {
-	        public string Id { get; set; }
-	        public ScoreData Instance { get; set; }
-	    }
-	
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
-	            InvokeRequestResponseService().Wait();
-	
-	            Console.ReadLine();
-	        }
-	
-	        static async Task InvokeRequestResponseService()
-	        {
-	            //Assign apiKey with the key from a web service.
-	            const string apiKey = "{ApiKey}";
-	
-	            //Assign serviceUri with the Request URI. See How to get a Request URI.
-	            const string serviceUri = "{ServiceUri}";
-	            
-	            using (var client = new HttpClient())
-	            {
-	                ScoreData scoreData = new ScoreData()
-	                {
-	                    //Input data
-	                    FeatureVector = new Dictionary<string, string>() 
-	                    {
-	                        { "Col1", "0" },
-	                        { "Col2", "0" },
-	                        { "Col3", "0" },
-	                        { "Col4", "0" },
-	                        { "Col5", "0" },
-	                        { "Col6", "0" },
-	                        { "Col7", "0" },
-	                        { "Col8", "0" },
-	                        { "Col9", "0" },
-	                        { "Col10", "0" },
-	                        { "Col11", "0" },
-	                        { "Col12", "0" },
-	                        { "Col13", "0" },
-	                        { "Col14", "0" },
-	                        { "Col15", "0" },
-	                    },
-	                    GlobalParameters = 
-	                        new Dictionary<string, string>() {}
-	                };
-	
-	                ScoreRequest scoreRequest = new ScoreRequest()
-	                {
-	                    Id = "score00001",
-	                    Instance = scoreData
-	                };
-	
-	                //Set authorization header
-	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
-	             
-	                client.BaseAddress = new Uri(serviceUrl);
-	
-	                //Post HTTP response message
-	                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
-	
-	                if (response.IsSuccessStatusCode)
-	                {
-	                    //Read result string
-	                    string result = await response.Content.ReadAsStringAsync();
-	                    Console.WriteLine("Result: {0}", result);
-	                }
-	                else
-	                {
-	                    Console.WriteLine("Failed with status code: {0}", response.StatusCode);
-	                }
-	            }
-	        }
-	    }
-		}
+3. Assign serviceUri with the Request URI. 
 
 
 ### Python Sample ###
@@ -267,51 +105,5 @@ To connect to an Azure ML web service, use the **urllib2** library passing Score
 2. Assign apiKey with the key from a web service. See How to get an Azure ML authorization key.
 3. Assign serviceUri with the Request URI. See How to get a Request URI.
 
-		import urllib2
-		# If you are using Python 3+, import urllib instead of urllib2
 	
-		import json 
-	
-		data =  {
-	            "Id": "score00001",
-	            "Instance": {
-	                "FeatureVector": {
-	                    "Col1": "0",
-	                    "Col2": "0",
-	                    "Col3": "0",
-	                    "Col4": "0",
-	                    "Col5": "0",
-	                    "Col6": "0",
-	                    "Col7": "0",
-	                    "Col8": "0",
-	                    "Col9": "0",
-	                    "Col10": "0",
-	                    "Col11": "0",
-	                    "Col12": "0",
-	                    "Col13": "0",
-	                    "Col14": "0",
-	                    "Col15": "0",
-	                },
-	                "GlobalParameters": { }
-	            }
-	        }
-	
-		body = str.encode(json.dumps(data))
-	
-		#Assign serviceUrl with the Request URI. See How to get a Request URI.
-		uri = '{ServiceUri}'
-	
-		#Assign apiKey with the key from a web service.
-		api_key = '{ApiKey}'
-		headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
-	
-		req = urllib2.Request(uri, body, headers) 
-		response = urllib2.urlopen(req)
-	
-		#If you are using Python 3+, replace urllib2 with urllib.request in the above code:
-		#req = urllib.request.Request(uri, body, headers) 
-		#response = urllib.request.urlopen(req)
-	
-		result = response.read()
-		print(result) 
  

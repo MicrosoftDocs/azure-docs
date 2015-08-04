@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="07/06/2015" 
 	ms.author="robb"/>
 
 #Application Architecture on Microsoft Azure
@@ -23,12 +23,12 @@ Resources for building applications that use Microsoft Azure.
 Microsoft publishes series of architectural design patterns to help you compose your own custom designs. The patterns are intended to be concise architectural guides which can be composed together in order provide guidance on how to best leverage the Microsoft Azure platform to solve your organization’s business needs.
 
 
-[Overview](./azure-architectures-cpif-overview/) - 
-[Hybrid networking](./azure-architectures-cpif-infrastructure-hybrid-networking/) - 
-[Offsite batch processing](./azure-architectures-cpif-foundation-offsite-batch-processing-tier/) -
-[Multi-site data tier](./azure-architectures-cpif-foundation-multi-site-data-tier/) -
-[Global load balanced web tier](./azure-architectures-cpif-foundation-global-load-balanced-web-tier/) -
-[Azure search tier](./azure-architectures-cpif-foundation-azure-search-tier/)
+[Overview](../azure-architectures-cpif-overview/) - 
+[Hybrid networking](../azure-architectures-cpif-infrastructure-hybrid-networking/) - 
+[Offsite batch processing](../azure-architectures-cpif-foundation-offsite-batch-processing-tier/) -
+[Multi-site data tier](../azure-architectures-cpif-foundation-multi-site-data-tier/) -
+[Global load balanced web tier](../azure-architectures-cpif-foundation-global-load-balanced-web-tier/) -
+[Azure search tier](../azure-architectures-cpif-foundation-azure-search-tier/)
  
 Each  pattern contains
  
@@ -40,8 +40,6 @@ Each  pattern contains
 - Interfaces and endpoints
 - Anti-patterns
 - Key high-level architecture considerations including availability and resiliency, composite SLAs for services used, scale and performance, cost and operational considerations.
-
-![Cloud and Enterprise Symbol/Icon set](./media/architecture-overview/AzureArchPatterns.jpg)
 
 ##Microsoft Architecture Blueprints
 

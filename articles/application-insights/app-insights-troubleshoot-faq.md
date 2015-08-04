@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Questions - Application Insights for ASP.NET
@@ -46,11 +46,18 @@
 
 #### <a name="q02"></a>My new web project was created, but adding Application Insights failed.
 
-This can happen if communication with the Application Insights portal failed, or if there is some problem with your account.
+This can happen if:
 
-+ Check that you provided login credentials for the right Azure account. The Microsoft Azure credentials, which you see in the New Project dialog, can be different from the Visual Studio Online credentials that you see at the top right of Visual Studio.
-+ Wait a while and then [add Application Insights to your existing project][start].
-+ Go to your Microsoft Azure account settings and check for restrictions. See if you can manually add an Application Insights application.
+* Communication with the Application Insights portal failed; or
+* There is some problem with your account;
+* You only have [read access to the subscription or group where you were trying to create the new resource](app-insights-resources-roles-access-control.md).
+
+Remedy:
+
++ Check that you provided login credentials for the right Azure account. In some early versions of the tools, the Microsoft Azure credentials, which you see in the New Project dialog, can be different from the Visual Studio Online credentials that you see at the top right of Visual Studio.
++ In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
++ [Add Application Insights to your existing project][start]: In Solution Explorer, right click your project and choose "Add Application Insights."
++ If it still isn't working, follow the [manual procedure](app-insights-start-monitoring-app-health-usage.md) to add a resource in the portal and then add the SDK to your project. 
 
 #### <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 
@@ -132,7 +139,7 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 + On the Overview page, click the Search tile to open Diagnostic Search. Data appears here first.
 + Click the Refresh button. In the current version, the content of a blade doesn't refresh automatically.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-+ Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx).
++ Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/).
 + In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 + If you have to use a proxy to send out of your corporate network, set [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 + Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).

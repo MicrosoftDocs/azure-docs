@@ -19,7 +19,7 @@
 # Concurrency and workload management in SQL Data Warehouse
 To deliver predictable performance at scale SQL Data Warehouse implements mechanisms for managing both workload concurrency and computational resource assignment.
 
-This article introduces you to the concepts of concurrency and workload management; explaining the how both features have been implemented and how you can control them in your data warehouse.
+This article introduces you to the concepts of concurrency and workload management; explaining how both features have been implemented and how you can control them in your data warehouse.
 
 ## Concurrency
 It is important to understand that concurrency in SQL Data Warehouse is governed by two concepts; **concurrent queries** and **concurrency slots**. 
@@ -39,13 +39,13 @@ Each concurrently executing query consumes one or more concurrency slots. The ex
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 32    | 32     |
 -->
 
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 
 
 Resource classes are an essential part of SQL Data Warehouse workload management as they also govern computational resources allocated to the query. These will be covered in the workload management section below.
 
@@ -60,23 +60,13 @@ The roles are:
 - largerc
 - xlargerc
 
-You can see the roles for yourself with the following query.
-
-```
-SELECT  ro.[name]           AS [db_role_name]
-FROM    sys.database_principals ro
-WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
-AND     ro.[is_fixed_role]  = 0
-;
-```
-
 By default each user is a member of the small resource class - smallrc. However, any user can be added to one or more of the higher resource classes. SQL Data Warehouse will take the highest role membership for query execution. Adding a user to a higher resource class will increase the resources for that user but it will also consume greater concurrency slots; potentially limiting your concurrency. This is due to the fact that as more resources are allocated to one query the system needs to limit resources consumed by others. There is no free lunch. 
 
 The most important resource governed by the higher resource class is memory. Most data warehouse tables of any meaningful size will be using clustered columnstore indexes. Whilst this typically provides the best performance for data warehouse workloads maintaining them is a memory intensive operation. It is often highly beneficial to use the higher resource classes for data management operations such as index rebuilds.
 
-To increase your memory simply add your database user to one of the roles mentioned above.
+To increase your memory simply add your database user to one of the roles / resource classes mentioned above.
 
-You can add and remove yourself to the workload management database role using the `sp_addrolemember` and `sp_droprolemember` procedures. Note you will require `ALTER ROLE` permission to do this. You are not able to use the ALTER ROLE DDL syntax. You must use the aforementioned stored procedures.
+You can add and remove yourself to the workload management database role using the `sp_addrolemember` and `sp_droprolemember` procedures. Note you will require `ALTER ROLE` permission to do this. You are not able to use the ALTER ROLE DDL syntax. You must use the aforementioned stored procedures. 
 
 > [AZURE.NOTE] Rather than adding a user into and out of a workload management group it is often simpler to initiate those more intensive operations through a separate login/user that is permanently assigned to the higher resource class.
 
@@ -90,13 +80,22 @@ The following table details the increase in memory available to each query; subj
 | largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 6400  MB |
 | xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB | 6400 MB | 12800 MB |
 -->
+
+<!--
 | Memory Available (per dist) | Priority | DW100  | DW200  | DW300  | DW400   | DW500   | DW600   | DW1000  | DW1200  | DW1500  | DW2000  |
 | :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
 | smallrc(default) (s)        | Medium   | 100 MB | 100 MB | 100 MB | 100  MB | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  |
 | mediumrc (m)                | Medium   | 100 MB | 200 MB | 200 MB | 400  MB | 400 MB  | 400 MB  | 800 MB  | 800 MB  | 800 MB  | 1600 MB |
 | largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
 | xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
+-->
 
+| Memory Available (per dist) | DW100  | DW200  | DW300  | DW400   | DW500   | DW600   | DW1000  | DW1200  | DW1500  | DW2000  |
+| :-------------------------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
+| smallrc(default) (s)        | 100 MB | 100 MB | 100 MB | 100  MB | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  |
+| mediumrc (m)                | 100 MB | 200 MB | 200 MB | 400  MB | 400 MB  | 400 MB  | 800 MB  | 800 MB  | 800 MB  | 1600 MB |
+| largerc (l)                 | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
+| xlargerc (xl)               | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
 
 Furthermore, as mentioned above, the higher the resource class assigned to the user the greater the concurrency slot consumption. The following table documents the consumption of concurrency slots by queries in a given resource class.
 
@@ -122,6 +121,148 @@ Furthermore, as mentioned above, the higher the resource class assigned to the u
 
 It is important to remember that the active query workload must fit inside both the concurrent query and concurrency slot thresholds. Once either threshold has been exceeded queries will begin to queue. Queued queries will be addressed in priority order followed by submission time.
 
+Under the covers things are a little bit more complicated. The resource classes are dynamically mapped to a generic set of workload management groups within resource governor. The groups used will depend on the DWU value for the warehouse. However, there are total of eight workload groups used by SQL Data Warehouse. They are:
+
+- SloDWGroupC00
+- SloDWGroupC01
+- SloDWGroupC02
+- SloDWGroupC03
+- SloDWGroupC04
+- SloDWGroupC05
+- SloDWGroupC06
+- SloDWGroupC07
+
+These 8 groups map across to the concurrency slot consumption
+
+| Workload Group | Concurrency Slot Mapping | Priority Mapping |
+| :------------  | :----------------------- | :--------------- |
+| SloDWGroupC00  | 1                        | Medium           |
+| SloDWGroupC01  | 2                        | Medium           |
+| SloDWGroupC02  | 4                        | Medium           |
+| SloDWGroupC03  | 8                        | Medium           |
+| SloDWGroupC04  | 16                       | High             |
+| SloDWGroupC05  | 32                       | High             |
+| SloDWGroupC06  | 64                       | High             |
+| SloDWGroupC07  | 128                      | High             |
+
+So, for example, if DW500 is the current DWU setting for your SQL Data Warehouse then the active workload groups would be mapped to the resource classes as follows:
+
+| Resource Class | Workload Group | Concurrency Slots Used   | Importance |
+| :------------- | :------------- | :---------------------   | :--------- |
+| smallrc        | SloDWGroupC00  | 1                        | Medium     |
+| mediumrc       | SloDWGroupC02  | 4                        | Medium     |
+| largerc        | SloDWGroupC03  | 8                        | Medium     |
+| xlargerc       | SloDWGroupC04  | 16                       | High       |
+
+To look at the differences in memory resource allocation in detail from the perspective of the resource governor use the following query:
+
+```
+WITH rg
+AS
+(   SELECT  pn.name									AS node_name
+	,		pn.[type]								AS node_type
+	,		pn.pdw_node_id							AS node_id
+	,		rp.name									AS pool_name
+    ,       rp.max_memory_kb*1.0/1024				AS pool_max_mem_MB
+    ,       wg.name									AS group_name
+    ,       wg.importance							AS group_importance
+    ,       wg.request_max_memory_grant_percent		AS group_request_max_memory_grant_pcnt
+    ,       wg.max_dop								AS group_max_dop
+    ,       wg.effective_max_dop					AS group_effective_max_dop
+	,		wg.total_request_count					AS group_total_request_count
+	,		wg.total_queued_request_count			AS group_total_queued_request_count
+	,		wg.active_request_count					AS group_active_request_count
+	,		wg.queued_request_count					AS group_queued_request_count
+    FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
+    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    ON  wg.pdw_node_id  = rp.pdw_node_id
+															        AND wg.pool_id      = rp.pool_id
+	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
+	WHERE   wg.name like 'SloDWGroup%'
+	AND     rp.name = 'SloDWPool'
+) 
+SELECT	pool_name
+,		pool_max_mem_MB
+,		group_name
+,		group_importance
+,		(pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
+,		node_name
+,		node_type
+,       group_total_request_count
+,       group_total_queued_request_count
+,       group_active_request_count
+,       group_queued_request_count
+FROM	rg
+ORDER BY 
+	node_name
+,	group_request_max_memory_grant_pcnt
+,	group_importance
+;
+```
+
+> [AZURE.NOTE] The query above can also be used to analyse active and historic usage of the workload groups when troubleshooting 
+
+## Workload management examples
+
+To grant access to a user to the SQL Data Warehouse they will first need a login.
+
+Open a connection to the master database for your SQL Data Warehouse and execute the following commands:
+
+```
+CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
+
+CREATE USER newperson for LOGIN newperson
+```
+
+[AZURE.NOTE] it is a good idea to create users for your logins in the master database for when working with both Azure SQL database and SQL Data Warehouse. There are two server roles available at this level that require the login to have a user in master in order to grant membership. The roles are `Loginmanager` and `dbmanager`. In both Azure SQL database and SQL Data Warehouse these roles grant rights to manage logins and to create databases. This is different to SQL Server. For more details please refer to the [Managing Databases and Logins in Azure SQL Database] article for more details.
+ 
+Once the login has been created then a user account now needs to be added.
+
+Open a connection to the SQL Data Warehouse database and execute the following command:
+
+```
+CREATE USER newperson FOR LOGIN newperson
+```
+
+Once complete permissions will need to be granted to the user. The example below grants `CONTROL` on the SQL Data Warehouse database. `CONTROL` at the database level is the equivalent of db_owner in SQL Server.
+
+```
+GRANT CONTROL ON DATABASE::MySQLDW to newperson
+```
+
+To see the workload management roles use the following query:
+
+```
+SELECT  ro.[name]           AS [db_role_name]
+FROM    sys.database_principals ro
+WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
+AND     ro.[is_fixed_role]  = 0
+;
+```
+
+To add a user to an increase workload management role use the following query:
+
+``` 
+EXEC sp_addrolemember 'largerc', 'newperson' 
+```
+
+To remove a user from an workload management role use the following query:
+
+``` 
+EXEC sp_droprolemember 'largerc', 'newperson' 
+```
+> [AZURE.NOTE] It is not possible to remove a user from the smallrc.
+
+To see which users are members of a given role use the following query:
+```
+SELECT	r.name AS role_principal_name
+,		m.name AS member_principal_name
+FROM	sys.database_role_members rm
+JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
+JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
+WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
+;
+```
+
 ## Queued query detection
 To identify queries that are held in a concurrency queue you can always refer to the `sys.dm_pdw_exec_requests` DMV.
 
@@ -131,6 +272,7 @@ SELECT 	 r.[request_id]									AS Request_ID
 		,r.[submit_time]								AS Request_SubmitTime
 		,r.[start_time]									AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
+        ,r.resource_class                               AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r
 ;
 ```
@@ -144,7 +286,7 @@ They are:
 - DmsConcurrencyResourceType
 - BackupConcurrencyResourceType
 
-The LocalQueriesConcurrencyResourceType refers to queries that sit outside of the concurrency slot framework. DMV queries and system functions such as SELECT @@VERSION are examples of localqueries.
+The LocalQueriesConcurrencyResourceType refers to queries that sit outside of the concurrency slot framework. DMV queries and system functions such as `SELECT @@VERSION` are examples of local queries.
 
 The UserConcurrencyResourceType refers to queries that sit inside the concurrency slot framework. Queries against end user tables represent examples which would use this resource type.
 
@@ -232,7 +374,7 @@ For more development tips, see [development overview][].
 [development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/en-us/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
