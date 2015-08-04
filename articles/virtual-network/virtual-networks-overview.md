@@ -19,7 +19,7 @@
 
 An Azure virtual network (VNet) works similarly to a network implemented in your own datacenter. Each Azure VNet you create must have a set of CIDR address blocks, which can be divided to create subnets. You can deploy Azure virtual machines (VMs) and role instances to a VNet, and connect them to subnets, in the same way you can deploy physical and virtual machines to your on-premises datacenter. 
 
-To better understand VNets, take a look at the figure below, which shows a traditional on premises network.
+To better understand VNets, take a look at the figure below, which shows a traditional on-premises network.
 
 ![On-premises network](./media/virtual-networks-overview/figure01.png)
 
@@ -43,7 +43,7 @@ Each VNet you create is completely isolated from other VNets. You can connect a 
 
 - **Isolation**. VNets are completely isolated from one another. That allows you to create separate VNets for development, testing, and production that use the same CIDR address blocks.
 
-- **Connectivity**. VNets can be connected to each other, and even to your on premises datacenter, by using a site-to-site VPN connection, or ExpressRoute connection. To learn more about VPN gateways, visit [About VPN gateways](./vpn-gateway-about-vpngateways.md). To learn more about ExpressRoute, visit [ExpressRoute technical overview](./expressroute-introduction.md).
+- **Connectivity**. VNets can be connected to each other, and even to your on-premises datacenter, by using a site-to-site VPN connection, or ExpressRoute connection. To learn more about VPN gateways, visit [About VPN gateways](./vpn-gateway-about-vpngateways.md). To learn more about ExpressRoute, visit [ExpressRoute technical overview](./expressroute-introduction.md).
 
 ## Subnet
 
@@ -53,7 +53,7 @@ You can divide your VNet into multiple subnets for organization and security. Su
 
 There are two types of IP addresses assigned to components in Azure: public and internal. VMs and role instances deployed to an Azure subnet are automatically assigned an internal IP address to each of their NICs. Internet facing load balancers are assigned a public IP address to allow access from the Internet. 
 
-These IP addresses are dynamic, meaning that they can change at any time. You may want to ensure the IP address for certain services remain teh same, at all times. To do so, you can reserve an IP address, making it static.
+These IP addresses are dynamic, meaning that they can change at any time. You may want to ensure the IP address for certain services remain the same, at all times. To do so, you can reserve an IP address, making it static.
 
 ## Azure load balancer
 
