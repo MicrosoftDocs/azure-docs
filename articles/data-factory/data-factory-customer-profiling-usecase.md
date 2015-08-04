@@ -18,7 +18,7 @@
 
 # Use Case - Customer Profiling
 
-Azure Data Factory is one of many services used to implement the Cortana Analytics Suite of solution accelerators.  For more information about Cortana Analytics, please visit [http://www.microsoft.com/cortanaanalytics](www.microsoft.com/cortanaanalytics). In this document, we describe a simple use case to help you get started with understanding how Azure Data Factory can solve common analytics problems.
+Azure Data Factory is one of many services used to implement the Cortana Analytics Suite of solution accelerators.  For more information about Cortana Analytics, please visit [Cortana Analytics Suite](http://www.microsoft.com/cortanaanalytics). In this document, we describe a simple use case to help you get started with understanding how Azure Data Factory can solve common analytics problems.
 
 All you need to access and try out this simple use case is an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/).  You can deploy a sample that implements this use case by following the steps described in the [Samples](data-factory-samples.md) article.
 
