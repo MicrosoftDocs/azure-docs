@@ -16,7 +16,7 @@
 	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
-# Getting started with Queue storage and Visual Studio connected services
+# Getting started with Azure Queue storage and Visual Studio connected services
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet5-getting-started-queues.md)
