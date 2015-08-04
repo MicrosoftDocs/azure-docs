@@ -40,8 +40,8 @@ Connecting to Windows PowerShell for StorSimple through an HTTP session offers m
 You can use either the Management Portal or the serial console to configure remote management. Select from the following procedures:
 
 - [Use the Management Portal to enable remote management over HTTP](#use-the-management-portal-to-enable-remote-management-over-http)
-- 
-- [Use the serial console to enable remote management over HTTP](#use-serial-console-to-enable-remote-management-over-http)
+
+- [Use the serial console to enable remote management over HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
 After you enable remote management, use the following procedure to prepare the client for a remote connection.
 
@@ -126,7 +126,7 @@ You can use either the Management Portal or the serial console to configure remo
 
 - [Use the Management Portal to enable remote management over HTTPS](#use-the-management-portal-to-enable-remote-management-over-https)
 
-- [Use the serial console to enable remote management over HTTPS](#use-serial-console-to-enable-remote-management-over-https)
+- [Use the serial console to enable remote management over HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
 After you enable remote management, use the following procedures to prepare the host for a remote management and connect to the device from the remote host.
 
