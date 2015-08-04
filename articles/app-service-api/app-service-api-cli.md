@@ -157,13 +157,15 @@ To find an existing resource group, use the `group list` command, and choose a r
 
 ### Create or find an App Service plan to use
 
-To create an App Service plan, use the `resource create` command and use the resource type parameter (`-r`) to specify App Service plan.
+To create an App Service plan, use the `resource create` command and use the resource type parameter (`-r`) to specify that the type of resource you want to create is an App Service plan.
 
-	azure resource create -g <resource group> -n <app service plan name> -r Microsoft.Web/serverfarms -l <location> -o <API version>
-
+	azure resource create -g <resource group> -n <app service plan name> -r "Microsoft.Web/serverfarms" -l <location> -o <api version> -p "{\"sku\": {\"tier\": \"<pricing tier>\"}, \"numberOfWorkers\" : <number of workers>, \"workerSize\": \"<worker size>\"}"
+	
 For example:
 
-	azure resource create -g myresourcegroup -n myplan -r Microsoft.Web/serverfarms -l "West US" -o 2015-06-01
+	azure resource create -g mygroup -n myplan -r "Microsoft.Web/serverfarms" -l "West US" -o "2015-06-01" -p "{\"sku\": {\"tier\": \"Standard\"}, \"numberOfWorkers\" : 1, \"workerSize\": \"Small\"}"
+
+The JSON string for the `properties` (`-p`) parameter is required due to some recent changes in the REST API; in the future the `-p` parameter will be optional.
 
 The sample command specifies the latest API version as of the date this article was written. To check if a later version is available, use the `provider show` command and see the `apiVersions` array for the `sites` object in the `resourceTypes` array.
 
