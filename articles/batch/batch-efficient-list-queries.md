@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Efficient list queries | Azure Batch"
-	description="Learn to reduce the number of items returned in a list as well as reduce the amount of information returned for each item"
+	pageTitle="Efficient list queries in Azure Batch | Microsoft Azure"
+	description="Learn to reduce the number of Azure Batch items returned in a list as well as reduce the amount of information returned for each item"
 	services="batch"
 	documentationCenter=""
 	authors="davidmu1"
@@ -14,10 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/28/2015"
+	ms.date="08/04/2015"
 	ms.author="davidmu"/>
 
-# Efficient list queries
+# Efficient Batch list queries
 
 The following methods are examples of operations that virtually every application using Azure Batch has to perform and often has to perform frequently:
 
@@ -42,8 +42,8 @@ For all APIs the following apply:
 - Each property name is a string that maps to the property of the object
 - All property names are case sensitive, but property values are case insensitive
 - Date/time strings can have one of two formats and need to be preceded with DateTime
-	- W3CDTF (e.g. creationTime gt DateTime’2011-05-08T08:49:37Z’)
-	- RFC1123 (e.g. creationTime gt DateTime’Sun, 08 May 2011 08:49:37 GMT’)
+	- W3CDTF (e.g., creationTime gt DateTime’2011-05-08T08:49:37Z’)
+	- RFC1123 (e.g., creationTime gt DateTime’Sun, 08 May 2011 08:49:37 GMT’)
 - Boolean strings are either "true" or "false"
 - If an invalid property or operator is specified, then an exception will be created with a "400 (Bad Request)" inner exception.
 - DetailLevel parameter with Select and Expand clauses can also be passed to appropriate “Get” methods, e.g., PoolOperations.GetPool().
