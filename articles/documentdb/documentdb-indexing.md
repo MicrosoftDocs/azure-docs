@@ -40,7 +40,7 @@ An important implication of treating both the schema and instance values uniform
 
 **DocumentDB Index as a Tree:**
 
-![Index as a Tree](media/documentdb-indexing/IndexAsATree.png)
+![Index as a Tree](media/documentdb-indexing/IndexAsTree.png)
 
 [AZURE.NOTE] The path representation blurs the boundary between the structure/schema and the instance values in documents, allowing DocumentDB to be truly schema-free.
 
