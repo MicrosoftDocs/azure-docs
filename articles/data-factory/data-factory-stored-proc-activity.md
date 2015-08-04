@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Data Factory - Hive Activity" 
-	description="Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster." 
+	pageTitle="Azure Data Factory - SQL Server Stored Procedure Activity" 
+	description="Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database from a Data Factory pipeline." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,218 +13,123 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Hive Activity
 
-The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Hive queries on [your own](https://msdn.microsoft.com/library/mt185697.aspx) or [on-demand](https://msdn.microsoft.com/library/mt185733.aspx) HDInsight cluster. 
+You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in an **Azure SQL** Database. 
 
 **Note:** This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
 
 ## Syntax
-
 	{
-		"name": "Hive Activity",
-	    "description": "description",
-	    "type": "HDInsightHive",
-	    "inputs": [
-	      {
-	        "name": "input tables"
-	      }
-	    ],
-	    "outputs": [
-	      {
-	        "name": "output tables"
-	      }
-	    ],
-	    "linkedServiceName": "MyHDInsightLinkedService",
-	    "typeProperties": {
-	      "script": "Hive script",
-	      "scriptPath": "<pathtotheHivescriptfileinAzureblobstorage>",
-	      "defines": {
-	        "param1": "param1Value"
-	      }
-	    },
-       "scheduler": {
-          "frequency": "Day",
-          "interval": 1
-        }
+    	"name": "SQLSPROCActivity",
+    	"description": "description", 
+    	"type": "SqlServerStoredProcedure",
+    	"inputs":  [ { "name": "input tables"  } ],
+    	"outputs":  [ { "name": "output tables" } ],
+    	"typeProperties":
+    	{
+        	"storedProcedureName": “”,
+        	"storedProcedureParameters": “” 
+        	{
+				"param1": "param1Value"
+				…
+        	}
+    	}
 	}
-	
+
 ## Syntax details
 
 Property | Description | Required
 -------- | ----------- | --------
 name | Name of the activity | Yes
 description | Text describing what the activity is used for | No
-type | HDinsightHive | Yes
-inputs | Input(s) consumed by the Hive activity | No
-outputs | Output(s) produced by the Hive activity | Yes 
-linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes 
-script | Specify the Hive script inline | No
-script path | Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together | No 
-defines | Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf'  | No
+type | SqlServerStoredProcedure | Yes
+inputs | Input(s) that must be available (in ‘Ready’ status) for the stored procedure activity to execute | No
+outputs | Output(s) produced by the stored procedure activity | Yes
+storedProcedureName | Specify the name of the stored procedure | Yes
+storedProcedureParameters | Specify values for stored procedure parameters | No
+
+> [ACOM.NOTE] The input(s) to the stored procedure activity is only used for dependency management and chaining this activity with others. The input(s) cannot be consumed in the stored procedure as a parameter.
 
 ## Example
 
-Let’s consider an example of game logs analytics where you want to identify the time spent by users playing games launched by your company. 
+Let’s consider an example where you want to create a table in Azure SQL database that has two columns: 
 
-Below is a sample game log which is comma (,) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
+Column | Type
+------ | ----
+ID | An uniqueidentifier
+Datetime | Date & time when the corresponding ID was generated
 
-	1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
-	1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
-	1703,2014-05-04 10:21:57.3290000,10,199.118.18.179,CaptureFlag
-	1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
-	.....
+![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
 
-The **Hive script** to process this data looks like this:
-
-	DROP TABLE IF EXISTS HiveSampleIn; 
-	CREATE EXTERNAL TABLE HiveSampleIn 
-	(
-		ProfileID		string, 
-	    SessionStart 	string, 
-	    Duration 		int, 
-	    SrcIPAddress 	string, 
-	    GameType 		string
-	) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/samplein/'; 
+	CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+	AS
 	
-	DROP TABLE IF EXISTS HiveSampleOut; 
-	CREATE EXTERNAL TABLE HiveSampleOut 
-	(	
-		ProfileID 	string, 
-	    Duration 	int
-	) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/sampleout/';
-	
-	INSERT OVERWRITE TABLE HiveSampleOut
-	Select 
-		ProfileID,
-		SUM(Duration)
-	FROM HiveSampleIn Group by ProfileID
+	BEGIN
+	    INSERT INTO [sampletable]
+	    VALUES (newid(), @DateTime)
+	END
 
-To execute this Hive script in a Data Factory pipeline, you need to the do the following
+To execute this stored procedure in a Data Factory pipeline, you need to the do the following:
 
-1. Create a linked service to register [your own HDInsight compute cluster](https://msdn.microsoft.com/library/mt185697.aspx) or configure [on-demand HDInsight compute cluster](https://msdn.microsoft.com/library/mt185733.aspx). Let’s call this linked service “HDInsightLinkedService”.
-2. Create a [linked service](data-factory-azure-storage-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service “StorageLinkedService”
-3. Create [datasets](data-factory-create-datasets.md) pointing to the input and the output data. Let’s call the input dataset “HiveSampleIn” and the output dataset “HiveSampleOut”
-4. Copy the Hive query as a file to Azure Blob Storage configured in step #2 above. if the linked service for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity configuration. Use **scriptPath **to specify the path to hive query file and **scriptLinkedService** to specify the Azure storage that contains the script file. 
-
-	> [AZURE.NOTE] You can also provide the Hive script inline in the activity definition by using the **script** property but this is not recommended as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues. The best practice is to follow step #4.
-5.	Create the below pipeline with the HDInsightHive activity to process the data.
+1.	Create a [linked service](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties)  to register the connection string of the Azure SQL database where the stored procedure should be executed.
+2.	Create a [dataset](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties)  pointing to the output table in the Azure SQL database. Let’s call this dataset sprocsampleout. This dataset should reference the linked service in step #1. 
+3.	Create the stored procedure in the Azure SQL Database.
+4.	Create the below [pipeline](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties)  with the SqlServerStoredProcedure activity to invoke the stored procedure in Azure SQL Database.
 
 		{
-		  "name": "HiveActivitySamplePipeline",
-		  "properties": {
-		    "activities": [
-		      {
-		        "name": "HiveActivitySample",
-		        "type": "HDInsightHive",
-		        "inputs": [
-		          {
-		            "name": "HiveSampleIn"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "HiveSampleOut"
-		          }
-		        ],
-		        "linkedServiceName": "HDInsightLinkedService",
-		        "typeproperties": {
-		          "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-		          "scriptLinkedService": "StorageLinkedService"
-		        },
-       			"scheduler": {
-          			"frequency": "Hour",
-          			"interval": 1
-        		}
-		      }
-		    ]
-		  }
+		    "name": "SprocActivitySamplePipeline",
+		    "properties":
+		    {
+		        "activities":
+		        [
+		            {
+		             "name": "SprocActivitySample",
+		             "type": " SqlServerStoredProcedure ",
+		             "outputs": [ {"name": "sprocsampleout"} ],
+		             "typeproperties":
+		              {
+		                "storedProcedureName": "sp_sample",
+		        		"storedProcedureParameters": 
+		        		{
+		            	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		        		}
+				}
+		            }
+		          ]
+		     }
 		}
+5.	Deploy the [pipeline](data-factory-create-pipelines.md).
+6.	[Monitor the pipeline](data-factory-monitor-manage-pipelines.md) using the data factory monitoring and management views.
 
-6.	Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
-7.	Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
+> [AZURE.NOTE] In the above example, the SprocActivitySample has no inputs. If you want to chain this with an activity upstream, the output(s) of the upstream activity can be used as input(s) in this activity.  In which case, this activity will not execute until the upstream activity is completed and the output(s) are available (in Ready status). The input(s) cannot be used directly as a parameter to the stored procedure activity
+> 
+> The names and casing (upper/lower) of stored procedure parameters in the JSON file must match the names of stored procedure parameters in the target database.
 
+Now, let’s consider adding another column named ‘Scenario’ in the table containing a static value called ‘Document sample’.
 
-## Specifying parameters for a Hive script using the defines element 
+![Sample data 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 
-Consider the example where the game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned with date and time. You want to parameterize the Hive script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.
+	CREATE PROCEDURE sp_sample @DateTime nvarchar(127) , @Scenario nvarchar(127)
+	
+	AS
+	
+	BEGIN
+	    INSERT INTO [sampletable]
+	    VALUES (newid(), @DateTime, @Scenario)
+	END
 
-To use parameterize Hive script, do the following
+To accomplish this, pass the Scenario parameter and the value from the stored procedure activity. The typeproperties section in the above sample looks like this:
 
-- Define the parameters in **defines**.
-
-		{
-			"name": "HiveActivitySamplePipeline",
-		  	"properties": {
-		    "activities": [
-		     	{
-		        	"name": "HiveActivitySample",
-		        	"type": "HDInsightHive",
-			        "inputs": [
-			          	{
-				            "name": "HiveSampleIn"
-				          }
-		        	],
-		        	"outputs": [
-		          		{
-				            "name": "HiveSampleOut"
-				        }
-		        	],
-		        	"linkedServiceName": "HDInsightLinkedService",
-		        	"typeproperties": {
-		          		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-		          		"scriptLinkedService": "StorageLinkedService",
-		          		"defines": {
-		            		"Input": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            		"Output": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
-		          		},
-       					"scheduler": {
-          					"frequency": "Hour",
-          					"interval": 1
-        				}
-		        	}
-		      	}
-		    ]
-		  }
+	"typeproperties":
+	{
+		"storedProcedureName": "sp_sample",
+	    "storedProcedureParameters": 
+	    {
+	    	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
+			"Scenario": "Document sample"
 		}
-
-- In the Hive Script, refer to the parameter using **${hiveconf:parameterName}**. 
-
-		DROP TABLE IF EXISTS HiveSampleIn; 
-		CREATE EXTERNAL TABLE HiveSampleIn 
-		(
-			ProfileID 	string, 
-		    SessionStart 	string, 
-		    Duration 	int, 
-		    SrcIPAddress 	string, 
-		    GameType 	string
-		) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Input}'; 
-		
-		DROP TABLE IF EXISTS HiveSampleOut; 
-		CREATE EXTERNAL TABLE HiveSampleOut 
-		(
-		    ProfileID 	string, 
-		    Duration 	int
-		) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Output}';
-		
-		INSERT OVERWRITE TABLE HiveSampleOut
-		Select 
-			ProfileID,
-			SUM(Duration)
-		FROM HiveSampleIn Group by ProfileID
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}
