@@ -205,7 +205,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	
 	Note the following: 
 	
-	- location **type** is set to **AzureBlob**.
+	- dataset **type** is set to **AzureBlob**.
 	- **linkedServiceName** is set to **StorageLinkedService**. 
 	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
@@ -266,7 +266,7 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
 
      Note the following: 
 	
-	* location **type** is set to **AzureSqlTable**.
+	* dataset **type** is set to **AzureSqlTable**.
 	* **linkedServiceName** is set to **AzureSqlLinkedService**.
 	* **tablename** is set to **emp**.
 	* There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database, but ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
@@ -308,7 +308,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 		          "sink": {
 		            "type": "SqlSink",
 		            "writeBatchSize": 10000,
-		            "writeBatchTimeout": "60:00:00"
+		            "writeBatchTimeout": "00:60:00"
 		          }
 		        },
 		        "Policy": {
