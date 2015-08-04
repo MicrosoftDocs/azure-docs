@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="07/27/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
@@ -51,6 +51,12 @@ The following example shows how to combine multiple values to return a value.
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+## copyIndex
+
+**copyIndex(offset)**
+
+Returns the current index of an iteration loop. For examples of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 ## deployment
 

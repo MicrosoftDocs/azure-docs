@@ -19,7 +19,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Service Manager steps](load-balancer-internal-getstarted.md)
+- [Azure Classic steps](load-balancer-internal-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 

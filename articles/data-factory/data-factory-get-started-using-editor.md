@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started using Azure Data Factory" 
+	pageTitle="Tutorial: Copy data from an Azure blob to Azure SQL" 
 	description="This tutorial shows you how to create a sample data pipeline that copies data from a blob to an Azure SQL Database instance." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Data Factory Editor
@@ -145,7 +145,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 		
      Note the following: 
 	
-	- location **type** is set to **AzureBlob**.
+	- dataset **type** is set to **AzureBlob**.
 	- **linkedServiceName** is set to **StorageLinkedService**. You had created this linked service in Step 2.
 	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
@@ -207,7 +207,7 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
 		
      Note the following: 
 	
-	* location **type** is set to **AzureSQLTableLocation**.
+	* dataset **type** is set to **AzureSQLTable**.
 	* **linkedServiceName** is set to **AzureSqlLinkedService** (you had created this linked service in Step 2).
 	* **tablename** is set to **emp**.
 	* There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database, but ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
@@ -258,7 +258,6 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 		        "Policy": {
 		          "concurrency": 1,
 		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
 		          "retry": 0,
 		          "timeout": "01:00:00"
 		        }

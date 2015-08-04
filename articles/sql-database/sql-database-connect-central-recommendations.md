@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="08/03/2015" 
 	ms.author="genemi"/>
 
 
@@ -76,6 +76,13 @@ Regardless of which connection technology you use, certain firewall settings for
  - When retrying a query, first close the connection, and then open another connection.
 
 
+### Ports other than just 1433 in V12
+
+
+Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important. For details see:<br/>
+[Ports beyond 1433 for ADO.NET 4.5, ODBC 11, and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+
+
 The next section has more to say about retry logic and transient fault handling.
 
 
@@ -91,7 +98,7 @@ During the shift, the database might be temporarily unavailable. This might bloc
 When any error occurs with SQL Database, an [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) is thrown. The `SqlException` contains a numeric error code in its **Number** property. If the error code identifies a transient error, your program should retry the call.
 
 
-- [Error Messages (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+- [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
  - Its **Transient Errors, Connection-Loss Errors** section is a list of the transient errors that warrant an automatic retry.
  - For example, retry if the error number 40613 occurs, which says something similar to<br/>*Database 'mydatabase' on server 'theserver' is not currently available.*
 
@@ -114,31 +121,22 @@ For links to code sample topics that demonstrate retry logic, see:
 <a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
 
 
-## Gateway no longer provides retry logic in V12
+## Middleware proxy no longer provides retry logic in V12
 
 
-Before version V12, Azure SQL Database had a gateway that acted as a proxy to buffer all interactions between the database and your client program. The gateway was an additional network hop that sometimes increased the latency of database accesses.
+In a production environment, clients that connect to Azure SQL Database V11 or V12 are advised to implement retry logic in their code. This can be custom code, or can be code that leverages an API such as the Enterprise Library.
 
 
-V12 eliminated the gateway. So now:
+The middleware proxy that mediates between V11 and your ADO.NET 4.5 client handles a small subset of transient faults gracefully with retry logic. In cases where the proxy successfully connects on its second attempt, your client program is blissfully unaware that the first attempt failed.
 
 
-- Your client program interacts *directly* with the database, which is more efficient.
-- The gateway's minor distortions in error messages and other communications to your program are eliminated.
- - SQL Database and SQL Server look more identical to your program.
+In contrast, the V12 proxy does not provide any retry functionality. Further, in other V12 cases the the proxy is bypassed for the superior speed of connecting to SQL Database directly. Therefore the recommendation for retry logic is more pressing after upgrade from V11 to V12.
 
 
-#### Retry logic gone
+To a client ADO.NET 4.5 program, these changes make Azure SQL Database V12 look more like Microsoft SQL Server.
 
 
-The gateway had retry logic handle some transient errors for you. Now your program must more fully handle transient errors. For code samples about retry logic, see:
-
-
-- [Client development and quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
- - Has links to code samples that contain retry logic, and to simpler samples that connect-and-query.
-- [How to: Reliably connect to Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
-- [How to: Connect to Azure SQL Database by using ADO.NET with Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [How to: Connect to Azure SQL Database by using ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+For code samples that demonstrate retry logic, see:<br/>[Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md).
 
 
 ## Technologies
