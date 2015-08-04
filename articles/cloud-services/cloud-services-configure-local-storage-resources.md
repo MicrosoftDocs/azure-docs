@@ -27,6 +27,7 @@ A local storage resource is declared in the service definition file. You can dec
 -   You can specify that a local storage resource be preserved when an instance is recycled. However, data that is saved to the local file system of the virtual machine is not guaranteed to be durable. If your role requires durable data, it is recommended that you use a Azure drive to store file data. Azure drives are backed by the Azure Blob service, so they are guaranteed to be durable.  
 >
 
+
 ## Adding a local storage resource
 
 To declare a local storage resource within the service definition file, add the **LocalResources** element as a child of a **WebRole** element or the **WorkerRole** element. Then add a **LocalStorage** element to represent the resource. The **LocalStorage** element takes three attributes:
