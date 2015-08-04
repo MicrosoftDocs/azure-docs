@@ -35,13 +35,15 @@ Notice how you the Azure infrastructure takes on the role of the router, allowin
 
 Each VNet you create is completely isolated from other VNets. You can connect a VNet to any other VNet, and even to your on-premises network, as long as the CIDR address blocks used by the VNets are not overlapping. Vnets provide the following services to virtual machines (VMs) and role instances deployed to them:
 
-- Access to the public Internet. All VMs and role instances in a VNet can access the public Internet. You can control access by using Network Security Groups (NSGs).
+- **Access to the public Internet**. All VMs and role instances in a VNet can access the public Internet. You can control access by using Network Security Groups (NSGs).
 
-- Access to other VMs and role instances within the VNet. VMs can connect to other VMs in the same VNet, even if they are in different subnets, without the need to configure a gateway.
+- **Access to other VMs and role instances within the VNet**. VMs can connect to other VMs in the same VNet, even if they are in different subnets, without the need to configure a gateway.
 
-- Name resolution. Azure provides internal name resolution for VMs and role instances deployed in your VNet. You can also deploy your own DNS servers and configure the VNet to use them.
+- **Name resolution**. Azure provides internal name resolution for VMs and role instances deployed in your VNet. You can also deploy your own DNS servers and configure the VNet to use them.
 
-- Isolation. VNets are completely isolated from one another. That allows you to create separate VNets for development, testing, and production that use the same CIDR address blocks.
+- **Isolation**. VNets are completely isolated from one another. That allows you to create separate VNets for development, testing, and production that use the same CIDR address blocks.
+
+- **Connectivity**. VNets can be connected to each other, and even to your on premises datacenter, by using a site-to-site VPN connection, or ExpressRoute connection. To learn more about VPN gateways, visit [About VPN gateways](./vpn-gateway-about-vpngateways.md). To learn more about ExpressRoute, visit [ExpressRoute technical overview](./expressroute-introduction.md).
 
 ## Subnet
 
@@ -55,9 +57,9 @@ You can create NSGs to control inbound and outbound access to network interfaces
 
 You can use two types of load balancers in Azure:
 
-- External load balancer. You can use an external load balancer to expose VMs and role instances to the public Internet.
+- **External load balancer**. You can use an external load balancer to expose VMs and role instances to the public Internet.
 
-- Internal load balancer. You can use an internal load balancer to expose VMs and roles instances to apps and services running inside your VNet.
+- **Internal load balancer**. You can use an internal load balancer to expose VMs and roles instances to apps and services running inside your VNet.
 
 To learn more about load balancing in Azure, visit [Load balancer overview](../load-balancer-overview.md).
 
