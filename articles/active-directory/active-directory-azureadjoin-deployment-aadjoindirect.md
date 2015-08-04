@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""
-	tags="azure-classic-portal"/>
+	editor=""/>
 
 <tags 
 	ms.service="active-directory" 
