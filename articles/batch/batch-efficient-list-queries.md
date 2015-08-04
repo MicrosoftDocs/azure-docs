@@ -22,7 +22,7 @@
 The following methods are examples of operations that virtually every application using Azure Batch has to perform and often has to perform frequently:
 
 - [ListTasks](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx)
-- [ListJobs](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx)
+- [ListJobs](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx)
 - [ListPools](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listpools.aspx)
 - [ListCertificates](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.certificateoperations.listcertificates.aspx)
 
