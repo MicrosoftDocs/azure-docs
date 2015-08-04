@@ -258,7 +258,6 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 		        "Policy": {
 		          "concurrency": 1,
 		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
 		          "retry": 0,
 		          "timeout": "01:00:00"
 		        }
