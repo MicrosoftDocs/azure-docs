@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jgao"/>
 
 # Debug Hadoop in HDInsight: Interpret error messages
 
 The error messages itemized in this topic are provided to help the users of Hadoop in Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error. 
 
-Some of these error messages could also be seen in the Azure portal when it is used to manage HDInsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on parameters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 22 or less.
+Some of these error messages could also be seen in the Azure portal when it is used to manage HDInsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on parameters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 33 or less.
 
-![HDI.Debugging.ErrorMessages.Portal][image-hdi-debugging-error-messages-portal]
+![HDInsight portal error message][image-hdi-debugging-error-messages-portal]
 
 The errors a user can encounter in Azure PowerShell or in the Azure Portal are listed alphabetically by name in the [HDInsight Errors](#hdinsight-error-messages) section where they are linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following information for the error:
  	
@@ -31,51 +31,51 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 ###HDInsight error codes
 
-[AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
-[AzureRegionNotSupported](#AzureRegionNotSupported)		
-[ClusterContainerRecordNotFound](#ClusterContainerRecordNotFound)	 
-[ClusterDnsNameInvalidReservedWord](#ClusterDnsNameInvalidReservedWord)		
-[ClusterNameUnavailable](#ClusterNameUnavailable)	
-[ClusterUserNameInvalid](#ClusterUserNameInvalid)	
-[ClusterUserNameInvalidReservedWord](#ClusterUserNameInvalidReservedWord)	
-[ContainerNameMisMatchWithDnsName](#ContainerNameMisMatchWithDnsName)	
-[DataNodeDefinitionNotFound](#DataNodeDefinitionNotFound)	
-[DeploymentDeletionFailure](#DeploymentDeletionFailure)	
-[DnsMappingNotFound](#DnsMappingNotFound)	
-[DuplicateClusterContainerRequest](#DuplicateClusterContainerRequest)	
-[DuplicateClusterInHostedService](#DuplicateClusterInHostedService)		
-[FailureToUpdateDeploymentStatus](#FailureToUpdateDeploymentStatus)		
-[HdiRestoreClusterAltered](#HdiRestoreClusterAltered)	
-[HeadNodeConfigNotFound](#HeadNodeConfigNotFound)	
-[HeadNodeConfigNotFound](#HeadNodeConfigNotFound)	 
-[HostedServiceCreationFailure](#HostedServiceCreationFailure)	
-[HostedServiceHasProductionDeployment](#HostedServiceHasProductionDeployment)	
-[HostedServiceNotFound](#HostedServiceNotFound)		
-[HostedServiceWithNoDeployment](#HostedServiceWithNoDeployment)		
-[InsufficientResourcesCores](#InsufficientResourcesCores)	
-[InsufficientResourcesHostedServices](#InsufficientResourcesHostedServices)		
-[InternalErrorRetryRequest](#InternalErrorRetryRequest)		
-[InvalidAzureStorageLocation](#InvalidAzureStorageLocation)		
-[InvalidNodeSizeForDataNode](#InvalidNodeSizeForDataNode)	
-[InvalidNodeSizeForHeadNode](#InvalidNodeSizeForHeadNode)	
-[InvalidRightsForDeploymentDeletion](#InvalidRightsForDeploymentDeletion)	
-[InvalidStorageAccountBlobContainerName](#InvalidStorageAccountBlobContainerName)	
-[InvalidStorageAccountConfigurationSecretKey](#InvalidStorageAccountConfigurationSecretKey)	
-[InvalidVersionHeaderFormat](#InvalidVersionHeaderFormat)	
-[MoreThanOneHeadNode](#MoreThanOneHeadNode)	
-[OperationTimedOutRetryRequest](#OperationTimedOutRetryRequest)	
-[ParameterNullOrEmpty](#ParameterNullOrEmpty)	
-[PreClusterCreationValidationFailure](#PreClusterCreationValidationFailure)	
-[RegionCapabilityNotAvailable](#RegionCapabilityNotAvailable)	
-[StorageAccountNotColocated](#StorageAccountNotColocated)	
-[SubscriptionIdNotActive](#SubscriptionIdNotActive)	
-[SubscriptionIdNotFound](#SubscriptionIdNotFound)	
-[UnableToResolveDNS](#UnableToResolveDNS)	
-[UnableToVerifyLocationOfResource](#UnableToVerifyLocationOfResource)	
-[VersionCapabilityNotAvailable](#VersionCapabilityNotAvailable)	
-[VersionNotSupported](#VersionNotSupported)	
-[VersionNotSupportedInRegion](#VersionNotSupportedInRegion)	
-[WasbAccountConfigNotFound](#WasbAccountConfigNotFound)	
+- [AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
+- [AzureRegionNotSupported](#AzureRegionNotSupported)		
+- [ClusterContainerRecordNotFound](#ClusterContainerRecordNotFound)	 
+- [ClusterDnsNameInvalidReservedWord](#ClusterDnsNameInvalidReservedWord)		
+- [ClusterNameUnavailable](#ClusterNameUnavailable)	
+- [ClusterUserNameInvalid](#ClusterUserNameInvalid)	
+- [ClusterUserNameInvalidReservedWord](#ClusterUserNameInvalidReservedWord)	
+- [ContainerNameMisMatchWithDnsName](#ContainerNameMisMatchWithDnsName)	
+- [DataNodeDefinitionNotFound](#DataNodeDefinitionNotFound)	
+- [DeploymentDeletionFailure](#DeploymentDeletionFailure)	
+- [DnsMappingNotFound](#DnsMappingNotFound)	
+- [DuplicateClusterContainerRequest](#DuplicateClusterContainerRequest)	
+- [DuplicateClusterInHostedService](#DuplicateClusterInHostedService)		
+- [FailureToUpdateDeploymentStatus](#FailureToUpdateDeploymentStatus)		
+- [HdiRestoreClusterAltered](#HdiRestoreClusterAltered)	
+- [HeadNodeConfigNotFound](#HeadNodeConfigNotFound)	
+- [HeadNodeConfigNotFound](#HeadNodeConfigNotFound)	 
+- [HostedServiceCreationFailure](#HostedServiceCreationFailure)	
+- [HostedServiceHasProductionDeployment](#HostedServiceHasProductionDeployment)	
+- [HostedServiceNotFound](#HostedServiceNotFound)		
+- [HostedServiceWithNoDeployment](#HostedServiceWithNoDeployment)		
+- [InsufficientResourcesCores](#InsufficientResourcesCores)	
+- [InsufficientResourcesHostedServices](#InsufficientResourcesHostedServices)		
+- [InternalErrorRetryRequest](#InternalErrorRetryRequest)		
+- [InvalidAzureStorageLocation](#InvalidAzureStorageLocation)		
+- [InvalidNodeSizeForDataNode](#InvalidNodeSizeForDataNode)	
+- [InvalidNodeSizeForHeadNode](#InvalidNodeSizeForHeadNode)	
+- [InvalidRightsForDeploymentDeletion](#InvalidRightsForDeploymentDeletion)	
+- [InvalidStorageAccountBlobContainerName](#InvalidStorageAccountBlobContainerName)	
+- [InvalidStorageAccountConfigurationSecretKey](#InvalidStorageAccountConfigurationSecretKey)	
+- [InvalidVersionHeaderFormat](#InvalidVersionHeaderFormat)	
+- [MoreThanOneHeadNode](#MoreThanOneHeadNode)	
+- [OperationTimedOutRetryRequest](#OperationTimedOutRetryRequest)	
+- [ParameterNullOrEmpty](#ParameterNullOrEmpty)	
+- [PreClusterCreationValidationFailure](#PreClusterCreationValidationFailure)	
+- [RegionCapabilityNotAvailable](#RegionCapabilityNotAvailable)	
+- [StorageAccountNotColocated](#StorageAccountNotColocated)	
+- [SubscriptionIdNotActive](#SubscriptionIdNotActive)	
+- [SubscriptionIdNotFound](#SubscriptionIdNotFound)	
+- [UnableToResolveDNS](#UnableToResolveDNS)	
+- [UnableToVerifyLocationOfResource](#UnableToVerifyLocationOfResource)	
+- [VersionCapabilityNotAvailable](#VersionCapabilityNotAvailable)	
+- [VersionNotSupported](#VersionNotSupported)	
+- [VersionNotSupportedInRegion](#VersionNotSupportedInRegion)	
+- [WasbAccountConfigNotFound](#WasbAccountConfigNotFound)	
 
 
 
@@ -241,11 +241,11 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Description**: Unable to resolve DNS *yourDnsUrl*. Please ensure the fully qualified URL for the blob endpoint is provided.  
-- **Mitigation**: Supply a valid blob URL. The URL MUST be fully valid, including starting with *http://* and ending in *.com*. The fully qualified URL can usually be found in the storage tab of the manage.windowsazure.com portal.  
+- **Mitigation**: Supply a valid blob URL. The URL MUST be fully valid, including starting with *http://* and ending in *.com*. 
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Description**: Unable to verify location of resource *yourDnsUrl*. Please ensure the fully qualified URL for the blob endpoint is provided.  
-- **Mitigation**: Supply a valid blob URL. The URL MUST be fully valid, including starting with *http://* and ending in *.com*. The fully qualified URL can usually be found in the storage tab of the manage.windowsazure.com portal. 
+- **Mitigation**: Supply a valid blob URL. The URL MUST be fully valid, including starting with *http://* and ending in *.com*. 
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Description**: Version capability not available for version *specifiedVersion* and Subscription ID *yourSubscriptionId*.  
