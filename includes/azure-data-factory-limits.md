@@ -1,6 +1,6 @@
 Data factory is a multi-tenant service that has the following default limits in place to make sure customer subscriptions are protected from each others workloads. Many of the limits can be easily raised for your subscription up to the maximum limit by contacting support. 
 
-Resource | Default Limit | Maximum Limit
+**Resource** | **Default Limit** | **Maximum Limit**
 -------- | ------------- | -------------
 pipelines within a data factory | 100 | 2500
 datasets within a data factory | 500 | 5000
@@ -18,14 +18,14 @@ Retry count for pipeline activity runs | 1000 | MaxInt (32 bit)
 <sup>2</sup>On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
 
 
-Resource | Default lower limit | Minimum limit
+**Resource** | **Default lower limit** | **Minimum limit**
 -------- | ------------------- | -------------
 Scheduling interval | 15 minutes | 5 minutes
-Interval between retry attempts | 1 second | 1second
-Retry timeout value | 1second | 1second
+Interval between retry attempts | 1 second | 1 second
+Retry timeout value | 1 second | 1 second
 
 
-**Web service call limits**
+### Web service call limits
 
 Azure resource manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](azure-subscription-service-limits/#resource-group-limits). 
 
