@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="07/23/2015"
+	 ms.date="07/31/2015"
 	 ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - FAQ
@@ -65,11 +65,11 @@ A9. In general the backup data is sent to the datacenter of the Backup Service t
 A10. Any currently configured backups will be stopped. You will need to reregister the server with the backup vault and it will be considered a new server by Recovery Services, so the first backup operation that occurs after registration will be a full backup of all of the data included in the backup instead of just the changes since the last backup occurred. However, if you need to perform a recovery operation you can recover the data that has been backed up using Recover from another server recovery option. For more information, see Rename a server.
 
 **Q11. What types of drives can I backup files and folders from?** <br/>
-A11. The following set of drives/volumes can be backup:
+A11. The following set of drives/volumes can't be backup:
 
-- Removable Media: The drive must report as fixed to be used a backup item source.
+- Removable Media: The drive must report as a fixed to be used a backup item source.
 - Read-only Volumes: The volume must be writable for the volume shadow copy service (VSS) to function.
-- Offline Volumes	: The volume must be online for VSS to function.
+- Offline Volumes: The volume must be online for VSS to function.
 - Network share: The volume must be local to the server to be backed up using online backup.
 - Bitlocker protected volumes: The volume must be unlocked before the backup can occur.
 - File System Identification: NTFS is the only file system supported for this version of the online backup service.
