@@ -50,7 +50,7 @@ outputs | Output(s) produced by the stored procedure activity | Yes
 storedProcedureName | Specify the name of the stored procedure | Yes
 storedProcedureParameters | Specify values for stored procedure parameters | No
 
-> [ACOM.NOTE] The input(s) to the stored procedure activity is only used for dependency management and chaining this activity with others. The input(s) cannot be consumed in the stored procedure as a parameter.
+> [AZURE.NOTE] The input(s) to the stored procedure activity is only used for dependency management and chaining this activity with others. The input(s) cannot be consumed in the stored procedure as a parameter.
 > 
 > The stored procedure in the Azure SQL database that the output linked service linked service refers to will be invoked. The input linked service is ignored.  
 
