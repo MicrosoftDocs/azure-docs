@@ -39,7 +39,7 @@ In this scenario, you have two local networks. You can connect one to Azure via 
 
 ## Creating and configuring
 
-There are two different sets of procedures to choose from in order to configure your connections to coexist. The configuration procedure that you select will depend on whether you already have an existing virtual network that you want to connect to, or if you want to create a new virtual network.
+There are two different sets of procedures to choose from in order to configure your connections to coexist. The configuration procedure that you select will depend on whether you have an existing virtual network that you want to connect to, or you want to create a new virtual network.
 
 - **Create a new virtual network and connections that coexist:** 
 	
