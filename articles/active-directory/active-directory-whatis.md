@@ -12,7 +12,7 @@
                 ms.workload="identity" 
                 ms.tgt_pltfrm="na" 
                 ms.devlang="na" 
-                ms.topic="hero-article" 
+                ms.topic="article" 
                 ms.date="07/14/2015" 
                 ms.author="markusvi"/>
 
@@ -92,16 +92,3 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 - [Access control based on device health, user location, and identity](https://msdn.microsoft.com/library/azure/dn906873.aspx)
 - [Utilize the cloud to enhance and monitor on-premises identity systems](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [Rich standard based platform for developers](https://msdn.microsoft.com/library/azure/ff800682.aspx)
-
-
-
-
-
-
-
-
-
-
-
-
-

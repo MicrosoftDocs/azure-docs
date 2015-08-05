@@ -12,7 +12,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="06/10/2015" 
 	ms.author="stbaro"/>
 
