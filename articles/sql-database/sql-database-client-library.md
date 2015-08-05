@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
-- [PowerShell](sql-database-command-line-tools.md)
+- [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 ## Overview
