@@ -51,11 +51,11 @@ If you don’t already have a virtual network, this procedure will walk you thro
 
 ### Configure your existing virtual network for coexisting connections:
  
-You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. Creating a coexist connection will require you to delete your gateway, and then configure new gateways that can coexist. 
+You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. The [Configure connections that coexist for your existing virtual network](#configure-connections-that-coexist-for-your-existing-virtual-network) procedure will walk you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections. Note that when creating the new connections, the steps must be completed in a very specific order. Don't use the instructions in other articles to create your gateways and connections.
 
-This means you will have downtime for your cross-premises connections while you delete and recreate your gateway and connections, but you will not need to migrate any of your VMs or services to a new virtual network. Your VMs and services would still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so. 
+Creating a coexist connection will require you to delete your gateway, and then configure new gateways that can coexist. This means you will have downtime for your cross-premises connections while you delete and recreate your gateway and connections, but you will not need to migrate any of your VMs or services to a new virtual network. Your VMs and services would still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so. 
 
-The [Configure connections that coexist for your existing virtual network](#configure-connections-that-coexist-for-your-existing-virtual-network) procedure will walk you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections. Note that when creating the new connections, the steps must be completed in a very specific order. Don't use the instructions in other articles to create your gateways and connections.
+
 
 ## Notes and limitations
 
