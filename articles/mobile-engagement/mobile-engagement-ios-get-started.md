@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for iOS Apps."
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="piyushjo"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -12,9 +12,9 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
-	ms.date="04/30/2015"
-	ms.author="piyushjo" />
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 # Get Started with Azure Mobile Engagement for iOS Apps in Objective C
 
