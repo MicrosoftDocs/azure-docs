@@ -48,7 +48,7 @@ Click **Web API** from the **Select a template list** to create a Web API projec
 
 ![New project][api-management-new-project]
 
-Click **Organizational Accounts**, and specify the **Domain** of your AAD tenant. In this example the domain is **DemoAPIM.onmicrosoft.com**. The domain of your directory can be obtained from the **domains** tab of your directory.
+Click **Organizational Accounts**, and specify the **Domain** of your AAD tenant. In this example the domain is **DemoAPIM.onmicrosoft.com**. The domain of your directory can be obtained from the **Domains** tab of your directory.
 
 ![Domains][api-management-aad-domains]
 
@@ -93,7 +93,7 @@ Add the following `using` statement to the top of the `CalcInput.cs` file.
         public int b;
     }
 
-Right-click **Controllers** in **Solution Explorer** and choose **Add**->**Controller**. Choose **Web API Controller - Empty** and click **Add**. Type **CalcController** for the Controller name and click **Add**.
+Right-click **Controllers** in **Solution Explorer** and choose **Add**->**Controller**. Choose **Web API 2 Controller - Empty** and click **Add**. Type **CalcController** for the Controller name and click **Add**.
 
 ![Add Controller][api-management-add-controller]
 
@@ -353,7 +353,7 @@ Click **Send** and note the response status of **401 Unauthorized**.
 
 ![Send][api-management-dev-portal-send-401]
 
-The request is unauthorized because the backend API is protected by Azure Active Directory. Before successfully calling the API developer portal must be configured to authorize developers using OAuth 2.0 before calling the API. This process is described in the following sections.
+The request is unauthorized because the backend API is protected by Azure Active Directory. Before successfully calling the API the developer portal must be configured to authorize developers using OAuth 2.0. This process is described in the following sections.
 
 ## Register the developer portal as an AAD application
 
