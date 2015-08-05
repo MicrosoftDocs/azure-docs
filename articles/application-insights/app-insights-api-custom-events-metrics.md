@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -758,6 +758,8 @@ There are some limits on the number of metrics and events per application.
 
 
 [Search events and logs][diagnostic]
+
+[Samples and walkthroughs](app-insights-code-samples.md)
 
 [Troubleshooting][qna]
 

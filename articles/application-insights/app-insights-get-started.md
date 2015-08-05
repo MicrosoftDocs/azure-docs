@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="04/26/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # Get started with Visual Studio Application Insights
@@ -41,7 +41,8 @@ What you want | What to do | What you get
 <a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Add the SDK to your Java project</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![Performance and usage monitoring](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
 <a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">Insert the Application Insights script into your web pages</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![page views and browser performance](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
 <a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">Create web tests</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
-<a href="app-insights-windows-get-started.md">![Windows and Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Add Application Insights to your device app project</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![Crash and usage data](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-windows-get-started.md">![Windows and Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Add Application Insights to your Windows app project</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![Crash and usage data](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-platforms.md">![iOS, Android and more](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-platforms.md">Add Application Insights to your iOS or Android app</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-platforms.md">![Crash and usage data](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
 ## Support and feedback
 
