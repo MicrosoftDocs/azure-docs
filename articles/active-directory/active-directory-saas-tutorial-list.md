@@ -151,6 +151,5 @@ Logo | App Name
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg) | [Zscaler One](https://go.microsoft.com/fwLink/?LinkID=512737&clcid=0x409)
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg) | [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)
 
-##See Also
 
-- [Applicaiton Access](https://msdn.microsoft.com/library/azure/dn308590.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
