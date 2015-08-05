@@ -29,7 +29,7 @@ When deploying the **node\_modules** directory as part of your application, it w
 
 ###Native Modules
 
-While most modules are simply plain-text JavaScript files, some modules are platform-specific binary images. These modules are compiled at install time, usually by using Python and node-gyp. Since Azure Cloud Services rely on the **node\_modules** folder being deployed as part of the application, any native module included as part of the installed modules should work in a cloud service as long as it was installed and compiled on a Windows development system. 
+While most modules are simply plain-text JavaScript files, some modules are platform-specific binary images. These modules are compiled at install time, usually by using Python and node-gyp. Since Azure Cloud Services rely on the **node\_modules** folder being deployed as part of the application, any native module included as part of the installed modules should work in a cloud service as long as it was installed and compiled on a Windows development system.
 
 Azure Websites does not support all native modules and might fail at compiling those with very specific prerequisites. While some popular modules like MongoDB have optional native dependencies and work just fine without them, two workarounds proved successful with almost all native modules available today:
 
@@ -42,14 +42,14 @@ The **package.json** file is a way to specify the top level dependencies your ap
 
 During development, you can use the **--save**, **--save-dev**, or **--save-optional** parameters when installing modules to add an entry for the module to your **package.json** file automatically. For more information, see [npm-install](https://npmjs.org/doc/install.html).
 
-One potential problem with the **package.json** file is that it only specifies the version for top level dependencies. Each module installed may or may not specify the version of the modules it depends on, and so it is possible that you may end up with a different dependency chain than the one used in development. 
+One potential problem with the **package.json** file is that it only specifies the version for top level dependencies. Each module installed may or may not specify the version of the modules it depends on, and so it is possible that you may end up with a different dependency chain than the one used in development.
 
 > [AZURE.NOTE]
 > When deploying to an Azure Webite, if your <b>package.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 
->		npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1	
+>		npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
 
 
 ###Using a npm-shrinkwrap.json file
@@ -60,7 +60,7 @@ When your application is ready for production, you can lock-down version require
 
 > [AZURE.NOTE]
 >When deploying to an Azure Webite, if your <b>npm-shrinkwrap.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
-		
+
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 
 >		npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
@@ -68,14 +68,12 @@ When your application is ready for production, you can lock-down version require
 
 ##Next Steps
 
-Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Tools for Mac and Linux].
+Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Interface for Mac and Linux].
 
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
-[How to use the Azure Command-Line Tools for Mac and Linux]: xplat-cli.md
+[How to use the Azure Command-Line Interface for Mac and Linux]: xplat-cli.md
 [build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
 [Publishing with Git]: web-sites-publish-source-control.md
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Custom Website Deployment Scripts with Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
-
-

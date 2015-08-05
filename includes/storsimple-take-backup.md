@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/29/2015"
+   ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-#### To take a backup
+### To take a backup
 
 1. On the device **Quick Start** page, click **Add a backup policy**. This will start the Add Backup Policy wizard. 
 

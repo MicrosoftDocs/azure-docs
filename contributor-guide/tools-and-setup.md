@@ -1,25 +1,39 @@
-<properties title="" pageTitle="Install and set up tools for authoring in GitHub" description="Tools and steps to get set up for authoring Azure content in GitHub." services="contributor-guide" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="carolz" />
+﻿<properties 
+pageTitle="Install and set up tools for authoring in GitHub" 
+description="Tools and steps to get set up for authoring Azure content in GitHub." 
+services="contributor-guide" 
+documentationCenter="" 
+authors="tysonn"  
+manager="carolz" />
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/19/2015" ms.author="tysonn" />
+<tags 
+ms.service="contributor-guide"
+ ms.devlang="" 
+ ms.topic="article"
+  ms.tgt_pltfrm="" 
+  ms.workload="" 
+  ms.date="01/19/2015" 
+  ms.author="tysonn" />
 
 #Install and set up tools for authoring in GitHub
 
-Follow the steps in this artilce to set up tools for contributing to the Azure technical documentation. Casual and occasional contributors probably can use the GitHub UI described in step 2.
+Follow the steps in this article to set up tools for contributing to the Azure technical documentation. Casual and occasional contributors probably can use the GitHub UI described in step 2.
 
-If you're unfamiliar with Git, you might want to review some Git terminology. T​his StackOverflow thread contains a glossary of Git terms you'll encounter in this set of steps: [http://stackoverflow.com/questions/7076164/terminology-used-by-git](http://stackoverflow.com/questions/7076164/terminology-used-by-git​​)
+If you're unfamiliar with Git, you might want to review some Git terminology: [https://help.github.com/articles/github-glossary](https://help.github.com/articles/github-glossary). In addition, this StackOverflow thread contains a glossary of Git terms you'll encounter in this set of steps: [http://stackoverflow.com/questions/7076164/terminology-used-by-git](http://stackoverflow.com/questions/7076164/terminology-used-by-git)
 
 ## Contents
 
-- [Create a GitHub account and set up your profile]
-- [Sign up for Disqus]
-- [Determine whether you really need to follow the rest of these steps]
-- [Permissions in GitHub]
-- [Install Git for Windows]
-- [Enable two-factor authentication]
-- [Install a markdown editor]
-- [Fork the repository and copy it to your computer]
-- [Configure your user name and email locally]
-- [Next steps]
+- [Create a GitHub account and set up your profile](#create-a-github-account-and-set-up-your-profile)
+- [Sign up for Disqus](#sign-up-for-disqus)
+- [Determine whether you really need to follow the rest of these steps](#determine-whether-you-really-need-to-follow-the-rest-of-these-steps)
+- [Permissions in GitHub](#permissions-in-github)
+- [Install Git for Windows](#install-git-for-windows)
+- [Enable two-factor authentication](#enable-two-factor-authentication)
+- [Install a markdown editor](#install-a-markdown-editor)
+- [Configure Atom](#configure-atom)
+- [Fork the repository and copy it to your computer](#fork-the-repository-and-copy-it-to-your-computer)
+- [Configure your user name and email locally](#configure-your-user-name-and-email-locally)
+- [Next steps](#next-steps)
 
 ## Create a GitHub account and set up your profile
 
@@ -29,7 +43,7 @@ If you are a Microsoft contributor, you need to set up your GitHub account so yo
 
 - **Profile picture**: a picture of you (required)
 - **Name**: your first and last name (required)
-- **Email**: your Microsoft email address (optional at this time)
+- **Email**: your Microsoft email address (required)
 - **Company**: Microsoft Corporation (required)
 - **Location**: list your location (required)
 
@@ -38,7 +52,7 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
-##Sign up for Disqus
+## Sign up for Disqus
 
 Every published Azure technical article has a comment stream provided by the Disqus service.
 
@@ -83,7 +97,7 @@ You need to install the tools if you want to make any of the following sorts of 
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are a Microsoft employee working on Azure content, you need to work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain permissions. 
+If you are a Microsoft employee working on Azure content, you should work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - click **Join a Team**, and join **azure-content-read**.
 
 ## Install Git for Windows
 
@@ -94,6 +108,7 @@ You can accept the default settings; if you want the commands to be available wi
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/gitbashinstall.png)
 
+(Note: This is not the same as "Github for Windows". "Github for Windows" is a different GUI-based tool that will also work if you want to read up on yourself. [https://windows.github.com/](https://windows.github.com/)) 
 
 ## Enable two-factor authentication
 
@@ -115,14 +130,23 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
 
 ## Install a markdown editor
 
-We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor. 
+We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor.
 
-- We recommend GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. **Note**: Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure.
+- **Atom**: Most of us use GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. It has spell check. 
 
 - **Notepad**: You can use Notepad for a very lightweight option.
 
 - **Prose**: This is a lightweight, elegant, on-line, and open source markdown editor that offers a preview. Visit [http://prose.io](http://prose.io) and authorize Prose in your repository.
 
+- **[Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)** - Microsoft's entry in this space.
+
+## Configure Atom
+
+If you use Atom, you'll need to set a few things up.
+
+- Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. So, configure Atom to use 4 spaces - you can find this setting under File>Settings>Editor Settings>Tab Length. 
+- You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad. 
+- To turn on the markdown preview, click Packages>Markdown Preview>Toggle Preview. You can use Ctrl-Shift-M to toggle the preview HTML view. 
 
 ## Fork the repository and copy it to your computer
 
@@ -144,9 +168,9 @@ For example, this clone command could look something like this:
 
         git clone https://smithj:b428654321d613773d423ef2f173ddf4a312345@github.com/smithj/azure-content-pr.git  
 
-## Set remote repository connection
+## Set remote repository connection and configure credentials
 
-Create a reference to the root repository by entering these commands. This sets up connections to the repository in GitHub so that you can get the latest changes onto your local machine and push your changes back to GitHub.
+Create a reference to the root repository by entering these commands. This sets up connections to the repository in GitHub so that you can get the latest changes onto your local machine and push your changes back to GitHub. This command also configures your token locally so that you don't have to enter your name and password each time you try to access the upstream repo and your fork on GitHub.
 
 Public repo:
 
@@ -202,7 +226,7 @@ To ensure you are listed correctly as a contributor, you need to configure your 
 
 ###Contributors' Guide Links
 
-- [Overview article](./../CONTRIBUTING.md)
+- [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)
 
 

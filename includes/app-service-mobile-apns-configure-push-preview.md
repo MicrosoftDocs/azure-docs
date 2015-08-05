@@ -1,18 +1,4 @@
-After you have registered your app with APNS and configured your project, you must next configure your mobile app to integrate with APNS.
 
-1. In Keychain Access, right-click the quickstart app's new certificate in **Keys** or **My Certificates**, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
+* Follow the steps at [Installing a Client SSL Signing Identity on the Server](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW15) to export the certificate you downloaded in the previous step to a .p12 file.
 
-   	![](./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
-
-    Make a note of the file name and location of the exported certificate.
-
->[AZURE.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
-
-2. Log on to the [Azure Preview Portal], select **Browse**, **Mobile Apps**, and then click your app. click on Push Notification services.
-
-3. In Apple Push Notification Service, upload your certificate with the **.p12** file, the password you associated with it, and select the desired mode.
-
-Your App Service mobile app is now configured to work with APNS.
-
-<!-- URLs. -->
-[Azure Preview Portal]: https://portal.azure.com/
+* In the Azure Preview Portal, click **Browse** > **Mobile Apps** > your app > **Push notification services** > **Apple Push Notification Services** > **Upload Certificate**. Upload the .p12 file, making sure that the correct **Mode** is selected (either Sandbox or Production, corresponding to whether the client SSL certificate you generated was Development or Distribution.) Your service is now configured to work with push notifications on iOS!

@@ -2,7 +2,11 @@
 
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/16/2015" ms.author="tysonn" />
 
-#Git commands for staging an article on the internal preview site
+# Git commands for staging an article on the internal preview site
+
+Staging is now automated for private repository pull requests. See [Git commands for creating a new article or updating an existing article](git-commands-for-master.md)
+
+<!--
 Follow the steps in this article to stage content to the internal staging site prior to releasing the article to the public site.
 
 [AZURE.IMPORTANT] The preview site is available for internal Microsoft contributors only. If you're an internal contributor, see the internal wiki to get the URL of the preview site.
@@ -55,7 +59,7 @@ Follow the steps in this article to stage content to the internal staging site p
 
 10. Review your content on the staging site. If you are happy with the staged content, go back to master and follow the steps to push your final version to your fork, and then file a pull request. Articles are staged three times a day, around 10 AM, 2 PM, and 5 PM PST.
 
- Don’t edit your article while working in a sandbox-derived branch. If you discover issues you need to fix after you stage, change back to your master-derived working branch, make the changes there, and then restage. Moving content to sandbox should always be a one-way trip.
+ Don’t edit your article while working in a sandbox-derived branch. If you discover issues you need to fix after you stage, change back to your master-derived working branch, make the changes there, and then restage. Moving content to sandbox should always be a one-way trip.-->
 
 
 

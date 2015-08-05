@@ -1,26 +1,26 @@
 <properties 
 	pageTitle="Using Azure PowerShell with Azure Resource Manager" 
 	description="Use Azure PowerShell to deploy multiple resources as a resource group to Azure." 
-	services="" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell" class="current">Azure PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI">Azure CLI</a></div>
-
-## Introduction
+> [AZURE.SELECTOR]
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
 Azure Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining a complex service, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a resource model of the service --  to create a resource group with the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. 
 
@@ -68,7 +68,7 @@ The output will look similar to the following excerpt:
 	Add-AlertRule                          Adds or updates an alert rule of either metric, event, o...
 	Add-AzureAccount                       Adds the Azure account to Windows PowerShell
 	Add-AzureEnvironment                   Creates an Azure environment
-	Add-AzureKeyVaultKey                   Creates a key in a vault or impopowershell-azure-resource-manager.mdrts a key into a vault.
+	Add-AzureKeyVaultKey                   Creates a key in a vault or imports a key into a vault.
         ...
 
 To get full help for a cmdlet, type a command with the format:
@@ -114,11 +114,11 @@ To see all of the templates in the Azure resource group template gallery, use th
 
 At the Powershell prompt, type:
     
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoftpowershell-azure-resource-manager.md
+    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
 
 The cmdlet returns a list of gallery templates with Microsoft as the publisher. You use the **Identity** property to identify the template in the commands.
 
-The Microsoft.WebSiteSQLDatabase.0.2.6-preview template looks interesting. When you run the command, the version of the template may be slightly different because a new version has been released. Use the latest version of the tempalte. To get more information about a gallery template, use the **Identity** parameter. The value of the Identity parameter is Identity of the template.
+The Microsoft.WebSiteSQLDatabase.0.2.6-preview template looks interesting. When you run the command, the version of the template may be slightly different because a new version has been released. Use the latest version of the template. To get more information about a gallery template, use the **Identity** parameter. The value of the Identity parameter is Identity of the template.
 
     PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview
 
@@ -163,7 +163,7 @@ Some parameters have a default value. When you use the template, you are not req
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     },
 
-When parameters that have enumerated values, the valid values are listed with the parameter. For example, the **sku** parameter can take values of Free, Shared, Basic, or Standard. If you don't specify a value for the **sku** parameter, it uses the default value, Free.
+When parameters have enumerated values, the valid values are listed with the parameter. For example, the **sku** parameter can take values of Free, Shared, Basic, or Standard. If you don't specify a value for the **sku** parameter, it uses the default value, Free.
 
     "sku": {
       "type": "string",
@@ -210,7 +210,7 @@ We're almost ready to use the template, but before we do, we need to find locati
 
 Most templates ask you to specify a location for each of the resources in a resource group. Every resource is located in an Azure data center, but not every Azure data center supports every resource type. 
 
-Select any location that supports the resource type. The resources in a resource group do not need to be in the same location, and they do not need to be in the same location as the resource group or the subscription.
+Select any location that supports the resource type. You do not have to create all of the resources in a resource group in the same location; however, whenever possible, you will want to create resources in the same location to optimize performance. In particular, you will want to make sure that your database is in the same location as the app accessing it. 
 
 To get the locations that support each resource type, use the **Get-AzureLocation** cmdlet. To limit your output to a specific type of of resource, such as ResourceGroup, use:
 
@@ -261,7 +261,7 @@ When a template parameter has enumerated values, such as the sku parameter in th
 
 Here is an example of a New-AzureResourceGroup command that specifies only the required template parameters and the **Verbose** common parameter. Note that the **administratorLoginPassword** is omitted.
 
-	PS C:\> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "North Europe" -serverName testserver -serverLocation "West US" -administratorLogin Admin01 -databaseName TestDB -Verbose
+	PS C:\> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "East Asia" -serverName testserver -serverLocation "East Asia" -administratorLogin Admin01 -databaseName TestDB -Verbose
 
 When you enter the command, you are prompted for the missing mandatory parameter, **administratorLoginPassword**. And, when you type the password, the secure string value is obscured. This strategy eliminates the risk of providing a password in plain text.
 
@@ -270,7 +270,7 @@ When you enter the command, you are prompted for the missing mandatory parameter
 	(Type !? for Help.)
 	administratorLoginPassword: **********
 
-**New-AzureResourcGroup** returns the resource group that it created and deployed. 
+**New-AzureResourceGroup** returns the resource group that it created and deployed. 
 
 In just a few steps, we created and deployed the resources required for a complex website. 
 The gallery template provided almost all of the information that we needed to do this task.
@@ -304,13 +304,13 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 		Resources         :
 				Name                   Type                          Location
 				----                   ------------                  --------
-				ServerErrors-TestSite  microsoft.insights/alertrules         eastus
+				ServerErrors-TestSite  microsoft.insights/alertrules         eastasia
 	        	TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
 	        	TestSite               microsoft.insights/components         centralus
-	         	testserver             Microsoft.Sql/servers                 westus
-	        	TestDB                 Microsoft.Sql/servers/databases       westus
-	        	TestPlan               Microsoft.Web/serverFarms             westus
-	        	TestSite               Microsoft.Web/sites                   westus
+	         	testserver             Microsoft.Sql/servers                 eastasia
+	        	TestDB                 Microsoft.Sql/servers/databases       eastasia
+	        	TestPlan               Microsoft.Web/serverFarms             eastasia
+	        	TestSite               Microsoft.Web/sites                   eastasia
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Add to a resource group
@@ -330,9 +330,7 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 
 ## Move a resource
 
-- To move an existing resource to the resource group, use the **Move-AzureResource** command.
-
-		PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
 
 ## Delete a resource group
 
@@ -376,27 +374,8 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 
 
 ## Next Steps
-Getting Started
 
-- [Azure Resource Manager Overview](./resource-group-overview.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md)
-- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)
-
-Creating and Deploying Applications
-
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)
-- [Troubleshooting Resource Group Deployments in Azure](./resource-group-deploy-debug.md)
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Advanced Template Operations](./resource-group-advanced-template.md)
-
-Organizing Resources
-
-- [Using tags to organize your Azure resources](./resource-group-using-tags.md)
-
-Managing and Auditing Access
-
-- [Managing and Auditing Access to Resources](./resource-group-rbac.md)
-- [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)
-- [Create a new Azure Service Principal using the Azure classic portal](./resource-group-create-service-principal-portal.md)
+- To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
+- To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md).
+- For a detailed example of deploying a project, see [Deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 

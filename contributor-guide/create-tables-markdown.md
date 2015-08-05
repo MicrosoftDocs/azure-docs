@@ -7,7 +7,7 @@
 The simplest way to create a table in markdown is to use pipes and lines.
 
  ![][1]
- 
+
 You can justify the columns with colons:
 
     |-----:| - this is right aligned
@@ -25,7 +25,7 @@ For more information about how to create tables in markdown, see:
 
 ###Contributors' Guide Links
 
-- [Overview article](./../CONTRIBUTING.md)
+- [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)
 
 <!--image references-->

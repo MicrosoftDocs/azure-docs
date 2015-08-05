@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure Resource Manager Template Functions"
-   description="Describes the functions to use in an Azure Resource Manager template to deploy apps to Azure."
-   services="na"
+   description="Describes the functions to use in an Azure Resource Manager template to retrieve values, format strings and retrieve deployment information."
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="07/27/2015"
+   ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
 
@@ -52,6 +52,39 @@ The following example shows how to combine multiple values to return a value.
         }
     }
 
+## copyIndex
+
+**copyIndex(offset)**
+
+Returns the current index of an iteration loop. For examples of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+## deployment
+
+**deployment()**
+
+Returns information about the current deployment operation.
+
+The information about the deployment is returned as an object with the following properties:
+
+    {
+      "name": "",
+      "properties": {
+        "template": {},
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+      }
+    }
+
+The following example shows how to return deployment information in the outputs section.
+
+    "outputs": {
+      "exampleOutput": {
+        "value": "[deployment()]",
+        "type" : "object"
+      }
+    }
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -71,6 +104,28 @@ The following example shows how to return the keys from a storage account in the
         "type" : "object" 
       } 
     } 
+
+## padLeft
+
+**padLeft(stringToPad, totalLength, paddingCharacter)**
+
+Returns a right-aligned string by adding characters to the left until reaching the total specified length.
+  
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToPad                        |   Yes    | The string to right-align.
+| totalLength                        |   Yes    | The total number of characters in the returned string.
+| paddingCharacter                   |   Yes    | The character to use for left-padding until the total length is reached.
+
+The following example shows how to pad the user-provided parameter value by adding the zero character until the string reaches 10 characters. If the original parameter value is longer than 10 characters, no characters are added.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+    }
+
 
 ## parameters
 
@@ -139,13 +194,35 @@ Enables an expression to derive its value from another resource's runtime state.
 
 The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
 
-By using the reference expression, you declare that one resource depends on another resource if the referenced resource is provisioned within same template.
+By using the reference expression, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the **dependsOn** property. 
+The expression is not evaluated until the referenced resource has completed deployment.
 
     "outputs": {
       "siteUri": {
           "type": "string",
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
       }
+    }
+
+## replace
+
+**replace(originalString, oldCharacter, newCharacter)**
+
+Returns a new string with all instances of one character in the specified string replaced by another character.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalString                     |   Yes    | The string that will have all instances of one character replaced by another character.
+| oldCharacter                       |   Yes    | The character to be removed from the original string.
+| newCharacter                       |   Yes    | The character to add in place of the removed character.
+
+The following example shows how to remove all dashes from the user-provided string.
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
 ## resourceGroup
@@ -195,7 +272,7 @@ The following example shows how to retrieve the resource ids for a web site and 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
 
     {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
           "virtualNetworkName": {
@@ -256,6 +333,45 @@ The following example shows the subscription function called in the outputs sect
       } 
     } 
 
+## toLower
+
+**toLower(stringToChange)**
+
+Converts the specified string to lower case.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToChange                     |   Yes    | The string to convert to lower case.
+
+The following example converts the user-provided parameter value to lower case.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+## toUpper
+
+**toUpper(stringToChange)**
+
+Converts the specified string to upper case.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToChange                     |   Yes    | The string to convert to upper case.
+
+The following example converts the user-provided parameter value to upper case.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
+
 ## variables
 
 **variables (variableName)**
@@ -268,7 +384,8 @@ Returns the value of variable. The specified variable name must be defined in th
 
 
 ## Next Steps
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
-- [Advanced Template Operations](./resource-group-advanced-template.md)
-- [Deploy an application with Azure Resource Manager Template](./resouce-group-template-deploy.md)
-- [Azure Resource Manager Overview](./resource-group-overview.md)
+- For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
+- To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
+- To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
+- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md)
+

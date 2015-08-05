@@ -2,7 +2,7 @@
 
 To be able to authenticate users, you must register your app with an identity provider. You must then register the provider-generated client secret with your App Service.
 
-1. Log on to the [Azure Management Portal], click **Browse**, **Resource Group**, and then select the resource group of your Mobile App.
+1. Log on to the [Azure preview portal], click **Browse**, **Resource Group**, and then select the resource group of your Mobile App.
 
 2. Select your gateway, and make a note of the **URL** value under **Properties**. You may need to provide this value to the identity provider when you register your app.
 
@@ -21,4 +21,4 @@ To be able to authenticate users, you must register your app with an identity pr
 4. (Optional) Repeat the previous step to configure any other identity provider that you want your app to support. 
 
 <!-- URLs. -->
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure preview portal]: https://portal.azure.com/

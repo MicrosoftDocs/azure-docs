@@ -1,24 +1,26 @@
 <properties
    pageTitle="Authoring Azure Resource Manager Templates"
    description="Create Azure Resource Manager templates using declarative JSON syntax to deploy applications to Azure."
-   services="azure-portal"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="07/24/2015"
+   ms.author="tomfitz"/>
 
-# Authoring Azure Resource Manager Templates
+# Authoring Azure Resource Manager templates
 
 Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
+
+This topic describes the sections of the template. For the actual schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
 
 ## Template format
 
@@ -85,7 +87,7 @@ The following example shows how to use several of the functions when constructin
     }
 
 For now, you know enough about expressions and functions to understand the sections of the template. For more detailed information about all of the template functions, including parameters and the format of returned values, 
-see [Azure Resouce Manager template functions](./resource-group-template-functions.md). 
+see [Azure Resource Manager template functions](./resource-group-template-functions.md). 
 
 
 ## Parameters
@@ -116,7 +118,7 @@ The allowed types and values are:
 - string or secureString - any valid JSON string
 - int - any valid JSON integer
 - bool - any valid JSON boolean
-- object - any valid JSON object
+- object or secureObject - any valid JSON object
 - array - any valid JSON array
 
 
@@ -217,7 +219,7 @@ You define resources with the following structure:
 
 | Element name             | Required | Description
 | :----------------------: | :------: | :----------
-| apiVersion               |   Yes    | Version of the API that supports the resource.
+| apiVersion               |   Yes    | Version of the API that supports the resource. For the available versions and schemas for resources, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
 | type                     |   Yes    | Type of the resource. This value is a combination of the namespace of the resource provider and the resource type that the resource provider supports.
 | name                     |   Yes    | Name of the resource. The name must follow URI component restrictions defined in RFC3986.
 | location                 |   No     | Supported geo-locations of the provided resource.
@@ -226,7 +228,7 @@ You define resources with the following structure:
 | properties               |   No     | Resource specific configuration settings.
 | resources                |   No     | Child resources that depend on the resource being defined.
 
-If the resouce name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
+If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
 
 The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a nested **Extensions** resource:
 
@@ -264,9 +266,6 @@ The following example shows a **Microsoft.Web/serverfarms** resource and a **Mic
                   "apiVersion": "2014-06-01",
                   "type": "Extensions",
                   "name": "MSDeploy",
-                  "dependsOn": [
-                    "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-                  ],
                   "properties": {
                     "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
                     "dbType": "None",
@@ -280,7 +279,6 @@ The following example shows a **Microsoft.Web/serverfarms** resource and a **Mic
         }
     ]
 
->[AZURE.NOTE] Dependency between a parent resource and nested resources is not implied by the current template schema. Therefore, you must use the **dependsOn** element to note a dependency.
 
 ## Outputs
 
@@ -314,15 +312,17 @@ The following example shows a value that is returned in the Outputs section.
 ## More advanced scenarios.
 This topic provides an introductory look at the template. However, your scenario may require more advanced tasks.
 
-You may need to merge two templates together or use a child template within a parent template. For more information, see [Nested Templates](./resource-group-advanced-template.md/#nested-template).
+You may need to merge two templates together or use a child template within a parent template. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
-You may need to use resources that exist within a different resource group. This is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](./resource-group-template-functions.md/#resourceid).
+To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+You may need to use resources that exist within a different resource group. This is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](../resource-group-template-functions#resourceid).
 
 ## Complete template
 The following template deploys a web app and provisions it with code from a .zip file. 
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "siteName": {
@@ -401,8 +401,7 @@ The following template deploys a web app and provisions it with code from a .zip
     }
 
 ## Next Steps
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Deploy an application with Azure Resource Manager Template](./resouce-group-template-deploy.md)
-- [Advanced Template Operations](./resource-group-advanced-template.md)
-- [Azure Resource Manager Overview](./resource-group-overview.md)
-
+- For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
+- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
+- For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- To see the available schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas)

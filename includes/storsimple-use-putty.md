@@ -38,7 +38,7 @@
 
     These settings are shown in the following illustration.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_ConnectingViaPutty-include.png) 
+     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
 
     > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
 

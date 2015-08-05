@@ -2,14 +2,17 @@
 
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/16/2015" ms.author="tysonn" />
 
-#Git commands for creating a new article or updating an existing article
+# Git commands for creating a new article or updating an existing article
+
+
+## Standard process (working from master)
 Follow the steps in this article to create a local working branch on your computer so that you can create a new article for the technical documentation section of azure.microsoft.com or update an existing article.
 
 ![](./media/git-commands-for-master/githubcommands1.png)
 
 1. Start Git Bash (or the command-line tool you use for Git).
 
- [AZURE.TIP] If you are working in the public repository, change azure-content-pr to azure-content in all the commands.
+ **Note:** If you are working in the public repository, change azure-content-pr to azure-content in all the commands.
 
 2. Change to azure-content-pr:
 
@@ -21,6 +24,7 @@ Follow the steps in this article to create a local working branch on your comput
 4. Create a fresh local working branch derived from the master branch:
 
         git pull upstream master:<working branch>
+
 
 5. Move into the new working branch:
 
@@ -42,25 +46,33 @@ Follow the steps in this article to create a local working branch on your comput
         git add <file path>
         git commit –m "<comment>"
 
-9. Periodically, update your local working branch with changes from upstream:
+9. Update your local working branch with changes from upstream:
 
         git pull upstream master
 
-10. Daily at least, push the changes to your fork on GitHub for safe keeping:
+10. Push the changes to your fork on GitHub:
 
         git push origin <working branch>
 
-11. Stage the article if you wish; see [GitHub commands for staging an article](./git-commands-for-sandbox.md). (Internal contributors only)
+12. When you are ready to submit your content to the upstream master branch for staging, validation, and/or publishing, in the GitHub UI, create a pull request from your fork to the master branch.
 
-12. When you are ready to publish the article live, create a pull request that moves your changes from the working branch in your fork to the master branch of the upstream repository.
+13. The pull request acceptor reviews your pull request, provides feedback, and/or accepts your pull request. 
 
-13. The pull request acceptor reviews and accepts your pull request. 
-
-14. Review your content at
+14. Verify your published article or changes at
 
  http://azure.microsoft.com/documentation/articles/*name-of-your-article-without-the-MD-extension*
 
- At this time, technical articles are published once daily around 10 AM Pacific Standard Time (PST), Monday-Friday. Remember, your pull request has to be accepted before changes are included in the next scheduled publishing run.
+**Notes:**
 
+- At this time, technical articles are published once daily around 10 AM Pacific Standard Time (PST), Monday-Friday. Remember, your pull request has to be accepted before changes are included in the next scheduled publishing run.
+- If you are an employee working in the private repository, all pull requests are subject to validation rules that need to be addressed before the pull request can be accepted. 
+- In the private repo, the changes you submit are automatically staged, and a staging link is written to the pull request. Please review your staged content and sign off in the pull request comments to indicate the changes are ready to be pushed live. If you don't want the pull request to be accepted - if you are just staging the changes - add that note to the pull request.
 
+## Working with release branches
+
+When you are working with a release branch, the best way to create a local working branch from the release branch is to use this command syntax:
+
+    git checkout upstream/<upstream branch name> -b <local working branch name>
+
+This creates the local branch directly from the upstream branch, avoiding any local merging.
 
