@@ -60,7 +60,7 @@ This procedure explains how the antitamper locks on your Microsoft Azure StorSim
 
 Follow the steps in reverse to engage the lock.
 
-# Remove the disk drive
+## Remove the disk drive
 
 Your StorSimple device supports a RAID 10–like storage spaces configuration. This implies that it can operate normally with one failed disk, solid-state drive (SSD), or hard disk drive (HDD). If your system has more than one failed disk, do not remove more than one SSD or HDD from the system at any point in time. Doing so could result in loss of data.
 
@@ -92,7 +92,7 @@ Drives can be removed and replaced while the system is operating.
 
 After a drive has failed in your Microsoft Azure StorSimple device and you have removed it, follow this procedure to replace it with a new drive.
 
-### To insert a drive
+#### To insert a drive
 
 1. Ensure the drive carrier handle is fully extended, as shown in the following image.Figure 30 Drive with handle extended
 
