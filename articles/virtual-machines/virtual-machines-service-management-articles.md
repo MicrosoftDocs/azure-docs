@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
 	ms.date="07/28/2015"

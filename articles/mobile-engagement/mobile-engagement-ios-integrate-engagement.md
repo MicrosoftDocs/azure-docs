@@ -3,7 +3,7 @@
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="kpiteira"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/12/2015"
-	ms.author="kapiteir" />
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #How to Integrate Engagement on iOS
 
@@ -51,17 +51,17 @@ You need to modify your Application Delegate:
 
 -   At the top of your implementation file, import the Engagement agent:
 
-			[...]
-			#import "EngagementAgent.h"
+		[...]
+		#import "EngagementAgent.h"
 
 -   Initialize Engagement inside the method '**applicationDidFinishLaunching:**' or '**application:didFinishLaunchingWithOptions:**':
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
-			  [...]
-			}
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+		{
+		  [...]
+		  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
+		  [...]
+		}
 
 ##Basic reporting
 
@@ -71,28 +71,28 @@ In order to activate the report of all the logs required by Engagement to comput
 
 **Without Engagement :**
 
-			#import <UIKit/UIKit.h>
+	#import <UIKit/UIKit.h>
 
-			@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
+	@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
 
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 **With Engagement :**
 
-			#import <UIKit/UIKit.h>
-			#import "EngagementViewController.h"
+	#import <UIKit/UIKit.h>
+	#import "EngagementViewController.h"
 
-			@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
+	@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
 
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 ### Alternate method: call `startActivity()` manually
 
@@ -114,12 +114,12 @@ Reported areas are used to compute geographic statistics about users, sessions, 
 
 To enable lazy area location reporting, add the following line after initializing the Engagement agent:
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
-			  [...]
-			}
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+	{
+	  [...]
+	  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
+	  [...]
+	}
 
 ### Real time location reporting
 
@@ -130,19 +130,19 @@ geo-fencing \<Reach-Audience-geofencing\> criterion in Reach campaigns.
 
 To enable real time location reporting, add the following line after initializing the Engagement agent:
 
-			[[EngagementAgent shared] setRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setRealtimeLocationReport:YES];
 
 #### GPS based reporting
 
 By default, real time location reporting only uses network based locations. To enable the use of GPS based locations (which are far more precise), add:
 
-			[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
 
 #### Background reporting
 
 By default, real time location reporting is only active when the application runs in foreground (i.e. during a session). To enable the reporting also in background, add:
 
-			[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
+	[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
 > [AZURE.NOTE] When the application runs in background, only network based locations are reported, even if you enabled the GPS.
 
@@ -161,8 +161,8 @@ By default, Engagement will use the [IDFA] to uniquely identify a user. But if y
 
 Integration in the **prefix.pch** file:
 
-			#define ENGAGEMENT_DISABLE_IDFA
-			...
+	#define ENGAGEMENT_DISABLE_IDFA
+	...
 
 You can verify that the IDFA collection is properly disabled in your application by checking the Engagement test logs. See the Integration Test\<ios-sdk-engagement-test-idfa\> documentation for further information.
 
@@ -172,7 +172,7 @@ You can verify that the IDFA collection is properly disabled in your application
 
 If you want Engagement to stop sending logs, you can call:
 
-			[[EngagementAgent shared] setEnabled:NO];
+	[[EngagementAgent shared] setEnabled:NO];
 
 This call is persistent: it uses `NSUserDefaults` to store the information.
 
@@ -184,23 +184,23 @@ Instead of calling this function, you can also integrate this setting directly i
 
 The following example of `Settings.bundle` shows how to implement it:
 
-			<dict>
-			    <key>PreferenceSpecifiers</key>
-			    <array>
-			        <dict>
-			            <key>DefaultValue</key>
-			            <true/>
-			            <key>Key</key>
-			            <string>engagement_agent_enabled</string>
-			            <key>Title</key>
-			            <string>Log reporting enabled</string>
-			            <key>Type</key>
-			            <string>PSToggleSwitchSpecifier</string>
-			        </dict>
-			    </array>
-			    <key>StringsTable</key>
-			    <string>Root</string>
-			</dict>
+	<dict>
+	    <key>PreferenceSpecifiers</key>
+	    <array>
+	        <dict>
+	            <key>DefaultValue</key>
+	            <true/>
+	            <key>Key</key>
+	            <string>engagement_agent_enabled</string>
+	            <key>Title</key>
+	            <string>Log reporting enabled</string>
+	            <key>Type</key>
+	            <string>PSToggleSwitchSpecifier</string>
+	        </dict>
+	    </array>
+	    <key>StringsTable</key>
+	    <string>Root</string>
+	</dict>
 
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094

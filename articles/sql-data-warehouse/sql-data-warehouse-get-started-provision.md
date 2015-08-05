@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
