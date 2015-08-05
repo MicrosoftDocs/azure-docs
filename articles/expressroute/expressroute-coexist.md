@@ -27,7 +27,7 @@ The two basic scenarios are outlined below:
 
 ### Scenario 1
 
-In this scenario, if you have one local network, ExpressRoute is the active link, and your Site-to-Site VPN is the backup. If the ExpressRoute connection fails, the Site-to-Site VPN connection would then become active. This scenario is most appropriate for high availability.
+In this scenario, you have one local network. ExpressRoute is the active link, and your Site-to-Site VPN is the backup. If the ExpressRoute connection fails, the Site-to-Site VPN connection would then become active. This scenario is most appropriate for high availability.
 
 ![Coexist](media/expressroute-coexist/scenario1.jpg)
 
@@ -35,7 +35,7 @@ In this scenario, if you have one local network, ExpressRoute is the active link
 
 ### Scenario 2
 
-In this scenario, if you have two local networks, you can connect one to Azure via ExpressRoute, and the other via Site-to-Site VPN. In this case, both connections are active at the same time. 
+In this scenario, you have two local networks. You can connect one to Azure via ExpressRoute, and the other via Site-to-Site VPN. In this case, both connections are active at the same time. 
 
 ![Coexist](media/expressroute-coexist/scenario2.jpg)
 
@@ -52,7 +52,7 @@ There are two different sets of procedures to choose from in order to configure 
 	
 	You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. The [Configure connections that coexist for your existing virtual network](#configure-connections-that-coexist-for-your-existing-virtual-network) procedure will walk you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections. Note that when creating the new connections, the steps must be completed in a very specific order. Don't use the instructions in other articles to create your gateways and connections.
 
-	Creating connections that can coexist will require you to delete your gateway, and then configure new gateways. This means you will have downtime for your cross-premises connections while you delete and recreate your gateway and connections, but you will not need to migrate any of your VMs or services to a new virtual network. Your VMs and services would still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so. 
+	In this procedure, creating connections that can coexist will require you to delete your gateway, and then configure new gateways. This means you will have downtime for your cross-premises connections while you delete and recreate your gateway and connections, but you will not need to migrate any of your VMs or services to a new virtual network. Your VMs and services would still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so. 
 
 
 ## Notes and limitations
