@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics outputs
@@ -139,7 +139,7 @@ There are a few parameters that are needed to configure a Power BI output.
 
     ![graphic23][graphic23]
 
-3.  In this step, provide the Org ID for authorizing the Power BI output. If you are not already signed up for Power BI, choose **Sign up now**.
+3.  In this step, provide the work or school account for authorizing the Power BI output. If you are not already signed up for Power BI, choose **Sign up now**.
 4.  Next a screen like the following will be presented.
 
     ![graphic24][graphic24]

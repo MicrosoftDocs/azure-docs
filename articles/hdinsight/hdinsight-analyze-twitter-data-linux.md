@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="08/05/2015"
 	ms.author="larryfr"/>
 
 # Analyze Twitter data using Hive in HDInsight
