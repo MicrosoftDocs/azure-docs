@@ -71,14 +71,14 @@ IIS log collection is supported on computers with:
 
 ### To add a solution using the Solutions Gallery
 
-1. On the Overview page in Operational Insights, click the **Solutions Gallery** tile.
+1. On the Overview page in Operational Insights, click the **Solutions Gallery** tile.    
     ![image of solutions icon](./media/operational-insights-setup-workspace/sol-gallery.png)
 2. On the Operational Insights Solutions Gallery page, you can learn about each available solution. Click the name of the solution that you want to add to Operational Insights.
 3. On the page for the solution that you chose, detailed information about the solution is displayed. Click **Add**.
 4. On the Confirmation page, click **Accept** to agree to the privacy statement and terms of use.
 5. A new tile for the solution that you added appears on the Overview page in Operational Insights and you can start using it after the Operational Insights service processes your data.
 
-### To remove a solution using the **Solutions Gallery**
+### To remove a solution using the Solutions Gallery
 
 1. On the Overview page in Operational Insights, click the **Solutions Gallery** tile.
 2. On the Operational Insights Solutions Gallery page, under the solution that you want to remove, click **Remove**.
