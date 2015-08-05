@@ -47,7 +47,6 @@ You can easily remove a solution when it is no longer needed. When you remove a 
 At this time, servers that are connected directly to Microsoft Azure Operational Insights using the Microsoft Monitoring Agent can use most of the solutions available, including:
 
 - [System Updates](operational-insights-updates.md)
-- [Log Management](operational-insights-log-collection.md)
 - [Antimalware](operational-insights-antimalware.md)
 - [Change Tracking](operational-insights-change-tracking.md)
 - [SQL and Active Directory Assessment](operational-insights-assessment.md)
