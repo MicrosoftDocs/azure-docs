@@ -3,7 +3,7 @@
 	description="If you can't connect your Windows-based Azure virtual machine, use these diagnotics and steps to isolate the source of the problem."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine
 
