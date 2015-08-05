@@ -21,12 +21,13 @@ You can now connect ExpressRoute and Site-to-Site VPN to the same virtual networ
 There are two different scenarios and two different configuration procedures to choose from. 
 
 ## Scenarios
-There are two basic scenarios to choose from. They are outlined below.
+
+The two basic scenarios are outlined below:
 
 
 ### Scenario 1
 
-If you have one local network, ExpressRoute will be the active link, and your Site-to-Site VPN would be the backup. If the ExpressRoute connection fails, the Site-to-Site VPN connection becomes active. This scenario is most appropriate for high availability.
+In this scenario, if you have one local network, ExpressRoute would be the active link, and your Site-to-Site VPN would be the backup. If the ExpressRoute connection fails, the Site-to-Site VPN connection would then become active. This scenario is most appropriate for high availability.
 
 ![Coexist](media/expressroute-coexist/scenario1.jpg)
 
@@ -34,14 +35,14 @@ If you have one local network, ExpressRoute will be the active link, and your Si
 
 ### Scenario 2
 
-If you have two local networks, you can connect one to Azure via ExpressRoute, and the other via Site-to-Site VPN. In this case, both connections are active at the same time. 
+In this scenario, if you have two local networks, you can connect one to Azure via ExpressRoute, and the other via Site-to-Site VPN. In this case, both connections are active at the same time. 
 
 ![Coexist](media/expressroute-coexist/scenario2.jpg)
 
 
 ## Creating and configuring
 
-There are two separate configuration procedures to choose from. The configuration procedure you select will depend on whether you already have an existing virtual network that you want to connect to, or if you want to create a new virtual network. 
+There are two separate configuration procedures. The configuration procedure you select will depend on whether you already have an existing virtual network that you want to connect to, or if you want to create a new virtual network. 
 
 
 ### Create a new virtual network and connections that coexist: 
