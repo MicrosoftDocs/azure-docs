@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/01/2015"
 	ms.author="piyushjo" />
 

@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
