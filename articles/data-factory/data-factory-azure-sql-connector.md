@@ -465,7 +465,6 @@ The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
-
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 
