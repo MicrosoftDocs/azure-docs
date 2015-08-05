@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/02/2015"
 	ms.author="rkarlin"/>
 
@@ -86,4 +86,3 @@ To delete an application, select an application in the list, and then click **De
 ## Additional resources
 
 * [About Kerberos constrained delegation](http://technet.microsoft.com/library/cc995228.aspx)
-

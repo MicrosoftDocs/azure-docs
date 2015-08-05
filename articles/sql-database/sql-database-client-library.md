@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/03/2015"
+   ms.date="08/04/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with the Azure SQL Database Library for .NET
 
 > [AZURE.SELECTOR]
-- [Manage with PowerShell](sql-database-command-line-tools.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-client-library.md)
+- [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 ## Overview
@@ -300,7 +302,7 @@ To create a new pool on a server:
         Properties = new ElasticPoolCreateOrUpdateProperties()
         {
             Edition = "Standard",
-            Dtu = 100,  // alternatively set StorageMB, if both are specified they must agree based on the DTU:storage ratio of the edition
+            Dtu = 100,  // alternatively set StorageMB, if both are specified they must agree based on the eDTU:storage ratio of the edition
             DatabaseDtuMin = 0,
             DatabaseDtuMax = 100
          }
@@ -321,10 +323,11 @@ To create a new pool on a server:
         Location = currentPool.Location,
         Properties = new ElasticPoolCreateOrUpdateProperties()
         {
-            DatabaseDtuMax = 50, /* DatabaseDtuMax reduces the maximum DTUs that any one database can consume */
+            Edition = currentPool.Properties.Edition,
+            DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
             DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
             Dtu = (int)currentPool.Properties.Dtu,
-            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU. */
+            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per eDTU. */
         }
     };
 
@@ -588,7 +591,7 @@ To delete a resource group:
                 Properties = new ElasticPoolCreateOrUpdateProperties()
                 {
                     Edition = "Standard",
-                    Dtu = 100,  // alternatively set StorageMB, if both are specified they must agree based on the DTU:storage ratio of the edition
+                    Dtu = 100,  // alternatively set StorageMB, if both are specified they must agree based on the eDTU:storage ratio of the edition
                     DatabaseDtuMin = 0,
                     DatabaseDtuMax = 100
                 }
@@ -608,10 +611,11 @@ To delete a resource group:
                 Location = currentPool.Location,
                 Properties = new ElasticPoolCreateOrUpdateProperties()
                 {
-                    DatabaseDtuMax = 50, /* DatabaseDtuMax reduces the maximum DTUs that any one database can consume */
+                    Edition = currentPool.Properties.Edition,
+                    DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
                     DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
                     Dtu = (int)currentPool.Properties.Dtu,
-                    StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU. */
+                    StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per eDTU. */
                 }
             };
             newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
@@ -683,7 +687,7 @@ To delete a resource group:
                 poolList = sqlClient.ElasticPools.List("resourcegroup-name", server.Name);
                 foreach (ElasticPool pool in poolList)
                 {
-                    Console.WriteLine("    Elastic Pool '{0}' edition: {1} DTU: {2} storage GB: {3} database DTU min: {4} database DTU max: {5}", pool.Name, pool.Properties.Edition, pool.Properties.Dtu, (pool.Properties.StorageMB/1024), pool.Properties.DatabaseDtuMin, pool.Properties.DatabaseDtuMax);
+                    Console.WriteLine("    Elastic Pool '{0}' edition: {1} eDTU: {2} storage GB: {3} database eDTU min: {4} database eDTU max: {5}", pool.Name, pool.Properties.Edition, pool.Properties.Dtu, (pool.Properties.StorageMB/1024), pool.Properties.DatabaseDtuMin, pool.Properties.DatabaseDtuMax);
                     dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", server.Name, pool.Name);
                     foreach(Database db in dbListInPool)
                     {

@@ -22,7 +22,11 @@
 
 ### Q: What is Azure Data Factory?
 
-Data Factory is a fully managed service for developers to compose data storage, movement, and processing services into highly available, fault tolerant data pipelines. Data Factory operates over both on-premises and cloud data storage. A pipeline is a set of data inputs, processing activities, and data outputs and is defined with simple JSON scripting and activated via PowerShell commands. Once activated, Data Factory orchestrates and schedules pipelines to run on HDInsight (Hadoop) with options for automatic cluster management on behalf of the user. Data Factory also provides a visual management and monitoring experience through the Azure Preview Portal to monitor all pipelines with rich operational and service health information in one dashboard.
+Data Factory is a cloud-based  information management service that automates the movement and transformation of data. Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
+
+Data Factory works across on-premises and cloud data sources and SaaS to ingest, prepare, transform, analyze, and publish your data.  Use Data Factory to compose services into managed data flow pipelines to transform your data using services like [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) and [Azure Batch](http://azure.microsoft.com/documentation/services/batch/) for your big data computing needs, and with [Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/) to operationalize your analytics solutions.  Go beyond just a tabular monitoring view, and use the rich visualizations of Data Factory to quickly display the lineage and dependencies between your data pipelines. Monitor all of your data flow pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.
+
+See [Overview & Key Concepts](data-factory-introduction.md) for more details. 
  
 ### Q: What customer challenge does Data Factory solve?
 
@@ -57,15 +61,12 @@ Customers can get access to Data Factory through the [Azure Preview Portal][azur
 
 ### Q: What is the Data Factory’s region availability?
 
-At public preview, Data Factory will only be available in US West.  The compute and storage services used by data factories can be in other regions.
+Data Factory is available in US West and North Europe. The compute and storage services used by data factories can be in other regions.
  
-### Q: What are the limits on number of data factories/pipelines/activities/datasets? 
+### Q: What are the limits on number of data factories/pipelines/activities/datasets?
+ 
+See **Azure Data Factory Limits** section of the [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md/#data-factory-limits) article.
 
-
-- Number of data factories within a subscription: 50
-- Number of pipelines within a data factory: 100
-- Number of activities within a pipeline: 10
-- Number of datasets with in a data factory: 100
 
 ### Q: What is the authoring/developer experience with Azure Data Factory service?
 
@@ -73,6 +74,7 @@ You can author/create data factories using one of the following:
 
 - **Azure Preview Portal**. The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Data Factory Editor][data-factory-editor] for an overview of the editor and [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
 - **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Create and monitor Azure Data Factory using Azure PowerShell][create-data-factory-using-powershell] for a simple example and [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an advanced example of using PowerShell cmdles to create ad deploy a data factory. See [Data Factory Cmdlet Reference][adf-powershell-reference] content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.  
+- **Visual Studio**. You can also use Visual Studio to programmatically create, monitor, and manage data factories. See [Create, monitor, and manage Azure data factories using Data Factory .NET SDK](data-factory-create-data-factories-programmatically) article for details.  
 - **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
 - **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for  a comprehensive documentation of Data Factory REST API. 
 
@@ -82,24 +84,7 @@ No. Like other Azure resources, the name of an Azure data factory cannot be chan
 ## Activities - FAQ
 ### Q: What are the supported data sources and activities?
 
-- **Supported data sources:** 
-	- Azure Storage (Blob and Tables)
-	- Azure SQL
-	- Azure DocumentDB
-	- On-premises SQL Server
-	- On-premises Oracle 
-	- On-premises File System
-	- On-premises MySQL
-	- On-premises DB2
-	- On-premises Teradata
-	- On-premises Sybase
-	- On-premises PostgreSQL.  
-- **Supported activities:**: 
-	- Copy Activity (on-premises to cloud, and cloud to on-premises)
-	- HDInsight Activity (Pig, Hive, MapReduce, Hadoop Streaming transformations)
-	- Azure Machine Learning Batch Scoring Activity
-	- Azure SQL Stored Procedure activity
-	- Custom .NET activities.
+See [Data Movement Activities](data-factory-data-movement-activities.md) and [Data Transformation Activities](data-factory-data-transformation-activities.md) articles for the supported data sources and activities.  
 
 ### When does an activity run?
 The **availability** configuration setting in the output data table determines when the activity is run. The activity checks whether all the input data dependencies are satisfied (i.e., **Ready** state) before it starts running.
