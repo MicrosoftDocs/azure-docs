@@ -70,7 +70,7 @@ IIS log collection is supported on computers with:
 - Select the solutions that you want to add and then click **Add selected Solutions**. Not all the solutions that are available are shown there. If you want to add solutions that are not listed, use the next procedure.
     ![add solutions](./media/operational-insights-setup-workspace/settings-add-sol.png)
 
-### To add a solution using the **Solutions Gallery**
+### To add a solution using the Solutions Gallery
 
 1. On the Overview page in Operational Insights, click the **Solutions Gallery** tile.
     ![image of solutions icon](./media/operational-insights-setup-workspace/sol-gallery.png)
