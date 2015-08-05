@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
+	ms.date="08/053/2015"
 	ms.author="sdanie"/>
 
-# How to protect a Web API backed with Azure Active Directory and API Management
+# How to protect a Web API backend with Azure Active Directory and API Management
 
 The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
 
@@ -385,7 +385,7 @@ Click **Security** from the API Management menu on the left, click **OAuth 2.0**
 
 ![Add authorization server][api-management-add-authorization-server]
 
-Enter a name and an optional description in the **Name** and **Description** fields. These fields are used to identify the OAuth 2.0 authorization server within the current API Management service and their values do not come from the OAuth 2.0 server. In this example **Authorization server demo** is used. Later when you specify an OAuth 2.0 server to be used for authentication for an API, you will select this name.
+Enter a name and an optional description in the **Name** and **Description** fields. These fields are used to identify the OAuth 2.0 authorization server within the API Management service instance. In this example **Authorization server demo** is used. Later when you specify an OAuth 2.0 server to be used for authentication for an API, you will select this name.
 
 For the **Client registration page URL** enter a placeholder value such as `http://localhost`.  The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support user management of accounts. In this example users do not create and configure their own accounts so a placeholder is used.
 
@@ -483,7 +483,16 @@ The next procedure in the video starts at 16:30 and configures a simple desktop 
 
 The final procedure in the video starts at 20:48 and shows you how to use the [Validate JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
 
-For another demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 13:50. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
+        <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
+        <required-claims>
+            <claim name="aud">
+                <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
+            </claim>
+        </required-claims>
+    </validate-jwt>
+
+For another demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 13:50. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.
 
 ## Next steps
 -	Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
@@ -534,22 +543,6 @@ For another demonstration of configuring and using this policy, see [Cloud Cover
 [api-management-add-authorization-server-1a]: ./media/api-management-howto-protect-backend-with-aad/api-management-add-authorization-server-1a.png
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
 
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Manage your first API]: api-management-get-started.md
