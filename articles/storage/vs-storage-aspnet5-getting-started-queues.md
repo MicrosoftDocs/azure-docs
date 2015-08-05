@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Getting started with Azure Queue storage and Visual Studio connected services"
-	description="How to get started using Azure Queue storage in an ASP.NET 5 project in Visual Studio"
+	pageTitle="Getting started with Azure queue storage and Visual Studio connected services"
+	description="How to get started using Azure queue storage in an ASP.NET 5 project in Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -16,7 +16,7 @@
 	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
-# Getting started with Azure Queue storage and Visual Studio connected services
+# Getting started with Azure queue storage and Visual Studio connected services
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet5-getting-started-queues.md)
