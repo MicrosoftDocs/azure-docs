@@ -51,7 +51,7 @@ Before you begin configuration, verify that you have the following:
 
 	**If you already have a site-to-site virtual network, but it has a static routing gateway:** **1.** Change your gateway type to dynamic routing. A multi-site VPN requires a dynamic routing gateway. To change your gateway type, you'll need to first delete the existing gateway, then create a new one. For instructions, see [Change a VPN Gateway Routing Type](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configure your new gateway and create your VPN tunnel. For instructions, see [Configure a VPN Gateway in the Management Portal](vpn-gateway-configure-vpn-gateway-mp.md). 
 	
-	**If you don't have a site-to-site virtual network:** **1.** Create your site-to-site virtual network using these instructions: [Create a virtual network with a site-to-site VPN connection in the management portal](vpn-gateway-site-to-site-create.md). **2.** Configure a dynamic routing gateway using these instructions: [Configure a VPN gateway in the management portal](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
+	**If you don't have a site-to-site virtual network:** **1.** Create your site-to-site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection in the Management Portal](vpn-gateway-site-to-site-create.md). **2.** Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway in the Management Portal](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
 
 
 
