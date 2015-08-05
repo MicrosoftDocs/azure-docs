@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -186,4 +186,3 @@ Now that we have registered our server let's go ahead and write a query.
 
 ## Next steps ##
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
-
