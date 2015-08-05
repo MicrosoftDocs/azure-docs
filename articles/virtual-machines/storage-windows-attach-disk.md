@@ -19,9 +19,9 @@
 
 # How to attach a data disk to a Windows virtual machine
 
-You can attach empty disks and disks with data. In both cases, the disks are actually .vhd files that reside in an Azure Storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
+You can attach empty disks and disks with data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
 
-> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure Storage.
+> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. **Do not use the D drive to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
@@ -43,12 +43,12 @@ You can attach empty disks and disks with data. In both cases, the disks are act
 
 	![Volume successfully initialized](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE] The size of the virtual machine determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-size-specs.md).
+> [AZURE.NOTE] The size of the virtual machine determines how many disks you can attach to it. For details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
 
 ## Additional resources
 
-[How to detach a disk from a Windows virtual machine](storage-windows-detach-disk.md)
+[How to Detach a Disk from a Windows Virtual Machine](storage-windows-detach-disk.md)
 
-[About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md)
+[About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
