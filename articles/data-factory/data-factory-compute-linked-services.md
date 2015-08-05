@@ -24,18 +24,19 @@ This article explains different compute environments that you can use to process
 
 In this type of configuration, the computing environment is fully managed by the Azure Data Factory service. It is automatically created by the Data Factory service before a job is submitted to process data and removed when the job is completed. You can create a linked service for the on-demand compute environment, configure it, and control granular settings for job execution, cluster management, and bootstrapping actions.
 
-The on-demand configuration is currently supported only for Azure HDInsight clusters. 
+> [AZURE.NOTE] The on-demand configuration is currently supported only for Azure HDInsight clusters. 
 
 ## Azure HDInsight On-Demand Linked Service
 
-The on-demand HDInsight cluster is automatically created by the Azure Data Factory service to process data. The cluster is created in the data center location that is same as that of the storage account (linkedServiceName property in the JSON) associated with the cluster.
+The on-demand HDInsight cluster is automatically created by the Azure Data Factory service to process data. The cluster is created in the region that is same as that of the storage account (linkedServiceName property in the JSON) associated with the cluster.
 
 Note the following **important** points about on-demand HDInsight linked service: 
 
-- You will not see the on-demand HDInsight cluster created in your subscription; the Azure Data Factory service manages the on-demand HDInsight cluster for you.
-- The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure Portal in the **Activity Run Details** blade.
+- You will not see the on-demand HDInsight cluster created in your Azure subscription; the Azure Data Factory service manages the on-demand HDInsight cluster on your behalf.
+- The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure Portal in the **Activity Run Details** blade. See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
 - You will be charged only for the time when the HDInsight cluster is up and running jobs.
-- It takes **15+** minutes for the HDInsight cluster to be created on demand.
+
+> [AZURE.IMPORTANT] It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
 
 ### Example
 
@@ -186,7 +187,16 @@ See following topics if you are new to Azure Batch service:
 	    }
 	  }
 	}
- 
+
+Append "**.<region name**" to the name of your batch account for the **accountName** property. Example: 
+	
+			"accountName": "mybatchaccount.eastus" 
+
+Another option is to provide the batchUri endpoint as shown below.  
+
+			accountName: "adfteam",
+			batchUri: "https://eastus.batch.azure.com",
+
 ### Properties
 
 Property | Description | Required
