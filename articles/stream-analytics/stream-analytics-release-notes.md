@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
@@ -21,7 +21,6 @@
 ## Notes for 07/30/2015 release of Stream Analytics ##
 
 This release contains the following updates.
-
 
 Title|Description
 Power BI Org Id decoupled from Azure Id|This feature enables Power BI output for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output.

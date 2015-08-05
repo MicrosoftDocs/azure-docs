@@ -13,8 +13,8 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -151,15 +151,12 @@ If you are not yet running on V12, you can upgrade your logical server by follow
 ## <a name="V12AzureSqlDbPreviewGaTable"></a>Preview regions
 
 
-V12 was released in December 2014, but only at the status of [Preview](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). By April 2015 V12 was promoted to General Availability (GA) in almost all geographic regions.
+V12 was released in December 2014, but only at the status of Preview.
 
 
-V12 is available at Preview in the following regions:
+- [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-| Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA, estimated |
-| :--- | :--- | :--- |
-| Australia East | **Preview** | Third quarter of calendar 2015, estimated |
-| Australia Southeast | **Preview** | Third quarter of calendar 2015, estimated |
+By July 31, 2015, all regions had been promoted to General Availability (GA).
 
  
