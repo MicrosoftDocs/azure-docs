@@ -97,17 +97,17 @@ In the example below, you will use Fiddler Web Debugger to create a new security
 
 4. In the field directly below Post pull-down, type the following:
 
-```
+    ```
 Host: graph.windows.net
 Authorization: your access token
 Content-Type: application/json
 ```
 
-> [AZURE.NOTE] Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
+    > [AZURE.NOTE] Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
 
-    a. In the **Request body** field, type the following:
+5. In the **Request body** field, type the following:
 
-```
+    ```
         {
             "displayName":"MyTestGroup",
             "mailNickname":"MyTestGroup",
