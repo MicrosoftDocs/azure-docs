@@ -34,7 +34,7 @@ If you have two local networks, you can connect one to Azure via ExpressRoute, a
 ![Coexist](media/expressroute-coexist/scenario2.jpg)
 
 
-### Configuration procedures
+## Configuration procedures
 
 There are two separate configuration procedures to choose from. The configuration procedure you select will depend on whether you already have an existing virtual network that you want to connect to, or if you want to create a new virtual network.
 
@@ -50,7 +50,7 @@ There are two separate configuration procedures to choose from. The configuratio
 
 	This procedure will walk you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections. Note that when creating the new connections, the steps must be completed in a very specific order. Don't use the instructions in other articles to create your gateways and connections.
 
-### Notes and limitations
+## Notes and limitations
 
 - You won’t be able to route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.
 - You can't enable Point-to-Site VPN connections to the same VNet that is connected to ExpressRoute. Point-to-Site VPN and ExpressRoute cannot coexist for the same VNet.
