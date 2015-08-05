@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build a Java web application using DocumentDB" 
+	pageTitle="Build a Java web application using DocumentDB | Microsoft Azure" 
 	description="This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites." 
 	services="documentdb" 
 	documentationCenter="java" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="documentdb" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
 	ms.date="07/21/2015" 
