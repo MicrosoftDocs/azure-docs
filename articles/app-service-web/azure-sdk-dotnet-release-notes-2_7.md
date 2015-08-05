@@ -2,7 +2,7 @@
 <properties 
    pageTitle="Azure SDK for .NET 2.7 Release Notes" 
    description="Azure SDK for .NET 2.7 Release Notes" 
-   services="app-service/web" 
+   services="app-service\web" 
    documentationCenter=".net" 
    authors="Juliako" 
    manager="dwrede" 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/20/2015"
+   ms.date="08/04/2015"
    ms.author="juliako"/>
 
 

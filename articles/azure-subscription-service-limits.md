@@ -3,9 +3,9 @@
 	description="Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values."
 	services=""
 	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettem"
-	editor="cgronlun"/>
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
 	ms.service="multiple"
@@ -67,6 +67,13 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+### Traffic Manager Limits
+
+[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+### DNS Limits
+
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### Networking Limits – Azure Resource Manager
 
@@ -150,6 +157,11 @@ For additional details on SQL Database limits, please see the following topics:
 ## Service Bus Limits
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+## Data Factory Limits
+
+[AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
+
 
 ## Stream Analytics Limits
 
