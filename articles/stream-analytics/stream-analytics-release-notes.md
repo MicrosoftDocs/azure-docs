@@ -32,11 +32,11 @@ This release contains the following updates.
 <td>This feature enables Power BI output for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output.</td>
 </tr>
 <tr>
-<td>Support for [Service Bus Queues](stream-analytics-connect-data-event-outputs.md#service-bus-queues) output</td>
+<td>Support for [Service Bus Queues](stream-analytics-connect-data-event-outputs.md#Service-Bus-Queues) output</td>
 <td>Service Bus Queues outputs are now available in Stream Analytics jobs.</td>
 </tr>
 <tr>
-<td>Support for [Service Bus Topics](stream-analytics-connect-data-event-outputs.md#service-bus-topics) output</td>
+<td>Support for [Service Bus Topics](stream-analytics-connect-data-event-outputs.md#Service-Bus-Topics) output</td>
 <td>Service Bus Topics outputs are now available in Stream Analytics jobs.</td>
 </tr>
 <tr>
