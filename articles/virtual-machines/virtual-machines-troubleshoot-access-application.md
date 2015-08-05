@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2015"
-	ms.author="dkshir"/> 
+	ms.author="dkshir"/>
 
 # Troubleshoot Access to an Application Running on an Azure Virtual Machine
 
@@ -83,7 +83,7 @@ If you cannot access the application, verify the following:
 
 - For virtual machines created in Service Management, that the endpoint configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers. For more information, see [How to Set Up Endpoints to a Virtual Machine]( virtual-machines-set-up-endpoints.md).
 - For virtual machines created in Service Management, that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet. For more information, see [How to Set Up Endpoints to a Virtual Machine]( virtual-machines-set-up-endpoints.md).
-- For virtual machines created in Resource Manager, that the inbound NAT rule configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
+- For virtual machines created in Resource Manager, that the inbound NAT rule configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers. 
 - That Network Security Groups are allowing the inbound request and outbound response traffic. For more information, see [What is a Network Security Group (NSG)?](virtual-networks-nsg.md).
 
 If the virtual machine or endpoint is a member of a load-balanced set:
