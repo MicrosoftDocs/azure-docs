@@ -55,7 +55,7 @@ Another mechanism to achieve repeatability is by having a dedicated column (**sl
 
 This column would be used by Azure Data Factory for repeatability purposes and in the process Azure Data Factory will not make any schema changes to the Table. Way to use this approach:
 
-1.	Define a column of type nvarchar (100) in the destination SQL Table. There should be no constraints on this column. Let name this column as ‘ColumnForADFuseOnly’ for this example
+1.	Define a column of type binary (32) in the destination SQL Table. There should be no constraints on this column. Let's name this column as ‘ColumnForADFuseOnly’ for this example.
 2.	Use it in the copy activity as follows:
 
 		"sink":  
