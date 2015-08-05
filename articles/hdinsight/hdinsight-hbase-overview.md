@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jgao"/>
 
 
@@ -88,7 +88,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md 
 
 [apache-hadoop]: http://hadoop.apache.org/

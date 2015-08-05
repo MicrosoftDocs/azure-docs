@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 #Use Sqoop with Hadoop in HDInsight (Windows)
@@ -60,7 +60,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>Azure SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Azure SQL database to which Sqoop will export data to or import data from. </td></tr>
 	</table>
 
-	> [AZURE.NOTE] By default an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you must enabled it from the Azure portal. For instruction about creating an Azure SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue].
+	> [AZURE.NOTE] By default an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you must enabled it from the Azure preview portal. For instruction about creating an Azure SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue].
 
 * **SQL Server**: If your HDInsight cluster is on the same virtual network in Azure as SQL Server, you can use the steps in this article to import and export data to a SQL Server database.
 
@@ -224,7 +224,7 @@ You will create two tables in the Azure SQL database or in SQL Server. These are
 		Write-Host "Done" -ForegroundColor Green
 
 5. Click **Run Script** or press **F5** to run the script.
-6. Use the [Azure portal][azure-management-portal] to examine the tables and clustered indexes.
+6. Use the [preview portal][azure-management-portal] to examine the tables and clustered indexes.
 
 **For SQL Server**
 
@@ -347,7 +347,7 @@ This is fine for other examples that use this data, but we must remove these exc
 		$destBlob.UploadFromStream($memStream)
 
 5. Click **Run Script** or press **F5** to run the script.  
-6. To examine the modified data file, you can use the Azure portal, an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample for using Azure PowerShell to download a file and display the file content.
+6. To examine the modified data file, you can use the preview portal, an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample for using Azure PowerShell to download a file and display the file content.
 
 
 ##Use PowerShell to run Sqoop export
@@ -412,7 +412,7 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 	Notice that the field delimiter is **\0x20**, which is space. The delimiter is defined in the sample.log file Azure PowerShell script. To find out about **-m 1**, see [Sqoop User Guide][sqoop-user-guide-1.4.4].
 
 5. Click **Run Script** or press **F5** to run the script.  
-6. Use the [Azure portal][azure-management-portal] to examine the exported data.
+6. Use the [preview portal][azure-management-portal] to examine the exported data.
 
 **To export the hivesampletable Hive table**
 
@@ -463,7 +463,7 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Click **Run Script** or press **F5** to run the script.
-6. Use the [Azure portal][azure-management-portal] to examine the exported data.
+6. Use the [preview portal][azure-management-portal] to examine the exported data.
 
 
 
@@ -615,7 +615,7 @@ In this section, you will import the log4j logs (that you exported to the Azure 
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Click **Run Script** or press **F5** to run the script.
-6. To examine the modified data file, you can use the Azure portal, an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample about using Azure PowerShell to download a file and display the file content.
+6. To examine the modified data file, you can use the preview portal, an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample about using Azure PowerShell to download a file and display the file content.
 
 ##Next steps
 
@@ -628,7 +628,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 
 
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -647,4 +647,3 @@ Now you have learned how to use Sqoop. To learn more, see:
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
- 

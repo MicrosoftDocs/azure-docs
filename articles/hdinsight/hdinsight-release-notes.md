@@ -5,7 +5,8 @@
 	documentationCenter=""
 	editor="cgronlun"
 	manager="paulettm"
-	authors="nitinme"/>
+	authors="nitinme"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
