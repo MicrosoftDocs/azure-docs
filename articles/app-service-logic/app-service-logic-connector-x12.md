@@ -65,28 +65,11 @@ X12 Connector can be used either as a trigger or as an action.
 
 	![Encode configured][10]
 
-<table>
-	<tr>
-		<th>Parameter</th>
-		<th>Type</th>
-		<th>Description of the parameter</th>
-	</tr>
-	<tr>
-		<td>Content</td>
-		<td>string</td>
-		<td>XML Message</td>
-	</tr>
-	<tr>
-		<td>Agreement ID</td>
-		<td>string</td>
-		<td>Agreement ID</td>
-	</tr>
-	<tr>
-		<td>Is Batched Message</td>
-		<td>string</td>
-		<td>Is Batched Message</td>
-	</tr>
-</table>
+Parameter|Type|Description of the parameter
+---|---|---
+Content|string|XML Message
+Agreement ID|string|Agreement ID
+Is Batched Message|string|Is Batched Message
 
 The action returns an object containing the X12 payload.
 
