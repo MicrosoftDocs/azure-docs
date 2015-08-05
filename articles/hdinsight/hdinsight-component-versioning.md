@@ -64,11 +64,11 @@ Some of the salient features of the HDInsight platform include:
 
 - **Spark** - Apache Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations.
 
-	Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark. 
+	Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark.
 
 	Spark can also be added using Script Action.  Script action adds either Spark 1.2.0 to HDInsight 3.2 cluster or Spark 1.0.2 to HDInsight 3.1 cluster. For more information, see [Install and use Spark on HDInsight Hadoop clusters](hdinsight-hadoop-spark-install.md).
 
- 
+
 - **Storm** - Storm on Azure HDInsight is now generally available, giving a fast and easy way to deploy real-time analytics in just a few clicks and within minutes. Apache Storm on Azure HDInsight is an open-source project in the Apache Hadoop ecosystem that provides access to an analytics platform capable of reliably processing millions of events. Now Hadoop users can gain insights as events happen, along with insights from past events. Microsoft is also providing built-in integration with Visual Studio, making developer interaction with Storm easy. You can now develop, deploy, and debug Storm topologies from within Visual Studio.
 
 - **HDInsight on Linux (Preview)** - Azure HDInsight provides the option of provisioning Hadoop clusters that run on Linux (Ubuntu) virtual machines (VMs). You can use this option if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. You can provision an HDInsight cluster on Linux from a client computer running Windows or Linux by using the Azure preview portal, the Azure CLI, or the HDInsight .NET SDK (Windows only).
@@ -109,7 +109,7 @@ The following table lists the versions of HDInsight currently available, the cor
 * Once the support has expired for a particular version, it may not be available through the Azure preview portal. The following table indicates which versions are available on the Azure portal. Cluster versions will continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) command and the .NET SDK until its deprecation date.
 
 <table border="1">
-<tr><th>HDInsight Version</th><th>HDP Version</a><th>High Availability</th></th><th>Release Date</th><th>Available on Azure Portal</th><th>Support Expiration Date</th><th>Deprecation Date</th></tr>
+<tr><th>HDInsight Version</th><th>HDP Version</a><th>High Availability</th></th><th>Release Date</th><th>Available on the Azure Preview Portal</th><th>Support Expiration Date</th><th>Deprecation Date</th></tr>
 <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Yes</td><td>2/18/2015</td><td>Yes</td><td></td><td></td></tr>
 <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Yes</td><td>6/24/2014</td><td>Yes</td><td></td><td></td></tr>
 <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Yes</td><td>02/11/2014</td><td>Yes</td><td>09/17/2014</td><td>06/30/2015</td></tr>
@@ -119,14 +119,12 @@ The following table lists the versions of HDInsight currently available, the cor
 
 **Deployment of non-default clusters**
 
-HDInsight 3.1 clusters are created by default on Hadoop 2.4, so users must use the **Custom Create** option in the portal to specify other HDInsight cluster versions if they need to be created.
-
 ### The service-level agreement for HDInsight cluster versions
 
 The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date. A list of supported HDInsight cluster versions can be found in the table above. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
 
 - Formula 1: Add 180 days to the date HDInsight cluster version X was released.
-- Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the portal.
+- Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the preview portal.
 
 The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight.
 
@@ -169,4 +167,3 @@ The **Deprecation Date** is the date after which the cluster version cannot be c
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
- 
