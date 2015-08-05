@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Migration to Azure SQL Database" 
+   pageTitle="Migrating a Database to Azure SQL Database" 
    description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard" 
    services="sql-database" 
    documentationCenter="" 
@@ -16,7 +16,8 @@
    ms.date="07/17/2015"
    ms.author="pehteh"/>
 
-# Overview
+# Migrating a Database to Azure SQL Database
+
 Azure SQL Database V12 brings near-complete engine compatibility with SQL Server 2014. As such, it dramatically simplifies the task of migrating most databases from SQL Server to Azure SQL Database. Migration for many databases is a straightforward movement operation requiring few if any changes to the schema and little or no re-engineering of applications. And where databases need to be changed, the scope of these changes is more confined. 
 
 By design, server-scoped features of SQL Server are not supported by SQL Database, so databases and applications that rely on these will continue to need some re-engineering before they can be migrated. While SQL Database V12 improves compatibility with SQL Server, migration still needs to be planned and executed carefully, particularly for larger, more complex databases. 
