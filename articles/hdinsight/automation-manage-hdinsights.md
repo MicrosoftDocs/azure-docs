@@ -40,5 +40,7 @@ With the Azure HDInsight cmdlets you can automate tasks such as provisioning HDI
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure HDInsight, follow this link to learn more about Azure Automation.
 
 * See the Azure Automation [Getting Started Tutorial](../automation-create-runbook-from-samples.md).
+* View examples in [Script Center](http://aka.ms/scriptcentergallery).  
+* 
 
  
