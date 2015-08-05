@@ -157,7 +157,7 @@ Use the following steps to add a user or group to an Operational Insights worksp
 3. In the **Manage Users** section, choose the account type to add: **Organizational Account** or **Microsoft Account**.
     - If  you choose Microsoft Account, type the email address of the user associated with the Microsoft Account.
     - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or  group.
-  >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single Operational Insights account to two—one for administrators and one for users. Using more groups might impact the performance of Operational Insights.
+        >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single Operational Insights account to two—one for administrators and one for users. Using more groups might impact the performance of Operational Insights.
 7. Choose the type of user or group to add: **Administrator** or **User**.  
 8. Click **Add**.
 
