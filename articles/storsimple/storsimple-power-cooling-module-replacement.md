@@ -52,11 +52,11 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
 
 1. In the Management Portal, click **Devices** > **Maintenance** > **Hardware Status**. Check the status of the PCM components under **Shared Components** to identify which PCM has failed:
 
-     - If a power supply in PCM 0 has failed, the status LED Power Supply in PCM 0 will be red.
+     - If a power supply in PCM 0 has failed, the status of **Power Supply in PCM 0** will be red.
 
-     - If a power supply in PCM 1 has failed, the status LED Power Supply in PCM 1 will be red.
+     - If a power supply in PCM 1 has failed, the status of **Power Supply in PCM 1** will be red.
 
-     - If the fan has failed, the status LED of either Cooling 0 for PCM 0 or Cooling 1 for PCM 0 will be red.
+     - If the fan in PCM 1 has failed, the status of either **Cooling 0 for PCM 0** or **Cooling 1 for PCM 0** will be red.
 
 2. Locate the failed PCM on the back of the primary enclosure. If you are running a 8600 model, identify the primary enclosure by looking at the System Unit Identification Number shown on the front panel LED display. The default Unit ID displayed on the primary enclosure is **00**, whereas the default Unit ID displayed on the EBOD enclosure is **01**. The following diagram and table explain the front panel of the LED display.
 
@@ -146,7 +146,7 @@ Follow these instructions to install a PCM in your StorSimple device.
 
 7. Turn on the PCM.
 
-8. Verify that the replacement was successful: in the Management Portal of your StorSimple Manager service service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status LED of the PCM should be green. 
+8. Verify that the replacement was successful: in the Management Portal of your StorSimple Manager service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status LED of the PCM should be green. 
 										
     >[AZURE.NOTE] It may take a few minutes for the replacement PCM to completely initialize.
 

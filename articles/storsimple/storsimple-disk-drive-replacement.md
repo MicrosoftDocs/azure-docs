@@ -31,7 +31,7 @@ This tutorial explains how you can remove and replace a malfunctioning or failed
 
 ## Disengage the antitamper lock
 
-This procedure explains how the antitamper locks on your Microsoft Azure StorSimple device can be engaged or disengaged when you replace the disk drives. The antitamper locks are fitted in the drive carrier handles, and they are accessed through a small aperture in the latch section of the handle. Drives are supplied with the locks set to the locked position.
+This procedure explains how the antitamper locks on your StorSimple device can be engaged or disengaged when you replace the disk drives. The antitamper locks are fitted in the drive carrier handles, and they are accessed through a small aperture in the latch section of the handle. Drives are supplied with the locks set to the locked position.
 
 #### To unlock the antitamper lock
 
@@ -62,11 +62,15 @@ Follow the steps in reverse to engage the lock.
 
 ## Remove the disk drive
 
-Your StorSimple device supports a RAID 10–like storage spaces configuration. This implies that it can operate normally with one failed disk, solid-state drive (SSD), or hard disk drive (HDD). If your system has more than one failed disk, do not remove more than one SSD or HDD from the system at any point in time. Doing so could result in loss of data.
+Your StorSimple device supports a RAID 10–like storage spaces configuration. This implies that it can operate normally with one failed disk, solid-state drive (SSD), or hard disk drive (HDD). 
 
->[AZURE.NOTE] Make sure that you place a replacement SSD in a slot that previously contained an SSD. Similarly, place a replacement HDD in a slot that previously contained an HDD.
-
-In the Management Portal, slots are numbered from 0 – 11. Therefore, if the portal shows that a disk in slot 2 has failed, on the device, look for the failed disk in the third slot from the top left.
+>[AZURE.IMPORTANT]
+>
+>- If your system has more than one failed disk, do not remove more than one SSD or HDD from the system at any point in time. Doing so could result in loss of data.
+>
+>- Make sure that you place a replacement SSD in a slot that previously contained an SSD. Similarly, place a replacement HDD in a slot that previously contained an HDD.
+>
+>- In the Management Portal, slots are numbered from 0 – 11. Therefore, if the portal shows that a disk in slot 2 has failed, on the device, look for the failed disk in the third slot from the top left.
 
 Drives can be removed and replaced while the system is operating.
 

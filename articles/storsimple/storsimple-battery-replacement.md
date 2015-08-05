@@ -56,6 +56,14 @@ The backup battery module for your Microsoft Azure StorSimple device is a field-
 
     **Figure 2** Back of PCM showing the monitoring indicator LEDs
 
+    |Label|Description|
+    |:---|:-----------|
+    |1|Mute button|
+    |2|System power|
+    |3|Module fault|
+    |4|Logical fault|
+    |5|Unit ID display|
+
 3. To remove the PCM with a failed battery, follow the steps in [Remove a PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
 
 4. With the PCM removed, lift and rotate the battery module handle upward as indicated in the following figure, and pull it up to remove the battery.

@@ -41,11 +41,11 @@ The following table shows the supported controller replacement scenarios.
 
 You need to remove a controller module if it has failed. One or both the controller modules can fail, which can result in a single controller replacement or dual controller replacement. For replacement procedures, see the following:
 
-- Replace a single controller
-- Replace both controllers
-- Remove a controller
-- Insert a controller
-- Identify the active controller on your device
+- [Replace a single controller](#replace-a-single-controller)
+- [Replace both controllers](#replace-both-controllers)
+- [Remove a controller](#remove-a-controller)
+- [Insert a controller](#insert-a-controller)
+- [Identify the active controller on your device](#identify-the-active-controller)
 
 >[AZURE.IMPORTANT] Before removing and replacing a controller, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
@@ -166,7 +166,7 @@ This workflow is required when both of the controllers in your Microsoft Azure S
 
     4. After the first controller restarts and is in a healthy state, the system will be running.
 
->[AZURE.NOTE] If you are monitoring the device through the serial console, you may see multiple restarts while the controller is recovering from the replacement procedure. When the Serial console menu appears, then you know that the replacement is complete. If the menu does not appear within 2.5 hours of starting the controller replacement, please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+    >[AZURE.NOTE] If you are monitoring the device through the serial console, you may see multiple restarts while the controller is recovering from the replacement procedure. When the serial console menu appears, then you know that the replacement is complete. If the menu does not appear within 2.5 hours of starting the controller replacement, please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
 ## Remove a controller
 
