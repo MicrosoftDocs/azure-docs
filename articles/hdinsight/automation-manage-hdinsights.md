@@ -41,6 +41,5 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 
 * See the Azure Automation [Getting Started Tutorial](../automation-create-runbook-from-samples.md).
 * View examples in [Script Center](http://aka.ms/scriptcentergallery).  
-* 
 
  
