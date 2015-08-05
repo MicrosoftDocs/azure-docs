@@ -15,13 +15,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/23/2015"
+   ms.date="08/05/2015"
    ms.author="larryfr"/>
 
 
 # Apache Storm tutorial: Get started with the Storm Starter samples for big data analytics on HDInsight
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
+
+[AZURE.INCLUDE [preview-portal](../../include/hdinsight-azure-preview-portal-nolink.md)]
 
 ## Before you begin
 
@@ -77,7 +79,7 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 	
 	Use the __Select__ button to save the __Node Pricing Tiers__ information.
 
-8. Select __Optional Configuration__. This blade allows you to select the cluster version, as well as configure other optional settings such as joining a __Virtual Network__ or setting up a __Custom Metastore__ to hold data for Hive and Oozie.
+8. Select __Optional Configuration__. This blade allows you to select the cluster version, as well as configure other optional settings such as joining a __Virtual Network__ or setting up an __External Metastore__ to hold data for Hive and Oozie.
 
 	![Optional configuration blade](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
