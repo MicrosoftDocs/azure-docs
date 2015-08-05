@@ -3,7 +3,7 @@
 	description="Learn about the DocumentDB Document Explorer, an Azure Preview portal tool to view, edit, create, and upload JSON documents with DocumentDB."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 

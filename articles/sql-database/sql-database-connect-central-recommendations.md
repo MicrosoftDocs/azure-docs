@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -46,7 +46,7 @@ Regardless of which connection technology you use, certain firewall settings for
 - [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-## Recommendation: Authentication
+## Authentication recommendations
 
 
 - Use SQL Database authentication, not Windows authentication.
@@ -58,7 +58,7 @@ Regardless of which connection technology you use, certain firewall settings for
  - You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database.
 
 
-## Recommendations: Connection
+## Connection recommendations
 
 
 - In your client connection logic, override the default timeout to be 30 seconds.
@@ -121,22 +121,19 @@ For links to code sample topics that demonstrate retry logic, see:
 <a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
 
 
-## Middleware proxy no longer provides retry logic in V12
-
-
-In a production environment, clients that connect to Azure SQL Database V11 or V12 are advised to implement retry logic in their code. This can be custom code, or can be code that leverages an API such as the Enterprise Library.
+## Middleware proxy and retry logic
 
 
 The middleware proxy that mediates between V11 and your ADO.NET 4.5 client handles a small subset of transient faults gracefully with retry logic. In cases where the proxy successfully connects on its second attempt, your client program is blissfully unaware that the first attempt failed.
 
 
-In contrast, the V12 proxy does not provide any retry functionality. Further, in other V12 cases the the proxy is bypassed for the superior speed of connecting to SQL Database directly. Therefore the recommendation for retry logic is more pressing after upgrade from V11 to V12.
-
-
-To a client ADO.NET 4.5 program, these changes make Azure SQL Database V12 look more like Microsoft SQL Server.
+The V12 proxy handles a smaller subset of transient faults. In other V12 cases the proxy is bypassed for the superior speed of connecting to SQL Database directly. To a client ADO.NET 4.5 program, these changes make Azure SQL Database V12 look more like Microsoft SQL Server.
 
 
 For code samples that demonstrate retry logic, see:<br/>[Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md).
+
+
+> [AZURE.TIP] In a production environment, clients that connect to Azure SQL Database V11 or V12 are advised to implement retry logic in their code. This can be custom code, or can be code that leverages an API such as the Enterprise Library.
 
 
 ## Technologies
