@@ -30,7 +30,7 @@ You can use a variety of Azure procedures and available images in the Azure Mark
 
 After the Linux VM is running with Docker, connect to it from your client computer using SSH. If you need to, install [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md) by running the following two commands.
 
->[AZURE.TIP] If you used the Docker VM extension to create your VM, Compose is already installed for you. Skip these commands and go to Step 3. You only need to install Compose f you installed Docker on the VM yourself.
+>[AZURE.TIP] If you used the Docker VM extension to create your VM, Compose is already installed for you. Skip these commands and go to Step 3. You only need to install Compose f you installed Docker on the VM yourself.s
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
@@ -121,7 +121,6 @@ You should now see the WordPress start screen, where you can complete the instal
 * Try integrating Docker Compose with a [Docker Swarm](virtual-machines-docker-swarm.md) cluster. See
 [Docker Compose/Swarm integration](https://github.com/docker/compose/blob/master/SWARM.md) for scenarios.
 
-CLI
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
