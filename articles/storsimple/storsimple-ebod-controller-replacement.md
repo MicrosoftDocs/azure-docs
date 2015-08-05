@@ -90,19 +90,18 @@ The following procedure and table explain how to install an EBOD controller modu
     ![Cable your 4U device for power](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
     **Figure 4**  Reconnecting cables
- 
-     |Label|Description|
-     |:----|:----------|
-     |1|Primary enclosure|
-     |2|PCM 0|
-     |3|PCM 1|
-     |4|Controller 0|
-     |5|Controller 1|
-     |6|EBOD controller 0|
-     |7|EBOD controller 1|
-     |8|EBOD enclosure|
-     |9|PDUs|
 
+    |Label|Description|
+    |:----|:----------|
+    |1|Primary enclosure|
+    |2|PCM 0|
+    |3|PCM 1|
+    |4|Controller 0|
+    |5|Controller 1|
+    |6|EBOD controller 0|
+    |7|EBOD controller 1|
+    |8|EBOD enclosure|
+    |9|PDUs|
 
 ## Next steps
 
