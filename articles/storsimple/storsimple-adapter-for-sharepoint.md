@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # StorSimple Adapter for SharePoint
@@ -231,7 +231,7 @@ Use the following procedure to upgrade SharePoint server and then reinstall Stor
 
 ## Next steps
 
-[Learn more about StorSimple](storsimple-overview.md) and the [StorSimple components](storsimple-components.md)
+[Learn more about StorSimple](storsimple-overview.md)
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073

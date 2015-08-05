@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="05/06/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # What happened to my project?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
 > - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
-###What happened to my project?</span>
+###What happened to my project?
 
 #####References Added
 

@@ -12,7 +12,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 

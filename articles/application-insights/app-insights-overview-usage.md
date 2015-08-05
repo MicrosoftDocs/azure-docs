@@ -11,7 +11,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="05/03/2015"
 	ms.author="awills"/>
 

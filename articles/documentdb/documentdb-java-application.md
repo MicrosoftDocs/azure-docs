@@ -10,7 +10,7 @@
 <tags 
 	ms.service="documentdb" 
 	ms.devlang="java" 
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
 	ms.date="07/21/2015" 
