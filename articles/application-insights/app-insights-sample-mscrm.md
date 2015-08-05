@@ -149,6 +149,10 @@ Click the chart to get more detail:
 
 You can do even deeper analysis if you [export the data to Microsoft Power BI](app-insights-export-power-bi.md).
 
+## Sample CRM Solution
+
+Here is the sample solution implemeted in CRM for starting to capture Telemetry. https://dynamicsandappinsights.codeplex.com/ 
+
 ## Learn more
 
 * [What is Application Insights?](app-insights-overview.md)

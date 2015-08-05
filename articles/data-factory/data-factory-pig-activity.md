@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Data Factory - Pig Activity" 
+	pageTitle="Pig Activity" 
 	description="Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -18,9 +18,7 @@
 
 # Pig Activity
 
-The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Pig queries on [your own](https://msdn.microsoft.com/library/mt185697.aspx) or [on-demand](https://msdn.microsoft.com/library/mt185733.aspx) HDInsight cluster.  
-
-**Note:** This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
+The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Pig queries on [your own](https://msdn.microsoft.com/library/mt185697.aspx) or [on-demand](https://msdn.microsoft.com/library/mt185733.aspx) HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
 
 ## Syntax
 
