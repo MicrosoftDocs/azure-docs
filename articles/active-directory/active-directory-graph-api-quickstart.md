@@ -116,7 +116,7 @@ Content-Type: application/json
         }
 ```
 
-    For more information about creating groups, see [Create Group](https://msdn.microsoft.com/library/azure/dn151614.aspx)
+    For more information about creating groups, see [Create Group](https://msdn.microsoft.com/library/azure/dn151614.aspx).
 
 For more information on Azure AD entities and types that are exposed by Graph and information about the operations that can be performed on them with Graph, see [Azure AD Graph REST API Reference](https://msdn.microsoft.com/library/azure/hh974478.aspx).
 
