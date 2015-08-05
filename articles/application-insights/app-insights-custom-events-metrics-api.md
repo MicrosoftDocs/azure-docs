@@ -533,7 +533,7 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
 
     telemetry.Flush();
 
-Note that the function is synchronous.
+Note that the function can be synchronous depending on the channel implementation.
 
 
 
