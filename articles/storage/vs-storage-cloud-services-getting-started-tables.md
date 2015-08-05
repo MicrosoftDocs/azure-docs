@@ -38,7 +38,7 @@ The Azure Table storage service enables you to store large amounts of structured
 
 For more general information about using Azure table storage, see [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md).
 
-To get started, you first need to create a table in your storage account. We'll show you how to create an Azure table in code, and also how to perform basic table and entity operations, such as adding, modifying, reading and reading table entities. The samples are written in C\# code and use the [Azure Storage client library for .NET](https://msdn.microsoft.com/en-us/library/azure/dn261237.aspx). 
+To get started, you first need to create a table in your storage account. We'll show you how to create an Azure table in code, and also how to perform basic table and entity operations, such as adding, modifying, reading and reading table entities. The samples are written in C\# code and use the [Azure Storage client library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). 
 
 **NOTE:** Some of the APIs that perform calls out to Azure storage in  are asynchronous. See [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used. 
 
