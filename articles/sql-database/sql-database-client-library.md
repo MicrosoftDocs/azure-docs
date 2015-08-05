@@ -323,7 +323,7 @@ To create a new pool on a server:
         Location = currentPool.Location,
         Properties = new ElasticPoolCreateOrUpdateProperties()
         {
-            Edition=currentPool.Properties.Edition,
+            Edition = currentPool.Properties.Edition,
             DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
             DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
             Dtu = (int)currentPool.Properties.Dtu,
@@ -611,7 +611,7 @@ To delete a resource group:
                 Location = currentPool.Location,
                 Properties = new ElasticPoolCreateOrUpdateProperties()
                 {
-                    Edition=currentPool.Properties.Edition,
+                    Edition = currentPool.Properties.Edition,
                     DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
                     DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
                     Dtu = (int)currentPool.Properties.Dtu,
