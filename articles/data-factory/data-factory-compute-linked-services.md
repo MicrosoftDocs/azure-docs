@@ -64,7 +64,7 @@ Property | Description | Required
 type | The type property should be set to **HDInsightOnDemand**. | Yes
 clusterSize | The size of the on-demand cluster. Specify how many nodes you want to be in this on-demand cluster. | Yes 
 jobscontainer | The blob container that holds data used by pig/hive/package jobs and where the cluster logs will be stored. | Yes
-timetolive | <p>The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.</p><p>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.</p><p>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.</p><p>1.	If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.</p><p>2.	Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set</p> | Yes
+timetolive | <p>The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.</p><p>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.</p><p>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.</p><p>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.</p><p>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set</p> | Yes
 version | Version of the HDInsight cluster | No
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
@@ -76,19 +76,12 @@ You can also specify the following properties for the granular configuration of 
 Property | Description | Required
 -------- | ----------- | --------
 coreConfiguration | Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created. | No
-
 hBaseConfiguration | Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster. | No
-
 hdfsConfiguration | Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster. | No
-
 hiveConfiguration | Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster. | No
-
 mapReduceConfiguration | Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster. | No
-
 oozieConfiguration | Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster. | No
-
 stormConfiguration | Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster. | No
-
 yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster. | No
 
 #### Example – On-demand HDInsight cluster configuration with advanced properties
@@ -161,7 +154,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 
 Property | Description | Required
 -------- | ----------- | --------
-type | The type property should be set to HDInsight. | Yes
+type | The type property should be set to **HDInsight**. | Yes
 clusterUri | The URI of the HDInsight cluster. | Yes
 username | Specify the name of the user to be used to connect to an existing HDInsight cluster. | Yes
 password | Specify password for the user account. | Yes
@@ -176,7 +169,7 @@ See following topics if you are new to Azure Batch service:
  
 
 - [Azure Batch Technical Overview](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
-- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet to create an Azure Batch account (or) [Azure Management Portal](../batch/batch-technical-overview.md/#batch-concepts) to create the Azure Batch account using Azure Management Portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
+- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet to create an Azure Batch account (or) [Azure Management Portal](../batch/batch-technical-overview.md) to create the Azure Batch account using Azure Management Portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet to create an Azure Batch pool.
 
 ### Example
