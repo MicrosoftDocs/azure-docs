@@ -43,7 +43,7 @@ To get started, you first need to create a table in your storage account. We'll 
 - See [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md) for more information on programmatically manipulating tables.
 - See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
 - See [Cloud Services documentation](http://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
-- See see [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
+- See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
 
 
 

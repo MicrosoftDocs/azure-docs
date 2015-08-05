@@ -34,7 +34,7 @@ We'll show you how to create a queue in code. We'll also show you how to perform
  - See [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md "How to use Blob Storage from .NET") for more information on manipulating blobs. in code
  - See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
  - See [Cloud Services documentation](http://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
- - See see [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
+ - See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
 
 
 Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
