@@ -31,6 +31,12 @@ You can also create VMs using [your own images](virtual-machines-create-upload-v
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
+## Video walkthrough
+
+Here's a walkthrough of this tutorial.
+
+[AZURE.VIDEO creating-a-windows-vm-on-microsoft-azure-classic-portal]
+
 ## <a id="createvirtualmachine"> </a>How to create the virtual machine
 
 This section shows you how to use the **From Gallery** option in the Azure portal to create the virtual machine. This option provides more configuration choices than the **Quick Create** option. For example, if you want to join a virtual machine to a virtual network, you'll need to use the **From Gallery** option.
