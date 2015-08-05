@@ -45,7 +45,7 @@ You need to remove a controller module if it has failed. One or both the control
 - [Replace both controllers](#replace-both-controllers)
 - [Remove a controller](#remove-a-controller)
 - [Insert a controller](#insert-a-controller)
-- [Identify the active controller on your device](#identify-the-active-controller)
+- [Identify the active controller on your device](#identify-the-active-controller-on-your-device)
 
 >[AZURE.IMPORTANT] Before removing and replacing a controller, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
@@ -104,7 +104,7 @@ Complete the following steps if one of the controllers in your Microsoft Azure S
 
 8. After the controller restarts, check the **Controller status** and the **Cluster status** in the Management Portal to verify that the controller is back to a healthy state and is in standby mode.
 
-[AZURE.NOTE] If you are monitoring the device through the serial console, you may see multiple restarts while the controller is recovering from the replacement procedure. When the serial console menu is presented, then you know that the replacement is complete. If the menu does not appear within two hours of starting the controller replacement, please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+>[AZURE.NOTE] If you are monitoring the device through the serial console, you may see multiple restarts while the controller is recovering from the replacement procedure. When the serial console menu is presented, then you know that the replacement is complete. If the menu does not appear within two hours of starting the controller replacement, please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
 ## Replace both controllers
 

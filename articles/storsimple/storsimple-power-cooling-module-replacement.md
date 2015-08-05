@@ -146,7 +146,7 @@ Follow these instructions to install a PCM in your StorSimple device.
 
 7. Turn on the PCM.
 
-8. Verify that the replacement was successful: in the Management Portal of your StorSimple Manager service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status LED of the PCM should be green. 
+8. Verify that the replacement was successful: in the Management Portal of your StorSimple Manager service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status of the PCM should be green. 
 										
     >[AZURE.NOTE] It may take a few minutes for the replacement PCM to completely initialize.
 
