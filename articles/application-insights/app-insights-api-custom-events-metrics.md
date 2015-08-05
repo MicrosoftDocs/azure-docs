@@ -402,9 +402,7 @@ The size limit on `message` is much higher than limit on  properties. You can se
 
 ## Track Dependency
 
-The standard dependency-tracking module uses this API to log calls to external dependencies such as databases or REST APIs. The module automatically discovers some external dependencies, but you might want some additional components to be treated in the same way. 
-
-For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
+Use this call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. 
 
 ```C#
 
@@ -421,6 +419,8 @@ For example, if you build your code with an assembly that you didn't write yours
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
             }
 ```
+
+Remember that the server SDKs include a [dependency module](app-insights-dependencies.md) that discovers and tracks certain dependency calls automatically - for example to databases and REST APIs. You have to install an agent on your server to make the module work. You'd use this call if you want to track calls that aren't caught by the automated tracking, or if you don't want to install the agent.
 
 To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
 
