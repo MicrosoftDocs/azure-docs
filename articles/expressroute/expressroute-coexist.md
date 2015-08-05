@@ -22,9 +22,6 @@ There are two different scenarios and two different configuration procedures to 
 
 ## Scenarios
 
-The two basic scenarios are outlined below:
-
-
 ### Scenario 1
 
 In this scenario, you have one local network. ExpressRoute is the active link, and your Site-to-Site VPN is the backup. If the ExpressRoute connection fails, the Site-to-Site VPN connection would then become active. This scenario is most appropriate for high availability.
