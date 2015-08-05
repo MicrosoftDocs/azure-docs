@@ -8,11 +8,11 @@
    editor="" />
 <tags 
    ms.service="storsimple"
-   ms.devlang=""
+   ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/04/2015"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/05/2015"
    ms.author="alkohli" />
 
 # Replace a controller module on your StorSimple device

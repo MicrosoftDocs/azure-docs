@@ -10,9 +10,9 @@
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/04/2015"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/05/2015"
    ms.author="alkohli" />
 
 # StorSimple hardware component replacement
@@ -136,7 +136,7 @@ The following field replaceable units (FRUs) are available for your StorSimple d
 
 - Rack mounting rail kit
 
-Please [contact Microsoft Support](https://msdn.microsoft.com/en-us/library/dn757750.aspx) to order any of these replacement units.
+Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to order any of these replacement units.
 
 ## Next steps
 
