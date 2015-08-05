@@ -1,10 +1,10 @@
 <properties
    pageTitle="Configure Expressroute and Site-to-Site VPN connections to coexist"
-   description="This tutorial walks you through configuring ExpressRoute and a Site-to-Site VPN connection to coexist."
+   description="This tutorial walks you through configuring ExpressRoute and a Site-to-Site VPN connection that will coexist."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="jdial"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,23 +12,26 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/20/2015"
+   ms.date="08/05/2015"
    ms.author="cherylmc"/>
 
 # Configure ExpressRoute and Site-to-Site VPN connections that coexist
 
 You can now connect ExpressRoute and Site-to-Site VPN to the same virtual network. There are two different scenarios and two different configuration procedures to choose from. 
 
-### Scenarios
+### Scenario 1
 
-There are two different scenarios. The figure below shows both scenarios.
+If you have one local network, ExpressRoute will be the active link, and your Site-to-Site VPN would be the backup. If the ExpressRoute connection fails, the Site-to-Site VPN connection becomes active. This scenario is most appropriate for high availability.
 
-- **Scenario 1**- If you have one local network, ExpressRoute will be the active link, and your Site-to-Site VPN would be the backup. If the ExpressRoute connection fails, the Site-to-Site VPN connection becomes active. This scenario is most appropriate for high availability.
-
-- **Scenario 2**- If you have two local networks, you can connect one to Azure via ExpressRoute, and the other via Site-to-Site VPN. In this case, both connections are active at the same time. 
+![Coexist](media/expressroute-coexist/scenario1.jpg)
 
 
-![Coexist](media/expressroute-coexist/coexist1.jpg)
+
+### Scenario 2
+
+If you have two local networks, you can connect one to Azure via ExpressRoute, and the other via Site-to-Site VPN. In this case, both connections are active at the same time. 
+
+![Coexist](media/expressroute-coexist/scenario2.jpg)
 
 
 ### Configuration procedures
@@ -42,6 +45,7 @@ There are two separate configuration procedures to choose from. The configuratio
 
 - [Configure your existing VNet for coexisting connections](#configure-your-existing-vnet-for-coexisting-connections): 
 	You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. Creating a coexist connection will require you to delete your gateway, and then configure new gateways that can coexist. 
+
 	This means you will have downtime for your cross-premises connections while you delete and recreate your gateway and connections, but you will not need to migrate any of your VMs or services to a new virtual network. Your VMs and services would still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so. 
 
 	This procedure will walk you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections. Note that when creating the new connections, the steps must be completed in a very specific order. Don't use the instructions in other articles to create your gateways and connections.
