@@ -599,7 +599,7 @@ DocumentDB allows you to make changes to the indexing policy of a collection on 
 
 **Online Index Transformations**
 
-![Online Index Transformations](media/documentdb-indexing-policies/IndexTransformation.PNG)
+![Online Index Transformations](media/documentdb-indexing-policies/index-transformations.png)
 
 Index transformations are made online, meaning that the documents indexed per the old policy are efficiently transformed per the new policy **without affecting the write availability or the provisioned throughput** of the collection. The consistency of read and write operations made using the REST API, SDKs or from within stored procedures and triggers is not impacted during index transformation. This means that there is no performance degradation or downtime to your apps when you make an indexing policy change.
 
