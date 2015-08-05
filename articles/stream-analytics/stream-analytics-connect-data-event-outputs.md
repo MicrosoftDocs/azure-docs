@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/05/2015" 
+	ms.date="08/03/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics outputs
@@ -145,11 +145,10 @@ There are a few parameters that are needed to configure a Power BI output.
     ![graphic24][graphic24]
 
 
->	[AZURE.NOTE] One should not explicitly create the dataset and table in the Power BI dashboard. The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] One should not explicitly create the dataset and table in the Power BI dashboard. The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t return any results, the dataset and table will not be created. Also be aware that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data will be overwritten.
 
 *	Click **OK**, **Test Connection** and now the output configuration is complete.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data will be overwritten.
 
 ## Using Azure Table storage for an output ##
 ---
