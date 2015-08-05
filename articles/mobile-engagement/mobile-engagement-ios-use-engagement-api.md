@@ -3,7 +3,7 @@
 	description="Latest iOS SDK - How to Use the Engagement API on iOS"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="kapiteir"
+	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2015"
-	ms.author="kapiteir" />
+	ms.author="piyushjo" />
 
 
 #How to Use the Engagement API on iOS
