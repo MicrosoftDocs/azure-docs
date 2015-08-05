@@ -65,7 +65,7 @@ The main hardware components in your device are summarized in the following tabl
 |:---------|:--------|:--------------|:---------------------|
 | Chassis|1|No|[Replace the chassis on your StorSimple device](storsimple-chassis-replacement.md) |
 |Primary controllers|2|Yes| [Replace a controller module on your StorSimple device](storsimple-controller-replacement.md) |
-|764W Power Cooling Modules (PCMs)|2|Yes| [Replace a Power Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md) |
+|764W Power and Cooling Modules (PCMs)|2|Yes| [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md) |
 |Backup battery|2|Yes| [Replace the backup battery module on your StorSimple device](storsimple-battery-replacement.md) |
 |Disk drives|12|Yes| [Replace a disk drive on your StorSimple device](storsimple-disk-drive-replacement.md) |
 
@@ -77,7 +77,7 @@ The primary enclosure and the EBOD enclosure differ in their I/O modules. Additi
 |:---------|:--------|:--------------|:---------------------|
 |Chassis|1|No| [Replace the chassis on your StorSimple device](storsimple-chassis-replacement.md) |
 |EBOD controllers|2|Yes| [Replace an EBOD controller on your StorSimple device](storsimple-EBOD-controller-replacement.md) |
-|580W Power Cooling Modules (PCMs)|2|Yes| [Replace a Power Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md) |
+|580W Power and Cooling Modules (PCMs)|2|Yes| [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md) |
 |Disk drives|12|Yes| [Replace a disk drive on your StorSimple device](storsimple-disk-drive-replacement.md) |
 
 **Table 2** Hardware components in the EBOD enclosure

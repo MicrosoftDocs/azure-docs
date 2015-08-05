@@ -31,7 +31,7 @@ This tutorial explains how you can remove and replace a malfunctioning or failed
 
 ## Disengage the antitamper lock
 
-This procedure explains how the antitamper locks on your Microsoft Azure StorSimple device can be engaged or disengaged before you replace the disk drives. The antitamper locks are fitted in the drive carrier handles, and they are accessed through a small aperture in the latch section of the handle. Drives are supplied with the locks set to the locked position.
+This procedure explains how the antitamper locks on your Microsoft Azure StorSimple device can be engaged or disengaged when you replace the disk drives. The antitamper locks are fitted in the drive carrier handles, and they are accessed through a small aperture in the latch section of the handle. Drives are supplied with the locks set to the locked position.
 
 #### To unlock the antitamper lock
 
@@ -87,6 +87,8 @@ Drives can be removed and replaced while the system is operating.
 5. When the drive carrier handle is fully extended, slide the drive carrier out of the chassis. 
 
     ![Sliding disk out of disk drive](./media/storsimple-disk-drive-replacement/IC741052.png)
+    
+    **Figure 4** Sliding the disk drive out of the carrier
 
 ## Install the replacement disk drive
 
@@ -94,13 +96,17 @@ After a drive has failed in your Microsoft Azure StorSimple device and you have 
 
 #### To insert a drive
 
-1. Ensure the drive carrier handle is fully extended, as shown in the following image.Figure 30 Drive with handle extended
+1. Ensure the drive carrier handle is fully extended, as shown in the following image.
 
     ![Disk drive with handle extended](./media/storsimple-disk-drive-replacement/IC741044.png)
 
-2. Slide the drive carrier all the way into the chassis. Figure 31  Sliding the drive carrier into the chassis
+    **Figure 5** Drive with handle extended
+
+2. Slide the drive carrier all the way into the chassis. 
 
     ![Sliding disk into disk drive carrier](./media/storsimple-disk-drive-replacement/IC741045.png)
+
+    **Figure 6**  Sliding the drive carrier into the chassis
 
 3. With the drive carrier inserted, close the drive carrier handle while continuing to push the drive carrier into the chassis, until the drive carrier handle snaps into a locked position.
 

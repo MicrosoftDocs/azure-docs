@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Replace a Power Cooling Module on your StorSimple device | Microsoft Azure"
-   description="Explains how to remove and replace the Power Cooling Module (PCM) on your StorSimple device"
+   pageTitle="Replace a Power and Cooling Module on your StorSimple device | Microsoft Azure"
+   description="Explains how to remove and replace the Power and Cooling Module (PCM) on your StorSimple device"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,7 +15,7 @@
    ms.date="08/05/2015"
    ms.author="alkohli" />
 
-# Replace a Power Cooling Module on your StorSimple device
+# Replace a Power and Cooling Module on your StorSimple device
 
 ## Overview
 
@@ -100,7 +100,7 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
     |3|Controller 0|
     |4|Controller 1|
 
-5. Turn off the faulty PCM and disconnect the power supply cord. The PCM can now be removed.
+5. Turn off the faulty PCM and disconnect the power supply cord. You can now remove the PCM.
 
 6. Grasp the latch and the side of the PCM handle between your thumb and forefinger, and squeeze them together to open the handle.
 
@@ -126,7 +126,7 @@ Follow these instructions to install a PCM in your StorSimple device.
 
     **Figure 6** PCM label
 
-2. Check for damage to the enclosure, paying particular attention to the connectors.Note 
+2. Check for damage to the enclosure, paying particular attention to the connectors. 
 										
     >[AZURE.NOTE] **Do not install the module if any connector pins are bent.**
 
@@ -136,7 +136,7 @@ Follow these instructions to install a PCM in your StorSimple device.
 
     **Figure 7** Installing the PCM
 
-4. Manually close the PCM handle. You should hear a click as the handle latch engages.Note 
+4. Manually close the PCM handle. You should hear a click as the handle latch engages. 
 										
     >[AZURE.NOTE] To ensure that the connector pins have engaged, you can gently tug on the handle without releasing the latch. If the PCM slides out, it implies that the latch was closed before the connectors engaged.
 
@@ -146,9 +146,9 @@ Follow these instructions to install a PCM in your StorSimple device.
 
 7. Turn on the PCM.
 
-8. Verify that the replacement was successful: in the Management Portal of your StorSimple Manager service service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status LED of the PCM should be green.Note 
+8. Verify that the replacement was successful: in the Management Portal of your StorSimple Manager service service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status LED of the PCM should be green. 
 										
-    >[AZURE.NOTE] **It may take a few minutes for the replacement PCM to completely initialize.
+    >[AZURE.NOTE] It may take a few minutes for the replacement PCM to completely initialize.
 
 ## Next steps
 

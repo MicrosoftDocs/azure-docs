@@ -19,16 +19,16 @@
 
 ## Overview
 
-This tutorial explains how to replace a faulty EBOD controller module on your Microsoft Azure StorSimple device. Consider the following information before you begin:
+This tutorial explains how to replace a faulty EBOD controller module on your Microsoft Azure StorSimple device. To replace an EBOD controller module, you need to:
+
+- Remove the faulty EBOD controller
+- Install a new EBOD controller
+
+Consider the following information before you begin:
 
 - Blank EBOD modules must be inserted into all unused slots. The enclosure will not cool properly if a slot is left open.
 
 - The EBOD controller is hot-swappable and can be removed or replaced. Do not remove a failed module until you have a replacement. When you initiate the replacement process, you must finish it within 10 minutes.
-
-The following tutorials explain how to remove and install an EBOD controller module:
-
-- Remove an EBOD controller
-- Install a new EBOD controller
 
 >[AZURE.IMPORTANT] Before removing and replacing an EBOD controller, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
@@ -48,7 +48,7 @@ Before replacing the failed EBOD controller module in your StorSimple device, ma
 
 5. Make a note of the exact SAS port of the EBOD controller module that was connected to the controller. You will be required to restore the system to this configuration after you replace the EBOD module. 
 
-    >[AZURE.NOTE] Typically, this will be Port A, which is labeled as **Host** in in the following diagram.
+    >[AZURE.NOTE] Typically, this will be Port A, which is labeled as **Host in** in in the following diagram.
 
     ![Backplane Of EBOD Controller](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
@@ -90,7 +90,7 @@ The following procedure and table explain how to install an EBOD controller modu
     ![Cable your 4U device for power](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
     **Figure 4**  Reconnecting cables
-
+ 
      |Label|Description|
      |:----|:----------|
      |1|Primary enclosure|

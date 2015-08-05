@@ -19,15 +19,9 @@
 
 ## Overview
 
-This section explains how to remove and replace a chassis in a StorSimple device. The 8100 model is a single enclosure device (one chassis), whereas the 8600 is a dual enclosure device (two chassis). For a 8600 model, there are potentially two chassis that can fail in the device: the chassis for the primary enclosure or the chassis for the EBOD enclosure.
+This tutorial explains how to remove and replace a chassis in a StorSimple device. The 8100 model is a single enclosure device (one chassis), whereas the 8600 is a dual enclosure device (two chassis). For a 8600 model, there are potentially two chassis that can fail in the device: the chassis for the primary enclosure or the chassis for the EBOD enclosure.
 
 In either case, the replacement chassis that is shipped by Microsoft will be empty. No Power and Cooling Modules (PCMs), controller modules, solid state disk drives (SSDs), hard disk drives (HDDs), or EBOD modules will be included.
-
-To replace the chassis, you need to:
-
-- Remove the chassis
-
-- Install the new chassis
 
 >[AZURE.IMPORTANT] Before removing and replacing the chassis, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
@@ -63,7 +57,7 @@ Perform the following steps to install the chassis in a Microsoft Azure StorSimp
 
     >[AZURE.NOTE] In general, we recommend that you put the SSDs in the slots first, and then install the HDDs.
 
-2. With the device mounted in the rack and the components installed, connect your device to the appropriate power sources, and turn on the device. For details, see [Cable your StorSimple 8100 device] (storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device)or [Cable your StorSimple 8600 device](storsimple-8600-hardware-installation.md#cable-your-storsimple-8100-device).
+2. With the device mounted in the rack and the components installed, connect your device to the appropriate power sources, and turn on the device. For details, see [Cable your StorSimple 8100 device](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) or [Cable your StorSimple 8600 device](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 ## Next steps
 

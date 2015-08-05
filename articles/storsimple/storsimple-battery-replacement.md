@@ -19,7 +19,7 @@
 
 ## Overview
 
-The primary enclosure Power Cooling Module (PCM) on your Microsoft Azure StorSimple device has an additional battery pack. This pack provides power so that the StorSimple device can save data if there is loss of AC power to the primary enclosure. This battery pack is referred to as the *backup battery module*. The backup battery module exists only for the primary enclosure in your StorSimple device (the EBOD enclosure does not contain a backup battery module). 
+The primary enclosure Power and Cooling Module (PCM) on your Microsoft Azure StorSimple device has an additional battery pack. This pack provides power so that the StorSimple device can save data if there is loss of AC power to the primary enclosure. This battery pack is referred to as the *backup battery module*. The backup battery module exists only for the primary enclosure in your StorSimple device (the EBOD enclosure does not contain a backup battery module). 
 
 This tutorial explains how to:
 
@@ -56,11 +56,13 @@ The backup battery module for your Microsoft Azure StorSimple device is a field-
 
     **Figure 2** Back of PCM showing the monitoring indicator LEDs
 
-3. To remove the PCM with a failed battery, follow the steps in [Removing a PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+3. To remove the PCM with a failed battery, follow the steps in [Remove a PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
 
-4. With the PCM removed, lift and rotate the battery module handle upward as indicated in the following figure, and pull it up to remove the battery.Figure 13 Removing the battery from the PCM
+4. With the PCM removed, lift and rotate the battery module handle upward as indicated in the following figure, and pull it up to remove the battery.
 
     ![Removing Battery From PCM](./media/storsimple-battery-replacement/IC741019.png)
+
+    **Figure 3** Removing the battery from the PCM
 
 5. Place the module in the field-replaceable unit packaging.
 
@@ -76,7 +78,7 @@ Perform the following steps to install the replacement battery module in the pri
 
 2. Press down the battery module handle all the way to seat the connector.
 
-3. Replace the PCM in the primary enclosure by following the guidelines in [Replace a StorSimple Power Cooling Module](storsimple-power-cooling-module-replacement.md).
+3. Replace the PCM in the primary enclosure by following the guidelines in [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md).
 
 4. After the replacement is complete, access the Management Portal and navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify the status of the battery to make sure that the installation was successful. If the LED is showing a green status, the battery is healthy.
 

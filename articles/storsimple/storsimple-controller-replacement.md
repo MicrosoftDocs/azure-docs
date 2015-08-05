@@ -132,7 +132,7 @@ In a dual controller replacement, you first remove both failed controllers and t
 
 5. Afterwards, both controllers will be running and the cluster will come online.
 
->[AZURE.IMPORTANT] Following a dual controller replacement, after the StorSimple device is configured, it is essential to make a manual backup of the device. Daily device configuration backups are not triggered until after 24 hours have elapsed. Work with [Microsoft Support](storsimple-contact-microsoft-support.md) to make a manual backup of your device.
+>[AZURE.IMPORTANT] Following a dual controller replacement, after the StorSimple device is configured, it is essential that you take a manual backup of the device. Daily device configuration backups are not triggered until after 24 hours have elapsed. Work with [Microsoft Support](storsimple-contact-microsoft-support.md) to make a manual backup of your device.
 
 ### Dual controller replacement steps
 
@@ -210,7 +210,7 @@ Use the following procedure to install a factory-supplied controller module afte
 
     **Figure 5** Closing the controller latch
 
-4. You're done when the latch snaps into place. The **OK** LED should now be on. Note 
+4. You're done when the latch snaps into place. The **OK** LED should now be on.  
 
     >[AZURE.NOTE] It can take up to 5 minutes for the controller and the LED to activate.
 
@@ -224,7 +224,7 @@ There are many situations, such as first-time device registration or controller 
 
 - [Use Windows PowerShell for StorSimple to identify the active controller](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
 
-- [Identify the active controller on the physical device](#identify-the-active-controller-on-the-physical-device)
+- [Check the physical device to identify the active controller](#check-the-physical-device-to-identify-the-active-controller)
 
 Each of these procedures is described next.
 
@@ -246,7 +246,7 @@ When you access your device through the serial console, a banner message is pres
 
 You can use the banner message to determine whether the controller you are connected to is active or passive.
 
-### Identify the active controller on the physical device
+### Check the physical device to identify the active controller
 
 To identify the active controller on your device, locate the blue LED above the DATA 5 port on the back of the primary enclosure.
 
