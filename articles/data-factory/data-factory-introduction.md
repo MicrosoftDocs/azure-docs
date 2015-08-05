@@ -27,7 +27,7 @@ Data Factory works across on-premises and cloud data sources and SaaS to ingest,
 
 **Figure1.** Collect data from many different on-premises data sources, ingest and prepare it, organize and analyze it with a range of transformations, then publish ready-to-use data for consumption.
 
-You can use Data Factory anytime you need to collect data of different shapes and sizes, transform it, and publish it to extract deep insights – all on a reliable schedule. Data Factory is used to create highly available data flow pipelines for many scenarios across different industries for their analytics pipeline needs.  Online retailers use it to generate personalized [product recommendations](data-factory-product-reco-usecase.md) based on customer browsing behavior. Game studios use it to understand the [effectiveness of their marketing](data-factory-customer-profiling-usecase.md) campaigns. [Learn directly from our customers how and why they use ADF](data-factory-customer-case-studies.md). 
+You can use Data Factory anytime you need to collect data of different shapes and sizes, transform it, and publish it to extract deep insights – all on a reliable schedule. Data Factory is used to create highly available data flow pipelines for many scenarios across different industries for their analytics pipeline needs.  Online retailers use it to generate personalized [product recommendations](data-factory-product-reco-usecase.md) based on customer browsing behavior. Game studios use it to understand the [effectiveness of their marketing](data-factory-customer-profiling-usecase.md) campaigns. Learn directly from our customers how and why they use Data Factory by reviewing [Customer Case Studies](data-factory-customer-case-studies.md). 
 
 ## Key Concepts
 
