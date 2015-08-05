@@ -56,41 +56,41 @@ Finally, the wizard attempts to detect versions of authentication code that have
 
 To detect Windows Authentication in an MVC project, the wizard looks for the `authentication` element from your **web.config** file.
 
-```
+<pre>
 	&lt;configuration&gt;
 	    &lt;system.web&gt;
 	        <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
 	    &lt;/system.web&gt;
 	&lt;/configuration&gt;
-```
+</pre>
 
 To detect Windows Authentication in a Web API project, the wizard looks for the `IISExpressWindowsAuthentication` element from your project's **.csproj** file:
 
-```
+<pre>
 	&lt;Project&gt;
 	    &lt;PropertyGroup&gt;
 	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
 	    &lt;/PropertyGroup>
 	&lt;/Project&gt;
-```
+</pre>
 
 To detect Individual User Accounts authentication, the wizard looks for the package element from your **Packages.config** file.
 
-```
+<pre>
 	&lt;packages&gt;
 	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
 	&lt;/packages&gt;
-```
+</pre>
 
 To detect an old form of Organizational Account authentication, the wizard looks for the following element from **web.config**:
 
-```
+<pre>
 	&lt;configuration&gt;
 	    &lt;appSettings&gt;
 	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
 	    &lt;/appSettings&gt;
 	&lt;/configuration&gt;
-```
+</pre>
 
 To change the authentication type, remove the incompatible authentication type and run the wizard again.
 
