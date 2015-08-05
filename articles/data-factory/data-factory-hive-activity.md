@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Data Factory - Hive Activity" 
+	pageTitle="Hive Activity | Azure Data Factory" 
 	description="Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster." 
 	services="data-factory" 
 	documentationCenter="" 
