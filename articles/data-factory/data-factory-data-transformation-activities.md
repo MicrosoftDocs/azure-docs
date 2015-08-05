@@ -27,7 +27,7 @@ Transformation activity |  Compute environment
 [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
 [Hadoop Streaming](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
 [Machine Learning Batch Scoring](data-factory-create-predictive-pipelines.md) | Azure VM 
-[Stored Procedure](https://msdn.microsoft.com/library/mt185717.aspx) | Azure SQL | 
+[Stored Procedure](data-factory-stored-proc-activity.md) | Azure SQL | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] or Azure Batch    
 
 You need to create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two types of compute environments supported by Data Factory. 
