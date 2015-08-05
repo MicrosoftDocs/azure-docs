@@ -16,7 +16,7 @@
    ms.date="08/05/2015"
    ms.author="danlep"/>
 
-# Get Started with Docker and Compose on an Azure Virtual Machine
+# Get Started with Docker and Compose on an Azure virtual machine
 
 This article shows you how to get started using Docker and [Compose](http://github.com/docker/compose) to define and run a complex application on a Linux virtual machine in Azure. With Compose (the successor to *Fig*), you use a simple text file to define an application consisting of multiple Docker containers. Then you spin up your application in a single command which does everything to get it running on the VM. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database, but you can also use Compose to set up more complex applications.
 
@@ -30,7 +30,7 @@ You can use a variety of Azure procedures and available images in the Azure Mark
 
 After the Linux VM is running with Docker, connect to it from your client computer using SSH. If you need to, install [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md) by running the following two commands.
 
->[AZURE.TIP] If you used the Docker VM extension to create your VM, Compose is already installed for you. Skip these commands and go to Step 3. You only need to install Compose f you installed Docker on the VM yourself.s
+>[AZURE.TIP] If you used the Docker VM extension to create your VM, Compose is already installed for you. Skip these commands and go to Step 3. You only need to install Compose f you installed Docker on the VM yourself.
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
