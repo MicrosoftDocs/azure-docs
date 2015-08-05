@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/03/2015"
+   ms.date="08/04/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with the Azure SQL Database Library for .NET
 
 > [AZURE.SELECTOR]
-- [Manage with PowerShell](sql-database-command-line-tools.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-client-library.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 
 ## Overview
@@ -321,10 +323,11 @@ To create a new pool on a server:
         Location = currentPool.Location,
         Properties = new ElasticPoolCreateOrUpdateProperties()
         {
-            DatabaseDtuMax = 50, /* DatabaseDtuMax reduces the maximum DTUs that any one database can consume */
+            Edition=currentPool.Properties.Edition,
+            DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
             DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
             Dtu = (int)currentPool.Properties.Dtu,
-            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU. */
+            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per eDTU. */
         }
     };
 
@@ -608,7 +611,8 @@ To delete a resource group:
                 Location = currentPool.Location,
                 Properties = new ElasticPoolCreateOrUpdateProperties()
                 {
-                    DatabaseDtuMax = 50, /* DatabaseDtuMax reduces the maximum DTUs that any one database can consume */
+                    Edition=currentPool.Properties.Edition,
+                    DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
                     DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
                     Dtu = (int)currentPool.Properties.Dtu,
                     StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per DTU. */
