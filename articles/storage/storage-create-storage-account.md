@@ -21,7 +21,7 @@
 
 ## Overview
 
-An Azure storage account is a secure account that gives you access to the Blob, Queue, Table, and File services in Azure Storage. Your storage account provides the unique namespace for your Azure Storage data objects. By default, the data in your account is available only to you, the account owner.
+An Azure storage account is a secure account that gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. Your storage account provides the unique namespace for your Azure Storage data objects. By default, the data in your account is available only to you, the account owner.
 
 There are two types of storage accounts:
 
