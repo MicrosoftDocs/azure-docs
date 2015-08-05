@@ -29,7 +29,7 @@ Data Factory works across on-premises and cloud data sources and SaaS to ingest,
 
 **Figure1.** Collect data from many different on-premises data sources, ingest and prepare it, organize and analyze it with a range of transformations, then publish ready-to-use data for consumption.
 
-You can use Data Factory anytime you need to collect data of different shapes and sizes, transform it, and publish it to extract deep insights – all on a reliable schedule. Data Factory can be used to create highly available data flow pipelines for scenarios like enabling online retailers to generate personalized product recommendations based on customer browsing behavior.:
+You can use Data Factory anytime you need to collect data of different shapes and sizes, transform it, and publish it to extract deep insights – all on a reliable schedule. Data Factory can be used to create highly available data flow pipelines for scenarios like enabling online retailers to generate personalized [product recommendations](data-factory-product-reco-usecase.md) based on customer browsing behavior.:
 
 
 ## Key Concepts
@@ -41,13 +41,13 @@ Azure Data Factory has a few key entities that work together to define the input
 
 
 ### Activities
-Activities define the actions to perform on your data. Each activity takes zero or more datasets as inputs and produces one or more datasets as outputs. An activity is a unit of orchestration in Azure Data Factory. For example, you may use a Copy activity to orchestrate copying data from one dataset to another. Similarly you may use a Hive activity which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of data transformation, analysis, and data movement activities. 
+Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets.md) as inputs and produces one or more datasets as outputs. An activity is a unit of orchestration in Azure Data Factory. For example, you may use a [Copy activity](data-factory-data-movement-activities.md) to orchestrate copying data from one dataset to another. Similarly you may use a [Hive activity](data-factory-data-transformation-activities.md) which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of data transformation, analysis, and data movement activities. 
 
 ### Pipelines
-Pipelines are a logical grouping of Activities. They are used to group activities into a unit that together perform a task. For example, a sequence of several transformation Activities might be needed to cleanse log file data.  This sequence could have a complex schedule and dependencies that need to be orchestrated and automated. All of these activities could be grouped into a single Pipeline named “CleanLogFiles”.  “CleanLogFiles” could then be deployed, scheduled, or deleted as one single unit  instead of managing each individual activity independently.
+[Pipelines](data-factory-create-pipelines.md) are a logical grouping of Activities. They are used to group activities into a unit that together perform a task. For example, a sequence of several transformation Activities might be needed to cleanse log file data.  This sequence could have a complex schedule and dependencies that need to be orchestrated and automated. All of these activities could be grouped into a single Pipeline named “CleanLogFiles”.  “CleanLogFiles” could then be deployed, scheduled, or deleted as one single unit  instead of managing each individual activity independently.
 
 ### Datasets
-Datasets are named references/pointers to the data you want to use as an input or an output of an Activity. Datasets identify data structures within different data stores including tables, files, folders, and documents.
+[Datasets](data-factory-create-datasets.md) are named references/pointers to the data you want to use as an input or an output of an Activity. Datasets identify data structures within different data stores including tables, files, folders, and documents.
 
 ### Linked service
 Linked services define the information needed for Data Factory to connect to external resources.  Linked services are used for two purposes in Data Factory:
