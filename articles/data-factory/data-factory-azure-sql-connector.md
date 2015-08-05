@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Azure SQL Connector - Move data to and from Azure SQL
