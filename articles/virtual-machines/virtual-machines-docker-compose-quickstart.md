@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get Started with Docker and Compose on an Azure Virtual Machine"
+   pageTitle="Get Started with Docker and Compose on an Azure virtual machine"
    description="Quick introduction to working with Compose and Docker on Azure"
    services="virtual-machines"
    documentationCenter=""
@@ -28,9 +28,9 @@ You can use a variety of Azure procedures and available images in the Azure Mark
 
 ## Step 2: Install Compose
 
->[AZURE.TIP] If you used the Docker VM extension to create your VM, Compose is already installed for you and you can go to Step 3. If you installed Docker on the VM yourself, use the following commands to install Compose.
+After the Linux VM is running with Docker, connect to it from your client computer using SSH. If you need to, install [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md) by running the following two commands.
 
-After the Linux VM is running with Docker, connect to it from your client computer using SSH and then install [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md) by running two commands:
+>[AZURE.TIP] If you used the Docker VM extension to create your VM, Compose is already installed for you. Skip these commands and go to Step 3. You only need to install Compose f you installed Docker on the VM yourself.
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
