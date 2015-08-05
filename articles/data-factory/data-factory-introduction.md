@@ -19,7 +19,7 @@
 # Introduction to Azure Data Factory Service
 
 ## Overview
-Data Factory is a cloud-based  information management service that automates the movement and transformation of data.  
+Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. 
 
 Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
 
@@ -29,8 +29,7 @@ Data Factory works across on-premises and cloud data sources and SaaS to ingest,
 
 **Figure1.** Collect data from many different on-premises data sources, ingest and prepare it, organize and analyze it with a range of transformations, then publish ready-to-use data for consumption.
 
-You can use Data Factory anytime you need to collect data of different shapes and sizes, transform it, and publish it to extract deep insights – all on a reliable schedule. Data Factory can be used to create highly available data flow pipelines for scenarios like enabling online retailers to generate personalized [product recommendations](data-factory-product-reco-usecase.md) based on customer browsing behavior.:
-
+You can use Data Factory anytime you need to collect data of different shapes and sizes, transform it, and publish it to extract deep insights – all on a reliable schedule. Data Factory is used to create highly available data flow pipelines for many scenarios across different industries for their analytics pipeline needs.  Online retailers use it to generate personalized [product recommendations](data-factory-product-reco-usecase.md) based on customer browsing behavior. Game studios use it to understand the [effectiveness of their marketing](data-factory-customer-profiling-usecase.md) campaigns. [Learn directly from our customers how and why they use ADF](data-factory-customer-case-studies.md). 
 
 ## Key Concepts
 
@@ -55,7 +54,7 @@ Linked services define the information needed for Data Factory to connect to ext
 - To represent a data store  including, but not limited to, an on-premises SQL Server, Oracle DB, File share or an Azure Blob Storage account.   As discussed above, Datasets represent the structures within the data stores connected to Data Factory through a Linked service.
 - To represent a compute resource that can host the execution of an Activity.  For example, the “HDInsightHive Activity”executes on an HDInsight Hadoop cluster.
 
-With the four simple concepts of datasets, activities, pipelines and linked services, you are ready to get started!  You can [build your first pipeline](data-factory-build-your-first-pipeline.md)  from the ground up, or deploy a ready-made sample by following the instructions in our [blog post](https://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/).
+With the four simple concepts of datasets, activities, pipelines and linked services, you are ready to get started!  You can [build your first pipeline](data-factory-build-your-first-pipeline.md)  from the ground up, or deploy a ready-made sample by following the instructions in our [Data Factory Samples](data-factory-samples.md) article. 
 
 
 
