@@ -29,7 +29,7 @@
 
 This article describes how to get started using Azure table storage in Visual Studio after you have created or referenced an Azure storage account in a cloud services project by using the  Visual Studio **Add Connected Services** dialog. 
 
-We'll show you how to create a queue in code. We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages. The samples are written in C\# code and use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/en-us/library/azure/dn261237.aspx). 
+We'll show you how to create a queue in code. We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages. The samples are written in C# code and use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/en-us/library/azure/dn261237.aspx). 
 
  - See [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md "How to use Blob Storage from .NET") for more information on manipulating blobs. in code
  - See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
