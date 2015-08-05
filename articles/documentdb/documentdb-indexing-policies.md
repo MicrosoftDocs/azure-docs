@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="DocumentDB Indexing Policies | Azure" 
+    pageTitle="DocumentDB Indexing Policies | Microsoft Azure" 
     description="Understand how indexing works in DocumentDB and learn how to configure and change the indexing policy." 
     services="documentdb" 
     documentationCenter="" 
