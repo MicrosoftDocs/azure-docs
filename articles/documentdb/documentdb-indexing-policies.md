@@ -300,7 +300,7 @@ The following code sample show how create a DocumentDB collection using the .NET
 
 ### Index paths
 
-Within documents, you can choose which paths must be included or excluded from indexing. This can offer improved write performance and lower index storage for scenarios when the query patterns are known beforehand.
+DocumentDB models JSON documents and the index as trees, and allows you to tune to policies for paths within the tree. You can find more details in this [introduction to DocumentDB indexing](documentdb-indexing.md). Within documents, you can choose which paths must be included or excluded from indexing. This can offer improved write performance and lower index storage for scenarios when the query patterns are known beforehand.
 
 Index paths start with the root (/) and typically end with the ? wildcard operator, denoting that there are multiple possible values for the prefix. For example, to serve SELECT * FROM Families F WHERE F.familyName = "Andersen", you must include an index path for /familyName/? in the collection’s index policy.
 
@@ -597,6 +597,10 @@ For example, the following sample shows how to include a document explicitly usi
 
 DocumentDB allows you to make changes to the indexing policy of a collection on the fly. A change in indexing policy on a DocumentDB collection can lead to a change in the shape of the index including the paths can be indexed, their precision, as well as the consistency model of the index itself. Thus a change in indexing policy, effectively requires a transformation of the old index into a new one. 
 
+**Online Index Transformations**
+
+![Online Index Transformations](media/documentdb-indexing-policies/IndexTransformation.PNG)
+
 Index transformations are made online, meaning that the documents indexed per the old policy are efficiently transformed per the new policy **without affecting the write availability or the provisioned throughput** of the collection. The consistency of read and write operations made using the REST API, SDKs or from within stored procedures and triggers is not impacted during index transformation. This means that there is no performance degradation or downtime to your apps when you make an indexing policy change.
 
 However, during the time that index transformation is progress, queries are eventually consistent regardless of the indexing mode configuration (Consistent or Lazy). This also applies to queries from all interfaces – REST API, SDKs, and from within stored procedures and triggers. Just like with Lazy indexing, index transformation is performed asynchronously in the background on the replicas using the spare resources available for a given replica. 
@@ -613,7 +617,8 @@ You can however move to Lazy or None indexing mode while a transformation is in 
 If you’re using the .NET SDK, you can kick of an indexing policy change using the new **ReplaceDocumentCollectionAsync** method and track the percentage progress of the index transformation using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs and the REST API support equivalent properties and methods for making indexing policy changes.
 
 Here's a code snippet that shows how to modify a collection's indexing policy from Consistent indexing mode to Lazy.
-Modify Indexing Policy from Consistent to Lazy
+
+**Modify Indexing Policy from Consistent to Lazy**
 
     // Switch to lazy indexing.
     Console.WriteLine("Changing from Default to Lazy IndexingMode.");
@@ -624,7 +629,8 @@ Modify Indexing Policy from Consistent to Lazy
 
 
 You can check the progress of an index transformation by calling ReadDocumentCollectionAsync, for example, as shown below.
-Track Progress of Index Transformation
+
+**Track Progress of Index Transformation**
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -636,6 +642,17 @@ Track Progress of Index Transformation
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
+
+You can drop the index for a collection by moving to the None indexing mode. This might be a useful operational tool if you want to cancel an in-progress transformation and start a new one immediately.
+
+**Dropping the index for a collection**
+
+    // Switch to lazy indexing.
+    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+
+    collection.IndexingPolicy.IndexingMode = IndexingMode.None;
+
+    await client.ReplaceDocumentCollectionAsync(collection);
 
 When would you make indexing policy changes to your DocumentDB collections? The following are the most common use cases:
 
