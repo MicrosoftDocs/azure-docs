@@ -175,7 +175,7 @@ You can create an Azure Batch linked service to register a Batch pool of virtual
 See following topics if you are new to Azure Batch service:
  
 
-- [Azure Batch Technical Overview](http://azure.microsoft.com/documentation/articles/batch-technical-overview/) for an overview of the Azure Batch service.
+- [Azure Batch Technical Overview](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
 - [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet to create an Azure Batch account (or) [Azure Management Portal](../batch/batch-technical-overview.md/#batch-concepts) to create the Azure Batch account using Azure Management Portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet to create an Azure Batch pool.
 
