@@ -54,28 +54,27 @@ The following steps show you how to create a Hive ODBC Data Source.
 
 5. Type or select the following values:
 
-	<table border="1">
-	<tr><td><strong>Property</strong></td><td><strong>Description</strong></td></tr>
-	<tr><td>Data Source Name</td><td>Give a name to your data source</td></tr>
-	<tr><td>Host</td><td>Enter <HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net</td></tr>
-	<tr><td>Port</td><td>Use <strong>443</strong>. (This port has been changed from 563 to 443.)</td></tr>
-	<tr><td>Database</td><td>Use <strong>Default</strong>.</td></tr>
-	<tr><td>Hive Server Type</td><td>Select <strong>Hive Server 2</strong></td></tr>
-	<tr><td>Mechanism</td><td>Select <strong>Azure HDInsight Service</strong></td></tr>
-	<tr><td>HTTP Path</td><td>Leave it blank.</td></tr>
-	<tr><td>User Name</td><td>Enter HDInsight cluster user username. This is the username created during the cluster provision process. If you used the quick create option, the default username is <strong>admin</strong>.</td></tr>
-	<tr><td>Password</td><td>Enter HDInsight cluster user password.</td></tr>
-	</table>
+Property|Description
+---|---
+Data Source Name|Give a name to your data source
+Host|Enter <HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net
+Port|Use <strong>443</strong>. (This port has been changed from 563 to 443.)
+Database|Use <strong>Default</strong>.
+Hive Server Type|Select <strong>Hive Server 2</strong>
+Mechanism|Select <strong>Azure HDInsight Service</strong>
+HTTP Path|Leave it blank.
+User Name|Enter HDInsight cluster user username. This is the username created during the cluster provision process. If you used the quick create option, the default username is <strong>admin</strong>.
+Password|Enter HDInsight cluster user password.
+</table>
 
-	There are some important parameters to be aware of when you click **Advanced Options**:
+There are some important parameters to be aware of when you click **Advanced Options**:
 
-	<table border="1">
-	<tr><td>Use Native Query</td><td>When it is selected, the ODBC driver will NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked.</td></tr>
-	<tr><td>Rows fetched per block</td><td>When fetching a large amount of records, tuning this parameter may be required to ensure optimal performances.</td></tr>
-	<tr><td>Default string column length, <br/>
-			Binary column length,  <br/>
-			Decimal column scale</td><td>The data type lengths and precisions may affect how data is returned. They will cause incorrect information to be returned due to loss of precision and/or truncation.</td></tr>
-	</table>
+Parameter|Description
+---|---
+Use Native Query|When it is selected, the ODBC driver will NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked.
+Rows fetched per block|When fetching a large amount of records, tuning this parameter may be required to ensure optimal performances.
+Default string column length, Binary column length, Decimal column scale|The data type lengths and precisions may affect how data is returned. They will cause incorrect information to be returned due to loss of precision and/or truncation.
+
 
 	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
 
