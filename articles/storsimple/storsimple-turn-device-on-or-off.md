@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # Turn your StorSimple device on or off 
@@ -37,7 +37,7 @@ The steps for turning on a Microsoft Azure StorSimple device for the first time 
 
 - [New device with primary enclosure only](#new-device-with-primary-enclosure-only)
 
-- [New device with EBOD enclosure](#new-device-with-EBOD-enclosure)
+- [New device with EBOD enclosure](#new-device-with-ebod-enclosure)
 
 ### New device with primary enclosure only
 
@@ -104,9 +104,9 @@ When setting up this device for the first time, perform the steps for SAS cablin
 
     3. The EBOD port on controller 0 should be connected to the CTRL port on EBOD controller 0. The EBOD port on controller 1 should be connected to the CTRL port on EBOD controller 1. See Figure 4 for guidance. 
 																	
-    ![SAS cabling for your device](./media/storsimple-turn-device-on-or-off/HCSSAScablingforyourdevice.png)
+     ![SAS cabling for your device](./media/storsimple-turn-device-on-or-off/HCSSAScablingforyourdevice.png)
 
-    **Figure 4** SAS cabling
+     **Figure 4** SAS cabling
 
     |Label|Description|
     |:----|:----------|
@@ -121,7 +121,7 @@ When setting up this device for the first time, perform the steps for SAS cablin
 
 #### To cable your device for power
 
->[AZURE.NOTE] Both enclosures on your StorSimple device include redundant Power and Cooling Modules (PCMs). For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
+>[AZURE.NOTE] Both enclosures on your StorSimple device include redundant PCMs. For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
 
 1. Make sure that the power switches on all the PCMs are in the OFF position.
 
@@ -150,7 +150,7 @@ When setting up this device for the first time, perform the steps for SAS cablin
     **Figure 4** Power cabling
 
     |Label|Description|
-    |:_---|-----------|
+    |:----|:----------|
     |1|Primary enclosure|
     |2|PCM 0|
     |3|PCM 1|
@@ -175,7 +175,7 @@ After a shutdown, use the following procedure to turn on a StorSimple device wit
 
 #### To turn on a device with a primary enclosure only
 
-1. Make sure that the power switches on both Power and Cooling Modules (PCMs) are in the OFF position. If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.
+1. Make sure that the power switches on both PCMs are in the OFF position. If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.
 
 2. Turn on the device by flipping the power switches on both PCMs to the ON position. The device should turn on.
 
@@ -197,7 +197,7 @@ After a shutdown, use the following procedure to turn on a StorSimple device wit
 
 1. Make sure that the EBOD enclosure is connected to the primary enclosure. For more information, see [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 
-2. Make sure that the Power and Cooling Modules (PCMs) on both the EBOD and primary enclosures are in the OFF position. If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.
+2. Make sure that the PCMs on both the EBOD and primary enclosures are in the OFF position. If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.
 
 3. Turn on the EBOD enclosure first by flipping the power switches on both PCMs to the ON position. The PCM LEDs should be green. A green EBOD controller LED on this unit indicates that the EBOD enclosure is on.
 
@@ -215,11 +215,19 @@ A power outage or interruption can shut down a Microsoft Azure StorSimple device
 
 ### Device with primary enclosure only <a name="8100">
 
+Determine which power supplies are affected, and then select from the following options.
+
+#### Power loss on one power supply
+
 The system can continue its normal operation if there is power loss to one of its power supplies. However, to ensure high availability of the device, restore power to the power supply as soon as possible.
+
+#### Power loss on both power supplies
 
 If there is a power outage or power interruption on both power supplies, the system will shut down in an orderly and controlled manner. When the power is restored, the system will automatically turn on.
 
 ### Device with EBOD enclosure <a name="8600">
+
+Determine which power supplies are affected, and then select from the following options.
 
 #### Power loss on one power supply
 
@@ -227,21 +235,19 @@ The system can continue its normal operation if there is power loss to one of it
 
 #### Power loss on both power supplies on primary and EBOD enclosures
 
-If there is a power outage or power interruption on both power supplies, the EBOD enclosure will shut down immediately and the primary enclosure will shut down in an orderly and controlled manner. When power is restored, the appliance will start automatically.
-
-If the power is switched off manually, then take the following steps to restore power to the system.
+If there is a power outage or power interruption on both power supplies, the EBOD enclosure will shut down immediately and the primary enclosure will shut down in an orderly and controlled manner. When power is restored, the appliance will start automatically. If the power was switched off manually, then take the following steps to restore power to the system:
 
 1. Turn on the EBOD enclosure.
 
 2. After the EBOD enclosure is on, turn on the primary enclosure.
 
-### Power loss on both power supplies on EBOD enclosure
+#### Power loss on both power supplies on EBOD enclosure
 
 When you set up your cables, you must ensure that the EBOD is never connected alone to a separate PDU. If the EBOD and primary enclosure fail at the same time, the system will recover.
 
 If only the EBOD enclosure fails on both power supplies, the system will not automatically recover. Take the following steps to turn on the system and restore it to a healthy state:
 
-1. If the primary enclosure is turned on, switch off both Power and Cooling Modules (PCMs).
+1. If the primary enclosure is turned on, switch off both PCMs.
 
 2. Wait for a few minutes for the system to shut down.
 
@@ -261,7 +267,7 @@ When both Serial Attached SCSI (SAS) cables are removed or the connection betwee
 
 2. If the SAS cable connection between the EBOD enclosure and the primary enclosure is broken, all SAS lane LEDs on the EBOD enclosure will be off.
 
-3. Shut down both Power and Cooling Modules (PCMs) on the EBOD enclosure and the primary enclosure.
+3. Shut down both PCMs on the EBOD enclosure and the primary enclosure.
 
 4. Wait until all the lights on the back of both the enclosures turn off.
 
@@ -319,7 +325,7 @@ You can connect to the Windows PowerShell for StorSimple through the device seri
 
 7. After both the controllers have shut down completely, the status LEDs on both controllers should be blinking red.
 
-8. If you need to shut down the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.
+8. If you need to shut down the device completely at this time, flip the power switches on both PCMs to the OFF position.
 
 9. To verify that the device has completely shut down, check that all the lights at the back of the device are off.
 
@@ -331,7 +337,7 @@ You can connect to the Windows PowerShell for StorSimple through the device seri
 
 1. Follow all the steps listed in [Device with primary enclosure only](#8100a).
 
-2. After the primary enclosure is shut down, shut down the EBOD by flipping off both Power and Cooling Module (PCM) switches.
+2. After the primary enclosure is shut down, shut down the EBOD by flipping off both PCM switches.
 
 3. To verify that the EBOD has shut down, check that all lights on the back of the EBOD enclosure are off.
 
