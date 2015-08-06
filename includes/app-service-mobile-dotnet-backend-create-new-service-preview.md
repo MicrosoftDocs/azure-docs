@@ -4,7 +4,7 @@ Follow these steps to create a new mobile app.
 
 1. Log into the [Azure Portal].
 
-2. In the top left of the window, click the **+NEW** button > **Web + Mobile** > **Mobile App**, then provide a name for your mobile app.
+2. In the top left of the window, click the **+NEW** button > **Web + Mobile** > **Mobile App** > **Create**, then provide a name for your mobile app.
 
 3. Choose your app service plan, or create a new one. In this tutorial's app service plan, we use **Standard 1** as the pricing tier and **South Central US** as the location.
 
