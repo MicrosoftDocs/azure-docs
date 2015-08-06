@@ -14,12 +14,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="08/03/2015"
 	ms.author="larryfr"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure preview portal
 
+[AZURE.INCLUDE [selector](../../include/hdinsight-administer-use-portal-linux.md)]
+
 Using the [Azure preview portal][preview-portal], you can provision and manage Linux-based Hadoop clusters in Azure HDInsight.
+
+> [AZURE.NOTE] The steps in this document are specific to working with Linux-based Hadoop clusters. For information on working with Windows-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure preview portal](hdinsight-administer-use-management-portal.md)
+
+
+[AZURE.INCLUDE [preview-portal](../../include/hdinsight-azure-preview-portal-nolink.md)]
 
 ## Other tools for administering HDInsight
 There are also other tools available for administering HDInsight in addition to the Azure portal.
@@ -84,7 +91,9 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 		
 	- __Select__: Use this to save the data source configuration.
 	
-7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. Set this to __1__, as this will be sufficient for this tutorial and will reduce the cost of the cluster. The estimated cost of the cluster will be shown at the bottom of this blade.
+7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. Set this to __1__, as this will be sufficient for this tutorial and will reduce the cost of the cluster. You can also change the number of nodes in a cluster after it has been provisioned. 
+
+	The estimated cost of the cluster will be shown at the bottom of this blade.
 
 	![Node pricing tiers blade](./media/hdinsight-administer-use-portal-linux/nodepricingtiers.png)
 	
@@ -93,7 +102,7 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 8. Select __Optional Configuration__. This blade allows you to configure the following items:
 
 	* __HDInsight Version__: The version of HDInsight used for the cluster. For more information on HDInsight versioning, see [HDInsight component versioning](hdinsight-component-versioning.md)
-	* __Custom Metastores__: This allows you to select a SQL Database, which will be used to store configuration information for Oozie and Hive. This allows you to reuse the configuration when deleting and recreating a cluster, instead of having to recreate the Hive and Oozie configuration each time.
+	* __External Metastores__: This allows you to select a SQL Database, which will be used to store configuration information for Oozie and Hive. This allows you to reuse the configuration when deleting and recreating a cluster, instead of having to recreate the Hive and Oozie configuration each time.
 	*__Azure Storage Keys__: This allows you to associate additional storage accounts with the HDInsight server.
 	
 		> [AZURE.NOTE] HDInsight can only access Azure Storage accounts used as the default data store, added through this configuration section, or that are publicly accessible.
