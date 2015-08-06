@@ -25,7 +25,7 @@ Welcome to Microsoft Azure StorSimple device deployment.
 
 These deployment tutorials apply to StorSimple 8000 Series Release Version, StorSimple 8000 Series Update 0.1, StorSimple 8000 Series Update 0.2, and StorSimple 8000 Series Update 0.3.
 
-This series of tutorials describes how to configure your StorSimple device, and includes a pre-installation checklist, configuration prerequisites, and detailed configuration steps.
+This series of tutorials describes how to configure your StorSimple device, and includes a configuration checklist, configuration prerequisites, and detailed configuration steps.
 
 > [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only. For complete information about the 7000 series devices, go to: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). For 7000 series deployment information, see the [StorSimple System Quick Start Guide](http://onlinehelp.storsimple.com/111_Appliance/).
 
@@ -36,7 +36,7 @@ Depending on your device model, you can then unpack, rackmount and cable by foll
 - [Unpack, rack mount, and cable your 8100](storsimple-8100-hardware-installation.md)
 - [Unpack, rack mount, and cable your 8600](storsimple-8600-hardware-installation.md)
 
-You will need administrator privileges to complete the setup and configuration process. We recommend that you review the pre-installation checklist before you begin. The deployment and configuration process can take some time to complete.
+You will need administrator privileges to complete the setup and configuration process. We recommend that you review the configuration checklist before you begin. The deployment and configuration process can take some time to complete.
 
 ## Deployment steps
 
@@ -46,11 +46,11 @@ Perform these required steps to configure your StorSimple device and connect it 
 | Step                                                                                   | Description                                                                                                                                                   |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **PREREQUISITES**                                                                      | These need to be completed in preparation for the upcoming deployment.                                                                                        |
-| Pre-installation checklist                                                             | Use this checklist to gather and record information prior to and during the deployment.                                                                       |
+| Deployment configuration checklist                                                     | Use this checklist to gather and record information prior to and during the deployment.                                                                       |
 | Deployment prerequisites                                                               | These  validate the environment is   ready for deployment                                                                                                     |
 |                                                                                        |                                                                                                                                                               |
-| **DEPLOYMENT STEPS**                                                                   | These steps are required to deploy your StorSimple device in production.                                                                                      |
-| Step 1:   Create a new service                                                         | Set up cloud management and storage for your   StorSimple device. Skip this step if you have an existing service for other StorSimple devices.                |
+| **STEP-BY-STEP DEPLOYMENT**                                                                   | These steps are required to deploy your StorSimple device in production.                                                                                      |
+| Step 1: Create a new service                                                         | Set up cloud management and storage for your   StorSimple device. Skip this step if you have an existing service for other StorSimple devices.                |
 | Step 2: Get the service registration key                                               | Use this key to register & connect your StorSimple device with the management service                                                                         |
 | Step 3: Configure and register the device through Windows PowerShell for StorSimple    | Connect the device to your network and register it with Azure to complete   the setup using the management service                                            |
 | Step 4: Complete minimum device setup</br>Optional: Update your StorSimple device      | Use the management service to complete the device setup and enable it to provide storage                                                                      |
@@ -60,8 +60,8 @@ Perform these required steps to configure your StorSimple device and connect it 
 | Step 8: Take a backup                                                                  | Setup your backup policy to protect your data                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
 | **OTHER PROCEDURES**                                                                   | You may need to refer to these procedures as you deploy your solution.                                                                                     	 |
-| Configure a new storage account for the   service                                      |                                                                                                                                                               |
-| Use PuTTY to connect to the device serial   console                                    |                                                                                                                                                               |
+| Configure a new storage account for the service                                      |                                                                                                                                                               |
+| Use PuTTY to connect to the device serial console                                    |                                                                                                                                                               |
 | Get the IQN of a Windows Server host                                                   |                                                                                                                                                               |
 | Create a manual backup                                                                 |                                                                                                                                                               
 
@@ -83,7 +83,7 @@ The following deployment configuration checklist describes the information that 
 | Complete minimum device setup          | Friendly name for your device                     | This is a descriptive name for the device. |        |
 |                                        | Timezone                                          | Your device will use this time zone for all scheduled operations.  |        |
 |                                        | Secondary DNS server                              | This is a required configuration.                                  |        |
-|                                        | Network interface: Data 0 Controller Fixed IPs    							      | These IP’s should be routable to internet</br>Controller 0 Fixed IP address</br>Controller 1 Fixed address|		                                                                                                                                                                        
+|                                        | Network interface: Data 0 controller fixed IPs    							      | These IP’s should be routable to internet</br>Controller 0 Fixed IP address</br>Controller 1 Fixed address|		                                                                                                                                                                        
 |   |   |  |  |
 | Additional network interface settings  | Network interface: Data 1</br>If iSCSI enabled, do not configure the Gateway.      | Purpose: Cloud/iSCSI/Not used</br>IP address:</br>Subnet Mask:</br>Gateway:|                                                                                                                                                                                                                                                                                               
 |                                        | Network interface: Data 2</br>If iSCSI enabled, do not configure the Gateway.      | Purpose: Cloud/iSCSI/Not used</br>IP address:</br>Subnet Mask:</br>Gateway:|                                                                                                                                      
@@ -91,24 +91,24 @@ The following deployment configuration checklist describes the information that 
 |                                        | Network interface: Data 4</br>If iSCSI enabled, do not configure the Gateway.      | Purpose: Cloud/iSCSI/Not used</br>IP address:</br>Subnet Mask:</br>Gateway:|                                                                                                                                          
 |                                        | Network interface: Data 5</br>If iSCSI enabled, do not configure the Gateway.      | Purpose: Cloud/iSCSI/Not used</br>IP address:</br>Subnet Mask:</br>Gateway:|                                                                                                                                         
 |   |   |  |  |
-| Volume Containers                      | Volume Container Name:                            | Name for the container                                                                                                                                                 |        |
-|                                        | Azure storage account name                        | Storage Account name & access key to associate with this volume container                                                                                              |        |
-|                                        | Cloud Storage Encryption Key:                     | Encryption Key for storage in each container                                                                                                                           |        |
+| Volume Containers                      | Volume container name:                            | Name for the container                                                                                                                                                 |        |
+|                                        | Azure storage account:                            | Storage account name & access key to associate with this volume container                                                                                              |        |
+|                                        | Cloud storage encryption key:                     | Encryption key for storage in each container                                                                                                                           |        |
 |   |   |  |  |
-| Create a volume                        | Details for each volume                           | Volume Name:                                                                                                                                                           |        |
+| Create a volume                        | Details for each volume                           | Volume name:                                                                                                                                                           |        |
 |                                        |                                                   | Size:                                                                                                                                                                  |        |
-|                                        |                                                   | Usage Type:                                                                                                                                                            |        |
-|                                        |                                                   | ACR Name:                                                                                                                                                              |        |
-|                                        |                                                   | Default Backup policy:                                                                                                                                                 |        |
+|                                        |                                                   | Usage type:                                                                                                                                                            |        |
+|                                        |                                                   | ACR name:                                                                                                                                                              |        |
+|                                        |                                                   | Default backup policy:                                                                                                                                                 |        |
 |   |   |  |  |
-| Mount, initialize, and format a volume | Details for each Server connecting to the storage | Windows Server Name:                                                                                                                                                   |        |
+| Mount, initialize, and format a volume | Details for each host server connecting to the storage | Windows Server name:                                                                                                                                                   |        |
 |                                        |                                                   | Windows Server IQN:                                                                                                                                                    |        |
-|                                        |                                                   | Windows Volume Name:                                                                                                                                                   |        |
-|                                        |                                                   | NTFS Mount point or Drive letter:                                                                                                                                      |        |
+|                                        |                                                   | Windows Server volume name:                                                                                                                                                   |        |
+|                                        |                                                   | NTFS mount point/Drive letter:                                                                                                                                      |        |
 
 ## Deployment prerequisites
 
-The following sections explain the configuration prerequisites for your StorSimple Manager service, your StorSimple device, and network in your datacenter.
+The following sections explain the configuration prerequisites for your StorSimple Manager service, your StorSimple device, and the network in your datacenter.
 
 ### For the StorSimple Manager service
 
@@ -127,8 +127,9 @@ Before you begin, make sure that:
 Before configuring the device, make sure that:
 
 - Your device is fully unpacked, mounted on a rack and fully cabled for power, network, and serial access as described in:
-	-  [Unpack your 8100 device](storsimple-8100-hardware-installation.md), or
-	-  [Unpack your 8600 device](storsimple-8600-hardware-installation.md).
+
+	-  [Unpack your 8100 device](storsimple-8100-hardware-installation.md)
+	-  [Unpack your 8600 device](storsimple-8600-hardware-installation.md)
 
 
 ## For the network in the datacenter
@@ -136,7 +137,7 @@ Before configuring the device, make sure that:
 Before you begin, make sure that:
 
 - The ports in your datacenter firewall are opened to allow for iSCSI and cloud traffic as described in [Networking requirements for your StorSimple device]().
-- The device in your datacenter can connect to outside network. Run the following [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) cmdlets to validate the connectivity to the outside network on a computer inside the datacenter network. Perform this validation in a network that has connectivity to Azure and where you will deploy your StorSimple device.  
+- The device in your datacenter can connect to outside network. Run the following [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) cmdlets (tabulated below) to validate the connectivity to the outside network on a computer inside the datacenter network. Perform this validation in a network that has connectivity to Azure and where you will deploy your StorSimple device.  
 
 | For this parameter…       | To check the validity…                                                                                                                                                                                | Run these commands/cmdlets.                                                                                                                                                             |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -260,17 +261,34 @@ To connect to Windows PowerShell for StorSimple, you need to use terminal emulat
 
 [AZURE.INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
+## Scan for and apply updates
+
+Updating your system can take up to several hours depending on the updates applied. When doing the backup, you may be asked to disable network interfaces Data 2 and Data 3 before doing the update. To do this just go to the configure tab and disable Data 2 and Data 3 and re-enable those after the update is complete.
+ 
+#### To update your device
+1.	On the device **Quick Start** page, click **Devices**. Select the physical device, click **Maintenance** and then click **Scan Updates**.  
+2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. You may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail. 
+3.	An update job will be created. Monitor the status of your update by navigating to **Jobs**. 
+
+	> [AZURE.NOTE] When the update job starts, it immediately displays the status as 50%. The status then changes to 100% only after the update job is complete. There is no real time status for the updates process.
+	
+4.	After the job has been completed, enable Data 2 and Data 3 if these were disabled.
+
+
+
 ## Get the IQN of a Windows Server host
 
 Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows host that is running Windows Server® 2012.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-get-iqn.md)]
 
+
 ## Create a manual backup
 
 Perform the following steps in the Management Portal to create an on-demand manual backup for a single volume on your StorSimple device.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-create-manual-backup.md)]
+
 
 ## Next steps
 
