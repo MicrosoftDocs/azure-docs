@@ -4,22 +4,20 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.topic="get-started-article" 
+	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
 # Application Insights: platforms
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-#### Can I use Application Insights with ...?
 
 
 ## Languages
@@ -27,7 +25,7 @@
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
 + [C#|VB (Windows Store)](app-insights-windows-get-started.md)
 + [C++ (Windows Store)](app-insights-windows-cpp.md)
-+ [Java](../app-insights-java.md)
++ [Java](../app-insights-java-get-started.md)
 + [JavaScript web pages](app-insights-web-track-usage.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
@@ -40,10 +38,11 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure web apps and VMs](../insights-perf-analytics.md)
-+ [Azure Cloud Services](app-insights-cloudservices.md)
++ [Azure Cloud Services](app-insights-cloudservices.md) including both web and worker roles
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
++ [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [SharePoint](app-insights-sharepoint.md)
@@ -58,7 +57,7 @@
 
 +	[Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J, or Logback](app-insights-java-trace-logs.md)
-
++   [Semantic Logging](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 
 ## <a name="projects"></a> Build your own SDK
 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Build a web app with Python and Flask using DocumentDB | Azure"
+    pageTitle="Build a web app with Python and Flask using DocumentDB | Microsoft Azure"
     description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."
     services="documentdb"
     documentationCenter="python"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article" 
-    ms.date="04/08/2015"
+    ms.date="07/07/2015"
     ms.author="ryancraw"/>
 
 # Build a web application with Python and Flask (MVC) using DocumentDB

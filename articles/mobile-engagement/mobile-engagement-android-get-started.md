@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/01/2015"
 	ms.author="piyushjo" />
 
@@ -24,6 +24,7 @@
 - [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of an Android application.
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
@@ -46,7 +47,7 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your app
 
-1. Log on to the [Azure Management Portal], and then click **+NEW** at the bottom of the screen.
+1. Log on to the [Azure Management Portal](https://manage.windowsazure.com), and then click **+NEW** at the bottom of the screen.
 
 2. Click on **App Services**, then **Mobile Engagement**, then **Create**.
 
@@ -119,7 +120,7 @@ Download and integrate the SDK library
 
 1. Download the [Mobile Engagement Android SDK].
 2. Extract the archive file to a folder in your computer.
-3. Identify the .jar library for the current version of this SDK (this documentation was prepared for the 3.0.0 version) and copy it to the clipboard.
+3. Identify the .jar library for the current version of this SDK and copy it to the clipboard.
 
 	![][17]
 
@@ -167,7 +168,7 @@ Download and integrate the SDK library
 
 	![][21]
 
-2. Add the following between the < application > and </application > tags to declare the agent service:
+2. Add the following between the `<application>` and `</application>` tags to declare the agent service:
 
 		<service
  			android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -175,13 +176,7 @@ Download and integrate the SDK library
  			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
-3. In the code you just pasted, replace "< Your application name>" in the label. For example:
-
-		<service
- 			android:name="com.microsoft.azure.engagement.service.EngagementService"
- 			android:exported="false"
- 			android:label="<Your application name>"
- 			android:process=":Engagement"/>
+3. In the code you just pasted, replace `"<Your application name>"` in the label. This is what is displayed in settings menu where user can see services running on the device. You can add the word "Service" in that label for example.
 
 ###Send a Screen to Mobile Engagement
 
@@ -224,7 +219,7 @@ The following sections will setup your app to receive them.
 
 ### Enabling In-app Messaging
 
-1. Copy the In-app messaging resources below into your Manifest.xml between the < application > and </application > tags.
+1. Copy the In-app messaging resources below into your Manifest.xml between the `<application>` and `</application>` tags.
 
 		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
   			<intent-filter>
@@ -246,6 +241,12 @@ The following sections will setup your app to receive them.
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
+		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			<intent-filter>
+				<action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
 		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED"/>
@@ -253,37 +254,50 @@ The following sections will setup your app to receive them.
 				<action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			</intent-filter>
 		</receiver>
 
 2. Copy the resources to your project through the following steps:
-	1. Navigate back to your SDK download content and open the 'res' folder.
-	2. Select the 2 folders and copy them to the clipboard.
+	1. Navigate back to your SDK download content and copy the 'res' folder.
 
 		![][23]
 
-	4. Go back to Android Studio, select the 'res' portion of your project and paste to add the resources to your project.
+	2. Go back to Android Studio, select the 'main' directory of your project files and paste to add the resources to your project.
 
 		![][24]
 
-###Specify a default icon in notifications
-The following code will define the default icon that will display with notifications. This is a requirement for the notifications otherwise they will not be displayed. 
+###Specify an icon for notifications
 
-This xml snippet is to be pasted into your Manifest.xml between the < application > and </application > tags.
+The following code defines the icon that is used to display both in app and system notifications.
 
-Make sure you are using an icon which exists in the **drawable** folder (e.g. engagement_close.png).  
+Though this is optional for in-app notifications, it is mandatory for system notifications, Android rejects system notifications with invalid icons.
+
+This xml snippet is to be pasted into your Manifest.xml between the `<application>` and `</application>` tags.
+
+Make sure you are using an icon which exists in one of the **drawable** folders (like ``engagement_close.png``). We don't support **mipmap** folders.
 	
 		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
 
+Its just an example to show the syntax, you should of course use an icon that is suitable for notifications as per [Android design guidelines](http://developer.android.com/design/patterns/notifications.html).
+
+You should not use the launcher icon, it's a different resolution and is usually in the mipmap folders, which we don't support.
+
+>[AZURE.TIP] To be sure to use correct icon resolutions you can look at [those examples](https://www.google.com/design/icons).
+Scroll down to *Notification* section, click on an icon and click on `PNGS` to download the icon drawable set. You will see what drawable folders to use with which resolution for each version of the icon.
+
 ###Enable your app to receive GCM Push Notifications
 
-1. Enter your gcm:sender metadata by copy-pasting the following into your Manifest.xml between the < application > and </application > tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console. The \n is intentional so make sure you end the project number with it.
+1. Enter your gcm:sender metadata by copy-pasting the following into your Manifest.xml between the `<application>` and `</application>` tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console. The \n is intentional so make sure you end the project number with it.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
-2. Paste the code below into your Manifest.xml between the < application > and </application > tags. Replace the package name <Your package name>.
+2. Paste the code below into your Manifest.xml between the `<application>` and `</application>` tags. Replace the package name <Your package name>.
 
 		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
 		android:exported="false">
@@ -300,10 +314,10 @@ Make sure you are using an icon which exists in the **drawable** folder (e.g. en
 			</intent-filter>
 		</receiver>
 
-3. Add the last set of permissions highlighted below or after the < application> tag. Replace the package name <Your package name>.
+3. Add the last set of permissions highlighted before `<application>` tag. Replace `<Your package name>` by the actual package name of your application.
 
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		<uses-permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" />
+		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
 		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
 ###Grant access to your GCM API Key to Mobile Engagement
@@ -395,4 +409,3 @@ We will now create a simple Push Notification campaign that will send a push not
 [37]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
- 

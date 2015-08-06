@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/13/2015"
+   ms.date="07/11/2015"
    ms.author="nitinme"/>
 
 # Hadoop tutorial: Get started using Hadoop with Hive in HDInsight on Linux (preview)
@@ -22,13 +22,13 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-This Hadoop tutorial gets you started quickly with Azure HDInsight on Linux by showing you how to provision an Hadoop cluster on Linux and run a Hive query to extract meaningful information from unstructured data.
+This Hadoop tutorial gets you started quickly with Azure HDInsight on Linux by showing you how to provision an Hadoop cluster on Linux and run a Hive query.
 
 
 > [AZURE.NOTE] If you are new to Hadoop and big data, you can read more about the terms <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">Hadoop Distributed File System (HDFS)</a>, and <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
 
 
-## What does this tutorial accomplish? ##
+## What does this tutorial accomplish? 
 
 Assume you have a large unstructured data set and you want to run queries on it to extract some meaningful information. Here's how you achieve this:
 
@@ -67,9 +67,9 @@ To simplify this tutorial, only the default Blob container and the default Stora
 
 	![Azure portal where you can use Quick Create to set up a new Storage account.](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.StorageAccount.QuickCreate.png)
 
-3. Enter information for **URL**, **LOCATION** and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. You will see the new Storage account in the storage list.
+3. Enter information for **URL**, **LOCATION**, and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. You will see the new storage account in the storage list.
 
-	>[AZURE.NOTE]  The Quick Create option to provision an HDInsight Linux cluster, like the one we use in this tutorial, does not ask for a location while provisioning the cluster. By default, it co-locates the cluster in the same datacenter as the Storage account. So, make sure you create your Storage account in the locations supported for the cluster, which are: **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, **South Central US**.
+	>[AZURE.NOTE]  The Quick Create option to provision an HDInsight Linux cluster, like the one we use in this tutorial, does not ask for a location while provisioning the cluster. By default, it co-locates the cluster in the same datacenter as the Storage account.
 
 4. Wait until **STATUS** for the new Storage account is changed to **Online**.
 5. Select the new Storage account from the list and click **MANAGE ACCESS KEYS** from the bottom of the page.

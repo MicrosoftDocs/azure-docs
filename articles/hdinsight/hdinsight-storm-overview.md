@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Introduction to Apache Storm on HDInsight: Real-time analytics for Hadoop
@@ -51,9 +51,7 @@ To get started using Storm, see [Get started with Storm on HDInsight][gettingsta
 
 You can provision a new Storm on HDInsight cluster in minutes. Specify the cluster name, size, administrator account, and the storage account. Azure will create the cluster, including sample topologies and a web-management dashboard.
 
-The following is an example of provisioning a Storm on HDInsight cluster by using the Azure portal. You can also provision Storm clusters by using [Azure PowerShell](../install-configure-powershell.md).
-
-![An example of the quick-create cluster form in the portal](./media/hdinsight-storm-overview/quick-create.png)
+> [AZURE.NOTE] You can also provision Storm clusters by using the [Azure CLI](../xplat-cli.md) or [Azure PowerShell](../powershell-install-configure.md).
 
 Within 15 minutes of submitting the request, you will have a new Storm cluster running and ready for your first real-time analytics pipeline.
 
@@ -93,7 +91,7 @@ The default configuration for Apache Storm is to have only one Nimbus node. Stor
 
 Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match workload. All HDInsight clusters allow you to change the number of nodes in the cluster, even while processing data.
 
-![data nodes instance count in the portal](./media/hdinsight-storm-overview/scale.png)
+> [AZURE.NOTE] To take advantage of new nodes added through scaling, you will need to rebalance topologies started before the cluster size was increased.
 
 ###Support
 
@@ -208,4 +206,3 @@ Learn more about real-time analytics solutions with Apache Storm in HDInsight:
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
- 

@@ -1,23 +1,24 @@
 <properties
-	pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines"
+	pageTitle="SharePoint 2010 deployment on Azure virtual machines"
 	description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 
-# SharePoint 2010 Deployment on Azure Virtual Machines
+# SharePoint 2010 deployment on Azure virtual machines
 
 Microsoft SharePoint Server 2010 provides rich deployment flexibility, which can help organizations determine the right deployment scenarios to align with their business needs and objectives. Hosted and managed in the cloud, the Azure Virtual Machines offering provides complete, reliable, and available infrastructure to support various on-demand application and database workloads, such as Microsoft SQL Server and SharePoint deployments.
 
@@ -106,7 +107,7 @@ Step 1. Configure the Azure subscription using script files.
 
 Step 2. Provision SharePoint servers by creating another VM with base operating system (as shown above in steps 1 to 6). To build a SharePoint server on this VM, choose one of the following options:
 
-- Provision using SharePoint GUI:
+- Provision using the SharePoint GUI:
 	- To create and provision a SharePoint farm, go to [Create a Microsoft SharePoint Server Farm](http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure).
 	- To add a web or application server to the farm, go to [Add a Web or Application Server to the Farm](http://technet.microsoft.com/library/cc261752.aspx).
 	- To add a database server to an existing farm, go to [Add a Database Server to an Existing Farm](http://technet.microsoft.com/library/cc262781).
@@ -272,14 +273,14 @@ Azure Virtual Machines provide a full continuum of SharePoint deployments. It is
 
 Successful deployment of SharePoint Server on Azure Virtual Machines requires solid planning, especially considering the range of critical farm architecture and deployment options. The insights and best practices outlined in this article can help to guide decisions for implementing an informed SharePoint deployment.
 
-## Additional Resources
+## Additional resources
 
-[SharePoint on Azure Virtual Machines](http://msdn.microsoft.com/library/dn275955.aspx)
+[SharePoint on Azure virtual machines](http://msdn.microsoft.com/library/dn275955.aspx)
 
 [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Azure Infrastructure Services Workload: Intranet SharePoint Farm](virtual-machines-workload-intranet-sharepoint-farm)
+[Azure infrastructure services workload: Intranet SharePoint farm](virtual-machines-workload-intranet-sharepoint-farm)
 
-[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
  

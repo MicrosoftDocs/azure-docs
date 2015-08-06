@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
@@ -66,21 +66,31 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 3. Pick **Application Insights for Windows Applications**
 
-4. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
+4. Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal. A sample xml for this config file is shown below. 
+
+	```xml
+		<?xml version="1.0" encoding="utf-8" ?>
+		<ApplicationInsights>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
+		</ApplicationInsights>
+	```
+
+    Set the properties of the ApplicationInsights.config file: **Build Action** == **Content** and **Copy to Output Directory** == **Copy always**.
+	
+	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
+
+5. Add the following initialization code. It is best to add this code to the `App()` constructor. If you do it somewhere else, you might miss auto collection of the first pageviews.  
 
 ```C#
-
-    public App()
-    {
-       // Initialize Application Insights - substitute your own iKey:
-       WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
-            
-       this.InitializeComponent();
-       this.Suspending += OnSuspending;
-    }
-
+	public App()
+	{
+	   // Add this initilization line. 
+	   WindowsAppInitializer.InitializeAsync();
+	
+	   this.InitializeComponent();
+	   this.Suspending += OnSuspending;
+	}  
 ```
-  
 
 **Windows Universal apps**: Repeat the steps for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 

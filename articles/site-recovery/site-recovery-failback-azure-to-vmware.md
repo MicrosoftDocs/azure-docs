@@ -53,7 +53,7 @@ Part of the setup has already been completed during failover.
 
 -   The lines with arrows go over the internet.
 
-![](./media/site-recovery-failback-azure-to-vmware/image1.png)
+![](./media/site-recovery-failback-azure-to-vmware/vconports.png)
 
 ## Install vContinuum on-premsies
 
@@ -63,42 +63,29 @@ Also install the patch given here on the vConinuum - available at [download loca
 
 1.  Launch the setup to begin installation of vContinuum. After the
     welcome screen click next to begin specifying the settings
-
 ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
-
 2.  Specify the CX server IP address and the CX server port. Ensure to
     select HTTPs in the checkbox.
-
 ![](./media/site-recovery-failback-azure-to-vmware/image3.png)
-
     a.  To discover the CX IP go to the CS deployment on Azure and view
         its dashboard. The public IP address will be displayed under
         Public Virtual IP address.
-
 ![](./media/site-recovery-failback-azure-to-vmware/image4.png)
-
     b.  To discover the CX public port go to the endpoints tab in the VM
         page and identify the HTTPs endpoints public port
-
 ![](./media/site-recovery-failback-azure-to-vmware/image5.png)
-
 3.  Specify the CS Passphrase. You need to have noted down the
     passphrase during the CS registration. You would have used the
     passphrase during MT and PS deployments also. In case you do not
     remember the passphrase you can go in to the CS server on Azure and
     find the passphrase stored under C:\\Program Files (x86)\\InMage
     Systems\\private\\connection.passphrase
-
     ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
-
 4.  Specify the location to install the vContinuum server and begin
     installation
-
     ![](./media/site-recovery-failback-azure-to-vmware/image7.png)
-
 5.  Once the installation completes, you can launch the vContinuum to
     see it working.
-
     ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
 ## Install PS server on Azure
@@ -109,33 +96,22 @@ Azure in the same network as the Configuration Server.
 
 1.  On the Configuration Severs page in Azure, select to add a new
     Process Server ![](./media/site-recovery-failback-azure-to-vmware/image9.png)
-
 2.  Configure the below settings on a Process Server to deploy a new
     server
-
     a.  Give the Process Server a name
-
     b.  Enter a username to connect to the virtual machine as admin
-
     c.  Enter the password to login with
-
     d.  Select the Configuration server to which the Process server
         needs to be registered to. Ensure that you select the correct
         Configuration server. This is the same server using which you
         protected and failed over your virtual machines.
-
     e.  Specify the Azure Network into which you need to deploy the
         Process Server. Ensure that you select the same network as your
         Configuration Server’s network.
-
     f.  Specify a unique IP address from the subnet selected.
-
     g.  Begin the deployment of the Process server.
-
 ![](./media/site-recovery-failback-azure-to-vmware/image10.png)
-
-1.  A job to deploy the Process server will be triggered
-
+3.  A job to deploy the Process server will be triggered
 ![](./media/site-recovery-failback-azure-to-vmware/image11.png)
 
 Once the Process server is deployed on Azure you can log into the server
@@ -452,11 +428,11 @@ virtual machine.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
-1.  In the **Choose Application** setting, select **P2V**
+2.  In the **Choose Application** setting, select **P2V**
 
-2.  Click on the **New Protection** option to begin
+3.  Click on the **New Protection** option to begin
 
-3.  In the new window that opens you will begin protecting the virtual
+4.  In the new window that opens you will begin protecting the virtual
     machines back to on-premises.
 
     a.  Select the **OS type** according to the VMs you want to failback
@@ -474,7 +450,7 @@ virtual machine.
     e.  Once you have identified the VMs you want to protect, select
         them one by one.
 
-4.  When you select a virtual machine to protect (and it has already
+5.  When you select a virtual machine to protect (and it has already
     failed over to Azure) you will get a popup window that gives two
     entries for the virtual machine. This is because the CS has detected
     two instances of the virtual machines registered to it. You need to
@@ -495,7 +471,7 @@ virtual machine.
 
     d.  Next you can also delete the virtual machines on-premises
 
-5.  Next you need to specify the on-premises MT server to which you want
+6.  Next you need to specify the on-premises MT server to which you want
     to protect the VMs.
 
     a.  Connect to the vCenter to which you want to failback to
@@ -507,7 +483,7 @@ a.  Select the MT server based on the host into which you want to
 
 ![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-1.  Next provide the replication option for each of the virtual machines
+7.  Next provide the replication option for each of the virtual machines
 
 ![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
@@ -516,36 +492,30 @@ a.  You need to select the recovery side **Datastore** – this is the
 
 The different options you need to provide per VM are
 
-<table>
-<tr><td>Option</td><td>Option recommended value</td></tr>
-<tr><td>Process Server IP</td><td>Select the PS which you have deployed on Azure</td></tr>
-<tr><td>Retention size in MB</td><td></td></tr>
-<tr><td>Retention value</td><td>1</td></tr>
-<tr><td>Days/Hours</td><td>Days</td></tr>
-<tr><td>Consistency Interval</td><td>1</td></tr>
-<tr><td>Select Target Datastore</td><td>The datastore available on the recovery side. This data store should have enough space and also be available to the ESX host on which you want to realise the virtual machine.</td></tr>
-</table>
+Option|Option recommended value
+---|---
+Process Server IP|Select the PS which you have deployed on Azure
+Retention size in MB| 
+Retention value|1
+Days/Hours|Days
+Consistency Interval|1
+Select Target Datastore|The datastore available on the recovery side. This data store should have enough space and also be available to the ESX host on which you want to realise the virtual machine.
 
 
-1.  Next you can configure the properties that the virtual machine will
+8.  Next you can configure the properties that the virtual machine will
     acquire after failover to on-premises site. The different properties
     you can configure are as below
 
 ![](./media/site-recovery-failback-azure-to-vmware/image26.png)
 
 
-  <table>
-<tr><td>Property</td><td>How to configure</td></tr>
-<tr><td>Network Configuration</td><td>For each NIC detected, configure the failback IP address for the virtual machine. Select the NIC and click **Change** to specify the IP address details.
-
-</td></tr>
-<tr><td>Hardware Configuration</td><td>You can specify the CPU and the Memory values for the VM. This setting can be applied to all the VMs you are trying to protect.
-
-To identify the correct values for the CPU and Memory, you can refer to the IAAS VMs role size and see the number of cores and Memory assigned.
-</td></tr>
-<tr><td>Display Name</td><td>After failover back to on-premises, you can choose to rename the virtual machines as it will be seen in the inventory of vCenter. Note that the default value seen here is the virtual machine computer host name. To identify the VM name, you can refer to the VM list in the Protection group.</td></tr>
-<tr><td>NAT Configuration</td><td>Discussed in detail below</td></tr>
-</table>
+Property|How to configure
+---|---
+Network Configuration|For each NIC detected, configure the failback IP address for the virtual machine. Select the NIC and click **Change** to specify the IP address details.
+Hardware Configuration|You can specify the CPU and the Memory values for the VM. This setting can be applied to all the VMs you are trying to protect.
+Display Name|To identify the correct values for the CPU and Memory, you can refer to the IAAS VMs role size and see the number of cores and Memory assigned.
+Display Name|After failover back to on-premises, you can choose to rename the virtual machines as it will be seen in the inventory of vCenter. Note that the default value seen here is the virtual machine computer host name. To identify the VM name, you can refer to the VM list in the Protection group.
+NAT Configuration|Discussed in detail below
 
 ![](./media/site-recovery-failback-azure-to-vmware/image27.png)
 
@@ -598,7 +568,7 @@ To identify the correct values for the CPU and Memory, you can refer to the IAAS
 The other options in the Advanced settings can be left as default.
 Make sure you apply the folder name settings to all the servers.
 
-1.  Next move to the final stage of the Protection. Here you need to run
+2.  Next move to the final stage of the Protection. Here you need to run
     a Readiness Check to ensure that the virtual machines are ready to
     be protected back to on-premises.
 
@@ -618,7 +588,7 @@ Make sure you apply the folder name settings to all the servers.
     below.
 
 
-1.  The Protection will now begin.
+3.  The Protection will now begin.
 
     a.  You can see the progress of the protection on the vContinuum
 
@@ -649,17 +619,17 @@ are very similar to the ASR Recovery plans.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image37.png)
 
-1.  You can see the list of all the Plans that have been used to protect the virtual machines. These are the same plans you can use to recover.
+3.  You can see the list of all the Plans that have been used to protect the virtual machines. These are the same plans you can use to recover.
 
-2.  Select the Protection Plan and select all the VMs you want to recover within it.
+4.  Select the Protection Plan and select all the VMs you want to recover within it.
 
     a.  On selecting each VM you can see more details about the source
         VM, target ESX server where the VM will be recovered to and the
         source VM disk
 
-3.  Click Next to begin the **Recover** Wizard
+5.  Click Next to begin the **Recover** Wizard
 
-4.  Select the Virtual Machines you want to recover
+6.  Select the Virtual Machines you want to recover
 
     a.  See the list of all the virtual machines that you can recover
 
@@ -673,14 +643,14 @@ are very similar to the ASR Recovery plans.
     chosen for all the virtual machines.
 
 
-1.  Run the **Readiness Check.** This will inform if the right
+7.  Run the **Readiness Check.** This will inform if the right
     parameters are configured to enable the latest tag recovery of the
     virtual machine. Click Next if all the checks are successful else
     look at the log and resolve the errors.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image39.png)
 
-2.  In the VM Configuration step of the wizard, ensure that the recovery
+8.  In the VM Configuration step of the wizard, ensure that the recovery
     settings are correctly set. In case the VM settings are different
     from the one you require, you can choose to change them. Since we
     have already completed this action during the protection, you may
@@ -688,7 +658,7 @@ are very similar to the ASR Recovery plans.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image40.png)
 
-1.  Finally review the list of virtual machines that will be recovered.
+9.  Finally review the list of virtual machines that will be recovered.
 
     a.  Specify a recovery order to the virtual machines.
 
@@ -699,7 +669,7 @@ IAAS and look at the hostname of the virtual machine.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image41.png)
 
-1.  Give the **recovery plan name** and select **Recover later** in
+10.  Give the **recovery plan name** and select **Recover later** in
     **Recovery options.**
 
     a.  In case you want to recover right away you can choose to
@@ -711,12 +681,12 @@ IAAS and look at the hostname of the virtual machine.
     c.  Finally click on **Recover** button to either save the plan or
         to trigger the recovery based on your **Recovery options**.
 
-2.  You can see the Recovery Status and see if it the plan is
+11.  You can see the Recovery Status and see if it the plan is
     successfully saved.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image42.png)
 
-1.  If you have chosen to recover later, you will be informed that the
+12.  If you have chosen to recover later, you will be informed that the
     plan is created and you can recover later.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image43.png)
@@ -749,19 +719,19 @@ start the plan that is saved.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image45.png)
 
-1.  Select the **Recovery** node and select the plan that you want to
+3.  Select the **Recovery** node and select the plan that you want to
     recover.
 
     a.  It will inform you that the plan has not yet started.
 
-2.  Click **Start** to begin the recovery.
+4.  Click **Start** to begin the recovery.
 
-3.  You can monitor the recovery of the virtual machines
+5.  You can monitor the recovery of the virtual machines
 
 
 ![](./media/site-recovery-failback-azure-to-vmware/image46.png)
 
-4. Once the VMs have been powered ON, you can connect to the virtual
+6. Once the VMs have been powered ON, you can connect to the virtual
     machines on your vCenter.
 
 ## Re-protect to Azure after failback

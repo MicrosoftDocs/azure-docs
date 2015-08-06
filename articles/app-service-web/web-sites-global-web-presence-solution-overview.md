@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
 
 
@@ -34,9 +34,9 @@ Below is an example of a .COM website running on App Service Web Apps. It demons
 
 Quickly create new sites from a popular CMS in the gallery or bring your existing web assets to App Service Web Apps from a variety of languages and frameworks.
 
-The Azure Marketplace provides templates from the popular website content management systems (CMS), such as [Orchard], [Umbraco], [Drupal], and [WordPress]. You can create a web app using your favorite CMS flavor. You can choose from various database backends to meet your needs, including [Azure SQL Database] and [MySQL].
+The Azure Marketplace provides templates from the popular website content management systems (CMS), such as [Orchard], [Umbraco], Drupal, and [WordPress]. You can create a web app using your favorite CMS flavor. You can choose from various database backends to meet your needs, including [Azure SQL Database] and [MySQL].
 
-Your existing web assets can run on App Service Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools or your source control management system. Web Apps supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Your existing web assets can run on App Service Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools or your source control management system. Web Apps supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
 
 ## Publish reliably
 
@@ -50,7 +50,7 @@ Also, when planning changes to a live website, you can easily [run A/B tests] on
 
 Use the App Service Web Apps domain for free or map to your registered domain name, then secure your brand with your CA-signed SSL certificate.
 
-The **\*.azurewebsites.net** domain is complimentary when you run your website on Web Apps. Or, you can map your website to a [custom domain] (e.g. contoso.com), which you obtained from any DNS registry, such as GoDaddy.
+The **\*.azurewebsites.net** domain is complimentary when you run your website on Web Apps. Or, you can map your website to a [custom domain] - e.g. contoso.com - which you obtained from any DNS registry, such as GoDaddy.
 
 If you collect any user information, perform ecommerce, or manage any other sensitive data, you can protect your brand reputation and your customers with [HTTPS]. The **\*.azurewebsites.net** domain name already comes with an SSL certificate, and if you use your custom domain, you can bring your SSL certificate for it to Web Apps. There is a monthly charge (prorated hourly) associated with each SSL certificate. For more information, see [App Service Pricing Details].
 
@@ -100,7 +100,6 @@ Make your .COM site attractive with rich media, such as:
 
 [Orchard]:web-sites-dotnet-orchard-cms-gallery.md
 [Umbraco]:web-sites-gallery-umbraco.md
-[Drupal]:web-sites-php-migrate-drupal.md
 [WordPress]:web-sites-php-web-site-gallery.md
 [MySQL]:web-sites-php-mysql-deploy-use-git.md
 [Azure SQL Database]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md

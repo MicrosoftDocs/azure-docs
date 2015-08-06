@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.topic="hero-article"
+	ms.date="07/02/2015"
 	ms.author="dastrock"/>
 
 # How to get an Azure Active Directory tenant
@@ -64,4 +64,3 @@ If you have previously signed up for an Azure subscription with your organizatio
 If all of the above is gibberish to you, don't worry.  Simply visit [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) to sign up for Azure with a new organization.  Once you've completed the process, you will have your very own Azure AD tenant with the domain name you chose during sign up.  In the [Azure Management Portal](https://manage.windowsazure.com), you can find your tenant by navigating to "Active Directory" in the left hand nav.
 
 As part of the process of signing up for Azure, you will be required to provide credit card details.  You can proceed with confidence - you will not be charged for publishing applications in Azure AD or creating new tenants.
- 

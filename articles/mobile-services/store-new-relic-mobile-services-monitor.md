@@ -3,7 +3,7 @@
 	description="Learn how to use the New Relic add-on to monitor your mobile service." 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	manager="carolz"
 	editor="" 
 	services="mobile-services"/>
 

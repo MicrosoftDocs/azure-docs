@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
-	authors="bradsev" 
+	authors="mumian" 
 	documentationCenter=""/>
 
 <tags 
@@ -13,35 +13,56 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/10/2015" 
+	ms.author="jgao"/>
 
 
 #Availability and reliability of Hadoop clusters in HDInsight
 
 
-A second head node has been added to the Hadoop clusters deployed by Azure HDInsight to increase the availability and reliability of the service needed to manage workloads. Standard implementations of Hadoop clusters typically have a single head node. These clusters are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the head node would cause the cluster to cease to work. 
+HDInsight allows customers to deploy a variety of cluster types, for different data analytics workloads. Cluster types offered today are Hadoop clusters for query and analysis workloads, HBase clusters for NoSQL workloads, and Storm clusters for real time event processing workloads. Within a given cluster type, there are different roles for the various nodes. For example:
+
+
+
+- Hadoop clusters for HDInsight are deployed with two roles:
+	- Head node (2 nodes)
+	- Data node (at least 1 node)
+
+- HBase clusters for HDInsight are deployed with three roles:
+	- Head servers (2 nodes)
+	- Region servers (at least 1 node)
+	- Master/Zookeeper nodes (3 nodes)
+
+- Storm clusters for HDInsight are deployed with three roles:
+	- Nimbus nodes (2 nodes)
+	- Supervisor servers (at least 1 node)
+	- Zookeeper nodes (3 nodes)
+ 
+Standard implementations of Hadoop clusters typically have a single head node. HDInsight removes this single point of failure with the addition of a secondary head node /head server/Nimbus node to increase the availability and reliability of the service needed to manage workloads. These head  nodes/head servers/Nimbus nodes are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the head node would cause the cluster to cease to work. 
+
+
+[ZooKeeper](http://zookeeper.apache.org/ ) nodes (ZKs) have been added and are used for leader election of head nodes and to insure that worker nodes and gateways (GWs) know when to fail over to the secondary head node (Head Node1) when the active head node (Head Node0) becomes inactive.
 
 ![Diagram of the highly reliable head nodes in the HDInsight Hadoop implementation.](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight removes this single point of failure with the addition of a secondary head node (Head Node1). [ZooKeeper](http://zookeeper.apache.org/ ) nodes (ZKs) have been added and are used for leader election of head nodes and to insure that worker nodes and gateways (GWs) know when to fail over to the secondary head node (Head Node1) when the active head node (Head Node0) becomes inactive.
 
 
-## How to check on the service status on the active head node ##
-To determine which head node is active and to check on the status of the services running on that head node, you must connect to the Hadoop cluster by using the Remote Desktop Protocol (RDP). The ability to remote into the cluster is disabled by default in Azure, so it must first be enabled. For instructions on how to do this in the portal, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
-Once you have remoted into the cluster, double-click on the **Hadoop Service Available Status** icon located on the desktop to obtain status about which head node the Namenode, Jobtracker, Templeton, Oozieservice, Metastore, and Hiveserver2 services are running, or for HDI 3.0, the Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore, and Hiveserver2 services.
 
-![](http://i.imgur.com/MYTkCHW.png)
+## Check the active head node service status
+To determine which head node is active and to check on the status of the services running on that head node, you must connect to the Hadoop cluster by using the Remote Desktop Protocol (RDP). For the RDP instructions, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp). Once you have remoted into the cluster, double-click on the **Hadoop Service Available ** icon located on the desktop to obtain status about which head node the Namenode, Jobtracker, Templeton, Oozieservice, Metastore, and Hiveserver2 services are running, or for HDI 3.0, the Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore, and Hiveserver2 services.
+
+![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
+
+On the screenshot, the active head node is *headnode0*.
+
+## Access log files on the secondary head node
+
+To access job logs on the secondary head node in the event that it has become the active head node, browsing the JobTracker UI still works as it does for the primary active node. To access JobTracker, you must connect to the Hadoop cluster by using RDP as described in the previous section. Once you have remoted into the cluster, double-click on the **Hadoop Name Node Status** icon located on the desktop and then click on the **NameNode logs** to get to the directory of logs on the secondary head node.
+
+![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
 
-## How to access log files on the secondary head node \
-
-To access job logs on the secondary head node in the event that it has become the active head node, browsing the JobTracker UI still works as it does for the primary active node. To access JobTracker, you must connect to the Hadoop cluster by using RDP as described in the previous section. Once you have remoted into the cluster, double-click on the **Hadoop Name Node** icon located on the desktop and then click on the **NameNode logs** to get to the directory of logs on the secondary head node.
-
-![](http://i.imgur.com/eL6jzgB.png)
-
-
-## How to configure the size of the head node ##
+## Configure the size of the head node
 The head nodes are allocated as large virtual machines (VMs) by default. This size is adequate for the management of most Hadoop jobs run on the cluster. But there are scenarios that may require extra-large VMs for the head nodes. One example is when the cluster has to manage a large number of small Oozie jobs. 
 
 Extra-large VMs can be configured by using either Azure PowerShell cmdlets or the HDInsight SDK.

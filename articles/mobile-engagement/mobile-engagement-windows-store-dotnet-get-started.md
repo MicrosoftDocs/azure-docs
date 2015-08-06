@@ -12,18 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="04/30/2015"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for Windows Universal Apps
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md)
-- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of a Windows Universal application.
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. You will create a blank Windows Universal App that collects basic app usage data and receives push notifications using Windows Notification Service (WNS). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
@@ -33,7 +34,7 @@ This tutorial requires the following:
 + Visual Studio 2013
 + The [Mobile Engagement Windows Universal SDK]
 
-> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Windows Universal Apps. To complete it - you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Windows Universal Apps. To complete it - you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your Windows Universal App
 

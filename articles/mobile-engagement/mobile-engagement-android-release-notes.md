@@ -19,6 +19,16 @@
 
 #Release notes
 
+##4.0.0 (07/06/2015)
+
+-   Internal protocol changes to make analytics and push more reliable.
+-   Native push (GCM/ADM) is now also used for in app notifications so you must configure the native push credentials for any type of push campaign.
+-   Fix big picture notification: they were displayed only 10s after being pushed.
+-   Fix clicking a link within a web announcement that has a default action URL.
+-   Fix a rare crash related to local storage management.
+-   Fix dynamic configuration string management.
+-   Update EULA.
+
 ##3.0.0 (02/17/2015)
 
 -   Initial Release of Azure Mobile Engagement

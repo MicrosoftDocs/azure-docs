@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Create a Windows virtual machine with Azure Resource Manager and PowerShell" 
-	description="Use the Resource Management mode of Azure PowerShell to easily create a new Windows virtual machine." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Create a Windows virtual machine with Azure Resource Manager and PowerShell"
+	description="Use the Resource Management mode of Azure PowerShell to easily create a new Windows virtual machine."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="davidmu"/>
 
 # Create a Windows virtual machine with Azure Resource Manager and PowerShell
 
@@ -30,7 +30,7 @@ If you have already installed Azure PowerShell, you must have Azure PowerShell v
 
 	Get-Module azure | format-table version
 
-If you haven't done so already or need to update the version of Azure PowerShell installed, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell.md) to install Azure PowerShell on your local computer. Then, open an Azure PowerShell command prompt.
+If you haven't done so already or need to update the version of Azure PowerShell installed, use the instructions in [How to install and configure Azure PowerShell](install-configure-powershell.md) to install Azure PowerShell on your local computer. Then, open an Azure PowerShell command prompt.
 
 First, you must logon to Azure with this command.
 
@@ -63,7 +63,7 @@ Next, you need to switch the mode of Azure PowerShell to Resource Manager. Run t
 
 Now, copy the following block of PowerShell commands to a text editor. Fill in your chosen storage account and location, replacing everything within the quotes, including the < and > characters.
 
-	$stName="<chosen storage account name>"	
+	$stName="<chosen storage account name>"
 	$locName="<chosen Azure location name>"
 	$rgName="TestRG"
 	New-AzureResourceGroup -Name $rgName -Location $locName
@@ -79,7 +79,7 @@ Now, copy the following block of PowerShell commands to a text editor. Fill in y
 	$vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
 	$vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Finally, copy the above command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands, prompt you for the name and password of the local administrator account, and create your Azure virtual machine.
 
@@ -90,8 +90,8 @@ Here is an example of you might see:
 	PS C:\> $rgName="TestRG"
 	PS C:\> New-AzureResourceGroup -Name $rgName -Location $locName
 	VERBOSE: 12:45:15 PM - Created resource group 'TestRG' in location 'westus'
-	
-	
+
+
 	ResourceGroupName : TestRG
 	Location          : westus
 	ProvisioningState : Succeeded
@@ -100,10 +100,10 @@ Here is an example of you might see:
 	                    Actions  NotActions
 	                    =======  ==========
 	                    *
-	
+
 	ResourceId        : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/TestRG
-	
-	
+
+
 	PS C:\> $storageAcc=New-AzureStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
 	PS C:\> $singleSubnet=New-AzureVirtualNetworkSubnetConfig -Name singleSubnet -AddressPrefix 10.0.0.0/24
 	PS C:\> $vnet=New-AzurevirtualNetwork -Name TestNet3 -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
@@ -117,8 +117,8 @@ Here is an example of you might see:
 	PS C:\> $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/MyWindowsVMosDisk.vhd"
 	PS C:\> $vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
 	PS C:\> New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
-	
-	
+
+
 	EndTime             : 4/28/2015 1:00:05 PM -07:00
 	Error               :
 	Output              :
@@ -132,7 +132,7 @@ Here is an example of you might see:
 
 [Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure Resource Manager Overview](../resource-group-overview.md)
+[Azure Resource Manager Overview](resource-group-overview.md)
 
 [Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
@@ -140,7 +140,4 @@ Here is an example of you might see:
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
-
-
- 
+[How to install and configure Azure PowerShell](install-configure-powershell.md)

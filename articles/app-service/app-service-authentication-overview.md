@@ -98,7 +98,7 @@ You can write code to make outgoing calls to Software-as-a-Service (SaaS) platfo
 
 The gateway maintains a *token store* in which it associates a Zumo token with one or more identity provider access tokens and refresh tokens. When an HTTP request with a valid Zumo token is received, the gateway knows which identity provider tokens pertain to that user.
   
-When the code running in your API app or mobile app needs to make a call to a protected resource on behalf of the logged-on user, it can retrieve and use the identity provider's token from the gateway's token store, as shown in the following diagram.  
+When the code running in your API app or mobile app needs to make a call to a protected resource on behalf of the logged-on user, it can retrieve and use the identity provider's token from the gateway's token store, as shown in the following diagram. The diagram assumes that the client has already authenticated with the gateway and has the Zumo token.  
 
 ![](./media/app-service-authentication-overview/idprovidertoken.png)
 
@@ -124,7 +124,7 @@ The app service gateway includes built-in support for getting the user's consent
 * Azure Active Directory
 * Microsoft Account
 
-For these providers, the gateway maintains access tokens and associates them with the Zumo token, as it does for the identity provider access token. The process of getting user consent and calling a SaaS platform is illustrated in the following diagram.
+For these providers, the gateway maintains access tokens and associates them with the Zumo token, as it does for the identity provider access token. The process of getting user consent and calling a SaaS platform is illustrated in the following diagram. The diagram assumes that the client has already authenticated with the gateway and has the Zumo token.
 
 ![](./media/app-service-authentication-overview/saastoken.png)
 

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 
@@ -44,8 +44,7 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 
 4. Wait until **STATUS** for the new Storage account is changed to **Online**.
 
-For more information on creating Storage accounts, see
-<a href="../storage-create-storage-account/" target="_blank">How to Create a Storage Account</a>.
+For more information on creating Storage accounts, [How to Create a Storage Account](../storage/storage-create-storage-account.md)
 
 ##Provision a Storm cluster on the Azure portal
 
@@ -93,7 +92,7 @@ The **Submit Topology** form can be used to upload and run .jar files containing
 
 ###<a id="run"></a>Run the word-count sample from the Storm Starter project in GitHub
 
-The samples provided with the cluster include several variations of a word-counting topology. These samples include a **spout** that randomly emits sentences, and **bolts** that break each sentence into individual words, then count how many times each word has occurred. These samples are from the <a href="https://github.com/apache/storm/tree/master/examples/storm-starter" target="_blank">Storm Starter samples</a>, which are a part of Apache Storm.
+The samples provided with the cluster include several variations of a word-counting topology. These samples include a **spout** that randomly emits sentences, and **bolts** that break each sentence into individual words, then count how many times each word has occurred. These samples are from the [Storm Starter samples](https://github.com/apache/storm/tree/master/examples/storm-starter), which are a part of Apache Storm.
 
 Perform the following steps to run a Storm Starter sample:
 
@@ -144,7 +143,7 @@ The Storm UI can be used to monitor the topology.
 
 	* **Deactivate** - Pauses a running topology.
 
-	* **Rebalance** - Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
+	* **Rebalance** - Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 	* **Kill** - Terminates a Storm topology after the specified timeout.
 
@@ -191,7 +190,7 @@ In this Apache Storm tutorial, you used the Storm Starter to learn how to create
 
 * **HDInsight Tools for Visual Studio** - HDInsight Tools allows you to use Visual Studio to submit, monitor, and manage Storm topologies similar to the Storm Dashboard mentioned earlier. HDInsight Tools also provides the ability to create C# Storm topologies, and includes sample topologies that you can deploy and run on your cluster.
 
-	For more information, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get Started using the HDInsight Tools for Visual Studio</a>.
+	For more information, see [Get Started using the HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 * **Sample files** - The HDInsight Storm cluster provides several examples in the **%STORM_HOME%\contrib** directory. Each example should contain the following:
 
@@ -217,4 +216,3 @@ In this Apache Storm tutorial, you used the Storm Starter to learn how to create
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
- 

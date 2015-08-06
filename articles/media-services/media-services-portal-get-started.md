@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/08/2015"
+	ms.date="07/16/2015"
 	ms.author="juliako"/>
 
 
@@ -178,7 +178,7 @@ This section describes the steps you can take to encode your content with Azure 
 
 To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
 
-When you use the Azure Management Portal to publish your assets, the locators are created for you and you are provided with an OnDemantOrigin based URL (if your asset contains an .ism file) or a SAS URL.
+When you use the Azure Management Portal to publish your assets, the locators are created for you and you are provided with an OnDemand based URL (if your asset contains an .ism file) or a SAS URL.
 
 A SAS URL has the following format:
 

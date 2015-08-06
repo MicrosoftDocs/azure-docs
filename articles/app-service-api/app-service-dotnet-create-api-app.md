@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bradyg;tarcher"/>
 
@@ -35,27 +35,9 @@ This tutorial requires version 2.5.1 or later of the Azure SDK for .NET.
 
 ## Create an API app project
 
-1. Open Visual Studio 2013.
+When the instructions direct you to enter a name for the project, enter *ContactsList*. 
 
-2. Select **File > New Project**.
-
-3. Select the **ASP.NET Web Application** template.
-
-4. Make sure that the **Add Application Insights to Project** check box is cleared.
-
-4. Name the project *ContactsList*
-
-	![](./media/app-service-dotnet-create-api-app/01-filenew-v3.png)
-
-5. Click **OK**.
-
-6. In the **New ASP.NET Project** dialog, select the **Azure API App** project template.
-
-	![](./media/app-service-dotnet-create-api-app/02-api-app-template-v3.png)
-
-7. Click **OK** to generate the project.
-
-Visual Studio creates a Web API project configured for deployment as an API app.
+[AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
 [AZURE.INCLUDE [app-service-api-review-metadata](../../includes/app-service-api-review-metadata.md)]
 
