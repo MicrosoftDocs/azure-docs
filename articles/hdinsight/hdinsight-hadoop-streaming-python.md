@@ -5,8 +5,7 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"
-	tags="azure-portal"/>
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,16 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/04/2015"
+   ms.date="07/13/2015"
    ms.author="larryfr"/>
 
 #Develop Python streaming programs for HDInsight
 
 Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. In this article, you will learn how to use Python to perform MapReduce operations.
 
-> [AZURE.NOTE] While the Python code in this document can be used with a Windows-based HDInsight cluster, the steps in this document are specific to Linux-based clusters.
-
-This article is based on information and examples published by Michael Noll at [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Writing an Hadoop MapReduce Program in Python).
+> [AZURE.NOTE] This article is based on information and examples published by Michael Noll at [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Writing an Hadoop MapReduce Program in Python).
 
 ##Prerequisites
 
