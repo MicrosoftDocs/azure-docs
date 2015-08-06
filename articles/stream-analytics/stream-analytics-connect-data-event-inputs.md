@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/03/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics inputs
@@ -61,7 +61,7 @@ To create a data stream input, go to the **Inputs** tab of the Stream Analytics 
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers to feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can send web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining. Event Hubs can be used for data egress also.  A potential use of Event Hubs as output is when the output of a Stream Analytics job will be the input of another streaming job. For further details on Event Hubs see the [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs") documentation.
 
 ### Consumer groups
-Each Stream Analytics job input should be configured to have its own Event Hub consumer group. When a job contains self-join or multiple inputs, some input may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the Event Hub’s limit of 5 readers per partition (inside the consumer group itself). In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional Event Hubs. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
+Each Stream Analytics job input should be configured to have its own Event Hub consumer group. When a job contains self-join or multiple inputs, some input may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the Event Hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional Event Hubs. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
 
 ## Example of creating an Event Hub input in the Azure Portal
 ---
@@ -116,7 +116,7 @@ Then input the information into the fields as shown below for the storage accoun
 
 ![image3](./media/stream-analytics-connect-data-event-inputs/03-stream-analytics-create-inputs.png)
 
-> [AZURE.NOTE]If the user checks the box for 'Configure Advanced Setting', it leads to the following the configuration . Otherwise, Stream Analytics will scan all the blobs in the storage container.
+> [AZURE.NOTE]Clicking the Configure Advanced Settings box allows an option to specify the Path Prefix Pattern for readings blobs in a customized path.  If this field is not specified, Stream Analytics will read all blobs in the container. 
 
 ![image4](./media/stream-analytics-connect-data-event-inputs/04-stream-analytics-create-inputs.png)  
 
@@ -126,11 +126,11 @@ Next choose the correct serialization setting for the data. The options are JSON
 
 Then select **Complete** and the Blob storage data stream input is now created.
 
-## Creating a Blob storage reference data stream
+## Creating a Blob storage reference data input
 ---
-To utilize reference data stream capabilities Blob storage can be leveraged.
+To utilize reference data capabilities Blob storage can be leveraged.
 
-Below is a walk-through to configure Blob storage as a reference data stream. To start, the following information is required:
+Below is a walk-through to configure Blob storage as a reference data input. To start, the following information is required:
 
 1. Input Alias – A friendly-named input alias that is will be referred to in the job query.
 2. If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.
@@ -140,7 +140,7 @@ Below is a walk-through to configure Blob storage as a reference data stream. To
 6. The Path Pattern. The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables: {date} and {time}.
 
 
-On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Reference stream**.
+On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Reference data**.
 
 ![image9](./media/stream-analytics-connect-data-event-inputs/09-stream-analytics-create-inputs.png)
 

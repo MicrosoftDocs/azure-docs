@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tomfitz"/>
 
 
 # Using tags to organize your Azure resources
 
-The Azure portal and the underlying Resource Manager are about organizing your resources and customizing your experience to be tailor-fit just for you. 
+Resource Manager enables you to logically organize resources by applying tags. The tags consist of key/value pairs that identify resources with properties that you define. To mark resources as belonging to the same category, apply the same tag to those resources. 
 
-In the Azure classic portal, subscriptions are the only way to categorize and group your resources. With the Azure portal, [we introduced resource groups](./resource-group-portal.md), which enable you to group related entities. This became even more valuable when [we introduced role-based access](./role-based-access-control-configure.md). Now, in that same spirit, you can tag your resources with key/value pairs to further categorize and view resources across resource groups and, within the portal, across subscriptions.
+When you view resources with a particular tag, you see resources from all of your resource groups. You are not limited to only resources in the same resource group which enables you to organize your resources in a way that is independent of the deployment relationships. Tags can be particularly helpful when you need to organize resources for billing or management. 
 
-Group resources by team, project, or even environment to focus on exactly what you want to see, when you need to see it. 
+> [AZURE.NOTE] You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the Azure portal or [Service Management API](https://msdn.microsoft.com/library/azure/dn948465.aspx)), you cannot apply a tag to that resource. You must re-deploy these resources through Resource Manager to support tagging. All other resources support tagging.
 
+## Tags in the preview portal
 
-## Tags in the Azure portal
-
-Tagging resources and resource groups in the portal is easy. Use the Browse hub to navigate to the resource or resource group you’d like to tag and click the Tags part in the Overview section at the top of the blade. 
+Tagging resources and resource groups in the preview portal is easy. Use the Browse hub to navigate to the resource or resource group you’d like to tag and click the Tags part in the Overview section at the top of the blade. 
 
 ![Tags part on resource and resource group blades](./media/resource-group-using-tags/rgblade.png)
 
@@ -62,7 +61,7 @@ The process is the same for resources, except you'll use the `Get-AzureResource`
 ![Getting tagged resources and resource groups with Get-AzureResource and Get-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Get-AzureResourceGroup-with-tags-in-PowerShell.png)
 
 
-## Tagging with Resource Manager
+## Tagging with REST API
 
 The portal and PowerShell both use the [Resource Manager REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
 

@@ -1,4 +1,4 @@
-Enter file contents here   <properties
+<properties
    pageTitle="Load sample data into SQL Data Warehouse | Microsoft Azure"
    description="Load ample data into SQL Data Warehouse"
    services="sql-data-warehouse"

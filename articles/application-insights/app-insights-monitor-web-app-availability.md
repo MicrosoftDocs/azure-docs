@@ -69,7 +69,7 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 #### Test more URLs
 
-You can add tests for as many URLs as you like. For example, as well as testing your home page, you could make sure your database is running by testing the URL for a search.
+Add more tests. For example, as well as testing your home page, you could make sure your database is running by testing the URL for a search.
 
 
 ### <a name="monitor"></a>3. View availability reports
@@ -206,6 +206,16 @@ Open an individual test to edit or disable it.
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
 
 You might want to disable web tests while you are performing maintenance on your service.
+
+## Questions? Problems?
+
+* I get an error about "invalid characters" when I 
+
+* *Is there a difference between "web tests" and "availability"?
+
+    We use the two terms interchangeably. 
+
+
 
 ## <a name="video"></a>Video
 
