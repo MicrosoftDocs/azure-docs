@@ -1,5 +1,5 @@
 
-1. On your Mac, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. At the top of the blade, click **Add Client** > **iOS (Objective-C)**. If you prefer Swift, click **Add Client** > **iOS (Swift)** instead. Under **Download and run your app**, click **Download**. This downloads a complete Xcode project for an app pre-configured to connect to your backend. Open the project using Xcode.
+1. On your Mac, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **iOS (Objective-C)**. If you prefer Swift, click **Quickstart** > **iOS (Swift)** instead. Under **Download and run your iOS project**, click **Download**. This downloads a complete Xcode project for an app pre-configured to connect to your backend. Open the project using Xcode.
 
 2. Press the **Run** button to build the project and start the app in the iOS simulator.
 
