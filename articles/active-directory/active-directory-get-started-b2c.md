@@ -31,7 +31,7 @@ Azure Active Directory B2C is currently free for use, but is limited (up to 50,0
 
 ## Step 2: Create an Azure Active Directory directory with B2C features
 
-Use the following instructions to create a new Azure Active Directory directory with B2C features. Currently B2C features can't be turned on in your existing directory.
+Use the following steps to create a new Azure Active Directory directory with B2C features. Currently B2C features can't be turned on in your existing directory.
 
 1. Sign into the [Azure Management Portal](https://manage.windowsazure.com/) as the Subscription administrator. This is the same work or school account or the same Microsoft Account that you used to sign up for Azure.
 2. Click **New** > **App Services** > **Active Directory** > **Directory** > **Custom Create**.
@@ -52,12 +52,11 @@ The B2C features on your directory can be managed on the [Azure Portal](https://
 
 ## Step 4: Secure your apps using Azure Active Directory B2C
 
-Use one of the following developer guides to learn how to add B2C features to your app:
+Use one of the following developer guides to learn how to add B2C features to your application:
 
 - Secure your .NET Web App
 - Get started with .NET
 - Get started with iOS
 - Get started with Android
 - Get started with Windows Phone
-- Get started with JavaScript
-- Get started with Graph API
+- Use Graph API in B2C scenarios

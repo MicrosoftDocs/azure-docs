@@ -120,11 +120,10 @@ The following features are currently in public preview and will be added soon:
 - Privileged Identity Management: Privileged identity management provides improved oversight to help meet service level agreements and regulatory compliance requirements.
 - Self-service application requests: Administrators can provide a list of SaaS apps to users from which so that users can choose the ones they want to use, and the apps either will be available immediately or after approval.
 - Azure reporting API: data for every security report of Azure Active Directory will be available to other monitoring or SIEM tools.
-
+- [Azure Active Directory B2C](B2C marketing site): A new comprehensive, high-scale, cloud-based consumer directory and identity & access management service designed to meet the growing needs of businesses looking to connect directly with their consumers.
 
 ## What's next
 
 - [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
 - [View your access and usage reports](active-directory-view-access-usage-reports.md)
- 

@@ -20,7 +20,7 @@
 # Azure Active Directory Developer's Guide
 
 ## Overview
-As an Identity Management As A Service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation, and key features of Azure Active Directory. We suggest you read them in order, or jump to [getting started](#getting-started) if you're ready to dig in. 
+As an Identity Management As A Service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation, and key features of Azure Active Directory. We suggest you read them in order, or jump to [getting started](#getting-started) if you're ready to dig in.
 
 
 1. **[The benefits of Azure AD Integration](active-directory-how-to-integrate.md)**: Discover why integration with Azure Active Directory offers the best solution for secure sign in and authorization.
@@ -39,6 +39,8 @@ To view AAD overviews presented at the Build 2015 conference, see the [videos](#
 ## Getting Started
 
 These tutorials are tailored for multiple platforms, and allow you to quickly start developing with Azure Active Directory. As a prerequisite you must [get an Azure Active Directory tenant](active-directory-howto-tenant.md).
+
+For Azure Active Directory B2C-specific tutorials, as a prerequisite you must follow the instructions [here](active-directory-get-started-b2c).
 
 #### Mobile or PC application quickstart guides
 
@@ -130,4 +132,4 @@ These overview presentations on developing apps with Azure Active Directory feat
 
 - **[Cloud Identity](http://www.cloudidentity.net)**: Thoughts on Identity Management as a Service, from a Principle Azure Active Directory PM.  
 
-- **[Azure AD on Twitter](https://twitter.com/azuread)**: Azure AD announcements in 140 characters or less. 
+- **[Azure AD on Twitter](https://twitter.com/azuread)**: Azure AD announcements in 140 characters or less.
