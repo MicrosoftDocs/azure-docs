@@ -105,9 +105,7 @@ You can now see the SQL Server Object Explorer:
 
 3. Click on the "Add Server" button on the SQL Server Object Explorer. This has been highlighted in the image below:
 
-4. Populate the Connect to Server dialogue box
-
-Use the values you chose when creating the logical server.
+4. Populate the Connect to Server dialogue box with the values you chose when creating the logical server. Also, click the options button and specify the database that you are connecting to (your SQL Data Warehouse instance) before connecting.
 
 Feel free to check the "Remember Password" tick box if you wish. It's a nice time saver but remember that this does enable anyone with physical access to your profile to execute queries using this account.
 
