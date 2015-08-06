@@ -4,9 +4,11 @@
 	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -14,14 +16,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/21/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # Get started using Visual Studio Hadoop tools for HDInsight to run a Hive query
 
 Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight][hdinsight.introduction] and [Get started with HDInsight][hdinsight.get.started]. For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][hdinsight.storm.visual.studio.tools].
 
->[AZURE.NOTE] The most recent release introduced some new features, such as Hive editor 
+>[AZURE.NOTE] The most recent release introduced some new features, such as Hive editor
 > support, Hive script local validation, and YARN log access.
 
 
@@ -70,7 +72,7 @@ The HDInsight Tools for Visual Studio allows you to connect to your HDInsight cl
 
 	>[AZURE.NOTE]Notice the **HDInsight Task List** window should be open. If you do not see it, click **Other Windows** from the **View** menu, and then click **HDInsight Task List Window**.  
 4.	Enter your Azure subscription credentials, and then click **Sign In**. This is only required if you have never connected to the Azure subscription from Visual Studio on this workstation.
-5.	In Server Explorer, you will see a list of existing HDInsight clusters. If you do not have any clusters, you can provision one by using the Azure portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Provision HDInsight clusters][hdinsight-provision].
+5.	In Server Explorer, you will see a list of existing HDInsight clusters. If you do not have any clusters, you can provision one by using the Azure preview portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Provision HDInsight clusters][hdinsight-provision].
 
 	![Hadoop tools: HDInsight Tools for Visual Studio Server Explorer cluster list][5]
 6.	Expand an HDInsight cluster. You will see **Hive Databases**, a default storage account, linked storage accounts, and **Hadoop Service log**. You can further expand the entities.
@@ -136,7 +138,7 @@ There are two ways to create and run Hive queries:
 
 1. From **Server Explorer**, expand **Azure**, and then expand **HDInsight Clusters**.
 2. Right-click the cluster where you want to run the query, and then click **Write a Hive Query**.
-3. Enter the Hive queries. Notice the Hive editor supports IntelliSense. HDInsight Tools for Visual Studio supports loading the remote metadata when you are editing your Hive script. For example, when you type "SELECT * FROM", the IntelliSense will list all the suggested table names. When a table name is specified, the column names will be listed by the IntelliSense. The tool supports almost all Hive DML statements, subqureis, and the built-in UDFs. 
+3. Enter the Hive queries. Notice the Hive editor supports IntelliSense. HDInsight Tools for Visual Studio supports loading the remote metadata when you are editing your Hive script. For example, when you type "SELECT * FROM", the IntelliSense will list all the suggested table names. When a table name is specified, the column names will be listed by the IntelliSense. The tool supports almost all Hive DML statements, subqureis, and the built-in UDFs.
 
 	![Hadoop tools: HDInsight Visual Studio Tools IntelliSense][13]
 
