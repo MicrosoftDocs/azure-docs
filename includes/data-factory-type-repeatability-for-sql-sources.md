@@ -29,7 +29,7 @@ You can leverage **sqlWriterCleanupScript** property to first perform cleanup ac
 	"sink":  
 	{ 
 	  "type": "SqlSink", 
-	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate = \\'{0:yyyy-MM-dd-HH\\'', SliceStart)"
+	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate = \\'{0:yyyy-MM-dd HH:mm}\\'', SliceStart)"
 	}
 
 The cleanup script would be executed first during copy for a given slice which would delete the data from the SQL Table corresponding to that slice. The copy activity will subsequently insert the data into the SQL Table. 
@@ -55,7 +55,7 @@ Another mechanism to achieve repeatability is by having a dedicated column (**sl
 
 This column would be used by Azure Data Factory for repeatability purposes and in the process Azure Data Factory will not make any schema changes to the Table. Way to use this approach:
 
-1.	Define a column of type nvarchar (100) in the destination SQL Table. There should be no constraints on this column. Let name this column as ‘ColumnForADFuseOnly’ for this example
+1.	Define a column of type binary (32) in the destination SQL Table. There should be no constraints on this column. Let's name this column as ‘ColumnForADFuseOnly’ for this example.
 2.	Use it in the copy activity as follows:
 
 		"sink":  

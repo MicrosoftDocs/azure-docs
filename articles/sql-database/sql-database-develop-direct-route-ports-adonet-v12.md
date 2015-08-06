@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -27,7 +27,7 @@ This topic describes the changes that Azure SQL Database V12 brings to the conne
 ## Version clarifications
 
 
-### ADO.NET
+#### ADO.NET
 
 
 - ADO.NET 4.0 supports the TDS 7.3 protocol, but not 7.4.
@@ -36,13 +36,13 @@ This topic describes the changes that Azure SQL Database V12 brings to the conne
  - The information here that applies to ADO.NET 4.5 also applies to ODBC 11.
 
 
-### SQL Database V11 and V12
+#### SQL Database V11 and V12
 
 
 The client connection differences between SQL Database V11 and V12 are highlighted in this topic.
 
 
-The Transact-SQL statement `SELECT @@version;` returns a value that start with a number such as '11.' or '12.', and those match our version names of V11 and V12 for SQL Database.
+*Note:* The Transact-SQL statement `SELECT @@version;` returns a value that start with a number such as '11.' or '12.', and those match our version names of V11 and V12 for SQL Database.
 
 
 ## V11 of SQL Database: Port 1433
@@ -67,13 +67,13 @@ When your client program uses ADO.NET 4.5 to connect and query with SQL Database
 For connections to V12 we must ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discusses two common scenarios.
 
 
-### *Outside:* Client runs on your desktop computer
+#### *Outside:* Client runs on your desktop computer
 
 
 Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
 
-### *Inside:* Client runs on an Azure VM
+#### *Inside:* Client runs on an Azure VM
 
 
 When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no middleware proxy.
@@ -83,7 +83,7 @@ The sequence is as follows:
 
 
 1. ADO.NET 4.5 (or later) initiates a brief interaction with the Azure cloud, and receives a dynamically identified port number.
-- The dynamically identified port number is in the range of 11000 - 11999.
+ - The dynamically identified port number is in the range of 11000 - 11999.
 
 2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
 
@@ -113,7 +113,8 @@ The proxy route discussed earlier in this topic is relevant to the question of r
 In both scenarios we advise that clients implement retry logic in their own code. Arguably the need for retry logic in the client is increased with the latest proxy route that provides no retry logic.
 
 
-For code samples that demonstrate retry logic, see:<br/>[Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md).
+For code samples that demonstrate retry logic, see: 
+[Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md).
 
 
 ## Related links
@@ -121,12 +122,12 @@ For code samples that demonstrate retry logic, see:<br/>[Client quick-start code
 
 - [What's new in SQL Database V12](sql-database-v12-whats-new.md)
 
-- Retry logic considerations: ["Gateway no longer provides retry logic in V12" section, in topic "Connecting to SQL Database: Links, Best Practices and Design Guidelines"](sql-database-connect-central-recommendations.md#gatewaynoretry)<br/><br/>
+- Retry logic considerations: ["Gateway no longer provides retry logic in V12" section, in topic "Connecting to SQL Database: Links, Best Practices and Design Guidelines"](sql-database-connect-central-recommendations.md#gatewaynoretry)
 
 - ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
 - ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
- - A blog post about ADO.NET 4.5.1 is available [here](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).<br/><br/>
+ - A blog post about ADO.NET 4.5.1 is available [here](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
 - [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 

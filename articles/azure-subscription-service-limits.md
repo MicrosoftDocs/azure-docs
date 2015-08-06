@@ -75,13 +75,6 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-### Networking Limits – Azure Resource Manager
-
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
-
-[AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
-
-
 ## Storage Limits
 
 ### Standard Storage Limits
@@ -157,6 +150,11 @@ For additional details on SQL Database limits, please see the following topics:
 ## Service Bus Limits
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+## Data Factory Limits
+
+[AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
+
 
 ## Stream Analytics Limits
 
