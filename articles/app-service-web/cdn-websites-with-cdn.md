@@ -169,67 +169,67 @@ Follow the steps above to setup this controller action:
 
 1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Substitute your file path for `~/Content/chuck.bmp` and your CDN name for `yourCDNName`.
 
-    ```
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Net;
-using System.Web.Hosting;
-using System.Web.Mvc;
-using System.Web.UI;
 
-namespace cdnwebapp.Controllers
-{
-    public class MemeGeneratorController : Controller
-    {
-        static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
+        using System;
+        using System.Collections.Generic;
+        using System.Diagnostics;
+        using System.Drawing;
+        using System.IO;
+        using System.Net;
+        using System.Web.Hosting;
+        using System.Web.Mvc;
+        using System.Web.UI;
 
-        public ActionResult Index()
+        namespace cdnwebapp.Controllers
         {
-            return View();
-        }
+          public class MemeGeneratorController : Controller
+          {
+            static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
 
-        [HttpPost, ActionName("Index")]
-        public ActionResult Index_Post(string top, string bottom)
-        {
-            var identifier = Guid.NewGuid().ToString();
-            if (!Memes.ContainsKey(identifier))
+            public ActionResult Index()
             {
+              return View();
+            }
+
+            [HttpPost, ActionName("Index")]
+            public ActionResult Index_Post(string top, string bottom)
+            {
+              var identifier = Guid.NewGuid().ToString();
+              if (!Memes.ContainsKey(identifier))
+              {
                 Memes.Add(identifier, new Tuple<string, string>(top, bottom));
+              }
+
+              return Content("<a href=\"" + Url.Action("Show", new {id = identifier}) + "\">here's your meme</a>");
             }
 
-            return Content("<a href=\"" + Url.Action("Show", new {id = identifier}) + "\">here's your meme</a>");
-        }
-
-        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
-        public ActionResult Show(string id)
-        {
-            Tuple<string, string> data = null;
-            if (!Memes.TryGetValue(id, out data))
+            [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+            public ActionResult Show(string id)
             {
+              Tuple<string, string> data = null;
+              if (!Memes.TryGetValue(id, out data))
+              {
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-            }
+              }
 
-            if (Debugger.IsAttached) // Preserve the debug experience
-            {
+              if (Debugger.IsAttached) // Preserve the debug experience
+              {
                 return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-            }
-            else // Get content from Azure CDN
-            {
+              }
+              else // Get content from Azure CDN
+              {
                 return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+              }
             }
-        }
 
-        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
-        public ActionResult Generate(string top, string bottom)
-        {
-            string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
-            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-
-            using (Graphics graphics = Graphics.FromImage(bitmap))
+            [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
+            public ActionResult Generate(string top, string bottom)
             {
+              string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
+              Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
+
+              using (Graphics graphics = Graphics.FromImage(bitmap))
+              {
                 SizeF size = new SizeF();
                 using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
                 {
@@ -239,18 +239,17 @@ namespace cdnwebapp.Controllers
                 {
                     graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
                 }
+              }
+              MemoryStream ms = new MemoryStream();
+              bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+              return File(ms.ToArray(), "image/png");
             }
 
-            MemoryStream ms = new MemoryStream();
-            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-            return File(ms.ToArray(), "image/png");
-        }
-
-        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
-        {
-            // Compute actual size, shrink if needed
-            while (true)
+            private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
             {
+              // Compute actual size, shrink if needed
+              while (true)
+              {
                 size = g.MeasureString(text, font);
 
                 // It fits, back out
@@ -261,11 +260,10 @@ namespace cdnwebapp.Controllers
                 Font oldFont = font;
                 font = new Font(font.Name, (float)(font.Size * .9), font.Style);
                 oldFont.Dispose();
+              }
             }
+          }
         }
-    }
-}
-```
 
 2. Right-click in the default `Index()` action and select **Add View**.
 
@@ -291,26 +289,24 @@ namespace cdnwebapp.Controllers
 
 When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` action method returns a link to the `Show` action method with the respective input identifier. When you click the link, you reach the following code:  
 
-```
-[OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
-public ActionResult Show(string id)
-{
-    Tuple<string, string> data = null;
-    if (!Memes.TryGetValue(id, out data))
-    {
-        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-    }
+        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+        public ActionResult Show(string id)
+        {
+          Tuple<string, string> data = null;
+          if (!Memes.TryGetValue(id, out data))
+          {
+            return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+          }
 
-    if (Debugger.IsAttached) // Preserve the debug experience
-    {
-        return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-    }
-    else // Get content from Azure CDN
-    {
-        return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-    }
-}
-```
+          if (Debugger.IsAttached) // Preserve the debug experience
+          {
+            return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+          }
+          else // Get content from Azure CDN
+          {
+            return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+          }
+        }
 
 If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the Azure web app, then it will redirect to:
 
@@ -369,34 +365,33 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 
 1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
 	
-```
-public static void RegisterBundles(BundleCollection bundles)
-{
-    bundles.UseCdn = true;
-    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
-        .GetName().Version.ToString();
-    var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+        public static void RegisterBundles(BundleCollection bundles)
+        {
+          bundles.UseCdn = true;
+          var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
+            .GetName().Version.ToString();
+          var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
 
-    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
 
-    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
                 "~/Scripts/jquery.validate*"));
 
-    // Use the development version of Modernizr to develop with and learn from. Then, when you're
-    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          // Use the development version of Modernizr to develop with and learn from. Then, when you're
+          // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
                 "~/Scripts/modernizr-*"));
 
-    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js"));
 
-    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+          bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}
-```
+        }
+
 
   Be sure to replace `<yourCDNName>` with the name of your Azure CDN.
 
@@ -422,31 +417,31 @@ public static void RegisterBundles(BundleCollection bundles)
  
 4. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your Azure web app. For example:  
 	
-```
-...
-<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
-...
-<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
-<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
-...
-```
+  ```
+  ...
+  <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+  <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+  ...
+  <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
+  <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+  ...
+  ```
 
 5. In Visual Studio, debug the ASP.NET application in Visual Studio by typing `F5`., 
 
 6. View the HTML code for the page. You will still see each script file individually rendered so that you can have a consistent debug experience in Visual Studio.  
 	
-```
-...
+  ```
+  ...
     <link href="/Content/bootstrap.css" rel="stylesheet"/>
 <link href="/Content/site.css" rel="stylesheet"/>
     <script src="/Scripts/modernizr-2.6.2.js"></script>
-...
+  ...
     <script src="/Scripts/jquery-1.10.2.js"></script>
     <script src="/Scripts/bootstrap.js"></script>
-<script src="/Scripts/respond.js"></script>
-...    
-```
+    <script src="/Scripts/respond.js"></script>
+  ...    
+  ```
 
 ## Fallback mechanism for CDN URLs ##
 
@@ -456,9 +451,9 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and add `CdnFallbackExpression` code in four places as shown to add a fallback mechanism to the default bundles.  
 	
-```
-public static void RegisterBundles(BundleCollection bundles)
-{
+  ```
+  public static void RegisterBundles(BundleCollection bundles)
+  {
     var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
         .GetName().Version.ToString();
     var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
@@ -487,8 +482,8 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}
-```
+  }
+  ```
 
   When `CdnFallbackExpression` is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server. This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly. The expression needed to test each bundle differs according to the content. For the default bundles above:
 	
@@ -507,22 +502,19 @@ public static void RegisterBundles(BundleCollection bundles)
 
 3. Go back to `App_Start\BundleConfig.cs` and replace the last `bundles.Add` statement with the following code:  
 
-```
-bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
-    .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
-    .Include(
-          "~/Content/bootstrap.css",
-          "~/Content/site.css"));
- ```
-
+        bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
+          .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
+          .Include(
+            "~/Content/bootstrap.css",
+            "~/Content/site.css"));
 
 	This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.
 
 4. Publish to your Azure web app again and access the home page. 
 5. View the HTML code for the page. You should find injected scripts similar to the following:    
 	
-```
-...
+  ```
+  ...
     <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 <script>(function() {
                 var loadFallback,
@@ -544,17 +536,17 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
             }())||document.write('<script src="/Content/css"><\/script>');</script>
 
     <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
-<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
-... 
+    <script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
+  ... 
     <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
-<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
+    <script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
     <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
-<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
-...
-```
+    <script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
+  ...
+  ```
 
-	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+  Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
         }())||document.write('<script src="/Content/css"><\/script>');</script>
 
