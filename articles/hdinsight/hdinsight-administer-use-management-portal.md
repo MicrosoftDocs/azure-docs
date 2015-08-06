@@ -19,7 +19,7 @@
 
 # Manage Hadoop clusters in HDInsight by using the Azure preview portal
 
-[AZURE.INCLUDE [selector](../../include/hdinsight-administer-use-portal-linux.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Using the [Azure preview portal][azure-portal], you can provision Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
 
