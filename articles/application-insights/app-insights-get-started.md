@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Application Insights"
+	pageTitle="Get started with Application Insights | Microsoft Azure"
 	description="Analyze usage, availability, and performance of your on-premises or Microsoft Azure web application with Azure Application Insights."
 	services="application-insights"
     documentationCenter=""
