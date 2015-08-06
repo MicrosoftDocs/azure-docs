@@ -185,4 +185,6 @@ Now that we have registered our server let's go ahead and write a query.
 	To execute the query click on the green arrow below or use the following shortcut `CTRL`+`SHIFT`+`F5`:
 
 ## Next steps ##
+[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md  
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
+
