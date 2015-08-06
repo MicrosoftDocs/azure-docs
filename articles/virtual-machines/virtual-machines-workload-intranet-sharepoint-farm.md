@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="05/21/2015"
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: Intranet SharePoint farm
