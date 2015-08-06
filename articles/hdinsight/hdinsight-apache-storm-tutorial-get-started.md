@@ -6,8 +6,7 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -15,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/05/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 
@@ -23,73 +22,53 @@
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
-
 ## Before you begin
 
 You must have the following to successfully complete this Apache Storm tutorial:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## Create a Storm cluster
+## Create an Azure Storage account
 
 Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster. Use the following steps to create an Azure Storage account for use with your cluster:
 
-1. Sign in to the [Azure Preview Portal][preview-portal].
+1. Sign in to the [Azure portal](http://manage.windowsazure.com/).
 
-2. Select **NEW**, select __Data Analytics__, and then select __HDInsight__
+2. Click **NEW** in the lower-left corner, point to **DATA SERVICES**, point to **STORAGE**, and then click **QUICK CREATE**.
 
-	![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
+	![Azure portal where you can use Quick Create to set up a new Storage account.](./media/hdinsight-apache-storm-tutorial-get-started/HDI.StorageAccount.QuickCreate.png)
 
-3. Enter a __Cluster Name__, then select __Storm__ for the __Cluster Type__. A green check will appear beside the __Cluster Name__ if it is available.
+3. Enter information for **URL**, **LOCATION** and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Do not select an affinity group when creating storage for HDInsight. You will see the new Storage account in the storage list.
 
-	![Cluster name, cluster type, and OS Type](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
+	>[AZURE.NOTE] The quick-create option to provision an HDInsight cluster, like the one we use in this tutorial, does not ask for a location while provisioning the cluster. Instead, it by default co-locates the cluster in the same data center as the Storage account. So, make sure you create your Storage account in the locations supported for the cluster, which are: **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, **South Central US**.
 
-4. If you have more than one subscription, select the __Subscription__ entry to select the Azure subscription that will be used for the cluster.
+4. Wait until **STATUS** for the new Storage account is changed to **Online**.
 
-5. For __Resource Group__, you can select the entry to see a list of existing resource groups and then select the one to create the cluster in. Or you can select __Create New__ and then enter the name of the new resource group. A green check will appear to indicate if the new group name is available.
+For more information on creating Storage accounts, [How to Create a Storage Account](../storage/storage-create-storage-account.md)
 
-	> [AZURE.NOTE] This entry will default to one of your existing resource groups, if any are available.
+##Provision a Storm cluster on the Azure portal
 
-6. Select __Credentials__, then enter a __Cluster Login Username__ and __Cluster Login Password__. Finally, use the __Select__ button to set the credentials. Remote desktop will not be used in this document, so you can leave it disabled.
+When you provision an HDInsight cluster, you provision Azure compute resources that contain Apache Storm and related applications. You can also create Hadoop clusters for other versions by using the Azure portal, Azure PowerShell cmdlets for HDInsight, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their service level agreements (SLAs), see the [HDInsight component versioning](hdinsight-component-versioning.md) page.
 
-	![Cluster credentials blade](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
+[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-6. For __Data Source__, you can select the entry to choose an existing data source, or create a new one.
+1. Sign in to the [Azure portal][azureportal].
 
-	![Data source blade](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
-	
-	Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the __Data Source__ blade.
-	
-	- __Selection Method__: Set this to __From all subscriptions__ to enable browsing of storage accounts on your subscriptions. Set to __Access Key__ if you want to enter the __Storage Name__ and __Access Key__ of an existing storage account.
-	
-	- __Create New__: Use this to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
-	
-	- __Choose Default Container__: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
-	
-	- __Location__: The geographic region that the storage account will be is in, or will be created in.
-	
-		> [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
-		
-	- __Select__: Use this to save the data source configuration.
-	
-7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. Set this to __1__, as this will be sufficient for this tutorial and will reduce the cost of the cluster. The estimated cost of the cluster will be shown at the bottom of this blade.
+2. Click **HDInsight** on the left, and then **+NEW** in the lower-left corner of the page.
 
-	![Node pricing tiers blade](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
-	
-	Use the __Select__ button to save the __Node Pricing Tiers__ information.
+3. Click the HDInsight icon in the second column, and then select **STORM**.
 
-8. Select __Optional Configuration__. This blade allows you to select the cluster version, as well as configure other optional settings such as joining a __Virtual Network__ or setting up an __External Metastore__ to hold data for Hive and Oozie.
+	![quick create](./media/hdinsight-apache-storm-tutorial-get-started/quickcreate.png)
 
-	![Optional configuration blade](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
+4. Enter a unique cluster name, and enter a unique password for the admin account. For **STORAGE ACCOUNT**, select the Storage account created previously.
 
-9. Ensure that __Pin to Startboard__ is selected, and then select __Create__. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.
+	For **CLUSTER SIZE**, select a size of **1 data node** to use for this cluster. This is to minimize the cost associated with the cluster. For production use, you would create a larger cluster.
 
-	| While provisioning | Provisioning complete |
-	| ------------------ | --------------------- |
-	| ![Provisioning indicator on startboard](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
+	> [AZURE.NOTE] The administrator account for the cluster is named **admin**. The password you enter is the password for this account. You will require this information to perform actions with the cluster, such as submitting or managing Storm topologies.
 
-	> [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the __Notifications__ entry on the left of the page to check on the provisioning process.
+5. Finally, select the checkmark beside **CREATE HDINSIGHT CLUSTER** to create the cluster.
+
+> [AZURE.NOTE] Cluster provisioning takes some time, usually under 15 minutes, to create the cluster, configure software, and install sample data and topologies.
 
 ##Run a Storm Starter sample on HDInsight
 
@@ -99,9 +78,9 @@ Each Storm on HDInsight cluster comes with the Storm Dashboard, which can be use
 
 ###<a id="connect"></a>Connect to the dashboard
 
-The dashboard is located at **https://&lt;clustername>.azurehdinsight.net//**, where **clustername** is the name of the cluster. You can also find a link to the dashboard by selecting the cluster from the Startboard and selecting the __Dashboard__ link at the top of the blade.
+The dashboard is located at **https://&lt;clustername>.azurehdinsight.net//**, where **clustername** is the name of the cluster. You can also find a link to the dashboard at the bottom of the Azure portal page for your cluster.
 
-![Azure portal with Storm Dashboard link](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
+![Azure portal with Storm Dashboard link](./media/hdinsight-apache-storm-tutorial-get-started/dashboard-link.png)
 
 > [AZURE.NOTE] When connecting to the dashboard, you will be prompted to enter a user name and password. This is the administrator name (**admin**) and password used when you created the cluster.
 
@@ -237,4 +216,3 @@ In this Apache Storm tutorial, you used the Storm Starter to learn how to create
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[preview-portal]: https://portal.azure.com/

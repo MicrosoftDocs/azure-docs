@@ -5,7 +5,6 @@
    documentationCenter=""
    authors="mumian"
    manager="paulettm"
-   tags="azure-portal"
    editor="cgronlun"/>
 
 <tags
