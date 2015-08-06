@@ -176,7 +176,7 @@ Open the program.cs file from Solution Explorer, and add the following namespace
 
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Blob;	//This namespace is added to 
+	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
 ### Retrieve your connection string programmatically
