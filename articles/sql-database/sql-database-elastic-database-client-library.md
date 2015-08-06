@@ -18,10 +18,9 @@
 
 # Elastic Database client library overview
 
-The **Elastic Database client library** and lets you build client applications that manage collections of hundreds—or even thousands—of Azure SQL databases hosted on Microsoft Azure. Such collections are commonly used for Software as a Service (SaaS) applications, which are typically single tenant architectures--where each tenant is provisioned with a database. Building and managing such an application is a goal of the library. 
-
-The client library is a .NET Framework library that can be installed into any application project using Visual Studio and Nuget. The client library is part of a set of [Elastic Database tools](sql-azure-database-elastic-scale-introduction.md).
-
+The **Elastic Database client library** helps you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases hosted on Microsoft Azure. Such designs are commonly used for Software as a Service (SaaS) applications, which are typically single tenant architectures--where each tenant is provisioned with a database. Building and managing such an application is a goal of the library.
+
+The client library is a .NET Framework library that can be installed into any application project using [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) and [Nuget](http://go.microsoft.com/?linkid=9862605). The client library is part of Elastic Database tools which is specifically an [Elastic Database feature](sql-database-elastic-scale-introduction.md). 
 
 ## Client capabilities
 

@@ -79,8 +79,10 @@ In both cases, credentials are stored in an encrypted state in the directory, an
 Password-based SSO relies on a browser extension to securely retrieve the application and user specific information from Azure AD and apply it to the service. Most third-party SaaS applications that are supported by Azure AD support this feature.
 
 For password-based SSO, the end user’s browsers can be:
-*	IE 8, IE9 and IE10 on Windows 7 or later
-*	Chrome on Windows 7 or later or MacOS X or later
+- IE 8, IE9 and IE10 on Windows 7 or later
+- Chrome on Windows 7 or later or MacOS X or later
+
+**Note:** The password-based SSO extension will become available for Edge in Windows 10 when browser extensions become supported for Edge.
 
 ###Existing Single Sign-On
 
@@ -205,6 +207,8 @@ Similar to organization-specific URLs for the access panel, you can further cust
 When an authorized user clicks on one of these application-specific links, they first see their organizational sign-in page (assuming they are not already signed in), and after sign-in are redirected to their app without stopping at the access panel first. If the user is missing pre-requisites to access the application, such as the password-based single sign browser extension, then the link will prompt the user to install the missing extension. The link URL also remains constant if the single sign-on configuration for the application changes.
 
 These links use the same access control mechanisms as the access panel and Office 365, and only those users or groups who have been assigned to the application in the Azure management portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they have not been granted access, and are given a link to load the access panel to view available applications for which they do have access.
+
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
