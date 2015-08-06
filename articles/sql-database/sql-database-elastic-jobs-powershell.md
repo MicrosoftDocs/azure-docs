@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="08/04/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Create and manage a SQL Database elastic database jobs using PowerShell (preview)
@@ -25,8 +25,6 @@
 ## Overview
 
 The **Elastic Database jobs** feature (preview) enables you to  reliably execute a Transact-SQL (T-SQL) script or apply a DACPAC across a group of databases including a custom-defined collection of databases, all databases in an [Elastic Database pool (preview)](sql-database-elastic-pool.md) or a shard set (created using [Elastic Database client library](sql-database-elastic-database-client-library.md)). While in preview, **Elastic Database jobs** is currently a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called jobs. Using this feature, you can easily and reliably manage large numbers of Azure SQL Databases at scale by running Transact-SQL scripts to perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection. For more information about Elastic Database jobs, see [Elastic Database jobs overview](sql-database-elastic-jobs-overview.md).
-
-![Elastic database job service][1]
 
 With the PowerShell APIs for **Elastic Database* jobs**, you have flexibility to define which group of databases against which scripts will execute. Currently, **Elastic Database jobs** functionality via the Azure portal has reduced feature set and is limited to execution against Elastic Database pools.
 
@@ -248,13 +246,13 @@ Here you will create a shard map manager along with several shards, followed by 
 
 1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). At the end of Step 7, you will see the following command prompt:
 
-	![command prompt][2]
+	![command prompt][1]
 
 2.  In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
   
 3.  The [Azure preview portal](https://portal.azure.com) should show three new databases in your v12 server:
 
-	![Visual Studio confirmation][3]
+	![Visual Studio confirmation][2]
 
 Now create a shard map target, using the **New-AzureSqlJobTarget** cmdlet. The shard map manager database must be set as a database target and then the specific shard map is specified as a target.
 
@@ -266,7 +264,7 @@ Now create a shard map target, using the **New-AzureSqlJobTarget** cmdlet. The s
 	$shardMapTarget = New-AzureSqlJobTarget -ShardMapManagerCredentialName $shardMapCredentialName -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapDatabaseServerName -ShardMapName $shardMapName
 	Write-Output $shardMapTarget
 
-## Creating a T-SQL Script for Execution across Databases
+## Create a T-SQL Script for execution across databases
 
 When creating T-SQL scripts for execution, it is highly recommended to build them to be idempotent and resilient against failures. Elastic Database jobs will retry execution of a script whenever execution encounters a failure, regardless of the classification of the failure.
 
@@ -328,9 +326,9 @@ Set the following variables to reflect the desired script definition to be set:
 
 ### Update the definition to an existing script
 
-	Set-AzureSqlJobScriptDefinition -ContentName $scriptName -CommandText $scriptCommandText -Comment $scriptUpdateComment 
+	Set-AzureSqlJobContentDefinition -ContentName $scriptName -CommandText $scriptCommandText -Comment $scriptUpdateComment 
 
-##Create a Job to Execute a Script across an shard map
+##Create a Job to execute a script across an shard map
 
 The following PowerShell script can be used to start a job for execution of a script across each shard in an Elastic Scale shard map.
 
@@ -346,7 +344,7 @@ Set the following variables to reflect the desired script and target:
 	$job = New-AzureSqlJob -ContentName $scriptName -CredentialName $credentialName -JobName $jobName -TargetId $shardMapTarget.TargetId
 	Write-Output $job
 
-##Executing a Job 
+##Execute a job 
 
 The following PowerShell script can be used to execute an existing job:
 
@@ -356,25 +354,23 @@ Update the following variable to reflect the desired job name to have executed:
 	$jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
 	Write-Output $jobExecution
  
-## Obtaining state of a single job execution
+## Retrieve the state of a single job execution
 
-The following PowerShell script can be used to view the state of job execution.
-
-Set the following variables to reflect the desired job execution:
+Use the **Get-AzureSqlJobExecution** cmdlets and set the **JobExecutionId** parameter to view the state of job execution.
 
 	$jobExecutionId = "{Job Execution Id}"
 	$jobExecution = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 	Write-Output $jobExecution
 
-View the state of child job executions:
+Use the same **Get-AzureSqlJobExecution** cmdlet with the **IncludeChildren** parameter to view the state of child job executions, namely the specific state for each job execution against each database targeted by the job.
 
 	$jobExecutionId = "{Job Execution Id}"
 	$jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
 	Write-Output $jobExecutions 
 
-## Obtaining state across multiple job executions
+## View the state across multiple job executions
 
-The Get-AzureSqlJobExecution cmdlet has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters.  The following script demonstrates some of the possible ways to use Get-AzureSqlJobExecution:
+The **Get-AzureSqlJobExecution** cmdlet has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters. The following demonstrates some of the possible ways to use Get-AzureSqlJobExecution:
 
 Retrieve all active top level job executions:
 
@@ -423,12 +419,9 @@ The following PowerShell script can be used to view the details of a job task ex
 	$jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
 	Write-Output $jobTaskExecution
 
-## Obtaining Failures within Job Task Executions
+## Retrieve failures within job task executions
 
-The JobTaskExecution object includes a property for the Lifecycle of the task along with a Message property.  If a job task execution failed, the Lifecycle property will be set to “Failed” and the Message property will be set to the resulting exception message and its stack.  
-The following PowerShell script can be used to view the details of job tasks that did not succeed for a given job.
-
-Set the following variables to reflect the desired job task execution id:
+The JobTaskExecution object includes a property for the Lifecycle of the task along with a Message property. If a job task execution failed, the Lifecycle property will be set to *Failed* and the Message property will be set to the resulting exception message and its stack. If a job did not succeed, it is important to view the details of job tasks that did not succeed for a given job.
 
 	$jobExecutionId = "{Job Execution Id}"
 	$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
@@ -449,7 +442,7 @@ The following PowerShell script can be used to wait for a job task to complete:
 
 ## Create a custom execution policy
 
-Elastic Database Jobs supports creating custom execution policies that can be applied when starting jobs.
+Elastic Database jobs supports creating custom execution policies that can be applied when starting jobs.
   
 Execution policies currently allow for defining:
 
@@ -480,7 +473,7 @@ Create the desired execution policy:
 	$executionPolicy = New-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
 	Write-Output $executionPolicy
 
-### Updating a custom execution Policy
+### Update a custom execution policy
 
 Update the desired execution policy to update:
 
@@ -493,7 +486,7 @@ Update the desired execution policy to update:
 	$updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
 	Write-Output $updatedExecutionPolicy
  
-## Cancel jobs
+## Cancel a job
 
 Elastic Database Jobs supports cancellation requests of jobs.  If Elastic Database Jobs detects a cancellation request for a job currently being executed, it will attempt to stop the job.
 
@@ -509,7 +502,7 @@ To submit a cancellation request, use the **Stop-AzureSqlJobExecution** cmdlet a
 	$jobExecutionId = "{Job Execution Id}"
 	Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
-## Deleting a job and the job history
+## Delete a job by name and the job's history
 
 Elastic Database jobs supports asynchronous deletion of jobs. A job can be marked for deletion and the system will delete the job and all its job history after all job executions have completed for the job. The system will not automatically cancel active job executions.  
 
@@ -520,7 +513,7 @@ To trigger job deletion, use the **Remove-AzureSqlJob** cmdlet and set the **Job
 	$jobName = "{Job Name}"
 	Remove-AzureSqlJob -JobName $jobName
  
-## Creating a custom database target
+## Create a custom database target
 Custom database targets can be defined in Elastic Database jobs which can be used either for execution directly or for inclusion within a custom database group. Since **Elastic Database pools** are not yet directly supported via the PowerShell APIs, you simply create a custom database target and custom database collection target which encompasses all the databases in the pool.
 
 Set the following variables to reflect the desired database information:
@@ -529,15 +522,15 @@ Set the following variables to reflect the desired database information:
 	$databaseServerName = "{Server Name}"
 	New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
-## Creating a custom database collection target
-A custom database collection target can be defined to enable execution across multiple defined database targets.  After a database group is created, databases can be associated to the custom collection target.
+## Create a custom database collection target
+A custom database collection target can be defined to enable execution across multiple defined database targets. After a database group is created, databases can be associated to the custom collection target.
 
-Set the following variables to refect the desired custom collection target configuration:
+Set the following variables to reflect the desired custom collection target configuration:
 
 	$customCollectionName = "{Custom Database Collection Name}"
 	New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 
-### Adding databases to a custom database collection target
+### Add databases to a custom database collection target
 
 Database targets can be associated with custom database collection targets to create a group of databases. Whenever a job is created that targets a custom database collection target, it will be expanded to target the databases associated to the group at the time of execution.
 
@@ -548,7 +541,7 @@ Add the desired database to a specific custom collection:
 	$customCollectionName = "{Custom Database Collection Name}"
 	Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
 
-#### Obtaining the Databases within a Custom Database Collection Target
+#### Review the databases within a custom database collection target
 
 Use the **Get-AzureSqlJobTarget** cmdlet to retrieve the child databases within a custom database collection target. 
  
@@ -559,9 +552,7 @@ Use the **Get-AzureSqlJobTarget** cmdlet to retrieve the child databases within 
 
 ### Create a job to execute a script across a custom database collection target
 
-The following PowerShell script starts a job against a defined custom database collection targets. The Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target.
-
-Create a job using custom collection target:
+Use the **New-AzureSqlJob** cmdlet to create a job against a group of databases defined by a custom database collection target. Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database. Again, it is important that scripts are idempotent to be resilient to retries.
 
 	$jobName = "{Job Name}"
 	$scriptName = "{Script Name}"
@@ -573,9 +564,9 @@ Create a job using custom collection target:
 
 ## Data collection across databases
 
-The Elastic Database jobs supports executing a query across a set of databases and having the results sent to a specified database’s table. The table can be queried after the fact to see the query’s results from each database. This provides an asynchronous mechanism to execute a query across many databases. Failure cases such as one of the databases being temporarily unavailable are handled by Elastic Database jobs via retries.
+**Elastic Database jobs** supports executing a query across a group of databases and sends the results to a specified database’s table. The table can be queried after the fact to see the query’s results from each database. This provides an asynchronous mechanism to execute a query across many databases. Failure cases such as one of the databases being temporarily unavailable are handled automatically via retries.
 
-A provided destination table will be automatically created if it does not yet exist matching the schema of the returned result set. If a script execution returns multiple result sets, Elastic Database jobs will only send the first one to the provided destination table.
+The specified destination table will be automatically created if it does not yet exist matching the schema of the returned result set. If a script execution returns multiple result sets, Elastic Database jobs will only send the first one to the provided destination table.
 
 The following PowerShell script can be used to execute a script collecting its results into a specified table. This script assumes that a T-SQL script has been created which outputs a single result set and a custom database collection target has been created.
 
@@ -682,7 +673,6 @@ After a DACPAC has been created within Elastic Database Jobs, a job can be creat
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-jobs-powershell/elastic-jobs-powershell.png
-[2]: ./media/sql-database-elastic-jobs-powershell/cmd-prompt.png
-[3]: ./media/sql-database-elastic-jobs-powershell/portal.png
+[1]: ./media/sql-database-elastic-jobs-powershell/cmd-prompt.png
+[2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->

@@ -31,30 +31,30 @@ If you have already installed **Elastic Database jobs** through the Portal from 
 
 2. Download and import **Elastic Database jobs** package into the current directory with the following command:
 
-		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs.PowerShell -prerelease
+		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-    The **Elastic Database jobs** files are placed in the local directory in a folder named **Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. The **Elastic Database jobs** PowerShell cmdlets (including required client .dlls) are located in the **content\ElasticDatabaseJobs** sub-directory and the PowerShell scripts to install, upgrade and uninstall reside in the **content** sub-directory.
+    The **Elastic Database jobs** files are placed in the local directory in a folder named **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** where *x.x.xxxx.x* reflects the version number. The PowerShell cmdlets (including required client .dlls) are located in the **content\ElasticDatabaseJobs** sub-directory and the PowerShell scripts to install, upgrade and uninstall also reside in the **content** sub-directory.
 
-3. Navigate to the content sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x folder by typing cd content, for example:
+3. Navigate to the content sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x folder by typing cd content, for example:
 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>cd content
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd content
 
 4.	Execute the .\InstallElasticDatabaseJobsCmdlets.ps1 script to copy the ElasticDatabaseJobs directory into $home\Documents\WindowsPowerShell\Modules. This will also automatically import the module for use, for example:
 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\content>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\content>.\InstallElasticDatabaseJobsCmdlets.ps1
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\content>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1 
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\content>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## Install the Elastic Database jobs components using PowerShell
-1.	Launch a Microsoft Azure PowerShell command window and navigate to the \content sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x folder: Type cd \content
+1.	Launch a Microsoft Azure PowerShell command window and navigate to the \content sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x folder: Type cd \content
 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>cd content
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd content
 
 2.	Execute the .\InstallElasticDatabaseJobs.ps1 PowerShell script and supply values for its requested variables. This script will create the components described in [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing) along with configuring the Azure Cloud Service to appropriately use the dependent components.
 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\content>Unblock-File .\InstallElasticDatabaseJobs.ps1 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\content>.\InstallElasticDatabaseJobs.ps1
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\content>Unblock-File .\InstallElasticDatabaseJobs.ps1 
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\content>.\InstallElasticDatabaseJobs.ps1
 
-When you run this command a window opens asking for a **User name** and **Password**. This is not your Azure credentials, enter the user name and password that will be the administrator credentials you want to create for the new server. 
+When you run this command a window opens asking for a **user name** and **password**. This is not your Azure credentials, enter the user name and password that will be the administrator credentials you want to create for the new server. 
 
 The parameters provided on this sample invocation can be modified for your desired settings. The following provides more information on the behavior of each parameter:
 
