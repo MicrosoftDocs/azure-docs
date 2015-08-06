@@ -112,7 +112,7 @@ Click the Custom Events tile on the overview blade:
 
 Click through to see an overview chart and a complete list.
 
-Select the chart and segment it by Event name to see the relative contributions of the most significant events.
+Select the chart and group it by Event name to see the relative contributions of the most significant events.
 
 ![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
