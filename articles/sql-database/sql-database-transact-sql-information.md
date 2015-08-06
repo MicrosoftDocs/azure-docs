@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="08/06/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL information
