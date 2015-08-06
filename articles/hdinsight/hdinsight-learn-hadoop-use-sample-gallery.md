@@ -3,6 +3,7 @@
    description="Quickly learn Hadoop by running sample applications from the HDInsight Getting Started Gallery. Use sample data or supply your own."
    services="hdinsight"
    documentationCenter=""
+   tags="azure-portal"
    authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>

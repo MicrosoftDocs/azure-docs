@@ -4,6 +4,7 @@
 	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"
