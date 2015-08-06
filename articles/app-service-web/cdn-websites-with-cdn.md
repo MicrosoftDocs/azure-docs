@@ -169,10 +169,10 @@ Follow the steps above to setup this controller action:
 
 1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Substitute your file path for `~/Content/chuck.bmp` and your CDN name for `yourCDNName`.
 
-```
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+    ```
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
