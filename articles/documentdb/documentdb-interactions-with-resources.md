@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="RESTful interactions with DocumentDB resources | Azure" 
+	pageTitle="RESTful interactions with DocumentDB resources | Microsoft Azure" 
 	description="Learn how to perform RESTful interactions with Microsoft Azure DocumentDB resources by using HTTP verbs." 
 	services="documentdb" 
 	authors="h0n" 
