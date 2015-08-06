@@ -152,7 +152,7 @@ Paste this query:
 ```SQL
 
     SELECT
-      flat.ArrayValue.name
+      flat.ArrayValue.name,
       count(*)
     INTO
       [pbi-output]
