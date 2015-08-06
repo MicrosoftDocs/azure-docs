@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get Started with authentication for Mobile Apps in Windows | Azure App Service"
-	description="Learn how to use Mobile Apps to authenticate users of your Windows app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
+	pageTitle="Add authentication to your Windows Runtime 8.1 universal app | Azure Mobile Apps"
+	description="Learn how to use Azure App Service Mobile Apps to authenticate users of your Windows app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="mattchenderson" 
