@@ -10,9 +10,9 @@ Follow these steps to create a new mobile app.
 
 4. Create a new resource group with the same name as your mobile app. 
 
-5. Click **Create**. This creates the web app that is the .NET backend of your mobile app. Next, you will configure storage and other optional services.
+5. Click **Create**. This creates the .NET backend of your mobile app. Next, you will configure storage and other optional services.
 
-6. In the new web app, click **Settings** > **Mobile App** > **Data** > **Add**. In the next step, you will create a new SQL database. 
+6. In the new mobile app, click **Settings** > **Mobile App** > **Data** > **Add**. In the next step, you will create a new SQL database. 
 
     ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/Mobile-create-datablade.png)
 
