@@ -24,17 +24,17 @@
 
 In this tutorial, you add push notifications to the [iOS quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [iOS quick start] tutorial, which you must complete first. The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so you must use a physical iOS device. You'll also need to sign up for an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
 
-## <a id="register"></a>Register App for Push Notifications
+## <a id="register"></a>Register app for push notifications
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## Configure Azure to Send Push Notifications
+## Configure Azure to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>Update Server Project to Send Push Notifications
+##<a id="update-server"></a>Update server project to send push notifications
 
-* Download the Visual Studio project for the backend code. In the portal, click **Browse** > app name > **Add Client** > **iOS** (either Objective-C or Swift) > **Download and run your server project**. Open **Controllers** > TodoItemController.cs and add the following using statements:
+* In the backend Visual Studio project, open **Controllers** > **TodoItemController.cs** and add the following `using` statements:
 
 ```
 			using Microsoft.Azure.Mobile.Server.Config;
@@ -61,11 +61,11 @@ In this tutorial, you add push notifications to the [iOS quick start] project so
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## <a id="add-push"></a>Add Push Notifications to App
+## <a id="add-push"></a>Add push notifications to app
 
 [AZURE.INCLUDE [Add Push Notifications to App](../../includes/app-service-add-push-notifications-to-app.md)]
 
-## <a id="test"></a>Test Push Notifications in App
+## <a id="test"></a>Test tush notifications in app
 
 [AZURE.INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
@@ -117,6 +117,7 @@ In this tutorial, you add push notifications to the [iOS quick start] project so
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
+[iOS quick start]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Azure Mobile App iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=529823
