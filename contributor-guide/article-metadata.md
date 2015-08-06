@@ -255,7 +255,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**ms.workload**: Required. Specifies the Azure workload that the page applies to. One value only per article.
 
-**update 8/6/15** The ms.workload value is being mapped by an xls, not the value in the .md file. The ms.workload value is still required for validation until the feature can be updated. That work in now being scheduled.  Please use **"na"** as the value for now.
+**update 8/6/15** The ms.workload value is being mapped by an xls, not the value in the .md file. The ms.workload value is still required for validation until the feature can be updated. That work is now being scheduled.  Please use **"na"** as the value for now.
 
 ![](./media/article-metadata/checkmark-small.png) **ms.date**: Required. Specifies the date the article was last reviewed for relevance, accuracy, correct screen shots, and working links. Enter the date in mm/dd/yyyy format. This date also appears on the published article as the last updated date.
 
