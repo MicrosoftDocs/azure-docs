@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Query with DocumentDB SQL | Azure" 
+	pageTitle="Query with DocumentDB SQL | Microsoft Azure" 
 	description="DocumentDB, a NoSQL document database service, supports queries using SQL-like grammar over hierarchical JSON documents without requiring explicit an schema or creation of secondary indexes." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="07/16/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
@@ -850,6 +850,14 @@ The Coalesce (??) operator can be used to efficiently check for the presence of 
 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
+
+###Quoted Property Accessor
+You can also access properties using the quoted property operator `[]`. For example, `SELECT c.grade` and `SELECT c["grade"]` are equivalent. This syntax is useful when you need to escape a property that contains spaces, special characters, or happens to share the same name as a SQL keyword or reserved word.
+
+    SELECT f["lastName"]
+    FROM Families f
+    WHERE f["id"] = "AndersenFamily"
+
 
 ##SELECT Clause
 The SELECT clause (**`SELECT <select_list>`**) is mandatory and specifies what values will be retrieved from the query, just like in ANSI-SQL. The subset that's been filtered on top of the source documents are passed onto the projection phase, where the specified JSON values are retrieved and a new JSON object is constructed, for each input passed onto it. 

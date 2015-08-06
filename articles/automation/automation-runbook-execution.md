@@ -9,10 +9,10 @@
 <tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
+   ms.date="07/22/2015"
    ms.author="bwren" />
 
 # Runbook execution in Azure Automation

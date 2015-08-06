@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -161,16 +161,15 @@ Now that you have configured the firewall you will be able to make connections f
 Now the SQLDW Service has been successfully provisioned we can move on to learn how to use it.
 
 The next steps are therefore to learn how to:
-1. [Connect and query](sql-data-warehouse-get-started-connect-query.md) the data warehouse.
-2. Export data from the data warehouse to Azure blob storage.
-3. Load more data into the data warehouse.
-
+1. [Connect and query][] the data warehouse.
+2. Load [sample data].
 
 <!--Image references-->
 
 
 <!-- Articles -->
-
+[Connect and query]: sql-data-warehouse-get-started-connect-query.md
+[sample data]: ./sql-data-warehouse-get-started-load-samples.md  
 
 <!--External links-->
 [free trial]: https://azure.microsoft.com/en-us/pricing/free-trial/

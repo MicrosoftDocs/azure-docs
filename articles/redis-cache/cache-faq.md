@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -38,56 +38,15 @@ If your cache has a high throughput, choose the 1 GB size or larger so that the 
 
 The following table shows the maximum bandwidth values observed while testing various sizes of Azure Redis Cache using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. Note that these values are not guaranteed and there is no SLA for these number, but should be typical. You should load test your own application to determine the right cache size for your application.
 
-<table>
-  <tr>
-    <th>Cache Name</th>
-    <th>Cache Size</th>
-    <th>Get/sec (Simple GET calls of 1 KB values)</th>
-    <th>Bandwidth (MBits/sec)</th>
-  </tr>
-  <tr>
-    <td>C0</td>
-    <td>250 MB</td>
-    <td>610</td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td>C1</td>
-    <td>1 GB</td>
-    <td>12,200</td>
-    <td>100</td>
-  </tr>
-  <tr>
-    <td>C2</td>
-    <td>2.5 GB</td>
-    <td>24,300</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>C3</td>
-    <td>6 GB</td>
-    <td>48,875</td>
-    <td>400</td>
-  </tr>
-  <tr>
-    <td>C4</td>
-    <td>13 GB</td>
-    <td>61,350</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>C5</td>
-    <td>26 GB</td>
-    <td>112,275</td>
-    <td>1000</td>
-  </tr>
-  <tr>
-    <td>C6</td>
-    <td>53 GB</td>
-    <td>153,219</td>
-    <td>1000+</td>
-  </tr>
-</table>
+Cache Name|Cache Size|Get/sec (Simple GET calls of 1 KB values)|Bandwidth (MBits/sec)
+---|---|---|---
+C0|250 MB|610|5
+C1|1 GB|12,200|100
+C2|2.5 GB|24,300|200
+C3|6 GB|48,875|400
+C4|13 GB|61,350|500
+C5|26 GB|112,275|1000
+C6|53 GB|153,219|1000+
 
 For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
@@ -95,6 +54,11 @@ For instructions on downloading the Redis tools such as `redis-benchmark.exe`, s
 ## In what region should I locate my cache?
 
 For best performance and lowest latency, locate your Azure Redis Cache in the same region as your cache client application.
+
+<a name="cache-billing"></a>
+## How am I billed for Azure Redis Cache?
+
+Azure Redis Cache pricing is [here](http://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
 <a name="cache-timeouts"></a>
 ## Why am I seeing timeouts?
@@ -129,28 +93,11 @@ The following are some common reason for a cache disconnect.
 
 StackExchange.Redis has many options. This section talks about some of the common settings. For more detailed information about StackExchange.Redis options, see [StackExchange.Redis configuration](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
 
-<table>
-  <tr>
-    <th>ConfigurationOptions</th>
-    <th>Description</th>
-    <th>Recommendation</th>
-  </tr>
-  <tr>
-    <td>AbortOnConnectFail</td>
-    <td>When set to true, the connection will not reconnect after a network failure.</td>
-    <td>Set to false and let StackExchange.Redis reconnect automatically.</td>
-  </tr>
-  <tr>
-    <td>ConnectRetry</td>
-    <td>The number of times to repeat connection attempts during initial connect.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>ConnectTimeout</td>
-    <td>Timeout in ms for connect operations.</td>
-    <td></td>
-  </tr>
-</table>
+ConfigurationOptions|Description|Recommendation
+---|---|---
+AbortOnConnectFail|When set to true, the connection will not reconnect after a network failure.|Set to false and let StackExchange.Redis reconnect automatically.
+ConnectRetry|The number of times to repeat connection attempts during initial connect.||
+ConnectTimeout|Timeout in ms for connect operations.|
 
 In most cases the default values of the client are sufficient. You can fine tune the options based on your workload.
 
@@ -204,12 +151,14 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 <a name="cache-commands"></a>
 ## How can I run Redis commands?
 
-You can use any of the commands listed at [Redis commands](http://redis.io/commands#). To run these commands you can use the following tools.
+You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Redis Cache](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). To run Redis commands you have several options.
 
--	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
--	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
-	-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
--	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+-	If you have a Standard cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the Azure portal.
+-	You can also use the Redis command line tools. To use them, perform the following steps.
+	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
+		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
+	-	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
 
 <a name="cache-common-patterns"></a>
 ## What are some common cache patterns and considerations?
@@ -225,7 +174,3 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 Microsoft Azure Redis Cache is based on the popular open source Redis Cache, giving you access to a secure, dedicated Redis cache, managed by Microsoft. A variety of [Redis clients](http://redis.io/clients) are available for many programming languages. Each client has its own API that makes calls to the Redis cache instance using [Redis commands](http://redis.io/commands).
 
 Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials on Azure.com showing how to get started with Azure Redis Cache using different languages and cache clients on the [Redis Cache documentation](http://azure.microsoft.com/documentatgion/services/redis-cache/) page.
-
-
-
-

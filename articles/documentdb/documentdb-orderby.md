@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Sorting DocumentDB data using Order By | Azure" 
+	pageTitle="Sorting DocumentDB data using Order By | Microsoft Azure" 
 	description="Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries." 
 	services="documentdb" 
 	authors="arramac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="07/19/2015" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By

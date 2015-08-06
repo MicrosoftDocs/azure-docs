@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
@@ -149,7 +149,8 @@ Select any event to see more detail. In the details page, click "..." to see eve
 
 Want to find out what your users do with your app? By inserting calls in your client and server code, you can send your own telemetry to Application Insights. For example, you could find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.
 
-[Learn about the custom events and metrics API][track].
+* [Learn about the custom events and metrics API][track].
+* [API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Server telemetry
 
@@ -177,6 +178,6 @@ If you haven't done this yet, you can get insights from your server and display 
 [java]: app-insights-java-get-started.md
 [new]: app-insights-create-new-resource.md
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

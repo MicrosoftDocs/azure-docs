@@ -98,10 +98,12 @@ To enable sign in on your application, you will need to create a Sign-in policy.
 - A new browser tab opens up and you can run through the user experience of signing into your application.
 - Go back to the browser tab where the Azure Portal is open. Close out the two blades just opened. Leave the B2C features blade open.
 
+## Step 4: Set up your application to use policies created in your directory
 
+Here, we will configure the download web app sample to use the Sign-up and Sign-in policies created in your directory. This will allow your application (using the OWIN middleware) to issue sign-up and sign-in requests to the Azure AD B2C service.
 
-
-
+- Open the `web.config` file in the root of the project, and enter configuration values as follows:
+  -
 
 
 

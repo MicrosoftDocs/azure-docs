@@ -23,18 +23,17 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. It can be used with a wide variety of application types. It works for apps that are hosted on your own on-premises IIS servers or on Azure VMs, as well as Azure web apps. ([Device apps and Java servers are also covered][start].)
+[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. It can be used with a wide variety of application types. It works for apps that are hosted on your own on-premises IIS servers or on Azure VMs, as well as Azure web apps. ([Device apps and Java servers are also covered][start].)
 
 ![Example performance monitoring charts](./media/app-insights-asp-net/10-perf.png)
 
-For many application types, [Visual Studio can add Application Insights to your app](#ide) almost without you noticing. But since you're reading this to get a better understanding of what's going on, we'll take you through the steps manually.
 
 #### Before you start
 
 You need:
 
 * A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
-* Visual Studio 2013 or later.
+* Visual Studio 2013 update 3 or later.
 
 ## <a name="ide"></a> Add Application Insights to your project in Visual Studio
 
@@ -63,12 +62,13 @@ If this is your first time, you'll be asked login or sign up to Microsoft Azure 
 If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components. 
 
 
-#### What does 'Add Application Insights' do?
+####<a name="land"></a> What did 'Add Application Insights' do?
 
-The command does two things (which you could do manually if you like):
+The command did these steps (which you could instead do manually if you prefer):
 
 * Creates an Application Insights resource in [the Azure portal][portal]. This is where you'll see your data. It retrieves the *instrumentation key,* which identifies the resource.
-* Adds the Application Insights Web SDK NuGet package to your project, and places the key in `ApplicationInsights.config`.
+* Adds the Application Insights Web SDK NuGet package to your project. To see it in Visual Studio, right-click your project and choose Manage NuGet Packages.
+* Places the instrumentation key in `ApplicationInsights.config`.
 
 
 ## <a name="run"></a> Run your project

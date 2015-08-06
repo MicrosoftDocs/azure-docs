@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
-	ms.author="patshea123"/>
+	ms.date="07/22/2015" 
+	ms.author="patshea"/>
 
 # What happened to my project?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
 
-###<span id="whathappened">What happened to my project?</span>
+###What happened to my project?
 
 ##### References Added
 
