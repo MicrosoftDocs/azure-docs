@@ -2,6 +2,7 @@
 	pageTitle="Debug Hadoop in HDInsight: Error messages | Microsoft Azure"
 	description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover."
 	services="hdinsight"
+	tags="azure-portal"
 	editor="cgronlun"
 	manager="paulettm"
 	authors="mumian"
@@ -229,7 +230,7 @@ The errors a user can encounter in Azure PowerShell or in the preview portal are
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 - **Description**: Storage account *yourStorageAccountName* is in region *currentRegionName*. It should be same as the cluster region *yourClusterRegionName*.  
-- **Mitigation**: Either specify a storage account in the same region that your cluster is in or if your data is already in the storage account, create a new cluster in the same region as the existing storage account. If you are using the preview portal, the UI will notify them of this issue in advance. 
+- **Mitigation**: Either specify a storage account in the same region that your cluster is in or if your data is already in the storage account, create a new cluster in the same region as the existing storage account. If you are using the preview portal, the UI will notify them of this issue in advance.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 - **Description**: Given Subscription ID *yourSubscriptionId* is not active.  

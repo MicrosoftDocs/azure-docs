@@ -3,6 +3,7 @@
 	description="Use Hadoop Oozie in HDInsight, a big data service. Learn how to define an Oozie workflow, and submit an Oozie job."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>

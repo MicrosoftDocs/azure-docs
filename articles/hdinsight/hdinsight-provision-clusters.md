@@ -1,12 +1,12 @@
 <properties
    	pageTitle="Custom-provision Hadoop clusters in HDInsight | Microsoft Azure"
-   	description="Learn how to custom-provision clusters for Azure HDInsight by using the Azure Preview Portal, Azure PowerShell, a command line, or a .NET SDK." 
+   	description="Learn how to custom-provision clusters for Azure HDInsight by using the Azure Preview Portal, Azure PowerShell, a command line, or a .NET SDK."
    	services="hdinsight"
   	documentationCenter=""
+    tags="azure-portal"
    	authors="mumian"
    	manager="paulettm"
-   	editor="cgronlun"
-	tags="azure-portal"/>
+   	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"

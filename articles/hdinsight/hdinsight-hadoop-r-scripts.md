@@ -3,6 +3,7 @@
 	description="Learn how to install and use R to customize Hadoop clusters."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
