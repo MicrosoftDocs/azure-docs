@@ -204,8 +204,8 @@ Next is code that uses the CertificateHelper and creates a ClientAssertionCertif
 
     public static void GetCert()
     {
-        var clientAssertionCertPfx = CertificateHelper.FindCertificateByThumbprint(Config["thumbprint"]);
-        AssertionCert = new ClientAssertionCertificate(config["clientid"], clientAssertionCertPfx);
+        var clientAssertionCertPfx = CertificateHelper.FindCertificateByThumbprint(WebConfigurationManager.AppSettings["thumbprint"]);
+        AssertionCert = new ClientAssertionCertificate(WebConfigurationManager.AppSettings["clientid"], clientAssertionCertPfx);
     }
 
 
