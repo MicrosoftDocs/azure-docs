@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # What is Application Insights?
@@ -102,6 +102,11 @@ The impact on your performance is very small. Tracking calls non-blocking, and a
 
 
 For more details, choose your app type under Get Started in the navigation bar on the left of this page.
+
+## Samples
+
+
+[Samples and walkthroughs](app-insights-code-samples.md)
 
 
 ## Support and feedback

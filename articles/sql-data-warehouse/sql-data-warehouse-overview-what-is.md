@@ -64,11 +64,14 @@ SQL Data Warehouse easily deploys in seconds. This service is a fully managed of
 
 ## Next steps
 Learn about the [data warehouse workload].
+[Provision] and load [sample data] to get started.
 
 <!--Image references-->
 
 <!--Article references-->
 [data warehouse workload]: ./sql-data-warehouse-overview-workload.md
+[sample data]: ./sql-data-warehouse-get-started-load-samples.md 
+[Provision]: ./sql-data-warehouse-get-started-provision.md 
 
 <!--MSDN references-->
 

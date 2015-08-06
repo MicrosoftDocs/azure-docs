@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/26/2015"
 	ms.author="tdykstra"/>
 

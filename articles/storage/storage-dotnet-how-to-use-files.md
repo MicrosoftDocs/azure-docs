@@ -12,25 +12,29 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="07/06/2015"
+      ms.date="08/04/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with PowerShell and .NET
 
 ## Overview
 
-The Azure File service exposes file shares using the standard SMB 2.1 protocol. Applications running in Azure can now easily share files between VMs using standard and familiar file system APIs like ReadFile and WriteFile. In addition, the files can also be accessed at the same time via a REST interface, which opens a variety of hybrid scenarios. Finally, Azure Files is built on the same technology as the Blob, Table, and Queue Services, which means Azure Files is able to leverage the existing availability, durability, scalability, and geo redundancy that is built into our platform.
+The Azure File service exposes file shares using the standard SMB 2.1 protocol. Applications running in Azure can now easily share files between VMs using standard and familiar file system APIs like ReadFile and WriteFile. In addition, the files can also be accessed at the same time via a REST interface, which opens a variety of hybrid scenarios. Finally, Azure Files is built on the same technology as the Blob, Table, and Queue Services, which means Azure Files is able to leverage the existing availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform.
 
 ## About this tutorial
 
 This getting started tutorial demonstrates the basics of using Microsoft Azure File storage. In this tutorial, we will:
 
-- Use PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
-- Mount the file share from an Azure virtual machine, just as you would any SMB share.
+- Use Azure PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
+- Mount the file share from an Azure virtual machine, just as you would mount any SMB share.
+- Use the Azure storage client library for .NET to access the file share from an on-premise application. Create a console application and perform these actions with the file share:
+	- Write the contents of a file in the share to the console window
+	- Set the quota (maximum size) for the file share
+	- Create a shared access signature for a file that uses a shared access policy defined on the share
+	- Copy a file to another file in the same storage account
+	- Copy a file to a blob in the same storage account
 
-For users who may want to access files in a share from an on-premises application as well as from an Azure virtual machine or cloud service, we show how to use the Azure .NET Storage Client Library to work with the file share from a desktop application.
-
-> [AZURE.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 4.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -123,7 +127,7 @@ Once you have a remote connection to the virtual machine, you can execute the `n
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
-> [AZURE.NOTE] Since you persisted your storage account credentials in the previous step, you do not need to provide them with the `net use` command. If you have not already persisted your credentials, then include them as a parameter passed to the `net use` command.
+Since you persisted your storage account credentials in the previous step, you do not need to provide them with the `net use` command. If you have not already persisted your credentials, then include them as a parameter passed to the `net use` command, as shown in this example:
 
     net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
 
@@ -131,7 +135,7 @@ Once you have a remote connection to the virtual machine, you can execute the `n
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
 You can now work with the File Storage share from the virtual machine as you
-would with any other drive. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) in the .NET Framework.
+would with any other drive. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/library/gg145019.aspx) in the .NET Framework.
 
 You can also mount the file share from a role running in an Azure cloud service by remoting into the role.
 
@@ -172,16 +176,19 @@ Open the program.cs file from Solution Explorer, and add the following namespace
 
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
 ### Retrieve your connection string programmatically
 
-You can retrieve your saved credentials from the app.config file using either the `Microsoft.WindowsAzure.CloudConfigurationManager` class, or the `System.Configuration.ConfigurationManager `class. The example here shows how to retrieve your credentials using the `CloudConfigurationManager` class and encapsulate them with the `CloudStorageAccount` class. Add the following code to the `Main()` method in program.cs:
+You can retrieve your saved credentials from the app.config file using either the `Microsoft.WindowsAzure.CloudConfigurationManager` class, or the `System.Configuration.ConfigurationManager `class. The Microsoft Azure Configuration Manager package, which includes the `Microsoft.WindowsAzure.CloudConfigurationManager` class, is available on [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager).
+
+The example here shows how to retrieve your credentials using the `CloudConfigurationManager` class and encapsulate them with the `CloudStorageAccount` class. Add the following code to the `Main()` method in program.cs:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
 
-### Access the File storage share programmatically
+### Access the file share programmatically
 
 Next, add the following code to the `Main()` method, after the code shown above to retrieve the connection string. This code gets a reference to the file we created earlier and outputs its contents to the console window.
 
@@ -217,20 +224,204 @@ Next, add the following code to the `Main()` method, after the code shown above 
 
 Run the console application to see the output.
 
-## Mount the share from an Azure virtual machine running Linux
+## Set the maximum size for a file share
 
-When you create an Azure virtual machine, you can specify an Ubuntu image from the disk images gallery to ensure support for SMB 2.1. However, any Linux distribution that supports SMB 2.1 can mount an Azure File share.
+Beginning with version 5.x of the Azure storage client library, you can set set the quota (or maximum size) for a share, in gigabytes. By setting the quota for a share, you can limit the total size of the files stored on the share.
 
-For a demonstration of how to mount an Azure File share on Linux, see [Shared storage on Linux via Azure Files Preview - Part 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) on Channel 9.
+If the total size of files on the share exceeds the quota set on the share, then clients will be unable to increase the size of existing files or create new files, unless they are empty.
+
+The example below shows how to set the quota for an existing file share.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+		//Specify the maximum size of the share, in GB.
+	    share.Properties.Quota = 100;
+	    share.SetProperties();
+	}
+
+To get the value of any existing quota for the share, call the **FetchAttributes()** method to retrieve the share's properties.
+
+## Generate a shared access signature for a file or file share
+
+Beginning with version 5.x of the Azure storage client library, you can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a shared access policy on a file share to manage shared access signatures. Creating a shared access policy is recommended, as it provides a means of revoking the SAS if it should be compromised.
+
+The example below creates a shared access policy on a share, and then uses that policy to provide the constraints for a SAS on a file in the share.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
+
+        //Create a new shared access policy and define its constraints.
+        SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
+            {
+                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+                Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
+            };
+
+        //Get existing permissions for the share.
+        FileSharePermissions permissions = share.GetPermissions();
+
+        //Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+        share.SetPermissions(permissions);
+
+        //Generate a SAS for a file in the share and associate this access policy with it.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+        CloudFile file = sampleDir.GetFileReference("Log1.txt");
+        string sasToken = file.GetSharedAccessSignature(null, policyName);
+        Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
+
+        //Create a new CloudFile object from the SAS, and write some text to the file. 
+        CloudFile fileSas = new CloudFile(fileSasUri);
+        fileSas.UploadText("This write operation is authenticated via SAS.");
+        Console.WriteLine(fileSas.DownloadText());
+    }
+
+For more information on creating and using shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md) and [Create and use a SAS with the Blob Service](storage-dotnet-shared-access-signature-part-2.md).
+
+## Copy files
+
+Beginning with version 5.x of the Azure storage client library, you can copy a file to another file, a file to a blob, or a blob to a file. Below we demonstrate how to perform these copy operations programmatically.
+
+You can also use AzCopy to copy one file to another or to copy a blob to a file or vice versa. See [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only) for details about copying files with AzCopy.
+
+> [AZURE.NOTE] If you are copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authenticate the source object, even if you are copying within the same storage account.
+
+### Copy a file to another file
+
+The example below copies a file to another file in the same share. Because this copy operation copies between files in the same storage account, you can use Shared Key authentication to perform the copy.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        //Get a reference to the root directory for the share.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+        //Get a reference to the directory we created previously.
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+        //Ensure that the directory exists.
+        if (sampleDir.Exists())
+        {
+            //Get a reference to the file we created previously.
+            CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
+
+            //Ensure that the source file exists.
+            if (sourceFile.Exists())
+            {
+                //Get a reference to the destination file.
+                CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
+
+                //Start the copy operation.
+                destFile.StartCopy(sourceFile);
+
+                //Write the contents of the destination file to the console window.
+                Console.WriteLine(destFile.DownloadText());
+            }
+        }
+    }
+
+
+### Copy a file to a blob
+
+The example below creates a file and copies it to a blob within the same storage account. The example creates a SAS for the source file, which the service uses to authenticate access to the source file during the copy operation.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Create a new file share, if it does not already exist.
+    CloudFileShare share = fileClient.GetShareReference("sample-share");
+    share.CreateIfNotExists();
+
+    //Create a new file in the root directory.
+    CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
+    sourceFile.UploadText("A sample file in the root directory.");
+
+    //Get a reference to the blob to which the file will be copied.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    container.CreateIfNotExists();
+    CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
+
+    //Create a SAS for the file that's valid for 24 hours.
+    //Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
+    //to authenticate access to the source object, even if you are copying within the same 
+    //storage account.
+    string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
+    {
+        //Only read permissions are required for the source file.
+        Permissions = SharedAccessFilePermissions.Read,
+        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+    });
+
+    //Construct the URI to the source file, including the SAS token. 
+    Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
+
+    //Copy the file to the blob.
+    destBlob.StartCopy(fileSasUri);
+
+    //Write the contents of the file to the console window.
+    Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
+    Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+
+You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authenticate access to that blob during the copy operation.
+
+## Use File storage with Linux
+
+To create and manage a file share from Linux, use the Azure CLI. See [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares) for information about using the Azure CLI with File storage.
+
+You can mount an Azure file share from a virtual machine running Linux. When you create your Azure virtual machine, you can specify a Linux image which supports SMB 2.1 from Azure image gallery, such as the latest version of Ubuntu. However, any Linux distribution that supports SMB 2.1 can mount the Azure file share.
+
+To learn more about how to mount an Azure File share on Linux, see [Shared storage on Linux via Azure Files Preview - Part 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) on Channel 9.
 
 ## Next steps
 
 See these links for more information about Azure File storage.
 
-### Reference
+### Tutorials and Reference
 
 - [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 - [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+- [Use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
+- [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
+- [Using the Azure CLI with Azure Storage](storage-azure-cli.md)
 
 ### Blog posts
 

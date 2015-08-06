@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Create a VM with Multiple NICs"
-   description="Lear how to create and configure vms with multiple nics"
+   description="Learn how to create and configure vms with multiple nics"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/02/2015"
+   ms.date="08/02/2015"
    ms.author="telmos" />
 
 # Create a VM with Multiple NICs
@@ -249,7 +249,3 @@ To add a default route on the secondary NIC, follow the steps below:
 ### Configure Linux VMs
 
 For Linux VMs, since the default behavior uses weak host routing, we recommend that the secondary NICs are restricted to traffic flows only within the same subnet. However if certain scenarios demand connectivity outside the subnet, users should enable policy based routing to ensure that the ingress and egress traffic uses the same NIC.
-
-## Next steps
-
-- Learn about the use of [multiple VM NICs and VNet Appliances in Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)

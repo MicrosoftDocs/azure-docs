@@ -53,6 +53,11 @@ If you do not already have an Azure account, you can sign up for a free trial at
 
 > [AZURE.NOTE] Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Pricing Calculator](http://azure.microsoft.com/pricing/calculator/). To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
 
+[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+
+- [Base Configuration test environment with Azure Resource Manager](virtual-machines-base-configuration-test-environment-resource-manager.md)
+
+
 ## Phase 1: Create the virtual network
 
 First, you create the TestLab virtual network that will host the Corpnet subnet of the base configuration.
@@ -254,6 +259,7 @@ Your base configuration in Azure is now ready for application development and te
 
 [Hybrid cloud test environments](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
+[Base Configuration test environment with Azure Resource Manager](virtual-machines-base-configuration-test-environment-resource-manager.md)
 
 ## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure
 
