@@ -61,8 +61,6 @@ A sample script to install Giraph on an HDInsight cluster is available from a re
 
 	You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the checkmark to start provisioning the cluster.
 
-You can also use the script to install Giraph on HDInsight by using Azure PowerShell or the HDInsight .NET SDK. Instructions for these procedures are provided later in this topic.
-
 ## <a name="usegiraph"></a>How do I use Giraph in HDInsight?
 
 We use the SimpleShortestPathsComputation example to demonstrate the basic <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> implementation for finding the shortest path between objects in a graph. Use the following steps to upload the sample data and the sample jar, run a job by using the SimpleShortestPathsComputation example, and then view the results.
