@@ -29,7 +29,7 @@ Azure virtual network site-to-site connectivity uses a VPN gateway to provide a 
 - Regional multi-tier applications with strong isolation boundary 
 - Cross subscription, inter-organization communication in Azure
 
-For more information, see [Configure a VNet to VNet connection](https://msdn.microsoft.com/library/azure/dn690122.aspx). 
+For more information, see [Configure a VNet to VNet connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). 
 
 To see it on video:
 
@@ -256,7 +256,8 @@ In this tutorial you have learned how to configure a VPN connection between two 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-portal]: https://portal.azure.com
+[azure-portal]: http://manage.windowsazure.com
+
 
 [powershell-install]: ../install-configure-powershell
 

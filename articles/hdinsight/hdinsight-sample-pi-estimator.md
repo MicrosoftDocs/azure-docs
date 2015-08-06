@@ -5,7 +5,6 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	tags="azure-portal"
 	authors="mumian"/>
 
 <tags
