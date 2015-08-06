@@ -18,10 +18,11 @@
 
 # Microsoft Azure Security and Audit Log Management
 
-## INTRODUCTION
+## Introduction
 Azure enables customers to perform security event generation and collection from Azure IaaS and PaaS roles to central storage in their subscriptions. Customers can then use [HDInsight](http://azure.microsoft.com/en-us/documentation/services/hdinsight/) to aggregate and analyze the collected events. In addition, these collected events can be exported to on-premises security information and event management (SIEM) systems for ongoing monitoring.
 
 The Azure security logging, analysis, and monitoring lifecycle includes:
+
 - **Generation**: Instrument applications and the infrastructure to raise events
 - **Collection**: Configure Azure to collect the various security logs in a storage account
 - **Analysis**: Use Azure tools such as HDInsight and on-premises SIEM systems to analyze the logs and generate security insights
@@ -29,19 +30,20 @@ The Azure security logging, analysis, and monitoring lifecycle includes:
 
 This article is more focused on generation and collection phases of the lifecycle.
 
-## LOG GENERATION
+## Log Generation
 Security events are raised in the Windows Event Log for the **System**, **Security**, and **Application** channels in virtual machines. To ensure that events are logged without potential data loss, it is important to appropriately configure the size of the event log. Base the size on the number of events that auditing policy settings generate and the event collection policies defined. For more information, see [Planning and Deploying Advanced Security Audit Policies](https://technet.microsoft.com/en-us/library/ee513968).
 
 *NEED TO FIX LAST LINK which was supposed to go to [Planning for security audit monitoring and management](http://technet.microsoft.com/en-us/library/ee513968(v=ws.10).aspx#BKMK_4*
 
->[AZURE.NOTE] When using Windows Event Forwarding (WEF) or Azure Diagnostics (explained in the [Log Collection](#Log-Collection) section) to pull logs from Cloud Services or Virtual Machines, consider the potential impacts of system outages. For example, if your WEF environment goes down for some time, you either need to make sure the log size is big enough to account for a longer time duration, or be prepared for possible log data loss.
+>[AZURE.NOTE] When using Windows Event Forwarding (WEF) or Azure Diagnostics (explained in the [Log Collection](#Log-Collection) section) to pull logs from Cloud Services or virtual machines, consider the potential impacts of system outages. For example, if your WEF environment goes down for some time, you either need to make sure the log size is big enough to account for a longer time duration, or be prepared for possible log data loss.
 
 For Cloud Services applications that are deployed in Azure and virtual machines created from the [Azure Virtual Machines Gallery](http://azure.microsoft.com/en-us/gallery/virtual-machines/#microsoft), a set of operating system security events are enabled by default. Customers can add, remove, or modify events to be audited by customizing the operating system audit policy. For more information, see [Security Policy Settings Reference](http://technet.microsoft.com/library/jj852210(v=ws.10).aspx).
 
 You can use the following methods to generate additional logs from operating system (such as audit policy changes) and Windows components (such as IIS):
-- Using Group Policy to roll out policy settings for virtual machines in Azure that are domain-joined
-- Using Desired State Configuration (DSC) to push and manage policy settings. For more information, see [Azure PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)
-- Using Service Deployment role startup code to roll out settings for Cloud Services (PaaS scenario)
+
+- Group Policy to roll out policy settings for virtual machines in Azure that are domain-joined
+- Desired State Configuration (DSC) to push and manage policy settings. For more information, see [Azure PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)
+- Service Deployment role startup code to roll out settings for Cloud Services (PaaS scenario)
 
 Configuring Azure role startup tasks enables code to run before a role starts. You can define a startup task for a role by adding the **Startup** element to the definition of the role in the service definition file, as show in the following example. For more information, see [Run Startup Tasks in Azure](http://msdn.microsoft.com/en-us/library/azure/hh180155.aspx).
 
@@ -59,13 +61,13 @@ Contents of EnableLogOnAudit.cmd:
     auditpol.exe /set /category:"Logon/Logoff" /success:enable /failure:enable
     Exit /B 0
 
-Auditpol.exe used in the previous example is a command-line tool included in Windows Server® operating system that allows you to manage audit policy settings. For more information, see [Auditpol](http://technet.microsoft.com/en-us/library/cc731451.aspx).
+Auditpol.exe used in the previous example is a command-line tool included in Windows Server operating system that allows you to manage audit policy settings. For more information, see [Auditpol](http://technet.microsoft.com/en-us/library/cc731451.aspx).
 
 In addition to generating Windows event logs, various Windows operating system components can be configured to generate logs that are important for security analysis and monitoring. For example, Internet Information Services (IIS) logs and http.err logs are automatically generated for web roles, and they can be configured for collection. These logs provide valuable information that can be used to identify unauthorized access or attacks against your web role. For more information, see [Configure Logging in IIS](http://technet.microsoft.com/en-us/library/hh831775.aspx) and [Advanced Logging for IIS – Custom Logging](http://www.iis.net/learn/extensions/advanced-logging-module/advanced-logging-for-iis-custom-logging).
 
 To change IIS logging in a web role, customers can add a startup task to the web role service definition file. The following example enables HTTP logging for a website named Contoso, and it specifies that IIS should log all requests for the Contoso website.
 
-The task that updates the IIS configuration needs to be included within the service definition file of the web role. The following changes to the service definition file runs a startup task that configures IIS logging by running a CMD script called ConfigureIISLogging.cmd.
+The task that updates the IIS configuration needs to be included within the service definition file of the web role. The following changes to the service definition file runs a startup task that configures IIS logging by running a script called ConfigureIISLogging.cmd.
 
     <Startup>
         <Task commandLine="ConfigureIISLogging.cmd" executionContext="elevated" taskType="simple" />
@@ -79,12 +81,13 @@ Contents of ConfigureIISLogging:cmd
     Exit /B 0
 
 
-## LOG COLLECTION
-Collection of security events and logs from Cloud Services or Virtual Machines in Azure occurs through two primary methods:
-- Azure Diagnostics, that collects events in a customer’s Azure storage account
-- Windows Event Forwarding (WEF), which is a technology in computers running Windows
+## Log Collection
+Collection of security events and logs from Cloud Services or virtual machines in Azure occurs through two primary methods:
 
-Some key differences between these two technologies are included in Table 1. Based on the customer’s requirements and these key differences, the appropriate method needs to be chosen to implement log collection.
+- Azure Diagnostics, collects events in a customer’s Azure storage account
+- Windows Event Forwarding (WEF), a technology in computers running Windows
+
+Some key differences between these two technologies are included in the table below. Based on the your requirements and these key differences, the appropriate method needs to be chosen to implement log collection.
 
 | Azure Diagnostics | Windows Event Forwarding |
 |-----|-----|
@@ -93,9 +96,9 @@ Some key differences between these two technologies are included in Table 1. Bas
 |Pushes collected data to Azure Storage |Moves collected data to central collector servers |
 
 ##	Security event data collection with Windows Event Forwarding
-For domain-joined Azure Virtual Machines, administrators can configure WEF by using Group Policy settings in the same manner as for on-premises domain-joined computers. For more information, see [Hybrid Cloud](http://www.microsoft.com/en-us/server-cloud/solutions/hybrid-cloud.aspx).
+For domain-joined Azure Virtual Machines, you can configure WEF by using Group Policy settings in the same manner as for on-premises domain-joined computers. For more information, see [Hybrid Cloud](http://www.microsoft.com/en-us/server-cloud/solutions/hybrid-cloud.aspx).
 
-In this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using ExpressRoute or site-to-site VPN, and then join the Azure roles to the corporate domain. Afterwards, an administrator can configure WEF from the domain-joined machines. For more information, see [ExpressRoute](http://azure.microsoft.com/en-us/services/expressroute/).
+Using this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using ExpressRoute or site-to-site VPN, and then join the virtual machines that you have in Azure to the corporate domain. Afterwards, an administrator can configure WEF from the domain-joined machines. For more information, see [ExpressRoute](http://azure.microsoft.com/en-us/services/expressroute/).
 
 Event forwarding is broken into two parts: the source and the collector. The source is the computer in which the security logs are generated. The collector is the centralized server that collects and consolidates the event logs. IT administrators can subscribe to receive and store events that are forwarded from remote computers (the event source). For more information, see [Configure Computers to Forward and Collect Events](http://technet.microsoft.com/en-us/library/cc748890.aspx).
 
@@ -116,18 +119,19 @@ Additionally, HDInsight can be used for further analysis of the data in the clou
 
 ## Security data collection from Azure Virtual Machines by using Azure Diagnostics
 
-The following examples use Azure Diagnostics 1.2 and Azure PowerShell® cmdlets to enable security data collection from Virtual Machines. The data is collected from virtual machines on a scheduled interval (that is configurable) and pushed to Azure Storage within a customer’s subscription.
+The following examples use Azure Diagnostics 1.2 and Azure PowerShell® cmdlets to enable security data collection from virtual machines. The data is collected from virtual machines on a scheduled interval (that is configurable) and pushed to Azure Storage within a customer’s subscription.
 In this section, we will walk through two log collection scenarios using Azure Diagnostics:
-1. Set up a new instance of security log collection pipeline on a Virtual Machine.
-2. Update an existing security log collection pipeline with a new configuration on a Virtual Machine.
 
-## Set up a new Instance of Log Collection Pipeline on a virtual machine
+1. Set up a new instance of security log collection pipeline on a virtual machine.
+2. Update an existing security log collection pipeline with a new configuration on a virtual machine.
+
+### Set up a new Instance of Log Collection Pipeline on a virtual machine
 In this example, we set up a new instance of a security log collection pipeline that uses Azure Diagnostics, and we detect logon failure events (event IDs 4624 and 4625) from the virtual machines. You can implement the following steps from your development environment, or you can use a Remote Desktop session through Remote Desktop Protocol (RDP) to the node in the cloud.
 
-### Step 1: Install the Azure PowerShell SDK
+#### Step 1: Install the Azure PowerShell SDK
 The Azure PowerShell SDK provides cmdlets to configure Azure Diagnostics on Azure Virtual Machines. The necessary cmdlets are available in Azure PowerShell version 0.8.7 or later. For more information, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/).
 
-### Step 2: Prepare the configuration file
+#### Step 2: Prepare the configuration file
 Prepare the configuration file based on the events you would like to collect. Following is an example of an Azure Diagnostics configuration file to collect Windows events from the **Security** channel, with filters added to collect only logon success and failure events. For more information, see [Azure Diagnostics 1.2 Configuration Schema](http://msdn.microsoft.com/en-us/library/azure/dn782207.aspx).
 
 The storage account can be specified in the configuration file, or it can be specified as a parameter when you run the Azure PowerShell cmdlets to set up Azure Diagnostics.
@@ -143,7 +147,7 @@ The storage account can be specified in the configuration file, or it can be spe
         </WadCfg>
     </PublicConfig>
 
-When you save the previous contents as an XML file, set the encoding to **UTF-8**. If you are using Notepad, you'll see the encoding option available in the "Save As" dialog box. Table 2 lists some key attributes to note in the configuration file.
+When you save the previous contents as an XML file, set the encoding to **UTF-8**. If you are using Notepad, you'll see the encoding option available in the "Save As" dialog box. The table below lists some key attributes to note in the configuration file.
 
 | Attribute | Description |
 |----- |-----|
@@ -153,8 +157,9 @@ When you save the previous contents as an XML file, set the encoding to **UTF-8*
 
 All Windows Event log data is moved to a table named **WADWindowsEventLogsTable**. Currently, Azure Diagnostics does not support renaming the table.
 
-### Step 3: Validate configuration XML file
+#### Step 3: Validate configuration XML file
 Use the following procedure to validate that there is no error in the configuration XML file, and that it is compatible with the Azure Diagnostic schema:
+
 1. To download the schema file, run the following command, and then save the file.
 
     (Get-AzureServiceAvailableExtension  -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfigSchema.xsd'
@@ -166,8 +171,9 @@ Use the following procedure to validate that there is no error in the configurat
 
 3.	On the **View** menu, click **Error List** to see if there are any validation errors.
 
-### Step 4: Configure Azure Diagnostics
+#### Step 4: Configure Azure Diagnostics
  Use the following steps to enable Azure Diagnostics and start the data collection:
+
  1.	To open Azure PowerShell, type **Add-AzureAccount**, and press ENTER.
  2.	Sign in with your Azure account.
  3.	Run the following PowerShell script. Make sure to update the storage_name, key, config_path, service_name, and vm_name.
@@ -190,17 +196,18 @@ Use the following procedure to validate that there is no error in the configurat
 
     $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 
-*The above code sample isn't showing up correctly, NEED TO FIX*
-### Step 5: Generate events
+#### Step 5: Generate events
 For demonstration purposes, we will create some logon events and verify that data is flowing to Azure Storage. As shown previously in Step 2, the XML file is configured to collect Event ID 4624 (Logon Success) and Event ID 4625 (Logon Failure) from the **Security** channel.
 
  To generate these events:
+
 1.	Open an RDP session to your virtual machine.
 2.	Enter incorrect credentials to generate some failed logon events (Event ID 4625).
 3.	After a few failed logon attempts, enter the correct credentials to generate a successful logon event (EventID 4624)
 
-### Step 6: View data
+#### Step 6: View data
 About five minutes after you complete the previous steps, data should start flowing to the customer storage account based on the configuration in the XML file. There are many tools available to view data from Azure Storage. For more information, see:
+
 - [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx)
 - [New: Azure Storage Explorer 6 Preview 3 (August 2014)](http://azurestorageexplorer.codeplex.com/)
 
@@ -224,19 +231,19 @@ Together, **PartitionKey** and **RowKey** uniquely identify every entity within 
 
 - Timestamp is a date/time value that is maintained on the server to track when an entity was last modified.
 
-**Note**  The maximum row size in an Azure Storage table is limited to 1 MB. A storage account can contain up to 200 TB of data from blobs, queues, and tables if the account was created after June 2012. Thus, your table size can grow up to 200 TB if blobs and queues do not take any storage space. Accounts created before June 2012 have a limit of 100 TB.
+>[AZURE.NOTE] The maximum row size in an Azure Storage table is limited to 1 MB. A storage account can contain up to 200 TB of data from blobs, queues, and tables if the account was created after June 2012. Thus, your table size can grow up to 200 TB if blobs and queues do not take any storage space. Accounts created before June 2012 have a limit of 100 TB.
 
 Storage Explorer also gives you the option to edit table data. Double-click a particular row in the Table view to open the Edit Entity window as shown here:
 
 ![][4]
 
-## Update existing log collection pipeline with new configuration on a virtual machine
+### Update an existing security log collection pipeline with a new configuration on a virtual machine
 In this section, we update an existing Azure Diagnostics security log collection pipeline on a virtual machine, and we detect Windows application event log errors.
 
-### Step 1: Update configuration file to include events of interest
+#### Step 1: Update configuration file to include events of interest
 The Azure Diagnostics file created in the previous example needs to be updated to include Windows application event log error types.
 
-**Note**  Any existing Azure Diagnostics configuration settings need to be merged with the new configuration file. The settings defined in the new file will overwrite the existing configurations.
+>[AZURE.NOTE] Any existing Azure Diagnostics configuration settings need to be merged with the new configuration file. The settings defined in the new file will overwrite the existing configurations.
 
 To retrieve the existing configuration setting, you can use the **Get-AzureVMDiagnosticsExtension** cmdlet. Following is a sample Azure PowerShell script to retrieve the existing configuration:
 
@@ -260,17 +267,17 @@ Update the Azure Diagnostics configuration to collect Windows application event 
 
 Validate the configuration file by using the same steps as shown in Step 3 of Section 4.2.2.1.
 
-### Step 2: Update Azure Diagnostics to use new configuration file
+#### Step 2: Update Azure Diagnostics to use new configuration file
 Use the **Set-AzureVMDiagnosticsExtension** and **Update-AzureVM** cmdlets to update the configuration as shown in Step 4 of Section 4.2.1.1.
 
-### Step 3: Verify configuration settings
+#### Step 3: Verify configuration settings
 Run the following command to verify that the configuration settings have been updated:
 
     $service_name="<VM Name>"
     $VM1 = Get-AzureVM -ServiceName $service_name
     Get-AzureVMDiagnosticsExtension -VM $VM1
 
-### Step 4: Generate events
+#### Step 4: Generate events
 For this example, run the following command to generate an application event log of the type **Error**:
 
     eventcreate /t error /id 100 /l application /d "Create event in application log for Demo Purpose"
@@ -281,7 +288,7 @@ Open the Event viewer to verify that event is created.
 
 ![][6]
 
-### Step 5: View data
+#### Step 5: View data
 Open Server Explorer in Visual Studio to view the log data. You should see an **EventID 100** created on **ContosoDesktop** as shown here:
 
 ![][7]
@@ -289,16 +296,20 @@ Open Server Explorer in Visual Studio to view the log data. You should see an **
 ## Security data collection from Azure Cloud Services by using Azure Diagnostics
 
 We will now use Azure Diagnostics to explore the same two log collection scenarios from Azure Cloud Services as in the previous Virtual Machines (IaaS) section:
+
 1.	Set up a new instance of security log pipeline in a cloud service.
 2.	Update an existing log collection pipeline with a new configuration in a cloud service.
 
 The step-by-step walkthrough in this section includes:
+
 1.	Build a cloud service.
 2.	Configure the cloud service for security log collection by using Azure Diagnostics.
 3.	Illustrate the generation and collection of security events on the Cloud Service:
+
     - Add an administrator to a local group with an elevation of privilege.
     - New process creation
 4.	Update an existing log collection pipeline in a cloud service:
+
     - Enable auditing of host firewall events (as an example of network security events) by using Auditpol.
     - Configure firewall audit data to be collected, and show the collected events in the customer storage account.
 5.	Show Windows security event distribution and spike detection.
@@ -306,10 +317,11 @@ The step-by-step walkthrough in this section includes:
 
 All of the events and logs are collected into a customer storage account in Azure. The events can be viewed and exported by the customer to on-premises SIEM systems. They can also be aggregated and analyzed by using HDInsight.
 
-## Set up new instance of log collection pipeline on a cloud service
+### Set up new instance of log collection pipeline on a cloud service
 In this example, we set up a new instance of a security log collection pipeline that uses Azure Diagnostics, and we detect user addition to a local group, and new process creation events on a cloud service instance.
 
-### Step 1: Create a cloud service (web role) and deploy
+#### Step 1: Create a cloud service (web role) and deploy
+
 1.	On your development computer, launch Visual Studio 2013.
 2.	Create a new cloud service project (our example uses ContosoWebRole).
 3.	Select the **ASP.NET** web role.
@@ -330,8 +342,9 @@ In this example, we set up a new instance of a security log collection pipeline 
 
 10.	 Right-click the name of the cloud service project, and click **Publish**.
 
-### Step 2: Prepare the configuration file
+#### Step 2: Prepare the configuration file
 We will now prepare the Azure Diagnostics configuration file to add the events that can help detect the following situations:
+
 - New user addition to a local group
 - New process creation
 
@@ -346,10 +359,10 @@ We will now prepare the Azure Diagnostics configuration file to add the events t
         </WadCfg>
     </PublicConfig>
 
-### Step 3: Validate configuration XML file
+#### Step 3: Validate configuration XML file
 Follow the same validation process as described in Step 3 of Section 4.2.1.
  
-### Step 4: Configure Azure Diagnostics
+#### Step 4: Configure Azure Diagnostics
 Run the following Azure PowerShell script to enable Azure Diagnostics (make sure to update the storage_name, key, config_path, and service_name).
 
     $storage_name = "<storage account name>"
@@ -363,8 +376,9 @@ To verify that your service has the latest diagnostic configuration, run the fol
 
     Get-AzureServiceDiagnosticsExtension -ServiceName <ServiceName>
 
-### Step 5: Generate events
+#### Step 5: Generate events
 To generate events:
+
 1.	To start a Remote Desktop session to your cloud service instance, in Visual Studio, open Server Explorer, right-click the role instance, and click **Connect using Remote Desktop**.
 2.	Open an elevated command prompt and run the following commands to create a local administrator account on the virtual machine:
 
@@ -376,7 +390,7 @@ To generate events:
 
 ![][9]
 
-### Step 6: View data
+#### Step 6: View data
 Wait about five minutes to allow the Azure Diagnostics agent to push events to the storage table.
 
 ![][10]
@@ -389,19 +403,19 @@ You can now view the same event in your storage account as shown here:
 
 ![][12]
 
-## Update existing log collection pipeline in a cloud service with a new configuration
+### Update existing log collection pipeline in a cloud service with a new configuration
 In this section, we update an existing Azure Diagnostics security log collection pipeline, and detect Windows Firewall Change Events in a Cloud Service instance.
 
 To detect firewall changes, we will update the existing configuration to include firewall change events.
 
-### Step 1: Get existing configuration
-**Note**  The new configuration settings will overwrite the existing configuration. Thus, it is important that any existing Azure Diagnostics configuration settings be merged with the new configuration file.
+#### Step 1: Get existing configuration
+>[AZURE.NOTE] The new configuration settings will overwrite the existing configuration. Thus, it is important that any existing Azure Diagnostics configuration settings be merged with the new configuration file.
 
 To retrieve the existing configuration setting, you can use the **Get-AzureServiceDiagnosticsExtension** cmdlet:
 
     Get-AzureServiceDiagnosticsExtension -ServiceName <ServiceName>
 
-### Step 2: Update configuration XML to include firewall events
+#### Step 2: Update configuration XML to include firewall events
 
     <?xml version="1.0" encoding="UTF-8"?>
     <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -417,7 +431,7 @@ To retrieve the existing configuration setting, you can use the **Get-AzureServi
 
 Validate the XML contents by using the same validation process as described in Step 3 of Section 4.2.1.
 
-### Step 3: Update Azure Diagnostics to use new configuration
+#### Step 3: Update Azure Diagnostics to use new configuration
 
 Run the following Azure PowerShell script to update Azure Diagnostics to use the new configuration (make sure to update the storage_name, key, config_path, and service_name with your cloud service information).
 
@@ -433,14 +447,15 @@ To verify that your service has the latest diagnostic configuration, run the fol
 
     Get-AzureServiceDiagnosticsExtension -ServiceName <ServiceName>
 
-### Step 4: Enable firewall events
+#### Step 4: Enable firewall events
 
 1.	Open a Remote Desktop session to your cloud service instance.
 2.	Open an elevated command prompt and run the following command:
 
     auditpol.exe /set /category:"Policy Change" /subcategory:"MPSSVC rule-level Policy Change" /success:enable /failure:enable
 
-### Step 5: Generate events
+#### Step 5: Generate events
+
 1.	Open Windows Firewall, and click **Inbound Rules**.
 2.	Click **Add New Rule**, and then click **Port**.
 3.	In the **Local Ports** field, type **5000**, and then click **Next** three times.
@@ -449,22 +464,22 @@ To verify that your service has the latest diagnostic configuration, run the fol
 
 ![][13]
 
-### Step 6: View data
+#### Step 6: View data
 Wait about five minutes to allow the Azure Diagnostics agent to push the event data to the storage table.
 
 ![][14]
 
-## Security event distribution and spike detection
+### Security event distribution and spike detection
 After the events are in the customer’s storage account, applications can use the storage client libraries to access and perform event aggregation. For sample code to access table data, see [How to: Retrieve table data](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/).
 
 Following is an example of event aggregation. Any spikes in event distribution can be investigated further for anomalous activity.
 
 ![][15]
 
-## IIS log collection and processing by using HDInsight
+### IIS log collection and processing by using HDInsight
 In this section, we collect IIS logs from your web role instance and move the logs to an Azure blob in the customer’s storage account.
 
-### Step 1: Update configuration file to include IIS log collection
+#### Step 1: Update configuration file to include IIS log collection
 
     <?xml version="1.0" encoding="UTF-8"?>
     <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -485,7 +500,7 @@ In the previous Azure Diagnostics configuration, **containerName** is the blob c
 
 Validate the XML contents by using the same validation process as described in Step 3 of Section 4.2.1.
 
-### Step 2: Update Azure Diagnostics to use a new configuration
+#### Step 2: Update Azure Diagnostics to use a new configuration
 Run the following Azure PowerShell script to update Azure Diagnostics to use the new configuration (make sure to update the storage_name, key, config_path, and service_name with your cloud service information).
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName <ServiceName> -Role <RoleName>
@@ -500,11 +515,12 @@ To verify that your service has the latest diagnostic configuration, run the fol
 
     Get-AzureServiceDiagnosticsExtension -ServiceName <ServiceName>
 
-### Step 3: Generate IIS logs
+#### Step 3: Generate IIS logs
+
 1.	Open a web browser and navigate to the cloud service web role (for example, http://contosowebrole.cloudapp.net/).
 2.	Navigate to the **About** and **Contact** pages to create some log events.
 3.	Navigate to a page that generates a status code 500 (for example, http://contosowebrole.cloudapp.net/Home/StatusCode500).
-You should see an error such as the one that follows. Remember that we added code for **StatusCode500** in Step 1 of Section 2.2.2.1.
+You should see an error such as the one that follows. Remember that we added code for **StatusCode500** in Step 1 of section titled **Set up new instance of log collection pipeline on a cloud ServiceName**.
 
 ![][16]
 4.	Open a Remote Desktop session to your cloud service instance.
@@ -526,37 +542,38 @@ You should see an error such as the one that follows. Remember that we added cod
 
 ## Security log collection recommendations
 When you are collecting security logs, we recommend that you:
+
 - Collect your own service application-specific audit log events.
 - Configure only the data that you need for analysis and monitoring. Capturing too much data can make it harder to troubleshoot and can impact your service or storage costs.
 - Merge existing Azure Diagnostics configuration settings with changes you make. The new configuration file overwrites the existing configuration settings.
 - Choose the **Scheduled Transfer Period** interval wisely. Shorter transfer times will increase data relevance, but that can increase storage costs and processing overhead.
 
-**Note**  The other variable that will significantly impact the amount of data collected is the logging level. Following is an example to filter logs by logging level:
+>[AZURE.NOTE] The other variable that will significantly impact the amount of data collected is the logging level. Following is an example to filter logs by logging level:
 
     System!*[System[(Level =2)]]
 
 The logging level is cumulative. If the filter is set to **Warning**, then **Error** and **Critical** events will also be collected.
+
 - Periodically clear the diagnostic data from Azure Storage if it is no longer needed.  (Note: To learn more about diagnostic data see [Azure Storage see Store and View Diagnostic Data in Azure Storage](https://msdn.microsoft.com/en-us/library/azure/hh411534.aspx).  The containers and tables that store diagnostic data are just like other containers and tables, you can delete blobs and entities from them in the same way you would for other data. You can delete the diagnostic data programmatically via one of the storage client libraries or visually via a [storage explorer client](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).)
 - It is a best practice to store service data and security log data in separate storage accounts. This isolation ensures that saving security log data does not impact the storage performance for production service data.
 - Choose the log retention duration based on your organization’s compliance policy and data analysis and monitoring requirements.
 
-## EXPORTING SECURITY LOGS TO ANOTHER SYSTEM
+## Exporting security logs to another system
 You can download blob data by using the Azure Storage Client Library, and then export it to your on-premises system for processing. For sample code to manage blob data, see [How to use Blob Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/).
 
 Similarly, you can download security data stored in Azure tables by using the Azure Storage Client Library. To learn more about accessing data that is stored in tables, see [How to use Table Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/).
 
-## AZURE ACTIVE DIRECTORY REPORTS
-Azure Active Directory® (Azure AD) includes a set of security, usage, and audit log reports that provide visibility into the integrity and security of your Azure AD tenant. For example, Azure AD has the capability to automatically analyze user activity and surface anomalous access, and then make it available through customer-visible reports.
+## Azure Active Directory reports
+Azure Active Directory (Azure AD) includes a set of security, usage, and audit log reports that provide visibility into the integrity and security of your Azure AD tenant. For example, Azure AD has the capability to automatically analyze user activity and surface anomalous access, and then make it available through customer-visible reports.
 
 These reports are available through the Azure Management Portal under **Active Directory** > **Directory**. Some of these reports are free, and others are offered as part of an Azure AD Premium edition. For more information about Azure AD reports, see [View your access and usage reports](http://msdn.microsoft.com/en-us/library/azure/dn283934.aspx).
 
-## AZURE OPERATION LOGS
+## Azure Operation Logs
 Logs for operations related to your Azure subscription resources are also available through the **Operation Logs** feature in the Azure management portal.
 
 To view the **Operation Logs**, open the Azure management portal, click **Management Services**, and then click **Operation Logs**.
 
-## APPENDIX
-### Azure Diagnostics supported data sources
+## Azure Diagnostics supported data sources
 
 | Data Source | Description |
 |----- | ----- |
@@ -582,19 +599,21 @@ The following resources are available to provide more general information about 
 
 - [Security Best Practices For Developing Azure Applications](http://download.microsoft.com/download/7/3/E/73E4EE93-559F-4D0F-A6FC-7FEC5F1542D1/SecurityBestPracticesWindowsAzureApps.docx) (whitepaper)
 
-- [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx)
+- [Microsoft Security Response Center (MSRC)](http://www.microsoft.com/security/msrc/default.aspx)
 
-    -or-
+    The MSRC works with partners and security researchers around the world to help prevent security incidents and to advance Microsoft product security
 
-    [Microsoft Security Response Center email](mailto:secure@microsoft.com) (Microsoft security vulnerabilities, including issues with Microsoft Azure, can be reported)
+- [Microsoft Security Response Center email](mailto:secure@microsoft.com)
+
+    Email to report Microsoft security vulnerabilities, including Microsoft Azure
 
 - [Azure Diagnostics](http://msdn.microsoft.com/library/azure/gg433048.aspx)
 
-    Diagnostics in Azure Cloud Services and Virtual Machines
+    Diagnostics in Azure Cloud Services and virtual machines
 
 - [Azure Storage](http://azure.microsoft.com/en-us/documentation/services/storage/)
 
-    Developer guidance and information on azure storage
+    Developer guidance and information on Azure storage
 
 <!--Image references-->
 [1]: ./media/sec-azure-security-audit-log-management/sec-security-data-collection-flow.png
