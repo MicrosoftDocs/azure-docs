@@ -9,7 +9,7 @@
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/23/2015"
