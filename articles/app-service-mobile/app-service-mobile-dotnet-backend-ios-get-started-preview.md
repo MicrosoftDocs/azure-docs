@@ -38,11 +38,11 @@ To complete this tutorial, you need the following:
 
 ## Download server project
 
-1. On your PC, visit [Azure Portal], click **Browse All** > **Mobile Apps** > the backend that you just created.
+1. On your PC, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created.
 
-2. At the top of the blade, click **Add Client** > either **iOS (Objective-C)** or **iOS (Swift)**.
+2. At the top of the blade, click **Add Client** > **iOS (Objective-C)**. If you prefer Swift, click **Add Client** > **iOS (Swift)** instead.
 
-3. Click **Download and publish your service to the cloud** > **Download**, extract the compressed project files to your PC, and open the solution in Visual Studio.
+3. Click **Download** under **Download and publish your service to the cloud**. Extract the compressed project files to your PC, and open the solution in Visual Studio.
 
 ## Publish server project to Azure
 
