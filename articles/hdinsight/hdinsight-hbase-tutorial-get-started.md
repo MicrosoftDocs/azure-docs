@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/21/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -42,22 +42,25 @@ Before you begin this HBase tutorial, you must have the following:
 
 
 1. Sign in to the [Azure portal][azure-management-portal].
-2. Click **New** in the lower left, and then click **Data services**, **HDInsight**,  **HBase**.
+2. Click **New** in the upper left corner, and then click **Data + Analytics**, **HDInsight**.
+3. Enter the following values:
 
-	>[AZURE.NOTE] You can also use the **Custom create** option.
-3. Enter **Cluster name**, **Cluster size**, HTTP user password, and **Storage account**.
+	- **Cluster Name**: enter a name to identify this cluster.
+	- **Cluster Type**: HBase
+	- **Cluster Operating System**: the HDInsight HBase cluster currently only available on Windows operating system.
+	- **Subscription**: select your Azure subscription used for provisioning this cluster.
+	- **Resource Group**: add or select an Azure resource group.  For more information, see [Azure Resource Manager Overview](resource-group-overview.md).
+	- **Configure the credentials**.  For Windows based cluster, you can create a cluster user (a.k.a HTTP user, HTTP web service user)  and a Remote Desktop user.
+	- **Data Source**: create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster. This Azure Storage account must be in the same location as the HDInsight HBase cluster. 
+	- **Note Pricing Tiers:** select the number of region servers for the HBase cluster.
 
-	![Provision HBase cluster in HDInsight][img-hdinsight-hbase-cluster-quick-create]
+		> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
-	The default HTTP USER NAME is admin. You can customize the name by using the CUSTOM CREATION option.
+		> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
 
-	An Azure storage account is required using the default HBase provision process. See [Create an Azure Storage account][azure-create-storageaccount] to create one. The Custom Create option gives the option to create a storage account with the cluster provision process.  
-
-	> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
-
-	> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
-
-4. Click **Create HDInsight Cluster** in the lower right to create the HBase cluster.
+	- **Optional Configuration**: select the cluster version, configure Azure virtual network, configure Hive/Oozie metastore, configure Script actions, and add additional storage accounts.
+	
+4. Click **Create**.
 
 >[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
 
@@ -166,10 +169,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 **To open the cluster dashboard**
 
-1. Sign in to the [Azure portal][azure-management-portal].
-2. Click **HDINSIGHT** in the left pane. You will see a list of clusters, including the one you created earlier in this tutorial.
-3. Click the cluster name where you want to run the Hive job.
-4. Click **QUERY CONSOLE** at the bottom of the page to open the cluster dashboard. It opens a webpage in a different browser tab.
+1. Browse to **https://<HDInsightClusterName>.azurehdinsight.net/**.
 5. Enter the Hadoop user account user name and password. The default user name is **admin** and the password is what you entered during the provisioning process. A new browser tab opens.
 6. Click **Hive Editor** at the top of the page. The Hive Editor looks like this:
 
@@ -349,7 +349,7 @@ Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sent
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-quick-create.png
