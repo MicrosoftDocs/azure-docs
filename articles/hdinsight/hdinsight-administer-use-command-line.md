@@ -19,7 +19,7 @@
 
 # Manage Hadoop clusters in HDInsight by using the Azure Command-line Interface (Azure CLI)
 
-[AZURE.INCLUDE [selector](../../include/hdinsight-administer-use-portal-linux.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Learn how to use the Azure CLI to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
