@@ -289,24 +289,24 @@ Follow the steps above to setup this controller action:
 
 When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` action method returns a link to the `Show` action method with the respective input identifier. When you click the link, you reach the following code:  
 
-        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
-        public ActionResult Show(string id)
-        {
-          Tuple<string, string> data = null;
-          if (!Memes.TryGetValue(id, out data))
-          {
-            return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-          }
+    [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+    public ActionResult Show(string id)
+    {
+      Tuple<string, string> data = null;
+      if (!Memes.TryGetValue(id, out data))
+      {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+      }
 
-          if (Debugger.IsAttached) // Preserve the debug experience
-          {
-            return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-          }
-          else // Get content from Azure CDN
-          {
-            return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-          }
-        }
+      if (Debugger.IsAttached) // Preserve the debug experience
+      {
+        return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+      }
+      else // Get content from Azure CDN
+      {
+        return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+      }
+    }
 
 If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the Azure web app, then it will redirect to:
 
@@ -393,21 +393,21 @@ Follow the steps below to integration ASP.NET bundling and minification with you
         }
 
 
-  Be sure to replace `<yourCDNName>` with the name of your Azure CDN.
+   Be sure to replace `<yourCDNName>` with the name of your Azure CDN.
 
-  In plain words, you are setting `bundles.UseCdn = true` and added a carefully crafted CDN URL to each bundle. For example, the first constructor in the code:
+   In plain words, you are setting `bundles.UseCdn = true` and added a carefully crafted CDN URL to each bundle. For example, the first constructor in the code:
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
+        new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
 
-  is the same as: 
+   is the same as: 
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
+        new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
 
-  This constructor tells ASP.NET bundling and minification to render individual script files when debugged locally, but use the specified CDN address to access the script in question. However, note two important characteristics with this carefully crafted CDN URL:
+   This constructor tells ASP.NET bundling and minification to render individual script files when debugged locally, but use the specified CDN address to access the script in question. However, note two important characteristics with this carefully crafted CDN URL:
 	
-	-	The origin for this CDN URL is `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, which is actually the virtual directory of the script bundle in your Web application.
-	-	Since you are using CDN constructor, the CDN script tag for the bundle no longer contains the automatically generated version string in the rendered URL. You must manually generate a unique version string every time the script bundle is modified to force a cache miss at your Azure CDN. At the same time, this unique version string must remain constant through the life of the deployment to maximize cache hits at your Azure CDN after the bundle is deployed.
-	-	The query string v=<W.X.Y.Z> pulls from *Properties\AssemblyInfo.cs* in your ASP.NET project. You can have a deployment workflow that includes incrementing the assembly version every time you publish to Azure. Or, you can just modify *Properties\AssemblyInfo.cs* in your project to automatically increment the version string every time you build, using the wildcard character '*'. For example:
+   - The origin for this CDN URL is `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, which is actually the virtual directory of the script bundle in your Web application.
+   - Since you are using CDN constructor, the CDN script tag for the bundle no longer contains the automatically generated version string in the rendered URL. You must manually generate a unique version string every time the script bundle is modified to force a cache miss at your Azure CDN. At the same time, this unique version string must remain constant through the life of the deployment to maximize cache hits at your Azure CDN after the bundle is deployed.
+   - The query string v=<W.X.Y.Z> pulls from *Properties\AssemblyInfo.cs* in your ASP.NET project. You can have a deployment workflow that includes incrementing the assembly version every time you publish to Azure. Or, you can just modify *Properties\AssemblyInfo.cs* in your project to automatically increment the version string every time you build, using the wildcard character '*'. For example:
 	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -434,7 +434,7 @@ Follow the steps below to integration ASP.NET bundling and minification with you
   ```
   ...
     <link href="/Content/bootstrap.css" rel="stylesheet"/>
-<link href="/Content/site.css" rel="stylesheet"/>
+    <link href="/Content/site.css" rel="stylesheet"/>
     <script src="/Scripts/modernizr-2.6.2.js"></script>
   ...
     <script src="/Scripts/jquery-1.10.2.js"></script>
