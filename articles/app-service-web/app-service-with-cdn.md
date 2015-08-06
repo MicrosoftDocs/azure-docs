@@ -506,12 +506,13 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 4. Publish to your Azure web app again and access the home page. 
 5. View the HTML code for the page. You should find injected scripts similar to the following:    
 	
+
         ...
     	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-	<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
+        <script>(function() {
+           var loadFallback,
+           len = document.styleSheets.length;
+           for (var i = 0; i < len; i++) {
                     var sheet = document.styleSheets[i];
                     if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
                         var meta = document.createElement('meta');
@@ -528,13 +529,13 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
             }())||document.write('<script src="/Content/css"><\/script>');</script>
 
     	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
-	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
-	... 
-    	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
-	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
-    	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
-	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
-	...
+        <script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
+        ... 
+        <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+        <script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
+        <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+        <script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
+        ...
 
 	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
