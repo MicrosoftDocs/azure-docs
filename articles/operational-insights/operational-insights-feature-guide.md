@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.topic="get-started-article"
+	ms.date="08/06/2015"
 	ms.author="banders"/>
 
 # Operational Insights feature guide
@@ -33,7 +33,7 @@ With Operational Insights, you can transform machine data into operational intel
 |---|---|---|
 |![](./media/operational-insights-feature-guide/cap-plan.png) | [Capacity Planning](operational-insights-capacity.md) | You can use the Capacity Planning solution in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure. |
 | ![](./media/operational-insights-feature-guide/update.png) | [System Update Assessment](operational-insights-updates.md) | You can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure. |
-| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Log Management](operational-insights-search.md) | You use the Log Management solution to gather event and IIS logs for log searches throughout Operational Insights. |
+| ![](./media/operational-insights-feature-guide/log-search.png) | [Log Search](operational-insights-search.md) | You use the Log Search feature to create queries to transform, filter, and report on your results. Search uses event data and IIS logs for log searches throughout Operational Insights. |
 | ![](./media/operational-insights-feature-guide/malware.png) | [Malware Assessment](operational-insights-antimalware.md) | You can use the Antimalware solution in Microsoft Azure Operational Insights to help you protect the servers in your infrastructure from malware. |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [Security and Audit](operational-insights-security-audit.md) | You can use the Security and Audit solution to get a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. |
 | ![](./media/operational-insights-feature-guide/assessment.png) | [Active Directory and SQL Assessment](operational-insights-assessment.md) | You can use Assessment solutions to assess the risk and health of your server environments on a regular interval. |
