@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="07/30/2015"
    ms.author="mbaldwin"/>
 
 # Integrating with Azure Active Directory
@@ -89,5 +89,3 @@ Integration with Azure AD comes with benefits that do not require you to write a
 [Get started writing code](active-directory-developers-guide.md#getting-started).
 
 [Sign Users In Using Azure AD](active-directory-authentication-scenarios.md)
-
- 

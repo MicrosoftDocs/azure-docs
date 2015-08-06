@@ -203,14 +203,14 @@
 </tr>
 </table>
 
-<sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.
-<sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.
-<sup>3</sup>Dedicated instances can be of different sizes. See [App Service Pricing](/pricing/details/app-service/) for more details. Additional instances are available by opening a support request.
-<sup>4</sup>Premium tier allows up to 50 computes instances (subject to availability) and 500 GB of disk space when using App Service Environments, and 20 compute instances and 250 GB storage otherwise.
+<sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
+<sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
+<sup>3</sup>Dedicated instances can be of different sizes. See [App Service Pricing](/pricing/details/app-service/) for more details. Additional instances are available by opening a support request.  
+<sup>4</sup>Premium tier allows up to 50 computes instances (subject to availability) and 500 GB of disk space when using App Service Environments, and 20 compute instances and 250 GB storage otherwise.  
 <sup>5</sup>The storage limit is the total content size across all apps in the 
-same App Service plan. Storage limits can be increased by opening a support request.
-<sup>6</sup>These resources are constrained by physical resources on the dedicated instances (the instance size and the number of instances).
-<sup>7</sup>If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances. 
-<sup>8</sup>Premium tier allows backup intervals down up to every 5 minutes when using App Service Environments, and 50 times per day otherwise.
-<sup>9</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs.
-<sup>10</sup>SLA of 99.95% provided for deployments that use multiple instances with Azure Traffic Manager configured for failover.
+same App Service plan. Storage limits can be increased by opening a support request.  
+<sup>6</sup>These resources are constrained by physical resources on the dedicated instances (the instance size and the number of instances).  
+<sup>7</sup>If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances.  
+<sup>8</sup>Premium tier allows backup intervals down up to every 5 minutes when using App Service Environments, and 50 times per day otherwise.  
+<sup>9</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs.  
+<sup>10</sup>SLA of 99.95% provided for deployments that use multiple instances with Azure Traffic Manager configured for failover.  

@@ -13,10 +13,41 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/09/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 07/30/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Power BI Org Id decoupled from Azure Id</td>
+<td>This feature enables <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/">Power BI output</a> for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output.</td>
+</tr>
+<tr>
+<td>Support for Service Bus Queues output</td>
+<td><a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-queues">Service Bus Queues</a> outputs are now available in Stream Analytics jobs.</td>
+</tr>
+<tr>
+<td>Support for Service Bus Topics output</td>
+<td><a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-topics">Service Bus Topics</a> outputs are now available in Stream Analytics jobs.</td>
+</tr>
+<tr>
+<td>New Array functions</td>
+<td>Added the Array functions <a href="https://msdn.microsoft.com/library/azure/mt270218.aspx">GetArrayElement</a>, <a href="https://msdn.microsoft.com/library/azure/mt298451.aspx">GetArrayElements</a>, <a href="https://msdn.microsoft.com/library/azure/mt270226.aspx">GetArrayLength</a></td>
+</tr>
+<tr>
+<td>New Record functions</td>
+<td>Added the Record functions <a href="https://msdn.microsoft.com/library/azure/mt270221.aspx">GetRecordProperties</a> and <a href="https://msdn.microsoft.com/library/azure/mt270220.aspx">GetRecordPropertyValue</a></td>
+</tr>
+</table>
 
 ## Notes for 07/09/2015 release of Stream Analytics ##
 
