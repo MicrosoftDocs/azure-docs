@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Turn your StorSimple device on or off | Microsoft Azure"
+   pageTitle="Turn on or shut down your StorSimple device | Microsoft Azure"
    description="Explains how to turn on a new StorSimple device, turn on a device that was shut down or lost power, and turn off a running device."
    services="storsimple"
    documentationCenter=""
@@ -15,7 +15,7 @@
    ms.date="08/06/2015"
    ms.author="alkohli" />
 
-# Turn your StorSimple device on or off 
+# Turn on or shut down your StorSimple device 
 
 ## Overview
 
@@ -28,7 +28,7 @@ The following table lists various scenarios for turning on and shutting down you
 |Turn on a new device|[Turn on a new device](#turn-on-a-new-device)<ul><li>[New device with primary enclosure only](#new-device-with-primary-enclosure-only)</li><li>[New device with EBOD enclosure](#new-device-with-ebod-enclosure)</li></ul>|
 |Turn on a device after shutdown|[Turn on a device after shutdown](#turn-on-a-device-after-shutdown)<ul><li>[Device with primary enclosure only](#device-with-primary-enclosure-only)</li><li>[Device with EBOD enclosure](#device-with-ebod-enclosure)</li></ul>|
 |Turn on a device after a power loss|[Turn on a device after a power loss](#turn-on-a-device-after-a-power-loss)<ul><li>[Device with primary enclosure only](#8100)</li><li>[Device with EBOD enclosure](#8600)</li></ul>|
-|Turn on a device after the primary enclosure and EBOD connection is lost|[Turn on a device after the primary and EBOD enclosure connection is lost](turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Turn on a device after the primary and EBOD enclosure connection is lost|[Turn on a device after the primary and EBOD enclosure connection is lost](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
 |Shut down a running device|[Turn off a running device](#turn-off-a-running-device)<ul><li>[Device with primary enclosure only](#8100a)</li><li>[Device with EBOD enclosure](#8600a)</li></ul>|
 
 ## Turn on a new device
@@ -51,7 +51,7 @@ The StorSimple 8100 model is a single enclosure device. Perform the following st
 
 3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
 
-    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. For complete device setup and cabling instructions, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md). Make sure that you follow the instructions exactly.**
+    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. For complete device setup and cabling instructions, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md). Make sure that you follow the instructions exactly.
 
     ![Cable your 2U device for power](./media/storsimple-turn-device-on-or-off/HCSCableYour2UDeviceforPower.png)
 
@@ -235,7 +235,9 @@ The system can continue its normal operation if there is power loss to one of it
 
 #### Power loss on both power supplies on primary and EBOD enclosures
 
-If there is a power outage or power interruption on both power supplies, the EBOD enclosure will shut down immediately and the primary enclosure will shut down in an orderly and controlled manner. When power is restored, the appliance will start automatically. If the power was switched off manually, then take the following steps to restore power to the system:
+If there is a power outage or power interruption on both power supplies, the EBOD enclosure will shut down immediately and the primary enclosure will shut down in an orderly and controlled manner. When power is restored, the appliance will start automatically. 
+
+If the power was switched off manually, then take the following steps to restore power to the system:
 
 1. Turn on the EBOD enclosure.
 
@@ -243,9 +245,9 @@ If there is a power outage or power interruption on both power supplies, the EBO
 
 #### Power loss on both power supplies on EBOD enclosure
 
-When you set up your cables, you must ensure that the EBOD is never connected alone to a separate PDU. If the EBOD and primary enclosure fail at the same time, the system will recover.
+When you set up your cables, you must ensure that the EBOD is never connected alone to a separate PDU. If the EBOD and primary enclosure fail at the same time, the system will recover. If only the EBOD enclosure fails on both power supplies, the system will not automatically recover. 
 
-If only the EBOD enclosure fails on both power supplies, the system will not automatically recover. Take the following steps to turn on the system and restore it to a healthy state:
+Take the following steps to turn on the system and restore it to a healthy state:
 
 1. If the primary enclosure is turned on, switch off both PCMs.
 
@@ -293,13 +295,13 @@ A running Microsoft Azure StorSimple device may need to be shut down if it is be
 
 - [Device with EBOD enclosure](#8600a)
 
-### Device with primary enclosure <a name="8100a"> 
+### Device with primary enclosure only <a name="8100a"> 
 
 Currently there is no way to shut down a running StorSimple device from the Management Portal. The only way to shut it down is by using Windows PowerShell for StorSimple. To shut down the device in an orderly and controlled manner, access Windows PowerShell for StorSimple and follow the steps below.
 
 >[AZURE.IMPORTANT] Do not shut down a running device by using the power button on the back of the device.
->
->Before shutting down the device, make sure that all the device components are healthy. In the Management Portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
+
+Before shutting down the device, make sure that all the device components are healthy. In the Management Portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
 
 You can connect to the Windows PowerShell for StorSimple through the device serial console or through Windows PowerShell remoting. After you access Windows PowerShell for StorSimple, perform the following steps to shut down a running device.
 
@@ -331,7 +333,7 @@ You can connect to the Windows PowerShell for StorSimple through the device seri
 
 ### Device with EBOD enclosure <a name="8600a">
 
->[AZURE.IMPORTANT] Before shutting down the primary enclosure and the EBOD enclosure, ensure that all the device components are healthy. In the Management Portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that all the components are healthy.
+Before shutting down the primary enclosure and the EBOD enclosure, make sure that all the device components are healthy. In the Management Portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that all the components are healthy.
 
 #### To shut down a running device with EBOD enclosure
 
