@@ -87,9 +87,9 @@ To execute this stored procedure in a Data Factory pipeline, you need to the do 
 		        [
 		            {
 		             "name": "SprocActivitySample",
-		             "type": " SqlServerStoredProcedure ",
+		             "type": " SqlServerStoredProcedure",
 		             "outputs": [ {"name": "sprocsampleout"} ],
-		             "typeproperties":
+		             "typeProperties":
 		              {
 		                "storedProcedureName": "sp_sample",
 		        		"storedProcedureParameters": 
@@ -121,9 +121,9 @@ Now, let’s consider adding another column named ‘Scenario’ in the table co
 	    VALUES (newid(), @DateTime, @Scenario)
 	END
 
-To accomplish this, pass the Scenario parameter and the value from the stored procedure activity. The typeproperties section in the above sample looks like this:
+To accomplish this, pass the Scenario parameter and the value from the stored procedure activity. The typeProperties section in the above sample looks like this:
 
-	"typeproperties":
+	"typeProperties":
 	{
 		"storedProcedureName": "sp_sample",
 	    "storedProcedureParameters": 
