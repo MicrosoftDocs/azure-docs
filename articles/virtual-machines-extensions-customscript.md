@@ -9,11 +9,11 @@
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/19/2015"
+   ms.date="08/06/2015"
    ms.author="kundanap"/>
 
 # Custom Script Extension for Windows
