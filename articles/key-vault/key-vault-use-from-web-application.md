@@ -54,8 +54,7 @@ All three of these packages can be installed using the Package Manager Console u
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	//this is a preview version of the Key Vault Library
-	Install-Package Microsoft.Azure.KeyVault -Pre
+	Install-Package Microsoft.Azure.KeyVault 
 
 
 ## <a id="webconfig"></a>Modify Web.Config ##
