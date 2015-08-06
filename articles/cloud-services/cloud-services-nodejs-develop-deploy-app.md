@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
