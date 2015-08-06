@@ -3,6 +3,7 @@
 	description="Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop."
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -280,4 +281,3 @@ Now that you understand how to get data into HDInsight, read the following artic
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
- 

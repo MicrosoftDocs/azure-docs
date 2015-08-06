@@ -2,6 +2,7 @@
 	pageTitle="Availability of Hadoop clusters in HDInsight | Microsoft Azure"
 	description="HDInsight deploys highly available and reliable clusters with an addtional head node."
 	services="hdinsight"
+	tags="azure-portal"
 	editor="cgronlun"
 	manager="paulettm"
 	authors="mumian"

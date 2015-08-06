@@ -5,6 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
 <tags
@@ -387,7 +388,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 		string containerName = "<Blob container name>";
 
 
-	These are all of the variables you need to set for the program. You can get the Azure subscription name from the [Azure preview portal][azure-management-portal]. 
+	These are all of the variables you need to set for the program. You can get the Azure subscription name from the [Azure preview portal][azure-management-portal].
 
 	For information about the certificate, see [Create and Upload a Management Certificate for Azure][azure-certificate]. An easy way to configure the certificate is to run the **Get-AzurePublishSettingsFile** and **Import-AzurePublishSettingsFile** Azure PowerShell cmdlets. They will create and upload the management certificate automatically. After you run these cmdlets, you can open **certmgr.msc** from the workstation, and find the certificate by expanding **Personal** > **Certificates**. The certificate that is created by the Azure PowerShell cmdlets has Azure Tools for the **Issued To** and the **Issued By** fields.
 

@@ -3,6 +3,7 @@
 	description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>

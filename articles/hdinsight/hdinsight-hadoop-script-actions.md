@@ -3,6 +3,7 @@
 	description="Learn how to customize Hadoop clusters with Script Action."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
