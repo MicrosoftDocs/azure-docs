@@ -30,7 +30,7 @@ To complete this tutorial, you need the following:
 
 * A PC with Visual Studio Professional 2013 or later
 * A Mac with the latest Xcode 
-* An active Azure account. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/) and [App Service Pricing](http://azure.microsoft.com/en-us/pricing/details/app-service/). With [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), try an hour of Azure App Service experience with no Azure subscription, free of charge and commitment.
+* An active Azure account. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/), [App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/), and [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile).
 
 ## Create Mobile App backend
 
