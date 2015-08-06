@@ -83,12 +83,13 @@ This tutorial uses the on-time performance of airline flight data from [Research
 
 The following table lists the files used in this tutorial:
 
-Files|Description
----|---
-wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|The HiveQL script file used by the Hive job that you will run. This script has been uploaded to an Azure Blob storage account with the public access. [Appendix B](hdinsight-analyze-flight-delay-data.md#appendix-b) has instructions on preparing and uploading this file to your own Azure Blob storage account.
-wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. [Appendix A](hdinsight-analyze-flight-delay-data.md#appendix-a) has instructions on getting the data and uploading the data to your own Azure Blob storage account.
-\tutorials\flightdelays\output|The output path for the Hive job. The default container is used for storing the output data.
-\tutorials\flightdelays\jobstatus|The Hive job status folder on the default container.
+<table border="1">
+<tr><th>Files</th><th>Description</th></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>The HiveQL script file used by the Hive job that you will run. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.</td></tr>
+<tr><td>\tutorials\flightdelays\output</td><td>The output path for the Hive job. The default container is used for storing the output data.</td></tr>
+<tr><td>\tutorials\flightdelays\jobstatus</td><td>The Hive job status folder on the default container.</td></tr>
+</table>
 
 
 
@@ -399,11 +400,12 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. On the page, select the following values:
 
-Name|Value
----|---
-Filter Year|2013 
-Filter Period|January
-Fields|*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)
+	<table border="1">
+	<tr><th>Name</th><th>Value</th></tr>
+	<tr><td>Filter Year</td><td>2013 </td></tr>
+	<tr><td>Filter Period</td><td>January</td></tr>
+	<tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</td></tr>
+	</table>
 
 3. Click **Download**. 
 4. Unzip the file to the **C:\Tutorials\FlightDelays\Data** folder. Each file is a CSV file and is approximately 60GB in size.
@@ -414,11 +416,11 @@ Fields|*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAir
 
 1. Prepare the parameters:
 
-Variable Name|Notes
----|---
-$storageAccountName|The Azure Storage account where you want to upload the data to.
-$blobContainerName|The Blob container where you want to upload the data to.
-
+	<table border="1">
+	<tr><th>Variable Name</th><th>Notes</th></tr>
+	<tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the data to.</td></tr>
+	<tr><td>$blobContainerName</td><td>The Blob container where you want to upload the data to.</td></tr>
+	</table>
 2. Open Azure PowerShell ISE.
 3. Paste the following script into the script pane:
 
@@ -515,11 +517,11 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 1. Prepare the parameters:
 
-Variable Name|Notes
----|---
-$storageAccountName|The Azure Storage account where you want to upload the HiveQL script to.
-$blobContainerName|The Blob container where you want to upload the HiveQL script to.
-	
+	<table border="1">
+	<tr><th>Variable Name</th><th>Notes</th></tr>
+	<tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the HiveQL script to.</td></tr>
+	<tr><td>$blobContainerName</td><td>The Blob container where you want to upload the HiveQL script to.</td></tr>
+	</table>
 2. Open Azure PowerShell ISE.
 
 3. Copy and paste the following script into the script pane:
@@ -684,14 +686,14 @@ $blobContainerName|The Blob container where you want to upload the HiveQL script
 
 1. Prepare the parameters:
 
-Variable Name|Notes
----|---
-$sqlDatabaseServerName|The name of the Azure SQL database server. Enter nothing to create a new server.
-$sqlDatabaseUsername|The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.
-$sqlDatabasePassword|The login password for the Azure SQL database server.
-$sqlDatabaseLocation|This value is used only when you're creating a new Azure database server.
-$sqlDatabaseName|The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays.
-
+	<table border="1">
+	<tr><th>Variable Name</th><th>Notes</th></tr>
+	<tr><td>$sqlDatabaseServerName</td><td>The name of the Azure SQL database server. Enter nothing to create a new server.</td></tr>
+	<tr><td>$sqlDatabaseUsername</td><td>The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.</td></tr>
+	<tr><td>$sqlDatabasePassword</td><td>The login password for the Azure SQL database server.</td></tr>
+	<tr><td>$sqlDatabaseLocation</td><td>This value is used only when you're creating a new Azure database server.</td></tr>
+	<tr><td>$sqlDatabaseName</td><td>The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </td></tr>
+	</table>
 2. Open Azure PowerShell ISE. 
 3. Copy and paste the following script into the script pane:
 	

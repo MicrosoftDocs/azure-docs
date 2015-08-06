@@ -115,12 +115,13 @@ For a system that needs high consistency, a LOCAL_QUORUM for consistency level (
 ##THE SOFTWARE CONFIGURATION
 The following software versions are used during the deployment:
 
-Software|Source|Version
----|---|---
-JRE	|[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) |8U5
-JNA	|[JNA](https://github.com/twall/jna) | 3.2.7
-Cassandra|[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)| 2.0.8
-Ubuntu	|[Mcrosoft Azure Portal](http://azure.microsoft.com) |14.04 LTS
+<table>
+<tr><th>Software</th><th>Source</th><th>Version</th></tr>
+<tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Ubuntu	</td><td>[Mcrosoft Azure Portal](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+</table>
 
 Since downloading of JRE requires manual acceptance of Oracle license, to simplify the deployment, download all the required software to the desktop for later uploading into the Ubuntu template image we will be creating as a precursor to the cluster deployment. 
 
@@ -136,28 +137,30 @@ To create the template VM, log into the azure.microsoft.com portal and use the f
 
 Enter the following information on the “Virtual machine configuration” screen #1: 
 
-FIELD NAME|FIELD VALUE|REMARKS
----|---|---
-VERSION RELEASE DATE| Select a date from the drow down|
-VIRTUAL MACHINE NAME    | cass-template| This is the hostname of the VM TIER
-STANDARD | Leave the default|
-SIZE | A1|Select the VM based on the IO needs; for this purpose leave the default  
-NEW USER NAME	         | localadmin	    | "admin" is a reserved user name in Ubuntu 12.xx and after 
-AUTHENTICATION	     | Click check box  |Check if you want to secure with an SSH key  
-CERTIFICATE	         | file name of the public key certificate | Use the public key generated previously 
-New Password	| strong password |  
-Confirm Password	| strong password |
+<table>
+<tr><th>FIELD NAME              </td><td>       FIELD VALUE               </td><td>         REMARKS                </td><tr>
+<tr><td>VERSION RELEASE DATE    </td><td> Select a date from the drow down</td><td></td><tr>
+<tr><td>VIRTUAL MACHINE NAME    </td><td> cass-template	               </td><td> This is the hostname of the VM </td><tr>
+<tr><td>TIER	                 </td><td> STANDARD	                       </td><td> Leave the default              </td><tr>
+<tr><td>SIZE	                 </td><td> A1                              </td><td>Select the VM based on the IO needs; for this purpose leave the default </td><tr>
+<tr><td> NEW USER NAME	         </td><td> localadmin	                   </td><td> "admin" is a reserved user name in Ubuntu 12.xx and after</td><tr>
+<tr><td> AUTHENTICATION	     </td><td> Click check box                 </td><td>Check if you want to secure with an SSH key </td><tr>
+<tr><td> CERTIFICATE	         </td><td> file name of the public key certificate </td><td> Use the public key generated previously</td><tr>
+<tr><td> New Password	</td><td> strong password </td><td> </td><tr>
+<tr><td> Confirm Password	</td><td> strong password </td><td></td><tr>
+</table>
 
 Enter the following information on the “Virtual machine configuration” screen #2: 
 
-FIELD NAME| FIELD VALUE| REMARKS   
----|---|---
-CLOUD SERVICE	|Create a new cloud service	|Cloud service is a container compute resources like virtual machines
-CLOUD SERVICE DNS NAME	|ubuntu-template.cloudapp.net	|Give a machine agnostic load balancer name
-REGION/AFFINITY GROUP/VIRTUAL NETWORK |	West US	|Select a region from which your web applications access the Cassandra cluster
-STORAGE ACCOUNT |	Use default	|Use the default storage account  or a pre-created storage account in a particular region
-AVAILABILITY SET |	None |	Leave it blank
-ENDPOINTS	|Use default |	Use the default SSH configuration 
+<table>
+<tr><th>FIELD NAME             </th><th> FIELD VALUE	                   </th><th> REMARKS                                 </th></tr>
+<tr><td> CLOUD SERVICE	</td><td> Create a new cloud service	</td><td>Cloud service is a container compute resources like virtual machines</td></tr>
+<tr><td> CLOUD SERVICE DNS NAME	</td><td>ubuntu-template.cloudapp.net	</td><td>Give a machine agnostic load balancer name</td></tr>
+<tr><td> REGION/AFFINITY GROUP/VIRTUAL NETWORK </td><td>	West US	</td><td> Select a region from which your web applications access the Cassandra cluster</td></tr>
+<tr><td>STORAGE ACCOUNT </td><td>	Use default	</td><td>Use the default storage account  or a pre-created storage account in a particular region</td></tr>
+<tr><td>AVAILABILITY SET </td><td>	None </td><td>	Leave it blank</td></tr>
+<tr><td>ENDPOINTS	</td><td>Use default </td><td>	Use the default SSH configuration </td></tr>
+</table>
 
 Click right arrow, leave the defaults on the screen #3 and click the “check” button to complete the VM provisioning process. After a few minutes, the VM with the name “ubuntu-template” should be in a “running” status. 
 
@@ -276,14 +279,14 @@ Create symbolic links in $CASS_HOME/lib directory so that Cassandra startup scri
 ####Step 5: Configure cassandra.yaml
 Edit cassandra.yaml on each VM to reflect configuration needed by all the virtual machines [we will tweak this during the actual provisioning]: 
 
-Field Name   | Value  |	Remarks 
----|---|---
-cluster_name |	“CustomerService”	| Use the name that reflects your deployment
-listen_address	|[leave it blank]	| Delete “localhost” 
-rpc_addres   |[leave it blank]	| Delete “localhost” 
-seeds	|"10.1.2.4, 10.1.2.6, 10.1.2.8"	|List of  all the IP addresses which are designated as seeds.
-endpoint_snitch | org.apache.cassandra.locator.GossipingPropertyFileSnitch | This is used by the NetworkTopologyStrateg for inferring the data center and the rack of the VM
-
+<table>
+<tr><th>Field Name   </th><th> Value  </th><th>	Remarks </th></tr>
+<tr><td>cluster_name </td><td>	“CustomerService”	</td><td> Use the name that reflects your deployment</td></tr> 
+<tr><td>listen_address	</td><td>[leave it blank]	</td><td> Delete “localhost” </td></tr>
+<tr><td>rpc_addres   </td><td>[leave it blank]	</td><td> Delete “localhost” </td></tr>
+<tr><td>seeds	</td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"	</td><td>List of  all the IP addresses which are designated as seeds.</td></tr>
+<tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> This is used by the NetworkTopologyStrateg for inferring the data center and the rack of the VM</td></tr>
+</table>
 
 ####Step 6: Capture the VM image
 Log into the virtual machine using the hostname (hk-cas-template.cloudapp.net) and the SSH private key previously created. See How to Use SSH with Linux on Azure for details on how to log in using the command ssh or putty.exe. 
@@ -304,41 +307,44 @@ This will take a few seconds and the image should be available in MY IMAGES sect
 **Step 1: Create the Virtual Network**
 Log into the management portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Management Portal](http://msdn.microsoft.com/library/azure/dn631643.aspx) for detailed steps of the process.      
 
-VM Attribute Name|Value|Remarks
----|---|---
-Name|vnet-cass-west-us|	
-Region|West US|	
-DNS Servers	|None|Ignore this as we are not using a DNS Server
-Configure a point-to-site VPN|None| Ignore this
-Configure a site-to-site VPN|Nnone| Ignore this
-Address Space|10.1.0.0/16|	
-Starting IP|10.1.0.0|	
-CIDR |/16 (65531)|
+<table>
+<tr><th>VM Attribute Name</th><th>Value</th><th>Remarks</th></tr>
+<tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>	
+<tr><td>Region</td><td>West US</td><td></td></tr>	
+<tr><td>DNS Servers	</td><td>None</td><td>Ignore this as we are not using a DNS Server</td></tr>
+<tr><td>Configure a point-to-site VPN</td><td>None</td><td> Ignore this</td></tr>
+<tr><td>Configure a site-to-site VPN</td><td>Nnone</td><td> Ignore this</td></tr>
+<tr><td>Address Space</td><td>10.1.0.0/16</td><td></td></tr>	
+<tr><td>Starting IP</td><td>10.1.0.0</td><td></td></tr>	
+<tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
+</table>
 
 Add the following subnets: 
 
-Name|Starting IP|CIDR|Remarks
----|---|---
-web|10.1.1.0|/24 (251)|Subnet for the web farm
-data|10.1.2.0|/24 (251)|Subnet for the database nodes
+<table>
+<tr><th>Name</th><th>Starting IP</th><th>CIDR</th><th>Remarks</th></tr>
+<tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Subnet for the web farm</td></tr>
+<tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>Subnet for the database nodes</td></tr>
+</table>
 
 Data and Web subnets can be protected through network security groups the coverage of which is out of scope for this article.  
 
 **Step 2: Provision Virtual Machines** 
 Using the image created previously, we will create the following virtual machines in the cloud server “hk-c-svc-west” and bind them to the respective subnets as shown below: 
 
-Machine Name   |Subnet|IP Address|Availability set|DC/Rack|Seed?
----|---|---|---|---|---
-hk-c1-west-us|data|10.1.2.4|hk-c-aset-1|dc =WESTUS rack =rack1 |Yes
-hk-c2-west-us|data|10.1.2.5|hk-c-aset-1|dc =WESTUS rack =rack1|No 
-hk-c3-west-us|data|10.1.2.6|hk-c-aset-1|dc =WESTUS rack =rack2|Yes
-hk-c4-west-us|data|10.1.2.7|hk-c-aset-1|dc =WESTUS rack =rack2|No 
-hk-c5-west-us|data|10.1.2.8|hk-c-aset-2|dc =WESTUS rack =rack3|Yes
-hk-c6-west-us|data|10.1.2.9|hk-c-aset-2|dc =WESTUS rack =rack3|No 
-hk-c7-west-us|data|10.1.2.10|hk-c-aset-2|dc =WESTUS rack =rack4|Yes
-hk-c8-west-us|data|10.1.2.11|hk-c-aset-2|dc =WESTUS rack =rack4|No 
-hk-w1-west-us|web|10.1.1.4|hk-w-aset-1||N/A
-hk-w2-west-us|web|10.1.1.5|hk-w-aset-1||N/A
+<table>
+<tr><th>Machine Name    </th><th>Subnet	</th><th>IP Address	</th><th>Availability set</th><th>DC/Rack</th><th>Seed?</th></tr>
+<tr><td>hk-c1-west-us	</td><td>data	</td><td>10.1.2.4	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack1 </td><td>Yes</td></tr>
+<tr><td>hk-c2-west-us	</td><td>data	</td><td>10.1.2.5	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack1	</td><td>No </td></tr>
+<tr><td>hk-c3-west-us	</td><td>data	</td><td>10.1.2.6	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack2	</td><td>Yes</td></tr>
+<tr><td>hk-c4-west-us	</td><td>data	</td><td>10.1.2.7	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack2	</td><td>No </td></tr>
+<tr><td>hk-c5-west-us	</td><td>data	</td><td>10.1.2.8	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack3	</td><td>Yes</td></tr>
+<tr><td>hk-c6-west-us	</td><td>data	</td><td>10.1.2.9	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack3	</td><td>No </td></tr>
+<tr><td>hk-c7-west-us	</td><td>data	</td><td>10.1.2.10	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack4	</td><td>Yes</td></tr>
+<tr><td>hk-c8-west-us	</td><td>data	</td><td>10.1.2.11	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack4	</td><td>No </td></tr>
+<tr><td>hk-w1-west-us	</td><td>web	</td><td>10.1.1.4	</td><td>hk-w-aset-1	</td><td>                       </td><td>N/A</td></tr>
+<tr><td>hk-w2-west-us	</td><td>web	</td><td>10.1.1.5	</td><td>hk-w-aset-1	</td><td>                       </td><td>N/A</td></tr>
+</table>
 
 Creation of the above list of VMs requires the following process:
 
@@ -424,16 +430,17 @@ Log into one of the nodes (e.g. hk-c1-west-us) and run the following command to 
 
 You should see the display similar to the one below for an 8-node cluster: 
 
-Status|Address|Load|Tokens|Owns|Host ID|Rack
----|---|---|---|---|---|---
-UN|10.1.2.4|87.81 KB|256|38.0%|Guid (removed)|rack1
-UN|10.1.2.5|41.08 KB|256|68.9%|Guid (removed)|rack1
-UN|10.1.2.6|55.29 KB|256|68.8%|Guid (removed)|rack2
-UN|10.1.2.7|55.29 KB|256|68.8%|Guid (removed)|rack2
-UN|10.1.2.8|55.29 KB|256|68.8%|Guid (removed)|rack3
-UN|10.1.2.9|55.29 KB|256|68.8%|Guid (removed)|rack3
-UN|10.1.2.10|55.29 KB|256|68.8%|Guid (removed)|rack4
-UN|10.1.2.11|55.29 KB|256|68.8%|Guid (removed)|rack4
+<table>
+<tr><th>Status</th></th>Address	</th><th>Load	</th><th>Tokens	</th><th>Owns </th><th>Host ID	</th><th>Rack</th></tr>
+<tr><th>UN	</td><td>10.1.2.4 	</td><td>87.81 KB	</td><td>256	</td><td>38.0%	</td><td>Guid (removed)</td><td>rack1</td></tr>
+<tr><th>UN	</td><td>10.1.2.5 	</td><td>41.08 KB	</td><td>256	</td><td>68.9%	</td><td>Guid (removed)</td><td>rack1</td></tr>
+<tr><th>UN	</td><td>10.1.2.6 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid (removed)</td><td>rack2</td></tr>
+<tr><th>UN	</td><td>10.1.2.7 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid (removed)</td><td>rack2</td></tr>
+<tr><th>UN	</td><td>10.1.2.8 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid (removed)</td><td>rack3</td></tr>
+<tr><th>UN	</td><td>10.1.2.9 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid (removed)</td><td>rack3</td></tr>
+<tr><th>UN	</td><td>10.1.2.10 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid (removed)</td><td>rack4</td></tr>
+<tr><th>UN	</td><td>10.1.2.11 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid (removed)</td><td>rack4</td></tr>
+</table>
 
 ## Test the Single Region Cluster
 Use the following steps to test the cluster:
@@ -453,10 +460,11 @@ Use the following steps to test the cluster:
 
 You should see a display like the one below:
 
-customer_id | firstname | lastname 
----|---|---
-1| John| Doe 
-2 | Jane | Doe 
+<table>
+  <tr><th> customer_id </th><th> firstname </th><th> lastname </th></tr>
+  <tr><td> 1 </td><td> John </td><td> Doe </td></tr>
+  <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
+</table>
 
 Please note that the keyspace created in step 4 uses SimpleStrategy with a  replication_factor of 3. SimpleStrategy is recommended for single data center deployments whereas NetworkTopologyStrategy for multi-data center deployments. A replication_factor of 3 will give tolerance for node failures. 
 
@@ -466,22 +474,24 @@ Will leverage the single region deployment completed and repeat the same process
 ###Step 1: Create the Virtual Network at the 2nd Region
 Log into the management portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Management Portal](http://msdn.microsoft.com/library/azure/dn631643.aspx) for detailed steps of the process.      
 
-Attribute Name|Value|Remarks
----|---|---
-Name	|vnet-cass-east-us|	
-Region	|East US|	
-DNS Servers		||Ignore this as we are not using a DNS Server
-Configure a point-to-site VPN||		Ignore this
-Configure a site-to-site VPN||		Ignore this
-Address Space	|10.2.0.0/16|	
-Starting IP	|10.2.0.0	|
-CIDR	|/16 (65531)|
+<table>
+<tr><th>Attribute Name    </th><th>Value	</th><th>Remarks</th></tr>
+<tr><td>Name	</td><td>vnet-cass-east-us</td><td></td></tr>	
+<tr><td>Region	</td><td>East US</td><td></td></tr>	
+<tr><td>DNS Servers		</td><td></td><td>Ignore this as we are not using a DNS Server</td></tr>
+<tr><td>Configure a point-to-site VPN</td><td></td><td>		Ignore this</td></tr>
+<tr><td>Configure a site-to-site VPN</td><td></td><td>		Ignore this</td></tr>
+<tr><td>Address Space	</td><td>10.2.0.0/16</td><td></td></tr>	
+<tr><td>Starting IP	</td><td>10.2.0.0	</td><td></td></tr>
+<tr><td>CIDR	</td><td>/16 (65531)</td><td></td></tr>
+</table>	
 
 Add the following subnets: 
-Name |Starting IP|CIDR|Remarks
----|---|---|---
-web|10.2.1.0|/24 (251)|Subnet for the web farm
-data|10.2.2.0|/24 (251)|Subnet for the database nodes
+<table>
+<tr><th>Name    </th><th>Starting IP	</th><th>CIDR	</th><th>Remarks</th></tr>
+<tr><td>web	</td><td>10.2.1.0	</td><td>/24 (251)	</td><td>Subnet for the web farm</td></tr>
+<tr><td>data	</td><td>10.2.2.0	</td><td>/24 (251)	</td><td>Subnet for the database nodes</td></tr>
+</table>
 
 
 ###Step 2: Create Local Networks
@@ -510,10 +520,11 @@ From the dashboard of both the virtual networks, click CREATE GATEWAY which will
 ###Step 5: Update “Local” networks with the respective “Gateway” addresses###
 Edit both the local networks to replace the placeholder gateway IP address with the real IP address of the just provisioned gateways. Use the following mapping: 
 
-Local Network|Virtual Network Gateway
----|---
-hk-lnet-map-to-east-us|Gateway of hk-vnet-west-us
-hk-lnet-map-to-west-us|Gateway of hk-vnet-east-us
+<table>
+<tr><th>Local Network    </th><th>Virtual Network Gateway</th></tr>
+<tr><td>hk-lnet-map-to-east-us </td><td>Gateway of hk-vnet-west-us</td></tr>
+<tr><td>hk-lnet-map-to-west-us </td><td>Gateway of hk-vnet-east-us</td></tr>
+</table>
 
 ###Step 6: Update the shared key
 Use the following Powershell script to update the IPSec key of each VPN gateway [use the sake key for both the gateways]: 
