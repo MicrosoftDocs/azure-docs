@@ -140,7 +140,7 @@ For our purposes we will make a test certificate. Here are a couple of commands 
 	makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2015 -e 07/31/2016 -r
 	pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
-Make note of the end date and the password for the .pfx (in this example: 07/31/2015 and test123). You will need them below. 
+Make note of the end date and the password for the .pfx (in this example: 07/31/2016 and test123). You will need them below. 
 
 For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/en-in/library/ff699202.aspx)
 
@@ -156,7 +156,8 @@ Now that you have a certificate, you need to associate it with an Azure AD appli
 	
 	PS C:\> $now = [System.DateTime]::Now
 	
-	PS C:\> $yearfromnow = $now.AddYears(1)
+	# this is where the end date from the cert above is used
+	PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31") 
 	
 	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 	
