@@ -29,8 +29,8 @@ You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": “”,
-        	"storedProcedureParameters": “” 
+        	"storedProcedureName": "<name of the stored procedure",
+        	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
 				…
@@ -94,9 +94,9 @@ To execute this stored procedure in a Data Factory pipeline, you need to the do 
 		                "storedProcedureName": "sp_sample",
 		        		"storedProcedureParameters": 
 		        		{
-		            	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		            		"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
 		        		}
-				}
+						}
 		            }
 		          ]
 		     }

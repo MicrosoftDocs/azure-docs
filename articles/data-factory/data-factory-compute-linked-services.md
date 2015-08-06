@@ -208,7 +208,7 @@ poolName | Name of the pool of virtual machines. | Yes
 linkedServiceName | Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity and storing the activity execution logs. | Yes
 
 
-## Azure Batch Linked Service
+## Azure Machine Learning Linked Service
 
 You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
 
