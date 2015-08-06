@@ -23,7 +23,7 @@
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
-[AZURE.INCLUDE [preview-portal](../../include/hdinsight-azure-preview-portal-nolink.md)]
+[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
 
 ## Before you begin
 
