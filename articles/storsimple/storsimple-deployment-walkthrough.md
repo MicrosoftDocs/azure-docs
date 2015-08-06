@@ -132,7 +132,7 @@ Before configuring the device, make sure that:
 	-  [Unpack your 8600 device](storsimple-8600-hardware-installation.md)
 
 
-## For the network in the datacenter
+### For the network in the datacenter
 
 Before you begin, make sure that:
 
