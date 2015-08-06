@@ -39,6 +39,8 @@ In *Azure App Service* the *Mobile App* backend code runs in the same container 
 - Ensure your backend code is always running
 - Use custom CNames to provide friendly and stable names to your mobile backend endpoints
 - Geo-scale your app with Traffic Manager
+- Include any libraries and packages you want. On .NET, the assemblies you deploy are the assemblies that are used at runtime; there is never a conflict with versions in the hosting environment.
+- (For .NET) Leverage any feature of ASP.NET, including MVC
 
 
 ##Connect your *Mobile App* to SaaS API
