@@ -27,7 +27,7 @@ SQL Data Warehouse presents numerous options for loading data including:
 
 While all of the above methods can be used with SQL Data Warehouse.  Many of our users are looking at initial loads in the 100s of Gigabytes to the 10s of Terabytes.  In the below sections, we provide some guidance on initial data loading.  
 
-# Initial Loading into SQL Data Warehouse from SQL Server 
+## Initial Loading into SQL Data Warehouse from SQL Server 
 When loading into SQL Data Warehouse from an on-premise SQL Server instance, we recommend the following steps:
 
 1. **BCP** SQL Server data into flat files 

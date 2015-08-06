@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 

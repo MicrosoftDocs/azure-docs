@@ -438,7 +438,6 @@ Article | Description
 [adf-get-started]: data-factory-get-started.md
 [azure-preview-portal]: http://portal.azure.com
 [download-azure-powershell]: ../powershell-install-configure.md
-[data-factory-create-sql-database]: ../sql-database-create-configure.md
 [data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
