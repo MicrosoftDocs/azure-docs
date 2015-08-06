@@ -34,28 +34,7 @@ In this tutorial, you add push notifications to the [iOS quick start] project so
 
 ##<a id="update-server"></a>Update server project to send push notifications
 
-* In the backend Visual Studio project, open **Controllers** > **TodoItemController.cs** and add the following `using` statements:
-
-```
-			using Microsoft.Azure.Mobile.Server.Config;
-			using Microsoft.Azure.NotificationHubs;
-```
-
-* Add the following to `PostTodoItem` after the `InsertAsync` call. When a todo item is inserted, this code sends out a push notification with the item text.
-
-```
-        // get Notification Hubs credentials associated with this Mobile App
-        string notificationHubName = this.Services.Settings.NotificationHubName;
-        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-        // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-
-        // iOS payload
-        var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
-
-        await Hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
-```
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
 ## <a name="publish-the-service"></a>Deploy server project to Azure
 
