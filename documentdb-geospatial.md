@@ -40,7 +40,7 @@ DocumentDB supports indexing and querying of geospatial data that's represented 
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE] The GeoJSON specification specifies longitude first and latitude second. Like in other mapping applications, longitude can be a numeric value between -90.0 and 90.0, and latitude between -180.0 and 180.0. 
+>[AZURE.NOTE] The GeoJSON specification specifies longitude first and latitude second. Like in other mapping applications, longitude and latitude are angles and represented in terms of degrees. Longitude values are measured from the Prime Meridian and are between -180 and 180.0 degrees, and latitude values are measured from the equator and are between -90.0 and 90.0 degrees. 
 >
 > DocumentDB interprets coordinates as represented per the WGS-84 reference system. Please see below for more details about coordinate reference systems.
 
@@ -88,7 +88,11 @@ A **polygon** is a boundary of connected points that forms a closed LineString. 
 
 >[AZURE.NOTE] The GeoJSON specification requires that for valid polygons, the last coordinate pair provided should be the same as the first, to create a closed shape. 
 
+In addition to Point, LineString and Polygon, GeoJSON also supports MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection for grouping geospatial locations. GeoJSON also supports Feature and FeatureCollection that support arbitrary properties to be associated with locations. Since these types are valid JSON, they can all be stored and processed in DocumentDB.
+
 ### Coordinate Reference Systems
+
+Since the shape of the earth is irregular, coordinates of geospatial data is represented in many coordinate reference systems (CRS), each with their own frames of reference and units of measurement. For example, the National Grid of Britain is a reference system is very accurate for the United Kingdom, but not outside it. Most mapping systems including GPS apps, Google Maps and Bing Maps APIs use the World Geodetic system [WGS-84](http://earth-info.nga.mil/GandG/wgs84/) CRS. DocumentDB supports indexing and querying only using the WGS-84 CRS. 
 
 ##<a id="CreatingSpatialObjects"></a> Creating Spatial Objects 
 
