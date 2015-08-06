@@ -164,20 +164,21 @@ Follow the steps above to setup this controller action:
 
 1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Substitute your file path for `~/Content/chuck.bmp` and your CDN name for `yourCDNName`.
 
-        using System;
-	using System.Collections.Generic;
-	using System.Diagnostics;
-	using System.Drawing;
-	using System.IO;
-	using System.Net;
-	using System.Web.Hosting;
-	using System.Web.Mvc;
-	using System.Web.UI;
 
-	namespace cdnwebapp.Controllers
-	{
-    	    public class MemeGeneratorController : Controller
-    	    {
+        using System;
+        using System.Collections.Generic;
+        using System.Diagnostics;
+        using System.Drawing;
+        using System.IO;
+        using System.Net;
+        using System.Web.Hosting;
+        using System.Web.Mvc;
+        using System.Web.UI;
+
+        namespace cdnwebapp.Controllers
+        {
+            public class MemeGeneratorController : Controller
+            {
               static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
 
               public ActionResult Index()
@@ -412,38 +413,28 @@ Follow the steps below to integration ASP.NET bundling and minification with you
  
 4. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your Azure web app. For example:  
 	
-        ...
 
+        ...
         <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-
         <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
-
         ...
-
         <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
-
         <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
-
         ...
 
 5. In Visual Studio, debug the ASP.NET application in Visual Studio by typing `F5`., 
 
 6. View the HTML code for the page. You will still see each script file individually rendered so that you can have a consistent debug experience in Visual Studio.  
 	
-        ...
 
+        ...
         <link href="/Content/bootstrap.css" rel="stylesheet"/>
         <link href="/Content/site.css" rel="stylesheet"/>
-
         <script src="/Scripts/modernizr-2.6.2.js"></script>
-
         ...
-
         <script src="/Scripts/jquery-1.10.2.js"></script>
-
         <script src="/Scripts/bootstrap.js"></script>
         <script src="/Scripts/respond.js"></script>
-
         ...    
 
 
