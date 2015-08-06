@@ -40,7 +40,7 @@ To complete this tutorial, you need the following:
 
 1. On your PC, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created.
 
-2. At the top of the blade, click **Quickstart** > **iOS (Objective-C)**. If you prefer Swift, click **Quickstart** > **iOS (Swift)** instead.
+2. In the mobile app settings, click **Quickstart** > **iOS (Objective-C)**. If you prefer Swift, click **Quickstart** > **iOS (Swift)** instead.
 
 3. Under **Download and run your server project**, click **Download**. Extract the compressed project files to your PC, and open the solution in Visual Studio.
 
