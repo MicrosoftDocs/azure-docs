@@ -39,14 +39,6 @@ This release contains the following updates.
 <td>Support for Service Bus Topics output</td>
 <td><a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-topics">Service Bus Topics</a> outputs are now available in Stream Analytics jobs.</td>
 </tr>
-<tr>
-<td>New Array functions</td>
-<td>Added the Array functions <a href="https://msdn.microsoft.com/library/azure/mt270218.aspx">GetArrayElement</a>, <a href="https://msdn.microsoft.com/library/azure/mt298451.aspx">GetArrayElements</a>, <a href="https://msdn.microsoft.com/library/azure/mt270226.aspx">GetArrayLength</a></td>
-</tr>
-<tr>
-<td>New Record functions</td>
-<td>Added the Record functions <a href="https://msdn.microsoft.com/library/azure/mt270221.aspx">GetRecordProperties</a> and <a href="https://msdn.microsoft.com/library/azure/mt270220.aspx">GetRecordPropertyValue</a></td>
-</tr>
 </table>
 
 ## Notes for 07/09/2015 release of Stream Analytics ##
