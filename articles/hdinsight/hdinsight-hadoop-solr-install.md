@@ -61,7 +61,6 @@ A sample script to install Solr on an HDInsight cluster is available from a read
 
 	You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the checkmark to start provisioning the cluster.
 
-You can also use the script to install Solr on HDInsight by using Azure PowerShell or the HDInsight .NET SDK. Instructions for these procedures are provided later in this topic.
 
 ## <a name="usesolr"></a>How do I use Solr in HDInsight?
 

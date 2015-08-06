@@ -248,14 +248,13 @@ The two most important parameters that you must set to provision Linux clusters 
 			$clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
 			$clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
 			$credentials = Get-Credential
-			$sshCredentials = Get-Credential				# Provide an empty password if you want to use an SSH public key
-			$sshPublicKey = "<SSH public key>"				 
+			$sshCredentials = Get-Credential				 
 			
 			# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
 			$location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
 			
 			# Create a new HDInsight cluster
-			New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
+			New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials
 
 
 >[AZURE.NOTE] The values you specify for **$clusterCredentials** are used to create the Hadoop user account for the cluster. You will use this account to connect to the cluster. The values you specify for the **$sshCredentials** are used to create the SSH user for the cluster. You use this account to start a remote SSH session on the cluster and run jobs. If you use the Quick Create option from the Azure portal to provision a cluster, the default Hadoop user name is "admin" and default SSH user name is "hdiuser".
