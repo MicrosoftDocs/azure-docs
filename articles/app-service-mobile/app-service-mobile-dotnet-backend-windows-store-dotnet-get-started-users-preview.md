@@ -38,12 +38,11 @@ This tutorial is based on the Mobile App quickstart. You must first complete the
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="5">
-<li>In Visual Studio, open your client app project and ensure that in App.xaml.cs, the instance of <b>MobileServiceClient</b> is configured to use the cloud URL to the Mobile App resource.</li>
-<li><p>Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
+&nbsp;&nbsp;4. In Visual Studio, open the shared App.xaml.cs project file in your client app project and make sure that the **MobileServiceClient** instance is configured to use both the URL of the Mobile App backend and the Gateway.
 
-   	<p>This happens because the app attempts to access your Mobile App Code as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
-</ol>
+&nbsp;&nbsp;5. With one of the Windows app projects set as the start-up project, press the F5 key to run the app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
+
+&nbsp;&nbsp;This happens because the app attempts to access your Mobile App Code as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from your App Service.
 
@@ -52,7 +51,7 @@ Next, you will update the app to authenticate users before requesting resources 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)]
 
 
->[AZURE.NOTE] When you have registered your Windows Store app package information with App Service, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will continue to be presented with a login prompt every time that the login method is called.
+>[AZURE.NOTE] When you register your Windows Store app package information with App Service, you should call the [LoginAsync](http://go.microsoft.com/fwlink/p/?LinkId=311594) method by supplying a value of **true** for the *useSingleSignOn* parameter. If you do not do this, your users will continue to be presented with a sign-in prompt every time that the login method is called.
 
 
 ##<a name="tokens"></a>Store the authentication token on the client
