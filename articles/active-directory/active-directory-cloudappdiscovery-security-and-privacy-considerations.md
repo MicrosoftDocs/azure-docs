@@ -151,7 +151,10 @@ The Cloud App Discovery endpoint agent only collects the information described i
 
 
 
-> [AZURE.NOTE] For more details, see [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)<br>
+> [AZURE.NOTE] For more details, see [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+
+<br>
+<br><br><br><br><br>
 
 ### Intercepting data from encrypted connections
 As we mentioned earlier, administrators can configure the agent to monitor data from encrypted connections ('deep inspection'). TLS ([Transport Layer Security](https://msdn.microsoft.com/library/windows/desktop/aa380516%28v=vs.85%29.aspx)) is one of the most common protocols in use on the Internet today. By encrypting communication with TLS, a client can establish a secure and private communication channel with a web server; TLS provides essential protection for passing authentication credentials and prevent the disclosure of sensitive information.
@@ -204,9 +207,9 @@ However, administrators can choose to delegate this access to other users or gro
 
 
 
-> [AZURE.NOTE] For more details, see [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)<br>
+> [AZURE.NOTE] For more details, see [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
-
+<br>
 
 Any user accessing the data in the portal, must be licensed with an Azure AD Premium license.
 
