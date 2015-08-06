@@ -47,7 +47,7 @@ You can also:
 	- [Connect computers directly to Operational Insights](operational-insights-direct-agent.md)
 	- [Analyze data from servers in Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Do all of the above on the go with the mobile application**
-	- For more information about the Windows Phone application, see [Operational Insights Mobile app](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+	- For more information about the Windows Phone application, see [Operational Insights Mobile app](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865).
 
 ## Operational Insights environment
 
