@@ -8,6 +8,7 @@ Two-way Text message Timeout Seconds|60|600
 Default one-time bypass seconds|300|1800
 Lock user account after **X** consecutive MFA denials|Not Set|99
 Reset account lockout counter after **X** minutes|Not Set|9999
-Unlock account after **X** minutes|Not Set|9999|
+Unlock account after **X** minutes|Not Set|9999
+
 
 <sup>1</sup>This is expected to increase in the future.
