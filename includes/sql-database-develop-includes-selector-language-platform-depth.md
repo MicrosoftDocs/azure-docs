@@ -1,7 +1,7 @@
 > [AZURE.SELECTOR-LIST (Language | Platform & Depth)]
 - [(CSharp. ADO.NET | Windows. Starter)](sql-database-develop-dotnet-simple.md)
 - [(CSharp. Custom logic | Windows. Retry logic)](sql-database-develop-csharp-retry-windows.md)
-- [(CSharp. Enterprise Library | Windows. Retry logic)](http://msdn.microsoft.com/library/azure/dn961167.aspx)
+- [(CSharp. Enterprise Library | Windows. Retry logic)](sql-database-develop-entlib-csharp-retry-windows.md)
 - [(CSharp. Entity Framework | Windows. Relational to object)](http://msdn.microsoft.com/library/azure/ff951633.aspx)
 - [(C++. ODBC | Windows. Starter)](http://msdn.microsoft.com/library/azure/hh974312.aspx)
 - [(Java. JDBC | Windows. Starter)](sql-database-develop-java-simple-windows.md)

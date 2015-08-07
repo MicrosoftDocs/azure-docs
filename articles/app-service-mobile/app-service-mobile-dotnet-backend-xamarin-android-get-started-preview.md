@@ -5,16 +5,16 @@
 	documentationCenter="xamarin"
 	authors="chrisanderson"
 	manager="dwrede"
-	editor="mollybos"/>
+	editor="mollybos" />
 
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/20/2015"
-	ms.author="chrande"/>
+	ms.author="chrande" />
 
 # <a name="getting-started"> </a>Create a Xamarin.Android App
 
