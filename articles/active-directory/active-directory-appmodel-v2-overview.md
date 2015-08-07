@@ -17,10 +17,11 @@
 	ms.author="dastrock"/>
 
 # App Model v2.0 Preview: Sign-in Microsoft Account & Azure AD users in a single application
-In the past, an app developer who wanted to support both Microsoft Accounts and Azure Active Directory was required to integrate with two completely separate systems.  Now you can build apps using the "v2.0 application model", which allows you to sign users in with both types of accounts.  One simple process allows you to immediately reach an audience that spans millions of users with both personal and work/school accounts.
 
-| [Register an app](active-directory-v2-app-registration.md) at <br> apps.dev.microsoft.com | Learn the auth protocols, <br> [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) & [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow) | [Get Started](#getting-started) with tutorials using <br> our open source auth libraries |
-| ----------------------- | ------------------------------- | ------------ |
+> [AZURE.NOTE]
+	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+
+In the past, an app developer who wanted to support both Microsoft Accounts and Azure Active Directory was required to integrate with two completely separate systems.  Now you can build apps using the "v2.0 application model", which allows you to sign users in with both types of accounts.  One simple process allows you to immediately reach an audience that spans millions of users with both personal and work/school accounts.
 
 Your apps can also consume a [unified set of Microsoft REST APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) using either type of account.  Currently, these APIs include Outlook's Mail, Contacts, and Calendars APIs - additional Microsoft Online services will be added in the near future.
 <!-- TODO: customer reference article -->
@@ -29,11 +30,8 @@ Your apps can also consume a [unified set of Microsoft REST APIs](https://www.ms
 The app model v2.0 will be in preview for the next few months.  During the preview period, we are eager to hear your feedback and experience with the new app model as you try things out.  Based on that feedback, we will make breaking changes in the interest of improving the service.  You should not release a production app using the v2.0 app model during this period - support will not be provided for any issues that arise.
 <!-- TODO: Get approval on how it looks  -->
 
-> [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
-
 ## Getting Started
-To get your own app up & running with the v2.0 app model, try out one of our quick start tutorials below.
+There are two ways to get your own app up & running with the v2.0 app model.  You can choose to send auth protocol messages directly, using [OAuth 2.0](active-directory-v2-protocols.md#OAuth2-Authorization-Code-Flow) or [Open ID Connect](active-directory-v2-protocols.md#OpenID-Connect-Sign-In-Flow).  Alternatively you can use our auth libraries to do the work for you - choose your favorite platform below and get started.
 <!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
@@ -54,6 +52,7 @@ These links will be useful for exploring the platform in depth:
 - [App Model v2.0 Token Reference](active-directory-v2-tokens.md)
 - [Office 365 Unified API Reference](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Scopes and Consent in the v2 endpoint](active-directory-v2-scopes.md)
+
 <!-- TODO: These articles
 - [ADAL Library Reference]()
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
