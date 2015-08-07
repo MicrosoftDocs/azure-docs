@@ -18,7 +18,7 @@
 
 # App Model v2.0 Preview: Secure an MVC Web API
 
-With the v2.0 app model, you can protecet a Web API using [OAuth 2.0](active-directory-v2-protocols.md#OAuth2-Authorization-Code-Flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
+With the v2.0 app model, you can protecet a Web API using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
 
 > [AZURE.NOTE]
 This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).

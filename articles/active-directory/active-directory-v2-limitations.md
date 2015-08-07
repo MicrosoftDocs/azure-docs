@@ -42,7 +42,7 @@ This flow is not currently supported by the v2.0 app model - which is to say tha
 ##### Chained Web APIs (On-Behalf-Of)
 Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 app model.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as Office 365 or the Graph API.
 
-This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the [On-Behalf-Of Flow](active-directory-v2-protocols.md#OAuth-2.0-On-Behalf-Of-Flow).  However, the On-Behalf-Of flow is not currently implemented in the v2.0 app model preview.  To see how this flow works in the generally available Azure AD service, check out the [On-Behalf-Of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the [On-Behalf-Of Flow](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow).  However, the On-Behalf-Of flow is not currently implemented in the v2.0 app model preview.  To see how this flow works in the generally available Azure AD service, check out the [On-Behalf-Of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
 ##### Standalone Web APIs
 In the v2.0 app model preview, you have the ability to [build a Web API that is secured using OAuth tokens](active-directory-v2-flows.md#web-apis) from the v2.0 endpoint.  However, that Web API will only be able to receive tokens from a client that shares the same Application Id.  Building a third party web service that is accessed from several different clients is not supported.

@@ -115,7 +115,7 @@ public void ConfigureAuth(IAppBuilder app)
 ```
 
 ## *3. Use ADAL to get an access token upon user sign in*
-In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0 in tandem with OpenID Connect](active-directory-v2-protocols.md#OpenID-Connect-with-OAuth-Code-Flow) to redeem the authorization_code for an access token to the To-Do List Service.  ADAL can make this process easy for you:
+In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0 in tandem with OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) to redeem the authorization_code for an access token to the To-Do List Service.  ADAL can make this process easy for you:
 
 - First, install the preview version of ADAL:
 

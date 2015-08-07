@@ -31,7 +31,7 @@ The app model v2.0 will be in preview for the next few months.  During the previ
 <!-- TODO: Get approval on how it looks  -->
 
 ## Getting Started
-There are two ways to get your own app up & running with the v2.0 app model.  You can choose to send auth protocol messages directly, using [OAuth 2.0](active-directory-v2-protocols.md#OAuth2-Authorization-Code-Flow) or [Open ID Connect](active-directory-v2-protocols.md#OpenID-Connect-Sign-In-Flow).  Alternatively you can use our auth libraries to do the work for you - choose your favorite platform below and get started.
+There are two ways to get your own app up & running with the v2.0 app model.  You can choose to send auth protocol messages directly, using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  Alternatively you can use our auth libraries to do the work for you - choose your favorite platform below and get started.
 <!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]

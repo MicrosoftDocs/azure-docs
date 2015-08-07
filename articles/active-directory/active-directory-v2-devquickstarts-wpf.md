@@ -23,9 +23,9 @@ With the v2.0 app model, you can quickly add authentication to your desktop apps
 > [AZURE.NOTE]
 	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
-For [.NET native applications that run on a device](active-directory-v2-flows.md#Mobile-and-Native-Apps), Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL's sole purpose in life is to make it easy for your app to get tokens for calling web services.  To demonstrate just how easy it is, here we'll build a .NET WPF To-Do List application that:
+For [.NET native applications that run on a device](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL's sole purpose in life is to make it easy for your app to get tokens for calling web services.  To demonstrate just how easy it is, here we'll build a .NET WPF To-Do List application that:
 
--	Signs the user in & gets access tokens using the [OAuth 2.0 authentication protocol](active-directory-v2-protocols.md#OAuth2-Authorization-Code-Flow).
+-	Signs the user in & gets access tokens using the [OAuth 2.0 authentication protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
 -	Securely calls a backend To-Do List web service, which is also secured by OAuth 2.0.
 -	Signs users out.
 
