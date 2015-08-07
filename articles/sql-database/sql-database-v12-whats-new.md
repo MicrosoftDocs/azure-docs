@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/21/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -148,18 +148,10 @@ A V12 database can be hosted only on a V12 logical server. And a V12 server can 
 If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](sql-database-v12-upgrade.md).
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a>Preview regions
+## <a name="V12AzureSqlDbPreviewGaTable"></a> General Availability regions
 
 
-V12 was released in December 2014, but only at the status of [Preview](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). By April 2015 V12 was promoted to General Availability (GA) in almost all geographic regions.
+- By July 31, 2015, all regions had been promoted to General Availability (GA).
+- V12 was released in December 2014, but only at the status of Preview.
 
-
-V12 is available at Preview in the following regions:
-
-
-| Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA, estimated |
-| :--- | :--- | :--- |
-| Australia East | **Preview** | Third quarter of calendar 2015, estimated |
-| Australia Southeast | **Preview** | Third quarter of calendar 2015, estimated |
-
- 
+[Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).

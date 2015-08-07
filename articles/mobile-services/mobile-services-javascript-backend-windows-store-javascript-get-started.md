@@ -12,7 +12,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/29/2015"
+   ms.date="08/04/2015"
    ms.author="rajram"/>
 
 # Microsoft AS2 Connector
@@ -34,7 +34,7 @@ The following items must be created by you before they can be used by the AS2 co
 Requirement | Description
 --- | ---
 TPM API App | Before creating an AS2 connector, you have to create a [BizTalk Trading Partner Management Connector][1]. <br/><br/>**Note** Know the name of your TPM API App. 
-Azure SQL Database | Stores B2B items including partners, schemas, certificates, and agreeements. Each of the B2B API Apps requires its own Azure SQL Database. <br/><br/>**Note** Copy the connection string to this database.<br/><br/>[Create an Azure SQL Database](../sql-database-create-configure.md)
+Azure SQL Database | Stores B2B items including partners, schemas, certificates, and agreeements. Each of the B2B API Apps requires its own Azure SQL Database. <br/><br/>**Note** Copy the connection string to this database.<br/><br/>[Create an Azure SQL Database](../sql-database-get-started.md)
 Azure Blob Storage container | Stores message properties when AS2 archiving is enabled. If you don't need AS2 message archiving, a Storage container is not needed. <br/><br/>**Note** If you are enabling archiving, copy the connection string to this Blob Storage.<br/><br/>[About Azure Storage Accounts](../storage-create-storage-account.md).
 
 ## Create the AS2 Connector

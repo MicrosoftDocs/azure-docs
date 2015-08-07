@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/21/2015"
 	ms.author="pakefali"/>
 
