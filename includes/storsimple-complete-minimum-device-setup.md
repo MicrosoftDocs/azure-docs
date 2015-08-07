@@ -12,12 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="08/07/2015"
    ms.author="v-sharos" />
 
 #### To complete the minimum StorSimple device setup
 
-1. Select the device and click **Quick Start**. Click **Complete device setup** to start the Configure device wizard.
+1. In the **Devices** page, select the device, click the arrow against the device name to go to the specific device page. 
+
+	![Devices page with device online](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
+
+2. Click quick start icon ![Quick Start Icon](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) to access the device quick start page. Click **Complete device setup** to start the **Configure device** wizard.
 
 	![Device quick start page](./media/storsimple-complete-minimum-device-setup/Device_Quick_Start_page_1M.png)
 
