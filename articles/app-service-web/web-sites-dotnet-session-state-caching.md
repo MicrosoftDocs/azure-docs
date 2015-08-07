@@ -71,6 +71,7 @@ In addition to making assembly references for Cache, the NuGet package adds stub
 		    </sessionState>;
 		  </system.web>;
 
+
 ##<a id="usesessionobject"></a> Use the Session Object in Code
 The final step is to begin using the Session object in your ASP.NET code. You add objects to session state by using the **Session.Add** method. This method uses key-value pairs to store items in the session state cache.
 
