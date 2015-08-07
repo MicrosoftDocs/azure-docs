@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="08/05/2015"
 	ms.author="MehrdadMzfr" />
 
