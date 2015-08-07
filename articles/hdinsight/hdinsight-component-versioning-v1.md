@@ -27,17 +27,17 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 <tr><th>Component</th><th>HDInsight Version 3.2</th><th>HDInsight Version 3.1 (Default)</th><th>HDInsight Version 3.0</th><th>HDInsight Version 2.1</th></tr>
 <tr><td>Hortonworks Data Platform</td><td>2.2</td><td>2.1.7</td><td>2.0</td><td>1.3</td></tr>
 <tr><td>Apache Hadoop & YARN</td><td>2.6.0</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td></tr>
-<tr><td>Tez</td><td>0.5.2</td><td>0.4.0</td><td></td><td></td></tr>
+<tr><td>Apache Tez</td><td>0.5.2</td><td>0.4.0</td><td></td><td></td></tr>
 <tr><td>Apache Pig</td><td>0.14.0</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td></tr>
 <tr><td>Apache Hive & HCatalog</td><td>0.14.0</td><td>0.13.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>HBase </td><td>0.98.4</td><td>0.98.0</td><td></td><td></td></tr>
+<tr><td>Apazhe HBase </td><td>0.98.4</td><td>0.98.0</td><td></td><td></td></tr>
 <tr><td>Apache Sqoop</td><td>1.4.5</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td></tr>
 <tr><td>Apache Oozie</td><td>4.1.0</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td></tr>
-<tr><td>Zookeeper</td><td>3.4.6</td><td>3.4.5</td><td>3.4.5</td><td></td></tr>
-<tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
-<tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
-<tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
-<tr><td>Spark</td><td>1.3.1</td><td></td><td></td><td></td></tr>
+<tr><td>Apache Zookeeper</td><td>3.4.6</td><td>3.4.5</td><td>3.4.5</td><td></td></tr>
+<tr><td>Apache Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
+<tr><td>Apache Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
+<tr><td>Apache Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
+<tr><td>Apache Spark</td><td>1.3.1</td><td></td><td></td><td></td></tr>
 </table>
 
 
@@ -61,11 +61,11 @@ Some of the salient features of the HDInsight platform include:
 
 - **Spark** - Apache Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations.
 
-	Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark. 
+	Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark.
 
 	Spark can also be added using Script Action.  Script action adds either Spark 1.2.0 to HDInsight 3.2 cluster or Spark 1.0.2 to HDInsight 3.1 cluster. For more information, see [Install and use Spark on HDInsight Hadoop clusters](hdinsight-hadoop-spark-install.md).
 
- 
+
 - **Storm** - Storm on Azure HDInsight is now generally available, giving a fast and easy way to deploy real-time analytics in just a few clicks and within minutes. Apache Storm on Azure HDInsight is an open-source project in the Apache Hadoop ecosystem that provides access to an analytics platform capable of reliably processing millions of events. Now Hadoop users can gain insights as events happen, along with insights from past events. Microsoft is also providing built-in integration with Visual Studio, making developer interaction with Storm easy. You can now develop, deploy, and debug Storm topologies from within Visual Studio.
 
 - **HDInsight on Linux (Preview)** - Azure HDInsight provides the option of provisioning Hadoop clusters that run on Linux (Ubuntu) virtual machines (VMs). You can use this option if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. You can provision an HDInsight cluster on Linux from a client computer running Windows or Linux by using the Azure portal, the Azure CLI, or the HDInsight .NET SDK (Windows only).
@@ -166,4 +166,3 @@ The **Deprecation Date** is the date after which the cluster version cannot be c
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
- 
