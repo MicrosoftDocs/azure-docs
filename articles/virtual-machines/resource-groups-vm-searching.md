@@ -6,6 +6,7 @@
    authors="squillace"
    manager="timlt"
    editor=""/>
+   tags="azure-resource-manager"
 
 <tags
    ms.service="virtual-machines"
@@ -31,8 +32,8 @@
 | CoreOS                           | CoreOS                                     | Stable                           |
 | MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             |
 | MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             |
-| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         |
-| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       |
+| Microsoft                       | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         |
+| Microsoft                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    |
 | Canonical                        | UbuntuServer                               | 12.04.5-LTS                      |
