@@ -33,7 +33,7 @@
 | MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             |
 | MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             |
 | Microsoft                       | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         |
-| Microsoft                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       |
+| Microsoft                       | gOracle-Database-12c-Weblogic-Server-12c    | Enterprise                       |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    |
 | Canonical                        | UbuntuServer                               | 12.04.5-LTS                      |
