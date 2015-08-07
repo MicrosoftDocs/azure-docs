@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
+   ms.date="08/04/2015"
    ms.author="bwren" />
 
 # Azure Automation webhooks
@@ -37,8 +37,6 @@ The following table describes the properties that you must configure for a webho
 
 ### Parameters
 A webhook can define values for runbook parameters that are used when the runbook is started by that webhook. The webhook must include values for any mandatory parameters of the runbook and may include values for optional parameters.  Multiple webhooks linked to a single runbook can each use different parameter values.
-
->[AZURE.NOTE] Parameter values set by a webhook currently cannot be changed after the webhook is created.  You must create another webhook that uses different parameter values. 
 
 When a client starts a runbook using a webhook, it cannot override the parameter values defined in the webhook.  To receive data from the client, the runbook can accept a single parameter called **$WebhookData** of type [object] that will contain data that the client includes in the POST request. 
 
@@ -94,6 +92,7 @@ The client will receive one of the following return codes from the POST request.
 |:---|:----|:---|
 | 202 | Accepted | The request was accepted, and the runbook was successfully queued. |
 | 400 | Bad Request | The request was not accepted for one of the following reasons. <ul> <li>The webhook has expired.</li> <li>The webhook is disabled.</li> <li>The token in the URL is invalid.</li>  </ul>|
+| 404 | Not Found |  The request was not accepted for one of the following reasons. <ul> <li>The webhook was not found.</li> <li>The runbook was not found.</li> <li>The account was not found.</li>  </ul> |
 | 500 | Internal Server Error | The URL was valid, but an error occurred.  Please resubmit the request.  |
 
 Assuming the request is successful, the webhook response contains the job id in JSON format as follows. It will contain a single job id, but the JSON format allows for potential future enhancements.

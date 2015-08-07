@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/23/2015"
    ms.author="larryfr"/>
 
 # Run Hive queries using the Query Console
@@ -23,6 +23,7 @@
 In this article, you will learn how to use the HDInsight Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
 
 > [AZURE.NOTE] The Query Console is only available on Windows-based HDInsight clusters.
+
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -34,9 +35,8 @@ To complete the steps in this article, you will need the following.
 
 ##<a id="run"></a> Run Hive queries using the Query Console
 
-1. Open the <a href="https://manage.windowsazure.com" target="_blank">Azure Portal</a> and select your HDInsight cluster. From the bottom of the page, select **Query Console**. When prompted, enter the user name and password that you used when you created the cluster.
+1. Open a web browser and navigate to __https://CLUSTERNAME.azurehdinsight.net__, where __CLUSTERNAME__ is the name of your HDInsight cluster. If prompted, enter the user name and password that you used when you created the cluster.
 
-    > [AZURE.NOTE] You can also reach the Query Console by entering **https://CLUSTERNAME.azurehdinsight.net** in your browser.
 
 2. From the links at the top of the page, select **Hive Editor**. This displays a form that can be used to enter the HiveQL statements that you want to run in the HDInsight cluster.
 
@@ -106,17 +106,16 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
- 

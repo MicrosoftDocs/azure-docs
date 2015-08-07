@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
 # Configuring Azure Multi-Factor Authentication
@@ -28,6 +28,8 @@ Feature| Description| What is covered
 [Caching](#caching)|Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |How to setup and configure authentication caching.
 [Trusted IPs](#trusted-ips)|Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet.|Configure and setup IP addresses that are exempt for multi-factor authentication	
 [App Passwords](#app-passwords)|App passwords allows an application that is not mfa aware to bypass multi-factor authentication and continue working.|Information about app passwords.
+[Suspend Multi-Factor Authentication for remembered devices and browsers (Public Preview)](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|Allows you to suspend MFA for a set number of days after a user has successfully signed in using MFA.|Information about enabling this feature and setting up the number of days.
+
 
 
 
@@ -225,6 +227,10 @@ Outside corpnet|For browser flows, multi-factor authentication required.|For bro
 
 In some apps, like Office 2010 or older and Apple Mail you can't use multi-factor authenticaton.  To use these apps, you'll need to use "app passwords" in place of your traditional password.  The app password allows the application to bypass multi-factor authentication and continue working.
 
+>[AZURE.NOTE] Modern Authentication for the Office 2013 Clients
+>
+> Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+
 ### Important things to know about app passwords
 
 The following is an important list of things that you should know about app passwords.
@@ -333,9 +339,29 @@ Additionally users can also create app passwords later on by changing their sett
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/myapp.png)</center>
 
+## Suspend Multi-Factor Authentication for remembered devices and browsers (Public Preview)
+
+Suspending Multi-Factor Authentication for remembered devices and browsers is a feature that allows you to give users the option to suspend MFA for a set number of days after performing a successful sign-in using MFA. It is a free feature for all MFA users and enhances the usability for the users. However, since the users are allowed to suspend MFA, this feature may reduce account security. 
+
+To ensure that the user accounts are secured, you should restore Multi-Factor Authentication for their devices for either of the following scenarios: 
+
+- If their corporate account has become compromised
+- If a remembered device is lost or stolen
+
+> [AZURE.NOTE] This feature is implemented as a browser cookie cache. It will not work if your browser cookies are not enabled.
+
+### How to enable/disable Suspend MFA for remembered devices and set
+
+<ol>
+<li>Sign-in to the Azure Management Portal.</li>
+<li>On the left, click Active Directory.</li>
+<li>Under Active Directory, click on the directory you wish to setup Suspend Multi-Factor Authentication for remembered devices on.</li>
+<li>On the Directory you have selected, click Configure.</li>
+<li>In the multi-factor authentication section, click Manage service settings.</li>
+<li>On the Service Settings page, under manage user device settings, select/unselect the **Allow users to suspend multi-factor authentication by causing a device to be remembered**.</li>
+![Suspend devices](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
+<li>Set the number of days that you want to allow the suspension. The default is 14 days.</li>
+<li>Click save.</li>
+<li>click close.</li>
 
 
-**Additional Resources**
-
-* [For Users](multi-factor-authentication-end-user.md)
-* [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 

@@ -4,15 +4,15 @@
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/25/2015"
+   ms.date="08/04/2015"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -28,6 +28,7 @@ You will have access to Azure services across all regions within a geopolitical 
 |**Geopolitical Region**|**Azure Regions**|**ExpressRoute Locations**|
 |---|---|---|
 |**US**|All US Regions - East US, West US,East US 2, Central US, South Central US, North Central US|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
+|**USGov**|Iowa, Virginia|Ashburn, Chicago|
 |**South America**|Brazil South|Sao Paulo|
 |**Europe**|North Europe, West Europe|Amsterdam, London|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
@@ -66,15 +67,17 @@ See [Configure your EXP connection](expressroute-configuring-exps.md) for steps 
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Coming Soon | Amsterdam+, London+, Dallas, Silicon Valley, Washington DC |
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supported | Coming Soon | Amsterdam, London, Silicon Valley+, Washington DC |
+|**China Telecom Global** | Coming Soon | Not Supported | Hong Kong+ |
 | **[Colt IPVPN]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Not Supported | Amsterdam, London |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** |  Supported | Not Supported | Tokyo |
 | **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Not Supported | Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC |
+| **NTT Communications** | Coming Soon | Not Supported | Tokyo+ | 
 | **[Orange]( http://www.orange-business.com/)** | Supported | Not Supported | Amsterdam, London, Silicon Valley, Washington DC |
 | **PCCW Global Limited** | Supported | Not Supported | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Not Supported | Singapore |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supported | Coming Soon | Amsterdam, Chennai+, Hong Kong, London, Mumbai+, Singapore |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Not Supported | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | London, Hong Kong, Silicon Valley, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | London, Hong Kong, Silicon Valley, Washington DC, USGov Iowa, USGov Virginia |
 
  **+** denotes coming soon
 
@@ -98,7 +101,7 @@ If your connectivity provider is not in the list above sections, you can still c
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 ## ExpressRoute system integrators
-Enabling private connectivity to fit your needs can be challenging based on the scale of your network. You can work with any of the System Integrators listed in the table below to assist you with onboarding to ExpressRoute. 
+Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the System Integrators listed in the table below to assist you with onboarding to ExpressRoute. 
 
 
 |**System Integrator**|**Continent**|
@@ -109,6 +112,6 @@ Enabling private connectivity to fit your needs can be challenging based on the 
 ## Next Steps
 - Verify that you meet the [ExpressRoute prerequisites](expressroute-prerequisites.md).
 - Visit the [FAQ](expressroute-faqs.md) for more information.
-- Select your provider and configure your connection. See 
-[Configure your EXP connection](expressroute-configuring-exps.md) or [Configure your NSP connection](expressroute-configuring-nsps.md) for configuration information.
+- If you want to configure an ExpressRoute connection, see [Configure your EXP connection](expressroute-configuring-exps.md) or [Configure your NSP connection](expressroute-configuring-nsps.md).
+- If you want to configure both a site-to-site VPN connection and ExpressRoute for the same virtual network, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](expressroute-coexist.md).
  

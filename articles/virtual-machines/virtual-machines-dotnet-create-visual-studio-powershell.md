@@ -55,9 +55,10 @@ To create a virtual machine when you create a website, follow these steps:
 <br/>
 13. (Optional) You can connect to the new virtual machine. In **Server Explorer**, expand the **Virtual Machines** node, choose the node for the virtual machine you created, and on its shortcut menu, choose **Connect with Remote Desktop**.
 
-	![][5]
+ ![][5]
 
-## Next Steps
+
+## Next steps
 
 If you want to customize the publish scripts you created, see more in-depth information [here](http://msdn.microsoft.com/library/dn642480.aspx).
 
@@ -66,5 +67,4 @@ If you want to customize the publish scripts you created, see more in-depth info
 [2]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_CreateVM.PNG
 [3]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
-[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_CreateVM_Connect.png
- 
+[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png

@@ -23,27 +23,89 @@ If you already have integrated an older version of our SDK into your application
 
 You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.
 
-Whatever the version you upgrade from, you have to replace all the `mobile-engagement-VERSION.jar` by the new ones.
+Whatever the version you upgrade from, you have to replace the `mobile-engagement-VERSION.jar` with the new one.
 
-###From 2.4.0 to 3.0.0
+##From 3.0.0 to 4.0.0
 
-The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
+### Native push
 
->[AZURE.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
+Native push (GCM/ADM) is now also used for in app notifications so you must configure the native push credentials for any type of push campaign.
 
-If you are migrating from an earlier version, please consult the Capptain web site to migrate to 2.4 first then apply the following procedure
+If not already done please follow [this procedure](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
-#### JAR file
+### AndroidManifest.xml
+
+Reach integration has been modified in ``AndroidManifest.xml``.
+
+Replace this:
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+
+By
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+      </intent-filter>
+    </receiver>
+
+There is possibly a loading screen now when you click on an announcement (with text/web content) or a poll.
+You have to add this for those campaigns to work in 4.0.0:
+
+    <activity
+      android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
+      android:theme="@android:style/Theme.Dialog">
+      <intent-filter>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+
+### Resources
+
+Embed the new `res/layout/engagement_loading.xml` file into your project.
+
+##From 2.4.0 to 3.0.0
+
+The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. If you are migrating from an earlier version, please consult the Capptain web site to migrate to 2.4.0 first and then apply the following procedure.
+
+>[AZURE.IMPORTANT] Capptain and Mobile Engagement are not the same services, and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers.
+
+### JAR file
 
 Replace `capptain.jar` by `mobile-engagement-VERSION.jar` in your `libs` folder.
 
-#### Resource files
+### Resource files
 
-Every resource file that we provided (prefixed by `capptain_`) have to be replaced by the new ones (prefixed with `engagement_`).
+Every resource file that we provided (prefixed by `capptain_`) has to be replaced by the new ones (prefixed with `engagement_`).
 
 If you customized those files, you have to re-apply your customization on the new files, **all the identifiers in the resource files have also been renamed**.
 
-#### Application ID
+### Application ID
 
 Now Engagement uses a connection string to configure the SDK identifiers such as the application identifier.
 
@@ -63,23 +125,23 @@ Please remove this section from your `AndroidManifest.xml` if you have it:
 
 			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-#### Java API
+### Java API
 
-Every call to any Java class of our SDK have to be renamed, for example `CapptainAgent.getInstance(this)` must be renamed `EngagementAgent.getInstance(this)`, `extends CapptainActivity` must be renamed `extends EngagementActivity` etc...
+Every call to any Java class of our SDK has to be renamed; for example, `CapptainAgent.getInstance(this)` must be renamed `EngagementAgent.getInstance(this)`, `extends CapptainActivity` must be renamed `extends EngagementActivity` etc...
 
 If you were integrated with default agent preference files, the default file name is now `engagement.agent` and the key is `engagement:agent`.
 
 When creating web announcements, the Javascript binder is now `engagementReachContent`.
 
-#### AndroidManifest.xml
+### AndroidManifest.xml
 
-A lot of changes happened there, the service is not shared anymore and a lot of receivers are not exportable anymore.
+A lot of changes happened there, the service is not shared anymore, and a lot of receivers are not exportable anymore.
 
-The service declaration is now simpler, remove the intent filter and all meta-data inside it, and add `exportable=false`.
+The service declaration is now simpler; remove the intent filter and all meta-data inside it, and add `exportable=false`.
 
 Plus everything is renamed to use engagement.
 
-It must now looks like:
+It now looks like:
 
 			<service
 			  android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -289,7 +351,7 @@ and
 
 			sendXMPPMessage(android.os.Bundle msg)
 
-#### Proguard
+### Proguard
 
 Proguard configuration can be impacted by rebranding, the rules are now looking like:
 

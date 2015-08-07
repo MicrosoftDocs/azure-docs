@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Salesforce Connector" 
-   description="How to use the Salesforce Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Salesforce Connector"
+   description="How to use the Salesforce Connector"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,22 +12,22 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Using the Saleforce Connector in your Logic App#
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. Salesforce connector lets you create and modify different entities such as Accounts, Leads etc. Following are the typical integration scenarios that involve Salesforce.
 
-- Account Synchronization between Salesforce and ERP systems such as SAP and QuickBooks	
+- Account Synchronization between Salesforce and ERP systems such as SAP and QuickBooks
 
 - Order to Cash flow from Salesforce to ERP systems
 
 
 As part of Connector package settings, the user can specify entities the connector can manage and the actions, input and output parameters are dynamically populated. Following are the different actions available in Salesforce connector.
- 
+
 - Create Entity - Use this action to create a new Salesforce entity such as Account, Case or a Custom Object
 
 - Update Entity - Use this action to update an existing Salesforce entity
@@ -92,7 +92,7 @@ Let us create a simple logic app that creates an account in Salesforce and updat
 
 	![][10]
 
-12.	Provide ‘Account Name’ and click ✓. 
+12.	Provide ‘Account Name’ and click ✓.
 
 	![][11]
 
@@ -102,7 +102,7 @@ Let us create a simple logic app that creates an account in Salesforce and updat
 
 	![][12]
 
-15.	Click on ‘+’ next to ‘Record Id’ to pick the id value from the output of ‘Create Account’ action. 
+15.	Click on ‘+’ next to ‘Record Id’ to pick the id value from the output of ‘Create Account’ action.
 
 	![][13]
 
@@ -132,6 +132,3 @@ Let us create a simple logic app that creates an account in Salesforce and updat
 [13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
-
-
- 

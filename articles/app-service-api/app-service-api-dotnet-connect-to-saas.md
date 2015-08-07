@@ -48,15 +48,9 @@ The tutorial makes these assumptions:
 
 ## Create the API app project
  
-* In Visual Studio, create an API app project named *SimpleDropbox*. 
+When the instructions direct you to enter a name for the project, enter *SimpleDropbox*. 
 
-	For detailed instructions, see [Create an API app project](app-service-dotnet-create-api-app.md#create-an-api-app-project).
-
-	The new-project dialog boxes will resemble these examples:
-
-	![](./media/app-service-api-dotnet-connect-to-saas/newproj.png)
-
-	![](./media/app-service-api-dotnet-connect-to-saas/newaspnet.png)
+[AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
 ## Configure the *apiapp.json* file
 
@@ -175,63 +169,45 @@ Available scopes are defined by each SaaS provider and can be found in the provi
 
 ## Create an API app in Azure
 
-* Use the Visual Studio **Publish Web** wizard to create an API app named SimpleDropbox in Azure.
- 
-	For detailed instructions, see [Create the API app in Azure](app-service-dotnet-deploy-api-app.md#provision).
+In this section you use the Visual Studio **Publish Web** wizard to create an API app in Azure. Where the instructions direct you to enter a name for the API app, enter *SimpleDropbox*.
 
-	The **Create an API App** dialog will resemble this example:
-
-	![](./media/app-service-api-dotnet-connect-to-saas/newapiapp.png)
+[AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
 ## Deploy your code
 
-1. Use the Visual Studio **Publish Web** wizard to deploy your code to the new API app.
+You use the same **Publish Web** wizard to deploy your code to the new API app.
 
-	For detailed instructions, see [Deploy your code to the new API app](app-service-dotnet-deploy-api-app.md#deploy).
-
-	The **Connection** tab of the **Publish Web** wizard will resemble this example:
- 
-	![](./media/app-service-api-dotnet-connect-to-saas/deploy.png)
-
-2. In the [Azure preview portal], navigate to the **gateway** blade for your API app, and then click **Restart**.
-
-	![](./media/app-service-api-dotnet-connect-to-saas/restartgateway.png)
-
-	Visual Studio tries to restart the gateway automatically after a successful deployment, but it sometimes doesn't succeed, so it's a good idea to restart the gateway manually.
-
-	Restarting the gateway triggers it to recognize that you just deployed a new *apiapp.json* file. This causes the portal to show the Dropbox authentication configuration UI that you'll use in the next section. 
+[AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
 ## Configure authentication for incoming calls
 
 For Azure App Service to allow authenticated outgoing calls from the API app, the API app must also require that incoming calls come from authenticated users. This is not a general OAuth 2.0 requirement but is a requirement of the App Service gateway architecture as it is currently implemented.
 
-1. Configure an identity provider in the gateway.
+The screenshots in this section show a ContactsList API app, but the process is the same for the SimpleDropbox API app that you're creating in this tutorial.
 
-	For detailed instructions, see [Configure the gateway for authentication](app-service-api-dotnet-add-authentication.md#gateway).
+### Configure the API app to require that incoming calls be authenticated
 
-2. Configure the API app to require that incoming calls be authenticated.
+[AZURE.INCLUDE [app-service-api-config-auth](../../includes/app-service-api-config-auth.md)]
 
-	For detailed instructions, see [Configure the API app to require authentication](app-service-api-dotnet-add-authentication.md#apiapp).
+### Configure an identity provider in the gateway
 
-	The Application settings blade will resemble this example:
-
-	![](./media/app-service-api-dotnet-connect-to-saas/publicauth.png)
+[AZURE.INCLUDE [app-service-api-gateway-config-auth](../../includes/app-service-api-gateway-config-auth.md)]
 
 ## Configure authentication for outgoing calls
 
 To enable your API app to call the Dropbox API, you have to exchange settings between your API app and a Dropbox app that you create on the Dropbox developer site.
 
-1. Create a Dropbox app on the Dropbox.com site.
+### Create a Dropbox app on the Dropbox.com site
 
-	For detailed instructions, see [Create a Dropbox app](app-service-api-connnect-your-app-to-saas-connector.md#createdbapp).
+[AZURE.INCLUDE [app-service-api-create-dropbox-app](../../includes/app-service-api-create-dropbox-app.md)]
 
-2. Exchange settings between Dropbox and your API app.
+### Exchange settings between Dropbox and your API app
 
-	For detailed instructions, see [Copy the Dropbox app settings to the API app and vice versa](app-service-api-connnect-your-app-to-saas-connector.md#copysettings).
+The following steps refer to a Dropbox connector API app, but the procedures and UI are the same for the SimpleDropbox API app that you're creating in this tutorial.
 
-	The API app's **Authentication** blade will resemble this example:
+> **Note:** If you don't see fields for the Dropbox client ID and client secret on the SimpleDropbox API app's **Authentication** blade as shown in the screenshot, make sure that you restarted the gateway as directed after deploying the API app project to the API app. The "dropbox" value in the `authentication` property of the *apiapp.json* file that you deployed earlier is what triggers the portal to display these fields.
 
-	![](./media/app-service-api-dotnet-connect-to-saas/apiappauthblade.png)
+[AZURE.INCLUDE [app-service-api-exchange-dropbox-settings](../../includes/app-service-api-exchange-dropbox-settings.md)]
 
 ## Create a test client
 
@@ -252,6 +228,8 @@ In this section you create a console app project that uses client code generated
 	The console application will use the Windows Forms assembly to instantiate a browser control when it needs to enable the user to log in to the gateway and to Dropbox.
 
 ### Add generated client code
+
+The screenshots in this section show a ContactsList project and API app, but for this tutorial select the SimpleDropboxTest project and SimpleDropbox API app.
 
 [AZURE.INCLUDE [app-service-api-dotnet-add-generated-client](../../includes/app-service-api-dotnet-add-generated-client.md)]
 

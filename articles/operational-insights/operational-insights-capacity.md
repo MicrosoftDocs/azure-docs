@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Manage infrastructure capacity
@@ -25,7 +25,7 @@ For example, a projection might identify when additional processor cores or addi
 
 ## Capacity Management dashboard
 
-Before you can use the Capacity Management dashboard in Microsoft Azure Operational Insights, you must have the solution installed. To read more about installing solutions, see [Use the Solution Gallery to add or remove solutions](operational-insights-add-solution.md). After the Capacity Planning solution is installed, you can view the capacity of your monitored servers by using the **Capacity Planning** tile on the **Overview** page in Operational Insights.
+Before you can use the Capacity Management dashboard in Microsoft Azure Operational Insights, you must have the solution installed. To read more about installing solutions, see [Use the Solution Gallery to add or remove solutions](operational-insights-setup-workspace.md). After the Capacity Planning solution is installed, you can view the capacity of your monitored servers by using the **Capacity Planning** tile on the **Overview** page in Operational Insights.
 
 ![image of Capacity Planning tile](./media/operational-insights-capacity/overview-cap-plan.png)
 
@@ -161,4 +161,5 @@ By using the projection tool, you can view historical trends for your disk space
 3. In the **Disk Performance** area, you can view disk throughput and latency information.
 
 4. In the **Projection tool**, move the date slider to display a projection of the capacity that will be used on the date you choose.
- 
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]

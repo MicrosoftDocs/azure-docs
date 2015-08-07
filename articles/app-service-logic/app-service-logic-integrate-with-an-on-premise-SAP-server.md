@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Integrate with an on-premises SAP server in Microsoft Azure App Service"
 	description="Learn how to integrate with an on-premises SAP server"
-	authors="rajeshramabathiran" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2015"
-	ms.author="harish"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 
 # Integrate with an on-premises SAP server
 Using the SAP connector, you can connect Azure App Services web, mobile, and logic apps to your existing SAP server. You can invoke RFCs, BAPIs, tRFCs as well as send IDOCs to the SAP server.
-	
+
 The SAP server can even be behind your firewall on-premises. In case of on-premises server, connectivity is established through a hybrid listener, as shown:
 
 ![Hybrid connectivity flow][1]
@@ -40,12 +40,12 @@ The SAP specific client libraries are required on the client machine where the h
 
 
 ## Create a new SAP adapter
-1. Sign in to the Microsoft Azure Management portal. 
+1. Sign in to the Microsoft Azure Management portal.
 2. Select **New**.
 3. In the create blade, select **Compute** > **Azure Marketplace**.
 4. In the marketplace blade, select **API Apps**, and search for SAP in the search bar:
-	
-	![SAP Connector API App][2]	
+
+	![SAP Connector API App][2]
 5. Select the **SAP Connector** published by Microsoft.
 6. In the SAP connector blade, select **Create**.
 7. In the new blade that opens, enter the following:
@@ -108,14 +108,14 @@ Create a new Logic App through **New** > **Logic Apps** > **Create**. Enter the 
 
 Select T**riggers and actions**. The Logic Apps workflow designer opens.
 
-Select the SAP connector from the right pane, and select an action from the Actions tab. 
+Select the SAP connector from the right pane, and select an action from the Actions tab.
 
-> [AZURE.NOTE] The list of actions are based on the configuration you entered when you created the SAP connector. 
+> [AZURE.NOTE] The list of actions are based on the configuration you entered when you created the SAP connector.
 
 For the selected action, you see the input and output parameters. You can enter in the inputs for the action and use the output of the current action in other API Apps, possibly for further decision making in the workflow.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectivityFlow.PNG	
+[1]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectivityFlow.PNG
 [2]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.APIApp.PNG
 [3]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.PNG
 [4]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.ClickOnceInstaller.PNG
@@ -124,7 +124,3 @@ For the selected action, you see the input and output parameters. You can enter 
 [7]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
-
-
-
- 

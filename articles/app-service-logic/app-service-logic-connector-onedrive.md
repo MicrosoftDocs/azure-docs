@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/09/2015"
+	ms.date="07/02/2015"
 	ms.author="andalmia"/>
 
 # Using the OneDrive connector in your logic app #

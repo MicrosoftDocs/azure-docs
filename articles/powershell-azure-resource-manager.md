@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Using Azure PowerShell with Azure Resource Manager" 
 	description="Use Azure PowerShell to deploy multiple resources as a resource group to Azure." 
-	services="" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
@@ -330,27 +330,7 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 
 ## Move a resource
 
-To move an existing resource to another resource group or subscription, use the **Move-AzureResource** command.
-
-The first example shows how to move one resource to a new resource group.
-
-    PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
-
-The second example shows how to move multiple resources to a new resource group.
-
-    PS C:\> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
-    PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
-
-To move to a new subscription, include a value for the **DestinationSubscriptionId** parameter.
-
-There are some important considerations when moving a resource:
-
-1. You cannot change the location of the resource. The **Move-AzureResource** command only moves the resource to a new resource group. The new resource group may have a different location, but that does not change the location of the resource.
-2. The destination resource group should contain only resources that share the same application lifecycle as the resources you are moving.
-3. Not all resources currently support the ability to move to a new subscription. In particular, you cannot move storage accounts of the type **ClassicStorage** or SQL Databases to a new subscription.
-4. Make sure you are using the latest version of Azure PowerShell. The **Move-AzureResource** command is updated frequently. To update your version, run the Microsoft Web Platform Installer and check if a new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
-5. The move operation can take a while to complete and during that time your PowerShell prompt will wait until the operation has completed.
+You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
 
 ## Delete a resource group
 
@@ -394,28 +374,8 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 
 
 ## Next Steps
-Getting Started
 
-- [Azure Resource Manager Overview](./resource-group-overview.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md)
-- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)
-
-Creating and Deploying Applications
-
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)
-- [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Troubleshooting Resource Group Deployments in Azure](./resource-group-deploy-debug.md)
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Advanced Template Operations](./resource-group-advanced-template.md)
-
-Organizing Resources
-
-- [Using tags to organize your Azure resources](./resource-group-using-tags.md)
-
-Managing and Auditing Access
-
-- [Managing and Auditing Access to Resources](./resource-group-rbac.md)
-- [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)
-- [Create a new Azure Service Principal using the Azure classic portal](./resource-group-create-service-principal-portal.md)
+- To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
+- To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md).
+- For a detailed example of deploying a project, see [Deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 

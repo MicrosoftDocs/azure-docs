@@ -32,6 +32,24 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * Compare ApplicationInsights.config with the old copy. Most of the changes you'll see are because we removed some modules and made others parameterizable. Reinstate any customizations you made to the old file.
 * Rebuild your solution.
 
+## Version 1.2
+
+- Telemetry initializers that do not have dependencies on ASP.NET libraries were moved from `Microsoft.ApplicationInsights.Web` to the new dependency nuget `Microsoft.ApplicationInsights.WindowsServer`
+- `Microsoft.ApplicationInsights.Web.dll` was renamed on `Microsoft.AI.Web.dll`
+- `Microsoft.Web.TelemetryChannel` nuget was renamed on `Microsoft.WindowsServer.TelemetryChannel`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` assembly was renamed on `Microsoft.AI.ServerTelemetryChannel.dll`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` class was renamed on `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- All namespaces that are part of Web SDK were changed to exclude `Extensibility` part. That includes all telemetry initializers in ApplicationInsights.config and `ApplicationInsightsWebTracking` module in web.config.
+- Dependencies collected using runtime instrumentation agent (enabled via Status Monitor or Azure WebSite extension) will not be marked as asynchronous if there are no HttpContext.Current on the thread.
+- Property `SamplingRatio` of `DependencyTrackingTelemetryModule` does nothing and marked as obsolete.
+- `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` assembly was renamed on `Microsoft.AI.PerfCounterCollector`
+- Several minor bug fixes in Web and Devices SDKs
+
+
+## Version 1.1
+
+- New telemetry type `DependencyTelemetry` was added which can be used to send information about dependency calls from application (like SQL, HTTP calls etc).
+- New overload method `TelemetryClient.TrackDependency` was added that allows you to send information about dependency calls.
+- Fixed NullReferenceException thrown by diagnostics module when TelemetryConfiguration.CreateDefault is used.
+
 ## Version 1.0
 
 - Moved telemetry initializers and telemetry modules from separate sub-namespaces to the root `Microsoft.ApplicationInsights.Extensibility.Web` namespace.

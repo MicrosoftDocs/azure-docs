@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="HDInsight Connector" 
-   description="How to use the HDInsight Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="HDInsight Connector"
+   description="How to use the HDInsight Connector"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Microsoft HDInsight Connector #
@@ -22,7 +22,7 @@
 Connectors can be used in Logic apps to fetch, process or push data as a part of a flow. HDInsight Connector lets you create a Hadoop clusters on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce and Streaming MapReduce jobs. Azure HDInsight service deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data. The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system. Using HDInsight connector, you can create or delete a cluster, submit a job and wait for it to complete.
 
 ###Basic Actions
-		
+
 - Create Cluster
 - Wait For Cluster Creation
 - Submit Pig Job
@@ -51,7 +51,7 @@ Note: This step is required only if you want to perform management operations (c
 
 Browse to the just created HDInsight Connector API App and you will see that the 'Security' component shows 0 - meaning that there is no management certificate uploaded.
 
-![][2] 
+![][2]
 
 To upload the management certificate to your API App, you need to do the following
 1. Click on the 'Security' component.
@@ -61,7 +61,7 @@ To upload the management certificate to your API App, you need to do the followi
 
 Once the certificate is successfully uploaded, the certificate details are shown.
 
-![][3] 
+![][3]
 
 Note: In case you want to change the certificate, you can upload another certificate which will replace the existing one.
 
@@ -73,42 +73,42 @@ HDInsight Connector can be used only as an action in logic app. Let us take a si
 - In the 'Start logic' card, click 'Run this logic manually'.
 - Select the HDInsight Connector API App created from the gallery and it shows all the actions available.
 
-![][5] 
+![][5]
 
 
 - Select 'Create Cluster', provide all the required cluster parameters and click on the ✓.
 
-![][6] 
+![][6]
 
 
 
-- The action will now appear as configured in the logic app. The output(s) of the action will be shown and can be used inputs in a subsequent actions. 
+- The action will now appear as configured in the logic app. The output(s) of the action will be shown and can be used inputs in a subsequent actions.
 
-![][7] 
+![][7]
 
 
 
 - Select the same HDInsight connector from gallery as an action. Select 'Wait For Cluster Creation' action, provide all the required parameters and click on ✓.
 
-![][8] 
+![][8]
 
 
 
 - Select the same HDInsight connector from gallery as an action. Select 'Submit Hive Job' action, provide all the required parameters and click on ✓.
 
-![][9] 
+![][9]
 
 
 
 - Select the same HDInsight connector from gallery as an action. Select 'Wait For Job Completion' action, provide all the required parameters and click on ✓.
 
-![][10] 
+![][10]
 
 
 
 - Select the same HDInsight connector from gallery as an action. Select 'Delete Cluster' action, provide all the required parameters and click on ✓.
 
-![][11] 
+![][11]
 
 - Save the logic app using the save command at the top of the designer surface.
 
@@ -125,4 +125,3 @@ You can click on 'Run Now' to start the logic app manually to test the scenario.
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
- 

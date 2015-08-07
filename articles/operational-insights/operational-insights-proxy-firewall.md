@@ -9,10 +9,10 @@
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/04/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Configure proxy and firewall settings for Operational Insights
@@ -81,9 +81,24 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 ## Configure proxy and firewall settings with Operations Manager
 
-For an Operations Manager management group to connect to and register with the Operational Insights service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the Operations Manager management server and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights. The following tables list the ports related to these tasks.
+For an Operations Manager management group to connect to and register with the Operational Insights service, it must have access to the port numbers of your domains and URLs. If you use a proxy server for communication between the Operations Manager management server and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights. Even if an Operations Manager management server is not behind a proxy server, it's agents might. In this case, the proxy server should to be configured the same manner as agents are in order to enable and allow Security and Log Management solution data to get sent to the Operational Insights web service.
+
+In order for Operations Manager agents to communicate with the Operational Insights service, your Operations Manager infrastructure (including agents) should have the correct proxy settings and version. The proxy setting for agents is specified in the Operations Manager console. Your version should be one of the of the following:
+
+- Operations Manager 2012 SP1 Update Rollup 7 or later
+- Operations Manager 2012 R2 Update Rollup 3 or later
+
+
+The following tables list the ports related to these tasks.
 
 >[AZURE.NOTE] Some of the following resources mention Advisor. However, the listed resources will change in the future.
+
+|**Agent Resource**|**Ports**|
+|--------------|-----|
+|*.ods.opinsights.azure.com|Port 443|
+|*.oms.opinsights.azure.com|Port 443|
+|ods.systemcenteradvisor.com|Port 443|
+|*.blob.core.windows.net/*|Port 443|
 
 |**Management server resource**|**Ports**|
 |--------------|-----|
@@ -130,6 +145,7 @@ Use the following procedures to register your Operations Manager management grou
 
 
 ### To specify credentials if the proxy server requires authentication
+ Proxy server credentials and settings need to propagate to managed computers that will report to Operational Insights. Those servers should be in the *Microsoft System Center Advisor Monitoring Server Group*. Credentials are encrypted in the registry of each server in the group.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
 
@@ -142,32 +158,13 @@ Use the following procedures to register your Operations Manager management grou
 
 5. To set the account to manage, choose **A selected class, group, or object** to open the Object Search box.
 ![image of the Run As Profile Wizard](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
-6. Search for then select **Operations Manager Management Servers**.
-![image of the Object Search boxc](./media/operational-insights-proxy-firewall/proxyacct3.png)
-7. Click **OK** to close the Add a Run As acount box
+6. Search for then select **Microsoft System Center Advisor Monitoring Server Group**.
+![image of the Object Search box](./media/operational-insights-proxy-firewall/proxyacct3.png)
+7. Click **OK** to close the Add a Run As account box
 ![image of the Run As Profile Wizard](./media/operational-insights-proxy-firewall/proxyacct4.png)
 8. Complete the wizard and save the changes.
 ![image of the Run As Profile Wizard](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
-
-### To configure the proxy server on each management server for WinHTTP
-
-1. If Operations Manager has not been updated with Operations Manager 2012 R2 Update Rollup 3 or Operations Manager 2012 SP1 Update rollup 7 or later, open a Command Prompt window as an administrator on the Operations Manager management server. Otherwise, you don’t need to use this procedure.
-
-2. Type **netsh winhttp set proxy myproxy:80**.
-
-3. Close the Command Prompt window, and restart the System Center Management service (HealthService).
-
-4. Perform step 2 on each management server in your management group.
-
-### To configure the proxy server on each management server
-
-1. Open the Operations Manager console and select the **Administration** workspace.
-
-2. Select **Device Management**, and then click **Management Servers**.
-
-3. Right-click the name of each management server, click **Properties**, and then set the information on the **Proxy Settings** tab.
-![Proxy Settings tab](./media/operational-insights-proxy-firewall/proxyms.png)
 
 ### To validate that Operational Insights management packs are downloaded
 
@@ -189,4 +186,3 @@ Use the following procedures to register your Operations Manager management grou
 ![add counters](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in Operational Insights and the configured log collection policy.
 ![Performance Monitor showing activity](./media/operational-insights-proxy-firewall/sendingdata2.png)
- 

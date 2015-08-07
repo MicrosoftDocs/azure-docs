@@ -10,10 +10,10 @@
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="07/06/2015"
    ms.author="telmosampaio"/>
 
 # Create a Virtual Network
@@ -48,13 +48,6 @@ Once you create your virtual network, you can add new VMs and PaaS instances to 
 
 
 ## Next steps
--  [Virtual Network Technical Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  Learn more about [virtual networks](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx) in Azure. 
 
--  [Add a Virtual Machine to a Virtual Network](virtual-machines-create-custom)
-
--  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
-
--  [Configuring a Virtual Network Using Network Configuration Files](virtual-networks-using-network-configuration-file)
-
--  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
- 
+-  [Add a Virtual Machine](../virtual-machines/virtual-machines-create-custom.md) to a virtual network.

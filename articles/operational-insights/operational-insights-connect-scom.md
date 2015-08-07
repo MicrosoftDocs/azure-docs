@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="lauracr"/>
 
 # Connect to Operational Insights from System Center Operations Manager
@@ -47,4 +47,3 @@ If you use Operations Manager to monitor any of the following workloads, then yo
 ## Next steps
 
 [Configure Proxy and Firewall settings (Optional)](operational-insights-proxy-firewall.md)
- 

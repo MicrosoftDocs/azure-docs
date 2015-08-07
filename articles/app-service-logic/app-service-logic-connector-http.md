@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Http Listener and Connector" 
-   description="Using the HTTP listener and HTTP action in your Logic App" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Http Listener and Connector"
+   description="Using the HTTP listener and HTTP action in your Logic App"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.workload="integration"
+   ms.date="07/02/2015"
    ms.author="prkumar"/>
 
 
@@ -96,10 +96,3 @@ The output of the HTTP action is headers and body, which can be used further dow
 [8]: ./media/app-service-logic-connector-http/8.png
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
-
-
-
-
-
-
- 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -52,10 +52,9 @@ From the dashboard you can view overall usage of your workspace and get a quick 
 
 - The **COMPUTE** chart shows the compute resources being used by the workspace. You can change the view to display relative or absolute values, and you can change the timeframe displayed in the chart.
 - **Usage overview** displays Azure storage being used by the workspace.
-Note: Storage monitoring is unavailable during the Azure Machine Learning public preview.
 - **Quick glance** provides a summary of workspace information and useful links.
 
-> [AZURE.NOTE] The **OPEN IN STUDIO** link opens Machine Learning Studio using the Microsoft Account you are currently signed into. The Microsoft Account you used to sign in to the Azure portal to create a workspace does not automatically have permission to open that workspace. To open a workspace, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace. 
+> [AZURE.NOTE] The **Sign-in to ML Studio** link opens Machine Learning Studio using the Microsoft Account you are currently signed into. The Microsoft Account you used to sign in to the Azure portal to create a workspace does not automatically have permission to open that workspace. To open a workspace, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace. 
 
 
 ## To grant or suspend access for users ##
@@ -67,7 +66,7 @@ From the configuration tab you can
 - Suspend access to the Machine Learning workspace by clicking DENY. Users will no longer be able to open the workspace in Machine Learning Studio. To restore access, click ALLOW.
 - Change the workspace owner by specifying a different Microsoft Account. 
 
-To manage who has access to the workspace in Machine Learning Studio, click **OPEN IN STUDIO** (see note above regarding **OPEN IN STUDIO**). This opens the workspace in Machine Learning Studio. From here, click the **SETTINGS** tab and then **USERS**. You can click **INVITE MORE USERS** to give users access to the workspace, or select a user and click **REMOVE**.
+To manage who has access to the workspace in Machine Learning Studio, click **Sign-in to ML Studio** in the **DASHBOARD** tab (see note above regarding **Sign-in to ML Studio**). This opens the workspace in Machine Learning Studio. From here, click the **SETTINGS** tab and then **USERS**. You can click **INVITE MORE USERS** to give users access to the workspace, or select a user and click **REMOVE**.
 
 
 ## To manage web services in this workspace

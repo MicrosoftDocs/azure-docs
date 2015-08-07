@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Supported configurations for Operational Insights
@@ -99,4 +99,3 @@ For SQL Server, the following 32-bit and 64-bit editions are supported for analy
 - SQL Server 2008 and 2008 R2 Express
 
 In addition, the 32-bit edition of SQL Server is supported when running in the WOW64 implementation.
- 

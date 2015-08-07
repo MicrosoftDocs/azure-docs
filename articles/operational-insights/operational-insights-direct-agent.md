@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/07/2015" 
+	ms.topic="get-started-article"
+	ms.date="07/02/2015" 
 	ms.author="banders"/>
 # Connect computers directly to Operational Insights
 
@@ -78,4 +78,3 @@ $healthServiceSettings.ReloadConfiguration()
 If you have proxy servers or firewalls in your environment that restrict access to the Internet, you might need to follow the following procedures to enable Operations Manager or agents to communicate to the Operational Insights service.
 
 - [Configure proxy and firewall settings (Optional)](operational-insights-proxy-firewall.md)
- 

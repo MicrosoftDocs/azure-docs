@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Virtual machine sizes" 
- description="Lists the different sizes for virtual machines and their capacities." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="KBDAzure" 
- manager="timlt" 
+<properties
+ pageTitle="Virtual machine sizes"
+ description="Lists the different sizes for virtual machines and their capacities."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="KBDAzure"
+ manager="timlt"
  editor=""/>
-<tags 
-ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
+<tags
+ms.service="virtual-machines"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="05/28/2015" 
+ ms.date="07/02/2015"
  ms.author="kathydav"/>
 
 # Sizes for Virtual Machines
@@ -48,6 +48,19 @@ The following considerations might help you decide on a size:
 *   Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11\. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See the topic [Error: “Failed to configure virtual machine”](http://social.msdn.microsoft.com/Forums/WAVirtualMachinesforWindows/thread/9693f56c-fcd3-4d42-850e-5e3b56c7d6be) on the support forum for workarounds for each deployment scenario.  
 
 *   The A8/A10 and A9/A11 virtual machine sizes have the same capacities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.  
+
+## General Limits
+
+This table show limits that apply regardless of a VM's size, for VMs created with Service Management tools.
+
+
+[AZURE.INCLUDE [azure-virtual-machines-limits](../../includes/azure-virtual-machines-limits.md)]
+
+This table show limits that apply regardless of a VM's size, for VMs created with Resource Manager.
+
+[AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+## Size Tables
 
 The following tables show the sizes and the capacities offered by each.
 
@@ -117,7 +130,6 @@ The following tables show the sizes and the capacities offered by each.
 
 ### See Also
 
-[Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md) 
- 
-[About the A8, A9, A10, and A11 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?linkid=328042)
- 
+[Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+
+[About the A8, A9, A10, and A11 Compute Intensive Instances](virtual-machines-a8-a9-a10-a11-specs.md)

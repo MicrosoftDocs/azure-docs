@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/24/2015"
+   ms.date="07/02/2015"
    ms.author="andalmia"/>
 
 #BizTalk Rules

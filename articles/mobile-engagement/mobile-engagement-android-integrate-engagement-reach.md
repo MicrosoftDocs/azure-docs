@@ -57,16 +57,25 @@ Edit your `AndroidManifest.xml` file:
 			    <category android:name="android.intent.category.DEFAULT" />
 			  </intent-filter>
 			</activity>
-			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-			  android:exported="false">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			  <intent-filter>
 			    <action android:name="android.intent.action.BOOT_COMPLETED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			  </intent-filter>
+			</receiver>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			  <intent-filter>
+			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			  </intent-filter>
 			</receiver>
 
@@ -95,6 +104,19 @@ Edit your `AndroidManifest.xml` file:
 
 			-dontwarn android.**
 			-keep class android.support.v4.** { *; }
+
+## Native Push
+
+Now that you configured Reach module, you need to configure native push to be able to receive the campaigns on the device.
+
+We support two services on Android:
+
+  - Google Play devices: Use [Google Cloud Messaging] by following the [How to Integrate GCM with Engagement guide](mobile-engagement-android-gcm-integrate.md) guide.
+  - Amazon devices: Use [Amazon Device Messaging] by following the [How to Integrate ADM with Engagement guide](mobile-engagement-android-adm-integrate.md) guide.
+
+If you want to target both Amazon and Google Play devices, its possible to have everything inside 1 AndroidManifest.xml/APK for development. But when submitting to Amazon, they may reject your application if they find GCM code.
+
+You should use multiple APKs in that case.
 
 **Your application is now ready to receive and display reach campaigns!**
 
@@ -148,19 +170,6 @@ The return type is used only for the Reach statistics:
 
 -   `Replied` is incremented if one of the broadcast receivers returned either `true` or `false`.
 -   `Actioned` is incremented only if one of the broadcast receivers returned `true`.
-
-##How to receive campaigns at any time
-
-When following the integration procedure described above, the Engagement service connects to the Engagement servers only when statistics need to be reported (plus a 1 minute timeout). Consequently, **Reach campaigns can only be received during a user session**. Fortunately, Engagement can be configured to **allow your application to receive Reach campaigns at any time**, including when the device is sleeping (the device must of course have an active network connection, messages are delayed while the device is offline).
-
-To benefit from "Any time" push, you need to use one or more Native Push services depending on devices you target:
-
-  - Google Play devices: Use [Google Cloud Messaging] by following the [How to Integrate GCM with Engagement guide](mobile-engagement-android-gcm-integrate.md) guide.
-  - Amazon devices: Use [Amazon Device Messaging] by following the [How to Integrate ADM with Engagement guide](mobile-engagement-android-adm-integrate.md) guide.
-
-If you want to target both Amazon and Google Play devices, its possible to have everything inside 1 AndroidManifest.xml/APK for development. But when submitting to Amazon, they may reject your application if they find GCM code.
-
-You should use multiple APKs in that case.
 
 ##How to customize campaigns
 

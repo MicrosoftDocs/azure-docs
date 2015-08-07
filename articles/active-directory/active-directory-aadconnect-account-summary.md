@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
 
@@ -27,36 +27,28 @@ The Azure AD Connect wizard offers two different paths with distinct permissions
 
 * In Custom Settings we offer you more choices and options, but there are some situations in which you’ll need to ensure you have the correct permissions yourself. 
 
-The following table is a summary of the credentials that are collected and what they are used for in an express setup.
+
+## Credentials that are collected and what they are used for in an Express setup
 
 Wizard Page  | Credentials Collected | Permissions Required| Used For 
 ------------- | ------------- |------------- |------------- |
 Connect to Azure AD| Azure AD directory credentials | Global administrator role in Azure AD | <li>Enabling sync in the Azure AD directory.</li>  <li>Creation of the Azure AD account that will be used for on-going sync operations in Azure AD.</li>
-Connect to AD DS | On-premises Active Directory credentials | Member of the Enterprise Admins (EA) group in Active Directory|  <li>Creation of the local AD account that will be used for reading objects and attributes from the local AD for ongoing sync operation.</li> <li> Assigning the correct permissions and access control settings for sync and password sync to the above account and to AD.</li> 
+Connect to AD DS | On-premises Active Directory credentials | Member of the Enterprise Admins (EA) group in Active Directory|  Used as the local AD Connector account, that is, it is the account that reads and writes the directory information for synchronization.
 NA|Logon credentials of the user running the wizard| Administrator of the local server|The wizard creates the AD account that will be used as the sync service logon account on the local machine.
 
 <br>
 <br>
 
-The following table is a summary of the credentials that are collected and what they are used for in an express setup.
+
+## Credentials that are collected and what they are used for in a Custom Setup
 
 
 Wizard Page  | Credentials Collected | Permissions Required| Used For 
-------------- | ------------- |------------- |------------- |
-Connect to Azure AD| Azure AD directory credentials | Global administrator role in Azure AD | <li>Enabling sync in the Azure AD directory.</li>  <li>Creation of the Azure AD account that will be used for on-going sync operations in Azure AD.</li>
-Connect to AD DS | On-premises Active Directory credentials | Member of the Enterprise Admins (EA) group in Active Directory|  <li>Creation of the local AD account that will be used for reading objects and attributes from the local AD for ongoing sync operation.</li> <li> Assigning the correct permissions and access control settings for sync and password sync to the above account and to AD.</li> 
-NA|Logon credentials of the user running the wizard| Administrator of the local server|The wizard creates the AD account that will be used as the sync service logon account on the local machine.
-
-<br>
-<br>
-The following table is a summary of the credentials that are collected and what they are used for in an express setup.
-
-Wizard Page  | Credentials Collected | Permissions Required| Used For 
-------------- | ------------- |------------- |------------- |
+------------- | ------------- |------------- |------------- 
 NA|Logon credentials of the user running the wizard|Administrator of the local server| <li>By default, wizard creates the AD account that will be used as the sync service logon account on the local machine</li><li>We only create the sync service logon account if the admin does not specify a particular account</li> <li>The account is a local user unless on a DC in which case the account is a domain user</li> 
 Install synchronization services page, Service account option | AD or local user account credentials | Local user|If the admin specifies an account, this account is used as the logon account for the sync service.
 Connect to Azure AD|Azure AD directory credentials| Global administrator role in Azure AD|The wizard creates the AD account that will be used as the sync service logon account on the local machine.
-Connect your directories|On premises Active Directory credentials for each forest that will be connected to Azure AD |<li>The minimum level of permissions required by the wizard is Domain user.</li> <li>However, the specified account must have the permissions required for your intended scenario.</li><li>If you intend to configure password sync to Azure AD, ensure this account has the following permissions assigned: -Replicating Directory Changes  -Replicating Directory Changes All</li> <li>If you intend to configure sync to ‘write back’ information from Azure AD to your local AD, ensure the account has write permissions to the directory objects and attributes you intend to be written back.</li> <li>If you intend to configure AD FS for Sign on, ensure the AD credentials you provide for the forest in which your AD FS servers reside has Domain Administrator privileges.</li><li>See the table below of a list of additional requirements for your scenario.</li>|<li>Creation of the local AD Management Agent (MA) account, the account that will be used for reading and writing objects and attributes in the local AD for ongoing sync operation.</li><li>Assigning the correct permissions and access control settings for your chosen sync options to the above account and to AD.</li>
+Connect your directories|On premises Active Directory credentials for each forest that will be connected to Azure AD |<li>The minimum level of permissions required by the wizard is Domain user.</li> <li>However, the specified account must have the permissions required for your intended scenario.</li><li>If you intend to configure password sync to Azure AD, ensure this account has the following permissions assigned: -Replicating Directory Changes  -Replicating Directory Changes All</li> <li>If you intend to configure sync to ‘write back’ information from Azure AD to your local AD, ensure the account has write permissions to the directory objects and attributes you intend to be written back.</li> <li>If you intend to configure AD FS for Sign on, ensure the AD credentials you provide for the forest in which your AD FS servers reside has Domain Administrator privileges.</li><li>See the table below of a list of additional requirements for your scenario.</li>|<li>This is the account that will be used for the local AD Management Agent (MA) account.  It will be used for reading and writing objects and attributes in the local AD for ongoing sync operation.</li><li>Assigning the correct permissions and access control settings for your chosen sync options to the above account and to AD.</li>
 AD FS Servers|For each server in the list, the wizard collects credentials if the logon credentials of the user running the wizard are insufficient to connect|Domian Administrator|Installation and configuration of the AD FS server role.|
 Web application proxy servers |For each server in the list, the wizard collects credentials if the logon credentials of the user running the wizard are insufficient to connect|Local admin on the target machine.|Installation and configuration of WAP server role.
 Proxy trust credentials |Federation service trust credentials (the credentials the proxy will use to enroll for a trust certificate from the FS |Domain account that is a local administrator of the AD FS server|Inital enrollment of FS-WAP trust certificate
@@ -66,7 +58,7 @@ AD FS Service Account page, "Use a domain user account option"|AD user account c
 
 <br>
 <br>
-The following table is a summary of the permissions that are required for specific scenarios.
+## Permissions required for specific scenario
 
 Scenario  |Permission
 ------------- | ------------- |
@@ -78,7 +70,7 @@ Single Sign-On and AD FS| Domain admin permissions in the domain in which your f
 
 <br>
 <br>
-The following table is a summary of the accounts that are created by Azure AD Connect.
+## Summary of the accounts that are created by Azure AD Connect
 
 
 

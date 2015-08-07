@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Office 365 Connector" 
-   description="How to use the Office 365 Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Office 365 Connector"
+   description="How to use the Office 365 Connector"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Using the Office 365 Connector in your Logic App#
@@ -75,12 +75,12 @@ Let us create a simple logic app that gets triggered when an email is received (
 9.	Select ‘New Email’ trigger and the input parameters are displayed.
 
 
-10.	Change the trigger frequency to 'Minutes' and click ✓. 
+10.	Change the trigger frequency to 'Minutes' and click ✓.
 
 	![][9]
 
 11. The Office 365 'New Email' trigger is configured and you can see the output parameters also displayed.
-	
+
 	![][10]
 
 12.	Select ‘Office 365 Connector’ from the ‘Recently Used’ section in the gallery and a new 'Office 365' action gets added.
@@ -156,6 +156,3 @@ Let us create a simple logic app that gets triggered when an email is received (
 [19]: ./media/app-service-logic-connector-office365/19_Office365_Send_Inputs.png
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
-
-
- 

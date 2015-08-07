@@ -6,8 +6,6 @@
 	solutions="infrastructure" 
 	documentationCenter="virtual-machines" 
 	authors="squillace" 
-	videoId="" 
-	scriptId="" 
 	manager="timlt" 
 />
 	
@@ -18,7 +16,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
-	ms.date="06/29/2015" 
+	ms.date="07/02/2015" 
 	ms.author="rasquill" 
 />
 

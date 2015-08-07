@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2014"
+	ms.date="07/06/2014"
 	ms.author="larryfr"/>
 
 #Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
@@ -28,7 +28,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * [Maven](http://maven.apache.org/)
 
-* [An Azure HDInsight cluster with HBase](../hdinsight-hbase-get-started.md#create-hbase-cluster)
+* [An Azure HDInsight cluster with HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
 
 ##Create the project
 
@@ -104,9 +104,9 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		</build>
 
 	This configures a resource (__conf\hbase-site.xml__,) that contains configuration information for HBase.
-	
+
 	> [AZURE.NOTE] You can also set configuration values via code. See the comments in the __CreateTable__ example that follows for how to do this.
-	
+
 	This also configures the [Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) and [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). The compiler plug-in is used to compile the topology. The shade plug-in is used to prevent license duplication in the JAR package that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
 
 	The maven-shade-plugin also produces an uber jar (or fat jar,) that contains all the dependencies required by the application.
@@ -590,4 +590,3 @@ Replace __hdinsightclustername__ with the name of your HDInsight cluster.
 ###No results or unexpected results when using Start-HBaseExample
 
 Use the `-showErr` parameter to view the standard error (STDERR) that is produced while running the job.
- 
