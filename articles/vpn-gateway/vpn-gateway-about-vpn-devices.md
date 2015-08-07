@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="About VPN Devices for Azure Virtual Networks | Microsoft Azure"
-   description="Learn about VPN devices for Azure Virtual Network VPN Gateways."
+   pageTitle="About VPN Devices for site-to-site Azure Virtual Network connections | Microsoft Azure"
+   description="Learn about VPN devices and IPsec parameters for Azure Virtual Network site-to-site VPN Gateway connections."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -15,7 +15,7 @@
    ms.date="08/07/2015"
    ms.author="cherylmc" />
 
-# About VPN devices for virtual network connectivity
+# About VPN devices for site-to-site virtual network connections
 
 A VPN device is required in order to configure a site-to-site VPN connection. Site-to-site connections can be used to create a hybrid cloud solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. 
 
