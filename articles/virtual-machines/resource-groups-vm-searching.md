@@ -223,7 +223,7 @@ From this list, copy the chosen SKU name and you have all the information for th
 
 ### Video Walkthrough
 
-This video demonstrates the above steps using the CLI.
+This video demonstrates the above steps using PowerShell.
 
 [AZURE.VIDEO resource-groups-vm-searching-posh]
 
