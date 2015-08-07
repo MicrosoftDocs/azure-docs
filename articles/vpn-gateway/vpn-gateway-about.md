@@ -87,7 +87,7 @@ Point-to-site and site-to-site configurations can exist concurrently, but unlike
 
 - You do not have an Internet facing IPv4 IP address for your VPN device.
 
-For more information about configuring a point-to-site connection, see [Configure a point-to-site VPN connection to virtual network](vpn-gateway-point-to-site-create.md).
+For more information about configuring a point-to-site connection, see [Configure a point-to-site VPN connection to a virtual network](vpn-gateway-point-to-site-create.md).
 
 ## ExpressRoute connections
 
