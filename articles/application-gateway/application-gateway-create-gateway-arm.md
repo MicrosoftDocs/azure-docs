@@ -122,7 +122,7 @@ Creates a public IP resource "publicIP01" in resource group "appw-rg" for the We
 
 	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Creates a Application Gateway IP configuration named "gatewayIP01. When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind each instance will take one IP address.
+Creates a Application Gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind each instance will take one IP address.
  
 ### Step 2
 
@@ -146,13 +146,13 @@ Configures the front end IP port named "frontendport01" in this case for the pub
 
 	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name $fipconfigName -PublicIPAddress $publicip
 
-Creates the front end IP configuration associating the public IP address with the front end IP.
+Creates the front end IP configuration associating the public IP address with the front end IP configuration.
 
 ### Step 6
 
 	$listener = New-AzureApplicationGatewayHttpListener -Name $listenerName  -Protocol http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
-Creates the listener associating the front end port to the frontend IP
+Creates the listener associating the front end port to the frontend IP configuration.
 
 ### Step 7 
 

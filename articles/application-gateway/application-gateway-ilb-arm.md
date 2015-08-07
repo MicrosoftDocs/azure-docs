@@ -115,7 +115,7 @@ Creates a virtual network named "appgwvnet" in resource group "appw-rg" for the 
 
 	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Creates a Application Gateway IP configuration named "gatewayIP01. When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind each instance will take one IP address.
+Creates a Application Gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind each instance will take one IP address.
  
 ### Step 2
 
@@ -145,7 +145,7 @@ Creates the front end IP configuration associating a private IP from the current
 
 	$listener = New-AzureApplicationGatewayHttpListener -Name $listenerName  -Protocol http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
-Creates the listener associating the front end port to the frontend IP
+Creates the listener associating the front end port to the frontend IP configuration.
 
 ### Step 7 
 
