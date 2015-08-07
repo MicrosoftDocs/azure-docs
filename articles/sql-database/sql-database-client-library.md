@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create and manage SQL Database with the Azure SQL Database Library for .NET" 
-   description="This article shows you how to create and manage an Azure SQL Database using the the Azure SQL Database Library for .NET." 
+   pageTitle="Create and manage Azure SQL Database with C#" 
+   description="This article shows you how to create and manage an Azure SQL Database using C# with the the Azure SQL Database Library for .NET." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/04/2015"
+   ms.date="08/05/2015"
    ms.author="sstein"/>
 
-# Create and manage SQL Database with the Azure SQL Database Library for .NET
+# Create and manage SQL Database with C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
