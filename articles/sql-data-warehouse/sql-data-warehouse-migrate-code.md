@@ -28,7 +28,6 @@ The following list summarizes the main features that are not supported in Azure 
 - ANSI joins on deletes
 - merge statement
 - cross-database joins
-- [pivot and unpivot statements][]
 - [cursors][]
 - [SELECT..INTO][]
 - INSERT..EXEC

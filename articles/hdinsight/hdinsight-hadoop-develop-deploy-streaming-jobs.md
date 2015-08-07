@@ -51,13 +51,13 @@ The word-count solution contains two console application projects: mapper and re
 2. Click **FILE**, click **New**, and then click **Project**.
 3. Type or select the following values:
 
-	<table border="1">
-	<tr><td>Field</td><td>Value</td></tr>
-	<tr><td>Template</td><td>Visual C#/Windows/Console Application</td></tr>
-	<tr><td>Name</td><td>WordCountMapper</td></tr>
-	<tr><td>Location</td><td>C:\Tutorials</td></tr>
-	<tr><td>Solution name</td><td>WordCount</td></tr>
-	</table>
+Field|Value
+---|---
+Template|Visual C#/Windows/Console Application
+Name|WordCountMapper
+Location|C:\Tutorials
+Solution name|WordCount
+
 	
 4. Click **OK** to create the project.
 
@@ -100,12 +100,12 @@ The word-count solution contains two console application projects: mapper and re
 1. From Visual Studio 2013, click **FILE**, click **Add**, and then click **New Project**.
 2. Type or select the following values:
 
-	<table border="1">
-	<tr><td>Field</td><td>Value</td></tr>
-	<tr><td>Template</td><td>Visual C#/Windows/Console Application</td></tr>
-	<tr><td>Name</td><td>WordCountReducer</td></tr>
-	<tr><td>Location</td><td>C:\Tutorials\WordCount</td></tr>
-	</table>
+Field|Value
+---|---
+Template|Visual C#/Windows/Console Application
+Name|WordCountReducer
+Location|C:\Tutorials\WordCount
+	
 3. Clear the check box to **Create directory for solution**, and then click **OK** to create the project.
 4. From Solution Explorer, right-click **Program.cs**, and then click **Rename**.
 5. Rename the file to **WordCountReducer.cs**, and then press **ENTER**.
@@ -167,14 +167,14 @@ By default, HDInsight emulator uses Hadoop Distributed File System (HDFS) as the
 
 This tutorial uses the following folder structure:
 
-<table border="1">
-<tr><td>Folder</td><td>Note</td></tr>
-<tr><td>\WordCount</td><td>The root folder for the word-count project. </td></tr>
-<tr><td>\WordCount\Apps</td><td>The folder for the mapper and reducer executables.</td></tr>
-<tr><td>\WordCount\Input</td><td>The MapReduce source file folder.</td></tr>
-<tr><td>\WordCount\Output</td><td>The MapReduce output file folder.</td></tr>
-<tr><td>\WordCount\MRStatusOutput</td><td>The job output folder.</td></tr>
-</table></br>
+Folder|Note
+---|---
+\WordCount|The root folder for the word-count project. 
+\WordCount\Apps|The folder for the mapper and reducer executables.
+\WordCount\Input|The MapReduce source file folder.
+\WordCount\Output|The MapReduce output file folder.
+\WordCount\MRStatusOutput|The job output folder.
+
 
 This tutorial uses the .txt files located in the %hadoop_home% directory.
 
