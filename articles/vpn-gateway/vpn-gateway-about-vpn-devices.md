@@ -19,7 +19,7 @@
 
 A VPN device is required in order to configure a site-to-site VPN connection. Site-to-site connections can be used to create a hybrid cloud solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. 
 
-It's important to know that, in addition to a compatible VPN device, site-to-site connections also require a public-facing IPv4 IP address. Additionally, to create the VPN connection that best fits your needs, you'll want to consider the gateway type that will support your solution. Not all VPN devices support all gateway types. See [VPN gateways](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create your solution, then verify that the device you select will support the gateway type.                                                                                                                                                                                  
+It's important to know that, in addition to a compatible VPN device, site-to-site connections also require a public-facing IPv4 IP address. Additionally, you'll want to select the gateway type that will support your solution. Not all VPN devices support all gateway types. See [VPN gateways](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create your solution.                                                                                                                                                                                
 
 
 
