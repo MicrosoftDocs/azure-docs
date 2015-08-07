@@ -81,7 +81,7 @@ Often, however, you don't yet know what is available. In this case, you can navi
     data:    AlertLogic.Extension                            westus  
 
 
-These lists can be quite long, so the example list above is just a snippet. Let's say that I noticed that Canonical is, indeed, an image publisher in the West US location. You can now find their offers by calling `azure vm image list-offers and pass the location and the publisher at the prompts, like the following example:
+These lists can be quite long, so the example list above is just a snippet. Let's say that I noticed that Canonical is, indeed, an image publisher in the West US location. You can now find their offers by calling `azure vm image list-offers` and pass the location and the publisher at the prompts, like the following example:
 
     azure vm image list-offers
     info:    Executing command vm image list-offers
