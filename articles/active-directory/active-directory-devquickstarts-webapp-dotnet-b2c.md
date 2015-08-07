@@ -29,7 +29,7 @@ Azure AD B2C makes it easy to add user sign up & sign in to your consumer-facing
 - Displays the contents of id_tokens received after sign up and sign in.
 
 > [AZURE.NOTE]
-Local accounts allow consumers to sign in with arbitrary email addresses (& passwords) into your application; for example, 'joe@comcast.net'. Azure Active Directory B2C also allows local accounts with usernames (& passwords); for example, 'joe'.
+Local accounts allow consumers to sign in with arbitrary email addresses (& passwords) into your application; for example, 'joe@comcast.net'. Azure AD B2C also allows local accounts with usernames (& passwords); for example, 'joe'.
 
 Follow the steps below to get this done:
 
@@ -46,6 +46,8 @@ Follow the steps below to get this done:
 11. Re-run the application to issue requests to Azure AD B2C.
 
 Before you start, [download the sample](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip). It is a Visual Studio 2013 solution. Also complete the pre-requisites as described [here](active-directory-get-started-b2c.md), if you haven't done so already. Leave the B2C features blade on the [Azure Portal](https://portal.azure.com/) open.
+
+If you have a Node.JS web app, read [this tutorial](link) instead.
 
 ## Step 1: Register an application with Azure AD B2C
 
