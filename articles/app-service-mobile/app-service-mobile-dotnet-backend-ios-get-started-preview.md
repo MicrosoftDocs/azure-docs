@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/29/2015"
 	ms.author="krisragh"/>
 
@@ -30,7 +30,7 @@ To complete this tutorial, you need the following:
 
 * A PC with Visual Studio Professional 2013 or later
 * A Mac with the latest Xcode 
-* An active Azure account. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/) and [App Service Pricing](http://azure.microsoft.com/en-us/pricing/details/app-service/). With [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), try an hour of Azure App Service experience with no Azure subscription, free of charge and commitment.
+* An active Azure account. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/), [App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/), and [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile).
 
 ## Create Mobile App backend
 
@@ -38,11 +38,11 @@ To complete this tutorial, you need the following:
 
 ## Download server project
 
-1. On your PC, visit [Azure Portal], click **Browse All** > **Mobile Apps** > the backend that you just created.
+1. On your PC, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created.
 
-2. At the top of the blade, click **Add Client** > either **iOS (Objective-C)** or **iOS (Swift)**.
+2. In the mobile app settings, click **Quickstart** > **iOS (Objective-C)**. If you prefer Swift, click **Quickstart** > **iOS (Swift)** instead.
 
-3. Click **Download and publish your service to the cloud** > **Download**, extract the compressed project files to your PC, and open the solution in Visual Studio.
+3. Under **Download and run your server project**, click **Download**. Extract the compressed project files to your PC, and open the solution in Visual Studio.
 
 ## Publish server project to Azure
 

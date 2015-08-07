@@ -5,16 +5,16 @@
 	documentationCenter="xamarin"
 	authors="chrisanderson"
 	manager="dwrede"
-	editor="mollybos"/>
+	editor="mollybos" />
 
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/20/2015"
-	ms.author="chrande"/>
+	ms.author="chrande" />
 
 # <a name="getting-started"> </a>Create a Xamarin.Android App
 
@@ -32,9 +32,9 @@ You'll have to complete this tutorial before you try all the other tutorials for
 
     If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
-* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio 2015 (any edition)</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. 
+    >[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
 
->[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
+* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio 2015 (any edition)</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. You need this to build and run the mobile app backend project.
 
 ## Create a new mobile app backend
 
@@ -80,8 +80,6 @@ To get started, download a .NET backend service project for your mobile app and 
 	![][9]
 
 2. Press the **F5** key to build the project and start the app. 
-
-	> [AZURE.NOTE] To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
 
 3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the **Add** button.
 

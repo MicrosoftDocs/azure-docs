@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics inputs
@@ -37,8 +37,8 @@ Support for refreshing reference data can be enabled by specifying a path patter
 For example if the job has a reference input configured in the portal with the path pattern such as: /sample/{date}/{time}/products.csv where the date format is “YYYY-MM-DD” and the time format is “HH:mm” then the job will pick up a file named /sample/2015-04-16/17:30/products.csv at 5:30 PM on April 16th 2015 UTC time zone .
 
 
-> [AZURE.NOTE]currently Stream Analytics jobs look for reference blob refresh data only when the time coincides with the time encoded in the blob name:
-e.g. jobs look for /sample/2015-04-16/17:30/products.csv between 5:30 PM and 5:30:59.999999999PM on April 16th 2015 UTC time zone. When the clock strikes 5:31PM it stops looking for /sample/2015-04-16/17:30/products.csv and starts looking for /sample/2015-04-16/17:31/products.csv
+> [AZURE.NOTE]Currently Stream Analytics jobs look for reference blob refresh data only when the time coincides with the time encoded in the blob name:
+e.g. jobs look for /sample/2015-04-16/17:30/products.csv between 5:30 PM and 5:30:59.999999999PM on April 16th 2015 UTC time zone. When the clock strikes 5:31PM it stops looking for /sample/2015-04-16/17:30/products.csv and starts looking for /sample/2015-04-16/17:31/products.csv.
 
 The only time previous reference data blobs are considered is when the job starts. At that time the job is looking for the blob which has a latest date/time encoded in its name with a value before than the job start time (the newest reference data blob from before the job start time). This is done to ensure there is a non-empty reference data set at the start of the job. If one cannot be found, the job will fail and display a diagnostic notice to the user:
 
@@ -116,8 +116,9 @@ Then input the information into the fields as shown below for the storage accoun
 
 ![image3](./media/stream-analytics-connect-data-event-inputs/03-stream-analytics-create-inputs.png)
 
-> [AZURE.NOTE]If the user checks the box for 'Configure Advanced Setting', it leads to the following the configuration . Otherwise, Stream Analytics will scan all the blobs in the storage container.
-> ![image4](./media/stream-analytics-connect-data-event-inputs/04-stream-analytics-create-inputs.png)
+> [AZURE.NOTE]Clicking the Configure Advanced Settings box allows an option to specify the Path Prefix Pattern for readings blobs in a customized path.  If this field is not specified, Stream Analytics will read all blobs in the container. 
+
+![image4](./media/stream-analytics-connect-data-event-inputs/04-stream-analytics-create-inputs.png)  
 
 Next choose the correct serialization setting for the data. The options are JSON, CSV, and Avro.
 
@@ -125,11 +126,11 @@ Next choose the correct serialization setting for the data. The options are JSON
 
 Then select **Complete** and the Blob storage data stream input is now created.
 
-## Creating a Blob storage reference data stream
+## Creating a Blob storage reference data input
 ---
-To utilize reference data stream capabilities Blob storage can be leveraged.
+To utilize reference data capabilities Blob storage can be leveraged.
 
-Below is a walk-through to configure Blob storage as a reference data stream. To start, the following information is required:
+Below is a walk-through to configure Blob storage as a reference data input. To start, the following information is required:
 
 1. Input Alias – A friendly-named input alias that is will be referred to in the job query.
 2. If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.
@@ -139,7 +140,7 @@ Below is a walk-through to configure Blob storage as a reference data stream. To
 6. The Path Pattern. The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables: {date} and {time}.
 
 
-On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Reference stream**.
+On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Reference data**.
 
 ![image9](./media/stream-analytics-connect-data-event-inputs/09-stream-analytics-create-inputs.png)
 

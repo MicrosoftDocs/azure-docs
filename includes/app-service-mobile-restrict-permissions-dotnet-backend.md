@@ -1,10 +1,17 @@
-By default, the endpoints defined in your Mobile App are publicly exposed. To secure your resources, you need to restrict access to authenticated clients only.
 
-1. To enable authentication in the backend, open the backend Visual Studio project for your Mobile App. Then open **TodoItemController.cs** from the **Controllers** folder. **TodoItemController**  implements data access for the TodoItem table. 
+By default, a Mobile App backend can be invoked anonymously. Next, you need to restrict access to only authenticated clients.  
 
-2. Add the `Authorize` attribute to the **TodoItemController** class. This makes all table operations require an authenticated user. Alternatively, set `Authorize` on individual methods you'd like to restrict access to. 
+1. In the server project in Visual Studio, open Controllers > **TodoItemController.cs**.
 
-        [Authorize]
-        public class TodoItemController : TableController<TodoItem>
+2. Add `AuthorizeAttribute` to the **TodoItemController** class, as follows:
 
-3. Republish your backend project by right clicking the project and clicking **Publish**.
+```
+    [Authorize]
+    public class TodoItemController : TableController<TodoItem>
+```
+	This requires that all operations against the TodoItem table be made by an authenticated user. To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class. 
+
+3. Republish your server project.
+
+
+    

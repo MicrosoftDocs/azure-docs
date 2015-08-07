@@ -68,29 +68,10 @@ Since resource groups allow you to manage the lifecycle of all the contained res
 ## Next Steps
 Getting Started  
 
-- [Azure Resource Manager Overview](../resource-group-overview.md)  
-- [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager.md)  
-  
-Creating and Deploying Applications  
-  
-- [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)  
-- [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md)
-- [Deploy a complex application predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Troubleshooting Resource Group Deployments in Azure](../resource-group-deploy-debug.md)  
-- [Azure Resource Manager Template Functions](../resource-group-template-functions.md)  
-- [Advanced Template Operations](../resource-group-advanced-template.md)  
-- [Deploy Azure Resources Using .NET Libraries and a Template](../arm-template-deployment.md)
-  
-Organizing Resources  
-  
-- [Using tags to organize your Azure resources](../resource-group-using-tags.md)  
-  
-Managing and Auditing Access  
-  
-- [Managing and Auditing Access to Resources](resource-group-rbac.md)  
-- [Authenticating a Service Principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md)  
-- [Create a new Azure Service Principal using the Azure classic portal](../resource-group-create-service-principal-portal.md)  
+- For an introduction to the concepts in Resource Manager, see [Azure Resource Manager Overview](../resource-group-overview.md).  
+- For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+- For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager.md). 
+- To learn about logically organizing your resources, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
   
 
 

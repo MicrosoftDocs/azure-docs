@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Create a VM with Multiple NICs"
-   description="Lear how to create and configure vms with multiple nics"
+   description="Learn how to create and configure vms with multiple nics"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/02/2015"
+   ms.date="08/02/2015"
    ms.author="telmos" />
 
 # Create a VM with Multiple NICs
