@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/05/2015"
+   ms.date="08/07/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 ## Overview
 
-This article provides commands to perform many Azure SQL Database management tasks with C#. Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
+This article provides commands to perform many Azure SQL Database management tasks with C# using the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
 The Azure SQL Database Library for .NET provides an [Azure Resource Manager](resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. 
 
