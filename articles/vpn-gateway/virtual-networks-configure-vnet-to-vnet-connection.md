@@ -17,7 +17,7 @@
    ms.author="cherylmc"/>
 
 
-# Configure a VNet to VNet Connection
+# Configure a VNet to VNet connection
 
 Connecting an Azure virtual network (VNet) to another Azure virtual network is very similar to connecting a virtual network to an on-premises site location. Both connectivity types use a virtual network gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
 

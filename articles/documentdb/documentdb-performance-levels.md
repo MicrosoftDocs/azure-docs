@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Performance levels in DocumentDB | Azure" 
+	pageTitle="Performance levels in DocumentDB | Microsoft Azure" 
 	description="Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/21/2015" 
 	ms.author="johnmac"/>
 
 #Performance levels in DocumentDB

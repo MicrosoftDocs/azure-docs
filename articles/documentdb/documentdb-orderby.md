@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Sorting DocumentDB data using Order By | Azure" 
+	pageTitle="Sorting DocumentDB data using Order By | Microsoft Azure" 
 	description="Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries." 
 	services="documentdb" 
 	authors="arramac" 
@@ -13,8 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	'
-	ms.date="07/21/2015" 
+	ms.date="07/19/2015" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By
@@ -78,19 +77,16 @@ DocumentDB supports ordering with a single numeric, string or Boolean property p
 
 ## Configure an indexing policy for Order By
 
-The default policy in DocumentDB supports Order By on just numbers. In order to perform Order By on strings, you must either create a collection with Range indexing on string with maximum precision, or modify the indexing policy of your existing collections.
+Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value). Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy with Range on numbers, strings or both, in order to use Order By. 
 
->[AZURE.NOTE] String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03. In order to create policies for Order By against strings, you must use version >= 1.2.0 of the .NET SDK, or version >= 1.1.0 of the Python, Node.js or Java SDK.
+>[AZURE.NOTE] String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03. In order to create policies for Order By against strings, you must use SDK version 1.2.0 of the .NET SDK, or version 1.1.0 of the Python, Node.js or Java SDK.
 >
 >Prior to REST API version 2015-06-03, the default collection indexing policy was Hash for both strings and numbers. This has been changed to Hash for strings, and Range for numbers. 
->
->To modify the indexing policy of a collection, you must use REST API version 2015-06-03 or version >= 1.3.0 of the .NET SDK.
-
 
 For more details see [DocumentDB indexing policies](documentdb-indexing-policies.md).
 
 ### Indexing for Order By against all properties
-Here's how you can create a collection for Order By against any numeric and string properties that appear in JSON documents within the collection. Here, "/*" represents all JSON properties/paths within the collection, and -1 represents the maximum precision.
+Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it. Here, "/*" represents all JSON properties/paths within the collection, and -1 represents the maximum precision.
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -107,7 +103,7 @@ Here's how you can create a collection for Order By against any numeric and stri
 >[AZURE.NOTE] Note that Order By only will return results of the data types (String and Number) that are indexed with a RangeIndex. For example, if you have the default indexing policy which only has RangeIndex on numbers, an Order By against a path with string values will return no documents.
 
 ### Indexing for Order By for a single property
-Here's how you can create a collection with indexing for Order By against just the Title property, which is a string. There are two paths, one for the Title property `/Title/?` with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.                    
+Here's how you can create a collection with indexing for Order By against just the Title property, which is a string. There are two paths, one for the Title property ("/Title/?") with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.                    
     
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -135,6 +131,7 @@ Take a look at this [Github samples project](https://github.com/Azure/azure-docu
 
 Future service updates will expand on the Order By support introduced here. We are working on the following additions and will prioritize the release of these improvements based on your feedback:
 
+- Dynamic Indexing Policies: Support to modify indexing policy after collection creation and in the Azure Portal
 - Support for Compound Indexes for more efficient Order By and Order By on multiple properties.
 
 ## FAQ
@@ -155,7 +152,7 @@ The indexing storage overhead will be proportionate to the number of properties.
 
 **How do I query my existing data in DocumentDB using Order By?**
 
-You should modify your indexing policy using the REST API's POST on /colls or the ReplaceDocumentCollectionAsync method in the .NET SDK. Once the index transformation is completed, you can perform Order By queries against your data.
+This will be supported with the availability of the  Dynamic Indexing Policies improvement mentioned in the [What's Coming Next](what's-coming-next) section. In order to do this today, you have to export your data and re-import into a new DocumentDB collection created with a Range/Order By Index. The DocumentDB Import Tool can be used to migrate your data between collections. 
 
 **What are the current limitations of Order By?**
 

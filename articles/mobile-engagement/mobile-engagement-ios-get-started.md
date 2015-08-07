@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for iOS Apps."
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="piyushjo"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -12,17 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="get-started-article" 
-	ms.date="04/30/2015"
-	ms.author="piyushjo" />
+	ms.topic="hero-article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 # Get Started with Azure Mobile Engagement for iOS Apps in Objective C
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md)
-- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -53,28 +53,28 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 2. Click on **App Services**, then **Mobile Engagement**, and then **Create**.
 
-   	![][7]
+	![][7]
 
 3. In the popup that appears, enter the following information:
 
-   	![][8]
+   ![][8]
 
-	- **Application Name**: type the name of your application. Feel free to use any character.
-	- **Platform**: Select the target platform (**iOS**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
-	- **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto generated name should provide you a strong basis. You should also append the platform name to avoid any name clash as this name must be unique.
-	- **Location**: Select the data center where this app (and more importantly its Collection) will be hosted.
-	- **Collection**: If you have already created an application, select a previously created Collection, otherwise select New Collection.
-	- **Collection Name**: This represents your group of applications. It will also ensure all your apps are in a group that will allow aggregated calculations of metrics. You should use your company name or department here if applicable.
+   - **Application Name**: type the name of your application. Feel free to use any character.
+   - **Platform**: Select the target platform (**iOS**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
+   - **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto generated name should provide you a strong basis. You should also append the platform name to avoid any name clash as this name must be unique.
+   - **Location**: Select the data center where this app (and more importantly its Collection) will be hosted.
+   - **Collection**: If you have already created an application, select a previously created Collection, otherwise select New Collection.
+   - **Collection Name**: This represents your group of applications. It will also ensure all your apps are in a group that will allow aggregated calculations of metrics. You should use your company name or department here if applicable.
 
 4. Select the app you just created in the **Applications** tab.
 
 5. Click on **Connection Info** in order to display the connection settings to put into your SDK integration in your mobile app.
 
-   	![][10]
+	![][10]
 
 6. Copy the **Connection String** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your Phone App.
 
-   	![][11]
+	![][11]
 
 ##<a id="connecting-app"></a>Connecting your app to the Mobile Engagement backend
 
@@ -88,15 +88,15 @@ You may skip this step if you already have an app and are familiar with iOS deve
 
 1. Launch Xcode and in the popup, select **Create a new Xcode project**
 
-   	![][12]
+	![][12]
 
 2. Select **Single View Application** and click Next
 
-   	![][14]
+	![][14]
 
 3. Fill in the **Product Name**, **Organization Name** and **Organization Identifier**. Make sure that you have selected **Objective-C** in the language.
 
-   	![][13]
+	![][13]
 
 Xcode will create the demo app to which we will integrate Mobile Engagement
 
@@ -174,6 +174,11 @@ This section shows you how to make sure your app connects to the Mobile Engageme
 Mobile Engagement allows you to interact and REACH with your users with Push Notifications and In-app Messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
 The following sections will setup your app to receive them.
 
+### Enable your app to receive Silent Push Notifications
+
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]  
+
+
 ### Add the Reach library to your project
 
 1. Right click your project
@@ -212,16 +217,16 @@ The following sections will setup your app to receive them.
 
 2. Add the `application:didRegisterForRemoteNotificationsWithDeviceToken` method as follows:
 
-		(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+		- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 		{
  			[[EngagementAgent shared] registerDeviceToken:deviceToken];
 		}
 
-3. Add the `didReceiveRemoteNotification` method as follows:
+3. Add the `didReceiveRemoteNotification:fetchCompletionHandler` method as follows:
 
-		(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
 		{
-		    [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo];
+			[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 		}
 
 ###Grant access to your Push Certificate to Mobile Engagement
@@ -303,4 +308,3 @@ We will now create a simple Push Notification campaign that will send a push to 
 [37]: ./media/mobile-engagement-ios-get-started/campaign-content.png
 [38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
- 

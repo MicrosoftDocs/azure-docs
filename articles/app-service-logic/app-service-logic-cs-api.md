@@ -1,8 +1,8 @@
 <properties
-   pageTitle="CS API"
-   description="CS API"
+   pageTitle="C# Api App"
+   description="C# Api App"
    services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
+   documentationCenter=".net"
    authors="jeffhollan"
    manager="dwrede"
    editor=""/>
@@ -24,7 +24,7 @@ The key scenario for this API app is when you want the lifecycle of the code tha
 
 On the other hand, if you want a reusable snippet of code that has a lifecycle independent of the Logic app, then you should use the WebJobs API app to create simple code expressions and call them from your Logic app.
 
-Finally, if you want to include any additional packages, you will also need to use the WebJobs API app, as you can not add additional libraries using the C# API App. 
+Finally, if you want to include any additional packages, you would need to pass in the assembly (.dll) to the connector as a Base64 encoded binary string (like the output from blob storage).  If you want more flexibility over packages and assemblies, a WebJob would likely be a better option.
 
 Use the [JavaScript API App](app-service-logic-javascript-api.md) if you would prefer to write your expressions in JS.
 
@@ -50,10 +50,16 @@ Likewise, you can provide an action to run.
 
 The inputs to the action are:
 - **C# expression**  - An expression that will be evaluated. You must include the `return` statement to get any content. 
-- **Context object(s)** - An optional context object that can be passed into the trigger. You can define as many properties as you want, but the base must be a JObject `{ ... }`, and objects can be referenced in the script via `args`.
+- **Context object(s)** - An optional context object that can be passed into the trigger. You can define as many properties as you want, but the base must be a JObject `{ ... }`, and objects can be referenced in the script via the key name (the value is passed in as a JToken cooresponding to name).
+- **Libraries** - An optional array of .dll files to include on compiling the script.  The array uses the following structure, and works best next to a blob storage connector with the .dll as the output:
+
+```javascript
+[{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
+```
 
 For example, imagine you are using the Office 365 trigger **New Email**. That returns the following object:
-```
+
+```javascript
 {
 	...
 	"Attachments" : [
@@ -79,7 +85,7 @@ For example, imagine you are using the Office 365 trigger **New Email**. That re
 
 But, you want to upload these attachments to a Yammer post. Unfortunately, the schema for Yammer attachments is slightly different. Now, you can now parse this inside your Logic app. For the context object just pass: `@triggerBody()`, and for the expression, pass:
 
-```
+```javascript
 JArray YammerAttachments = new JObject();
 foreach(var obj in (JArray)Attachments)
 {
@@ -91,7 +97,7 @@ foreach(var obj in (JArray)Attachments)
 return YammerAttachments;
 ```
 
-The action returns the JSON that you returned from your function. Thus, in the Yammer API app you can reference `@body('csapi')` for the **Attachments** property.
+The action returns the object that you returned from your function in a results object. Thus, in the Yammer API app you can reference `@body('csapi').results` for the **Attachments** property.
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).

@@ -3,9 +3,9 @@
 	description="Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values."
 	services=""
 	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettem"
-	editor="cgronlun"/>
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
 	ms.service="multiple"
@@ -67,17 +67,17 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+### Traffic Manager Limits
 
-### Networking Limits – Azure Resource Manager
+[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
+### DNS Limits
 
-[AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
-
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ## Storage Limits
 
-### Standard Storage Limits 
+### Standard Storage Limits
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
@@ -102,6 +102,10 @@ For additional details on storage account limits, see [Azure Storage Scalability
 ## App Service Limits - Web Apps, Mobile Apps, API Apps, Logic Apps
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+
+## Scheduler Limits
+
+[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
 ## Batch Limits
 
@@ -146,6 +150,11 @@ For additional details on SQL Database limits, please see the following topics:
 ## Service Bus Limits
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+## Data Factory Limits
+
+[AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
+
 
 ## Stream Analytics Limits
 

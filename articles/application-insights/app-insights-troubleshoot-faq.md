@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Questions - Application Insights for ASP.NET
@@ -46,11 +46,18 @@
 
 #### <a name="q02"></a>My new web project was created, but adding Application Insights failed.
 
-This can happen if communication with the Application Insights portal failed, or if there is some problem with your account.
+This can happen if:
 
-+ Check that you provided login credentials for the right Azure account. The Microsoft Azure credentials, which you see in the New Project dialog, can be different from the Visual Studio Online credentials that you see at the top right of Visual Studio.
-+ Wait a while and then [add Application Insights to your existing project][start].
-+ Go to your Microsoft Azure account settings and check for restrictions. See if you can manually add an Application Insights application.
+* Communication with the Application Insights portal failed; or
+* There is some problem with your account;
+* You only have [read access to the subscription or group where you were trying to create the new resource](app-insights-resources-roles-access-control.md).
+
+Remedy:
+
++ Check that you provided login credentials for the right Azure account. In some early versions of the tools, the Microsoft Azure credentials, which you see in the New Project dialog, can be different from the Visual Studio Online credentials that you see at the top right of Visual Studio.
++ In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
++ [Add Application Insights to your existing project][start]: In Solution Explorer, right click your project and choose "Add Application Insights."
++ If it still isn't working, follow the [manual procedure](app-insights-start-monitoring-app-health-usage.md) to add a resource in the portal and then add the SDK to your project. 
 
 #### <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 
@@ -210,7 +217,7 @@ See [Data Retention and Privacy][data].
 <tr><th>What you should see</th><th>How to get it</th><th>Why you want it</th></tr>
 <tr><td>Availability charts</td><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Know your web app is up</td></tr>
 <tr><td>Server app perf: response times, ...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your project</a><br/>or <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Detect perf issues</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your project</a><br/>or <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a> (or write your own code to <a href="../app-insights-api-custom-events-metrics/#track-dependency">track dependencies</a>)</td><td>Detect perf issues</td></tr>
 <tr><td>Dependency telemetry</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose issues with databases or other external components</td></tr>
 <tr><td>Get stack traces from exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insert TrackException calls in your code</a> (but some are reported automatically)</td><td>Detect and diagnose exceptions</td></tr>
 <tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
