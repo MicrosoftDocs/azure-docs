@@ -27,68 +27,26 @@ Offline sync has several potential uses:
 * Improve app responsiveness by caching server data locally on the device
 * Make apps resilient against intermittent network connectivity
 * Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
-* Sync data across multiple devices and detect conflicts when the same record is modified by two devices
+* Sync data across multiple devices and detect conflicts when the same record is modified by two devices.
 
-Local database store details
 
-* SQLite must be installed on Windows
-* Supporting other db stores or custom stores?
 
+The following tutorials provide a basic walkthrough of Offline Sync for Azure Mobile Apps:
+
+* [Using offline data sync in Azure Mobile Apps](app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md)
+*  
 
 
 ## What is a sync table?
 
-Mobile device client code normally interacts with data in a Mobile App backend using the `IMobileServiceTable` interface or it's equivalent on the client platform. To support offline, a local database table acts as buffer between the actual backend database table and client requests. 
+Mobile device client code normally interacts with data in a Mobile App backend using the `IMobileServiceTable` interface or it's equivalent on a client platform. To support offline, a local database table acts as buffer between the actual backend database table and client requests. This local database is often called a sync table or the local store.
 
-Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
+Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
 
- 
+The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization. 
 
-## How offline synchronization behaves
+The local storage itself can be customized on the client. By default the Mobile Apps client SDKs support a SQLite local store for Windows, Xamarin, and Android. In iOS, the default implementation is based on Core Data.
 
-
-When supporting offline, your client code controls when local changes will be synchronized with a Mobile App backend. Nothing is sent to the backend server until an `IMobileServicesSyncContext.PushAsync` (push) or `IMobileServicesSyncTable.PullAsync` (pull) is executed. 
-
-Notice that push is executed on a different interface (`IMobileServicesSyncContext`) than a pull. This is because an app could change multiple tables which in turn are related through relationships. As a result the `IMobileServicesSyncContext` associated with your `MobileServiceClient` tracks changes the client app makes for all local tables. When a push to the backend server is executed on the context, all tracked table changes are updated on the server.
-
-If a pull is executed against a table that has pending local updates tracked by the context, that pull operation will automatically be preceded by a context push. Again, this helps preserve table relationships but, may result in an unexpected push if you are not aware of this behavior.
-
-You can optimize the data set pulled over the network as a result of pull operations using a scope query and query identifier passed as parameters to `PullAsync`. The query identifier can be any string you choose that is unique for your query in your client app. For example, if you wanted to only pull todoitems from the server that had text containing the work "milk", the following code would pull a todoitem from the server with the text "Pick up milk".
-
-	await todoTable.PullAsync("milkQuery", todoTable.CreateQuery().Where(i => i.Text.Contains("milk")));
-
-
-* Pull individual tables, and can scope with queries (see query ID below)
-* Purge
-	* Removes all items from local store
-	* If there are pending operations, will throw exception unless the parameter for "force" is set
-	* Why purge: 
-		* During development if local store has gotten into a bad state. In Windows, Xamarin, and Android, can also change the filename for the local store
-		* If you haven't implemented soft delete in the server
-		* NOTE: this is probably too complicated to include initially If your pull query can cause stale data on the client. For instance, suppose in the todo example, on device1 you only pull items that are not completed. Then, if a todo item "Buy milk" is marked completed on the server or another device, then device1 will still have the "Get milk" todo item. The app should purge data periodically to avoid this problem.
-
-
-There’s a lot more to it, and that’s probably what needs to be fleshed out by me.
- 
-For instance:
-
-* all sync table operations are put into an operation queue, which is then played back when push is called.
-* Conflict handling can either be done through a handler, or in bulk
-* Pull on a table will push changes in the sync context if there are pending operations for that table. So, once there is more than one table, it’s behaviorally different. (hopefully that answers your question, Wes)
- 
-Regarding the questions that we get: based on forum posts and SO, these are the underlying issues:
-
-* What is a sync context?
-* What’s the difference between a SyncTable and a regular one?
-* What is the __version column?
-* How do I pull multiple tables?
-* How to do common conflict handling patterns (out of scope for now)
-* What state is stored on the server?  How do clients know they need to sync?
-* Foreign key relationships between tables
-
-
-## local store
-* The local storage can be customized on the client. By default there is a local store in Windows, Xamarin, and Android, that is based on SQLite (give the class names). In iOS, the default implementation is based on Core Data.
 * The data objects on the client should have some system properties, most are not required.
 	* Managed
 		* Write out the attributes
@@ -97,8 +55,47 @@ Regarding the questions that we get: based on forum posts and SO, these are the 
 * Note: because the iOS local store is based on Core Data, the developer must define the following tables:
 	* System tables 
 
+Local database store details
+
+* SQLite must be installed on Windows
+* Supporting other db stores or custom stores?
+
+ 
+
+## How offline synchronization behaves
+
+
+When supporting offline, your client code controls when local changes will be synchronized with a Mobile App backend. Nothing is sent to the backend server until an `IMobileServicesSyncContext.PushAsync` (push) or `IMobileServicesSyncTable.PullAsync` (pull) is executed. The following list contains important points that describe how offline sync works.
+
+* **Sync Context**: Notice that push is executed on a different interface (`IMobileServicesSyncContext`) than a pull. This is because an app could change multiple tables which in turn are related through relationships. As a result the `IMobileServicesSyncContext` associated with your `MobileServiceClient` tracks changes the client app makes for all local tables. Each sync related table operation is put into an operation queue, which is then played back on the server database when the sync context executes a push. Note that all tracked table changes are updated on the server to preserve relationships that may exist across tables.
+
+* **Implicit Pushes**: If a pull is executed against a table that has pending local updates tracked by the context, that pull operation will automatically be preceded by a context push. Again, this helps preserve table relationships but, may result in an unexpected push if you are not aware of this behavior.
+
+* **Incremental Sync**: You can optimize the data set pulled over the network as a result of pull operations using a scope query and query identifier passed as parameters to `PullAsync`. Providing these parameters enables incremental sync. The query identifier can be any string you choose that is unique for each logical query in your app. For example, if you wanted to only pull todoitems from the server that had text containing the work "milk", the following code would pull a todoitem from the server with the text "Pick up milk".
+
+		await todoTable.PullAsync("milkQuery", todoTable.CreateQuery().Where(i => i.Text.Contains("milk")));
+
+	The query ID is used to store the last updated timestamp from the results of the last pull operation. If the query has a parameter, you could use the value as part of the query ID. For instance, if you are filtering on userid, your query ID could be as follows:
+
+		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
+
+    If you want to opt out of incremental sync, pass `null` as the query ID. In this case, all records will be retrieved on every call to `PullAsync`, which is potentially inefficient.
+
+
+* **Purging**: Azure Mobile apps can clear the contents of the local store database using `IMobileServiceSyncTable.PurgeAsync`. This may be necessary if a local store is in a bad state preventing synchronization. A purge will remove all items from the local store. If there are operations pending synchronization with the server database, the purge will throw an exception unless the parameter the force parameter is set to true.
+
+	Another reason for purging is stale data on the client. For instance, suppose in the todoitem example, Device1 only pulls items that are not completed. Then, a todoitem "Buy milk" is marked completed on the server by another device. Device1 will still have the "Buy milk" todoitem in local store. The app should purge data periodically clear such stale records.
+
+
+There’s a lot more to it, and that’s probably what needs to be fleshed out by me.
+ 
+For instance:
+
+* Conflict handling can either be done through a handler, or in bulk
+
+
+
 ## Incremental sync and querying
-* Pass queryID to pull to enable incremental syncing
 * To use this, the server MUST support send a valid __updatedAt system column, and must support sorting on this column
 * This is used only on the client.
 * Incremental sync works by storing the latest updatedAt value for each batch result of the pull operation, uses '1970-01-01' initially

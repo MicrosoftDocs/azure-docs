@@ -148,7 +148,7 @@ Azure Mobile App offline features allow you to interact with a local database wh
             ButtonRefresh.IsEnabled = true;
         }
 
-10. Add exception handlers in the `SyncAsync` method:
+10. Add exception handlers in the `SyncAsync` method. In an offline situation a `MobileServicePushFailedException` will be thrown with `PushResult.Status == CancelledByNetworkError`.
 
         private async Task SyncAsync()
         {
@@ -187,7 +187,7 @@ Azure Mobile App offline features allow you to interact with a local database wh
 
 ## <a name="update-sync"></a>Update the sync behavior of the app
 
-In this section, you will modify the app to simulate an offline scenario by breaking your connection to the Mobile App backend. When you add data items, your exception handler will inform you that the app is operating in offline mode with `PushResult.Status=CancelledByNetworkError`. Items added will be held in the local store, but not synced to the mobile app backend until you are online again and execute a successful push to the Mobile App backend.
+In this section, you will modify the app to simulate an offline scenario by breaking your connection to the Mobile App backend. When you add data items, your exception handler will inform you that the app is operating in offline mode with `PushResult.Status == CancelledByNetworkError`. Items added will be held in the local store, but not synced to the mobile app backend until you are online again and execute a successful push to the Mobile App backend.
 
 1. Edit App.xaml.cs in the shared project. Comment out the initialization of the **MobileServiceClient** and add the following lines, which use an invalid mobile app URL:
 
@@ -235,13 +235,13 @@ When we want to synchronize the local store with the server, we used the `IMobil
 
 * To pull data from a table on the server to the app, we called `IMobileServiceSyncTable.PullAsync`.
 
-    A pull always issues a push first if the client sync context has tracked changes on that table. This is to ensure all tables in the local store along with relationships remain consistent.
+    A pull always issues a sync context push first if the client sync context has tracked changes on that table. This is to ensure all tables in the local store along with relationships remain consistent.
 
     There are also overloads of `PullAsync()` that allow a query to be specified in order to filter the data that is stored on the client. If a query is not passed, `PullAsync()` will pull all rows in the corresponding table (or query). You can pass the query to filter only the changes your app needs to sync with.
 
-* To enable incremental sync, pass a query ID to `PullAsync()`. The query ID is used to store the last updated timestamp from the results of the last pull operation. The query ID should be a descriptive string that is unique for each logical query in your app. If the query has a parameter, then the same parameter value has to be part of the query ID.
+* To enable incremental sync, pass a query ID to `PullAsync()`. The query ID is used to store the last updated timestamp from the results of the last pull operation. The query ID should be a descriptive string that is unique for each logical query in your app. If the query has a parameter, then the same parameter value could be part of the query ID.
 
-    For instance, if you are filtering on userid, it needs to be part of the query ID:
+    For instance, if you are filtering on userid, your unique query ID could be:
 
         await PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
 
