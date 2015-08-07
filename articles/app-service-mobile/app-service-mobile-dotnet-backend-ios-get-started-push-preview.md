@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-In this tutorial, you add push notifications to the [iOS quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [iOS quick start] tutorial, which you must complete first. The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so you must use a physical iOS device. You'll also need to sign up for an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
+In this tutorial, you add push notifications to the [iOS quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [iOS quick start] tutorial, which you must complete first. The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so for this tutorial, you need a physical iOS device and an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
 
 ## <a id="register"></a>Register app for push notifications
 
@@ -44,7 +44,7 @@ In this tutorial, you add push notifications to the [iOS quick start] project so
 
 [AZURE.INCLUDE [Add Push Notifications to App](../../includes/app-service-add-push-notifications-to-app.md)]
 
-## <a id="test"></a>Test tush notifications in app
+## <a id="test"></a>Test push notifications in app
 
 [AZURE.INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
