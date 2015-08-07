@@ -27,7 +27,7 @@ To start using Azure Active Directory B2C, follow the steps below.
 If you already have an Azure subscription move to the next step. If not, sign up for [an Azure Subscription](sign-up-organization) and get access to Azure Active Directory B2C.
 
 > [AZURE.NOTE]
-Azure Active Directory B2C is currently free for use, but is limited (up to 50,000 users per directory). An Azure subscription is only needed to access the [Azure Management Portal](http://manage.windowsazure.com/) and won't be used to bill your usage.
+Azure Active Directory B2C is currently free for use but limited (up to 50,000 users per directory). An Azure subscription is only needed to access the [Azure Management Portal](http://manage.windowsazure.com/) and won't be used to bill your usage.
 
 ## Step 2: Create an Azure Active Directory directory with B2C features
 
@@ -54,9 +54,9 @@ The B2C features on your directory can be managed on the [Azure Portal](https://
 
 Use one of the following developer guides to learn how to add B2C features to your application:
 
-- Secure your .NET Web App
-- Get started with .NET
-- Get started with iOS
-- Get started with Android
-- Get started with Windows Phone
-- Use Graph API in B2C scenarios
+- [Web application Sign Up & Sign In](link)
+- [Secure your .NET Web API](link)
+- [Get started with iOS](link)
+- [Get started with Android](link)
+- [Get started with Windows Phone](link)
+- [Use Azure AD Graph API in B2C applications](link)
