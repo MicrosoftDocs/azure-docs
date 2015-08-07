@@ -12,7 +12,7 @@
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/09/2015"
 	ms.author="raynew"/>
 
@@ -177,5 +177,3 @@ For detailed planning information about these components read the capacity plann
 ## Next steps
 
 Start configuring the components for your deployment scenario. [Learn more](site-recovery-overview.md).
-
-

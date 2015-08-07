@@ -52,3 +52,4 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Other Web references-->
 [Azure Data Factory documentation]: https://azure.microsoft.com/documentation/services/data-factory/
+[Copy data with Azure Data Factory]:https://azure.microsoft.com/en-us/documentation/articles/data-factory-data-movement-activities/

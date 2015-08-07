@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Query with DocumentDB SQL | Azure" 
+	pageTitle="Query with DocumentDB SQL | Microsoft Azure" 
 	description="DocumentDB, a NoSQL document database service, supports queries using SQL-like grammar over hierarchical JSON documents without requiring explicit an schema or creation of secondary indexes." 
 	services="documentdb" 
 	documentationCenter="" 

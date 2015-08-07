@@ -13,7 +13,7 @@
 	ms.date="06/24/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="NA"/>
 
 

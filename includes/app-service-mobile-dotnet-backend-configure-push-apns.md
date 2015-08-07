@@ -1,10 +1,12 @@
-1. In Visual Studio **Solution Explorer**, expand the **Controllers** folder in the mobile backend project. Open **TodoItemController.cs**. At the top of the file, add the following `using` statements:
+1. In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**. At the top of the file, add the following `using` statement:
 
+```
         using Microsoft.Azure.Mobile.Server.Notifications;
-
+```
 
 2. Replace the `PostTodoItem` method with the following code:  
-        
+
+```        
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
@@ -28,4 +30,4 @@
 
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
-
+```

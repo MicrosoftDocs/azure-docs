@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/20/2015"
 	ms.author="chrande"/>
 
@@ -125,4 +125,3 @@ To get started, you'll download a .NET backend service project for your mobile a
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
- 
