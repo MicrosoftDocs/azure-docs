@@ -159,7 +159,7 @@ In this section you will reconnect the app to the mobile backend, which simulate
 <!-- Images -->
 
 <!-- URLs. -->
-[Create a Xamarin iOS app]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started.md
+[Create a Xamarin iOS app]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
