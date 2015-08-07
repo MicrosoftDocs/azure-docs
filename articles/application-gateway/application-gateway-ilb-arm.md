@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create, start, or delete an Application Gateway using Azure Resource Manager | Microsoft Azure"
-   description="This page provides instructions to create, configure, start, and delete an Azure Application Gateway using Azure Resource Manager"
+   pageTitle="Create and Configure an Application Gateway with Internal Load Balancer (ILB) using Azure Resource Manager | Microsoft Azure"
+   description="This page provides instructions to create, configure, start, and delete an Azure Application Gateway with Internal Load balancer (ILB) for Azure resource manager"
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -16,14 +16,13 @@
    ms.author="joaoma"/>
 
 
-# Create, start, or delete an Application Gateway using Azure Resource Manager
+# Create an Application Gateway with an Internal Load Balancer (ILB) using Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-create-gateway.md)
-- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure classic steps](application-gateway-ilb.md)
+- [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
 
-In this release, you can create an Application Gateway by using PowerShell or REST API calls. Portal and CLI support will be provided in an upcoming release.
-This article walks you through the steps to create and configure, start, and delete an application gateway.
+Application Gateway can be configured with an internet facing VIP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line of business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application which sit in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article will walk you through the steps to configure an application gateway with an ILB.
 
 ## Before you begin
 
@@ -45,14 +44,13 @@ This article walks you through the steps to create and configure, start, and del
 ## Create a new Application Gateway
 
 The difference between using Azure Classic and Azure Resource Manager will be the order you will create the application gateway and items needed to be configured.
-
 With Resource manager, all items which will make an Application Gateway will be configured individually and then put together to create the Application Gateway resource.
 
 
 Here follows the steps needed to create an Application Gateway:
 
 1. Create a resource group for Resource Manager
-2. Create virtual network, subnet and public IP for Application Gateway
+2. Create virtual network, subnet for Application Gateway
 3. Create an Application Gateway configuration object
 4. Create Application Gateway resource
 
@@ -92,9 +90,9 @@ Create a new resource group (skip this step if using an existing resource group)
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create an Application Gateway will use the same resource group.
 
-In the example above we created a resource group called "appgw-RG" and location "West US". 
+In the example above we created a resource group called "appgw-rg" and location "West US". 
 
-## Create virtual network and subnet for Application Gateway
+## Create virtual network, subnet for Application Gateway
 
 The following example shows how to create a virtual network using Resource manager: 
 
@@ -104,17 +102,12 @@ The following example shows how to create a virtual network using Resource manag
 
 Assigns the Address range 10.0.0.0/24 to subnet variable to be used to create a virtual network
 
-### Step 2	
+### Step 2
+	
 	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 Creates a virtual network named "appgwvnet" in resource group "appw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
 	
-## Create public IP address for front end configuration
-
-	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
-
-Creates a public IP resource "publicIP01" in resource group "appw-rg" for the West US region. 
-
 
 ## Create an Application Gateway configuration object
 
@@ -128,25 +121,25 @@ Creates a Application Gateway IP configuration named "gatewayIP01. When Applicat
 
 	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-This step will configure the back end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those will be the IP addresses receiving the network traffic coming from the front end IP endpoint. You will replace the IP addresses above to add your own application IP address endpoints.
+This step will configure the back end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those will be the IP addresses receiving the network traffic coming from the front end IP endpoint.You will replace the IP addresses above to add your own application IP address endpoints.
 
 ### Step 3
 
 	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol HTTP -CookieBasedAffinity Disabled
 
-Configures Application gateway settings "poolsetting01" for the load balanced network traffic in the backend pool.
+Configures Application Gateway settings "poolsetting01" for the load balanced network traffic in the backend pool.
 
 ### Step 4
 
 	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
-Configures the front end IP port named "frontendport01" in this case for the public IP endpoint.
+Configures the front end IP port named "frontendport01" for the ILB.
 
 ### Step 5
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name $fipconfigName -PublicIPAddress $publicip
+	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name $fipconfigName -Subnet $subnet
 
-Creates the front end IP configuration associating the public IP address with the front end IP.
+Creates the front end IP configuration associating a private IP from the current virtual network subnet.
 
 ### Step 6
 
@@ -177,7 +170,7 @@ Creates an Application Gateway will all configuration items from the steps above
 
 
 
-## Start Application Gateway
+## Start the gateway
 
 Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
 
