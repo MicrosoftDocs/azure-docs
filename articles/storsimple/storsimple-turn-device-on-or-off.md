@@ -45,7 +45,7 @@ The StorSimple 8100 model is a single enclosure device. Your device includes red
 
 Perform the following steps to cable your device for power.
 
-[AZURE.INCLUDE[storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
+[AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### New device with EBOD enclosure
 
@@ -53,9 +53,9 @@ The StorSimple 8600 model has both a primary enclosure and an EBOD enclosure. Th
 
 When setting up this device for the first time, perform the steps for SAS cabling first and then complete the steps for power cabling.
 
-[AZURE.INCLUDE[storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
 
-[AZURE.INCLUDE[storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 ## Turn on a device after shutdown
 

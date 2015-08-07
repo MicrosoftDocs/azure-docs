@@ -203,7 +203,7 @@ Your device includes redundant Power and Cooling Modules (PCMs). Both PCMs must 
 
 Perform the following steps to cable your device for power.
 
-[AZURE.INCLUDE[storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
+[AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### Network cabling
 

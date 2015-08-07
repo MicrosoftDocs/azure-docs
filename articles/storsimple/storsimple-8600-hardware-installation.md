@@ -206,9 +206,9 @@ Your device has both a primary enclosure and an EBOD enclosure. This requires th
 
 When setting up this device for the first time, perform the steps for SAS cabling first and then complete the steps for power cabling.
 
-[AZURE.INCLUDE[storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
 
-[AZURE.INCLUDE[storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 ### Network cabling
 
