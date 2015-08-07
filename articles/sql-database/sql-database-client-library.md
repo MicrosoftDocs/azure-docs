@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Create and manage Azure SQL Database with C#" 
-   description="This article shows you how to create and manage an Azure SQL Database using C# with the the Azure SQL Database Library for .NET." 
+   description="This article shows you how to create and manage an Azure SQL Database with C# using the the Azure SQL Database Library for .NET." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -26,7 +26,7 @@
 
 ## Overview
 
-This article provides commands to perform many Azure SQL Database management tasks using C#. Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
+This article provides commands to perform many Azure SQL Database management tasks with C#. Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
 The Azure SQL Database Library for .NET provides an [Azure Resource Manager](resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. 
 
