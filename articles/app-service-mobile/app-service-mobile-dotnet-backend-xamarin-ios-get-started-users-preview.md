@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="mahender"/>
 
 # Add authentication to your Xamarin.iOS app
@@ -38,25 +38,30 @@ This tutorial is based on the Mobile App quickstart. You must also first complet
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
-<ol start="5">
-<li><p>In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
+<ol start="4">
+<li><p>In Visual Studio or Xamarin Studio, run the client project on a device or emulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. The failure is logged to the console of the debugger. So in Visual Studio, you should see the failure in the output window.</p>
    
-   	<p>This happens because the app attempts to access your Mobile App Code as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
+   	<p>This unauthorized failure happens because the app attempts to access your Mobile App backend as an unauthenticated user. The <em>TodoItem</em> table now requires authentication.</p></li>
 </ol>
 
-Next, you will update the app to authenticate users before requesting resources from your App Service.
+Next, you will update the client app to request resources from the Mobile App backend with an authenticated user.
 
 ##<a name="add-authentication"></a>Add authentication to the app
 
 In this section, you will modify the app to display a login screen before displaying data. When the app starts, it will not not connect to your App Service and will not display any data. After the first time that the user performs the refresh gesture, the login screen will appear; after successful login the list of todo items will be displayed.
 
-1. In the client project, open the file **QSTodoService.cs** and add the following declarations to QSTodoService:
+1. In the client project, open the file **QSTodoService.cs** and add the following using statement and member declarations to QSTodoService:
+
 
 		// Logged in user
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
-2. Add a new method **Authenticate** to **QSTodoService** with the following definition:
+2. Add a `using` statment for UIKit and add a new method named **Authenticate** to **QSTodoService** with the following definition:
+
+	```
+		using UIKit;
+	```
 
         public async Task Authenticate(UIViewController view)
         {
@@ -102,7 +107,7 @@ In this section, you will modify the app to display a login screen before displa
 		}
 		// rest of RefreshAsync method
 	
-5. Press the **Run** button to build the project and start the app in the iPhone simulator. Verify that the app displays no data. 
+5. In Visual Studio or Xamarin Studio connected to your Xamarin Build Host on your Mac, run the client project targeting a device or emulator. Verify that the app displays no data. 
 
 	Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items, and you can make updates to the data.
 

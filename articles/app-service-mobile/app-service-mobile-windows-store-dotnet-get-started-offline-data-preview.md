@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/22/2015"
+	ms.date="08/05/2015"
 	ms.author="chrande"/>
 
 # Using offline data sync in Azure Mobile Apps
@@ -21,17 +21,15 @@
 [AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
 
 
-This tutorial shows you how to add offline support to a Windows Universal Store app using an Azure Mobile Apps backend. Offline support will allow you to interact with a local database when your app is in an offline scenario. Once your app is online with the backend database, you sync your local changes using the offline features.
+## Overview
 
+This tutorial shows you how to add offline support to a Windows Universal Store app using an Azure Mobile Apps backend. Offline support will allow you to interact with a local database when your app is in an offline scenario. Once your app is online with the backend database, you sync your local changes using the offline features. 
 
+For more information on offline support for Mobile Apps, see [Offline support for Mobile Apps](app-service-mobile-offline-support-preview.md).
 
 In this tutorial, you will update the Universal app project from the [Create a Windows app] tutorial to support the offline features of Azure Mobile Apps. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 
-This tutorial walks you through these basic steps:
-
-1. [Update the app to support offline features]
-2. [Update the sync behavior of the app]
-3. [Update the app to reconnect your Mobile Apps backend]
+## Requirements
 
 This tutorial requires the following:
 
@@ -43,13 +41,13 @@ This tutorial requires the following:
 
 >[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
-##<a name="review"></a>Review your server project configuration (optional)
+## Review your server project configuration (optional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
 
-## <a name="enable-offline-app"></a>Update the app to support offline features
+## Update the app to support offline features
 
-Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. To use these features in your app, you initialize a `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface. In this tutorial we use SQLite for the local store.
+Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use these features in your app, you initialize a `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface. In this tutorial we use SQLite for the local store.
 
 1. Install the SQLite runtime for Windows 8.1 and Windows Phone 8.1.
 
@@ -86,12 +84,14 @@ Azure Mobile App offline features allow you to interact with a local database wh
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
         using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
 
-6. In MainPage.cs, comment the definition of `todoTable` and uncomment the one on the following line that calls `MobileServicesClient.GetSyncTable()`:
+6. In MainPage.cs, comment the line of code that initializes `todoTable` as an `IMobileServiceTable`. Uncomment the line of code that initializes `todoTable` as an `IMobileServiceSyncTable`:
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
 
-7. In MainPage.cs, in the region marked `Offline sync`, uncomment the methods `InitLocalStoreAsync` and `SyncAsync`. The method `InitLocalStoreAsync` initializes the client sync context with a SQLite store.
+7. In MainPage.cs, in the region marked `Offline sync`, uncomment the methods `InitLocalStoreAsync` and `SyncAsync`. The method `InitLocalStoreAsync` initializes the client sync context with a SQLite store. In Visual Studio, you can select all commented lines and use the **Ctrl**+**K**+**U** keyboard shortcut to uncomment.
+
+	Notice in `SyncAsync` a push operation is executed off the `MobileServiceClient.SyncContext` instead of the `IMobileServicesSyncTable`. This is because the context tracks changes made by the client for all tables. This is to cover scenarios where there are relationships between tables. For more information on this behavior, see [Offline support for Mobile Apps](app-service-mobile-offline-support-preview.md).
 
         private async Task InitLocalStoreAsync()
         {
@@ -162,8 +162,8 @@ Azure Mobile App offline features allow you to interact with a local database wh
 
             catch (MobileServicePushFailedException ex)
             {
-                errorString = "Push failed because of sync errors: " +
-                  ex.PushResult.Errors.Count + " errors, message: " + ex.Message;
+                errorString = "Push failed because of sync errors. You may be offine.\nMessage: " +
+                  ex.Message + "\nPushResult.Status: " + ex.PushResult.Status.ToString();
             }
             catch (Exception ex)
             {
@@ -179,53 +179,46 @@ Azure Mobile App offline features allow you to interact with a local database wh
             }
         }
 
-    In this example, we retrieve all records in the remote `todoTable`, but it is also possible to filter records by passing a query. The first parameter to `PullAsync` is a query ID that is used for incremental sync, which uses the `UpdatedAt` timestamp to get only records modified since the last sync. The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `null` as the query ID. This will retrieve all records on each pull operation, which is potentially inefficient.
+    In this `PullAsync` example, we retrieve all records in the remote `todoTable`, but it is also possible to filter records by passing a query. The first parameter to `PullAsync` is a query ID that is used for incremental sync, which uses the `UpdatedAt` timestamp to get only records modified since the last sync. The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `null` as the query ID. This will retrieve all records on each pull operation, which is potentially inefficient.
 
     Note that the `MobileServicePushFailedException` can occur for both a push and a pull operation. It can occur for a pull because the pull operation internally executes a push to make sure all tables along with any relationships are consistent.
 
-11. In Visual Studio, press the **F5** key to rebuild and run the app. The app will behave the same as it did before the offline sync changes, because it does a sync operation on the insert, update, and refresh operations.
+11. In Visual Studio, press the **F5** key to rebuild and run the app. The app will behave the same as it did before the offline sync changes, because it does a sync operation on the insert, update, and refresh operations. However, it will populate a local database which can be used in an offline scenario.  We will cause and offline scenario in the next section now that the local database is populated.  
 
 ## <a name="update-sync"></a>Update the sync behavior of the app
 
-In this section, you will modify the app so that it does not sync on the insert and update operations, but only when the **Refresh** button is pressed. Then, you will break the app connection with the mobile app backend to simulate an offline scenario. When you add data items, they will be held in the local store, but not synced to the mobile app backend.
+In this section, you will modify the app to simulate an offline scenario by breaking your connection to the Mobile App backend. When you add data items, your exception handler will inform you that the app is operating in offline mode with `PushResult.Status=CancelledByNetworkError`. Items added will be held in the local store, but not synced to the mobile app backend until you are online again and execute a successful push to the Mobile App backend.
 
-1. Open App.xaml.cs in the shared project. Edit the methods `InsertTodoItem` and `UpdateCheckedTodoItem` to comment out the calls to `SyncAsync`.
-
-2. Edit App.xaml.cs in the shared project. Comment out the initialization of the **MobileServiceClient** and add the following lines, which use an invalid mobile app URL:
+1. Edit App.xaml.cs in the shared project. Comment out the initialization of the **MobileServiceClient** and add the following lines, which use an invalid mobile app URL:
 
          public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://<your-mobile-service>-code.azurewebsites.fail",
             "https://<your-mobile-service>gateway.azurewebsites.fail",
-            "AppKey"
+            ""
         );
 
-3. In `InitLocalStoreAsync()`, comment out the call to `SyncAsync()`, so that the app does not perform a sync on launch.
+2. Press **F5** to build and run the app. Notice your sync failed on refresh when the app launched.
+3. Enter some new todo items and click **Save** for each one. Push fails for each one with a `PushResult.Status=CancelledByNetworkError`. The new todo items exist only in the local store until they can be pushed to the mobile app backend. 
+ 
+	You could suppress the exception dialog for `PushResult.Status=CancelledByNetworkError`, then client app would behave as if its connected to the mobile app backend supporting all create, read, update, delete (CRUD) operations seamlessly. 
 
-4. Press **F5** to build and run the app. Enter some new todo items and click **Save** for each one. The new todo items exist only in the local store until they can be pushed to the mobile app backend. The client app behaves as if its connected to the mobile app backend supporting all create, read, update, delete (CRUD) operations.
+4. Close the app and restart it to verify that the new items you created are persisted to the local store.
 
-5. Close the app and restart it to verify that the new items you created are persisted to the local store.
+5. You can query your SQL Azure database table for the Mobile App backend using SQL Server object explorer in Visual Studio and see that the data in the backend database has not changed. To do this, [Download your publish settings file](https://msdn.microsoft.com/library/Dn385850.aspx). Then right click the **Azure** node in Visual Studio Server Explorer and click **Manage Subscriptions**.  On the **Certificates** tab of the Manage Subscriptions dialog, import your publish setting file. Now you can browse to your SQL database table and view the data.
 
 ## <a name="update-online-app"></a>Update the app to reconnect your mobile app backend
 
-In this section you reconnect the app to the mobile app backend. This simulates the app moving from an offline state to an online state with the mobile app backend. When you press the Refresh button, data will be synced to your mobile app backend.
+In this section you reconnect the app to the mobile app backend. This simulates the app moving from an offline state to an online state with the mobile app backend. When you first run the application, the `OnNavigatedTo` event handler will call `InitLocalStoreAsync`. This will in turn call `SyncAsync` to sync your local store with the backend database. So the app will attempt to sync on start up.
 
-1. Open App.xaml.cs in the shared project. Uncomment your previous initialization of `MobileServiceClient` to add back the correct mobile app service backend URL, gateway URL, and app key.
+1. Open App.xaml.cs in the shared project. Uncomment your previous initialization of `MobileServiceClient` to use the correct Mobile App URL and gateway URL.
 
-2. Press the **F5** key to rebuild and run the app. Notice that the data looks the same as the offline scenario even though the app is now connected to the mobile app backend. This is because this app always works with the `IMobileServiceSyncTable` that is pointed to the local store.
+2. Press the **F5** key to rebuild and run the app. The app syncs your local changes with the Mobile App backend using push and pull operations as soon as the `OnNavigatedTo` event handler executes.
 
-3. Log into the Azure portal and look at the database for your mobile app backend.
+3. You can view the updated data in using Visual Studio SQL Server object explorer as previously mentioned or log into the Azure portal to view the data. Notice the data has been synchronized between the Mobile App back-end database and the local store.
 
-    In Visual Studio go to **Server Explorer** -> **Azure** -> **SQL Databases**. Right click your database and select **Open in SQL Server Object Explorer**.
+4. In the app, click the check box beside a few items to complete them in the local store.
 
-    Notice the data has not been synchronized between the database and the local store.
-
-4. In the app, press the **Refresh** button. This causes the app to call `PushAsync` and `PullAsync`. This push operation sends the local store items to the mobile service, then retrieves new data from the mobile service.
-
-    A push operation is executed off the `MobileServiceClient.SyncContext` instead of the `IMobileServicesSyncTable` and pushes changes on all tables associated with that sync context. This is to cover scenarios where there are relationships between tables.
-
-5. In the app, click the check box beside a few items to complete them in the local store.
-
-6. Push the **Refresh** button again, which causes `SyncAsync` to be called. `SyncAsync` calls both push and pull, but in this case we could have removed the call to `PushAsync`. This is because a **pull always does a push first**. This is to ensure all tables in the local store along with relationships remain consistent.
+	`UpdateCheckedTodoItem` calls `SyncAsync` to sync the complete each item with the Mobile App backend. `SyncAsync` calls both push and pull. However, you should note that **whenever you execute a pull against a table that the client has made changes to, a push on the client sync context will always be executed first automatically**. This is to ensure all tables in the local store, along with relationships remain consistent. So in this case we could have removed the call to `PushAsync` because it is executed automatically when executing a pull. This behavior may result in an unexpected push if you are not aware of it. For more information on this behavior, see [Offline support for Mobile Apps](app-service-mobile-offline-support-preview.md).
 
 
 ##Summary
@@ -234,7 +227,7 @@ In order to support the offline features of mobile services, we used the `IMobil
 
 The normal CRUD operations for mobile services work as if the app is still connected but, all the operations occur against the local store.
 
-When we wanted to synchronize the local store with the server, we used the `IMobileServiceSyncTable.PullAsync` and `MobileServiceClient.SyncContext.PushAsync` methods.
+When we want to synchronize the local store with the server, we used the `IMobileServiceSyncTable.PullAsync` and `MobileServiceClient.SyncContext.PushAsync` methods.
 
 *  To push changes to the server, we called `IMobileServiceSyncContext.PushAsync()`. This method is a member of `IMobileServicesSyncContext` instead of the sync table because it will push changes across all tables.
 
@@ -242,7 +235,7 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
 * To pull data from a table on the server to the app, we called `IMobileServiceSyncTable.PullAsync`.
 
-    A pull always issues a push first. This is to ensure all tables in the local store along with relationships remain consistent.
+    A pull always issues a push first if the client sync context has tracked changes on that table. This is to ensure all tables in the local store along with relationships remain consistent.
 
     There are also overloads of `PullAsync()` that allow a query to be specified in order to filter the data that is stored on the client. If a query is not passed, `PullAsync()` will pull all rows in the corresponding table (or query). You can pass the query to filter only the changes your app needs to sync with.
 
