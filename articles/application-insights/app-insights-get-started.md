@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Application Insights | Microsoft Azure"
-	description="Analyze usage, availability, and performance of your on-premises or Microsoft Azure web application with Azure Application Insights."
+	pageTitle="Get started with Visual Studio Application Insights | Microsoft Azure"
+	description="Analyze usage, availability, and performance of your on-premises or Microsoft Azure web application with Visual Studio Application Insights."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -17,7 +17,7 @@
 
 # Get started with Visual Studio Application Insights
 
-*Azure Application Insights is in preview.*
+*Application Insights is in preview.*
 
 Detect issues, solve problems and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it.
 
@@ -29,7 +29,7 @@ We currently support iOS, Android, and Windows apps, J2EE and ASP.NET web applic
 
 Start with any combination, in any order, of the entry points that appear in the following diagram. Follow the path that works for you.
 
-Azure Application Insights works by adding an SDK into your app, which sends telemetry to the [Azure portal](http://portal.azure.com). There are different SDKs for the various combinations of platforms, languages, and IDEs that are supported.
+Application Insights works by adding an SDK into your app, which sends telemetry to the [Azure portal](http://portal.azure.com). There are different SDKs for the various combinations of platforms, languages, and IDEs that are supported.
 
 You'll need an account in [Microsoft Azure](http://azure.com). You might already have access to a group account through your organization, or you might want to get a Pay-as-you-go account. Application Insights has a free tier, so you won't need to pay until your app is popular. Review the [pricing page](https://azure.microsoft.com/pricing/details/application-insights/).
 
