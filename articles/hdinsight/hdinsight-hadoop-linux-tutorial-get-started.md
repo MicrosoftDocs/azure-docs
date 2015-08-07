@@ -237,18 +237,34 @@ Once you are connected to the cluster via SSH, use the following commands to run
 
 	The returned data should all correspond to [ERROR] logs.
 
-
 ## <a name="nextsteps"></a>Next steps
 In this Linux tutorial, you have learned how to provision a Hadoop cluster on Linux with HDInsight and run a Hive query on it by using SSH. To learn more, see the following articles:
 
-- [Provision HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md)
-- [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md)
-- [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md)
-- [Use MapReduce with HDInsight][hdinsight-use-mapreduce]
-- [Use Hive with HDInsight][hdinsight-use-hive]
-- [Use Pig with HDInsight][hdinsight-use-pig]
-- [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md)
-- [Upload data to HDInsight][hdinsight-upload-data]
+- [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md): Linux-based HDInsight clusters use Ambari for management and monitoring of Hadoop services. The Ambari web UI is available on each cluster at https://CLUSTERNAME.azurehdinsight.net.
+
+	> [AZURE.IMPORTANT] While many sections of the Ambari web are directly accessible through the Internet, the web UI for Hadoop services such as Resource Manager or Job History require the use of an SSH tunnel. For more information on using an SSH tunnel with HDInsight, see the following articles:
+	>
+	> * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
+	> * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+
+- [Provision HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md): Learn more details about how to provision HDInsight clusters.
+
+- [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md): If you are already familiar with Hadoop on Linux platforms, this document provides guidance on Azure specific information, such as:
+
+	* URLs for services hosted on the cluster, such as Ambari and WebHCat
+	* The location of Hadoop files and examples on the local file system
+	* The use of Azure Storage (WASB) instead of HDFS as the default data store
+
+- For more information on Hive, or to learn about Pig and MapReduce, see the following:
+
+	- [Use MapReduce with HDInsight][hdinsight-use-mapreduce]
+	- [Use Hive with HDInsight][hdinsight-use-hive]
+	- [Use Pig with HDInsight][hdinsight-use-pig]
+
+- For more information on how to work with the Azure Storage used by your HDInsight cluster, see the following:
+
+	- [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md)
+	- [Upload data to HDInsight][hdinsight-upload-data]
 
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md

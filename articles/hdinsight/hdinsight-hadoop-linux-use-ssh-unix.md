@@ -207,9 +207,9 @@ Use the following steps to connect to the worker nodes for your cluster.
 
 ##<a id="tunnel"></a>SSH tunneling
 
-SSH can also be used to tunnel local requests, such as web requests, to the HDInsight cluster. The request will then be routed to the requested resource as if it had originated on the HDInsight cluster head node.
+SSH can be used to tunnel local requests, such as web requests, to the HDInsight cluster. The request will then be routed to the requested resource as if it had originated on the HDInsight cluster head node.
 
-This is most useful for accessing web-based services on the HDInsight cluster that use internal domain names for the head or worker nodes in the cluster. For example, some sections of the Ambari webpage use internal domain names such as **headnode0.mycluster.d1.internal.cloudapp.net**. These names cannot be resolved from outside the cluster, but requests tunneled over SSH originate inside the cluster and will resolve correctly.
+> [AZURE.IMPORTANT] An SSH tunnel is a requirement for accessing the web UI for sopme Hadoop services. For example, both the Job History UI or Resource Manager UI can only be accessed using an SSH tunnel.
 
 Use the following steps to create an SSH tunnel and configure your browser to use it to connect to the cluster.
 
