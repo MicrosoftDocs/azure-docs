@@ -70,6 +70,7 @@ to send email using SMTP is to do the following:
 1.  Specify the SMTP values, including the SMTP server, which for
     SendGrid is smtp.sendgrid.net.
     
+```
         import java.util.Properties;
         import javax.activation.*;
         import javax.mail.*;
@@ -92,10 +93,11 @@ to send email using SMTP is to do the following:
            	  properties.put("mail.smtp.port", 587);
            	  properties.put("mail.smtp.auth", "true");
            	  // …
+```
 
-2.  Extend the <span class="auto-style1">javax.mail.Authenticator</span>
+2.  Extend the *javax.mail.Authenticator*
     class, and in your implementation of the
-    <span class="auto-style1">getPasswordAuthentication</span> method,
+    *getPasswordAuthentication* method,
     return your SendGrid user name and password.  
 
         private class SMTPAuthenticator extends javax.mail.Authenticator {
@@ -106,7 +108,7 @@ to send email using SMTP is to do the following:
         }
 
 3.  Create an authenticated email session through a
-    <span class="auto-style1">javax.mail.Session</span> object.  
+    *javax.mail.Session* object.  
 
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(properties, auth);
@@ -114,7 +116,7 @@ to send email using SMTP is to do the following:
 4.  Create your message and assign **To**, **From**, **Subject** and
     content values. This is shown in the [How To: Create an Email](#bkmk_HowToCreateEmail) section.
 5.  Send the message through a
-    <span class="auto-style1">javax.mail.Transport</span> object. This
+    *javax.mail.Transport* object. This
     is shown in the [How To: Send an Email][How to: Send an Email]
     section.
 

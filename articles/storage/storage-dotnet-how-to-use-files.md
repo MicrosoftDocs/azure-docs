@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="08/03/2015"
+      ms.date="08/04/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with PowerShell and .NET
@@ -226,11 +226,11 @@ Run the console application to see the output.
 
 ## Set the maximum size for a file share
 
-Beginning with version 5.x of the Azure storage client library, you can set set the quota (or maximum size) for a share, in gigabytes. By setting the quota for a share, you can limit the total size of the files stored on the share.
+Beginning with version 5.x of the Azure storage client library, you can set set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
 
-If the total size of files on the share exceeds the quota set on the share, then clients will be unable to increase the size of existing files or create new files, unless they are empty.
+By setting the quota for a share, you can limit the total size of the files stored on the share. If the total size of files on the share exceeds the quota set on the share, then clients will be unable to increase the size of existing files or create new files, unless those files are empty.
 
-The example below shows how to set the quota for an existing file share.
+The example below shows how to check the current usage for a share, and how to set the quota for the share.
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -245,12 +245,20 @@ The example below shows how to set the quota for an existing file share.
     //Ensure that the share exists.
     if (share.Exists())
     {
-		//Specify the maximum size of the share, in GB.
-	    share.Properties.Quota = 100;
-	    share.SetProperties();
-	}
+        //Check current usage stats for the share.
+		//Note that the ShareStats object is part of the protocol layer for the File service.
+        Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+        Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
 
-To get the value of any existing quota for the share, call the **FetchAttributes()** method to retrieve the share's properties.
+        //Specify the maximum size of the share, in GB.
+        //This line sets the quota to be 10 GB greater than the current usage of the share.
+        share.Properties.Quota = 10 + stats.Usage;
+        share.SetProperties();
+
+        //Now check the quota for the share. Call FetchAttributes() to populate the share's properties. 
+        share.FetchAttributes();
+        Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    }
 
 ## Generate a shared access signature for a file or file share
 

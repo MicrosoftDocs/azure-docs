@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Integrating your on-premises identities with Azure Active Directory." 
 	description="This is the Azure AD Connect that describes what it is and why you would use it." 
-	services="active-directory" 
+	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
+	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
