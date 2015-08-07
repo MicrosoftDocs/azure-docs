@@ -21,7 +21,9 @@
 ## Notes for 07/30/2015 release of Stream Analytics ##
 
 This release contains the following updates.
+
 Title|Description
+---|---
 Power BI Org Id decoupled from Azure Id|This feature enables [Power BI output](stream-analytics-power-bi-dashboard.md) for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output.
 Support for Service Bus Queues output|[Service Bus Queues](stream-analytics-connect-data-event-outputs.md#service-bus-queues) outputs are now available in Stream Analytics jobs.
 Support for Service Bus Topics output|[Service Bus Topics](stream-analytics-connect-data-event-outputs.md#service-bus-topics) outputs are now available in Stream Analytics jobs.
