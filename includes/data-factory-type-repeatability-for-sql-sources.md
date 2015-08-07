@@ -45,7 +45,7 @@ Suppose the Flat Washer record is removed from the original csv. Then re-running
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
-	8 	Down Tube	4			2015-05-01 00:00:00
+	7 	Down Tube	4			2015-05-01 00:00:00
 
 Nothing new had to be done. The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which now contained only 1 record) and inserted in into the Table. 
 

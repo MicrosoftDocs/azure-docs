@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Mobile Engagement iOS SDK Overview" 
+<properties
+	pageTitle="Azure Mobile Engagement iOS SDK Overview"
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #iOS SDK for Azure Mobile Engagement
 
@@ -32,9 +32,9 @@ Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)
 
 ##Release notes
 
-###2.2.0 (05/21/2015)
+##3.0.0 (08/05/2015)
 
--   The Mobile Engagement device id for devices < iOS 6 is now based on a GUID generated at installation time.
+-   Mobile Engagement uses Silent Push Notifications..
 
 For earlier version please see the [complete release notes](mobile-engagement-ios-release-notes.md)
 
@@ -47,5 +47,4 @@ You may have to follow several procedures if you missed several versions of the 
 For each new version of the SDK you must first replace (remove and re-import in xcode) the EngagementSDK and EngagementReach folders.
 
 ###From 2.0.0 to 2.1.0
-None. 
- 
+None.
