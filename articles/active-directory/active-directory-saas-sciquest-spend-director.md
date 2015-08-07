@@ -102,9 +102,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 3. On the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][10]
  
-     3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your SciQuest Spend Director application using the following pattern: *https://.*sciquest.com/.**
+     3.1. In the **Sign On URL** textbox, type your URL used by your users to sign on to your SciQuest Spend Director application using the following pattern: *https://.*sciquest.com/.**
 
-     3.2. Click **Next**.
+     3.2. In the **Reply URL** textbox, type the same value you have typed into the **Sign On URL** textbox. 
+
+     3.3. Click **Next**.
  
 4. On the **Configure single sign-on at SciQuest Spend Director** page, click **Download metadata**, and then save the metadata file locally on your computer.<br><br>![What is Azure AD Connect][11]
 
@@ -152,10 +154,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in SciQuest Spend Director.
 
-**To create a user called Britta Simon in SciQuest Spend Director, perform the following steps:**
+You need to contact your SciQuest Spend Director support team and provide them with the details about your test account to get it created.
 
+Alternatively, you can also leverage just-in-time provisioning, a single sign-on feature that is supported by SciQuest Spend Director. <br>
+If just-in-time provisioning is enabled, users are automatically created by SciQuest Spend Director during a single sign-on attempt if they don't exist. This feature eliminates the need to manually create single sign-on counterpart users.
 
-
+To get just-in-time provisioning enabled, you need to contact your your SciQuest Spend Director support team.
+  
 
 ### Assigning the Azure AD test user
 
