@@ -26,9 +26,9 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 ## <a name="register"> </a>Register your application with Facebook
 
-1. Log on to the [Azure Management Portal], and navigate to your Mobile App. Copy your **Mobile App URL**. You will use this to configure your Facebook app.
+1. Log on to the [Azure Management Portal], and navigate to your Mobile App. Copy your **URL**. You will use this to configure your Facebook app.
  
-2. On your Mobile App blade, click **Settings**, **User authentication**, and then **Facebook**. Then copy the **Redirect URI** from the Facebook blade. You will use this with your Facebook app.
+2. Click **Settings**, **User authentication**, and then **Facebook**. Then copy the **Redirect URI** from the Facebook blade. You will use this with your Facebook app.
  
 3. In another browser window, navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.
 
@@ -47,11 +47,11 @@ To complete the procedure in this topic, you must have a Facebook account that h
 	> [AZURE.NOTE] **Security Note**
 	The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
-10. On the left navigation bar, click **Settings**. Type the **Mobile App URL** of your Mobile App in **App Domains**, and enter a **Contact Email**. 
+10. On the left navigation bar, click **Settings**. Type the **URL** of your Mobile App in **App Domains**, and enter a **Contact Email**. 
 
     ![][0]
 
-11. If you don't see a website section below, click **Add Platform** and select **Website**. Enter the **Mobile App URL** of your Mobile App in the **Site URL** field, then click **Save Changes**.
+11. If you don't see a website section below, click **Add Platform** and select **Website**. Enter the **URL** of your Mobile App in the **Site URL** field, then click **Save Changes**.
 
 12. Click the **Advanced** tab and add your Mobile App **Redirect URI** that you copied earlier to **Valid OAuth redirect URIs**. Then click **Save Changes**. Your redirect URI is the URL of your Mobile App gateway appended with the path, _/signin-facebook_. For example, `https://contosogateway.azurewebsites.net/signin-facebook`. Make sure that you are using the HTTPS scheme.
 

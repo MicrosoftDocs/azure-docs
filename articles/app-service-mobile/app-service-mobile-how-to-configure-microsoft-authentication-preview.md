@@ -26,7 +26,7 @@ This topic shows you how to configure Azure Mobile Apps to use Microsoft Account
 
 1. Log on to the [Azure Management Portal], and navigate to your Mobile App.
 
-2. On your Mobile App blade, click **Settings**, **User authentication**, and then click **Microsoft Account**. Copy the **Redirect URL**. You will use this to configure a new app for your Microsoft Account.
+2. Click **Settings**, **User authentication**, and then click **Microsoft Account**. Copy the **Redirect URL**. You will use this to configure a new app for your Microsoft Account.
 
 3. Navigate to the [My Applications] page in the Microsoft Account Developer Center, and log on with your Microsoft account, if required.
 
