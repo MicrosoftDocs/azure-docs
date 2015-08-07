@@ -160,7 +160,7 @@ The table below lists IPsec SA Encryption and Authentication Offers. Offers are 
 
 To learn more about VPN gateways, see [About VPN gateways](vpn-gateway-about-vpngateways.md).
 
-To configure a site-to-site VPN, see [Configure a cross-premises site-to-site connection](vpn-gateway-site-to-site-create.md).
+To configure a site-to-site VPN, see [Create a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md).
 
 
 
