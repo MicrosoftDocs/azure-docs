@@ -136,6 +136,13 @@ With this information, you can now find exactly the image you want by calling th
 
 Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
+### Video Walkthrough
+
+This video demonstrates the above steps using the CLI.
+
+[AZURE.VIDEO resource-groups-vm-searching-cli]
+
+
 ## PowerShell
 
 When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:
@@ -215,6 +222,12 @@ For the "WindowsServer" offer:
 
 From this list, copy the chosen SKU name, and you have all the information for the **Set-AzureVMSourceImage** PowerShell cmdlet or for a resource group template file that requires you to specify the publisher, offer, and SKU for an image.
 
+### Video Walkthrough
+
+This video demonstrates the above steps using PowerShell.
+
+[AZURE.VIDEO resource-groups-vm-searching-posh]
+
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
@@ -225,4 +238,9 @@ From this list, copy the chosen SKU name, and you have all the information for t
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/  
+<<<<<<< HEAD
 [msn]: http://search.msn.com/
+=======
+[msn]: http://search.msn.com/    
+ 
+>>>>>>> 2d31b27711f197b620f87dd45e50e67583437f6b
