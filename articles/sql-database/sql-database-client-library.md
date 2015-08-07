@@ -26,12 +26,11 @@
 
 ## Overview
 
-This article provides commands to perform many Azure SQL Database management tasks with C# using the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
+This article provides commands to perform many Azure SQL Database management tasks with C# using the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 
-The Azure SQL Database Library for .NET provides an [Azure Resource Manager](resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. 
+Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
-
-Resource Manager requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+The Azure SQL Database Library for .NET provides an [Azure Resource Manager](resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. Resource Manager requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
