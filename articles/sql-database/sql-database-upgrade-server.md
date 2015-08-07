@@ -83,14 +83,23 @@ When you run this command upgrade process will begin. You can customize the outp
 
 If the recommendations are not appropriate for your server and business case, then you can choose how your databases are upgraded and can map them to either single or elastic databases.
 
-Sample script to upgrade databases into an elastic database pool:
+Upgrade databases into an elastic database pool:
 
-    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties  $elasticPool.DatabaseDtuMax = 100  
-    $elasticPool.DatabaseDtuMin = 0  $elasticPool.Dtu = 800  $elasticPool.Edition = "Standard"  $elasticPool.DatabaseCollection = ("DB1")  $elasticPool.Name = "elasticpool_1"  $elasticPool.StorageMb = 800  
+    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties
+    $elasticPool.DatabaseDtuMax = 100  
+    $elasticPool.DatabaseDtuMin = 0  
+    $elasticPool.Dtu = 800
+    $elasticPool.Edition = "Standard"  
+    $elasticPool.DatabaseCollection = ("DB1")  
+    $elasticPool.Name = "elasticpool_1"  
+    $elasticPool.StorageMb = 800  
 
-Sample script to upgrade databases into single databases:
+Upgrade databases into single databases:
 
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  $databaseMap.Name = "DB2"  $databaseMap.TargetEdition = "Standard"  $databaseMap.TargetServiceLevelObjective = "S0"  Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
+    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  $databaseMap.Name = "DB2"
+    $databaseMap.TargetEdition = "Standard"
+    $databaseMap.TargetServiceLevelObjective = "S0"
+    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
     
 
 
