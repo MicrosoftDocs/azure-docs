@@ -46,7 +46,7 @@ Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2) supports the [ba
 
 - **Striping**: When backing up to Microsoft Azure blob storage, SQL Server 2016 supports backing up to multiple blobs to enable backing up large databases, up to a maximum of 12.8 TB.
 
-- **Snapshot Backup**: Through the use of Azure snapshots, SQL Server File-Snapshot Backup provides nearly instantaneous backups and rapid restores for database files stored using the Azure Blob storage service. This capability enables you to simplify your backup and restore policies. File-snapshot backup also supports point in time restore. For more information, see [Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363(v=sql.130).aspx).
+- **Snapshot Backup**: Through the use of Azure snapshots, SQL Server File-Snapshot Backup provides nearly instantaneous backups and rapid restores for database files stored using the Azure Blob storage service. This capability enables you to simplify your backup and restore policies. File-snapshot backup also supports point in time restore. For more information, see [Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx).
 
 - **Managed Backup Scheduling**: SQL Server Managed Backup to Azure now supports custom schedules. For more information, see [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx).
 
@@ -58,28 +58,28 @@ SQL Server 2014 includes the following enhancement:
 
 1. **Backup and Restore to Azure**:
 
- - *SQL Server Backup to URL* now has support in SQL Server Management Studio. The option to backup to Azure is now available when using Backup or Restore task, or maintenance plan wizard in SQL Server Management Studio. For more information, see [SQL Server Backup to URL](https://msdn.microsoft.com/library/jj919148(v=sql.120).aspx).
- - *SQL Server Managed Backup to Azure* has new functionality that enables automated backup management. This is especially useful for automating backup management for SQL Server 2014 instances running on an Azure Machine. For more information, see [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496(v=sql.120).aspx).
+ - *SQL Server Backup to URL* now has support in SQL Server Management Studio. The option to backup to Azure is now available when using Backup or Restore task, or maintenance plan wizard in SQL Server Management Studio. For more information, see [SQL Server Backup to URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx).
+ - *SQL Server Managed Backup to Azure* has new functionality that enables automated backup management. This is especially useful for automating backup management for SQL Server 2014 instances running on an Azure Machine. For more information, see [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx).
  - *Automated Backup* provides additional automation to automatically enable *SQL Server Managed Backup to Azure* on all existing and new databases for a SQL Server VM in Azure. For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
- - For an overview of all the options for SQL Server 2014 Backup to Azure, see [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148(v=sql.120).aspx).
+ - For an overview of all the options for SQL Server 2014 Backup to Azure, see [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx).
 
-1. **Encryption**: SQL Server 2014 supports encrypting data when creating a backup. It supports several encryption algorithms and the use osf a certificate or asymmetric key. For more information, see [Backup Encryption](https://msdn.microsoft.com/library/dn449489(v=sql.120).aspx).
+1. **Encryption**: SQL Server 2014 supports encrypting data when creating a backup. It supports several encryption algorithms and the use osf a certificate or asymmetric key. For more information, see [Backup Encryption](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
 
 ## Backup and Restore in SQL Server 2012
 
-For detailed information on SQL Server Backup and Restore in SQL Server 2012, see [Backup and Restore of SQL Server Databases (SQL Server 2012)](https://msdn.microsoft.com/library/ms187048(v=sql.110).aspx).
+For detailed information on SQL Server Backup and Restore in SQL Server 2012, see [Backup and Restore of SQL Server Databases (SQL Server 2012)](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx).
 
-Starting in SQL Server 2012 SP1 Cumulative Update 2, you can back up to and restore from the Azure Blob Storage service. This enhancement can be used to backup SQL Server databases on a SQL Server running on an Azure Virtual Machine or an on-premises instance. For more information, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148(v=sql.110).aspx).
+Starting in SQL Server 2012 SP1 Cumulative Update 2, you can back up to and restore from the Azure Blob Storage service. This enhancement can be used to backup SQL Server databases on a SQL Server running on an Azure Virtual Machine or an on-premises instance. For more information, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx).
 
-Some of the benefits of using the Azure Blob storage service include the ability to bypass the 16 disk limit for attached disks, ease of management, the direct availability of the backup file to another instance of SQL Server instance running on an Azure virtual machine, or an on-premises instances for migration or disaster recovery purposes. For a full list of benefits to using an Azure blob storage service for SQL Server backups, see the *Benefits* section in [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148(v=sql.110).aspx).
+Some of the benefits of using the Azure Blob storage service include the ability to bypass the 16 disk limit for attached disks, ease of management, the direct availability of the backup file to another instance of SQL Server instance running on an Azure virtual machine, or an on-premises instances for migration or disaster recovery purposes. For a full list of benefits to using an Azure blob storage service for SQL Server backups, see the *Benefits* section in [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx).
 
-For Best Practice recommendations and troubleshooting information, see [Backup and Restore Best Practices (Azure Blob Storage Service)](https://msdn.microsoft.com/library/jj919149(v=sql.110).aspx).
+For Best Practice recommendations and troubleshooting information, see [Backup and Restore Best Practices (Azure Blob Storage Service)](https://msdn.microsoft.com/library/jj919149%28v=sql.110%29.aspx).
 
 ## Backup and Restore in other versions of SQL Server supported in an Azure Virtual Machine
 
-For SQL Server Backup and Restore in SQL Server 2008 R2, see [Backing up and Restoring Databases in SQL Server (SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms187048(v=sql.105).aspx).
+For SQL Server Backup and Restore in SQL Server 2008 R2, see [Backing up and Restoring Databases in SQL Server (SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx).
 
-For SQL Server Backup and Restore in SQL Server 2008, see [Backing up and Restoring Databases in SQL Server (SQL Server 2008)](https://msdn.microsoft.com/library/ms187048(v=sql.100).aspx).
+For SQL Server Backup and Restore in SQL Server 2008, see [Backing up and Restoring Databases in SQL Server (SQL Server 2008)](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx).
 
 ## Next Steps
 

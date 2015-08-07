@@ -75,13 +75,6 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-### Networking Limits – Azure Resource Manager
-
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
-
-[AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
-
-
 ## Storage Limits
 
 ### Standard Storage Limits

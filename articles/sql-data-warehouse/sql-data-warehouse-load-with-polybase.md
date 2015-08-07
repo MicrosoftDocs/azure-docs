@@ -111,7 +111,7 @@ Reference topic: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
 
 The external table definition is similar to a relational table definition. The key difference is the location and the format of the data. The external table definition is stored in SQL Data Warehouse database. The data is stored the location specified by the data source.
 
-The LOCATION option specifies the path to the data from the root of the data source. In this example, the data is located at 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'.
+The LOCATION option specifies the path to the data from the root of the data source. In this example, the data is located at 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. All the files for the same table need to be under the same logical folder in Azure BLOB.
 
 ```
 -- Creating external table pointing to file stored in Azure Storage
@@ -130,7 +130,6 @@ WITH (LOCATION='/Demo/',
 
 > [AZURE.NOTE] Please note that you cannot create statistics on an external table at this time.
 
-All the files for the same table need to be under the same logical folder in Azure BLOB. As a best practice, break your Azure Storage data into no more than 1GB files when possible for parallel processing with SQL Data Warehouse.
 
 Reference topic: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 

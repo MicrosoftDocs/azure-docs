@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="08/06/2015" 
 	ms.author="mimig"/>
 
 # Introducing DocumentDB - A NoSQL Database for Microsoft Azure 

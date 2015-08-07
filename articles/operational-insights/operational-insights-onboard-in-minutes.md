@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/09/2015"
+    ms.date="08/06/2015"
     ms.author="banders"/>
 
 # Onboard to Operational Insights in minutes
