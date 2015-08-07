@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/06/2015"
+   ms.date="08/07/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL information
@@ -23,7 +23,7 @@ Most SQL Server 2016 Transact-SQL statements are fully supported in Microsoft Az
 
 ## Upgrading to SQL Database V12
 
-This topic discusses the features that are available with SQL Database when upgraded to the free SQL Database V12. For more information about V12, see [SQL Database V12 What's New](article:sql-database-v12-whats-new). SQL Database V12 adds performance and manageability improvements, as well as support for additional features. The added features are listed below, separated into the features that are fully supported, and the features that are partially supported. 
+This topic discusses the features that are available with SQL Database when upgraded to the free SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md). SQL Database V12 adds performance and manageability improvements, as well as support for additional features. The added features are listed below, separated into the features that are fully supported, and the features that are partially supported. 
 
 ## Features that are partially supported in SQL Database V12
 
