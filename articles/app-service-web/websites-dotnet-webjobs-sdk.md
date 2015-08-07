@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # What is the Azure WebJobs SDK
@@ -45,6 +45,8 @@ Here are some typical scenarios you can handle more easily with the Azure WebJob
 * Ingress into Azure Tables. You might have files stored and blobs and want to parse them and store the data in tables. The ingress function could be writing lots of rows (millions in some cases), and the WebJobs SDK makes it possible to implement this functionality easily. The SDK also provides real-time monitoring of progress indicators such as the number of rows written in the table.
 
 * Other long-running tasks that you want to run in a background thread, such as [sending emails](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
+
+In many of these scenarios you may want to scale a web app to run on multiple VMs, which would run multiple WebJobs simultaneously. In some scenarios this could result in the same data getting processed multiple times, but this is not a problem when you use the built-in queue, blob, and Service Bus triggers of the WebJobs SDK. The SDK ensures that your functions will be processed only once for each message or blob.
 
 ## <a id="code"></a> Code samples
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB resource model and concepts | Azure" 
+	pageTitle="DocumentDB resource model and concepts | Microsoft Azure" 
 	description="Microsoft Azure DocumentDB is a fully-managed NoSQL document database that uses a hierarchichal model of database accounts, databases, collections, stored procedures, triggers, UDFs, documents, attachments, media, users, and permissions to manage resources."  
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
 #DocumentDB resource model and concepts

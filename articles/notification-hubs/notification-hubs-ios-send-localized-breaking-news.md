@@ -17,9 +17,10 @@
 	ms.author="wesmc"/>
 # Use Notification Hubs to send localized breaking news to iOS devices
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news)
+- [iOS](notification-hubs-ios-send-localized-breaking-news)
+
 
 ##Overview
 

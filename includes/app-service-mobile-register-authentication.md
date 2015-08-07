@@ -9,7 +9,7 @@ First, you need to register your app at an identity provider's site, then set th
 	+ [Microsoft](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
 	+ [Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
 
-2. Repeat the previous steps for each provider you what to support in your app.
+2. Repeat the previous steps for each provider you want to support in your app.
 
 
 <!-- URLs. -->

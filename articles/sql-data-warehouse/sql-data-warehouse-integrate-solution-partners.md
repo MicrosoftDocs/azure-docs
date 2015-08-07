@@ -72,6 +72,7 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [20]: ./media/sql-data-warehouse-integrate-solution-partners/targit_logo.png
 [21]: ./media/sql-data-warehouse-integrate-solution-partners/yellowfin_logo.png
 
+
 <!--Article links-->
 [Build integrated solutions with SQL Data Warehouse]: ./sql-data-warehouse-overview-integrate.md
 
@@ -98,4 +99,3 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [tableau_more]:http://www.tableau.com/
 [targit_more]:http://www.targit.com/en/
 [yellowfin_more]:http://www.yellowfinbi.com/
-

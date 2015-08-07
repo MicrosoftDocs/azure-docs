@@ -36,34 +36,12 @@ This article assumes you have the following:
 > [AZURE.NOTE] The VHDX format is not supported in Microsoft Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx). A tutorial on this can be found [here](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
  
  The following Windows Server versions are supported:
-<P>
-  <TABLE BORDER="1" WIDTH="600">
-  <TR BGCOLOR="#E9E7E7">
-    <TH>OS</TH>
-    <TH>SKU</TH>
-    <TH>Service Pack</TH>
-    <TH>Architecture</TH>
-  </TR>
-  <TR>
-    <TD>Windows Server 2012 R2</TD>
-    <TD>All editions</TD>
-    <TD>N/A</TD>
-    <TD>x64</TD>
-  </TR>
-  <TR>
-    <TD>Windows Server 2012</TD>
-    <TD>All editions</TD>
-    <TD>N/A</TD>
-    <TD>x64</TD>
-  </TR>
-  <TR>
-    <TD>Windows Server 2008 R2</TD>
-    <TD>All editions</TD>
-    <TD>SP1</TD>
-    <TD>x64</TD>
-  </TR>
-  </TABLE>
-</P>
+
+OS|SKU|Service Pack|Architecture
+---|---|---|---
+Windows Server 2012 R2|All editions|N/A|x64
+Windows Server 2012|All editions|N/A|x64
+Windows Server 2008 R2|All editions|SP1|x64
 
 
 This task includes the following steps:
