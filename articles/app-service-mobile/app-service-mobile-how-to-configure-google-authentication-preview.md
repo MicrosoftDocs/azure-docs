@@ -27,9 +27,9 @@ To complete the procedure in this topic, you must have a Google account that has
 ## <a name="register"> </a>Register your application with Google
 
 
-1. Log on to the [Azure Management Portal], and navigate to your Mobile App. Copy your **Mobile App URL**. You will use this later with your Google app.
+1. Log on to the [Azure Management Portal], and navigate to your Mobile App. Copy your **URL**. You will use this later with your Google app.
  
-2. On your Mobile App blade, click **Settings**, **User authentication**, and then click **Google**. Copy the **Redirect URI**. You will use this to configure your Google app.
+2. Click **Settings**, **User authentication**, and then click **Google**. Copy the **Redirect URI**. You will use this to configure your Google app.
 
 3. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> website, sign-in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
 
@@ -39,7 +39,7 @@ To complete the procedure in this topic, you must have a Google account that has
 
 6. Once more under **API & Auth**, select **Credentials**, and then **Create new Client ID**.
 
-7. Select **Web application**. Type your **Mobile App URL** you copied earlier in **Authorized JavaScript Origins**, and then replace the generated URL in **Authorized Redirect URI** with your Mobile App **Redirect URI** you copied earlier. This URI is the Mobile App gateway appended with the path, _/signin-google_. For example, `https://contosogateway.azurewebsites.net/signin-google`. Make sure that you are using the HTTPS scheme. Then click **Create client ID**.
+7. Select **Web application**. Paste in the **URL** you copied earlier in **Authorized JavaScript Origins**, and then replace the generated URL in **Authorized Redirect URI** with the Mobile App **Redirect URI** you copied earlier. This URI is the Mobile App gateway appended with the path, _/signin-google_. For example, `https://contosogateway.azurewebsites.net/signin-google`. Make sure that you are using the HTTPS scheme. Then click **Create client ID**.
 
      ![][0]
 

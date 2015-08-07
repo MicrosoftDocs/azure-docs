@@ -27,9 +27,9 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 ## <a name="register"> </a>Register your application with Twitter
 
 
-1. Log on to the [Azure Management Portal], and navigate to your Mobile App. Copy your **Mobile App URL**. You will use this to configure your Twitter app.
+1. Log on to the [Azure Management Portal], and navigate to your Mobile App. Copy your **URL**. You will use this to configure your Twitter app.
 
-2. On the Mobile App blade, click **Settings**, **User authentication**, and then click **Twitter**. Copy the **Callback URL**. You will use this to configure your Twitter app.
+2. Click **Settings**, **User authentication**, and then click **Twitter**. Copy the **Callback URL**. You will use this to configure your Twitter app.
 
 3. Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create New App**.
 

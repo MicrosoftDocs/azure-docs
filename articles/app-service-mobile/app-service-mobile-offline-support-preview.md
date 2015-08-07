@@ -65,7 +65,7 @@ Local database store details
 ## How offline synchronization behaves
 
 
-When supporting offline, your client code controls when local changes will be synchronized with a Mobile App backend. Nothing is sent to the backend server until an `IMobileServicesSyncContext.PushAsync` (push) or `IMobileServicesSyncTable.PullAsync` (pull) is executed. The following list contains important points that describe how offline sync works.
+When supporting offline, your client code controls when local changes will be synchronized with a Mobile App backend. Nothing is sent to the backend server until an `IMobileServicesSyncContext.PushAsync` (push) or `IMobileServicesSyncTable.PullAsync` (pull) is executed. The following list contains important points that help describe how offline sync works.
 
 * **Sync Context**: Notice that push is executed on a different interface (`IMobileServicesSyncContext`) than a pull. This is because an app could change multiple tables which in turn are related through relationships. As a result the `IMobileServicesSyncContext` associated with your `MobileServiceClient` tracks changes the client app makes for all local tables. Each sync related table operation is put into an operation queue, which is then played back on the server database when the sync context executes a push. Note that all tracked table changes are updated on the server to preserve relationships that may exist across tables.
 
@@ -87,13 +87,6 @@ When supporting offline, your client code controls when local changes will be sy
 	Another reason for purging is stale data on the client. For instance, suppose in the todoitem example, Device1 only pulls items that are not completed. Then, a todoitem "Buy milk" is marked completed on the server by another device. Device1 will still have the "Buy milk" todoitem in local store. The app should purge data periodically clear such stale records.
 
 
-There’s a lot more to it, and that’s probably what needs to be fleshed out by me.
- 
-For instance:
-
-* Conflict handling can either be done through a handler, or in bulk
-
-
 
 ## Incremental sync and querying
 * To use this, the server MUST support send a valid __updatedAt system column, and must support sorting on this column
@@ -106,6 +99,7 @@ For instance:
 ## Conflict handling
 * Opt-in to conflict handling on the client by including a "version" column in the data model
 * See local store system properties
+* Conflict handling can either be done through a handler, or in bulk
 		
 
 ## Soft delete (nice to have)
