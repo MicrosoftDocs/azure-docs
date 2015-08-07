@@ -66,7 +66,13 @@ IOS 15.0 (static),  IOS 15.1 (dynamic)               | [Cisco ISR samples](https
 | Watchguard                      | All                                                      | Fireware XTM v11.x                                 | [Configuration instructions](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/)                                                                                                                                                                          | Not compatible                                                                                                                                                                                               |
 
 
-### Editing device configuration samples
+### Devices not on the compatible list
+
+
+If you don’t see your device in the known compatible VPN device list and want to use the device for your VPN connection, you’ll need to verify that it meets the minimum requirements outlined in the [Gateway requirements](vpn-gateway-about-vpngateways.md#gateway-requirements) table. Devices meeting the minimum requirements should also work well with Virtual Network. Please contact your device manufacturer for additional support and configuration instructions.
+
+
+## Editing device configuration samples
 
 After you download the provided VPN device configuration sample, you’ll need to replace some of the values to reflect the settings for your environment. 
 
@@ -89,10 +95,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 | &lt;SP_AzureGatewayIpAddress&gt;       | This information specific to your virtual network and is located in the Management Portal as **Gateway IP address**. |
 | &lt;SP_PresharedKey&gt;                | This information is specific to your virtual network and is located in the Management Portal as Manage Key.          |
 
-### Devices not on the compatible list
 
-
-If you don’t see your device in the known compatible VPN device list and want to use the device for your VPN connection, you’ll need to verify that it meets the minimum requirements outlined in the [Gateway requirements](vpn-gateway-about-vpngateways.md#gateway-requirements) table. Devices meeting the minimum requirements should also work well with Virtual Network. Please contact your device manufacturer for additional support and configuration instructions.
 
 ## IPsec Parameters
 
