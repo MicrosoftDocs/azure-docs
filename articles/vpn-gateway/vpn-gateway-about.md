@@ -106,7 +106,7 @@ For more information about ExpressRoute, see the [ExpressRoute technical overvie
 
 ## Next Steps
 
-See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) and the [VPN Gateway FAQ](vpn-gateway-faq.md) for more information.
+See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) and the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for more information.
 
 
 
