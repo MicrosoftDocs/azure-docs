@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage your first API in Azure API Management"
-	description="Learn how to create APIs, operations, and get started with API Management."
+	pageTitle="Manage your first API in Azure API Management | Microsoft Azure"
+	description="Learn how to create APIs, add operations, and get started with API Management."
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
@@ -20,66 +20,66 @@
 
 ## <a name="overview"> </a>Overview
 
-This guide shows you how to quickly get started using API Management and make your first API call.
+This guide shows you how to quickly get started in using Azure API Management and make your first API call.
 
 ## <a name="concepts"> </a>What is Azure API Management?
 
-Azure API Management allows you to take any backend and launch a full-fledged API program based on it.
+You can use Azure API Management to take any backend and launch a full-fledged API program based on it.
 
 Common scenarios include:
 
-* **Securing mobile infrastructure** by gating access with API keys, preventing DOS attacks using throttling or using advanced security policies like JWT token validation
-* **Enabling ISV partner ecosystems** by offering fast partner onboarding through the developer portal and building an API facade to decouple from an  internal implementations not ripe for partner consumption
-* **Running an internal API program** by offering a centralized location for the organization to communicate about the availability and latest changes to APIs, gating access based on organizational accounts, all based on a secured channel between the API gateway and the backend
+* **Securing mobile infrastructure** by gating access with API keys, preventing DOS attacks by using throttling, or using advanced security policies like JWT token validation.
+* **Enabling ISV partner ecosystems** by offering fast partner onboarding through the developer portal and building an API facade to decouple from internal implementations that are not ripe for partner consumption.
+* **Running an internal API program** by offering a centralized location for the organization to communicate about the availability and latest changes to APIs, gating access based on organizational accounts, all based on a secured channel between the API gateway and the backend.
 
 
-The system is made-up of the following components:
+The system is made up of the following components:
 
 * The **API gateway** is the endpoint that:
-  * accepts API calls and routes them to your backends
-  * verifies API keys, JWT tokens, certificates and other credentials
-  * enforces usage quotas and rate limits
-  * transforms your API on the fly without code modifications
-  * caches backend responses where setup
-  * logs call metadata for analytics purposes
+  * Accepts API calls and routes them to your backends.
+  * Verifies API keys, JWT tokens, certificates, and other credentials.
+  * Enforces usage quotas and rate limits.
+  * Transforms your API on the fly without code modifications.
+  * Caches backend responses where set up.
+  * Logs call metadata for analytics purposes.
 
-* The **publisher portal** is the administrative interface where you set-up your API program:
-	* define or import API schema
-	* package APIs into products
-	* set-up policies like quotas or transformations on the APIs
-	* get insights from analytics
-	* manage users
+* The **publisher portal** is the administrative interface where you set up your API program. Use it to:
+	* Define or import API schema.
+	* Package APIs into products.
+	* Set up policies like quotas or transformations on the APIs.
+	* Get insights from analytics.
+	* Manage users.
 
-* The **developer portal** serves as the main web presence for developers where they can:
-	* read API documentation
-	* try out an API via the interactive console
-	* create an account and subscribe to get API keys
-	* access analytics on their own usage
+* The **developer portal** serves as the main web presence for developers, where they can:
+	* Read API documentation.
+	* Try out an API via the interactive console.
+	* Create an account and subscribe to get API keys.
+	* Access analytics on their own usage.
 
 
 ## <a name="create-service-instance"> </a>Create an API Management instance
 
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
 
-The first step in working with API Management is to create a service instance. Log in to the [Management Portal][] and click **New**, **App Services**, **API Management**, **Create**.
+The first step in working with API Management is to create a service instance. Sign in to the [Azure portal][] and click **New**, **App Services**, **API Management**, **Create**.
 
 ![API Management new instance][api-management-create-instance-menu]
 
 For **URL**, specify a unique sub-domain name to use for the service URL.
 
-Choose the desired **Subscription** and **Region** for your service instance. After making your selections, click the next button.
+Choose the desired **Subscription** and **Region** for your service instance. After making your selections, click the **Next** button.
 
 ![New API Management service][api-management-create-instance-step1]
 
-Enter **Contoso Ltd.** for the **Organization Name**, and enter your email address in the administrator e-mail field.
+Enter **Contoso Ltd.** for the **Organization Name**, and enter your email address in the **Administrator E-Mail** field.
 
->This email address is used for notifications from the API Management system. For more information, see [Configure Notifications][].
+>[AZURE.NOTE] This email address is used for notifications from the API Management system. For more information, see [How to configure notifications and email templates in Azure API Management][].
 
 ![New API Management service][api-management-create-instance-step2]
 
-API Management service instances are available in three tiers: Developer, Standard, and Premium. By default, new API Management service instances are created using the Developer tier. To select the Standard or Premium tier, check the **Advanced settings** checkbox and select the desired tier on the following screen.
+API Management service instances are available in three tiers: Developer, Standard, and Premium. By default, new API Management service instances are created in the Developer tier. To select the Standard or Premium tier, check the **Advanced settings** check box and select the desired tier on the following screen.
 
->Microsoft Azure offers three tiers in which you can run your API Management service: Developer, Standard, and Premium. The Developer Tier is for development, testing and pilot API programs where high availability is not a concern. In the Standard and Premium tiers, you can scale your reserved unit count to handle more traffic. The Standard and Premium tiers provide your API Management service with the most processing power and performance. This tutorial can be completed using any tier. For more information about API Management tiers, see [API Management pricing][].
+>[AZURE.NOTE] The Developer Tier is for development, testing, and pilot API programs where high availability is not a concern. In the Standard and Premium tiers, you can scale your reserved unit count to handle more traffic. The Standard and Premium tiers provide your API Management service with the most processing power and performance. You can complete this tutorial by using any tier. For more information about API Management tiers, see [API Management pricing][].
 
 Click the check box to create your service instance.
 
@@ -91,11 +91,11 @@ Once the service instance is created, the next step is to create or import an AP
 
 An API consists of a set of operations that can be invoked from a client application. API operations are proxied to existing web services.
 
-APIs can be created and operations added manually, or they can be imported. In this tutorial we will import a the API for a sample calculator web service provided by Microsoft and hosted on Azure.
+APIs can be created (and operations can be added) manually, or they can be imported. In this tutorial, we will import the API for a sample calculator web service provided by Microsoft and hosted on Azure.
 
->For guidance on creating an API and manually adding operations, see [How to create APIs](api-management-howto-create-apis.md) and [How to add operations to an API](api-management-howto-add-operations.md).
+>[AZURE.NOTE] For guidance on creating an API and manually adding operations, see [How to create APIs](api-management-howto-create-apis.md) and [How to add operations to an API](api-management-howto-add-operations.md).
 
-APIs are configured from the API publisher portal, which is accessed through the Azure management portal. To reach the publisher portal, click **Manage** in the Azure Portal for your API Management service.
+APIs are configured from the publisher portal, which is accessed through the Azure portal. To reach the publisher portal, click **Manage** in the Azure portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
@@ -103,20 +103,20 @@ To import the calculator API, click **APIs** from the **API Management** menu on
 
 ![Import API button][api-management-import-api]
 
-![Add new API][api-management-import-new-api]
+Perform the following steps to configure the calculator API:
 
-Perform the following steps to configure the calculator API.
-
-1. Click **From URL**, enter **http://calcapi.cloudapp.net/calcapi.json** into the **Specification document URL** textbox, and click the **Swagger** radio button.
-2. Type **calc** into the **Web API URL suffix** textbox.
+1. Click **From URL**, enter **http://calcapi.cloudapp.net/calcapi.json** into the **Specification document URL** text box, and click the **Swagger** radio button.
+2. Type **calc** into the **Web API URL suffix** text box.
 3. Click in the **Products (optional)** box and choose **Starter**.
 4. Click **Save** to import the API.
+
+![Add new API][api-management-import-new-api]
 
 Once the API is imported, the summary page for the API is displayed in the publisher portal.
 
 ![API summary][api-management-imported-api-summary]
 
-The API section has several tabs. The **Summary** tab display basic metrics and information about the API. The [Settings](api-management-howto-create-apis.md#configure-api-settings) tab is used to view and edit the configuration for an API. The [Operations](api-management-howto-add-operations.md) tab is used to manage the API's operations. The **Security** tab can be used to configure proxy authentication for the backend server using Basic authentication or [mutual certificate authentication](api-management-howto-mutual-certificates.md), and to configure [user authorization using OAuth 2.0](api-management-howto-oauth2.md).  The The **Issues** tab is used to view issues reported by the developers using your APIs, and the **Products** tab is used to configure the products that contain this API.
+The API section has several tabs. The **Summary** tab displays basic metrics and information about the API. The [Settings](api-management-howto-create-apis.md#configure-api-settings) tab is used to view and edit the configuration for an API. The [Operations](api-management-howto-add-operations.md) tab is used to manage the API's operations. The **Security** tab can be used to configure proxy authentication for the backend server by using Basic authentication or [mutual certificate authentication](api-management-howto-mutual-certificates.md), and to configure [user authorization by using OAuth 2.0](api-management-howto-oauth2.md).  The **Issues** tab is used to view issues reported by the developers who are using your APIs. The **Products** tab is used to configure the products that contain this API.
 
 By default, each API Management instance comes with two sample products:
 
@@ -127,13 +127,13 @@ In this tutorial, the Basic Calculator API was added to the Starter product when
 
 In order to make calls to an API, developers must first subscribe to a product that gives them access to it. Developers can subscribe to products in the developer portal, or administrators can subscribe developers to products in the publisher portal. You are an administrator since you created the API Management instance in the previous steps in the tutorial, so you are already subscribed to every product by default.
 
-## <a name="call-operation"> </a>Call an operation from the Developer Portal
+## <a name="call-operation"> </a>Call an operation from the developer portal
 
-Operations can be called directly from the developer portal, which provides a convenient way to view and test the operations of an API. In this tutorial step you will call the **Basic Calculator** API's **Add two integers** operation. Click **Developer portal** from the menu at the top right of the publisher portal.
+Operations can be called directly from the developer portal, which provides a convenient way to view and test the operations of an API. In this tutorial step, you will call the Basic Calculator API's **Add two integers** operation. Click **Developer portal** from the menu at the top right of the publisher portal.
 
 ![Developer portal][api-management-developer-portal-menu]
 
-Click **APIs** from the top menu, and then click **Basic Calculator** to see the operations available.
+Click **APIs** from the top menu, and then click **Basic Calculator** to see the available operations.
 
 ![Developer portal][api-management-developer-portal-calc-api]
 
@@ -143,7 +143,7 @@ To call the **Add two integers** operation, click **Try it**.
 
 ![Try it][api-management-developer-portal-calc-api-console]
 
-You can enter some values for the parameters or keep the defaults, and click **Send**.
+You can enter some values for the parameters or keep the defaults, and then click **Send**.
 
 ![HTTP Get][api-management-invoke-get]
 
@@ -153,7 +153,7 @@ After an operation is invoked, the developer portal displays the **Response stat
 
 ## <a name="view-analytics"> </a>View analytics
 
-To view analytics for **Basic Calculator**, switch back to the publisher portal by selecting **Manage** from the menu at the top right of the developer portal.
+To view analytics for Basic Calculator, switch back to the publisher portal by selecting **Manage** from the menu at the top right of the developer portal.
 
 ![Manage][api-management-manage-menu]
 
@@ -163,11 +163,11 @@ The default view for the publisher portal is the **Dashboard**, which provides a
 
 Hover the mouse over the chart for **Basic Calculator** to see the specific metrics for the usage of the API for a given time period.
 
->If you don't see any lines on your chart, switch back to the developer portal and make some calls into the API, wait a few moments, and then come back to the dashboard.
-
-![Analytics][api-management-mouse-over]
+>[AZURE.NOTE] If you don't see any lines on your chart, switch back to the developer portal and make some calls into the API, wait a few moments, and then come back to the dashboard.
 
 Click **View Details** to view the summary page for the API, including a larger version of the displayed metrics.
+
+![Analytics][api-management-mouse-over]
 
 ![Summary][api-management-api-summary-metrics]
 
@@ -175,10 +175,10 @@ For detailed metrics and reports, click **Analytics** from the **API Management*
 
 ![Overview][api-management-analytics-overview]
 
-The **Analytics** section has the following four tabs.
+The **Analytics** section has the following four tabs:
 
--	**At a glance** provides overall usage and health metrics as well as the top developers, top products, top APIs, and top operations.
--	**Usage** provides in-depth look at API calls and bandwidth including a geographical representation.
+-	**At a glance** provides overall usage and health metrics, as well as the top developers, top products, top APIs, and top operations.
+-	**Usage** provides an in-depth look at API calls and bandwidth, including a geographical representation.
 -	**Health** focuses on status codes, cache success rates, response times, and API and service response times.
 -	**Activity** provides reports that drill down on the specific activity by developer, product, API, and operation.
 
@@ -200,13 +200,13 @@ The **Analytics** section has the following four tabs.
 
 [How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
 [Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-[Configure Notifications]: api-management-howto-configure-notifications.md
+[How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
 [Responses]: api-management-howto-add-operations.md#responses
 [How create and publish a product]: api-management-howto-add-products.md
 [Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -242,4 +242,3 @@ The **Analytics** section has the following four tabs.
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
- 
