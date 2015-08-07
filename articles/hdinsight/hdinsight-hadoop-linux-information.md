@@ -59,7 +59,10 @@ The fully qualified domain name (FQDN) to use when connecting to the cluster is 
 
 ## File locations
 
-Hadoop-related files can be found on the cluster nodes at `/usr/hdp/current`.
+Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This directory contains the following subdirectories:
+
+* __2.2.4.9-1__: This directory is named for the version of the Hortonworks Data Platform used by HDInsight, so the number on your cluster may be different than the one listed here.
+* __current__: This directory contains links to directories under teh __2.2.4.9-1__ directory, and exists so that you don't have to type a version number (that might change,) every time you want to access a file.
 
 Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at '/example' or 'wasb:///example'.
 
