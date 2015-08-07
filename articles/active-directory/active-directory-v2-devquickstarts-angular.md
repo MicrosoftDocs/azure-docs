@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD AngularJS Getting Started | Microsoft Azure"
-	description="How to build a Angular JS Single Page application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
+	description="How to build a Angular JS Single Page application that signs in users with both personal Microsoft accounts and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -18,6 +18,13 @@
 
 
 # Add Sign In to an AngularJS Single Page App
+
+The quick-start tutorial for AngularJS apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
+
+> [AZURE.NOTE]
+	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+
+<!-- TOOD:
 
 Microsoft Identity makes it simple and straightforward for you to add sign in, sign out, and secure OAuth API calls to your single page apps.  It enables your app to authenticate users with their MSA or Azure AD/Office 365 accounts and consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
@@ -143,3 +150,5 @@ For additional resources, check out:
 - [AzureADSamples on GitHub >>](https://github.com/AzureAdSamples)
 - [CloudIdentity.com >>](https://cloudidentity.com)
 - Azure AD documentation on [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+
+-->
