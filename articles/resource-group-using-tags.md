@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="08/06/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -29,32 +29,81 @@ When you view resources with a particular tag, you see resources from all of you
 
 Tagging resources and resource groups in the preview portal is easy. Use the Browse hub to navigate to the resource or resource group you’d like to tag and click the Tags part in the Overview section at the top of the blade. 
 
-![Tags part on resource and resource group blades](./media/resource-group-using-tags/rgblade.png)
+![Tags part on resource and resource group blades](./media/resource-group-using-tags/tag-icon.png)
 
 This will open a blade with the list of tags that have already been applied. If this is your first tag, the list will be empty. To add a tag, simply specify a name and value and press Enter. After you've added a few tags, you'll notice autocomplete options based on pre-existing tag names and values to better ensure a consistent taxonomy across your resources and to avoid common mistakes, like misspellings.
 
 ![Tag resources with name/value pairs](./media/resource-group-using-tags/tag-resources.png)
 
-From here, you can click on each individual tag to view a list of all the resources with the same tag. Of course, if this is your first tag, that list won't be very interesting. For now, let's jump over to PowerShell to tag all of our resources quickly.
+Later in this topic, you'll be able to see a list of all the resources with the same tag. Of course, if this is your first tag, that list won't be very interesting. For now, let's jump over to PowerShell to tag all of our resources quickly.
 
 
 ## Tagging with PowerShell
 
-First thing's first, grab the latest [Azure PowerShell module](./install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](./install-configure-powershell.md) to get up to speed. For the purposes of this article, we'll assume you've already added an account and selected a subscription with the resources you want to tag.
+If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+For the purposes of this article, we'll assume you've already added an account and selected a subscription with the resources you want to tag.
 
-Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager.
 
     Switch-AzureMode AzureResourceManager
 
 Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with `Get-AzureResource` or `Get-AzureResourceGroup`, respectively. Let's start with a resource group.
 
-![Getting tags with Get-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Get-AzureResourceGroup-in-PowerShell.png)
+    PS C:\> Get-AzureResourceGroup tag-demo
 
-This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any. To tag a resource group, we'll simply use `Set-AzureResourceGroup` and specify a tag name and value.
+    ResourceGroupName : tag-demo
+    Location          : southcentralus
+    ProvisioningState : Succeeded
+    Tags              :
+    Permissions       :
+                    Actions  NotActions
+                    =======  ==========
+                    *
 
-![Setting tags with Set-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
+    Resources         :
+                    Name                             Type                                  Location
+                    ===============================  ====================================  ==============
+                    CPUHigh ExamplePlan              microsoft.insights/alertrules         eastus
+                    ForbiddenRequests tag-demo-site  microsoft.insights/alertrules         eastus
+                    LongHttpQueue ExamplePlan        microsoft.insights/alertrules         eastus
+                    ServerErrors tag-demo-site       microsoft.insights/alertrules         eastus
+                    ExamplePlan-tag-demo             microsoft.insights/autoscalesettings  eastus
+                    tag-demo-site                    microsoft.insights/components         centralus
+                    ExamplePlan                      Microsoft.Web/serverFarms             southcentralus
+                    tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
-Remember that tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to use an array with all the tags you want to keep. To remove one, simply save the array without the one you want to remove. 
+
+This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any. To tag a resource group, simply use the `Set-AzureResourceGroup` command and specify a tag name and value.
+
+    PS C:\> Set-AzureResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
+
+    ResourceGroupName : tag-demo
+    Location          : southcentralus
+    ProvisioningState : Succeeded
+    Tags              :
+                    Name     Value
+                    =======  =====
+                    project  tags
+                    env      demo
+
+Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to use an array with all the tags you want to keep. To do this, you can first select the existing tags and add a new one.
+
+    PS C:\> $tags = (Get-AzureResourceGroup -Name tag-demo).Tags
+    PS C:\> $tags += @{Name="status";Value="approved"}
+    PS C:\> Set-AzureResourceGroup tag-demo -Tag $tags
+
+    ResourceGroupName : tag-demo
+    Location          : southcentralus
+    ProvisioningState : Succeeded
+    Tags              :
+                    Name     Value
+                    =======  ========
+                    project  tags
+                    env      demo
+                    status   approved
+
+
+To remove one or more tags, simply save the array without the ones you want to remove. 
 
 The process is the same for resources, except you'll use the `Get-AzureResource` and `Set-AzureResource` cmdlets. To get resources or resource groups with a specific tag, use `Get-AzureResource` or `Get-AzureResourceGroup` cmdlet with the `-Tag` parameter.
 
