@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="rasquill"/>
 

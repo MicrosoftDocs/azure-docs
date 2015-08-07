@@ -217,7 +217,7 @@ See [Data Retention and Privacy][data].
 <tr><th>What you should see</th><th>How to get it</th><th>Why you want it</th></tr>
 <tr><td>Availability charts</td><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Know your web app is up</td></tr>
 <tr><td>Server app perf: response times, ...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your project</a><br/>or <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Detect perf issues</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your project</a><br/>or <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a> (or write your own code to <a href="../app-insights-api-custom-events-metrics/#track-dependency">track dependencies</a>)</td><td>Detect perf issues</td></tr>
 <tr><td>Dependency telemetry</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose issues with databases or other external components</td></tr>
 <tr><td>Get stack traces from exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insert TrackException calls in your code</a> (but some are reported automatically)</td><td>Detect and diagnose exceptions</td></tr>
 <tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
