@@ -65,6 +65,9 @@ IOS 15.0 (static),  IOS 15.1 (dynamic)               | [Cisco ISR samples](https
 | Palo Alto Networks              | All devices running PAN-OS 5.0 or greater                | PAN-OS 5x or greater                               | [Palo Alto Networks](https://support.paloaltonetworks.com/)                                                                                                                                                                                          | Not compatible                                                                                                                                                                                               |
 | Watchguard                      | All                                                      | Fireware XTM v11.x                                 | [Configuration instructions](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/)                                                                                                                                                                          | Not compatible                                                                                                                                                                                               |
 
+
+### Editing device configuration samples
+
 After you download the provided VPN device configuration sample, you’ll need to replace some of the values to reflect the settings for your environment. 
 
 **To edit the sample:**
