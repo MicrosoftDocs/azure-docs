@@ -1,5 +1,5 @@
 Resource|Default Limit|Maximum Limit
----|---
+---|---|---
 Max number of Trusted IP addresses/ranges</a> per subscription<sup>1</sup>|0|12
 Remember my devices - number of days|14|60
 Max number of app passwords?|0|No Limit
