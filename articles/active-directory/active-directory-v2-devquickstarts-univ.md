@@ -10,7 +10,7 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-  ms.tgt_pltfrm="mobile-android"
+	ms.topic="article"
   ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.date="08/02/2015"
