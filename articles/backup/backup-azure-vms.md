@@ -31,9 +31,9 @@ The discovery process queries Azure for the list of virtual machines in the subs
 
 ### To trigger the discovery process
 
-1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click the **Registered Items** tab.
+1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and then click the **Registered Items** tab.
 
-2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine**, and click the **Select** button.
+2. Choose the type of workload in the drop-down menu as **Azure Virtual Machine**, and then click the **Select** button.
 
     ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
@@ -51,24 +51,24 @@ The discovery process queries Azure for the list of virtual machines in the subs
 ##  2. Register Azure virtual machines
 Before a virtual machine can be protected it needs to be registered with the Azure Backup service. The Registration process has two primary goals:
 
-1. To have the backup extension plugged-in to the VM agent in the virtual machine
+1. To have the backup extension plugged-in to the VM agent in the virtual machine.
 
-2. To associate the virtual machine with the Azure Backup service
+2. To associate the virtual machine with the Azure Backup service.
 
 Registration is typically a one-time activity. The Azure Backup service seamlessly handles the upgrade and patching of the backup extension without requiring any cumbersome user intervention. This relieves the user of the “agent management overhead” that is typically associated with backup products.
 
 ### To register virtual machines
 
-1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click the **Registered Items** tab
+1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and then click the **Registered Items** tab
 
-2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine** and click the select button.
+2. Choose the type of workload in the drop-down menu as **Azure Virtual Machine** and then click the select button.
 
     ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. Click the **REGISTER** button at the bottom of the page.
     ![register button](./media/backup-azure-vms/register-button-only.png)
 
-4. In the **Register Items** pop-up, choose the virtual machines that you would like to register. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
+4. In the **Register Items** shortcut menu, choose the virtual machines that you would like to register. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
 
     The **Register** operation can be done at scale, which means that multiple virtual machines can be selected at one time to be registered. This greatly reduces the one-time effort spent in preparing the virtual machine for backup.
 
@@ -78,7 +78,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 
     ![register job](./media/backup-azure-vms/register-create-job.png)
 
-6. The virtual machine also appears in the list of registered items and the status of the registration operation is shown
+6. The virtual machine also appears in the list of registered items and the status of the registration operation is shown.
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
@@ -87,17 +87,17 @@ Registration is typically a one-time activity. The Azure Backup service seamless
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
 ## 3. Protect: Back up Azure virtual machines
-This step involves setting up a backup and retention policy for the virtual machine. To protect a virtual machine, do the following steps:
+This step involves setting up a backup and retention policy for the virtual machine. To protect a virtual machine, do the following steps.
 
 ### To back up Azure virtual machines
-1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click the **Registered Items** tab.
-2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine**, and click the **Select** button.
+1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and then click the **Registered Items** tab.
+2. Choose the type of workload in the drop-down menu as **Azure Virtual Machine**, and then click the **Select** button.
 
     ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
 
-3. Click the **PROTECT** button at the bottom of the page.
+3. Click the **PROTECT** button at the bottom of the page. The **Protect Items** wizard appears.
 
-4. This will bring up a **Protect Items** wizard where the virtual machines to be protected can be selected. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
+4. The **Protect Items** wizard is where the virtual machines to be protected can be selected. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
 
     The **Protect** operation can be done at scale, which means that multiple virtual machines can be selected at one time to be registered. This greatly reduces the effort spent in protecting the virtual machine.
 
@@ -107,7 +107,7 @@ This step involves setting up a backup and retention policy for the virtual mach
 
     >[AZURE.NOTE] For preview, up to 30 days of retention and a maximum of once-a-day backup is supported.
 
-    In each backup vault, you can have multiple backup policies. The policies reflect the details about how the backup should be scheduled and retained. For example, one backup policy could be for daily backup at 10:00PM, while another backup policy could be for weekly backup at 6:00AM. Multiple backup policies allow flexibility in scheduling backups for your virtual machine infrastructure.
+    In each backup vault, you can have multiple backup policies. The policies reflect the details about how the backup should be scheduled and retained. For example, one backup policy could be for daily backup at 10:00 P.M., while another backup policy could be for weekly backup at 6:00 A.M. Multiple backup policies allow flexibility in scheduling backups for your virtual machine infrastructure.
 
     Each backup policy can have multiple virtual machines that are associated with the policy. The virtual machine can be associated with only one policy at any given point in time.
 
@@ -127,28 +127,28 @@ This step involves setting up a backup and retention policy for the virtual mach
     ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## Viewing backup status and details
-Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the Dashboard page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking on any one category will drill down into that category in the **Jobs** page.
+Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the **Dashboard** page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking any one category will drill down into that category in the **Jobs** page.
 
 ![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## Troubleshooting errors
-You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
+You can troubleshoot errors encountered while using Azure Backup with information listed in the following table.
 
 | Backup operation | Error details | Workaround |
 | -------- | -------- | -------|
-| Discovery | Failed to discover new items - Microsoft Azure Backup encountered and internal error. Wait for a few minutes and then try the operation again. | Retry the discovery process after 15 minutes.
-| Discovery | Failed to discover new items – Another Discovery operation is already in progress. Please wait until the current Discovery operation has completed. | None |
+| Discovery | Failed to discover new items - Microsoft Azure Backup encountered an internal error. Wait for a few minutes and then try the operation again. | Retry the discovery process after 15 minutes.
+| Discovery | Failed to discover new items – Another Discovery operation is already in progress. Please wait until the current Discovery operation is completed. | None. |
 | Register | Azure VM role is not in a state to install extension – Please check if the VM is in the Running state. Azure Recovery Services extension requires the VM to be Running. | Start the virtual machine and when it is in the Running state, retry the register operation.|
-| Register | Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 5 data disks attached to an Azure virtual machine for backup | None |
-| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configurations: <ol><li>Premium LRS <li>Multi NIC <li>Load balancer </ol> |
-| Register | VM Guest Agent Certificate not found | Follow these instructions to resolve the error: <ol><li>Download the latest version of the VM Agent from [here](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Ensure that the version of the downloaded agent is 2.6.1198.718 or higher. <li>Install the VM Agent in the virtual machine.</ol> [Learn](#validating-vm-agent-installation) how to check  the version of the VM Agent. |
-| Register | Registration failed with Install Agent operation timeout | Check if the OS version of the virtual machine is supported. |
-| Register | Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed | None |
+| Register | Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 5 data disks attached to an Azure virtual machine for backup. | None. |
+| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configurations: <ol><li>Premium LRS. <li>Multi NIC. <li>Load balancer. </ol> |
+| Register | VM Guest Agent Certificate not found. | Follow these instructions to resolve the error: <ol><li>Download the latest version of the VM Agent from [here](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Ensure that the version of the downloaded agent is 2.6.1198.718 or later. <li>Install the VM Agent in the virtual machine.</ol> [Learn](#validating-vm-agent-installation) how to check  the version of the VM Agent. |
+| Register | Registration failed with Install Agent operation timeout. | Check if the OS version of the virtual machine is supported. |
+| Register | Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed. | None. |
 | Backup | Copying VHDs from backup vault timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | This happens when there is too much data to be copied. Please check if you have less than 6 data disks. |
-| Backup | Snapshot VM sub task timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support | This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. <ul><li>Learn about [debugging VM Agent issues](#Troubleshooting-vm-agent-related-issues) <li>Learn about [debugging networking issues](#troubleshooting-networking-issues) </ul> |
-| Backup | Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support | You can get this error for 2 reasons: <ol><li> There is too much data to be copied. Please check if you have less than 6 disks. <li>The original VM has been deleted and therefore backup cannot be taken. In order to keep the backup data for a deleted VM but stop the backup errors, Unprotect the VM and choose the option to keep the data. This will stop the backup schedule and also the recurring error messages. |
-| Backup | Failed to install the Azure Recovery Services extension on the selected item - VM Agent is a pre-requisite for Azure Recovery Services Extension. Please install the Azure VM agent and restart the registration operation | <ol> <li>Check if the VM agent has been installed correctly. <li>Ensure that the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about VM agent installation, and how to validate the VM agent installation. |
-| Backup | Command execution failed - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry | An existing backup or restore job for the VM is running, and a new job cannot be started while the existing job is running. <br><br>If you would like the option to cancel an ongoing job, add your vote to the [Azure Feedback forum](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
+| Backup | Snapshot VM sub task timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. <ul><li>Learn about [debugging VM Agent issues](#Troubleshooting-vm-agent-related-issues). <li>Learn about [debugging networking issues](#troubleshooting-networking-issues). </ul> |
+| Backup | Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | You can get this error for 2 reasons: <ol><li> There is too much data to be copied. Please check if you have less than 6 disks. <li>The original VM has been deleted and therefore backup cannot be taken. In order to keep the backup data for a deleted VM but stop the backup errors, unprotect the VM and choose the option to keep the data. This will stop the backup schedule and also the recurring error messages. |
+| Backup | Failed to install the Azure Recovery Services extension on the selected item - VM Agent is a prerequisite for Azure Recovery Services Extension. Please install the Azure VM agent and restart the registration operation. | <ol> <li>Check if the VM agent has been installed correctly. <li>Ensure that the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about VM agent installation, and how to validate the VM agent installation. |
+| Backup | Command execution failed - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry. | An existing backup or restore job for the VM is running, and a new job cannot be started while the existing job is running. <br><br>If you would like the option to cancel an ongoing job, add your vote to the [Azure Feedback forum](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
 
 ### Troubleshooting VM Agent related issues
 
@@ -168,21 +168,21 @@ Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http:
 #### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:
 
-1. Log on to the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*. You should find the WaAppAgent.exe file present.
-2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
+1. Log on to the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*. You should find the WaAppAgent.exe file in the Packages folder.
+2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or later.
 
 ### Troubleshooting networking issues
-Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of of ways:
+Like all extensions, Backup extension need access to the public Internet to work. Not having access to the public Internet can manifest itself in a variety of of ways:
 
-- The extension installation can fail
-- The backup operations (like disk snapshot) can fail
-- Displaying the status of the backup operation can fail
+- The extension installation can fail.
+- The backup operations (like disk snapshot) can fail.
+- Displaying the status of the backup operation can fail.
 
-The need for resolving public internet addresses has been articulated [here](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). You will need to check the DNS configurations for the VNET and ensure that the Azure URIs can be resolved.
+The need for resolving public Internet addresses has been articulated [here](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). You will need to check the DNS configurations for the VNET and ensure that the Azure URIs can be resolved.
 
 Once the name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow these steps:
 
-1. Get the list of [Azure datacenter IPs](https://msdn.microsoft.com/library/azure/dn175718.aspx) to be whitelisted.
+1. Get the list of [Azure datacenter IPs](https://msdn.microsoft.com/library/azure/dn175718.aspx) that are safe IPs.
 2. Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) commandlet. Run this commandlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
 
 
@@ -194,13 +194,13 @@ When dealing with backup data, customers worry about the behavior of the VM afte
 - Will the application be able to read the data (or) is the data corrupted?
 - Will the data make sense to the application (or) is the data self-consistent when read by the application?
 
-The table below explains the types of consistency that are encountered during Azure VM backup and restore:
+The following table explains the types of consistency that are encountered during Azure VM backup and restore.
 
-| Consistency | VSS based | Explanation and Details |
+| Consistency | VSS-based | Explanation and details |
 |-------------|-----------|---------|
-| Application consistency | Yes | This is the ideal place to be for Microsoft workloads as it ensures:<ol><li> that the VM *boots up* <li>there is *no corruption*, <li>there is no *data loss*, and<li> the data is consistent to the application that uses the data, by involving the application at the time of backup -  using VSS.</ol> The Volume Snapshot Service (VSS) ensures that data is written correctly to the storage. Most Microsoft workloads have VSS writers that do workload-specific actions related to data consistency. For example, Microsoft SQL Server has a VSS writer that ensures the writes to the transaction log file and the database are done correctly.<br><br> For Azure VM backup, getting an application consistent recovery point means that the backup extension was able to invoke the VSS workflow and complete *correctly* before the VM snapshot was taken. Naturally, this means that the VSS writers of all the applications in the Azure VM have been invoked as well.<br><br>Learn the [basics of VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) dive deep into the details of [how it works](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
-| File system consistency | Yes - for Windows machines | There are two scenarios where the recovery point can be file-system consistent:<ul><li>Backup of Linux VMs in Azure, since Linux does not have an equivalent platform to VSS.<li>VSS failure during backup for Windows VMs in Azure.</li></ul> In both these cases, the best that can be done is to ensure that: <ol><li> that the VM *boots up* <li>there is *no corruption*, and <li>there is no *data loss*.</ol> Applications need to implement their own "fix-up" mechanism on the restored data.|
-| Crash consistency | No | This situation is equivalent to a machine experiencing a "crash" (through either a soft or hard reset). This typically happens when the Azure virtual machine is shut down at the time of backup. For Azure virtual machine backup, getting a crash-consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage medium - either from the perspective of the operating system or from the perspective of the application. Only data that already exists on the disk at the time of backup is what gets captured and backed up. <br/> <br/> While there are no guarantees, in most cases the OS will boot. This is typically followed by a disk checking procedure like chkdsk to fix any corruption errors. Any in-memory data or writes that have not been completely flushed to the disk will be lost. The application typically follows with its own verification mechanism in case data rollback needs to be done. For Azure VM backup, getting a crash consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage - either from the OS perspective or the application's perspective. This typically happens when the Azure VM is shutdown at the time of backup.<br><br>As an example, if the transaction log has entries that are not present in the database then the database software does a rollback till the data is consistent. When dealing with data spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data.|
+| Application consistency | Yes | This is the ideal place to be for Microsoft workloads as it ensures:<ol><li> That the VM *boots up*. <li>There is *no corruption*. <li>There is *no data loss*.<li> The data is consistent to the application that uses the data, by involving the application at the time of backup -  using VSS.</ol> The Volume Snapshot Service (VSS) ensures that data is written correctly to the storage. Most Microsoft workloads have VSS writers that do workload-specific actions related to data consistency. For example, Microsoft SQL Server has a VSS writer that ensures the writes to the transaction log file and the database are done correctly.<br><br> For Azure VM backup, getting an application consistent recovery point means that the backup extension was able to invoke the VSS workflow and complete *correctly* before the VM snapshot was taken. Naturally, this means that the VSS writers of all the applications in the Azure VM have been invoked as well.<br><br>Learn the [basics of VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) dive deep into the details of [how it works](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
+| File system consistency | Yes - for Windows machines | There are two scenarios where the recovery point can be file-system consistent:<ul><li>Backup of Linux VMs in Azure, since Linux does not have an equivalent platform to VSS.<li>VSS failure during backup for Windows VMs in Azure.</li></ul> In both these cases, the best that can be done is to ensure that: <ol><li> The VM *boots up*. <li>There is *no corruption*.<li>There is no *data loss*.</ol> Applications need to implement their own "fix-up" mechanism on the restored data.|
+| Crash consistency | No | This situation is equivalent to a machine experiencing a "crash" (through either a soft or hard reset). This typically happens when the Azure virtual machine is shut down at the time of backup. For Azure virtual machine backup, getting a crash-consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage medium - either from the perspective of the operating system or from the perspective of the application. Only data that already exists on the disk at the time of backup is what gets captured and backed up. <br/> <br/> While there are no guarantees, in most cases the OS will boot. This is typically followed by a disk checking procedure like chkdsk to fix any corruption errors. Any in-memory data or writes that have not been completely flushed to the disk will be lost. The application typically follows with its own verification mechanism in case data rollback needs to be done. For Azure VM backup, getting a crash consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage - either from the OS perspective or the application's perspective. This typically happens when the Azure VM is shut down at the time of backup.<br><br>As an example, if the transaction log has entries that are not present in the database, then the database software does a rollback till the data is consistent. When dealing with data spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data.|
 
 ## Next steps
 To learn more about getting started with Azure Backup, see:
