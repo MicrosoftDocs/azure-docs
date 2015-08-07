@@ -380,7 +380,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 	![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]
 	
    
-See [Monitor and Manage Pipelines][data-factory-monitor-manage-pipelines.md] for detailed steps for monitoring datasets and pipelines.      
+See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for detailed steps for monitoring datasets and pipelines.      
 
 ## Updating a custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage. 
