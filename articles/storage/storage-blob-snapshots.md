@@ -50,14 +50,14 @@ You can specify an access condition so that the snapshot is created only if a co
 
 A blob that has snapshots cannot be deleted unless the snapshots are also deleted. You can delete a snapshot individually, or tell the storage service to delete all snapshots when deleting the source blob. If you attempt to delete a blob that still has snapshots, you'll get an error.
 
-## Snapshots with Premium Storage
+## Snapshots with Azure Premium Storage
 Using snapshots with Premium Storage follow these rules:
 
-- The number of snapshots per page blob in a Premium Storage account is limited to 100. If that limit is exceeded, the Snapshot Blob operation returns error code 409 (**SnapshotCountExceeded**).
+- The number of snapshots per page blob in a premium storage account is limited to 100. If that limit is exceeded, the Snapshot Blob operation returns error code 409 (**SnapshotCountExceeded**).
 
-- A snapshot of a page blob in a Premium Storage account can be taken once every ten minutes. If that rate is exceeded, the Snapshot Blob operation returns error code 409 (**SnaphotOperationRateExceeded**).
+- A snapshot of a page blob in a premium storage account can be taken once every ten minutes. If that rate is exceeded, the Snapshot Blob operation returns error code 409 (**SnaphotOperationRateExceeded**).
 
-- Reading a snapshot of a page blob in a Premium Storage account via Get Blob is not supported. Calling Get Blob on a snapshot in a Premium Storage account returns error code 400 (**InvalidOperation**). However, calling Get Blob Properties and Get Blob Metadata against a snapshot is supported.
+- Reading a snapshot of a page blob in a premium storage account via Get Blob is not supported. Calling Get Blob on a snapshot in a premium storage account returns error code 400 (**InvalidOperation**). However, calling Get Blob Properties and Get Blob Metadata against a snapshot is supported.
 
 - To read a snapshot, you can use the Copy Blob operation to copy a snapshot to another page blob in the account. The destination blob for the copy operation must not have any existing snapshots. If the destination blob does have snapshots, then the Copy Blob operation returns error code 409 (**SnapshotsPresent**).
 
