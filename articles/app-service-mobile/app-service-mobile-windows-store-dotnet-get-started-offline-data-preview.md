@@ -204,7 +204,7 @@ In this section, you will modify the app to simulate an offline scenario by brea
 
 4. Close the app and restart it to verify that the new items you created are persisted to the local store.
 
-5. You can query your SQL Azure database table for the Mobile App backend using SQL Server object explorer in Visual Studio and see that the data in the backend database has not changed. To do this, [Download your publish settings file](https://msdn.microsoft.com/library/Dn385850.aspx). Then right click the **Azure** node in Visual Studio Server Explorer and click **Manage Subscriptions**.  On the **Certificates** tab of the Manage Subscriptions dialog, import your publish setting file. Now you can browse to your SQL database table and view the data.
+5. You can query your SQL Azure database table for the Mobile App backend using SQL Server object explorer in Visual Studio and see that the data in the backend database has not changed. To do this, [Download your publish settings file](https://msdn.microsoft.com/library/Dn385850.aspx). Then right click the **Azure** node in the Server Explorer window in Visual Studio and click **Manage Subscriptions**.  On the **Certificates** tab of the Manage Subscriptions dialog, import your publish setting file. Now you can browse to your SQL database table and view the data.
 
 ## <a name="update-online-app"></a>Update the app to reconnect your mobile app backend
 
