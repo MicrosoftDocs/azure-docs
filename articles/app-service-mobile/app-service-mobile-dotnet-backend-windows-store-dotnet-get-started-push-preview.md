@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Add push notifications to your Windows Universal app with Azure App Service" 
-	description="Learn how to use Azure App Service to send push notifications to your Windows Universal app." 
+	pageTitle="Add push notifications to your Windows Runtime 8.1 universal app | Azure Mobile Apps" 
+	description="Learn how to use Azure App Service Mobile Apps and Azure Notification Hubs to send push notifications to your Windows app." 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="ysxu" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
-	ms.author="yuaxu"/>
+	ms.date="08/06/2015" 
+	ms.author="glenga"/>
 
 # Add push notifications to your Windows Store app
 

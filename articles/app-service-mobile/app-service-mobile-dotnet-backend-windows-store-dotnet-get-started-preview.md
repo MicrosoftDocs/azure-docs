@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with mobile app backends for Windows Store apps | Azure App Service Mobile Apps"
+	pageTitle="Get Started with mobile app backends for Windows Runtime 8.1 universal apps | Azure Mobile Apps"
 	description="Follow this tutorial to get started using Azure mobile app backends for Windows Store development in C#, VB, or JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
