@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="08/07/2015"
 	ms.author="donnam"/>
 
 # Enable offline sync for your iOS mobile app
@@ -34,13 +34,6 @@ If this is your first experience with Mobile Apps, first complete the tutorial [
 ##<a name="review"></a>Review your server project configuration (optional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
-
-## <a name="get-app"></a>Get the sample offline ToDo app
-
-In the [Mobile Apps sample repository on GitHub], clone the repo and open the project [Offline iOS Sample] in Xcode.
-
-### Beta SDK
-To add offline support to an existing app, get the latest [beta iOS SDK](http://aka.ms/gc6fex).
 
 ## <a name="review-sync"></a>Review the Mobile Apps sync code
 
@@ -169,7 +162,7 @@ When using the Core Data offline store, you need to define particular tables and
 
     | Attribute    |  Type   | Note                                                   |
     |-----------   |  ------ | -------------------------------------------------------|
-    | id           | String  | primary key in remote store                            |
+    | id           | String, marked required  | primary key in remote store                            |
     | complete     | Boolean | todo item field                                        |
     | text         | String  | todo item field                                        |
     | ms_createdAt | Date    | (optional) maps to __createdAt system property         |
