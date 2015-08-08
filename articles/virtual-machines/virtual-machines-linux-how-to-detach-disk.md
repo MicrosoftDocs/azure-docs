@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="08/07/2015"
 	ms.author="dkshir"/>
 
 # How to Detach a Disk from a Linux Virtual Machine
@@ -24,3 +24,5 @@
 ## Additional Resources
 
 [How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-how-to-attach-disk.md)
+
+[Using the Azure CLI with Azure Service Management](virtual-machines-command-line-tools.md)

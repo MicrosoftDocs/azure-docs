@@ -31,23 +31,49 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 
 
-2. In the SSH window, type the following command, and then enter the password for the account that you created to manage the virtual machine:
+2. Next you need to find the device identifier for the data disk to initialize. There are two ways to do that:
 
-		# sudo grep SCSI /var/log/messages
+	a) There are two ways to find out the In the SSH window, type the following command, and then enter the password for the account that you created to manage the virtual machine:
 
-	>[AZURE.NOTE] For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default.
+			$sudo grep SCSI /var/log/messages
+
+	For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default.
 
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
 
-
-
 	![Get the disk messages](./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png)
 
+	OR
 
+	b) Use the `lsscsi` command to find out the device id. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk you are looking for by its _lun_ or **logical unit number**. For example, the _lun_ for the disks you attached can be easily seen from `azure vm disk list <virtual-machine>` as:
+
+			~$ azure vm disk list ubuntuVMasm
+			info:    Executing command vm disk list
+			+ Fetching disk images
+			+ Getting virtual machines
+			+ Getting VM disks
+			data:    Lun  Size(GB)  Blob-Name                         OS
+			data:    ---  --------  --------------------------------  -----
+			data:         30        ubuntuVMasm-2645b8030676c8f8.vhd  Linux
+			data:    1    10        test.VHD
+			data:    2    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
+			info:    vm disk list command OK
+
+	Compare this with the output of `lsscsi` for the same sample virtual machine:
+
+			adminuser@ubuntuVMasm:~$ lsscsi
+			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
+			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
+
+	The last number in the tuple in each row is the _lun_. See `man lsscsi` for more information.
 
 3. In the SSH window, type the following command to create a new device, and then enter the account password:
 
-		# sudo fdisk /dev/sdc
+		$sudo fdisk /dev/sdc
 
 	>[AZURE.NOTE] In this example you may need to use `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
 
@@ -136,7 +162,8 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 ## Additional Resources
 [How to log on to a virtual machine running Linux][Logon]
-
+[How to detach a disk from a Linux virtual machine ](virtual-machines-linux-how-to-detach-disk.md)
+[Using the Azure CLI with Azure Service Management](virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
