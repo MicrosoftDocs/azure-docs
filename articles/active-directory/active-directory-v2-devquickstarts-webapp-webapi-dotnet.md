@@ -87,29 +87,29 @@ public void ConfigureAuth(IAppBuilder app)
         new OpenIdConnectAuthenticationOptions
         {
 
-			// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
-			// The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
-			// In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
+					// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+					// The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
+					// In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
-			ClientId = clientId,
-			Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
-			Scope = "openid offline_access",
-			RedirectUri = redirectUri,
-			PostLogoutRedirectUri = redirectUri,
-			TokenValidationParameters = new TokenValidationParameters
-			{
-				ValidateIssuer = false,
-			},
+					ClientId = clientId,
+					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
+					Scope = "openid offline_access",
+					RedirectUri = redirectUri,
+					PostLogoutRedirectUri = redirectUri,
+					TokenValidationParameters = new TokenValidationParameters
+					{
+						ValidateIssuer = false,
+					},
 
-			// The `AuthorizationCodeReceived` notification is used to capture and redeem the authorization_code that the v2.0 endpoint returns to your app.
+					// The `AuthorizationCodeReceived` notification is used to capture and redeem the authorization_code that the v2.0 endpoint returns to your app.
 
-			Notifications = new OpenIdConnectAuthenticationNotifications
-			{
-				AuthenticationFailed = OnAuthenticationFailed,
-				AuthorizationCodeReceived = OnAuthorizationCodeReceived,
-			}
+					Notifications = new OpenIdConnectAuthenticationNotifications
+					{
+						AuthenticationFailed = OnAuthenticationFailed,
+						AuthorizationCodeReceived = OnAuthorizationCodeReceived,
+					}
 
-        });
+    	});
 }
 ...
 ```
@@ -195,7 +195,7 @@ catch (AdalException ee)
 ...
 ```
 
-- Now, you can perform the exact same `AcquireTokenSilentAsync` call in the `Create` and `Delete` actions.  In web apps, you can use this ADAL method to get access_tokens whenever you need them in your app.  ADAL will take care of acquiring, caching, and refreshing tokens for you.
+- The exact same `AcquireTokenSilentAsync` call is implementd in the `Create` and `Delete` actions.  In web apps, you can use this ADAL method to get access_tokens whenever you need them in your app.  ADAL will take care of acquiring, caching, and refreshing tokens for you.
 
 Finally, build and run your app!  Sign in with either a Microsoft Account or an Azure AD Account, and notice how the user's identity is reflected in the top navigation bar.  Add and delete some items from the user's To-Do List to see the OAuth 2.0 secured API calls in action.  You now have a web app & web API, both secured using industry standard protocols, that can authenticate users with both their personal and work/school accounts.
 

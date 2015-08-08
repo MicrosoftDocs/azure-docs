@@ -21,13 +21,13 @@
 > [AZURE.NOTE]
 	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
-In the past, an app developer who wanted to support both Microsoft Accounts and Azure Active Directory was required to integrate with two completely separate systems.  Now you can build apps using the "v2.0 application model", which allows you to sign users in with both types of accounts.  One simple process allows you to immediately reach an audience that spans millions of users with both personal and work/school accounts.
+In the past, an app developer who wanted to support both Microsoft accounts and Azure Active Directory was required to integrate with two separate systems. With the v2.0 application model, you can now sign users in with both types of accounts. One simple integration allows you to reach an audience that spans millions of users with both personal and work/school accounts.
 
-Your apps can also consume a [unified set of Microsoft REST APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) using either type of account.  Currently, these APIs include Outlook's Mail, Contacts, and Calendars APIs - additional Microsoft Online services will be added in the near future.
+Your apps can also consume a [set of Microsoft REST APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) using either type of account.  Currently, these APIs include Outlook's Mail, Contacts, and Calendars APIs.  Additional services will be added in the near future.
 <!-- TODO: customer reference article -->
 <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
-The app model v2.0 will be in preview for the next few months.  During the preview period, we are eager to hear your feedback and experience with the new app model as you try things out.  Based on that feedback, we will make breaking changes in the interest of improving the service.  You should not release a production app using the v2.0 app model during this period - support will not be provided for any issues that arise.
+The v2.0 app model is in preview.  During the preview period, we are eager to hear your feedback and experience with the new app model as you try things out.  Based on that feedback, we may make breaking changes in the interest of improving the service.  You should not release a production app using the v2.0 app model during this period.
 <!-- TODO: Get approval on how it looks  -->
 
 ## Getting Started
