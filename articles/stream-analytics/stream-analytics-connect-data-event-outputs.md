@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics outputs
@@ -65,7 +65,7 @@ The second operation is to test the connection. Azure Stream Analytics will try 
 
 ## Using Blob storage as an output ##
 ---
-For an introduction on Azure Blob storage and its usage, review the article [An introduction to Windows Azure Blob storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
+For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](./articles/storage/storage-dotnet-how-to-use-blobs.md).
 
 ### Parameters ###
 
@@ -139,17 +139,16 @@ There are a few parameters that are needed to configure a Power BI output.
 
     ![graphic23][graphic23]
 
-3.  In this step, provide the Org ID for authorizing the Power BI output. If you are not already signed up for Power BI, choose **Sign up now**.
+3.  In this step, provide the work or school account for authorizing the Power BI output. If you are not already signed up for Power BI, choose **Sign up now**.
 4.  Next a screen like the following will be presented.
 
     ![graphic24][graphic24]
 
 
->	[AZURE.NOTE] One should not explicitly create the dataset and table in the Power BI dashboard. The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] One should not explicitly create the dataset and table in the Power BI dashboard. The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t return any results, the dataset and table will not be created. Also be aware that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data will be overwritten.
 
 *	Click **OK**, **Test Connection** and now the output configuration is complete.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data will be overwritten.
 
 ## Using Azure Table storage for an output ##
 ---

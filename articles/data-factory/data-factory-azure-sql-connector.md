@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Azure SQL Connector - Move data to and from Azure SQL
@@ -25,10 +25,10 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 The sample below shows:
 
 1. A linked service of type AzureSqlDatabase.
-2. A linked service of type AzureStorage. 
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md/#LinkedService). 
 3. An input dataset of type AzureSqlTable. 
-4. An output dataset of type AzureBlob.
-4. A pipeline with Copy Activity that uses SqlSource and BlobSink.
+4. An output dataset of type [AzureBlob](data-factory-azure-blob-connector.md/#Dataset).
+4. A pipeline with Copy Activity that uses SqlSource and [BlobSink](data-factory-azure-blob-connector.md/#CopyActivity).
 
 The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.  
 
@@ -240,7 +240,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
 	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "filename": "{Hour}.csv",
+	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -464,7 +464,6 @@ The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 
 
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
-
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 

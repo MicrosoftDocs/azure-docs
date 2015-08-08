@@ -18,10 +18,6 @@
 
 # Get Started with Mobile Analytics (Capptain)
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
-</div>
-
 In this tutorial, you add mobile analytics capabilities to your app using [Capptain]. Mobile Analytics allow you to determine how users are interacting with your app and what sections are driving the most activity. To start getting these data, you will instrument your app with the Capptain SDK.
 
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB limits and quotas | Azure" 
+	pageTitle="DocumentDB limits and quotas | Microsoft Azure" 
 	description="Learn about the limits and quota enforcements of DocumentDB." 
 	services="documentdb" 
 	authors="mimig1" 

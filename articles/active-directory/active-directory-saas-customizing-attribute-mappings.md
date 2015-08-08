@@ -73,7 +73,7 @@ There are four different mapping types supported:
 
 
 - **Expression** - the target attribute is populated based on the result of a script-like expression. 
-For more details, see Writing Expressions for Attribute Mappings in Azure Active Directory.
+For more details, see [Writing Expressions for Attribute Mappings in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
 
 - **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it will be populated with the Default value that you specify.
@@ -90,14 +90,10 @@ Microsoft Azure AD provides a very efficient implementation of a synchronization
 
 
 
-
-## Additional Resources
-
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
- 

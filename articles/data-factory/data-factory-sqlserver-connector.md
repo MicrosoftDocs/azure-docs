@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # SQL Server Connector - Move data to and from SQL Server on-premises or on IaaS (Azure VM)
@@ -252,7 +252,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
 	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "filename": "{Hour}.csv",
+	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",

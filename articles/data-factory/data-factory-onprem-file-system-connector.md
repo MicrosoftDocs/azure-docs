@@ -85,7 +85,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
 	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "filename": "{Hour}.csv",
+	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -321,7 +321,7 @@ Data is copied to a new file every hour with the path for the blob reflecting th
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
 	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "filename": "{Hour}.csv",
+	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",

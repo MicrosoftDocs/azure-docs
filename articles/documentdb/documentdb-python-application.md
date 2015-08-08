@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Build a web app with Python and Flask using DocumentDB | Azure"
+    pageTitle="Build a web app with Python and Flask using DocumentDB | Microsoft Azure"
     description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."
     services="documentdb"
     documentationCenter="python"
