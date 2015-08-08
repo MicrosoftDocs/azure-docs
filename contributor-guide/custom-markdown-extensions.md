@@ -165,7 +165,7 @@ Because the same selector markdown goes in each topic in the selection, we recom
 
 ###<a id="simple-selectors"></a>Simple selectors
 
-Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers only need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java.  Please use the below custom markdown format for any selectors.  Do not use HTML for selector functions.  
+Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java.  Use the custom markdown extension for any selectors - do not use HTML for selectors.  
 
 See [Get started with Notification Hubs](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
 

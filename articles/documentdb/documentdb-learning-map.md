@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learning Map for DocumentDB | Azure" 
+	pageTitle="Learning Map for DocumentDB | Microsoft Azure" 
 	description="Get a visual map of the resources available to go from 0 to 60 on Azure DocumentDB."
 	services="documentdb" 
 	documentationCenter="" 
