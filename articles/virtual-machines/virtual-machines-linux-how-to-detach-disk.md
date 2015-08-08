@@ -19,7 +19,7 @@
 # How to Detach a Disk from a Linux Virtual Machine
 
 
-[AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
 ## Additional Resources
 
