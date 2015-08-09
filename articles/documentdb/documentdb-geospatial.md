@@ -92,11 +92,55 @@ In addition to Point, LineString and Polygon, GeoJSON also supports MultiPoint, 
 
 ### Coordinate Reference Systems
 
-Since the shape of the earth is irregular, coordinates of geospatial data is represented in many coordinate reference systems (CRS), each with their own frames of reference and units of measurement. For example, the National Grid of Britain is a reference system is very accurate for the United Kingdom, but not outside it. Most mapping systems including GPS apps, Google Maps and Bing Maps APIs use the World Geodetic system [WGS-84](http://earth-info.nga.mil/GandG/wgs84/) CRS. DocumentDB supports indexing and querying only using the WGS-84 CRS. 
+Since the shape of the earth is irregular, coordinates of geospatial data is represented in many coordinate reference systems (CRS), each with their own frames of reference and units of measurement. For example, the "National Grid of Britain" is a reference system is very accurate for the United Kingdom, but not outside it. 
 
-##<a id="CreatingSpatialObjects"></a> Creating Spatial Objects 
+The most popular CRS in use today is the World Geodetic System  [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). GPS devices, and many mapping services including Google Maps and Bing Maps APIs use WGS-84. DocumentDB supports indexing and querying of geospatial data using the WGS-84 CRS. 
 
-### Spatial classes in .NET
+##<a id="CreatingSpatialObjects"></a> Creating Documents with spatial data
+When you create documents that contain GeoJSON values, they are automatically indexed with a spatial index in accordance to the indexing policy of the collection. If you're working with a DocumentDB SDK in a dynamically typed language like Python or Node.js, you must create valid GeoJSON.
+
+**Create Document with Geospatial data in Node.js**
+
+    var userProfileDocument = {
+       "name":"documentdb",
+       "location":{
+          "type":"Point",
+          "coordinates":[ -122.12, 47.66 ]
+       }
+    };
+
+    client.createDocument(collectionLink, userProfileDocument, function (err, created) {
+        // additional code within the callback
+    });
+
+If you're working with the .NET (or Java) SDKs, you can use the new Point and Polygon classes with the Microsoft.Azure.Documents.Spatial in order to reference location information within your app's classes. These classes handle the serialization and deserialization of spatial data into GeoJSON.
+
+**Create Document with Geospatial data in .NET**
+
+    using Microsoft.Azure.Documents.Spatial;
+    
+    public class UserProfile
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("location")]
+        public Point Location { get; set; }
+        
+        // More properties
+    }
+    
+    await client.CreateDocumentAsync(
+        collection.SelfLink, 
+        new UserProfile 
+        { 
+            Name = "documentdb", 
+            Location = new Point (-122.12, 47.66) 
+        });
+
+If you have the locations like the city name or address, but don't have the latitude and longitude information, you can look that up by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/en-us/library/ff701713.aspx).
+
+Now that we've taken a look at how to insert geospatial data, let's take a look at how to query this data using DocumentDB using SQL and LINQ.
 
 ##<a id="SpatialQuery"></a> Querying Spatial Types
 
