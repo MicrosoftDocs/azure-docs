@@ -40,7 +40,7 @@ There are two ways to get your own app up & running with the v2.0 app model.  Yo
 Check back here often to learn about future changes to the v2.0 app model public preview.  We'll also tweet about any updates using @AzureAD.
 
 - Learn about the [types of apps you can build with app model v2.0](active-directory-v2-flows.md).
-- For developers familiar with Azure Active Directory, check out [the differences in app model v2.0](active-directory-v2-compare.md).
+- For developers familiar with Azure Active Directory, you should check out the [updates to our auth protocols & differences in the v2.0 app model](active-directory-v2-compare.md).
 - Current [preview limitations, restrictions and constraints](active-directory-v2-limitations.md).
 
 ## Reference
