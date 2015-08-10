@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Performance levels in DocumentDB | Azure" 
+	pageTitle="Performance levels in DocumentDB | Microsoft Azure" 
 	description="Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/21/2015" 
 	ms.author="johnmac"/>
 
 #Performance levels in DocumentDB
@@ -33,30 +33,11 @@ Each DocumentDB collection created under a Standard account is provisioned with 
 
 Each performance level has an associated request unit (RU) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. Collections can be created through the [Azure portal](http://portal.azure.com) or any of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The DocumentDB APIs allow you to specify the performance level of a collection. 
 
-<table> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Collection performance level</b></p></td>
-<td valign="top" ><p><b>Reserved throughput</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S1</p></td>
-<td valign="top" ><p>250 RU/sec</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S2</p></td>
-<td valign="top" ><p>1000 RU/sec</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S3</p></td>
-<td valign="top" ><p>2500 RU/sec</p></td>
-</tr>
-
-</tbody>
-</table>
+Collection performance leve|Reserved throughput
+---|---
+S1|250 RU/sec
+S2|1000 RU/sec
+S3|2500 RU/sec
 
 DocumentDB allows for a rich set of database operations including queries, queries with user-defined functions (UDFs), stored procedures and triggers. The processing cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit as a single measure for the resources required to perform various database operations and service an application request.
 

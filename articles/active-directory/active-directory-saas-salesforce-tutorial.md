@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/07/2015"
+   ms.date="07/15/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: How to integrate Salesforce with Azure Active Directory
@@ -29,6 +29,8 @@ This tutorial will show you how to connect your Salesforce environment to your A
 > [AZURE.IMPORTANT] If you are using a Salesforce.com **trial** account, then you will be unable to configure automated user provisioning. Trial accounts do not have the necessary API access enabled until they are purchased.
 > 
 > You can get around this limitation by using a [free developer account](https://developer.salesforce.com/signup) to complete this tutorial.
+
+If you are using a Salesforce Sandbox environment, please see the [Salesforce Sandbox integration tutorial](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ##Video tutorials
 
@@ -82,7 +84,7 @@ You may follow this tutorial using the videos below.
 
 	![Select Azure AD Single Sign-On][7]
 
-	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](https://msdn.microsoft.com/library/azure/dn308588.aspx)
+	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 4. On the **Configure App Settings** page, fill out the **Sign On URL** by typing in your Salesforce domain URL using the following format:
  - Enterprise account: `https://<domain>.my.salesforce.com`
@@ -218,11 +220,7 @@ You may follow this tutorial using the videos below.
 
 4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](https://myapps.microsoft.com/), then sign into the test account, and click on **Salesforce**.
 
-##See also
-
-- [List of SaaS Application Integration Tutorials](https://msdn.microsoft.com/library/azure/dn893637.aspx)
-- [Application Access in Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Introduction to the Access Panel](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png

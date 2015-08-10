@@ -13,10 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # Get started configuring your Internet facing load balancer
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 Load balancing services in Microsoft Azure work with all the tenant types (IaaS or PaaS) and all OS flavors (Windows or any Linux based OS supported).
 
@@ -117,6 +121,17 @@ The service has to respond with a HTTP 200 status code for the load balancer to 
 The probe definition also controls the frequency of the probe. In our case above, the load balancer is probing the endpoint every 5 secs. If no positive answer is received for 10 secs (two probe intervals), the probe is assumed down and the VM is taken out of rotation. Similarly, if the service is out of rotation and a positive answer is received, the service is put back to rotation right away. If the service is fluctuating between healthy / unhealthy, the load balancer can decide to delay the re-introduction of the service back to rotation until it has been healthy for a number of probes.
 
 Check the service definition schema for the [health probe](https://msdn.microsoft.com/library/azure/jj151530.aspx) for more information.
+
+## Setting up load balancer using PowerShell
+
+After creating a virtual machine, you can use PowerShell cmdlets to add a load balancer to a virtual machine within the same cloud service.
+
+In the example below, you will add a load balancer called "webfarm" to cloud service endpoint "mycloudservice" (or mycloudservice.cloudapp.net) and virtual machine name myVM. The load balancer will receive traffic on port 80 and load balance the network traffic between the virtual machines on port 8080 using HTTP"
+
+	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+
+
 
 ## Next Steps
 

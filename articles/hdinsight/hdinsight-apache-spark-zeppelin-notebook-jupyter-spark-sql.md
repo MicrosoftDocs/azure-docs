@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Provision a Spark cluster on HDInsight and use Spark SQL from Zeppelin and Jupyter for interactive analysis | Azure" 
+	pageTitle="Provision a Spark cluster on HDInsight and use Spark SQL from Zeppelin and Jupyter for interactive analysis | Microsoft Azure" 
 	description="Step-by-step instructions on how to quickly provision an Apache Spark cluster in HDInsight and then use Spark SQL from Zeppelin and Jupyter notebooks to run interactive queries." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -12,8 +12,8 @@
 	ms.workload="big-data" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.topic="get-started-article" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -140,9 +140,9 @@ After you have provisioned a cluster, you can use a web-based Zeppelin notebook 
 
 	![Restart the Zeppelin intepreter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Zeppelin.Restart.Interpreter.png "Restart the Zeppelin intepreter")
 
-##<a name="jupyter"></a>Run Spark SQL queries using a Python-based Jupyter notebook
+##<a name="jupyter"></a>Run Spark SQL queries using a Jupyter notebook
 
-You can also run Spark SQL queries using Python. In this section, you use a Jupyter notebook to run Spark SQL queries against a Spark cluster.
+In this section, you use a Jupyter notebook to run Spark SQL queries against a Spark cluster.
 
 >[AZURE.NOTE] The notebook you create following the instructions below is also available by default on the cluster. After you have launched Jupyter, you will find this notebook by the name **HVACTutorial.ipynb**.
 
@@ -242,10 +242,3 @@ You can also run Spark SQL queries using Python. In this section, you use a Jupy
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-
-
-
-
-
-
-

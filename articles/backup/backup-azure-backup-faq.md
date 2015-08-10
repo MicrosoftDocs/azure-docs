@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="07/10/2015"
+	 ms.date="08/07/2015"
 	 ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - FAQ
@@ -65,11 +65,11 @@ A9. In general the backup data is sent to the datacenter of the Backup Service t
 A10. Any currently configured backups will be stopped. You will need to reregister the server with the backup vault and it will be considered a new server by Recovery Services, so the first backup operation that occurs after registration will be a full backup of all of the data included in the backup instead of just the changes since the last backup occurred. However, if you need to perform a recovery operation you can recover the data that has been backed up using Recover from another server recovery option. For more information, see Rename a server.
 
 **Q11. What types of drives can I backup files and folders from?** <br/>
-A11. The following set of drives/volumes can be backup:
+A11. The following set of drives/volumes can't be backup:
 
-- Removable Media: The drive must report as fixed to be used a backup item source.
+- Removable Media: The drive must report as a fixed to be used a backup item source.
 - Read-only Volumes: The volume must be writable for the volume shadow copy service (VSS) to function.
-- Offline Volumes	: The volume must be online for VSS to function.
+- Offline Volumes: The volume must be online for VSS to function.
 - Network share: The volume must be local to the server to be backed up using online backup.
 - Bitlocker protected volumes: The volume must be unlocked before the backup can occur.
 - File System Identification: NTFS is the only file system supported for this version of the online backup service.
@@ -97,17 +97,27 @@ A14. Any servers that are registered using the same vault will be able to recove
 **Q15. Can I “migrate” my backup data between subscriptions?** <br/>
 A15: No
 
-**Q16: Can I “migrate” my backup vault between subscriptions?** <br/>
+**Q16. Can I “migrate” my backup vault between subscriptions?** <br/>
 A16: No. The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.
 
-**Q17: Does the Azure Backup Agent work on a server that uses Windows Server 2012 deduplication?** <br/>
+**Q17. Does the Azure Backup Agent work on a server that uses Windows Server 2012 deduplication?** <br/>
 A17: Yes. The agent service converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data and then sends the encrypted data to the online backup service.
 
-**Q18: Does the backup data get deleted if I cancel a backup after it has started?** <br/>
+**Q18. Does the backup data get deleted if I cancel a backup after it has started?** <br/>
 A18: No. The backup vault stores the backed up data that had been transferred up to the point of the cancellation. Azure Backup uses a checkpoint mechanism so that the backup data gets check-pointed occasionally during the backup and the next backup process can validate the integrity of the files. The next backup triggered would be incremental over the data that had been backed up previously. This provides better utilization of bandwidth, so that you do not need to transfer the same data repeatedly.
 
-**Q19: Why am I seeing the warning "Azure Backups have not been configured for this server" even though I had scheduled regular backups previously?** <br/>
+**Q19. Why am I seeing the warning "Azure Backups have not been configured for this server" even though I had scheduled regular backups previously?** <br/>
 A19: This can occur when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If this has happened, you should reconfigure the backup policy and then **Run Back Up Now** to resynchronize the local server with Azure.
+
+**Q20. What firewall rules are to be configured for backup of Azure Backup?** <br/>
+A20. Ensure firewall rules enable communication with URLs below for seamless backup of on-premises to Azure and workload protection on Azure:
+
+- www.msftncsi.com
+- \*.Microsoft.com
+- \*.WindowsAzure.com
+- \*.microsoftonline.com
+- \*.windows.net
+
 
 ## Backup & Retention
 **Q1. Is there a limit on the size of each data source being backed up?** <br/>
@@ -177,3 +187,28 @@ A3. The encryption key should be at least 16 characters.
 **Q4. What happens if I misplace the encryption key? Can I recover the data (or) can Microsoft recover the data?** <br/>
 A4. The key used to encrypt the backup data is present only on the customer premises. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the customer misplaces the key, Microsoft cannot recover the backup data.
  
+
+## Backup cache
+
+**Q1. How can I change the cache location specified for the Azure Backup agent?**
+
++ Stop the OBEngine by executing the below command in an elevated command prompt:
+
+  ```PS C:\> Net stop obengine```
+
++ Copy the cache space folder to a different drive with sufficient space. We recommend you copy the files from the cache space folder instead of moving them; the original cache space can be removed after confirming that the backups are working with the new cache space.
+
++ Update following registry entries with the path to new cache space folder:
+
+
+	| Registry path | Registry Key | Value |
+	| ------ | ------- | ------ |
+	| HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config |  ScratchLocation | <i>New cache folder location</i> |
+	| HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | ScratchLocation | <i>New cache folder location</i> |
+
+
++ Start the OBEngine by executing the below command in an elevated command prompt:
+
+  ```PS C:\> Net start obengine```
+
+Once the backups happen successfully with the new cache location, you can remove the original cache folder.

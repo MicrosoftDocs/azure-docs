@@ -46,28 +46,11 @@ Once configured, users can click on *->* and choose an action from a list of act
 
 ![BizTalk Flat File Encoder List of actions][5]
 
-<table>
-	<tr>
-		<th>Parameter</th>
-		<th>Type</th>
-		<th>Description of the parameter</th>
-	</tr>
-	<tr>
-		<td>Flat File</td>
-		<td>string</td>
-		<td>Content of the input flat file</td>
-	</tr>
-	<tr>
-		<td>Schema Name</td>
-		<td>string</td>
-		<td>Name of the schema which represents the input flat file</td>
-	</tr>
-	<tr>
-		<td>Root Name</td>
-		<td>string</td>
-		<td>Root node name of the flat file schema</td>
-	</tr>
-</table>
+Parameter|Type|Description of the parameter
+---|---|---
+Flat File|string|Content of the input flat file
+Schema Name|string|Name of the schema which represents the input flat file
+Root Name|string|Root node name of the flat file schema
 
 
 The action returns the output as a string - Output Xml. Output Xml contains the xml representation of the input flat file content.
@@ -76,18 +59,9 @@ The action returns the output as a string - Output Xml. Output Xml contains the 
 
 ![BizTalk Flat File Encoder List of actions][6]
 
-<table>
-	<tr>
-		<th>Parameter</th>
-		<th>Type</th>
-		<th>Description of the parameter</th>
-	</tr>
-	<tr>
-		<td>Input Xml</td>
-		<td>string</td>
-		<td>Input Xml content</td>
-	</tr>
-</table>
+Parameter|Type|Description of the parameter
+---|---|---
+Input Xml|string|Input Xml content
 
 The action returns the output as a string - Flat File. Output contains the flat file representation of the input xml content.
 

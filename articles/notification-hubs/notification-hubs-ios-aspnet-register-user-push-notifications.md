@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" 
+	pageTitle="Register the current user for push notifications by using Web API | Microsoft Azure" 
 	description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 # Register the current user for push notifications by using ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+
+
 
 ##Overview
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to create, manage, or delete a storage account | Azure"
+	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
 	description="Learn how to create, manage, or delete a storage account in the Azure management portal."
 	services="storage"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/09/2015"
+	ms.date="07/16/2015"
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Overview
 
-An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your Azure Storage data objects. By default, the data in your account is available only to you, the account owner.
+An Azure storage account is a secure account that gives you access to the Blob, Queue, Table, and File services in Azure Storage. Your storage account provides the unique namespace for your Azure Storage data objects. By default, the data in your account is available only to you, the account owner.
 
 There are two types of storage accounts:
 
@@ -63,7 +63,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 	Note that you must select an affinity group when your storage account is created; you cannot move an existing account to an affinity group. For more information on affinity groups, see [Service co-location with an affinity group](#service-co-location-with-an-affinity-group) below.
 
-5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subscription.
+5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with.
 
 6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Azure Storage Replication](storage-redundancy.md).
 

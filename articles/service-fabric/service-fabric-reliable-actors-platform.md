@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How Fabric Actors use the Service Fabric platform"
-   description="This articles describes how Fabric Actors use the features of the Service Fabric platform. It covers Service Fabric platform concepts from the point of view of actor developers."
+   pageTitle="How Reliable Actors use the Service Fabric platform"
+   description="This articles describes how Reliable Actors use the features of the Service Fabric platform. It covers Service Fabric platform concepts from the point of view of actor developers."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/23/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# How Fabric Actors use the Service Fabric platform
+# How Reliable Actors use the Service Fabric platform
 
 ## Service Fabric application model concepts for actors
 Actors use the Service Fabric application model to manage the application lifecycle. Every Actor type is mapped to a Service Fabric [Service type](service-fabric-application-model.md#describe-a-service). The actor code is [packaged](service-fabric-application-model.md#package-an-application) as a Service Fabric application and [deployed](service-fabric-deploy-remove-applications.md#deploy-an-application) to the cluster.
@@ -242,4 +242,3 @@ Please note that changing the state provider requires the actor service to be re
 [2]: ./media/service-fabric-reliable-actors-platform/app-deployment-scripts.png
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
- 
