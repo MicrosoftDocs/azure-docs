@@ -97,6 +97,10 @@
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>Maximum number of points in a polygon argument in a ST_WITHIN query*</p></td>
+   <td valign="middle"><p>16</p></td>
+</tr>
+<tr>
    <td valign="middle"><p>Maximum number of collection creates per minute*</p></td>
    <td valign="middle"><p>5</p></td>
 </tr>
