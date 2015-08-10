@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Microsoft Azure" 
+	pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" 
 	description="Learn how to handle database write conflicts on both the server and in your Windows Store application." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 

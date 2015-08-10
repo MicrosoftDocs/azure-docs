@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add push notifications to your Mobile Services app (Windows Store) | Microsoft Azure" 
+	pageTitle="Add push notifications to your Mobile Services app (Windows Store) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 

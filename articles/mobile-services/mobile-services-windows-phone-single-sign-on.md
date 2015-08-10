@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Authenticate your app with Live Connect (Windows Phone) | Microsoft Azure" 
+	pageTitle="Authenticate your app with Live Connect (Windows Phone) | Mobile Dev Center" 
 	description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Phone application." 
 	services="mobile-services" 
 	documentationCenter="windows" 

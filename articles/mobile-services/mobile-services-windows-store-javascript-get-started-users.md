@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with authentication (JavaScript) | Microsoft Azure" 
+	pageTitle="Get started with authentication (JavaScript) | Mobile Dev Center" 
 	description="Learn how to use Mobile Services to authenticate users of your Windows Store JavaScript app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 

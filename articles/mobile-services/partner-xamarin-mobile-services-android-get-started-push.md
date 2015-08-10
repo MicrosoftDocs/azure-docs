@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add push notifications to your Xamarin Android app | Microsoft Azure" 
+	pageTitle="Add push notifications to your Xamarin Android app | Azure Mobile Services" 
 	description="Learn how to configure push notifications with Google Cloud Messaging for you Xamarin.Android apps using Azure Mobile Services and Azure Notification Hubs." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 

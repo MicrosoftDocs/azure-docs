@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use multiple clients with a single mobile service backend | Microsoft Azure" 
+	pageTitle="How to use multiple clients with a single mobile service backend | Azure Mobile" 
 	description="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms, including Windows Store and Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="" 

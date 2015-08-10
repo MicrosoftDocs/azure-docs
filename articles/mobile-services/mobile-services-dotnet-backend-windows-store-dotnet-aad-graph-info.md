@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Microsoft Azure" 
+	pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" 
 	description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 

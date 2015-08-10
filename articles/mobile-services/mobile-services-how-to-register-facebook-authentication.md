@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register for Facebook authentication | Microsoft Azure" 
+	pageTitle="Register for Facebook authentication - Mobile Services" 
 	description="Learn how to use Facebook authentication in your Azure Mobile Services app." 
 	services="mobile-services" 
 	documentationCenter="" 

@@ -1,6 +1,6 @@
 
 <properties 
-	pageTitle="Get started with push notifications (Android JavaScript) | Microsoft Azure" 
+	pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -160,7 +160,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 
 <!-- URLs. -->
-[Get started with push notifications (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[Get started with push notifications (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md

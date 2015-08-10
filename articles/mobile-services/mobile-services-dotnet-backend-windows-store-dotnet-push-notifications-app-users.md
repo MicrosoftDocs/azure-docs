@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Send push notifications to authenticated users (Universal Windows 8.1) | Microsoft Azure" 
+	pageTitle="Send push notifications to authenticated users (Universal Windows 8.1) | Azure Mobile Services" 
 	description="Learn how to use Azure Mobile Services to send push notifications to a specific authenticated user running your Universal Windows 8.1 app." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add push notifications to your universal Windows 8.1 app | Microsoft Azure" 
+	pageTitle="Add push notifications to your universal Windows 8.1 app | Azure Mobile Services" 
 	description="Learn how to send push notifications to your universal Windows 8.1 app from your .NET backend mobile service using Azure Notification Hubs." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 

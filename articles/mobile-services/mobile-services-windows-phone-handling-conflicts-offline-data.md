@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Handle conflicts with offline data in Mobile Services (Windows Phone) | Microsoft Azure" 
+	pageTitle="Handle conflicts with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Recover your mobile service in the event of a disaster | Microsoft Azure"
+	pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services"
 	description="Learn how to recover your mobile service in the event of a disaster."
 	services="mobile-services"
 	documentationCenter=""

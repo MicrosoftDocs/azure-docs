@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Push notifications to users (Android ) | Microsoft Azure" 
+	pageTitle="Push notifications to users (Android ) | Mobile Dev Center" 
 	description="Learn how to use Mobile Services to push notifications to users of your Android app." 
 	services="mobile-services" 
 	documentationCenter="android" 

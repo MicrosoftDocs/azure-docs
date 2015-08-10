@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Import your publish settings file in Visual Studio 2013 | Microsoft Azure" 
+	pageTitle="Import your publish settings file in Visual Studio 2013 | Mobile Services" 
 	description="Learn how to import a subscription publish settings file for your Azure Mobile Services application in Visual Studio 2013." 
 	documentationCenter="" 
 	services="mobile-services" 

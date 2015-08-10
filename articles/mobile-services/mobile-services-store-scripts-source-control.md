@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Store project code in source control | Microsoft Azure" 
+	pageTitle="Store project code in source control - Azure Mobile Services" 
 	description="Learn how to store your server script files and modules in a local Git repo on your computer." 
 	services="mobile-services" 
 	documentationCenter="" 

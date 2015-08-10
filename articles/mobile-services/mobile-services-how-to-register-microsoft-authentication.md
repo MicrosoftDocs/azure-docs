@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register for Microsoft authentication | Microsoft Azure" 
+	pageTitle="Register for Microsoft authentication - Mobile Services" 
 	description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." 
 	authors="ggailey777" 
 	services="mobile-services" 

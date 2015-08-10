@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using offline data in your universal Windows app | Microsoft Azure" 
+	pageTitle="Using offline data in your universal Windows app | Azure Mobile Services" 
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your universal Windows app." 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 

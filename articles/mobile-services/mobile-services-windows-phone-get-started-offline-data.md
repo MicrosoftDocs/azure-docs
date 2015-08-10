@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using offline data in Mobile Services (Windows Phone) | Microsoft Azure" 
+	pageTitle="Using offline data in Mobile Services (Windows Phone) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services with sync offline data in your Windows Phone application" 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 

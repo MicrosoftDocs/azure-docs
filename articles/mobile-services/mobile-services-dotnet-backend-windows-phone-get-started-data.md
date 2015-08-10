@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Mobile Services to an existing app (Windows Phone) | Microsoft Azure" 
+	pageTitle="Add Mobile Services to an existing app (Windows Phone) | Mobile Dev Center" 
 	description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." 
 	services="mobile-services" 
 	documentationCenter="windows" 

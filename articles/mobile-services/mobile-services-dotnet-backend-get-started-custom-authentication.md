@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with custom authentication | Microsoft Azure" 
+	pageTitle="Get started with custom authentication | Mobile Dev Center" 
 	description="Learn how to authenticate users with a username and password." 
 	documentationCenter="Mobile" 
 	authors="mattchenderson" 

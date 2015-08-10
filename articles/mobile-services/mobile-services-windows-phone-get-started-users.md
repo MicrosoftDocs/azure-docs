@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with authentication (Windows Phone) | Microsoft Azure" 
+	pageTitle="Get started with authentication (Windows Phone) | Mobile Dev Center" 
 	description="Learn how to use Mobile Services to authenticate users of your Windows Phone app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 

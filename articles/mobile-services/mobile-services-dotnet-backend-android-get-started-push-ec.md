@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with push (Android) | Microsoft Azure" 
+	pageTitle="Get started with push (Android) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -18,7 +18,7 @@
 
 # Add push notifications to your Mobile Services app
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 ##Overview
 
@@ -108,11 +108,11 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add Google Play Services to the project
 
-[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###Add code
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 ##<a name="test-app"></a>Test the app against the published mobile service
 

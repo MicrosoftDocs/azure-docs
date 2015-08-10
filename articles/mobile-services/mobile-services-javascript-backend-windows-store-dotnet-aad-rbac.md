@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Microsoft Azure" 
+	pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Mobile Dev Center" 
 	description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 

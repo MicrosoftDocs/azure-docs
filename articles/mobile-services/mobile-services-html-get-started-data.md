@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Mobile Services to an existing app (HTML 5) | Microsoft Azure" 
+	pageTitle="Add Mobile Services to an existing app (HTML 5) | Mobile Dev Center" 
 	description="Learn how to get started using Mobile Services in an existing HTML app." 
 	services="mobile-services" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Mobile Services to an existing app (Windows Store JavaScript) | Microsoft Azure" 
+	pageTitle="Add Mobile Services to an existing app (Windows Store JavaScript) | Mobile Dev Center" 
 	description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." 
 	services="mobile-services" 
 	documentationCenter="windows" 

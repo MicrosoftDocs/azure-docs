@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with data (Android) | Microsoft Azure" 
+	pageTitle="Get started with data (Android) | Mobile Dev Center" 
 	description="Learn how to get started using Mobile Services to leverage data in your Android app." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -102,7 +102,7 @@ This concludes the **Get started with data** tutorial for Android.
 ## Older Code Versions
 
 If you would like to see the Eclipse version of this tutorial, go to 
-[Get started with data using Eclipse](mobile-services-android-get-started-data-EC.md).
+[Get started with data using Eclipse](mobile-services-android-get-started-data-ec.md).
 
 To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
 

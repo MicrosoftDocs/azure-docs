@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with push (Android) | Microsoft Azure" 
+	pageTitle="Get started with push (Android) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -112,7 +112,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-EC.md
+[Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
 [Get started with Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
 [Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md

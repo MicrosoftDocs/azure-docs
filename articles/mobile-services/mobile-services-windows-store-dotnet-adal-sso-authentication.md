@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Windows Store) | Microsoft Azure" 
+	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Windows Store) | Mobile Dev Center" 
 	description="Learn how to authentication users for single sign-on with ADAL in your Windows Store application." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 

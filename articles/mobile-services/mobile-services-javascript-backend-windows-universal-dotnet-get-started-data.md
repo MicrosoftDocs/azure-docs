@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Mobile Services to an existing universal Windows app | Microsoft Azure" 
+	pageTitle="Add Mobile Services to an existing universal Windows app | Azure Mobile Services" 
 	description="Learn how to connect your existing universal Windows app to Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="windows" 
