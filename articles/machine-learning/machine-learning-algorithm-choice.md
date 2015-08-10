@@ -32,7 +32,7 @@ This cheat sheet has a very specific audience in mind: a beginning data scientis
 
 These recommendations are compiled feedback and tips from a lot of data scientists and machine learning (ML) experts. We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
 
-## How to use the cheat sheet
+### How to use the cheat sheet
 
 Read the path and algorithm labels on the chart as "For *&lt;path
 label&gt;* use *&lt;algorithm&gt;*." For example, "For *speed* use *two
