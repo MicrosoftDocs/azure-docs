@@ -57,7 +57,7 @@ These instructions show you how to use an Azure image to create a virtual machin
 
 Use an image based on an existing Azure virtual machine by *capturing* that virtual machine, or upload an image of your own, stored in a virtual hard disk (VHD):
 
-- [How to capture a Windows virtual machine to use as a template][].
+- [How to capture a Windows virtual machine to use as an image][]
 - [Create and upload a Windows Server VHD to Azure][]
 
 ## Next steps
@@ -85,7 +85,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that virt
 [Use Azure PowerShell to create and preconfigure Windows virtual machines]: virtual-machines-ps-create-preconfigure-windows-vms.md
 [How to create a custom virtual machine running Windows]: virtual-machines-windows-create-custom.md
 
-[How to capture a Windows virtual machine]: virtual-machines-capture-image-windows-server.md
+[How to capture a Windows virtual machine to use as an image]:virtual-machines-capture-image-windows-server.md
 
 [Create and upload a Windows Server VHD to Azure]: virtual-machines-create-upload-vhd-windows-server.md
 
