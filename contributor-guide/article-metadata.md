@@ -97,6 +97,7 @@ The tags section uses this syntax:
 - sql-database
 - sql-data-warehouse
 - storage
+- store
 - storsimple
 - stream-analytics
 - traffic-manager
@@ -149,7 +150,9 @@ The tags section uses this syntax:
  - **app-service-web**
  - **application-insights**
  - **automation**
+ - **azure-resource-manager**
  - **backup**
+ - **batch**
  - **biztalk-services**
  - **billing**
  - **cache**
@@ -168,12 +171,16 @@ The tags section uses this syntax:
  - **na**: The page does not apply to any services (rare)
  - **notification-hubs**
  - **operational-insights**
+ - **recovery-manager**
+ - **redis-cache**
  - **remoteapp**
+ - **rights-management**
  - **scheduler**
  - **service-bus**
  - **service-fabric**
  - **site-recovery**: formerly recovery-services
  - **sql-database**
+ - **sql-data-warehouse**
  - **sql-reporting**
  - **storage**
  - **store**: Articles about services available through the Azure Store
@@ -182,6 +189,7 @@ The tags section uses this syntax:
  - **virtual-machines**
  - **virtual-network**
  - **visual-studio-online**
+ - **vpn-gateway**
  - **web-sites**
 
 ![](./media/article-metadata/checkmark-small.png)**ms.devlang**: Required. Specifies the programming language that the article applies to. Single value per page.
