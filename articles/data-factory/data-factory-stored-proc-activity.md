@@ -29,7 +29,7 @@ You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": "<name of the stored procedure",
+        	"storedProcedureName": "<name of the stored procedure>",
         	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
