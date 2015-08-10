@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" 
+	pageTitle="Introduction to Microsoft Azure DocumentDB | Microsoft Azure" 
 	description="Learn about Azure DocumentDB, a NoSQL document database, and its value to cloud and mobile applications. Learn how it manages data, and how you can use it in application development." 
 	services="documentdb" 
 	authors="mimig1" 

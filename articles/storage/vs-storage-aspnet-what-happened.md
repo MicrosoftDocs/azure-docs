@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Getting Started with Azure Storage" 
-	description="Describes what happened when creating an Azure storage in a Visual Studio ASP.NET project" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Getting started with Azure storage"
+	description="Describes what happened when creating Azure Storage in a Visual Studio ASP.NET project"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+<tags
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2015"
+	ms.author="patshea"/>
 
 # What happened to my project?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
+> - [Getting started](vs-storage-aspnet-getting-started-blobs.md)
+> - [What happened](vs-storage-aspnet-what-happened.md)
 
-###What happened to my project?</span>
+###What happened to my project?
 
-##### References Added
+##### References added
 
 The Azure Storage NuGet package was added to your Visual Studio project.  
 This package adds the following .NET references:
@@ -38,7 +38,7 @@ This package adds the following .NET references:
 - `System.Data`
 - `System.Spatial`
 
-#####Connection string for Azure Storage added 
+#####Connection string for Azure Storage added
 In the web.config file of your project, an element was created with the selected storage account's connection string and key.
 
-For more information, see [ASP.NET](http://www.asp.net). 
+For more information, see [ASP.NET](http://www.asp.net).

@@ -105,27 +105,16 @@ To see Tomcat running from external machines, you need to create an endpoint and
 3. Click **Control Panel**.
 4. Click **System and Security**, click **Windows Firewall**, and then click **Advanced Settings**.
 5. Click **Inbound Rules**, and then click **New Rule**.
-
  ![New inbound rule][NewIBRule]
-
 6. For the **Rule Type**, select **Port**, and then click **Next**.
-
  ![New inbound rule port][NewRulePort]
-
 7. On the **Protocol and Ports** screen, select **TCP**, specify **8080** as the **Specific local port**, and then click **Next**.
-
  ![New inbound rule ][NewRuleProtocol]
-
 8. On the **Action** screen, select **Allow the connection**, and then click **Next**.
-
  ![New inbound rule action][NewRuleAction]
-
 9. On the **Profile** screen, ensure that **Domain**, **Private**, and **Public** are selected, and then click **Next**.
-
  ![New inbound rule profile][NewRuleProfile]
-
 10. On the **Name** screen, specify a name for the rule, such as **HttpIn** (the rule name is not required to match the endpoint name, however), and then click **Finish**.  
-
  ![New inbound rule name][NewRuleName]
 
 At this point, your Tomcat website should be viewable from an external browser by using a URL of the form **http://*your\_DNS\_name*.cloudapp.net**, where ***your\_DNS\_name*** is the DNS name you specified when you created the virtual machine.

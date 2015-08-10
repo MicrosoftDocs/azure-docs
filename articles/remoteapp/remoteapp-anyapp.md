@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Run any app on any device with RemoteApp"
-   description="Learn how to share any app with your users by using RemoteApp."
+   pageTitle="Run any Windows app on any device with Azure RemoteApp"
+   description="Learn how to share any Windows app with your users by using Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="lizap"
@@ -13,16 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/28/2015"
+   ms.date="08/03/2015"
    ms.author="elizapo"/>
 
-# Run any app on any device with RemoteApp
+# Run any Windows app on any device with RemoteApp
 
 This tutorial will show you how to run a Windows application anywhere on any device, right now, seriously. Whether it's Internet Explorer 6, a custom application written 10 years ago, or an Office app, your users no longer have to be tied to a specific operating system (like Windows XP) for those few applications.
 
-By using RemoteApp, your users can also use their own Android or Apple devices and get the same experience they got on Windows (or on Windows Phones). This is accomplished by hosting your Windows application in a collection of Windows virtual machines on Azure where your users can access them from anywhere they have an internet connection. Now let's get started!
+By using Azure RemoteApp, your users can also use their own Android or Apple devices and get the same experience they got on Windows (or on Windows Phones). This is accomplished by hosting your Windows application in a collection of Windows virtual machines on Azure where your users can access them from anywhere they have an internet connection. 
 
-For this tutorial, we're going to share Access with all of our users. Because Access is a database, and we want that database to be useful, we will be doing a few extra steps to let users access to the Access data share.
+For this tutorial, we're going to share Access with all of our users. However, you can use ANY app. As long as you can install your app on a Windows Server 2012 R2 computer, you can share it using the steps below. You can review the [app requirements](remoteapp-appreqs) to make sure your app will work.
+
+Please note that because Access is a database, and we want that database to be useful, we will be doing a few extra steps to let users access the Access data share. If your app isn't a database, or you don't need your users to be able to access a file share, you can skip those steps in this tutorial
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 

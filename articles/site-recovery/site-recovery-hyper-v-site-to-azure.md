@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="06/08/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -67,7 +67,7 @@ As part of Azure Site Recovery deployment you’ll install the Azure Site Recove
 	- *.blob.core.windows.net 
 	- *.store.core.windows.net 
 
-- To use a custom proxy set up the proxy server before installing the Provider. During Provider setup you’ll need to specify the proxy server address and port, and credentials that can be used for access.
+- To use a custom proxy set up the proxy server before installing the Provider. During Provider setup you’ll need to specify the proxy server address and port, and credentials that can be used for access. Note that HTTPS based proxy is not supported.
 
 The picture below shows the different communication channels and ports used by Azure Site Recovery for orchestration and replication
 

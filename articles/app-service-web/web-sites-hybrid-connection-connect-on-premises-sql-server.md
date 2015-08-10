@@ -49,25 +49,11 @@ The computer on which you install the on-premises Hybrid Connection Manager agen
 
 - Must have outbound connectivity to Azure over:
 
-> <table border="1">
-    <tr>
-       <th><strong>Port</strong></th>
-        <th>Why</th>
-    </tr>
-    <tr>
-        <td>80</td>
-        <td><strong>Required</strong> for HTTP port for certificate validation and optionally for data connectivity.</td>
-    </tr>
-    <tr>
-        <td>443</td>
-        <td><strong>Optional</strong> for data connectivity. If outbound connectivity to 443 is unavailable, TCP port 80 is used.</td>
-    </tr>
-	<tr>
-        <td>5671 and 9352</td>
-        <td><strong>Recommended</strong> but Optional for data connectivity. Note this mode usually yields higher throughput. If outbound connectivity to these ports is unavailable, TCP port 443 is used.</td>
-	</tr>
-</table>
-
+Port|Why
+---|---
+80|**Required** for HTTP port for certificate validation and optionally for data connectivity.
+443|**Optional** for data connectivity. If outbound connectivity to 443 is unavailable, TCP port 80 is used.
+5671 and 9352|**Recommended** but Optional for data connectivity. Note this mode usually yields higher throughput. If outbound connectivity to these ports is unavailable, TCP port 443 is used.
 - Must be able to reach the *hostname*:*portnumber* of your on-premises resource. 
 
 The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.
