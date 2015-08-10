@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add a certificate to the Java CA store - Azure" 
+	pageTitle="Add a certificate to the Java CA store | Microsoft Azure" 
 	description="Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Azure Service Bus." 
 	services="" 
 	documentationCenter="java" 
@@ -51,4 +51,3 @@ The Baltimore certificate might already be installed in your cacerts store, so r
 If you need to add the Baltimore CyberTrust Root, it has serial number 02:00:00:b9 and SHA1 fingerprint d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. It can be downloaded from <https://cacert.omniroot.com/bc2025.crt>, saved to a local file with extension **.cer**, and then imported using **keytool** as shown above.
 
 For more information about the root certificates used by Azure, see [Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
-

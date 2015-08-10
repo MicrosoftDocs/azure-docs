@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Intro to Azure - Azure fundamentals" 
+	pageTitle="Intro to Azure | Microsoft Azure" 
 	description="New to Microsoft Azure? Get a basic overview of the services it offers with examples of how they are useful." 
 	services=" " 
 	documentationCenter=".net" 
