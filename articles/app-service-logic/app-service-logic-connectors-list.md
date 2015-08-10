@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/09/2015"
 	ms.author="mandia"/>
 
 
@@ -86,13 +86,13 @@ Several connectors provide triggers for Logic Apps. These triggers are of two ty
 Connectors can also be used as actions within your Logic App. Actions are useful for looking up data within the Logic App that can then used in the execution. For example, you may need to look up data from a SQL database for additional information about a customer when processing an order. Or, you may need to write, update or delete data in a destination. You can do this using the actions provided by the connectors. Actions map to operations in API Apps (as defined by their Swagger metadata).
 
 ## Create your own Connectors and API Apps
-[Connectors and API Apps Reference](http://aka.ms/appservicesconnectorreference)<br/>
-[Azure App Service API app triggers](../app-service-api/app-service-api-dotnet-triggers.md)<br/>
+[Connectors and API Apps Reference](http://aka.ms/appservicesconnectorreference)  
+[Azure App Service API app triggers](../app-service-api/app-service-api-dotnet-triggers.md)  
 [Logic App Reference](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
 ## More on Connectors and API Apps
 
-[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)<br/>
-[Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)<br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)  
+[Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)  
 [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md)

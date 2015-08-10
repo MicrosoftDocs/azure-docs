@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Examples for using Copy Activity in Azure Data Factory
-You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. This topic provides a few examples for using the Copy Activity in a Data Factory pipeline. For a detailed overview of the Copy Activity and core scenarios that it supports, see [Copy data with Azure Data Factory][adf-copyactivity].
+You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. This topic provides a few examples for using the Copy Activity in a Data Factory pipeline. 
 
 ## Copy data from an on-premises SQL Server database to an Azure blob
 In this example, an input table and an output table are defined and the tables are used in a Copy Activity within a pipeline that copies data from an on-premises SQL Server database to an Azure blob.
@@ -480,10 +480,7 @@ See [Pipeline JSON reference](https://msdn.microsoft.com/library/dn834988.aspx) 
 
 ## See Also
 
-- [Copy data with Azure Data Factory][adf-copyactivity]
 - [Copy Activity - JSON Scripting Reference](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Video: Introducing Azure Data Factory Copy Activity][copy-activity-video]
 
-
-[adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/ 
