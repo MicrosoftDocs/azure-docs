@@ -1,9 +1,9 @@
 <properties      
-    pageTitle="Partitioning data in DocumentDB | Azure"      
+    pageTitle="Partitioning data in DocumentDB | Microsoft Azure"      
     description="Learn about how to partition data in DocumentDB, and when to use Hash, Range and Lookup partitioning."          
     services="documentdb"      
     authors="arramac"      
-    manager="johnmac"      
+    manager="jhubbard"      
     editor="monicar"      
     documentationCenter=""/> 
 <tags      

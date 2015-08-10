@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Query with DocumentDB SQL | Azure" 
+	pageTitle="Query with DocumentDB SQL | Microsoft Azure" 
 	description="DocumentDB, a NoSQL document database service, supports queries using SQL-like grammar over hierarchical JSON documents without requiring explicit an schema or creation of secondary indexes." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -21,8 +21,8 @@ Microsoft Azure DocumentDB supports querying documents using SQL (Structured Que
 
 While designing the query language for DocumentDB we had two goals in mind:
 
--	<strong>Embrace SQL</strong> – Instead of inventing a new query language, we wanted to embrace SQL. After all, SQL is one of the most familiar and popular query languages. DocumentDB SQL provides a formal programming model for rich queries over JSON documents.
--	<strong>Extend SQL</strong> – As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our query language. The DocumentDB SQL is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
+-	**Embrace SQL** – Instead of inventing a new query language, we wanted to embrace SQL. After all, SQL is one of the most familiar and popular query languages. DocumentDB SQL provides a formal programming model for rich queries over JSON documents.
+-	**Extend SQL** – As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our query language. The DocumentDB SQL is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
 
 We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
 
@@ -577,244 +577,23 @@ The main difference between using BETWEEN in DocumentDB and ANSI SQL is that you
 ###Logical (AND, OR and NOT) operators
 Logical operators operate on Boolean values. The logical truth tables for these operators are shown in the following tables.
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>OR</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+OR|True|False|Undefined
+---|---|---|---
+True|True|True|True
+False|True|False|Undefined
+Undefined|True|Undefined|Undefined
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>AND</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+AND|True|False|Undefined
+---|---|---|---
+True|True|False|Undefined
+False|False|False|False
+Undefined|Undefined|False|Undefined
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>NOT</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong></strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+NOT|  |
+---|---
+True|False
+False|True
+Undefined|Undefined
 
 ###IN keyword
 The IN keyword can be used to check whether a specified value matches any value in a list. For example, this query returns all family documents where the id is one of "WakefieldFamily" or "AndersenFamily". 
@@ -1735,76 +1514,31 @@ Using these functions, you can now run queries like the following:
 ###String Functions
 The following scalar functions perform an operation on a string input value and return a string, numeric or Boolean value. Here's a table of built-in string functions:
 
-<table>
-<tr>
-  <td><strong>Usage</strong></td>
-  <td><strong>Description</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length">LENGTH (str_expr)</a></td>
-  <td>Returns the number of characters of the specified string expression.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat">CONCAT (str_expr, str_expr [, str_expr])</a></td>
-  <td>Returns a string that is the result of concatenating two or more string values.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring">SUBSTRING (str_expr, num_expr, num_expr)</a></td>
-  <td>Returns part of a string expression.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith">STARTSWITH (str_expr, str_expr)</a></td>
-  <td>Returns a Boolean indicating whether the first string expression ends with the second</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith">ENDSWITH (str_expr, str_expr)</a></td>
-  <td>Returns a Boolean indicating whether the first string expression ends with the second</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains">CONTAINS (str_expr, str_expr)</a></td>
-  <td>Returns a Boolean indicating whether the first string expression contains the second.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of">INDEX_OF (str_expr, str_expr)</a></td>
-  <td>Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left">LEFT (str_expr, num_expr)</a></td>
-  <td>Returns the left part of a string with the specified number of characters.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right">RIGHT (str_expr, num_expr)</a></td>
-  <td>Returns the right part of a string with the specified number of characters.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim">LTRIM (str_expr)</a></td>
-  <td>Returns a string expression after it removes leading blanks.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim">RTRIM (str_expr)</a></td>
-  <td>Returns a string expression after truncating all trailing blanks.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower">LOWER (str_expr)</a></td>
-  <td>Returns a string expression after converting uppercase character data to lowercase.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper">UPPER (str_expr)</a></td>
-  <td>Returns a string expression after converting lowercase character data to uppercase.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace">REPLACE (str_expr, str_expr, str_expr)</a></td>
-  <td>Replaces all occurrences of a specified string value with another string value.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate">REPLICATE (str_expr, num_expr)</a></td>
-  <td>Repeats a string value a specified number of times.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse">REVERSE (str_expr)</a></td>
-  <td>Returns the reverse order of a string value.</td>
-</tr>
-</table>
+Usage|Description
+---|---
+<a href="">[ABS (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs)|Returns the absolute (positive) value of the specified numeric expression.
+[CEILING (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling)|Returns the smallest integer value greater than, or equal to, the specified numeric expression.
+[FLOOR (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor)|Returns the largest integer less than or equal to the specified numeric expression.
+[EXP (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp)|Returns the exponent of the specified numeric expression.
+[LOG (num_expr [,base])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log)|Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base
+[LOG10 (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10)|Returns the base-10 logarithmic value of the specified numeric expression.
+[ROUND (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round)|Returns a numeric value, rounded to the closest integer value.
+[TRUNC (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc)|Returns a numeric value, truncated to the closest integer value.
+[SQRT (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt)|Returns the square root of the specified numeric expression.
+[SQUARE (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square)|Returns the square of the specified numeric expression.
+[POWER (num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power)|Returns the power of the specified numeric expression to the value specifed.
+[SIGN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign)|Returns the sign value (-1, 0, 1) of the specified numeric expression.
+[ACOS (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_acos)|Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine.
+[ASIN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_asin)|Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine.
+[ATAN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atan)|Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent.
+[ATN2 (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atn2)|Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions.
+[COS (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cos)|Returns the trigonometric cosine of the specified angle, in radians, in the specified expression.
+[COT (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cot)|Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression.
+[DEGREES (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_degrees)|Returns the corresponding angle in degrees for an angle specified in radians.
+[PI ()](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_pi)|Returns the constant value of PI.
+[RADIANS (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_radians)|Returns radians when a numeric expression, in degrees, is entered.
+[SIN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sin)|Returns the trigonometric sine of the specified angle, in radians, in the specified expression.
+[TAN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_tan)|Returns the tangent of the input expression, in the specified expression.
 
 Using these functions, you can now run queries like the following. For example, you can return the family name in uppercase as follows:
 
@@ -1857,28 +1591,12 @@ String functions can also be used in the WHERE clause to filter results, like in
 ###Array Functions
 The following scalar functions perform an operation on an array input value and return numeric, Boolean or array value. Here's a table of built-in array functions:
 
-<table>
-<tr>
-  <td><strong>Usage</strong></td>
-  <td><strong>Description</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length">ARRAY_LENGTH (arr_expr)</a></td>
-  <td>Returns the number of elements of the specified array expression.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat">ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])</a></td>
-  <td>Returns an array that is the result of concatenating two or more array values.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains">ARRAY_CONTAINS (arr_expr, expr)</a></td>
-  <td>Returns a Boolean indicating whether the array contains the specified value.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice">ARRAY_SLICE (arr_expr, num_expr [, num_expr])</a></td>
-  <td>Returns part of an array expression.</td>
-</tr>
-</table>
+Usage|Description
+---|---
+[ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length)|Returns the number of elements of the specified array expression.
+[ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat)|Returns an array that is the result of concatenating two or more array values.
+[ARRAY_CONTAINS (arr_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains)|Returns a Boolean indicating whether the array contains the specified value.
+[ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice)|Returns part of an array expression.
 
 Array functions can be used to manipulate arrays within JSON. For example, here's a query that returns all documents where one of the parents is "Robin Wakefield". 
 
@@ -2608,4 +2326,3 @@ The following example show how to use the queryDocuments in the JavaScript serve
 [introduction]: documentdb-introduction.md
 [consistency-levels]: documentdb-consistency-levels.md
  
-
