@@ -1,5 +1,5 @@
 <properties
-	ageTitle="Azure SQL Database Resource Limits"
+	PageTitle="Azure SQL Database Resource Limits"
 	description="This page describes some common resource limits for Azure SQL Database."
 	services="sql-database"
 	documentationCenter="na"
