@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Power BI views of Application Insights data
@@ -152,7 +152,7 @@ Paste this query:
 ```SQL
 
     SELECT
-      flat.ArrayValue.name
+      flat.ArrayValue.name,
       count(*)
     INTO
       [pbi-output]
@@ -195,3 +195,4 @@ Noam Ben Zeev shows how to export to Power BI.
 
 * [Continuous export](app-insights-export-telemetry.md)
 * [Application Insights](app-insights-overview.md)
+* [More samples and walkthroughs](app-insights-code-samples.md)

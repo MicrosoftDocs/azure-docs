@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with mobile app backends for Windows Store apps | Mobile Dev Center"
+	pageTitle="Get Started with mobile app backends for Windows Store apps | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure mobile app backends for Windows Store development in C#, VB, or JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="06/16/2015"
 	ms.author="chrande"/>
 

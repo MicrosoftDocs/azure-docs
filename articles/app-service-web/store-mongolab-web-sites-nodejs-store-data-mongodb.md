@@ -25,7 +25,7 @@
 # Create a Node.js web app on Azure with MongoDB using the MongoLab add-on
 
 
-<p><em>By Eric Sedor, MongoLab</em></p>
+*By Eric Sedor, MongoLab*
 
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 

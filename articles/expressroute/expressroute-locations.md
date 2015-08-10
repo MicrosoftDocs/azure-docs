@@ -9,10 +9,10 @@
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="08/06/2015"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -77,7 +77,7 @@ See [Configure your EXP connection](expressroute-configuring-exps.md) for steps 
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Not Supported | Singapore |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supported | Coming Soon | Amsterdam, Chennai+, Hong Kong, London, Mumbai+, Singapore |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Not Supported | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | London, Hong Kong, Silicon Valley, Washington DC, USGov Iowa, USGov Virginia |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | London, Hong Kong, Silicon Valley, Washington DC |
 
  **+** denotes coming soon
 

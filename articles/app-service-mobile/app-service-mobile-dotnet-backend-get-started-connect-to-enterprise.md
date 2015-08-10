@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect a Mobile App to an enterprise SaaS | Mobile Dev Center"
+	pageTitle="Connect a Mobile App to an enterprise SaaS | Microsoft Azure"
 	description="Learn how to make calls to enterprise resources such as SharePoint Online"
 	documentationCenter=""
 	authors="mattchenderson"

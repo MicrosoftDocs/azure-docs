@@ -1,12 +1,10 @@
 <properties
-	pageTitle="Use Azure storage in Windows Store Apps | Azure"
+	pageTitle="Use Azure storage in Windows Store apps | Microsoft Azure"
 	description="Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
 	manager="adinah"
-	editor="cgronlun"/>
-
 <tags
 	ms.service="storage"
 	ms.workload="storage"
