@@ -17,7 +17,7 @@ Attaching an empty disk is the simpler way to add a data disk, because Azure cre
 
 	Note that the _ubuntuVMasm_ will be replaced by the name of the Linux Virtual Machine that you have created in your subscription. The number 30 is the size of the disk in GB in this example.
 
-4.	After the data disk is created and attached, it's listed in the output of `vm disk list
+4.	After the data disk is created and attached, it's listed in the output of `azure vm disk list
     <virtual-machine-name>` like this:
 
         $ azure vm disk list ubuntuVMasm
@@ -34,7 +34,7 @@ Attaching an empty disk is the simpler way to add a data disk, because Azure cre
 <a id="attachexisting"></a>
 ## How to: Attach an existing disk
 
-Attaching an existing disk requires that you have a .vhd available in a storage account. 
+Attaching an existing disk requires that you have a .vhd available in a storage account.
 
 1. 	Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription. See [Connect
     to Azure from Azure CLI](../articles/xplat-cli-connect.md) for more details.
@@ -80,7 +80,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 
 	Note that you should replace _ubuntuVMasm_ with the name of your virtual machine, and use your selected VHD in place of _myTestVhd_.
 
-6.	You can verify if the disk is attached to the virtual machine with the command `vm disk list
+6.	You can verify if the disk is attached to the virtual machine with the command `azure vm disk list
  	<virtual-machine-name>` as:
 
 		$azure vm disk list ubuntuVMasm

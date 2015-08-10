@@ -37,7 +37,7 @@ Before you can detach a disk from a virtual machine, you need to find out the _L
 
 After you find the _Lun_ number of the disk, you're ready to detach it:
 
-1. 	Detach the selected disk from the virtual machine by running the command `vm disk detach
+1. 	Detach the selected disk from the virtual machine by running the command `azure vm disk detach
  	<virtual-machine-name> <Lun>` like this:
 
 		$azure vm disk detach ubuntuVMasm 0
