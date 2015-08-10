@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # Access SharePoint on behalf of the user

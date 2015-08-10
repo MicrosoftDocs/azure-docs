@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="christopheranderson"/>
 
 # Recover your mobile service in the event of a disaster
