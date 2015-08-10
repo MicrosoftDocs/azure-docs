@@ -192,7 +192,7 @@ needs, it can give you more useful results, more accurate predictions,
 or faster training times.
 
 |Algorithm|Accuracy|Training time|Linearity|Parameters|Notes|
-|-|:-:|:-:|:-:|:-:| |
+|---|:---:|:---:|:---:|:---:|---|
 |Two-class classification| | | | | |
 |[logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx)                    | |●|●|5| |
 |[decision forest](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
