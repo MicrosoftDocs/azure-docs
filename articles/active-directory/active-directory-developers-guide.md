@@ -67,6 +67,7 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 - [Listing your application in the Azure Active Directory application gallery](active-directory-app-gallery-listing.md)
 - [Create an app with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
 
 
 ## Reference

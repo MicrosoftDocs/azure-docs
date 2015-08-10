@@ -34,6 +34,7 @@ You can use Data Factory anytime you need to collect data of different shapes an
 Azure Data Factory has a few key entities that work together to define the input and output data, processing events, and the schedule and resources required to execute the desired data flow.
 
 ![Key Concepts](./media/data-factory-introduction/key-concepts.png)
+
 **Figure 2.** Relationships between Dataset, Activity, Pipeline, and Linked service
 
 

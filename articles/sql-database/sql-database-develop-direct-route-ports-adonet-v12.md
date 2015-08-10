@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="08/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,27 +22,6 @@
 
 
 This topic describes the changes that Azure SQL Database V12 brings to the connection behavior of clients that use ADO.NET 4.5 or a later version.
-
-
-## Version clarifications
-
-
-#### ADO.NET
-
-
-- ADO.NET 4.0 supports the TDS 7.3 protocol, but not 7.4.
-- ADO.NET 4.5 and later supports the TDS 7.4 protocol.
-- ADO.NET 4.5 internally uses ODBC 11.
- - The information here that applies to ADO.NET 4.5 also applies to ODBC 11.
-
-
-#### SQL Database V11 and V12
-
-
-The client connection differences between SQL Database V11 and V12 are highlighted in this topic.
-
-
-*Note:* The Transact-SQL statement `SELECT @@version;` returns a value that start with a number such as '11.' or '12.', and those match our version names of V11 and V12 for SQL Database.
 
 
 ## V11 of SQL Database: Port 1433
@@ -73,7 +52,7 @@ For connections to V12 we must ask whether your client program runs *outside* or
 Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
 
-#### *Inside:* Client runs on an Azure VM
+#### *Inside:* Client runs on Azure
 
 
 When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no middleware proxy.
@@ -115,6 +94,28 @@ In both scenarios we advise that clients implement retry logic in their own code
 
 For code samples that demonstrate retry logic, see: 
 [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md).
+
+
+## Version clarifications
+
+
+This section clarifies the monikers that refer to product versions. It also lists some pairings of versions between products.
+
+
+#### ADO.NET
+
+
+- ADO.NET 4.0 supports the TDS 7.3 protocol, but not 7.4.
+- ADO.NET 4.5 and later supports the TDS 7.4 protocol.
+
+
+#### SQL Database V11 and V12
+
+
+The client connection differences between SQL Database V11 and V12 are highlighted in this topic.
+
+
+*Note:* The Transact-SQL statement `SELECT @@version;` returns a value that start with a number such as '11.' or '12.', and those match our version names of V11 and V12 for SQL Database.
 
 
 ## Related links
