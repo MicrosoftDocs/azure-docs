@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" 
+	pageTitle="How to use the Xamarin Component client | Microsoft Azure" 
 	description="Learn how to use the Xamarin Component client for Azure Mobile Services." 
 	authors="lindydonna" 
 	manager="dwrede" 

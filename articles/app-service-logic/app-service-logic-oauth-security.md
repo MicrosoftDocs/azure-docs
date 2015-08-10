@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/10/2015"
 	ms.author="mandia"/>
 
 
@@ -25,9 +25,7 @@ This simplified experience is possible because we previously created and registe
 
 Even in the context of Logic Apps, you can use your own application instead of using the default application that we provide. If the "Authorize" button fails to connect, you can try creating your own app. The following lists these steps for the Twitter connector:
 
-1. Open your Twitter Connector in the Azure preview portal:
-	a) Go to **Browse** > **API Apps**.
-	b) Select your Twitter connector:  
+1. Open your Twitter Connector in the Azure preview portal. Go to **Browse** > **API Apps**. Select your Twitter connector:  
 	![][1]
 
 2. Select **Settings** > **Authentication**:  
@@ -49,8 +47,8 @@ Now, you should be able to use your Connector from Logic Apps. When you use this
 
 
 <!--Image references-->
-[1]: ./media/app-service-logic-oath-security/TwitterConnector.png
-[2]: ./media/app-service-logic-oath-security/Authentication.png
-[3]: ./media/app-service-logic-oath-security/RedirectURI.png
-[4]: ./media/app-service-logic-oath-security/TwitterApp.png
-[5]: ./media/app-service-logic-oath-security/TwitterKeys.png
+[1]: ./media/app-service-logic-oauth-security/TwitterConnector.png
+[2]: ./media/app-service-logic-oauth-security/Authentication.png
+[3]: ./media/app-service-logic-oauth-security/RedirectURI.png
+[4]: ./media/app-service-logic-oauth-security/TwitterApp.png
+[5]: ./media/app-service-logic-oauth-security/TwitterKeys.png

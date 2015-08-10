@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2015"
+	ms.date="08/10/2015"
 	ms.author="stepsic"/>
 
-#Create a new logic app
+# Create a new logic app
 This topic demonstrates how, in just a few minutes, you can get started with [App Services Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a workflow that lets you deliver a set of Tweets that you’re interested in to a Dropbox folder.
 
 To use this scenario you will need:
@@ -27,7 +27,7 @@ To use this scenario you will need:
 
 <!--- TODO: Add try it now information here -->
 
-##Getting your connectors
+## Getting your connectors
 
 First, you need to create the two connectors you will be using: [**Dropbox Connector**](app-service-logic-connector-dropbox.md) and [**Twitter Connector**](app-service-logic-connector-twitter.md). To create these:
 
@@ -59,7 +59,7 @@ First, you need to create the two connectors you will be using: [**Dropbox Conne
 
 9. Now repeat the process with [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
-##Starting the Logic app
+## Starting the Logic app
 
 Now, you need to create a new Logic app:
 
@@ -106,6 +106,8 @@ Actions are what your workflow does. You can have any number of actions, and you
 	This grants the connector access to your Twitter account. A list of possible operations provided by the Twitter connector is displayed.
 
 	![Actions](./media/app-service-logic-create-a-logic-app/actions.png)
+
+	> [AZURE.NOTE] The **Authorize** button uses OAUTH security to connect to SaaS services, like Twitter. More on OAUTH at [OAUTH Security](app-service-logic-oauth-security.md).
 
 3. Click **Search tweets**, then in **Specify a query**, type something like `#MicrosoftAzure` and click the green checkmark.
 
