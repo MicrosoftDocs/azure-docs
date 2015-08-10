@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Microsoft Azure"
+	pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center"
 	description="Learn how to use Azure Mobile Services to handle conflicts when syncing offline data in your iOS application"
 	documentationCenter="ios"
 	authors="krisragh"
@@ -171,7 +171,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 7. Verify that the app works with all the changes you've made so far. Run the app now in the simulator. Add items to the todo list, and then click on them. You'll see the (currently empty) item view controller.
 
-      ![][add-todo-item-view-controller-4]          
+      ![][add-todo-item-view-controller-4]          ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Add Item Details to Todo Item View Controller
 
@@ -449,6 +449,7 @@ Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an
 
 [add-todo-item-view-controller-3]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-3.png
 [add-todo-item-view-controller-4]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-4.png
+[add-todo-item-view-controller-5]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-5.png
 [add-todo-item-view-controller-6]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-6.png
 [todo-list-view-controller-add-segue]: ./media/mobile-services-ios-handling-conflicts-offline-data/todo-list-view-controller-add-segue.png
 [update-todo-list-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-2.png
