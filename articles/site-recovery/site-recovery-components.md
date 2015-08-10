@@ -12,12 +12,8 @@
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-<<<<<<< HEAD
-	ms.topic="article"
-	ms.date="08/05/2015"
-=======
 	ms.topic="get-started-article"
-	ms.date="07/09/2015"
+	ms.date="08/10/2015"
 	ms.author="raynew"/>
 
 # Site Recovery components
