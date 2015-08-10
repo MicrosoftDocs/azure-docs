@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Apache Spark to build machine learning applications on HDInsight | Azure" 
+	pageTitle="Use Apache Spark to build machine learning applications on HDInsight | Microsoft Azure" 
 	description="Step-by-step instructions on how to use notebooks with Apache Spark to build machine learning applications" 
 	services="hdinsight" 
 	documentationCenter="" 
