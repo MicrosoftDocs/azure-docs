@@ -181,18 +181,21 @@ ensure a consistent and auditable charging process.
 
 ### Creating a Resource Group with tags on Microsoft Azure
  
-
 The first step in this
 tutorial is to create a new Resource Group on the Azure Portal and then create
 new tags to associate to the resources. For this example, we will be creating
 the following tags:
 
+-
 Department
 
+-
 Environment
 
+-
 Owner
 
+-
 Project
 
 The screenshot below of the Azure Portal shows a sample Resource Group with the associated tags.
@@ -200,8 +203,31 @@ The screenshot below of the Azure Portal shows a sample Resource Group with the 
 ![Figure 11 - Resource Group with associated tags on Azure Portal][11]
 
 
-
 The next step is to pull the information from the Usage API into Cloud Cruiser. The Usage API currently provides responses in JSON format. Here is a sample of the data retrieved:
+
+
+    {
+      "id": "/subscriptions/bb678b04-0e48-4b44-XXXX-XXXXXXX/providers/Microsoft.Commerce/UsageAggregates/Daily_BRSDT_20150623_0000",
+      "name": "Daily_BRSDT_20150623_0000",
+      "type": "Microsoft.Commerce/UsageAggregate",
+      "properties": {
+        "subscriptionId": "bb678b04-0e48-4b44-XXXX-XXXXXXXXX",
+        "usageStartTime": "2015-06-22T00:00:00+00:00",
+        "usageEndTime": "2015-06-23T00:00:00+00:00",
+        "meterName": "Compute Hours",
+        "meterRegion": "",
+        "meterCategory": "Virtual Machines",
+        "meterSubCategory": "Standard_D1 VM (Non-Windows)",
+        "unit": "Hours",
+        "instanceData": "{\"Microsoft.Resources\":{\"resourceUri\":\"/subscriptions/bb678b04-0e48-4b44-XXXX-XXXXXXXX/resourceGroups/DEMOUSAGEAPI/providers/Microsoft.Compute/virtualMachines/MyDockerVM\",\"location\":\"eastus\",\"tags\":{\"Department\":\"Sales\",\"Project\":\"Demo Usage API\",\"Environment\":\"Test\",\"Owner\":\"RSE\"},\"additionalInfo\":{\"ImageType\":\"Canonical\",\"ServiceType\":\"Standard_D1\"}}}",
+        "meterId": "e60caf26-9ba0-413d-a422-6141f58081d6",
+        "infoFields": {},
+        "quantity": 8
+
+    },
+
+	},
+
 
 ### Import data from the Usage API into Cloud Cruiser
 
