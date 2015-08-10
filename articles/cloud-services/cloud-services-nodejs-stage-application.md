@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stage a cloud service deployment (Node.js) - Azure" 
+	pageTitle="Stage a cloud service deployment (Node.js) | Microsoft Azure" 
 	description="Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 

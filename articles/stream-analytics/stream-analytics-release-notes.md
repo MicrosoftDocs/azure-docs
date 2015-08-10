@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stream Analytics Release Notes | Azure" 
+	pageTitle="Stream Analytics Release Notes | Microsoft Azure" 
 	description="Stream Analytics GA Release Notes" 
 	services="stream-analytics" 
 	documentationCenter="" 

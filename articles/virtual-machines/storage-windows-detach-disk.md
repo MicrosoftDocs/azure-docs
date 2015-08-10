@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Detach a disk from a Windows virtual machine | Azure"
+	pageTitle="Detach a disk from a Windows virtual machine | Microsoft Azure"
 	description="Learn to detach a disk from a virtual machine in Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""

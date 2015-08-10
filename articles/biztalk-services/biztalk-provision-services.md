@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create BizTalk Services in management portal | Azure"
+	pageTitle="Create BizTalk Services in management portal | Microsoft Azure"
 	description="Learn how to provision or create a BizTalk Service in the Azure Management Portal; MABS, WABS"
 	services="biztalk-services"
 	documentationCenter=""
