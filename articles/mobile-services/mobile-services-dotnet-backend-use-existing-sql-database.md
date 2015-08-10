@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build a service using an existing SQL database with the Mobile Services .NET backend | Microsoft Azure" 
+	pageTitle="Build a service using an existing SQL database with the Mobile Services .NET backend - Azure Mobile Services" 
 	description="Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service" 
 	services="mobile-services" 
 	documentationCenter="" 

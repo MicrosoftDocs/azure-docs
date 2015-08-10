@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get Started with authentication in Mobile Services for Xamarin Android apps | Microsoft Azure" 
+	pageTitle="Get Started with authentication in Mobile Services for Xamarin Android apps - Azure Mobile Services" 
 	description="Learn how to use Mobile Services to authenticate users of your Xamarin Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 

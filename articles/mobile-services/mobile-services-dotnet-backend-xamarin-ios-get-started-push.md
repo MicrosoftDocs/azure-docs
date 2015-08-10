@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure" 
+	pageTitle="Get Started with Mobile Services for Xamarin iOS apps - Azure Mobile Services" 
 	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Xamarin iOS app" 
 	services="mobile-services" 
 	documentationCenter="xamarin" 

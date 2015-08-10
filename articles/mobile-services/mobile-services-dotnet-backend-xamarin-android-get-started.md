@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Xamarin Android apps | Microsoft Azure"
+	pageTitle="Get Started with Mobile Services for Xamarin Android apps - Azure Mobile Services"
 	description="Follow this tutorial to get started using Azure Mobile Services for Xamarin Android development"
 	services="mobile-services"
 	documentationCenter="xamarin"

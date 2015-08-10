@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Windows Store apps | Microsoft Azure"
+	pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center"
 	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#, VB, or JavaScript."
 	services="mobile-services"
 	documentationCenter="windows"
