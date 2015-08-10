@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the StorSimple Manager device dashboard | Microsoft Azure"
+   pageTitle="Use the StorSimple Manager service device dashboard | Microsoft Azure"
    description="Describes the StorSimple Manager device dashboard and how to use it to view storage metrics and connected initiators and find the device serial number and IQN."
    services="storsimple"
    documentationCenter="NA"
