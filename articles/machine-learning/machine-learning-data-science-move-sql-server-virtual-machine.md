@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/10/2015" 
 	ms.author="fashah;garye;mohabib;bradsev" /> 
 
-#Move data to SQL Server on Azure
+#Move data to SQL Server on an Azure Virtual Machine
 
 This document covers the movement of data from flat files (csv/tsv) or an on-premises SQL Server to a SQL Server on Azure. This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning.
 
