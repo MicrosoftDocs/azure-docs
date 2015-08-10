@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Call a custom API from an HTML client - Mobile Services" 
+	pageTitle="Call a custom API from an HTML client | Microsoft Azure" 
 	description="Learn how to define a custom API and then call it from an HTML app that uses Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 

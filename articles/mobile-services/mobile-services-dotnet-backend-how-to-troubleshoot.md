@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" 
+	pageTitle="Troubleshoot the Mobile Services .NET Backend | Microsoft Azure" 
 	description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" 
 	services="mobile-services" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with push (Android) | Mobile Dev Center" 
+	pageTitle="Get started with push (Android) | Microsoft Azure" 
 	description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 

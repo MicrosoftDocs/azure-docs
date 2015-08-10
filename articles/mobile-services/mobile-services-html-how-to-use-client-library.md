@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use an HTML client - Azure Mobile Services" 
+	pageTitle="How to use an HTML client | Microsoft Azure" 
 	description="Learn how to use an HTML client for Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" 
+	pageTitle="Build Realtime Apps with Pusher (iOS) | Microsoft Azure" 
 	description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." 
 	services="mobile-services" 
 	documentationCenter="ios" 

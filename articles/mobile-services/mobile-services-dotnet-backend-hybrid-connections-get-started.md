@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" 
+	pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections | Microsoft Azure" 
 	description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" 
 	services="mobile-services" 
 	documentationCenter="" 

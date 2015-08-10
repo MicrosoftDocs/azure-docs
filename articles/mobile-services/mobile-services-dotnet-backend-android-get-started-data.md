@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with data (Android) | Mobile Dev Center" 
+	pageTitle="Get started with data (Android) | Microsoft Azure" 
 	description="Learn how to get started using Mobile Services to leverage data in your Android app." 
 	services="mobile-services" 
 	documentationCenter="android" 

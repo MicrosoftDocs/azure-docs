@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build a Service Using a Non-Relational Data Store | Azure Mobile Services" 
+	pageTitle="Build a Service Using a Non-Relational Data Store | Microsoft Azure" 
 	description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" 
 	services="mobile-services" 
 	documentationCenter="" 
