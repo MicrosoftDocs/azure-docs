@@ -180,23 +180,10 @@ ensure a consistent and auditable charging process.
  
 
 ### Creating a Resource Group with tags on Microsoft Azure
- 
 The first step in this
 tutorial is to create a new Resource Group on the Azure Portal and then create
 new tags to associate to the resources. For this example, we will be creating
-the following tags:
-
--
-Department
-
--
-Environment
-
--
-Owner
-
--
-Project
+the following tags: Department, Environment, Owner, Project
 
 The screenshot below of the Azure Portal shows a sample Resource Group with the associated tags.
                                                                                                   
@@ -244,7 +231,7 @@ to import information from the Usage API.
  
 
 ![Figure 3 - Usage API data imported into the UsageAPI sheet][12]
- 
+
 Notice that this workbook already has other sheets to import services from Azure (_ImportServices_), and process the consumption information from the
 Billing API (_PublishData_).
 
