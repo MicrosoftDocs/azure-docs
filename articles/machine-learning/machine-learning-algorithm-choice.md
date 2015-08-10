@@ -21,14 +21,21 @@
 
 The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
+## The Machine Learning Algorithm Cheat Sheet
+
+The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.
+This article walks you through how to use it.
+
+> [AZURE.NOTE] To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
+
 This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio (AML). That means that it makes some generalizations and oversimplifications, but it will point you in a safe direction. It also means that there are lots of algorithms not listed here. As AML grows to encompass a more complete set of available methods, we'll add them.
 
 These recommendations are compiled feedback and tips from a lot of data scientists and machine learning (ML) experts. We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
 
 ## How to use the cheat sheet
 
-Read the path and algorithm labels on the chart as "For <path
-label> use <algorithm>." For example, "For *speed* use *two
+Read the path and algorithm labels on the chart as "For *&lt;path
+label&gt;* use *&lt;algorithm&gt;*." For example, "For *speed* use *two
 class logistic regression*." Sometimes more than one branch will apply.
 Sometimes none of them will be a perfect fit. They're intended to be
 rule-of-thumb recommendations, so don't worry about it being exact.
@@ -186,34 +193,34 @@ or faster training times.
 
 |Algorithm|Accuracy|Training time|Linearity|Parameters|Notes|
 |-|:-:|:-:|:-:|:-:| |
-|**Two-class classification**| | | | | |
-|[logistic regression](https://msdn.microsoft.com/en-us/library/azure/dn905994.aspx)                    | |●|●|5| |
-|[decision forest](https://msdn.microsoft.com/en-us/library/azure/dn906008.aspx)|●|○| |6| |
-|[decision jungle](https://msdn.microsoft.com/en-us/library/azure/dn905976.aspx)|●|○| |6|Low memory footprint|
-|[boosted decision tree](https://msdn.microsoft.com/en-us/library/azure/dn906025.aspx)|●|○| |6|Large memory footprint|
-|[neural network](https://msdn.microsoft.com/en-us/library/azure/dn905947.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[averaged perceptron](https://msdn.microsoft.com/en-us/library/azure/dn906036.aspx)|○|○|●|4| |
-|[support vector machine](https://msdn.microsoft.com/en-us/library/azure/dn905835.aspx)| |○|●|5|Good for large feature sets|
-|[locally deep support vector machine](https://msdn.microsoft.com/en-us/library/azure/dn913070.aspx)|○| | |8|Good for large feature sets|
-|[Bayes’ point machine](https://msdn.microsoft.com/en-us/library/azure/dn905930.aspx)| |○|●|3| |
-|**Multi-class classification**| | | | | |
+|Two-class classification| | | | | |
+|[logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx)                    | |●|●|5| |
+|[decision forest](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
+|[decision jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|Low memory footprint|
+|[boosted decision tree](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|Large memory footprint|
+|[neural network](https://msdn.microsoft.com/library/azure/dn905947.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[averaged perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx)|○|○|●|4| |
+|[support vector machine](https://msdn.microsoft.com/library/azure/dn905835.aspx)| |○|●|5|Good for large feature sets|
+|[locally deep support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Good for large feature sets|
+|[Bayes’ point machine](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
+|Multi-class classification| | | | | |
 |logistic regression| |●|●|5| |
-|[decision forest](https://msdn.microsoft.com/en-us/library/azure/dn906015.aspx)|●|○| |6| |
-|[decision jungle ](https://msdn.microsoft.com/en-us/library/azure/dn905963.aspx)|●|○| |6|Low memory footprint|
-|[neural network](https://msdn.microsoft.com/en-us/library/azure/dn906030.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[one-v-all](https://msdn.microsoft.com/en-us/library/azure/dn905887.aspx)|-|-|-|-|See properties of the two-class method selected|
-|**Regression**| | | | | |
-|[linear ](https://msdn.microsoft.com/en-us/library/azure/dn905978.aspx)| |●|●|4| |
-|[Bayesian linear](https://msdn.microsoft.com/en-us/library/azure/dn906022.aspx)| |○|●|2| |
-|[decision forest](https://msdn.microsoft.com/en-us/library/azure/dn905862.aspx)|●|○| |6| |
-|[boosted decision tree](https://msdn.microsoft.com/en-us/library/azure/dn905801.aspx)|●|○| |5|Large memory footprint|
-|[fast forest quantile](https://msdn.microsoft.com/en-us/library/azure/dn913093.aspx)|●|○| |9|Distributions rather than point predictions|
-|[neural network](https://msdn.microsoft.com/en-us/library/azure/dn905924.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[Poisson ](https://msdn.microsoft.com/en-us/library/azure/dn905988.aspx)| | |●|5|Technically log-linear. For predicting counts|
-|[ordinal](https://msdn.microsoft.com/en-us/library/azure/dn906029.aspx)| | | |0|For predicting rank-ordering|
-|**Anomaly detection**| | | | | |
-|[support vector machine](https://msdn.microsoft.com/en-us/library/azure/dn913103.aspx)|○|○| |2|Especially good for large feature sets|
-|[PCA-based anomaly detection ](https://msdn.microsoft.com/en-us/library/azure/dn913102.aspx)| |○|●|3| |
+|[decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
+|[decision jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Low memory footprint|
+|[neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|See properties of the two-class method selected|
+|Regression| | | | | |
+|[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
+|[Bayesian linear](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
+|[decision forest](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
+|[boosted decision tree](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Large memory footprint|
+|[fast forest quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distributions rather than point predictions|
+|[neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Technically log-linear. For predicting counts|
+|[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|For predicting rank-ordering|
+|Anomaly detection| | | | | |
+|[support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especially good for large feature sets|
+|[PCA-based anomaly detection ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
 |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|A clustering algorithm|
 
 
