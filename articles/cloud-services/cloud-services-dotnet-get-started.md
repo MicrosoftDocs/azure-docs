@@ -319,7 +319,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)
 
-2. In the **Sign in** step of the **Publish Windows Azure Application** wizard, click **Next**.
+2. In the **Sign in** step of the **Publish Azure Application** wizard, click **Next**.
 
 	![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)
 
@@ -327,7 +327,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Windows Azure Application Wizard](http://msdn.microsoft.com/library/hh535756.aspx).
+	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/hh535756.aspx).
 
 2. In the **Summary** step, click **Publish**.
 
