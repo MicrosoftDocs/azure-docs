@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/26/2015"
+	ms.date="08/10/2015"
 	ms.author="tdykstra"/>
 
 # Create an ASP.NET web app in Azure App Service
