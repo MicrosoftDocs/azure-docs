@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" 
+	pageTitle="Enable your pipelines to work with on-premises data | Microsoft Azure" 
 	description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." 
 	services="data-factory" 
 	documentationCenter="" 
