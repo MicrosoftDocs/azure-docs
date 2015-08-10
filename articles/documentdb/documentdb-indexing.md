@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Automatic Indexing in DocumentDB | Azure" 
+	pageTitle="Automatic Indexing in DocumentDB | Microsoft Azure" 
 	description="Learn about how automatic indexing works in Azure DocumentDB." 
 	services="documentdb" 
 	authors="arramac" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
 
