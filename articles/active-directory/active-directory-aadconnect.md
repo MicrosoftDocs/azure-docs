@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/13/2015" 
 	ms.author="billmath"/>
 
@@ -150,8 +150,8 @@ Selecting Express Settings is the default option and is one of the most common s
 8. Once the installation completes, click **Exit**.
 
 
-<br>
-<br>
+
+
 
 For a video on using the express installation check out the following:
 

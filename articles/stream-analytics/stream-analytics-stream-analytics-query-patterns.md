@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Stream Analytics Query Patterns | Microsoft Azure"
-	description="Azure Stream Analytics Sample Query Language Guide"
+	description="Common Azure Stream Analytics Query Patterns "
 	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/30/2015"
+	ms.date="08/03/2015"
 	ms.author="jeffstok"/>
 
 
-# Azure Stream Analytics Sample Query Language Guide #
+# Common Azure Stream Analytics Query Patterns  #
 
 ## Introduction ##
 Queries in Azure Stream Analytics are expressed in a SQL-like query language, which is documented [here](https://msdn.microsoft.com/library/azure/dn834998.aspx).  This document outlines solutions to several common query patterns based on real world scenarios.  It is a work in progress and will continue to be updated with new patterns on an ongoing basis.

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2015"
+	ms.date="08/05/2015"
 	ms.author="davidmu"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
@@ -23,7 +23,7 @@ Automatically scaling compute nodes in an Azure Batch pool is a dynamic adjustme
 
 Automatic scaling happens when it is enabled on a pool and a formula is associated to the pool. The formula is used to determine the number of compute nodes that are needed to process the application. Automatic scaling can be set when a pool is created, or you can do it later on an existing pool. The formula can also be updated on a pool where automatic scaling was enabled.
 
-When automatic scaling is enabled, the number of available compute nodes are adjusted every 15 minutes based on the formula. The formula acts on samples that are collected every 5 seconds, but there is a 75 second delay between when a sample is collected and when it is available to the formula. These time factors must be considered when using the GetSample method described below.
+When automatic scaling is enabled, the number of available compute nodes are adjusted every 15 minutes based on the formula. The formula acts on samples that are collected periodically, but there is a delay between when a sample is collected and when it is available to the formula. This  must be considered when using the GetSample method described below.
 
 It’s always a good practice to evaluate the formula before you assign it to a pool, and it’s important to monitor the status of the automatic scaling runs.
 
@@ -56,7 +56,7 @@ System-defined variables and user-defined variables can be used in a formula. Yo
     <td>The target number of dedicated compute nodes for the pool. The value can be changed based upon actual usage for tasks.</td>
   </tr>
   <tr>
-    <td>$TVMDeallocationOption</td>
+    <td>$NodeDeallocationOption</td>
     <td>The action that occurs when compute nodes are removed from a pool. Possible values are:
       <br/>
       <ul>
@@ -115,7 +115,7 @@ You can only read the values of these system-defined variables to make adjustmen
     <td>The number of outbound bytes</td>
   </tr>
   <tr>
-    <td>$SampleTVMCount</td>
+    <td>$SampleNodeCount</td>
     <td>The count of compute nodes</td>
   </tr>
   <tr>
@@ -323,10 +323,6 @@ These predefined functions are available to define an automatic scaling formula.
     <td>double val(doubleVec v, double i)</td>
     <td>The value of the element at location i in vector v with a starting index of zero.</td>
   </tr>
-  <tr>
-    <td>doubleVec vec(doubleVecList)</td>
-    <td>Explicitly create a single doubleVec from doubleVecList.</td>
-  </tr>
 </table>
 
 Some of the functions described in the table can accept a list as an argument. The comma separated list is any combination of double and doubleVec. For example:
@@ -392,7 +388,7 @@ These metrics that can be defined in a formula.
     <td><p>Based on CPU usage, bandwidth usage, memory usage, and number of compute nodes. These system variables described above are used in formulas to manage the compute nodes in a pool:</p>
     <p><ul>
       <li>$TargetDedicated</li>
-      <li>$TVMDeallocationOption</li>
+      <li>$NodeDeallocationOption</li>
     </ul></p>
     <p>These system variables are used for making adjustments based on node metrics:</p>
     <p><ul>
@@ -429,7 +425,7 @@ These metrics that can be defined in a formula.
     $Cores = $TargetDedicated \* 4;
     $ExtraVMs = ($Tasks - $Cores) / 4;
     $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3));
-    $TVMDeallocationOption = taskcompletion;</b></p></td>
+    $NodeDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 

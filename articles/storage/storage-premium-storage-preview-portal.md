@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/06/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -39,7 +39,7 @@ The following is a list of important things to consider before or when using Pre
 
 - Premium Storage is currently available in the [Microsoft Azure Preview Portal](https://portal.azure.com/) and accessible via the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later; and [Azure PowerShell](../install-configure-powershell.md) version 0.8.10 or later.
 
-- Premium Storage is currently available in the following regions: West US, East US 2, West Europe, East China, Southeast Asia, West Japan and Australia East.
+- For a list of regions that currently support Premium Storage, see [Azure Services by Region](http://azure.microsoft.com/regions/#services).
 
 - Premium Storage supports only Azure page blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs). For information on Azure page blobs, see [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx). Premium Storage does not support the Azure Block Blobs, Azure Files, Azure Tables, or Azure Queues.
 

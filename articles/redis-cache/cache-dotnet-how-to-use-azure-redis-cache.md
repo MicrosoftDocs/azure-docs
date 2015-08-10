@@ -12,8 +12,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.topic="hero-article" 
+	ms.date="08/05/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
