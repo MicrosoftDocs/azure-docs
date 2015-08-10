@@ -17,7 +17,7 @@
 	ms.author="rkarlin"/>
 
 # Working with Claims Aware Apps in Application Proxy
-> [AZURE.IMPORTANT] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.IMPORTANT] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 Claims aware apps perform a redirection to the STS, which in turn, requests credentials from the user in exchange for a token before redirecting the user to the application. To enable Application Proxy to be able to work with these redirects, the following steps need to be taken to enable Application Proxy to work with claims aware applications.
 
@@ -27,7 +27,7 @@ Before performing this procedure, make sure that the STS the claims aware app re
 
 ### Azure Portal Configuration
 
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](https://msdn.microsoft.com/en-us/library/azure/dn768220.aspx).
+1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
 2. In the list of applications, select the claims aware app and click **Configure**.
 3. If you chose **Passthrough** as your **Preauthentication Method**, make sure to select **HTTPS** as your **External URL** scheme.
 4. If you chose Azure Active Directory as your **Preauthentication Method**, make sure to select **None** as your **Internal Authentication Method**.

@@ -17,7 +17,7 @@
 	ms.author="rkarlin"/>
 
 # SSO for On Prem IWA Apps Using KCD with Application Proxy
-> [AZURE.IMPORTANT] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.IMPORTANT] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 You can enable Single Sign On (SSO) to your applications using Integrated Windows Authentication (IWA) by giving Application Proxy Connectors permission in Active Directory to impersonate users and send and receive tokens on their behalf.
 
@@ -38,7 +38,7 @@ This diagram explains the flow when a user attempts to access an on-prem applica
 
 ### Prerequisites
 
-1. Make sure that your apps, such as your SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx) or for SharePoint, see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/en-us/library/ee806870.aspx).
+1. Make sure that your apps, such as your SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx) or for SharePoint, see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
 2. Create Service Principal Names for your applications.
 3. Make sure that the server running the Connector and the server running the app you are publishing are domain joined and part of the same domain. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
 
@@ -70,7 +70,7 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 
 ## Azure Portal Configuration
 
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](https://msdn.microsoft.com/en-us/library/azure/dn768220.aspx). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
+1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
 2. After your application appears in the list of applications, select it and click **Configure**.
 3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.
 
