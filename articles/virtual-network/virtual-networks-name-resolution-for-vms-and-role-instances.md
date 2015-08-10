@@ -23,7 +23,7 @@ When role instances and VMs hosted in Azure need to resolve hostnames and domain
 
 - [Azure-provided name resolution](#azure-provided-name-resolution)
 
-- [Name resolution using your own DNS server](#name-resolution-using-your-own-DNS-server) 
+- [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) 
 
 The type of name resolution you use depends on how your VMs and role instances need to communicate within your cloud service and with other cloud services.
 
