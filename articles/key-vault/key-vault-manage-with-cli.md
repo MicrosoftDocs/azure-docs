@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage Key Vault using CLI | Overview"
+	pageTitle="Manage Key Vault using CLI | Microsoft Azure"
 	description="Use this tutorial to automate common tasks in Key Vault by using the CLI"
 	services="key-vault"
 	documentationCenter=""

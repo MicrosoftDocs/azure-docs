@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stream Analytics: Rotate log-in credentials for inputs and outputs | Azure" 
+	pageTitle="Stream Analytics: Rotate log-in credentials for inputs and outputs | Microsoft Azure" 
 	description="Learn how to update the credentials for Stream Analytics inputs and outputs." 
 	services="stream-analytics" 
 	documentationCenter="" 

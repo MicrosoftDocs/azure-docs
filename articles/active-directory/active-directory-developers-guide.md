@@ -20,7 +20,7 @@
 # Azure Active Directory Developer's Guide
 
 ## Overview
-As an Identity Management As A Service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation, and key features of Azure Active Directory. We suggest you read them in order, or jump to [getting started](#getting-started) if you're ready to dig in. 
+As an Identity Management As A Service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation, and key features of Azure Active Directory. We suggest you read them in order, or jump to [getting started](#getting-started) if you're ready to dig in.
 
 
 1. **[The benefits of Azure AD Integration](active-directory-how-to-integrate.md)**: Discover why integration with Azure Active Directory offers the best solution for secure sign in and authorization.
@@ -67,6 +67,7 @@ These articles describe how to perform specific tasks using Azure Active Directo
 - [How to list your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
 - [How to get started with the Office 365 APIs in apps](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [How to submit Web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
 
 
 ## Reference
@@ -130,4 +131,4 @@ These overview presentations on developing apps with Azure Active Directory feat
 
 - **[Cloud Identity](http://www.cloudidentity.net)**: Thoughts on Identity Management as a Service, from a Principle Azure Active Directory PM.  
 
-- **[Azure AD on Twitter](https://twitter.com/azuread)**: Azure AD announcements in 140 characters or less. 
+- **[Azure AD on Twitter](https://twitter.com/azuread)**: Azure AD announcements in 140 characters or less.
