@@ -25,9 +25,7 @@ This simplified experience is possible because we previously created and registe
 
 Even in the context of Logic Apps, you can use your own application instead of using the default application that we provide. If the "Authorize" button fails to connect, you can try creating your own app. The following lists these steps for the Twitter connector:
 
-1. Open your Twitter Connector in the Azure preview portal:  
-	a) Go to **Browse** > **API Apps**.  
-	b) Select your Twitter connector:  
+1. Open your Twitter Connector in the Azure preview portal. Go to **Browse** > **API Apps**. Select your Twitter connector:  
 	![][1]
 
 2. Select **Settings** > **Authentication**:  
