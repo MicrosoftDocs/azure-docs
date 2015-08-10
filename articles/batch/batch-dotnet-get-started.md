@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial - Get Started with the Azure Batch .NET Library"
+	pageTitle="Tutorial - Get started with the Azure Batch .NET Library | Microsoft Azure"
 	description="Learn basic concepts about Azure Batch and how to develop for the Batch service with a simple scenario"
 	services="batch"
 	documentationCenter=".net"
@@ -16,9 +16,9 @@
 	ms.date="07/21/2015"
 	ms.author="yidingz"/>
 
-# Get Started with the Azure Batch Library for .NET  
+# Get started with the Azure Batch Library for .NET  
 
-This tutorial shows you how to create a console application that sets up a program and support files that run on several compute nodes in a Azure Batch pool. The tasks that are created in this tutorial evaluate text from files in Azure storage and return the words that are most commonly used. The samples are written in C# code and use the Azure Batch .NET Library.
+This tutorial shows you how to create a console application that sets up a program and support files that run on several compute nodes in a Azure Batch pool. The tasks that are created in this tutorial evaluate text from files in Azure Storage and return the words that are most commonly used. The samples are written in C# code and use the Azure Batch .NET Library.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This tutorial shows you how to create a console application that sets up a progr
 
 	- **Batch account** - See the **Batch Account** section of [Azure Batch technical overview](batch-technical-overview.md).
 
-	- **Storage account** - See the **Create a storage account** section of [About Azure Storage Accounts](../storage-create-storage-account.md). In this tutorial, you create a container in this account named **testcon1**.
+	- **Storage account** - See the **Create a storage account** section of [About Azure storage accounts](../storage-create-storage-account.md). In this tutorial, you create a container in this account named **testcon1**.
 
 - A Visual Studio console application project:
 
@@ -61,7 +61,7 @@ To support the application, a container is created in Azure Storage, the text fi
 
 	- **[account-name]** - The name of the storage account that you previously created.
 
-	- **[account-key]** - The primary key of the storage account. You can find the primary key from the Storage page in the Management Portal
+	- **[account-key]** - The primary key of the storage account. You can find the primary key from the Storage page in the Azure portal.
 
 2. Save the App.config file.
 
@@ -234,7 +234,7 @@ A pool of compute nodes is the first set of resources that you must create when 
 
 7. Save the Program.cs file.
 
-## Step 2: Add a job to an account
+## Step 3: Add a job to an account
 
 Create a job that is used to manage tasks that run in the pool. All tasks must be associated with a job.
 
@@ -276,7 +276,7 @@ Create a job that is used to manage tasks that run in the pool. All tasks must b
 
 5. Save the Program.cs file.
 
-## Step 3: Add tasks to the job
+## Step 4: Add tasks to the job
 
 After the job is created, tasks can be added to it. Each task runs on a compute node and processes a text file. For this tutorial, you add three tasks to the job.
 
@@ -320,7 +320,7 @@ After the job is created, tasks can be added to it. Each task runs on a compute 
 			Console.ReadLine();
 		}
 
-	**[account-name]** needs to be replaced with the name of the storage account that you previously created. Make sure you get all four places.
+	**[account-name]** needs to be replaced with the name of the storage account that you previously created. In previous example, update all four instances of **[account-name]**.
 
 2. Add this code to Main that calls the method you just added:
 
@@ -346,7 +346,7 @@ After the job is created, tasks can be added to it. Each task runs on a compute 
 
 5. Save the Program.cs file.
 
-## Step 4: Delete the resources
+## Step 5: Delete the resources
 
 Because you are charged for resources in Azure, it is always a good idea to delete resources if you no longer need them.
 
@@ -365,7 +365,7 @@ Because you are charged for resources in Azure, it is always a good idea to dele
 				Console.ReadLine();
 			}
 
-2. Add this code to Main that call the method that you just added:
+2. Add this code to Main that calls the method that you just added:
 
 		DeleteTasks(client);
 
@@ -405,7 +405,7 @@ Because you are charged for resources in Azure, it is always a good idea to dele
 
 3. Save the Program.cs file.
 
-## Step 5: Run the application
+## Step 6: Run the application
 
 1. Start the GettingStarted project, and you should see this in the console window after the container is created:
 
@@ -467,10 +467,10 @@ Because you are charged for resources in Azure, it is always a good idea to dele
 			Task status: Completed
 			Task start: 7/17/2015 8:31:57 PM
 
-8. At this point you can go into the Azure Portal to look at the resources that were created. To delete the resources, press Enter until the program finishes.
+8. At this point you can go into the Azure portal to look at the resources that were created. To delete the resources, press Enter until the program finishes.
 
-## Next Steps
+## Next steps
 
-1. Now that you learned the basics of running tasks, you can learn about how to automatically scale compute nodes when the demand for your application changes. To do this, see [Automatically Scale Compute Nodes in an Azure Batch Pool](batch-automatic-scaling.md)
+1. Now that you learned the basics of running tasks, you can learn about how to automatically scale compute nodes when the demand for your application changes. To do this, see [Automatically scale Compute Nodes in an Azure Batch Pool](batch-automatic-scaling.md)
 
 2. Some applications produce large amounts of data that can be difficult to process. One way to solve this is through [efficient list querying](batch-efficient-list-queries.md).
