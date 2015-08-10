@@ -31,7 +31,7 @@ The graphical user interface of the Azure portal is an easy way to try out a vir
 
 [Create a virtual machine running Windows][]
 
-### Command Shell: Azure CLI or Azure PowerShell
+### Command shell: Azure CLI or Azure PowerShell
 
 If you prefer working in a command shell, choose between the Azure command-line interface (CLI) for Mac and Linux users, or Azure PowerShell, which has Windows PowerShell cmdlets for Azure and a custom console.
 
@@ -78,7 +78,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that virt
 
 [Create a virtual machine running Windows]: virtual-machines-windows-tutorial.md
 
-[Equivalent Resource Manager and Service Management commands for virtual machine  operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
+[Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell]:  virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
