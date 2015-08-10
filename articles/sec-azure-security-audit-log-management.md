@@ -339,17 +339,18 @@ We will now prepare the Azure Diagnostics configuration file to add the events t
 - New user addition to a local group
 - New process creation
 
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-        <WadCfg>
-            <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
-                <WindowsEventLog scheduledTransferPeriod="PT1M">
-                    <DataSource name="Security!*[System[(EventID=4732 or EventID=4733 or EventID=4688)]]" />
-                </WindowsEventLog>
-            </DiagnosticMonitorConfiguration>
-        </WadCfg>
-    </PublicConfig>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+    <WadCfg>
+        <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
+            <WindowsEventLog scheduledTransferPeriod="PT1M">
+                <DataSource name="Security!*[System[(EventID=4732 or EventID=4733 or EventID=4688)]]" />
+            </WindowsEventLog>
+        </DiagnosticMonitorConfiguration>
+    </WadCfg>
+</PublicConfig>
+```
 
 #### Step 3: Validate configuration XML file
 Validate the configuration file by using the same steps as shown earlier in [Step 3: Validate configuration XML file](#step3).
