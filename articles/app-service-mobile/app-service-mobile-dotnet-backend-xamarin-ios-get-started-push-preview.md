@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service to send push notifications to your Xamarin.iOS app" 
 	services="app-service\mobile" 
 	documentationCenter="xamarin" 
-	authors="ysxu"
+	authors="normesta"
 	manager="dwrede" 
 	editor=""/>
 
@@ -22,23 +22,35 @@
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
+##Overview
+
 In this tutorial, you add push notifications to the [Xamarin.iOS quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Xamarin.iOS quick start] tutorial, which you must complete first. The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so you must use a physical iOS device. You'll also need to sign up for an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
 
-You'll also need the following to complete this tutorial:
+##Prerequisites
 
-+ An active Azure account. 
+To complete this tutorial, you need the following:
+
+* An active Azure account.
 
     If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
     >[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
 
-+ A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it.  
+* A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it.  
 
     >[AZURE.NOTE] It's easier to run your Xamarin.iOS app on a Mac by using Xamarin Studio. You can run the Xamarin.iOS app by using Visual Studio on your Windows computer if you want, but it's a bit more complicated because you have to connect to a networked Mac. If you're interested in doing that, see [Installing Xamarin.iOS on Windows].
+
+* An physical iOS device
+
+* Complete the [quickstart tutorial](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
 
 ## <a id="register"></a>Register app for push notifications
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
+
+##<a name="review"></a>Review your server project configuration (optional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
 ## Configure Azure to send push notifications
 
