@@ -1,5 +1,5 @@
 <properties
-	pageTitle="List of Connectors and API Apps | Azure"
+	pageTitle="List of Connectors and API Apps | Microsoft Azure"
 	description="Read about the Connectors and API Apps in Azure App Service; microservices architecture"
 	services="app-service\logic"
 	documentationCenter=""

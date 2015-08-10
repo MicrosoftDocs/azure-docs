@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Understanding NoSQL Technologies on Azure | Azure" 
+	pageTitle="Understanding NoSQL Technologies on Azure | Microsoft Azure" 
 	description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." 
 	editor="cgronlun" 
 	manager="jhubbard" 
