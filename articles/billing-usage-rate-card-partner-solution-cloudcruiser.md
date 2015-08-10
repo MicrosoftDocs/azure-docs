@@ -197,7 +197,8 @@ The next step is to pull the information from the Usage API into Cloud Cruiser. 
       "id": "/subscriptions/bb678b04-0e48-4b44-XXXX-XXXXXXX/providers/Microsoft.Commerce/UsageAggregates/Daily_BRSDT_20150623_0000",
       "name": "Daily_BRSDT_20150623_0000",
       "type": "Microsoft.Commerce/UsageAggregate",
-      "properties": {
+      "properties":
+      {
         "subscriptionId": "bb678b04-0e48-4b44-XXXX-XXXXXXXXX",
         "usageStartTime": "2015-06-22T00:00:00+00:00",
         "usageEndTime": "2015-06-23T00:00:00+00:00",
@@ -211,8 +212,7 @@ The next step is to pull the information from the Usage API into Cloud Cruiser. 
         "infoFields": {},
         "quantity": 8
 
-    },
-
+      },
 	},
 
 
