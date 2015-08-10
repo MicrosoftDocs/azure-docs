@@ -31,7 +31,7 @@ Azure Data Factory is a fully managed cloud-based data integration service that 
 
 With ADF, existing data processing services can be composed into data pipelines that are highly available and managed in the cloud. These data pipelines can be scheduled to ingest, prepare, transform, analyze, and publish data, and ADF will manage and orchestrate all of the complex data and processing dependencies. Solutions can be quickly built and deployed in the cloud, connecting a growing number of on-premises and cloud data sources.
 
-Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](http://azure.microsoft.com/en-us/services/data-factory/).
+Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](http://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>The Scenario
 
@@ -46,7 +46,7 @@ We set up an ADF pipeline that composes two data migration activities that toget
 ## <a name="prereqs"></a>Prerequisites
 This tutorial assumes you have:
 
-* An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+* An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An **Azure storage account**– You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Access to an **Azure SQL Database**. If you must setup an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](sql-database-get-started.md) provides information on how to provision a new instance of a Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
@@ -55,11 +55,10 @@ This tutorial assumes you have:
 
 ##<a name="upload-data"></a> Upload the data to your on-premise SQL Server 
 
-We use the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) to demonstrate the migration process. The data has two files, the trip_data.csv file which contains trip details and the  trip_far.csv file which contains details of the fare paid for each trip. A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+We use the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) to demonstrate the migration process. The NYC Taxi dataset is available, as noted that post, on Azure blob storage [here](http://www.andresmh.com/nyctaxitrips/). The data has two files, the trip_data.csv file which contains trip details and the  trip_far.csv file which contains details of the fare paid for each trip. A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+ 
 
-The NYC Taxi dataset is available on Azure blob storage [here](http://www.andresmh.com/nyctaxitrips/). 
-
-To upload the dataset into your on-premise SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premise SQL Server is the same.
+You can either adapt the procedure provided here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premise SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premise SQL Server is the same.
 
 ##<a name="create-adf"></a> Create an Azure Data Factory
 
@@ -97,7 +96,7 @@ To create the linked service for the Azure SQL Database, click on the **Data Sto
 
 Create tables that specify the structure, location and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](data-factory-create-datasets.md).
 
-> [AZURE.NOTE]  You should execute `Switch-AzureMode -Name AzureResourceManager` and the `Add-AzureAccount` cmdlets prior to executing the [New-AzureDataFactoryTable](https://msdn.microsoft.com/en-us/library/azure/dn835096.aspx) cmdlet to confirm that the Azure PowerShell cmdlets are available and that the right Azure subscription is selected for the command execution. For documentation of these cmdlets, see [Switch-AzureMode](https://msdn.microsoft.com/en-us/library/dn722470.aspx) and [Add-AzureAccoun](https://msdn.microsoft.com/en-us/library/azure/dn790372.aspx).
+> [AZURE.NOTE]  You should execute `Switch-AzureMode -Name AzureResourceManager` and the `Add-AzureAccount` cmdlets prior to executing the [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet to confirm that the Azure PowerShell cmdlets are available and that the right Azure subscription is selected for the command execution. For documentation of these cmdlets, see [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) and [Add-AzureAccoun](https://msdn.microsoft.com/library/azure/dn790372.aspx).
  
 The JSON-based definitions in the tables use the following names: 
 
@@ -298,6 +297,6 @@ The *startdate* and *enddate* parameter values need to be replaced with the actu
 
 Once the pipeline executes, you should be able to see the data show up in the container selected for the blob, one file per day.
 
-Note that we have not leveraged the functionality provided by ADF to pipe data incrementally. For more details on how to do this and other capabilities provided by ADF, see the [ADF documentation](http://azure.microsoft.com/en-us/services/data-factory/). 
+Note that we have not leveraged the functionality provided by ADF to pipe data incrementally. For more details on how to do this and other capabilities provided by ADF, see the [ADF documentation](http://azure.microsoft.com/services/data-factory/). 
 
 
