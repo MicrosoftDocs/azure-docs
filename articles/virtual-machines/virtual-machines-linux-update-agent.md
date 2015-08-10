@@ -30,7 +30,7 @@ Azure-endorsed Linux distros have put the Azure Linux Agent package in their rep
 
 For Ubuntu, just type:
      
-    #sudo apt-get install waagent
+    #sudo apt-get install walinuxagent
 
 and on CentOS, type:
 
@@ -52,26 +52,52 @@ Install wget (there are some distros that don't install it by default such as Re
 
 ## Download latest version
 
-Open [the release of Azure Linux Agent in Github](https://github.com/Azure/WALinuxAgent/releases) in a web page, and find out the latest version number like: 2.0.12. (You can locate your current version by typing `#waagent --version`.)
+Open [the release of Azure Linux Agent in Github](https://github.com/Azure/WALinuxAgent/releases) in a web page, and find out the latest version number. (You can locate your current version by typing `#waagent --version`.)
+
+###For the version 2.0.x, like 2.0.14
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 
-The following line uses version 2.0.12 as an example:
+   The following line uses version 2.0.14 as an example:
 
-    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.12/waagent  
+    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
-## Make waagent executable
+###For the version 2.1.x or later, like 2.1.0
+  
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
+    #unzip WALinuxAgent-[version].zip
+    #cd WALinuxAgent-[version]
+
+   The following line uses version 2.1.0 as an example:
+
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
+    #unzip WALinuxAgent-2.1.0.zip  
+    #cd WALinuxAgent-2.1.0
+
+##Install Linux Agent
+
+###For the version 2.0.x, use:
+
+ Make waagent executable
 
     #chmod +x waagent
 
-## Copy new executable to /usr/sbin/
-    
-    #sudo cp waagent /usr/sbin
+ Copy new executable to /usr/sbin/
+   
+  For most of Linux, use
+         
+      #sudo cp waagent /usr/sbin
 
-For CoreOS, use:
+  For CoreOS, use:
 
     #sudo cp waagent /usr/share/oem/bin/
  
+###For the version 2.1.x, use:
+
+You may need install the package `setuptools` first, see [here](https://pypi.python.org/pypi/setuptools). Then run below:
+
+    #sudo python setup.py install
+
 ## Restart waagent service
 
 For most of linux Distros:
