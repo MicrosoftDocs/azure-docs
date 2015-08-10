@@ -204,7 +204,7 @@ or faster training times.
 |[locally deep support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Good for large feature sets|
 |[Bayes’ point machine](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |Multi-class classification| | | | | |
-|logistic regression| |●|●|5| |
+|[logistic regression](https://msdn.microsoft.com/en-us/library/azure/dn905853.aspx)| |●|●|5| |
 |[decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[decision jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Low memory footprint|
 |[neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
