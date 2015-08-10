@@ -252,4 +252,5 @@ After sending the SAS token on the sender link, the publisher needs to read the 
 
 See the [Service Bus REST API reference](https://msdn.microsoft.com/library/azure/hh780717.aspx) for more information about what you can do with these SAS tokens.
 
-For more information about SAS, see the [Service Bus Authentication](https://msdn.microsoft.com/library/azure/dn155925.aspx) node on MSDN.
+For more information about SAS, see the [Service Bus Authentication](https://msdn.microsoft.com/library/azure/dn155925.aspx) node on MSDN. More examples about SAS in C# and Java Script in [Damir's blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
+
