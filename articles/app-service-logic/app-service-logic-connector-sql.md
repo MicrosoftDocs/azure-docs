@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/30/2015"
+   ms.date="08/09/2015"
    ms.author="sameerch"/>
 
 
@@ -41,7 +41,7 @@ Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From T
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
 
 1. In the Azure startboard, select **Marketplace**.
-2. Select **API Apps** and search for “SQL Connector”.
+2. Search for “SQL Connector”.
 3. Enter the Name, App Service Plan, and other properties.
 4. Enter the following package settings:
 
@@ -60,9 +60,11 @@ Stored Procedures | No | Enter an existing stored procedure that can be called b
 Data Available Query | For trigger support | SQL statement to determine whether any data is available for polling a SQL Server database table. This should return a numeric value representing the number of rows of data available. Example: SELECT COUNT(*) from table_name.
 Poll Data Query | For trigger support | The SQL statement to poll the SQL Server database table. You can enter any number of SQL statements separated by a semicolon. This statement is executed transactionally and only committed when the data is safely stored in your logic app. Example: SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Note**<br/>You must provide a poll statement that avoids an infinite loop by deleting, moving or updating selected data to ensure that same data isn't polled again.
 
-5. When complete, the Package Settings look similar to the following:
-<br/>
-![][1]  
+5. When complete, the Package Settings look similar to the following:  
+	![][1]  
+
+6. Select **Create**. 
+
 
 ## Use the Connector as a Trigger
 Let's look at a simple logic app that polls data from a SQL table, adds the data in another table, and updates the data.
@@ -87,38 +89,31 @@ To use the SQL connector as a trigger, enter the **Data Available Query** and **
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Add the Trigger
-1. When creating or editing a logic app, select the SQL Connector you created as the trigger. This lists the available triggers: **Poll Data (JSON)** and **Poll Data (XML)**:
-<br/>
-![][5]
+1. When creating or editing a logic app, select the SQL Connector you created as the trigger. This lists the available triggers: **Poll Data (JSON)** and **Poll Data (XML)**:  
+	![][5]
 
-2. Select the **Poll Data (JSON)** trigger, enter the frequency, and click the ✓:
-<br/>
-![][6]
+2. Select the **Poll Data (JSON)** trigger, enter the frequency, and click the ✓:  
+	![][6]
 
-3. The trigger now appears as configured in the logic app. The output(s) of the trigger are shown and can be used as inputs in any subsequent actions:
-<br/>
-![][7]
+3. The trigger now appears as configured in the logic app. The output(s) of the trigger are shown and can be used as inputs in any subsequent actions:  
+	![][7]
 
 ## Use the Connector as an Action
 Using our simple logic app scenario that polls data from a SQL table, adds the data in another table, and updates the data.
 
 To use the SQL Connector as an action, enter the name of the Tables and/or Stored Procedures you entered when you created the SQL Connector:
 
-1. After your trigger (or choose 'run this logic manually'), add the SQL connector you created from the gallery. Select one of the Insert actions, like *Insert Into TempEmployeeDetails (JSON)*:
-<br/>
-![][8]
+1. After your trigger (or choose 'run this logic manually'), add the SQL connector you created from the gallery. Select one of the Insert actions, like *Insert Into TempEmployeeDetails (JSON)*:  
+	![][8]
 
-2. Enter the input values of the record to be inserted, and click on the ✓:
-<br/>
-![][9]
+2. Enter the input values of the record to be inserted, and click on the ✓:  
+	![][9]
 
-3. From the gallery, select the same SQL connector you created. As an action, select the Update action on the same table, like *Update EmployeeDetails*:
-<br/>
-![][11]
+3. From the gallery, select the same SQL connector you created. As an action, select the Update action on the same table, like *Update EmployeeDetails*:  
+	![][11]
 
-4. Enter the input values for the update action, and click on the ✓:
-<br/>
-![][12]
+4. Enter the input values for the update action, and click on the ✓:  
+	![][12]
 
 You can test the logic app by adding a new record in the table that is being polled.
 

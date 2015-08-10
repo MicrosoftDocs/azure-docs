@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/09/2015"
 	ms.author="mandia"/>
 
 
@@ -84,6 +84,25 @@ Several connectors provide triggers for Logic Apps. These triggers are of two ty
 
 ## Connectors as Actions
 Connectors can also be used as actions within your Logic App. Actions are useful for looking up data within the Logic App that can then used in the execution. For example, you may need to look up data from a SQL database for additional information about a customer when processing an order. Or, you may need to write, update or delete data in a destination. You can do this using the actions provided by the connectors. Actions map to operations in API Apps (as defined by their Swagger metadata).
+
+## Learn about OAuth Security
+Many of the Software as a Service (SaaS) connectors like Facebook, Twitter, DropBox, and so on require users to authorize using the OAUTH protocol.  When you use these SaaS Connectors from Logic Apps, we provide a simplified user experience where you click "Authorize" in the Logic Apps designer. When you "Authorize", you are asked to sign in (if not already) and provide consent to connect to the SaaS service on your behalf. When you do provide consent and authorize, your Logic Apps can then access these SaaS services on your behalf.
+
+This simplified experience is possible because we previously created and registered our application in these SaaS services.  In certain cases, you may want to register and use your own application.  This is necessary, for instance, when you want to use these SaaS connectors in your custom applications.  The steps to do this are listed at [Deploy a SaaS connector API app](app-service-api-connnect-your-app-to-saas-connector.md). This example uses the DropBox Connector, but the process is the same for all connectors that rely on OAUTH.
+
+Even in the context of Logic Apps, you can use your own application instead of using the default application that we provide. You might want to do this, because of multiple reasons (not listed here).  The following steps illustrate how you can do this for the Twitter Connector.
+
+1. Go to your Twitter Connector in the Azure preview portal. Go to Browse > Api Apps > {TwitterConnector} > Settings > Authentication.
+2. Go to [Twitter](http://apps.twitter.com) and Create a New App.  Enter the value of “Callback URL” from “Redirect URI” value as shown above.
+3. When your Twitter app is created, select **Key and Access Tokens** to see the keys/secret.
+4. Copy these values and put them in your Twitter Connector setting as given below:  
+Client ID > Consumer Key (API Key)  
+Client Secret > Consumer Secret (API Secret)
+5. Save your connector settings.  
+
+
+Now, you should be able to use your Connector from Logic Apps. Now, when you use this Connector from Logic Apps, it will use your application, instead of the default application.  NOTE: If you have authorized an app previously, you may have to reauthorize the app.
+
 
 ## Create your own Connectors and API Apps
 [Connectors and API Apps Reference](http://aka.ms/appservicesconnectorreference)<br/>
