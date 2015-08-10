@@ -324,11 +324,12 @@ In this example, we set up a new instance of a security log collection pipeline 
 8.	Open the file WebRole1/Controllers/HomeController.cs.
 9.	Add the following method to enable the sample application to log HTTP status code 500 as a sample IIS log event (this will be used in the IIS example later):
 
-
+    ```
     public ActionResult StatusCode500()
         {
             throw new InvalidOperationException("Response.StatusCode is 500");
         }
+    ```
 
 10.	 Right-click the name of the cloud service project, and click **Publish**.
 
