@@ -1,5 +1,5 @@
 <properties 
- pageTitle="About virtual machine extensions and features" 
+ pageTitle="About virtual machine extensions and features | Microsoft Azure" 
  description="Describes many of the virtual machine extensions, grouped by what they provide or improve, such as connectivity and basic management." 
  services="virtual-machines" 
  documentationCenter="" 
