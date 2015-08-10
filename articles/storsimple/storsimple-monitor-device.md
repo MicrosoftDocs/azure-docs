@@ -19,7 +19,9 @@
 
 ## Overview
 
-You can use the StorSimple Manager service to monitor specific devices within your StorSimple solution. You can create custom charts based on I/O performance, capacity utilization, network throughput, and device performance metrics. To view the monitoring information for a specific device, in the Management Portal, select the StorSimple Manager service, click the **Monitor** tab, and then select from the list of devices. The following information will appear.
+You can use the StorSimple Manager service to monitor specific devices within your StorSimple solution. You can create custom charts based on I/O performance, capacity utilization, network throughput, and device performance metrics. 
+
+To view the monitoring information for a specific device, in the Management Portal, select the StorSimple Manager service, click the **Monitor** tab, and then select from the list of devices. The **Monitor** page contains the following information.
 
 ## I/O performance 
 
@@ -37,7 +39,7 @@ You can use the StorSimple Manager service to monitor specific devices within yo
 
 Over time, primary capacity utilization and device capacity utilization will most likely increase together until the data begins to be tiered to the cloud. At that point, the device capacity utilization will probably begin to plateau, but the primary capacity utilization will increase as more data is written.
 
-## Network throughput** 
+## Network throughput
 
 **Network throughput** tracks metrics related to the amount of data transferred from the iSCSI initiator network interfaces on the host server and the device and between the device and the cloud. You can monitor this metric for each of the iSCSI network interfaces on your device.
 
