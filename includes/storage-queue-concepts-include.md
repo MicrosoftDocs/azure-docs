@@ -8,7 +8,7 @@ total capacity limit of a storage account. A storage account can contain up to 5
 
 Common uses of Queue storage include:
 
--   <span>Creating a backlog of work to process asynchronously</span>
+-   Creating a backlog of work to process asynchronously
 -   Passing messages from an Azure Web role to an Azure
     Worker role
 
@@ -30,5 +30,3 @@ The following URL addresses one of the queues in the diagram:
 - **Queue:** A queue contains a set of messages. All messages must be in a queue.
 
 - **Message:** A message, in any format, of up to 64KB.
-
-
