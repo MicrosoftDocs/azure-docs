@@ -24,7 +24,10 @@ This article is an introduction to the geospatial functionality in [Azure Docume
 - How can I query geospatial data in Azure DocumentDB in SQL and LINQ?
 - How do I enable or disable spatial indexing in DocumentDB?
 
+Please see this [Github project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial) for code samples.
+
 ##<a id="Introduction"></a> Introduction to Spatial data
+
 Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth, i.e. geospatial data. Spatial data can be used to represent the location of a person or a place of interest, or or the boundary of a city or a lake. Common use cases often involve proximity queries, for e.g., "find all coffee shops near my current location". 
 
 ### GeoJSON
@@ -274,7 +277,7 @@ Now that we've taken a look at how to query documents using LINQ and SQL, let's 
 
 ##<a id="SpatialIndexing"></a> Indexing
 
-DocumentDB supports indexing of GeoJSON points stored within documents using the **Spatial** index kind. If you specify an indexing policy that includes spatial index, then all points found within the collection are indexed for efficient spatial queries (ST_WITHIN and ST_DISTANCE). For more details on indexing policies, please refer to [Indexing Policies](documentdb-indexing-policies.md).
+DocumentDB supports indexing of GeoJSON points stored within documents using the **Spatial** index kind. If you specify an indexing policy that includes spatial index, then all points found within the collection are indexed for efficient spatial queries (ST_WITHIN and ST_DISTANCE). Spatial indexes do not have a precision value, and always use a default precision value.
 
 Here's a code snippet in .NET that shows how to create a collection with spatial indexing turned on for all paths containing points. 
 
@@ -312,8 +315,6 @@ And here's how you can modify an existing collection to take advantage of spatia
 
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
-
-### How does spatial indexing work?
 
 ##<a id="NextSteps"></a> Next Steps
 Now that you've learnt about how to get started with geospatial support in DocumentDB, you can:
