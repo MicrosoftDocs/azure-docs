@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Define a custom API that supports pull notifications | Microsoft Azure" 
+	pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" 
 	description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="windows" 
