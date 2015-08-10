@@ -33,7 +33,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 2. Next you need to find the device identifier for the data disk to initialize. There are two ways to do that:
 
-	a) There are two ways to find out the In the SSH window, type the following command, and then enter the password for the account that you created to manage the virtual machine:
+	a) In the SSH window, type the following command, and then enter the password for the account that you created to manage the virtual machine:
 
 			$sudo grep SCSI /var/log/messages
 
@@ -162,7 +162,9 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 ## Additional Resources
 [How to log on to a virtual machine running Linux][Logon]
+
 [How to detach a disk from a Linux virtual machine ](virtual-machines-linux-how-to-detach-disk.md)
+
 [Using the Azure CLI with Azure Service Management](virtual-machines-command-line-tools.md)
 
 <!--Link references-->
