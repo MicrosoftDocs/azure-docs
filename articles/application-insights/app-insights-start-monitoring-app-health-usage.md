@@ -118,7 +118,7 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 
 * Open the [Search][diagnostic] tile, to see individual events.
 * Use the application, opening different pages so that it generates some telemetry.
-* Wait a few seconds and click Refresh.
+* Wait a few seconds and click Refresh. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
 * See [Troubleshooting][qna].
 
 #### Trouble on your build server?
