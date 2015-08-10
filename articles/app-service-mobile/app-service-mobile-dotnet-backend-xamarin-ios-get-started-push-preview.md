@@ -52,39 +52,9 @@ You'll also need the following to complete this tutorial:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## <a name="configure-app"></a>Configure your Xamarin.iOS application
+## <a name="configure-app"></a>Configure your Xamarin.iOS project
 
-###In Xamarin Studio
-
-1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the ID that you created earlier.
-
-    ![][121]
-
-2. Scroll down to **Background Modes** and check the **Enable Background Modes** box and the **Remote notifications** box. 
-
-    ![][122]
-
-3. Double click your project in the Solution Panel to open **Project Options**.
-
-4.  Choose **iOS Bundle Signing** under **Build**, and select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
-
-    ![][120]
-
-    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
-
-### In Visual Studio
-
-1. In Visual Studio, right-click the project, and then click **Properties**.
-
-3. In the properties pages, click the **iOS Application** tab, and update the **Identifier** with the ID that you created earlier.
-
-    ![][123]
-
-4. In the **iOS Bundle Signing** tab, select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
-
-    ![][124]
-
-    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
 ## <a name="add-push"></a>Add push notifications to your app
 

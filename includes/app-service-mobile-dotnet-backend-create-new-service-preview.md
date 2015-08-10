@@ -13,7 +13,7 @@ Follow these steps to create a new Mobile App backend.
 5. Click **Create**. This creates a Mobile App backend where you will later deploy your server project. In the next step, you will create a new SQL database.
 
 
-    > [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same location as the new mobile app backend, you can instead choose **Use existing Database** and then select that database. The use of a database in a different location is not recommended because of additional bandwidth costs and higher latencies.
+    > [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same location as the new mobile app backend, you can instead choose **Use an existing database** and then select that database. The use of a database in a different location is not recommended because of additional bandwidth costs and higher latencies.
 
 
 6. In the new Mobile App backend, click **Settings** > **Mobile App** > **Data** > **Add**. In the **Add data connection** blade, click **SQL Database** > **Create a new database** and type the name of the new database. Click **Server**, type the name of a new server, provide a login name and password, make sure **Allow azure services to access server** is checked, and click **OK** twice. This creates the new database and server.
