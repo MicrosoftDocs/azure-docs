@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/19/2015"
+   ms.date="08/06/2015"
    ms.author="kundanap"/>
 
 # Custom Script Extension for Windows
@@ -70,16 +70,15 @@ This use case shows how to use a non-default storage either within the same subs
 Browse to the Virtual Machine in the <a href="https://portal.azure.com/ " target="_blank">Azure Preview Portal </a> and add the Extension by specifying the script file to run.
   ![][5]
 
-  ### UnInstalling Custom Script Extension.
+  ### Uninstalling Custom Script Extension.
 
 Custom Script Extension can be uninstalled from the VM using the cmdlet below
 
       get-azureVM -ServiceName KPTRDemo -Name KPTRDemo | Set-AzureVMCustomScriptExtension -Uninstall | Update-AzureVM
 
-### Coming Soon
+### Using Custom Script Extension with Templates
 
-We'll be soon adding Custom Script For Linux usage and samples, stay tuned.
+To learn about using Custom Script Extension with Templates, click the documentation [here](virtual-machines-extensions-customscript -with template.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
- 
