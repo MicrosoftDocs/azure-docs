@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Options for transferring stored data to the cloud | Azure" 
+	pageTitle="Options for transferring stored data to the cloud | Microsoft Azure" 
 	description="Guidance for choosing the best option for transferring data from on-premises other cloud sources into Microsoft Azure for advanced analytics." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="An overview of Apache Spark in HDInsight | Azure" 
+	pageTitle="An overview of Apache Spark in HDInsight | Microsoft Azure" 
 	description="An introduction to Apache Spark in HDInsight and scenarios in which to use Spark on HDInsight in your applications." 
 	services="hdinsight" 
 	documentationCenter="" 
