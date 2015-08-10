@@ -41,7 +41,7 @@ Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From T
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
 
 1. In the Azure startboard, select **Marketplace**.
-2. Search for “SQL Connector”, select i, and select **Create**.
+2. Search for “SQL Connector”, select it, and select **Create**.
 3. Enter the Name, App Service Plan, and other properties.
 4. Enter the following package settings:
 
