@@ -65,7 +65,6 @@ Azure Data Factory is a fully managed service for composing data storage, proces
 
 Developers can build data-driven workflows that join, aggregate and transform semi-structured, unstructured and structured data sourced from their on-premises (via Data Management Gateway), cloud-based and internet services, and set up complex data processing through simple JSON scripting. The result data can be stored in Azure Storage or Azure SQL Database for advanced analytics.
 
-Specifically, a developer can orchestrate regular copy activities between various sources and destinations shown in the "[Supported sources and sinks](data-factory-copy-activity.md#SupportedSourcesAndSinks)" section of [Copy data with Azure Data Factory](data-factory-copy-activity.md), which also includes properties for different types of data stores, column mapping, serialization formats, and type handling.
 
 The service can handle failures with auto restart and allow format conversion when moving data from one format to the other. To define a copy activity, see [Get started with Data Factory][start]. Data store registration and gateway installation experiences are described in [Enable your pipelines to work with on-premises data][pipelines]. 
 
@@ -254,7 +253,6 @@ Notes about the decision tree:
 [install]: ../install-configure-powershell.md
 [start]: data-factory-get-started.md
 [pipelines]: data-factory-use-onpremises-datasources.md
-[copy]: data-factory-copy-activity.md
 [intro]: data-factory-introduction.md
 [sql-import]: http://msdn.microsoft.com/library/azure/hh335292.aspx
 [sql-copy]: http://msdn.microsoft.com/library/azure/ff951624.aspx

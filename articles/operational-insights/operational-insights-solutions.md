@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/05/2015"
 	ms.author="alfran"/>
 
 # Solutions in Operational Insights
@@ -24,7 +24,7 @@ Solutions are a collection of **logic**, **visualization** and **data acquisitio
 
 This guide walks you through the various solutions available and what they are used for.
 
->[AZURE.NOTE] For more information on *adding* solutions, see [Adding solutions](operational-insights-add-solution.md)
+>[AZURE.NOTE] For more information on *adding* solutions, see [Adding solutions](operational-insights-setup-workspace.md)
 
 ## SQL Assessment
 

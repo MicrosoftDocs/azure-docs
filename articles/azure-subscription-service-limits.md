@@ -24,7 +24,6 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
-
 ### Limits and the Azure Resource Manager
 
 It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Using resource groups to manage your Azure resources](resource-group-portal.md).
@@ -74,13 +73,6 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 ### DNS Limits
 
 [AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
-
-### Networking Limits – Azure Resource Manager
-
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
-
-[AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
-
 
 ## Storage Limits
 
