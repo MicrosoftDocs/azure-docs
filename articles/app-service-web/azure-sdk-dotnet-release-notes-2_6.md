@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/08/2015"
+   ms.date="08/08/2015"
    ms.author="juliako"/>
 
 
@@ -102,3 +102,6 @@ The Diagnostics storage account can now be specified in the service configuratio
 
 	If you are still facing the above issues, install the latest version of the Azure 2.6 SDK for [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) or [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
+##See Also
+
+[Support and Retirement Information for the Azure SDK for .NET and APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
