@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Notes on Actor type serialization"
-   description="basic requirements for defining serializable classes that can be used to define Azure Fabric Reliable Actor state and interfaces"
+   pageTitle="Reliable Actors Notes on Actor type serialization"
+   description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actor state and interfaces"
    services="service-fabric"
    documentationCenter=".net"
    authors="clca"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 
-# Notes on Azure Service Fabric Actors type serialization
+# Notes on Service Fabric Reliable Actors type serialization
 
 There are few important aspects that needs to be kept in mind while defining the Actor's interface(s) and State: types need to be Data Contract serializable. More information about Data Contracts can be found on [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
@@ -83,4 +83,3 @@ public class VoicemailBox
 }
 
 ```
- 

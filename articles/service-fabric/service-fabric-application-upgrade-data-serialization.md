@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 
 # Service Fabric Application Upgrade: Data Serialization
 
-In a [rolling application upgrade](service-fabric-application-upgrade.md), the upgrade is applied to a subset of nodes, one upgrade domain at a time. During this process, some upgrade domains will be on the newer version of your application, and some upgrade domains will be on the lower version of your application. At this time, the new version of your application must be able to read the old version of your data, and the old version of your application must be able to read the new version of your data. If the data format is not forwards and backwards compatible, the upgrade may fail or data may be lost. This article discusses what constitutes your data format and best practices for ensuring your data is forwards and backwards compatible.
+In a [rolling application upgrade](service-fabric-application-upgrade.md), the upgrade is applied to a subset of nodes, one upgrade domain at a time. During this process, some upgrade domains will be on the newer version of your application, and some upgrade domains will be on the older version of your application. At this time, the new version of your application must be able to read the old version of your data, and the old version of your application must be able to read the new version of your data. If the data format is not forwards and backwards compatible, the upgrade may fail or data may be lost. This article discusses what constitutes your data format and best practices for ensuring your data is forwards and backwards compatible.
 
 
 ## What makes up your data format?
@@ -64,4 +64,3 @@ Data Contract is the recommended solution for ensuring your data is compatible. 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
- 
