@@ -1,5 +1,5 @@
 <properties 
- pageTitle="About the virtual machine agent and extensions" 
+ pageTitle="About the virtual machine agent and extensions | Microsoft Azure" 
  description="Gives an overview of the agent and extensions, and how to install the agent." 
  services="virtual-machines" 
  documentationCenter="" 
