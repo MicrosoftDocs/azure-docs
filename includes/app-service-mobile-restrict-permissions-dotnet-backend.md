@@ -1,9 +1,9 @@
 
-By default, a Mobile App backend can be invoked anonymously. Next, you need to restrict access to only authenticated clients.  
+By default, APIs in a Mobile App backend can be invoked anonymously. Next, you need to restrict access to only authenticated clients.  
 
 1. In the server project in Visual Studio, open Controllers > **TodoItemController.cs**.
 
-2. Add `AuthorizeAttribute` to the **TodoItemController** class, as follows:
+2. Add the `[Authorize]` attribute to the **TodoItemController** class, as follows:
 
 ```
     [Authorize]
