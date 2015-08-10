@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Getting started with Azure blob storage and Visual Studio connected services" 
-	description="How to get started using Azure blob storage in a cloud service project in Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Getting started with Azure blob storage and Visual Studio connected services"
+	description="How to get started using Azure blob storage in a cloud service project in Visual Studio"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="patshea123"/>
 
 # Getting started with Azure blob storage and Visual Studio connected services
@@ -282,7 +282,7 @@ Because the sample method calls an asynchronous method, it must be prefaced with
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);
-    }ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    }
 
 ## Next steps
 
