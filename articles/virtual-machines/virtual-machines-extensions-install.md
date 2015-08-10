@@ -1,5 +1,5 @@
 <properties 
- pageTitle="Manage virtual machine extensions" 
+ pageTitle="Manage virtual machine extensions | Microsoft Azure" 
  description="Describes how to add, find, update, and remove extensions." 
  services="virtual-machines" 
  documentationCenter="" 
