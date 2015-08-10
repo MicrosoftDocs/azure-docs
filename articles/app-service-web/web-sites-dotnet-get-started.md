@@ -46,7 +46,7 @@ In this video, Scott Hanselman shows how easy it is to sign-up for a free trial 
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
 ## Create an ASP.NET web application
 
