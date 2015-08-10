@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Install Python and the SDK | Microsoft Azure
+	pageTitle="Install Python and the SDK - Azure"
 	description="Learn how to install Python and the SDK to use with Azure."
 	services=""
 	documentationCenter="python"
