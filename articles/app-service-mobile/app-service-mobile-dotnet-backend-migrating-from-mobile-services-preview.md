@@ -30,17 +30,12 @@ In a migration to Mobile Apps, all existing app functionality (and code) can be 
 
 The new model also addresses one of the major difficulties of working with Mobile Services. Now, any version of any NuGet package can be deployed without worrying about dependency conflicts. More about the benefits of migrating can be found in the [I already use web sites and mobile services – how does App Service help me?] topic.
 
-When you create an App Service Mobile App, you get 
-
-- A Mobile App site, which runs your Web API project using the Mobile App Server SDK
-- An App Service Gateway, which handles login and helps you add App Service API Apps to your application
-
 ##<a name="overview"></a>Basic migration overview
 The simplest way to migrate is to create a new instance of an App Service Mobile App. In many cases, migrating will be as simple as switching to the new Server SDK and republishing your code onto a new Mobile App. There are, however some scenarios which will require some additional configuration, such as advanced authentication scenarios and working with scheduled jobs. Each of these is covered in the following sections.
 
 >[AZURE.NOTE] It is advised that you read and understand the rest of this topic completely before starting a migration. Make note of any features you use which are called out below.
 
-You can move and test your code at your pace. When the Mobile App backend is ready, you can release a new version of your client application. At this point, you will have two copies of your application running side by side. You need to make sure any bug fixes you make get applied to both. Finally, once your users have updated to the newest version, you can delete the original Mobile Service.
+You can move and test your code at your pace. When the Mobile App backend is ready, you can release a new version of your client application. At this point, you will have two copies of your application backend running side by side. You need to make sure any bug fixes you make get applied to both. Finally, once your users have updated to the newest version, you can delete the original Mobile Service.
 
 The full set of steps for this migration is as follows:
 
@@ -53,7 +48,7 @@ The full set of steps for this migration is as follows:
 ##<a name="mobile-app-version"></a>Setting up a Mobile App version of your application
 The first step in migrating is to create the Mobile App resource which will host the new version of your application. You can create a new Mobile App in the [Preview Azure Management Portal]. You can consult the [Create a Mobile App] topic for further detail.
 
-You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values from the **Configure** tab of the Mobile Services section of the [Azure Management Portal]. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your Mobile App site and select **Settings**, **Application settings**, and add these connection strings, overwriting any existing values. You should additionally add these values to the Mobile App resource as well. To do this, navigate to your Mobile App in the portal and select **Settings** and then **Properties**. Click the link labeled **API App host** to view the site hosting your Mobile App resource. Go to **Settings**, **Application settings**, and paste in the connection strings as in the code site. Do not change other values as this could break Mobile App functionality. Please note that at the moment, the Mobile App blade will continue to show the existing connections even after this configuration step. Additional action may be required once the Mobile Apps experience has been updated.
+You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values from the **Configure** tab of the Mobile Services section of the [Azure Management Portal]. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your Mobile App site and select **Settings**, **Application settings**, and add these to the **Connection strings** section, overwriting any existing values.
 
 Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime. First, you should remove the Mobile Services NuGet from your existing project and instead include the Server SDK. For this migration, most developers will want to download install the `Microsoft.Azure.Mobile.Server.Quickstart` package, as this will pull in the entire required set. Then, in WebApiConfig.cs, you can replace 
 
@@ -94,7 +89,9 @@ Similarly, logging is now accomplished using the standard ASP.NET trace writing:
     traceWriter.Info("Hello, World");  
 
 ##<a name="authentication"></a>Authentication considerations
-One of the biggest differences between Mobile Apps and Mobile Services is that login is now handled by the App Service Gateway in the case of Mobile Apps, not the site running your code. For most applications, this will require no additional action, but there are a few advanced scenarios which should be noted.
+One of the biggest differences between Mobile Apps and Mobile Services is that login is now handled by the App Service Gateway in the case of Mobile Apps, not the site running your code. If your resource group does not already have one, you can provision a gateway by navigating to your Azure Mobile App in the management portal. Then select **Settings**, and then **User authentication** under the **Mobile** category. Click **Create** to associate a gateway with your Mobile App.
+
+Beyond this, most applications will require no additional action, but there are a few advanced scenarios which should be noted.
 
 Most apps will be fine to simply use a new registration with the target identity provider, and you can learn about adding identity to an App Service app by following the [Add authentication to your mobile app] tutorial.
 
@@ -111,15 +108,15 @@ Additionally, if you take any dependencies on user IDs, it is important that you
 
 >[AZURE.NOTE] Some providers, such as Twitter and Microsoft Account, do not allow you to specify multiple redirect URIs on different domains. If your app uses one of these providers and takes a dependency on user IDs, it is advised that you do not attempt to migrate at this time.
 
-##<a name="updating clients"></a>Updating clients
+##<a name="updating-clients"></a>Updating clients
 Once you have an operational Mobile App backend, you can update your client application to consume the new Mobile App. Mobile Apps will also include a new version of the Mobile Services client SDKs, which will allow developers to take advantage of new App Service features. Once you have a Mobile App version of your backend, you can release a new version of your client application which leverages the new SDK version.
 
-The main change that will be required of your client code is in the constructor. In addition to the URL of your Mobile App Code site and the application key, you need to provide the URL of the App Service Gateway which hosts your authentication settings:
+The main change that will be required of your client code is in the constructor. In addition to the URL of your Mobile App site, you need to provide the URL of the App Service Gateway which hosts your authentication settings:
 
     public static MobileServiceClient MobileService = new MobileServiceClient(
-        "https://contoso.azurewebsites.net", //URL of the Mobile App Code
-        "https://contoso-gateway.azurewebsites.net", //URL of the App Service Gateway
-        "983682c4-f043-483e-a75b-8a8545fc1846"
+        "https://contoso.azurewebsites.net", // URL of the Mobile App
+        "https://contoso-gateway.azurewebsites.net", // URL of the App Service Gateway
+        "" // Formerly app key. To be removed in future client SDK update
     );
 
 This will allow the client to route requests to the components of your Mobile App. You can find more details specific to your target platform using the appropriate [Create a Mobile App] topic.
