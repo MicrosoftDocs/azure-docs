@@ -141,7 +141,7 @@ If you're working with the .NET (or Java) SDKs, you can use the new Point and Po
             Location = new Point (-122.12, 47.66) 
         });
 
-If you have the locations like the city name or address, but don't have the latitude and longitude information, you can look that up by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/en-us/library/ff701713.aspx).
+If you have the locations like the city name or address, but don't have the latitude and longitude information, you can look that up by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ##<a id="SpatialQuery"></a> Querying Spatial Types
 
