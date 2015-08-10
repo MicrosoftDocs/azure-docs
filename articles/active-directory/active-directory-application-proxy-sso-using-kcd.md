@@ -80,7 +80,7 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 
 >[AZURE.IMPORTANT] The UPNs in Azure Active Directory must be identical to the UPNs in your on-premises Active Directory in order for preauthentication to work. Make sure your Azure Active Directory is synchronized with your on-premises Active Directory.
 
-|||
+| | |
 | --- | --- |
 | Internal Authentication Method | If you use Azure AD for preauthentication, you can set an internal authentication method to enable your users to benefit from single-sign on (SSO) to this application. <br><br> Select Integrated Windows Authentication (IWA) if your application uses IWA and you can configure Kerberos Constrained Delegation (KCD) to enable SSO for this application. Applications that use IWA must be configured using KCD, otherwise Application Proxy will not be able to publish these applications. <br><br> Select None if your application does not use IWA. |
 | Internal Application SPN | This is the Service-Principal-Name (SPN) of the internal application as configured in the on-prem Azure AD. The SPN is used by the Application Proxy Connector to fetch Kerberos tokens for the application using Kerberos Constrained Delegation (KCD). |
@@ -88,4 +88,4 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-[3]: ./media/active-directory-application-proxy-sso-using-kcd/Properties2.png
+[3]: ./media/active-directory-application-proxy-sso-using-kcd/Properties3.jpg
