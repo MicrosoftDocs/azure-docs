@@ -502,18 +502,6 @@ Here are the supported index kinds and examples of queries that they can be used
         <tr>
             <td valign="top">
                 <p>
-                    <strong>Index kind</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Description/use case</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
                     Hash
                 </p>
             </td>
