@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="08/08/2015" 
 	ms.author="wesmc;donnam"/>
 
 # Using offline data sync in Mobile Services
@@ -242,8 +242,6 @@ In this section you will test push and pull operations to sync the local store w
 
     ![][10] 
   
-
-##Summary
 
 ##Summary
 
