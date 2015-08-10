@@ -88,4 +88,4 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-[3]: ./media/active-directory-application-proxy-sso-using-kcd/Properties3.jpg
+[3]: ./media/active-directory-application-proxy-sso-using-kcd/URLAuth.jpg
