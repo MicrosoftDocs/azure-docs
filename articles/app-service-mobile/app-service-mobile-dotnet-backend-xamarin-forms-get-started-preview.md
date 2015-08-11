@@ -61,8 +61,11 @@ You'll have to complete this tutorial before you try all the other tutorials for
 
   	This downloads a project that contains the mobile app backend code. Save the compressed project file to your local computer and make a note of where you saved it.
 
+####Test your backend project locally
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
 
+####Publish your backend project
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
