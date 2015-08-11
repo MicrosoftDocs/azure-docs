@@ -140,12 +140,12 @@ Linear regression algorithms assume that data trends follow a straight
 line. These assumptions aren't bad for some problems, but on others they
 bring accuracy down.
 
-![1]
+![Non-linear class bounday][1]
 
 ***Non-linear class boundary*** *- relying on a linear classification
 algorithm would result in low accuracy*
 
-![2]
+![Data with a nonlinear trend][2]
 
 ***Data with a nonlinear trend*** *- using a linear regression method would
 generate much larger errors than necessary*
@@ -240,7 +240,7 @@ simple and fast, but it may be overly simplistic for some problems.
 Check here for a [linear regression
 tutorial](machine-learning-linear-regression-in-azure.md).
 
-![3]
+![Data with a linear trend][3]
 
 ***Data with a linear trend***
 
@@ -257,7 +257,7 @@ dividing data into groups. Logistic regression gives linear class
 boundaries, so when you use it, make sure a linear approximation is
 something you can live with.
 
-![4]
+![Logistic regression to two-class data with just one feature][4]
 
 ***A logistic regression to two-class data with just one feature*** *- the
 class boundary is the point at which the logistic curve is just as close to both classes*
@@ -283,7 +283,7 @@ same thing—subdivide the feature space into regions with mostly the same
 label. These can be regions of consistent category or of constant value,
 depending on whether you are doing classification or regression.
 
-![5]
+![Decision tree subdivides a feature space][5]
 
 ***A decision tree subdivides a feature space into regions of roughly
 uniform values***
@@ -336,7 +336,7 @@ And for those overachievers who wish to [specify their own network
 structure](http://go.microsoft.com/fwlink/?LinkId=402867), the
 possibilities are inexhaustible.
 
-![6]
+![Boundaries learned by neural networks][6]
 ---------------------------
 
 ***The boundaries learned by neural networks can be complex and
@@ -363,7 +363,7 @@ or genomic. In these cases SVMs are able to separate classes more
 quickly and with less overfitting than most other algorithms, in
 addition to requiring only a modest amount of memory.
 
-![7]
+![Support vector machine class boundary][7]
 
 ***A typical support vector machine class boundary maximizes the margin
 separating two classes***
@@ -419,13 +419,13 @@ machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)s).
 And there is a lone clustering algorithm as well
 ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
 
-![8]
+![PCA-based anomaly detection][8]
 
 ***PCA-based anomaly detection*** *- the vast majority of the data falls
 into a stereotypical distribution; points deviating dramatically from
 that distribution are suspect*
 
-![9]
+![Data set grouped using K-means][9]
 
 ***A data set is grouped into 5 clusters using K-means***
 
@@ -435,7 +435,8 @@ which breaks the N-class classification problem into N-1 two-class
 classification problems. The accuracy, training time, and linearity
 properties are determined by the two-class classifiers used.
 
-![10]
+![Two-class classifiers combined to form a three-class
+classifier][10]
 
 ***A pair of two-class classifiers combine to form a three-class
 classifier***
