@@ -56,7 +56,7 @@ To use the portal:
 
 	![Create an availability set for a new virtual machine](./media/virtual-machines-how-to-configure-availability/VMavailabilityset.png)
 
-6. On the fourth screen, click the extensions that you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure VM Agent and VM Extensions](http://go.microsoft.com/fwlink/p/?LinkId=620762).
+6. On the fourth screen, click the extensions that you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure VM Agent and VM Extensions](virtual-machines-extensions-agent-about.md).
 
 7.	Click the arrow to create the virtual machine and the availability set.
 
