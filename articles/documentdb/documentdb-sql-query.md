@@ -1633,7 +1633,8 @@ Here's another example that uses ARRAY_LENGTH to get the number of children per 
 That wraps up built-in functions, and the SQL grammar for DocumentDB. Now let's take a look at how LINQ querying works and how it interacts with the grammar we've seen so far.
 
 ###Spatial Functions
-The following spatial functions perform an operation on a spatial input value. For details on geospatial support in DocumentDB, please see [Working with geospatial data in Azure DocumentDB](documentdb-geospatial.md). Here's a table of the built-in spatial functions:
+
+DocumentDB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more details on geospatial support in DocumentDB, please see [Working with geospatial data in Azure DocumentDB](documentdb-geospatial.md). 
 
 <table>
 <tr>
@@ -1654,11 +1655,11 @@ The following spatial functions perform an operation on a spatial input value. F
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid. If invalid, the reason is also returned as a string value.</td>
+  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.</td>
 </tr>
 </table>
 
-Spatial functions can be used to perform proximity querries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location.
+Spatial functions can be used to perform proximity querries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
 
 **Query**
 
@@ -1672,7 +1673,11 @@ Spatial functions can be used to perform proximity querries against spatial data
       "id": "WakefieldFamily"
     }]
 
-ST_WITHIN can be used to check if a point lies within a polygon. Polygons are commonly used to represent boundaries like zipcodes, state boundaries, or natural formations. In these queries, polygons can contain only a single ring, i.e. the polygons must not contain holes in them. Also check the [DocumentDB limits](documentdb-limits.md) for the maximum number of points allowed in a polygon for an ST_WITHIN query.
+If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more details on spatial indexing, please see the section below. If you don't have a spatial index for the specified paths, you can still perform spatial queries by specifying `x-ms-documentdb-query-enable-scan` request header with the value set to "true". In .NET, this can be done by passing the optional **FeedOptions** argument to queries with [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) set to true. 
+
+ST_WITHIN can be used to check if a point lies within a polygon. Commonly polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index. 
+
+Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons must not contain holes in them. Check the [DocumentDB limits](documentdb-limits.md) for the maximum number of points allowed in a polygon for an ST_WITHIN query.
 
 **Query**
 
@@ -1689,9 +1694,9 @@ ST_WITHIN can be used to check if a point lies within a polygon. Polygons are co
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE] Similar to how mismatched types work in DocumentDB query, if the location value specified in either argument is malformed or invalid, then it will evaluate to **undefined** and the evaluated document to be skipped from the query results. If your query returns no results, run ST_ISVALIDDETAILED to debug why the spatail type is invalid.     
+>[AZURE.NOTE] Similar to how mismatched types works in DocumentDB query, if the location value specified in either argument is malformed or invalid, then it will evaluate to **undefined** and the evaluated document to be skipped from the query results. If your query returns no results, run ST_ISVALIDDETAILED To debug why the spatail type is invalid.     
 
-ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out-of-range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
+ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out of range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
 
 ** Query **
 
@@ -1708,7 +1713,7 @@ These functions can also be used to validate polygons. For example, here we use 
 **Query**
 
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
-    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ], [ 31.8, -5 ] 
+    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
     	]]})
 
 **Results**
@@ -1716,7 +1721,7 @@ These functions can also be used to validate polygons. For example, here we use 
     [{
        "$1": { 
       	  "valid": false, 
-      	  "reason": "The polygon is not closed. The last coordinate must be the same as the first" 
+      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
       	}
     }]
     
