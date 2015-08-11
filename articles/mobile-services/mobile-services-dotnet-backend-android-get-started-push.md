@@ -51,7 +51,7 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add Google Play Services to the project
 
-[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Add code
 

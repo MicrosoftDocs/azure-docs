@@ -63,7 +63,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 ###Add Google Play Services to the project
 
-[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Add code
 
