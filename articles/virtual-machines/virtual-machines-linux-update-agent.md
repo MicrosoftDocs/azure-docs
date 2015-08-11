@@ -54,7 +54,7 @@ Install wget (there are some distros that don't install it by default such as Re
 
 Open [the release of Azure Linux Agent in Github](https://github.com/Azure/WALinuxAgent/releases) in a web page, and find out the latest version number. (You can locate your current version by typing `#waagent --version`.)
 
-###For the version 2.0.x, like 2.0.14
+###For the version 2.0.x, type:
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 
@@ -62,7 +62,7 @@ Open [the release of Azure Linux Agent in Github](https://github.com/Azure/WALin
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
-###For the version 2.1.x or later, like 2.1.0
+###For the version 2.1.x or later, type:
   
     #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
     #unzip WALinuxAgent-[version].zip
