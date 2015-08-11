@@ -5,16 +5,15 @@
    documentationCenter=""
    authors="cherylmc"
    manager="carolz"
-   editor=""
-   tags="azure-service-management"/>
-
+   editor=""/>
+ 
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="08/11/2015"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using the Management Portal
@@ -23,10 +22,11 @@
 - [Azure Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and creating a site-to-site VPN connection between your newly created VNet and your on-premises location.
+This topic will walk you through creating a classic virtual network and a site-to-site VPN connection to your on-premises network. 
 
-Azure currently has two management modes: Azure Service Management, and Azure Resource Manager (ARM). The site-to-site setup is different, depending on the mode your virtual network was created in.
-These instructions apply to Azure Service Management. If you want to create a Azure Resource Manager site-to-site VPN connection instead, see [Create a site-to-site VPN connection using Azure Resource Manager and PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+Azure currently has two deployment models: the classic deployment model, and the Azure Resource Manager deployment model. The configuration steps differ, depending on the model that was used to deploy your virtual network.
+
+These instructions apply to the classic deployment model. If you want to create a site-to-site VPN gateway connection using the Resource Manager model, see [Create a site-to-site VPN connection using Azure Resource Manager and PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Before beginning
