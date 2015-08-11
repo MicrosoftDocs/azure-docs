@@ -31,7 +31,7 @@ Azure is constantly changing. Currently there are two deployment models availabl
 - [PowerShell - config file](virtual-networks-create-vnet-classic-ps-xml.md)
 
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../includes/virtual-networks-create-vnet-scenario-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-classic-portal-include](../includes/virtual-networks-create-vnet-classic-portal-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-vnet-classic-portal-include](../../includes/virtual-networks-create-vnet-classic-portal-include.md)]
 
