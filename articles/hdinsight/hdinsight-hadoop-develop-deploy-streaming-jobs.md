@@ -3,6 +3,7 @@
 	description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
+	tags="azure-portal"
 	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
@@ -57,7 +58,7 @@ Template|Visual C#/Windows/Console Application
 Name|WordCountMapper
 Location|C:\Tutorials
 Solution name|WordCount
-
+	
 	
 4. Click **OK** to create the project.
 
@@ -551,10 +552,3 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [powershell-install]: ../powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce wordcount application flow"
-
-
-
-
-
-
- 
