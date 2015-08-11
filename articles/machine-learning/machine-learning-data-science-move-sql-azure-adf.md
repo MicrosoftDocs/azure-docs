@@ -47,7 +47,7 @@ We set up an ADF pipeline that composes two data migration activities that toget
 This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* An **Azure storage account**– You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Access to an **Azure SQL Database**. If you must setup an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](sql-database-get-started.md) provides information on how to provision a new instance of a Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
@@ -108,6 +108,8 @@ Three table definitions are needed for this ADF pipeline:
 1. [SQL on-premise Table](#adf-table-onprem-sql)
 2. [Blob Table ](#adf-table-blob-store)
 3. [SQL Azure Table](#adf-table-azure-sql)
+
+> [AZURE.NOTE]  The following procedures use Azure PowerShell to define and create the ADF activities. But these tasks can also be accomplished using the Azure preview portal. For details, see [Create input and output datasets](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
 
 ###<a name="adf-table-onprem-sql"></a>SQL on-premise Table
 
@@ -210,6 +212,8 @@ Specify the activities that belong to the pipeline and create the pipeline with 
 
 * The script assumes that the **pipeline name** is *AMLDSProcessPipeline*.
 * Also note that we set the periodicity of the pipeline to be executed on daily basis and use the default execution time for the job (12 am UTC).
+
+> [AZURE.NOTE]  The following procedures use Azure PowerShell to define and create the ADF pipeline. But this task can also be accomplished using the Azure preview portal. For details, see [Create and run a pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
 
 Using the table definitions provided above, the pipeline definition for the ADF is specified as follows:
     
