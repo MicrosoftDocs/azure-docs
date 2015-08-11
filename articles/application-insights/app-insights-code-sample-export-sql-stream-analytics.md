@@ -3,7 +3,7 @@
 	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 

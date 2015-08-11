@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Provision Apache Spark clusters in HDInsight | Azure" 
+   pageTitle="Provision Apache Spark clusters in HDInsight | Microsoft Azure" 
    description="Learn how to provision Spark clusters for Azure HDInsight by using the Azure portal, Azure PowerShell, a command line, or the HDInsight .NET SDK" 
    services="hdinsight" 
    documentationCenter="" 

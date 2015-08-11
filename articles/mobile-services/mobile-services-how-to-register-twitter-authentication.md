@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register for Twitter authentication - Mobile Services" 
+	pageTitle="Register for Twitter authentication | Microsoft Azure" 
 	description="Learn how to use Twitter authentication with your Azure Mobile Services application." 
 	services="mobile-services" 
 	documentationCenter="" 

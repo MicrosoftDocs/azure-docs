@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Learn about the latest Azure Guest OS Releases | Azure" 
+   pageTitle="Learn about the latest Azure Guest OS Releases | Microsoft Azure" 
    description="The latest release news and SDK compatibility for Azure Cloud Services Guest OS." 
    services="cloud-services" 
    documentationCenter="na" 
