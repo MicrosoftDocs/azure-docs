@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Price and performance considerations for an elastic database pool | Azure SQL Database elastic database pools" 
+	pageTitle="Price and performance considerations for an elastic database pool | Microsoft Azure" 
 	description="An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic database pool for a group of databases." 
 	services="sql-database" 
 	documentationCenter="" 

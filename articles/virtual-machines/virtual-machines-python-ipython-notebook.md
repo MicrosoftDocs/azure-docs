@@ -1,5 +1,5 @@
 <properties
-	pageTitle="IPython Notebook - Azure tutorial"
+	pageTitle="IPython Notebook | Microsoft Azure"
 	description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)."
 	services="virtual-machines"
 	documentationCenter="python"

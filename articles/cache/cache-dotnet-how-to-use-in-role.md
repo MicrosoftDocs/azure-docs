@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use In-Role Cache (.NET) - Azure feature guide" 
+	pageTitle="How to use In-Role Cache (.NET) | Microsoft Azure" 
 	description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." 
 	services="cache" 
 	documentationCenter=".net" 
