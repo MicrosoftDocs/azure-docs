@@ -25,6 +25,7 @@ You'll need:
 
 * A subscription with [Microsoft Azure](http://azure.com). You sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services.
 * Visual Studio 2015 or later.
+* Windows 10 Universal Application
 
 ## Create an Application Insights resource
 
