@@ -18,7 +18,7 @@
 	
 # Automatic Indexing in Azure DocumentDB
 
-This article is an introduction to how automatic indexing works in DocumentDB and excerpted from the ["Schema-Agnostic Indexing with Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper which will be presented at the [VLDB conference in 2015](http://www.vldb.org/2015/). 
+This article is excerpted from the ["Schema-Agnostic Indexing with Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper which will be presented at the [41st Internal Conference on Very Large Databases](http://www.vldb.org/2015/) between August 31 - September 4, 2015, and is an introduction into how indexing works in Azure DocumentDB. 
 
 After reading this, you will be answer the following questions:
 
