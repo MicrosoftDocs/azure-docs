@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stage a cloud service deployment (Node.js) - Azure" 
+	pageTitle="Stage a cloud service deployment (Node.js) | Microsoft Azure" 
 	description="Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -15,10 +15,6 @@
 	ms.topic="article" 
 	ms.date="02/25/2015" 
 	ms.author="mwasson"/>
-
-
-
-
 
 
 
@@ -40,7 +36,7 @@ This task includes the following steps:
 -   [Step 1: Stage an Application]
 -   [Step 2: Deploy an Application to Production by Swapping VIPs]
 
-<h2><a id="step1"></a>Step 1: Stage an Application</h2>
+## Step 1: Stage an Application
 
 This task covers how to stage an application by using the **Windows
 Azure PowerShell**.
@@ -69,7 +65,7 @@ version of one that has already been deployed to production, you can
 [upgrade the application in the production environment by swapping the
 VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
 
-<h2><a id="step2"></a>Step 2: Upgrade an Application in Production by Swapping VIPs</h2>
+## Step 2: Upgrade an Application in Production by Swapping VIPs
 
 After you have verified the upgraded version of an application in the
 staging environment, you can quickly make it available in production by

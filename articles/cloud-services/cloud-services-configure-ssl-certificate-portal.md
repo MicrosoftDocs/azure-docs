@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure SSL for a cloud service - Azure" 
+	pageTitle="Configure SSL for a cloud service | Microsoft Azure" 
 	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." 
 	services="cloud-services" 
 	documentationCenter=".net" 

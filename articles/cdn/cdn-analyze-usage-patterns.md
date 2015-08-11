@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="08/08/2015" 
 	ms.author="juliako"/>
 
 #Analyze CDN usage patterns 
@@ -118,7 +118,7 @@ The report doesn't include:
 - Requests for assets whose headers indicate that they should not be cached. For example, Cache-Control: private, Cache-Control: no-cache, or Pragma: no-cache headers will prevent an asset from being cached. 
 - Byte range requests for partially cached content.
 
-The formula is: (TCP_HIT/(TCP_HIT+TCP_MISS))*100
+The formula is: (TCP_ HIT/(TCP_ HIT+TCP_MISS))*100
 
 - Select Date range to view data for today/this week/this month, etc. or enter custom dates, then click "go" to make sure your selection is updated.
 - You can export and download the data by clicking the excel sheet icon located next to "go" .

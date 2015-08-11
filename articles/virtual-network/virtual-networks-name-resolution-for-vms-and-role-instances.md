@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="08/10/2015"
    ms.author="joaoma" />
 
 # Name Resolution for VMs and Role Instances
@@ -21,9 +21,9 @@ Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you may
 
 When role instances and VMs hosted in Azure need to resolve hostnames and domain names to internal IP addresses, they can use one of two methods:
 
-- [Azure-provided name resolution](azure-provided-name-resolution)
+- [Azure-provided name resolution](#azure-provided-name-resolution)
 
-- [Name resolution using your own DNS server](name-resolution-using-your-own-DNS-server) 
+- [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) 
 
 The type of name resolution you use depends on how your VMs and role instances need to communicate within your cloud service and with other cloud services.
 
@@ -109,7 +109,7 @@ You can specify multiple DNS servers to be used by your VMs and role instances. 
 
 ### Specifying a DNS server by using the Management Portal
 
-When you create your virtual network by using the Management Portal, you can specify the IP address and name of the DNS server (or servers) that you want to use. Once the virtual network is created, the virtual machines and role instances that you deploy to the virtual network are automatically configured with your specified DNS settings, unless you specify what DNS server(s) to use for the deployment. For more information about configuring settings for Azure Virtual Network, see [About Configuring a Virtual Network in the Management Portal](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+When you create your virtual network by using the Management Portal, you can specify the IP address and name of the DNS server (or servers) that you want to use. Once the virtual network is created, the virtual machines and role instances that you deploy to the virtual network are automatically configured with your specified DNS settings, unless you specify what DNS server(s) to use for the deployment. For more information about configuring settings for Azure Virtual Network, see [About Configuring a Virtual Network in the Management Portal](virtual-networks-settings.md).
 
 > [AZURE.NOTE] You can only use up to 9 DNS servers.
 
@@ -124,11 +124,14 @@ The service configuration file is created for each cloud service you add the Azu
 > [AZURE.NOTE] Settings in the service configuration file override settings in the network configuration file. For instance, if a VM is added to a cloud service that is part of a virtual network, and both the network configuration file and the service configuration file have DNS settings, the DNS settings in the service configuration file are applied to the VM.
 
 
-## See Also
+## Next steps
 
 [Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710)
+
 [Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
-[About Configuring Virtual Network Settings in the Management Portal](https://msdn.microsoft.com/library/azure/jj156074.aspx) 
-[Configure a Virtual Network by Using a Network Configuration File](https://msdn.microsoft.com/library/azure/jj156097.aspx) 
-[Azure Virtual Network Configuration Tasks](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+
+[About Configuring Virtual Network Settings in the Management Portal](virtual-networks-settings.md) 
+
+[Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md) 
+
 

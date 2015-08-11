@@ -25,8 +25,8 @@ The SFTP Connector enables you to move data from/to an SFTP server. It lets you 
 ## Creating an SFTP connector for your Logic App ##
 To use the SFTP connector, you need to first create an instance of the SFTP connector API app. This can be done as follows:
 
-1.	Open the Azure Marketplace using the + NEW option at the bottom left of the Azure Portal.
-2.	Browse to “Web and Mobile > API Apps” and search for “SFTP connector”.
+1.	Open the Azure Marketplace using the + NEW option at the top left of the Azure Portal.
+2.	Browse to “Web + Mobile” and search for “SFTP connector”.
 3.	Configure the SFTP connector as follows:
 
 	![][1]
@@ -39,9 +39,9 @@ To use the SFTP connector, you need to first create an instance of the SFTP conn
 	- **Package settings**
 		- **Server Address** - Specify the SFTP Server name or IP address
 		- **Accept Any SSH Server HostKey** - Determines if any SSH public host key fingerprint from the Server should be accepted. If set to false, the host key will be matched against the key specified in the “SSH Server Host Key Finger Print” property
-		- **SSH Server HostKey** - Specify the fingerprint of the public host key for the SSH server.
-		- **Root Folder** - Specify a root folder path
-		- **Encrypt Cipher** - Specify the encryption cipher.
+		- **SSH Server HostKey** - Specify the fingerprint of the public host key for the SSH server - *optional*.
+		- **Root Folder** - Specify a root folder path.  If blank will default to root.
+		- **Encrypt Cipher** - Specify the encryption cipher - *optional*.
 		- **Server Port** - Specify the SFTP Server port number
 4. Click on Create. A new SFTP Connector will be created.
 
