@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Continuous delivery with Visual Studio Online in Azure" 
-	description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="kempb" 
-	manager="douge" 
+<properties
+	pageTitle="Continuous delivery with Visual Studio Online in Azure"
+	description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="kempb"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/08/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015" 
 	ms.author="kempb"/>
 
 
@@ -189,7 +189,7 @@ This step applies only to web apps, not cloud services. To put a quality gate on
 
 		using System;
 		using Microsoft.VisualStudio.TestTools.UnitTesting;
-		
+
 		namespace UnitTestProject1
 		{
 		    [TestClass]
@@ -225,7 +225,7 @@ This step applies only to web apps, not cloud services. To put a quality gate on
 <br/>
 ![][47]
 
-8.  Try creating a test that will fail. Add a new test by copying the first one, rename it, and comment out the line of code that states NotImplementedException is an expected exception. 
+8.  Try creating a test that will fail. Add a new test by copying the first one, rename it, and comment out the line of code that states NotImplementedException is an expected exception.
 
 		[TestMethod]
 		//[ExpectedException(typeof(NotImplementedException))]
@@ -304,4 +304,3 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
- 

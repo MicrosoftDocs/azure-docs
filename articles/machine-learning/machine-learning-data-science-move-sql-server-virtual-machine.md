@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move data to SQL Server on Azure| Microsoft Azure" 
-	description="Move data to SQL Server on Azure" 
+	pageTitle="Move data to SQL Server on an Azure virtual machine| Azure" 
+	description="Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
@@ -14,24 +14,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
-	ms.author="fashah;garye;mohabib;bradsev" /> 
+	ms.date="08/10/2015" 
+	ms.author="fashah;mohabib;bradsev" /> 
 
-#Move data to SQL Server on Azure
+# Move data to SQL Server on an Azure virtual machine
 
-This document covers the movement of data from flat files (csv/tsv) or an on-premises SQL Server to a SQL Server on Azure. This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning.
+This document outlines the options for moving data either from flat files (CSV or TSV formats) or from an on-premise SQL Server to SQL Server on an Azure virtual machine. These tasks for moving data to the cloud are part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning.
 
+For a topic that outlines the options for moving data to an Azure SQL Database for Machine Learning, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
+The following table summarizes the options for moving data to SQL Server on an Azure virtual machine.
 <table>
 
 <tr>
 <td><b>SOURCE</b></td>
-<td colspan="2" align="center"><b>DESTINATION</b></td>
-</tr>
-
-<tr>
-  <td></td>
-  <td><b>SQL Server VM on Azure</b></td>
+<td colspan="2" align="center"><b>DESTINATION: SQL Server on Azure VM</b></td>
 </tr>
 
 <tr>
@@ -57,17 +54,16 @@ Note that this document assumes that SQL commands are executed from SQL Server M
 > [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../data-factory/data-factory-copy-activity.md).
 
 
-## <a name="sqlonazurevm"></a>Moving your data to a SQL Server VM on an Azure
+## <a name="prereqs"></a>Prerequisites
+This tutorial assumes you have:
 
-This section documents the process of moving data to a SQL Server VM on Azure. If you haven't set up the SQL Server VM, provision a new SQL Server virtual machine for advanced analytics as described in [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](machine-learning-data-science-setup-sql-server-virtual-machine.md). 
-
-This document describes moving data from the following data sources: 
-  
-1. [From flat files](#filesource_to_sqlonazurevm) 
-2. [From an On-Premises SQL Server](#sqlonprem_to_sqlonazurevm)
+* An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](machine-learning-data-science-setup-sql-server-virtual-machine.md).
+* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
 
-### <a name="filesource_to_sqlonazurevm"></a>File source
+## <a name="filesource_to_sqlonazurevm"></a> Moving data from a flat file source to SQL Server on an Azure VM
 
 If your data is in a flat file (arranged in a row/column format), it can be moved to SQL Server VM on Azure via the following methods:
 
@@ -104,7 +100,7 @@ BCP is a command line utility installed with SQL Server and is one of the quicke
 
 > **Optimizing BCP Inserts** Please refer the following article ['Guidelines for Optimizing Bulk Import'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) to optimize such inserts.
 
-#### <a name="insert-tables-bulkquery-parallel"></a>Parallelizing Inserts for Faster Data Movement
+### <a name="insert-tables-bulkquery-parallel"></a>Parallelizing Inserts for Faster Data Movement
 
 If the data you are moving is large, you can speed things up by simultaneously executing multiple BCP commands in parallel in a PowerShell Script.
 
@@ -180,7 +176,7 @@ SSIS is available in two studio environments. For details, see [Integration Serv
 - For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
 - For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](https://msdn.microsoft.com/library/ms141209.aspx)
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from On-Premises SQL Server
+## <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from on-premise SQL Server to SQL Server on an Azure VM
 
 Data can be moved from an on premise SQL Server as follows:
 
@@ -190,7 +186,7 @@ Data can be moved from an on premise SQL Server as follows:
 
 We describe each of these below:
 
-#### <a name="export-flat-file"></a>Export to Flat File
+### <a name="export-flat-file"></a>Export to Flat File
 
 Various methods can be used to bulk export data from an On-Premises SQL Server as documented [here](https://msdn.microsoft.com/library/ms175937.aspx). This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import. 
 
@@ -213,13 +209,13 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 	
 4. Use any of the methods described in section [Moving Data from File Source](#filesource_to_sqlonazurevm) to move the data in flat files to a SQL Server.
 
-#### <a name="sql-migration"></a>SQL Database Migration Wizard
+### <a name="sql-migration"></a>SQL Database Migration Wizard
 
 [SQL Server Database Migration Wizard](http://sqlazuremw.codeplex.com/) provides a  user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionality. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
 
 ![SQL Server Migration Wizard][2]
 
-#### <a name="sql-backup"></a>Database backup and restore
+### <a name="sql-backup"></a>Database backup and restore
 
 SQL Server supports: 
 

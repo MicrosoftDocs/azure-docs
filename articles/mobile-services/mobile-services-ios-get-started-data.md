@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add Mobile Services to an existing app (iOS) | Mobile Dev Center"
+	pageTitle="Add Mobile Services to an existing app (iOS) | Microsoft Azure"
 	description="Learn how to get started using Mobile Services to leverage data in your iOS app."
 	services="mobile-services"
 	documentationCenter="ios"
