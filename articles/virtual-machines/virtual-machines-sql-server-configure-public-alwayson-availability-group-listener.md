@@ -39,13 +39,13 @@ Note the following limitations on the availability group listener in Azure when 
 
 >[AZURE.NOTE] This tutorial focuses on using PowerShell to create a listener for an Availability Group that includes Azure replicas. For more information on how to configure listeners using SSMS or Transact-SQL, see [Create or Configure an Availability Group Listener](https://msdn.microsoft.com/library/hh213080.aspx).
 
-## Determine the accessibility of the Listener in Azure
+## Determine the accessibility of the Listener
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
 >[AZURE.NOTE] This article focuses on creating a listener that uses **external load balancing**. If you want a listener that is private to your virtual network, see the version of this article that provides steps for setting up an [listener with ILB](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
 
-## Step 2: Create load-balanced VM endpoints with direct server return in Azure
+## Create load-balanced VM endpoints with direct server return
 
 External load balancing uses the virtual the public Virtual IP address of the cloud service that hosts your VMs. So you do not need to create or configure the load balancer in this case. 
 
@@ -65,11 +65,11 @@ External load balancing uses the virtual the public Virtual IP address of the cl
 
 1. Once you have set the variables, copy the script from the text editor into your Azure PowerShell session to run it. If the prompt still shows >>, type ENTER again to make sure the script starts running.
 
-## Verify that KB2854082 is installed on all Windows Server 2008 R2 and Windows Server 2012 cluster nodes
+## Verify that KB2854082 is installed if necessary
 
 [AZURE.INCLUDE [kb2854082](../../includes/virtual-machines-ag-listener-kb2854082.md)]
 
-## Open the firewall ports in availability group nodes in Azure
+## Open the firewall ports in availability group nodes
 
 [AZURE.INCLUDE [firewall](../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
@@ -100,11 +100,11 @@ External load balancing uses the virtual the public Virtual IP address of the cl
 
 1. Repeat this on each VM. This script configures the IP Address resource with the IP address of the cloud service and sets other parameters like the probe port. When the IP Address resource is brought online, it can then respond to the polling on the probe port from the load-balanced endpoint created earlier in this tutorial.
 
-## Bring listener online
+## Bring the listener online
 
 [AZURE.INCLUDE [Bring-Listener-Online](../../includes/virtual-machines-ag-listener-bring-online.md)]
 
-## Follow-up after creating the availability group listener
+## Follow-up items
 
 [AZURE.INCLUDE [Follow-up](../../includes/virtual-machines-ag-listener-follow-up.md)]
 
@@ -112,7 +112,7 @@ External load balancing uses the virtual the public Virtual IP address of the cl
 
 [AZURE.INCLUDE [Test-Listener-Within-VNET](../../includes/virtual-machines-ag-listener-test.md)]
 
-## Test the availability group listener (Azure public IP over the internet)
+## Test the availability group listener (over the internet)
 
 In order to access the listener from outside the virtual network, you must be using external/public load balancing (described in this topic) rather than ILB, which is only accesible within the same VNet. In the connection string, you specify the cloud service name. For example, if you had a cloud service with the name *mycloudservice*, the sqlcmd statement would be as follows:
 
