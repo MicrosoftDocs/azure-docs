@@ -63,11 +63,11 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
 2. In Windows 2012 R2, use the `principalsallowedtodelegateto` property on the Connector server to enable the Application Proxy to delegate for the Connector server, where the published server is `sharepointserviceaccount` and the delegating server is `connectormachineaccount`.
 
-    `$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com`
+		$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
 
-    `Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector`
+		Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-    `Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount`
+		Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 
 >[AZURE.NOTE] `sharepointserviceaccount` can be the SPS machine account or a service account under which the SPS app pool is running.
