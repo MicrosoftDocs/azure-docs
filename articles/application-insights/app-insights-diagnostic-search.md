@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
@@ -34,6 +34,8 @@ For example, if your application is a web service, the overview blade shows a ch
 
 
 The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
+
+Events typically show up in diagnostic search before they appear in metric explorer. Although the blade refreshes itself at intervals, you can click Refresh if you're waiting for a particular event.
 
 
 ## Inspect individual items

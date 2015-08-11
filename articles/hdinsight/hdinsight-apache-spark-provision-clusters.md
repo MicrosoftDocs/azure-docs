@@ -1,25 +1,24 @@
-<properties 
-    pageTitle="Provision Apache Spark clusters in HDInsight | Azure" 
-    description="Learn how to provision Spark clusters for Azure HDInsight by using the Azure portal, Azure  PowerShell, a command line, or the HDInsight .NET SDK" 
-    services="hdinsight" 
-    documentationCenter="" 
-    authors="nitinme" 
-    manager="paulettm" 
-    editor="cgronlun"
-	tags="azure-portal"/>
-
+<properties
+   pageTitle="Provision Apache Spark clusters in HDInsight | Microsoft Azure"
+   description="Learn how to provision Spark clusters for Azure HDInsight by using the Azure portal, Azure PowerShell, a command line, or the HDInsight .NET SDK."
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
+   editor="cgronlun"
+   tags="azure-portal"/>
 <tags
     ms.service="hdinsight"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="big-data" 
+    ms.workload="big-data"
     ms.date="08/07/2015"
     ms.author="nitinme"/>
 
 # Provision Apache Spark clusters in HDInsight using custom options
 
-For most scenarios, you can provision a Spark cluster using the quick create method as described in [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md). In certain scenarios, you might want to provision a customized cluster. For example, you might want to attach an external metadata store to keep your Hive metadata persistent beyond the lifetime of a cluster, or you might want to use additional storage with the cluster. 
+For most scenarios, you can provision a Spark cluster using the quick create method as described in [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md). In certain scenarios, you might want to provision a customized cluster. For example, you might want to attach an external metadata store to keep your Hive metadata persistent beyond the lifetime of a cluster, or you might want to use additional storage with the cluster.
 
 For such and other scenarios, this article provides instructions on how to use the Azure portal, Azure PowerShell, or the HDInsight .NET SDK to provision a customized Spark cluster on HDInsight.  
 
@@ -32,9 +31,9 @@ Before you begin the instructions in this article, you must have an Azure subscr
 
 ###Additional storage
 
-During configuration, you must specify an Azure Blob storage account and a default container. This is used as the default storage location by the cluster. Optionally, you can specify an additional Azure Storage account that will also be associated with the cluster.   
+During configuration, you must specify an Azure Blob storage account and a default container. This is used as the default storage location by the cluster. Optionally, you can specify an additional Azure Storage account that will also be associated with the cluster.
 
->[AZURE.NOTE] Don't share one Blob storage container for multiple clusters. This is not supported. 
+>[AZURE.NOTE] Don't share one Blob storage container for multiple clusters. This is not supported.
 
 For more information on using secondary Blob stores, see [Using Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
@@ -103,41 +102,41 @@ Spark clusters on HDInsight use an Azure Blob storage container as the default f
 7. Click **Data Source** to choose an existing data source for the cluster, or create a new one.
 
 	![Data source blade](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.4.png "Provide data source configuration")
-	
+
 	Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the **Data Source** blade.
-	
+
 	- **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
-	
+
 	- **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
-	
-	- **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster. 
-	
+
+	- **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
+
 	- **Location**: The geographic region that the storage account is in, or will be created in.
-	
+
 		> [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
-		
+
 	Click **Select** to save the data source configuration.
 
 8. Click **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of the cluster will be shown within the blade.
 
 	![Node pricing tiers blade](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.5.png "Specify number of cluster nodes")
-	
+
 	Click **Select** to save the node pricing configuration.
 
 9. Click **Optional Configuration** to select the cluster version, as well as configure other optional settings such as joining a **Virtual Network**, setting up an **External Metastore** to hold data for Hive and Oozie, use Script Actions to customize a cluster to install custom components, or use additional storage accounts with the cluster.
 
 	* Click the **HDInsight Version** drop-down and select the version you want to use for the cluster. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 
-	* Click **Virtual Network** to provide configuration details to configure the cluster as part of a virtual network. In the **Virtual Network** blade, click **Virtual Network** and then click a network you want to use. Similarly, select a **Subnet** for the network, and then click **Select** to save the virtual network configuration.   
-  
+	* Click **Virtual Network** to provide configuration details to configure the cluster as part of a virtual network. In the **Virtual Network** blade, click **Virtual Network** and then click a network you want to use. Similarly, select a **Subnet** for the network, and then click **Select** to save the virtual network configuration.
+
 		![Virtual network blade](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
-	
+
 	* Click **External Metastores** to specify SQL database that you want to use to save Hive and Oozie metadata associated with the cluster.
 
 		![Custom metastores blade](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
-		For **Use an existing SQL DB for Hive** metadata, click **Yes**, select a SQL database, and then provide the username/password for the database. Repeat these steps if you want to **Use an existing SQL DB for Oozie metadata**. Click **Select** till you are back on the **Optional Configuration** blade. 
-	
+		For **Use an existing SQL DB for Hive** metadata, click **Yes**, select a SQL database, and then provide the username/password for the database. Repeat these steps if you want to **Use an existing SQL DB for Oozie metadata**. Click **Select** till you are back on the **Optional Configuration** blade.
+
 		>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
 
 	* Click **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). On the Script Actions blade provide the details as shown in the screen capture.
@@ -149,7 +148,7 @@ Spark clusters on HDInsight use an Azure Blob storage container as the default f
 	* Click **Azure Storage Keys** to specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
 
 		![Additional storage blade](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
-	
+
 		Click **Select** till you are back on the **New HDInsight cluster** blade.
 
 10. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.
@@ -160,7 +159,7 @@ Spark clusters on HDInsight use an Azure Blob storage container as the default f
 
 	> [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
 
-11. Once the provisioning completes, click the tile for the cluster from the Startboard to launch the cluster blade. The cluster blade provides essential information about the cluser such as the name, the resource group it belongs to, the location, the operating system, URL for the cluster dashboard, etc. 
+11. Once the provisioning completes, click the tile for the cluster from the Startboard to launch the cluster blade. The cluster blade provides essential information about the cluser such as the name, the resource group it belongs to, the location, the operating system, URL for the cluster dashboard, etc.
 
 	![Cluster blade](./media/hdinsight-apache-spark-provision-clusters/HDI.Cluster.Blade.png "Cluster properties")
 
@@ -184,7 +183,7 @@ Spark clusters on HDInsight use an Azure Blob storage container as the default f
 
 	* **Tags** (![tag icon](./media/hdinsight-apache-spark-provision-clusters/tags.png)): Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
 
-	* **Cluster Dashboard**: Launches the Cluster Dashboard blade from where you can either launch the cluster dashboard itself, or launch Zeppelin and Jupyter notebooks. 
+	* **Cluster Dashboard**: Launches the Cluster Dashboard blade from where you can either launch the cluster dashboard itself, or launch Zeppelin and Jupyter notebooks.
 
 
 ##<a id="powershell"></a> Using Azure PowerShell
@@ -201,55 +200,55 @@ The following procedures are needed to provision an HDInsight cluster by using A
 
 
 		# Use the new Azure Resource Manager mode
-		Switch-AzureMode AzureResourceManager 
-		
+		Switch-AzureMode AzureResourceManager
+
 		###########################################
 		# Create required items, if none exist
 		###########################################
-		
+
 		# Sign in
 		Add-AzureAccount
-		
+
 		# Select the subscription to use
 		$subscriptionName = "<SubscriptionName>"        # Provide your Subscription Name
 		Select-AzureSubscription -SubscriptionName $subscriptionName
-		
+
 		# Register your subscription to use HDInsight
 		Register-AzureProvider -ProviderNamespace "Microsoft.HDInsight" -Force
-		
+
 		# Create an Azure Resource Group
 		$resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
 		$location = "<Location>"                        # For example, "West US"
 		New-AzureResourceGroup -Name $resourceGroupName -Location $location
-		
+
 		# Create an Azure Storage account
 		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
 		New-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
-		
+
 		# Create an Azure Blob Storage container
 		$containerName = "<ContainerName>"              # Provide a container name
 		$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 		New-AzureStorageContainer -Name $containerName -Context $destContext
-		
+
 		###########################################
 		# Create an HDInsight Cluster
 		###########################################
-		
+
 		# Skip these variables if you just created them
 		$resourceGroupName = "<ResourceGroupName>"      # Provide the Resource Group name
 		$storageAccountName = "<StorageAcccountName>"   # Provide the Storage account name
 		$containerName = "<ContainerName>"              # Provide the container name
 		$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-		
+
 		# Set these variables
 		$clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
 		$clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
 		$credentials = Get-Credential
-		
+
 		# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
 		$location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
-		
+
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Spark
 
@@ -311,8 +310,8 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 		using Microsoft.Azure.Management.HDInsight.Job.Models;
 		using Microsoft.Azure.Management.HDInsight.Models;
 		using Newtonsoft.Json;
-		
-		
+
+
 		namespace CreateHDICluster
 		{
 		    internal class Program
@@ -320,7 +319,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 		        private static ProfileClient _profileClient;
 		        private static SubscriptionCloudCredentials _cloudCredentials;
 		        private static HDInsightManagementClient _hdiManagementClient;
-		
+
 		        private static Guid SubscriptionId = new Guid("<SubscriptionID>");
 		        private const string ResourceGroupName = "<ResourceGroupName>";
 		        private const string ExistingStorageName = "<storageaccountname>.blob.core.windows.net";
@@ -334,21 +333,21 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 		        private const string NewClusterVersion = "3.2";
 		        private const string NewClusterUsername = "admin";
 		        private const string NewClusterPassword = "<password>";
-		        
+
 		        private static void Main(string[] args)
 		        {
 		            System.Console.WriteLine("Start cluster provisioning");
-		
+
 		            _profileClient = GetProfile();
 		            _cloudCredentials = GetCloudCredentials();
 		            _hdiManagementClient = new HDInsightManagementClient(_cloudCredentials);
-		
+
 		            System.Console.WriteLine(String.Format("Creating the cluster {0}...", NewClusterName));
 		            CreateCluster();
 		            System.Console.WriteLine("Done. Press any key to continue.");
 		            System.Console.ReadKey(true);
 		        }
-		
+
 		        private static void CreateCluster()
 		        {
 		            var parameters = new ClusterCreateParameters
@@ -363,34 +362,34 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 		                ClusterType = NewClusterType,
 		                OSType = NewClusterOsType
 		            };
-		
+
 		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
 		        }
-		
+
 		        private static ProfileClient GetProfile(string username = null, SecureString password = null)
 		        {
 		            var profileClient = new ProfileClient(new AzureProfile());
 		            var env = profileClient.GetEnvironmentOrDefault(EnvironmentName.AzureCloud);
 		            var acct = new AzureAccount { Type = AzureAccount.AccountType.User };
-		
+
 		            if (username != null && password != null)
 		                acct.Id = username;
-		
+
 		            profileClient.AddAccountAndLoadSubscriptions(acct, env, password);
-		
+
 		            return profileClient;
 		        }
-		
+
 		        private static SubscriptionCloudCredentials GetCloudCredentials()
 		        {
 		            var sub = _profileClient.Profile.Subscriptions.Values.FirstOrDefault(s => s.Id.Equals(SubscriptionId));
-		
+
 		            Debug.Assert(sub != null, "subscription != null");
 		            _profileClient.SetSubscriptionAsDefault(sub.Id, sub.Account);
-		
+
 		            return AzureSession.AuthenticationFactory.GetSubscriptionCloudCredentials(_profileClient.Profile.Context);
 		        }
-		
+
 		    }
 		}
 
@@ -399,7 +398,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 ##<a id="nextsteps"></a> Next steps
 
-* See [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md) to learn how to use Apache Spark in HDInsight with BI tools like Power BI and Tableau. 
+* See [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md) to learn how to use Apache Spark in HDInsight with BI tools like Power BI and Tableau.
 * See [Use Spark in HDInsight for building machine learning applications](hdinsight-apache-spark-ipython-notebook-machine-learning.md) to learn how to build machine learning applications using Apache Spark on HDInsight.
 * See [Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md) to learn how to build streaming applications using Apache Spark on HDInsight.
 * See [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md) to learn how to use the Resource Manager to manage resources allocated to the Spark cluster.

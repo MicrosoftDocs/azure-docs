@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Service Bus relay (.NET) - Azure" 
+	pageTitle="How to use Service Bus relay (.NET) | Microsoft Azure" 
 	description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." 
 	services="service-bus" 
 	documentationCenter=".net" 

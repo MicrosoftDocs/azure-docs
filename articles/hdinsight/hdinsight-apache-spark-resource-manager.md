@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Azure" 
+	pageTitle="Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Microsoft Azure" 
 	description="Learn how to use the Resource Manager for Spark clusters on HDInsight for better performance." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -81,10 +81,3 @@ Specify thrift server core Count and thrift Server executor memory as 0. With no
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-
-
-
-
-
-
-

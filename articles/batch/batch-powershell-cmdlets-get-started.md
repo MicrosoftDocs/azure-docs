@@ -13,14 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="07/08/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
 
 # Get started with Azure Batch PowerShell cmdlets
 This article is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and get information about your Batch jobs, tasks, and other details.
 
 For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
-a
 
 ## Prerequisites
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Azure storage for SQL Server backup and restore | Azure"
+	pageTitle="How to use Azure storage for SQL Server backup and restore | Microsoft Azure"
 	description="Backup SQL Server and SQL Database to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage, and which SQL Server and Azure Storage components are required"
 	services="sql-database, virtual-machines"
 	documentationCenter=""

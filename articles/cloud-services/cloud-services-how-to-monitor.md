@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to monitor a cloud service - Azure" 
+	pageTitle="How to monitor a cloud service | Microsoft Azure" 
 	description="Learn how to monitor cloud services by using the Azure Management Portal." 
 	services="cloud-services" 
 	documentationCenter="" 

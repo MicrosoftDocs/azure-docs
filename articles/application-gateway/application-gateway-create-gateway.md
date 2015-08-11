@@ -17,6 +17,12 @@
 
 # Create, start, or delete an Application Gateway
 
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](application-gateway-create-gateway.md)
+- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+
+
 In this release, you can create an Application Gateway by using PowerShell or REST API calls. Portal and CLI support will be provided in an upcoming release.
 This article walks you through the steps to create and configure, start, and delete an application gateway.
 
@@ -220,13 +226,6 @@ The following example will show how to configure the application gateway using c
 ### Step 1
 
 Create all individual configuration items:
-
-Create front end IP:
-
-	PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration 
-	PS C:\> $fip.Name = "fip1" 
-	PS C:\> $fip.Type = "Private" 
-	PS C:\> $fip.StaticIPAddress = "10.0.0.5" 
 
 Create front end port:
 	
