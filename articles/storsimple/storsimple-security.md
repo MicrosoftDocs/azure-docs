@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple security" 
+   pageTitle="StorSimple security | Microsoft Azure" 
    description="Describes the security and privacy features that protect your StorSimple service, device, and data." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/19/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos"/>
 
 # StorSimple security 
@@ -50,7 +50,7 @@ The StorSimple device is an on-premises hybrid storage device that contains soli
 
 Only authorized StorSimple devices are allowed to join the StorSimple Manager service that you created in your Azure subscription. 
 
-To authorize a device, you must register it with the StorSimple Manager service by providing the service registration key. The service registration key is a 128-bit random key generated in the portal. To learn how get a service registration key, go to [Step 2: Get the service registration key](https://msdn.microsoft.com/library/azure/dn772346.aspx).
+To authorize a device, you must register it with the StorSimple Manager service by providing the service registration key. The service registration key is a 128-bit random key generated in the portal. To learn how get a service registration key, go to [Step 2: Get the service registration key](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
 > [AZURE.NOTE] The service registration key is a long key that contains 100+ characters. We recommend that you copy the key and save it in a text file in a secure location so that you can use it to authorize additional devices as necessary.
 > 
@@ -134,9 +134,9 @@ The primary purpose of the StorSimple Manager service is to manage and configure
 > [AZURE.IMPORTANT]
 > 
 > * The service data encryption key is generated only on the first device registered with the service. All subsequent devices that are registered with the service must use the same service data encryption key. It is very important to make a copy of this key and save it in a secure location. A copy of the service data encryption key should be stored in such a way that it can be accessed by an authorized person and can be easily communicated to the device administrator.
-> * You can change the service data encryption key and the corresponding data encryption certificate by selecting the Change service data encryption key option on the service dashboard. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Service dashboard](https://msdn.microsoft.com/library/azure/dn772326.aspx).
+> * You can change the service data encryption key and the corresponding data encryption certificate by selecting the Change service data encryption key option on the service dashboard. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Use the service dashboard](storsimple-service-dashboard.md).
 > * To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key.
-> * If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state. We recommend that you change the service data encryption key after it is retrieved. For instructions, go to [Change the service data encryption key](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01).
+> * If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state. We recommend that you change the service data encryption key after it is retrieved. For instructions, go to [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > * The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key on a regular schedule to help prevent key compromise.</li></ul>
 
 
@@ -183,20 +183,20 @@ The following are some questions and answers about security and Microsoft Azure 
 
 **A:** You should immediately change the service data encryption key and the storage account keys for the storage account that is being used for tiering data. For instructions, go to: 
 
-- [Change the service data encryption key](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
-- [Key rotation of storage accounts](https://msdn.microsoft.com/library/azure/1747f56e-858a-4cfe-a020-949d7db23b8b#rotate)
+- [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Key rotation of storage accounts](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **Q:** I have a new StorSimple device that is asking for the service registration key. How do I retrieve it?
 
 **A:** This key was created when you first created the StorSimple Manager service. When you use the StorSimple Manager service to connect to the device, you can use the service quick start page to view or regenerate the service registration key. Generating a new service registration key will not affect the existing registered devices. For instructions, go to:
 
-- [View or regenerate the service registration key](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#BKMK_viewsrk)
+- [View or regenerate the service registration key](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
 **Q:** I lost my service data encryption key. What do I do?
 
 **A:** Contact Microsoft Support. They can log on to a support session on your device and help you retrieve the key. Immediately after you obtain the service data encryption key, you should change it to ensure that the new key is known only to you. For instructions, go to:
 
-- [Change the service data encryption key](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
+- [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
 **Q:**  I authorized a device for a service data encryption key change, but did not start the key change process. What should I do?
 
@@ -210,18 +210,16 @@ The following are some questions and answers about security and Microsoft Azure 
 
 **A:** Change and reset the passwords that allow access to the StorSimple device, and change the service data encryption key to ensure that the new information is not known to unauthorized personnel. For instructions, go to:
 
-- [Configure StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
-- [Configure the device administrator password](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
-- [Configure Remote Management](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec10)
-- [Configure the CHAP initiator](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec06)
-- [Configure the CHAP target](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec07)
+- [Use the StorSimple Manager service to change your storsimple passwords](storsimple-change-passwords.md)
+- [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Configure CHAP for your StorSimple device](storsimple-configure-chap.md)
 
 **Q:** I want to provide the StorSimple Snapshot Manager password to a host that is connecting to the StorSimple device, but the password is not available. What can I do?
 
 **A:** If you have forgotten the password, you should create a new one. Then, be sure to inform all existing users that the password has been changed and that they should update their clients to use the new password. For instructions, go to:
 
-- [Configure Snapshot Manager](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
-- [Authenticate a device](https://msdn.microsoft.com/library/azure/dn790537.aspx)
+- [Change the StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
+- [Authenticate a device](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
 **Q:** The certificate for remote access to the Windows PowerShell for StorSimple has been changed on the device. How do I update my remote access clients?
 
@@ -243,5 +241,5 @@ The following are some questions and answers about security and Microsoft Azure 
 
 ## Next steps
 
-[Get started with physical device](https://msdn.microsoft.com/library/azure/dn772410.aspx)
+[Deploy your StorSimple device](storsimple-deployment-walkthrough.md)
  
