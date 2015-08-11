@@ -142,35 +142,15 @@ consumption based on the account structure populated by the tags.
 
 ### Microsoft Azure Tags
 
-The data available
-through the Azure Usage API includes not only consumption information, but also
-resource metadata including any tags associated with it.
+The data available through the Azure Usage API includes not only consumption information, but also resource metadata including any tags associated with it. Tags provide an easy way to organize your resources, but in order to be effective, you need to ensure that:
 
-Tags provide an easy way
-to organize your resources, but in order to be effective, you need to ensure
-that:
+- Tags are correctly applied to the resources at provision time
+- Tags are properly used on the Showback/Chargeback process to tie the usage to the organization’s account structure.
 
--     
-Tags are correctly applied
-to the resources at provision time;
+Both of these requirements can be challenging, especially when there is some sort of manual process on the provision or charging side. Mistyped, incorrect or even missing tags are common complaints from customers when using tags and these errors can make life on the charging side very difficult.
 
--     
-Tags are properly used on
-the Showback/Chargeback process to tie the usage to the organization’s account
-structure.
- 
-Both of these
-requirements can be challenging, especially when there is some sort of manual
-process on the provision or charging side. Mistyped, incorrect or even missing
-tags are common complaints from customers when using tags and these errors can
-make life on the charging side very difficult.
- 
-
-With the new Azure Usage API, Cloud Cruiser can pull resource tagging information, and through a very sophisticated ETL tool called workbooks, fix these common tagging errors.
-Through transformation steps leveraging regular expressions and data
-correlation, Cloud Cruiser is able to identify incorrectly tagged resources and
-apply the correct tags, filling the gaps and ensuring the correct association
-of the resources with the consumer.
+With the new Azure Usage API, Cloud Cruiser can pull resource tagging information, and through a very sophisticated ETL tool called workbooks, fix these common tagging errors. Through transformation steps leveraging regular expressions and data
+correlation, Cloud Cruiser is able to identify incorrectly tagged resources and apply the correct tags, filling the gaps and ensuring the correct association of the resources with the consumer.
 
 On the charging side,
 Cloud Cruiser automates the Showback/Chargeback process, and can leverage the
