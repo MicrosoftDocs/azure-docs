@@ -191,9 +191,9 @@ of the data or the desired results. If you can find one that fits your
 needs, it can give you more useful results, more accurate predictions,
 or faster training times.
 
-|Algorithm|Accuracy|Training time|Linearity|Parameters|Notes|
+|**Algorithm**|**Accuracy**|**Training time**|**Linearity**|**Parameters**|**Notes**|
 |---|:---:|:---:|:---:|:---:|---|
-|Two-class classification| | | | | |
+|**Two-class classification**| | | | | |
 |[logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx)                    | |●|●|5| |
 |[decision forest](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
 |[decision jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|Low memory footprint|
@@ -203,13 +203,13 @@ or faster training times.
 |[support vector machine](https://msdn.microsoft.com/library/azure/dn905835.aspx)| |○|●|5|Good for large feature sets|
 |[locally deep support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Good for large feature sets|
 |[Bayes’ point machine](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
-|Multi-class classification| | | | | |
+|**Multi-class classification**| | | | | |
 |[logistic regression](https://msdn.microsoft.com/en-us/library/azure/dn905853.aspx)| |●|●|5| |
 |[decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[decision jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Low memory footprint|
 |[neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
 |[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|See properties of the two-class method selected|
-|Regression| | | | | |
+|**Regression**| | | | | |
 |[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
 |[Bayesian linear](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
 |[decision forest](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
@@ -218,13 +218,13 @@ or faster training times.
 |[neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
 |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Technically log-linear. For predicting counts|
 |[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|For predicting rank-ordering|
-|Anomaly detection| | | | | |
+|**Anomaly detection**| | | | | |
 |[support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especially good for large feature sets|
 |[PCA-based anomaly detection ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
 |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|A clustering algorithm|
 
 
-Algorithm properties:
+**Algorithm properties:**
 
 **●** - shows excellent accuracy, fast training times, and the use of linearity
 
@@ -435,8 +435,7 @@ which breaks the N-class classification problem into N-1 two-class
 classification problems. The accuracy, training time, and linearity
 properties are determined by the two-class classifiers used.
 
-![Two-class classifiers combined to form a three-class
-classifier][10]
+![Two-class classifiers combined to form a three-class classifier][10]
 
 ***A pair of two-class classifiers combine to form a three-class
 classifier***
