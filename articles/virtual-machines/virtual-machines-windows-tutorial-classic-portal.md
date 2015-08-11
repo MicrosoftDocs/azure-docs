@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a virtual machine running Windows in Azure"
-	description="Create a Windows virtual machine (VM) in the Azure portal."
+	description="Create a Windows virtual machine in the Azure portal."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2015"
+	ms.date="08/11/2015"
 	ms.author="kathydav"/>
 
 # Create a virtual machine running Windows in the Azure portal
@@ -42,7 +42,7 @@ Here's a walkthrough of this tutorial.
 
 This section shows you how to use the **From Gallery** option in the Azure portal to create the virtual machine. This option provides more configuration choices than the **Quick Create** option. For example, if you want to join a virtual machine to a virtual network, you'll need to use the **From Gallery** option.
 
-> [AZURE.NOTE] You can also try the richer, customizable [Azure preview portal](https://portal.azure.com) to create a virtual machine, automate the deployment of multi-VM application templates, use enhanced VM monitoring and diagnostics features, and more. The available VM configuration options in the two portals overlap substantially but aren't identical.  
+> [AZURE.NOTE] You can also try the richer, customizable [Azure preview portal](https://portal.azure.com) to create a virtual machine, use enhanced monitoring and diagnostics, use Premium storage, and more. The available options for configuring a virtual machine in the two portals overlap substantially but aren't identical. For example, use the preview portal to configure a virtual machine with Premium storage.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -54,4 +54,4 @@ This section shows you how to use the **From Gallery** option in the Azure porta
 
 ## Additional resources
 
-To learn more about what you can configure for a VM and when you can do it, see [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx).
+To learn more about what you can configure for a virtual machine and when you can do it, see [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx).

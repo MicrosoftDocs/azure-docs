@@ -107,5 +107,5 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 [Load balancing for Azure infrastructure services]: virtual-machines-load-balance.md
 [Manage the availability of virtual machines]: virtual-machines-manage-availability.md
 [Create a virtual machine running Windows]: virtual-machines-windows-tutorial.md
-[Virtual Network overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
+[Virtual Network overview]: virtual-networks-overview.md
 [About Azure virtual machine configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
