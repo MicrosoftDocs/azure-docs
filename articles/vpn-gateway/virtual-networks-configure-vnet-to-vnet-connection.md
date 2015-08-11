@@ -19,7 +19,7 @@
 
 # Configure a VNet to VNet connection
 
-This article will walk you through connecting virtual networks together that were created in the classic deployment mode. Azure currently has two deployment modes: the classic deployment mode, and the Azure Resource Manager deployment mode. The configuration steps differ, depending on the mode that was used to deploy your virtual network. If you want to connect a virtual network that was created in the classic mode to a virtual network created in Resource Manager, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md
+This article will walk you through connecting virtual networks together that were created in the classic deployment mode. Azure currently has two deployment modes: the classic deployment mode, and the Azure Resource Manager deployment mode. The configuration steps differ, depending on the mode that was used to deploy your virtual network. If you want to connect a virtual network that was created in the classic mode to a virtual network created in Resource Manager, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 
 Connecting an Azure virtual network (VNet) to another Azure virtual network is very similar to connecting a virtual network to an on-premises site location. Both connectivity types use a virtual network gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
@@ -213,7 +213,7 @@ Wait for the connections to initialize. Once the Gateway has initialized, the ga
 You can learn more about Virtual Network cross-premises connectivity in this article: [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
 
-If you want to configure a site-to-site VPN connection, see [Configure a Site-to-Site VPN Connection](vpn-gateway-site-to-site-create.md)
+If you want to configure a site-to-site VPN connection, see [Configure a Site-to-Site VPN Connection](vpn-gateway-site-to-site-create.md).
 
 If you want to add virtual machines to your virtual network, see [How to Create a Custom Virtual Machine](../virtual-machines/virtual-machines-create-custom.md).
 
