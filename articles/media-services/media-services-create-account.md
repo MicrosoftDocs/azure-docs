@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a Media Services Account - Azure"
+	pageTitle="Create a Media Services Account | Microsoft Azure"
 	description="Describes how to create a new Media Services account in Azure."
 	services="media-services"
 	documentationCenter=""

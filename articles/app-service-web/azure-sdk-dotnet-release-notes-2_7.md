@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/04/2015"
+   ms.date="08/09/2015"
    ms.author="juliako"/>
 
 
@@ -112,3 +112,4 @@ Introducing **Azure Data Factory Tools** for Visual Studio. Below are the enable
 
 [Azure SDK 2.7 announcement post](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
+[Support and Retirement Information for the Azure SDK for .NET and APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
