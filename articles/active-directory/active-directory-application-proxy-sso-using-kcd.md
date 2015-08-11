@@ -74,7 +74,7 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 2. After your application appears in the list of applications, select it and click **Configure**.
 3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.
 
-![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth.jpg)
+![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.
 
