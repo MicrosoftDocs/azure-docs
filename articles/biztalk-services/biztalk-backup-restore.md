@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create and restore a backup in BizTalk Services | Azure" 
+	pageTitle="Create and restore a backup in BizTalk Services | Microsoft Azure" 
 	description="BizTalk Services includes Backup and Restore. Learn how to create and restore a backup and determine what gets backed up. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 

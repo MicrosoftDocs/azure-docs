@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creating a Windows Store leaderboard app with .NET Backend | Azure Mobile Services" 
+	pageTitle="Creating a Windows Store leaderboard app with .NET Backend | Microsoft Azure" 
 	description="Learn how to build a Windows Store leaderboard app using Azure Mobile Services with a .NET backend." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 

@@ -35,7 +35,7 @@ In the [Azure portal][portal], create a new Application Insights resource. Pick 
 
 The blade that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
 
-## Download Application Insights for Mac
+## Download Application Insights for iOS
 
 (If you didn't do this already.)
 

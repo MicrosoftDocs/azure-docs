@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/20/2015" 
+	ms.date="08/05/2015" 
 	ms.author="anbacker"/>
 	
 # Monitor and troubleshoot protection for VMware, VMM, Hyper-V and Physical sites

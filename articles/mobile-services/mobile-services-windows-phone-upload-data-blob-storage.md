@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Upload images to Azure Storage from a Windows Phone Silverlight app | Azure Mobile Services" 
+	pageTitle="Upload images to Azure Storage from a Windows Phone Silverlight app | Microsoft Azure" 
 	description="Learn how to use Mobile Services to upload images from a Windows Phone Silverlight app to Azure Blob Storage." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
