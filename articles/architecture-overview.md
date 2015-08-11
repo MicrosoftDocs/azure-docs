@@ -48,7 +48,7 @@ The template is also available outside the course.
 
 - [View the training video](http://aka.ms/3dBlueprintTemplateVideo) first so you know what it can do   
 - Download the [Microsoft 3d Blueprint Visio Template](http://aka.ms/3DBlueprintTemplate)
-- Download the [Cloud and Enterprise Symbols](Icon-and-symbol-sets) to use with the 3D template
+- Download the [Cloud and Enterprise Symbols](#symbol-and-icon-sets) to use with the 3D template
 
 Email us at [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) for specific questions not answered by the training materials or to give feedback. Usability is one of the primary goals of the template so let us know what's good and what gets in the way.
 
