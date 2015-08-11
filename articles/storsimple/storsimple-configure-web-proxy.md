@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Configure web proxy for your device"
+   pageTitle="Configure web proxy for your device | Microsoft Azure"
    description="Learn how to configure web proxy for your StorSimple device using Windows PowerShell for StorSimple"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"

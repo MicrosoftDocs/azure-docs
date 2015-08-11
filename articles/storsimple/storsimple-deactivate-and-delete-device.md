@@ -88,6 +88,6 @@ You can delete only those devices that have been deactivated. Deleting a device 
 It may take a few minutes for the device to be deleted.
 
 ## Next steps
-To restore the deactivated device to factory defaults, go to [Reset the device to factory default settings](https://msdn.microsoft.com/library/dn772373.aspx).
+To restore the deactivated device to factory defaults, go to [Reset the device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-For technical assistance, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+For technical assistance, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
