@@ -3,7 +3,7 @@
 	description="Mobile Engagement Concepts"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="kpiteira"
+	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2015"
-	ms.author="kapiteir" />
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #Azure Mobile Engagement Concepts
 
