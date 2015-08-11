@@ -30,7 +30,7 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 
 *I added Application Insights successfully and ran my app, but I've never seen data in the portal.*
 
-* Wait a minute and click Refresh. Currently, refresh isn't automatic.
+* Wait a minute and click Refresh. The charts refresh themselves periodically, but you can also refresh manually. The refresh interval depends on the time range of the chart.
 * Check that you have an instrumentation key defined in the ApplicationInsights.xml file (in the resources folder in your project)
 * Verify that there is no `<DisableTelemetry>true</DisableTelemetry>` node in the xml file.
 * In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
