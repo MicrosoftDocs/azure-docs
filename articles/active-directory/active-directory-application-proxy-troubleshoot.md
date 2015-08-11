@@ -16,6 +16,8 @@
 	ms.date="08/11/2015"
 	ms.author="rkarlin"/>
 
+
+
 # Troubleshoot Application Proxy
 
 
@@ -40,6 +42,7 @@ Error | Description | Resolution
 This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure to assign the user with access to this application. | You may not have assigned the user for this application. | Go to the Application tab, and under Users and Groups, assign this user or user group to this application.
 This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure that the user has a license for Azure Active Directory Premium or Basic. | Your user may get this error when trying to access the app you published if the user who tried to access the application was not explicitly assigned with a Premium/Basic license by the subscriber’s administrator. | Go to the subscriber’s Active Directory **Licenses** tab and make sure that this user or user group is assigned a Premium or Basic license.
 
+
 ## Connector troubleshooting
 If registration fails during the Connector wizard installation, you can view the reason for the failure either by looking in the event log under **Windows Logs** > **Application**, or by running the following Windows PowerShell command.
 
@@ -56,6 +59,7 @@ If registration fails during the Connector wizard installation, you can view the
 | Failed to retrieve the current execution policy for running PowerShell scripts | If the Connector installation fails, check to make sure that PowerShell executionpolicy is not disabled. | Open the Group Policy Editor. Go to Computer Configuration > Administrative Templates > Windows Components > Windows PowerShell and double click on Turn on Script Execution. This can be set to either Not Configured or Enabled. If set to Enabled, make sure that under Options, the Execution Policy is set to either **Allow local scripts and remote signed scripts** or to **Allow all scripts**. |
 | Connector failed to download the configuration | The Connector’s client certificate, which is used for authentication, expired. This may also occur if you have the Connector installed behind a proxy. In this case the Connector cannot access the Internet and will not be able to provide applications to remote users. | Renew trust manually using the `Register-AppProxyConnector` cmdlet in Windows PowerShell. If your Connector is behind a proxy, it is necessary to grant Internet access to the Connector accounts “network services” and “local system”. This can be accomplished either by granting them access to the Proxy or by setting them to bypass the proxy. |
 | Connector registration failed: Make sure you are a Global Administrator of your Active Directory to register the Connector. Error: 'The registration request was denied.' | The alias you're trying to log in with isn't an admin on this domain. Your Connector is always installed for the directory that owns the user’s domain. | Make sure that the admin you are trying to log in as has global permissions to the Azure AD tenant.|
+
 
 ## Kerberos errors
 
@@ -74,6 +78,7 @@ If registration fails during the Connector wizard installation, you can view the
 | | The user who tried to access the application is not properly defined for this application on the on-prem side. | Make sure that this user has the proper permissions as defined for this backend application on the on-prem machine. |
 | This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure to assign the user with access to this application. | Your user may get this error when trying to access the app you published if the user who tried to access the application is using a Microsoft Account rather than the proper corporate account to sign in, or the user is a guest user. | Microsoft Account users and guest cannot access IWA applications. Make sure the user signs in using their corporate account that matches the domain of the published application. |
 | This corporate app can’t be accessed right now. Please try again later…The connector timed out. | Your user may get this error when trying to access the app you published if the user who tried to access the application is not properly defined for this application on the on-prem side. | Make sure that this user has the proper permissions as defined for this backend application on the on-prem machine. |
+
 
 ## See also
 

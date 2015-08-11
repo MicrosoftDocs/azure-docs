@@ -16,12 +16,15 @@
 	ms.date="08/11/2015"
 	ms.author="rkarlin"/>
 
+
+
 # SSO for on-prem IWA apps using KCD with Application Proxy
 
 
 You can enable Single Sign On (SSO) to your applications using Integrated Windows Authentication (IWA) by giving Application Proxy Connectors permission in Active Directory to impersonate users and send and receive tokens on their behalf.
 
 > [AZURE.IMPORTANT] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+
 
 ## Network diagram
 
@@ -38,13 +41,11 @@ This diagram explains the flow when a user attempts to access an on-prem applica
 7. The Connector sends the original request to the application server, using the Kerberos token it received from AD.
 8. The application sends the response to the Connector which is then returned to the Application Proxy service and finally to the user.
 
-
 ### Prerequisites
 
 1. Make sure that your apps, such as your SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
 2. Create Service Principal Names for your applications.
 3. Make sure that the server running the Connector and the server running the app you are publishing are domain joined and part of the same domain. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
-
 
 
 ## Active Directory configuration
@@ -62,12 +63,12 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
 2. In Windows 2012 R2, use the `principalsallowedtodelegateto` property on the Connector server to enable the Application Proxy to delegate for the Connector server, where the published server is `sharepointserviceaccount` and the delegating server is `connectormachineaccount`.
 
-
-    $connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
-    Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
-	Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+`$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com`
+`Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector`
+`Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount`
 
 >[AZURE.NOTE] `sharepointserviceaccount` can be the SPS machine account or a service account under which the SPS app pool is running.
+
 
 ## Azure portal configuration
 
