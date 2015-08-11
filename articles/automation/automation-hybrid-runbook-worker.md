@@ -42,10 +42,10 @@ When you start a runbook on a Hybrid Runbook Worker, you specify the group that 
 Complete the following steps to prepare your Azure Automation environment for Hybrid Runbook Workers.
 
 #### 1. Create Azure Operational Insights workspace
-If you do not already have an Operational Insights workspace in your Azure account, then create one using instructions at  [Set up your Operational Insights workspace](../operational-insights-setup-workspace). You can use an existing workspace if you already have one.
+If you do not already have an Operational Insights workspace in your Azure account, then create one using instructions at  [Set up your Operational Insights workspace](../operational-insights/operational-insights-setup-workspace.md). You can use an existing workspace if you already have one.
 
 #### 2. Deploy Automation solution
-The Automation solution in Operational Insights pushes down components required to configure and support the runbook environment.  Follow the instructions at [Operational Insights solutions](../operational-insights-add-solution) to install the **Azure Automation** pack.
+The Automation solution in Operational Insights pushes down components required to configure and support the runbook environment.  Follow the instructions at [Operational Insights solutions](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) to install the **Azure Automation** pack.
 
 ### Configure on-premises machines
 Complete the following steps for each of the on-premises machines that will act as a Hybrid Runbook Worker.

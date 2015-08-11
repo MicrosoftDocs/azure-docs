@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Intro to Azure - Azure fundamentals" 
+	pageTitle="Intro to Azure | Microsoft Azure" 
 	description="New to Microsoft Azure? Get a basic overview of the services it offers with examples of how they are useful." 
 	services=" " 
 	documentationCenter=".net" 
@@ -116,7 +116,7 @@ The page [Azure Web Apps, Cloud Services and Virtual Machines comparison](choose
 
 ## Data Management
 
-Applications need data, and different kinds of applications need different kinds of data. Because of this, Azure provides several different ways to store and manage data. Azure provides many storage options, but all are designed for very durable storage.  With any of these options, there are always 3 copies of your data kept in sync across and Azure datacenter -- 6 if you allow Azure to use geo-redundancy to back up to another datacenter at least 300 miles away.     
+Applications need data, and different kinds of applications need different kinds of data. Because of this, Azure provides several different ways to store and manage data. Azure provides many storage options, but all are designed for very durable storage.  With any of these options, there are always 3 copies of your data kept in sync across an Azure datacenter -- 6 if you allow Azure to use geo-redundancy to back up to another datacenter at least 300 miles away.     
 
 
 ### In Virtual Machines
