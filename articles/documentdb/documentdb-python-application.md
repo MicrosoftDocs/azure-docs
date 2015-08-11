@@ -120,7 +120,7 @@ and starts your web browser. You should see the following page.
 
 	![The empty Flask project displayed in a browser](./media/documentdb-python-application/image12.png)
 
-### Create database, collection and document definitions
+### Create database, collection, and document definitions
 
 Now let's create your voting application.
 
