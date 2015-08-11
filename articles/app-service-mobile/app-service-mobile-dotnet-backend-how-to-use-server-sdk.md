@@ -16,9 +16,36 @@
 	ms.date="08/03/2015"
 	ms.author="glenga"/>
 
-# Work with the .NET backend server SDK for Azure Mobile Apps 
+# Work with the .NET backend server SDK for Azure Mobile Apps
 
-This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios.
+This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK helps you work with mobile clients from your ASP.NET application.
+
+## Downloading and initializing the SDK
+
+The .NET SDK is  available on [NuGet.org]. You can add it to your ASP.NET project by right-clicking on the project in Visual Studio. Select **Manage NuGet Packages**, and then search for the [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) package. Select it, and then click **Install**.
+
+This package includes the base functionality required to get started using the SDK. To initialize the SDK, you need to perform actions on the HttpConfiguration object. If you have an HttpConfiguration named "config" then you can add the following:
+
+      new MobileAppConfiguration()
+        .ApplyTo(config);
+
+This initializes the SDK but adds no features. To enable individual features, you will need to include extension packages, as described in the below section.
+
+### SDK extensions
+
+The following extension packages enable various mobile features that can be used by your application:
+
+- [Microsoft.Azure.Mobile.Server.Quickstart](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/)
+
+- [Microsoft.Azure.Mobile.Server.Authentication](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/)
+
+- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/)
+
+- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/)
+
+- [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/)
+
+- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/)
 
 ## How to: Define a table controller
 
@@ -50,3 +77,7 @@ You define a custom API controller by applying the Microsoft.Azure.Mobile.Server
 ### Visual Studio publishing
 
 ### Git publishing
+
+
+
+[NuGet.org]: http://www.nuget.org/
