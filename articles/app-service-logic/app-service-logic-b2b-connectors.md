@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Azure" 
+	pageTitle="Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how to create and configure EDI, EDIFACT, AS2, and TPM connectors; microservices architecture" 
 	services="app-service\logic" 
 	documentationCenter="" 

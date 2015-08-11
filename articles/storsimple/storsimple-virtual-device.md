@@ -71,7 +71,7 @@ The following sections will help you prepare to use the StorSimple virtual devic
 
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-- For the virtual device, [configure a virtual network on Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+- For the virtual device, [configure a virtual network on Azure](virtual-networks-create-a-vnet.md).
 - You can use the default DNS server provided by Azure instead of specifying your own DNS server name.
 - Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
 
@@ -89,9 +89,9 @@ Before you provision the virtual device, you need to make the following preparat
 Make the following updates to your Azure StorSimple service before you create a virtual device:
 
 
-- Add [access control records](https://msdn.microsoft.com/library/1747f56e-858a-4cfe-a020-949d7db23b8b#sec02) for the VMs that are going to be host servers for your virtual device.
+- Add [access control records](storsimple-manage-acrs.md) for the VMs that are going to be host servers for your virtual device.
 
-- Make sure that you have a [storage account](https://msdn.microsoft.com/library/1747f56e-858a-4cfe-a020-949d7db23b8b#sec01) in the same region as the virtual device. Storage accounts in different regions may result in poor performance.
+- Make sure that you have a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance.
 
 - Make sure that you use a different storage account for virtual device creation from the one used for your data. Using the same storage account may result in poor performance.
 
@@ -109,9 +109,9 @@ Make sure that you have the following information before you begin:
 
 ## Create and configure the virtual device
 
-Before performing these procedures, make sure that you have met the [Prerequisites for the virtual device](https://msdn.microsoft.com/library/dn772572.aspx).
+Before performing these procedures, make sure that you have met the [Prerequisites for the virtual device](#prerequisites-for-the-virtual-device).
 
-After completing these procedures, you are ready to [Work with the virtual device](https://msdn.microsoft.com/library/dn772527.aspx).
+After completing these procedures, you are ready to [Work with the virtual device](#work-with-the-storsimple-virtual-device).
 
 ### Create the virtual device
 
@@ -135,7 +135,7 @@ Perform the following steps to create the StorSimple virtual device
 
 	d. **Storage Account for Virtual Device Creation** – The storage account that will be used to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list.
 
-- Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [Security considerations for using a virtual device](https://msdn.microsoft.com/library/dn772561.aspx).
+- Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [Security considerations for using a virtual device](#security-considerations-for-using-a-virtual-device).
 
 ### Configure and register the virtual device
 
@@ -227,11 +227,11 @@ Perform the following steps to configure remote management for your StorSimple v
 Now that you have created and configured the StorSimple virtual device, you are ready to start working with it. You can work with volume containers, volumes, and backup policies on a virtual device just as you would on a physical StorSimple device; the only difference is that you need to make sure that you select the virtual device from your device list. Refer to the following sections for instructions on associated tasks:
 
 
-- [Volume containers](https://msdn.microsoft.com/library/dn757817.aspx)
+- [Volume containers](storsimple-manage-volume-containers.md)
 
-- [Volumes](https://msdn.microsoft.com/library/dn772417.aspx)
+- [Volumes](storsimple-manage-volumes.md)
 
-- [Backup policies](https://msdn.microsoft.com/library/dn772382.aspx)
+- [Backup policies](storsimple-manage-backup-policies)
 
 The following sections discuss some of the differences you will encounter when working with the virtual device.
 
@@ -269,7 +269,7 @@ After you have enabled it on the StorSimple device configuration page, you can u
 
 >[AZURE.WARNING] **For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.**
 
-You should follow the procedures in [Connecting remotely using Windows PowerShell](https://msdn.microsoft.com/library/dn772393.aspx) to set up remoting for your virtual device.
+You should follow the procedures in [Connecting remotely using Windows PowerShell](storsimple-remote-connect.md) to set up remoting for your virtual device.
 
 However, if you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure.
 
@@ -351,7 +351,7 @@ The failover process will begin. When the failover is finished, go to the Device
 
 If you previously configured and used a StorSimple virtual device but now want to stop accruing compute charges for its use, you can shut down the virtual device. Shutting down the virtual device doesn’t delete its operating system or data disks in storage. It does stop charges accruing on your subscription, but storage charges for the OS and data disks will continue.
 
-If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate](https://msdn.microsoft.com/library/33b7811b-36ba-4609-b165-0796ad456435#BKMK_acis_deactivate).
+If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
 
 ### To shut down the StorSimple virtual device
 

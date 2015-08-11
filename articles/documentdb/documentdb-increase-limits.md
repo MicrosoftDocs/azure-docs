@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Request increased DocumentDB account limits | Azure" 
+	pageTitle="Request increased DocumentDB account limits | Microsoft Azure" 
 	description="Learn how to request an adjustment to DocumentDB limits such as the number of allowed collections, stored procedures and query clauses." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 

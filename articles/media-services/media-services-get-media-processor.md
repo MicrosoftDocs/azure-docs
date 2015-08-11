@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Create a Media Processor - Azure" 
+	pageTitle="How to Create a Media Processor | Microsoft Azure" 
 	description="Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services. Code samples are written in C# and use the Media Services SDK for .NET." 
 	services="media-services" 
 	documentationCenter="" 

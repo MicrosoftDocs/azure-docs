@@ -55,11 +55,9 @@ Perform the following steps to view the hardware status of a device component:
 3. If you encounter a component that is not in a **Healthy** state, please contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx).
 
 
-## Component list for the StorSimple device
+## Component list for primary enclosure of StorSimple device
 
-The following table outlines the physical and logical components contained in your on-premises StorSimple device. The device has two enclosures, the primary and the EBOD enclosure. The lists for the two enclosures are tabulated separately.
-
-### Component list for primary enclosure
+The following table outlines the physical and logical components contained in the primary enclosure of your on-premises StorSimple device.
 
 |Component|Module|Type|Location|Field replaceable unit (FRU)?|Description|
 |---|---|---|---|---|---|
@@ -99,7 +97,9 @@ The following table outlines the physical and logical components contained in yo
 |Ethernet|I/O|Physical|Controller|No|Indicates the state of each of the network interfaces, that is, the management and data ports provided on the controller.|
 |NVRAM|I/O|Physical|Controller|No|Indicates the state of NVRAM, a non-volatile random access memory backed up by the battery that serves to retain application-critical information in the event of power failure.|
 
-### Component list for EBOD enclosure
+## Component list for EBOD enclosure of StorSimple device
+
+The following table outlines the physical and logical components contained in the EBOD enclosure of your on-premises StorSimple device.
 
 |Component|Module|Type|Location|FRU?|Description|
 |---|---|---|---|---|---|
@@ -124,7 +124,7 @@ The following table outlines the physical and logical components contained in yo
 |Enclosure electronics diagnostics|I/O|Physical|Controller|No|Indicates the state of the diagnostics subsystems provided by the controller.|
 |Connection to device controller|I/O|Physical|Controller|No|Indicates the state of the connection between the EBOD I/O module and the device controller.|
 
-## Next step
+## Next steps
 If you need to troubleshoot a device component that has a degraded or failed status, refer to 
 [Troubleshoot with monitoring indicators](storsimple-monitoring-indicators). 
 
