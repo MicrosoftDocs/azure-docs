@@ -20,7 +20,7 @@
 
 ## General questions
 
-### Q: What is Azure Data Factory?
+### What is Azure Data Factory?
 
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
 
@@ -28,11 +28,11 @@ Data Factory works across on-premises and cloud data sources and SaaS to ingest,
 
 See [Overview & Key Concepts](data-factory-introduction.md) for more details. 
  
-### Q: What customer challenge does Data Factory solve?
+### What customer challenge does Data Factory solve?
 
 Azure Data Factory balances the agility of leveraging diverse data storage, processing and movement services across traditional relational storage alongside unstructured data, with the control and monitoring capabilities of a fully managed service.
 
-### Q: Who are the target audiences for Data Factory?
+### Who are the target audiences for Data Factory?
 
 
 - Data Developers: who are responsible for building integration services between Hadoop and other systems:
@@ -44,31 +44,31 @@ Azure Data Factory balances the agility of leveraging diverse data storage, proc
 	- Must manage compute and storage resources to balance cost and scale across on-premises and cloud
 	- Must quickly add diverse sources and processing to address new business needs, while maintaining visibility across all compute and storage assets
 
-###  Q: Where can I find pricing details for Azure Data Factory?
+### Where can I find pricing details for Azure Data Factory?
 
 See [Data Factory Pricing Details page][adf-pricing-details] for the pricing details for the Azure Data Factory.  
 
-### Q. How do I get started with Azure Data Factory?
+### How do I get started with Azure Data Factory?
 
 - For an overview of Azure Data Factory, see [Introduction to Azure Data Factory][adf-introduction].
 - For a quick tutorial, see [Get started with Azure Data Factory][adfgetstarted].
 - For comprehensive documentation, see [Azure Data Factory documentation][adf-documentation-landingpage].
 
   
-### Q: How do customers access Data Factory?
+### How do customers access Data Factory?
 
 Customers can get access to Data Factory through the [Azure Preview Portal][azure-preview-portal].
 
-### Q: What is the Data Factory’s region availability?
+### What is the Data Factory’s region availability?
 
 Data Factory is available in US West and North Europe. The compute and storage services used by data factories can be in other regions.
  
-### Q: What are the limits on number of data factories/pipelines/activities/datasets?
+### What are the limits on number of data factories/pipelines/activities/datasets?
  
-See **Azure Data Factory Limits** section of the [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md/#data-factory-limits) article.
+See **Azure Data Factory Limits** section of the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md#data-factory-limits) article.
 
 
-### Q: What is the authoring/developer experience with Azure Data Factory service?
+### What is the authoring/developer experience with Azure Data Factory service?
 
 You can author/create data factories using one of the following:
 
@@ -78,11 +78,11 @@ You can author/create data factories using one of the following:
 - **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
 - **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for  a comprehensive documentation of Data Factory REST API. 
 
-### Q: Can I rename a data factory?
+### Can I rename a data factory?
 No. Like other Azure resources, the name of an Azure data factory cannot be changed. 
 
 ## Activities - FAQ
-### Q: What are the supported data sources and activities?
+### What are the supported data sources and activities?
 
 See [Data Movement Activities](data-factory-data-movement-activities.md) and [Data Transformation Activities](data-factory-data-transformation-activities.md) articles for the supported data sources and activities.  
 
@@ -90,7 +90,7 @@ See [Data Movement Activities](data-factory-data-movement-activities.md) and [Da
 The **availability** configuration setting in the output data table determines when the activity is run. The activity checks whether all the input data dependencies are satisfied (i.e., **Ready** state) before it starts running.
 
 ## Copy Activity - FAQ
-### Q: What regions are supported by the Copy Activity ?
+### What regions are supported by the Copy Activity ?
 
 The Copy Activity supports copying data into the following regions: East US, East US 2, West US, Central US, North Central US, South Central US, North Europe, West Europe, South East Asia, Japan East, and Brazil South.
 
@@ -106,15 +106,15 @@ Pipelines are supposed to bundle related activities.  Logically, you can keep th
 
 ## HDInsight Activity - FAQ
 
-### Q: What regions are supported by HDInsight?
+### What regions are supported by HDInsight?
 
 See the Geographic Availability section in the following article: or [HDInsight Pricing Details][hdinsight-supported-regions].
 
-### Q: What region is used by an on-demand HDInsight cluster?
+### What region is used by an on-demand HDInsight cluster?
 
 The on-demand HDInsight cluster is created in the same region where the storage you specified to be used with the cluster exists.    
 
-### Q: How to associate additional storage accounts to your HDInsight cluster?
+### How to associate additional storage accounts to your HDInsight cluster?
 
 If you are using your own HDInsight Cluster (BYOC - Bring Your Own Cluster), see the following topics: 
 
