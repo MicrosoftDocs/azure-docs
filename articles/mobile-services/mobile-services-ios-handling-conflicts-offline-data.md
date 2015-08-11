@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Microsoft Azure"
+	pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center"
 	description="Learn how to use Azure Mobile Services to handle conflicts when syncing offline data in your iOS application"
 	documentationCenter="ios"
 	authors="krisragh"
