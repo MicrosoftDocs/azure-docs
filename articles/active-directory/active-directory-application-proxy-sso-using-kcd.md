@@ -52,7 +52,7 @@ The Active Directory configuration varies, depending on whether your Application
 
 In Active Directory, go to **Tools** > **Users and Computers**. Select the server running the Connector. Right click and select **Properties** > **Delegation**. Select **Trust this computer for delegation to specified services only** and under **Services to which this account can present delegated credentials**, add the value for the Service Principal Name (SPN) identity of the application server. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
-![Connector-SVR Properties window screenshot](./media/active-directory-application-proxy-sso-using-kcd/URLAuth.jpg)
+![Connector-SVR Properties window screenshot](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
 
 ### Connector and Published Server in Different Domains
 
@@ -74,7 +74,7 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 2. After your application appears in the list of applications, select it and click **Configure**.
 3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.
 
-![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/URLAuth.jpg)
+![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
 
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.
 
