@@ -96,5 +96,5 @@ You can add virtual machines to your virtual network. See [How to Create a Custo
 
 If you want to configure a VNet connection using RRAS, see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx).
 
-If you want to configure a connection between your classic virtual network and a virtual network created using the Resource Manager mode, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
+If you want to configure a connection between your classic virtual network and a virtual network created using the Resource Manager mode, see [Connecting classic VNets to Resource Manager VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
  
