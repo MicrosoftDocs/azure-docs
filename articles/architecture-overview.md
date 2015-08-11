@@ -21,7 +21,7 @@ Resources for building applications that use Microsoft Azure. This includes tool
 
 ##Microsoft architecture certification course
 
-Microsoft just released a new architecture course supporting Microsoft certification exam 70-534. It's [available for free on EDX.ORG](https://www.edx.org/course/architecting-microsoft-azure-solutions-microsoft-dev205x).  It uses the new [3D Blueprint Visio Template](#3D_Blueprint_Visio_Template). 
+Microsoft just released a new architecture course supporting Microsoft certification exam 70-534. It's [available for free on EDX.ORG](https://www.edx.org/course/architecting-microsoft-azure-solutions-microsoft-dev205x).  It uses the new [3D Blueprint Visio Template](#3d-blueprint-visio-template). 
 
 ![Microsoft Architecture certification course](./media/architecture-overview/EDXCourse.png)
 
@@ -35,20 +35,20 @@ Each blueprint includes a
 - Colorful **3D perspective PDF** file to introduce the blueprint to less technical audiences
 - **Video** that walks through the 3D version. 
 
-The Blueprints use the [Cloud and Enterprise Symbol Set](#Symbol_and_icon_sets).   
+The Blueprints use the [Cloud and Enterprise Symbol Set](#symbol-and-icon-sets).   
 
 ![Microsoft Architecture Blueprint 3D diagram](./media/architecture-overview/BluePrintThumb.jpg)
 
 
 
 ##3D Blueprint Visio Template
-The 3D versions of the [Microsoft Architecture Blueprints](http://aka.ms/azblueprints) were initially created in a non-Microsoft tool, but a new Visio 2013 template shipped on Aug 5, 2015 as part of a [Microsoft Architecture certification course distributed on EDX.ORG](#microsoft_architecture_certification_course). 
+The 3D versions of the [Microsoft Architecture Blueprints](http://aka.ms/azblueprints) were initially created in a non-Microsoft tool, but a new Visio 2013 template shipped on Aug 5, 2015 as part of a [Microsoft Architecture certification course distributed on EDX.ORG](#microsoft-architecture-certification-course). 
 
 The template is also available outside the course. 
 
 - [View the training video](http://aka.ms/3dBlueprintTemplateVideo) first so you know what it can do   
 - Download the [Microsoft 3d Blueprint Visio Template](http://aka.ms/3DBlueprintTemplate)
-- Download the [Cloud and Enterprise Symbols](Icon_and_symbol_sets) to use with the 3D template
+- Download the [Cloud and Enterprise Symbols](Icon-and-symbol-sets) to use with the 3D template
 
 Email us at [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) for specific questions not answered by the training materials or to give feedback. Usability is one of the primary goals of the template so let us know what's good and what gets in the way.
 
