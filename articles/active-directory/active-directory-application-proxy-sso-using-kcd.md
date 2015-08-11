@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="07/07/2015"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="rkarlin"/>
 
 # SSO for On Prem IWA Apps Using KCD with Application Proxy
@@ -74,7 +74,7 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 2. After your application appears in the list of applications, select it and click **Configure**.
 3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.
 
-![Advanced Application Configuration][3]
+![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/URLAuth.jpg)
 
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.
 
@@ -88,4 +88,3 @@ In Active Directory, go to **Tools** > **Users and Computers**. Select the serve
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-[3]: ./media/active-directory-application-proxy-sso-using-kcd/URLAuth.jpg
