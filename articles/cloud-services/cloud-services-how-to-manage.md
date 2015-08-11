@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to manage a cloud service - Azure" 
+	pageTitle="How to manage a cloud service | Microsoft Azure" 
 	description="Learn how to manage cloud services in the Azure Portal." 
 	services="cloud-services" 
 	documentationCenter="" 

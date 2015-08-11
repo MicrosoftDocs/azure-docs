@@ -1,5 +1,5 @@
 <properties
-	pageTitle=".NET Multi-Tier Application - Azure Tutorial"
+	pageTitle=".NET Multi-Tier Application | Microsoft Azure"
 	description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET."
 	services="service-bus"
 	documentationCenter=".net"
