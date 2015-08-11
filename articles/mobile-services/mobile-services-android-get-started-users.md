@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with authentication (Android) | Mobile Dev Center" 
+	pageTitle="Get started with authentication (Android) | Microsoft Azure" 
 	description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
 	services="mobile-services" 
 	documentationCenter="android" 
