@@ -7,7 +7,7 @@ When you no longer need a data disk that's attached to a virtual machine, you ca
 
 ## Find the disk
 
-Before you can detach a disk from a virtual machine, you need to find out the _Lun_ number, which is an identifier for the disk to be detached. To do that, follow these steps:
+Before you can detach a disk from a virtual machine, you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
 
 1. 	Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription. See [Connect
     to Azure from Azure CLI](../articles/xplat-cli-connect.md) for more details.
@@ -30,15 +30,15 @@ Before you can detach a disk from a virtual machine, you need to find out the _L
 		data:    0    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
 		info:    vm disk list command OK
 
-4. 	Note the _Lun_ or the **logical unit number** for the disk that you want to detach.
+4. 	Note the LUN or the **logical unit number** for the disk that you want to detach.
 
 
 ## Detach the disk
 
-After you find the _Lun_ number of the disk, you're ready to detach it:
+After you find the LUN number of the disk, you're ready to detach it:
 
 1. 	Detach the selected disk from the virtual machine by running the command `azure vm disk detach
- 	<virtual-machine-name> <Lun>` like this:
+ 	<virtual-machine-name> <LUN>` like this:
 
 		$azure vm disk detach ubuntuVMasm 0
 		info:    Executing command vm disk detach

@@ -11,11 +11,10 @@ Attaching an empty disk is the simpler way to add a data disk, because Azure cre
 2.  Make sure you are in Azure Service Management mode, which is the default by typing `azure config
  	mode asm`.
 
-3.  Type the following command to attach a new disk:
+3.  Use the command `azure vm disk attach-new` to create and attach a new disk as shown below. Note that the
+    _ubuntuVMasm_ will be replaced by the name of the Linux Virtual Machine that you have created in your subscription. The number 30 is the size of the disk in GB in this example.
 
         azure vm disk attach-new ubuntuVMasm 30
-
-	Note that the _ubuntuVMasm_ will be replaced by the name of the Linux Virtual Machine that you have created in your subscription. The number 30 is the size of the disk in GB in this example.
 
 4.	After the data disk is created and attached, it's listed in the output of `azure vm disk list
     <virtual-machine-name>` like this:
@@ -42,33 +41,33 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 2.  Make sure you are in Azure Service Management mode, which is the default. If you have changed
     mode to Resource Management, simply revert by typing `azure config mode asm`.
 
-3.  Make sure you have uploaded a VHD to your subscription by using `azure vm disk create` or `azure
-    vm disk upload`. For example, your command might look something like this:
+3.	Find out if the VHD you want to attach is already uploaded to your Azure subscription by using:
 
-			$azure vm disk create myTestVhd E:\TempDisk\test.VHD -l "East US" -o Linux
-			info:    Executing command vm disk create
-			+ Retrieving storage accounts
-			info:    VHD size : 10 GB
-			info:    Uploading 10485760.5 KB
-			Requested:100.0% Completed:100.0% Running:   0 Time:   25s Speed:    82 KB/s
-			info:    Finishing computing MD5 hash, 16% is complete.
-			info:    https://portalvhdsq1s6mc7mqf4gn.blob.core.windows.net/disks/test.VHD was
-			uploaded successfully
-			info:    vm disk create command OK
+        $azure vm disk list
+    	info:    Executing command vm disk list
+    	+ Fetching disk images
+    	data:    Name                                          OS
+    	data:    --------------------------------------------  -----
+    	data:    myTestVhd                                     Linux
+    	data:    ubuntuVMasm-ubuntuVMasm-0-201508060029150744  Linux
+    	data:    ubuntuVMasm-ubuntuVMasm-0-201508060040530369
+    	info:    vm disk list command OK
 
-	You can also use the `azure vm disk upload` command to upload a VHD to a specific storage account. You can read more about the commands to manage your Azure virtual machine data disks [over here](../virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+4.  If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using
+    `azure vm disk create` or `azure vm disk upload`. An example would be this:
 
-4.	Check if the VHD you want to attach is already uploaded to your Azure subscription by using:
+        $azure vm disk create myTestVhd2 .\TempDisk\test.VHD -l "East US" -o Linux
+		info:    Executing command vm disk create
+		+ Retrieving storage accounts
+		info:    VHD size : 10 GB
+		info:    Uploading 10485760.5 KB
+		Requested:100.0% Completed:100.0% Running:   0 Time:   25s Speed:    82 KB/s
+		info:    Finishing computing MD5 hash, 16% is complete.
+		info:    https://portalvhdsq1s6mc7mqf4gn.blob.core.windows.net/disks/test.VHD was
+		uploaded successfully
+		info:    vm disk create command OK
 
-		$azure vm disk list
-		info:    Executing command vm disk list
-		+ Fetching disk images
-		data:    Name                                          OS
-		data:    --------------------------------------------  -----
-		data:    myTestVhd                                     Linux
-		data:    ubuntuVMasm-ubuntuVMasm-0-201508060029150744  Linux
-		data:    ubuntuVMasm-ubuntuVMasm-0-201508060040530369
-		info:    vm disk list command OK
+	You may also use the `azure vm disk upload` command to upload a VHD to a specific storage account. Read more about the commands to manage your Azure virtual machine data disks [over here](../virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
 
 5.  Type the following command to attach the desired uploaded VHD to your virtual machine:
 
@@ -78,7 +77,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 		+ Adding Data-Disk
 		info:    vm disk attach command OK
 
-	Note that you should replace _ubuntuVMasm_ with the name of your virtual machine, and use your selected VHD in place of _myTestVhd_.
+	Make sure to replace _ubuntuVMasm_ with the name of your virtual machine, and _myTestVhd_ with your desired VHD.
 
 6.	You can verify if the disk is attached to the virtual machine with the command `azure vm disk list
  	<virtual-machine-name>` as:
