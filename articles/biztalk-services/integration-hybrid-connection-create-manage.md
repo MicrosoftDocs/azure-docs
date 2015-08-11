@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create and Manage Hybrid Connections | Azure" 
+	pageTitle="Create and Manage Hybrid Connections | Microsoft Azure" 
 	description="Learn how to create a hybrid connection, manage the connection, and install the Hybrid Connection Manager. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 

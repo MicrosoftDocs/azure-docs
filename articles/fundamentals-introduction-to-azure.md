@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Intro to Azure - Azure fundamentals" 
+	pageTitle="Intro to Azure | Microsoft Azure" 
 	description="New to Microsoft Azure? Get a basic overview of the services it offers with examples of how they are useful." 
 	services=" " 
 	documentationCenter=".net" 
@@ -267,9 +267,9 @@ It does include a hosted source control system called Team Foundation Service, w
 
 Visual Studio Online provides a load testing service. You can execute load tests created in Visual Studio on VMs in the cloud. You specify the total number of users you want to load test with, and Visual Studio Online will automatically determine how many agents are needed, spin up the required virtual machines and execute your load tests. If you're an MSDN subscriber, you get thousands of free user-minutes of load testing each month. 
 
-Visual Studio Online also offers a service called Application Insights, which gives you an analysis of your entire application. It provides stats on performance and how your application is being used. If you are already using System Center Operations Manager, it can also hook to it and raise alerts when issues arise. 
-
-Additionally, there is support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms. 
+Visual Studio Online also offers a service called Application Insights, which gives you an analysis of your entire application. It provides stats on performance and how your application is being used. If you are already using System Center Operations Manager, it can also hook to it and raise alerts when issues arise. 		+Visual Studio Online also offers support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms. 
+	
+Additionally, there is support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms.  
 
 **Visual Studio Online Scenarios**
 

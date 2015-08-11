@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/09/2015"
+   ms.date="08/10/2015"
    ms.author="andalmia"/>
 
 
@@ -40,11 +40,6 @@ To use the Facebook connector, you need to first create an instance of the Faceb
 3. Enter the Name, App Service Plan, and other properties:  
 	![][1]
 4.	Select **Create**.
-
-Once the API app instance is created, you can create a logic App in the same resource group to use the Facebook connector.
-	- Facebook connector API app instance can also be created from the Logic App.
-	- Open the Logic App editor and click on the Facebook Connector available in the gallery on the right hand side
-	- This will create a Facebook connector API app instance in the same resource group in which the logic app has been created.
 
 
 ## Using the Facebook Connector in your Logic App
