@@ -31,4 +31,4 @@ A *custom* virtual machine (VM) simply means a VM you create using the **From Ga
 
 ##To create the VM
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
