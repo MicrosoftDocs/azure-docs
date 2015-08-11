@@ -231,7 +231,7 @@ Use the following procedure to upgrade SharePoint server and then reinstall Stor
 
 ## Next steps
 
-[Learn more about StorSimple](storsimple-overview.md)
+[Learn more about StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073

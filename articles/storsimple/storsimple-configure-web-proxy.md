@@ -24,7 +24,7 @@ Web proxy is an optional configuration for your StorSimple device. You can confi
 
 1. You first configure web proxy settings through the setup wizard or Windows PowerShell for StorSimple cmdlets.
 
-1. You then enable the configured web proxy settings via Windows PowerShell for StorSimple cmdlets.
+2. You then enable the configured web proxy settings via Windows PowerShell for StorSimple cmdlets.
 
 After the web proxy configuration is complete, you can view the configured web proxy settings in both the Microsoft Azure StorSimple Manager service and the Windows PowerShell for StorSimple. 
 
@@ -47,11 +47,11 @@ You use either of the following to configure web proxy settings:
 Each of these methods are discussed in the following sections.
 
 
-## Configure web proxy via setup wizard
+## Configure web proxy via the setup wizard
 
 You can use the setup wizard to guide you through the steps for web proxy configuration. Perform the following steps to configure web proxy on your device.
 
-#### To configure web proxy via setup wizard
+#### To configure web proxy via the setup wizard
 
 1. In the serial console menu, choose option 1, **Log in with full access** and provide the **device administrator password**. Type the following command to start a setup wizard session:
 
@@ -65,11 +65,11 @@ You can use the setup wizard to guide you through the steps for web proxy config
 
 	By default, TCP port number 8080 is specified.
 
-1. Choose the authentication type as **NTLM**, **Basic**, or **None**. Basic is the least secure authentication for the proxy server configuration. NT LAN Manager (NTLM) is a highly secure and complex authentication protocol that uses a three-way messaging system (sometimes four if additional integrity is required) to authenticate a user. The default authentication is NTLM. For more information, see [Basic](http://hc.apache.org/httpclient-3.x/authentication.html) and [NTLM authentication](http://hc.apache.org/httpclient-3.x/authentication.html). 
+3. Choose the authentication type as **NTLM**, **Basic**, or **None**. Basic is the least secure authentication for the proxy server configuration. NT LAN Manager (NTLM) is a highly secure and complex authentication protocol that uses a three-way messaging system (sometimes four if additional integrity is required) to authenticate a user. The default authentication is NTLM. For more information, see [Basic](http://hc.apache.org/httpclient-3.x/authentication.html) and [NTLM authentication](http://hc.apache.org/httpclient-3.x/authentication.html). 
 
 	> [AZURE.IMPORTANT] **In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device. For the monitoring charts to work, you will need to ensure that authentication is set to NONE.**
 
-1. If you are using authentication, supply a **Web Proxy Username** and a **Web Proxy Password**. You will also need to confirm the password.
+4. If you are using authentication, supply a **Web Proxy Username** and a **Web Proxy Password**. You will also need to confirm the password.
 
 	![Configure Web Proxy On StorSimple Device1](./media/storsimple-configure-web-proxy/IC751830.png)
 
@@ -80,13 +80,13 @@ Web proxy will now also be enabled. You can skip the [Enable web proxy](#Enable-
 
 ## Configure web proxy via Windows PowerShell for StorSimple cmdlets
 
-An alternate way to configure web proxy settings is via the Windows PowerShell for StorSimple cmdlets. Perform the following steps to configure web proxy:
+An alternate way to configure web proxy settings is via the Windows PowerShell for StorSimple cmdlets. Perform the following steps to configure web proxy.
 
 #### To configure web proxy via cmdlets
 
 1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is  `Password1`.
 
-1. At the command prompt, type:
+2. At the command prompt, type:
 
 	`Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
 
@@ -117,7 +117,7 @@ Perform the following steps in Windows PowerShell for StorSimple to enable web p
 	![Configure Web Proxy On StorSimple Device4](./media/storsimple-configure-web-proxy/IC751832.png)
 
 ## View web proxy settings in the Management Portal
-The web proxy settings are configured through the Windows PowerShell interface and cannot be changed from within the Management Portal. You can, however, view these configured settings in the Management Portal. Perform the following steps to view web proxy:
+The web proxy settings are configured through the Windows PowerShell interface and cannot be changed from within the Management Portal. You can, however, view these configured settings in the Management Portal. Perform the following steps to view web proxy.
 
 #### To view web proxy settings
 1. Navigate to **StorSimple Manager service > Devices**. Select and click a device and then go to **Configure**.
@@ -145,5 +145,5 @@ If the web proxy settings have been configured incorrectly, error messages will 
 > - Errors related to web proxy settings will not be displayed in the Management Portal in your StorSimple Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the Management Portal.|
 
 ## Next Steps
-If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshooting your StorSimple device](storsimple-troubleshoot-deployment.md).
+If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshoot your StorSimple device](storsimple-troubleshoot-deployment.md).
 

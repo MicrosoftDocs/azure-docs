@@ -142,7 +142,7 @@ Backups are captured as snapshots, which record only the changes since the last 
 
 If a disaster occurs or if you need to restore data for another reason, StorSimple Snapshot Manager restores it incrementally as it is needed. Data restoration does not require that you shut down the entire system while you restore a file, replace equipment, or move operations to another site.
 
-For more information, see [What is StorSimple Snapshot Manager](storsimple-what-is-snapshot-manager.md).
+For more information, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ## StorSimple Adapter for SharePoint
 

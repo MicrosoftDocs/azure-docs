@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/09/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos" />
 
 # Deactivate and delete a StorSimple device
@@ -47,7 +47,7 @@ If you are interested in deleting the device but want to retain the device data,
 
 1. Deactivate the device. All the volume containers and the snapshots of the device will remain. Go to [Steps to deactivate](#steps-to-deactivate) for instructions.
 
-2. You can now fail over the volume containers and the associated snapshots. For procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md)
+2. You can now fail over the volume containers and the associated snapshots. For procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 
 3. After deactivation and failover, you can delete the device completely. Go to [Delete a device](#delete-a-device) for instructions.
 

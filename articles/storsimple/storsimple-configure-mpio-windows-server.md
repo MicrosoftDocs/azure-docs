@@ -41,7 +41,7 @@ Each of the above steps is discussed in the following sections.
 
 To install this feature on your Windows Server host, complete the following procedure.
 
-### To install MPIO on the host
+#### To install MPIO on the host
 
 1. Open Server Manager on your Windows Server host. By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012. If Server Manager is not already open, click **Start > Server Manager**.
 ![Server Manager](./media/storsimple-configure-mpio-windows-server/IC740997.png)
@@ -61,7 +61,7 @@ To install this feature on your Windows Server host, complete the following proc
 
 MPIO needs to be configured to identify StorSimple volumes. To configure MPIO to recognize StorSimple volumes, perform the following steps.
 
-### To configure MPIO for StorSimple volumes
+#### To configure MPIO for StorSimple volumes
 
 1. Open the **MPIO configuration**. Click **Server Manager > Dashboard > Tools > MPIO**.
 
@@ -81,7 +81,7 @@ MPIO needs to be configured to identify StorSimple volumes. To configure MPIO to
 
 After MPIO is configured on Windows Server, volume(s) created on the StorSimple device can be mounted and can then take advantage of MPIO for redundancy. To mount a volume, perform the following steps.
 
-### To mount volumes on the host
+#### To mount volumes on the host
 
 1. Open the **iSCSI Initiator Properties** window on the Windows Server host. Click **Server Manager > Dashboard > Tools > iSCSI Initiator**.
 2. In the **iSCSI Initiator Properties** dialog box, click the Discovery tab, and then click **Discover Target Portal**.
@@ -89,9 +89,10 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 	
 	- Enter the IP address of the DATA port of your StorSimple device (for example, enter DATA 0).
 	- Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
+
 	>[AZURE.IMPORTANT] **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
 
-4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. To learn more about this, go to [Modify network interfaces](storsimple-modify-device-config.md/#modify-network-interfaces).
+4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. To learn more about this, see [Modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces).
 5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. You should see the StorSimple device target IQN under **Discovered Targets**.
  ![iSCSI Initiator Properties Targets Tab](./media/storsimple-configure-mpio-windows-server/IC741007.png)
 6. Click **Connect** to establish an iSCSI session with your StorSimple device. A **Connect to Target** dialog box will appear.
@@ -177,5 +178,5 @@ The following procedure describes how to add sessions when a StorSimple device w
 
 ## Next steps
 
-Learn more about using the StorSimple Manager service to [modify your StorSimple device configuration](storsimple-modify-device-config.md).
+Learn more about [using the StorSimple Manager service to modify your StorSimple device configuration](storsimple-modify-device-config.md).
  

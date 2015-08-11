@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos" />
 
 # StorSimple Snapshot Manager user interface
 
 ## Overview
 
-The StorSimple Snapshot Manager has an intuitive graphical user interface (GUI) that you can use to manage backup copies of volume groups, including those stored locally and in the cloud. This tutorial provides an introduction to the interface, and then explains how to use each of the components. (For a detailed description of the StorSimple Snapshot Manager, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).
+The StorSimple Snapshot Manager has an intuitive graphical user interface (GUI) that you can use to manage backup copies of volume groups, including those stored locally and in the cloud. This tutorial provides an introduction to the interface, and then explains how to use each of the components. (For a detailed description of the StorSimple Snapshot Manager, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ### Console description
 
@@ -73,7 +73,7 @@ To view the **File** menu, click **File** on the menu bar. The following menu ap
 
 #### Menu description
 
-The following table describes items that appear on the File menu.
+The following table describes items that appear on the **File** menu.
 
 | Menu item | Description |
 |:----------|:-------------|
@@ -170,7 +170,7 @@ Use the **Favorites** menu to add, remove, and organize page views and tasks tha
 
 #### Menu access
 
-You can access the Favorites menu on the menu bar.
+You can access the **Favorites** menu on the menu bar.
 
 ![StorSimple Snapshot Manager Favorites menu](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
@@ -183,7 +183,7 @@ The following table describes items that appear on the **Favorites** menu.
 | Menu item |  Description |
 |:----------|:-------------|
 | Add to Favorites | Click **Add to Favorites** to add the current view to your list of favorites. |
-| Organize Favorites | Click Organize Favorites to organize the contents of your Favorites folder. |
+| Organize Favorites | Click **Organize Favorites** to organize the contents of your Favorites folder. |
 
 ### Window menu
 
@@ -214,7 +214,7 @@ The following table describes the items that appear on the Window menu.
 
 Use the **Help** menu to view available online help for StorSimple Snapshot Manager and the MMC. You can also view information about the MMC and StorSimple Snapshot Manager software versions that are currently installed on your system. 
 
-You can access the Help menu on the menu bar. You can also access StorSimple Snapshot Manager help topics from the Actions pane.
+You can access the **Help** menu on the menu bar. You can also access StorSimple Snapshot Manager help topics from the **Actions** pane.
 
 ![StorSimple Snapshot Manager Help menu](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
 
@@ -277,7 +277,7 @@ The **Scope** pane contains the following nodes:
 
 ### Scope pane tasks
 
-You can use the Scope pane to complete an action on a specific node. To select a task, do one of the following:
+You can use the **Scope** pane to complete an action on a specific node. To select a task, do one of the following:
 
 - Right-click the node, and then select the task from the menu that appears.
 
@@ -299,7 +299,7 @@ The **Devices** node represents the StorSimple devices and StorSimple virtual de
 
 ### Volumes node
 
-The Volumes node represents the drives that correspond to the volumes mounted by the host, including those discovered through iSCSI and those discovered through a device. Use this node to view the list of available volumes and assign individual volumes to volume groups.
+The **Volumes** node represents the drives that correspond to the volumes mounted by the host, including those discovered through iSCSI and those discovered through a device. Use this node to view the list of available volumes and assign individual volumes to volume groups.
 
 - To expand the node, click the arrow icon next to **Volumes**.
 
@@ -332,7 +332,7 @@ Backup policies are job schedules for local and cloud snapshots. Use the **Backu
 
 ### Backup Catalog node
 
-The **Backup Catalog** node contains lists of on-site and off-site backups of Azure StorSimple volumes. This node is organized by volume group, and each volume group container contains separate structures for local snapshots (the Local Snapshots node) and cloud snapshots (the Cloud Snapshots node). When expanded, each volume group container lists all the successful backups that were taken interactively or by a configured policy.
+The **Backup Catalog** node contains lists of on-site and off-site backups of Azure StorSimple volumes. This node is organized by volume group, and each volume group container contains separate structures for local snapshots (the **Local Snapshot**s node) and cloud snapshots (the **Cloud Snapshots** node). When expanded, each volume group container lists all the successful backups that were taken interactively or by a configured policy.
 
 - To expand the node, click the arrow icon next to **Backup Catalog**.
 

@@ -57,6 +57,7 @@ Perform the following steps in the Management Portal to create a support package
 
 
 ## Create a support package in Windows PowerShell for StorSimple
+
 If you need to edit your log files prior to creating a package, you will need to create your package through the Windows PowerShell for StorSimple. 
 
 Perform the following steps to create a support package in Windows PowerShell for StorSimple:
@@ -98,11 +99,11 @@ Perform the following steps to create a support package in Windows PowerShell fo
 		You will be prompted for a password, a path to the network shared folder, and an encryption passphrase (because the support package is encrypted). When these are provided, a support package will be created in the specified folder.
 											
 
-	- For open network shared folders (those that are not password protected), you do not need the -Credential parameter. Type the following: 
+	- For open network shared folders (those that are not password protected), you do not need the `-Credential` parameter. Type the following: 
 
 		`Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
 
-		The support package will be created for both controllers in the specified network shared folder. It is an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](https://msdn.microsoft.com/library/dn757750.aspx).
+		The support package will be created for both controllers in the specified network shared folder. It is an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
 
 ### More information about the Export-HcsSupportPackage cmdlet
@@ -128,7 +129,7 @@ To edit a support package before uploading it on the Microsoft Support site, you
 
 #### To edit a support package in Windows PowerShell for StorSimple
 
-1. Use Windows PowerShell for StorSimple to generate a support package as described in [Create a support package](#Create-a-Support-package-in-Windows-PowerShell-for-StorSimple).
+1. Generate a support package as described in [Create a support package in Windows PowerShell for StorSimple](#create-a-support-package-in-windows-powershell-for-storsimple).
 
 1. [Download the script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) locally on your client.
 
@@ -151,7 +152,6 @@ To edit a support package before uploading it on the Microsoft Support site, you
     
     	Supply values for the following parameters:EncryptionPassphrase: ****
 	
-
 1. Navigate to the folder that contains the log files. As the log files are now decompressed and decrypted, these will have original file extensions. Modify these files to remove any customer-specific information such as volume names and device IP addresses and save the files.
 
 1. Close the files. Closing the files will compress them with Gzip and then encrypt them with AES-256. This is for security and speed when transferring the support package over a network. To close files, type:
