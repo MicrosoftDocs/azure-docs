@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register for Google authentication - Mobile Services" 
+	pageTitle="Register for Google authentication | Microsoft Azure" 
 	description="Learn how to register your apps to use Google to authenticate with Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="android" 

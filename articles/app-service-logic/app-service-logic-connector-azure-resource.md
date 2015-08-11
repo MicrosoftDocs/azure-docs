@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="08/09/2015"
    ms.author="stepsic"/>
 
-#Azure Resource Connector
+# Azure Resource Connector
 The Azure Resource Connector gives you an easy way to manage Azure Resources inside of your Logic app.
 
-##Creating the API App
+## Create the Azure Resource Connector
 To use the Azure Resource Connector API App, you need to first create an instance of it. This can be done either inline while creating a Logic app or by selecting the Azure Resource Manger Connector API app from the Azure Marketplace.
 
 To configure it, you have you need to set up a Service Principal with permissions to do whatever it is you want to do in Azure. All calls will be made on-behalf-of this Service Principal that you set up. This allows you to scope the Connector to use only exactly what you want it to do, and nothing more. 
 
 David Ebbo has written [a great blog post](http://blog.davidebbo.com/2014/12/azure-service-principal.html) on how to set this up. Please follow all the instructions there and get your **Tenant ID**, **Client ID** and **Secret**. These three fields, plus the **Subscription ID**, are what are required to configure the Connector. 
 
-##Using the Azure Resource Connector in Logic Apps designer surface
-###Trigger
+## Using the Azure Resource Connector in Logic Apps designer
+### Trigger
 There are two triggers that are supported in the Connector:
 
 Name | Description 
@@ -35,7 +35,7 @@ Name | Description
 Event occurs | Trigger when an event occurs to a resource in your subscription. 
 Metric crosses threshold |  Trigger when a metric meets a certain threshold.
 
-###Action
+### Action
 
 Likewise, you can provide a large number of actions inside your Azure subscription:
  
@@ -52,7 +52,7 @@ For **Resources** you can:
 
 Name | Description 
 ---- | -----------
-List resources | List resources in your subscirption by different types of filters.
+List resources | List resources in your subscription by different types of filters.
 Get resource | Get a single resource by its resource Id.
 Create or update resource | Create a resource, or, update an existing resource. You must provide all of the properties for that resource.
 Resource action |  Perform any other action on a resource. You need to know the action name and the payload that this action takes (if any).

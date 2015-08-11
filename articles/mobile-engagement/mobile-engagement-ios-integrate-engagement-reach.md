@@ -3,7 +3,7 @@
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="kpiteira"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/12/2015"
-	ms.author="kapiteir" />
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #How to Integrate Engagement Reach on iOS
 

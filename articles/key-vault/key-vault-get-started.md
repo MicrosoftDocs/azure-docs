@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Key Vault | Overview"
+	pageTitle="Get started with Azure Key Vault | Microsoft Azure"
 	description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure."
 	services="key-vault"
 	documentationCenter=""

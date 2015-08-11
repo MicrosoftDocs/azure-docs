@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to scale a cloud service | Azure" 
+	pageTitle="How to scale a cloud service | Microsoft Azure" 
 	description="Learn how to scale a cloud service and linked resources in Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
