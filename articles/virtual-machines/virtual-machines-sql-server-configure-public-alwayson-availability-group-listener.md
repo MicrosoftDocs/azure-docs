@@ -15,13 +15,13 @@
 	ms.date="08/11/2015"
 	ms.author="jroth" />
 
-# Configure an ILB Listener for AlwaysOn Availability Groups in Azure
+# Configure an external listener for AlwaysOn Availability Groups in Azure
 
 > [AZURE.SELECTOR]
 - [Internal Listener](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
 - [External Listener](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
-This topic shows you how to configure a listener for an AlwaysOn Availability Group that is externally accessible on the internet. This is made possible associating the cloud service's public Virtual IP (VIP) address with the listener.
+This topic shows you how to configure a listener for an AlwaysOn Availability Group that is externally accessible on the internet. This is made possible associating the cloud service's **public Virtual IP (VIP)** address with the listener.
 
 Your Availability Group can contain replicas that are on-premises only, Azure only, or span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks (VNets). The steps below assume you have already [configured an availability group](https://msdn.microsoft.com/library/azure/dn249504.aspx) but have not configured a listener. 
 
