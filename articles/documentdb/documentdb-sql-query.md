@@ -3,7 +3,7 @@
 	description="DocumentDB, a NoSQL document database service, supports queries using SQL-like grammar over hierarchical JSON documents without requiring explicit an schema or creation of secondary indexes." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="arramac" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/11/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
@@ -1633,7 +1633,7 @@ Here's another example that uses ARRAY_LENGTH to get the number of children per 
 That wraps up built-in functions, and the SQL grammar for DocumentDB. Now let's take a look at how LINQ querying works and how it interacts with the grammar we've seen so far.
 
 ###Spatial Functions
-The following scalar functions perform an operation on an spatial input value. For details on geospatial support in DocumentDB, please refer to this [article](documentdb-geospatial.md). Here's a table of the built-in spatial functions:
+The following spatial functions perform an operation on a spatial input value. For details on geospatial support in DocumentDB, please see [Working with geospatial data in Azure DocumentDB](documentdb-geospatial.md). Here's a table of the built-in spatial functions:
 
 <table>
 <tr>
@@ -1646,15 +1646,15 @@ The following scalar functions perform an operation on an spatial input value. F
 </tr>
 <tr>
   <td>ST_WITHIN (point_expr, polygon_expr)</td>
-  <td>Returns a Boolean expression representing if the GeoJSON point specified in the first argument is within the GeoJSON polygon in the second argument.</td>
+  <td>Returns a Boolean expression indicating whether the GeoJSON point specified in the first argument is within the GeoJSON polygon in the second argument.</td>
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Returns a Boolean value representing if the specified GeoJSON point or polygon expression is valid.</td>
+  <td>Returns a Boolean value indicating whether the specified GeoJSON point or polygon expression is valid.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.</td>
+  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid. If invalid, the reason is also returned as a string value.</td>
 </tr>
 </table>
 
@@ -1672,7 +1672,7 @@ Spatial functions can be used to perform proximity querries against spatial data
       "id": "WakefieldFamily"
     }]
 
-ST_WITHIN can be used to check if a point lies within a polygon. Commonly polygons are used to represent boundaries like zipcodes, state boundaries, or natural formations. In these queries, polygons can contain only a single ring, i.e. the polygons must not contain holes in them. Also check the [DocumentDB limits](documentdb-limits.md) for the maximum number of points allowed in a polygon for an ST_WITHIN query.
+ST_WITHIN can be used to check if a point lies within a polygon. Polygons are commonly used to represent boundaries like zipcodes, state boundaries, or natural formations. In these queries, polygons can contain only a single ring, i.e. the polygons must not contain holes in them. Also check the [DocumentDB limits](documentdb-limits.md) for the maximum number of points allowed in a polygon for an ST_WITHIN query.
 
 **Query**
 
@@ -1689,9 +1689,9 @@ ST_WITHIN can be used to check if a point lies within a polygon. Commonly polygo
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE] Similar to how mismatched types works in DocumentDB query, if the location value specified in either argument is malformed or invalid, then it will evaluate to **undefined** and the evaluated document to be skipped from the query results. If your query returns no results, run ST_ISVALIDDETAILED To debug why the spatail type is invalid.     
+>[AZURE.NOTE] Similar to how mismatched types work in DocumentDB query, if the location value specified in either argument is malformed or invalid, then it will evaluate to **undefined** and the evaluated document to be skipped from the query results. If your query returns no results, run ST_ISVALIDDETAILED to debug why the spatail type is invalid.     
 
-ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out of range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
+ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out-of-range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
 
 ** Query **
 
