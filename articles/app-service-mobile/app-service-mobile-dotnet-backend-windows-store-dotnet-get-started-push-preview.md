@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service Mobile Apps and Azure Notification Hubs to send push notifications to your Windows app." 
 	services="app-service\mobile,notification-hubs" 
 	documentationCenter="windows" 
-	authors="ysxu" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -24,7 +24,7 @@
 
 ##Overview
 
-This topic shows you how to send push notifications to a Windows Runtime 8.1 universal app by using Azure App Service Mobile Apps and Azure Notification Hubs. In this scenario, when a new item is added your Mobile App backend sends a push notification to all Windows apps registered with the Windows Notification Service (WNS).
+This topic shows you how to send push notifications to a Windows Runtime 8.1 universal app by using Azure App Service Mobile Apps and Azure Notification Hubs. In this scenario, when a new item is added, your Mobile App backend sends a push notification to all Windows apps registered with the Windows Notification Service (WNS).
 
 This tutorial is based on the App Service Mobile App quickstart. Before you start this tutorial, you must first complete the quickstart tutorial [Create a Windows app](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
 
@@ -39,6 +39,16 @@ To complete this tutorial, you need the following:
 ##<a name="review"></a>Review your server project configuration (optional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)] 
+
+##<a name="create-gateway"></a>Create a Notification Hub
+
+Follow these steps to create a new Notification Hub to handle push notifications. If you already have a hub in the same resource group, you do not need to complete this section.
+
+1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. Click **Settings** > **Mobile** > **Push**. 
+
+2. Follow the work flow to create a notification hub. You will need to create a new namespace if there is none in your current resource group. Click **Create** once you've configured all the settings.
+
+Next, you will use this notificaton hub to enable push for your app.
 
 ##Register your app for push notifications
 
@@ -66,14 +76,11 @@ Before you can send push notifications to your Windows apps from Azure, you must
 
 ##Configure Mobile App to send push requests
 
-1. Log on to the [Azure Preview Portal], select **Browse** > **Mobile App** > your app > **Push notification services**.
+1. Log on to the [Azure Portal], select **Browse** > **Mobile App** > your app > **Push notification services**.
 
 2. In **Windows Notification Service**, enter the **Security key** (client secret) and **Package SID** that you obtained from the Live Services site, then click **Save**.
 
 Your Mobile App backend is now configured to work with WNS.
-
-<!-- URLs. -->
-[Azure Preview Portal]: https://portal.azure.com/
 
 ##<a id="update-service"></a>Update the service to send push notifications
 
@@ -91,7 +98,7 @@ Now that push notifications are enabled in the app, you must update your app bac
         // Define a WNS message and payload.           
         WindowsPushMessage message = new WindowsPushMessage();
         message.XmlPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
-                                + item.Text + @"</text></binding></visual></toast>";
+                             + item.Text + @"</text></binding></visual></toast>";
         try
         {
             // Create a new client for push notifications using the configured 
@@ -129,7 +136,7 @@ Now that push notifications are enabled in the app, you must update your app bac
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            await MobileService.GetPush().RegisterAsync(channel.Uri);
+            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your App Service Mobile App.
@@ -153,7 +160,8 @@ Your app is now ready to receive toast notifications.
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push-preview](../../includes/app-service-mobile-windows-universal-test-push-preview.md)]
 
 <!-- Anchors. -->
-
+<!-- URLs. -->
+[Azure Portal]: https://portal.azure.com/
 <!-- Images. -->
 [0]: ./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-submit-win8-app.png
 [1]: ./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-app-name.png
