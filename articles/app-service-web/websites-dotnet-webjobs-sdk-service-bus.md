@@ -84,9 +84,9 @@ For code samples showing how to use properties of the POCO to work with blobs an
 
 If your code that creates the queue message doesn't use the WebJobs SDK, use code similar to the following example:
 
-		var client = QueueClient.CreateFromConnectionString(ConfigurationManager.ConnectionStrings["AzureWebJobsServiceBus"].ConnectionString, "imageadded");
-		ImageAddedMessage o = new ImageAddedMessage () ;
-		var message = new BrokeredMessage(o);
+		var client = QueueClient.CreateFromConnectionString(ConfigurationManager.ConnectionStrings["AzureWebJobsServiceBus"].ConnectionString, "blobadded");
+		BlobInformation blobInformation = new BlobInformation () ;
+		var message = new BrokeredMessage(blobInformation);
 		client.Send(message);
 
 ### Types ServiceBusTrigger works with
