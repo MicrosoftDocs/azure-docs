@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Media Services REST API overview - Azure" 
+	pageTitle="Media Services REST API overview | Microsoft Azure" 
 	description="Media Services REST API overview" 
 	services="media-services" 
 	documentationCenter="" 

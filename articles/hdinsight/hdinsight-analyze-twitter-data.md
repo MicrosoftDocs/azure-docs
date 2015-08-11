@@ -20,7 +20,10 @@
 
 Social websites are one of the major driving forces for big-data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will get tweets by using a Twitter streaming API, and then use Apache Hive on Azure HDInsight to get a list of Twitter users who sent the most tweets that contained a certain word.
 
-> [AZURE.NOTE] A similar sample is in the HDInsight Sample Gallery. Watch the Channel 9 video: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">Analyze Twitter trends using Apache Hive in HDInsight</a>.
+> [AZURE.NOTE] The steps in this article are based on using a Windows-based HDInsight cluster. For steps specific to a Linux-based cluster, see [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md).
+
+A similar sample is in the HDInsight Sample Gallery. Watch the Channel 9 video: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">Analyze Twitter trends using Apache Hive in HDInsight</a>.
+
 
 ###Prerequisites
 
@@ -68,13 +71,13 @@ If you want to access the file directly from the storage account, the blob name 
 
 The following table lists the files used in this tutorial:
 
-<table border="1">
-<tr><th>Files</th><th>Description</th></tr>
-<tr><td>/tutorials/twitter/data/tweets.txt</td><td>The source data for the Hive job.</td></tr>
-<tr><td>/tutorials/twitter/output</td><td>The output folder for the Hive job. The default Hive job output file name is <strong>000000_0</strong>. </td></tr>
-<tr><td>tutorials/twitter/twitter.hql</td><td>The HiveQL script file.</td></tr>
-<tr><td>/tutorials/twitter/jobstatus</td><td>The Hadoop job status.</td></tr>
-</table>
+Files|Description
+---|---
+/tutorials/twitter/data/tweets.txt|The source data for the Hive job.
+/tutorials/twitter/output|The output folder for the Hive job. The default Hive job output file name is **000000_0**. 
+tutorials/twitter/twitter.hql|The HiveQL script file.
+/tutorials/twitter/jobstatus|The Hadoop job status.
+
 
 ##Get a Twitter feed
 
@@ -94,12 +97,12 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 2. Click **Create New App**.
 3. Enter **Name**, **Description**, **Website**. You can make up a URL for the **Website** field. The following table shows some sample values to use:
 
-	<table border="1">
-	<tr><th>Field</th><th>Value</th></tr>
-	<tr><td>Name</td><td>MyHDInsightApp</td></tr>
-	<tr><td>Description</td><td>MyHDInsightApp</td></tr>
-	<tr><td>Website</td><td>http://www.myhdinsightapp.com</td></tr>
-	</table>
+Field|Value
+---|---
+Name|MyHDInsightApp
+Description|MyHDInsightApp
+Website|http://www.myhdinsightapp.com
+
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial. 
 6. Click the **Keys and Access Tokens** tab.
@@ -242,17 +245,16 @@ In this tutorial, you will use Windows PowerShell to make the web service call. 
 
 3. Set the first five to eight variables in the script:	
 
-	<table border="1">
-	<tr><th>Variable</th><th>Description</th></tr>
-	<tr><td>$clusterName</td><td>This is the name of the HDInsight cluster where you want to run the application.</td></tr><tr><td>$oauth_consumer_key</td><td>This is the Twitter application <strong>consumer key</strong> you wrote down earlier when you created the Twitter application.</td></tr>
-	<tr><td>$oauth_consumer_secret</td><td>This is the Twitter application <strong>consumer secret</strong> you wrote down earlier.</td></tr>
-	<tr><td>$oauth_token</td><td>This is the Twitter application <strong>access token</strong> you wrote down earlier.</td></tr>
-	<tr><td>$oauth_token_secret</td><td>This is the Twitter application <strong>access token secret</strong> you wrote down earlier.</td></tr>	
-	<tr><td>$destBlobName</td><td>This is the output blob name. The default value is <strong>tutorials/twitter/data/tweets.txt</strong>. If you change the default value, you will need to update the Windows PowerShell scripts accordingly.</td></tr>
-	<tr><td>$trackString</td><td>The web service will return tweets related to these keywords. The default value is <strong>Azure, Cloud, HDInsight</strong>. If you change the default value, you will update the Windows PowerShell scripts accordingly.</td></tr>
-	<tr><td>$lineMax</td><td>The value determines how many tweets the script will read. It takes about three minutes to read 100 tweets. You can set a larger number, but it will take more time to download.</td></tr>
-
-	</table>
+Variable|Description
+---|---
+$clusterName|This is the name of the HDInsight cluster where you want to run the application.
+$oauth_consumer_key|This is the Twitter application **consumer key** you wrote down earlier when you created the Twitter application.
+$oauth_consumer_secret|This is the Twitter application **consumer secret** you wrote down earlier.
+$oauth_token|This is the Twitter application **access token** you wrote down earlier.
+$oauth_token_secret|This is the Twitter application **access token secret** you wrote down earlier.	
+$destBlobName|This is the output blob name. The default value is **tutorials/twitter/data/tweets.txt**. If you change the default value, you will need to update the Windows PowerShell scripts accordingly.
+$trackString|The web service will return tweets related to these keywords. The default value is **Azure, Cloud, HDInsight**. If you change the default value, you will update the Windows PowerShell scripts accordingly.
+$lineMax|The value determines how many tweets the script will read. It takes about three minutes to read 100 tweets. You can set a larger number, but it will take more time to download.
 
 5. Press **F5** to run the script. If you run into problems, as a workaround, select all the lines, and then press **F8**.
 6. You shall see "Complete!" at the end of the output. Any error messages will be displayed in red.
@@ -442,13 +444,12 @@ The HiveQL script will perform the following:
 
 4. Set the first two variables in the script:	
 
-	<table border="1">
-	<tr><th>Variable</th><th>Description</th></tr>
-	<tr><td>$clusterName</td><td>Enter the HDInsight cluster name where you want to run the application.</td></tr>
-	<tr><td>$sourceDataPath</td><td>The Azure Blob storage location where the Hive queries will read the data from. You don't need to change this variable.</td></tr>
-	<tr><td>$outputPath</td><td>The Azure Blob storage location where the Hive queries will output the results. You don't need to change this variable.</td></tr>
-	<tr><td>$hqlScriptFile</td><td>The location and the file name of the HiveQL script file. You don't need to change this variable.</td></tr>
-	</table>
+Variable|Description
+---|---
+$clusterName|Enter the HDInsight cluster name where you want to run the application.
+$sourceDataPath|The Azure Blob storage location where the Hive queries will read the data from. You don't need to change this variable.
+$outputPath|The Azure Blob storage location where the Hive queries will output the results. You don't need to change this variable.
+$hqlScriptFile|The location and the file name of the HiveQL script file. You don't need to change this variable.
 
 5. Press **F5** to run the script. If you run into problems, as a workaround, select all the lines, and then press **F8**.
 6. You shall see "Complete!" at the end of the output. Any error messages will be displayed in red.
