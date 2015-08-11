@@ -53,13 +53,16 @@ The fully qualified domain name (FQDN) to use when connecting to the cluster is 
 	>
 	> Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net on port 22
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net on port 22 or 23. Port 22 is used to connect to headnode0, while 23 is used to connect to headnode1. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE] You can only access the cluster head node through SSH from a client machine. Once connected, you can then access the worker nodes by using SSH from the head node.
+	> [AZURE.NOTE] You can only access the cluster head nodes through SSH from a client machine. Once connected, you can then access the worker nodes by using SSH from the head node.
 
 ## File locations
 
-Hadoop-related files can be found on the cluster nodes at `/usr/hdp/current`.
+Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This directory contains the following subdirectories:
+
+* __2.2.4.9-1__: This directory is named for the version of the Hortonworks Data Platform used by HDInsight, so the number on your cluster may be different than the one listed here.
+* __current__: This directory contains links to directories under the __2.2.4.9-1__ directory, and exists so that you don't have to type a version number (that might change,) every time you want to access a file.
 
 Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at '/example' or 'wasb:///example'.
 
