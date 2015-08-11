@@ -25,4 +25,4 @@ The following steps registers your app with the Windows Store, configure your mo
 <!-- URLs. -->
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet/
-[Import your publishsettings file in Visual Studio 2013]: ../articles/mobile-services-windows-how-to-import-publishsettings.md
+[Import your publishsettings file in Visual Studio 2013]: ../articles/mobile-services/mobile-services-windows-how-to-import-publishsettings.md

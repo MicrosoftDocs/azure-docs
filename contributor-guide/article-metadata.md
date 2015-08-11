@@ -13,14 +13,15 @@ All Azure technical articles contain two metadata sections - a properties sectio
 
 The properties section uses this syntax:
 
-    <properties 
-       pageTitle="Page title that displays in search results and the browser tab" 
-       description="Article description that will be displayed on landing pages and in most search results" 
-       services="service-name" 
-       documentationCenter="dev-center-name" 
-       authors="GitHub-alias-of-only-one-author" 
-       manager="manager-alias" 
-       editor=""/>
+    <properties
+       pageTitle="Page title that displays in search results and the browser tab | Microsoft Aure"
+       description="Article description that will be displayed on landing pages and in most search results"
+       services="service-name"
+       documentationCenter="dev-center-name"
+       authors="GitHub-alias-of-only-one-author"
+       manager="manager-alias"
+       editor=""
+       tags=""/>
 
 The tags section uses this syntax:
 
@@ -29,7 +30,7 @@ The tags section uses this syntax:
        ms.devlang="may be required"
        ms.topic="article"
        ms.tgt_pltfrm="may be required"
-       ms.workload="required" 
+       ms.workload="na"
        ms.date="mm/dd/yyyy"
        ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
@@ -42,53 +43,78 @@ The tags section uses this syntax:
 ## Attributes and values for the properties section
 
 ![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Azure* (typed as: space pipe space Microsoft Azure).
- 
+
 ![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionalities. Use at least 140 characters, but don't exceed 170 characters including spaces. Describe the  purpose of your content so customers will know whether to choose it from a list of search results. The value is:
 
 - Usually displayed as the description or abstract paragraph in search results
 - Will soon be displayed automatically on documentation landing pages as the description that appears when you click "More". It may appear in other contexts on azure.microsoft.com.
 
-![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
+![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service that you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
 
 - active-directory
+- api-management
 - app-service\api
 - app-service\logic
 - app-service\mobile
 - app-service\web
+- application-gateway
+- application-insights
+- automation
+- azure-portal
+- azure-resource-manager
 - backup
 - batch
+- billing
 - biztalk-services
 - cache
+- cdn
 - cloud-services
+- data-catalog
+- data-factory
 - documentdb
+- dns
+- expressroute
+- event-hubs
 - hdinsight
+- key-vault
+- load-balancer
 - machine-learning
 - media-services
 - mobile-engagement
 - mobile-services
 - multi-factor-authentication
 - notification-hubs
+- operational-insights
 - recovery-manager
 - redis-cache
+- remoteapp
+- rights-management
+- search
 - service-bus
 - service-fabric
 - scheduler
+- site-recovery
 - sql-database
+- sql-data-warehouse
 - storage
+- store
+- storsimple
 - stream-analytics
+- traffic-manager
 - virtual-machines
 - virtual-network
 - visual-studio-online
+- vpn-gateway
 - web-sites
 
 ![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
 
-- **.net** 
-- **nodejs** 
-- **java** 
-- **php** 
-- **python** 
-- **ruby** 
+- **.net**
+- **nodejs**
+- **java**
+- **php**
+- **python**
+- **ruby**
 - **mobile**: Deprecated. Replace with specific mobile platform.
 - **ios**: Verifing this new value
 - **android**: Verifying this new value
@@ -99,11 +125,19 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
 
-![](./media/article-metadata/checkmark-small.png)**editor**: not required.
+![](./media/article-metadata/checkmark-small.png)**editor**: Not used. Do not use it for other purposes.
+
+![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the approved values. These values are meant to provide a way to group content together when the content grouping is not service-specific. These tags can also provide labeling that indicates the technology stack the article applies to. This value **does not** support free-form tags or hashtags; the tags must be enabled on the site. You can supply multiple tags values to one article, separated by commas. The approved values are:
+
+  - architecture
+  - azure-resource-manager
+  - azure-service-management
+  - billing
+  - mysql
 
 ## Attributes and values for the tags section
 
-![](./media/article-metadata/checkmark-small.png)**ms.service**: Required. Specifies the Azure service, tool, or feature that the article applies to. One value per page. 
+![](./media/article-metadata/checkmark-small.png)**ms.service**: Required. Specifies the Azure service, tool, or feature that the article applies to. One value per page.
 
  If a page applies to multiple services, choose the service to which it most directly applies; for instance, an article that uses an app hosted on web sites to demonstrate Service Bus functionality should have the **service-bus** value, rather than **web-sites**. If a page applies to multiple services equally, choose **multiple**. If a page does not apply to any services (this will be rare), choose **NA**.
 
@@ -114,59 +148,66 @@ The tags section uses this syntax:
  - **app-service-logic**
  - **app-service-mobile**
  - **app-service-web**
- - **application-insights**	
- - **automation**	
- - **backup**	
- - **biztalk-services**	
- - **cache**	
- - **cdn**	
- - **cloud-services**	
- - **expressroute**	
- - **hdinsight**	
- - **intelligent-systems**	
- - **key-vault**	
- - **machine-learning**	
+ - **application-insights**
+ - **automation**
+ - **azure-resource-manager**
+ - **backup**
+ - **batch**
+ - **biztalk-services**
+ - **billing**
+ - **cache**
+ - **cdn**
+ - **cloud-services**
+ - **expressroute**
+ - **hdinsight**
+ - **key-vault**
+ - **machine-learning**
  - **marketplace**: Articles about the Azure marketplace
  - **media-services**
- - **mobile-engagement**	
- - **mobile-services**	
- - **multi-factor-authentication**	
+ - **mobile-engagement**
+ - **mobile-services**
+ - **multi-factor-authentication**
  - **multiple**: The page applies to multiple services equally
  - **na**: The page does not apply to any services (rare)
- - **notification-hubs**	
- - **operational-insights**	
- - **remoteapp**	
- - **scheduler**	
- - **service-bus**	
+ - **notification-hubs**
+ - **operational-insights**
+ - **recovery-manager**
+ - **redis-cache**
+ - **remoteapp**
+ - **rights-management**
+ - **scheduler**
+ - **service-bus**
  - **service-fabric**
  - **site-recovery**: formerly recovery-services
- - **sql-database**	
- - **sql-reporting**	
- - **storage**	
+ - **sql-database**
+ - **sql-data-warehouse**
+ - **sql-reporting**
+ - **storage**
  - **store**: Articles about services available through the Azure Store
- - **storsimple**	
- - **traffic-manager**	
- - **virtual-machines**	
- - **virtual-network**	
- - **visual-studio-online**	
- - **web-sites**	
+ - **storsimple**
+ - **traffic-manager**
+ - **virtual-machines**
+ - **virtual-network**
+ - **visual-studio-online**
+ - **vpn-gateway**
+ - **web-sites**
 
 ![](./media/article-metadata/checkmark-small.png)**ms.devlang**: Required. Specifies the programming language that the article applies to. Single value per page.
 
  If a page applies to two programming languages equally, choose **multiple**. If a page is primarily conceptual and its content is generally applicable to multiple programming languages, choose **multiple**. If a page is not targeted at developers and the programming language applicability is not relevant, choose **NA**. Use **rest-api** to identify REST API reference topics.
 
- - **cpp**	
- - **dotnet**	
- - **java**	
- - **javascript**	
+ - **cpp**
+ - **dotnet**
+ - **java**
+ - **javascript**
  - **multiple**: The page applies to multiple programming languages equally.
  - **na**: The page is not targeting developers and is not specific to any programming languages.
- - **nodejs**	
- - **objective-c**	
- - **php**	
- - **python**	
- - **rest-api**	
- - **ruby**	
+ - **nodejs**
+ - **objective-c**
+ - **php**
+ - **python**
+ - **rest-api**
+ - **ruby**
 
 
 ![](./media/article-metadata/checkmark-small.png)**ms.topic**: Required. Specifics the topic type. Most new pages created by contributors will be article or reference.
@@ -177,7 +218,9 @@ The tags section uses this syntax:
 
  - **dev-center-home-page**: Azure.com only.  A dev center home page, e.g. /develop/net/
 
- - **hero-article**: a "hero" tutorial that is designed to provide an introduction to a service or feature that gets visitors started using the service quickly and drives free-trial sign-ups and MSDN activations
+ - **get-started-article**: assign to articles that are featured in the Get Started section of the left navigation for a service.
+
+ - **hero-article**: a "hero" tutorial that is designed to provide an introduction to a service or feature that gets visitors started using the service quickly and drives free-trial sign-ups and MSDN activations. Assign this value ONLY to articles that are featured at the top of the documentation landing page for your service.
 
  - **home-page**: Top level documentation home page. We only have two: azure.microsoft.com/documentation/ and msdn.microsoft.com/library/azure/
 
@@ -195,67 +238,41 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**ms.tgt_pltfrm**: Required. Specifies the target platform, for instance Windows, Linux, Windows Phone, iOS, Android, or special cache platforms. One value per page. This value will be **NA** for most topics except mobile and virtual machines.
 
- - **cache-in-role**	
- - **cache-multiple**	
- - **cache-redis**	
- - **cache-service**	
- - **cache-shared**	
- - **command-line-interface**	
+ - **cache-in-role**
+ - **cache-multiple**
+ - **cache-redis**
+ - **cache-service**
+ - **cache-shared**
+ - **command-line-interface**
  - **ibiza**: content that uses the Ibiza portal. Use this only in cases where the feature being discussed is available across both the Ibiza portal and the current portal.
  - **mobile-android**: Azure.com only right now
  - **mobile-html**: Azure.com only right now
  - **mobile-ios**: Azure.com only right now
  - **mobile-kindle**: Azure.com only right now
- - **mobile-multiple**	
+ - **mobile-multiple**
  - **mobile-nokia-x**: Azure.com only right now
  - **mobile-phonegap**: Azure.com only right now
  - **mobile-sencha**: Azure.com only right now
  - **mobile-windows**: Azure.com only right now; Windows Universal
- - **mobile-windows-phone**	
- - **mobile-windows-store**	
+ - **mobile-windows-phone**
+ - **mobile-windows-store**
  - **mobile-xamarin**: Azure.com only right now; Xamarin all platforms
  - **mobile-xamarin-android**: Azure.com only right now
  - **mobile-xamarin-ios**: Azure.com only right now
  - **multiple**: The page applies to multiple platforms equally
  - **na**: A platform specifier is not applicable for this page
- - **powershell**	
- - **vm-linux**	
- - **vm-multiple**	
- - **vm-windows**	
- - **vm-windows-sharepoint**	
- - **vm-windows-sql-server**	
+ - **powershell**
+ - **vm-linux**
+ - **vm-multiple**
+ - **vm-windows**
+ - **vm-windows-sharepoint**
+ - **vm-windows-sql-server**
  - **vs-getting-started**: Identifies the VS Getting Started page group. Tag added 12/1/14.
  - **vs-what-happened**: Identifies the VS Getting Started What Happened page. Tag added 12/1/14.
 
 ![](./media/article-metadata/checkmark-small.png)**ms.workload**: Required. Specifies the Azure workload that the page applies to. One value only per article.
 
- If a page applies to multiple workloads, choose the workload to which is most directly applies. If a page applies to multiple workloads equally, choose **multiple**. If a page applies to a service that does not yet map to a workload, choose **TBD**. If a page does not apply to any workloads (this will be rare), choose **NA**.
-
- - **multiple**: The page applies to multiple workloads equally
-
- - **na**: The page does not appy to any workloads. Examples include Store partner content or content that is programming-language specific but not specific to Azure services
-
- - **tbd**: The page applies to a service that does not yet map to a workload
-
- - **big-data**: In many cases, content associated with the following services maps to this workload: hdinsight
-
- - **data-services**: In many cases, content associated with the following services maps to this workload: sql-database
-
- - **identity**: In many cases, content associated with the following services maps to this workload: active-directory, multi-factor-authentication
-
- - **infrastructure-services**: In many cases, content associated with the following services maps to this workload: virtual-machines, virtual-network, traffic-manager, expressroute
-
- - **integration**: In many cases, content associated with the following services maps to this workload: biztalk-services
-
- - **media**: In many cases, content associated with the following services maps to this workload: media-services
-
- - **mobile**: In many cases, content associated with the following services maps to this workload: mobile-services, notification-hubs, service-bus
-
- - **storage-backup-recovery**: In many cases, content associated with the following services maps to this workload: storage, recovery-services, backup
-
- - **web**: In many cases, content associated with the following services maps to this workload: web-sites
-
- - **azure-government**: Use for content that supports the Azure Government offering. 
+**update 8/6/15** The ms.workload value is being mapped by an xls, not the value in the .md file. The ms.workload value is still required for validation until the feature can be updated. That work is now being scheduled.  Please use **"na"** as the value for now.
 
 ![](./media/article-metadata/checkmark-small.png) **ms.date**: Required. Specifies the date the article was last reviewed for relevance, accuracy, correct screen shots, and working links. Enter the date in mm/dd/yyyy format. This date also appears on the published article as the last updated date.
 
@@ -264,7 +281,7 @@ The tags section uses this syntax:
 
 ###Contributors' Guide Links
 
-- [Overview article](./../CONTRIBUTING.md)
+- [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)
 
 

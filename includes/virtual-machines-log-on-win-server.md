@@ -1,7 +1,5 @@
 <properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
 
->[AZURE.NOTE] If you need to reset the user name or password, or reset RDP in the virtual machine, see [How to Reset a Password or the Remote Desktop Service for Windows Virtual Machines](../articles/virtual-machines-windows-reset-password.md). For detailed troubleshooting steps, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines-troubleshoot-remote-desktop-connections.md).
-
 1. If you haven't already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. Click **Virtual Machines**, and then select the appropriate virtual machine.
@@ -29,5 +27,3 @@ Click **Yes** to verify the identity of the virtual machine.
 ![Verify the identity of the machine](./media/virtual-machines-log-on-win-server/connectverify.png)
 
 You can now work with the virtual machine remotely.
-
-If you cannot log on to the virtual machine, see [How to Reset a Password or the Remote Desktop Service for Windows Virtual Machines](../articles/virtual-machines-windows-reset-password.md).

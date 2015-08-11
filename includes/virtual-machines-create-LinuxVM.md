@@ -1,33 +1,39 @@
-1. Sign in to the Azure [Management Portal](http://manage.windowsazure.com).
-On the command bar, click **New**.
+1. Sign in to your Azure subscription using the steps listed in [Connect to Azure from the Azure CLI](../articles/xplat-cli-connect.md).
+2. Make sure you are in the Service Management mode by using:
 
-2. Click **Virtual Machine**, and then click **From Gallery**.
+        azure config mode asm
 
-3. From **Choose an Image**, select an image from one of the lists. (The available images may differ depending on the subscription you're using.) Click the arrow to continue.
+3. Find out the Linux image that you want to load from the available images:
 
-4. If multiple versions of the image are available, in **Version Release Date**, pick the version you want to use.
+        azure vm image list | grep "Linux"
 
-5. In **Virtual Machine Name**, type the name that you want to use. For this virtual machine, type **MyTestVM1**.
+4. Use `azure vm create` to create a new virtual machine with the Linux image from the above list. This step creates a new cloud service as well as a new storage account. You could also connect this virtual machine to an existing cloud service with a `-c` option. It also creates an SSH endpoint to login to the Linux virtual machine with the `-e` option.
 
-6. In **Size**, select the size that you want to use for the virtual machine. The size that you choose depends on the number of cores that are needed for your application.  For this virtual machine, choose the smallest available size.
+        ~$ azure vm create "MyTestVM" b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64 "adminUser" -z "Small" -e -l "West US"
+        info:    Executing command vm create
+        + Looking up image b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64
+        Enter VM 'adminUser' password:*********
+        Confirm password: *********
+        + Looking up cloud service
+        info:    cloud service MyTestVM not found.
+        + Creating cloud service
+        + Retrieving storage accounts
+        + Creating a new storage account 'mytestvm1437604756125'
+        + Creating VM
+        info:    vm create command OK
 
-7. In **New User Name**, type the name of the account that you will use to administer the virtual machine. You cannot use root for the user name. For this virtual machine, type **NewUser1**.
+    >[AZURE.NOTE] For a Linux virtual machine, you must provide the `-e` option in `vm create`; it is not possible to enable SSH after the virtual machine has been created. For more details on SSH, read [How to Use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md).
 
-8. Under Authentication, check **Provide a Password**. Then, provide the required information and click the arrow to continue.
+    Note that the image *b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64* is the one we chose from the image list in the above step. *MyTestVM* is the name of our new virtual machine, and *adminUser* is the username that we will use to SSH into the virtual machine. You can replace these variables as per your requirement. For more details on this command, visit the [Using the Azure CLI with Azure Service Management](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-9. You can place virtual machines together in the cloud service, but for this tutorial, you're only creating a single virtual machine. To do this, select **Create a new cloud service**.
+5. The newly created Linux virtual machine will appear in the list given by:
 
-10. In **Cloud Service DNS Name**, type a name that uses between 3 and 24 lowercase letters and numbers. You'll need to come up with your own cloud service name because it must be unique in Azure. The clouse service name becomes part of the URI that is used to contact the virtual machine through the cloud service.
+        azure vm list
 
-11. In **Region/Affinity Group/Virtual Network**, select where you want to locate the virtual machine.
+6. You can verify the attributes of the virtual machine by using the command:
 
-12. You can select a storage account where the VHD file is stored. For this tutorial, accept the default setting of **Use an Automatically Generated Storage Account**.
+        azure vm show MyTestVM
 
-13. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. 
+7. The newly created virtual machine is ready to start with the `azure vm start` command.
 
-14.	Under **Endpoints**, review the endpoint that's automatically created to allow Secure Shell (SSH) connections to the virtual machine. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines-set-up-endpoints.md).
-
-15.  Under **VM Agent**, review the available extensions. These extensions provide various features that make it easier to use and manage a virtual machine. For details, see [Azure VM Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493). 
-
-
-After Azure creates the virtual machine and cloud service, the Management Portal lists the new virtual machine under **Virtual Machines** and lists the cloud service under **Cloud Services**. Both the virtual machine and the cloud service are started automatically.
+For details on all these Azure CLI virtual machine commands, please read the [Using the Azure CLI with Azure Service Management](../articles/virtual-machines/virtual-machines-command-line-tools.md).
