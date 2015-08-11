@@ -88,7 +88,7 @@ Next, you'll configure the **Virtual Network Gateway** in order to create a secu
 
 ## Next Steps
 
-You can learn more about Virtual Network cross-premises connectivity in this article: [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md).
+You can learn more about virtual network cross-premises connectivity in this article: [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md).
 
 If you want to configure a point-to-site VPN connection, see [Configure a Point-to-Site VPN Connection](vpn-gateway-point-to-site-create.md).
 
@@ -96,5 +96,5 @@ You can add virtual machines to your virtual network. See [How to Create a Custo
 
 If you want to configure a VNet connection using RRAS, see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx).
 
-If you want to configure a connection between your classic virtual network and a virtual network created using the Resource Manager mode, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+If you want to configure a connection between your classic virtual network and a virtual network created using the Resource Manager mode, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
  
