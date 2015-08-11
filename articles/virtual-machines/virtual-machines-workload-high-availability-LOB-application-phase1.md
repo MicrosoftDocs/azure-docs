@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 1: Configure Azure
