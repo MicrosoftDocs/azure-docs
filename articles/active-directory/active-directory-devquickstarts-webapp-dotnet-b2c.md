@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD B2C .NET Getting Started | Microsoft Azure"
+	pageTitle="Azure AD B2C .NET - Getting Started | Microsoft Azure"
 	description="How to build a .NET MVC Web application that integrates with Azure AD B2C for sign up & sign in."
 	services="active-directory"
 	documentationCenter=".net"
@@ -34,8 +34,8 @@ Local accounts allow consumers to sign in with arbitrary email addresses (& pass
 Follow the steps below to get this done:
 
 1. Register an application with Azure AD B2C.
-2. Create a Sign-up policy and test.
-3. Create a Sign-in policy and test.
+2. Create a Sign-up policy and run.
+3. Create a Sign-in policy and run.
 4. Set up your application to use policies created in your directory.
 5. Run the application and issue sign up, sign in and sign out requests to Azure AD B2C.
 6. Add a custom user attribute to the directory.
@@ -47,7 +47,7 @@ Follow the steps below to get this done:
 
 Before you start, [download the sample](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip). It is a Visual Studio 2013 solution. Also complete the pre-requisites as described [here](active-directory-get-started-b2c.md), if you haven't done so already. Leave the B2C features blade on the [Azure Portal](https://portal.azure.com/) open.
 
-If you have a Node.JS web app, read [this tutorial](link) instead.
+If you have a Node.JS web application, read [this tutorial](link) instead.
 
 ## Step 1: Register an application with Azure AD B2C
 
@@ -62,7 +62,7 @@ To secure your application, you will first need to create an application in your
 - Open the application that you just created by clicking on it in the **Applications** blade.
 - Click **Properties** and copy the **Client ID** of your application; you will need this value later on. Close the two blades just opened. Leave the B2C features blade open.
 
-## Step 2: Create a Sign-up policy and test
+## Step 2: Create a Sign-up policy and run
 
 To enable sign up on your application, you will need to create a Sign-up policy. This policy describes the experiences that users will go through during sign up and the contents of tokens that the application will receive on successful sign ups.
 
@@ -79,13 +79,13 @@ Policies are units of re-use. You can create multiple policies of the same type 
 - Open the policy by clicking on it and click the **Run now** command at the top of the blade.
 
 > [AZURE.NOTE]
-The policy "Run now" command allows you to simulate and test user experience without writing a single line of code.
+The policy "Run now" command allows you to simulate user experience without writing a single line of code. Note that it takes up to a minute for your policy changes to take effect.
 
 - Select "B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down. Click the **Run now** button.
 - A new browser tab opens up and you can run through the user experience of signing up for your application.
 - Go back to the browser tab where the Azure Portal is open. Close the two blades just opened. Leave the B2C features blade open.
 
-## Step 3: Create a Sign-in policy and test
+## Step 3: Create a Sign-in policy and run
 
 To enable sign in on your application, you will need to create a Sign-in policy. This policy describes the experiences that users will go through during sign in and the contents of tokens that the application will receive on successful sign ins.
 
@@ -143,7 +143,7 @@ You can collect additional information from the user during sign-up in addition 
 
 To use Facebook sign-up and sign-in in your application, you will need to [create a Facebook application](link) and supply it with the right parameters to work properly with the Azure AD B2C service. Do this on a separate browser tab and leave the B2C features blade open.
 
-You can also setup [Google](link), [LinkedIn](link) and [Amazon](link) apps as well. However, it is optional for the steps that follow.
+You can also setup [Google+](link), [LinkedIn](link) and [Amazon](link) applications as well. However, it is optional for the steps that follow.
 
 ## Step 9: Setup Facebook as a social identity provider in your directory
 
@@ -179,6 +179,7 @@ Your application now has enhanced functionality, all without changing a single l
 - Click on the "Claims" tab after sign-up and sign-in to view the contents of tokens received.
 
 If you want to move onto advanced topics, you may want to try:
+
 - [Customizing user pages in sign-up, sign-in and other policies](link)
 - [Setting up self-service password reset for your users](link)
 - [Setting up company branding on the local account sign-in page](link)
