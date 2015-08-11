@@ -27,9 +27,21 @@ To view the monitoring information for a specific device, in the Management Port
 
 **I/O performance** tracks metrics related to the number of read and write operations between either the iSCSI initiator interfaces on the host server and the device or the device and the cloud. This performance can be measured for a specific volume, a specific volume container, or all volume containers.
 
+The chart below shows the IOs for your device to cloud for all the volume containers for a production device. The peaks in the chart are at an interval of 5 minutes which corresponds to the frequency at which the monitoring data is collected.
+
+![IO performance from device to cloud](./media/storsimple-monitor-device/StorSimple_IOPerformance_DeviceToCloud1M.png)
+
 ## Capacity utilization 
 
 **Capacity utilization** tracks metrics related to the amount of data storage space that is used by the volumes, volume containers, or device. You can create reports based on the capacity utilization of your primary storage, your cloud storage, or your device storage. Capacity utilization can be measured on a specific volume, a specific volume container, or all volume containers.
+
+Use the capacity utilization charts in conjunction with the device dashboard. Both the device dashboard and the capacity utilization chart for a production device are shown below.
+
+The dashboard indicates that 2.09 TB of storage is actually used whereas 20 TB is provisioned out of maximum available 200 TB. The primary storage used is 1.16 TB whereas the cloud storage used is 1.25 TB.
+
+![Device dashboard for StorSimple device](./media/storsimple-monitor-device/StorSimple_DeviceDashbaord1M.png)
+
+Looking at the 
 
 - **Primary storage capacity utilization** shows the amount of data written to StorSimple volumes before the data is deduplicated and compressed.
 
@@ -43,9 +55,18 @@ Over time, primary capacity utilization and device capacity utilization will mos
 
 **Network throughput** tracks metrics related to the amount of data transferred from the iSCSI initiator network interfaces on the host server and the device and between the device and the cloud. You can monitor this metric for each of the iSCSI network interfaces on your device.
 
+The charts below show the network throughput for the Data 0 and Data 4, both 1 GbE network interfaces on your device. In this instance, Data 0 was cloud-enabled whereas Data 4 was iSCSI-enabled. Note there is more traffic routed in this case through your Data 0 than Data 4. The peaks in the graph are owing to the monitoring data collected at certain intervals, the typical interval being 5 minutes. You can see both the inbound and the outbound traffic for your StorSimple device.
+
+![Network throughput for Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data0M.png)
+
+![Network throughput for Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data4M.png)
+
+
 ## Device performance 
 
-**Device performance** tracks metrics related to the performance of your device.
+**Device performance** tracks metrics related to the performance of your device. The chart below shows the CPU utilization stats for a device in production.
+
+![CPU utilization for device](./media/storsimple-monitor-device/StorSimple_DeviceMonitor_DevicePerformance1M.png)
 
 ## Next steps
 
