@@ -209,13 +209,13 @@ $append = $False
 Clear-Host
 
 #Set source file path and file name
-$src = [System.IO.Path]::Combine("F:\utf8test\","customer_1_60.dat")
+$src = [System.IO.Path]::Combine("C:\input_file_path\","input_file_name.txt")
 
 #Set source file encoding (using list above)
 $src_enc = $ansi
 
 #Set target file path and file name
-$tgt = [System.IO.Path]::Combine("F:\utf8test\","result.txt")
+$tgt = [System.IO.Path]::Combine("C:\output_file_path\","output_file_name.txt")
 
 #Set target file encoding (using list above)
 $tgt_enc = $utf8
