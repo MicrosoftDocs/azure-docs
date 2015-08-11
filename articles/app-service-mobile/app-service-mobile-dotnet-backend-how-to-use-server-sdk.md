@@ -41,7 +41,7 @@ Many of the feature extension methods are available via additional NuGet package
 
 The following extension packages enable various mobile features that can be used by your application:
 
-- [Microsoft.Azure.Mobile.Server.Quickstart](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/) - Includes the Notifications, Authentication, Entity, Tables, Crossdomain, and Home packages. This provides the basic Mobile Apps setup through the `UseDefaultConfiguration()` extension method.
+- [Microsoft.Azure.Mobile.Server.Quickstart] - Includes the Notifications, Authentication, Entity, Tables, Crossdomain, and Home packages. This provides the basic Mobile Apps setup through the `UseDefaultConfiguration()` extension method.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) - Provides the `AddMobileAppHomeController()` extension method, which adds a simple home page to the site root.
 
@@ -49,7 +49,7 @@ The following extension packages enable various mobile features that can be used
 
 - [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) - Includes classes for working with SQL using Entity Framework. This also provides the `AddTablesWithEntityFramework()` extension method which sets up the Entity Framework configuration.
 
-- [Microsoft.Azure.Mobile.Server.Authentication](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/) - Provides the `AddAppServiceAuthentication()` extension method, as well as the `IAppBuilder.UseMobileAppAuthentication()` extension which sets up the OWIN middleware used to validate tokens.
+- [Microsoft.Azure.Mobile.Server.Authentication] - Provides the `AddAppServiceAuthentication()` extension method, as well as the `IAppBuilder.UseMobileAppAuthentication()` extension which sets up the OWIN middleware used to validate tokens.
 
 - [Microsoft.Azure.Mobile.Server.Notifications](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/) - Provides the `AddPushNotifications()` extension method, which sets up the push registration endpoint.
 
@@ -78,6 +78,23 @@ You define a custom API controller by applying the Microsoft.Azure.Mobile.Server
 
 ## How to: Add authentication to a server project
 
+You can add authentication to your App Service Mobile App by extending the MobileAppConfiguration object and configuring OWIN middleware. Note, that if you have installed the [Microsoft.Azure.Mobile.Server.Quickstart] package, no additional action is needed. These configurations have already been completed for you.
+
+First, install the [Microsoft.Azure.Mobile.Server.Authentication] package. Then, in WebApiConfig.cs, call the `AddAppServiceAuthentication()` extension method:
+
+      new MobileAppConfiguration()
+        // other features...
+        .AddAppServiceAuthentication()
+        .ApplyTo(config);
+
+Next, you need to add the OWIN middleware component. In your Startup.cs file, add the following to the start of the `Configuration()` method:
+
+       app.UseMobileAppAuthentication(config);
+
+This will enable your Azure Mobile App to validate tokens issued by the associated App Service gateway.
+
+To force users to be authenticated in order to access specific APIs, simply add the `[Authorize]` attribute to any controller or method.
+
 ## How to: Add push notifications to a server project
 
 ## How to: Publishing the server project
@@ -89,3 +106,5 @@ You define a custom API controller by applying the Microsoft.Azure.Mobile.Server
 
 
 [NuGet.org]: http://www.nuget.org/
+[Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
+[Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
