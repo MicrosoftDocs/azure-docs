@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -177,8 +177,62 @@ AS SELECT * from [ext].[CarSensor_Data];
 See [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 
-## Limitations
-Loading with PolyBase only supports UTF-8 encoding style. For other encoding styles, say UTF-16, consider using bcp utility, SSIS or Azure Data Factory to load data into SQL Data Warehouse database.
+## Working around UTF-8 the PolyBase UTF-8 requirement
+At present PolyBase supports loading data files that have been UTF-8 encoded. As UTF-8 uses the same character encoding as ASCII PolyBase will also support loading data that is ASCII encoded. However, PolyBase does not support other character encoding such as UTF-16 / Unicode or extended ASCII characters. Extended ASCII includes characters with accents such as the umlaut which is common in German.
+
+To work around this requirement the best answer is to re-write to UTF-8 encoding.
+
+There are several ways to do this. Below are two approaches using Powershell: 
+
+### Simple example for small files
+
+Below is a simple one line Powershell script that creates the file.
+ 
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+
+However, whilst this is a simple way to re-encode the data it is by no means the most efficient. The io streaming example below is much, much faster and achieves the same result.
+
+### IO Streaming example for larger files
+
+The code sample below is more complex but as it streams the rows of data from source to target it is much more efficient. Use this approach for larger files.
+
+```
+#Static variables
+$ascii = [System.Text.Encoding]::ASCII
+$utf16le = [System.Text.Encoding]::Unicode
+$utf8 = [System.Text.Encoding]::UTF8
+$ansi = [System.Text.Encoding]::Default
+$append = $False
+
+Clear-Host
+
+#Set source file path and file name
+$src = [System.IO.Path]::Combine("F:\utf8test\","customer_1_60.dat")
+
+#Set source file encoding (using list above)
+$src_enc = $ansi
+
+#Set target file path and file name
+$tgt = [System.IO.Path]::Combine("F:\utf8test\","result.txt")
+
+#Set target file encoding (using list above)
+$tgt_enc = $utf8
+
+$read = New-Object System.IO.StreamReader($src,$src_enc)
+$write = New-Object System.IO.StreamWriter($tgt,$append,$tgt_enc)
+
+while ($read.Peek() -ne -1)
+{
+    $line = $read.ReadLine();
+    $write.WriteLine($line);
+}
+$read.Close()
+$read.Dispose()
+$write.Dispose()
+$write.Dispose()
+```
 
 ## Next steps
 For more development tips, see [development overview][].
