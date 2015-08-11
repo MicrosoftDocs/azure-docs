@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -33,12 +33,12 @@ Dotted lines show the value of the metric one week previously.
 
 ## Time range
 
-You can change the Time range covered by most of the charts or grids on any blade.
+You can change the Time range covered by the charts or grids on any blade.
 
 ![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/03-range.png)
 
 
-Click Refresh if you're expecting some data that hasn't appeared yet. Charts don't update automatically. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
+If you're expecting some data that hasn't appeared yet, click Refresh. Charts refresh themselves at intervals, but the intervals are longer for larger time ranges. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
 
 In the Overview blade, drag over a part of the chart to zoom into it in a new chart.
 
@@ -179,8 +179,13 @@ What you see is what gets exported. Change the time range or filters if you want
 
 *Export works only for Internet Explorer and Chrome at present. We’re working on adding support for other browsers.*
 
+### Continuous Export
+
 If you want data continuously exported so that you can process it externally, consider using [Continous export](app-insights-export-telemetry.md).
 
+### Power BI
+
+If you want even richer views of your data, you can [export to Power BI](app-insights-export-power-bi.md).
 
 ## Next steps
 

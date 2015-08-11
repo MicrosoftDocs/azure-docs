@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #Create a PHP-MySQL web app in Azure App Service and deploy using Git
@@ -42,17 +42,11 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 Follow these steps to create a web app and a MySQL database:
 
 1. Login to the [Azure Portal][management-portal].
-2. Click the **New** icon on the bottom left of the portal.
-
-	![Create New Azure web app][new-website]
+2. Click the **New** icon.
 
 3. Click **Web + Mobile**, then **Azure Marketplace**. 
 
-	![Custom Create a new web app][custom-create]
-
 4. Click **Web Apps**, then **Web app + MySQL**. Then, click **Create**.
-
-	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
 4. Enter a valid name for your resource group.
 
@@ -67,8 +61,6 @@ Follow these steps to create a web app and a MySQL database:
 	![Create new MySQL database][new-mysql-db]
 
 7. When the web app has been created, you will see the new resource group. Click the name of the web app to configure its settings.
-
-	![Open web app][go-to-webapp]
 
 7. Click **Set up continuous deployment**.
 

@@ -171,14 +171,14 @@ It is a highly recommended practice to store connection values, especially sensi
 The following App.config file contains the required connection values. The values in the <appSettings> element are the required values that you got from the Media Services account setup process.
 
 
-<pre><code>
+<pre>
 &lt;configuration&gt;
     &lt;appSettings&gt;
 	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
     	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
     &lt;/appSettings&gt;
 &lt;/configuration&gt;
-</code></pre>
+</pre>
 
 To retrieve connection values from configuration, you can use the **ConfigurationManager** class and then assign the values to fields in your code:
 	
