@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Provision a Spark cluster on HDInsight and use Spark SQL from Zeppelin and Jupyter for interactive analysis | Azure" 
+	pageTitle="Provision a Spark cluster on HDInsight and use Spark SQL from Zeppelin and Jupyter for interactive analysis | Microsoft Azure" 
 	description="Step-by-step instructions on how to quickly provision an Apache Spark cluster in HDInsight and then use Spark SQL from Zeppelin and Jupyter notebooks to run interactive queries." 
 	services="hdinsight" 
 	documentationCenter="" 
