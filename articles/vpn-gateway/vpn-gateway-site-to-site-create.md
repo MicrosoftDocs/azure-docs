@@ -31,7 +31,7 @@ These instructions apply to the classic deployment model. If you want to create 
 
 ## Before beginning
 
-- Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection. See [About VPN Devices for Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?LinkId=615099) for more information.
+- Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection. See [About VPN devices for virtual network connections](vpn-gateway-about-vpn-devices.md) for more information.
 
 - Obtain an externally facing IPv4 IP for your VPN device. This IP address is required for a site-to-site configuration and is used for your VPN device, which cannot be located behind a NAT.
 
@@ -95,4 +95,6 @@ If you want to configure a point-to-site VPN connection, see [Configure a Point-
 You can add virtual machines to your virtual network. See [How to Create a Custom Virtual Machine](../virtual-machines/virtual-machines-create-custom.md).
 
 If you want to configure a VNet connection using RRAS, see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx).
+
+If you want to configure a connection between your classic virtual network and a virtual network created using the Resource Manager mode, see [Connecting classic VNets to new VNets](../virtual-networks/virtual-networks-arm-asm-s2s-howto.md)
  
