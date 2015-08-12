@@ -28,7 +28,7 @@ Follow these steps to create a new Mobile App backend.
 
 11. Back on the **Add data connection** blade again, click on **OK** to create the database.
 
-Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress unitl the database has been deployed sucessfully.
+Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress until the database has been deployed sucessfully.
 
 You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server  project for a simple "todo list" backend and publish it to Azure.
 
