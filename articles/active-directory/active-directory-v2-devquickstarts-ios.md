@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="brandwe"/>
 
-  # App Model v2.0 Preview: Add sign-in to an iOS app
+  # App model v2.0 preview: Add sign-in to an iOS app
 
   The quick-start tutorial for iOS isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
 

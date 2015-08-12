@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Token Reference
+# App model v2.0 preview: Token reference
 
 The v2.0 endpoint emits several types of security tokens in the processing of each [authentication flow](active-directory-v2-flows.md). This document describes the format, security characteristics, and contents of each type of token.
 

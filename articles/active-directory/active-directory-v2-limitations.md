@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Limitations & Restrictions
+# App model v2.0 preview: Limitations & restrictions
 
 There are several features & functionalities of the v2.0 app model that are not yet supported in the public preview period.  Each of these limitations will be removed before the v2.0 app model reaches general availability, but you should be aware of them if you are building apps during the public preview.
 

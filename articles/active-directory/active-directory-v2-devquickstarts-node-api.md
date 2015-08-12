@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="brandwe"/>
 
-  # App Model v2.0 Preview: Secure a NodeJS Web API
+  # App model v2.0 preview: Secure a NodeJS web API
 
   The quick-start tutorial for Node JS Web APIs isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
 

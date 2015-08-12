@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Types of Apps
+# App model v2.0 preview: Types of apps
 The v2.0 app model supports authentication for a variety of modern app architectures, all of which are based on the industry standard protocols [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) and/or [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  This doc briefly describes the types of apps you can build, independent of the language or platform you prefer.  It will help you understand the high level scenarios before you [jump right into the code](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [AZURE.NOTE]

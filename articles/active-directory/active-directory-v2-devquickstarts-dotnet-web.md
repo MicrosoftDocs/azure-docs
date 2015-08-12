@@ -17,7 +17,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Add sign-in to an .NET MVC Web App
+# App model v2.0 preview: Add sign-in to an .NET MVC web app
 
 With the v2.0 app model, you can quickly add authentication to your web apps with support for both personal Microsoft accounts and work or school accounts.  In ASP.NET web apps, you can accomplish this using Microsoft's OWIN middleware included in .NET Framework 4.5.
 

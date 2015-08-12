@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: What's Different?
+# App model v2.0 preview: What's different?
 
 If you're familiar with the generally available Azure AD service or have integrated apps with Azure AD in the past, there may be some differences in the v2.0 app model that you would not expect.  This document calls out those differences for your understanding.
 

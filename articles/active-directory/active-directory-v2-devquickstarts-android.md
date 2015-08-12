@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="brandwe"/>
 
-  # App Model v2.0 Preview: Add sign-in to an Android app
+  # App model v2.0 preview: Add sign-in to an Android app
 
   The quick-start tutorial for Android isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
 

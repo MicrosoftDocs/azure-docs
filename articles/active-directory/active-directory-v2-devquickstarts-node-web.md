@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="brandwe"/>
 
-  # App Model v2.0 Preview: Add sign-in to a NodeJS Web App
+  # App model v2.0 preview: Add sign-in to a NodeJS web app
 
   The quick-start tutorial for Node JS web apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
 

@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Protocols - OAuth 2.0 & OpenID Connect
+# App model v2.0 preview: Protocols - OAuth 2.0 & OpenID Connect
 
 The v2.0 app model provides identity-as-a-service for your apps by supporting industry standard protocols, OpenID Connect and OAuth 2.0.  While the service is standard compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests, rather than using one of our open source libraries.
 <!-- TODO: Need link to libraries above -->

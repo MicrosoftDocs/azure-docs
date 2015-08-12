@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Sign-in Microsoft Account & Azure AD users in a single app
+# App model v2.0 preview: Sign-in Microsoft Account & Azure AD users in a single app
 
 > [AZURE.NOTE]
 	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).

@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Add sign-in to a Windows Desktop app
+# App model v2.0 preview: Add sign-in to a Windows Desktop app
 
 With the v2.0 app model, you can quickly add authentication to your desktop apps with support for both personal Microsoft accounts and work or school accounts.  It also enables your app to securely communicate with a backend web api, as well as a few of the [Office 365 Unified APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 

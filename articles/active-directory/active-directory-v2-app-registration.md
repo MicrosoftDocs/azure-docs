@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: How to Register an App with Microsoft
+# App model v2.0 preview: How to register an app with Microsoft
 
 To build an app that accepts both MSA & Azure AD sign-in, you'll first need to register an app with Microsoft.  You won't be able to use any existing app you may have with Azure AD or MSA - it's time to create a brand new one.
 

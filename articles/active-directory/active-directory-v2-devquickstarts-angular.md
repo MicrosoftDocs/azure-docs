@@ -17,7 +17,7 @@
 	ms.author="dastrock"/>
 
 
-# Add Sign-In to an AngularJS Single Page App
+# App model v2.0 preview: Add sign-in to an AngularJS single page app
 
 The quick-start tutorial for AngularJS apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
 

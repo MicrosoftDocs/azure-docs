@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Scopes, Permissions, & Consent
+# App model v2.0 preview: Scopes, permissions, & consent
 
 Apps that integrate with Azure AD follow a particular authorization model that allows users to control how an app can access their data.  In app model v2.0, the implementation of this authorization model has been updated, changing how an app must interact with Azure AD.  This topic covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
