@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Service Fabric Actors introduction to patterns & anti-patterns"
    description="design patterns that work well with Service Fabric Actors"
    services="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Introduction to Service Fabric design patterns

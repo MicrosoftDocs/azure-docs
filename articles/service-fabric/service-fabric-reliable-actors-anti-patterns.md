@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Some Azure Service Fabric Actors anti-patterns"
    description="Some potential pitfalls for customers who are learning Azure Service Fabric Actors"
    services="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Service Fabric Actors design pattern: Some anti-patterns

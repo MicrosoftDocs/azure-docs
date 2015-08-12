@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Service Fabric Actors Distributed Networks and Graphs design pattern"
    description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs"
    services="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Service Fabric Actors design pattern: distributed networks and graphs
