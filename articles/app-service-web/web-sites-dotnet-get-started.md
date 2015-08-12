@@ -182,7 +182,7 @@ The diagrams illustrate what you're doing in the create and deploy steps.
 
 	![Output window reporting successful deployment](./media/web-sites-dotnet-get-started/PublishOutput.png)
 
-	Upon successful deployment, the default browser automatically opens to the URL of the deployed web app, and the application that you created is now running in the cloud. The URL in the browser address bar shows that the web app is being loaded from the Internet.
+	Upon successful deployment, the default browser automatically opens to the URL of the deployed web app, and the application that you created is now running in the cloud. The URL in the browser address bar shows that the web app is loaded from the Internet.
 
 	![Web app running in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
