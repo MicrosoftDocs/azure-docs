@@ -364,7 +364,7 @@ The **Cloud Snapshots** node lists cloud snapshots for a specific volume group. 
 
 The **Jobs** node contains information about scheduled, running, and recently completed backup jobs. 
 
-- To expand the node, click the arrow icon next to Jobs.
+- To expand the node, click the arrow icon next to **Jobs**.
 
 - To see a menu of available actions, right-click the **Jobs** node or right-click any of the nodes that appear in the expanded view.
 
