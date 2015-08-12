@@ -1,6 +1,6 @@
 <properties
 	pageTitle="App Model v2.0 | Microsoft Azure"
-	description="How to build an iOS application that signs users in with both personal Microsoft Account and work or school accounts."
+	description="How to build an iOS app that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="App Model v2.0 | Microsoft Azure"
-	description="How to register an application with Microsoft for enabling sign in and integrating apps with app model v2.0."
+	description="How to register an  app with Microsoft for enabling sign in and integrating apps with app model v2.0."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -23,7 +23,7 @@ To build an app that accepts both MSA & Azure AD sign in, you'll first need to r
 > [AZURE.NOTE]
 	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
-## Visit the Microsoft Application Registration Portal
+## Visit the Microsoft  App Registration Portal
 First things first - navigate to [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is the new app registration portal where you can manage anything & everything about your Microsoft apps.
 
 Sign in with either a personal or work or school Microsoft account.  If you don't have either, sign up for a new personal account. Go ahead, it won't take long - we'll wait here.
@@ -32,8 +32,8 @@ Done? You should now be looking at your list of Microsoft apps, which is probabl
 
 <!-- TODO: Verify strings here -->
 Click **Add an app**, and give it a name.  The portal will assign your app a
-globally unique Application Id that you'll use later in your code.  If your app includes a server-side component that needs access tokens for calling APIs
-(think: Office, Azure, or 3rd party), you'll want to create an **Application
+globally unique  Application Id that you'll use later in your code.  If your app includes a server-side component that needs access tokens for calling APIs
+(think: Office, Azure, or 3rd party), you'll want to create an ** Application
 Secret** here as well.
 <!-- TODO: Link for app secrets -->
 

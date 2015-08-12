@@ -16,8 +16,8 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Types of Applications
-The v2.0 app model supports authentication for a variety of modern app architectures, all of which are based on the industry standard protocols [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) and/or [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  This doc briefly describes the types of applications you can build, independent of the language or platform you prefer.  It will help you understand the high level scenarios before you [jump right into the code](active-directory-appmodel-v2-overview.md#getting-started).
+# App Model v2.0 Preview: Types of Apps
+The v2.0 app model supports authentication for a variety of modern app architectures, all of which are based on the industry standard protocols [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) and/or [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  This doc briefly describes the types of apps you can build, independent of the language or platform you prefer.  It will help you understand the high level scenarios before you [jump right into the code](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [AZURE.NOTE]
 	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
@@ -29,7 +29,7 @@ Every app that uses the v2.0 app model will need to be registered at [apps.dev.m
 - A **Redirect URI** that can be used to direct responses back to your app
 - A few other scenario-specific values.  For more detail, learn how to [register an app](active-directory-v2-app-registration.md).
 
-Once registered, the application communicates with Azure AD my sending requests to the v2.0 endpoint:
+Once registered, the app communicates with Azure AD my sending requests to the v2.0 endpoint:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -112,12 +112,12 @@ In this flow, a the app receives an authorization_code from the v2.0 endpoint up
 These types of apps are not currently supported by the v2.0 app model preview, but are on the roadmap to be supported in time for general availability.  Additional limitations and restrictions for the v2.0 app model public preview are described in the [v2.0 preview limitations doc](active-directory-v2-limitations.md).
 
 ### Single Page Apps (Javascript)
-Many modern applications have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth2-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
+Many modern apps have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth2-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
 
 If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the [web server app flow](#web-apps) described above.  But this is not the recommended approach, and documentation for this scenario will be limited.  If you'd like to get a feel for the SPA scenario, you can check out the [generally available Azure AD SPA code sample](active-directory-devquickstarts-angular.md).
 
 ### Daemons/Server Side Apps
-Applications that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).  
+Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).  
 
 This flow is not currently supported by the v2.0 app model - which is to say that apps can only get tokens after an interactive user sign-in flow has occurred.  The client credentials flow will be added in the near future.  If you would like to see the client credentials flow in the generally available Azure AD service, check out the [Daemon sample on GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 

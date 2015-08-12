@@ -30,15 +30,15 @@ In Asp.NET web APIs, you can accomplish this using Microsoft’s OWIN middleware
 
 In order to do this, you’ll need to:
 
-1. Register an application with Azure AD
+1. Register an app with Azure AD
 2. Set up your app to use the OWIN authentication pipeline.
-3. Configure a client application to call the To Do List Web API
+3. Configure a client app to call the To Do List Web API
 
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-The completed application is provided at the end of this tutorial as well.
+The completed app is provided at the end of this tutorial as well.
 
 
 ## *1. Register an App*
@@ -46,7 +46,7 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
 
-This visual studio solution also contains a "TodoListClient", which is a simple WPF application.  The TodoListClient is used to demonstrate how a user signs-in and how a client can issue requests to your Web API.  In this case, both the TodoListClient and the TodoListService are represented by the same application.  To configure the TodoListClient, you should also:
+This visual studio solution also contains a "TodoListClient", which is a simple WPF app.  The TodoListClient is used to demonstrate how a user signs-in and how a client can issue requests to your Web API.  In this case, both the TodoListClient and the TodoListService are represented by the same app.  To configure the TodoListClient, you should also:
 
 - Add the **Mobile** platform for your app.
 - Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
@@ -54,7 +54,7 @@ This visual studio solution also contains a "TodoListClient", which is a simple 
 
 ## *2. Set up your app to use the OWIN authentication pipeline*
 
-Now that you’ve registered an application, you need to set up your application to communicate with the v2.0 endpoint in order to validate incoming requests & tokens.
+Now that you’ve registered an app, you need to set up your app to communicate with the v2.0 endpoint in order to validate incoming requests & tokens.
 
 -	To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project using the Package Manager Console.
 
@@ -140,9 +140,9 @@ public IEnumerable<TodoItem> Get()
 ```
 
 -	Finally, open the `web.config` file in the root of the TodoListService project, and enter your configuration values in the `<appSettings>` section.
-  -	Your `ida:Audience` is the **Application Id** of the application that you entered in the portal.
+  -	Your `ida:Audience` is the **Application Id** of the app that you entered in the portal.
 
-## *3.	Configure a client application & Run the service*
+## *3.	Configure a client app & Run the service*
 Before you can see the Todo List Service in action, you need to configure the Todo List Client so it can get tokens from the v2.0 endpoint and make calls to the service.
 
 - In the TodoListClient project, open `App.config` and enter your configuration values in the `<appSettings>` section.

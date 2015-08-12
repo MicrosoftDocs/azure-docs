@@ -40,7 +40,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-The completed application is provided at the end of this tutorial as well.
+The completed app is provided at the end of this tutorial as well.
 
 ## *1. Register an App*
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
@@ -171,7 +171,7 @@ else
 ```
 
 ## *4.	Display user information*
-When authenticating users with OpenID Connect, the v2.0 endpoint returns an id_token to the application that contains [claims](active-directory-v2-tokens.md#id_tokens), or assertions about the user.  You can use these claims to personalize your app:
+When authenticating users with OpenID Connect, the v2.0 endpoint returns an id_token to the app that contains [claims](active-directory-v2-tokens.md#id_tokens), or assertions about the user.  You can use these claims to personalize your app:
 
 - Open the `Controllers\HomeController.cs` file.  You can access the user's claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
 
