@@ -51,7 +51,7 @@ The following procedures must be repeated for every database that needs to be ad
 
 Use these steps to back up a database.
 
-1.	From the Start screen of the primary SQL Server virtual machine, type **SQL Studio**, and then click **SQL Server Management Studio**.
+1.	From the Start screen of the primary database server, type **SQL Studio**, and then click **SQL Server Management Studio**.
 2.	Click **Connect**.
 3.	In the left pane, expand the **Databases** node.
 4.	Right-click a database to back up, point to **Tasks**, and then click **Back up**.
@@ -63,7 +63,7 @@ Use these steps to back up a database.
 
 Use these steps to restore a database.
 
-1.	Log on to the secondary SQL Server computer as [domainName]\sp_farm_db.
+1.	Log on to the secondary database server as [domainName]\sp_farm_db.
 2.	From the Start screen, type **SQL Studio**, and then click **SQL Server Management Studio**.
 3.	Click **Connect**.
 4.	In the left pane, right-click **Databases**, and then click **Restore Database**.
@@ -77,14 +77,14 @@ Use these steps to restore a database.
 
 After at least one database is prepared (using the backup and restore method), you create an Availability Group.
 
-1.	Return to the remote desktop session for the primary SQL Server computer.
+1.	Return to the remote desktop session for the primary database server.
 2.	In **SQL Server Management Studio**, in the left pane, right-click **AlwaysOn High Availability**, and then click **New Availability Group Wizard**.
-3.	On the Introduction page, click **Next**. 
-4.	On the Specify Availability Group Name page, type the name of your availability group in **Availability group name** (example: AG1), and then click **Next**.
-5.	On the Select Databases page, select the databases for the application that were backed up, and click **Next**. These databases meet the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
-6.	On the Specify Replicas page, click **Add Replica**.
-7.	In **Connect to Server**, type the name of the secondary SQL Server computer, and then click **Connect**. 
-8.	On the Specify Replicas page, the secondary SQL Server host is listed in **Availability Replicas**. For both instances, set the following option values: 
+3.	On the **Introduction** page, click **Next**. 
+4.	On the **Specify Availability Group Name** page, type the name of your availability group in **Availability group name** (example: AG1), and then click **Next**.
+5.	On the **Select Databases** page, select the databases for the application that were backed up, and click **Next**. These databases meet the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
+6.	On the **Specify Replicas** page, click **Add Replica**.
+7.	In **Connect to Server**, type the name of the secondary database server, and then click **Connect**. 
+8.	On the **Specify Replicas** page, the secondary database server is listed in **Availability Replicas**. For both instances, set the following option values: 
 
 Initial Role | Option | Value 
 --- | --- | ---
@@ -96,9 +96,9 @@ Primary | Readable Secondary | Yes
 Secondary | Readable Secondary | Yes
 		
 9.	Click **Next**.
-10.	On the Select Initial Data Synchronization page, click **Join only**, and then click **Next**. Data synchronization is executed manually by taking the full and transaction backups on the primary server, and restoring it on the backup. You can instead choose to select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, synchronization is not recommended for large databases that are found in some enterprises.
-11.	On the Validation page, click **Next**. There is a warning for a missing listener configuration because an availability group listener is not configured. 
-12.	On the Summary page, click **Finish**. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created. If so, click **Close** to exit the wizard. 
+10.	On the **Select Initial Data Synchronization** page, click **Join only**, and then click **Next**. Data synchronization is executed manually by taking the full and transaction backups on the primary server, and restoring it on the backup. You can instead choose to select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, synchronization is not recommended for large databases that are found in some enterprises.
+11.	On the **Validation** page, click **Next**. There is a warning for a missing listener configuration because an availability group listener is not configured. 
+12.	On the **Summary** page, click **Finish**. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created. If so, click **Close** to exit the wizard. 
 13.	From the Start screen, type **Failover**, and then click **Failover Cluster Manager**. In the left pane, open the name of your cluster, and then click **Roles**. A new role with the name of your availability group should be present.
 
 You have successfully configured a SQL Server AlwaysOn Availability Group for your application databases.
@@ -119,6 +119,6 @@ Once the listener is configured, you need to configure all the web server virtua
 
 [Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664)
 
-[Set up a web-based LOB application in a hybrid cloud for testing](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)

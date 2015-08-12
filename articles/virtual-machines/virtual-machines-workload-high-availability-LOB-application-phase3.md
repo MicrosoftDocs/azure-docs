@@ -17,7 +17,7 @@
 	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
-# Line of Business Application Workload Phase 3: Configure SQL Server Infrastructure
+# Line of Business Application Workload Phase 3: Configure SQL Server infrastructure
 
 In this phase of deploying a a high-availability line of business application in Azure infrastructure services, you configure the two computers running SQL Server and the cluster majority node computer, and then combine them into a Windows Server cluster. 
 
@@ -191,9 +191,7 @@ Join the cluster majority node server to the appropriate AD DS domain with these
 
 Note that you must supply domain account credentials when running the **Add-Computer** command.
 
-After it restarts, reconnect using an account that has local administrator privileges.
-
-Use the [Logging on to an Azure virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-high-availability-LOB-application-phase2.md#logon) for the cluster majority node to log on using the credentials of a domain account.
+After it restarts, reconnect with an account that has local administrator privileges.
 
 ## Create the Windows Server Failover Clustering cluster
 
@@ -211,15 +209,15 @@ For both SQL Server virtual machines and for the cluster majority node, run the 
 
 Due to current non-RFC-compliant behavior by DHCP in Azure, creation of a Windows Server Failover Cluster (WSFC) cluster can fail. For details, search for "WSFC cluster behavior in Azure networking" in High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines. However, there is a workaround. Use the following steps to create the cluster.
 
-1.	Log on to the primary SQL Server virtual machine with the **sp_install** account.
+1.	Log on to the primary SQL Server virtual machine with the sqladmin account created in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 2.	From the Start screen, type **Failover**, and then click **Failover Cluster Manager**.
 3.	In the left pane, right-click **Failover Cluster Manager**, and then click **Create Cluster**.
-4.	On the Before You Begin page, click **Next**.
-5.	On the Select Servers page, type the name of the primary SQL Server machine, click **Add**, and then click **Next**.
-6.	On the Validation Warning page, click **No, I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue creating the cluster.**, and then click **Next**.
-7.	On the Access Point for Administering the Cluster page, in the **Cluster Nam**e text box, type the name for your cluster, and then click **Next**.
-8.	In the Confirmation page, click **Next** to begin cluster creation. 
-9.	On the Summary page, click **Finish**.
+4.	On the **Before You Begin** page, click **Next**.
+5.	On the **Select Servers** page, type the name of the primary SQL Server machine, click **Add**, and then click **Next**.
+6.	On the **Validation Warning** page, click **No, I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue creating the cluster.**, and then click **Next**.
+7.	On the **Access Point for Administering the Cluster** page, in the **Cluster Nam**e text box, type the name for your cluster, and then click **Next**.
+8.	In the **Confirmation** page, click **Next** to begin cluster creation. 
+9.	On the **Summary** page, click **Finish**.
 10.	In the left pane, click your new cluster. In the **Cluster Core Resources** section of the contents pane, open your server cluster name. The **IP Address** resource appears in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as that of the machine itself. The result is a duplicate address. 
 11.	Right-click the failed **IP Address** resource, and then click **Properties**.
 12.	In the **IP Address Properties** dialog box, click **Static IP Address**.
@@ -227,13 +225,13 @@ Due to current non-RFC-compliant behavior by DHCP in Azure, creation of a Window
 14.	Right-click the failed IP Address resource, and then click **Bring Online**. Wait until both resources are online. When the cluster name resource comes online, it updates the domain controller with a new Active Directory (AD) computer account. This AD account is later used to run the availability group clustered service.
 15.	Now that the AD account is created, bring the cluster name offline. Right-click the cluster name in **Cluster Core Resources**, and then click **Take Offline**.
 16.	To remove the cluster IP address, right-click **IP Address**, click **Remove**, and then click **Yes** when prompted. The cluster resource can no longer come online because it depends on the IP address resource. However, an availability group does not depend on the cluster name or IP address in order to work properly. So the cluster name can be left offline.
-17.	To add the remaining nodes to the cluster, right-click your cluster name in the left pane, and then click **Add Nod**e.
-18.	On the Before You Begin page, click **Next**. 
-19.	On the Select Servers page, type the name and then click **Add** to add both the secondary SQL server and cluster majority node to the cluster. After adding the two computers, click **Next**.
+17.	To add the remaining nodes to the cluster, right-click your cluster name in the left pane, and then click **Add Node**.
+18.	On the **Before You Begin** page, click **Next**. 
+19.	On the **Select Servers** page, type the name and then click **Add** to add both the secondary SQL server and cluster majority node to the cluster. After adding the two computers, click **Next**.
 If a machine cannot be added, and the error message is "the Remote Registry is not running," do the following. Log on to the machine, open the Services snap-in (services.msc), and enable the Remote Registry. For more information, see [Unable to connect to Remote Registry service](http://technet.microsoft.com/library/bb266998.aspx). 
-20.	On the Validation Warning page, click **No, I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue creating the cluster.**, and then click **Next**. 
-21.	On the Confirmation page, click **Next**.
-22.	On the Summary page, click **Finish**.
+20.	On the **Validation Warning** page, click **No, I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue creating the cluster.**, and then click **Next**. 
+21.	On the **Confirmation** page, click **Next**.
+22.	On the **Summary** page, click **Finish**.
 23.	In the left pane, click **Nodes**. You should see all three computers listed.
 
 ## Enable AlwaysOn Availability Groups
@@ -265,7 +263,7 @@ To continue with the configuration of this workload, go to [Phase 4: Configure W
 
 [Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664)
 
-[Set up a web-based LOB application in a hybrid cloud for testing](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 

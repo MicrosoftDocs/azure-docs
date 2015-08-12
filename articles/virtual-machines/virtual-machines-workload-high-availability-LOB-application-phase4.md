@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Line of Business Application Workload Phase 4: Configure Web Servers" 
+	pageTitle="Line of Business Application Workload Phase 4: Configure web servers" 
 	description="In this fourth phase of deploying a high-availability line of business application in Azure infrastructure services, you create the web servers and load your line of business application on them." 
 	documentationCenter=""
 	services="virtual-machines" 
@@ -17,11 +17,11 @@
 	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
-# Line of Business Application Workload Phase 4: Configure Web Servers
+# Line of Business Application Workload Phase 4: Configure web servers
 
 In this phase of deploying a high availability line of business application in Azure infrastructure services, you build out the web servers and load your line of business application on them.
 
-You must complete this phase before moving on to [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md). See [Deploy a High-Availability Line of Business Application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
+You must complete this phase before moving on to [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md). See [Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
 
 ## Create the web server virtual machines in Azure
 
@@ -155,7 +155,7 @@ This diagram is the configuration resulting from the successful completion of th
 
 ## Next Step
 
-To continue with the configuration of this workload, go to [Phase 5: Add the Application Databases to a SQL Server AlwaysOn Availability Group](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+To continue with the configuration of this workload, go to [Phase 5: Create the availability group and add the application databases](virtual-machines-workload-high-availability-LOB-application-phase5.md).
 
 ## Additional Resources
 
@@ -163,6 +163,6 @@ To continue with the configuration of this workload, go to [Phase 5: Add the App
 
 [Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664)
 
-[Set up a web-based LOB application in a hybrid cloud for testing](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
