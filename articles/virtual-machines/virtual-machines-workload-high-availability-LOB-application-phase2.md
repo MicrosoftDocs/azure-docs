@@ -31,8 +31,8 @@ Item | Virtual machine name | Gallery image | Minimum size
 --- | --- | --- | --- 
 1. | ______________ (first domain controller, example DC1) | Windows Server 2012 R2 Datacenter | Standard_D1
 2. | ______________ (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | Standard_D1
-3. | ______________ (first SQL Server computer, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard_DS4
-4. | ______________ (second SQL Server computer, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard_DS4
+3. | ______________ (primary database server, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard_DS4
+4. | ______________ (secondary database server, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard_DS4
 5. | ______________ (majority node witness for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | Standard_D1
 6. | ______________ (first web server, example WEB1) | Windows Server 2012 R2 Datacenter | Standard_D3
 7. | ______________ (second web server, example WEB2) | Windows Server 2012 R2 Datacenter | Standard_D3
@@ -41,7 +41,7 @@ Item | Virtual machine name | Gallery image | Minimum size
 
 For the complete list of virtual machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Use the following block of PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the < and > characters. Note that this PowerShell command set uses values from the following:
+Use the following block of Azure PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the < and > characters. Note that this PowerShell command set uses values from the following:
 
 - Table M, for your virtual machines
 - Table V, for your virtual network settings

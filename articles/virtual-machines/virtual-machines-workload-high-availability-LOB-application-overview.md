@@ -48,7 +48,7 @@ This is a prescriptive, pre-defined architecture. Keep the following in mind:
 - If you already have an existing Azure hybrid cloud implementation, please feel free to adapt or skip the instructions in Phases 1 and 2 to host the virtual machines for the new application on the appropriate subnet.
 - All of the servers are located on a single subnet in the Azure virtual network. If you want to provide additional security equivalent to subnet isolation, you can use [Network Security Groups](../virtual-networks/virtual-networks-nsg.md).
 
-To build a dev/test environment or a proof-of-concept of this configuration, see [Set up a web-based LOB application in a hybrid cloud for testing](virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
+To build a dev/test environment or a proof-of-concept of this configuration, see [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
 
 For additional information about designing IT workloads for Azure, see [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md).
 
