@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 ﻿<properties
    pageTitle="Some Azure Service Fabric Actors anti-patterns"
    description="Some potential pitfalls for customers who are learning Azure Service Fabric Actors"
-=======
-<properties
-   pageTitle="Reliable Actors anti-patterns"
-   description="Some potential pitfalls for customers who are learning Service Fabric Reliable Actors."
->>>>>>> 6209cc3ac4dba6d2e245cc4efcc86aee2b69f0b6
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -19,11 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-<<<<<<< HEAD
    ms.date="08/11/2015"
-=======
-   ms.date="08/05/2015"
->>>>>>> 6209cc3ac4dba6d2e245cc4efcc86aee2b69f0b6
    ms.author="claudioc"/>
 
 # Reliable Actors design pattern: Some anti-patterns

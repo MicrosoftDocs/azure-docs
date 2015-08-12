@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 ﻿<properties
    pageTitle="Azure Service Fabric Actors introduction to patterns & anti-patterns"
    description="design patterns that work well with Service Fabric Actors"
-=======
-<properties
-   pageTitle="Service Fabric Reliable Actors introduction to patterns & anti-patterns"
-   description="Learn about Service Fabric's Reliable Actors programming model, and design patterns that work well with Actors."
->>>>>>> 6209cc3ac4dba6d2e245cc4efcc86aee2b69f0b6
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -19,11 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-<<<<<<< HEAD
    ms.date="08/11/2015"
-=======
-   ms.date="08/05/2015"
->>>>>>> 6209cc3ac4dba6d2e245cc4efcc86aee2b69f0b6
    ms.author="claudioc"/>
 
 # Introduction to Reliable Actors design patterns

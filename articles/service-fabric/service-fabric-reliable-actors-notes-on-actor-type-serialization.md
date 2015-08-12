@@ -13,13 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-<<<<<<< HEAD
    ms.date="08/11/2015"
-=======
-   ms.date="08/05/2015"
->>>>>>> 6209cc3ac4dba6d2e245cc4efcc86aee2b69f0b6
    ms.author="claudioc"/>
-
 
 # Notes on Service Fabric Reliable Actors type serialization
 

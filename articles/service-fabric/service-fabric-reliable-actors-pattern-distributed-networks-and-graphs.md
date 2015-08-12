@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 ﻿<properties
    pageTitle="Azure Service Fabric Actors Distributed Networks and Graphs design pattern"
    description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs"
-=======
-<properties
-   pageTitle="Reliable Actors Distributed Networks and Graphs design pattern"
-   description="Design pattern on how Service Fabric Reliable Actors can be used to model application as distributed networks and graphs"
->>>>>>> 6209cc3ac4dba6d2e245cc4efcc86aee2b69f0b6
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -19,11 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-<<<<<<< HEAD
    ms.date="08/11/2015"
-=======
-   ms.date="08/05/2015"
->>>>>>> 6209cc3ac4dba6d2e245cc4efcc86aee2b69f0b6
    ms.author="claudioc"/>
 
 # Reliable Actors design pattern: distributed networks and graphs
