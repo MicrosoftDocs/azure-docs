@@ -270,8 +270,6 @@ $utf8 = [System.Text.Encoding]::UTF8
 $ansi = [System.Text.Encoding]::Default
 $append = $False
 
-Clear-Host
-
 #Set source file path and file name
 $src = [System.IO.Path]::Combine("C:\input_file_path\","input_file_name.txt")
 
