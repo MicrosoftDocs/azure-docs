@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
 # App Model v2.0 Preview: Auth Protocols - OAuth 2.0 & OpenID Connect
@@ -335,7 +335,7 @@ One of the properties of this configuration document is the `jwks_uri`, whose va
 You can use the RSA256 public keys located at this endpoint to validate the signature of the id_token.  There are multiple keys listed at this endpoint at any given point in time, each identified by a `kid`.  The header of the id_token also contains a `kid` claim, which indicates which of these keys was used to sign the id_token.  
 
 See the [v2.0 app model token reference](active-directory-v2-tokens.md) for more information, including [Validating Tokens](active-directory-v2-tokens.md#validating-tokens) and [Important Information About Signing Key Rollover](active-directory-v2-tokens.md#validating-tokens).
-<!--TODO-->
+<!--TODO: Improve the information on this-->
 
 Once you've validated the signature of the id_token, there are a few claims you will need to verify:
 
@@ -354,6 +354,13 @@ For more information on the claims in an id_token, see the [v2.0 app model token
 Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app.  This information can be used for display, records, authorizations, etc.
 
 #### Send a Sign Out Request
+
+The OpenIdConnect `end_session_endpoint` is not currently supported by the v2.0 app model preview. This means your app cannot send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.
+To sign a user out, your app can simply end its own session with the user, and leave the user's session with the v2.0 endpoint in-tact.  The next time the user tries to sign in, they will see a "choose account" page, with their actively signed-in accounts listed.
+On that page, the user can choose to sign out of any account, ending the session with the v2.0 endpoint.
+
+<!--
+
 When you wish to sign the user out of the application, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the v2.0 endpoint for sign out.  If you fail to do so, the user will be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the v2.0 endpoint.
 
 You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
@@ -367,6 +374,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | ----------------------- | ------------------------------- | ------------ |
 | post_logout_redirect_uri | recommended | The URL which the user should be redirected to after successful logout.  If not included, the user will be shown a generic message by the v2.0 endpoint.  |
 
+-->
 
 ## OpenID Connect with OAuth Code Flow
 Many web applications need to sign the user in and then access a web service on behalf of that user using OAuth.  This scenario combines the two above sections - it uses OpenID Connect for user authentication while simultaneously acquiring an authorization_code that can be used to get access_tokens using the OAuth Authorization Code Flow:

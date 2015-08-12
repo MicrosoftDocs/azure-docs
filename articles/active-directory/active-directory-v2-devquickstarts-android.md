@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="08/12/2015"
 	ms.author="brandwe"/>
 
   # App Model v2.0 Preview: Add sign-in to an Android app
