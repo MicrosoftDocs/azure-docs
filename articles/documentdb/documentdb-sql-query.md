@@ -1516,29 +1516,22 @@ The following scalar functions perform an operation on a string input value and 
 
 Usage|Description
 ---|---
-<a href="">[ABS (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs)|Returns the absolute (positive) value of the specified numeric expression.
-[CEILING (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling)|Returns the smallest integer value greater than, or equal to, the specified numeric expression.
-[FLOOR (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor)|Returns the largest integer less than or equal to the specified numeric expression.
-[EXP (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp)|Returns the exponent of the specified numeric expression.
-[LOG (num_expr [,base])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log)|Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base
-[LOG10 (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10)|Returns the base-10 logarithmic value of the specified numeric expression.
-[ROUND (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round)|Returns a numeric value, rounded to the closest integer value.
-[TRUNC (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc)|Returns a numeric value, truncated to the closest integer value.
-[SQRT (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt)|Returns the square root of the specified numeric expression.
-[SQUARE (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square)|Returns the square of the specified numeric expression.
-[POWER (num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power)|Returns the power of the specified numeric expression to the value specifed.
-[SIGN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign)|Returns the sign value (-1, 0, 1) of the specified numeric expression.
-[ACOS (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_acos)|Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine.
-[ASIN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_asin)|Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine.
-[ATAN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atan)|Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent.
-[ATN2 (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atn2)|Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions.
-[COS (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cos)|Returns the trigonometric cosine of the specified angle, in radians, in the specified expression.
-[COT (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cot)|Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression.
-[DEGREES (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_degrees)|Returns the corresponding angle in degrees for an angle specified in radians.
-[PI ()](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_pi)|Returns the constant value of PI.
-[RADIANS (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_radians)|Returns radians when a numeric expression, in degrees, is entered.
-[SIN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sin)|Returns the trigonometric sine of the specified angle, in radians, in the specified expression.
-[TAN (num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_tan)|Returns the tangent of the input expression, in the specified expression.
+[LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|Returns the number of characters of the specified string expression
+[CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|Returns a string that is the result of concatenating two or more string values.
+[SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring)|Returns part of a string expression.
+[STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith)|Returns a Boolean indicating whether the first string expression ends with the second
+[ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith)|Returns a Boolean indicating whether the first string expression ends with the second
+[CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains)|Returns a Boolean indicating whether the first string expression contains the second.
+[INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of)|Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.
+[LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left)|Returns the left part of a string with the specified number of characters.
+[RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right)|Returns the right part of a string with the specified number of characters.
+[LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim)|Returns a string expression after it removes leading blanks.
+[RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim)|Returns a string expression after truncating all trailing blanks.
+[LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower)|Returns a string expression after converting uppercase character data to lowercase.
+[UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper)|Returns a string expression after converting lowercase character data to uppercase.
+[REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace)|Replaces all occurrences of a specified string value with another string value.
+[REPLICATE (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate)|Repeats a string value a specified number of times.
+[REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse)|Returns the reverse order of a string value.
 
 Using these functions, you can now run queries like the following. For example, you can return the family name in uppercase as follows:
 
