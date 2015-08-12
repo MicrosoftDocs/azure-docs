@@ -1,6 +1,6 @@
 <properties
-    pageTitle="What is in the RemoteApp template images?"
-    description="Learn about the template images included with RemoteApp."
+    pageTitle="What is in the Azure RemoteApp template images?"
+    description="Learn about the template images included with Azure RemoteApp."
     services="remoteapp"
     solutions="" documentationCenter=""
     authors="lizap"
@@ -8,14 +8,14 @@
 
 <tags
     ms.service="remoteapp"
-    ms.workload="tbd"
+    ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2015" 
+    ms.topic="get-started-article"
+    ms.date="08/10/2015" 
     ms.author="elizapo" />
 
-# What is in the RemoteApp template images?
+# What is in the Azure RemoteApp template images?
 
 Your Azure RemoteApp subscription includes three template images:
 
