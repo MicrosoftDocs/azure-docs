@@ -1,29 +1,33 @@
-<properties 
-   pageTitle="Azure SQL Database Resource Limits"
-   description="This page describes some common resource limit for Azure SQL Database."
-   services="sql-database"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
-<tags 
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="07/24/2015"
-   ms.author="jroth" />
+<properties
+	pageTitle="Azure SQL Database Resource Limits"
+	description="This page describes some common resource limits for Azure SQL Database."
+	services="sql-database"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" />
+
+
+<tags
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="08/10/2015"
+	ms.author="jroth" />
+
 
 # Azure SQL Database Resource Limits
 
-Azure SQL Database monitors the usage of the shared resources, such as the transaction log, I/O, and many other resources. This enable Azure SQL Databse to keep databases within set resource boundaries. This resource boundary or threshold is called the resource limit. When the resource usage by the clients exceeds these limits, either at a tenant or physical node level, Azure SQL Database responds by managing the resource usage, which results in connection losses or request denials.
+
+Azure SQL Database monitors the usage of the shared resources, such as the transaction log, I/O, and many other resources. This enable Azure SQL Database to keep databases within set resource boundaries. This resource boundary or threshold is called the resource limit. When the resource usage by the clients exceeds these limits, either at a tenant or physical node level, Azure SQL Database responds by managing the resource usage, which results in connection losses or request denials.
 
 > [AZURE.NOTE] When resource limits prevent queries to analyze database performance problems, you might need to use the dedicated administrator connection (DAC), which is available beginning with Azure SQL Database V12. For more information about using the DAC, see [Diagnostic Connection for Database Administrators](https://msdn.microsoft.com/library/ms189595.aspx).
 
 ## Resource Limits Summary Table
 
-The following table provides a summary of the limits for each resource beyond which Azure SQL Database denies request or terminates connections to the affected resource, and an error code is returned. In some cases the service tier (Basic, Standard, Premium) and performance level determine the exact limit. In those cases, see [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx).
+The following table provides a summary of the limits for each resource beyond which Azure SQL Database denies request or terminates connections to the affected resource, and an error code is returned. In some cases the [service tier (Basic, Standard, Premium)](sql-database-service-tiers.md) and performance level determine the exact limit. In those cases, see [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx).
 
 [AZURE.INCLUDE [azure-sql-database-limits](../../includes/azure-sql-database-limits.md)]
 
@@ -119,7 +123,14 @@ The remainder of this topic explains possible error codes in more detail, includ
 | **Type of requests denied** | Any DDL or DML statements. |
 | **Recommendation** | Following DMVs can be used to monitor transactions: **sys.dm_tran_active_transactions**, **sys.dm_tran_database_transactions**, **sys.dm_tran_locks**, and **sys.dm_tran_session_transactions**. Depending on the type of application, it may be possible to use coarser grain lock hints, like **PAGLOCK** or **TABLOCK**, to reduce the number of locks taken in a given statement/transaction. Note that this can negatively impact application concurrency. |
 
+
 ## Transaction Log Length
+
+
+For version V12 of Azure SQL Database at the Standard or Premium pricing tiers, the maximum length of the transaction log is no longer limited to 2 GB.
+
+The following table describes the transaction log limit for version V11.
+
 
 | &nbsp; | More Information |
 | :--- | :--- |
