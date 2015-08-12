@@ -138,7 +138,7 @@ StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosur
 
 Carefully review these requirements and best practices to ensure the high availability of hosts connected to your StorSimple device.
 
-- Configure StorSimple with [2-node file server cluster configurations](https://technet.microsoft.com/library/cc731844(v=WS.10).aspx). By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.
+- Configure StorSimple with [2-node file server cluster configurations][1]. By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.
 
 - Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers. For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this [video demo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
@@ -184,10 +184,12 @@ In addition to the above networking requirements, for the optimal performance of
 
 - Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.
 
-- Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [Modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces) on your StorSimple device.
+- Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces) on your StorSimple device.
 
 ## Next steps
 
-- Learn about [StorSimple limits](storsimple-limits.md)
-- [Deploy your StorSimple solution](storsimple-deployment-walkthrough.md)
+- Learn about [StorSimple limits](storsimple-limits.md).
+- [Deploy your StorSimple solution](storsimple-deployment-walkthrough.md).
  
+<!--Reference links-->
+[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
