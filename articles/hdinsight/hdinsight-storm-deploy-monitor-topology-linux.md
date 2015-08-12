@@ -92,7 +92,7 @@ Rebalancing a topology allows the system to revise the parallelism of the topolo
 
 The Storm UI provides a web interface for working with running topologies, and is included on your HDInsight cluster.
 
-> [AZURE.IMPORTANT] The Storm UI is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
+> [AZURE.IMPORTANT] The Storm UI is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 Use the following steps to view the Storm UI:
 
@@ -150,7 +150,7 @@ The Storm UI is built on top of the REST API, so you can perform similar managem
 
 For more information, see <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">Storm UI REST API</a>. The following information is specific to using the REST API with Apache Storm on HDInsight.
 
-> [AZURE.IMPORTANT] The Storm REST API is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
+> [AZURE.IMPORTANT] The Storm REST API is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### Base URI
 

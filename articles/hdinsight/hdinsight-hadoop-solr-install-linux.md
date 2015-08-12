@@ -67,7 +67,7 @@ You must start with indexing Solr with some data files. You can then use Solr to
 	
 	> [AZURE.IMPORTANT] Steps later in this document make use of an SSL tunnel to connect to the Solr web UI. In order to use these steps, you must establish an SSL tunnel and then configure your browser to use it.
 	> 
-	> See the 'Tunneling' section of the previously mentioned SSH articles for more information on using SSH tunnels.
+	> For more information, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
 
 2. Use the following commands to have Solr index sample data: 
 
@@ -144,11 +144,7 @@ You must start with indexing Solr with some data files. You can then use Solr to
 
 ###Using the Solr dashboard
 
-The Solr dashbaord is a web UI that allows you to work with Solr through your web browser. The Solr dashboard is not exposed directly on the Internet from your HDInsight cluster, but must be accessed using an SSH tunnel. For more information on using an SSH tunnel, see the following documents:
-
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
-	
-* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+The Solr dashbaord is a web UI that allows you to work with Solr through your web browser. The Solr dashboard is not exposed directly on the Internet from your HDInsight cluster, but must be accessed using an SSH tunnel. For more information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
 	
 Once you have established an SSH tunnel, use the following steps to use the Solr dashboard:
 
