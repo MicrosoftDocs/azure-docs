@@ -42,14 +42,14 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 
 The completed app is provided at the end of this tutorial as well.
 
-## *1. Register an App*
+## 1. Register an App
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
 - Add the **Web** platform for your app.
 - Enter the correct **Redirect URI**. The redirect uri indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `https://localhost:44326/`.
 
-## *2. Set up your app to use the OWIN authentication pipeline*
+## 2. Set up your app to use the OWIN authentication pipeline
 Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 -	To begin, open the `web.config` file in the root of the project, and enter your app's configuration values in the `<appSettings>` section.
@@ -110,7 +110,7 @@ public void ConfigureAuth(IAppBuilder app)
 			 }
 ```
 
-## *3. Use OWIN to issue sign-in and sign-out requests to Azure AD*
+## 3. Use OWIN to issue sign-in and sign-out requests to Azure AD
 Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in and sign out.
 
 - You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
@@ -170,7 +170,7 @@ else
 }
 ```
 
-## *4.	Display user information*
+## 4. Display user information
 When authenticating users with OpenID Connect, the v2.0 endpoint returns an id_token to the app that contains [claims](active-directory-v2-tokens.md#id_tokens), or assertions about the user.  You can use these claims to personalize your app:
 
 - Open the `Controllers\HomeController.cs` file.  You can access the user's claims in your controllers via the `ClaimsPrincipal.Current` security principal object.

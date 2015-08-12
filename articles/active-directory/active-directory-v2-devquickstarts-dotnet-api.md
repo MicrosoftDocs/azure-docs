@@ -41,7 +41,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 The completed app is provided at the end of this tutorial as well.
 
 
-## *1. Register an App*
+## 1. Register an App
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
@@ -52,7 +52,7 @@ This visual studio solution also contains a "TodoListClient", which is a simple 
 - Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## *2. Set up your app to use the OWIN authentication pipeline*
+## 2. Set up your app to use the OWIN authentication pipeline
 
 Now that you’ve registered an app, you need to set up your app to communicate with the v2.0 endpoint in order to validate incoming requests & tokens.
 
@@ -142,7 +142,7 @@ public IEnumerable<TodoItem> Get()
 -	Finally, open the `web.config` file in the root of the TodoListService project, and enter your configuration values in the `<appSettings>` section.
   -	Your `ida:Audience` is the **Application Id** of the app that you entered in the portal.
 
-## *3.	Configure a client app & Run the service*
+## 3. Configure a client app & Run the service
 Before you can see the Todo List Service in action, you need to configure the Todo List Client so it can get tokens from the v2.0 endpoint and make calls to the service.
 
 - In the TodoListClient project, open `App.config` and enter your configuration values in the `<appSettings>` section.

@@ -41,14 +41,14 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 
 The completed app is provided at the end of this tutorial as well.
 
-## *1. Register an App*
+## 1. Register an App
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
 - Add the **Mobile** platform for your app.
 - Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
 
-## *2. Install & Configure ADAL*
+## 2. Install & Configure ADAL
 Now that you have an app registered with Microsoft, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
 
 -	Begin by adding ADAL to the TodoListClient project using the Package Manager Console.
@@ -63,7 +63,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 - In the TodoList-Service project, open `web.config` in the root of the project.  
     - Replace the `ida:Audience` value with the same **Application Id** from the portal.
 
-## *3.	Use ADAL to Get Tokens*
+## 3. Use ADAL to Get Tokens
 The basic principle behind ADAL is that whenever your app needs an access token, you simply call `authContext.AcquireToken(...)`, and ADAL does the rest.  
 
 -	In the `TodoListClient` project, open `MainWindow.xaml.cs` and locate the `OnInitialized(...)` method.  The first step is to initialize your app's `AuthenticationContext` - ADAL's primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
