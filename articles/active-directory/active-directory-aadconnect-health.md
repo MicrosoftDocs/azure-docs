@@ -87,7 +87,7 @@ The following table is a list of requirements that must be met before you can ge
 | ----------- | ---------- |
 |An Azure AD Premium License | Azure AD Connect Health is an Azure AD Premium feature and requires an Azure AD Premium license. </br></br>To get a license, see [Getting started with Azure AD Premium](active-directory-get-started-premium.md).|
 |You must be a global administrator of your Azure AD directory|By default, global administrators have access to the information that is provided by Azure AD Connect Health. If you are not a global administrator of your Azure AD directory, you will not be able to create a service instance of Azure AD Connect Health. Ensure that you are a global administrator. </br></br>For additional information see [Administering your Azure AD directory](active-directory-administer.md).|
-|For AD FS, AD FS auditing must be enabled to use Usage Analytics| If you plan on using Usage Analytics with AD FS, then AD FS auditing must be enabled.  See [AD FS auditing must be enabled to use Usage Analytics.](active-directory-aadconnect-health-adfs/#ad-fs-auditing-must-be-enabled-to-use-usage-analytics)
+|For AD FS, AD FS auditing must be enabled to use Usage Analytics| If you plan on using Usage Analytics with AD FS, then AD FS auditing must be enabled.  See [AD FS auditing must be enabled to use Usage Analytics.](active-directory-aadconnect-health-adfs.md#ad-fs-auditing-must-be-enabled-to-use-usage-analytics)
 |Meet the Azure AD Connect Health Agent Requirements|See the table below for agent specific requirements.
 
 The following table is a list of requirements that must be met before you can get going with Azure AD Connect Health.
