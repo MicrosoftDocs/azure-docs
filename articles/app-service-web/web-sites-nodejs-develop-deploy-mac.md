@@ -157,7 +157,7 @@ In this section, you will create a **server.js** file that contains the 'Hello W
 
 While the steps in this article use the Azure portal to create a web app, you can also use the [Azure Command-Line Interface](../xplat-cli.md) to perform the same operations.
 
-Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how web apps work with modules, see [Using Node.js modules with Azure applications](../nodejs-use-node-modules-azure-apps.md).
+Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how Web Apps works with modules, see [Using Node.js modules with Azure applications](../nodejs-use-node-modules-azure-apps.md).
 
 To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](../nodejs-specify-node-version-azure-apps.md).
 
