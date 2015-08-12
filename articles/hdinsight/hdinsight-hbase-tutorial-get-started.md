@@ -23,9 +23,11 @@
 
 Learn how to provision an HBase cluster in HDInsight, create HBase tables, and query the tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
-> [AZURE.NOTE] HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
-> [AZURE.VIDEO get-started-with-hbase-in-hdinsight]
+* [HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-v1.md)
+
+> [AZURE.NOTE] HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
 
 **Prerequisites**
 
@@ -51,7 +53,7 @@ Before you begin this HBase tutorial, you must have the following:
 	- **Subscription**: select your Azure subscription used for provisioning this cluster.
 	- **Resource Group**: add or select an Azure resource group.  For more information, see [Azure Resource Manager Overview](resource-group-overview.md).
 	- **Configure the credentials**.  For Windows based cluster, you can create a cluster user (a.k.a HTTP user, HTTP web service user)  and a Remote Desktop user.
-	- **Data Source**: create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster. This Azure Storage account must be in the same location as the HDInsight HBase cluster. 
+	- **Data Source**: create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster. This Azure Storage account must be in the same location as the HDInsight HBase cluster.
 	- **Note Pricing Tiers:** select the number of region servers for the HBase cluster.
 
 		> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
@@ -59,7 +61,7 @@ Before you begin this HBase tutorial, you must have the following:
 		> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
 
 	- **Optional Configuration**: select the cluster version, configure Azure virtual network, configure Hive/Oozie metastore, configure Script actions, and add additional storage accounts.
-	
+
 4. Click **Create**.
 
 >[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
@@ -358,4 +360,3 @@ Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sent
 [img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
- 
