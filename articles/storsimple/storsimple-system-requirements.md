@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple system requirements" 
+   pageTitle="StorSimple system requirements | Microsoft Azure" 
    description="Describes system requirements and best practices for software,  high availability, and networking for an Azure StorSimple solution." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="06/03/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli"/>
 
 # StorSimple system requirements
@@ -96,7 +96,7 @@ StorSimple device controller modules each have four 1 Gigabit and two 10 Gigabit
 
 - When possible, use MPIO on servers to ensure that the servers can tolerate a link, network, or interface failure.
 
-For more information about networking your device for high availability and performance, go to [Cable your 8100 device](https://msdn.microsoft.com/library/azure/dn757738.aspx) or [Cable your 8600 device](https://msdn.microsoft.com/library/azure/dn757762.aspx).
+For more information about networking your device for high availability and performance, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### SSDs and HDDs
 
@@ -184,10 +184,10 @@ In addition to the above networking requirements, for the optimal performance of
 
 - Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.
 
-- Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [Configure network interfaces](https://msdn.microsoft.com/library/dn772371.aspx) on your StorSimple device.
+- Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [Modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces) on your StorSimple device.
 
 ## Next steps
 
-- [StorSimple limits](storsimple-limits.md)
+- Learn about [StorSimple limits](storsimple-limits.md)
 - [Deploy your StorSimple solution](storsimple-deployment-walkthrough.md)
  
