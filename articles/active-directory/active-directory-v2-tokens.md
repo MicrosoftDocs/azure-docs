@@ -96,7 +96,6 @@ Refresh tokens are security tokens which your application can use to acquire new
 
 Refresh tokens are multi-resource.  That is to say that a refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource.
 
-<!-- TODO: validate true for native apps -->
 In order to receive a refresh  in a token response, your application must request & be granted the `offline_acesss` scope.   To learn more about the `offline_access` scope, refer to the [consent & scopes article here](active-directory-v2-scopes.md).
 
 Refresh tokens are, and will always be, completely opaque to your application.  They are issued by the Azure AD v2.0 endpoint and can only be inspected & interpreted by the v2.0 endpoint.  They are long-lived, but your application should not be written to expect that a refresh token will last for any period of time.  Refresh tokens can be invalidated at any moment in time for a variety of reasons.  The only way for your application to know if a refresh token is valid is to attempt to redeem it by making a token request to the v2.0 endpoint.
@@ -107,7 +106,7 @@ When you redeem a refresh token for a new access token (and if your app had been
 
 At this point in time, the only token validation your applications should need to perform is validating id_tokens.  In order to validate an id_token, your application should validate both the id_token's signature and the claims in the id_token.
 
-<!-- TOOD: Link -->
+<!-- TODO: Link -->
 We provide libraries & code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several 3rd party open source libraries available for JWT validation - there is at least one option for almost every platform & language out there.
 
 #### Validating the Signature

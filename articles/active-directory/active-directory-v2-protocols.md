@@ -335,7 +335,7 @@ One of the properties of this configuration document is the `jwks_uri`, whose va
 You can use the RSA256 public keys located at this endpoint to validate the signature of the id_token.  There are multiple keys listed at this endpoint at any given point in time, each identified by a `kid`.  The header of the id_token also contains a `kid` claim, which indicates which of these keys was used to sign the id_token.  
 
 See the [v2.0 app model token reference](active-directory-v2-tokens.md) for more information, including [Validating Tokens](active-directory-v2-tokens.md#validating-tokens) and [Important Information About Signing Key Rollover](active-directory-v2-tokens.md#validating-tokens).
-<!--TODO-->
+<!--TODO: Improve the information on this-->
 
 Once you've validated the signature of the id_token, there are a few claims you will need to verify:
 

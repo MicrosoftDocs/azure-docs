@@ -65,9 +65,11 @@ https%3A%2F%2Fgraph.windows.net%2Fmail.send
 
 The `scope` parameter is a space-separated list of scopes that the application is requesting.  Each individual scope is indicated by appending the scope value to the resource's identifier (App ID URI).  The above request indicates that the application needs permission to read the user's mailbox and send mail as the user.
 
-After the user enters their credentials, the v2.0 endpoint will check for a matching record of **user consent**.  If the user has not consented to any of the requested permissions in the past, the v2.0 endpoint will ask the user to grant the requested permissions.  When the user approves the permission, the consent will be recorded so that the user does not have to re-consent on subsequent sign-ins.
+After the user enters their credentials, the v2.0 endpoint will check for a matching record of **user consent**.  If the user has not consented to any of the requested permissions in the past, the v2.0 endpoint will ask the user to grant the requested permissions.  
 
-<!-- TODO: Screenshot -->
+![Work Account Consent Screenshot](../media/active-directory-v2-flows/work_account_consent.png)
+
+When the user approves the permission, the consent will be recorded so that the user does not have to re-consent on subsequent sign-ins.
 
 ## Incremental Consent
 
