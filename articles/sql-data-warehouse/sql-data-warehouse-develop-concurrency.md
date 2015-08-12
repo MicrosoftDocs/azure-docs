@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -134,7 +134,8 @@ Furthermore, as mentioned above, the higher the resource class assigned to the u
 
 There are occasions where membership of a higher resource class does not alter the resources assigned to the query or operation. Typically this occurs when the resources required to fulfil the action are low. In these cases the default or small resource class (smallrc) is always used irrespective of the resource class assigned to the user. As an example, `CREATE LOGIN` will always run in the smallrc. The resources required to fulfil this operation are very low and so it would not make sense to include the query in the concurrency slot model. It would be wasteful to pre-allocate large amounts of memory for this action. By excluding `CREATE LOGIN` from the concurrency slot model SQL Data Warehouse can be much more efficient.  
 
-Below is a list of statements and operations that **are** governed by resource classes: 
+Below is a list of statements and operations that **are** governed by resource classes:
+
 - INSERT-SELECT
 - UPDATE
 - DELETE
@@ -288,9 +289,11 @@ To remove a user from an workload management role use the following query:
 ``` 
 EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
+
 > [AZURE.NOTE] It is not possible to remove a user from the smallrc.
 
 To see which users are members of a given role use the following query:
+
 ```
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
