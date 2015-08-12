@@ -69,7 +69,7 @@ The Azure DNS service is managed by the Microsoft.Network resource provider. You
 
 ## Tags
 
-Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags). Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
+Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md). Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
 
 	Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
@@ -86,7 +86,7 @@ A DNS zone is created using the "azure network dns-zone create" command. In the 
 Your DNS zone has now been created in Azure DNS. Creating a DNS zone also creates the following DNS records:
 
 -The ‘Start of Authority’ (SOA) record. This is present at the root of every DNS zone.
--The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers can be assigned to different zones in Azure DNS. See [Delegate a domain to Azure DNS](dns-domain-delegation) for more information.
+-The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers can be assigned to different zones in Azure DNS. See [Delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 To view these records, use "azure network dns-record-set show":
 
 	azure network dns-record-set show -g myresourcegroup --dns-zone "contoso.com" -n "@" --type SOA
