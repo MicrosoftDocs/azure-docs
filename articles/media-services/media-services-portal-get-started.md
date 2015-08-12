@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="07/16/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -228,9 +228,6 @@ Some considerations apply:
 ![AMSPlayer][AMSPlayer]
 
 
-##Next step
-
-Learn more about building Video on Demand applications [Build VoD applications](media-services-video-on-demand-workflow.md)
 
 ###Additional Resources
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>

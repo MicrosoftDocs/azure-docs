@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -255,7 +255,6 @@ If successful, the following response is returned:
 	HTTP/1.1 201 Created
 	
 	. . . 
-
 
 
 ##Next Steps
