@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="07/28/2015"
+	ms.date="08/11/2015"
 	ms.author="glenga"/>
 
 
-#Create a Windows app
+#Create an HTML app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
@@ -39,7 +39,7 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] or a later version.
+* [Visual Studio Community 2013] (a free edition is available).
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
@@ -49,11 +49,13 @@ To complete this tutorial, you need the following:
 
 ## Download the server project
 
-1. In the [Azure Portal], click **Browse All** > **Mobile Apps**, then click the Mobile App backend that you just created.
+1. In the [Azure Portal], click **Browse All** > **Web Apps**, then click the Mobile App backend that you just created. 
 
-2. At the top of the blade, click **Add Client** > **HTML/JavaScript**.
+2. In the Mobile App backend, click **All settings** and under **Mobile App** click **Quickstart** > **HTML/JavaScript**.
 
-3. Under **Download and run your server project**, click **Download**, extract the compressed project files to your local computer, and open the solution in Visual Studio.
+3. Under **Download and run your server project** in **Create a new app**, click **Download**, extract the compressed project files to your local computer, and open the solution in Visual Studio.
+
+4. Build the project to restore the NuGet packages.
 
 ##Enable CORS in the server project
 
@@ -63,7 +65,7 @@ Cross-origin resource sharing (CORS) is a way for your web-based app to indicate
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
 
-	This installs the CORS support required by the backend.
+	This installs the CORS support required by the backend. 
 
 2. Open the App_Start/WebApiConfig.cs project file and add the following using statement:
 
@@ -75,6 +77,8 @@ Cross-origin resource sharing (CORS) is a way for your web-based app to indicate
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
         config.EnableCors(cors);
 
+4. Save your updates.
+
 Next, you will deploy your CORS-enabled project to Azure.
 
 ##Publish the server project to Azure
@@ -83,7 +87,9 @@ Next, you will deploy your CORS-enabled project to Azure.
 
 ##Download and run the client project
 
-1. Back in the blade for your Mobile App, click **Add Client** > **HTML/JavaScript** > **Create a new app**, then under **Download and run your HTML/Javascript project** click **Download** and save the compressed project files to your local computer.
+1. Back in the blade for your Mobile App backend, click **All settings** and under **Mobile App** click **Quickstart** > **HTML/JavaScript**. 
+
+2.  Under **Download and run your HTML/Javascript project** in **Create a new app**, click **Download** and save the compressed project files to your local computer.
 
 2. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
 
