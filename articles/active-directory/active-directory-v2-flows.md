@@ -109,7 +109,7 @@ In this flow, a the app receives an authorization_code from the v2.0 endpoint up
 ![Native App Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 ## Current Preview Limitations
-These types of apps are not currently supported by the v2.0 app model preview, but are on the roadmap to be supported in time for general availability.  Additional limitations and restrictions for the v2.0 app model public preview are described in the [v2.0 preview limitations doc](active-directory-v2-limitations.md).
+These types of apps are not currently supported by the v2.0 app model preview, but are on the roadmap to be supported in time for general availability.  Additional limitations and restrictions for the v2.0 app model public preview are described in the [v2.0 preview limitations article](active-directory-v2-limitations.md).
 
 ### Single Page Apps (Javascript)
 Many modern apps have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth2-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
