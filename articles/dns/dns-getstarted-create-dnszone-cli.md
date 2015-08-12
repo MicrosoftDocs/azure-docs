@@ -34,7 +34,7 @@ Install Azure CLI. You can install Azure CLI for Windows, Linux, or MAC. The fol
 
 ### Step 2
 
-Azure DNS uses Azure Resource Manager (ARM). Make sure you switch CLI to use ARM commands and DNS.
+Azure DNS uses Azure Resource Manager. Make sure you switch CLI to use arm commands and DNS.
 
 	Azure config mode arm
 
@@ -69,7 +69,7 @@ The Azure DNS service is managed by the Microsoft.Network resource provider. You
 
 ## Tags
 
-Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md). Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
+Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md). Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
 
 	Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
@@ -80,13 +80,14 @@ A DNS zone is created using the "azure network dns-zone create" command. In the 
     Azure network dns-zone create -n contoso.com -g myresourcegroup
 
 
->[AZURE.NOTE] In Azure DNS, zone names should be specified without a terminating ‘.’. For example, as ‘contoso.com’ rather than ‘contoso.com.’.
+>[AZURE.NOTE] In Azure DNS, zone names should be specified without a terminating ‘.’, for example, as ‘contoso.com’ rather than ‘contoso.com.’.
 
 
 Your DNS zone has now been created in Azure DNS. Creating a DNS zone also creates the following DNS records:
 
--The ‘Start of Authority’ (SOA) record. This is present at the root of every DNS zone.
--The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers can be assigned to different zones in Azure DNS. See [Delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
+- The ‘Start of Authority’ (SOA) record. This is present at the root of every DNS zone.
+- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers can be assigned to different zones in Azure DNS. See [Delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
+
 To view these records, use "azure network dns-record-set show":
 
 	azure network dns-record-set show -g myresourcegroup --dns-zone "contoso.com" -n "@" --type SOA
@@ -128,10 +129,10 @@ To view the NS records created, use the following command:
 
 >[AZURE.NOTE] Record sets at the root (or ‘apex’) of a DNS zone use "@" as the record set name.
 
-Having created your first DNS zone, you can test it by using DNS tools such as nslookup, dig, or the **Resolve-DnsName** PowerShell cmdlet.
+Having created your first DNS zone, you can test it by using DNS tools such as nslookup, DIG, or the **Resolve-DnsName** PowerShell cmdlet.
 If you haven’t yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by "azure network dns-record-set show" above. Be sure the substitute the correct values for your zone in the command below.
 
-The following example uses dig to query the domain contoso.com using the name servers assigned for the DNS zone. The query has to point to a name server for which we used `@<name server for the zone>` and zone name using DIG.
+The following example uses DIG to query the domain contoso.com using the name servers assigned for the DNS zone. The query has to point to a name server for which we used `@<name server for the zone>` and zone name using DIG.
 
 	 <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
 	(1 server found)
