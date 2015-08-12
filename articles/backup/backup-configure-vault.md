@@ -23,6 +23,7 @@ This article will lead you through enabling the Azure Backup feature. To back up
 
 ## Before you start
 To back up files and data from your Windows Server to Azure, you must first:
+
 - **Create a Backup vault** — Create a vault in the Azure Backup console.
 - **Download vault credentials** — In Azure Backup, upload the management certificate you created to the vault.
 - **Install the Azure Backup Agent and register the server** — From Azure Backup, install the agent and register the server in the backup vault.
