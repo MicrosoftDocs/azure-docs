@@ -36,17 +36,31 @@ An elastic database pool is a collection of elastic database throughput units (e
 - Creating and managing elastic database pools is supported using the [preview portal](https://portal.azure.com), PowerShell, and a .NET Client Library (wrapper for REST APIs) for Azure Resource Manager only; the [portal](https://manage.windowsazure.com/) and service management commands are not supported. 
 
 
-## Restrictions for the current preview
+## Current preview considerations
+
+
+- Each pool has a maximum number of databases and pool eDTUs:
+
+    | Service tier | *Max databases per pool | *Max eDTUs per pool |
+    | :-- | :-- | :-- |
+    | Basic | 200 | 1200 | 
+    | Standard | 200 | 1200 |
+    | Premium | 50 | 1500 |
+
+    ****Current limits for the number of pool eDTUs and number of databases per pool is expected to increase by GA.***
+
+Or
+
+- Each pool has a maximum number of databases and pool eDTUs (expected to increase by GA):
+
+    | Service tier | Max databases per pool | Max eDTUs per pool |
+    | :-- | :-- | :-- |
+    | Basic | 200 | 1200 | 
+    | Standard | 200 | 1200 |
+    | Premium | 50 | 1500 |
+
 
 - Import of a database directly into a pool is not supported. You can import into a single database and then move the database into a pool. Export of a database from within a pool *is* supported.
-- Each pool has a maximum number of databases:
-
-    | Service tier | Max databases per pool |
-    | :-- | :-- |
-    | Basic | 200 |
-    | Standard | 200 |
-    | Premium | 50 |
-
 
 ## List of articles
 
