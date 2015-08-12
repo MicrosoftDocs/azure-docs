@@ -22,15 +22,15 @@
 
 > [AZURE.NOTE] This topic explains concepts about using subscription administrators to control resource access in the full Azure portal. As an alternative, the Azure Preview portal provides [role-based access control](role-based-access-control-configure.md) so Azure resources can be managed more precisely. 
 
-In October 2013, the Azure Management Portal and Service Management APIs were integrated with Azure Active Directory in order to lay the groundwork for improving the user experience for managing access to Windows Azure resources. Azure Active Directory already provides great capabilities such as user management, on-premises directory sync, multi-factor authentication, and application access control. Naturally, these should also be made available for managing Azure resources across-the-board.
+In October 2013, the Azure Management Portal and Service Management APIs were integrated with Azure Active Directory in order to lay the groundwork for improving the user experience for managing access to Azure resources. Azure Active Directory already provides great capabilities such as user management, on-premises directory sync, multi-factor authentication, and application access control. Naturally, these should also be made available for managing Azure resources across-the-board.
 
 Access control in Azure starts from a billing perspective. The owner of an Azure account, accessed by visiting the  [Azure Accounts Center](https://account.windowsazure.com/subscriptions), is the Account Administrator (AA). Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the [Azure Management Portal](https://manage.windowsazure.com/). The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.
  
-<br><br>![Windows Azure Accounts][1]
+<br><br>![Azure Accounts][1]
 
 Subscriptions also have an association with a directory. The directory defines a set of users. These can be users from the work or school that created the directory or they can be external users (that is, Microsoft Accounts). Subscriptions are accessible by a subset of those directory users who have been assigned as either Service Administrator (SA) or Co-Administrator (CA); the only exception is that, for legacy reasons, Microsoft Accounts (formerly Windows Live ID) can be assigned as SA or CA without being present in the directory.
 
-<br><br>![Access Control in Windows Azure][2]
+<br><br>![Access Control in Azure][2]
 
  
 Functionality within the Azure Management Portal enables SAs that are signed in using a Microsoft Account to change the directory that a subscription is associated with by using the **Edit Directory** command on the **Subscriptions** page in **Settings**. Note that this operation has implications on the access control of that subscription.
