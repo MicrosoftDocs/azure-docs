@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 #Access on-premises resources using hybrid connections in Azure App Service

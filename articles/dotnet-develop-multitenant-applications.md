@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture"
+	pageTitle="Multi-Tenant Web Application Pattern | Microsoft Azure"
 	description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure."
 	services=""
 	documentationCenter=".net"
