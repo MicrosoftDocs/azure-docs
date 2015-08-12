@@ -27,11 +27,11 @@ You can configure the Azure AD Connect Health Service to send email notification
 ### To enable Azure AD Connect Health Email Notifications
 
 1. Open the Alerts Blade for the farm for which you wish to receive email notification.
-1. Click on the "Notification Settings" button from the action bar.
-1. Turn the Email Notification switch to ON.
-1. Select the check box to configure all the Global Tenant Admins to receive email notifications.
-1. If you wish to receive email notifications on any other email addresses, you can specify them in the Additional Email Recipients boxes. To remove an email address from this list, right click on the entry and select Delete.
-1. To finalize the changes click on "Save". All changes will take effects only after you select "Save".
+2. Click on the "Notification Settings" button from the action bar.
+3. Turn the Email Notification switch to ON.
+4. Select the check box to configure all the Global Tenant Admins to receive email notifications.
+5. If you wish to receive email notifications on any other email addresses, you can specify them in the Additional Email Recipients boxes. To remove an email address from this list, right click on the entry and select Delete.
+6. To finalize the changes click on "Save". All changes will take effects only after you select "Save".
 
 
 
@@ -50,12 +50,12 @@ When deleting a server, be aware of the following:
 - After performing this action, if you wish to start monitoring the same server again, you will need to uninstall and re-install the health agent on this server. 
 
 
-	### To delete a server from Azure AD Connect Health Service
-<ol>
+### To delete a server from Azure AD Connect Health Service
+
 1. Open the Server Blade from the Server List Blade by selecting the server name to be removed. 
-1. On the Server Blade, click on the "Delete" button from the action bar.
-1. Confirm the action to delete the server by typing the server name in the confirmation box.
-1. Click on the "Delete" button.
+2. On the Server Blade, click on the "Delete" button from the action bar.
+3. Confirm the action to delete the server by typing the server name in the confirmation box.
+4. Click on the "Delete" button.
 
 
 
@@ -75,16 +75,17 @@ When deleting a service instance, be aware of the following:
 - After performing this action, if you wish to start monitoring the service, please uninstall and re-install the health agent on all the servers that will be monitored. After performing this action, if you wish to start monitoring the same server again, you will need to uninstall and re-install the health agent on this server.
 
 
+### To delete a service instance from Azure AD Connect Health Service
 
-
-
-
-
-	### To delete a service instance from Azure AD Connect Health Service
-<ol>
 1. Open the Service Blade from the Service List Blade by selecting the service identifier (farm name) that you wish to remove. 
-1. On the Server Blade, click on the "Delete" button from the action bar.
-1. Confirm the service name by typing it in the confirmation box. (for example: sts.contoso.com) 
-1. Click on the "Delete" button.
+2. On the Server Blade, click on the "Delete" button from the action bar.
+3. Confirm the service name by typing it in the confirmation box. (for example: sts.contoso.com) 
+4. Click on the "Delete" button.
 
 
+**Related links**
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
+* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
