@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/05/2015" 
+    ms.date="08/11/2015" 
     ms.author="arramac"/>
     
 # Working with Geospatial data in Azure DocumentDB
@@ -26,7 +26,7 @@ This article is an introduction to the geospatial functionality in [Azure Docume
 
 Please see this [Github project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial) for code samples.
 
-##<a id="Introduction"></a> Introduction to Spatial data
+## Introduction to Spatial data
 
 Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth, i.e. geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake. Common use cases often involve proximity queries, for e.g., "find all coffee shops near my current location". 
 
@@ -89,7 +89,7 @@ Since the shape of the earth is irregular, coordinates of geospatial data is rep
 
 The most popular CRS in use today is the World Geodetic System  [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). GPS devices, and many mapping services including Google Maps and Bing Maps APIs use WGS-84. DocumentDB supports indexing and querying of geospatial data using the WGS-84 CRS only. 
 
-##<a id="CreatingSpatialObjects"></a> Creating Documents with spatial data
+## Creating Documents with spatial data
 When you create documents that contain GeoJSON values, they are automatically indexed with a spatial index in accordance to the indexing policy of the collection. If you're working with a DocumentDB SDK in a dynamically typed language like Python or Node.js, you must create valid GeoJSON.
 
 **Create Document with Geospatial data in Node.js**
@@ -133,7 +133,7 @@ If you're working with the .NET (or Java) SDKs, you can use the new Point and Po
 
 If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
 
-##<a id="SpatialQuery"></a> Querying Spatial Types
+## Querying Spatial Types
 
 Now that we've taken a look at how to insert geospatial data, let's take a look at how to query this data using DocumentDB using SQL and LINQ.
 
@@ -268,7 +268,7 @@ Similarly, here's a query for finding all the documents whose "location" is with
 
 Now that we've taken a look at how to query documents using LINQ and SQL, let's take a look at how to configure DocumentDB for spatial indexing.
 
-##<a id="SpatialIndexing"></a> Indexing
+## Indexing
 
 DocumentDB supports indexing of GeoJSON points stored within documents using the **Spatial** index kind. Why use a different index type? This is because traditional indexes rely on a simple linear ordering and do not work well with spatial queries which require 2 dimensional comparisons. 
 
@@ -347,7 +347,7 @@ And here's how you can modify an existing collection to take advantage of spatia
 
 > [AZURE.NOTE] If the location GeoJSON value within the document is malformed or invalid, then it will not get indexed for spatial querying. You can validate location values using ST_ISVALID and ST_ISVALIDDETAILED.
 
-##<a id="NextSteps"></a> Next Steps
+## Next Steps
 Now that you've learnt about how to get started with geospatial support in DocumentDB, you can:
 
 - Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
