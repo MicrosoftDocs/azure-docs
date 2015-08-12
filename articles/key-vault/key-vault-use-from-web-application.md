@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Azure Key Vault from a Web Application | Overview" 
+	pageTitle="Use Azure Key Vault from a Web Application | Microsoft Azure" 
 	description="Use this tutorial to help you learn how to use Azure Key Vault from a web application." 
 	services="key-vault" 
 	documentationCenter="" 

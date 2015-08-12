@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Send push notifications to authenticated Windows Phone Silverlight app users | Azure Mobile Services" 
+	pageTitle="Send push notifications to authenticated Windows Phone Silverlight app users | Microsoft Azure" 
 	description="Learn how to send push notifications from Azure Mobile Services to specific users of your Windows Phone Silverlight app." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 

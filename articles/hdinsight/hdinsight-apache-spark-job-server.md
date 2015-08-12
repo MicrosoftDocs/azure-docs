@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Apache Spark Job Server on HDInsight | Azure" 
+	pageTitle="Apache Spark Job Server on HDInsight | Microsoft Azure" 
 	description="Learn how to use the Spark Job Server to remotely submit and manage jobs on a Spark cluster." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -80,10 +80,3 @@ Example:
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-
-
-
-
-
-
-

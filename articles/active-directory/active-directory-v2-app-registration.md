@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
 # App Model v2.0 Preview: How to Register an App with Microsoft
@@ -21,7 +21,7 @@
 To build an app that accepts both MSA & Azure AD sign in, you'll first need to register an app with Microsoft.  You won't be able to use any existing app you may have with Azure AD or MSA - it's time to create a brand new one.
 
 > [AZURE.NOTE]
-These instructions apply to the Microsoft Identity Public Preview.  For instructions on how to register an app with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 ## Visit the Microsoft Application Registration Portal
 First things first - navigate to [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is the new app registration portal where you can manage anything & everything about your Microsoft apps.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
 # App Model v2.0 Preview: Token Reference
@@ -72,6 +72,7 @@ V-DIguXSzLVKnnflfSLyvhinsjLKCnu9L3oXHxw
 | Name | `name` | `Leonardo DaVinci` | The name claim provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique, is mutable, and is designed to be used only for display purposes. |
 | Preferred Username | `preferred_username` | `leo@outlook.com` | The primary username that is used to represent the user in the v2.0 endpoint.  It could be an email address, phone number, or a generic username without a specified format.  Its value is mutable and may change for a given user over time. |
 | Subject | `sub` | `AAAAAAAAAAAAAAAAAAAAAOUtxUJsxQtHuMcFCIA1NC0` | The principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused, so it can be used to perform authorization checks safely, such as when the token is used to access a resource. Because the subject is always present in the tokens the Azure AD issues, we recommended using this value in a general purpose authorization system. |
+| ObjectId | `oid` | `27cb5cec-7c0c-40b4-a69a-22500b6ea853` | The object Id of the work or school account in the Azure AD system.  This claim will not be issued for personal Microsoft accounts. |
 
 <!---
 | Not Before | `nbf` | `1438535543` |  The time at which the token becomes valid, represented in epoch time. It is usually the same as the issuance time.  Your application should use this claim to verify the validity of the token lifetime.  |
@@ -95,7 +96,6 @@ Refresh tokens are security tokens which your application can use to acquire new
 
 Refresh tokens are multi-resource.  That is to say that a refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource.
 
-<!-- TODO: validate true for native apps -->
 In order to receive a refresh  in a token response, your application must request & be granted the `offline_acesss` scope.   To learn more about the `offline_access` scope, refer to the [consent & scopes article here](active-directory-v2-scopes.md).
 
 Refresh tokens are, and will always be, completely opaque to your application.  They are issued by the Azure AD v2.0 endpoint and can only be inspected & interpreted by the v2.0 endpoint.  They are long-lived, but your application should not be written to expect that a refresh token will last for any period of time.  Refresh tokens can be invalidated at any moment in time for a variety of reasons.  The only way for your application to know if a refresh token is valid is to attempt to redeem it by making a token request to the v2.0 endpoint.
@@ -106,7 +106,7 @@ When you redeem a refresh token for a new access token (and if your app had been
 
 At this point in time, the only token validation your applications should need to perform is validating id_tokens.  In order to validate an id_token, your application should validate both the id_token's signature and the claims in the id_token.
 
-<!-- TOOD: Link -->
+<!-- TODO: Link -->
 We provide libraries & code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several 3rd party open source libraries available for JWT validation - there is at least one option for almost every platform & language out there.
 
 #### Validating the Signature
@@ -153,15 +153,13 @@ Details of the expected values for these claims are included above in the [id_to
 
 The following token lifetimes are provided purely for your understanding, as they can help in developing and debugging applications.  Your apps should not be written to expect any of these lifetimes to remain constant - they can and will change at any given point in time.
 
-<!-- TODO: Validate all of this. -->
-
 | Token | Lifetime | Description |
 | ----------------------- | ------------------------------- | ------------ |
 | Id_Tokens (work or school accounts) | 1 hour | Id_Tokens are typically valid for an hour.  Your web application can use this same lifetime in maintaining its own session with the user (recommended), or choose a completely different session lifetime.  If your app needs to get a new id_token, it simply needs to make a new sign-in request to the v2.0 authorize endpoint.  If the user has a valid browser session with the v2.0 endpoint, they may not be required to enter their credentials again. |
 | Id_Tokens (personal accounts) | 24 hours | Id_Tokens for personal accounts are typically valid for 24 hours.  Your web application can use this same lifetime in maintaining its own session with the user (recommended), or choose a completely different session lifetime.  If your app needs to get a new id_token, it simply needs to make a new sign-in request to the v2.0 authorize endpoint.  If the user has a valid browser session with the v2.0 endpoint, they may not be required to enter their credentials again. |
-| Browser Sessions (work or school accounts) | N/A | For the v2.0 app model preview, work or school accounts will not have session state maintained with the v2.0 endpoint.  Every time your app directs the user to the v2.0 authorize endpoint, the user will have to enter their credentials. |
-| Browser Sessions (personal accounts) | Up to 180 days | A user's session with the v2.0 endpoint can remain valid for a period of up to 180 days.  However, it may become invalid for a number of reasons, including an extended period of user inactivity. |
 | Access Tokens (work or school accounts) | 1 hour | Indicated in token responses as part of the token metadata. |
-| Access Tokens (personal accounts) | 1 hour | Indicated in token responses as part of the token metadata. |
-| Refresh Tokens | Up to 14 days | A single refresh token is valid for a maximum of 14 days.  However, the refresh token may become invalid at any time for any number of reasons.  A refresh token will also become invalid if it has been 90 days since the user has entered their credentials. |
-| Authorization Codes | 10 minutes | Authorization codes are purposefully short-lived, and should be immediately redeemed for access_tokens and refresh_tokens when they are received. |
+| Access Tokens (personal accounts) | 1 hour | Indicated in token responses as part of the token metadata.  Access_tokens issued on behalf of personal accounts may be configured for a different lifetime, but one hour is typically the case. |
+| Refresh Tokens (work or school account) | Up to 14 days | A single refresh token is valid for a maximum of 14 days.  However, the refresh token may become invalid at any time for any number of reasons, so your app should continue to try and use a refresh token until it fails, or until your app replaces it with a new refresh token.  A refresh token will also become invalid if it has been 90 days since the user has entered their credentials. |
+| Refresh Tokens (personal accounts) | Up to 1 year | A single refresh token is valid for a maximum of 1 year.  However, the refresh token may become invalid at any time for any number of reasons, so your app should continue to try and use a refresh token until it fails. |
+| Authorization Codes (work or school accounts) | 10 minutes | Authorization codes are purposefully short-lived, and should be immediately redeemed for access_tokens and refresh_tokens when they are received. |
+| Authorization Codes (personal accounts) | 5 minutes | Authorization codes are purposefully short-lived, and should be immediately redeemed for access_tokens and refresh_tokens when they are received.  Authorization codes issued on behalf of personal accounts are also one-time use. |
