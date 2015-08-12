@@ -98,7 +98,7 @@ public void ConfigureAuth(IAppBuilder app)
 				ValidateIssuer = false,
 		};
 
-		// Set up the OWIN auth pipeline to use OAuth 2.0 Bearer authentication.
+		// Set up the OWIN pipeline to use OAuth 2.0 Bearer authentication.
 		// The options provided here tell the middleware about the type of tokens
 		// that will be recieved, which are JWTs for the v2.0 endpoint.
 

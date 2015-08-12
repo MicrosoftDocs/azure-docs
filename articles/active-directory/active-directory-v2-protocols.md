@@ -16,9 +16,9 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Auth Protocols - OAuth 2.0 & OpenID Connect
+# App Model v2.0 Preview: Protocols - OAuth 2.0 & OpenID Connect
 
-The v2.0 app model provides identity-as-a-service for your apps by supporting industry standard authentication protocols, OpenID Connect and OAuth 2.0.  While the service is standard compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests, rather than using one of our open source libraries.
+The v2.0 app model provides identity-as-a-service for your apps by supporting industry standard protocols, OpenID Connect and OAuth 2.0.  While the service is standard compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests, rather than using one of our open source libraries.
 <!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
@@ -43,11 +43,11 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-In nearly all OAuth & OpenID Connect flows, there are four parties involved in the auth exchange:
+In nearly all OAuth & OpenID Connect flows, there are four parties involved in the exchange:
 
 ![OAuth 2.0 Roles](../media/active-directory-v2-flows/protocols_roles.png)
 
-- The **Authorization Server** is the v2.0 Endpoint.  It is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens.  It is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in an auth flow.
+- The **Authorization Server** is the v2.0 Endpoint.  It is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens.  It is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in an flow.
 - The **Resource Owner** is typically the end-user.  It is the party that owns the data, and has the power to allow third parties to access that data, or resource.
 - The **OAuth Client** is your app, identified by its Application Id.  It is usually the party that the end-user interacts with, and it requests tokens from the authorization server.  The client must be granted permission to access the resource by the resource owner.
 - The **Resource Server** is where the resource or data resides.  It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access_tokens to ensure that access to a resource can be granted.
@@ -137,7 +137,7 @@ Content-Type: application/json
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | grant_type | required | Must be `authorization_code` for the authorization code flow. |
 | scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the first leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
-| code | required | The authorization_code that you acquired in the first leg of the auth flow.   |
+| code | required | The authorization_code that you acquired in the first leg of the flow.   |
 | client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native application, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
 
 A successful token response will look like:
@@ -208,7 +208,7 @@ Content-Type: application/json
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | grant_type | required | Must be `refresh_token` for this leg of the authorization code flow. |
 | scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the original authorization_code request leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
-| refresh_token | required | The refresh_token that you acquired in the second leg of the auth flow.   |
+| refresh_token | required | The refresh_token that you acquired in the second leg of the flow.   |
 | client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native application, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
 
 A successful token response will look like:
@@ -324,7 +324,7 @@ error=access_denied
 #### Validate the id_token
 Just receiving an id_token is not sufficient to authenticate the user; you must validate the id_token's signature and verify the claims in the token per your application's requirements.  The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
-The v2.0 app model has an OpenID Connect metadata endpoint, which allows an app to fetch information about the v2.0 app model at runtime.  This information includes auth endpoints, token contents, and token signing keys.  The metadata endpoint contains a JSON document located at:
+The v2.0 app model has an OpenID Connect metadata endpoint, which allows an app to fetch information about the v2.0 app model at runtime.  This information includes endpoints, token contents, and token signing keys.  The metadata endpoint contains a JSON document located at:
 
 `https://login.microsoftonline.com/common/v2.0/.well-known/configuration`
 

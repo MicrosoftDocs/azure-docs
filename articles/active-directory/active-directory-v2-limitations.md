@@ -32,7 +32,7 @@ The following types of applications are not currently supported in the v2.0 app 
 ##### Single Page Apps (Javascript)
 Many modern applications have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth2-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
 
-If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the [web app auth flow](active-directory-v2-flows.md#web-apps).  But this is not the recommended approach, and documentation for this scenario will be limited.  If you'd like to get a feel for the SPA scenario, you can check out the [generally available Azure AD SPA code sample](active-directory-devquickstarts-angular.md).
+If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the [web app flow](active-directory-v2-flows.md#web-apps).  But this is not the recommended approach, and documentation for this scenario will be limited.  If you'd like to get a feel for the SPA scenario, you can check out the [generally available Azure AD SPA code sample](active-directory-devquickstarts-angular.md).
 
 ##### Daemons/Server Side Apps
 Applications that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).  
@@ -72,7 +72,7 @@ The v2.0 app model currently supports sign-in for any application registered in 
 More Microsoft Online services will be added in the near future, as well as support for your own Web APIs and services.
 
 ## Restrictions on Libraries & SDKs
-Not all languages and platforms have auth libraries that support the v2.0 app model preview.  The set of authentication libraries is currently limited to .NET, iOS, Android, NodeJS, and Javascript.  Corresponding code samples and tutorials for each are available in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+Not all languages and platforms have libraries that support the v2.0 app model preview.  The set of authentication libraries is currently limited to .NET, iOS, Android, NodeJS, and Javascript.  Corresponding code samples and tutorials for each are available in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
 If you wish to integrate an app with the v2.0 app model using another language or platform, refer to the [OAuth 2.0 and OpenID Connect Protocol Reference](active-directory-v2-protocols.md) which will instruct you on how to construct the HTTP messages necessary to communicate with the v2.0 endpoint.
 

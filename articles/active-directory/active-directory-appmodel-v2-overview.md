@@ -31,7 +31,7 @@ The v2.0 app model is in preview.  During the preview period, we are eager to he
 <!-- TODO: Get approval on how it looks  -->
 
 ## Getting Started
-There are two ways to get your own app up & running with the v2.0 app model.  You can choose to send auth protocol messages directly, using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  Alternatively you can use our auth libraries to do the work for you - choose your favorite platform below and get started.
+There are two ways to get your own app up & running with the v2.0 app model.  You can choose to send protocol messages directly, using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  Alternatively you can use our libraries to do the work for you - choose your favorite platform below and get started.
 <!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
@@ -40,7 +40,7 @@ There are two ways to get your own app up & running with the v2.0 app model.  Yo
 Check back here often to learn about future changes to the v2.0 app model public preview.  We'll also tweet about any updates using @AzureAD.
 
 - Learn about the [types of apps you can build with app model v2.0](active-directory-v2-flows.md).
-- For developers familiar with Azure Active Directory, you should check out the [updates to our auth protocols & differences in the v2.0 app model](active-directory-v2-compare.md).
+- For developers familiar with Azure Active Directory, you should check out the [updates to our protocols & differences in the v2.0 app model](active-directory-v2-compare.md).
 - Current [preview limitations, restrictions and constraints](active-directory-v2-limitations.md).
 
 ## Reference
