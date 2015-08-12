@@ -28,7 +28,7 @@ These instructions use Microsoft Azure CLI. Be sure to update to the latest Azur
 
 ### Step 1
 
-Install Azure CLI. You can install Azure CLI for Windows, Linux, or MAC. The following steps need to be completed before you can manage Azure DNS using Azure CLI. More information is available at [Install the Azure CLI](xplat-cli-install.md). All the network provider commands on CLI can be found using the following command:
+Install Azure CLI. You can install Azure CLI for Windows, Linux, or MAC. The following steps need to be completed before you can manage Azure DNS using Azure CLI. More information is available at [Install the Azure CLI](../xplat-cli-install.md). All the network provider commands on CLI can be found using the following command:
 
 	Azure network
 
