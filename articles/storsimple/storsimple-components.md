@@ -112,6 +112,10 @@ You can access Windows PowerShell for StorSimple from a serial console (on a hos
 
 For more information, see [Use Windows PowerShell for StorSimple to administer your device](storsimple-windows-powershell-administration.md).
 
+## Azure PowerShell StorSimple cmdlets
+
+The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](https://msdn.microsoft.com/library/dn920427.aspx).
+
 ## StorSimple Manager service
 
 Microsoft Azure StorSimple provides a web-based user interface (the StorSimple Manager service) that enables you to centrally manage datacenter and cloud storage. You can use the StorSimple Manager service to perform the following tasks:
