@@ -231,6 +231,7 @@ Enable Staging Mode |  This allows you to stage information that will later be s
 ### Additional Documentation
 For additional documentation on working with Azure AD Connect see the following;
 
+- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md) 
 - [Changing the Azure AD Connect default configuration](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Using the Azure AD Connect Synchronization Rules Editor](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Using declarative provisioning](active-directory-aadconnect-whats-next-declarative-prov.md)

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Service-side authorization of users in a .NET backend mobile service | Azure Mobile Services"
+	pageTitle="Service-side authorization of users in a .NET backend mobile service | Microsoft Azure"
 	description="Learn how to restrict access for authorize users in a .NET backend mobile service"
 	services="mobile-services"
 	documentationCenter="windows"

@@ -5,16 +5,15 @@
    documentationCenter=""
    authors="cherylmc"
    manager="carolz"
-   editor=""
-   tags="azure-service-management"/>
-
+   editor=""/>
+ 
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="08/11/2015"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using the Management Portal
@@ -23,15 +22,16 @@
 - [Azure Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and creating a site-to-site VPN connection between your newly created VNet and your on-premises location.
+This topic will walk you through creating a classic virtual network and a site-to-site VPN connection to your on-premises network. 
 
-Azure currently has two management modes: Azure Service Management, and Azure Resource Manager (ARM). The site-to-site setup is different, depending on the mode your virtual network was created in.
-These instructions apply to Azure Service Management. If you want to create a Azure Resource Manager site-to-site VPN connection instead, see [Create a site-to-site VPN connection using Azure Resource Manager and PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+Azure currently has two deployment models: the classic deployment model, and the Azure Resource Manager deployment model. The configuration steps differ, depending on the model that was used to deploy your virtual network.
+
+These instructions apply to the classic deployment model. If you want to create a site-to-site VPN gateway connection using the Resource Manager model, see [Create a site-to-site VPN connection using Azure Resource Manager and PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Before beginning
 
-- Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection. See [About VPN Devices for Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?LinkId=615099) for more information.
+- Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection. See [About VPN devices for virtual network connections](vpn-gateway-about-vpn-devices.md) for more information.
 
 - Obtain an externally facing IPv4 IP for your VPN device. This IP address is required for a site-to-site configuration and is used for your VPN device, which cannot be located behind a NAT.
 
@@ -88,11 +88,13 @@ Next, you'll configure the **Virtual Network Gateway** in order to create a secu
 
 ## Next Steps
 
-You can learn more about Virtual Network cross-premises connectivity in this article: [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx).
+You can learn more about virtual network cross-premises connectivity in this article: [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md).
 
 If you want to configure a point-to-site VPN connection, see [Configure a Point-to-Site VPN Connection](vpn-gateway-point-to-site-create.md).
 
 You can add virtual machines to your virtual network. See [How to Create a Custom Virtual Machine](../virtual-machines/virtual-machines-create-custom.md).
 
 If you want to configure a VNet connection using RRAS, see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx).
+
+If you want to configure a connection between your classic virtual network and a virtual network created using the Resource Manager mode, see [Connecting classic VNets to Resource Manager VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
  
