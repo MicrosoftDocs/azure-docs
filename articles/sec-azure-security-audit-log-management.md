@@ -94,7 +94,7 @@ Some key differences between these two technologies are included in the table be
 ##	Security event data collection with Windows Event Forwarding
 For domain-joined Azure Virtual Machines, you can configure WEF by using Group Policy settings in the same manner as for on-premises domain-joined computers. For more information, see [Hybrid Cloud](http://www.microsoft.com/server-cloud/solutions/hybrid-cloud.aspx).
 
-Using this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using [ExpressRoute](http://azure.microsoft.com/en-us/services/expressroute/) or site-to-site VPN, and then join the virtual machines that you have in Azure to the corporate domain. Afterwards, you can configure WEF from the domain-joined machines.
+Using this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using [ExpressRoute](http://azure.microsoft.com/services/expressroute/) or site-to-site VPN, and then join the virtual machines that you have in Azure to the corporate domain. Afterwards, you can configure WEF from the domain-joined machines.
 
 Event forwarding is broken into two parts: the source and the collector. The source is the computer in which the security logs are generated. The collector is the centralized server that collects and consolidates the event logs. IT administrators can subscribe to receive and store events that are forwarded from remote computers (the event source). For more information, see [Configure Computers to Forward and Collect Events](http://technet.microsoft.com/library/cc748890.aspx).
 
@@ -109,7 +109,7 @@ The following diagram shows a high-level data flow for security data collection 
 
 ![][1]
 
-Azure Diagnostics moves logs from customer Cloud Services applications and [Azure Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/) to Azure Storage. Based on a log format, some data is stored in Azure tables and some in blobs. Data that is collected in [Azure Storage](https://azure.microsoft.com/documentation/articles/storage-introduction/) can be downloaded to on-premises SIEM systems by using Azure Storage client library for monitoring and analysis. For more information, see [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+Azure Diagnostics moves logs from customer Cloud Services applications and [Azure Virtual Machines](virtual-machines-about.md) to Azure Storage. Based on a log format, some data is stored in Azure tables and some in blobs. Data that is collected in [Azure Storage](storage-introduction.md) can be downloaded to on-premises SIEM systems by using Azure Storage client library for monitoring and analysis.
 
 Additionally, HDInsight can be used for further analysis of the data in the cloud. Following are some examples of security data collection that use Azure Diagnostics.
 
