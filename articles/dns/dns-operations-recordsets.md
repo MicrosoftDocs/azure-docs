@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma"/>
 
 # How to manage DNS records
+
 
 This guide will show how to manage record sets and records for your DNS zone.
 
@@ -43,6 +44,13 @@ In the above example, the zone is specified using a zone object, as returned by 
 New-AzureDnsRecordSet returns a local object representing the record set created in Azure DNS.
 
 >[AZURE.NOTE] CNAME record sets cannot co-exist with other record sets with the same name.  For example, you cannot create a CNAME with the relative name ‘www’ and an A record with the relative name ‘www’ at the same time.  Since the zone apex (name = ‘@’) always contains the NS and SOA record sets created when the zone is created, this means you cannot create a CNAME record set at the zone apex.  These constraints arise from the DNS standards, they are not limitations of Azure DNS.
+
+### Wildcard records
+Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record).  These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set).
+
+>[AZURE.NOTE] To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
+
+>Wildcard record sets are supported for all record types except NS and SOA.  
 
 ## Get a record set
 To retrieve an existing record set, use ‘Get-AzureDnsRecordSet’, specifying the record set relative name, the record type, and the zone:

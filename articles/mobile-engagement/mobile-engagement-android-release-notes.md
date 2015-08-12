@@ -3,7 +3,7 @@
 	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #Release notes
 
-##4.0.0
+##4.0.0 (07/06/2015)
 
 -   Internal protocol changes to make analytics and push more reliable.
 -   Native push (GCM/ADM) is now also used for in app notifications so you must configure the native push credentials for any type of push campaign.

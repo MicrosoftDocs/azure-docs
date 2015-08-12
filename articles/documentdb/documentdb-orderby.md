@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Sorting DocumentDB data using Order By | Azure" 
+	pageTitle="Sorting DocumentDB data using Order By | Microsoft Azure" 
 	description="Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries." 
 	services="documentdb" 
 	authors="arramac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/19/2015" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By
@@ -76,77 +76,8 @@ Using the native paging support within the DocumentDB SDKs, you can retrieve res
 DocumentDB supports ordering with a single numeric, string or Boolean property per query, with additional query types coming soon. Please see [What's coming next](#Whats_coming_next) for more details.
 
 ## Configure an indexing policy for Order By
-The easiest way to get started with Order By is by creating a new collection with the "All Range" indexing policy configuration, i.e., a range index against all numbers and strings for all properties, with the maximum required precision. For many workloads, this offers the best query flexibility, with good write performance and low index storage overhead. However, you can tune the indexing policy to best suit your query patterns by configuring just the properties used for sorting with a Range index and maximum index precision. 
 
-Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value). Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy in order to use Order By.
-
-Here are some common indexing policies, and their corresponding support for Order By queries:
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Indexing Policy</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Support for Order By</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    All Hash
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    All string and numeric properties use Hash indexing. Order By is NOT supported. Has the lowest indexing storage overhead.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    All Range
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    All string and numeric properties use Range indexing with maximum precision. Order By is supported with both numbers and strings. Has a higher index storage overhead.
-                </p>
-            </td>            
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    Default
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    All string properties use Hash indexing, and numeric properties use Range indexing with maximum precision. Order By is supported against numbers, but not strings. Has low indexing storage overhead.
-                </p>
-            </td>
-        </tr>        
-        <tr>
-            <td valign="top">
-                <p>
-                    Your policy (custom)
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Using the SDKs, you can configure specific paths for range indexing and for string/range. Order By is supported for just these properties. Has a low indexing overhead.
-                </p>
-            </td>            
-        </tr>        
-    </tbody>
-</table>
-
+Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value). Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy with Range on numbers, strings or both, in order to use Order By. 
 
 >[AZURE.NOTE] String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03. In order to create policies for Order By against strings, you must use SDK version 1.2.0 of the .NET SDK, or version 1.1.0 of the Python, Node.js or Java SDK.
 >
@@ -154,7 +85,7 @@ Here are some common indexing policies, and their corresponding support for Orde
 
 For more details see [DocumentDB indexing policies](documentdb-indexing-policies.md).
 
-### Indexing for Order By against all numeric properties
+### Indexing for Order By against all properties
 Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it. Here, "/*" represents all JSON properties/paths within the collection, and -1 represents the maximum precision.
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
@@ -169,6 +100,8 @@ Here's how you can create a collection with "All Range" indexing for Order By ag
     await client.CreateDocumentCollectionAsync(databaseLink, 
         booksCollection);  
 
+>[AZURE.NOTE] Note that Order By only will return results of the data types (String and Number) that are indexed with a RangeIndex. For example, if you have the default indexing policy which only has RangeIndex on numbers, an Order By against a path with string values will return no documents.
+
 ### Indexing for Order By for a single property
 Here's how you can create a collection with indexing for Order By against just the Title property, which is a string. There are two paths, one for the Title property ("/Title/?") with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.                    
     
@@ -178,10 +111,17 @@ Here's how you can create a collection with indexing for Order By against just t
             Indexes = new Collection<Index> { 
                 new RangeIndex(DataType.String) { Precision = -1 } } 
             });
-
+    
+    // Use defaults which are:
+    // (a) for strings, use Hash with precision 3 (just equality queries)
+    // (b) for numbers, use Range with max precision (for equality, range and order by queries)
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
-            Path = "/*" 
+            Path = "/*",
+            Indexes = new Collection<Index> { 
+                new HashIndex(DataType.String) { Precision = 3 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }            
         });
 
 ## Samples

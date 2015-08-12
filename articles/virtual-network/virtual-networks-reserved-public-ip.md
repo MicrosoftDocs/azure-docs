@@ -20,8 +20,6 @@ IP addresses in Azure fall into two categories: dynamic and reserved. Public IP 
 
 To prevent IP addresses from changing, you can reserve an IP address. Reserved IPs can be used only as a VIP, ensuring that the IP address for the cloud service will be the same even as resources are shutdown or deallocated. Furthermore, you can convert existing dynamic IPs used as a VIP to a reserved IP address.
 
->[AZURE.WARNING] You can only assign a reserved IP to a VIP.
-
 ## When do I need a reserved IP?
 - **You want to ensure that the IP is reserved in your subscription**. If you want to reserve an IP address that will not be released from your subscription under any circumstance, you should use a reserved public IP.  
 - **You want your IP to stay with your cloud service even across stopped or deallocated state (VMs)**. If you want your service to be accessed by using an IP address that will not change even when VMs in the cloud service are stop or deallocated.
@@ -117,8 +115,8 @@ You can also associate a reserved IP to a cloud service by sing a service config
 
 ## Next steps
 
-[Reserved Private IP](../virtual-networks-reserved-private-ip)
+- Learn about [reserved private IP addresses](../virtual-networks-reserved-private-ip).
 
-[Instance-Level Public IP (ILPIP)](../virtual-networks-instance-level-public-ip)
+- Learn about [Instance Level Public IP (ILPIP) addresses](../virtual-networks-instance-level-public-ip).
 
-[Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx) 
+- Check the [reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).

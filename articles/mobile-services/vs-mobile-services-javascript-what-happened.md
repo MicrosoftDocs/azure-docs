@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="07/02/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # What happened to my project?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
 > - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
-###<span id="whathappened">What happened to my project?</id>
+###What happened to my project?
 
 #####NuGet package added
 

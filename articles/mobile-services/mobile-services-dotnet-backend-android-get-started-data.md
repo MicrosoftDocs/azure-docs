@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with data (Android) | Mobile Dev Center" 
+	pageTitle="Get started with data (Android) | Microsoft Azure" 
 	description="Learn how to get started using Mobile Services to leverage data in your Android app." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/29/2015" 
 	ms.author="ricksal"/>
 
 # Add Mobile Services to an existing app

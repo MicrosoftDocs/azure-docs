@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Learn about the latest Azure Guest OS Releases | Azure" 
+   pageTitle="Learn about the latest Azure Guest OS Releases | Microsoft Azure" 
    description="The latest release news and SDK compatibility for Azure Cloud Services Guest OS." 
    services="cloud-services" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="05/20/2015"
+   ms.date="08/07/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS Releases and SDK Compatibility Matrix
@@ -28,6 +28,13 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 
 
 ## News Updates
+###### **August 7 2015**
+Guest OS versions 4.22, 3.29, 2.41 were released on August 7 2015.
+
+###### **July 14 2015**
+July Guest OS rollout is starting today July 14 2015, and projected to be released on August 14 2015.
+
+Guest OS versions 4.21, 3.28, 2.40 were released on July 9 2015.
 
 ###### **June 15 2015**
 June Guest OS rollout is starting today June 15 2015, and projected to be released on July 9 2015.
@@ -111,13 +118,14 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
 
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4.21             | WA-GUEST-OS-4.21_201506-01 | Projected July 9 2015  | Will be updated when 4.23 is released | TBD |
-| 4.20             | WA-GUEST-OS-4.20_201505-02 | June 12 2015           | Will be updated when 4.22 is released | TBD |
-| 4.19             | WA-GUEST-OS-4.19_201504-01 | April 17 2015          | Will be updated when 4.21 is released | TBD |
+| 4.22             | WA-GUEST-OS-4.22_201507-01 | Aug 7 2015             | Will be updated when 4.24 is released | TBD |
+| 4.21             | WA-GUEST-OS-4.21_201506-01 | July 9 2015            | Will be updated when 4.23 is released | TBD |
+| 4.20             | WA-GUEST-OS-4.20_201505-02 | June 12 2015           | Sep 7 2015   | TBD |
+| 4.19             | WA-GUEST-OS-4.19_201504-01 | April 17 2015          | Aug 9 2015   | TBD |
 | 4.18             | WA-GUEST-OS-4.18_201503-01 | April 2 2015           | July 12 2015 | TBD |
-| 4.17             | WA-GUEST-OS-4.17_201502-01 | Mar 9 2015             | May 17 2015 | TBD |
-| 4.16             | WA-GUEST-OS-4.16_201501-01 | Jan 29 2015            | May 2 2015 | TBD |
-| 4.15             | WA-GUEST-OS-4.15_201412-01 | Jan 14 2015            | Apr 9 2015 | TBD |
+| 4.17             | WA-GUEST-OS-4.17_201502-01 | Mar 9 2015             | May 17 2015  | TBD |
+| 4.16             | WA-GUEST-OS-4.16_201501-01 | Jan 29 2015            | May 2 2015   | TBD |
+| 4.15             | WA-GUEST-OS-4.15_201412-01 | Jan 14 2015            | Apr 9 2015   | TBD |
 | 4.14             | WA-GUEST-OS-4.14_201411-01 | Nov 11 2014            | Feb 28 2015  | TBD |
 | 4.13             | WA-GUEST-OS-4.13_201410-01 | Nov 3 2014             | Feb 14 2015  | TBD |
 | 4.12 (Note 1)    | WA-GUEST-OS-4.12_201409-02 | Oct 6 2014             | Oct 12 2014  | March 23 2015 |
@@ -134,9 +142,10 @@ Supports .NET 4.0, 4.5
 
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3.28             | WA-GUEST-OS-3.28_201506-01 | Projected July 9 2015  | Will be updated when 3.30 is released | TBD |
-| 3.27             | WA-GUEST-OS-3.27_201505-02 | June 12 2015           | Will be updated when 3.29 is released | TBD |
-| 3.26             | WA-GUEST-OS-3.26_201504-01 | April 17 2015          | Will be updated when 3.28 is released | TBD |
+| 3.29             | WA-GUEST-OS-3.29_201507-01 | Aug 7 2015             | Will be updated when 3.31 is released | TBD |
+| 3.28             | WA-GUEST-OS-3.28_201506-01 | July 9 2015            | Will be updated when 3.30 is released | TBD |
+| 3.27             | WA-GUEST-OS-3.27_201505-02 | June 12 2015           | Sep 7 2015 | TBD |
+| 3.26             | WA-GUEST-OS-3.26_201504-01 | April 17 2015          | Aug 9 2015   | TBD |
 | 3.25             | WA-GUEST-OS-3.25_201503-01 | April 2 2015           | July 12 2015 | TBD |
 | 3.24             | WA-GUEST-OS-3.24_201502-01 | Mar 9 2015             | May 17 2015  | TBD |
 | 3.23             | WA-GUEST-OS-3.23_201501-01 | Jan 29 2015            | May 2 2015   | TBD |
@@ -158,9 +167,10 @@ Supports .NET 3.5, 4.0
 
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2.40             | WA-GUEST-OS-2.40_201506-01 | Projected July 9 2015  | Will be updated when 2.42 is released | TBD |
-| 2.39             | WA-GUEST-OS-2.39_201505-02 | June 12 2015           | Will be updated when 2.41 is released | TBD |
-| 2.38             | WA-GUEST-OS-2.38_201504-01 | April 17 2015          | Will be updated when 2.40 is released | TBD |
+| 2.41             | WA-GUEST-OS-2.41_201507-01 | Aug 7 2015             | Will be updated when 2.43 is released | TBD |
+| 2.40             | WA-GUEST-OS-2.40_201506-01 | July 9 2015            | Will be updated when 2.42 is released | TBD |
+| 2.39             | WA-GUEST-OS-2.39_201505-02 | June 12 2015           | Sep 7 2015   | TBD |
+| 2.38             | WA-GUEST-OS-2.38_201504-01 | April 17 2015          | Aug 9 2015   | TBD |
 | 2.37             | WA-GUEST-OS-2.37_201503-01 | April 2 2015           | July 12 2015 | TBD |
 | 2.36             | WA-GUEST-OS-2.36_201502-01 | Mar 9 2015             | May 17 2015  | TBD |
 | 2.35             | WA-GUEST-OS-2.35_201501-01 | Jan 29 2015            | May 2 2015   | TBD |

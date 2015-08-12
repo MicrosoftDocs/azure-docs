@@ -3,9 +3,10 @@
 	description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,16 +15,16 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2015"
-	ms.author="josephd"/>
+	ms.author="kathydav"/>
 
 # Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
+These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
@@ -46,7 +47,7 @@ Set your Azure subscription and storage account by running these commands at the
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-You can get the correct subscription name from the SubscriptionName property of the output of the **Get-AzureSubscription** command. You can get the correct storage account name from the Label property of the output of the **Get-AzureStorageAccount** command after you issue the **Select-AzureSubscription** command.
+You can get the correct subscription name from the SubscriptionName property of the output of the **Get-AzureSubscription** command. You can get the correct storage account name from the Label property of the output of the **Get-AzureStorageAccount** command after you run the **Select-AzureSubscription** command.
 
 ## Step 3: Determine the ImageFamily
 
@@ -141,7 +142,7 @@ For an Active Directory domain controller, set $hcaching to "None".
 
 Optionally, add the virtual machine to an existing load-balanced set for external traffic.
 
-	$prot="<Specify one: tcp, udp>"
+	$port="<Specify one: tcp, udp>"
 	$localport=<port number of the internal port>
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
@@ -151,7 +152,7 @@ Optionally, add the virtual machine to an existing load-balanced set for externa
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-Finally, start the virtual machine creation process by choosing one of these command blocks (required).
+Finally, choose one of these required command blocks for creating the virtual machine.
 
 Option 1: Create the virtual machine in an existing cloud service.
 
@@ -173,8 +174,8 @@ If you are using a text editor, copy the command set to the clipboard and then r
 
 If you will be creating this virtual machine again or a similar one, you can:
 
-- Save this command set as a PowerShell script file (*.ps1)
-- Save this command set as an Azure automation runbook in the **Automation** section of the Azure Management Portal
+- Save this command set as a PowerShell script file (*.ps1).
+- Save this command set as an Azure automation runbook in the **Automation** section of the Azure Management Portal.
 
 ## <a id="examples"></a>Examples
 
@@ -184,13 +185,13 @@ Here are two examples of using the steps above to build Azure PowerShell command
 
 I need a PowerShell command set to create the initial virtual machine for an Active Directory domain controller that:
 
-- Uses the Windows Server 2012 R2 Datacenter image
-- Has the name AZDC1
-- Is a standalone computer
-- Has an additional data disk of 20 GB
-- Has the static IP address 192.168.244.4
-- Is in the BackEnd subnet of the AZDatacenter virtual network
-- Is in the Azure-TailspinToys cloud service
+- Uses the Windows Server 2012 R2 Datacenter image.
+- Has the name AZDC1.
+- Is a standalone computer.
+- Has an additional data disk of 20 GB.
+- Has the static IP address 192.168.244.4.
+- Is in the BackEnd subnet of the AZDatacenter virtual network.
+- Is in the Azure-TailspinToys cloud service.
 
 Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.
 
@@ -221,12 +222,12 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 I need a PowerShell command set to create a virtual machine for a line-of-business server that:
 
-- Uses the Windows Server 2012 R2 Datacenter image
-- Has the name LOB1
-- Is a member of the corp.contoso.com domain
-- Has an additional data disk of 200 GB
-- Is in the FrontEnd subnet of the AZDatacenter virtual network
-- Is in the Azure-TailspinToys cloud service
+- Uses the Windows Server 2012 R2 Datacenter image.
+- Has the name LOB1.
+- Is a member of the corp.contoso.com domain.
+- Has an additional data disk of 200 GB.
+- Is in the FrontEnd subnet of the AZDatacenter virtual network.
+- Is in the Azure-TailspinToys cloud service.
 
 Here is the corresponding Azure PowerShell command set to create this virtual machine.
 
@@ -255,7 +256,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 
-## Additional Resources
+## Additional resources
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -268,4 +269,3 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
- 

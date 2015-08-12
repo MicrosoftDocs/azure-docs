@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="List of updates applied to the Azure Guest OS | Azure" 
+   pageTitle="List of updates applied to the Azure Guest OS | Microsoft Azure" 
    description="The list of updates applied to Guest OS releases" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -19,6 +19,24 @@
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+## July Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-065    | [3076321] | Cumulative Security Update for Internet Explorer | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-066    | [3072604] | Vulnerability in VBScript could allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-067    | [3073094] | Vulnerability in RDP could allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-068    | [3072000] | Vulnerability in Windows Hyper-V Could Allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-069    | [3072631] | Vulnerabilities in Windows Could Allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-071    | [3068457] | Vulnerability in NETLOGON Could Allow Spoofing | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-072    | [3069392] | Vulnerability in Graphics Driver Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-073    | [3070102] | Vulnerabilities in Kernel-Mode Driver Could allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-074    | [3072630] | Vulnerability in Windows Installer Service Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-075    | [3072633] | Vulnerabilities in OLE could allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-076    | [3067505] | Vulnerability in Windows Remote Procedure Call Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-077    | [3077657] | Vulnerability in ATM Font Driver Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| NA    | [3057154] | Update to Restrict Use of DES Encryption | 4.22, 3.29, 2.41 | July 14, 2015 |
 
 ## June Guest OS
 
@@ -125,6 +143,19 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 
+[3076321]: http://support.microsoft.com/kb/3076321
+[3072604]: http://support.microsoft.com/kb/3072604
+[3073094]: http://support.microsoft.com/kb/3073094
+[3072000]: http://support.microsoft.com/kb/3072000
+[3072631]: http://support.microsoft.com/kb/3072631
+[3068457]: http://support.microsoft.com/kb/3068457
+[3069392]: http://support.microsoft.com/kb/3069392
+[3070102]: http://support.microsoft.com/kb/3070102
+[3072630]: http://support.microsoft.com/kb/3072630
+[3072633]: http://support.microsoft.com/kb/3072633
+[3067505]: http://support.microsoft.com/kb/3067505
+[3077657]: http://support.microsoft.com/kb/3077657
+[3057154]: http://support.microsoft.com/kb/3057154
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 

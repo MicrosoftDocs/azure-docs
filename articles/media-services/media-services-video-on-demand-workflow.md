@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -119,7 +119,7 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-###Creating jobs \ tasks
+###Creating jobs / tasks
 
 A job is an entity that contains metadata about a set of tasks (for example, encoding or indexing). Each task performs an atomic operation on the input asset(s). For example on how to create encoding jobs, see:
 

@@ -36,6 +36,10 @@ This tutorial requires the following:
 * Visual Studio 2013
 * Visual Studio [Xamarin extension] **or** [Xamarin Studio] on OS X
 
+##<a name="review"></a>Review your server project configuration (optional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
+
 ## Review the Mobile App sync code
 
 Mobile App offline sync allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface.
@@ -159,7 +163,7 @@ In this section you will reconnect the app to the mobile backend, which simulate
 <!-- Images -->
 
 <!-- URLs. -->
-[Create a Xamarin iOS app]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started.md
+[Create a Xamarin iOS app]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 

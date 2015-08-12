@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Windows Universal Apps Reach SDK Integration

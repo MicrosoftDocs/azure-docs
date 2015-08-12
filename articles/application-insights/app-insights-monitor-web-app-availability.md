@@ -4,15 +4,15 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.topic="get-started-article" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Monitor availability and responsiveness of any web site
@@ -69,20 +69,22 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 #### Test more URLs
 
-You can add tests for as many URLs as you like. For example, as well as testing your home page, you could make sure your database is running by testing the URL for a search.
+Add more tests. For example, as well as testing your home page, you could make sure your database is running by testing the URL for a search.
 
 
 ### <a name="monitor"></a>3. View availability reports
 
-After 1-2 minutes, click Refresh on the availability blade. (It doesn't refresh automatically.)
+After 1-2 minutes, click Refresh on the availability/web tests blade. (It doesn't refresh automatically.)
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-The chart on the availability blade combines results for all the web tests of this application.
+Click any bar on the summary chart at the top for a more detailed view of that time period.
 
-#### Page components
+These charts combine results for all the web tests of this application.
 
-Images, style sheets and scripts and other static components are requested as part of the test.  
+#### Components of your web page
+
+Images, style sheets and scripts and other static components of the web page you're testing are requested as part of the test.  
 
 The recorded response time is the time taken for all the components to complete loading.
 
@@ -90,7 +92,11 @@ If any component fails to load, the test is marked failed.
 
 ## <a name="failures"></a>If you see failures...
 
-In the Web tests blade, scroll down and click a test where you see failures.
+Click a red dot.
+
+![Click a red dot](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+
+Or, scroll down and click a test where you see less than 100% success.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
@@ -200,6 +206,16 @@ Open an individual test to edit or disable it.
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
 
 You might want to disable web tests while you are performing maintenance on your service.
+
+## Questions? Problems?
+
+* I get an error about "invalid characters" when I 
+
+* *Is there a difference between "web tests" and "availability"?
+
+    We use the two terms interchangeably. 
+
+
 
 ## <a name="video"></a>Video
 

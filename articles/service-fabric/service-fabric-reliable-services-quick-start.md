@@ -1,6 +1,6 @@
 <properties
    pageTitle="Getting Started with Microsoft Azure Service Fabric Reliable Services"
-   description="Service Fabric supports both stateless and stateful services. This article walks you through the steps of creating a Service Fabric Application with stateless and stateful services."
+   description="How to create a Service Fabric Application with stateless and stateful services."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Getting Started with Microsoft Azure Service Fabric Reliable Services
@@ -30,14 +30,20 @@ In this tutorial, you'll implement both a stateless service and a stateful servi
 
 Let's start with a stateless service.
 
-Launch Visual Studio 2015 RC as **Administrator**, and create a new **Service Fabric Stateless Service** Project named *HelloWorld*:
+Launch Visual Studio 2015 RC as **Administrator**, and create a new **Service Fabric Application** Project named *HelloWorld*:
 
-![Use the New Project dialog to create a new Service Fabric Stateless Service](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Use the New Project dialog to create a new Service Fabric Application](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-You will see 2 projects in the created solution:
+Then create a **Stateless Service** project named *HelloWorldStateless*:
 
- + **HelloWorldApplication**: This is the *application* project that contains your *services*. It also contains the application manifest that describes the application and a number of PowerShell scripts that help you to deploy your application.
- + **HelloWorld** This is the service project, which contains the stateless service implementation.
+![In the second dialog, create a stateless service](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+Your solution now contains 2 projects:
+
+ + **HelloWorld**
+    This is the *application* project that contains your *services*. It also contains the application manifest that describes the application and a number of PowerShell scripts that help you to deploy your application.
+ + **HelloWorldStateless**  
+    This is the service project, which contains the stateless service implementation.
 
 
 ## Implement the service
@@ -47,23 +53,19 @@ Open the **HelloWorld.cs** file in the service project. In Service Fabric, a ser
  - An open-ended entry point method called *RunAsync* where you can begin executing any workload you want, such as long-running compute workloads.
 
 ```C#
-
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
     ...
 }
-
 ```
 
  - A communication entry point where you can plug in your communication stack of choice, such as Web API, where you can start receiving requests from users or other services.
 
 ```C#
-
 protected override ICommunicationListener CreateCommunicationListener()
 {
     ...
 }
-
 ```
 
 In this tutorial, we will focus on the `RunAsync()` entry point method where you can immediately start running your code.
@@ -75,7 +77,6 @@ The project template includes an example implementation of `RunAsync()` that inc
 ### RunAsync
 
 ```C#
-
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
     // TODO: Replace the following with your own logic.
@@ -87,20 +88,26 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
         await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
 }
-
 ```
 
-The platform calls this method when an instance of your service is placed and ready to execute. For stateless services, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open-close cycle of a service instance can occur many times over the lifetime of your service as a whole, because the system may move your service instances around for resource balancing, when faults occur, during application or system upgrades, or when the underlying hardware experiences an outage. This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.
+The platform calls this method when an instance of your service is placed and ready to execute. For stateless services, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open-close cycle of a service instance can occur many times over the lifetime of your service as a whole for various reasons, including:
 
-`RunAsync()` is executed in its own Task. Note in the code snippet here we jump right into a while loop - there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on, so it is *important* to honor the cancellation token, finish up any work, and exit `RunAsync()` as quickly as possible when cancellation is requested by the system.
+- The system may move your service instances around for resource balancing.
+- Faults occured within your code.
+- During application or system upgrades.
+- When the underlying hardware experiences an outage.
+
+This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.
+
+`RunAsync()` is executed in its own **Task**. Note that in the code snippet above we jump right into a **while** loop; there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on. It is **important** to honor the cancellation token, finish up any work, and exit `RunAsync()` as quickly as possible when cancellation is requested by the system.
 
 In the this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's being stored only exists for the current lifecycle of the service instance that it's in. When the service moves or restarts, the value is lost.
 
 ## Create a Stateful Service
 
-To make our counter value highly-available and persistent even when the service moves or restarts, we need a stateful service.
+To convert our counter value from stateless to highly-available and persistent, even when the service moves or restarts, we need a stateful service.
 
-In the same **HelloWorld** application, add a new service by right-clicking on the application project and selecting "New Fabric Service"
+In the same **HelloWorld** application, add a new service by right-clicking on the application project and selecting **New Fabric Service**.
 
 ![Add a service to your Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
@@ -108,18 +115,19 @@ Select **Service Fabric Stateful Service** and name it "HelloWorldStateful". Cli
 
 ![Use the New Project dialog to create a new Service Fabric Stateful Service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-Your application should now have two services: the stateless service *HelloWorld* and the stateful service *HelloWorldStateful*. Open **HelloWorldStateful.cs** in *HelloWorldStateful*:
+Your application should now have two services: the stateless service *HelloWorld* and the stateful service *HelloWorldStateful*.
+
+Open **HelloWorldStateful.cs** in *HelloWorldStateful* which contains the following `RunAsync` method:
 
 ```C#
-
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
     // TODO: Replace the following with your own logic.
-    IReliableDictionary<string, long>  myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
+    var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
     while (!cancellationToken.IsCancellationRequested)
     {
-        using (ITransaction tx = this.StateManager.CreateTransaction())
+        using (var tx = this.StateManager.CreateTransaction())
         {
             var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
             ServiceEventSource.Current.ServiceMessage(
@@ -135,7 +143,6 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
         await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
 }
-
 ```
 
 ### RunAsync
@@ -145,25 +152,24 @@ A stateful service has the same entry points as a stateless service. The main di
 ### Reliable Collections and State Manager
 
 ```C#
-
-IReliableDictionary<string, long> myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
-
+var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-**IReliableDictionary** represents a dictionary that lets you store state locally in the service reliably, part of Service Fabric's built-in [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Service Fabric makes your service and the state you store in Reliable Collections highly available.  With Service Fabric and Reliable Collections, you can now store data directly in your service reliably without the need for an external persistent store. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you while providing an API that abstracts away the complexities of managing those replicas and their state transitions.
+**IReliableDictionary** is a dictionary implementation that lets you reliably store state in the service. This is part of Service Fabric's built-in [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). With Service Fabric and Reliable Collections, you can now store data directly in your service without the need for an external persistent store, making your data highly-available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you while providing an API that abstracts away the complexities of managing those replicas and their state transitions.
 
 Reliable Collections can store any .NET type - including your custom types - with a couple of caveats:
 
  1. Service Fabric makes your state highly-available by *replicating* state across nodes and storing it to local disk. This means everything that is stored in a Reliable Collection must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when using the default serializer.
 
- 2. Objects are replicated for high-availability when you commit a transaction on a Reliable Collection. Objects stored in Reliable Collections are kept in local memory in your service, which means you have a local reference to the object. It is important that you do not mutate local instances of those objects without performing an update operation on the Reliable Collection in a transaction, as those changes will not be replicated automatically.
+ 2. Objects are replicated for high-availability when you commit a transaction on a Reliable Collection. Objects stored in Reliable Collections are kept in local memory in your service, which means you have a local reference to the object.
+
+    It is important that you do not mutate local instances of those objects without performing an update operation on the Reliable Collection in a transaction, as those changes will not be replicated automatically.
 
 The *StateManager* takes care of managing Reliable Collections for you. Simply ask the StateManager for a reliable collection by name at any time, any place in your service and it ensures you get a reference back. Saving references to Reliable Collection instances in class member variables or properties is not recommended, as special care must be taken to ensure the reference is set to an instance at all times in the service lifecycle. The StateManager handles this work for you, optimized for repeat visits.
 
 ### Transactional and asynchronous
 
 ```C#
-
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
@@ -172,18 +178,19 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
     await tx.CommitAsync();
 }
-
 ```
 
-Reliable Collections have many of the same operations as their System.Collections.Generic and System.Collections.Concurrent counterparts - including LINQ. However, operations on Reliable Collections are asynchronous, because write operations on Reliable Collections are *replicated*, that is, the operation is sent to other replicas of the service on different nodes for high-availability.
+Reliable Collections have many of the same operations as their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts, including LINQ. However, operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections are *replicated*, that is, the operation is sent to other replicas of the service on different nodes for high-availability.
 
 They also support *transactional* operations so you can keep state consistent between multiple Reliable Collections. For example, you may dequeue a work item from a Reliable Queue, perform an operation on it, and save the result in a Reliable Dictionary, all within a single transaction. This is treated as an atomic operation, guaranteeing that either the entire operation will succeed, or none of it will - so if an error occurs after you've dequeued the item but before you could save the result, the entire transaction is rolled back and the item remains on the queue for processing.
 
 ## Run the application
 
-You can now build and deploy your services. Press **F5**, and your application will be built and deployed to your local cluster. Once the services are running, you can see the generated ETW events in a **Diagnostic Events** window. Note that there are events displayed from both the stateless service and the stateful service in the application. You can pause the stream by clicking the *Pause* button, and then examine message details by expanding a message.
+Back to the *HelloWorld* application. You can now build and deploy your services. Press **F5**, and your application will be built and deployed to your local cluster.
 
-> [AZURE.NOTE] Before running the application, make sure you have a local development cluster running. Check out the [Getting Started Guide](service-fabric-get-started.md) to get your local environment set up.
+Once the services are running, you can see the generated ETW events in a **Diagnostic Events** window. Note that there are events displayed from both the stateless service and the stateful service in the application. You can pause the stream by clicking the *Pause* button, and then examine message details by expanding a message.
+
+>[AZURE.NOTE] Before running the application, make sure you have a local development cluster running. Check out the [Getting Started Guide](service-fabric-get-started.md) to get your local environment set up.
 
 ![View diagnostic events in Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
@@ -199,4 +206,3 @@ You can now build and deploy your services. Press **F5**, and your application w
 [Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
 
 [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
- 

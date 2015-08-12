@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with authentication (Windows Phone) | Mobile Dev Center" 
-	description="Learn how to use Mobile Services to authenticate users of your Windows Phone app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
+	pageTitle="Add authentication to your Windows Phone Silverlight app | Microsoft Azure" 
+	description="Learn how to use Mobile Services to authenticate users of your Windows Phone Silverlight app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft account." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app
@@ -38,12 +38,9 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
-<ol start="6">
-<li>In Visual Studio, open your client app project and ensure that in App.xaml.cs, the instance of <strong>MobileServiceClient</strong> is configured to use the cloud URL to the mobile service.</li> 
-<li><p>Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
-   
-   	<p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
-</ol>
+&nbsp;&nbsp;6. In Visual Studio, open your client app project and ensure that in App.xaml.cs, the instance of **MobileServiceClient** is configured to use the cloud URL to the mobile service.
+
+&nbsp;&nbsp;7. Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens when the app attempts to access Mobile Services as an unauthenticated user, but the *TodoItem* table now requires authentication. 
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 

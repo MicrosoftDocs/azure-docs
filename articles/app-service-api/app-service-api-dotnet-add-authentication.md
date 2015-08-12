@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # Protect an API app: Add Azure Active Directory or social provider authentication
@@ -143,6 +143,8 @@ You have now protected the API app from unauthenticated access. Next you have to
 	![Login completed](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
+
+	If you have enabled the Swagger UI, you can also go to the Swagger UI page now. However, you'll see a red **ERROR** icon at the bottom right corner of the page, and if you click the icon you'll see a message saying that the Swagger JSON file is inaccessible. This is because Swagger makes an AJAX call without including the Zumo token to try to retrieve the JSON file. This does not prevent the Swagger UI page from working.
 
 ## Use Postman to send a Post request
 

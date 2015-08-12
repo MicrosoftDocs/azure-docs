@@ -10,10 +10,10 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/28/2015"
    ms.author="joaoma"/>
 
 # Get started with Azure DNS
@@ -80,13 +80,13 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about Tags see using tags to organize your Azure resources.
 Azure DNS PowerShell supports Tags on both zones and record sets specified using the options ‘-Tag’ parameter.  The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
 
-	PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
+	PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
 
 
 ## Create a DNS zone
 A DNS zone is created using the New-AzureDnsZone cmdlet. In the example below we will create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':<BR>
 
-		PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup
+		PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 >[AZURE.NOTE] In Azure DNS, zone names should be specified without a terminating ‘.’.  For example, as ‘contoso.com’ rather than ‘contoso.com.’.<BR>
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/14/2015"
 	ms.author="sidneyh" />
 
 # Elastic database Split-Merge tool tutorial
@@ -28,15 +28,15 @@ The steps above download the Split-Merge files to the current directory. The fil
 
 ## Prerequisites
 
-1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure preview portal](https://ms.portal.azure.com). Create a new **SQL Database**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
+1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure portal](https://ms.portal.azure.com). Create a new **SQL Database**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
 
-2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the [preview portal](https://ms.portal.azure.com), in the **Firewall Settings**, ensure that the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
+2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure that the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
 
     ![Allowed services][1]
 
-3. Create an Azure Storage account that will be used for diagnostics output. Go to the [Azure Management Portal](https://manage.windowsazure.com). At the bottom left, click **New**, click **Data Services**, **Storage**, then **Quick Create**.
+3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure preview portal. In the left bar, click **New**, click **Data + Storage**, then **Storage**.
 
-4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the [Azure Management Portal](https://manage.windowsazure.com). On the bottom left, click **New**, then **Compute**, **Cloud Service**, and **Quick Create**. 
+4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure preview portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
 
 
 ## Configuring your Split-Merge service
@@ -55,13 +55,13 @@ The steps above download the Split-Merge files to the current directory. The fil
 5.    For the **SplitMergeWorker** role, enter a valid connection string to Azure storage for the **WorkerRoleSynchronizationStorageAccountConnectionString** setting.
         
 ### Configuring security
-For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](../sql-database-elastic-scale-configure-security.md).
+For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 For the purposes of  a simple test deployment suitable to complete this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
 ### Creating a self-signed certificate
 
-Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/en-us/library/ms229859.aspx) window:
+Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) window:
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -88,7 +88,7 @@ Execute the following command from the same window where makecert was executed; 
 
 ### Upload the PFX file to the cloud service
 
-Go to the [Azure Management Portal](https://manage.windowsazure.com).
+Go to the [Azure preview portal](https://portal.azure.com).
 
 1. Select **Cloud Services**.
 2. Select the cloud service you created above for the Split/Merge service.
@@ -115,10 +115,11 @@ For the worker role:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](../sql-database-elastic-scale-configure-security.md).
+Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ### Deploying your Split-Merge service
-1. Go to the [Azure Management Portal](https://manage.windowsazure.com).
+
+1. Go to the [Azure portal](https://manage.windowsazure.com).
 2. Click the **Cloud Services** tab on the left, and select the cloud service that you created earlier.
 3. Click **Dashboard**.
 4. Choose the staging environment, then click **Upload a new staging deployment**.
@@ -133,6 +134,7 @@ Please note that for production deployments separate certificates should be used
 
 
 ## Deployment troubleshooting
+
 If your web role fails to come online, it is likely a problem with the security configuration. Check that the SSL is configured as described above.
 
 If your worker role fails to come online, but your web role succeeds, it is most likely a problem connecting to the status database that you created earlier.
@@ -147,6 +149,7 @@ If your worker role fails to come online, but your web role succeeds, it is most
 * Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
 
 ## Testing your Split-Merge service deployment
+
 ### Connecting with a web browser
 
 Determine the web endpoint of your Split-Merge service. You can find this in the Azure Management Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="04/16/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 

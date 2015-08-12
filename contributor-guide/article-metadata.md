@@ -30,7 +30,7 @@ The tags section uses this syntax:
        ms.devlang="may be required"
        ms.topic="article"
        ms.tgt_pltfrm="may be required"
-       ms.workload="required"
+       ms.workload="na"
        ms.date="mm/dd/yyyy"
        ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
@@ -57,16 +57,23 @@ The tags section uses this syntax:
 - app-service\logic
 - app-service\mobile
 - app-service\web
+- application-gateway
+- application-insights
 - automation
+- azure-portal
+- azure-resource-manager
 - backup
 - batch
+- billing
 - biztalk-services
 - cache
 - cdn
 - cloud-services
+- data-catalog
 - data-factory
 - documentdb
 - dns
+- expressroute
 - event-hubs
 - hdinsight
 - key-vault
@@ -88,9 +95,12 @@ The tags section uses this syntax:
 - scheduler
 - site-recovery
 - sql-database
+- sql-data-warehouse
 - storage
+- store
 - storsimple
 - stream-analytics
+- traffic-manager
 - virtual-machines
 - virtual-network
 - visual-studio-online
@@ -117,7 +127,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**editor**: Not used. Do not use it for other purposes.
 
-![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the approved values. These values are meant to provide a way to group content together when the content grouping is not service-specific. These tags can also provide labeling that indicates the technology stack the article applies to. This value **does not** support free-form tags or hashtags; the tags must be enabled on the site. The approved values are:
+![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the approved values. These values are meant to provide a way to group content together when the content grouping is not service-specific. These tags can also provide labeling that indicates the technology stack the article applies to. This value **does not** support free-form tags or hashtags; the tags must be enabled on the site. You can supply multiple tags values to one article, separated by commas. The approved values are:
 
   - architecture
   - azure-resource-manager
@@ -140,14 +150,16 @@ The tags section uses this syntax:
  - **app-service-web**
  - **application-insights**
  - **automation**
+ - **azure-resource-manager**
  - **backup**
+ - **batch**
  - **biztalk-services**
+ - **billing**
  - **cache**
  - **cdn**
  - **cloud-services**
  - **expressroute**
  - **hdinsight**
- - **intelligent-systems**
  - **key-vault**
  - **machine-learning**
  - **marketplace**: Articles about the Azure marketplace
@@ -159,12 +171,16 @@ The tags section uses this syntax:
  - **na**: The page does not apply to any services (rare)
  - **notification-hubs**
  - **operational-insights**
+ - **recovery-manager**
+ - **redis-cache**
  - **remoteapp**
+ - **rights-management**
  - **scheduler**
  - **service-bus**
  - **service-fabric**
  - **site-recovery**: formerly recovery-services
  - **sql-database**
+ - **sql-data-warehouse**
  - **sql-reporting**
  - **storage**
  - **store**: Articles about services available through the Azure Store
@@ -173,6 +189,7 @@ The tags section uses this syntax:
  - **virtual-machines**
  - **virtual-network**
  - **visual-studio-online**
+ - **vpn-gateway**
  - **web-sites**
 
 ![](./media/article-metadata/checkmark-small.png)**ms.devlang**: Required. Specifies the programming language that the article applies to. Single value per page.
@@ -255,33 +272,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**ms.workload**: Required. Specifies the Azure workload that the page applies to. One value only per article.
 
- If a page applies to multiple workloads, choose the workload to which is most directly applies. If a page applies to multiple workloads equally, choose **multiple**. If a page applies to a service that does not yet map to a workload, choose **TBD**. If a page does not apply to any workloads (this will be rare), choose **NA**.
-
- - **multiple**: The page applies to multiple workloads equally
-
- - **na**: The page does not appy to any workloads. Examples include Store partner content or content that is programming-language specific but not specific to Azure services
-
- - **tbd**: The page applies to a service that does not yet map to a workload
-
- - **big-data**: In many cases, content associated with the following services maps to this workload: hdinsight
-
- - **data-services**: In many cases, content associated with the following services maps to this workload: sql-database
-
- - **identity**: In many cases, content associated with the following services maps to this workload: active-directory, multi-factor-authentication
-
- - **infrastructure-services**: In many cases, content associated with the following services maps to this workload: virtual-machines, virtual-network, traffic-manager, expressroute
-
- - **integration**: In many cases, content associated with the following services maps to this workload: biztalk-services
-
- - **media**: In many cases, content associated with the following services maps to this workload: media-services
-
- - **mobile**: In many cases, content associated with the following services maps to this workload: mobile-services, notification-hubs, service-bus
-
- - **storage-backup-recovery**: In many cases, content associated with the following services maps to this workload: storage, recovery-services, backup
-
- - **web**: In many cases, content associated with the following services maps to this workload: web-sites
-
- - **azure-government**: Use for content that supports the Azure Government offering.
+**update 8/6/15** The ms.workload value is being mapped by an xls, not the value in the .md file. The ms.workload value is still required for validation until the feature can be updated. That work is now being scheduled.  Please use **"na"** as the value for now.
 
 ![](./media/article-metadata/checkmark-small.png) **ms.date**: Required. Specifies the date the article was last reviewed for relevance, accuracy, correct screen shots, and working links. Enter the date in mm/dd/yyyy format. This date also appears on the published article as the last updated date.
 

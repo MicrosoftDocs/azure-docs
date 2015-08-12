@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Azure Key Vault | Overview"
+	pageTitle="Get started with Azure Key Vault | Microsoft Azure"
 	description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure."
 	services="key-vault"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="06/25/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 
-# Get Started with Azure Key Vault #
+# Get started with Azure Key Vault #
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](../../../../pricing/details/key-vault/).
 
 ## Introduction  
@@ -211,7 +211,7 @@ The next command imports a “bring your own key" (BYOK) package. This lets you 
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-For more detailed instructions about how to generate this BYOK package, see [How to use HSM-Protected Keys with Azure Key Vault](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+For more detailed instructions about how to generate this BYOK package, see [How to generate and transfer HSM-protected keys for Azure Key Vault](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Delete the key vault and associated keys and secrets ##
 

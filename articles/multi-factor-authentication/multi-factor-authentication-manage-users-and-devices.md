@@ -16,14 +16,14 @@
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
-# Managing user and device settings with Azure Multi-Factor Authentication in the cloud
+# Managing user settings with Azure Multi-Factor Authentication in the cloud
 
 As an administrator, you can manage the following user and device settings.  
 
 - [Require selected users to provide contact methods again](#require-selected-users-to-provide-contact-methods-again)
 - [Delete users existing app passwords](#delete-users-existing-app-passwords)
-- [Suspend Multi-Factor Authentication for remembered devices and browsers (Public Preview)](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-(public-preview))
-- [Restore MFA on all suspended devices for a user (Public Preview)](#restore-mfa-on-all-suspended-devices-for-a-user-(public-preview))
+- [Restore MFA on all suspended devices for a user (Public Preview)](#restore-mfa-on-all-suspended-devices-for-a-user)
+
 
 
 
@@ -72,30 +72,7 @@ This deletes all of the app passwords that a user has created. Non-browser apps 
 <li>Click save.</li>
 <li>Click close.</li>
 
-## Suspend Multi-Factor Authentication for remembered devices and browsers (Public Preview)
 
-Suspending Multi-Factor Authentication for remembered devices and browsers is a feature that allows you to give users the option to suspend MFA for a set number of days after performing a successful sign-in using MFA. It is a free feature for all MFA users and enhances the usability for the users. However, since the users are allowed to suspend MFA, this feature may reduce account security. 
-
-To ensure that the user accounts are secured, you should restore Multi-Factor Authentication for their devices for either of the following scenarios: 
-
-- If their corporate account has become compromised
-- If a remembered device is lost or stolen
-
-> [AZURE.NOTE] This feature is implemented as a browser cookie cache. It will not work if your browser cookies are not enabled.
-
-### How to enable/disable Suspend MFA for remembered devices and set
-
-<ol>
-<li>Sign-in to the Azure Management Portal.</li>
-<li>On the left, click Active Directory.</li>
-<li>Under Active Directory, click on the directory you wish to setup Suspend Multi-Factor Authentication for remembered devices on.</li>
-<li>On the Directory you have selected, click Configure.</li>
-<li>In the multi-factor authentication section, click Manage service settings.</li>
-<li>On the Service Settings page, under manage user device settings, select/unselect the **Allow users to suspend multi-factor authentication by causing a device to be remembered**.</li>
-![Suspend devices](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
-<li>Set the number of days that you want to allow the suspension. The default is 14 days.</li>
-<li>Click save.</li>
-<li>click close.</li>
 
 
 

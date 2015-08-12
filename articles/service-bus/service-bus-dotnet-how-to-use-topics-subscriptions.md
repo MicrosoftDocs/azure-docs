@@ -1,5 +1,5 @@
 <properties
-    pageTitle="How to use Service Bus topics (.NET) - Azure"
+    pageTitle="How to use Service Bus topics (.NET) | Microsoft Azure"
     description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications."
     services="service-bus"
     documentationCenter=".net"
@@ -252,7 +252,7 @@ in the **HighMessages** subscription.
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-    subscriptionClientHigh.OnMessage((message) =>
+    Client.OnMessage((message) =>
     {
         try
         {

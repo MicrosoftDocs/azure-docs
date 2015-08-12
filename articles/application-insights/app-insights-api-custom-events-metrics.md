@@ -10,9 +10,9 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -35,6 +35,7 @@ Method | Used for
 [`TrackException`](#track-exception)|Log exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces.
 [`TrackRequest`](#track-request)| Log the frequency and duration of server requests for performance analysis.
 [`TrackTrace`](#track-trace)|Diagnostic log messages. You can also capture 3rd-party logs.
+[`TrackDependency`](#track-dependency)|Log the duration and frequency of calls to external components on which your app depends.
 
 You can [attach properties and metrics](#properties) to most of these telemetry calls. 
 
@@ -111,7 +112,7 @@ Click the Custom Events tile on the overview blade:
 
 Click through to see an overview chart and a complete list.
 
-Select the chart and segment it by Event name to see the relative contributions of the most significant events.
+Select the chart and group it by Event name to see the relative contributions of the most significant events.
 
 ![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -184,7 +185,7 @@ There are some [limits on the number of properties, property values, and metrics
     metrics.put("Score", currentGame.getScore());
     metrics.put("Opponents", currentGame.getOpponentCount());
     
-    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
+    telemetry.trackEvent("WinGame", properties, metrics);
 
 
 > [AZURE.NOTE] Take care not to log personally identifiable information in properties.
@@ -229,6 +230,7 @@ If it's more convenient, you can collect the parameters of an event in a separat
     event.Metrics["Opponents"] = currentGame.Opponents.Length;
 
     telemetry.TrackEvent(event);
+
 
 
 #### <a name="timed"></a> Timing events
@@ -367,7 +369,7 @@ You can also call it yourself if you want to simulate requests in a context wher
 
 ## Track Exception
 
-Send exceptions to Application Insights: to [count them][metrics], as an indication of the frequency of a problem; and to [examine individual occurrences][diagnostic].
+Send exceptions to Application Insights: to [count them][metrics], as an indication of the frequency of a problem; and to [examine individual occurrences][diagnostic]. The reports include the stack traces.
 
 *C#*
 
@@ -397,6 +399,30 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
 The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
+
+## Track Dependency
+
+Use this call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. 
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+Remember that the server SDKs include a [dependency module](app-insights-dependencies.md) that discovers and tracks certain dependency calls automatically - for example to databases and REST APIs. You have to install an agent on your server to make the module work. You'd use this call if you want to track calls that aren't caught by the automated tracking, or if you don't want to install the agent.
+
+To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## <a name="defaults"></a>Set defaults for selected custom telemetry
 
@@ -432,6 +458,7 @@ If you just want to set default property values for some of the custom events th
     gameTelemetry.TrackEvent("WinGame");
     
 Individual telemetry calls can override the default values in their property dictionaries.
+
 
 
 
@@ -692,6 +719,9 @@ If you set any of these values yourself, consider removing the relevant line fro
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
 * **User** Allows users to be counted. In a web app, if there is a cookie, the user Id is taken from that. If there isn't, a new one is generated. If your users have to login to your app, you could set the id from their authenticated ID, so as to provide a more reliable count that is correct even if the user signs in from a different machine. 
 
+
+
+
 ## Limits
 
 There are some limits on the number of metrics and events per application.
@@ -705,10 +735,12 @@ There are some limits on the number of metrics and events per application.
 
     See [Data retention and privacy][data].
 
+
 ## Reference docs
 
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Questions
 
@@ -726,6 +758,8 @@ There are some limits on the number of metrics and events per application.
 
 
 [Search events and logs][diagnostic]
+
+[Samples and walkthroughs](app-insights-code-samples.md)
 
 [Troubleshooting][qna]
 

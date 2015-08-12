@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to use SQL Azure (Java) - Azure feature guide" 
+	pageTitle="How to use SQL Azure (Java) | Microsoft Azure" 
 	description="Learn how to use the Azure SQL Database from Java code." 
 	services="sql-database" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
-	manager="wpickett" 
+	manager="jeffreyg" 
 	editor="jimbe"/>
 
 <tags 

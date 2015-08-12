@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -40,167 +40,22 @@ To learn more, you can:
 ## Supported sources and sinks
 The Copy Activity supports the following data movement scenarios: 
 
-- Copy data from an Azure Blob to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, or SQL Server on IaaS.
-- Copy data from an Azure SQL Database to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS
-- Copy data from an Azure Table to an Azure Blob, Azure Table, or Azure SQL Database.
-- Copy data from an On-premises SQL Server/SQL Server on IaaS to Azure Blob or Azure SQL Database
-- Copy data from an On-premises Oracle database to an Azure blob
-- Copy data from an On-premises file system to Azure Blob
- 
+| *Source/Sink* | Azure Blob | Azure Table | Azure SQL Database | Azure DocumentDB | SQL Server on Azure VM | On-premises SQL Server |
+| ------------- | ---------- | ----------- | ------------------ | ---------------- | ------------------ | ------------------- |
+| Azure Blob | X | X | X | X | X | X |
+| Azure Table | X | X | X | X | X | X |
+| Azure SQL Database | X | X | X | X | X | X |
+| Azure DocumentDB | X | X | X |  |  |  |  
+| On-premises SQL Server | X | X | X |  | X | X |
+| SQL Server on Azure VM | X | X | X |  | X | X |
+| On-premises File System | X | X | X |  | X | X |
+| On-premises Oracle Database | X | X | X |  | X | X |
+| On-premises MySQL Database| X | X | X |  | X | X |
+| On-premises DB2 Database | X | X | X |  | X | X |
+| On-premises Teradata Database | X | X | X |  | X | X |
+| On-premises Sybase Database | X | X | X |  | X | X |
+| On-premises PostgreSQL Database | X | X | X |  | X | X |
 
-<table border="1">	
-	<tr>
-		<th><i>Source/Sink<i></th>
-		<th>Azure Blob</th>
-		<th>Azure Table</th>
-		<th>Azure SQL Database</th>
-		<th>On-premises SQL Server</th>
-		<th>SQL Server on IaaS</th>
-		<th>Azure DocumentDB</th>
-	</tr>	
-
-	<tr>
-		<td><b>Azure Blob</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Azure Table</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td>X</td>
-	</tr>	
-
-	<tr>
-		<td><b>Azure SQL Database</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-
-	<tr>
-		<td><b>On-premises SQL Server</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>SQL Server on IaaS</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises File System</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises Oracle Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises File System</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises MySQL Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises DB2 Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises Teradata Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises Sybase Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>On-premises PostgreSQL Database</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Azure DocumentDB</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-</table>
 
 See [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx) topic on MSDN Library for more details.  
 
@@ -261,57 +116,15 @@ Each activity within the **activities** section has the following top-level stru
 
 The following table describes the tags used with an activity section. 
 
-<table border="1">	
-	<tr>
-		<th align="left">Tag</th>
-		<th align="left">Descritpion</th>
-		<th align="left">Required</th>
-	</tr>	
-
-	<tr>
-		<td>name</td>
-		<td>Name of the activity.</td>
-		<td>Y</td>
-	</tr>	
-
-	<tr>
-		<td>description</td>
-		<td>Text describing what the activity is used for.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>type</td>
-		<td>Specifies the type of the activity. <br/><br/>The <b>type</b> should be set to <b>CopyActivity</b>.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>inputs</td>
-		<td>Input tables used by the activity.  Specify only one input table for the Copy Activity.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>outputs</td>
-		<td>Output tables used by the activity.  Specify only one output table for the Copy Activity.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>transformation</td>
-		<td>Properties in the transformation is dependent on type.  The <b>Copy Activity</b> requires you to specify a <b>source</b> and a <b>sink</b> section within the <b>transformation</b> section. More details are provided later in this article. </td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>policy</td>
-		<td>Policies which affect the run-time behavior of the activity. If it is not specified, default values will be used.</td>
-		<td>N</td>
-	</tr>
-
-
-</table>
+| Tag | Description | Required |
+|-----|-------------|----------|
+|name|Name of the activity.|Y|
+|description|Text describing what the activity is used for|Y|
+|type|Specifies the type of the activity. The type should be set to **Copy** |Y|
+|inputs|Input tables used by the activity. Specify only one input table for the Copy Activity | Y
+|outputs|Output tables used by the activity. Specify only one output table for the Copy Activity | Y
+|transformation|Properties in the transformation is dependent on type. The Copy Activity requires you to specify a source and a sink section within the transformation section. More details are provided later in this article.|Y
+|policy| Policies which affect the run-time behavior of the activity. If it is not specified, default values will be used. | N
 
 See [JSON Scripting Reference][json-script-reference] for detailed information about JSON properties/tags.
 
@@ -436,7 +249,6 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-> [AZURE.NOTE] See [Examples for using Copy Activity in Azure Data Factory][copy-activity-examples] for more examples for using the Copy Activity.
 
 ## Security
 This section includes overall security guidelines and best practices that help establish secure access to data stores for the Copy Activity.
@@ -453,7 +265,6 @@ For traditional databases such as **SQL Server**, especially when the instances 
 - **Data Type Handling by the Copy Activity**. Explains in which case the data types specified in the Structure section of the Table definition are honored/ignored.
 - **Invoke stored procedure for SQL Sink**. When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked.
 
-See [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced] article for details on these scenarios. 
 
 ## Walkthroughs
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity.
@@ -461,10 +272,8 @@ See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that sho
 See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity
 
 ## See Also
-- [Copy Activity - Examples][copy-activity-examples]
 - [Video: Introducing Azure Data Factory Copy Activity][copy-activity-video]
 - [Copy Activity topic on MSDN Library][msdn-copy-activity]
-- [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced]
 
 [msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
@@ -477,9 +286,7 @@ See [Enable your pipelines to work with on-premises data][use-onpremises-datasou
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
-[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 

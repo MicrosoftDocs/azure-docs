@@ -12,8 +12,8 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="04/29/2015"
+	ms.topic="article" 
+	ms.date="08/10/2015"
 	ms.author="tdykstra"/>
 
 # Azure App Service, Cloud Services, and Virtual Machines comparison
@@ -50,7 +50,7 @@ Here are some common application scenarios with recommendations as to which Azur
 
 ### <a id="onprem"></a> I need a web front end with background processing and database backend to run business applications integrated with on premise assets.
 
-Azure App Service is a great solution for complex business applications. It lets you develop apps that scale automatically on a load balanced platform, are secured with Active Directory, and connect to your on-premises resources. It makes managing those apps easy through a world-class management portal and APIs, and allows you to gain insight into how customers are using them with app insight tools. The new [Webjobs][] feature lets you run background processes and tasks as part of your web tier, while hybrid connectivity and [VNET features](../fundamentals-introduction-to-azure.md#networking/) make it easy to connect back to on-premises resources. Azure App Service provides three 9's SLA for web apps and enables you to:
+Azure App Service is a great solution for complex business applications. It lets you develop apps that scale automatically on a load balanced platform, are secured with Active Directory, and connect to your on-premises resources. It makes managing those apps easy through a world-class management portal and APIs, and allows you to gain insight into how customers are using them with app insight tools. The [Webjobs][] feature lets you run background processes and tasks as part of your web tier, while hybrid connectivity and [VNET features](../fundamentals-introduction-to-azure.md#networking/) make it easy to connect back to on-premises resources. Azure App Service provides three 9's SLA for web apps and enables you to:
 
 * Run your applications reliably on a self-healing, auto-patching cloud platform.
 * Scale automatically across a global network of datacenters.
@@ -140,197 +140,34 @@ In addition, Azure App Service has a new preview feature for REST APIs:  API app
 
 The following table compares the capabilities of App Service, Cloud Services, and Virtual Machines to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](/support/legal/sla/).
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Feature</th>
-   <th align="left" valign="middle">App Service (web apps)</th>
-   <th align="left" valign="middle">Cloud Services (web roles)</th>
-   <th align="left" valign="middle">Virtual Machines</th>
-   <th align="left" valign="middle">Notes</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Near-instant deployment</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle">Deploying an application or an application update to a Cloud Service, or creating a VM, takes several minutes at least; deploying an application to a web app takes seconds.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Scale up to larger machines without redeploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Web server instances share content and configuration, which means you don't have to redeploy or reconfigure as you scale.</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Multiple deployment environments (production and staging)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Automatic OS update management</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Seamless platform switching (easily move between 32 bit and 64 bit)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Deploy code with GIT, FTP</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Deploy code with Web Deploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">Cloud Services supports the use of Web Deploy to deploy updates to individual role instances. However, you can't use it for initial deployment of a role, and if you use Web Deploy for an update you have to deploy separately to each instance of a role. Multiple instances are required in order to qualify for the Cloud Service SLA for production environments.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>WebMatrix support</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Access to services like Service Bus, Storage, SQL Database</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Host web or web services tier of a multi-tier architecture</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Host middle tier of a multi-tier architecture</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">App Service web apps can easily host a REST API middle tier, and the <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) feature provides even more features for hosting REST services.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Integrated MySQL-as-a-service support</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Cloud Services can integrate MySQL-as-a-service through ClearDB's offerings, but not as part of the Management Portal workflow.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Support for ASP.NET, classic ASP, Node.js, PHP, Python</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Scale out to multiple instances without redeploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and create an Affinity Group to prevent simultaneous restarts of all instances due to maintenance or hardware failures.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Support for SSL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for an Azure Website</a>.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Visual Studio integration</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Remote Debugging</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Deploy code with TFS</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Network isolation with <a href="/services/virtual-network/">Azure Virtual Network</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">See also <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Azure Websites Virtual Network Integration</a></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Support for <a href="/services/traffic-manager/">Azure Traffic Manager</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Integrated Endpoint Monitoring</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Remote desktop access to servers</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Install any custom MSI</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Ability to define/execute start-up tasks</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Can listen to ETW events</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-</table>
+Feature|App Service (web apps)|Cloud Services (web roles)|Virtual Machines|Notes
+---|---|---|---|---
+Near-instant deployment|X|||Deploying an application or an application update to a Cloud Service, or creating a VM, takes several minutes at least; deploying an application to a web app takes seconds.
+Scale up to larger machines without redeploy|X|||
+Web server instances share content and configuration, which means you don't have to redeploy or reconfigure as you scale.|X|||
+Multiple deployment environments (production and staging)|X|X||
+Automatic OS update management|X|X||
+Seamless platform switching (easily move between 32 bit and 64 bit)|X|X||
+Deploy code with GIT, FTP|X||X|
+Deploy code with Web Deploy|X||X|Cloud Services supports the use of Web Deploy to deploy updates to individual role instances. However, you can't use it for initial deployment of a role, and if you use Web Deploy for an update you have to deploy separately to each instance of a role. Multiple instances are required in order to qualify for the Cloud Service SLA for production environments.
+WebMatrix support|X||X|
+Access to services like Service Bus, Storage, SQL Database|X|X|X|
+Host web or web services tier of a multi-tier architecture|X|X|X|
+Host middle tier of a multi-tier architecture|X|X|X|App Service web apps can easily host a REST API middle tier, and the [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform/) feature provides even more features for hosting REST services.
+Integrated MySQL-as-a-service support|X|X|X|Cloud Services can integrate MySQL-as-a-service through ClearDB's offerings, but not as part of the Management Portal workflow.
+Support for ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X|
+Scale out to multiple instances without redeploy|X|X|X|Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and create an Affinity Group to prevent simultaneous restarts of all instances due to maintenance or hardware failures.
+Support for SSL|X|X|X|For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](../app-service-web/web-sites-configure-ssl-certificate/).
+Visual Studio integration|X|X|X|
+Remote Debugging|X|X|X|
+Deploy code with TFS|X|X|X|
+Network isolation with [Azure Virtual Network](../services/virtual-network/)|X|X|X|See also [Azure Websites Virtual Network Integration](../blog/2014/09/15/azure-websites-virtual-network-integration/)
+Support for [Azure Traffic Manager](../services/traffic-manager/)|X|X|X|
+Integrated Endpoint Monitoring|X|X|X|
+Remote desktop access to servers||X|X|
+Install any custom MSI||X|X|
+Ability to define/execute start-up tasks||X|X|
+Can listen to ETW events||X|X|
 
 
 > [AZURE.NOTE]
@@ -346,7 +183,7 @@ For more information about the three web hosting options, see the following reso
 
 To get started with the option(s) you choose for your application, see the following resources:
 
-* [Azure Websites](/documentation/services/app-service/)
+* [Azure App Service](/documentation/services/app-service/)
 * [Azure Cloud Services](/documentation/services/cloud-services/)
 * [Azure Virtual Machines](/documentation/services/virtual-machines/)
 

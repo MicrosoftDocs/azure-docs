@@ -3,9 +3,10 @@
 	description="Learn how to use Azure PowerShell to create and preconfigure Windows and Resource Manager-based virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="josephd"/>
+	ms.date="07/22/2015"
+	ms.author="kathydav"/>
 
 # Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell
 
@@ -57,7 +58,7 @@ You can get the correct subscription name from the display of this command.
 
 Next, switch Azure PowerShell into Resource Manager mode.
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 ## Step 3: Create the required resources
 
@@ -95,7 +96,7 @@ To test whether a chosen storage account name is globally unique, you need to ru
 
 If the Test-AzureName command displays "False", your proposed name is unique.  When you have determined a unique name, switch Azure PowerShell back to Resource Manager mode with this command.
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 Resource Manager-based virtual machines can use a public domain name label, which can contain only letters, numbers, and hyphens. The first and last character in the field must be a letter or number.  
 
@@ -103,8 +104,8 @@ To test whether a chosen domain name label is globally unique, use these command
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc 
-	
+	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+
 If DNSNameAvailability is "True", your proposed name is globally unique.
 
 Resource Manager-based virtual machines can be placed in a Resource Manager-based availability set. If needed, create a new availability set for the new virtual machine with these commands.
@@ -117,6 +118,8 @@ Resource Manager-based virtual machines can be placed in a Resource Manager-base
 Use this command to list the existing availability sets.
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
+
+Resource Manager-based virtual machines can be configured with inbound NAT rules to allow incoming traffic from the Internet and be placed in a load balanced set. In both cases, you must specify a load balancer instance and other settings. For more information, see [Create a load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
 
 Resource Manager-based virtual machines require a Resource Manager-based virtual network. If needed, create a new Resource Manager-based virtual network with at least one subnet for the new virtual machine. Here is an example for a new virtual network with two subnets named frontendSubnet and backendSubnet.
 
@@ -140,18 +143,18 @@ Open a fresh instance of the text editor of your choice or the PowerShell Integr
 	$locName="<Azure location, such as West US>"
 	$saName="<storage account name>"
 
-You must specify the name of a Resource Manager-based virtual network and the index number of a subnet in the virtual network.  Use these commands to list the subnets for a virtual network. 
+You must specify the name of a Resource Manager-based virtual network and the index number of a subnet in the virtual network.  Use these commands to list the subnets for a virtual network.
 
 	$rgName="<resource group name>"
 	$vnetName="<virtual network name>"
-	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets 
+	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets
 
 The subnet index is the number of the subnet in the display of this command, numbering them consecutively from left to right and starting at 0.
 
 For this example:
 
 	PS C:\> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
-	
+
 	Subnets
 	-------
 	{frontendSubnet, backendSubnet}
@@ -164,24 +167,71 @@ Copy these lines to your command set and specify an existing virtual network nam
 	$subnetIndex=<index of the subnet on which to create the NIC for the virtual machine>
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-Next, you create a network interface card (NIC), request a public IP address, and optionally assign it a DNS domain name label. Copy one of the two following options to your command set and fill in the NIC name and DNS domain name label.
+Next, you create a network interface card (NIC). Copy one of the following options to your command set and fill in the needed information.
 
-Option 1: Specify a NIC name.
+### Option 1: Specify a NIC name and assign a public IP address
 
-Copy these lines to your command set and specify the name for the NIC.
+Copy the following lines to your command set and specify the name for the NIC.
 
 	$nicName="<name of the NIC of the VM>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-Option 2: Specify a NIC name and a DNS domain name label.
+### Option 2: Specify a NIC name and a DNS domain name label
 
-Copy these lines to your command set and specify the name for the NIC and the globally unique domain name label. When you create virtual machines in the Service Management mode of Azure PowerShell, Azure completes these steps automatically.
+Copy the following lines to your command set and specify the name for the NIC and the globally unique domain name label. When you create virtual machines in the Service Management mode of Azure PowerShell, Azure completes these steps automatically.
 
 	$nicName="<name of the NIC of the VM>"
 	$domName="<domain name label>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
+
+### Option 3: Specify a NIC name and assign a static, private IP address
+
+Copy the following lines to your command set and specify the name for the NIC.
+
+	$nicName="<name of the NIC of the VM>"
+	$staticIP="<available static IP address on the subnet>"
+	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id -PrivateIpAddress $staticIP
+
+### Option 4: Specify a NIC name and a load balancer instance for an inbound NAT rule.
+
+To create a NIC and add it to a load balancer instance for an inbound NAT rule, you need:
+
+- The name of a previously-created load balancer instance that has an inbound NAT rule for traffic being forwarded to the virtual machine.
+- The index number of the back end address pool of the load balancer instance to assign to the NIC.
+- The index number of the inbound NAT rule to assign to the NIC.
+
+For information on how to create a load balancer instance with inbound NAT rules, see [Create a load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
+
+Copy these lines to your command set and specify the needed names and index numbers.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+
+The $nicName string must be unique for the resource group. A best practice is to incorporate the virtual machine name in the string, such as "LOB07-NIC".
+
+### Option 5: Specify a NIC name and a load balancer instance for a load-balanced set.
+
+To create a NIC and add it to a load balancer instance for a load-balanced set, you need:
+
+- The name of a previously-created load balancer instance that has a rule for the load-balanced traffic.
+- The index number of the back end address pool of the load balancer instance to assign to the NIC.
+
+For information on how to create a load balancer instance with rules for load-balanced traffic, see [Create a load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
+
+Copy these lines to your command set and specify the needed names and index numbers.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Next, create a local VM object and optionally add it to an availability set. Copy one of the two following options to your command set and fill in the name, size, and availability set name.
 
@@ -201,7 +251,7 @@ Option 2: Specify a virtual machine name and size and add it to an availability 
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
 	$avName="<availability set name>"
-	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 
 To determine the possible values of the VM size string for option 2, use these commands.
@@ -212,7 +262,7 @@ To determine the possible values of the VM size string for option 2, use these c
 
 > [AZURE.NOTE] Currently with Resource Manager, you can only add a virtual machine to an availability set during its creation.
 
-To add an additional data disk to the VM, copy these lines to your command set and specify the disk settings. 
+To add an additional data disk to the VM, copy these lines to your command set and specify the disk settings.
 
 	$diskSize=<size of the disk in GB>
 	$diskLabel="<the label on the disk>"
@@ -242,7 +292,7 @@ Copy these commands to your command set and fill in the publisher, offer, and SK
 	$pubName="<Image publisher name>"
 	$offerName="<Image offer name>"
 	$skuName="<Image SKU name>"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
@@ -267,40 +317,40 @@ If you will be creating this virtual machine again or a similar one, you can sav
 
 I need a PowerShell command set to create an additional virtual machine for a web-based line-of-business workload that:
 
-- Is in the existing LOBServers resource group
+- Is placed in the existing LOBServers resource group
 - Uses the Windows Server 2012 R2 Datacenter image
 - Has the name LOB07 and is in the existing WEB_AS availability set
 - Has a NIC with a public IP address in the FrontEnd subnet (subnet index 0) of the existing AZDatacenter virtual network
-- Has an additional data disk of 200 GB 
+- Has an additional data disk of 200 GB
 
 Here is the corresponding Azure PowerShell command set to create this virtual machine, based on the process described in Step 4.
 
-	# Switch to the Resource Manager mode	
+	# Switch to the Resource Manager mode
 	Switch-AzureMode AzureResourceManager
-	
+
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
-	$saName="contosoLOBServersSA"
-	
+	$saName="contosolobserverssa"
+
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	
+
 	# Create the NIC
-	$nicName="AzureInterface"
+	$nicName="LOB07-NIC"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
-	
+
 	# Specify the name, size, and existing availability set
 	$vmName="LOB07"
 	$vmSize="Standard_A3"
 	$avName="WEB_AS"
 	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	
+
 	# Add a 200 GB additional data disk
 	$diskSize=200
 	$diskLabel="APPStorage"
@@ -308,16 +358,16 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + $diskName  + ".vhd"
 	Add-AzureVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI -CreateOption empty
-	
+
 	# Specify the image and local administrator account, and then add the NIC
 	$pubName="MicrosoftWindowsServer"
 	$offerName="WindowsServer"
 	$skuName="2012-R2-Datacenter"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	
+
 	# Specify the OS disk name and create the VM
 	$diskName="OSDisk"
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
@@ -336,4 +386,3 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 [Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
- 
