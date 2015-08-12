@@ -25,7 +25,7 @@ If you're familiar with the generally available Azure AD service or have integra
 
 
 ## Microsoft Accounts and Azure AD Accounts
-The v2.0 app model allows developers to write apps that accept sign in from both Microsoft Accounts and Azure AD accounts, using a single endpoint.  This gives you the ability to write your app completely account-agnostic; it can be ignorant of the type of account that the user signs in with.  Of course, you *can* make your app aware of the type of account being used in a particular session, but you don't have to.
+The v2.0 app model allows developers to write apps that accept sign-in from both Microsoft Accounts and Azure AD accounts, using a single endpoint.  This gives you the ability to write your app completely account-agnostic; it can be ignorant of the type of account that the user signs in with.  Of course, you *can* make your app aware of the type of account being used in a particular session, but you don't have to.
 
 For instance, if your app calls the [Office REST APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data.  But for many actions, such as [Reading a user's mail](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), the code can be written exactly the same for both Microsoft Accounts and Azure AD accounts.  
 
@@ -33,7 +33,7 @@ Integrating your app with Microsoft Accounts and Azure AD accounts is now one si
 
 
 ## New App Registration Portal
-The v2.0 app model requires you to register your Microsoft apps in a new location: [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is the portal where you can obtain an Application Id, customize the appearance of your app's sign in page, and more.  We will continue to add more and more functionality to this App Registration Portal, largely based on feedback we receive during the preview.  The intent is that this portal will be the new location where you can go to manage anything and everything having to do with your Microsoft apps.
+The v2.0 app model requires you to register your Microsoft apps in a new location: [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is the portal where you can obtain an Application Id, customize the appearance of your app's sign-in page, and more.  We will continue to add more and more functionality to this App Registration Portal, largely based on feedback we receive during the preview.  The intent is that this portal will be the new location where you can go to manage anything and everything having to do with your Microsoft apps.
 
 And the best part is, you don't need an Azure or Office subscription to use it.  All you need is a personal Microsoft account or a work/school account.
 
@@ -91,7 +91,7 @@ The permissions an app required were configured **statically**.  While this allo
 
 - An app had to know all of the permissions it would ever need at app creation time.  Adding permissions over time was a difficult process.
 - An app had to know all of the resources it would ever access ahead of time.  It was difficult to create apps that could access an arbitrary number of resources.
-- An app had to request all the permissions it would ever need upon the user's first sign in.  In some cases this led to a very long list of permissions, which discouraged end-users from approving the app's access on initial sign in.
+- An app had to request all the permissions it would ever need upon the user's first sign-in.  In some cases this led to a very long list of permissions, which discouraged end-users from approving the app's access on initial sign-in.
 
 In the v2.0 app model, you can specify the permissions your app needs **dynamically**, at runtime, during regular usage of your app.  To do so, you can specify the scopes your app needs at any given point in time by including them in the `scope` parameter of an authorization request:
 

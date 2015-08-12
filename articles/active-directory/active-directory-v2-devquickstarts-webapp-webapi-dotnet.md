@@ -33,7 +33,7 @@ The basic steps to call the To-Do List Web API from the client are:
 
 1. Register an app
 2. Sign the user into the web app using OpenID Connect
-3. Use ADAL to get an access token upon user sign in
+3. Use ADAL to get an access token upon user sign-in
 4. Call the To-Do List Web API with an access token.
 
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet).  
@@ -114,7 +114,7 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## *3. Use ADAL to get an access token upon user sign in*
+## *3. Use ADAL to get an access token upon user sign-in*
 In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0 in tandem with OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) to redeem the authorization_code for an access token to the To-Do List Service.  ADAL can make this process easy for you:
 
 - First, install the preview version of ADAL:

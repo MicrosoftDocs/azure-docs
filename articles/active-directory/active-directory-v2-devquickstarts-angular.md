@@ -17,7 +17,7 @@
 	ms.author="dastrock"/>
 
 
-# Add Sign In to an AngularJS Single Page App
+# Add Sign-In to an AngularJS Single Page App
 
 The quick-start tutorial for AngularJS apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
 
@@ -26,7 +26,7 @@ The quick-start tutorial for AngularJS apps isn't quite ready... Check back soon
 
 <!-- TOOD:
 
-Microsoft Identity makes it simple and straightforward for you to add sign in, sign out, and secure OAuth API calls to your single page apps.  It enables your app to authenticate users with their MSA or Azure AD/Office 365 accounts and consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
+Microsoft Identity makes it simple and straightforward for you to add sign-in, sign out, and secure OAuth API calls to your single page apps.  It enables your app to authenticate users with their MSA or Azure AD/Office 365 accounts and consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
 For javascript apps running in a browser, you can use the Active Directory Authentication Library, or adal.js.  To demonstrate, we'll build an AngularJS To Do List app that uses adal.js to:
 
@@ -108,9 +108,9 @@ adalProvider.init(
 ...
 ```
 
-You now have a secure single page app with the ability to sign users in and issue Bearer token protected requests to its backend API.  When a user clicks the `TodoList` link, adal.js will automatically redirect to Azure AD for sign in if necessary.  In addition, adal.js will automatically attach an access_token to any ajax requests that are sent to the app's backend.  The above is the bare minimum necessary to build a SPA with adal.js - but there are a number of other features that are useful in SPAs:
+You now have a secure single page app with the ability to sign users in and issue Bearer token protected requests to its backend API.  When a user clicks the `TodoList` link, adal.js will automatically redirect to Azure AD for sign-in if necessary.  In addition, adal.js will automatically attach an access_token to any ajax requests that are sent to the app's backend.  The above is the bare minimum necessary to build a SPA with adal.js - but there are a number of other features that are useful in SPAs:
 
-- To explicitly issue sign in and sign out requests you can define functions in your controllers that invoke adal.js.  In `App/Scripts/homeCtrl.js`:
+- To explicitly issue sign-in and sign-out requests you can define functions in your controllers that invoke adal.js.  In `App/Scripts/homeCtrl.js`:
 
 ```js
 ...
@@ -138,7 +138,7 @@ $scope.logout = function () {
 <li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
 ```
 
-Congratulations! Your Azure AD integrated Single Page App is now complete.  It can authenticate users, securely call its backend using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Run your To Do List SPA, and sign in with one of those users.  Add tasks to the users to do list, sign out, and sign back in.
+Congratulations! Your Azure AD integrated Single Page App is now complete.  It can authenticate users, securely call its backend using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Run your To Do List SPA, and sign-in with one of those users.  Add tasks to the users to do list, sign out, and sign back in.
 
 Adal.js makes it easy to incorporate all of these common identity features into your app.  It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.
 

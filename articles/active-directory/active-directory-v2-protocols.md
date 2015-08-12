@@ -256,11 +256,11 @@ Error responses will look like:
 ## OpenID Connect Sign-In Flow
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol, which allows you to perform single sign-on using OAuth.  It introduces the concept of an `id_token`, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
 
-OpenID Connect for the v2.0 app model is the recommended way to implement sign in for a [web  app](active-directory-v2-flows.md#web-apps).  The most basic sign-in flow contains the following steps:
+OpenID Connect for the v2.0 app model is the recommended way to implement sign-in for a [web  app](active-directory-v2-flows.md#web-apps).  The most basic sign-in flow contains the following steps:
 
 ![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
-#### Send the Sign In Request
+#### Send the Sign-In Request
 When your web  app needs to authenticate the user, it can direct the user to the `/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](#oauth2-authorization-code-flow), with a few important distinctions:
 - The request must include the scope `openid` in the `scope` parameter.
 - The `response_type` parameter must include `id_token`
@@ -339,7 +339,7 @@ See the [v2.0 app model token reference](active-directory-v2-tokens.md) for more
 
 Once you've validated the signature of the id_token, there are a few claims you will need to verify:
 
-- You should validate the `nonce` claim to prevent token replay attacks.  Its value should be what you specified in the sign in request.
+- You should validate the `nonce` claim to prevent token replay attacks.  Its value should be what you specified in the sign-in request.
 - You should validate the `aud` claim to ensure the id_token was issued for your app.  Its value should be the `client_id` of your app.
 - You should validate the `iat` and `exp` claims to ensure the id_token has not expired.
 
@@ -383,7 +383,7 @@ Many web  apps need to sign the user in and then access a web service on behalf 
 
 This flow only slightly differs from the above sections, in how you send the sign-in request.
 
-#### Send the Sign In Request
+#### Send the Sign-In Request
 When your web  app needs to authenticate the user & get the permissions it needs to access resources, it can direct the user to the `/authorize` endpoint.  In this case, your app must ask for both an `id_token` and a `code` in the response:
 
 ```
@@ -446,10 +446,10 @@ error=access_denied
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 #### Validate the id_token
-This process is exactly the same as described above in the [OpenID Connect Sign In Flow](#OpenID-Connect-Sign-In-Flow).
+This process is exactly the same as described above in the [OpenID Connect Sign-In Flow](#OpenID-Connect-Sign-In-Flow).
 
 #### Send a Sign Out Request
-This process is exactly the same as described above in the [OpenID Connect Sign In Flow](#OpenID-Connect-Sign-In-Flow).
+This process is exactly the same as described above in the [OpenID Connect Sign-In Flow](#OpenID-Connect-Sign-In-Flow).
 
 #### Request an Access Token
 This process is exactly the same as described above in the [OAuth 2.0 Authorization Code Flow](#oauth2-authorization-code-flow).

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="App Model v2.0 | Microsoft Azure"
-	description="An introduction to building apps with both Microsoft Account and Azure Active Directory sign in."
+	description="An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"

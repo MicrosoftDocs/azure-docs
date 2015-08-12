@@ -50,7 +50,7 @@ Every app's interaction with the v2.0 endpoint will follow a similar high level 
 Each of these seven steps will differ slightly based on the type of app you're building, and we have open source libraries that take care of the details for you.  You can learn more about [permissions, consent, and scopes](active-directory-v2-scopes.md), or read on to explore some concrete examples.
 
 ## Web Apps
-For web apps (.NET, PHP, Java, Ruby, Python, Node, etc) that are accessed through a browser, the v2.0 app model supports user sign in using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  In OpenID Connect the web app receives an `id_token`, a security token that verifies the user's identity and provides information about the user in the form of claims:
+For web apps (.NET, PHP, Java, Ruby, Python, Node, etc) that are accessed through a browser, the v2.0 app model supports user sign-in using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  In OpenID Connect the web app receives an `id_token`, a security token that verifies the user's identity and provides information about the user in the form of claims:
 
 ```
 // Partial raw id_token
@@ -104,7 +104,7 @@ To learn how to secure a Web API with the v2.0 app model and OAuth 2.0 access_to
 ## Mobile and Native Apps
 Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs that store data and perform various functions on behalf of a user.  These apps can add sign-in and authorization to backend services using the v2.0 model and the [OAuth 2.0 Authorization Code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow).  
 
-In this flow, a the app receives an authorization_code from the v2.0 endpoint upon user sign in, which represents the app's permission to call backend services on behalf of the currently signed-in user.  The app can then exchange the authoriztion_code in the background for an OAuth 2.0 access_token and a refresh_token.  The app can use the access_token to authenticate to Web APIs in HTTP requests, and can use the refresh_token to get new access_tokens when older ones expire.
+In this flow, a the app receives an authorization_code from the v2.0 endpoint upon user sign-in, which represents the app's permission to call backend services on behalf of the currently signed-in user.  The app can then exchange the authoriztion_code in the background for an OAuth 2.0 access_token and a refresh_token.  The app can use the access_token to authenticate to Web APIs in HTTP requests, and can use the refresh_token to get new access_tokens when older ones expire.
 
 ![Native App Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 

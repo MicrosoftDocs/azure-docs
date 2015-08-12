@@ -50,7 +50,7 @@ In the v2.0 app model preview, you have the ability to [build a Web API that is 
 To see how to build a Web API that accepts tokens from a well-known client with the same App Id, see the v2.0 app model Web API samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
 ## Restrictions on Users
-Currently every app built with the v2.0 app model will be publicly exposed to all users with a Microsoft Account or Azure AD account. Any user with either type of account will be able to successfully navigate to or install your app, enter their credentials at the v2.0 app model, and consent to your app's permissions.  You can write your app's code to reject sign ins from certain sets of users - but that will not prevent them from being able to consent to the app.
+Currently every app built with the v2.0 app model will be publicly exposed to all users with a Microsoft Account or Azure AD account. Any user with either type of account will be able to successfully navigate to or install your app, enter their credentials at the v2.0 app model, and consent to your app's permissions.  You can write your app's code to reject sign-ins from certain sets of users - but that will not prevent them from being able to consent to the app.
 
 Effectively, your apps can not restrict the types of users that can sign into the app.  You will not be able to build Line of Business apps (restricted to users in one organization), apps available to only enterprise users (with an Azure AD account), or apps only available to consumers (with a Microsoft Account).
 
