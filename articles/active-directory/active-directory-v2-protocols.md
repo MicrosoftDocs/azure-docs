@@ -21,6 +21,9 @@
 The v2.0 app model provides identity-as-a-service for your apps by supporting industry standard authentication protocols, OpenID Connect and OAuth 2.0.  While the service is standard compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests, rather than using one of our open source libraries.
 <!-- TODO: Need link to libraries above -->
 
+> [AZURE.NOTE]
+	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+
 ## Tokens
 The v2.0 app model's implementation of OAuth 2.0 and OpenID Connect make extensive use of bearer tokens, including bearer tokens represented as JWTs. A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your application transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
@@ -104,13 +107,13 @@ Error responses may also be sent to the `redirect_uri` so the app can handle the
 ```
 GET https://localhost/myapp/?
 error=access_denied
-&message=the+user+canceled+the+authentication
+&error_description=the+user+canceled+the+authentication
 ```
 
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
-| message | A specific error message that can help a developer identify the root cause of an authentication error.  |
+| error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 #### Request an Access Token
 Now that you've acquired an authorization_code and have been granted permission by the user, you can redeem the `code` for an `access_token` to the desired resource, by sending a `POST` request to the `/token` endpoint:
@@ -165,14 +168,14 @@ Error responses will look like:
 ```
 {
 	"error": "access_denied",
-	"message": "The user revoked access to the app.",
+	"error_description": "The user revoked access to the app.",
 }
 ```
 
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
-| message | A specific error message that can help a developer identify the root cause of an authentication error.  |
+| error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 #### Use the Access Token
 Now that you've successfully acquired an `access_token`, you can use the token in reqeusts to Web APIs by including it in the `Authorization` header:
@@ -236,14 +239,14 @@ Error responses will look like:
 ```
 {
 	"error": "access_denied",
-	"message": "The user revoked access to the app.",
+	"error_description": "The user revoked access to the app.",
 }
 ```
 
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
-| message | A specific error message that can help a developer identify the root cause of an authentication error.  |
+| error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 
 
