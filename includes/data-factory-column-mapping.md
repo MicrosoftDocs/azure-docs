@@ -34,7 +34,7 @@ In this sample, the input table has a structure and it points to a SQL table in 
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        },
 			"external": true,
 			"policy": {
