@@ -153,7 +153,7 @@ The StorSimple device manages data by storing it in tiers locally and in the clo
 
 ### Additional security best practices
 
-- To implement redundancy, use multipathing (MPIO) to avoid a single point of failure in the iSCSI SAN. For detailed instructions, see [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server).
+- To implement redundancy, use multipathing (MPIO) to avoid a single point of failure in the iSCSI SAN. For detailed instructions, see [Configure MPIO for your StorSimple device](#storsimple-configure-mpio-windows-server).
 
 - Split traffic: isolate your iSCSI SAN from user traffic on a corporate LAN by deploying a totally separated network and using VLANs where physical isolation is not an option. A dedicated network for iSCSI storage will guarantee the safety and performance of your business-critical data. Mixing storage and user traffic over a corporate LAN is not recommended and can increase latency and cause network failures.
 

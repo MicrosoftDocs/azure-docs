@@ -75,7 +75,7 @@ You can use the setup wizard to guide you through the steps for web proxy config
 
 If you are registering your device for the first time, continue with the registration. If your device was already registered, the wizard will exit. The configured settings will be saved.
 
-Web proxy will now also be enabled. You can skip the [Enable web proxy](#Enable-web-proxy) step and go directly to [view the web proxy settings in the Management Portal](view-web-proxy-settings-in-the-management-portal).
+Web proxy will now also be enabled. You can skip the [Enable web proxy](#enable-web-proxy) step and go directly to [View the web proxy settings in the Management Portal](#view-web-proxy-settings-in-the-management-portal).
 
 
 ## Configure web proxy via Windows PowerShell for StorSimple cmdlets
