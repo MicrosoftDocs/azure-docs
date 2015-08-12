@@ -21,22 +21,17 @@
 
 ## Overview
 
-Welcome to Microsoft Azure StorSimple device deployment.
+Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to StorSimple 8000 Series Release Version, StorSimple 8000 Series Update 0.1, StorSimple 8000 Series Update 0.2, and StorSimple 8000 Series Update 0.3. This series of tutorials describes how to configure your StorSimple device, and includes a configuration checklist, configuration prerequisites, and detailed configuration steps.
 
-These deployment tutorials apply to StorSimple 8000 Series Release Version, StorSimple 8000 Series Update 0.1, StorSimple 8000 Series Update 0.2, and StorSimple 8000 Series Update 0.3.
 
-This series of tutorials describes how to configure your StorSimple device, and includes a configuration checklist, configuration prerequisites, and detailed configuration steps.
-
-> [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only. For complete information about the 7000 series devices, go to: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). For 7000 series deployment information, see the [StorSimple System Quick Start Guide](http://onlinehelp.storsimple.com/111_Appliance/).
-
-The information in these tutorials assumes that you have reviewed the safety precautions, and unpacked, racked, and cabled your StorSimple device. If you still need to perform those tasks, start with reviewing the [Safety precautions](storsimple-safety.md).
-
-Depending on your device model, you can then unpack, rackmount and cable by following the instructions in:
+The information in these tutorials assumes that you have reviewed the safety precautions, and unpacked, racked, and cabled your StorSimple device. If you still need to perform those tasks, start with reviewing the [Safety precautions](storsimple-safety.md). Depending on your device model, you can then unpack, rackmount and cable by following the instructions in:
 
 - [Unpack, rack mount, and cable your 8100](storsimple-8100-hardware-installation.md)
 - [Unpack, rack mount, and cable your 8600](storsimple-8600-hardware-installation.md)
 
 You will need administrator privileges to complete the setup and configuration process. We recommend that you review the configuration checklist before you begin. The deployment and configuration process can take some time to complete.
+
+> [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only. For complete information about the 7000 series devices, go to: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). For 7000 series deployment information, see the [StorSimple System Quick Start Guide](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Deployment steps
 
