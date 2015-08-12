@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="08/11/2015"
 	ms.author="wesmc"/>
 
 # Offline Data Sync in Azure Mobile Apps
