@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="08/11/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure preview portal
@@ -23,9 +23,13 @@
 
 Using the [Azure preview portal][azure-portal], you can provision Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
 
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal-v1.md)
+
 > [AZURE.NOTE] The steps in this document are specific to working with Windows-based Hadoop clusters. For information on working with Linux-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure preview portal](hdinsight-administer-use-portal-linux.md)
 
-    
+
 
 > [AZURE.NOTE] There are also other tools available for administering HDInsight in addition to the preview portal.
 >
@@ -62,7 +66,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 
 ## Get familiar with the cluster portal interface
 
-**To access the cluster blade**
+**To access the cluster**
 
 1. Sign in to the [preview portal][azure-portal].
 2. Click **Browse All** from the left menu to open the **Browse** blade.
@@ -75,7 +79,6 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 
 	![HDInsight portal cluster settings](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
-	|-----|-----|
 	|Setting|Description|
 	|-----|-----|
 	|Properties| Display the cluster properties.|
@@ -84,9 +87,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 	|External Metastores| Display the Hive/Oozie metastore information.|
 	|Scale cluster| Increase/decrease the number of workers nodes of the cluster.|
 	|Remote Desktop| Enable/disable the Remote Desktop connectivity, connect to the cluster via Remote Desktop.|
-	|Users||
-	|Tags||
-	|-----|-----|
+
 
 ##Grant/revoke HTTP services access
 

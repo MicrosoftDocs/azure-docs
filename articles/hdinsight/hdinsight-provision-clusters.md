@@ -256,7 +256,7 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 You can refer to the [basic configuration options], and the [advanced configuration options] for the explanations of the fields.
 
-**To create an HDInsight cluster by using the Custom Create option**
+**To create an HDInsight cluster**
 
 1. Sign in to the [Azure preview portal][azure-preview-portal].
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.

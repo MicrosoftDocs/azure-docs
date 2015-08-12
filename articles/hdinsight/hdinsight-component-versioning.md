@@ -28,17 +28,17 @@ Component|HDInsight Version 3.2|HDInsight Version 3.1 (Default)|HDInsight Versio
 ---|---|---|---|---
 Hortonworks Data Platform|2.2|2.1.7|2.0|1.3
 Apache Hadoop & YARN|2.6.0|2.4.0|2.2.0|1.2.0
-Tez|0.5.2|0.4.0||
+Apache Tez|0.5.2|0.4.0||
 Apache Pig|0.14.0|0.12.1|0.12.0|0.11.0
 Apache Hive & HCatalog|0.14.0|0.13.1|0.12.0|0.11.0
-HBase |0.98.4|0.98.0||
+Apache HBase |0.98.4|0.98.0||
 Apache Sqoop|1.4.5|1.4.4|1.4.4|1.4.3
 Apache Oozie|4.1.0|4.0.0|4.0.0|3.3.2
-Zookeeper|3.4.6|3.4.5|3.4.5|
-Storm|0.9.3|0.9.1||
-Mahout|0.9.0|0.9.0||
-Phoenix|4.2.0|4.0.0.2.1.7.0-2162||
-Spark|1.3.1|||
+Apache Zookeeper|3.4.6|3.4.5|3.4.5|
+Apache Storm|0.9.3|0.9.1||
+Apache Mahout|0.9.0|0.9.0||
+Apache Phoenix|4.2.0|4.0.0.2.1.7.0-2162||
+Apache Spark|1.3.1|||
 
 
 **Get current component version information**
@@ -52,23 +52,18 @@ See [HDInsight release notes](hdinsight-release-notes.md) for additional release
 
 ### Select a version when provisioning an HDInsight cluster
 
-<<<<<<< HEAD
-When creating a cluster, you can choose the version for the HDInsight Hadoop cluster.
-
-=======
 When creating a cluster through the HDInsight Windows PowerShell cmdlets or the HDInsight .NET SDK, you can choose the version for the HDInsight Hadoop cluster by using the **HDInsight Version** drop-down on the **Optional Configuration** blade in the Azure preview portal.
->>>>>>> fdad56f49c0e4345235e107c764177f15dbcd200
 
 ##Feature highlights
 Some of the salient features of the HDInsight platform include:
 
 - **Spark** - Apache Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations.
 
-	Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark. 
+	Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark.
 
 	Spark can also be added using Script Action.  Script action adds either Spark 1.2.0 to HDInsight 3.2 cluster or Spark 1.0.2 to HDInsight 3.1 cluster. For more information, see [Install and use Spark on HDInsight Hadoop clusters](hdinsight-hadoop-spark-install.md).
 
- 
+
 - **Storm** - Storm on Azure HDInsight is now generally available, giving a fast and easy way to deploy real-time analytics in just a few clicks and within minutes. Apache Storm on Azure HDInsight is an open-source project in the Apache Hadoop ecosystem that provides access to an analytics platform capable of reliably processing millions of events. Now Hadoop users can gain insights as events happen, along with insights from past events. Microsoft is also providing built-in integration with Visual Studio, making developer interaction with Storm easy. You can now develop, deploy, and debug Storm topologies from within Visual Studio.
 
 - **HDInsight on Linux (Preview)** - Azure HDInsight provides the option of provisioning Hadoop clusters that run on Linux (Ubuntu) virtual machines (VMs). You can use this option if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. You can provision an HDInsight cluster on Linux from a client computer running Windows or Linux by using the Azure preview portal, the Azure CLI, or the HDInsight .NET SDK (Windows only).
