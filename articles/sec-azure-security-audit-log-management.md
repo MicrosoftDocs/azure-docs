@@ -96,7 +96,7 @@ For domain-joined Azure Virtual Machines, you can configure WEF by using Group P
 
 Using this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using [ExpressRoute](http://azure.microsoft.com/services/expressroute/) or site-to-site VPN, and then join the virtual machines that you have in Azure to the corporate domain. Afterwards, you can configure WEF from the domain-joined machines.
 
-Event forwarding is broken into two parts: the source and the collector. The source is the computer in which the security logs are generated. The collector is the centralized server that collects and consolidates the event logs. IT administrators can subscribe to receive and store events that are forwarded from remote computers (the event source). For more information, see [Configure Computers to Forward and Collect Events](http://technet.microsoft.com/library/cc748890.aspx).
+Event forwarding is broken into two parts: the source and the collector. The source is the computer in which the security logs are generated. The collector is the centralized server that collects and consolidates the event logs. IT administrators can subscribe to events so that they can receive and store events that are forwarded from remote computers (the event source). For more information, see [Configure Computers to Forward and Collect Events](http://technet.microsoft.com/library/cc748890.aspx).
 
 Collected Windows events can be sent to on-premises analysis tools, such as a SIEM, for further analysis.
 
