@@ -23,12 +23,16 @@
 
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage Hadoop clusters in Azure HDInsight by using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
+
+
 **Prerequisites**
 
 Before you begin this article, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
+	> [AZURE.NOTE] The PowerShell scripts provided in this article uses the Azure resource manager mode. To ensure the samples work for you, please download the latest Azure PowerShell using the Microsoft Web Platform Installer.  
 
 ##Provision HDInsight clusters
 
@@ -41,28 +45,38 @@ HDInsight clusters require a Azure Resource group and a Blob container on an Azu
 
 **To create an Azure resource group**
 
-After you have signed in to Azure using the cmdlet Add-AzureAccount.
+1. Ensure you are in the Azure resource mode:
+
+		Switch-AzureMode -Name AzureResourceManager
+
+2. Connect to you Azure account and select a subscription (in case you have multiple subscriptions).
+
+		Add-AzureAccount
+		Select-AzureSubscription
+
+3. Create a new resource group:
 
 	New-AzureResourceGroup -name <AzureResourceGroupName> -Location <AzureDataCente>  # For example, "West US"
 
+	[AZURE.INCLUDE [data center list](../../includes/hdinsight-pricing-data-centers-clusters.md)]
+
 **To create an Azure Storage account**
 
-	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -StorageAccountName <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
+	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
+
+	For a full list of the storage account types, see [https://msdn.microsoft.com/en-us/library/azure/hh264518.aspx](https://msdn.microsoft.com/en-us/library/azure/hh264518.aspx).
 
 
-[AZURE.INCLUDE [data center list](../../includes/hdinsight-pricing-data-centers-clusters.md)]
-
-
-For information on creating an Azure Storage account by using the Azure preview portal, see [Create, manage, or delete a storage account](../storage-create-storage-account/).
+For information on creating an Azure Storage account by using the Azure preview portal, see [Create, manage, or delete a storage account](storage-create-storage-account.md).
 
 If you have already had a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
 	# List Storage accounts for the current subscription
 	Get-AzureStorageAccount
 	# List the keys for a Storage account
-	Get-AzureStorageKey <AzureStorageAccountName>
+	Get-AzureStorageAccountKey -ResourceGroupName <AzureResourceGroupName> -name $storageAccountName <AzureStorageAccountName>
 
-For details on getting the information by using the preview portal, see the "View, copy, and regenerate storage access keys" section of [Create, manage, or delete a storage account](../storage-create-storage-account/).
+For details on getting the information by using the preview portal, see the "View, copy, and regenerate storage access keys" section of [Create, manage, or delete a storage account](storage-create-storage-account.md).
 
 **To create an Azure storage container**
 
@@ -96,15 +110,13 @@ Once you have the Storage account and the Blob container prepared, you are ready
 	$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 
 	# Create a new HDInsight cluster
-	New-AzureHDInsightCluster -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
-
-
-The following screenshot shows the script execution:
-
-![HDI.PS.Provision][image-hdi-ps-provision]
-
-
-
+	New-AzureHDInsightCluster -ResourceGroupName $resourceGroupName `
+		-ClusterName $clusterName `
+		-Location $location `
+		-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+		-DefaultStorageAccountKey $storageAccountKey `
+		-DefaultStorageContainer $containerName  `
+		-ClusterSizeInNodes $clusterNodes
 
 ##List cluster details
 Use the following command to list all clusters in the current subscription:
@@ -113,7 +125,7 @@ Use the following command to list all clusters in the current subscription:
 
 Use the following command to show details of a specific cluster in the current subscription:
 
-	Get-AzureHDInsightCluster -Name <ClusterName>
+	Get-AzureHDInsightCluster -ResourceGroupName <ResouceGroupName> -ClusterName <ClusterName>
 
 ##Delete clusters
 Use the following command to delete a cluster:
