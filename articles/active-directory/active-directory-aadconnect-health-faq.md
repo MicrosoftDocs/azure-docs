@@ -71,7 +71,6 @@ Perform any time prior to running Register-AdHealthAgent (The final step of Inst
 Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64\[version]\config\machine.config</li>
 
 Add the following entry under the <configuration></configuration> element in your machine.config file.
- 
 		
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
@@ -84,7 +83,7 @@ Add the following entry under the <configuration></configuration> element in you
 
  
 
-Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
+Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 
 This settings configures .NET applications system-wide to use your explicitly defined proxy when makeing http .NET requests. Modifying each individual app.config is not recommended because it will be undone during auto update. You only have to change one file and it will persist through updates if you only modify machine.config.
 
