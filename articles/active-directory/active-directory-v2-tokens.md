@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
 # App Model v2.0 Preview: Token Reference
@@ -153,15 +153,13 @@ Details of the expected values for these claims are included above in the [id_to
 
 The following token lifetimes are provided purely for your understanding, as they can help in developing and debugging applications.  Your apps should not be written to expect any of these lifetimes to remain constant - they can and will change at any given point in time.
 
-<!-- TODO: Validate all of this. -->
-
 | Token | Lifetime | Description |
 | ----------------------- | ------------------------------- | ------------ |
 | Id_Tokens (work or school accounts) | 1 hour | Id_Tokens are typically valid for an hour.  Your web application can use this same lifetime in maintaining its own session with the user (recommended), or choose a completely different session lifetime.  If your app needs to get a new id_token, it simply needs to make a new sign-in request to the v2.0 authorize endpoint.  If the user has a valid browser session with the v2.0 endpoint, they may not be required to enter their credentials again. |
 | Id_Tokens (personal accounts) | 24 hours | Id_Tokens for personal accounts are typically valid for 24 hours.  Your web application can use this same lifetime in maintaining its own session with the user (recommended), or choose a completely different session lifetime.  If your app needs to get a new id_token, it simply needs to make a new sign-in request to the v2.0 authorize endpoint.  If the user has a valid browser session with the v2.0 endpoint, they may not be required to enter their credentials again. |
-| Browser Sessions (work or school accounts) | N/A | For the v2.0 app model preview, work or school accounts will not have session state maintained with the v2.0 endpoint.  Every time your app directs the user to the v2.0 authorize endpoint, the user will have to enter their credentials. |
-| Browser Sessions (personal accounts) | Up to 180 days | A user's session with the v2.0 endpoint can remain valid for a period of up to 180 days.  However, it may become invalid for a number of reasons, including an extended period of user inactivity. |
 | Access Tokens (work or school accounts) | 1 hour | Indicated in token responses as part of the token metadata. |
-| Access Tokens (personal accounts) | 1 hour | Indicated in token responses as part of the token metadata. |
-| Refresh Tokens | Up to 14 days | A single refresh token is valid for a maximum of 14 days.  However, the refresh token may become invalid at any time for any number of reasons.  A refresh token will also become invalid if it has been 90 days since the user has entered their credentials. |
-| Authorization Codes | 10 minutes | Authorization codes are purposefully short-lived, and should be immediately redeemed for access_tokens and refresh_tokens when they are received. |
+| Access Tokens (personal accounts) | 1 hour | Indicated in token responses as part of the token metadata.  Access_tokens issued on behalf of personal accounts may be configured for a different lifetime, but one hour is typically the case. |
+| Refresh Tokens (work or school account) | Up to 14 days | A single refresh token is valid for a maximum of 14 days.  However, the refresh token may become invalid at any time for any number of reasons, so your app should continue to try and use a refresh token until it fails, or until your app replaces it with a new refresh token.  A refresh token will also become invalid if it has been 90 days since the user has entered their credentials. |
+| Refresh Tokens (personal accounts) | Up to 1 year | A single refresh token is valid for a maximum of 1 year.  However, the refresh token may become invalid at any time for any number of reasons, so your app should continue to try and use a refresh token until it fails. |
+| Authorization Codes (work or school accounts) | 10 minutes | Authorization codes are purposefully short-lived, and should be immediately redeemed for access_tokens and refresh_tokens when they are received. |
+| Authorization Codes (personal accounts) | 5 minutes | Authorization codes are purposefully short-lived, and should be immediately redeemed for access_tokens and refresh_tokens when they are received.  Authorization codes issued on behalf of personal accounts are also one-time use. |

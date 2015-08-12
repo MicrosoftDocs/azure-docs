@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
 # App Model v2.0 Preview: Add sign-in to an .NET MVC Web App
