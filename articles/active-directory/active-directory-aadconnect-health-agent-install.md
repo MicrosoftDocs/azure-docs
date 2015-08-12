@@ -26,7 +26,7 @@
 This document will walk you through installing and configuring the Azure AD Connect Health Agent on your servers. Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.  Be sure to complete the requirements [here](active-directory-aadconnect-health.md/#requirements) prior to installing the agent.  You can download the agent [here](http://go.microsoft.com/fwlink/?LinkID=518973).
 
 
-
+## Agent installation
 To start the agent installation, double-click on the .exe file that you downloaded. On the first screen, click Install.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install1.png)
