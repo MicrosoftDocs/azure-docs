@@ -50,14 +50,14 @@ In the v2.0 app model preview, you have the ability to [build a Web API that is 
 To see how to build a Web API that accepts tokens from a well-known client with the same App Id, see the v2.0 app model Web API samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
 ## Restrictions on Users
-Currently every app built with the v2.0 app model will be publicly exposed to all users with a Microsoft Account or Azure Active Directory account. Any user with either type of account will be able to successfully navigate to or install your app, enter their credentials at the v2.0 app model, and consent to your app's permissions.  You can write your app's code to reject sign ins from certain sets of users - but that will not prevent them from being able to consent to the app.
+Currently every app built with the v2.0 app model will be publicly exposed to all users with a Microsoft Account or Azure AD account. Any user with either type of account will be able to successfully navigate to or install your app, enter their credentials at the v2.0 app model, and consent to your app's permissions.  You can write your app's code to reject sign ins from certain sets of users - but that will not prevent them from being able to consent to the app.
 
 Effectively, your apps can not restrict the types of users that can sign into the app.  You will not be able to build Line of Business apps (restricted to users in one organization), apps available to only enterprise users (with an Azure AD account), or apps only available to consumers (with a Microsoft Account).
 
 ## Restrictions on App Registrations
 At this point in time, all apps that want to integrate with the v2.0 app model must create a new app registration at [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  Any existing Azure AD or Microsoft Account apps will not be compatible with the v2.0 app model, nor will apps registered in any portal besides the new App Registration Portal.  There is no migration path for an app from the generally available Azure AD service to the v2.0 app model.
 
-Similarly, apps registered in the new App Registration Portal will work exclusively with the v2.0 app model.  You can not use the App Registration Portal to create apps that will integrate successfully with the Azure Active Directory or Microsoft Account services.
+Similarly, apps registered in the new App Registration Portal will work exclusively with the v2.0 app model.  You can not use the App Registration Portal to create apps that will integrate successfully with the Azure AD or Microsoft Account services.
 
 Apps that are registered in the new Application Registration Portal are currently restricted to a limited set of redirect_uri values.  The redirect_uri for web apps and services must begin with the scheme or `https`, while the redirect_uri for all other platforms must use the hard-coded value of `urn:ietf:oauth:2.0:oob`.
 

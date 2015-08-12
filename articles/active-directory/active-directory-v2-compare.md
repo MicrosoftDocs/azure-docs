@@ -25,11 +25,11 @@ If you're familiar with the generally available Azure AD service or have integra
 
 
 ## Microsoft Accounts and Azure AD Accounts
-The v2.0 app model allows developers to write apps that accept sign in from both Microsoft Accounts and Azure Active Directory accounts, using a single endpoint.  This gives you the ability to write your app completely account-agnostic; it can be ignorant of the type of account that the user signs in with.  Of course, you *can* make your app aware of the type of account being used in a particular session, but you don't have to.
+The v2.0 app model allows developers to write apps that accept sign in from both Microsoft Accounts and Azure AD accounts, using a single endpoint.  This gives you the ability to write your app completely account-agnostic; it can be ignorant of the type of account that the user signs in with.  Of course, you *can* make your app aware of the type of account being used in a particular session, but you don't have to.
 
-For instance, if your app calls the [Office REST APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data.  But for many actions, such as [Reading a user's mail](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), the code can be written exactly the same for both Microsoft Accounts and Azure Active Directory accounts.  
+For instance, if your app calls the [Office REST APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data.  But for many actions, such as [Reading a user's mail](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), the code can be written exactly the same for both Microsoft Accounts and Azure AD accounts.  
 
-Integrating your app with Microsoft Accounts and Azure Active Directory accounts is now one simple process.  You can use a single set of endpoints, a single library, and a single app registration to gain access to both the consumer and enterprise worlds.  To learn more about the v2.0 app model preview, check out [the overview](active-directory-appmodel-v2-overview.md).
+Integrating your app with Microsoft Accounts and Azure AD accounts is now one simple process.  You can use a single set of endpoints, a single library, and a single app registration to gain access to both the consumer and enterprise worlds.  To learn more about the v2.0 app model preview, check out [the overview](active-directory-appmodel-v2-overview.md).
 
 
 ## New App Registration Portal
@@ -41,7 +41,7 @@ Note that today, apps registered in the new App Registration Portal will only wo
 
 
 ## One App Id for All Platforms
-In the GA Azure Active Directory service, you may have registered several different apps for a single project.  You were forced to use separate app registrations for your native clients and web apps:
+In the GA Azure AD service, you may have registered several different apps for a single project.  You were forced to use separate app registrations for your native clients and web apps:
 
 ![Old Application Registration UI](../media/active-directory-v2-flows/old_app_registration.PNG)
 
