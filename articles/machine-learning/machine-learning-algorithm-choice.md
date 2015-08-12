@@ -28,9 +28,9 @@ This article walks you through how to use it.
 
 > [AZURE.NOTE] To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
 
-This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio (AML). That means that it makes some generalizations and oversimplifications, but it will point you in a safe direction. It also means that there are lots of algorithms not listed here. As AML grows to encompass a more complete set of available methods, we'll add them.
+This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio. That means that it makes some generalizations and oversimplifications, but it will point you in a safe direction. It also means that there are lots of algorithms not listed here. As Azure Machine Learning grows to encompass a more complete set of available methods, we'll add them.
 
-These recommendations are compiled feedback and tips from a lot of data scientists and machine learning (ML) experts. We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
+These recommendations are compiled feedback and tips from a lot of data scientists and machine learning experts. We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
 
 ### How to use the cheat sheet
 
@@ -65,9 +65,9 @@ can, it uses that pattern to make predictions for unlabeled testing
 data—tomorrow's prices.
 
 This is a popular and useful type of machine learning. With one
-exception, all of the modules in Azure ML are supervised learning
+exception, all of the modules in Azure Machine Learning are supervised learning
 algorithms. There are several specific types of supervised learning that
-are represented within Azure ML: classification, regression, and anomaly
+are represented within Azure Machine Learning: classification, regression, and anomaly
 detection.
 
 * **Classification**. When the data are being used to predict a
@@ -105,7 +105,7 @@ response to each data point. The learning algorithm also receives a
 reward signal a short time later, indicating how good the decision was.
 Based on this, the algorithm modifies its strategy in order to achieve
 the highest reward. Currently there are no reinforcement learning
-algorithm modules in Azure ML. Reinforcement learning is common in
+algorithm modules in Azure Machine Learning. Reinforcement learning is common in
 robotics, where the set of sensor readings at one point in time is a
 data point, and the algorithm must choose the robot's next action. It is
 also a natural fit for Internet of Things applications.
@@ -135,7 +135,7 @@ when the data set is large.
 Lots of machine learning algorithms make use of linearity. Linear
 classification algorithms assume that classes can be separated by a
 straight line (or its higher-dimensional analog). These include logistic
-regression and support vector machines (as implemented in Azure ML).
+regression and support vector machines (as implemented in Azure Machine Learning).
 Linear regression algorithms assume that data trends follow a straight
 line. These assumptions aren't bad for some problems, but on others they
 bring accuracy down.
@@ -166,7 +166,7 @@ the most trial and error to find a good combination.
 
 Alternatively, there is a [parameter
 sweeping](machine-learning-algorithm-parameters-optimize.md)
-module block in Azure ML that automatically tries all parameter
+module block in Azure Machine Learning that automatically tries all parameter
 combinations at whatever granularity you choose. While this is a great
 way to make sure you've spanned the parameter space, the time required
 to train a model increases exponentially with the number of parameters.
@@ -319,7 +319,7 @@ Neural networks are brain-inspired learning algorithms covering
 and
 [regression](https://msdn.microsoft.com/library/azure/dn905924.aspx)
 problems. They come in an infinite variety, but the neural networks
-within Azure ML are all of the form of directed acyclic graphs. That
+within Azure Machine Learning are all of the form of directed acyclic graphs. That
 means that input features are passed forward (never backward) through a
 sequence of layers before being turned into outputs. In each layer,
 inputs are weighted in various combinations, summed, and passed on to
@@ -354,7 +354,7 @@ robustly and is small enough to learn quickly.
 Support vector machines (SVMs) find the boundary that separates classes
 by as wide a margin as possible. When the two classes can't be clearly
 separated, the algorithms find the best boundary they can. As written in
-Azure ML, the [two-class
+Azure Machine Learning, the [two-class
 SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx) does
 this with a straight line only. (In SVM-speak, it uses a linear kernel.)
 Because it makes this linear approximation, it is able to run fairly
@@ -389,7 +389,7 @@ boundary are unusual enough to be noteworthy.
 Bayesian methods have a highly desirable quality: they avoid
 overfitting. They do this by making some assumptions beforehand about
 the likely distribution of the answer. Another byproduct of this
-approach is that they have very few parameters. Azure ML has both
+approach is that they have very few parameters. Azure Machine Learning has both
 Bayesian algorithms for both classification ([Two-class Bayes' point
 machine](https://msdn.microsoft.com/library/azure/dn905930.aspx))
 and regression ([Bayesian linear
@@ -406,7 +406,7 @@ Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-
 
 ### Specialized algorithms
 
-If you have a very specific goal you may be in luck. Within the Azure ML
+If you have a very specific goal you may be in luck. Within the Azure Machine Learning
 collection there are algorithms that specialize in rank prediction
 ([ordinal
 regression](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
@@ -440,7 +440,7 @@ properties are determined by the two-class classifiers used.
 ***A pair of two-class classifiers combine to form a three-class
 classifier***
 
-Azure ML also includes access to a powerful machine learning framework
+Azure Machine Learning also includes access to a powerful machine learning framework
 under the title of [Vowpal
 Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf).
 VW defies categorization here, since it can learn both classification
