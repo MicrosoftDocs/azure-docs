@@ -23,7 +23,7 @@ With the v2.0 app model, you can protecet a Web API using [OAuth 2.0](active-dir
 > [AZURE.NOTE]
 This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
-In Asp.NET web APIs, you can accomplish this using Microsoft’s OWIN middleware included in .NET Framework 4.5.  Here we’ll use OWIN to build a "To Do List" MVC Web API that:
+In ASP.NET web APIs, you can accomplish this using Microsoft’s OWIN middleware included in .NET Framework 4.5.  Here we’ll use OWIN to build a "To Do List" MVC Web API that:
 - Allows clients to create and read tasks from a user's To-Do list.
 -	Designates which API's are protected.
 -	Validates that the Web API calls contain a valid Access Token.
