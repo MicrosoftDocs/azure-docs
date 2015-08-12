@@ -122,8 +122,7 @@ When using sync tables, your client code controls when local changes will be syn
 
 <!-- Links -->
 
-* [iOS: Enable offline sync](../app-service-mobile-ios-get-started-offline-data-preview.md)
-* [Xamarin iOS: Enable offline sync](../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md)
-* [Xamarin Android: Enable offline sync](../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md)
-* [Windows 8.1: Enable offline sync](../app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md)
-
+[iOS: Enable offline sync]: ../app-service-mobile-ios-get-started-offline-data-preview.md
+[Xamarin iOS: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
+[Xamarin Android: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
+[Windows 8.1: Enable offline sync]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md
