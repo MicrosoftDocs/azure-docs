@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -79,6 +79,8 @@ The topic shows how to do the following:
 1. Show and hide slates. Start and stop advertisements. Long-running APIs are used.
 1. Clean up your channel and all the associated resources.
 
+>[AZURE.NOTE]While this feature is in Preview, max recommended duration of a live event is 8 hours.
+>
 ##Prerequisites
 The following are required to complete the tutorial.
 
