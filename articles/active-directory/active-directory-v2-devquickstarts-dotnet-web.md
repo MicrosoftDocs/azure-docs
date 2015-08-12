@@ -201,6 +201,8 @@ For reference, the completed sample (without your configuration values) [is prov
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
+## Next Steps
+
 You can now move onto more advanced topics.  You may want to try:
 
 [Secure a Web API with the v2.0 app model >>](active-directory-devquickstarts-webapi-dotnet.md)

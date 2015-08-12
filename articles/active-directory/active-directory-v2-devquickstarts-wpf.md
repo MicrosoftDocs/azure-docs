@@ -245,6 +245,8 @@ For reference, the completed sample (without your configuration values) [is prov
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
+## Next Steps
+
 You can now move onto more advanced topics.  You may want to try:
 
 - [Securing the TodoListService Web API with the v2.0 app model >>](active-directory-v2-devquickstarts-dotnet-api.md)

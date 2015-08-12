@@ -155,6 +155,11 @@ For reference, the completed sample (without your configuration values) [is prov
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
+## Next Steps
+You can now move onto additional topics.  You may want to try:
+
+[Calling a Web API from a Web App with the v2.0 app model >>](active-directory-devquickstarts-webapp-webapi-dotnet.md)
+
 For additional resources, check out:
 - [The App Model v2.0 Preview >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -201,6 +201,8 @@ Finally, build and run your app!  Sign in with either a Microsoft Account or an 
 
 For reference, the completed sample (without your configuration values) [is provided here](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip).  
 
+## Next Steps
+
 For additional resources, check out:
 - [The App Model v2.0 Preview >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "adal" tag >>](http://stackoverflow.com/questions/tagged/adal)
