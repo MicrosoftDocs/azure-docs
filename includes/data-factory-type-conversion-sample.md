@@ -62,7 +62,7 @@ Next you will define the Azure SQL dataset as follows. Note: You do not need to 
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        }
 	    }
 	}
