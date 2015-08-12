@@ -17,7 +17,7 @@
    	ms.date="08/07/2015"
    	ms.author="nitinme"/>
 
-# Hadoop tutorial: Get started using Hadoop with Hive in HDInsight on Linux (preview)
+# Hadoop tutorial: Get started using Hadoop with Hive in HDInsight on Linux
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
