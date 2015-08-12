@@ -152,7 +152,7 @@ To create the second storage account, run these commands.
 
 	$rgName="<your new resource group name>"
 	$locName="<the location of your new resource group>"
-	$saName="<Table ST – Item 1 - Storage account name column>"
+	$saName="<Table ST – Item 2 - Storage account name column>"
 	New-AzureStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
 Next, you create the Azure Virtual Network that will host your line of business application.
