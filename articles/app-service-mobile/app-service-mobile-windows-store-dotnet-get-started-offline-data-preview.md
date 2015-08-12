@@ -24,7 +24,7 @@
 
 ## Overview
 
-This tutorial shows you how to add offline support to a Windows 8.1 Store app using an Azure Mobile Apps backend. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
+This tutorial shows you how to add offline support to a Windows 8.1 Store or Phone app using an Azure Mobile App backend. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
 
 In this tutorial, you will update the Windows 8.1 app project from the tutorial [Create a Windows app] to support the offline features of Azure Mobile Apps. 
 
@@ -37,7 +37,7 @@ This tutorial requires the following:
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of [Create a Windows app][create a windows app].
 * [Azure Mobile Services SQLite Store version 2.0.0-beta][sqlite store nuget]
-* [SQLite for Windows 8.1](www.sqlite.org/downloads)
+* [SQLite for Windows 8.1](http://www.sqlite.org/downloads)
 
 >[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
@@ -62,7 +62,7 @@ Azure Mobile App offline features allow you to interact with a local database wh
 
     Then, add the NuGet reference to both the Windows Store 8.1 and Windows Phone 8.1 projects.
 
-    >[AZURE.NOTE] If the installation creates a reference to an older version of SQLite, you can just delete that duplicate reference.
+    >[AZURE.NOTE] If the installation creates an additional reference to a different version of SQLite than you have installed, you will get a compilation error. You should resolve this error by removing the duplicate in the **References** node in your projects.
 
 3. In Solution Explorer, right click **References** for the Windows 8.1 Runtime and Windows Phone 8.1 platform projects and ensure there is a reference to SQLite, which is located in the **Extensions** section.
 
@@ -193,8 +193,8 @@ In this section, you will modify the app to simulate an offline scenario by brea
 1. Edit App.xaml.cs in the shared project. Comment out the initialization of the **MobileServiceClient** and add the following lines, which use an invalid mobile app URL:
 
          public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://<your-mobile-service>-code.azurewebsites.fail",
-            "https://<your-mobile-service>gateway.azurewebsites.fail",
+            "https://your-service.azurewebsites.fail",
+            "https://your-gateway.azurewebsites.fail",
             ""
         );
 

@@ -167,7 +167,7 @@ In this section you will reconnect the app to the mobile backend, which simulate
 <!-- Images -->
 
 <!-- URLs. -->
-[Create a Xamarin Android app]: ../app-service-mobile-dotnet-backend-xamarin-android-get-started.md
+[Create a Xamarin Android app]: ../app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md
 [Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync-preview.md
 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
