@@ -108,6 +108,21 @@ Before you install Azure AD Connect with Express Settings, there are a few thing
 - If you need to manager a higher volume of directory objects, you need to point the installation process to a different version of SQL Server. 
 Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2014.
 - An Enterprise Administrator account for your local Active Directory
+- If you are using an outbound proxy, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added in order to complete the installation. 
+<code>
+		
+		<system.net>
+    		<defaultProxy>
+      		<proxy
+        	usesystemdefault="true"
+        	proxyaddress=http://<PROXYIP>:80"
+        	bypassonlocal="true"
+     		 />
+    		</defaultProxy>
+  		</system.net>
+</code>
+This text must be entered at the bottom of the file.  In this code, &lt;PROXYIP&gt; represents the actual proxy IP address.
+
 - Optional:  A test user account to verify synchronization. 
 
 #### Hardware requirements for Azure AD Connect
