@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Streaming logs and console" 
 	description="Streaming logs and console overview" 
-	authors="byrontardif" 
+	authors="btardif" 
 	manager="wpickett" 
 	editor="" 
 	services="app-service\web" 
