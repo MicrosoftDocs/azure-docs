@@ -36,7 +36,7 @@ Use this index page to find articles covering HDInsight on the [Azure portal](ht
 If you're new to Hadoop on HDInsight, go to the [HDInsight documentation page](/documentation/services/hdinsight/) to get started with the Azure preview portal.
 
 * [Get started with Hadoop and a Hive query on Windows](hdinsight-hadoop-tutorial-get-started-windows-v1.md)
-* **[NO-v1-ARTICLE -- Get started using Apache HBase with Hadoop](hdinsight-hbase-tutorial-get-started-v1.md)**
+* [Get started using Apache HBase with Hadoop](hdinsight-hbase-tutorial-get-started-v1.md)
 * [Get started with the Storm Starter samples for big data analytics](hdinsight-apache-storm-tutorial-get-started-v1.md)
 
 ## Linux
@@ -69,9 +69,12 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 
 ## HBase: NoSQL analytics
 
-* [Configure HBase geo-replication](hdinsight-hbase-geo-replication.md)
-* [Use Maven to build Java applications that use HBase](hdinsight-hbase-build-java-maven.md)
+* [What is HBase in HDInsight](hdinsight-hbase-overview.md)
 * [Analyze real-time Twitter sentiment with HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
+* [Use Maven to build Java applications that use HBase](hdinsight-hbase-build-java-maven.md)
+* [Provision HBase clusters on Azure Virtual Network](hdinsight-hbase-provision-vnet-v1.md)
+* [Configure HBase geo-replication](hdinsight-hbase-geo-replication.md)
+* [Use Apache Phoenix and SQuirreL with HBase clusters in HDInsight](hdinsight-hbase-phoenix-squirrel.md)
 
 ## Apache Storm: Stream query
 

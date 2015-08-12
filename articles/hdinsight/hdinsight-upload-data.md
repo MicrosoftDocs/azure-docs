@@ -110,15 +110,20 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 2. Set the values of the first five variables in the following script:
 
 		$subscriptionName = "<AzureSubscriptionName>"
+		$resourceGroupName = "<AzureResourceGroupName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
 		$fileName ="<LocalFileName>"
 		$blobName = "<BlobName>"
 
-		# Get the storage account key
+		Switch-AzureMode -Name AzureResourceManager
+
+		Add-AzureAccount
 		Select-AzureSubscription $subscriptionName
-		$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+
+		# Get the storage account key
+		$storageaccountkey = get-azurestoragekey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{$_.Primary}
 
 		# Create the storage context object
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
