@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using New Relic with Azure - Azure feature guides" 
+	pageTitle="Using New Relic with Azure | Microsoft Azure" 
 	description="Learn how to use the New Relic service to manage and monitor your Azure application." 
 	services="" 
 	documentationCenter=".net" 

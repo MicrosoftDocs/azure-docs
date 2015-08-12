@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Handle conflicts with offline data in universal Windows apps | Azure Mobile Services" 
+	pageTitle="Handle conflicts with offline data in universal Windows apps | Microsoft Azure" 
 	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your universal Windows application" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 

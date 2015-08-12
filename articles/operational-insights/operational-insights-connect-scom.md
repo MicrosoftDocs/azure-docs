@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="08/06/2015"
    ms.author="lauracr"/>
 
 # Connect to Operational Insights from System Center Operations Manager

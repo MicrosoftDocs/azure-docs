@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure"
+	pageTitle="Hybrid On-Premises/ Cloud Application (.NET) | Microsoft Azure"
 	description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay."
 	services="service-bus"
 	documentationCenter=".net"

@@ -57,7 +57,7 @@ You can divide your VNet into multiple subnets for organization and security. Su
 
 ## IP addresses
 
-There are two types of IP addresses assigned to components in Azure: public and private. IaaS VMs and PaaS role instances deployed to an Azure subnet are automatically assigned a private IP address to each of their NICs based on teh CIDR address blocks assigned to your subnets. You can also assign a public IP address to your IaaS VMs and PaaS role instances. 
+There are two types of IP addresses assigned to components in Azure: public and private. IaaS VMs and PaaS role instances deployed to an Azure subnet are automatically assigned a private IP address to each of their NICs based on the CIDR address blocks assigned to your subnets. You can also assign a public IP address to your IaaS VMs and PaaS role instances. 
 
 These IP addresses are dynamic, meaning that they can change at any time. You may want to ensure the IP address for certain services remain the same, at all times. To do so, you can reserve an IP address, making it static.
 

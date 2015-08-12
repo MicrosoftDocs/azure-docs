@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to generate and transfer HSM-protected keys for Azure Key Vault | Microsoft Aure"
+	pageTitle="How to generate and transfer HSM-protected keys for Azure Key Vault | Microsoft Azure"
 	description="Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault."
 	services="key-vault"
 	documentationCenter=""
