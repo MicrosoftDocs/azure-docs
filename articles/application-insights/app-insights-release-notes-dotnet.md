@@ -36,7 +36,7 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 
 - Telemetry initializers that do not have dependencies on ASP.NET libraries were moved from `Microsoft.ApplicationInsights.Web` to the new dependency nuget `Microsoft.ApplicationInsights.WindowsServer`
 - `Microsoft.ApplicationInsights.Web.dll` was renamed on `Microsoft.AI.Web.dll`
-- `Microsoft.Web.TelemetryChannel` nuget was renamed on `Microsoft.WindowsServer.TelemetryChannel`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` assembly was renamed on `Microsoft.AI.ServerTelemetryChannel.dll`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` class was renamed on `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- `Microsoft.ApplicationInsights.Web.TelemetryChannel` nuget was renamed on `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` assembly was renamed on `Microsoft.AI.ServerTelemetryChannel.dll`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` class was renamed on `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - All namespaces that are part of Web SDK were changed to exclude `Extensibility` part. That includes all telemetry initializers in ApplicationInsights.config and `ApplicationInsightsWebTracking` module in web.config.
 - Dependencies collected using runtime instrumentation agent (enabled via Status Monitor or Azure WebSite extension) will not be marked as asynchronous if there are no HttpContext.Current on the thread.
 - Property `SamplingRatio` of `DependencyTrackingTelemetryModule` does nothing and marked as obsolete.

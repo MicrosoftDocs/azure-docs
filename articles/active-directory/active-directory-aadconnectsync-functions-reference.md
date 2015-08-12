@@ -479,7 +479,7 @@ The FormatDateTime function is used to format a DateTime to a string with a spec
 - format: a string representing the format to convert to.
  
 **Remarks:** <br> 
-The possible values for the format can be found here: [User-Defined Date/Time Formats (Format Function)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx) 
+The possible values for the format can be found here: [User-Defined Date/Time Formats (Format Function)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx) 
  
 **Example:** <br> 
  
