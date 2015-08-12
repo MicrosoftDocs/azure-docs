@@ -61,6 +61,8 @@ To complete this tutorial, you need the following:
 
 Cross-origin resource sharing (CORS) is a way for your web-based app to indicate from which domains requests are safe and should be permitted by the browser. You control your CORS settings by using the standard ASP.NET Web API behaviors. For more information, see [Enabling Cross-Origin Requests in ASP.NET Web API](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
 
+By default, the client quickstart project that you will download from the portal runs on localhost on port 8000. Because of this, you will next enable CORS for `http://localhost:8000` in the server project. 
+
 1. In Visual Studio in the Tools menu, click **NuGet Package Manager** > **Package Manager Console**, select Nuget.org as the **Package source** and execute the following command in the console window:
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
@@ -73,7 +75,7 @@ Cross-origin resource sharing (CORS) is a way for your web-based app to indicate
 
 3. Next, add the following code to the **WebApiConfig.Register** method after the **HttpConfiguration** is created:
 
-        // Enable CORS support for localhost, all headers and methods.
+        // Enable CORS support for localhost port 8000, all headers and methods.
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
         config.EnableCors(cors);
 
@@ -91,7 +93,7 @@ Next, you will deploy your CORS-enabled project to Azure.
 
 2.  Under **Download and run your HTML/Javascript project** in **Create a new app**, click **Download** and save the compressed project files to your local computer.
 
-2. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
+3. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
 
 	+ **launch-windows** (Windows computers)
 	+ **launch-mac.command** (Mac OS X computers)
@@ -101,9 +103,9 @@ Next, you will deploy your CORS-enabled project to Azure.
 
 	This starts a web server on your local computer to host the new app.
 
-2. Open the URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in a web browser to start the app. The client app is configured to connect to your Mobile App backend in Azure.
+4. Open the URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in a web browser to start the app. The client app is configured to connect to your Mobile App backend in Azure.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_, in **Enter new task**, and then click **Add**.
+5. In the app, type meaningful text, such as _Complete the tutorial_, in **Enter new task**, and then click **Add**.
 
    	![Running the app](./media/app-service-mobile-dotnet-backend-html-get-started-preview/mobile-quickstart-startup-html.png)
 
