@@ -8,9 +8,9 @@ Follow these steps to create a new Mobile App backend.
 
 3. In the **Resource Group** box, enter the same name as your app.
 
-4. The Default App Service plan will be selected.  If you wish to change your App Service plan, you can do so by clicking on the App Service Plan > **+ Create New**.  Provide a name of the new App Service plan and select an appropriate location.  Click the Pricing tier and select an appropriate pricing tier for the service.  You may have to click **View all** to see the more appropriate pricing.  Once you have selected the pricing tier, click the **Select** button.  Back in the **App Service plan** blade, click **OK**.
+4. The Default App Service plan will be selected.  If you wish to change your App Service plan, you can do so by clicking on the App Service Plan > **+ Create New**.  Provide a name of the new App Service plan and select an appropriate location.  Click the Pricing tier and select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**.  Once you have selected the pricing tier, click the **Select** button.  Back in the **App Service plan** blade, click **OK**.
 
-5. Click **Create**. This creates a Mobile App backend where you will later deploy your server project.  Deploying a Mobile App backend can take a couple of minutes.  Once the Mobile App backend is deployed, the portal will open the **Settings** blade for the Mobile App backend.  In the next step, you will create a new SQL database.
+5. Click **Create**. This creates a Mobile App backend where you will later deploy your server project.  Provisioning a Mobile App backend can take a couple of minutes.  Once the Mobile App backend is provisioned, the portal will open the **Settings** blade for the Mobile App backend.  In the next step, you will create a new SQL database.
 
     > [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same location as the new mobile app backend, you can instead choose **Use an existing database** and then select that database. The use of a database in a different location is not recommended because of additional bandwidth costs and higher latencies.
 
