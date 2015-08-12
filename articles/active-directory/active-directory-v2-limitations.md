@@ -81,6 +81,7 @@ The v2.0 app model supports Open ID Connect & OAuth 2.0.  However, not all featu
 
 - Full support for the OpenID Connect `prompt` parameter
 - The OpenID Connect `login_hint` parameter
-- The OpenID Conncet `domain_hint` parameter
+- The OpenID Connect `domain_hint` parameter
+- The OpenID Connect `end_sesssion_endpoint`
 
 To better understand the scope of protocol functionality supported in the v2.0 app model, read through our [OpenID Connect & OAuth 2.0 Protocol Reference](active-directory-v2-protocols.md).

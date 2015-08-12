@@ -72,6 +72,7 @@ V-DIguXSzLVKnnflfSLyvhinsjLKCnu9L3oXHxw
 | Name | `name` | `Leonardo DaVinci` | The name claim provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique, is mutable, and is designed to be used only for display purposes. |
 | Preferred Username | `preferred_username` | `leo@outlook.com` | The primary username that is used to represent the user in the v2.0 endpoint.  It could be an email address, phone number, or a generic username without a specified format.  Its value is mutable and may change for a given user over time. |
 | Subject | `sub` | `AAAAAAAAAAAAAAAAAAAAAOUtxUJsxQtHuMcFCIA1NC0` | The principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused, so it can be used to perform authorization checks safely, such as when the token is used to access a resource. Because the subject is always present in the tokens the Azure AD issues, we recommended using this value in a general purpose authorization system. |
+| ObjectId | `oid` | `27cb5cec-7c0c-40b4-a69a-22500b6ea853` | The object Id of the work or school account in the Azure AD system.  This claim will not be issued for personal Microsoft accounts. |
 
 <!---
 | Not Before | `nbf` | `1438535543` |  The time at which the token becomes valid, represented in epoch time. It is usually the same as the issuance time.  Your application should use this claim to verify the validity of the token lifetime.  |
