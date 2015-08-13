@@ -27,7 +27,7 @@ To view the monitoring information for a specific device, in the Management Port
 
 **I/O performance** tracks metrics related to the number of read and write operations between either the iSCSI initiator interfaces on the host server and the device or the device and the cloud. This performance can be measured for a specific volume, a specific volume container, or all volume containers.
 
-The chart below shows the IOs for initiator to your device for all the volumes for a production device. The metrics plotted are read and write Bytes/s, read and write IOs/s and read and write latencies.
+The chart below shows the IOs for initiator to your device for all the volumes for a production device. The metrics plotted are read and write Bytes/s, read and write IO Operations/s and read and write latencies.
 
 ![IO performance from initiator to device](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
