@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Manage Azure Backup vaults and servers | Microsoft Azure"
-	description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud."
+	description="Use this tutorial to learn how to manage Azure Backup vaults and servers."
 	services="backup"
 	documentationCenter=""
 	authors="aashishr"
