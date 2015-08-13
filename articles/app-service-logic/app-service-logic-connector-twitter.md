@@ -47,6 +47,7 @@ The **New Tweet** trigger has been archived. Currently, it is still available as
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
 1. Create a free application for Twitter at http://apps.twitter.com
+    * When registering for the app, you can put in any URL for the website, and leave the callback URL blank.
 2. In the Azure startboard, select **Marketplace**.
 2. Search for “Twitter Connector”.
 3. Select the "Twitter Connector" and click "Create".  This will open the Create blade.
@@ -54,6 +55,8 @@ A connector can be created within a logic app or be created directly from the Az
 	![][10]
 4. Enter other required settings around connector Name, App Service, and Resource Group.
 5.	Click **Create**.
+
+> [AZURE.NOTE] If you want to further secure your Twitter API with the redirect URL, you can see details on how to do that [here](https://azure.microsoft.com/documentation/articles/app-service-logic-oauth-security/)
 
 
 ## Using the Twitter Connector in your Logic App
