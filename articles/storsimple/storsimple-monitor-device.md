@@ -27,16 +27,16 @@ To view the monitoring information for a specific device, in the Management Port
 
 **I/O performance** tracks metrics related to the number of read and write operations between either the iSCSI initiator interfaces on the host server and the device or the device and the cloud. This performance can be measured for a specific volume, a specific volume container, or all volume containers.
 
-The chart below shows the IOs for your device for all the volumes for a production device. The metrics plotted are read and write Bytes/s, read and write IOs/s and read and write latencies.
+The chart below shows the IOs for initiator to your device for all the volumes for a production device. The metrics plotted are read and write Bytes/s, read and write IOs/s and read and write latencies.
 
 ![IO performance from initiator to device](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
-For the same device, the IOs are plotted for data from device to the cloud for all the volume containers. On this device, the data is only in the linear tier and nothing has spilled to the cloud. Consequently, the peaks in the chart are at an interval of 5 minutes that corresponds to the frequency at which the heartbeat is checked between the device and the service. 
+For the same device, the IOs are plotted for data from device to the cloud for all the volume containers. On this device, the data is only in the linear tier and nothing has spilled to the cloud. There are no read-write operations occurring from device to the cloud. Consequently, the peaks in the chart are at an interval of 5 minutes that corresponds to the frequency at which the heartbeat is checked between the device and the service. 
 
 ![IO performance from device to cloud](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
 
 
-For the same device, a cloud snapshot was taken which resulted in data flowing from device to the cloud. The IO chart shows a peak in the various metrics corresponding to the time when the snapshot was taken. 
+For the same device, a cloud snapshot was taken for volume data starting at 2:00 pm. This resulted in data flowing from device to the cloud. Reads-writes were served to the cloud in this duration. The IO chart shows a peak in the various metrics corresponding to the time when the snapshot was taken. 
 
 ![IO performance for device to cloud after cloud snapshot](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainers2M.png)
 
@@ -44,9 +44,6 @@ For the same device, a cloud snapshot was taken which resulted in data flowing f
 ## Capacity utilization 
 
 **Capacity utilization** tracks metrics related to the amount of data storage space that is used by the volumes, volume containers, or device. You can create reports based on the capacity utilization of your primary storage, your cloud storage, or your device storage. Capacity utilization can be measured on a specific volume, a specific volume container, or all volume containers.
-
-Use the capacity utilization charts in conjunction with the device dashboard. Both the device dashboard and the capacity utilization chart should be consistent. Be aware though that the chart in the device dashboard gets updated once a day whereas the charts created in the **Monitor** tab is up-to-date at any given time. 
-
 
 The primary, cloud and device storage capacity can be described as follows:
 
