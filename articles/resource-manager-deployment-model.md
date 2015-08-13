@@ -79,7 +79,7 @@ Resources created in the classic deployment model share the following characteri
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify Classic deployment (for Compute, Storage, and Networking).
+        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -114,7 +114,7 @@ You can move resources to a different resource group, and add new resources to a
 mix of resources created through Resource Manager and classic deployment. This combination of resources can create unexpected results because the resources 
 do not support the same operations.
 
-By using declarative templates, you might be able to simplify your scripts for deploymnet. Instead of attempting to convert existing scripts from Service Management to Resource Manager, consider re-working your deployment strategy to 
+By using declarative templates, you might be able to simplify your scripts for deployment. Instead of attempting to convert existing scripts from Service Management to Resource Manager, consider re-working your deployment strategy to 
 take advantage of defining your infrastructure and configuration in the template.
 
 ## Using tags
