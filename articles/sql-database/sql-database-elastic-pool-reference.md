@@ -41,13 +41,13 @@ An elastic database pool is a collection of elastic database throughput units (e
 
 - Each pool has a maximum number of databases and pool eDTUs:
 
-    | Service tier | *Max databases per pool | *Max eDTUs per pool |
+    | Service tier | Max databases per pool* | Max eDTUs per pool* |
     | :-- | :-- | :-- |
     | Basic | 200 | 1200 | 
     | Standard | 200 | 1200 |
     | Premium | 50 | 1500 |
 
-    ****Current limits for the number of pool eDTUs and number of databases per pool is expected to increase.***
+    ****The current limits for the number of databases per pool and number of pool eDTUs is expected to increase.***
 
 
 - Import of a database directly into a pool is not supported. You can import into a single database and then move the database into a pool. Export of a database from within a pool *is* supported.
