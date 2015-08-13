@@ -25,10 +25,17 @@ Now that you have set-up a SQL Data Warehouse instance you can easily load some 
 2. After the file has downloaded, extract the contents of the AdventureWorksPDW2012.zip file and open the new AdventureWorksPDW2012 folder. 
 
 3. Edit the aw_create.bat file and set the following values at the top of the file:
+
    a. **Server**: The fully qualified name of the server your SQL Data Warehouse resides on
+
    b. **User**: The user for the above server
+   
    c. **Password**: The password for the provided server log-in
-   d. **Database**: The name of the SQL Data Warehouse instance you wish to load data onto  
+   
+   d. **Database**: The name of the SQL Data Warehouse instance you wish to load data onto
+   
+   Ensure that there is no whitespace between the '=' and these parameters.
+   
 
 4. Run aw_create.bat from the directory in which it is located. This will create the schema and load data into all the tables using BCP.
 
