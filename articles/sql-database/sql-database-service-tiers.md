@@ -69,7 +69,7 @@ Premium tier is designed for mission-critical applications. It offers the best l
 
 
 | Service Tier | Premium P1 | Premium P2 | Premium P4 | Premium P6 (formerly P3) |
-| :-- | :-- | :-- | :-- |
+| :-- | :-- | :-- | :-- | :-- |
 | Database Throughput Units (DTUs) | 125 | 250 | 500 | 1000 |
 | Maximum Database Size | 500 GB | 500 GB | 500 GB | 500 GB |
 
