@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure Azure Backup Services to quickly and easily back up Windows Server | Microsoft Azure"
+	pageTitle="Manage Azure Backup vaults and servers | Microsoft Azure"
 	description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud."
 	services="backup"
 	documentationCenter=""
