@@ -3,7 +3,7 @@
     description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 1."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="07/15/2015"
-    ms.author="v-sharos" />
+    ms.date="08/12/2015"
+    ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1 release notes  
 

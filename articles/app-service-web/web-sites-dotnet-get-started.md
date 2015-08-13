@@ -40,11 +40,11 @@ You need an Azure account to complete this tutorial:
 * You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after the credits are used up you can keep the account and use free Azure services, such as App Service Web Apps.
 * You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
+> [AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 In this video, Scott Hanselman shows how easy it is to sign-up for a free trial of Microsoft Azure. (Duration: 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
-
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 [AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
@@ -76,9 +76,9 @@ The diagrams illustrate what you're doing in the create and deploy steps.
 
 	![New Project dialog box](./media/web-sites-dotnet-get-started/GS13newprojdb.png)
 
-5. In the **New ASP.NET Project** dialog box, select the **MVC** template. If you prefer to work with ASP.NET Web Forms, you can select the **Web Forms** template.
+5. In the **New ASP.NET Project** dialog box, select the **MVC** template.
 
-	[MVC and Web Forms](http://www.asp.net/get-started/websites) are ASP.NET frameworks for developing web apps. For this tutorial you can choose either one, but if you choose Web Forms, you'll have to edit *Default.aspx* later where the tutorial instructs you to edit *Index.cshtml*.
+	[MVC](http://www.asp.net/mvc) is an ASP.NET frameworks for developing web apps.
 
 7. Click **Change Authentication**.
 
@@ -182,7 +182,7 @@ The diagrams illustrate what you're doing in the create and deploy steps.
 
 	![Output window reporting successful deployment](./media/web-sites-dotnet-get-started/PublishOutput.png)
 
-	Upon successful deployment, the default browser automatically opens to the URL of the deployed web app, and the application that you created is now running in the cloud. The URL in the browser address bar shows that the web app is being loaded from the Internet.
+	Upon successful deployment, the default browser automatically opens to the URL of the deployed web app, and the application that you created is now running in the cloud. The URL in the browser address bar shows that the web app is loaded from the Internet.
 
 	![Web app running in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
