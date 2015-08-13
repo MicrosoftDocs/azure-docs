@@ -99,8 +99,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
-        ServiceSettingsDictionary settings = 
-            config.GetServiceSettingsProvider().GetServiceSettings();
+        MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
         
         // Get the Notification Hubs credentials for the Mobile App.
         string notificationHubName = settings.NotificationHubName;
