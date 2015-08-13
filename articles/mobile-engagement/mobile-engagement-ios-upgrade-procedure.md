@@ -27,13 +27,11 @@ If you are using Reach in your application, you must add `remote-notification` v
 
 The method `application:didReceiveRemoteNotification:` needs to be replaced by `application:didReceiveRemoteNotification:fetchCompletionHandler:` in your application delegate.
 
-"AEPushDelegate.h" is deprecated and you need to remove any references. This includes removing the delegate methods from your application delegate:
+"AEPushDelegate.h" is deprecated interface and you need to remove all references. This includes removing `[[EngagementAgent shared] setPushDelegate:self]` and the delegate methods from your application delegate:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
-
-and also removing the `[[EngagementAgent shared] setPushDelegate:self]` from your app delegate.
 
 ##From 1.16.0 to 2.0.0
 The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement.
