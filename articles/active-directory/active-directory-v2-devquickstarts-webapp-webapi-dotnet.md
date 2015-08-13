@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-# App Model v2.0 Preview: Calling a Web API from a .NET Web App
+# App model v2.0 preview: Calling a web API from a .NET web app
 
 > [AZURE.NOTE]
 	This information applies to the v2.0 endpoint public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
@@ -33,7 +33,7 @@ The basic steps to call the To-Do List Web API from the client are:
 
 1. Register an app
 2. Sign the user into the web app using OpenID Connect
-3. Use ADAL to get an access token upon user sign in
+3. Use ADAL to get an access token upon user sign-in
 4. Call the To-Do List Web API with an access token.
 
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet).  
@@ -46,7 +46,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## *1. Register an App*
+## 1. Register an App
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
@@ -55,7 +55,7 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or
 - Enter the correct **Redirect URI**. The redirect uri indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `https://localhost:44326/`.
 
 
-## *2. Sign the user in with OpenID Connect*
+## 2. Sign the user in with OpenID Connect
 Here, we'll configure the OWIN middleware to use the [OpenID Connect authentication protocol](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 -	To begin, open the `web.config` file in the root of the `TodoList-WebApp` project, and enter your app's configuration values in the `<appSettings>` section.
@@ -114,7 +114,7 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## *3. Use ADAL to get an access token upon user sign in*
+## 3. Use ADAL to get an access token upon user sign-in
 In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0 in tandem with OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) to redeem the authorization_code for an access token to the To-Do List Service.  ADAL can make this process easy for you:
 
 - First, install the preview version of ADAL:
@@ -143,7 +143,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## *4.	Call the To-Do List Web API*
+## 4. Call the To-Do List Web API
 Now it's time to actually use the access_token you acquired in step 3.  Open the web app's `Controllers\TodoListController.cs` file, which makes all the CRUD requests to the To-Do List API.
 
 - You can use ADAL again here to fetch access_tokens from the ADAL cache.  First, add a `using` statement for ADAL to this file.
@@ -200,6 +200,8 @@ catch (AdalException ee)
 Finally, build and run your app!  Sign in with either a Microsoft Account or an Azure AD Account, and notice how the user's identity is reflected in the top navigation bar.  Add and delete some items from the user's To-Do List to see the OAuth 2.0 secured API calls in action.  You now have a web app & web API, both secured using industry standard protocols, that can authenticate users with both their personal and work/school accounts.
 
 For reference, the completed sample (without your configuration values) [is provided here](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip).  
+
+## Next Steps
 
 For additional resources, check out:
 - [The App Model v2.0 Preview >>](active-directory-appmodel-v2-overview.md)
