@@ -33,8 +33,8 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
 To complete this tutorial, you need the following:
 
 * An active [Microsoft Store account](http://go.microsoft.com/fwlink/p/?LinkId=280045).
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
 * Complete the [quickstart tutorial](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
-
 
 ##<a name="review"></a>Review your server project configuration (optional)
 
@@ -99,8 +99,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
-        ServiceSettingsDictionary settings = 
-            config.GetServiceSettingsProvider().GetServiceSettings();
+        MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
         
         // Get the Notification Hubs credentials for the Mobile App.
         string notificationHubName = settings.NotificationHubName;
@@ -113,7 +112,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 		// Define a WNS payload
 		var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" 
-			+ item.Text + @"</text></binding></visual></toast>";
+                                + item.Text + @"</text></binding></visual></toast>";
 
         try
         {
@@ -139,9 +138,18 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 ##<a id="update-service"></a>Add push notifications to your app
 
-1. In Visual Studio, open the shared **App.xaml.cs** project file and add the following `using` statements:
+1. In Visual Studio, right-click the solution, then click **Manage NuGet Packages**. 
 
-        using Windows.Networking.PushNotifications;         
+    This displays the Manage NuGet Packages dialog box.
+
+2. Search for the App Service Mobile App client SDK for managed and click **Install**, select all client projects in the solution, and accept the terms of use. 
+
+    This downloads, installs, and adds a reference in all client projects to the Azure Mobile Push library for Windows. 
+
+3. Open the shared **App.xaml.cs** project file and add the following `using` statements:
+
+        using Windows.Networking.PushNotifications;
+        using Microsoft.WindowsAzure.MobileServices;         
 
 4. In the same file, add the following **InitNotificationsAsync** method definition to the **App** class:
     
