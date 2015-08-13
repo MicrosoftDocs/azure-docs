@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/03/2015"
+	ms.date="08/13/2015"
 	ms.author="bwren"/>
 
 
@@ -32,7 +32,7 @@ To complete this tutorial, you will need the following.
 - Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-trial/" target="_blank">[sign up for a free trial](http://azure.microsoft.com/pricing/free-trial/).
 - [Automation account](http://azure.microsoft.com/documentation/articles/automation-configuring/) to hold the runbook.
 - An Azure virtual machine.  We will stop and start this machine so it should not be production.
-- [Azure Active Directory user and Credential asset](http://azure.microsoft.com/documentation/articles/automation-configuring/) to authenticate to Azure resources.  This user must have permission to start and stop the virtual machine.
+- [Azure Active Directory user and Automation Credential asset](http://azure.microsoft.com/documentation/articles/automation-configuring/) to authenticate to Azure resources.  This user must have permission to start and stop the virtual machine.
 
 ## Step 1 - Create new runbook
 
