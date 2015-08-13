@@ -57,7 +57,7 @@ Access does not need to be granted to the entire subscription. Roles can also be
 Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
 However, the new RBAC model is supported only by the Azure portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management Portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure portal does not make that user a co-administrator of the subscription in the full Azure portal.
 
-If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure portal, you should add them to the subscription co-administrators using the Azure Management Portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
+If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure portal, you should add them to the subscription co-administrators using the Azure Management Portal. Service Bus and StorSimple are examples of resources that cannot be managed by using RBAC today.
 
 ## Authorization for management versus data operations
 

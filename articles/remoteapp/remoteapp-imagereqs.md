@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp image requirements"
     description="Learn about the requirements for creating images to be used with Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -42,3 +42,4 @@ The requirements for the image that can be uploaded for use with Azure RemoteApp
 - The image must be SYSPREPed using the parameters **/oobe /generalize /shutdown** (DO NOT use the **/mode:vm** parameter).
 - Uploading your VHD from a snapshot chain is not supported.
  
+See [Create an Azure RemoteApp image](remoteapp-imageoptions.md) for more information about creating images for Azure RemoteApp.
