@@ -75,12 +75,12 @@ Azure DocumentDB exposes resources through a REST API that can be called by any 
 
 Download | Documentation
 --- | ---
-[.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) | [.NET Library](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Node.js Library](http://dl.windowsazure.com/documentDB/nodedocs/)
-[Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) | [Java Library](http://dl.windowsazure.com/documentdb/javadoc/)
-[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [JavaScript Library]()
+[.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) | [.NET library](https://msdn.microsoft.com/library/azure/dn948556.aspx)
+[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Node.js library](http://dl.windowsazure.com/documentDB/nodedocs/)
+[Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) | [Java library](http://dl.windowsazure.com/documentdb/javadoc/)
+[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [JavaScript library](http://dl.windowsazure.com/documentDB/jsclientdocs/)
 n/a | [Server-side JavaScript SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/)
-[Python SDK](http://go.microsoft.com/fwlink/?LinkID=402992) | [Python Library](http://dl.windowsazure.com/documentDB/pythondocs/)
+[Python SDK](https://pypi.python.org/pypi/pydocumentdb) | [Python library](http://dl.windowsazure.com/documentDB/pythondocs/)
 
 Beyond basic Create, Read, Update and Delete operations, Azure DocumentDB provides a rich SQL query interface for retrieving JSON documents and server side support for transactional execution of JavaScript application logic. The query and script execution interfaces are available through all platform libraries as well as the REST APIs. 
 
@@ -89,7 +89,7 @@ Azure DocumentDB supports querying documents using a SQL language, which is root
 
 User Defined Functions (UDFs) can be registered with DocumentDB and referenced as part of a SQL query, thereby extending the grammar to support custom application logic. These UDFs are written as JavaScript programs and executed within the database. 
 
-For .NET developers, DocumentDB also offers a LINQ query provider as part of the [.NET SDK](). 
+For .NET developers, DocumentDB also offers a LINQ query provider as part of the [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx). 
 
 ### Transactions and JavaScript Execution
 DocumentDB allows you to write application logic as named programs written entirely in JavaScript. These programs are registered for a collection and can issue database operations on the documents within a given collection. JavaScript can be registered for execution as a trigger, stored procedure or user defined function. Triggers and stored procedures can create, read, update, and delete documents whereas user defined functions execute as part of the query execution logic without write access to the collection.
@@ -102,8 +102,8 @@ If you already have an Azure account, you can get started with DocumentDB in the
 If you don't have an Azure account, you can:
 
 - Sign up for an [Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. 
-- If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?WT.mc_id=azurebg_US_sem_bing_BR_BRMSDN_Nontest_MSDN_msdnazure&WT.srch=1) to use on any Azure service. 
-- Or, if you would like to try DocumentDB free for 30 days, with no credit card required, send an email to askdocdb@microsoft.com with a subject line of Documentation Introduction, Azure Trial and we’ll respond with a promo code while supplies last.
+- If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
+- Or, if you would like to try DocumentDB free for 30 days, with no credit card required, send an email to askdocdb@microsoft.com with a subject line of "Documentation Introduction, Azure Trial" and we’ll respond with a promo code while supplies last.
 
 Then, when you're ready to learn more, visit our [learning path](http://azure.microsoft.com/documentation/learning-paths/documentdb/) to navigate all the learning resources available to you. 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -48,7 +48,7 @@ DocumentDB accounts can be scaled in terms of storage and throughput by adding c
 Please refer to the [DocumentDB pricing details](http://go.microsoft.com/fwlink/p/?LinkID=402317) page for details. DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the [performance level](documentdb-performance-levels.md) of each collection. 
 
 ### Is there a free trial available?
-If you are new to Azure, you can sign up for an [Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?WT.mc_id=azurebg_US_sem_bing_BR_BRMSDN_Nontest_MSDN_msdnazure&WT.srch=1) to use on any Azure service. If you would like to try DocumentDB free for 30 days, with no credit card required, send an email to askdocdb@microsoft.com with a subject line of Documentation FAQ, Azure Trial and we’ll respond with a promo code while supplies last. 
+If you are new to Azure, you can sign up for an [Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. If you would like to try DocumentDB free for 30 days, with no credit card required, send an email to askdocdb@microsoft.com with a subject line of "Documentation FAQ, Azure Trial" and we’ll respond with a promo code while supplies last. 
 
 ### How can I get additional help with DocumentDB?
 If you need any help, please reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), the [Azure DocumentDB MSDN Developer Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), or schedule a [1:1 chat with the DocumentDB engineering team](http://www.askdocdb.com/). To stay up to date on the latest DocumentDB news and features, follow us on [Twitter](https://twitter.com/DocumentDB).
