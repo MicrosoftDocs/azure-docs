@@ -23,9 +23,9 @@ In this article you'll find an overview of the backup management tasks available
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **Recovery Services**, then click the name of backup vault to view the Quick Start page.
 
-  By selecting the options at the top of the Quick Start page, you can see the available the management tasks for each category.
+    By selecting the options at the top of the Quick Start page, you can see the available the management tasks for each category.
 
-  ![Protected items](./media/backup-azure-manage-windows-server/RS_tabs.png)
+    ![Protected items](./media/backup-azure-manage-windows-server/RS_tabs.png)
 
 ## Dashboard
 Click **Dashboard** to see the usage overview for the server. At the bottom of the Dashboard you can perform the following tasks:
