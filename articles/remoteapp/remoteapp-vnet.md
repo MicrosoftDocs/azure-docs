@@ -3,7 +3,7 @@
     pageTitle="Validate the Azure VNET to use with Azure RemoteApp"
     description="Learn how to make sure your Azure VNET is ready to use with Azure RemoteApp"
     services="remoteapp"
-    solutions="" documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/02/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
 # Validate the Azure VNET to use with Azure RemoteApp
 
-Before you use an Azure VNET with Azure RemoteApp, you might want to validate the VNET. This helps prevent issues with Azure RemoteApp connectivity.
+Before you use an Azure VNET with Azure RemoteApp, you might want to validate the VNET. This helps prevent issues with connectivity.
 
 To validate your Azure VNET, do the following:
 

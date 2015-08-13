@@ -2,8 +2,7 @@
     pageTitle="Using redirection in Azure RemoteApp" 
     description="Learn how to configure and use redirection in RemoteApp" 
     services="remoteapp" 
-    solutions="" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
