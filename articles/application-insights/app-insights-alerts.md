@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Set Alerts in Application Insights
@@ -44,9 +44,11 @@ Be careful to note the units in which you're asked to enter the threshold value.
 
 ## See your alerts
 
-Alerts are emailed to you. 
+You get an email when an alert changes state between inactive and active. 
 
-They also appear in the Operations Events log:
+The current state of each alert is shown in the Alert rules blade.
+
+The history of state changes is in the Operations Events log:
 
 ![On the Overview blade, near the bottom, click 'Events in the past week'](./media/app-insights-alerts/09-alerts.png)
 
