@@ -27,7 +27,7 @@
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and how to send push notifications to segmented users of an Android application.
-This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM). When you have completed this tutorial, you will be able to broadcast push notifications to all the devices or target-specific users based on their devices properties. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
+This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM). When you have completed this tutorial, you will be able to broadcast push notifications to all the devices or target-specific users based on their devices' properties. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
 
 
 This tutorial requires the following:
@@ -59,7 +59,7 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 
 	1. **Application Name**: You can type the name of your application. Feel free to use any character.
 	2. **Platform**: Select the target platform for that app (if your app targets multiple platforms, repeat this tutorial for each platform).
-	3. **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. We advise that you use only conventional URL characters: The auto generated name should provide you a strong basis. We also advise appending the platform name to avoid any name clash because this name must be unique.
+	3. **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. We advise that you use only conventional URL characters: The auto-generated name should provide you a strong basis. We also advise appending the platform name to avoid any name clash because this name must be unique.
 	4. **Location**: Select the datacenter where this app (and more importantly its Collection - see below) will be hosted.
 	5. **Collection**: If you have already created an application, select a previously created Collection; otherwise select **New Collection**.
 	6. **Collection Name**: This represents your group of applications. It will also ensure all your apps are in a group that allows aggregated calculations. We strongly advise that you use your company name or department.
@@ -70,7 +70,7 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 
    ![][9]
 
-5. Then click **Connection Info** in order to display the connection settings to put into your SDK integration.
+5. Then click **Connection Info** in order to display the **Connection** settings to put into your SDK integration.
 
    ![][10]
 
@@ -78,11 +78,11 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 
    ![][11]
 
-	>[AZURE.TIP] You can use the **Copy** icon on the right of the Connection String to copy it to the Clipboard as a convenience.
+	>[AZURE.TIP] You can use the **Copy** icon on the right of the **Connection String** to copy it to the Clipboard as a convenience.
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
-This tutorial presents a "basic integration" which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Android SDK documentation].
+This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Android SDK documentation].
 
 We will create a basic app with Android Studio to demonstrate the integration.
 
@@ -90,7 +90,7 @@ We will create a basic app with Android Studio to demonstrate the integration.
 
 You can skip this step if you already have an app and are familiar with Android development.
 
-1. Start Android Studio, and in the pop-up, select **Start a new Android Studio project**.
+1. Start **Android Studio**, and in the pop-up, select **Start a new Android Studio project**.
 
    ![][12]
 
@@ -103,7 +103,7 @@ You can skip this step if you already have an app and are familiar with Android 
 
    ![][14]
 
-4. We'll now add an Activity to our simple app, which will be its main and only screen. Make sure **Blank Activity** is selected and click **Next**.
+4. We'll now add an activity to our simple app, which will be its main and only screen. Make sure **Blank Activity** is selected, and then lick **Next**.
 
    ![][15]
 
@@ -134,7 +134,7 @@ Download and integrate the SDK library
 
 ###Connect your app to Mobile Engagement backend with the Connection String
 
-1. Copy the following lines of code into the Activity creation (must be done only in one place of your application, usually the main activity).
+1. Copy the following lines of code into the activity creation (must be done only in one place of your application, usually the main activity).
 
 		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 		engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -148,11 +148,11 @@ Download and integrate the SDK library
 
 		engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
-4. EngagementConfiguration and EngagementAgent will probably show as unresolved (in red in the code). Click each of the unresolved classes and press Alt+Enter to automatically resolve them.
+4. **EngagementConfiguration** and **EngagementAgent** will probably show as unresolved (in red in the code). Click each of the unresolved classes, and then press Alt+Enter to automatically resolve them.
 
 	![][20]
 
-###Add permissions and Service declaration
+###Add permissions and a Service declaration
 
 1. Add these permissions to the Manifest.xml of your project immediately before or after the `<application>` tag:
 
@@ -188,7 +188,7 @@ In order to to that, replace the super class of **MainActivity**, which is befor
 
 ##<a id="monitor"></a>Check that your app is connected with real-time monitoring
 
-This section shows you how to make sure that your app connects to the Mobile Engagement backend by using Mobile Engagement's real-time monitoring feature.
+This section shows you how to make sure that your app connects to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature.
 
 1. Navigate to your Mobile Engagement portal.
 
@@ -213,7 +213,7 @@ This section shows you how to make sure that your app connects to the Mobile Eng
 
 ##<a id="integrate-push"></a>Enable push notifications and in-app messaging
 
-Mobile Engagement allows you to interact and REACH with your users with push notifications and in-app messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
+Mobile Engagement allows you to interact with and REACH your users with push notifications and in-app messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
 The following sections sets up your app to receive them.
 
 ### Enable in-app messaging
@@ -277,7 +277,7 @@ The following code defines the icon that is used to be displayed both in app and
 
 Although this is optional for in-app notifications, it is mandatory for system notifications. Android rejects system notifications with invalid icons.
 
-This xml snippet is to be pasted into your Manifest.xml between the `<application>` and `</application>` tags.
+This XML snippet is to be pasted into your Manifest.xml between the `<application>` and `</application>` tags.
 
 Make sure you are using an icon that exists in one of the **drawable** folders (like ``engagement_close.png``). We don't support **mipmap** folders.
 
@@ -285,14 +285,14 @@ Make sure you are using an icon that exists in one of the **drawable** folders (
 
 It's just an example to show the syntax. You should of course use an icon that is suitable for notifications per [Android design guidelines](http://developer.android.com/design/patterns/notifications.html).
 
-You should not use the **launcher** icon. It's a different resolution and is usually in the mipmap folders, which we don't support.
+You should not use the **launcher** icon. It has a different resolution and is usually in the mipmap folders, which we don't support.
 
 >[AZURE.TIP] To be sure to use correct icon resolutions, you can look at [those examples](https://www.google.com/design/icons).
-Scroll down to the *Notification* section, click an icon, and then click `PNGS` to download the icon drawable set. You can see what drawable folders to use with which resolution for each version of the icon.
+Scroll down to the **Notification** section, click an icon, and then click `PNGS` to download the icon drawable set. You can see what drawable folders with which resolution to use for each version of the icon.
 
 ###Enable your app to receive GCM push notifications
 
-1. Enter your gcm:sender metadata and copy and paste the following into your Manifest.xml between the `<application>` and `</application>` tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console. The '\n' is intentional so make sure that you end the project number with it.
+1. Enter your gcm:sender metadata and copy and paste the following into your Manifest.xml between the `<application>` and `</application>` tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console. The \n is intentional so make sure that you end the project number with it.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
