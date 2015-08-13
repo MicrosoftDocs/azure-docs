@@ -82,29 +82,43 @@ Before you can send push notifications to your Windows apps from Azure, you must
 
 Your Mobile App backend is now configured to work with WNS.
 
-##<a id="update-service"></a>Update the service to send push notifications
+##<a id="update-service"></a>Update the server to send push notifications
 
-Now that push notifications are enabled in the app, you must update your app backend to send push notifications. Note that because push notifications are enabled by default in the quickstart project, you do not have to add the NuGet package for push notifications or enable it in the configuration.
+Now that push notifications are enabled in the app, you must update your app backend to send push notifications. 
 
-1. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statement:
+1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs client library.
 
-		using Microsoft.Azure.Mobile.Server.Notifications;
+3. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statement:
+
+		using System.Collections.Generic;
+		using Microsoft.Azure.NotificationHubs;
+		using Microsoft.Azure.Mobile.Server.Config;
+	
 
 2. In the **PostTodoItem** method, add the following code after the call to **InsertAsync**:  
 
-        // Get the configuration settings for the server project
+        // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
+        ServiceSettingsDictionary settings = 
+            config.GetServiceSettingsProvider().GetServiceSettings();
+        
+        // Get the Notification Hubs credentials for the Mobile App.
+        string notificationHubName = settings.NotificationHubName;
+        string notificationHubConnection = settings
+            .Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-        // Define a WNS message and payload.           
-        WindowsPushMessage message = new WindowsPushMessage();
-        message.XmlPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
-                             + item.Text + @"</text></binding></visual></toast>";
+        // Create a new Notification Hub client.
+        NotificationHubClient hub = NotificationHubClient
+        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+
+		// Define a WNS payload
+		var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" 
+			+ item.Text + @"</text></binding></visual></toast>";
+
         try
         {
-            // Create a new client for push notifications using the configured 
-            // notification hub and send the message.
-            var client = new PushClient(config);
-            var result = await client.SendAsync(message);
+			// Send the push notification and log the results.
+            var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
             // Write the success result to the logs.
             config.Services.GetTraceWriter().Info(result.State.ToString());
@@ -116,7 +130,7 @@ Now that push notifications are enabled in the app, you must update your app bac
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    This code tells the notification hub used by the Mobile App backend to send a push notification after a new item is insertion.
+    This code tells the notification hub to send a push notification after a new item is insertion.
 
 
 ## <a name="publish-the-service"></a>Publish the mobile backend to Azure
