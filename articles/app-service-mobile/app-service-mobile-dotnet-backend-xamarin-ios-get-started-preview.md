@@ -51,7 +51,7 @@ To complete this tutorial, you need the following:
 
 1. On your PC, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps**, then click the Mobile App backend that you just created.
 
-2. In the Mobile App blade, click **Settings** and under **Mobile App** click **Quickstart** > **Xamarin.Android**.
+2. In the Mobile App blade, click **Settings** and under **Mobile App** click **Quickstart** > **Xamarin.iOS**.
  
 3. Under **Download and run your server project**, click **Download**. Extract the compressed project files to your PC, and open the solution in Visual Studio.
  
@@ -89,6 +89,13 @@ To complete this tutorial, you need the following:
 
 >[AZURE.NOTE]You can review the code that accesses your mobile app backend to query and insert data in the QSTodoService.cs C# file.
 
+##Next steps
+
+* [Add authentication to your app ](app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md)
+  <br/>Learn how to authenticate users of your app with an identity provider.
+
+* [Add push notifications to your app](app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md)
+  <br/>Learn how to send a very basic push notification to your app.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started
