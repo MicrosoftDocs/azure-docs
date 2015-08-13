@@ -68,28 +68,60 @@ The following NuGet-based extension packages provide various mobile features tha
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/)  
 	Creates a controller that serves data to legacy web browsers from your Mobile App. Add to the configuration by calling the **MapLegacyCrossDomainController** extension method.
 
-## How to: Define a table controller
-
-You define a table controller by doing the following:
-
-
-
-
 ## How to: Define a custom API controller
 
-The API controller provides the most basic functionality to your Mobile App backend. You do not need to add any extensions during initialization. You define a custom API controller by applying the **MobileAppControllerAttribute** to a controller class that inherits from **ApiController**, as in the following example:
+The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. The Custom API controller 
 
-	    [MobileAppController] 
-	    public class TestController : ApiController
-	       {
-	              //...
-	       }
+1. In Visual Studio, right-click the Controllers folder, then click **Add** > **Controller**, select **Web API 2 Controller&mdash;Empty** and click **Add**.
 
-Any controllers that do not have **MobileAppControllerAttribute** will not be considered part of your Mobile App backend.
+2. Supply a **Controller name**, such as `CustomController`, and click **Add**. This creates a new **CustomController** class that inherits from **ApiController**.   
+
+3. In the new controller class file, add the following using statement:
+
+		using Microsoft.Azure.Mobile.Server.Config;
+
+4. Apply the **MobileAppControllerAttribute** to the API controller class definition, as in the following example:
+
+		[MobileAppController] 
+		public class CustomController : ApiController
+		{
+		      //...
+		}
+
+4. Browse to the App_Startup folder, open the WebApiConfig.cs project file and add a call to the  **MapApiControllers** extension method, as in the following example:
+
+		new MobileAppConfiguration()
+		    .MapApiControllers()
+		    .ApplyTo(config);
+
+	Note that you do not need to call **MapApiControllers** when you call **UseDefaultConfiguration**, which initializes all features. 
+
+Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it will not be correctly consumed by clients using any Mobile App client SDK. 
+
+## How to: Define a table controller
+
+A table controller provides access to entity data in a table-based data store, such as SQL Database or Azure Table storage. Table controllers inherit from the **TableController** generic class, where the generic type is an entity in the model that represents the table schema. 
+
+1. In Visual Studio, right-click the Controllers folder, then click **Add** > **Controller**, select **Web API 2 Controller with Read/Write Actions** and click **Add**.
+
+:
+
+	public class TodoItemController : TableController<TodoItem>
+    {  
+		//...
+	}
+
+Table controllers are initialized by using the **AddTables** extension method. The following example initializes a table controller that uses Entity Framework for data access:
+
+    new MobileAppConfiguration().AddTables(
+        new MobileAppTableConfiguration()
+        .MapTableControllers()
+        .AddEntityFramework()).ApplyTo(config);
+ 
 
 ## How to: Add authentication to a server project
 
-You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. Note, that if you have installed the [Microsoft.Azure.Mobile.Server.Quickstart] package, no additional action is needed. These configurations have already been completed for you.
+You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip to step 4.
 
 1. In Visual Studio, install the [Microsoft.Azure.Mobile.Server.Authentication] package. 
 
@@ -100,7 +132,7 @@ You can add authentication to your server project by extending the **MobileAppCo
 			.AddAppServiceAuthentication()
 			.ApplyTo(config);
 
-3. In the Startup.cs project file, add the following line of code at the beginning of the **Configuration** method:
+3. In the Startup.cs project file,aAdd the following line of code at the beginning of the **Configuration** method:
 
 		app.UseMobileAppAuthentication(config);
 
@@ -108,7 +140,37 @@ You can add authentication to your server project by extending the **MobileAppCo
 
 4. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that endpoint or those a specific APIs.
 
+To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md).
+
 ## How to: Add push notifications to a server project
+
+You can add push notifications to your server project by extending the **MobileAppConfiguration** object and creating a Notification Hubs client. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip down to step 3.
+
+1. In Visual Studio, install the [Microsoft.Azure.Mobile.Server.Notifications] package. 
+
+2. Browse to the App_Startup folder, open the WebApiConfig.cs project file and add a call to the **AddPushNotifications** extension method during initialization, which looks like the following:
+
+		new MobileAppConfiguration()
+			// other features...
+			.AddPushNotifications()
+			.ApplyTo(config);
+
+3. In a controller from which you want to send push notifications, add the following using statement:
+
+		using System.Collections.Generic;
+		using Microsoft.Azure.NotificationHubs;
+
+4. Add the following code that creates a Notification Hubs client:
+
+		// Get the Notification Hubs credentials for the Mobile App.
+		string notificationHubName = this.Services.Settings.NotificationHubName;
+		string notificationHubConnection = this.Services.Settings
+			.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
+		
+		// Create the Notification Hub client.
+		NotificationHubClient Hub = NotificationHubClient
+		.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+
 
 ## How to: Publishing the server project
 
