@@ -1319,30 +1319,30 @@ DocumentDB also supports a number of built-in functions for common operations, t
 
 <table>
 <tr>
-<td>Mathematical Functions</td>	
+<td>[Mathematical functions](#mathematical)</td>	
 <td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, and TAN</td>
 </tr>
 <tr>
-<td>Type checking functions</td>	
+<td>[Type checking functions](#type-checking)</td>	
 <td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, and IS_PRIMITIVE</td>
 </tr>
 <tr>
-<td>String functions</td>	
+<td>[String functions](#string)</td>	
 <td>CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, and UPPER</td>
 </tr>
 <tr>
-<td>Array functions</td>	
+<td>[Array functions](#array)</td>	
 <td>ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, and ARRAY_SLICE</td>
 </tr>
 <tr>
-<td>Spatial functions</td>	
+<td>[Spatial functions](#spatial)</td>	
 <td>ST_DISTANCE, ST_WITHIN, ST_ISVALID, and ST_ISVALIDDETAILED</td>
 </tr>
 </table>  
 
 If you’re currently using a user defined function (UDF) for which a built-in function is now available, you should use the corresponding built-in function as it is going to be quicker to run and more efficiently. 
 
-###Mathematical functions
+###<a name="mathematical"></a>Mathematical functions
 The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value. Here’s a table of supported built-in mathematical functions.
 
 <table>
@@ -1458,7 +1458,7 @@ For example, you can now run queries like the following:
 
 The main difference between DocumentDB’s functions compared to ANSI SQL is that they are designed to work well with schema-less and mixed schema data. For example, if you have a document where the Size property is missing, or has a non-numeric value like “unknown”, then the document is skipped over, instead of returning an error.
 
-###Type checking Functions
+###<a name="type-checking"></a>Type checking Functions
 The type checking functions allow you to check the type of an expression within SQL queries. Type checking functions can be used to determine the type of properties within documents on the fly when it is variable or unknown. Here’s a table of supported built-in type checking functions.
 
 <table>
@@ -1511,7 +1511,7 @@ Using these functions, you can now run queries like the following:
 
     [true]
 
-###String Functions
+###<a name="string"></a>String Functions
 The following scalar functions perform an operation on a string input value and return a string, numeric or Boolean value. Here's a table of built-in string functions:
 
 Usage|Description
@@ -1581,7 +1581,7 @@ String functions can also be used in the WHERE clause to filter results, like in
       "city": "NY"
     }]
 
-###Array Functions
+###<a name="array"></a>Array Functions
 The following scalar functions perform an operation on an array input value and return numeric, Boolean or array value. Here's a table of built-in array functions:
 
 Usage|Description
@@ -1625,7 +1625,7 @@ Here's another example that uses ARRAY_LENGTH to get the number of children per 
 
 That wraps up built-in functions, and the SQL grammar for DocumentDB. Now let's take a look at how LINQ querying works and how it interacts with the grammar we've seen so far.
 
-###Spatial Functions
+###<a name="spatial"></a>Spatial Functions
 
 DocumentDB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more details on geospatial support in DocumentDB, please see [Working with geospatial data in Azure DocumentDB](documentdb-geospatial.md). 
 
