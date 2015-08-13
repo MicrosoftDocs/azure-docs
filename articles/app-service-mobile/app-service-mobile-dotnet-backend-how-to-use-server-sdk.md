@@ -154,7 +154,7 @@ You can add push notifications to your server project by extending the **MobileA
 			.AddPushNotifications()
 			.ApplyTo(config);
 
-	This creates the push notification registration endpoint in your server project. Now you need to add the Notification Hub client that is used to send notifications.
+	This creates the push notification registration endpoint in your server project. This endpoint is used by clients to register with the associated notification hub. Now you need to add the Notification Hub client that is used to send notifications.
 
 3. In a controller from which you want to send push notifications, add the following using statement:
 
@@ -177,7 +177,7 @@ You can add push notifications to your server project by extending the **MobileA
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-At this point, you can send native notifications to a specific client. For more information, see [Add push notifications to your app](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). For more information about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
+At this point, you can use the Notification Hubs client to send push notifications to registered devices. For more information, see [Add push notifications to your app](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
 
 ## How to: Publishing the server project
 
