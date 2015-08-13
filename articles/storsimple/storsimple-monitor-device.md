@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to monitor your StorSimple device 
@@ -27,7 +27,7 @@ To view the monitoring information for a specific device, in the Management Port
 
 **I/O performance** tracks metrics related to the number of read and write operations between either the iSCSI initiator interfaces on the host server and the device or the device and the cloud. This performance can be measured for a specific volume, a specific volume container, or all volume containers.
 
-The chart below shows the IOs for initiator to your device for all the volumes for a production device. The metrics plotted are read and write Bytes/s, read and write IOs/s and read and write latencies.
+The chart below shows the IOs for initiator to your device for all the volumes for a production device. The metrics plotted are read and write Bytes/s, read and write IO Operations/s and read and write latencies.
 
 ![IO performance from initiator to device](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
@@ -66,7 +66,7 @@ The primary, cloud and device storage capacity can be described as follows:
 
 	Over time, primary capacity utilization and device capacity utilization will most likely increase together until the data begins to be tiered to the cloud. At that point, the device capacity utilization will probably begin to plateau, but the primary capacity utilization will increase as more data is written.
 
-	Following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken. The cloud snapshot started at 2:00 pm and the device capacity utilization started decreasing at that time. The device storage capacity utilization went down from 11.58 GB to 7.48 GB. This indicates that most likely the unencrypted and uncompressed data got deduped and compressed.
+	Following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken. The cloud snapshot started at 2:00 pm and the device capacity utilization started decreasing at that time. The device storage capacity utilization went down from 11.58 GB to 7.48 GB. This indicates that most likely the uncompressed data in the linear SSD tier got deduped, compressed and moved into the HDD tier. Note that if the device already has a large amount of data in both the SSD and HDD tiers, you may not see this decrease. In this case, the device has a small amount of data.
 
 	![Device capacity utilization before cloud snapshot](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)
 
@@ -77,7 +77,7 @@ The primary, cloud and device storage capacity can be described as follows:
 
 **Network throughput** tracks metrics related to the amount of data transferred from the iSCSI initiator network interfaces on the host server and the device and between the device and the cloud. You can monitor this metric for each of the iSCSI network interfaces on your device.
 
-The charts below show the network throughput for the Data 0 and Data 4, both 1 GbE network interfaces on your device. In this instance, Data 0 was cloud-enabled whereas Data 4 was iSCSI-enabled. You can see both the inbound and the outbound traffic for your StorSimple device.
+The charts below show the network throughput for the Data 0 and Data 4, both 1 GbE network interfaces on your device. In this instance, Data 0 was cloud-enabled whereas Data 4 was iSCSI-enabled. You can see both the inbound and the outbound traffic for your StorSimple device. Note that the flat line in the chart starting from 3:24 pm is owing to the fact that we gather data only every 5 minutes and should be ignored. 
 
 ![Network throughput for Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data0M.png)
 
