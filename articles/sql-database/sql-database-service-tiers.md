@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="shkurhek"/>
 
 # Service Tiers
@@ -68,16 +68,16 @@ Premium tier is designed for mission-critical applications. It offers the best l
 **Performance & Size**
 
 
-| Service Tier | Premium P1 | Premium P2 | Premium P6 (formerly P3) |
+| Service Tier | Premium P1 | Premium P2 | Premium P4 | Premium P6 (formerly P3) |
 | :-- | :-- | :-- | :-- |
-| Database Throughput Units (DTUs) | 125 | 250 | 1000 |
-| Maximum Database Size | 500 GB | 500 GB | 500 GB |
+| Database Throughput Units (DTUs) | 125 | 250 | 500 | 1000 |
+| Maximum Database Size | 500 GB | 500 GB | 500 GB | 500 GB |
 
 
 **Features**
 
 
-| Service Tier | Premium (P1, P2, P6) |
+| Service Tier | Premium (P1, P2, P4, P6) |
 | :-- | :-- |
 | Point-in-time Restore (PITR) | Up to millisecond within last 35 days |
 | Disaster Recovery | Active geo-replication, up to 4 online readable secondaries |
