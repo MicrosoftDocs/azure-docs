@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="13/08/2015"
+   ms.date="08/13/2015"
    ms.author="telmos" />
 
 # What is a Network Security Group (NSG)?
