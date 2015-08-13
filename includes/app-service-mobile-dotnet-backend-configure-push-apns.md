@@ -1,33 +1,48 @@
 1. In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**. At the top of the file, add the following `using` statement:
 
-```
+
         using Microsoft.Azure.Mobile.Server.Notifications;
-```
+        using Microsoft.Azure.Mobile.Server.Config;
+
 
 2. Replace the `PostTodoItem` method with the following code:  
 
-```        
+      
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
+            // Get the settings for the server project.
+            HttpConfiguration config = this.Configuration;
 
-           HttpConfiguration config = this.Configuration;
+            MobileAppSettingsDictionary settings = 
+                this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-           ApplePushMessage message = new ApplePushMessage(item.Text, System.TimeSpan.FromHours(1));
+            // Get the Notification Hubs credentials for the Mobile App.
+            string notificationHubName = settings.NotificationHubName;
+            string notificationHubConnection = settings
+                .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
+
+            // Create a new Notification Hub client.
+            NotificationHubClient hub = NotificationHubClient
+            .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+
+            // iOS payload
+            var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
 
             try
             {
-                var client = new PushClient(config);
-                var result = await client.SendAsync(message);
+                // Send the push notification and log the results.
+                var result = await hub.SendWindowsNativeNotificationAsync(appleNotificationPayload);
 
-                ServiceSettingsDictionary settings = config.GetServiceSettingsProvider().GetServiceSettings();
+                // Write the success result to the logs.
                 config.Services.GetTraceWriter().Info(result.State.ToString());
             }
             catch (System.Exception ex)
             {
-                config.Services.GetTraceWriter().Error(ex.Message, null, "Push.SendAsync Error");
+                // Write the failure result to the logs.
+                config.Services.GetTraceWriter()
+                    .Error(ex.Message, null, "Push.SendAsync Error");
             }
-
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
-```
+
