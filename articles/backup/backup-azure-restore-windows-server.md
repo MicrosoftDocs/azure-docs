@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restore  data to a Windows Server or Windows Client from Azure" | Microsoft Azure
+   pageTitle="Restore  data to a Windows Server or Windows Client from Azure | Microsoft Azure"
    description="Learn how to restore from a Windows Server or Windows Client."
    services="backup"
    documentationCenter=""
@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="08/12/2015"
+	 ms.date="08/13/2015"
 	 ms.author="jimpark"; "aashishr"/>
 
 # Restore files to a Windows server or Windows client machine
