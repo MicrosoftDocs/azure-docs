@@ -110,13 +110,15 @@ The storage limit of the pool is determined by the amount of eDTUs of the pool.
 
 | property | Basic | Standard | Premium |
 | :-- | :-- | :-- | :-- |
-| Dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
+| dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
 | databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
-| DatabaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
+| databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
 | storageMB* | **10000 MB**, 20000 MB, 40000 MB, 80000 MB, 120000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1200 GB | **62.5 GB**, 125 GB, 250 GB, 500 GB, 750 GB |
 | storage per DTU | 100 MB | 1 GB | .5 GB |
+| max databases per pool | 200 | 200 | 50 |
 
 Default values are **bold**.
+
 *units in API are MB, not GB.
 
 
