@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
-#Use SSH with Linux-based Hadoop on HDInsight from Windows (preview)
+#Use SSH with Linux-based Hadoop on HDInsight from Windows
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -203,75 +203,7 @@ SSH can be used to tunnel local requests, such as web requests, to the HDInsight
 
 > [AZURE.IMPORTANT] An SSH tunnel is a requirement for accessing the web UI for sopme Hadoop services. For example, both the Job History UI or Resource Manager UI can only be accessed using an SSH tunnel.
 
-Use the following steps to create an SSH tunnel and configure your browser to use it to connect to the cluster:
-
-1. Open PuTTY, and enter your connection information as documented earlier in the [Connect to a Linux-based cluster](#connect-to-a-linux-based-hdinsight-cluster) section.
-
-2. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
-
-3. Provide the following information on the **Options controlling SSH port forwarding** form:
-
-	* **Source port** - The port on the client that you wish to forward. For example, **9876**.
-
-	* **Destination** - The SSH address for the Linux-based HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**.
-
-	* **Dynamic** - Enables dynamic SOCKS proxy routing.
-
-	![image of tunneling options](./media/hdinsight-hadoop-linux-use-ssh-windows/puttytunnel.png)
-
-4. Click **Add** to add the settings, and then click **Open** to open an SSH connection.
-
-5. When prompted, log in to the server. This will establish an SSH session and enable the tunnel.
-
-6. Configure the client program, such as Firefox, to use **localhost:9876** as a **SOCKS v5** proxy. Here's what the Firefox settings look like:
-
-	![image of Firefox settings](./media/hdinsight-hadoop-linux-use-ssh-windows/socks.png)
-
-	> [AZURE.NOTE] Selecting **Remote DNS** will resolve DNS requests by using the HDInsight cluster. If this is unselected, DNS will be resolved locally.
-
-	You can verify that traffic is being routed through the tunnel by vising a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/) with the proxy settings enabled and disabled in Firefox. While they are enabled, the IP address will be for a machine in the Microsoft Azure datacenter.
-
-###Browser extensions
-
-While configuring the browser to use the tunnel works, you don't usually want to route all traffic over the tunnel. Browser extensions such as [FoxyProxy](http://getfoxyproxy.org/) support pattern matching for URL requests (FoxyProxy Standard or Plus only), so that only requests for specific URLs will be sent over the tunnel.
-
-If you have installed FoxyProxy Standard, use the following steps to configure it to only forward traffic for HDInsight over the tunnel.
-
-1. Open the FoxyProxy extension in your browser. For example, in Firefox, select the FoxyProxy icon next to the address field.
-
-	![foxyproxy icon](./media/hdinsight-hadoop-linux-use-ssh-windows/foxyproxy.png)
-
-2. Select **Add New Proxy**, select the **General** tab, and then enter a proxy name of **HDInsightProxy**.
-
-	![foxyproxy general](./media/hdinsight-hadoop-linux-use-ssh-windows/foxygeneral.png)
-
-3. Select the **Proxy Details** tab and populate the following fields:
-
-	* **Host or IP Address** - This is localhost, since we are using an SSH tunnel on the local machine.
-
-	* **Port** - This is the port you used for the SSH tunnel.
-
-	* **SOCKS proxy** - Select this to enable the browser to use the tunnel as a proxy.
-
-	* **SOCKS v5** - Select this to set the required version for the proxy.
-
-	![foxyproxy proxy](./media/hdinsight-hadoop-linux-use-ssh-windows/foxyproxyproxy.png)
-
-4. Select the **URL Patterns** tab, and then select **Add New Pattern**. Use the following to define the pattern, and then click **OK**:
-
-	* **Pattern Name** - **headnode** - This is just a friendly name for the pattern.
-
-	* **URL pattern** - **\*headnode\*** - This defines a pattern that matches any URL with the word **headnode** in it.
-
-	![foxyproxy pattern](./media/hdinsight-hadoop-linux-use-ssh-windows/foxypattern.png)
-
-4. Click **OK** to add the proxy and close **Proxy Settings**.
-
-5. At the top of the FoxyProxy dialog, change **Select Mode** to **Use proxies based on their pre-defined patterns and priorities**, and then click **Close**.
-
-	![foxyproxy select mode](./media/hdinsight-hadoop-linux-use-ssh-windows/selectmode.png)
-
-After following these steps, only requests for URLs that contain the string **headnode** will be routed over the SSL tunnel.
+For more information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Next steps
 

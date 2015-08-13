@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
-# Information about using HDInsight on Linux (preview)
+# Information about using HDInsight on Linux
 
 Linux-based Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
@@ -29,17 +29,13 @@ The fully qualified domain name (FQDN) to use when connecting to the cluster is 
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-	> [AZURE.NOTE] Authenticate by using the cluster administrator user and password, and then log in to Ambari. This also uses the cluster administrator user and password.
-	>
-	> Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
+	Authenticate by using the cluster administrator user and password, and then log in to Ambari. This also uses the cluster administrator user and password.
+	
+	Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
-	While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you will receive "server not found" errors when trying to access some features over the Internet.
-
-	To work around this problem, use an SSH tunnel to proxy web traffic to the cluster head node. Use the **SSH tunneling** section of the following articles to create an SSH tunnel from a port on your local machine to the cluster:
-
-	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md): Steps on creating an SSH tunnel by using the `ssh` command.
-
-	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows): Steps on using PuTTY to create an SSH tunnel.
+	> [AZURE.IMPORTANT] While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you will receive "server not found" errors when trying to access some features over the Internet.
+	> 
+	> To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -112,6 +108,17 @@ During cluster creation, you selected to either use an existing Azure Storage ac
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
+You can also find the storage information using the Azure preview portal:
+
+1. In the [Azure Preview Portal](https://portal.azure.com/), select your HDInsight cluster.
+
+2. From the __Essentials__ section, select __All settings__.
+
+3. From __Settings__, select __Azure Storage Keys__.
+
+4. From __Azure Storage Keys__, select one of the storage accounts listed. This will display information about the storage account.
+
+5. Select the key icon. This will display keys for this storage account.
 
 ### How do I access Blob storage?
 
