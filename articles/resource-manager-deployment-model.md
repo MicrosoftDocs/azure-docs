@@ -158,7 +158,7 @@ There are some important considerations when working Virtual Machines.
 
 - Virtual machines deployed with the classic deployment model cannot be included in a virtual network deployed with Resource Manager.
 - Virtual machines deployed with the Resource Manager deployment model must be included in a virtual network.
-- Virtual machines deployed with the classic deployment model don’t have to be included in a virtual network.
+- Virtual machines deployed with the classic deployment model don't have to be included in a virtual network.
 
 For a list of equivalent Azure CLI commands when transitioning from classic deployment to Resource Manager, see [Equivalent Resource Manager and Service Management commands for VM operations](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
 
