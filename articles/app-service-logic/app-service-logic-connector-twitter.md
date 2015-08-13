@@ -37,7 +37,7 @@ Triggers | Actions
 --- | ---
 New Tweet From Search | <ul><li>Get User Timeline</li><li>Search Tweets</li><li>Tweet</li><li>Get Mentions Timeline</li><li>Get Home Timeline</li><li>Get Followers</li><li>Get Friends</li><li>Get User Details</li><li>Tweet to User</li><li>Send Direct Message</li></ul>
 
-> [AZURE.IMPORTANT] The **New Tweet** trigger has been archived. Currently, it is still available as an Advanced operation and can be used. The **Retweet** action is removed and no longer supported. If you use the Retweet action, it fails at runtime. As a result, remove the Retweet action from your logics apps. 
+The **New Tweet** trigger has been archived. Currently, it is still available as an Advanced operation and can be used. The **Retweet** action is removed and no longer supported. If you use the Retweet action, it fails at runtime. As a result, remove the Retweet action from your logics apps. 
 
 
 ## Create the Twitter connector
