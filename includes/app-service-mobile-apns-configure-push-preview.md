@@ -3,7 +3,7 @@
 
 2. In the Azure portal, click **Browse All** > **Mobile Apps** > your backend > **Settings** > **Mobile App** > **Push** > **Configure required settings** > **+ Notification Hub**, and provide a name and namespace for your notification hub, and then click the **OK** button.
 
-               ![][1]
+  ![][1]
 
 3. In the **Create Notification Hub** blade, click the **Create** button.
      
