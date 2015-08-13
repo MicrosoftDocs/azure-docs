@@ -186,9 +186,9 @@ In order to to that, replace the super class of **MainActivity**, which is befor
 
 >[AZURE.NOTE] Do not forget to resolve the class if it appears in red by clicking it and pressing Alt+Enter.
 
-##<a id="monitor"></a>Check that your app is connected with realtime monitoring
+##<a id="monitor"></a>Check that your app is connected with real-time monitoring
 
-This section shows you how to make sure that your app connects to the Mobile Engagement backend by using Mobile Engagement's realtime monitoring feature.
+This section shows you how to make sure that your app connects to the Mobile Engagement backend by using Mobile Engagement's real-time monitoring feature.
 
 1. Navigate to your Mobile Engagement portal.
 
