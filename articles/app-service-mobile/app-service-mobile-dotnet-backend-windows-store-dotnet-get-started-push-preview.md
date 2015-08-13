@@ -88,7 +88,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs client library.
 
-3. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statement:
+3. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statements:
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
@@ -141,11 +141,12 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 1. In Visual Studio, open the shared **App.xaml.cs** project file and add the following `using` statements:
 
-        using Windows.Networking.PushNotifications;         
+		using System.Threading.Tasks;  
+        using Windows.Networking.PushNotifications;       
 
 4. In the same file, add the following **InitNotificationsAsync** method definition to the **App** class:
     
-        private async void InitNotificationsAsync()
+        private async Task InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
@@ -155,9 +156,14 @@ Now that push notifications are enabled in the app, you must update your app bac
     
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your App Service Mobile App.
     
-5. At the top of the **OnLaunched** event handler in **App.xaml.cs**, add the following call to the new **InitNotificationsAsync** method:
+5. At the top of the **OnLaunched** event handler in **App.xaml.cs**, add the **async** modifier to the method definition and add the following call to the new **InitNotificationsAsync** method, as in the following example:
 
-        InitNotificationsAsync();
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
+        {
+            await InitNotificationsAsync();
+
+			// ...
+		}
 
     This guarantees that the short-lived ChannelURI is registered each time the application is launched.
 
