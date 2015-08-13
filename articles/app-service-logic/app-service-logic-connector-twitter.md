@@ -49,8 +49,8 @@ A connector can be created within a logic app or be created directly from the Az
 1. Create a free application for Twitter at http://apps.twitter.com
 2. In the Azure startboard, select **Marketplace**.
 2. Search for “Twitter Connector”.
+3. Select the "Twitter Connector" and click "Create".  This will open the Create blade.
 3. Click on 'Package Settings' and paste the 'Consumer Key' from your Twitter App into the 'clientId' field.  Paste the 'Consumer Secret' from your Twitter App into the 'clientSecret' field.
-	![][9]
 	![][10]
 4. Enter other required settings around connector Name, App Service, and Resource Group.
 5.	Click **Create**.
@@ -98,5 +98,5 @@ You can also review performance statistics and control security to the connector
 [6]: ./media/app-service-logic-connector-twitter/triggers.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
-[9]: ./media/app-service-logic-connector-twitter/settings.png
+[9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
