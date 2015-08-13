@@ -35,7 +35,10 @@ You'll learn:
 
 ##<a name="video"></a>Sign up for Microsoft Azure
 
-You need an Azure account to complete this tutorial.
+You need an Azure account to complete this tutorial. You can:
+
+* [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits you that can use to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the [Web Apps feature in Azure App Service](app-service-web-overview.md).
+* [Activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 > [AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
