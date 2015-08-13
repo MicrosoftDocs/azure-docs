@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/11/2015" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
@@ -35,6 +35,12 @@ Application Insights SDKs and agents that you combine with your application send
 #### How much data can be captured? 
 
 **Per second**: Up to 500 data points per second per instrumentation key (that is, per application). For the free [pricing tier][pricing], the limit is 100 dp/s.
+
+There are three buckets which are counted separately:
+
+* [TrackTrace calls](app-insights-api-custom-events-metrics.md#track-trace) and [captured logs](app-insights-asp-net-trace-logs.md)
+* [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), subject to a lower limit of 50/s.
+* All other telemetry (page views, requests, dependencies, metrics, custom events).
 
 **Monthly**: Between 5 and 15 million data points in each calendar month, depending on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/). Except for the free [pricing tier][pricing], you can buy additional capacity if you hit the limit.
 
