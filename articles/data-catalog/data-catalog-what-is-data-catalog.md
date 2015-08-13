@@ -111,11 +111,11 @@ After a data source has been registered, it can sometimes be necessary to remove
 
 > [AZURE.IMPORTANT] Deleting a data source from **Azure Data Catalog** only deletes the metadata stored in the **Azure Data Catalog** service. The original data source is not affected in any way.
 
-## Consume data sources
+## Consume data sources 
 
 The ultimate goal of data discovery is to find the data that you need, and to use it in the data tool of your choice. The data consumption experience in Azure Data Catalog enables this capability in two ways.
 
 1.	For client applications that are directly supported by **Azure Data Catalog**, users can click on the **Open In** menu in the data source tile found in the portal. The client application will then launch with a connection to the selected data source.
 2.	For all client applications, users can use the connection information displayed in the properties pane for a selected data source. This information includes all details (such as server name, database name, and object name) required to connect to the data, and can be copied into the client tool's connection experience. If request access details have been provided for a data source, this information will be displayed next to the connection details.
 
-> [AZURE.NOTE] For the preview of Azure Data Catalog, only Microsoft Excel and SQL Server Reporting Services Report Manager will be directly supported and available in the **Open In** menu.
+> [AZURE.NOTE] For the preview of Azure Data Catalog, only Microsoft Excel and SQL Server Reporting Services Report Manager will be directly supported and available in the **Open In** menu.  

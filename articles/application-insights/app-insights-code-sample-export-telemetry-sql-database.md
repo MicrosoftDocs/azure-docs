@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
-	manager="klin"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Code sample: export to SQL from Application Insights using a worker role
@@ -520,6 +520,7 @@ To see this example in action, [download](https://sesitai.codeplex.com/) the com
 * [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Continuous Export in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [More samples and walkthroughs](app-insights-code-samples.md)
 
 <!--Link references-->
 

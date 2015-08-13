@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Change device modes on your StorSimple device"
+   pageTitle="Change device modes on your StorSimple device | Microsoft Azure"
    description="Learn what the various StorSimple device modes are and how to change the device modes."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/30/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # StorSimple device modes
@@ -21,9 +21,9 @@ This article provides a brief description of the various modes in which your Sto
 
 After reading this article, you will know:
 
-- the StorSimple device modes.
-- how to figure out which mode the StorSimple device is in.
-- how to change from normal to maintenance mode and *vice versa*.
+- the StorSimple device modes
+- how to figure out which mode the StorSimple device is in
+- how to change from normal to maintenance mode and *vice versa*
 
 
 The above management tasks can only be performed via the Windows PowerShell interface of your StorSimple device.
@@ -57,7 +57,7 @@ If your system goes into recovery mode, you should contact Microsoft Support for
 
 To figure out the device mode, perform the following steps:
 
-1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](https://msdn.microsoft.com/library/azure/dn757808.aspx).
+1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 2. Look at the banner message in the serial console menu of the device. This message explicitly indicates whether the device is in maintenance or recovery mode. If the message does not contain any specific information pertaining to the system mode, the device is in normal mode.
 
 ## Change  your StorSimple device mode 
@@ -68,17 +68,17 @@ You can place the StorSimple device into maintenance mode (from normal mode) to 
 
 #### To enter maintenance mode
 
-1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](https://msdn.microsoft.com/library/azure/dn757808.aspx).
+1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is: `Password1`.
+2. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is: `Password1`.
 
-1. At the command prompt, type 
+3. At the command prompt, type 
 
 	`Enter-HcsMaintenanceMode`
 
-1. You will see a warning message telling you that maintenance mode will disrupt all I/O requests and sever the connection to the Management Portal, and you will be prompted for confirmation. Type **Y** to enter maintenance mode.
+4. You will see a warning message telling you that maintenance mode will disrupt all I/O requests and sever the connection to the Management Portal, and you will be prompted for confirmation. Type **Y** to enter maintenance mode.
 
-1. Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in maintenance mode.
+5. Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in maintenance mode.
 
 
 #### To exit maintenance mode
@@ -89,9 +89,9 @@ You can place the StorSimple device into maintenance mode (from normal mode) to 
 
 	`Exit-HcsMaintenanceMode`
 
-1. A warning message and a confirmation message will appear. Type **Y** to exit maintenance mode.
+3. A warning message and a confirmation message will appear. Type **Y** to exit maintenance mode.
 
-1. Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in normal mode.
+4. Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in normal mode.
 
 
 ## Next steps
