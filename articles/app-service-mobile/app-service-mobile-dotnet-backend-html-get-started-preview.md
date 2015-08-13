@@ -120,5 +120,5 @@ Next, you will deploy your CORS-enabled project to Azure.
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
 
-[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
