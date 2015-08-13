@@ -66,7 +66,7 @@ Be sure to follow along with the tutorials in the "Next steps" section to see ho
 
 ##<a id="configure-hub"></a>Configure your notification hub
 
-1. Sign in to the **[Azure portal]**, and then click **+ NEW** at the bottom left of the screen.
+1. Sign in to the [Azure portal], and then click **+ NEW** at the bottom left of the screen.
 
 2. Click **App Services** > **Service Bus** > **Notification Hub** > **Quick Create**. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
 
