@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Apps for Xamarin Android apps | Microsoft Azure"
+	pageTitle="Get Started with Azure Mobile Apps for Xamarin Android apps"
 	description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="chrisanderson"
+	authors="normesta"
 	manager="dwrede"
-	editor="mollybos" />
+	editor="" />
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,69 +13,61 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/20/2015"
-	ms.author="chrande" />
+	ms.date="8/12/2015"
+	ms.author="normesta" />
 
-# <a name="getting-started"> </a>Create a Xamarin.Android App
+#Create a Xamarin.Android App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-This tutorial shows you how to connect a Xamarin.Android app to a cloud-based backend service by using Azure Mobile Apps. You'll start by creating a new .NET service. Then, you'll create a basic _To do list_ task tracking app that stores tasks to the .NET backend.
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+ 
+##Overview
 
-When your done, your app will look like this:  
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app using an Azure Mobile App backend.  You will create both a new Mobile App backend and a simple _Todo list_ Xamarin Andorid app that stores app data in Azure.
+
+A screenshot from the completed app is below:
 
 ![][0]
 
-You'll have to complete this tutorial before you try all the other tutorials for Xamarin.Android apps. But first, you'll need these things:
+Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for Xamarin.Android apps.
+ 
+##Prerequisites
 
-* An active Azure account. 
+To complete this tutorial, you need the following:
 
-    If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+ 
+* [Visual Studio Community 2013] or later.  If you install Visual Studio Community 2013, install [Xamarin] separately.  You can install the Xamarin tools when you install Visual Studio 2015.
+ 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
-    >[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
 
-* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio 2015 (any edition)</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. You need this to build and run the mobile app backend project.
-
-## Create a new mobile app backend
+## Create a new Azure Mobile App backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Create a Xamarin.Android app
+## Download the server project
 
-Follow a basic quickstart on the [Azure Portal] to create an app or modify one, and then connect it to your mobile backend.
+1. On your PC, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps**, then click the Mobile App backend that you just created.
 
-To get started, download a .NET backend service project for your mobile app and a new Xamarin.Android app. Here's how you do it.
-
-1. In the Azure Portal, click **Browse All**, then **Mobile Apps**, and then click the mobile app that you just created.
-
-2. At the top of the blade, click **Add Client** and expand **Xamarin.Android**.
-
-    ![][6]
-
-    This displays the three things you need to do to create a Xamarin.Android app that's connected to your mobile app backend.
-
-
-###Download, run, and publish the mobile backend project
-
-5. Under **Download and run your service project**, click the **Download** button.
-
-  	This downloads a project that contains the mobile app backend code. Save the compressed project file to your local computer and make a note of where you saved it.
-
-####Test your backend project locally
+2. In the Mobile App blade, click **Settings** and under **Mobile App** click **Quickstart** > **Xamarin.Android**.
+ 
+3. Under **Download and run your server project**, click **Download**. Extract the compressed project files to your PC, and open the solution in Visual Studio.
+ 
+## Test your backend project locally
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
 
-####Publish your backend project
+## Publish server project to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-### Download and run the Xamarin.Android app
+## Download and run the Xamarin.Android app
 
-5. Under **Download and run your Xamarin.Android project**, click the **Download** button.
+1. Under **Download and run your Xamarin.Android project**, click the **Download** button.
 
   	This downloads a project that contains a client application that is connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
-
-
 
 	![][8]
 
@@ -107,3 +99,4 @@ To get started, download a .NET backend service project for your mobile app and 
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
