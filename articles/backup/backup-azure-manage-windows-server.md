@@ -23,24 +23,24 @@ In this article you'll find an overview of the backup management tasks available
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **Recovery Services**, then click the name of backup vault to view the Quick Start page.
 
-    By selecting the options at the top of the Quick Start page, you can see the available the management tasks for each category.
+    By selecting the options at the top of the Quick Start page, you can see the available management tasks.
 
     ![Protected items](./media/backup-azure-manage-windows-server/RS_tabs.png)
 
 ## Dashboard
-Click **Dashboard** to see the usage overview for the server. At the bottom of the Dashboard you can perform the following tasks:
+Select **Dashboard** to see the usage overview for the server. At the bottom of the Dashboard you can perform the following tasks:
 
 - **Manage certificate**. If a certificate was used to register the server, then use this to update the certificate. If you are using vault credentials, do not use **Manage certificate**.
 - **Delete**. Deletes the current backup vault. If a backup vault is no longer being used, you can delete it to free up storage space. **Delete** is only enabled after all registered servers have been deleted from the vault.
 - **Vault credentials**. Use this Quick Glance menu item to configure your vault credentials.
 
 ## Protected Items
-Click **Protected Items** to view the items that have been backed up from the servers. This list is for information purposes only.
+Select **Protected Items** to view the items that have been backed up from the servers. This list is for information purposes only.
 
 ![Protected items](./media/backup-azure-manage-windows-server/RS_protecteditems.png)
 
 ## Registered Items
-Click **Registered Items** to view the names of the servers that are registered to this vault.
+Select **Registered Items** to view the names of the servers that are registered to this vault.
 
 ![Deleted Server](./media/backup-azure-manage-windows-server/RS_deletedserver.png)
 
