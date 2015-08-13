@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
@@ -293,11 +293,11 @@ The following binary operators are currently supported and can be used in querie
 </tr>
 <tr>
 <td>Logical</td>
-<td>AND, OR</td>
+<td>AND, OR, NOT</td>
 </tr>
 <tr>
 <td>Comparison</td>	
-<td>=, !=, >, >=, <, <=, <></td>
+<td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
 </tr>
 <tr>
 <td>String</td>	
