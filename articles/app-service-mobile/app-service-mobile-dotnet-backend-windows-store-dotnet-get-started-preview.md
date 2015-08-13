@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with mobile app backends for Windows Runtime 8.1 universal apps | Azure Mobile Apps"
+	pageTitle="Create an Windows Runtime 8.1 universal app on Azure Mobile Apps"
 	description="Follow this tutorial to get started using Azure mobile app backends for Windows Store development in C#, VB, or JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/28/2015"
+	ms.date="08/13/2015"
 	ms.author="glenga"/>
 
 #Create a Windows app

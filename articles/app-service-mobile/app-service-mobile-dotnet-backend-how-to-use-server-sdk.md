@@ -166,7 +166,7 @@ You can add push notifications to your server project by extending the **MobileA
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
         ServiceSettingsDictionary settings = 
-            config.GetServiceSettingsProvider().GetServiceSettings();
+            config.GetMobileAppSettingsProvider().GetMobileAppSettings();
         
         // Get the Notification Hubs credentials for the Mobile App.
         string notificationHubName = settings.NotificationHubName;

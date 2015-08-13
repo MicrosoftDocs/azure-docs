@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/09/2015" 
+	ms.date="08/13/2015" 
 	ms.author="glenga"/>
 
 # Add push notifications to your Windows Store app
@@ -99,7 +99,8 @@ Now that push notifications are enabled in the app, you must update your app bac
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
-        MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+        MobileAppSettingsDictionary settings = 
+			this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
         
         // Get the Notification Hubs credentials for the Mobile App.
         string notificationHubName = settings.NotificationHubName;
