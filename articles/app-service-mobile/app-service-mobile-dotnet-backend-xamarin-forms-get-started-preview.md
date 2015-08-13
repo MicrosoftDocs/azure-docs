@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="8/12/2015"
+	ms.date="08/12/2015"
 	ms.author="normesta"/>
 
 #Create a Xamarin.Forms app
