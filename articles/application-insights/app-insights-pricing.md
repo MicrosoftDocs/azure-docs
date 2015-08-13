@@ -123,7 +123,7 @@ Application Insights charges are added to your Azure bill. You can see details o
 
 <!--Link references-->
 
-
+[api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-get-started.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
