@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get Started with Mobile Apps by using Xamarin.Forms"
-	description="Get started using Xamarin.Forms to build an Azure Mobile App with Azure App Service."
+	description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin.Forms development"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="normesta"
@@ -13,63 +13,56 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="07/29/2015"
+	ms.date="8/12/2015"
 	ms.author="normesta"/>
 
-
-# <a name="getting-started"> </a>Create a Xamarin.Forms app
+#Create a Xamarin.Forms app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-This tutorial shows you how to connect a Xamarin.Forms app to a cloud-based backend service by using Azure Mobile Apps. You'll start by creating a new .NET service. Then, you'll create a basic _To do list_ task tracking app that stores tasks to the .NET backend.
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-You'll have to complete this tutorial before you try all the other tutorials for Xamarin.Forms apps. But first, you'll need these things:
+##Overview
 
-* An active Azure account. 
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.Forms mobile app using an Azure Mobile App backend.  You will create both a new Mobile App backend and a simple _Todo list_ Xamarin.Forms app that stores app data in Azure.
 
-    If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for Xamarin.Forms.
 
-    >[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
+##Prerequisites
 
-* <a href="https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio 2015 (any edition)</a> or <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>, and [Xamarin] installed on your local computer or virtual machine. You need this to build and run the mobile app backend project.
+To complete this tutorial, you need the following:
 
-* (Optional) Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it.  
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+ 
+* [Visual Studio Community 2013] or later.  If you install Visual Studio Community 2013, install [Xamarin] separately.  You can install the Xamarin tools when you install Visual Studio 2015.
 
-    >[AZURE.NOTE] You only need a Mac if you plan to build and run the iOS project in your Xamarin.Forms solution. If you plan to build your iOS project on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
+* A Mac with [Xcode] v7.0 or later and [Xamarin Studio] installed.
+ 
+     >[AZURE.NOTE]If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
+ 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
-
-
-## Create a new mobile app backend
+## Create a new Azure Mobile App backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Create a Xamarin.Forms app
+## Download the server project
 
-1. On your Windows computer, open the [Azure Portal] in a browser window.
+1. On your PC, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps**, then click the Mobile App backend that you just created.
 
-2. In the Azure Portal, click **Browse All**, then **Mobile Apps**, and then click the mobile app that you just created.
-
-2. At the top of the blade, click **Add Client** and expand **Xamarin.Forms**.
-
-	![][6]
-
-    This displays the three things you need to do to create a Xamarin.Forms app that's connected to your mobile app backend
-
-###Download, run, and publish the mobile backend project
-
-5. Under **Download and run your service project**, click the **Download** button.
-
-  	This downloads a project that contains the mobile app backend code. Save the compressed project file to your local computer and make a note of where you saved it.
-
-####Test your backend project locally
+2. In the Mobile App blade, click **Settings** and under **Mobile App** click **Quickstart** > **Xamarin.Forms**.
+ 
+3. Under **Download and run your server project**, click **Download**. Extract the compressed project files to your PC, and open the solution in Visual Studio.
+ 
+## Test your backend project locally
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
 
-####Publish your backend project
+## Publish server project to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-###Download and open the Xamarin.Forms solution
+##Download and run the Xamarin.Forms solution
 
 Here you have a couple of choices. You can download the solution to a Mac and open it in Xamarin Studio, or you can download the solution to a Windows computer and open it in Visual Studio. You can also use both environments and switch back and forth between them. Consider these things:
 
@@ -81,7 +74,7 @@ With all of this in mind, let's proceed.
 
  1. On your Mac or on your Windows computer, open the [Azure Portal] in a browser window.
  2. Under **Download and run your Xamarin.Forms project**, click the **Download** button.
-    
+
     This downloads a project that contains a client application that is connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
 
  3. Extract the project that you downloaded, and then open it in Xamarin Studio or Visual Studio.
@@ -99,9 +92,9 @@ With all of this in mind, let's proceed.
 
 ####In Visual Studio
 1. Right-click the iOS project, and then click **Set as StartUp Project**.
-4. On the **Build** menu, click **Configuration Manager**. 
-5. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the iOS project.
-6. Press the **F5** key to build the project and start the app in the iPhone emulator.
+2. On the **Build** menu, click **Configuration Manager**. 
+3. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the iOS project.
+4. Press the **F5** key to build the project and start the app in the iPhone emulator.
 
 In the app, type meaningful text, such as _Learn Xamarin_ and then click the **+** button.
 
