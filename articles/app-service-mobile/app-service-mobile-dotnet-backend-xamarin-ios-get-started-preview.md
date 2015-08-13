@@ -51,7 +51,7 @@ To complete this tutorial, you need the following:
 
 1. On your PC, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps**, then click the Mobile App backend that you just created.
 
-2. In the Mobile App blade, click **Settings** and under **Mobile App** click **Quickstart** > **Xamarin.Android**.
+2. In the Mobile App blade, click **Settings** and under **Mobile App** click **Quickstart** > **Xamarin.iOS**.
  
 3. Under **Download and run your server project**, click **Download**. Extract the compressed project files to your PC, and open the solution in Visual Studio.
  
