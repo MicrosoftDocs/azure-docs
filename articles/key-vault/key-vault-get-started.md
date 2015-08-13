@@ -224,7 +224,7 @@ Or, you can delete an entire Azure resource group, which includes the key vault 
 
 ## <a id="other"></a>Other Azure PowerShell Cmdlets ##
 
-Other commands that you might useful for managing Azure Key Vault:
+Other commands that you might find useful for managing Azure Key Vault:
 
 - `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: This command gets a tabular display of all keys and selected properties.
 - `$Keys[0]`: This command displays a full list of properties for the specified key
