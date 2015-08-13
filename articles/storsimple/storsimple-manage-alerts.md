@@ -215,4 +215,4 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 
 ## Next steps
 
-[Learn more about StorSimple errors](storsimple-troubleshoot-operational-device.md)
+[Learn more about StorSimple errors](storsimple-troubleshoot-operational-device.md).

@@ -110,7 +110,6 @@ Delete a backup when you no longer wish to retain the data associated with it. P
     The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
 3. Select and expand a backup set. The **Restore and Delete** options are displayed at the bottom of the page. Click **Delete**.
-Delete backup set 
 
 4. You will be notified when the deletion is in progress and when it has successfully finished. After the deletion is done, refresh the query on this page. The deleted backup set will no longer appear in the list of backup sets.
 
