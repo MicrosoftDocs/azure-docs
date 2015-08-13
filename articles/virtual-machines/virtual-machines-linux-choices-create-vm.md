@@ -6,7 +6,7 @@
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management","azure-resource-manager"/>
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -27,7 +27,7 @@ Azure Resource Manager templates were recently introduced as a way to create and
 
 ### GUI: The Azure Portal or Preview Portal
 
-The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the [Azure portal](http://manage.windowsazure.com) or the [Azure preview portal](http://portal.azure.com) to create the VM. For general instructions, see [Create a Custom Virtual Machine][] and select any Linux image from the **Gallery**. Note that the [Azure portal](http://manage.windowsazure.com) creates virtual machines using only the classic deployment model. 
+The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the [Azure portal](http://manage.windowsazure.com) or the [Azure preview portal](http://portal.azure.com) to create the VM. For general instructions, see [Create a Custom Virtual Machine][] and select any Linux image from the **Gallery**. Note that the [Azure portal](http://manage.windowsazure.com) creates virtual machines using only the classic deployment model.
 
 ### Command Shell: Azure CLI or Azure PowerShell
 
