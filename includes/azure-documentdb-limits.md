@@ -1,3 +1,4 @@
+=======
 Entity|Quota (Standard Offer)
 ---|---
 Database Accounts*|5
@@ -23,6 +24,7 @@ Maximum number of JOINs per query* |2
 Maximum number of AND clauses per query* |5
 Maximum number of OR clauses per query* |5
 Maximum number of values per IN expression* |100
+Maximum number of points in a polygon argument in a ST_WITHIN query* |16
 Maximum number of collection creates per minute* |5
 Maximum number of scale operations per minute* |5
 
