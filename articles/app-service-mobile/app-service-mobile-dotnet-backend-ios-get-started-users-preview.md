@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="08/12/2015"
 	ms.author="krisragh"/>
 
 # iOS authentication with Azure Mobile Apps
@@ -45,10 +45,6 @@ In Xcode, press **Run** to  start the app. An exception will be raised because t
 ##<a name="add-authentication"></a>Add authentication to app
 
 [AZURE.INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
-
-##<a name="tokens"></a>Store the authentication token on the client
-
-[AZURE.INCLUDE [app-service-mobile-ios-authenticate-app-with-token](../../includes/app-service-mobile-ios-authenticate-app-with-token.md)]
 
 
 <!-- URLs. -->

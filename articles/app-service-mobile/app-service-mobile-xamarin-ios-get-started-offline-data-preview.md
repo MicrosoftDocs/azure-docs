@@ -91,14 +91,14 @@ The Xamarin client project that you downloaded when you completed the tutorial [
         }
 
 
-## Run the app
+## Run the client app
 
-Run the app at least once to to populate the local store database. In the next section, you will simulate an offline scenario and modify the data in the local store while the app is offline.
+Run the client application at least once to to populate the local store database. In the next section, you will simulate an offline scenario and modify the data in the local store while the app is offline.
 
 
-## Update the sync behavior of the app
+## Update the sync behavior of the client app
 
-In this section, you will modify the app to simulate an offline scenario by using an invalid application URL for your backend. When you add or change data items, these changes will be held in the local store, but not synced to the backend data store until the connection is re-established.
+In this section, you will modify the client project to simulate an offline scenario by using an invalid application URL for your backend. When you add or change data items, these changes will be held in the local store, but not synced to the backend data store until the connection is re-established.
 
 1. At the top of `QSTodoService.cs`, change the initialization of `applicationURL` and `gatewayURL` to point to invalid URLs:
 
@@ -125,22 +125,25 @@ In this section, you will modify the app to simulate an offline scenario by usin
             }
         }
 
-3. Build and run the app. Add some new todo items and notice exception logged in the console for each attempt to sync with the Mobile App backend. These new items exist only in the local store until they can be pushed to the mobile backend. The client app behaves as if is connected to the backend, supporting all create, read, update, delete (CRUD) operations.
+3. Build and run the client app. Add some new todo items and notice exception logged in the console for each attempt to sync with the Mobile App backend. These new items exist only in the local store until they can be pushed to the mobile backend. The client app behaves as if is connected to the backend, supporting all create, read, update, delete (CRUD) operations.
 
 4. Close the app and restart it to verify that the new items you created are persisted to the local store.
 
-5. You can query your SQL Azure database table for the Azure Mobile App backend using SQL Server object explorer in Visual Studio and see that the data in the backend database has not changed. To do this, [Download your publish settings file](https://msdn.microsoft.com/library/Dn385850.aspx). Then right click the **Azure** node in the Server Explorer window in Visual Studio and click **Manage Subscriptions**.  On the **Certificates** tab of the Manage Subscriptions dialog, import your publish setting file. Now you can browse to your SQL database table and view the data.
+5. (Optional) Use Visual Studio to view your Azure SQL Database table to see that the data in the backend database has not changed. 
 
+   In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents.
 
-## Update the app to reconnect your mobile backend
+6. (Optional) Use a REST tool such as Fiddler or Postman to query your mobile backend, using a GET query in the form `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+
+## Update the client app to reconnect your mobile backend
 
 In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state. When you perform the refresh gesture, data will be synced to your mobile backend.
 
 1. Open `QSTodoService.cs`. Correct the `applicationURL` and `gatewayURL` to point to the correct URLs.
 
-2. Rebuild and run the app. The app attempts to sync with the Azure Mobile App backend after launching. Verify no exceptions logged in the debug console.
+2. Rebuild and run the client app. The app attempts to sync with the Azure Mobile App backend after launching. Verify no exceptions logged in the debug console.
 
-3. Connect to your backend SQL database to view the data that has been stored. In Visual Studio go to **Server Explorer** -> **Azure** -> **SQL Databases**. Right click your database and select **Open in SQL Server Object Explorer**.
+3. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler. Notice the data has been synchronized between the Azure Mobile App backend database and the local store.
 
     Notice the data has been synchronized between the database and the local store and contains the items you added while your app was disconnected.
 
