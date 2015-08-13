@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="08/12/2015"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
 
 This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK helps you work with mobile clients from your ASP.NET application.
 
-## Downloading and initializing the SDK
+## How to: Download and initialize the SDK
 
 The SDK is available on [NuGet.org]. This package includes the base functionality required to get started using the SDK. To initialize the SDK, you need to perform actions on the **HttpConfiguration** object. 
 
@@ -62,7 +62,7 @@ The following NuGet-based extension packages provide various mobile features tha
 - [Microsoft.Azure.Mobile.Server.Authentication]  
 	Enables authentication and sets-up the OWIN middleware used to validate tokens. Add to the configuration by calling the **AddAppServiceAuthentication** and **IAppBuilder**.**UseMobileAppAuthentication** extension methods.
 
-- [Microsoft.Azure.Mobile.Server.Notifications](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/)  
+- [Microsoft.Azure.Mobile.Server.Notifications]
 	Enables push notifications and defines a push registration endpoint. Add to the configuration by calling the **AddPushNotifications** extension method.
 
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/)  
@@ -100,11 +100,7 @@ Any controller that does not have **MobileAppControllerAttribute** applied can s
 
 ## How to: Define a table controller
 
-A table controller provides access to entity data in a table-based data store, such as SQL Database or Azure Table storage. Table controllers inherit from the **TableController** generic class, where the generic type is an entity in the model that represents the table schema. 
-
-1. In Visual Studio, right-click the Controllers folder, then click **Add** > **Controller**, select **Web API 2 Controller with Read/Write Actions** and click **Add**.
-
-:
+A table controller provides access to entity data in a table-based data store, such as SQL Database or Azure Table storage. Table controllers inherit from the **TableController** generic class, where the generic type is an entity in the model that represents the table schema, as follows:
 
 	public class TodoItemController : TableController<TodoItem>
     {  
@@ -118,6 +114,7 @@ Table controllers are initialized by using the **AddTables** extension method. T
         .MapTableControllers()
         .AddEntityFramework()).ApplyTo(config);
  
+For an example of a table controller that uses Entity Framework to access data from an Azure SQL Database, see the **TodoItemController** class in the quickstart server project download from the Azure portal.
 
 ## How to: Add authentication to a server project
 
@@ -146,7 +143,9 @@ To learn about how to authenticate clients to your Mobile Apps backend, see [Add
 
 You can add push notifications to your server project by extending the **MobileAppConfiguration** object and creating a Notification Hubs client. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip down to step 3.
 
-1. In Visual Studio, install the [Microsoft.Azure.Mobile.Server.Notifications] package. 
+1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for Microsoft.Azure.Mobile.Server.Notifications`, then click **Install**. This installs the [Microsoft.Azure.Mobile.Server.Notifications] package.
+ 
+3. Repeat this step to install the `Microsoft.Azure.NotificationHubs` package, which includes the Notification Hubs client library. 
 
 2. Browse to the App_Startup folder, open the WebApiConfig.cs project file and add a call to the **AddPushNotifications** extension method during initialization, which looks like the following:
 
@@ -155,6 +154,8 @@ You can add push notifications to your server project by extending the **MobileA
 			.AddPushNotifications()
 			.ApplyTo(config);
 
+	This creates the push notification registration endpoint in your server project. Now you need to add the Notification Hub client that is used to send notifications.
+
 3. In a controller from which you want to send push notifications, add the following using statement:
 
 		using System.Collections.Generic;
@@ -162,15 +163,21 @@ You can add push notifications to your server project by extending the **MobileA
 
 4. Add the following code that creates a Notification Hubs client:
 
-		// Get the Notification Hubs credentials for the Mobile App.
-		string notificationHubName = this.Services.Settings.NotificationHubName;
-		string notificationHubConnection = this.Services.Settings
-			.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-		
-		// Create the Notification Hub client.
-		NotificationHubClient Hub = NotificationHubClient
-		.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+        // Get the settings for the server project.
+        HttpConfiguration config = this.Configuration;
+        ServiceSettingsDictionary settings = 
+            config.GetServiceSettingsProvider().GetServiceSettings();
+        
+        // Get the Notification Hubs credentials for the Mobile App.
+        string notificationHubName = settings.NotificationHubName;
+        string notificationHubConnection = settings
+            .Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
+        // Create a new Notification Hub client.
+        NotificationHubClient hub = NotificationHubClient
+        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+
+At this point, you can send native notifications to a specific client. For more information, see [Add push notifications to your app](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). For more information about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
 
 ## How to: Publishing the server project
 
@@ -182,3 +189,4 @@ Use the following steps to publish your server project to Azure:
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
+[Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
