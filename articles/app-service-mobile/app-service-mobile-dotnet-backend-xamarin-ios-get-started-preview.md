@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="8/12/2015"
+	ms.date="08/12/2015"
 	ms.author="normesta"/>
 
 
