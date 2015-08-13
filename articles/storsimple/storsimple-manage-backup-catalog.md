@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/24/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos" />
 
 # Manage your StorSimple backup catalog
