@@ -1,6 +1,6 @@
 <properties
 	pageTitle="App Model v2.0 | Microsoft Azure"
-	description="How to build an Windows Universal application that signs users in with both personal Microsoft Account and work or school accounts."
+	description="How to build an Windows Universal app that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -16,7 +16,7 @@
 	ms.date="08/12/2015"
 	ms.author="dastrock"/>
 
-  # App Model v2.0 Preview: Add sign-in to a Windows Universal app
+  # App model v2.0 preview: Add sign-in to a Windows Universal app
 
   The quick-start tutorial for Windows Universal apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
 
