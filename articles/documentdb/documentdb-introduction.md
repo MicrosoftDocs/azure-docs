@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
 # Introduction to Microsoft Azure DocumentDB
@@ -101,8 +101,8 @@ If you already have an Azure account, you can get started with DocumentDB in the
 
 If you don't have an Azure account, you can:
 
-- Sign up for an [Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. 
-- If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
+- Sign up for an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. 
+- If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
 - Or, if you would like to try DocumentDB free for 30 days, with no credit card required, send an email to askdocdb@microsoft.com with a subject line of "Documentation Introduction, Azure Trial" and we’ll respond with a promo code while supplies last.
 
 Then, when you're ready to learn more, visit our [learning path](http://azure.microsoft.com/documentation/learning-paths/documentdb/) to navigate all the learning resources available to you. 
