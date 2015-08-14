@@ -5,7 +5,8 @@
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"

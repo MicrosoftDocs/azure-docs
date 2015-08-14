@@ -207,7 +207,9 @@ The new site needs the application name and a link updated. The link will point 
 		</html>
 
 	Later in this tutorial you will add Web Forms scaffolding. Scaffolding will create the page that the above “Contact Demo” link references.
+ 
 ###Run the Application Locally 
+ 
 1. In **Solution Explorer**, right-click the *Default.aspx* page and select **Set As Start Page**. 
 2. Next, press **CTRL+F5** to run the application.  
 	The application default page appears in the default browser window.
