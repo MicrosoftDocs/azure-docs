@@ -3,8 +3,8 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="micflan" 
-	writer="" 
+	authors="Michael Flanakin" 
+	writer="Michael Flanakin" 
 	manager="lwelicki" 
 	editor=""/>
 
