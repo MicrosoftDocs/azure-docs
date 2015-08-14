@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Manage your StorSimple volumes"
+   pageTitle="Manage your StorSimple volumes | Microsoft Azure"
    description="Explains how to add, modify, and monitor StorSimple volumes, and how to take them offline if necessary."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Manage your StorSimple volumes
@@ -55,7 +55,7 @@ The most common tasks associated with a volume are:
 
 ## Add a volume
 
-You [created a volume](storsimple-deployment-walkthrough.md#to-create-a-volume) during deployment of your StorSimple solution. Adding a volume is a similar procedure.
+You [created a volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-volume) during deployment of your StorSimple solution. Adding a volume is a similar procedure.
 
 ### To add a volume
 

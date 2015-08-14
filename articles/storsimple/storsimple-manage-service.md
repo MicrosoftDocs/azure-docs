@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Deploy the StorSimple Manager service"
+   pageTitle="Deploy the StorSimple Manager service | Microsoft Azure"
    description="Explains how to create and delete the StorSimple Manager service in the Management Portal, and describes how to manage the service registration key."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/12/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Deploy the StorSimple Manager service
