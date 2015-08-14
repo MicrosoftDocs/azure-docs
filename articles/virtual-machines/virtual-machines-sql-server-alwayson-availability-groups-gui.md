@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure AlwaysOn Availability Groups in Azure (GUI)
+	pageTitle="Configure AlwaysOn Availability Groups in Azure (GUI)"
 	description="Create an AlwaysOn Availability Group in Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -43,7 +43,7 @@ This tutorial assumes the following:
 
 - You already have an Azure account.
 
-- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](http://www.windowsazure.com/manage/windows/common-tasks/install-sql-server/)
+- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md)
 
 - You already have a solid understanding of AlwaysOn Availability Groups. For more information, see [AlwaysOn Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
