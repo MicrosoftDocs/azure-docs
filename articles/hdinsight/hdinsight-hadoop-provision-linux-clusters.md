@@ -1,5 +1,5 @@
 <properties
-   	pageTitle="Provision Hadoop clusters on Linux in HDInsight | Microsoft Azure"
+   	pageTitle="Provision Hadoop, HBase, or Storm clusters on Linux in HDInsight | Microsoft Azure"
    	description="Learn how to provision Hadoop clusters on Linux for HDInsight using the management portal, the command line, and the .NET SDK."
    	services="hdinsight"
    	documentationCenter=""
@@ -14,11 +14,11 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="08/07/2015"
+   	ms.date="08/21/2015"
    	ms.author="nitinme"/>
 
 
-#Provision Hadoop Linux clusters in HDInsight using custom options (Preview)
+#Provision Hadoop Linux clusters in HDInsight using custom options
 
 In this article, you'll learn about the different ways to custom-provision a Hadoop Linux cluster on Azure HDInsight - by using the Azure portal, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK.
 
@@ -88,7 +88,9 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 
     ![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
 
-3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Windows Server 2012 R2 Datacenter**. A green check will appear beside the cluster name if it is available.
+3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Ubuntu**. A green check will appear beside the cluster name if it is available.
+
+	> [AZURE.NOTE] To provision HBase or Storm clusters, select the approprite value for the **Cluster Type** drop-down.
 
 	![Enter cluster name and type](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.2.png "Enter cluster name and type")
 
