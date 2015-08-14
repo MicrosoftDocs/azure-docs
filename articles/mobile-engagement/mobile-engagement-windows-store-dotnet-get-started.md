@@ -42,18 +42,18 @@ This tutorial requires the following:
 
 2. Click **App Services**, click **Mobile Engagement**, and then click **Create**.
 
-   ![][7]
+  	![][7]
 
 3. In the pop-up that appears, enter the following information:
 
-   ![][8]
+    ![][8]
 
-	- **Application Name**: Type the name of your application. Feel free to use any character.
-	- **Platform**: Select the target platform (**Windows Universal**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
-	- **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto-generated name should provide you a strong basis. You should also append the platform name to avoid any name clash because this name must be unique.
-	- **Location**: Select the datacenter where this app (and more importantly its Collection) will be hosted.
-	- **Collection**: If you have already created an application, select a previously created Collection, otherwise select **New Collection**.
-	- **Collection Name**: This represents your group of applications. It also ensures that all your apps are in a group that allows aggregated calculations of metrics. You should use your company name or department here if applicable.
+	 - **Application Name**: Type the name of your application. Feel free to use any character.
+	 - **Platform**: Select the target platform (**Windows Universal**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
+	 - **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto-generated name should provide you a strong basis. You should also append the platform name to avoid any name clash because this name must be unique.
+	 - **Location**: Select the datacenter where this app (and more importantly its Collection) will be hosted.
+	 - **Collection**: If you have already created an application, select a previously created Collection, otherwise select **New Collection**.
+	 - **Collection Name**: This represents your group of applications. It also ensures that all your apps are in a group that allows aggregated calculations of metrics. You should use your company name or department here if applicable.
 
 	> [AZURE.TIP] If your Universal App is going to target both Windows and Windows Phone platforms, you should still create two Mobile Engagement applications, one for each supported platforms. This is to ensure that you are able to create correct segmentation of the audience and are able to send appropriately targeted notifications for each platform.
 
@@ -61,11 +61,11 @@ This tutorial requires the following:
 
 5. Click **Connection Info** in order to display the **Connection** settings to put into your SDK integration in your mobile app.
 
-   ![][10]
+    ![][10]
 
 6. Copy the **Connection String** - this is what you will need to identify this app in your application code and to connect with Mobile Engagement from your Universal App.
 
-   ![][11]
+    ![][11]
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
@@ -81,7 +81,7 @@ You can skip this step if you already have an app and are familiar with Windows 
 
 2. In the pop-up, select **Store Apps** -> **Universal Apps** -> **Blank App (Universal Apps)**. Fill in the app **Name** and **Solution name**, and then click **OK**.
 
-   ![][13]
+    ![][13]
 
 You have now created a new Windows Universal App project into which we will integrate the Azure Mobile Engagement SDK.
 
