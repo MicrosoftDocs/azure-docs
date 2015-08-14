@@ -22,7 +22,7 @@
 ##Overview
 
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to an Android application.
-You'll create a blank Android app that receives push notifications by using Google Cloud Messaging (GCM). When you complete the tutorial, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
+You'll create a blank Android app that receives push notifications by using Google Cloud Messaging (GCM). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
 
 This tutorial demonstrates the simple broadcast scenario in using Notification Hubs. Be sure to follow along with the next tutorial to see how to use Notification Hubs to address specific users and groups of devices.
 
