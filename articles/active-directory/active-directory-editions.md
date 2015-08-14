@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Editions"
+	pageTitle="Azure Active Directory editions | Microsoft Azure"
 	description="A topic that explains choices for free and paid editions of Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
