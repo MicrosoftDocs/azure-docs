@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/13/2015" 
+	ms.date="08/14/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -67,7 +67,7 @@ Databases that already have Geo-Replication enabled can be moved in and out of a
 
 ### Import and Export
 
-Import of a database directly into a pool is not supported. You can import into a standalone database and then move the database into a pool. Export of a database from within a pool is supported.
+Export of a database from within a pool is supported. Currently, import of a database directly into a pool is not supported, but you can import into a single database and then move the database into a pool. 
 
 
 <!--Image references-->
