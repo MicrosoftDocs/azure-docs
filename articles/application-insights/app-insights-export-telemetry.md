@@ -185,6 +185,12 @@ On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdins
 
     Yes. Click Disable.
 
+## Code samples
+
+* [Stream Application Insights to Power BI](app-insights-export-power-bi.md)
+* [Export to SQL using a worker role][exportcode]
+* [Export to SQL using Stream Analytics][exportasa]
+
 
 <!--Link references-->
 
