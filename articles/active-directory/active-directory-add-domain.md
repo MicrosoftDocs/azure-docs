@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Add your own domain name to Azure AD"
+	pageTitle="Add your own domain name to Azure AD | Microsoft Azure"
 	description="A topic that explains how to add your own domain name to Azure AD and related info."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
