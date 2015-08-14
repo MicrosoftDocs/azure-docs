@@ -452,7 +452,7 @@ In this article, you have learned several ways to provision an HDInsight Hadoop 
 [image-hdi-customcreatecluster-storageaccount]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.StorageAccount.png
 [image-hdi-customcreatecluster-addonstorage]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.AddOnStorage.png
 
-
+[azure-preview-portal]: https://portal.azure.com
 
 
 [image-cli-account-download-import]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.CLIAccountDownloadImport.png

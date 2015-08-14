@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/21/2015"
+   ms.date="08/14/2015"
    ms.author="larryfr"/>
 
 # Deploy and manage Apache Storm topologies on Linux-based HDInsight
