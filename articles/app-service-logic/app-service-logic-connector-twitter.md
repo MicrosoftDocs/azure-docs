@@ -42,11 +42,11 @@ The **New Tweet** trigger has been archived. Currently, it is still available as
 
 ## Create the Twitter connector
 
-> [AZURE.IMPORTANT] Creating a Twitter Connector currently requires registration of an API App with Twitter.  You can register an application for free at http://apps.twitter.com.  You will need the Twitter API Key and Secret to create a connector.
+> [AZURE.IMPORTANT] Creating a Twitter Connector currently requires registration of an API App with Twitter.  You can register an application for free at [http://apps.twitter.com](http://apps.twitter.com).  You will need the Twitter API Key and Secret to create a connector.
 
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
-1. Create a free application for Twitter at http://apps.twitter.com
+1. Create a free application for Twitter at [http://apps.twitter.com](http://apps.twitter.com)
     * When registering for the app, you can put in any URL for the website, and leave the callback URL blank.
 2. In the Azure startboard, select **Marketplace**.
 2. Search for “Twitter Connector”.
