@@ -36,7 +36,7 @@ You will create an application using the Django web framework (see alternate ver
 - Python 2.7 or 3.4
 - setuptools, pip, virtualenv (Python 2.7 only)
 - Git
-- [Python Tools 2.1 for Visual Studio] (optional)
+- [Python Tools 2.1 for Visual Studio]  - This is optional
 
 **Note**: TFS publishing is currently not supported for Python projects.
 

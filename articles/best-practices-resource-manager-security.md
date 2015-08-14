@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
+	ms.date="08/13/2015"
 	ms.author="georgem"/>
 
 
@@ -25,6 +25,8 @@ and network security groups.
 This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azure Resource Manager. For more information, see 
 [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md) and 
 [Managing and Auditing Access to Resources](resource-group-rbac.md) 
+
+This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Secrets and certificates
 
@@ -398,3 +400,4 @@ you must enable IP Forwarding in the VM.
 - To understand how to set up security principals with the correct access to work with resources in your organization, see [Authenticating a Service Principal with Azure Resource Manager](resource-group-authenticate-service-principal.md)
 - If you need to lock access to a resource, you can use management locks. See [Lock Resources with Azure Resource Manager](resource-group-lock-resources.md)
 - To configure routing and IP forwarding, see [How to Create Routes and Enable IP Forwarding in Azure](virtual-network/virtual-networks-udr-how-to.md) 
+- For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md)
