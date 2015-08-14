@@ -149,7 +149,7 @@ This will generate a set of files under the directory C:\Chef\cookbooks\webserve
 
 The commands are stored in the file default.rb. In this file, I’ll be defining a set of commands that installs IIS, starts IIS and copies a template file to the wwwroot folder.
 
-Modify the C:\chef\cookbooks\webserver\recipes\default.rb file with the following code.
+Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the following lines.
 
 	powershell_script 'Install IIS' do
  		action :run
