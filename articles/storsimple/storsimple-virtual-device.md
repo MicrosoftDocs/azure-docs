@@ -1,6 +1,6 @@
 <properties
    pageTitle="StorSimple virtual device | Microsoft Azure"
-   description="Describes how to create, configure, deploy, and manage StorSimple virtual device."
+   description="Describes how to create, configure, deploy, and manage the StorSimple virtual device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # StorSimple virtual device
@@ -20,6 +20,7 @@
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ## Overview
+
 The StorSimple virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. The following topics in this article will help you learn about, configure, and use the StorSimple virtual device.
 
 
@@ -95,7 +96,6 @@ Make the following updates to your Azure StorSimple service before you create a 
 
 Make sure that you have the following information before you begin:
 
-
 - You have your Azure portal account with access credentials.
 
 - You have your Azure storage account access credentials.
@@ -123,7 +123,7 @@ Perform the following steps to create the StorSimple virtual device.
 
 - Go to the **Devices** page.
 
-- In the **Create Virtual Device** dialog box, specify the following:
+- In the **Create Virtual Device** dialog box, specify the following details.
 
 	![StorSimple create virtual device](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
 
@@ -148,7 +148,8 @@ Perform the following steps to configure and register your StorSimple virtual de
 
 
 1. Select the **StorSimple virtual device** you just created on the **Devices** page.
-2. Click **complete device setup**. This starts the Configure device wizard.
+
+2. Click **Complete Device Configuration**. This starts the Configure device wizard.
 
 	![StorSimple complete device setup in Devices page](./media/storsimple-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
@@ -383,3 +384,5 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 
 ## Next steps
+
+To administer your virtual device, refer to the detailed list of workflows in [Administer your StorSimple device](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
