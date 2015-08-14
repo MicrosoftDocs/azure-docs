@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 
@@ -219,7 +219,7 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 
 ## Next steps
 
-Learn about [StorSimple security](storsimple-security.md)
+Learn about [StorSimple security](storsimple-security.md).
 
 
 

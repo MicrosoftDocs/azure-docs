@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="View and manage StorSimple alerts"
+   pageTitle="View and manage StorSimple alerts | Microsoft Azure"
    description="Describes StorSimple alerts and how to use the StorSimple Manager service to view and clear them."
    services="storsimple"
    documentationCenter="NA"
@@ -169,7 +169,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 |Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
 |Recovery operations could not restore all of the settings for this service. Device configuration data is in an inconsistent state for some devices.|Data inconsistency detected after disaster recovery.|Encrypted data on the service is not synchronized with that on the device. Authorize the device <*device name*> from StorSimple Manager to start the synchronization process. Use the Windows PowerShell Interface for StorSimple to run the **Restore-HcsmEncryptedServiceData on device <*device name*>** cmdlet, providing the old password as an input to this cmdlet to restore the security profile. Then run the **Invoke-HcsmServiceDataEncryptionKeyChange** cmdlet to update the service data encryption key. After you have taken appropriate action, please clear this alert from the alerts page.|
-|The service has failed over to a secondary data center due to an unexpected failure.|Other/unknown cause.|You need to verify your configuration settings in StorSimple Manager to continue. After you have taken appropriate action, please clear this alert from the alerts page. For more information about StorSimple Manager see the [StorSimple Manager Administrator's Guide](https://msdn.microsoft.com/library/azure/dn772401.aspx).|
+|The service has failed over to a secondary data center due to an unexpected failure.|Other/unknown cause.|You need to verify your configuration settings in StorSimple Manager to continue. After you have taken appropriate action, please clear this alert from the alerts page. For more information about StorSimple Manager see the [Use StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).|
 
 ### Hardware alerts
 
@@ -228,4 +228,4 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 ## Next steps
 
-[Learn more about StorSimple errors](storsimple-troubleshoot-operational-device.md)
+[Learn more about StorSimple errors](storsimple-troubleshoot-operational-device.md).
