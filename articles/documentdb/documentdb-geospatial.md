@@ -270,9 +270,9 @@ Now that we've taken a look at how to query documents using LINQ and SQL, let's 
 
 ## Indexing
 
-DocumentDB supports indexing of GeoJSON points stored within documents using the **Spatial** index kind. Why use a different index type? This is because traditional indexes rely on a simple linear ordering and do not work well with spatial queries which require 2 dimensional comparisons. 
+As we described in the [Schema Agnostic Indexing with Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, we designed DocumentDB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of DocumentDB now also natively understands spatial data represented in the GeoJSON standard.
 
-How is spatial data indexed in DocumentDB? In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane and divided progressively into cells using a **quadtree**. Then these cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as tessellation, i.e. all the cells that intersect a location are identified and stored within the DocumentDB index. At query time, arguments like points and polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
+In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane then divided progressively into cells using a **quadtree**. These cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as **tessellation**, i.e. all the cells that intersect a location are identified and stored as keys in the DocumentDB index. At query time, arguments like points and polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
 
 If you specify an indexing policy that includes spatial index for /* (all paths), then all points found within the collection are indexed for efficient spatial queries (ST_WITHIN and ST_DISTANCE). Spatial indexes do not have a precision value, and always use a default precision value.
 
