@@ -32,7 +32,7 @@
             try
             {
                 // Send the push notification and log the results.
-                var result = await hub.SendWindowsNativeNotificationAsync(appleNotificationPayload);
+                var result = await hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
 
                 // Write the success result to the logs.
                 config.Services.GetTraceWriter().Info(result.State.ToString());

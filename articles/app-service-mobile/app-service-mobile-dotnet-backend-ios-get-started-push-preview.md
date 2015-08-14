@@ -17,7 +17,7 @@
 	ms.author="krisragh"/>
 
 
-# iOS push notifications with Azure Mobile Apps
+# Add Push Notifications to your iOS App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
@@ -31,6 +31,10 @@ In this tutorial, you add push notifications to the [iOS quick start] project so
 ## Configure Azure to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
+
+##<a name="review"></a>Review your server project configuration (optional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)] 
 
 ##<a id="update-server"></a>Update server project to send push notifications
 
