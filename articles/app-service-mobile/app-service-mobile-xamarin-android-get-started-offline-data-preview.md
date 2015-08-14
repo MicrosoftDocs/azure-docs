@@ -19,7 +19,7 @@
 # Enable offline sync for your Xamarin.Android mobile app
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
-
+&nbsp;
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## Overview
