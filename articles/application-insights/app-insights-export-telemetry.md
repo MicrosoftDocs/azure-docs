@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/13/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -85,7 +85,7 @@ Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-
+[Detailed reference for the fields](app-insights-data-model.md)
 
 ## Processing the data
 

@@ -23,6 +23,7 @@ You'll see these property names:
 * As filters in [Metric Explorer](app-insights-metrics-explorer.md) and [Diagnostic Search](app-insights-diagnostic-search.md)
 * In exported data from [continuous export](app-insights-export-telemetry.md)
 
+
 ## &lt;telemetryType&gt;
 
 **[dynamic]<key>**
@@ -171,6 +172,7 @@ You'll see these property names:
 
     *Derivation:* See appendix for URL transformation
 
+  
 ## availability
 
 **availability**
@@ -214,6 +216,7 @@ You'll see these property names:
     datetime availability.testtimestamp      
 
 * The timestamp of the beginning of the availability test run instance
+
 
 ## basicexception
 
@@ -411,6 +414,7 @@ You'll see these property names:
 
 * 
 
+
 ## clientperformance
 
 **domProcessing**
@@ -442,6 +446,7 @@ You'll see these property names:
     simpleMetric clientperformance.sendrequest   ms   
 
 * A portion of the perTotal time.  This portion represents the time the app took to send the request to the server.  This timing is captured using modern browser's perfTiming API.
+
 
 ## context
 
@@ -843,6 +848,7 @@ You'll see these property names:
 
 * A unique identifer that defines an account within the app.  This is developer provided.
 
+
 ## remotedependency
 
 **async**
@@ -883,6 +889,7 @@ You'll see these property names:
 
 * An indicator if the remote dependency call was successful or failed.
 
+
 ## request
 
 **hasdetaileddata**
@@ -917,6 +924,7 @@ You'll see these property names:
 
     *Default:* If null, set to true
 
+  
 ## sessionmetric
 
 **anonymousUserDurationSinceLastVisit**
@@ -1037,6 +1045,7 @@ You'll see these property names:
 
 * A count of sessions that this sessionMetric instance of telemetry represents
 
+
 ## trace
 
 **context**
@@ -1152,6 +1161,7 @@ You'll see these property names:
     string trace.userstackframenum      Max: 100
 
 * The user stack frame number for the trace telemetry item
+
 
 ## view
 
