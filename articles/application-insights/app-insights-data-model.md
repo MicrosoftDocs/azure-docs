@@ -21,7 +21,7 @@ This table lists the properties of telemetry sent from the [Application Insights
 You'll see these properties in data output from [Continuous Export](app-insights-export-telemetry.md).
 They also appear in property filters in [Metric Explorer](app-insights-metrics-explorer.md) and [Diagnostic Search](app-insights-diagnostic-search.md).
 
-[Code samples](app-insights-export-telemetry.md#code-samples)
+There are several [samples](app-insights-export-telemetry.md#code-samples) that illustrate how to use them.
 
 The "&lt;telemetryType&gt;" of the first section is a placeholder for any of the telemetry type names:
 view, request, and so on.
