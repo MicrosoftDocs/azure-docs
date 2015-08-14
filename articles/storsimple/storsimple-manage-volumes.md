@@ -148,7 +148,7 @@ Complete the following steps to delete a volume.
 
 2. Select the volume container that has the volume you want to delete. Click the volume container to access the **Volumes** page.
 
-3. All the volumes associated with this container are displayed in a tabular format. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first, following the steps in [Take a volume offline](#Take-a-volume-offline).
+3. All the volumes associated with this container are displayed in a tabular format. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first, following the steps in [Take a volume offline](#take-a-volume-offline).
 
 4. After the volume is offline, click **Delete** at the bottom of the page.
 

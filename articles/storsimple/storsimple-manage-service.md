@@ -82,7 +82,7 @@ Perform the following steps to get the service registration key.
 
 Keep the service registration key in a safe location. You will need this key, as well as the service data encryption key, to register additional devices with this service. After obtaining the service registration key, you will need to configure your device through the Windows PowerShell for StorSimple interface.
 
-For details on how to use this registration key, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md/#step-2:-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+For details on how to use this registration key, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md/#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## Regenerate the service registration key
 
@@ -109,6 +109,6 @@ Perform the following steps to regenerate a service registration key.
 
 Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md)
 
-Learn more about [managing your StorSimple storage account](../storsimple-manage-storage-account.md) 
+Learn more about [managing your StorSimple storage account](storsimple-manage-storage-account.md) 
 
  
