@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2015"
+	ms.date="08/14/2015"
 	ms.author="curtand"/>
 
-# Azure Active Directory Editions
+# Azure Active Directory editions
 
 Azure Active Directory is a service that provides comprehensive identity and access management capabilities in the cloud. It combines directory services, advanced identity governance, application access management and a rich standards-based platform for developers. For more information, [see this video](http://azure.microsoft.com/documentation/videos/teched-europe-2014-cloud-identity-microsoft-azure-active-directory-explained/).
 
@@ -71,6 +71,7 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 
 - **Password reset with write-back** - Self-service password reset can be written back to on-premises directories.
 
+- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): monitor the health of your on premises Active Directory infrastructure and get usage analytics.
 
 
 
@@ -112,7 +113,6 @@ The following features are currently in public preview and will be added soon:
 
 - [Administrative units](https://msdn.microsoft.com/library/azure/dn832057.aspx): a new Azure Active Directory container of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users.
 - [Add your own SaaS applications](https://msdn.microsoft.com/library/azure/dn893637.aspx) to Azure Active Directory.
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): monitor the health of your on premises Active Directory infrastructure and get usage analytics.
 - Password rollover for Facebook, Twitter, and LinkedIn. For more information, read [this article](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
 - Dynamic group membership. For more information, see [this article](https://msdn.microsoft.com/library/azure/dn913807.aspx).
 - [Conditional Access](https://msdn.microsoft.com/library/azure/dn906877.aspx): Multifactor Authentication per application.
@@ -127,4 +127,3 @@ The following features are currently in public preview and will be added soon:
 - [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
 - [View your access and usage reports](active-directory-view-access-usage-reports.md)
- 
