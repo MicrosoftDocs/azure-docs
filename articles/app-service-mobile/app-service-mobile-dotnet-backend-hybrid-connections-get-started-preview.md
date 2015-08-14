@@ -12,7 +12,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/30/2015" 
 	ms.author="glenga"/>
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use diagnostics (.NET) - Azure feature guide" 
+	pageTitle="How to use diagnostics (.NET) | Microsoft Azure" 
 	description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." 
 	services="cloud-services" 
 	documentationCenter=".net" 

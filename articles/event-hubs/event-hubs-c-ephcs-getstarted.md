@@ -12,7 +12,7 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="sethm"/>
 

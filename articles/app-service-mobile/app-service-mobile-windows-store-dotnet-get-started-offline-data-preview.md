@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Using offline data with Azure Mobile App (Windows Store) | Mobile Dev Center"
+	pageTitle="Using offline data with Azure Mobile App (Windows Store) | Microsoft Azure"
 	description="Learn how to use an Azure Mobile App to cache and sync offline data in your Windows Store application"
 	documentationCenter="windows"
 	authors="christopheranderson"

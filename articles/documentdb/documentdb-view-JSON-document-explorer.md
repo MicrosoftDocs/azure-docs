@@ -1,9 +1,9 @@
 <properties
-	pageTitle="View, edit, create, and upload JSON documents using the DocumentDB Document Explorer | Azure"
+	pageTitle="View, edit, create, and upload JSON documents using the DocumentDB Document Explorer | Microsoft Azure"
 	description="Learn about the DocumentDB Document Explorer, an Azure Preview portal tool to view, edit, create, and upload JSON documents with DocumentDB."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 

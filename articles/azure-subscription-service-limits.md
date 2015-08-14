@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/09/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -23,7 +23,6 @@
 This document specifies some of the most common Microsoft Azure limits. Note that this does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
-
 
 ### Limits and the Azure Resource Manager
 
@@ -74,13 +73,6 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 ### DNS Limits
 
 [AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
-
-### Networking Limits – Azure Resource Manager
-
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
-
-[AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
-
 
 ## Storage Limits
 
@@ -150,6 +142,10 @@ For additional details on SQL Database limits, please see the following topics:
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
+## CDN Limits
+
+[AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
+
 ## Mobile Services Limits
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
@@ -157,6 +153,11 @@ For additional details on SQL Database limits, please see the following topics:
 ## Service Bus Limits
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+## Data Factory Limits
+
+[AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
+
 
 ## Stream Analytics Limits
 
