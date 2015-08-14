@@ -171,7 +171,7 @@ You'll see these property names:
 
     *Derivation:* See appendix for URL transformation
 
-  ## availability
+## availability
 
 **availability**
 
@@ -917,7 +917,7 @@ You'll see these property names:
 
     *Default:* If null, set to true
 
-  ## sessionmetric
+## sessionmetric
 
 **anonymousUserDurationSinceLastVisit**
 
