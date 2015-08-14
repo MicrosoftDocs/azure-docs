@@ -3,8 +3,7 @@
     pageTitle="Sizing information for a VNET in Azure RemoteApp"
     description="Learn about the IP address requirements for Azure RemoteApp running with a VNET" 
     services="remoteapp" 
-    solutions="" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
