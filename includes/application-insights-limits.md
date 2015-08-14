@@ -4,14 +4,15 @@
 -------- | ------------- | -------------
 Session data points per month | unlimited | unlimited
 Other data points per month | 5 million | 50 million<sup>1</sup>
-Log or Trace events per minute | 200 dp/s | 500 dp/s
-Exception events | 50 dp/s | 50 dp/s
-Other telemetry | 200 dp/s | 500 dp/s
+Trace or Log data rate | 200 dp/s | 500 dp/s
+Exception data rate | 50 dp/s | 50 dp/s
+Other telemetry data rate | 200 dp/s | 500 dp/s
 Raw  data retention |7 days| 30 days
 Aggregated data retention | 13 months | unlimited
 Property name count across the app | 100 | 100
 Property name length | 100 | 100
 Property value length | 1000 | 1000
+Trace and Exception message length | 10000 | 10000
 Metric name length |  100 | 100
 
 
