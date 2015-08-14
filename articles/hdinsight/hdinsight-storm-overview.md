@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Introduction to Apache Storm on HDInsight | Microsoft Azure"
 	description="Get an introduction to Apache Storm, and learn how you can use Storm on HDInsight to build real-time data analytics solutions in the cloud."
-	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -35,6 +34,8 @@ Apache Storm on HDInsight is a managed cluster integrated into the Azure environ
 * Use the language of your choice: Provides support for Storm components written in **Java**, **C#**, and **Python**
 
 	* Supports a mix of programming languages: Read data using Java, then process it using C#
+	
+		> [AZURE.NOTE] C# topologies are only supported on Windows-based HDInsight clusters.
 
 	* Use the **Trident** Java interface to create Storm topologies that support "exactly once" processing of messages, "transactional" datastore persistence, and a set of common stream analytics operations
 
@@ -58,7 +59,11 @@ Within 15 minutes of submitting the request, you will have a new Storm cluster r
 
 ###Ease of use
 
-If you use Visual Studio, the HDInsight Tools for Visual Studio allow you to create C# and hybrid C#/Java topologies, and then submit them to your Storm on HDInsight cluster.  
+__For Linux-based Storm on HDInsight clusters__, you can connect to the cluster using SSH and use the `storm` command to start and manage topologies. Additionally, you can use Ambari to monitor the Storm service and the Storm UI to monitor and manage running topologies.
+
+For more information on working with Linux-based Storm clusters, see [Get started with Apache Storm on Linux-based HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
+
+__For Windows-based Storm on HDInsight clusters__, the HDInsight Tools for Visual Studio allow you to create C# and hybrid C#/Java topologies, and then submit them to your Storm on HDInsight cluster.  
 
 ![Storm Project creation](./media/hdinsight-storm-overview/createproject.png)
 
@@ -76,7 +81,10 @@ Each Storm on HDInsight cluster also provides a web-based Storm Dashboard that a
 
 For more information about using the Storm Dashboard, see [Deploy and manage Apache Storm topologies on HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-Storm on HDInsight also provides easy integration with Azure Event Hubs through the **Event Hub Spout**. This is available on each storm cluster at **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. For examples of using this spout in a Storm topology, see [Getting started with Event Hubs](service-bus-event-hubs-c-storm-getstarted.MD) and [Analyzing sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.MD).
+Storm on HDInsight also provides easy integration with Azure Event Hubs through the **Event Hub Spout**. This is available on each storm cluster at **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. For examples of using this spout in a Storm topology, see the following documents:
+
+* [Develop a C# topology that uses Azure Event Hubs](hdinsight-storm-develop-csharp-event-hub-topology.md)
+* [Develop a Java topology that uses Azure Event Hubs](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ###Reliability
 
@@ -155,7 +163,9 @@ Most Java examples you encounter will be plain Java or Trident. Trident is a hig
 
 For more information about Trident, see the [Trident tutorial](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) at apache.org.
 
-For examples of raw Java and Trident topologies, see the **%storm_home%\contrib\storm-starter** directory on your HDInsight Storm cluster.
+For examples of Java and Trident topologies, see the [list of example Storm topologies](hdinsight-storm-example-topology.md) or the storm-starter examples on your HDInsight cluster.
+
+The storm-starter examples are located in the __ /usr/hdp/current/storm-client/contrib/storm-starter__ directory on Linux-based clusters, and the **%storm_home%\contrib\storm-starter** directory on Windows-based clusters.
 
 ##What are some common development patterns?
 
@@ -206,4 +216,4 @@ Learn more about real-time analytics solutions with Apache Storm in HDInsight:
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
-[gettingstarted]: ../hdinsight-storm-getting-started.md
+[gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
