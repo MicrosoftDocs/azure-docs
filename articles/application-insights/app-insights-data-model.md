@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights Data Model" 
-	description="Properties exported and used as filters" 
+	description="Describes properties exported from continuous export in JSON, and used as filters." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -15,13 +15,17 @@
 	ms.date="08/12/2015" 
 	ms.author="awills"/>
 
-# Application Insights Data Model
+# Application Insights Export Data Model
 
-This table lists the properties of telemetry sent from the Application Insights SDKs to the portal. 
-You'll see these property names:
+This table lists the properties of telemetry sent from the [Application Insights](app-insights-overview.md) SDKs to the portal. 
+You'll see these properties in data output from [Continuous Export](app-insights-export-telemetry.md).
+They also appear in property filters in [Metric Explorer](app-insights-metrics-explorer.md) and [Diagnostic Search](app-insights-diagnostic-search.md).
 
-* As filters in [Metric Explorer](app-insights-metrics-explorer.md) and [Diagnostic Search](app-insights-diagnostic-search.md)
-* In exported data from [continuous export](app-insights-export-telemetry.md)
+[Code samples](app-insights-export-telemetry.md#code-samples)
+
+The "&lt;telemetryType&gt;" of the first section is a placeholder for any of the telemetry type names:
+view, request, and so on.
+
 
 ## &lt;telemetryType&gt;
 
@@ -171,6 +175,7 @@ You'll see these property names:
 
     *Derivation:* See appendix for URL transformation
 
+  
 ## availability
 
 **availability**
@@ -214,6 +219,7 @@ You'll see these property names:
     datetime availability.testtimestamp      
 
 * The timestamp of the beginning of the availability test run instance
+
 
 ## basicexception
 
@@ -411,6 +417,7 @@ You'll see these property names:
 
 * 
 
+
 ## clientperformance
 
 **domProcessing**
@@ -442,6 +449,7 @@ You'll see these property names:
     simpleMetric clientperformance.sendrequest   ms   
 
 * A portion of the perTotal time.  This portion represents the time the app took to send the request to the server.  This timing is captured using modern browser's perfTiming API.
+
 
 ## context
 
@@ -843,6 +851,7 @@ You'll see these property names:
 
 * A unique identifer that defines an account within the app.  This is developer provided.
 
+
 ## remotedependency
 
 **async**
@@ -883,6 +892,7 @@ You'll see these property names:
 
 * An indicator if the remote dependency call was successful or failed.
 
+
 ## request
 
 **hasdetaileddata**
@@ -917,6 +927,7 @@ You'll see these property names:
 
     *Default:* If null, set to true
 
+  
 ## sessionmetric
 
 **anonymousUserDurationSinceLastVisit**
@@ -1037,6 +1048,7 @@ You'll see these property names:
 
 * A count of sessions that this sessionMetric instance of telemetry represents
 
+
 ## trace
 
 **context**
@@ -1153,6 +1165,7 @@ You'll see these property names:
 
 * The user stack frame number for the trace telemetry item
 
+
 ## view
 
 **referrerDataUrl**
@@ -1222,3 +1235,9 @@ You'll see these property names:
     *Derivation:* See appendix for URL transformation
 
   
+
+## References
+
+* [Application Insights](app-insights-overview.md) 
+* [Continuous Export](app-insights-export-telemetry.md)
+* [Code samples](app-insights-export-telemetry.md#code-samples)
