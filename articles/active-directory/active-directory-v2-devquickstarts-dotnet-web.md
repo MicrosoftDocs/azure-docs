@@ -1,7 +1,6 @@
 <properties
 	pageTitle="App Model v2.0 | Microsoft Azure"
-	description="How to build a .NET MVC Web App that accepts tokens from both personal Microsoft accounts and work or school accounts."
-	that signs users in with both personal Microsoft Account and work or school accounts.
+	description="How to build a .NET MVC Web App that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="dstrockis"
