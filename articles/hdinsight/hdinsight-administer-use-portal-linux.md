@@ -56,8 +56,6 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 3. Enter a __Cluster Name__, then select the __Cluster Type__ you wish to create. A green check will appear beside the __Cluster Name__ if it is available.
 
 	![Cluster name, cluster type, and OS Type](./media/hdinsight-administer-use-portal-linux/clustername.png)
-	
-	> [AZURE.NOTE] Only the Hadoop cluster type is available for the Linux-based HDInsight preview.
 
 4. If you have more than one subscription, select the __Subscription__ entry to select the Azure subscription that will be used for the cluster.
 

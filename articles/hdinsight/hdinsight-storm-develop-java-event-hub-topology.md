@@ -223,7 +223,7 @@ This allows you to run the topology locally on your development environment usin
 
     mvn compile exec:java -Dstorm.topology=<CLASSNAME>
     
-For example, `mvn compile exec:java -Dstorm.topology=com.microsoft.example.EventHubWriter
+For example, `mvn compile exec:java -Dstorm.topology=com.microsoft.example.EventHubWriter`.
 
 ####The resources section
 
@@ -313,7 +313,7 @@ Event Hubs is the data source for this example. Use the following steps to creat
 		
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
 
-	NOTE: If you're using Powershell, you mau have to put the -Dfoo=bar parmeters in quotes. The whole thing; "-Dfoo=bar".
+	> [AZURE.NOTE] If you're using Powershell, you mau have to put the `-D` parmeters in quotes. For example, `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`.
 	
 	Also these files are originally from https://github.com/hdinsight/hdinsight-storm-examples, so can find the latest versions there.
     
@@ -333,7 +333,7 @@ The jar created by this project contains two topologies; __com.microsoft.example
 
         scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.
         
-    If you used a password for your SSH account, you will be prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    If you used a password for your SSH account, you will be prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. For example, `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`.
     
     > [AZURE.NOTE] If your client is a Windows workstation, you may not have an SCP command installed. We recommend PSCP, which can be downloaded from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
     

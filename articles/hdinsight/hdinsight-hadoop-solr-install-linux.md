@@ -162,7 +162,7 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 	
 	Finally, select the **Execute Query** button at the bottom of the search pate.
 
-		![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
+	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 	
 	The output returns the two docs that we used for indexing Solr. The output resembles the following:
 
