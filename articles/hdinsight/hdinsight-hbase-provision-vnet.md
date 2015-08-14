@@ -74,7 +74,7 @@ Before provisioning an HBase cluster, you need to have an Azure virtual network.
 
 **To create a virtual network by using the Azure portal**
 
-1. Sign in to the [preview portal][azure-portal].
+1. Sign in to the [preview portal](https://portal.azure.com).
 2. Click **NEW**, click **Networking**, and then click **Virtual network**.
 3. In **Select a deployment model**, select **Classic**, and then click **Create**.
 
@@ -108,7 +108,7 @@ A DNS server is optional, but necessary in some cases.  The procedure has been d
 
 **To create an HDInsight cluster**
 
-1. Sign in to the [Azure preview portal][azure-preview-portal].
+1. Sign in to the [Azure preview portal](https://portal.azure.com).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
     ![Creating a new cluster in the Azure preview portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
