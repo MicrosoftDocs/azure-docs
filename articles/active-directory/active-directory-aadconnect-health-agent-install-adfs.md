@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure AD Connect Health requirements." 
-	description="This is the Azure AD Connect Health page that describes requirements and agent installation." 
+	pageTitle="Azure AD Connect Health AD FS Agent installation." 
+	description="This is the Azure AD Connect Health page that describes the ad fs agent installation." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/12/2015" 
+	ms.date="08/14/2015" 
 	ms.author="billmath"/>
 
 
@@ -21,9 +21,11 @@
 
 
 
-# Azure AD Connect Health Agent Installation
+# Azure AD Connect Health Agent Installation for AD FS
 
-This document will walk you through installing and configuring the Azure AD Connect Health Agent on your servers. Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.  Be sure to complete the requirements [here](active-directory-aadconnect-health.md#requirements) prior to installing the agent.  You can download the agent [here](http://go.microsoft.com/fwlink/?LinkID=518973).
+This document will walk you through installing and configuring the Azure AD Connect Health Agent for AD FS on your servers. 
+
+>[AZURE.NOTE]Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.  Be sure to complete the requirements [here](active-directory-aadconnect-health.md#requirements) prior to installing the agent.  You can download the agent [here](http://go.microsoft.com/fwlink/?LinkID=518973).
 
 
 ## Agent installation
@@ -42,7 +44,7 @@ This will launch a command prompt followed by some PowerShell that will execute 
 
 After signing in, PowerShell will continue. Once it completes you can close PowerShell and the configuration is complete.
 
-At this point, the services should be started automatically and the agent will be now monitoring and gathering data.  Be aware that you will see warnings in the PowerShell window if you have not met all of the pre-requisites that were outlined in the previous sections. The following screenshot below is an example.
+At this point, the services should be started automatically and the agent will be now monitoring and gathering data.  Be aware that you will see warnings in the PowerShell window if you have not met all of the pre-requisites that were outlined in the previous sections. Be sure to complete the requirements [here](active-directory-aadconnect-health.md#requirements) prior to installing the agent. The following screenshot below is an example of these errors.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install4.png)
 
@@ -68,8 +70,7 @@ For Windows Server 2008 R2 servers do the following:
  - Install Internet Explorer version 10 or above on the server. This is required by the Health Service to authenticate you using your Azure Admin credentials.
 1. For additional information on installing Windows PowerShell 4.0 on Windows Server 2008 R2 see the wiki article [here](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
-
-**Related links**
+## Related links
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)

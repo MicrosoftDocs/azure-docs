@@ -20,24 +20,19 @@
 # Using Azure AD Connect Health with AD FS 
 The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health.
 
-## Azure AD Connect Health AD FS Features
+## Alerts for AD FS
 The Azure AD Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alerts that were resolved in the past.
 
 By selecting an alert you will be provided with additional information as well as steps you can take to resolve the alert and links to additional documentation.
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/alert2.png)
 
-Azure AD Connect Health Performance Monitoring provides monitoring information on metrics. By selecting the Monitoring box, a blade will open up that provides detailed information on the metrics.
 
 
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/perf1.png)
-
-
-By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metrics, simply right-click on the monitoring chart under the monitoring blade and select Edit Chart. Then, from the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
-
+## Usage Analytics for AD FS
 Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. Selecting the usage analytics box will open the usage analytics blade, which will show you the metrics and groupings.
 
->[AZURE.NOTE] In order to use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see Azure AD Connect Health Requirements. 
+>[AZURE.NOTE] In order to use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs). 
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/report1.png)
 
@@ -59,50 +54,21 @@ To select additional metrics, specify a time range, or to change the grouping, s
 |  | Application | This will group the average number of users based on the targeted application (relying party). This is useful to understand how many users are using which application. |
 
 
+## Performance Monitoring for AD FS
+Azure AD Connect Health Performance Monitoring provides monitoring information on metrics. By selecting the Monitoring box, a blade will open up that provides detailed information on the metrics.
 
 
-## AD FS auditing must be enabled to use Usage Analytics
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/perf1.png)
 
-In order for the Usage Analytics feature to gather data and analyze the Azure AD Connect Health agent needs the information in the AD FS Audit Logs. These logs are not enabled by default. This only applies to AD FS federation servers. You do not need to enable auditing on AD FS Proxy servers or Web Application Proxy servers. Use the following procedures to enable AD FS auditing and to locate the AD FS audit logs.
 
-#### To enable auditing for AD FS 2.0
-
-1. Click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
-1. Navigate to the **Security Settings\Local Policies\User Rights Management** folder, and then double-click Generate security audits.
-1. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-1. Open a command prompt with elevated privileges and run the following command to enable auditing.
- `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
-1. Close Local Security Policy, and then open the Management snap-in.  To open the Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click AD FS 2.0 Management.
-1. In the Actions pane, click Edit Federation Service Properties.
-1. In the **Federation Service Properties** dialog box, click the **Events** tab.
-1. Select the **Success audits** and **Failure audits** check boxes.
-1. Click **OK**.
-
-#### To enable auditing for AD FS on Windows Server 2012 R2
-
-1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
-1. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
-1. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-1. Open a command prompt with elevated privileges and run the following command to enable auditing:
-`auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
-1. Close **Local Security Policy**, and then open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
-1. In the Actions pane, click **Edit Federation Service Properties**.
-1. In the Federation Service Properties dialog box, click the **Events** tab.
-1. Select the **Success audits and Failure audits** check boxes and then click **OK**.
+By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metrics, simply right-click on the monitoring chart under the monitoring blade and select Edit Chart. Then, from the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
 
 
 
 
+## Related links
 
-
-#### To locate the AD FS audit logs
-
-
-1. Open **Event Viewer**.</li>
-1. Go to Windows Logs and select **Security**.
-1. On the right, click **Filter Current Logs**.
-1. Under Event Source, select **AD FS Auditing**.
-
-![AD FS audit logs](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
-
-> [AZURE.WARNING] If you have a group policy that is disabling AD FS auditing then the Azure AD Connect Health Agent will not be able to collect information. Ensure that you don’t have a group policy that may be disabling auditing.
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Azure AD Connect Health Agent Installation for AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)

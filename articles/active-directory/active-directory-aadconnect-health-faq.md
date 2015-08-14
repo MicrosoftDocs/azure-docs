@@ -126,3 +126,10 @@ Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Con
 **Q: What firewall ports do I need to open for the Azure AD Connect Health Agent to work?**
 
 You will need to have TCP/UDP ports 80 and 443 open for the Azure AD Connect Health Agent to be able to communicate with the Azure AD Health service endpoints.
+
+## Related links
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Azure AD Connect Health Agent Installation for AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
