@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/13/2015" 
 	ms.author="billmath"/>
 
@@ -101,7 +101,9 @@ Before you install Azure AD Connect with Express Settings, there are a few thing
  
 - An Azure subscription or an [Azure trial subscription](http://azure.microsoft.com/pricing/free-trial/) - This is only required for accessing the Azure portal and not for using Azure AD Connect.  If you are using PowerShell or Office 365 you do not need an Azure subscription to use Azure AD Connect.
 - An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with
-- An AD Domain Controller or member server with Windows Server 2008 or later
+- Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server.
+- The AD schema version and forest level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
+- If Active Directory Federation Services is being deployed, the servers where AD FS will be installed must be Windows Server 2012 or later.
 - An Enterprise Administrator account for your local Active Directory
 - Optional:  A test user account to verify synchronization. 
 
@@ -148,8 +150,8 @@ Selecting Express Settings is the default option and is one of the most common s
 8. Once the installation completes, click **Exit**.
 
 
-<br>
-<br>
+
+
 
 For a video on using the express installation check out the following:
 
@@ -229,6 +231,7 @@ Enable Staging Mode |  This allows you to stage information that will later be s
 ### Additional Documentation
 For additional documentation on working with Azure AD Connect see the following;
 
+- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md) 
 - [Changing the Azure AD Connect default configuration](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Using the Azure AD Connect Synchronization Rules Editor](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Using declarative provisioning](active-directory-aadconnect-whats-next-declarative-prov.md)

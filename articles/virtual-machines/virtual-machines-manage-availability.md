@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage the availability of virtual machines - Azure"
+	pageTitle="Manage the availability of virtual machines | Microsoft Azure"
 	description="Learn how to use multiple virtual machines to ensure high availability for your Azure application."
 	services="virtual-machines"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2015"
+	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
 #Manage the availability of virtual machines

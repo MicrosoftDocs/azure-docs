@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="sameerch"/>
 
 
@@ -23,6 +23,7 @@ Connect to your Twitter feed to post tweets and gets tweets from your timeline, 
 
 - Get new tweets associated with a given keyword or text. When a new tweet is retrieved, it triggers a new instance of your workflow and passes the data to the next connector in your workflow. For example, you create a Twitter Connector and use the New Tweet From Search trigger to monitor #peanutbutterandjelly. Whenever there's a new tweet for #peanutbutterandjelly, your workflow (aka logic app) starts automatically.
 - Using the different actions, like "Search Tweets", you take the response and use it within your workflow. For example, you can search tweets for your company name. When it's found, you can use a logic app to write this data into a SQL Server database. Then, use the SQL Server data to determine what is being tweeted about your company. 
+- Use all the operators at [Twitter Search](https://twitter.com/search). Select the **operators** link. The Twitter connector supports all the operators listed.
 
 
 ## Triggers and Actions
@@ -36,18 +37,23 @@ Triggers | Actions
 --- | ---
 New Tweet From Search | <ul><li>Get User Timeline</li><li>Search Tweets</li><li>Tweet</li><li>Get Mentions Timeline</li><li>Get Home Timeline</li><li>Get Followers</li><li>Get Friends</li><li>Get User Details</li><li>Tweet to User</li><li>Send Direct Message</li></ul>
 
-> [AZURE.IMPORTANT] The **New Tweet** trigger has been archived. Currently, it is still available as an Advanced operation and can be used. The **Retweet** action is removed and no longer supported. If you use the Retweet action, it fails at runtime. As a result, remove the Retweet action from your logics apps. 
+The **New Tweet** trigger has been archived. Currently, it is still available as an Advanced operation and can be used. The **Retweet** action is removed and no longer supported. If you use the Retweet action, it fails at runtime. As a result, remove the Retweet action from your logics apps. 
 
 
 ## Create the Twitter connector
+
+> [AZURE.IMPORTANT] Creating a Twitter Connector currently requires registration of an API App with Twitter.  You can register an application for free at http://apps.twitter.com.  You will need the Twitter API Key and Secret to create a connector.
+
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
-1. In the Azure startboard, select **Marketplace**.
+1. Create a free application for Twitter at http://apps.twitter.com
+2. In the Azure startboard, select **Marketplace**.
 2. Search for “Twitter Connector”.
-3. Enter the Name, App Service Plan, and other properties:
-
-	![][1]
-4.	Click **Create**.
+3. Select the "Twitter Connector" and click "Create".  This will open the Create blade.
+3. Click on 'Package Settings' and paste the 'Consumer Key' from your Twitter App into the 'clientId' field.  Paste the 'Consumer Secret' from your Twitter App into the 'clientSecret' field.
+	![][10]
+4. Enter other required settings around connector Name, App Service, and Resource Group.
+5.	Click **Create**.
 
 
 ## Using the Twitter Connector in your Logic App
@@ -83,7 +89,7 @@ Create the API Apps using REST APIs. See [Connectors and API Apps Reference](htt
 
 You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
 [2]: ./media/app-service-logic-connector-twitter/img2.png
 [3]: ./media/app-service-logic-connector-twitter/img3.png
@@ -92,3 +98,5 @@ You can also review performance statistics and control security to the connector
 [6]: ./media/app-service-logic-connector-twitter/triggers.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
+[9]: ./media/app-service-logic-connector-twitter/settings.PNG
+[10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/06/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -39,7 +39,7 @@ The following is a list of important things to consider before or when using Pre
 
 - Premium Storage is currently available in the [Microsoft Azure Preview Portal](https://portal.azure.com/) and accessible via the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later; and [Azure PowerShell](../install-configure-powershell.md) version 0.8.10 or later.
 
-- Premium Storage is currently available in the following regions: West US, East US 2, West Europe, East China, Southeast Asia, West Japan and Australia East.
+- For a list of regions that currently support Premium Storage, see [Azure Services by Region](http://azure.microsoft.com/regions/#services).
 
 - Premium Storage supports only Azure page blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs). For information on Azure page blobs, see [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx). Premium Storage does not support the Azure Block Blobs, Azure Files, Azure Tables, or Azure Queues.
 
@@ -308,12 +308,18 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td rowspan="2"><strong>CentOS</strong></td>
 	<td>6.5, 6.6, 7.0</td>
 	<td></td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a></td>
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a> </br>
+		*See note below
+	</td>
 </tr>
 <tr>
 	<td>7.1</td>
 	<td>3.10.0-229.1.2.el7</td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a></td>
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a> <br/>
+		*See note below
+	</td>
 </tr>
 
 <tr>
@@ -329,6 +335,16 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 </tr>
 </tbody>
 </table>
+
+
+### LIS Drivers for Openlogic CentOS
+
+Customers running OpenLogic CentOS VMs should run the following command to install the latest drivers:
+
+	sudo yum install microsoft-hyper-v
+
+A reboot will then be required to activate the new drivers.
+
 
 
 ## Pricing and Billing when using Premium Storage

@@ -11,7 +11,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="05/27/2015" 
 	ms.author="wesmc"/>
 

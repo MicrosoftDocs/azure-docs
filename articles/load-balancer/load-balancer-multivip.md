@@ -3,7 +3,7 @@
    description="Overview of multiVIP and how to set multiple VIPs on a cloud service"
    services="load-balancer"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -94,7 +94,7 @@ In this example, the cloud service has 3 VIPs:
 >[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## How to associate a VIP to an endpoint
-To associate a VIP on a cloud service to an endpoint, runt he following PowerShell command:
+To associate a VIP on a cloud service to an endpoint, run the following PowerShell command:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
     | Add-AzureEndpoint -Name myEndpoint -Protocol tcp -LocalPort 8080 -PublicPort 80 -VirtualIPName Vip2 `

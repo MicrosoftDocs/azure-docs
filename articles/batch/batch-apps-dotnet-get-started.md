@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="07/21/2015"

@@ -10,9 +10,9 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -112,7 +112,7 @@ Click the Custom Events tile on the overview blade:
 
 Click through to see an overview chart and a complete list.
 
-Select the chart and segment it by Event name to see the relative contributions of the most significant events.
+Select the chart and group it by Event name to see the relative contributions of the most significant events.
 
 ![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -329,19 +329,6 @@ If you have several tabs within different HTML pages, you can specify the URL to
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### Timed page views
-
-By using this pair of methods calls instead of trackPageView, you can analyze how long users linger on your pages.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-Use the same string as the first parameter in the start and stop calls.
-
-Look at the Page Duration metric in [Metrics Explorer][metrics].
 
 
 ## Track Request
@@ -402,9 +389,7 @@ The size limit on `message` is much higher than limit on  properties. You can se
 
 ## Track Dependency
 
-The standard dependency-tracking module uses this API to log calls to external dependencies such as databases or REST APIs. The module automatically discovers some external dependencies, but you might want some additional components to be treated in the same way. 
-
-For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
+Use this call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. 
 
 ```C#
 
@@ -421,6 +406,8 @@ For example, if you build your code with an assembly that you didn't write yours
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
             }
 ```
+
+Remember that the server SDKs include a [dependency module](app-insights-dependencies.md) that discovers and tracks certain dependency calls automatically - for example to databases and REST APIs. You have to install an agent on your server to make the module work. You'd use this call if you want to track calls that aren't caught by the automated tracking, or if you don't want to install the agent.
 
 To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -758,6 +745,8 @@ There are some limits on the number of metrics and events per application.
 
 
 [Search events and logs][diagnostic]
+
+[Samples and walkthroughs](app-insights-code-samples.md)
 
 [Troubleshooting][qna]
 

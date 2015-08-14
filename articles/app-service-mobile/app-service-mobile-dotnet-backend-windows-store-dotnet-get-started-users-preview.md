@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with authentication for Mobile Apps in Windows | Azure App Service"
+	pageTitle="Get Started with authentication for Mobile Apps in Windows | Microsoft Azure"
 	description="Learn how to use Mobile Apps to authenticate users of your Windows app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -52,7 +52,7 @@ Next, you will update the app to authenticate users before requesting resources 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)]
 
 
->[AZURE.NOTE] When you have registered your Windows Store app package information with App Service, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will continue to be presented with a login prompt every time that the login method is called.
+>[AZURE.NOTE] When you have registered your Windows Store app package information with App Service, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of **true** for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will continue to be presented with a login prompt every time that the login method is called.
 
 
 ##<a name="tokens"></a>Store the authentication token on the client

@@ -3,7 +3,7 @@
 	description="Quickly reset a local administrator password or the Remote Desktop service for Windows virtual machines using the Azure preview portal or PowerShell commands."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # How to reset a password or the Remote Desktop service for Windows virtual machines
 

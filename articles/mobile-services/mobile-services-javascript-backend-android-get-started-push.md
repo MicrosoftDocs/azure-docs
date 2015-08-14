@@ -1,6 +1,6 @@
 
 <properties 
-	pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" 
+	pageTitle="Get started with push notifications (Android JavaScript) | Microsoft Azure" 
 	description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add Mobile Services to an existing app (Xamarin.iOS) - Azure Mobile Services"
+	pageTitle="Add Mobile Services to an existing app (Xamarin.iOS) | Microsoft Azure"
 	description="Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app."
 	documentationCenter="xamarin"
 	authors="ggailey777"

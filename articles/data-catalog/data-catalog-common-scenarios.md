@@ -3,8 +3,8 @@
    description="Review common scenarios in Azure Data Catalog: Registering, enriching, exploring, understanding, and consuming data sources, and removing data source metadata."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>   
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
 
 
 # Azure Data Catalog common scenarios
@@ -23,7 +23,7 @@ This article presents common scenarios where Azure Data Catalog can help organiz
 
 ## Scenario #1 - Registration of central data sources
 
-Organizations often have a number of high-value data sources. These data sources include line of business OLTP systems, data warehouses, and business intelligence / analytics databases. Often the number of systems, and the overlap between systems, grows over time as the needs of the business evolve, and as the business itself evolves through mergers and acquisitions. 
+Organizations often have a number of high-value data sources. These data sources include line of business OLTP systems, data warehouses, and business intelligence / analytics databases. Often the number of systems, and the overlap between systems, grows over time as the needs of the business evolve, and as the business itself evolves through mergers and acquisitions.
 
 Often it is difficult for users to know where to locate the data within these data sources. Questions like these are all too common:
 
@@ -33,6 +33,8 @@ Often it is difficult for users to know where to locate the data within these da
 - I don’t know if these numbers are right – who can I ask for insight on how this data is supposed to be used before I share this dashboard with my team?
 
 In this scenario, Azure Data Catalog can help. The central, high-value, IT-managed data sources that are used across the organization are often the logical starting point for populating the catalog. Although any user can register a data source, having the catalog kick-started with the data sources that are most likely to provide value to the largest number of users will help drive adoption and use of the system. For customers getting started with Azure Data Catalog, identifying and registering the key data sources used by many different teams of data consumers can be the first step to success.
+
+This scenario also presents an opportunity to annotate the high-value data sources to make them easier to understand and access. One key aspect of this effort is to include information on how users can request access to the data source. Azure Data Catalog allows users to provide the email address of the user or team responsible for controlling data source access, links to existing tools or documentation, or free text that describes the access request process. With this information included in the catalog, users who discover registered data sources but who do not yet have permissions to access the data can easily request access using the processes defined and controlled by the data source owners.
 
 ## Scenario #2 - Self-service business intelligence
 
@@ -62,4 +64,4 @@ This ongoing transfer of tribal knowledge is part of the data source discovery p
 
 Sometimes these data experts will make the effort to document their knowledge, sharing it via email, or in Word documents on a team SharePoint site. Although this can be valuable, it introduces a new discovery problem – how do people know what documentation exists, and where to find it…
 
-Azure Data Catalog provides a location for sharing this tribal knowledge, and for making it easily discoverable. Data experts can directly annotate data assets, and can also include links to existing documentation. Not only does this capture the knowledge itself, but it also puts the knowledge in the same experience that is used for data source discovery. When someone uses the catalog to discover a data source not only will he find the source itself, he will also find the expert’s knowledge that previously existed only in the mind of the expert himself.
+Azure Data Catalog provides a location for sharing this tribal knowledge, and for making it easily discoverable. Data experts can directly annotate data assets, and can also include links to existing documentation. Not only does this capture the knowledge itself, but it also puts the knowledge in the same experience that is used for data source discovery. When someone uses the catalog to discover a data source not only will he find the source itself, he will also find the expert’s knowledge that previously existed only in the mind of the expert himself. 

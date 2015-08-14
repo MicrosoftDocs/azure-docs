@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 

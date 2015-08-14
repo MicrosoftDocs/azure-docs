@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Web App with Express (Node.js) - Azure Tutorial" 
+	pageTitle="Web App with Express (Node.js) | Microsoft Azure" 
 	description="A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
