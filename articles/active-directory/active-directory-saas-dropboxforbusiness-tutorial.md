@@ -81,7 +81,7 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
      3.5. Copy the URL next to **Users can sign in by entering their email address or they can go directly to**. <br><br>  ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configure single sign-on")
 
-     3.6. On the Windows Azure portal, in the **DropBox for business sign in** URL textbox, paste the URL. <br><br>  ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configure single sign-on")  
+     3.6. On the Azure portal, in the **DropBox for business sign in** URL textbox, paste the URL. <br><br>  ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configure single sign-on")  
 
 
 
@@ -119,13 +119,13 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. In the Azure Management Portal, on the **Dropbox for Business** application integration page, click **Configure user provisioning** to open the **Configure User Provisioning** dialog.
 
-2. On the Enable user provisioning to DropBox for Business page, click Enable user provisioning to open the Sign in to Dropbox to link with Windows Azure AD dialog.  <br><br> ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "User provisioning")
+2. On the Enable user provisioning to DropBox for Business page, click Enable user provisioning to open the Sign in to Dropbox to link with Azure AD dialog.  <br><br> ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "User provisioning")
 
-3. On the **Sign in to Dropbox to link with Windows Azure AD** dialog, sign in to your Dropbox for Business tenant. <br><br> ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "User provisioning")
+3. On the **Sign in to Dropbox to link with Azure AD** dialog, sign in to your Dropbox for Business tenant. <br><br> ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "User provisioning")
 
 
 
-4. Click **Allow** to grant Windows Azure AD to access to Dropbox. <br><br> ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769519.png "User provisioning")
+4. Click **Allow** to grant Azure AD to access to Dropbox. <br><br> ![User provisioning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769519.png "User provisioning")
 
 
 

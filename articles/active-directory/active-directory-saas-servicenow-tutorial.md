@@ -18,7 +18,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3.  Configuring user provisioning
 4.  Assigning users
 
-![Scenario](./media/active-directory-saas-ServiceNow-tutorial/IC769496.png "Scenario")
+![Scenario](./media/active-directory-saas-servicenow-tutorial/IC769496.png "Scenario")
 ##Enabling the application integration for ServiceNow
   
 The objective of this section is to outline how to enable the application integration for ServiceNow.
@@ -27,29 +27,29 @@ The objective of this section is to outline how to enable the application integr
 
 1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-ServiceNow-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-servicenow-tutorial/IC700993.png "Active Directory")
 
 2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applications](./media/active-directory-saas-ServiceNow-tutorial/IC700994.png "Applications")
+    ![Applications](./media/active-directory-saas-servicenow-tutorial/IC700994.png "Applications")
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-ServiceNow-tutorial/IC749321.png "Add application")
+    ![Add application](./media/active-directory-saas-servicenow-tutorial/IC749321.png "Add application")
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-ServiceNow-tutorial/IC749322.png "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-servicenow-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  In the **search box**, type **ServiceNow**.
 
-    ![Application gallery](./media/active-directory-saas-ServiceNow-tutorial/IC701016.png "Application gallery")
+    ![Application gallery](./media/active-directory-saas-servicenow-tutorial/IC701016.png "Application gallery")
 
 7.  In the results pane, select **ServiceNow**, and then click **Complete** to add the application.
 
-    ![ServiceNow](./media/active-directory-saas-ServiceNow-tutorial/IC701017.png "ServiceNow")
+    ![ServiceNow](./media/active-directory-saas-servicenow-tutorial/IC701017.png "ServiceNow")
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to ServiceNow with their account in Azure AD using federation based on the SAML protocol.
@@ -60,19 +60,19 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
 1.  In the Azure AD portal, on the **ServiceNow** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configure single sign-on](./media/active-directory-saas-ServiceNow-tutorial/IC749323.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
 
 2.  On the **How would you like users to sign on to ServiceNow** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configure single sign-on](./media/active-directory-saas-ServiceNow-tutorial/IC749324.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
 
 3.  On the **Configure App URL** page, in the **ServiceNow Sign In URL** textbox, type your URL using the following pattern "*https://<InstanceName>.servicenow.com*", and then click **Next**.
 
-    ![Configure app URL](./media/active-directory-saas-ServiceNow-tutorial/IC769497.png "Configure app URL")
+    ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
 
 4.  On the **Configure single sign-on at ServiceNow** page, click **Download certificate**, save the certificate file locally on your computer, and then click **Next**.
 
-    ![Configure single sign-on](./media/active-directory-saas-ServiceNow-tutorial/IC749325.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
 
 5.  In your ServiceNow tenant, on the navigation bar at the left side, click **Properties** to open the **SAML 2.0 Single Sign on properties** page.
 
@@ -101,7 +101,7 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
 7. In the **Service Provider (Service-Now) properties **section, perform the following steps:
 
-     7.1. In **The URL to Service-now instance homepage** textbox, type the URL to your ServiceNow instance homepage. The URL of the ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do**: **https://<InstanceName>.service-now.com/navpage.do** <br><br>   ![Service-now instance homepage](./media/active-directory-saas-ServiceNow-tutorial/IC700342.png "Service-now instance homepage")
+     7.1. In **The URL to Service-now instance homepage** textbox, type the URL to your ServiceNow instance homepage. The URL of the ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do**: **https://<InstanceName>.service-now.com/navpage.do** <br><br>   ![Service-now instance homepage](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Service-now instance homepage")
 
 
      7.2. In **The entity identification, or the issuer** textbox, type the URL of your tenant.
@@ -149,7 +149,7 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
 
 
-12. On the Azure AD portal, select the single sign-on configuration confirmation, and then click Complete to close the Configure Single Sign On dialog. <br><br> ![Configure single sign-on](./media/active-directory-saas-ServiceNow-tutorial/IC749326.png "Configure single sign-on")
+12. On the Azure AD portal, select the single sign-on configuration confirmation, and then click Complete to close the Configure Single Sign On dialog. <br><br> ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749326.png "Configure single sign-on")
 
 
 
@@ -161,7 +161,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 ### To configure user provisioning, perform the following steps:
 
-1. In the Azure Management Portal, on the **ServiceNow** application integration page, click **Configure user provisioning**. <br><br> ![User provisioning](./media/active-directory-saas-ServiceNow-tutorial/IC769498.png "User provisioning")
+1. In the Azure Management Portal, on the **ServiceNow** application integration page, click **Configure user provisioning**. <br><br> ![User provisioning](./media/active-directory-saas-servicenow-tutorial/IC769498.png "User provisioning")
 
 
 2. On the **Enter your ServiceNow credentials to enable automatic user provisioning** page, provide the following configuration settings:
@@ -177,7 +177,7 @@ Configure User Provisioning
 
      2.5. Click the **Next** button to open the **Next steps** page.
 
-     2.6. If you want to provision all users to this application, select “**Automatically provision all user accounts in the directory to this application**”. <br><br> ![Next Steps](./media/active-directory-saas-ServiceNow-tutorial/IC698804.png "Next Steps")
+     2.6. If you want to provision all users to this application, select “**Automatically provision all user accounts in the directory to this application**”. <br><br> ![Next Steps](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Next Steps")
 
      2.7. On the **Next steps** page, click **Complete** to save your configuration.
 
@@ -201,11 +201,11 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2.  On the **ServiceNow **application integration page, click **Assign users**.
 
-    ![Assign users](./media/active-directory-saas-ServiceNow-tutorial/IC769499.png "Assign users")
+    ![Assign users](./media/active-directory-saas-servicenow-tutorial/IC769499.png "Assign users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Yes](./media/active-directory-saas-ServiceNow-tutorial/IC767830.png "Yes")
+    ![Yes](./media/active-directory-saas-servicenow-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
