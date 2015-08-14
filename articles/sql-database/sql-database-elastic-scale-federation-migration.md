@@ -129,6 +129,8 @@ Although Elastic database tools offers many additional features (for example, [m
 
 * Performing the SWITCH OUT statement on a federation member enables the resulting database to take advantage of all of the Azure SQL database features (i.e., new editions, backup, PITR, auditing, etc.) 
 
+If your application is not yet ready to work without Federations, then contact Microsoft Support using instructions mentioned [here](https://support.microsoft.com/en-us/kb/3087180). 
+
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
