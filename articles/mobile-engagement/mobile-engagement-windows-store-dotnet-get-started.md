@@ -125,7 +125,7 @@ You have now created a new Windows Universal App project into which we will inte
 			  //... rest of the code
 			}
 
-##<a id="monitor"></a>Enabling real-time monitoring
+##<a id="monitor"></a>Enable real-time monitoring
 
 In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend. We achieve this by subclassing our **MainPage** with the **EngagementPage**, which the Mobile Engagement SDK provides.
 
