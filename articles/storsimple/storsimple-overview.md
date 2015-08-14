@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # What is StorSimple? 
@@ -66,7 +66,7 @@ The Microsoft Azure StorSimple solution includes the following components:
 
 ## Next steps
 
-Read the [StorSimple Solutions Overview](http://www.microsoft.com/en-us/server-cloud/products/storsimple/resources.aspx) and view the [StorSimple chalk talk](http://www.microsoft.com/en-us/server-cloud/products/storsimple/Features.aspx).
+Read the [StorSimple Solutions Overview](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx) and view the [StorSimple chalk talk](http://www.microsoft.com/server-cloud/products/storsimple/Features.aspx).
 
 Read more about [StorSimple components and terminology](storsimple-components.md).
 
