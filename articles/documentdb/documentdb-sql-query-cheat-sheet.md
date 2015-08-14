@@ -26,7 +26,7 @@ The **DocumentDB Query Cheat Sheet** helps you quickly write queries for Documen
 
 Download the DocumentDB query cheat sheet and you'll a quick reference of all the query functions available to you. To keep it nearby, you can print the single-sided cheat sheet in page letter size (8.5 x 11 in.).
 
-**Download the cheat sheet here: [Microsoft DocumentDB SQL query cheat sheet](http://download.microsoft.com)**
+**Download the cheat sheet here: [Microsoft DocumentDB SQL query cheat sheet](http://www.documentdb.com)**
 
 ![DocumentDB SQL Query Cheat Sheet: Quick reference guide to the SQL grammar that DocumentDB suppots.][cheat-sheet]
 
@@ -37,5 +37,4 @@ Download the DocumentDB query cheat sheet and you'll a quick reference of all th
 
 - For a walkthrough of the query options available in DocumentDB, see [Query DocumentDB](documentdb-sql-query.md).
 - For the related reference documentation, see [DocumentDB SQL Query Language](https://msdn.microsoft.com/library/azure/dn782250.aspx).
-- For a complete list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules][a-z-list] in Machine Learning Studio Algorithm and Module Help.
 
