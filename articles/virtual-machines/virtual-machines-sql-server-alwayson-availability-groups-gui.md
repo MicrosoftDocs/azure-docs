@@ -106,7 +106,7 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 
 1. Select the **Active Directory Domain Services** and **DNS Server** roles. When prompted, add any additional features required by these roles.
 
->[AZURE.NOTE] You will get a validation warning that there is no static IP address. If you are testing the configuration, click continue. For production scenarios [use PowerShell to set the static IP address of the domain controller machine](./virtual-network/virtual-networks-reserved-private-ip.md).
+	>[AZURE.NOTE] You will get a validation warning that there is no static IP address. If you are testing the configuration, click continue. For production scenarios [use PowerShell to set the static IP address of the domain controller machine](./virtual-network/virtual-networks-reserved-private-ip.md).
 
 	![Add Roles Dialog](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784624.png)
 
@@ -305,7 +305,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 1. In the Create Cluster Wizard, create a one-node cluster by stepping through the pages with the settings below:
 
-|Page|Settings|
+	|Page|Settings|
 |---|---|
 |Before You Begin|Use defaults|
 |Select Servers|Type **ContosoSQL1** in **Enter server name** and click **Add**|
@@ -313,7 +313,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 |Access Point for Administering the Cluster|Type **Cluster1** in **Cluster Name**|
 |Confirmation|Use defaults unless you are using Storage Spaces. See the note following this table.|
 
->[AZURE.WARNING] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
+	>[AZURE.WARNING] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
 
 1. In the left-pane, expand **Failover Cluster Manager**, and then click **Cluster1.corp.contoso.com**.
 
@@ -337,7 +337,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 1. In the **Confirmation** page, click **Next** to add the nodes.
 
->[AZURE.WARNING] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
+	>[AZURE.WARNING] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
 
 1. Once the nodes are added to the cluster, click **Finish**. Failover Cluster Manager should now show that your cluster has three nodes and list them in the **Nodes** container.
 
@@ -347,15 +347,15 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 In this section, you will do the following on both **ContosoSQL1** and **contosoSQL2**:
 
-1. Add a login for **NT AUTHORITY\System** with a necessary permissions set to the default SQL Server instance
+- Add a login for **NT AUTHORITY\System** with a necessary permissions set to the default SQL Server instance
 
-1. Add **CORP\Install** as a sysadmin role to the default SQL Server instance
+- Add **CORP\Install** as a sysadmin role to the default SQL Server instance
 
-1. Open the firewall for remote access of SQL Server
+- Open the firewall for remote access of SQL Server
 
-1. Enable the AlwaysOn Availability Groups feature
+- Enable the AlwaysOn Availability Groups feature
 
-1. Change the SQL Server service account to **CORP\SQLSvc1** and **CORP\SQLSvc2**, respectively
+- Change the SQL Server service account to **CORP\SQLSvc1** and **CORP\SQLSvc2**, respectively
 
 These actions can be performed in any order. Nevertheless, the steps below will walk through them in order. Follow the steps for both **ContosoSQL1** and **ContosoSQL2**:
 
@@ -417,15 +417,15 @@ These actions can be performed in any order. Nevertheless, the steps below will 
 
 You are now ready to configure an availability group. Below is an outline of what you will do:
 
-1. Create a new database (**MyDB1**) on **ContosoSQL1**
+- Create a new database (**MyDB1**) on **ContosoSQL1**
 
-1. Take both a full backup and a transaction log backup of the database
+- Take both a full backup and a transaction log backup of the database
 
-1. Restore the full and log backups to **ContosoSQL2** with the **NORECOVERY** option
+- Restore the full and log backups to **ContosoSQL2** with the **NORECOVERY** option
 
-1. Create the availability group (**AG1**) with synchronous commit, automatic failover, and readable secondary replicas
+- Create the availability group (**AG1**) with synchronous commit, automatic failover, and readable secondary replicas
 
-The following steps create a **MyDB1** database on **ContosoSQL1** and restore a full backup on **ContosoSQL2**:
+### Create the MyDB1 database on ContosoSQL1:
 
 1. If you have not already logged out of the remote desktop sessions for **ContosoSQL1** and **ContosoSQL2**, do so now.
 
@@ -446,6 +446,8 @@ The following steps create a **MyDB1** database on **ContosoSQL1** and restore a
 1. In the **Object Explorer**, right-click **Databases** and click **New Database**.
 
 1. In **Database name**, type **MyDB1**, then click **OK**.
+
+### Take a full backup of MyDB1 and restore it on ContosoSQL2:
 
 1. Next, you take a full backup of the database. In the **Object Explorer**, expand **Databases**, then right-click **MyDB1**, then point to **Tasks**, and then click **Back Up**.
 
@@ -473,7 +475,7 @@ The following steps create a **MyDB1** database on **ContosoSQL1** and restore a
 
 1. Go to the Options page, then select RESTORE WITH NORECOVERY in Recovery state, and then click OK to restore the database. Once the restore operation completes, click OK.
 
-You are now ready to create an availability group.
+### Create the availability group:
 
 1. Go back to the remote desktop session for **ContosoSQL1**. In the **Object Explorer** in SSMS, right-click **AlwaysOn High Availability** and click **New Availability Group Wizard**, as shown below.
 
