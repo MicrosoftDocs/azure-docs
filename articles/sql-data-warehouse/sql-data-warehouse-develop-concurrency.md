@@ -146,9 +146,13 @@ Below is a list of statements and operations that **are** governed by resource c
 - CREATE CLUSTERED INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT 
+- Data loading 
+
+<!--
+Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT 
-- Data loading through the bcp interface
+-->
    
 > [AZURE.NOTE] It is worth highlighting that `SELECT` queries executing exclusively against dynamic management views and catalog views are **not** governed by resource classes.
 
