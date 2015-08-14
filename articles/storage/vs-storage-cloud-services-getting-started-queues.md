@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Getting started with Azure queue storage and Visual Studio connected services (Cloud Service projects)" 
-	description="How to get started using Azure queue storage in a cloud service project in Visual Studio" 
+	pageTitle="Getting started with Azure Queue storage and Visual Studio connected services (Cloud Service projects)" 
+	description="How to get started using Azure Queue storage in a cloud service project in Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -29,7 +29,7 @@
 
 ##Overview
 
-This article describes how to get started using Azure table storage in Visual Studio after you have created or referenced an Azure storage account in a cloud services project by using the  Visual Studio **Add Connected Services** dialog. 
+This article describes how to get started using Azure Queue storage in Visual Studio after you have created or referenced an Azure storage account in a cloud services project by using the  Visual Studio **Add Connected Services** dialog. 
 
 We'll show you how to create a queue in code. We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages. The samples are written in C# code and use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). 
 
@@ -61,13 +61,13 @@ To access queues in Visual Studio Cloud Services projects, you need to include t
 
 3. Get a **CloudQueueClient** object to reference the queue objects in your storage account.  
 
-	    // Create the table client.
-    	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
+	    // Create the queue client.
+    	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 4. Get a **CloudQueue** object to reference a specific queue.
 
-    	// Get a reference to a table named "messageQueue"
-	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
+    	// Get a reference to a queue named "messageQueue"
+	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
 **NOTE:** Use all of the above code in front of the code in the following samples.
@@ -79,7 +79,7 @@ To create the queue in code, just add a call to **CreateIfNotExists**.
     // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
     // as described in the "Access queues in code" section.
 	
-	// Create the CloudTable if it does not exist
+	// Create the CloudQueue if it does not exist
 	messageQueue.CreateIfNotExists();
 
 ##Add a message to a queue
