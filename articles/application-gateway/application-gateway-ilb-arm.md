@@ -121,7 +121,7 @@ Creates a Application Gateway IP configuration named "gatewayIP01". When Applica
 
 	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11 10.0.0.12
 
-This step will configure the back end IP address pool named "pool01" with IP addresses "1.0.0.10,10.0.0.11 10.0.0.12". Those will be the IP addresses receiving the network traffic coming from the front end IP endpoint.You will replace the IP addresses above to add your own application IP address endpoints.
+This step will configure the back end IP address pool named "pool01" with IP addresses "10.0.0.10,10.0.0.11 10.0.0.12". Those will be the IP addresses receiving the network traffic coming from the front end IP endpoint.You will replace the IP addresses above to add your own application IP address endpoints.
 
 ### Step 3
 
