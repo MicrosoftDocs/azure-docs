@@ -121,7 +121,7 @@ This tutorial is intended to show you the steps required to set up the described
 		  </VirtualNetworkConfiguration>
 		</NetworkConfiguration>
 
-1. Create a storage account that is associated with the affinity group you created and set it as the current storage account in your subscription.Copy
+1. Create a storage account that is associated with the affinity group you created and set it as the current storage account in your subscription.
 
 		New-AzureStorageAccount `
 			-StorageAccountName $storageAccountName `
@@ -131,7 +131,7 @@ This tutorial is intended to show you the steps required to set up the described
 			-SubscriptionName (Get-AzureSubscription).SubscriptionName `
 			-CurrentStorageAccount $storageAccountName
 
-1. Create the DC server in new cloud service and availability set.Copy
+1. Create the DC server in new cloud service and availability set.
 
 		New-AzureVMConfig `
 			-Name $dcServerName `
