@@ -27,17 +27,17 @@ Component|HDInsight Version 3.2|HDInsight Version 3.1 (Default)|HDInsight Versio
 ---|---|---|---|---
 Hortonworks Data Platform|2.2|2.1.7|2.0|1.3
 Apache Hadoop & YARN|2.6.0|2.4.0|2.2.0|1.2.0
-Tez|0.5.2|0.4.0||
+Apache Tez|0.5.2|0.4.0||
 Apache Pig|0.14.0|0.12.1|0.12.0|0.11.0
 Apache Hive & HCatalog|0.14.0|0.13.1|0.12.0|0.11.0
-HBase |0.98.4|0.98.0||
+Apache HBase |0.98.4|0.98.0||
 Apache Sqoop|1.4.5|1.4.4|1.4.4|1.4.3
 Apache Oozie|4.1.0|4.0.0|4.0.0|3.3.2
-Zookeeper|3.4.6|3.4.5|3.4.5|
-Storm|0.9.3|0.9.1||
-Mahout|0.9.0|0.9.0||
-Phoenix|4.2.0|4.0.0.2.1.7.0-2162||
-Spark|1.3.1|||
+Apache Zookeeper|3.4.6|3.4.5|3.4.5|
+Apache Storm|0.9.3|0.9.1||
+Apache Mahout|0.9.0|0.9.0||
+Apache Phoenix|4.2.0|4.0.0.2.1.7.0-2162||
+Apache Spark|1.3.1|||
 
 
 **Get current component version information**
