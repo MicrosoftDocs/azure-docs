@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Contextual examples of best practices for implementing templates
 
 This topic provides 7 contextual examples of how to implement your Azure Resoure Manager templates. For an overview of the principles 
 illustrated in these examples, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md).
+
+This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Moving a capability-scoped template into an end-to-end solution-scoped template
 
