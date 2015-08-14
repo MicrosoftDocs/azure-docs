@@ -52,11 +52,9 @@ In this video, Scott Hanselman shows how easy it is to sign-up for a free trial 
 
 Your first step is to create a web project in Visual Studio and a web app in Azure App Service. When that's done, you'll deploy the project to the web app to make it available on the Internet. 
 
-The diagrams illustrate what you're doing in the create and deploy steps.
+The diagram illustrates what you're doing in the create and deploy steps.
 
-![Create](./media/web-sites-dotnet-get-started/Create_App.png)
-
-![Deploy](./media/web-sites-dotnet-get-started/Deploy_App.png)
+![Create and deploy](./media/web-sites-dotnet-get-started/Create_App.png)
 
 1. Open Visual Studio 2015 or Visual Studio 2013. 
 

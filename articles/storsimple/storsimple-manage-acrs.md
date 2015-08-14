@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Manage access control records in StorSimple"
+   pageTitle="Manage access control records in StorSimple | Microsoft Azure"
    description="Describes how to use access control records (ACRs) to determine which hosts can connect to a volume on the StorSimple device."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Manage access control records in StorSimple
