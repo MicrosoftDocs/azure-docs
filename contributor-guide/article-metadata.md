@@ -57,16 +57,23 @@ The tags section uses this syntax:
 - app-service\logic
 - app-service\mobile
 - app-service\web
+- application-gateway
+- application-insights
 - automation
+- azure-portal
+- azure-resource-manager
 - backup
 - batch
+- billing
 - biztalk-services
 - cache
 - cdn
 - cloud-services
+- data-catalog
 - data-factory
 - documentdb
 - dns
+- expressroute
 - event-hubs
 - hdinsight
 - key-vault
@@ -88,9 +95,12 @@ The tags section uses this syntax:
 - scheduler
 - site-recovery
 - sql-database
+- sql-data-warehouse
 - storage
+- store
 - storsimple
 - stream-analytics
+- traffic-manager
 - virtual-machines
 - virtual-network
 - visual-studio-online
@@ -140,7 +150,10 @@ The tags section uses this syntax:
  - **app-service-web**
  - **application-insights**
  - **automation**
+ - **azure-resource-manager**
+ - **azure-security**
  - **backup**
+ - **batch**
  - **biztalk-services**
  - **billing**
  - **cache**
@@ -159,12 +172,16 @@ The tags section uses this syntax:
  - **na**: The page does not apply to any services (rare)
  - **notification-hubs**
  - **operational-insights**
+ - **recovery-manager**
+ - **redis-cache**
  - **remoteapp**
+ - **rights-management**
  - **scheduler**
  - **service-bus**
  - **service-fabric**
  - **site-recovery**: formerly recovery-services
  - **sql-database**
+ - **sql-data-warehouse**
  - **sql-reporting**
  - **storage**
  - **store**: Articles about services available through the Azure Store
@@ -173,6 +190,7 @@ The tags section uses this syntax:
  - **virtual-machines**
  - **virtual-network**
  - **visual-studio-online**
+ - **vpn-gateway**
  - **web-sites**
 
 ![](./media/article-metadata/checkmark-small.png)**ms.devlang**: Required. Specifies the programming language that the article applies to. Single value per page.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Authenticate your Windows Store app with client managed authentication using Microsoft account
@@ -115,7 +115,7 @@ Finally, you add the Live SDK and use it to authenticate users in your app.
 
     This initializes the Live Connect client, sends a new login request to Microsoft account, sends the returned authentication token to Mobile Services, and then displays information about the signed-in user. 
 
-	>[AZURE.NOTE]Ideally, you should not request either Live Connection authentiction tokens or Mobile Services authorization tokens every time that your app runs. Not only is this inefficient, you can run into usage-relates issues should many customers try to start your app at the same time. A better approach is to cache the tokens and first try to use the cached Mobile Services token before calling **LoginWithMicrosoftAccountAsync**. For an example of how to cache this token, see [Get started with authentication](mobile-services-windows-store-javascript-get-started-users.md#tokens)
+	>[AZURE.NOTE]Ideally, you should not request either Live Connection authentiction tokens or Mobile Services authorization tokens every time that your app runs. Not only is this inefficient, you can run into usage-relates issues should many customers try to start your app at the same time. A better approach is to cache the tokens and first try to use the cached Mobile Services token before calling **LoginWithMicrosoftAccountAsync**. For an example of how to cache this token, see [Get started with authentication](mobile-services-windows-store-javascript-get-started-users.md#tokens).
 	
 7. Replace the value `<yourClient>` in the first line of above code with the variable defined in the .js file added when you connected your project to the mobile service.
 		

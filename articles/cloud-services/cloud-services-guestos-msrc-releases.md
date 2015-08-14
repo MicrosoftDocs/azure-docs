@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="List of updates applied to the Azure Guest OS | Azure" 
+   pageTitle="List of updates applied to the Azure Guest OS | Microsoft Azure" 
    description="The list of updates applied to Guest OS releases" 
    services="cloud-services" 
    documentationCenter="na" 

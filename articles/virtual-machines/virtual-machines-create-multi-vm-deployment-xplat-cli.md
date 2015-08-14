@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a multi-VM deployment using the Azure CLI | Azure"
+   pageTitle="Create a multi-VM deployment using the Azure CLI | Microsoft Azure"
    description="Learn how to create a multi VM deployment using the Azure CLI"
    services="virtual-machines"
    documentationCenter="nodejs"
