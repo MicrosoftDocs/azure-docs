@@ -118,7 +118,9 @@ Application Insights charges are added to your Azure bill. You can see details o
 
 ![On the side menu, choose Billing.](./media/app-insights-pricing/02-billing.png)
 
+## Limits summary
 
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 
 <!--Link references-->
