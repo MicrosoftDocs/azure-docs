@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Deploy the StorSimple Manager service"
+   pageTitle="Deploy the StorSimple Manager service | Microsoft Azure"
    description="Explains how to create and delete the StorSimple Manager service in the Management Portal, and describes how to manage the service registration key."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/12/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Deploy the StorSimple Manager service
@@ -82,7 +82,7 @@ Perform the following steps to get the service registration key.
 
 Keep the service registration key in a safe location. You will need this key, as well as the service data encryption key, to register additional devices with this service. After obtaining the service registration key, you will need to configure your device through the Windows PowerShell for StorSimple interface.
 
-For details on how to use this registration key, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md/#step-2:-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+For details on how to use this registration key, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## Regenerate the service registration key
 
@@ -107,8 +107,8 @@ Perform the following steps to regenerate a service registration key.
 
 ## Next steps
 
-Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md)
+Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
 
-Learn more about [managing your StorSimple storage account](../storsimple-manage-storage-account.md) 
+Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
 
  
