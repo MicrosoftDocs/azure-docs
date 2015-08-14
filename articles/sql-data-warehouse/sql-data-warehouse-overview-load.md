@@ -153,7 +153,9 @@ WITH
 (
 	CLUSTERED COLUMNSTORE INDEX
 )
-AS SELECT * from <External Table Name>
+AS 
+SELECT  * 
+FROM    <External Table Name>
 ;
 ```
 
