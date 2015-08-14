@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # View and manage StorSimple alerts
@@ -139,6 +139,19 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 |:---|:---|:---|
 |Connectivity to <*cloud credential name*> cannot be established.|Cannot connect to the storage account.|It looks like there might be a connectivity issue with your device. Please run the **Test-HcsmConnection** cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue. If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised. In this case, use the **Test-HcsStorageAccountCredential** cmdlet to determine if there are issues that you can resolve.<ul><li>Check your network settings.</li><li>Check your storage account credentials.</li></ul>|
 |We have not received a heartbeat from your device for the last <*number*> minutes.|Cannot connect to device.|It looks like there is a connectivity issue with your device. Please use the **Test-HcsmConnection** cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue or contact your network administrator.|
+
+### StorSimple behavior when cloud connectivity fails
+
+What happens if cloud connectivity fails for my StorSimple device running in production?
+
+If cloud connectivity fails on your StorSimple production device, then depending on the state of your device, the following can occur: 
+
+- **For the local data on your device**: There will be no disruption and reads will continue to be served. However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail.
+ 
+- **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure Portal. 
+ 
+- **For cloud snapshots in progress**: The operation is retried a few time within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.
+
 
 ### Cluster alerts
 
