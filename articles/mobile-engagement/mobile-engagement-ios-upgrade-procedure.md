@@ -3,7 +3,7 @@
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="kpiteira"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/12/2015"
-	ms.author="kapiteir" />
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Upgrade procedures
 
@@ -25,9 +25,9 @@ For each new version of the SDK you must first replace (remove and re-import in 
 ##From 2.0.0 to 3.0.0
 If you are using Reach in your application, you must add `remote-notification` value to the `UIBackgroundModes` array in your Info.plist file in order to receive remote notifications.
 
-The method `application:applicationDidReceiveRemoteNotification:` needs to be replaced by `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` in your application delegate.
+The method `application:didReceiveRemoteNotification:` needs to be replaced by `application:didReceiveRemoteNotification:fetchCompletionHandler:` in your application delegate.
 
-The following delegate methods has been deprecated and you need to removed them from your application delegate:
+"AEPushDelegate.h" is deprecated interface and you need to remove all references. This includes removing `[[EngagementAgent shared] setPushDelegate:self]` and the delegate methods from your application delegate:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="How to use table storage (C++) | Microsoft Azure"
+    pageTitle="How to use Table storage (C++) | Microsoft Azure"
     description="Learn how to use the Table storage service in Azure. Samples are written in C++."
     services="storage"
     documentationCenter=".net"
@@ -411,6 +411,5 @@ Now that you've learned the basics of table storage, follow these links to learn
 -	[How to use Blob storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[How to use Queue storage from C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[List Azure Storage resources in C++](storage-c-plus-plus-enumeration.md)
--	[Storage Client Library for C++](https://msdn.microsoft.com/library/azure/gg433040.aspx)
--	[Azure Storage MSDN reference](https://msdn.microsoft.com/library/azure/gg433040.aspx)
+-	[Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
 -	[Azure Storage documentation](http://azure.microsoft.com/documentation/services/storage/)

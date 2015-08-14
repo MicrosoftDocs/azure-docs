@@ -4,7 +4,7 @@
 	tags="azure-classic-portal"
 	services="app-service\web, virtual-machines"
 	documentationCenter="nodejs"
-	authors="chrisckchang"
+	authors="tdykstra"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/20/2014"
+	ms.date="08/10/2014"
 	ms.author="mwasson"/>
 
 
@@ -25,7 +25,7 @@
 # Create a Node.js web app on Azure with MongoDB using the MongoLab add-on
 
 
-<p><em>By Eric Sedor, MongoLab</em></p>
+*By Eric Sedor, MongoLab*
 
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 
