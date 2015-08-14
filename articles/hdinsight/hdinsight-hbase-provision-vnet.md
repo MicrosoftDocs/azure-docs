@@ -60,7 +60,7 @@ Azure Resource Manager enables you to work with the resources in your applicatio
 
 **To create a resource group**
 
-1. Sign in to the [Azure Preview portal][azure-portal].
+1. Sign in to the [Azure Preview portal](https://portal.azure.com).
 2. Click **NEW**, click **Management**, and then click **Resource group**.
 3. Type or select the following values:
 
