@@ -56,7 +56,7 @@ The objective of this section is to outline how to enable the application integr
 
 4.  Click **Add** at the bottom of the page.
 
-    ![Add application](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749321.png "Add application")
+    ![Add application](./media/active-directory-saas-workday-inbound-tutorial/IC749321.png "Add application")
 
   
 5. In the search box, type **Workday**.
