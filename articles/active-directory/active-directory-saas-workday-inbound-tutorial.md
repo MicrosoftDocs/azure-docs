@@ -7,7 +7,7 @@
 
 >[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=521880).
   
-The objective of this tutorial is to show you the steps you need to perform in Workday and Windows Azure AD to import people from Workday to Windows Azure AD. 
+The objective of this tutorial is to show you the steps you need to perform in Workday and Azure AD to import people from Workday to Azure AD. 
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
@@ -34,7 +34,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 6. Activating security policy changes 
 
 
-7. Configuring user import in Windows Azure AD 
+7. Configuring user import in Azure AD 
 
 
 
@@ -177,12 +177,12 @@ In this step, you grant to the new security group permissions for **Get** and **
 
 
 
-## Configuring user import in Windows Azure AD
+## Configuring user import in Azure AD
 
-The objective of this section is to outline how to configure Windows Azure AD to import people from Workday.
+The objective of this section is to outline how to configure Azure AD to import people from Workday.
 
 
-### To configure user import in Windows Azure AD, perform the following steps:
+### To configure user import in Azure AD, perform the following steps:
 
 
 1. On the **Workday** application integration page, click **Configure user import** to open the **Configure Provisioning** dialog.
