@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/014/2015"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 #Use AES-128 Dynamic Encryption and Key Delivery Service
