@@ -38,6 +38,7 @@ If you're new to Hadoop on HDInsight, go to the [HDInsight documentation page](/
 * [Get started with Hadoop and a Hive query on Windows](hdinsight-hadoop-tutorial-get-started-windows-v1.md)
 * [Get started using Apache HBase with Hadoop](hdinsight-hbase-tutorial-get-started-v1.md)
 * [Get started with the Storm Starter samples for big data analytics](hdinsight-apache-storm-tutorial-get-started-v1.md)
+* [Provision Apache Spark and run interactive queries using Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
 
 ## Linux
 
