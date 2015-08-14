@@ -26,6 +26,8 @@ The tutorial works with the API app that you [create](app-service-dotnet-create-
 
 ## Debug an API app remotely 
 
+To enable remote debugging, you have to deploy a debug build to Azure.
+
 1. In the Visual Studio **Solution Explorer**, right-click the project that you deployed in [the previous tutorial](app-service-dotnet-deploy-api-app.md), and select **Publish**.
 
 2. In the **Publish Web** dialog, select the **Settings** tab and select the **Debug** build configuration.
@@ -37,6 +39,8 @@ The tutorial works with the API app that you [create](app-service-dotnet-create-
 	A browser window opens to the base URL of your API app.
 
 4. In the browser address bar, add /swagger to the end of the URL and press Enter. 
+
+	This step assumes that you enabled the Swagger UI as directed in the [create](app-service-dotnet-create-api-app.md) tutorial.
 
 	![Swagger UI](./media/app-service-api-dotnet-debug/rd-swagger-ui.png)
 
