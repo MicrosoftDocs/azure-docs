@@ -21,7 +21,7 @@
 
 By default, Hadoop clusters are not optimized for performance. This article covers a few of the most common Hive performance optimization methods that you can apply to our queries. 
 
-[AZURE.INCLUDE [portal](../../includes/hdinsight-azure-portal)] 
+[AZURE.INCLUDE [portal](../../includes/hdinsight-azure-portal.md)] 
 
 * [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).
 

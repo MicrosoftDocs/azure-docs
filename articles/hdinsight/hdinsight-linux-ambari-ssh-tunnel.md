@@ -1,6 +1,6 @@
 <properties
-pageTitle=""
-description=""
+pageTitle="Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie and other web UI's"
+description="Learn how to use an SSH tunnel to securely browse web resources hosted on your Linux-based HDInsight nodes."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -9,11 +9,11 @@ editor="cgronlun"/>
 
 <tags
 ms.service="hdinsight"
-ms.devlang=""
+ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date=""
+ms.date="08/18/2015"
 ms.author="larryfr"/>
 
 #Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's

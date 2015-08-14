@@ -150,7 +150,7 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 
 1. In your browser, connect to __http://headnode0:8983/solr/#/__. This traffic should be routed through the SSH tunnel to headnode0 for your HDInsight cluster. You should see a page similar to the following:
 
-	![Image of Solr dashboard]((./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
+	![Image of Solr dashboard](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
 2. From the left pane, use the **Core Selector** drop-down to select **collection1**. Several entries should them appear below __collection1__.
 
