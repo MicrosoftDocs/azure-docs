@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Apps for Xamarin Android apps"
+	pageTitle="Get Started with Azure Mobile Apps for Xamarin.Android apps"
 	description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
@@ -24,7 +24,7 @@
  
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app using an Azure Mobile App backend.  You will create both a new Mobile App backend and a simple _Todo list_ Xamarin Andorid app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app using an Azure Mobile App backend.  You will create both a new Mobile App backend and a simple _Todo list_ Xamarin.Andorid app that stores app data in Azure.
 
 A screenshot from the completed app is below:
 
@@ -84,6 +84,10 @@ To complete this tutorial, you need the following:
 	> [AZURE.NOTE]
    	> You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
 
+##Next steps
+
+* [Add authentication to your app ](app-service-mobile-dotnet-backend-xamarin-android-get-started-users-preview.md)
+  <br/>Learn how to authenticate users of your app with an identity provider.
 
 
 <!-- Images. -->

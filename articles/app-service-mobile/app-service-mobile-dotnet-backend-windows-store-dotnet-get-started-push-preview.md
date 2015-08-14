@@ -105,7 +105,7 @@ Now that push notifications are enabled in the app, you must update your app bac
         // Get the Notification Hubs credentials for the Mobile App.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
-            .Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
+            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
         // Create a new Notification Hub client.
         NotificationHubClient hub = NotificationHubClient
