@@ -129,7 +129,7 @@ You have now created a new Windows Universal App project into which we will inte
 
 In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend. We achieve this by subclassing our **MainPage** with the **EngagementPage**, which the Mobile Engagement SDK provides.
 
-1. 	Add the `using` statementt:
+1. 	Add the `using` statement:
 
 		   using Microsoft.Azure.Engagement;
 
