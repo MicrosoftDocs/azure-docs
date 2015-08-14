@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/12/2015" 
+	ms.date="08/14/2015" 
 	ms.author="billmath"/>
 
 # Using Azure AD Connect Health with AD FS 
