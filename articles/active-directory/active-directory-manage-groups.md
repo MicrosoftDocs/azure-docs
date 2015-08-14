@@ -93,3 +93,5 @@ Here are some topics that will provide some additional information on Azure Acti
 * [What is Azure Active Directory?](active-directory-whatis.md)
 
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+* [Graph API Reference for Groups](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
