@@ -62,7 +62,7 @@ To enable remote debugging, you have to deploy a debug build to Azure.
 
 	![Applying breakpoints to controller](./media/app-service-api-dotnet-debug/rd-breakpoints.png)
 
-10. Return to the browser session, click the **Get** verb to display the schema for the *Contact* object, and then click **Try it Out**. Visual Studio will stops program execution at your breakpoint, and you can debug your controller's logic. 
+10. Return to the browser session, click the **Get** verb to display the schema for the *Contact* object, and then click **Try it Out**. Visual Studio stops program execution at your breakpoint, and you can debug your controller's logic. 
 
 	![Try it out](./media/app-service-api-dotnet-debug/rd-try-it-out.png)
 
