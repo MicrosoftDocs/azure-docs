@@ -26,6 +26,10 @@ Using a default domain enables you to set the same URL as the internal and exter
 1. Publish your application according to the instructions in Publish applications with Application Proxy.
 2. After the application appears in the list of applications, select it and click **Configure**.
 3. Under **External URL**, enter your custom domain.
+4. If your external URL is https, you will be prompted to upload a certificate so that Azure can validate the URL of the application. You can also upload a wildcard certificate that matches the External URL of the application.
+> [AZURE.NOTE] This domain must be within the list of your [Azure verified domains](https://msdn.microsoft.com/library/azure/jj151788.aspx).
+Azure must have a certificate for the domain URL of the application or a wildcard certificate that matches the External URL for the application
+5. Make sure to add a DNS record that routes the internal URL to the application that enables you to have the same URL for internal and external access and a single shortcut to the application in the user’s applications list.
 
 ## Frequently asked questions about working with custom domains
 
