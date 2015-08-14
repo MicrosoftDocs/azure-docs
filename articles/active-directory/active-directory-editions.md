@@ -106,6 +106,7 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 - Advanced application usage reporting
 - Multi-Factor Authentication service for cloud users
 - Multi-Factor Authentication server for on-premises users
+- Azure Active Directory Connect Health
 
 ## Features currently in public preview
 

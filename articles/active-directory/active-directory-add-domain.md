@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="active-directory"
-	ms.workload="identity" 
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -41,7 +41,7 @@ If your organization already has a custom domain name, as an administrator, you 
 You can add up to 900 domain names to your Azure AD tenant by using, either:
 
 - The Azure Management Portal, the Office 365 portal, or the Microsoft Intune portal.
-- The Azure Active Directory Module for Windows PowerShell. For more information about which cmdlet you can use for this, see [Manage domains](https://msdn.microsoft.com/library/azure/dn919677.aspx).
+- The Azure Active Directory Module for Windows PowerShell. For more information about which cmdlet you can use for this, see [Manage domains in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx).
 
 You must have already registered a domain name and have the sign-in credentials needed for your domain name registrar (for example, Go Daddy or Register.com).
 
@@ -63,11 +63,11 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
     2. Click **Domains** and then click either **Add a customer domain** or the **Add** button.
 2. On the **Add domain** page, type the domain name that you want to add and the do one of the following:
     1. If you do not plan to integrate your on-premises Active Directory with Azure AD, do the following:
-        1. Leave the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox unchecked and click the **Add** button.
+        1. Leave the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox cleared, and then click the **Add** button.
         2. After you see the message that your domain has been successfully added to Azure AD, click the arrow to move to the next page so you can verify your domain.
         3. Follow the directions on the next page to verify that the domain name you added in the previous steps belongs to you. For step-by-step directions, see Verify a domain at any domain name registrar.
     2. If you want to integrate your on-premises Active Directory with Azure AD, do the following:
-        1. Make sure to check the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox and then click the **Add** button.
+        1. Make sure to select the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox and then click the **Add** button.
         2. After you see the message that your domain has been successfully added to Azure AD, click the arrow to move to the next page and then follow the directions on that page to configure the domain you added for single sign-on.
 
 > [AZURE.NOTE]
@@ -85,13 +85,13 @@ If you've just completed the **Add a domain** wizard, click **Configure DNS reco
 1. In the portal, in the left pane, click **Domains**.
 2. Depending on which portal you are using, click the domain name that you want to set up, and then click either **DNS settings** or **View DNS settings**. The **DNS settings** page lists the DNS records for the cloud service.
 
-    If you want to configure a service that you don't see on the DNS settings tab, check your domain services selections to make sure you've chosen that service for this domain name. To change the settings, for example, to add Lync Online, see Specify the services you'll use with your domain.
+    If you want to configure a service that you don't see on the DNS settings tab, verify your domain services selections to make sure you've chosen that service for this domain name. To change the settings, for example, to add Lync Online, see Specify the services you'll use with your domain.
 
 3. At your domain name registrar website, add the required records to your DNS file.
 
 Typically it takes about 15 minutes for your changes to take effect. But it can take up to 72 hours for the DNS record that you created to propagate through the DNS system. If you need to view these record settings again, on the **Domains** page, click the domain, and then, on the **Domain properties** page, click the **DNS settings** tab.
 
-To check the status of your domain, on the **Domains** page, click the domain, and then, on the **Domain properties** page, click **Troubleshoot domain**.
+To verify the status of your domain, on the **Domains** page, click the domain, and then, on the **Domain properties** page, click **Troubleshoot domain**.
 
 ### Verify a domain at any domain name registrar
 
