@@ -151,6 +151,7 @@ The tags section uses this syntax:
  - **application-insights**
  - **automation**
  - **azure-resource-manager**
+ - **azure-security**
  - **backup**
  - **batch**
  - **biztalk-services**
