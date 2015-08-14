@@ -11,11 +11,11 @@ To create a VNet by using PowerShell, follow the steps below.
 
 	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
 	
-3. If necessary, run the **New-AzureResourceGroup** cmdlet to create a new resource group, as shown below. For our scenario, create a resource group named *RG1*.
+3. If necessary, run the **New-AzureResourceGroup** cmdlet to create a new resource group, as shown below. For our scenario, create a resource group named *TestRG*. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
-	New-AzureResourceGroup -Name RG1 -Location centralus
+	New-AzureResourceGroup -Name TestRG -Location centralus
 
-	ResourceGroupName : RG1
+	ResourceGroupName : TestRG
 	Location          : centralus
 	ProvisioningState : Succeeded
 	Tags              :
@@ -24,17 +24,17 @@ To create a VNet by using PowerShell, follow the steps below.
 	                    =======  ==========
 	                    *
 	
-	ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1	
+	ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG	
 
 4. Run the **New-AzureVirtualNetwork** cmdlet to create a new VNet, as shown below.
 
-	New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet `
+	New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 		-AddressPrefix 192.168.0.0/16 -Location centralus	
 	
 	Name              : TestVNet
-	ResourceGroupName : RG1
+	ResourceGroupName : TestRG
 	Location          : centralus
-	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
+	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
 	Etag              : W/"5b89894f-db7f-4634-9870-f9b97e209510"
 	ProvisioningState : Succeeded
 	Tags              :
@@ -51,9 +51,9 @@ To create a VNet by using PowerShell, follow the steps below.
 
 5. Run the **Get-AzureVirtualNetwork** cmdlet to store the virtual network object in a variable, as shown below.
 
-	$vnet = Get-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet
+	$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
-	>[AZURE.TIP] You can combine steps 4 and 5 by running **$vnet = New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP] You can combine steps 4 and 5 by running **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
 6. Run the **Add-AzureVirtualNetworkSubnetConfig** cmdlet to add a subnet to the new VNet, as shown below.
 
@@ -61,9 +61,9 @@ To create a VNet by using PowerShell, follow the steps below.
 		-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 	
 	Name              : TestVNet
-	ResourceGroupName : RG1
+	ResourceGroupName : TestRG
 	Location          : centralus
-	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
+	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
 	Etag              : W/"5b89894f-db7f-4634-9870-f9b97e209510"
 	ProvisioningState : Succeeded
 	Tags              :
@@ -99,9 +99,9 @@ To create a VNet by using PowerShell, follow the steps below.
 	Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 	
 	Name              : TestVNet
-	ResourceGroupName : RG1
+	ResourceGroupName : TestRG
 	Location          : centralus
-	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
+	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
 	Etag              : W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"
 	ProvisioningState : Succeeded
 	Tags              :
@@ -118,8 +118,7 @@ To create a VNet by using PowerShell, follow the steps below.
 	                      {
 	                        "Name": "FrontEnd",
 	                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
-	                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro
-	                    soft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+	                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 	                        "AddressPrefix": "192.168.1.0/24",
 	                        "IpConfigurations": [],
 	                        "NetworkSecurityGroup": null,
@@ -129,8 +128,7 @@ To create a VNet by using PowerShell, follow the steps below.
 	                      {
 	                        "Name": "BackEnd",
 	                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
-	                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro
-	                    soft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+	                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
 	                        "AddressPrefix": "192.168.2.0/24",
 	                        "IpConfigurations": [],
 	                        "NetworkSecurityGroup": null,

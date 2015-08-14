@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a virtual network using the Azure portal | Microsoft Azure"
-   description="Learn how to create a virtual network using the Azure portal."
+   pageTitle="Create a virtual network using a network configuration file in the Azure portal | Microsoft Azure"
+   description="Learn how to create a virtual network using a network configuration file in the Azure portal."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -17,11 +17,12 @@
    ms.date="08/14/2015"
    ms.author="telmos"/>
 
-# Create a virtual network using the Azure portal
+# Create a virtual network using a network configuration file in the Azure portal
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-include](../../includes/virtual-networks-create-vnet-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-classic-portal-include](../../includes/virtual-networks-create-vnet-classic-portal-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-vnet-classic-netcfg-portal-include](../../includes/virtual-networks-create-vnet-classic-netcfg-portal-include.md)]
+
 

@@ -2,18 +2,18 @@
 
 To create a classic VNet based on the scenario above, follow the steps below.
 
-1. From a browser, navigate to http://ms.portal.azure.com and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Click **NEW** > **Networking** > **Virtual network**, notice that the **Select a deployment model** list already shows **Classic**, and then click **Create**, as seen in the figure below.
 
 	![Create VNet in preview portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 
 3. On the **Virtual network** blade, type the **Name** of the VNet, and then click **Address space**. Configure your address space settings for the VNet and its first subnet, then click **OK**. The figure below shows the CIDR block settings for our scenario.
 
-	![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
+	![Address space blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
 
-4. Click **Resource Group** and select a resource group to add the VNet to, or click **Create new resource group** to add the VNet to a new resource group. To learn more about resource groups, see [](). The figure below shows the resource group settings for a new resource group called **TestRG**.
+4. Click **Resource Group** and select a resource group to add the VNet to, or click **Create new resource group** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
-	![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
+	![Create resource group blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 
 5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
 

@@ -9,32 +9,32 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 
 		info:    New mode is arm
 
-3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
-		azure group create -n RG1 -l centralus
+		azure group create -n TestRG -l centralus
 		info:    Executing command group create
-		+ Getting resource group RG1
-		+ Creating resource group RG1
-		info:    Created resource group RG1
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1
-		data:    Name:                RG1
+		+ Getting resource group TestRG
+		+ Creating resource group TestRG
+		info:    Created resource group TestRG
+		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		data:    Name:                TestRG
 		data:    Location:            centralus
 		data:    Provisioning State:  Succeeded
 		data:    Tags: null
 		data:
 		info:    group create command OK
 
-	- **-n (or --name)**. Name for the new resource group. For our scenario, *RG1*.
+	- **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
 	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
 
 4. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
-		azure network vnet create -g RG1 -n TestVNet -a 192.168.0.0/16 -l centralus
+		azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
 		info:    Executing command network vnet create
 		+ Looking up virtual network "TestVNet"
 		+ Creating virtual network "TestVNet"
 		+ Loading virtual network state
-		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet2
+		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet2
 		data:    Name                            : TestVNet
 		data:    Type                            : Microsoft.Network/virtualNetworks
 		data:    Location                        : centralus
@@ -43,20 +43,20 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:      192.168.0.0/16
 		info:    network vnet create command OK
 
-	- **-g (or --resource-group)**. Name of the resource group where the VNet will be created. For our scenario, *RG1*.
+	- **-g (or --resource-group)**. Name of the resource group where the VNet will be created. For our scenario, *TestRG*.
 	- **-n (or --name)**. Name of the VNet to be created. For our scenario, *TestVNet*
 	- **-a (or --address-prefixes)**. List of CIDR blocks used for the VNet address space. For our scenario, *192.168.0.0/16*
 	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *centralus*.
 
 5. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
 
-		azure network vnet subnet create -g RG1 -e TestVNet -n FrontEnd -a 192.168.1.0/24
+		azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
 		info:    Executing command network vnet subnet create
 		+ Looking up the subnet "FrontEnd"
 		+ Creating subnet "FrontEnd"
 		+ Looking up the subnet "FrontEnd"
-		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
 		data:    Type                            : Microsoft.Network/virtualNetworks/subnets
 		data:    ProvisioningState               : Succeeded
 		data:    Name                            : FrontEnd
@@ -70,15 +70,15 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 
 6. Repeat step 5 above to create other subnets, if necessary. For our scenario, run the command below to create the *BackEnd* subnet.
 
-		azure network vnet subnet create -g RG1 -e TestVNet -n BackEnd -a 192.168.2.0/24
+		azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24
 
 4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
 
-		azure network vnet show -g RG1 -n TestVNet
+		azure network vnet show -g TestRG -n TestVNet
 
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
-		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
+		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
 		data:    Name                            : TestVNet
 		data:    Type                            : Microsoft.Network/virtualNetworks
 		data:    Location                        : centralus
