@@ -251,8 +251,6 @@ The HDInsight service provides several ways to use custom components. Regardless
 
 ## Next steps
 
-See [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md). 
-
 See the following for information and examples on creating and using scripts to customize a cluster:
 
 - [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md)

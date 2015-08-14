@@ -24,11 +24,13 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 ## Prerequisites
 
-- **A Linux-based Storm on HDInsight cluster** - see [Get started with Apache Storm on HDInsight](hdinsight-storm-get-started-linux.md) for steps on creating a cluster
+- **A Linux-based Storm on HDInsight cluster**: see [Get started with Apache Storm on HDInsight](hdinsight-storm-get-started-linux.md) for steps on creating a cluster
 
-- **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following:
+- **Familiarity with SSH and SCP**: For more information on using SSH and SCP with HDInsight, see the following:
     - **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
     - **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+- **An SCP client**: This is provided with all Linux, Unix, and OS X systems. For Windows clients, we recommend PSCP, which is available from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## Start a Storm topology
 
@@ -36,9 +38,11 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE] If you used a password for your SSH account, you will be prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example will load the private key from `~/.ssh/id_rsa`:
-    >
-    > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
+    For more information on using SSH to connect to your HDInsight cluster, see the following documents:
+    
+        - **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+        
+        - **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Use the following command to start an example topology:
 

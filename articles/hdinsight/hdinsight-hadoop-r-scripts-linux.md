@@ -3,7 +3,7 @@
 	description="Learn how to install and use R to customize Hadoop clusters." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="Blackmist" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="jgao"/>
+	ms.date="08/14/2015" 
+	ms.author="larryfr"/>
 
 # Install and use R on HDInsight Hadoop clusters
 
