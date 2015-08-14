@@ -149,7 +149,7 @@ Instead of using a deny rule, consider using a rule to allow access from the vir
 |TO INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|ALLOW|
 |FROM INTERNET|110| INTERNET|&#42;|VIRTUAL_NETWORK|&#42;|TCP|DENY| 
 
->[AZURE.WARNING] Azure uses a special subnet referred to as the **Gateway** subnet to handle VPN gatewasy to other VNets and on-premises networks. Associating an NSG to this subnet will cause your VPN gateway to stop functioning as expected. Do NOT associated NSGs to gateway subnets!
+>[AZURE.WARNING] Azure uses a special subnet referred to as the **Gateway** subnet to handle VPN gateway to other VNets and on-premises networks. Associating an NSG to this subnet will cause your VPN gateway to stop functioning as expected. Do NOT associate NSGs to gateway subnets!
 
 ## Planning - network security group workflow
 
