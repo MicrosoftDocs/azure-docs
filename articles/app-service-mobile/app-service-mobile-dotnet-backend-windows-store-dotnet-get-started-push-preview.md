@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.date="08/14/2015" 
 	ms.author="glenga"/>
 
 # Add push notifications to your Windows Store app
