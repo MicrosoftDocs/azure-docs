@@ -132,7 +132,7 @@ First, you must set up some values in PowerShell that you will use later when cr
         
     Or, use the second example to assign key credentials.
 
-            $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyCredentials $keyCredential
+         $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyCredentials $keyCredential
 
     Examine the new application object. The **ApplicationId** property is needed for creating service principals, role assignments and acquiring JWT tokens.
 
@@ -183,7 +183,7 @@ First, you must set up some values in PowerShell that you will use later when cr
 
         X509Certificate2 cert = null; 
         X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser); 
-        string certName = "MyAzureManagement"; 
+        string certName = "examplecert"; 
         try 
         { 
             store.Open(OpenFlags.ReadOnly); 
