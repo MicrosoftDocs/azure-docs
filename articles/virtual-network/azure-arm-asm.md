@@ -1,3 +1,22 @@
+<properties
+   pageTitle="Resource Manager and Service Management (classic) deployment modes | Azure"
+   description="Learn the differences between Resource Manager and classic deployment models."
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmosampaio"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
+
+<tags
+   ms.service="virtual-network"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/14/2015"
+   ms.author="telmos"/>
+
 The Azure platform is in transition.  Whether you're new to Azure or have been using it for years, it's important to understand some of the key changes we're making to the platform during this transition.
 
 ## Deployment Models
