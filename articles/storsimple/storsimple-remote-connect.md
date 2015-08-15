@@ -194,9 +194,9 @@ Perform the following steps on the device serial console to enable remote manage
 
 To prepare the host computer for a remote connection that uses an HTTPS session, perform the following procedures:
 
-- [Import the .cer file into the root store of the client or remote host](to-import-the-certificate-on-the-remote-host).
+- [Import the .cer file into the root store of the client or remote host](#to-import-the-certificate-on-the-remote-host).
 
-- [Add the device serial numbers to the hosts file on your remote host](to-add-device-serial-numbers-to-the-remote-host).
+- [Add the device serial numbers to the hosts file on your remote host](#to-add-device-serial-numbers-to-the-remote-host).
 
 Each of these procedures is described below.
 
@@ -268,5 +268,5 @@ Perform the following procedure on the computer from which you want to make the 
 
 ## Next steps
 
-[Learn more about using Windows PowerShell to administer your StorSimple device](storsimple-windows-powershell-administration.md)
+[Learn more about using Windows PowerShell to administer your StorSimple device](storsimple-windows-powershell-administration.md).
 

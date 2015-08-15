@@ -45,7 +45,7 @@ An 8600 device has additional components that correspond to the Extended Bunch o
 Perform the following steps to view the hardware status of a device component:
 
 1. Navigate to **Devices**, select a specific StorSimple device. Click to go into the device-level menu and then click the **Maintenance** tab. 
-2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for primary enclosure](#component-list-for-primary-enclosure-of-storsimple-device) and the [detailed component list for EBOD enclosure](#component-list-for-EBOD-enclosure-of-storsimple-device).
+2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for the primary enclosure](#component-list-for-primary-enclosure-of-storsimple-device) and the [detailed component list for the EBOD enclosure](#component-list-for-ebod-enclosure-of-storsimple-device).
 2. Use the following color coding scheme to interpret the  component status:
 	-  **Green check** – Denotes a **Healthy** or **OK** component.
 	-  **Yellow** – Denotes a component in **Warning** state.
@@ -126,7 +126,7 @@ The following table outlines the physical and logical components contained in th
 
 ## Next steps
 If you need to troubleshoot a device component that has a degraded or failed status, refer to 
-[Troubleshoot with monitoring indicators](storsimple-monitoring-indicators.md). 
+[StorSimple monitoring indicators](storsimple-monitoring-indicators.md). 
 
 To replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 

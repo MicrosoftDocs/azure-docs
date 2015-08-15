@@ -80,4 +80,4 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
 
 ## Next steps
 
-Learn how to [Manage StorSimple volumes](storsimple-manage-volumes.md) 
+Learn how to [Manage StorSimple volumes](storsimple-manage-volumes.md).

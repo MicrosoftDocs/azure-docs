@@ -34,7 +34,7 @@ StorSimple uses storage tiering to manage stored data across various storage med
 
 In addition to storage management, StorSimple data protection features enable you to create on-demand and scheduled backups, and store them locally or in the cloud. Backups are taken in the form of incremental snapshots, which means that they can be created and restored quickly. Cloud snapshots can be critically important in disaster recovery scenarios because they replace secondary storage systems (such as tape backup), and allow you to restore data to your datacenter or to alternate sites if necessary. 
 
->[AZURE.NOTE] The StorSimple 8000 series with software update 1 or later supports Amazon S3 with RRS, HP, and OpenStack cloud services, as well as Microsoft Azure.  (You will still need a Microsoft Azure storage account for device management purposes.) For more information, see [Configure a new storage account](storsimple-deployment-walkthrough.md#configure-a-new-storage-account) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u1.md).
+>[AZURE.NOTE] The StorSimple 8000 series with software update 1 or later supports Amazon S3 with RRS, HP, and OpenStack cloud services, as well as Microsoft Azure.  (You will still need a Microsoft Azure storage account for device management purposes.) For more information, see [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
 
 ## Why use StorSimple?
 
