@@ -16,7 +16,7 @@
 	ms.date="08/14/2015" 
 	ms.author="glenga"/>
 
-# Add push notifications to your Windows Store app
+# Add push notifications to your Windows Runtime 8.1 universal app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
 &nbsp;  
