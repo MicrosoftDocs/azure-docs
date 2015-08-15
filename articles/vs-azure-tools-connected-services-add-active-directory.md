@@ -51,7 +51,7 @@ You can use the Connected Services dialog to connect to Azure AD in the followin
 
 1. On the third page of the wizard, make sure that **Read directory data** is checked. The wizard will fill in the **Client secret**. 
 
-    ![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directoryconfigure-azure-ad-wizard-3.png)
+    ![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
 1. Choose the **Finish** button. The dialog adds the necessary configuration code and references to enable your project for Azure AD authentication. You can see the AD domain on the Azure portal.
 
