@@ -8,9 +8,9 @@
    editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang=""
-   ms.topic=""
-   ms.workload=""
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
    ms.date="08/12/2015"
    ms.author="patshea" />
 
