@@ -20,7 +20,7 @@
 ##Overview
 By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO) for ASP.NET MVC web applications, or AD Authentication in Web API services. With Azure AD Authentication, your users can use their accounts from Azure AD to connect to your web applications. The advantages of Azure AD Authentication with Web API include enhanced data security when exposing an API from a web application. With Azure AD, you do not have to manage a separate authentication system with its own account and user management.
 
-## Supported Project Types
+## Supported project pypes
 
 You can use the Connected Services dialog to connect to Azure AD in the following project types.
 

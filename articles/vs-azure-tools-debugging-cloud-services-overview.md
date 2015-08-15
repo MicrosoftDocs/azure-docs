@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Debugging Cloud Services"
-   description="Debugging Cloud Services"
+   pageTitle="Debugging cloud services"
+   description="Debugging cloud services"
    services="visual-studio-online"
    documentationCenter="n/a"
    authors="patshea123"

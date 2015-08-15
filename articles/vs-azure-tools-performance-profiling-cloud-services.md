@@ -79,7 +79,7 @@ When you publish your cloud service from Visual Studio, you can profile the serv
 
 To understand more about performance profiling in Visual Studio, see [Beginners Guide to Performance Profiling](https://msdn.microsoft.com/library/azure/ms182372.aspx) and [Analyzing Application Performance by Using Profiling Tools](https://msdn.microsoft.com/library/azure/z9z62c29.aspx).
 
->[AZURE.IMPORTANT] You can enable either IntelliTrace or profiling when you publish your cloud service. You can't enable both.
+>[AZURE.NOTE] You can enable either IntelliTrace or profiling when you publish your cloud service. You can't enable both.
 
 ###Profiler collection methods###
 You can use different collection methods for profiling, based on your performance issues:
@@ -100,7 +100,6 @@ The following illustration shows how to configure your profiling settings from t
 
 ![Configure Profiling Settings](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
->[AZURE.IMPORTANT] To enable the **Enable profiling** check box, you must have the profiler installed on the local computer that you are using to publish your cloud service. By default, the profiler is installed when you install Visual Studio.
 
 ### To configure profiling settings
 
@@ -118,13 +117,13 @@ The following illustration shows how to configure your profiling settings from t
 
 1. To save the settings, choose the **OK** button.When you publish this application, these settings are used to create the profiling session for each role.
 
-## Viewing Profiling Reports
+## Viewing profiling reports
 
 A profiling session is created for each instance of a role in your cloud service. To view your profiling reports of each session from Visual Studio, you can view the Server Explorer window and then choose the Azure Compute node to select an instance of a role. You can then view the profiling report as shown in the following illustration.
 
 ![View Profiling Report from Azure](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
 
->[AZURE.IMPORTANT] You must have Visual Studio Premium or Visual Studio Ultimate installed on the computer that you use to be able to view profiling reports for your cloud service.
+
 
 ### To view profiling reports
 
