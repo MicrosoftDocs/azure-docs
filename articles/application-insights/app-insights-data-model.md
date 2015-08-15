@@ -29,9 +29,9 @@ view, request, and so on.
 
 ## &lt;telemetryType&gt;
 
-**[dynamic]<key>**
+**<measurement>**
 
-    KVPs <string, double> <telemetryType>.measurement<KVP>      Max: 100
+    KVPs <string, double> <telemetryType>.measurement      Max: 100
 * 
      A key value pair (KVP) property bag that provides extensibility on AppInsights telemetry items for adding custom metrics. 
 
@@ -39,9 +39,9 @@ view, request, and so on.
 
     *Default:* If existing key, missing value then count = 1, value = 0, min/max = 0 
 
-**[dynamic]<key>**
+**<property>**
 
-    KVPs <string, string> <telemetryType>.properties<KVP>      Max: 100
+    KVPs <string, string> <telemetryType>.properties      Max: 100
 * 
      A key value pair (KVP) property bag that provides extensibility on AppInsights telemetry items for adding custom properties.  The developer is able to provide a KVP list associated with a telemetry item.  Each key is tracked and a maximum 200 unique keys can be provided per AppInsights ikey (app).  A key can be a max length of 100 characters.  All values are treated as string and a max size of 1000 characters can be provided.  Each property is initially classified as a dimension, enabling segmentation features based on each property's value set.    Each value set is tracked per property key for its cardinality.  When cardinality of a key exceeds 100 unique values, the property is classified as an attribute.  An attribute can be searched but cannot be the target of segmentation (aggregation or group by). 
 
@@ -608,7 +608,7 @@ view, request, and so on.
 
     string context.operation.id      Max: 100
 * 
-     The operation.id is a correlation id that can be used across telemetry items.  For example, a request id may be populated in the operation.id of all related telemetry items, enabling a correlation across telemetry items such as rdd, exception, events, etc.  <br/><br/>OPEN ITEM:  Can the client set an operation id that will be carried to server telemetry (server associated requests, etc.) what is the communication mechanism - cookie/http? 
+     The operation.id is a correlation id that can be used across telemetry items.  For example, a request id may be populated in the operation.id of all related telemetry items, enabling a correlation across telemetry items such as rdd, exception, events, etc.  
 
 **operationName**
 
