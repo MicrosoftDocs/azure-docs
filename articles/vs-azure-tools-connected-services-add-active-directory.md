@@ -55,7 +55,7 @@ You can use the Connected Services dialog to connect to Azure AD in the followin
 
 1. Choose the **Finish** button. The dialog adds the necessary configuration code and references to enable your project for Azure AD authentication. You can see the AD domain on the Azure portal.
 
-    ![Find the domain in the Azure Management Portal](./media/vs-azure-tools-connected-services-add-active-directory/IC766126.png)
+    ![Find the domain in the Azure Management Portal](./media/vs-azure-tools-connected-services-add-active-directory/IC765882.png)
 
 1. Review the Getting Started page that appears in your browser for ideas on next steps, and the What Happened page to see how your project was modified.If you want to check that everything worked, open one of the modified configuration files and verify that the settings mentioned in What Happened are there. For example, the main web.config in an ASP.NET MVC project will have these settings added:
 
