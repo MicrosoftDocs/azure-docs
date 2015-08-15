@@ -10,6 +10,7 @@
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
+   ms.workload="na"
    ms.tgt_pltfrm="na"
    ms.date="08/12/2015"
    ms.author="patshea" />
@@ -63,5 +64,5 @@ You can continue to work in Visual Studio while the IntelliTrace logs are downlo
 
 ## See Also
 
-[Debugging Cloud Services](https://msdn.microsoft.com/en-us/library/ee405479.aspx)
+[Debugging Cloud Services](http://go.microsoft.com/fwlink/p/?LinkID=62304)
 

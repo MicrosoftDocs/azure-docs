@@ -8,9 +8,10 @@
    editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang=""
-   ms.topic=""
-   ms.workload=""
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.workload="na"
+   ms.tgt_pltfrm="na"
    ms.date="08/12/2015"
    ms.author="patshea" />
 
@@ -74,9 +75,9 @@ You typically simulate a load to test cloud services under normal or stress cond
 
 ## Profiling a cloud service in Azure
 
-When you publish your cloud service from Visual Studio, you can profile the service and specify the profiling settings that give you the information that you want. A profiling session is started for each instance of a role. For more information about how to publish your service from Visual Studio, see [Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/en-us/library/azure/ee460772.aspx).
+When you publish your cloud service from Visual Studio, you can profile the service and specify the profiling settings that give you the information that you want. A profiling session is started for each instance of a role. For more information about how to publish your service from Visual Studio, see [Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx).
 
-To understand more about performance profiling in Visual Studio, see [Beginners Guide to Performance Profiling](https://msdn.microsoft.com/en-us/library/azure/ms182372.aspx) and [Analyzing Application Performance by Using Profiling Tools](https://msdn.microsoft.com/en-us/library/azure/z9z62c29.aspx).
+To understand more about performance profiling in Visual Studio, see [Beginners Guide to Performance Profiling](https://msdn.microsoft.com/library/azure/ms182372.aspx) and [Analyzing Application Performance by Using Profiling Tools](https://msdn.microsoft.com/library/azure/z9z62c29.aspx).
 
 >[AZURE.IMPORTANT] You can enable either IntelliTrace or profiling when you publish your cloud service. You can't enable both.
 
@@ -91,7 +92,7 @@ You can use different collection methods for profiling, based on your performanc
 
 - **Concurrency** - This method collects resource contention data, and process and thread execution data that is useful in analyzing multi-threaded and multi-process applications. The concurrency method collects data for each event that blocks execution of your code, such as when a thread waits for locked access to an application resource to be freed. This method is useful for analyzing multi-threaded applications.
 
-- You can also enable **Tier Interaction Profiling**, which provides additional information about the execution times of synchronous ADO.NET calls in functions of multi-tiered applications that communicate with one or more databases. You can collect tier interaction data with any of the profiling methods. For more information about tier interaction profiling, see [Tier Interactions View](https://msdn.microsoft.com/en-us/library/azure/dd557764.aspx).
+- You can also enable **Tier Interaction Profiling**, which provides additional information about the execution times of synchronous ADO.NET calls in functions of multi-tiered applications that communicate with one or more databases. You can collect tier interaction data with any of the profiling methods. For more information about tier interaction profiling, see [Tier Interactions View](https://msdn.microsoft.com/library/azure/dd557764.aspx).
 
 ## Configuring profiling settings
 
@@ -133,11 +134,11 @@ A profiling session is created for each instance of a role in your cloud service
 
 1. To view profiling reports for an instance, choose the role in the service, open the shortcut menu for a specific instance, and then choose View Profiling Report.The report, a .vsp file, is now downloaded from Azure, and the status of the download appears in the  Azure Activity Log. When the download completes, the profiling report appears in a tab in the editor for Visual Studio named <Role name>_<Instance Number>_<identifier>.vsp. Summary data for the report appears.
 
-1. To display different views of the report, in the Current View list, choose the type of view that you want. For more information, see [Profiling Tools Report Views](https://msdn.microsoft.com/en-us/library/azure/bb385755.aspx).
+1. To display different views of the report, in the Current View list, choose the type of view that you want. For more information, see [Profiling Tools Report Views](https://msdn.microsoft.com/library/bb385755.aspx).
 
 ## Next steps
 
-[Debugging Cloud Services](https://msdn.microsoft.com/en-us/library/azure/ee405479.aspx)
+[Debugging Cloud Services](http://go.microsoft.com/fwlink//p/?LinkID=62304)
 
-[Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/en-us/library/azure/ee460772.aspx)
+[Publishing to an Azure Cloud Service from Visual Studio](http://go.microsoft.com/fwlink//p/?LinkID=623012)
 

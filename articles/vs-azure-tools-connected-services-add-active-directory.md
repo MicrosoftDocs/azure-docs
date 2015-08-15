@@ -8,10 +8,10 @@
    editor="tlee" />
 <tags 
    ms.service="visual-studio-online""
-   ms.devlang="n/a"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="visual-studio-online"
+   ms.workload="na"
    ms.date="08/12/2015"
    ms.author="patshea" />
 
