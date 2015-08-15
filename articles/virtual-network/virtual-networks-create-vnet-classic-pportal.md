@@ -17,7 +17,7 @@
    ms.date="08/14/2015"
    ms.author="telmos"/>
 
-# Create a virtual network using the Azure portal
+# Create a virtual network using the Azure preview portal
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-include](../../includes/virtual-networks-create-vnet-selectors-include.md)]
 

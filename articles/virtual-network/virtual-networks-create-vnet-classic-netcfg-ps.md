@@ -17,7 +17,7 @@
    ms.date="08/14/2015"
    ms.author="telmos"/>
 
-# Create a virtual network using a network configuration file in the Azure portal
+# Create a virtual network using a netcfg file in PowerShell
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-include](../../includes/virtual-networks-create-vnet-selectors-include.md)]
 
