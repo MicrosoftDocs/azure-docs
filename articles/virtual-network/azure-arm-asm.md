@@ -17,9 +17,10 @@
    ms.date="08/14/2015"
    ms.author="telmos"/>
 
+# Azure Deployment Models
+
 The Azure platform is in transition.  Whether you're new to Azure or have been using it for years, it's important to understand some of the key changes we're making to the platform during this transition.
 
-## Deployment Models
 All Azure resources support one or both of the following deployment models:
 
 - **Resource Manager:** This is the newest deployment model for Azure resources. Most newer resources already support this deployment model and eventually all resources will.   
