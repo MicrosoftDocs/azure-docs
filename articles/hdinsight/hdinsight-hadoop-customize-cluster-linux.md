@@ -81,7 +81,7 @@ In this section, we use Azure Resource Manager (ARM) templates to provision an H
 
 ### Provision cluster using script action
 
-1. Copy the following template to a location on your computer. This template installs Spark on headnode as well as worker nodes.
+1. Copy the following template to a location on your computer. This template installs Spark on headnode as well as worker nodes. You can also verify if the JSON template is valid. Paste your template content into [JSONLint](http://jsonlint.com/), an online JSON validator tool.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -240,7 +240,7 @@ In this section, we use Azure Resource Manager (ARM) templates to provision an H
 
 
 	
-2. Log in to your Azure account. After providing your credentials, the command returns information about your account.
+2. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
 
 		Add-AzureAccount
 	
@@ -248,12 +248,11 @@ In this section, we use Azure Resource Manager (ARM) templates to provision an H
 		--                             ----    
 		someone@example.com            User       ...   
 
-3. If you have multiple subscriptions, provide the subscription id you wish to use for deployment. 
+3. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
 
 		Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 4. Switch to the Azure Resource Manager module.
-
 
 		Switch-AzureMode AzureResourceManager
 
