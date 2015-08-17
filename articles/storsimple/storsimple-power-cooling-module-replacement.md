@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Replace a Power and Cooling Module on your StorSimple device
