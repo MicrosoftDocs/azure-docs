@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="08/21/2015" 
 	ms.author="larryfr"/> 
 
 # Customize HDInsight clusters using Script Action
@@ -68,6 +68,234 @@ Name | Script
 	Press ENTER to add more than one script action to install multiple components on the cluster. 
 
 3. Click **Select** to save the script action configuration and continue with cluster provisioning. 
+
+##Use a Script Action from Azure Resource Manager templates
+
+In this section, we use Azure Resource Manager (ARM) templates to provision an HDInsight cluster and also use a script action to install custom components (Spark, in this example) on the cluster. This section provides a sample ARM template to provision a cluster using script action. 
+
+### Before you begin
+
+* For information about configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md). 
+* For instructions on how to create ARM templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). 
+* If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager).
+
+### Provision cluster using script action
+
+1. Copy the following template to a location on your computer. This template installs Spark on headnode as well as worker nodes.
+
+			{
+		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+		    "contentVersion": "1.0.0.0",
+		    "parameters": {
+		        "clusterLocation": {
+		            "type": "string",
+		            "defaultValue": "West US",
+		            "allowedValues": [ "West US" ]
+		        },
+		        "clusterName": {
+		            "type": "string"
+		        },
+		        "clusterUserName": {
+		            "type": "string",
+		            "defaultValue": "admin"
+		        },
+		        "clusterUserPassword": {
+		            "type": "securestring"
+		        },
+		        "sshUserName": {
+		            "type": "string",
+		            "defaultValue": "hdiuser"
+		        },
+		        "sshPassword": {
+		            "type": "securestring"
+		        },
+		        "clusterStorageAccountName": {
+		            "type": "string"
+		        },
+		        "clusterStorageAccountResourceGroup": { 
+		            "type": "string"
+		        },
+		        "clusterStorageType": {
+		            "type": "string",
+		            "defaultValue": "Standard_LRS",
+		            "allowedValues": [
+		                "Standard_LRS",
+		                "Standard_GRS",
+		                "Standard_ZRS"
+		            ]
+		        },
+		        "clusterStorageAccountContainer": {
+		            "type": "string"
+		        },
+		        "clusterHeadNodeCount": {
+		            "type": "int",
+		            "defaultValue": 1
+		        },
+		        "clusterWorkerNodeCount": {
+		            "type": "int",
+		            "defaultValue": 2
+		        }
+		    },
+		    "variables": {
+		    },
+		    "resources": [
+		        {
+		            "name": "[parameters('clusterStorageAccountName')]",
+		            "type": "Microsoft.Storage/storageAccounts",
+		            "location": "[parameters('clusterLocation')]",
+		            "apiVersion": "2015-05-01-preview",
+		            "dependsOn": [ ],
+		            "tags": { },
+		            "properties": {
+		                "accountType": "[parameters('clusterStorageType')]"
+		            }
+		        },
+		        {
+		            "name": "[parameters('clusterName')]",
+		            "type": "Microsoft.HDInsight/clusters",
+		            "location": "[parameters('clusterLocation')]",
+		            "apiVersion": "2015-03-01-preview",
+		            "dependsOn": [
+		                "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
+		            ],
+		            "tags": { },
+		            "properties": {
+		                "clusterVersion": "3.2",
+		                "osType": "Linux",
+		                "clusterDefinition": {
+		                    "kind": "hadoop",
+		
+		                    "configurations": {
+		                        "gateway": {
+		                            "restAuthCredential.isEnabled": true,
+		                            "restAuthCredential.username": "[parameters('clusterUserName')]",
+		                            "restAuthCredential.password": "[parameters('clusterUserPassword')]"
+		                        }
+		                    }
+		                },
+		                "storageProfile": {
+		                    "storageaccounts": [
+		                        {
+		                            "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
+		                            "isDefault": true,
+		                            "container": "[parameters('clusterStorageAccountContainer')]",
+		                            "key": "[listKeys(resourceId(parameters('clusterStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).key1]"
+		                        }
+		                    ]
+		                },
+		                "computeProfile": {
+		                    "roles": [
+		                        {
+		                            "name": "headnode",
+		                            "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
+		                            "hardwareProfile": {
+		                                "vmSize": "Large"
+		                            },
+		                            "osProfile": {
+		                                "linuxOperatingSystemProfile": {
+		                                    "username": "[parameters('sshUserName')]",
+		                                    "password": "[parameters('sshPassword')]"
+		                                }
+		                            },
+		                            "scriptActions": [
+		                                {
+		                                    "name": "installspark",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh",
+		                                    "parameters": ""
+		                                }
+		                            ]
+		                        },
+		                        {
+		                            "name": "workernode",
+		                            "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
+		                            "hardwareProfile": {
+		                                "vmSize": "Large"
+		                            },
+		                            "osProfile": {
+		                                "linuxOperatingSystemProfile": {
+		                                    "username": "[parameters('sshUserName')]",
+		                                    "password": "[parameters('sshPassword')]"
+		                                }
+		                            },
+		                            "scriptActions": [
+		                                {
+		                                    "name": "installspark",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh",
+		                                    "parameters": ""
+		                                }
+		                            ]
+		                        }
+		                    ]
+		                }
+		            }
+		        }
+		    ],
+		    "outputs": {
+		        "cluster":{
+		            "type" : "object",
+		            "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
+		        }
+		    }
+		}
+
+
+	
+2. Log in to your Azure account. After providing your credentials, the command returns information about your account.
+
+		Add-AzureAccount
+	
+		Id                             Type       ...
+		--                             ----    
+		someone@example.com            User       ...   
+
+3. If you have multiple subscriptions, provide the subscription id you wish to use for deployment. 
+
+		Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+
+4. Switch to the Azure Resource Manager module.
+
+
+		Switch-AzureMode AzureResourceManager
+
+5. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
+
+		New-AzureResourceGroup -Name myresourcegroup -Location "West US"
+
+		ResourceGroupName : myresourcegroup
+		Location          : westus
+		ProvisioningState : Succeeded
+		Tags              :
+		Permissions       :
+		            		Actions  NotActions
+		            		=======  ==========
+		            		*
+		ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
+
+
+6. To create a new deployment for your resource group, run the **New-AzureResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, and the path or URL to the template you created. If your template requires any parameters, you must pass those parameters as well. In this case, the script action to install Spark on the cluster does not require any parameters.
+
+
+		New-AzureResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
+
+
+	You will be prompted to provide values for the parameters defined in the template.
+
+7. When the resource group has been deployed, you will see a summary of the deployment.
+
+		  DeploymentName    : mydeployment
+		  ResourceGroupName : myresourcegroup
+		  ProvisioningState : Succeeded
+		  Timestamp         : 8/17/2015 7:00:27 PM
+		  Mode              : Incremental
+		  ... 
+
+8. If your deployment fails, you can use the following cmdlets to get information about the failures.
+
+		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed
+
+	For detailed information about the deployment failures, use the following cmdlet.
+
+		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed -DetailedOutput
 
 ##Use a Script Action from Azure PowerShell
 
