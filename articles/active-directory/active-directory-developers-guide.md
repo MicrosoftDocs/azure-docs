@@ -74,7 +74,7 @@ These articles provide foundation reference for REST and authentication library 
 
 ### Code
 
-- **[Azure AD open source libraries](http://github.com/AzureAD)**: The easiest way to find a library’s source is using our [library list](https://msdn.microsoft.com/library/azure/dn151135.aspx).
+- **[Azure AD open source libraries](http://github.com/AzureAD)**: The easiest way to find a library’s source is using our [library list](active-directory-authentication-libraries.md).
 
 - **[Azure AD samples](http://github.com/AzureADSamples)**: The easiest way to navigate the list of samples is using the [Code Samples Index](active-directory-code-samples.md).
 
