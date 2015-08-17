@@ -39,17 +39,17 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 
 1. By default, the **Add Replica to Availability Group Wizard** is displayed. Click **Next**.  If you have selected the **Do not show this page again** option at the bottom of the page during a previous launch of this wizard, this screen will not be displayed.
 
-	![SQL](./media/virtual-machines-extend-on-premises-alwayson-availability-groups/IC742861.png)
+	![SQL](./media/virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups/IC742861.png)
 
 1. You will be required to connect to all existing secondary replicas. You can click on **Connect…** beside each replica or you can click **Connect All…** at the bottom of the screen. After authentication, click **Next** to advance to the next screen.
 
 1. On the **Specify Replicas** page, multiple tabs are listed across the top: **Replicas**, **Endpoints**, **Backup Preferences**, and **Listener**. From the **Replicas** tab, click **Add Azure Replica…** to launch the Add Azure Replica Wizard.
 
-	![SQL](./media/virtual-machines-extend-on-premises-alwayson-availability-groups/IC742863.png)
+	![SQL](./media/virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups/IC742863.png)
 
 1. Select an existing Azure Management Certificate from the local Windows certificate store if you have installed one before. Select or enter the id of an Azure subscription if you have used one before. You can click Download to download and install an Azure Management Certificate and download the list of subscriptions using an Azure account.
 
-	![SQL](./media/virtual-machines-extend-on-premises-alwayson-availability-groups/IC742864.png)
+	![SQL](./media/virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups/IC742864.png)
 
 1. You will populate each field on the page with values that will be used to create the Azure Virtual Machine (VM) that will host the replica.
 
@@ -73,7 +73,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 
 1. The **Specify Replicas** page is displayed again. Verify the settings for the new Azure replica on the **Replicas**, **Endpoints**, and **Backup Preferences** tabs. Modify settings to meet your business requirements.  For more information on the parameters contained on these tabs, see [Specify Replicas Page (New Availability Group Wizard/Add Replica Wizard)](https://msdn.microsoft.com/library/hh213088.aspx).Note that listeners cannot be created using the Listener tab for Availability Groups that contain Azure replicas. In addition, if a listener has already been created prior to launching the Wizard, you will receive a message indicating that it is not supported in Azure. We will look at how to create listeners in the **Create an Availability Group Listener** section.
 
-	![SQL](./media/virtual-machines-extend-on-premises-alwayson-availability-groups/IC742865.png)
+	![SQL](./media/virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups/IC742865.png)
 
 1. Click **Next**.
 
@@ -81,7 +81,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 
 1. Review the results on the **Validation** page. Correct outstanding issues and re-run the validation if necessary. Click **Next**.
 
-	![SQL](./media/virtual-machines-extend-on-premises-alwayson-availability-groups/IC742866.png)
+	![SQL](./media/virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups/IC742866.png)
 
 1. Review the settings on the **Summary** page, then click **Finish**.
 
