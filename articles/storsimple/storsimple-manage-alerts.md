@@ -148,12 +148,12 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 - **For the local data on your device**: There will be no disruption and reads will continue to be served. However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail. 
 
-	Depending upon the amount of data on the local tiers of your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. 
+	Depending on the amount of data on the local tiers of your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. 
 
  
 - **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure Portal. 
  
-- **For cloud snapshots in progress**: The operation is retried a few time within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.
+- **For cloud snapshots in progress**: The operation is retried a few times within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.
 
 
 ### Cluster alerts
