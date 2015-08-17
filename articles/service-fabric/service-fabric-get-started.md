@@ -27,7 +27,7 @@ The following operating system versions are supported:
 
 - Windows 8/8.1
 - Windows Server 2012 R2
-- Windows 10 Technical Preview
+- Windows 10
 
 ### Visual Studio 2015
 
