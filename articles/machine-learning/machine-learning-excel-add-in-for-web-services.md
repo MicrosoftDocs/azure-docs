@@ -38,7 +38,7 @@ Excel makes it easy to call web services directly without the need to write any 
 
 ## Steps to Add a New Web Service
 
-1. Publish a web service ([this page](http://machine-learning-walkthrough-5-publish-web-service.md) explains how to do it) or find an existing web service.
+1. Publish a web service ([this page](machine-learning-walkthrough-5-publish-web-service.md) explains how to do it) or find an existing web service.
 2. Once you have a web service, click the **WEB SERVICES** section in the left pane of Machine Learning Studio, and then select the web service to consume.
 3. From the **DASHBOARD** tab for the web service, copy the API key for the web service.
 4. In Excel, go to the **Web Services** section (if you are in the **Predict** section, click the back arrow to go to the list of web services).
