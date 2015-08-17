@@ -25,13 +25,13 @@ As an Identity Management As A Service (IDMaaS) platform, Azure Active Directory
 
 1. **[The benefits of Azure AD Integration](active-directory-how-to-integrate.md)**: Discover why integration with Azure Active Directory offers the best solution for secure sign in and authorization.
 
-1. **[Using Azure AD for sign in](active-directory-authentication-scenarios.md)**: Take advantage of Azure Active Directory's simplified authentication to provide sign on to your application.
+1. **[Active Directory authentication scenarios](active-directory-authentication-scenarios.md)**: Take advantage of Azure Active Directory's simplified authentication to provide sign on to your application.
 
 1. **[Querying the Directory](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: Use the Azure Active Directory Graph API to programmatically access Azure AD through REST API endpoints.
 
-1. **[Understanding the Application Model](https://msdn.microsoft.com/library/azure/dn151122.aspx)**: Learn about registering your application and the branding guidelines for multi-tenant applications.
+1. **[Understanding the Application Model](active-directory-integrating-applications.md)**: Learn about registering your application and the branding guidelines for multi-tenant applications.
 
-1. **[Libraries](https://msdn.microsoft.com/library/azure/dn151135.aspx)**: Easily authenticate users to obtain access tokens with the Azure Authentication Libraries.
+1. **[Libraries](active-directory-authentication-libraries.md)**: Easily authenticate users to obtain access tokens with the Azure Authentication Libraries.
 
 To view AAD overviews presented at the Build 2015 conference, see the [videos](#videos) section below.
 
@@ -42,21 +42,16 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 
 #### Mobile or PC application quickstart guides
 
-- [iOS](active-directory-devquickstarts-ios.md)
-- [Android](active-directory-devquickstarts-android.md)
-- [.NET](active-directory-devquickstarts-dotnet.md)
-- [Windows Phone](active-directory-devquickstarts-windowsphone.md)
-- [Windows Store](active-directory-devquickstarts-windowsstore.md)
-- [Xamarin](active-directory-devquickstarts-xamarin.md)
-- [Cordova](active-directory-devquickstarts-cordova.md)
+[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Windows Store](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:
+|[iOS](./media/active-directory-developers-guide/ios.png)|[Android](./media/active-directory-developers-guide/android.png)|[.NET](./media/active-directory-developers-guide/net.png)|[Windows Phone](./media/active-directory-developers-guide/windows.png)|[Windows Store](./media/active-directory-developers-guide/windows.png)|[Xamarin](./media/active-directory-developers-guide/xamarin.png)|[Cordova](./media/active-directory-developers-guide/cordova.png)
 
 
 ####Web Application or Web API quickstart guides
 
-- [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
-- [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
-- [Javascript](active-directory-devquickstarts-angular.md)
-- [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
+[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
+|:--:|:--:|:--:|:--:
+|[.NET Web App](./media/active-directory-developers-guide/net.png)|[.NET Web API](./media/active-directory-developers-guide/net.png)|[Javascript](./media/active-directory-developers-guide/javascript.png)|[Node.js](./media/active-directory-developers-guide/nodejs.png)
 
 
 ## How Tos
