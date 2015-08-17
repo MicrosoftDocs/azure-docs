@@ -24,15 +24,15 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-|  MS15-079    | [3082442 ] | Cumulative Security Update for Internet Explorer  | 4.23, 3.30, 2.42 | August 11, 2015 |
-|  MS15-080    | [3078662 ] | Vulnerabilities in Microsoft Graphics Component Could Allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
-|  MS15-082    | [3080348 ] | Vulnerabilities in RDP could allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
-|  MS15-084    | [3080129 ] | Vulnerabilities in XML Core Services Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
-|  MS15-085    | [3082487 ] | Vulnerability in Mount Manager Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
-|  MS15-088    | [3082458 ] | Unsafe Command Line Parameter Passing Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
-|  MS15-089    | [3060716 ] | Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
-|  MS15-090    | [3076949 ] | Vulnerability in WebDAV Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
-|  MS15-092    | [3086251 ] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-079    | [3082442] | Cumulative Security Update for Internet Explorer  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-080    | [3078662] | Vulnerabilities in Microsoft Graphics Component Could Allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-082    | [3080348] | Vulnerabilities in RDP could allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-084    | [3080129] | Vulnerabilities in XML Core Services Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-085    | [3082487] | Vulnerability in Mount Manager Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-088    | [3082458] | Unsafe Command Line Parameter Passing Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-089    | [3060716] | Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-090    | [3076949] | Vulnerability in WebDAV Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-092    | [3086251] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
 
 
 ## July Guest OS
