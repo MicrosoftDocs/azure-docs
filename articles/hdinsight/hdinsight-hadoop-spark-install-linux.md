@@ -143,6 +143,8 @@ In this section, you will create a Scala application that counts the number of l
 		echo "deb http://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
 		sudo apt-get update
 		sudo apt-get install sbt
+		
+	When prompted, select __Y__ to continue.
 
 2. Create the directory structure for the Scala project:
 

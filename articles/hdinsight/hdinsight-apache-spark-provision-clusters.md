@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="08/07/2015"
+    ms.date="08/17/2015"
     ms.author="nitinme"/>
 
 # Provision Apache Spark clusters in HDInsight using custom options
@@ -81,7 +81,7 @@ Spark clusters on HDInsight use an Azure Blob storage container as the default f
 
 **To create an HDInsight cluster by using the Custom Create option**
 
-1. Sign in to the [Azure Preview Portal][azure-preview-portal].
+1. Sign in to the [Azure Preview Portal](https://portal.azure.com).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
     ![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
