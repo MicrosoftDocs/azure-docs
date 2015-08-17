@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Clone your StorSimple volume"
+   pageTitle="Clone your StorSimple volume | Microsoft Azure"
    description="Describes the different clone types and when to use them, and explains how you can use a backup set to clone an individual volume."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # Clone a StorSimple volume
