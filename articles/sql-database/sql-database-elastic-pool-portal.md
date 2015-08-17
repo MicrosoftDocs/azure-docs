@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/12/2015" 
+	ms.date="08/13/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -131,7 +131,7 @@ After creating an elastic database pool, you can monitor and manage the pool in 
 After creating a pool, you can:
 
 - Select **Configure pool** to change the pool eDTU and eDTU per database settings.
-- Select **Create job** and manage the databases in the pool by creating elastic jobs. Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
+- Select **Create job** and manage the databases in the pool by creating elastic jobs. Elastic jobs facilitate running Transact-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 - Select **Manage jobs** to administer existing elastic jobs.
 
 
@@ -158,7 +158,7 @@ Click **Edit chart** to add parameters so you can easily view telemetry data for
 
 
 ## Next steps
-After creating an elastic database pool, you can manage the databases in the pool by creating elastic jobs. Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
+After creating an elastic database pool, you can manage the databases in the pool by creating elastic jobs. Elastic jobs facilitate running Transact-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 
 
 

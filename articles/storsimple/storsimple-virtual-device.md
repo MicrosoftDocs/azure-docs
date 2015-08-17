@@ -1,6 +1,6 @@
 <properties
    pageTitle="StorSimple virtual device | Microsoft Azure"
-   description="Describes how to create, configure, deploy and manage StorSimple virtual device."
+   description="Describes how to create, configure, deploy, and manage the StorSimple virtual device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -19,7 +19,8 @@
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
-##Overview
+## Overview
+
 The StorSimple virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. The following topics in this article will help you learn about, configure, and use the StorSimple virtual device.
 
 
@@ -56,7 +57,7 @@ Keep the following security considerations in mind when you use the StorSimple v
 
 - The virtual device is secured through your Microsoft Azure subscription. This means that if you are using the virtual device and your Azure subscription is compromised, the data stored on your virtual device is also susceptible.
 
-- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Microsoft Azure management portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure.
+- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Azure portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure.
 
 - The virtual device is hosted in the Microsoft Azure datacenter.
 
@@ -95,8 +96,7 @@ Make the following updates to your Azure StorSimple service before you create a 
 
 Make sure that you have the following information before you begin:
 
-
-- You have your Azure Portal account with access credentials.
+- You have your Azure portal account with access credentials.
 
 - You have your Azure storage account access credentials.
 
@@ -119,11 +119,11 @@ Perform the following steps to create the StorSimple virtual device.
 
 
 
-1.  In the Azure Portal, go to the **StorSimple Manager** service.
+1.  In the Azure portal, go to the **StorSimple Manager** service.
 
 - Go to the **Devices** page.
 
-- In the **Create Virtual Device** dialog box, specify the following:
+- In the **Create Virtual Device** dialog box, specify the following details.
 
 	![StorSimple create virtual device](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
 
@@ -148,8 +148,9 @@ Perform the following steps to configure and register your StorSimple virtual de
 
 
 1. Select the **StorSimple virtual device** you just created on the **Devices** page.
-2. Click **complete device configuration**. This starts the Configure device wizard.
- 
+
+2. Click **Complete Device Configuration**. This starts the Configure device wizard.
+
 	![StorSimple complete device setup in Devices page](./media/storsimple-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 1. In the Configure device wizard:
@@ -157,15 +158,15 @@ Perform the following steps to configure and register your StorSimple virtual de
 	1. Enter the **Service Data Encryption Key** in the space provided.
 	2. Enter the **Snapshot Manager password**. The **Snapshot Manager password** must be 14 or 15 characters in length and must contain a combination of lowercase, uppercase, numeric, and special characters.
 	3. Enter the **device administrator password**. The **device administrator password** must be between 8 to 15 characters and must contain a combination of lowercase, uppercase, numeric, and special characters.
-	4. Click the check icon to finish the initial configuration and registration of the virtual device. 
-	
+	4. Click the check icon to finish the initial configuration and registration of the virtual device.
+
 		![StorSimple virtual device settings](./media/storsimple-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
 After the configuration and registration is complete, the device will come online. It may take several minutes for the device to come online.
 
 ![StorSimple virtual device online stage](./media/storsimple-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-### Modify the device configuration settings 
+### Modify the device configuration settings
 
 The following section describes the device configuration settings that you may want to configure for the StorSimple virtual device. These settings include those of CHAP, StorSimple Snapshot Manager password, or device administrator password.
 
@@ -181,7 +182,7 @@ This parameter contains the credentials that your virtual device uses when a CHA
 
 StorSimple Snapshot Manager software resides on your Windows host and allows administrators to manage backups of your StorSimple device in the form of local and cloud snapshots.
 
->[AZURE.NOTE] **For the virtual device, your Windows host is an Azure VM.**
+>[AZURE.NOTE] For the virtual device, your Windows host is an Azure VM.
 
 When configuring a device in the StorSimple Snapshot Manager, you will be prompted to provide the StorSimple device IP address and password to authenticate your storage device. This password is first configured through the Windows PowerShell interface.
 
@@ -279,7 +280,7 @@ As soon as the device is shown as deactivated on the StorSimple Manager service 
 
 After you have enabled it on the StorSimple device configuration page, you can use Windows PowerShell remoting to connect to the virtual device from another virtual machine inside the same virtual network; for example, you can connect from the host VM that you configured and used to connect iSCSI. In most deployments, you will have already opened a public endpoint to access your host VM that you can use for accessing the virtual device.
 
->[AZURE.WARNING] **For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.**
+>[AZURE.WARNING] For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.
 
 You should follow the procedures in [Connecting remotely using Windows PowerShell](storsimple-remote-connect.md) to set up remoting for your virtual device.
 
@@ -287,7 +288,7 @@ However, if you want to connect directly to the virtual device from another comp
 
 Perform the following steps to create a public endpoint on the virtual device.
 
-1. Sign in to the Azure Portal.
+1. Sign in to the Azure portal.
 
 - Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
 
@@ -357,7 +358,7 @@ Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual d
 
 The failover process will begin. When the failover is finished, go to the Devices page and select the virtual device that was used as the target for the failover process. Go to the Volume Containers page. All the volume containers, along with the volumes from the old device should appear.
 
->[AZURE.NOTE] **The amount of storage supported on the virtual device is 30 TB.**
+>[AZURE.NOTE] The amount of storage supported on the virtual device is 30 TB.
 
 ## Shut down or delete the virtual device
 
@@ -367,7 +368,7 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 ### To shut down the StorSimple virtual device
 
-1. Sign in to the Azure Portal.
+1. Sign in to the Azure portal.
 
 2. Click **Virtual Machines**, and then select the virtual device.
 
@@ -375,7 +376,7 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 ### To delete the StorSimple virtual device
 
-1. Sign in to the Management Portal.
+1. Sign in to the Azure portal.
 
 - Click **Virtual Machines**, and then select the virtual device.
 
@@ -385,7 +386,3 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 ## Next steps
 
 To administer your virtual device, refer to the detailed list of workflows in [Administer your StorSimple device](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
-
-
-
- 
