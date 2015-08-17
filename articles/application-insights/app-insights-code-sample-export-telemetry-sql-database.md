@@ -105,6 +105,8 @@ Make sure that the database server allows access to Azure services:
 
 Now we can write [some code](https://sesitai.codeplex.com/) to parse the JSON in the exported blobs, and create records in the database. Since the export store and the database are both in Azure, we'll run the code in an Azure worker role.
 
+This code automatically extracts whatever properties are present in the JSON. For descriptions of the properties, see [Export data model](app-insights-export-data-model.md).
+
 
 #### Create worker role project
 
@@ -357,6 +359,8 @@ Replace the existing run method, and choose the interval you prefer. It should b
 
 #### PageViewPerformance class file generated out of JSON document
 
+
+
     public class PageViewPerformance
     {
     	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -512,7 +516,7 @@ This is the schema for the table that will be generated for PageView.
     GO
 
 
-To see this example in action, [download](https://sesitai.codeplex.com/) the complete working code, change the `app.config` settings & publish the worker role to Azure.
+To see this example in action, [download](https://sesitai.codeplex.com/) the complete working code, change the `app.config` settings and publish the worker role to Azure.
 
 
 ## Related articles
@@ -520,6 +524,7 @@ To see this example in action, [download](https://sesitai.codeplex.com/) the com
 * [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Continuous Export in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [Export data model](app-insights-export-data-model.md)
 * [More samples and walkthroughs](app-insights-code-samples.md)
 
 <!--Link references-->
