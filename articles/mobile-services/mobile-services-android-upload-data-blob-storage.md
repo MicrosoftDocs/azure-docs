@@ -36,28 +36,234 @@ This tutorial also requires the following:
 + An [Azure Storage account](../storage-create-storage-account.md)
 + A camera or other image capture device attached to your computer.
 
-##<a name="update-scripts"></a>Update the registered insert script in the Management Portal
+## Update the registered insert script in the Management Portal
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
 [AZURE.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
-##<a name="install-storage-client"></a>Install the Storage client for Android apps
 
-To be able to use an SAS to upload images to Blob storage, you must first add the reference to the Storage client library for Android apps.
-
-In the **app** **build.gradle** file, add this line to the `dependencies` section:
-
-		compile 'com.microsoft.azure.android:azure-storage-android:0.5.1@aar'
-
-  	This adds the client library for Azure storage services to the project.
 
 ## Update the quickstart app to capture and upload images.
 
-1. Specify your app depends on having a camera by adding this line to **AndroidManifest.xml**:
+### Reference the Storage client for Android apps
 
-		<uses-feature android:name="android.hardware.camera"
-                  android:required="true" />
+1. To upload images to Blob storage, first add the reference to the Storage client library for Android apps. In the **app** **build.gradle** file, add this line to the `dependencies` section:
+
+		compile 'com.microsoft.azure.android:azure-storage-android:0.5.1@aar'
+
+
+2. Change the `minSdkVersion` value to 15 (required by the camera API).
+
+### Update the manifest for camera and storage
+
+Specify your app depends on having a camera,and needs permission to write to external storage by adding these lines to **AndroidManifest.xml**:
+
+	    <uses-feature android:name="android.hardware.camera"
+	        android:required="true" />
+	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+### Update resource files for the new user interface
+
+1. Add titles for new buttons by adding the following to the **strings.xml** file in the *values* directory:
+
+	    <string name="preview_button_text">Preview</string>
+	    <string name="upload_button_text">Upload</string>
+
+2. In the **activity_to_do.xml** file in the **res => layout** folder,  add the following button code before the existing code for the **Add** button.
+
+         <Button
+             android:id="@+id/buttonPreview"
+             android:layout_width="120dip"
+             android:layout_height="wrap_content"
+             android:onClick="previewPhoto"
+             android:text="@string/preview_button_text" />
+
+3. Replace the **Add** button element with the following code:
+
+         <Button
+             android:id="@+id/buttonUpload"
+             android:layout_width="100dip"
+             android:layout_height="wrap_content"
+             android:onClick="uploadPhoto"
+             android:text="@string/upload_button_text" />
+
+4. In **ToDoActivity.java**, rename the **addItem** method to **upLoadPhoto**.
+
+
+### Add code for photo capture
+
+
+
+
+1. Add this code to create a **File** object with a unique name where the photo image will be stored.
+
+		// Create a File object for storing the photo
+		String mCurrentPhotoPath;
+	
+	    private File createImageFile() throws IOException {
+	        // Create an image file name
+	        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+	        String imageFileName = "JPEG_" + timeStamp + "_";
+	        File storageDir = Environment.getExternalStoragePublicDirectory(
+	                Environment.DIRECTORY_PICTURES);
+	        File image = File.createTempFile(
+	                imageFileName,  /* prefix */
+	                ".jpg",         /* suffix */
+	                storageDir      /* directory */
+	        );
+	
+	        // Save a file: path for use with ACTION_VIEW intents
+	        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+	        return image;
+	    }
+
+5. Add this code that will start up the Android camera app. You can then take a picture, and when it looks OK, press **Save**, and that will store it in the file you just created.
+
+			// Run an Intent to start up the Android camera
+		    static final int REQUEST_TAKE_PHOTO = 1;
+		
+		    private void takePicture() {
+		        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		        // Ensure that there's a camera activity to handle the intent
+		        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+		            // Create the File where the photo should go
+		            File photoFile = null;
+		            try {
+		                photoFile = createImageFile();
+		            } catch (IOException ex) {
+		                // Error occurred while creating the File
+		                //
+		            }
+		            // Continue only if the File was successfully created
+		            if (photoFile != null) {
+		                Uri mPhotoFile = Uri.fromFile(photoFile);
+		//                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mPhotoFile);
+		                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+		            }
+		        }
+		    }
+
+
+### Add code to upload photo file to blob storage
+
+Uploading the photo is a multistep process:
+
+- add a record to the SQL database that contains new fields describing the blob storage.
+- Ask blob storage for a SAS, in the mobile service backend SQL insert script.
+- In that script, return the SAS and location information to the client.
+- In the client, upload the photo, using the SAS and blob URI.
+
+<!- -->
+
+
+1. First we add properties to the `ToDoItem` object by adding this code to **ToDoItem.java**.
+
+		/**
+	     *  imageUri - points to location in storage where photo will go
+	     */
+	    @com.google.gson.annotations.SerializedName("imageUri")
+	    private String mImageUri;
+	
+	    /**
+	     * Returns the item ImageUri
+	     */
+	    public String getImageUri() {
+	        return mImageUri;
+	    }
+	
+	    /**
+	     * Sets the item ImageUri
+	     *
+	     * @param ImageUri
+	     *            Uri to set
+	     */
+	    public final void setImageUri(String ImageUri) {
+	        mImageUri = ImageUri;
+	    }
+	
+	    /**
+	     * ContainerName - like a directory, holds blobs
+	     */
+	    @com.google.gson.annotations.SerializedName("containerName")
+	    private String mContainerName;
+	
+	    /**
+	     * Returns the item ContainerName
+	     */
+	    public String getContainerName() {
+	        return mContainerName;
+	    }
+	
+	    /**
+	     * Sets the item ContainerName
+	     *
+	     * @param ContainerName
+	     *            Uri to set
+	     */
+	    public final void setContainerName(String ContainerName) {
+	        mContainerName = ContainerName;
+	    }
+	
+	    /**
+	     *  ResourceName
+	     */
+	    @com.google.gson.annotations.SerializedName("resourceName")
+	    private String mResourceName;
+	
+	    /**
+	     * Returns the item ResourceName
+	     */
+	    public String getResourceName() {
+	        return mResourceName;
+	    }
+	
+	    /**
+	     * Sets the item ResourceName
+	     *
+	     * @param ResourceName
+	     *            Uri to set
+	     */
+	    public final void setResourceName(String ResourceName) {
+	        mResourceName = ResourceName;
+	    }
+	
+	    /**
+	     *  SasQueryString - permission to write to storage
+	     */
+	    @com.google.gson.annotations.SerializedName("sasQueryString")
+	    private String mSasQueryString;
+	
+	    /**
+	     * Returns the item SasQueryString
+	     */
+	    public String getSasQueryString() {
+	        return mSasQueryString;
+	    }
+	
+	    /**
+	     * Sets the item SasQueryString
+	     *
+	     * @param SasQueryString
+	     *            Uri to set
+	     */
+	    public final void setSasQueryString(String SasQueryString) {
+	        mSasQueryString = SasQueryString;
+	    }
+
+### Archive
+
+TBD: delete this stuff
+
+6. Add this code at the end of the `try` block in the `onCreate` method. This code enables the **previewButton** to take the photos.
+
+            Button previewButton = (Button) this.findViewById(R.id.buttonPreview);
+            previewButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    takePictureIntent();
+		//          simplePix();
 
 
 ## <a name="next-steps"> </a>Next steps
