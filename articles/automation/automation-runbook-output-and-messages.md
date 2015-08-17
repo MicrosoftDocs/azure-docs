@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Runbook Output and Messages"
+   pageTitle="Runbook Output and Messages in Azure Automation | Microsoft Azure"
    description="Desribes how to create and retrieve output and error messages from runbooks in Azure Automation."
    services="automation"
    documentationCenter=""
