@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Getting started with Azure table storage and Visual Studio connected services"
-	description="How to get started using Azure table storage in a cloud service project in Visual Studio"
+	description="How to get started using Azure table storage in a cloud service project in Visual Studio."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
