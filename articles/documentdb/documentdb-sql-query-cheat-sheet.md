@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="08/17/2015" 
 	ms.author="mimig"/>
 
 # DocumentDB SQL query cheat sheet
@@ -26,7 +26,7 @@ The **DocumentDB Query Cheat Sheet** helps you quickly write queries for Documen
 
 Download the DocumentDB query cheat sheet for a quick reference to all the query functions available to you. To keep it nearby, you can print the single-sided cheat sheet in page letter size (8.5 x 11 in.).
 
-**Download the cheat sheet here: [Microsoft DocumentDB SQL query cheat sheet](http://www.documentdb.com)**
+**Download the cheat sheet here: [Microsoft DocumentDB SQL query cheat sheet](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
 ![DocumentDB SQL Query Cheat Sheet: Quick reference guide to the SQL grammar that DocumentDB suppots.][cheat-sheet]
 
