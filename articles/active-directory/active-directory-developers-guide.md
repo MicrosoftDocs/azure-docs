@@ -44,14 +44,14 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 
 [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Windows Store](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
-|[iOS](./media/active-directory-developers-guide/ios.png)|[Android](./media/active-directory-developers-guide/android.png)|[.NET](./media/active-directory-developers-guide/net.png)|[Windows Phone](./media/active-directory-developers-guide/windows.png)|[Windows Store](./media/active-directory-developers-guide/windows.png)|[Xamarin](./media/active-directory-developers-guide/xamarin.png)|[Cordova](./media/active-directory-developers-guide/cordova.png)
+|[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
 
 ####Web Application or Web API quickstart guides
 
 [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
 |:--:|:--:|:--:|:--:
-|[.NET Web App](./media/active-directory-developers-guide/net.png)|[.NET Web API](./media/active-directory-developers-guide/net.png)|[Javascript](./media/active-directory-developers-guide/javascript.png)|[Node.js](./media/active-directory-developers-guide/nodejs.png)
+|[.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)|[.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
 
 ## How Tos
