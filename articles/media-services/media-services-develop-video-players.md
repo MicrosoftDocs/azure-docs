@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -51,7 +51,6 @@ You can also use any of the following SDKs:
 - [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
 - [HTML5 Player Framework Documentation](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Media Player Framework for iOS](https://github.com/Azure/azure-media-player-framework) 
 - [Licensing Microsoft® Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
 - [XBOX Video Application Development](http://xbox.create.msdn.com/) 
  

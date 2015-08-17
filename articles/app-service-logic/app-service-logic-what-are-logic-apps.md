@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="07/08/2015"
 	ms.author="klam"/>
 
 #What are Logic Apps?
+
+| Quick Reference |
+| --------------- |
+| [Logic Apps Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [Logic Apps Connector Documentation](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-connectors-list/) |
+| [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
 
 Azure App Service is a fully managed PaaS (Platform as a Service) for developers that makes it easier to build web, mobile and integration apps. Logic Apps are a part of this suite and allow any technical user or developer to automate business process execution and workflow via an easy to use visual designer.
 
@@ -63,7 +69,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[connectors]: app-service-logic-use-biztalk-connectors.md
+[connectors]: app-service-logic-connectors-list.md
 [tpm]: app-service-logic-create-a-trading-partner-agreement.md
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md

@@ -13,45 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Advanced scenarios for using the Copy Activity in Azure Data Factory 
 ## Overview
-You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. This topic describes the advanced scenarios that the Copy Activity supports. For a detailed overview of the Copy Activity and core scenarios that it supports, see [Copy data with Azure Data Factory][adf-copyactivity]. 
+You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. This topic describes the advanced scenarios that the Copy Activity supports. 
 
 
 ## Column filtering using structure definition
 Depending on the type of Table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source. The following table provides information about column filtering logic for different types of table. 
 
-<table>
-
-	<tr>
-		<th align="left">Type of the table</th>
-		<th align="left">Column filtering logic</th>
-	<tr>
-
-	<tr>
-		<td>AzureBlobLocation</td>
-		<td>The <b>Structure</b> definition in the table JSON must match the structure of the blob.  To select a subset of the columns, use the column mapping feature described in the next section: Transformation Rules – Column Mapping.</td>
-	<tr>
-
-	<tr>
-		<td>AzureSqlTableLocation and OnPremisesSqlServerTableLocation</td>
-		<td align="left">
-			If the property <b>SqlReaderQuery</b> is specified as part of Copy Activity definition, <b>Structure</b> definition of the table should align with the columns selected in the query.<br/><br/>
-			If the property <b>SqlReaderQuery</b> is not specified, the Copy Activity will automatically construct a SELECT query based on the columns specified in the <b>Structure</b> definition of the table definition.
-		</td>
-	<tr>
-
-	<tr>
-		<td>AzureTableLocation</td>
-		<td>
-			The <b>Structure</b> section in the table definition can contain full set or a subset of the columns in the underlying Azure Table.
-		</td>
-	<tr>
-
-</table> 
+| Type of the table | Column filtering logic |
+|-------------------|----------------------- |
+| AzureBlobLocation |The Structure definition in the table JSON must match the structure of the blob.  To select a subset of the columns, use the column mapping feature described in the next section: Transformation Rules – Column Mapping. | 
+| AzureSqlTableLocation and OnPremisesSqlServerTableLocation | If the property SqlReaderQuery is specified as part of Copy Activity definition, Structure definition of the table should align with the columns selected in the query. f the property SqlReaderQuery is not specified, the Copy Activity will automatically construct a SELECT query based on the columns specified in the Structure definition of the table definition |
+| AzureTableLocation | The Structure section in the table definition can contain full set or a subset of the columns in the underlying Azure Table
 
 ## Transformation rules - Column mapping
 Column mapping can be used to specify how columns in source table map to columns in the sink table. It supports the following scenarios:
@@ -169,10 +146,10 @@ In this sample, an activity in a pipeline is defined as follows. The columns fro
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
     		}
 		}
 	}
@@ -193,16 +170,16 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
 			},
 			"sink":
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
     		}
 		}
 	}
@@ -213,49 +190,14 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 
 The data types specified in the Structure section of the Table definition is only honored for **BlobSource**.  The table below describes how data types are handled for other types of source and sink.
 
-<table>	
-	<tr>
-		<th align="left">Source/Sink</th>
-		<th align="left">Data Type Handling logic</th>
-	</tr>	
-
-	<tr>
-		<td>SqlSource</td>
-		<td>Data types defined in <b>Structure</b> section of table definition are ignored.  Data types defined on the underlying SQL database will be used for data extraction during copy activity.</td>
-	</tr>
-
-	<tr>
-		<td>SqlSink</td>
-		<td>Data types defined in <b>Structure</b> section of table definition are ignored.  The data types on the underlying source and destination will be compared and implicit type conversion will be done if there are type mismatches.</td>
-	</tr>
-
-	<tr>
-		<td>BlobSource</td>
-		<td>When transferring from <b>BlobSource</b> to <b>BlobSink</b>, there is no type transformation; data types defined in <b>Structure</b> section of table definition are ignored.  For destinations other than <b>BlobSink</b>, data types defined in <b>Structure</b> section of table definition will be honored.<br/><br/>
-		If the <b>Structure</b> is not specified in table definition, type handling depends on the <b>format</b> property of <b>BlobSource</b> table:
-		<ul>
-			<li> <b>TextFormat:</b> all column types are treated as string, and all column names are set as "Prop_<0-N>"</li> 
-			<li><b>AvroFormat:</b> use the built-in column types and names in Avro file.</li> 
-		</ul>
-		</td>
-	</tr>
-
-	<tr>
-		<td>BlobSink</td>
-		<td>Data types defined in <b>Structure</b> section of Table definition are ignored.  Data types defined on the underlying input data store will be used.  Columns will be specified as nullable for Avro serialization.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSource</td>
-		<td>Data types defined in <b>Structure</b> section of Table definition are ignored.  Data types defined on the underlying Azure Table will be used.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSink</td>
-		<td>Data types defined in <b>Structure</b> section of Table definition are ignored.  Data types defined on the underlying input data store will be used.</td>
-	</tr>
-
-</table>
+| Source/Sink | Data Type Handling logic |
+| ----------- | ------------------------ |
+| SqlSource | Data types defined in Structure section of table definition are ignored. Data types defined on the underlying SQL database will be used for data extraction during copy activity. |
+| SqlSink | Data types defined in Structure section of table definition are ignored. The data types on the underlying source and destination will be compared and implicit type conversion will be done if there are type mismatches. |
+| BlobSource | When transferring from BlobSource to BlobSink, there is no type transformation; data types defined in Structure section of table definition are ignored. For destinations other than BlobSink, data types defined in Structure section of table definition will be honored. If the Structure is not specified in table definition, type handling depends on the format property of BlobSource table: TextFormat: all column types are treated as string, and all column names are set as "Prop_<0-N>". AvroFormat: use the built-in column types and names in Avro file.
+| BlobSink | Data types defined in Structure section of Table definition are ignored. Data types defined on the underlying input data store will be used. Columns will be specified as nullable for Avro serialization |
+| AzureTableSource | Data types defined in Structure section of Table definition are ignored. Data types defined on the underlying Azure Table will be used. |
+| AzureTableSink | Data types defined in Structure section of Table definition are ignored. Data types defined on the underlying input data store will be used. |
 
 **Note:** Azure Table only support a limited set of data types, please refer to [Understanding the Table Service Data Model][azure-table-data-type].
 
@@ -323,8 +265,6 @@ Though UTF-8 encoding is quite popular, often time text files in Azure Blob foll
 
 ## See Also
 
-- [Examples for using Copy Activity][copy-activity-examples]
-- [Copy data with Azure Data Factory][adf-copyactivity]
 - [Copy Activity - JSON Scripting Reference](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Video: Introducing Azure Data Factory Copy Activity][copy-activity-video]
 
@@ -334,9 +274,7 @@ Though UTF-8 encoding is quite popular, often time text files in Azure Blob foll
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-copyactivity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456

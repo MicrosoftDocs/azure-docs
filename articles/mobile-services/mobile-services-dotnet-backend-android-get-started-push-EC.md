@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with push (Android) | Mobile Dev Center" 
+	pageTitle="Get started with push (Android) | Microsoft Azure" 
 	description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/08/2015" 
 	ms.author="ricksal"/>
 
 # Add push notifications to your Mobile Services app

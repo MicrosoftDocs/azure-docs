@@ -1,10 +1,10 @@
 
 <properties
-	pageTitle="Azure Backup - restore a virtual machine"
+	pageTitle="Azure Backup - restore a virtual machine | Microsoft Azure"
 	description="Learn how to restore an Azure virtual machine"
 	services="backup"
 	documentationCenter=""
-	authors="f2003629"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
-	ms.author="trinadhk"/>
+	ms.date="08/11/2015"
+	ms.author="trinadhk"; "jimpark"/>
 
 # Restore a virtual machine
 You can restore a virtual machine to a new VM from the backups stored in Azure backup vault using restore action.
@@ -34,19 +34,19 @@ You can restore a virtual machine to a new VM from the backups stored in Azure b
 
 ## Pick a recovery point
 
-1. In the **select a recovery point** screen, you can restore from the newest recovery point, or from a previous point in time. The default option selected when wizard opens is Newest Recovery Point.
+1. In the **select a recovery point** screen, you can restore from the newest recovery point, or from a previous point in time. The default option selected when wizard opens is *Newest Recovery Point*.
 
     ![Select a recovery point](./media/backup-azure-restore-vms/select-recovery-point.png)
 
-2. To pick an earlier point in time, choose the **Select Date** option in the dropdown and select a date in the calendar control by clicking on the calendar icon. In the control, all dates that have recovery points are filled with a light gray shade and are selectable by the user.
+2. To pick an earlier point in time, choose the **Select Date** option in the dropdown and select a date in the calendar control by clicking on the **calendar icon**. In the control, all dates that have recovery points are filled with a light gray shade and are selectable by the user.
 
     ![Select a date](./media/backup-azure-restore-vms/select-date.png)
 
-    Once you click on a date in the calendar control, the recovery points available on that date will be shown in recovery points table below. The **Time** column indicates the time at which the snapshot was taken. The **Type** column displays the [consistency](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) of the recovery point. The table header shows the number of recovery points available on that day in parenthesis.
+    Once you click a date in the calendar control, the recovery points available on that date will be shown in recovery points table below. The **Time** column indicates the time at which the snapshot was taken. The **Type** column displays the [consistency](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) of the recovery point. The table header shows the number of recovery points available on that day in parenthesis.
 
     ![Recovery points](./media/backup-azure-restore-vms/recovery-points.png)
 
-3. Select the recovery point from the **Recovery Points** table and click on the Next arrow to go to the next screen.
+3. Select the recovery point from the **Recovery Points** table and click the Next arrow to go to the next screen.
 
 ## Specify a destination location
 
@@ -71,18 +71,18 @@ You can restore a virtual machine to a new VM from the backups stored in Azure b
 
     ![Select a virtual network](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. Select a subnet: In case the VNET has subnets, by default the first subnet will be selected. Choose the subnet of your choice from the dropdown options. For subnet details, go to Networks extension in the [portal home page](https://manage.windowsazure.com/), go to Virtual Networks and select the virtual network and drill down into Configure to see subnet details.
+4. Select a subnet: In case the VNET has subnets, by default the first subnet will be selected. Choose the subnet of your choice from the dropdown options. For subnet details, go to Networks extension in the [portal home page](https://manage.windowsazure.com/), go to **Virtual Networks** and select the virtual network and drill down into Configure to see subnet details.
 
     ![Select a subnet](./media/backup-azure-restore-vms/select-subnet.png)
 
-5. Click on the **Submit** icon in the wizard to submit the details and create a restore job.
+5. Click the **Submit** icon in the wizard to submit the details and create a restore job.
 
 ## Track the Restore operation
 Once you have input all the information into the restore wizard and submitted it Azure Backup will try to create a job to track the restore operation.
 
 ![Creating a restore job](./media/backup-azure-restore-vms/create-restore-job.png)
 
-If job creation is successful, you will see a toast notification indicating job is created. You can get more details by clicking on the **View Job** button that will take you to **Jobs** tab.
+If the job creation is successful, you will see a toast notification indicating that the job is created. You can get more details by clicking the **View Job** button that will take you to **Jobs** tab.
 
 ![Restore job created](./media/backup-azure-restore-vms/restore-job-created.png)
 
@@ -100,6 +100,4 @@ For most errors, you can follow the recommended action suggested in the Error De
 | Restore | Restore failed with Cloud Internal error | <ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Next steps
-- [Manage virtual machines](backup-azure-manage-vms)
-
- 
+- [Manage virtual machines](backup-azure-manage-vms.md)

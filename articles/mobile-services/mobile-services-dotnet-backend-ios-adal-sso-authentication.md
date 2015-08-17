@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (iOS) | Mobile Dev Center" 
+	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (iOS) | Microsoft Azure" 
 	description="Learn how to authentication users for single sign-on with ADAL in your iOS application." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 

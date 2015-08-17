@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/25/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Restore a StorSimple volume from a backup set
@@ -41,9 +41,9 @@ The filtered backup sets are then tabulated based on the following attributes:
 - **Type** – Backup sets can be local snapshots or cloud snapshots. A local snapshot is a backup of all your volume data stored locally on the device, whereas a cloud snapshot refers to the backup of volume data residing in the cloud. Local snapshots provide faster access, whereas cloud snapshots are chosen for data resiliency.
 - **Initiated by** – The backups can be initiated automatically according to a schedule or manually by a user. (You can use a backup policy to schedule backups. Alternatively, you can use the **Take backup** option to take an interactive backup.)
 
-## How to restore your device from backup
+## How to restore your StorSimple volume from a backup
 
-You can use the **Backup Catalog** page to restore your device from a specific backup. Keep in mind, however, that restoring a volume will revert the volume to the state it was in when the backup was taken. Any data that was added after the backup operation will be lost.
+You can use the **Backup Catalog** page to restore your StorSimple volume from a specific backup. Keep in mind, however, that restoring a volume will revert the volume to the state it was in when the backup was taken. Any data that was added after the backup operation will be lost.
 
 > [AZURE.WARNING] Restoring from a backup will replace the existing volumes from the backup. This may cause the loss of any data that was written after the backup was taken.
 
@@ -64,7 +64,7 @@ You can use the **Backup Catalog** page to restore your device from a specific b
 
 3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Access the volumes on the **Volume Containers** page, and then follow the steps in [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline) to take them offline.
 
-    >  [AZURE.IMPORTANT] Make sure that you have taken the volumes offline on the host first, before you take the volumes offline on the device. If you do not take the volumes offline on the host, then the StorSimple Manager service will automatically take them offline on the host. This could potentially lead to data corruption.
+    >  [AZURE.IMPORTANT] Make sure that you have taken the volumes offline on the host first, before you take the volumes offline on the device. If you do not take the volumes offline on the host, it could potentially lead to data corruption.
 
 4. Navigate back to the **Backup Catalog** tab and select a backup set.
 
@@ -80,4 +80,4 @@ You can use the **Backup Catalog** page to restore your device from a specific b
 
 ## Next steps
 
-Learn how to [Manage storsimple volumes](storsimple-manage-volumes.md) 
+Learn how to [Manage StorSimple volumes](storsimple-manage-volumes.md).

@@ -3,8 +3,8 @@
    description="This page provides instructions to configure an Azure Application Gateway with an Internal Load Balanced endpoint"
    documentationCenter="na"
    services="application-gateway"
-   authors="cherylmc"
-   manager="adinah"
+   authors="joaoma"
+   manager="jdial"
    editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
@@ -13,9 +13,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="06/30/2015"
-   ms.author="cherylmc"/>
+   ms.author="joaoma"/>
 
 # Create an Application Gateway with an Internal Load Balancer (ILB)
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](application-gateway-ilb.md)
+- [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
 
 
 Application Gateway can be configured with an internet facing VIP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line of business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application which sit in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article will walk you through the steps to configure an application gateway with an ILB.

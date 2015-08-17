@@ -5,7 +5,8 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="Blackmist"/>
+	authors="Blackmist"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -243,9 +244,6 @@ Now you have learned how to use Sqoop. To learn more, see:
 - [Upload data to HDInsight][hdinsight-upload-data]: Find other methods for uploading data to HDInsight/Azure Blob storage.
 
 
-
-
-[azure-management-portal]: https://manage.windowsazure.com/
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md

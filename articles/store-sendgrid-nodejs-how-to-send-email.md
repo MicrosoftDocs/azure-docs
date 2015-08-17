@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use the SendGrid email service (Node.js) - Azure" 
+	pageTitle="How to use the SendGrid email service (Node.js) | Microsoft Azure" 
 	description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." 
 	services="" 
 	documentationCenter="nodejs" 

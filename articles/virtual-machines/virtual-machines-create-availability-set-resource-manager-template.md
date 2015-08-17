@@ -1,26 +1,27 @@
-<properties 
-	pageTitle="Create an availability set using Azure Resource Manager templates" 
-	description="Describes how to use the availability set template and includes template syntax" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Create an availability set using Azure Resource Manager templates"
+	description="Describes how to use the availability set template and includes template syntax"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/04/2015"
 	ms.author="kathydav"/>
 
 # Create an availability set using Azure Resource Manager templates
 
 You can easily create an availability set for a virtual machine by using Azure PowerShell or the Azure Command Line (CLI) and a Resource Manager template. This template creates an availability set.
- 
-Before you dive in, make sure you have Azure PowerShell and Azure CLI configured and ready to go.
+
+Before you start, make sure you have Azure PowerShell and Azure CLI configured and ready to go.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
@@ -41,14 +42,14 @@ Replace the folder name, then copy and run these commands.
 	$webclient = New-Object System.Net.WebClient
 	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath) 
+	$webclient.DownloadFile($url,$filePath)
 
 ### Step 2: Gather the details for required parameters
 
-When you use a template, you'll need to provide details such as location, set name, and so on. To find out what parameters are required for a template, do one of the following:
+When you use a template, you'll need to provide details like location and set name. To find out what parameters are required for a template, do one of the following:
 
 - Review the list of parameters [here](http://azure.microsoft.com/documentation/templates/201-2-vms-2-FDs-no-resource-loops/).
-- Open the JSON file in a tool or text editor of your choice. Look for the "parameters" section at the top of the file, which lists the set of parameters that are needed by the template to configure the virtual machine. 
+- Open the JSON file in a tool or text editor of your choice. Look for the "parameters" section at the top of the file, which lists the set of parameters that are needed by the template to configure the virtual machine.
 
 Gather the required information so you'll have it ready to enter. When you run the command to deploy the template, you'll be prompted for the information.
 
@@ -63,12 +64,12 @@ Fill in an Azure deployment name, Resource Group name, Azure location, the folde
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\availability>" 
+	$folderName="<folder name, such as C:\Azure\Templates\availability>"
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
 
-When you run the **New-AzureResourceGroupDeployment** command, you'll be prompted to supply the values for parameters in the **"parameters"** section of the JSON file. After you've done this, the command creates the resource group and the availability set. 
+When you run the **New-AzureResourceGroupDeployment** command, you'll be prompted to supply the values for parameters in the **"parameters"** section of the JSON file. After you've done this, the command creates the resource group and the availability set.
 
 Here is an example of the PowerShell command set for the template.
 
@@ -102,9 +103,3 @@ To remove this resource group and all of its resources (the storage account, vir
 Follow these steps to create the availability set using a Resource Manager template in the Github template repository with an Azure CLI command.
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
-
-
-
-
-
- 

@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
@@ -22,7 +22,7 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/cloud2.png)</center>
 
-Now that we have determined that we are using multi-factor authentication in the cloud, let's get going!  Please note that if you are using Multi-Factor Authentication for Office 365 or Multi-Factor Authentication for Azure Administrators you can skip to step 3.
+Now that we have determined that we are using multi-factor authentication in the cloud, let's get going!  Please note that if you are using Multi-Factor Authentication for Office 365 or Multi-Factor Authentication for Azure Administrators you can skip to step 3.  Also, this document deals with 
 
 
 1. **Sign up for an Azure subscription**
@@ -156,4 +156,3 @@ Once you have enabled your users, it is advised that you send your users an emai
 
 ## Next Steps
 Now that you have setup multi-factor authentication in the cloud, you can move on to what's next by going to [Configuring Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md)  There you will learn about reporting, fraud alert, customizing voice messages and all of the features that Azure Multi-Factor Authentication has to offer.  
-

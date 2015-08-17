@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Azure" 
+	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Azure" 
 	description="Learn about the controls and monitor performance on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 

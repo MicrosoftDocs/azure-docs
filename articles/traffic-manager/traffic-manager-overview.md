@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
-# Traffic Manager Overview
+# What is Traffic Manager?
 
 Microsoft Azure Traffic Manager allows you to control the distribution of user traffic to your specified endpoints, which can include Azure cloud services, websites, and other endpoints. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your Azure cloud services or websites can be running in different datacenters across the world.
 
@@ -60,6 +60,7 @@ Since the company domain and resolved IP address are cached on the client machin
 5. **Create your profile and configure settings**. You can use REST APIs, Windows PowerShell, or the Management Portal to create your Traffic Manager profile and configure settings. For more information, see [How to configure Traffic Manager settings](#how-to-configure-traffic-manager-settings). The following steps assume you will use **Quick Create** in the Management Portal. 
    - **Create your Traffic Manager profile** - To create a profile by using Quick Create in the Management Portal, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md).
    - **Configure load balancing method settings** – While in Quick Create, you must select the load balancing method for your profile. This setting can be changed at any time after completing the Quick Create steps. For configuration steps, see the topic that corresponds to your load balancing method: [Configure Performance Load Balancing](traffic-manager-configure-performance-load-balancing.md), [Configure Failover Load Balancing](traffic-manager-configure-failover-load-balancing.md), [Configure Round Robin Load Balancing](traffic-manager-configure-round-robin-load-balancing.md).
+   
    >[AZURE.NOTE] The Round Robin method of load balancing now supports weighted distribution of network traffic. However, at this time you must use either REST APIs or Windows PowerShell to configure the weight. For more information and an example configuration, see [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) in the Azure blog.
 
    - **Configure endpoints** – Endpoints are not configured during Quick Create. After creating your profile and specifying your load balancing method, you must then let Traffic Manager know the endpoints. For steps to configure endpoints, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md)
@@ -162,7 +163,7 @@ To add a Traffic Manager profile as an endpoint and configure the minimum number
 
 If you want the figures in this topic as PowerPoint sides for your own presentation on Traffic Manager or to modify for your own purposes, see [Traffic Manager figures in MSDN documentation](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-## See Also
+## Next Steps
 
 [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 

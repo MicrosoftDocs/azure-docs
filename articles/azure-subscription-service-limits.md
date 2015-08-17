@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="rothja"
 	manager="jeffreyg"
-	editor="mollybos"/>
+	editor="monicar"/>
 
 <tags
 	ms.service="multiple"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="08/09/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -24,7 +24,7 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
-## Limits and the Azure Resource Manager
+### Limits and the Azure Resource Manager
 
 It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Using resource groups to manage your Azure resources](resource-group-portal.md).
 
@@ -38,8 +38,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-
-## Subscription Limits - Azure Resource Manager
+### Subscription Limits - Azure Resource Manager
 
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
@@ -56,7 +55,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 
-## Virtual Machines Limits - Azure Resource Manager
+### Virtual Machines Limits - Azure Resource Manager
 
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
@@ -67,27 +66,29 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+### Traffic Manager Limits
 
-## Networking Limits – Azure Resource Manager
+[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
+### DNS Limits
 
-[AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
+## Storage Limits
 
-## Storage Limits - Standard Storage
+### Standard Storage Limits
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md).
 
 
-## Storage Limits - Premium Storage
+### Premium Storage Limits
 
 [AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
 
 
-## Storage Limits - Azure Resource Manager
+### Storage Limits - Azure Resource Manager
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -97,12 +98,15 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 
-## Web Apps (Websites) Limits
+## App Service Limits - Web Apps, Mobile Apps, API Apps, Logic Apps
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+## Scheduler Limits
 
-## Batch Preview Limits
+[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
+
+## Batch Limits
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
@@ -127,16 +131,37 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 
 [AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
 
+For additional details on SQL Database limits, please see the following topics:
+
+ - [Azure SQL Database Service Tiers (Editions)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
+ - [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/library/azure/dn741336.aspx)
+ - [Database Throughput Unit (DTU) Quotas](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
+ - [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md)
 
 ## Media Services Limits
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
+## CDN Limits
+
+[AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
+
+## Mobile Services Limits
+
+[AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
 ## Service Bus Limits
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
+## Data Factory Limits
+
+[AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
+
+
+## Stream Analytics Limits
+
+[AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
 ## Active Directory Limits
 
@@ -160,6 +185,14 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
+## Site Recovery Limits
+
+[AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+
+## Application Insights Limits
+
+[AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
+
 ## API Management Limits
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
@@ -168,8 +201,11 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 
 [AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
-## Multi-Factor Authentication
+## Key Vault Limits
 
+[AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
+
+## Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ## See Also

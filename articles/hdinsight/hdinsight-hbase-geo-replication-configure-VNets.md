@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/02/2015"
+   ms.date="07/08/2015"
    ms.author="jgao"/>
 
 # Configure a VPN connection between two Azure virtual networks  
@@ -256,8 +256,7 @@ In this tutorial you have learned how to configure a VPN connection between two 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-portal]: http://manage.windowsazure.com
-
+[azure-portal]: https://portal.azure.com
 
 [powershell-install]: ../install-configure-powershell
 

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="josephd"/>
 
 # Set up a web-based LOB application in a hybrid cloud for testing
@@ -176,7 +177,7 @@ This is your current configuration.
  
 This environment is now ready for you to deploy your web-based application on LOB1 and test functionality and performance from the Corpnet subnet.
 
-## Additional Resources
+## Additional resources
 
 [Microsoft Software Architecture Diagrams and Blueprints](http://msdn.microsoft.com/dn630664)
 
@@ -192,5 +193,5 @@ This environment is now ready for you to deploy your web-based application on LO
 
 [Azure hybrid cloud test environments](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
 
-[Azure Infrastructure Services Implementation Guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Azure infrastructure services implementation guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  

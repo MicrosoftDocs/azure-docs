@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Service Bus AMQP overview - Azure" 
+	pageTitle="Service Bus AMQP overview | Microsoft Azure" 
 	description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -71,30 +71,12 @@ The following figure illustrates an example deployment in which Java clients run
 
 At this time the following client libraries are known to work with Service Bus:
 
-<table>
-  <tr>
-    <th>Language</th>
-    <th>Library</th>
-  </tr>
-  <tr>
-    <td>Java</td>
-    <td>Apache Qpid Java Message Service (JMS) client<br/>
-        IIT Software SwiftMQ Java client</td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Apache Qpid Proton-C</td>
-  </tr>
-  <tr>
-    <td>PHP</td>
-    <td>Apache Qpid Proton-PHP</td>
-  </tr>
-  <tr>
-    <td>Python</td>
-    <td>Apache Qpid Proton-Python</td>
-  </tr>
-
-</table>
+| Language | Library                                                                       |
+|----------|-------------------------------------------------------------------------------|
+| Java     | Apache Qpid Java Message Service (JMS) client<br/>IIT Software SwiftMQ Java client |
+| C        | Apache Qpid Proton-C                                                          |
+| PHP      | Apache Qpid Proton-PHP                                                        |
+| Python   | Apache Qpid Proton-Python                                                     |
 
 
 **Figure 2: Table of AMQP 1.0 client libraries**

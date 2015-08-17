@@ -3,7 +3,7 @@
 	description="Learn how to use MongoLab to create a MongoDB database in Azure." 
 	documentationCenter="php" 
 	services="" 
-	authors="chrischang12" 
+	authors="chrischang127" 
 	manager="partners@mongolab.com" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="08/06/2015" 
 	ms.author="chris@mongolab.com"/>
 
 [AZURE.INCLUDE [create-mongolab-mongodb](../includes/create-mongolab-mongodb.md)]

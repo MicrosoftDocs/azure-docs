@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/06/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -39,7 +39,7 @@ The following is a list of important things to consider before or when using Pre
 
 - Premium Storage is currently available in the [Microsoft Azure Preview Portal](https://portal.azure.com/) and accessible via the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later; and [Azure PowerShell](../install-configure-powershell.md) version 0.8.10 or later.
 
-- Premium Storage is currently available in the following regions: West US, East US 2, West Europe, East China, Southeast Asia, West Japan and Australia East.
+- For a list of regions that currently support Premium Storage, see [Azure Services by Region](http://azure.microsoft.com/regions/#services).
 
 - Premium Storage supports only Azure page blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs). For information on Azure page blobs, see [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx). Premium Storage does not support the Azure Block Blobs, Azure Files, Azure Tables, or Azure Queues.
 
@@ -51,7 +51,7 @@ The following is a list of important things to consider before or when using Pre
 
 - A premium storage account cannot be mapped to a custom domain name.
 
-- Storage analytics is not currently supported for Premium Storage. To analyze the performance metrics of VMs using disks on Premium Storage accounts, use the operating system based tools, such as [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) for Windows VMs and [IOSTAT](http://linux.die.net/man/1/iostat) for Linux VMs.
+- Storage analytics is not currently supported for Premium Storage. To analyze the performance metrics of VMs using disks on Premium Storage accounts, use the operating system based tools, such as [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) for Windows VMs and [IOSTAT](http://linux.die.net/man/1/iostat) for Linux VMs. You can also enable the Azure VM Diagnostics on Azure Preview Portal. Refer to [Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) for details.
 
 ## Using Premium Storage for Disks
 You can use Premium Storage for Disks in one of two ways:
@@ -136,7 +136,7 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 
 - You can use both Premium and Standard storage disks in the same DS-series VM.
 - With Premium Storage, you can provision a DS-series VM and attach several persistent data disks to a VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. By default, the Server Manager user interface (UI) allows you to setup columns up to 8 disks. But if you have more than 8 disks, you need to use PowerShell to create the volume and also specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns even though you have more disks. For example, if you have 32 disks in a single stripe set, you should specify 32 columns. You can use the *NumberOfColumns* parameter of the [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet to specify the number of columns used by the virtual disk. For more information, see [Storage Spaces Overview](http://technet.microsoft.com/library/jj822938.aspx) and [Storage Spaces Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-- Avoid adding DS-series VMs to an existing cloud service that includes non-DS-series VMs. A possible workaround is to migrate your existing VHDs to a new cloud service running only DS-series VMs.  If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](https://msdn.microsoft.com/library/azure/dn690120.aspx) feature.
+- Avoid adding DS-series VMs to an existing cloud service that includes non-DS-series VMs. A possible workaround is to migrate your existing VHDs to a new cloud service running only DS-series VMs.  If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](virtual-networks-configure-vnet-to-vnet-connection.md) feature.
 - The DS-series of Azure virtual machines can be configured to use an operating system (OS) disk hosted either on a Standard Storage account or on a Premium Storage account. If you use the OS disk only for booting, you may consider using a Standard Storage based OS disk. This provides cost benefits and similar performance results similar to the Premium Storage after booting up. If you perform any additional tasks on the OS disk other than booting, use Premium Storage as it provides better performance results. For example, if your application reads/writes from/to the OS disk, using Premium Storage based OS disk provides better performance for your VM.
 - You can use [Azure Command-Line Interface (Azure CLI)](../xplat-cli.md) with Premium Storage. To change the cache policy on one of your disks using Azure CLI, run the following command:
 
@@ -246,10 +246,9 @@ If a disk is attached to a VM, certain API operations are not permitted on the p
 
 ### Important Notes:
 
-- If the copy blob operation on Premium Storage overwrites an existing blob at the destination, the blob being overwritten must not have any snapshots.  A copy within or between premium storage accounts require that the destination blob does not have snapshots when initiating the copy.
 - The number of snapshots for a single blob is limited to 100. A snapshot can be taken every 10 minutes at most.
 - 10 TB is the maximum capacity for snapshots per Premium Storage account. Note that the snapshot capacity is the unique data that exists in the snapshots. In other words, the snapshot capacity does not include the base blob size.
-- In order to copy a snapshot from a premium storage account to another account, you have to first do a CopyBlob of the snapshot to create a new blob in the same premium storage account. Then you can copy the new blob to other storage accounts. You can delete the intermediate blob after the copy finishes. Follow this process to copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+- To keep geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 - For detailed information on performing REST operations against page blobs in Premium Storage accounts, see [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969) in the MSDN library.
 
 ## Using Linux VMs with Premium Storage
@@ -308,12 +307,18 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td rowspan="2"><strong>CentOS</strong></td>
 	<td>6.5, 6.6, 7.0</td>
 	<td></td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a></td>
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a> </br>
+		*See note below
+	</td>
 </tr>
 <tr>
 	<td>7.1</td>
 	<td>3.10.0-229.1.2.el7</td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a></td>
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a> <br/>
+		*See note below
+	</td>
 </tr>
 
 <tr>
@@ -329,6 +334,16 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 </tr>
 </tbody>
 </table>
+
+
+### LIS Drivers for Openlogic CentOS
+
+Customers running OpenLogic CentOS VMs should run the following command to install the latest drivers:
+
+	sudo yum install microsoft-hyper-v
+
+A reboot will then be required to activate the new drivers.
+
 
 
 ## Pricing and Billing when using Premium Storage

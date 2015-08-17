@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="MightyPen" 
 	manager="jeffreyg" 
-	editor="jeffreyg"/>
+	editor=""/>
 
 
 <tags 
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015" 
+	ms.date="08/10/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in SQL Database V12
 
 
-This topic describes the many advantages that the new V12 version of Azure SQL Database has over the V11 version.
+This topic describes the many advantages that the new V12 version of Azure SQL Database has over version V11.
 
 
 We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
@@ -29,6 +29,9 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 
 - Filtered to the [SQL Database service](http://azure.microsoft.com/updates/?service=sql-database).
 - Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
+
+
+The latest information about resource limits for SQL Database is documented at:<br/>[Azure SQL Database Resource Limits](sql-database-resource-limits.md).
 
 
 ## Increased application compatibility with SQL Server
@@ -137,18 +140,10 @@ A V12 database can be hosted only on a V12 logical server. And a V12 server can 
 If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](sql-database-v12-upgrade.md).
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a>Preview regions
+## <a name="V12AzureSqlDbPreviewGaTable"></a> General Availability regions
 
 
-V12 was released in December 2014, but only at the status of [Preview](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). By April 2015 V12 was promoted to General Availability (GA) in almost all geographic regions.
+- By July 31, 2015, all regions had been promoted to General Availability (GA).
+- V12 was released in December 2014, but only at the status of Preview.
 
-
-V12 is available at Preview in the following regions:
-
-
-| Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA |
-| :--- | :--- | :--- |
-| Australia East | **Preview** | Second quarter 2015, estimated |
-| Australia Southeast | **Preview** | Second quarter 2015, estimated |
-
- 
+[Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).

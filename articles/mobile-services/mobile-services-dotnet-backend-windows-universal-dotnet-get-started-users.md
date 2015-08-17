@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add authentication to your Universal Windows 8.1 app | Azure Mobile Services" 
+	pageTitle="Add authentication to your Universal Windows 8.1 app | Microsoft Azure" 
 	description="Learn how to use Mobile Services to authenticate users of your Universal Windows 8.1 app by using various identity providers, including Google, Facebook, Twitter, and Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 

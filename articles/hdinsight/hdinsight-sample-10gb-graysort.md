@@ -1,11 +1,13 @@
+
 <properties
 	pageTitle="10GB GraySort Hadoop MapReduce sample | Microsoft Azure"
 	description="Learn how to run a general purpose GraySort for very large amounts of data, usually a 100 TB minimum, on Hadoop with HDInsight using Azure PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
+	tags="azure-portal"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"/>
+	authors="mumian"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,8 +15,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 # The 10GB GraySort Hadoop MapReduce sample in HDInsight
 

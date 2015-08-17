@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Manage and Monitor your built-in API Apps and Connectors
@@ -64,13 +64,15 @@ Steps include:
 6. Click the setting you want to change, enter the new value, and **Save** your changes. 
 
 
-## Install the Hybrid Connection Manager
+## Install the Hybrid Connection Manager - Optional
 
 ![][hcsetup]
 
 The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP. This hybrid connectivity uses Azure Service Bus to connect and control the security between your Azure resources and your on-premises resources.
 
 See [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md). 
+
+> [AZURE.NOTE] Hybrid Connection Manager is required only if you are connecting to an on-premises resource behind your firewall. If you are not connecting to an on-premises system,  the Hybrid Connection Manager may not be listed in your connector blade.
 
 ## Monitor the performance
 Performance metrics are built-in features and included with every API App you create. These metrics are specific to your API App hosted in Azure: 

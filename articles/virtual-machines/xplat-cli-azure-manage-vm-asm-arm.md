@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows"
+	pageTitle="Equivalent Resource Manager and Service Management commands for VM operations with the Azure CLI for Mac, Linux, and Windows"
 	description="Shows equivalent Azure CLI commands to create and manage Azure VMs in Resource Manager and Service Management modes"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,8 +17,8 @@
 	ms.author="danlep"/>
 
 
-# Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows
-This article shows equivalent Azure command-line interface (Azure CLI) commands to create and manage Azure VMs in Service Management (asm) mode and Resource Manager (arm) mode. Use this as a handy guide to migrate scripts from one command mode to the other.
+# Equivalent Resource Manager and Service Management commands for VM operations with the Azure CLI for Mac, Linux, and Windows
+This article shows equivalent Microsoft Azure command-line interface (Azure CLI) commands to create and manage Azure VMs in Service Management (asm) mode and Resource Manager (arm) mode. Use this as a handy guide to migrate scripts from one command mode to the other.
 
 * If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../xplat-cli-install.md) and [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md). Be sure to connect with the login method when you use the arm mode commands.
 
@@ -27,9 +27,9 @@ This article shows equivalent Azure command-line interface (Azure CLI) commands 
 * For online command help and options, type `azure <command> <subcommand> --help` or `azure help <command> <subcommand>`.
 
 ## Scenarios
-Following are common VM operations you can perform with Azure CLI commands in asm and arm mode. With many arm mode commands you need to pass the name of an existing resource group.
+The next table lists common VM operations you can perform with Azure CLI commands in asm and arm mode. With many arm mode commands you need to pass the name of an existing resource group.
 
-> [AZURE.NOTE] These examples don't include template-based operations in arm mode. For information see [Using the Azure Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE] These examples don't include template-based operations in arm mode. For information, see [Using the Azure Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
 
 Scenario | asm mode | arm mode
 -------------- | ----------- | -------------------------
@@ -48,14 +48,14 @@ Create a VM from a specialized disk | `azure  vm create [options]-d <custom-data
 Add a data disk to a VM | `azure  vm disk attach [options] <vm-name> <disk-image-name>` -OR- <br/>  `vm disk attach-new [options] <vm-name> <size-in-gb> [blob-url]` | `azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]`
 Remove a data disk from a VM | `azure  vm disk detach [options] <vm-name> <lun>` | `azure  vm disk detach [options] <resource-group> <vm-name> <lun>`
 Add a generic extension to a VM | `azure  vm extension set [options] <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>`
-Add VM Access extension to a VM | not available | `azure vm reset-access [options] <resource-group> <name>`
+Add VM Access extension to a VM | Not available | `azure vm reset-access [options] <resource-group> <name>`
 Add Docker extension to a VM | `azure  vm docker create [options] <dns-name> <image> <user-name> [password]` | `azure  vm docker create [options] <resource-group> <name> <location> <os-type>`
-Add Chef extension to a VM | `azure  vm extension get-chef [options] <vm-name>` | not available
-Disable a VM extension | `azure  vm extension set [options] –b <vm-name> <extension-name> <publisher-name> <version>` | not available
+Add Chef extension to a VM | `azure  vm extension get-chef [options] <vm-name>` | Not available
+Disable a VM extension | `azure  vm extension set [options] –b <vm-name> <extension-name> <publisher-name> <version>` | Not available
 Remove a VM extension | `azure  vm extension set [options] –u <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>`
 List VM extensions | `azure vm extension list [options]` | `azure  vm extension get [options] <resource-group> <vm-name>`
 List VM images | `azure vm image list [options]` | `azure vm image list [options] <location> <publisher> [offer] [sku]` -OR- <br/> `azure vm image list-publishers [options] <location>` -OR- <br/> `azure vm image list-offers [options] <location>` -OR- <br/> `azure vm image list-skus [options] <location>`
-Show a VM image | `azure vm image show [options]` | not available
+Show a VM image | `azure vm image show [options]` | Not available
 
 
 ## Next steps
@@ -63,4 +63,3 @@ Show a VM image | `azure vm image show [options]` | not available
 * For more about using the Azure CLI to work with resources in arm mode, see [Using the Azure Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md) and [Managing Role-Based Access Control with the Azure Command-Line Interface](../role-based-access-control-xplat-cli.md).
 * For additional examples of the CLI commands, see [Using the Azure Command-Line Interface](../virtual-machines-command-line-tools.md) and
 [Using the Azure CLI with Azure Resource Manager](azure-cli-arm-commands.md).
- 

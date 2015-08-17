@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Graphical authoring in Azure Automation
@@ -228,7 +228,7 @@ You can also retrieve the output of an activity in a **PowerShell Expression** d
 
 ### Checkpoints
 
-The same guidance for setting [checkpoints](automation-runbook-concepts/#checkpoints) in your runbook applies to graphical runbooks.  You can add an activity for the Checkpoint-Workflow cmdlet where you need to set a checkpoint.  You should then follow this activity with an Add-AzureAccount in case the runbook starts from this checkpoint on a different worker. 
+The same guidance for setting [checkpoints](automation-powershell-workflow/#checkpoints) in your runbook applies to graphical runbooks.  You can add an activity for the Checkpoint-Workflow cmdlet where you need to set a checkpoint.  You should then follow this activity with an Add-AzureAccount in case the runbook starts from this checkpoint on a different worker. 
 
 ## Authenticating to Azure resources
 
@@ -277,6 +277,6 @@ Data created by any activity that does not have an outgoing link will be added t
 
 ## Related articles
 
-- [Azure Automation runbook concepts](automation-runbook-concepts.md)
+- [Learning Windows PowerShell Workflow](automation-powershell-workflow.md)
 - [Automation assets](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  

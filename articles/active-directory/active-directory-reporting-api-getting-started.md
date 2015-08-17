@@ -3,7 +3,7 @@
    description="How to get started with the Azure Active Directory Reporting API"
    services="active-directory"
    documentationCenter=""
-   authors="yossibanai"
+   authors="kenhoff"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/22/2015"
-   ms.author="yossib"/>
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # Getting started with the Azure AD Reporting API
@@ -76,7 +76,7 @@ The steps below will walk you through obtaining your application's client ID and
 To edit the PowerShell script below to work with your directory, replace $ClientID, $ClientSecret and $tenantdomain with the correct values from “Delegating Access in Azure AD”.
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID      = <<YOUR CLIENT ID HERE>>                # Should be a ~35 character string insert your info here
+    $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
     $ClientSecret  = "<<YOUR CLIENT SECRET HERE>>"          # Should be a ~44 character string insert your info here
     $loginURL      = "https://login.windows.net"
     $tenantdomain  = "<<YOUR TENANT NAME HERE>>"            # For example, contoso.onmicrosoft.com
@@ -127,7 +127,7 @@ To edit the PowerShell script below to work with your directory, replace $Client
 
 
 ## Execute the script
-Once you finish editing the script, run it and verify that the expected data from the is returned.
+Once you finish editing the script, run it and verify that the expected data from the AuditEvents report is returned.
 
 The script returns lists all the available reports, and returns output from the AccountProvisioningEvents report in the PowerShell window in JSON format. It also creates files with the same output in JSON, text and XML. You can comment experiment with modifying the script to return data from other reports, and comment out the output formats that you do not need.
 
@@ -136,4 +136,3 @@ The script returns lists all the available reports, and returns output from the 
 - Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
 - See [Azure AD Audit Report Events](active-directory-reporting-audit-events.md) for more details on the Audit Report
 - See [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/mt126081.aspx) for more details on the Graph API REST service
- 
