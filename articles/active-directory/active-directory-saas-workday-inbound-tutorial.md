@@ -1,5 +1,18 @@
-<properties pageTitle="Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Azure" description="Learn how to use Workday as source of identity data for Azure Active Directory." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+  pageTitle="Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Azure" 
+  description="Learn how to use Workday as source of identity data for Azure Active Directory." 
+  services="active-directory" 
+  authors="MarkusVi"  
+  documentationCenter="na" 
+  manager="msStevenPo"/>
+<tags 
+  ms.service="active-directory" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.tgt_pltfrm="na" 
+  ms.workload="identity" 
+  ms.date="08/01/2015" 
+  ms.author="markvi" />
 
 
 #Tutorial: Configuring Workday for Inbound Synchronization
