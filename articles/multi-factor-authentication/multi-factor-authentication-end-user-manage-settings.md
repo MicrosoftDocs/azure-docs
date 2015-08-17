@@ -38,10 +38,11 @@ If you use multi-factor authentication with Office 365 you will want to manage y
 ### To change your settings in the Office 365 portal
 
 1. Log on to the [Office 365 portal](https://login.microsoftonline.com/).
-2. Click on Additional security verification.
-3. On the right, click the link that says Update my phone numbers used for account security.
+2. In the top right corner select the widget and choose Office 365 Settings.
+3. Click on Additional security verification.
+4. On the right, click the link that says **Update my phone numbers used for account security.**
 ![Setup](./media/multi-factor-authentication-end-user-manage/o365a.png)
-4. This will take you to the page that will allow you to change your settings.
+5. This will take you to the page that will allow you to change your settings.
 ![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
 
@@ -53,7 +54,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)	
 2. At the top, select profile.
-3. Click on your user name and select Additional Security Verification.
+3. Select Additional Security Verification.
 ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. This will take you to the page that will allow you to change your settings.
 
