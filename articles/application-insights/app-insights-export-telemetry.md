@@ -85,7 +85,7 @@ Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-[Detailed reference for the fields](app-insights-data-model.md)
+[Detailed reference for the fields](app-insights-export-data-model.md)
 
 ## Processing the data
 
