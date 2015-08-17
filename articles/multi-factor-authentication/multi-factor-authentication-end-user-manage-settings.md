@@ -24,8 +24,53 @@ There are several different places you can go to change your multi-factor authen
 
 How you use multi-factor authentiation|Description
 :------------- | :------------- | 
-[I use it with Office 365](multi-factor-authentication-end-user-manage-o365.md)|  This means that you will want to change your settings through the Office 365 portal.
-[I use it with Microsoft Azure](multi-factor-authentication-end-user-manage-azure.md)| This means that you will want to change your settings through the Azure portal.
-[I don't know](multi-factor-authentication-end-user-manage-myapps.md)|This means you will want to sign-in to [http://myapps.microsoft.com](http://myapps.microsoft.com) and change your setting here.
+[I use it with Office 365](#i-use-it-with-office-365)|  This means that you will want to change your settings through the Office 365 portal.
+[I don't know](#i-don't-know)|This means you will want to sign-in to [http://myapps.microsoft.com](http://myapps.microsoft.com) and change your setting here.
+[I use it with Microsoft Azure](#i-use-it-with-microsoft-azure)| This means that you will want to change your settings through the Azure portal.
+
+
+ 
+## I use it with Office 365
+
+
+If you use multi-factor authentication with Office 365 you will want to manage your additional security verification settings through the Office 365 portal.
+
+### To change your settings in the Office 365 portal
+
+1. Log on to the [Office 365 portal](https://login.microsoftonline.com/).
+2. Click on Additional security verification.
+3. On the right, click the link that says Update my phone numbers used for account security.
+![Setup](./media/multi-factor-authentication-end-user-manage/o365a.png)
+4. This will take you to the page that will allow you to change your settings.
+![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
+
+
+## I don't know
+
+If you are not sure how you use multi-factor authentication, then you can always change your settings through the myapps portal.
+
+### To change your settings in the Myapps portal
+
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+2. At the top, select profile.
+3. Click on your user name and select Additional Security Verification.
+![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+4. This will take you to the page that will allow you to change your settings.
+
+![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+
+## I use it with Microsoft Azure
+
+If you use multi-factor authentication with Azure you will want to change your settings through the Azure portal.
+
+### To access additional security verification settings in the Azure portal
+
+
+1. Log on to the Azure portal.
+2. At the top of the Azure portal, click on your username. This will bring up a drop-down box.
+3. From the drop-down box, select Additional security verification.
+![Setup](./media/multi-factor-authentication-end-user-manage/azure1.png)
+4. This will take you to the page that will allow you to change your settings.
+![Setup](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
  

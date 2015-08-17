@@ -40,14 +40,14 @@ The following are some things to remember on how to use app passwords.
 
 Once you have an app password, you use this in place of your original password with these non-browser apps.  So for instance, if you are using multi-factor authentication and the Apple native email client on your phone.  Use the app password so that it can bypass multi-factor authentication and continue to work.
 
-### Creating app passwords
-During your initial sign-in you are given an app password that you can use.  Additionally you can also create app passwords later on.  How you do this depends on how you use multi-factor authentication.  Choose the one that most applies to you.
+### Creating and deleting app passwords
+During your initial sign-in you are given an app password that you can use.  Additionally you can also create and delete app passwords later on.  How you do this depends on how you use multi-factor authentication.  Choose the one that most applies to you.
 
 How you use multi-factor authentiation|Description
 :------------- | :------------- | 
-[I use it with Office 365](multi-factor-authentication-end-user-manage-o365.md)|  This means that you will want to create app passwords through the Office 365 portal.
-[I use it with Microsoft Azure](multi-factor-authentication-end-user-manage-azure.md)| This means that you will want create app passwords through the Azure portal.
-[I don't know](multi-factor-authentication-end-user-manage-myapps.md)|This means you will want create app passwords through [https://myapps.microsoft.com](https://myapps.microsoft.com)
+[I use it with Office 365](multi-factor-authentication-end-user-app-passwords-create-o365.md)|  This means that you will want to create app passwords through the Office 365 portal.
+[I use it with Microsoft Azure](multi-factor-authentication-end-user-app-passwords-create-azure.md)| This means that you will want create app passwords through the Azure portal.
+[I don't know](multi-factor-authentication-end-user-app-passwords-create-myapps.md)|This means you will want create app passwords through [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
 
 
