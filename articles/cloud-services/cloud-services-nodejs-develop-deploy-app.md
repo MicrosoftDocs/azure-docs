@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Node.js Getting Started Guide - Azure Tutorial"
+	pageTitle="Node.js Getting Started Guide | Microsoft Azure"
 	description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service."
 	services="cloud-services"
 	documentationCenter="nodejs"

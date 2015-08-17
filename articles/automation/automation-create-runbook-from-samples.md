@@ -30,6 +30,12 @@ To complete this tutorial, you will need an Azure subscription. If you don't hav
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
+## Video walkthrough
+
+Here's a walkthrough of this tutorial.
+
+[AZURE.VIDEO get-started-with-azure-automation]
+
 ## <a name="automationaccount"></a>Create an Automation Account
 
 An Automation Account is a container for your Azure Automation resources: it provides a way to separate your environments or further organize your workflows. For more information, see [Automation Accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an automation account, you can skip this step.

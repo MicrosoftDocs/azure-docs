@@ -128,5 +128,11 @@ The nomenclature used in the steps are as follows:
 
 11. Once the input is provided, click on the **Recover** button which triggers the restore of the backed up files in the destination provided.
 
+## Video walkthrough
+
+Here's a video walkthrough of this tutorial.
+
+[AZURE.VIDEO azurebackuprestoreserverandclient]
+
 ## Next Steps
 - [Azure Backup FAQ](backup-azure-backup-faq.md)

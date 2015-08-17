@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage the availability of virtual machines - Azure"
+	pageTitle="Manage the availability of virtual machines | Microsoft Azure"
 	description="Learn how to use multiple virtual machines to ensure high availability for your Azure application."
 	services="virtual-machines"
 	documentationCenter=""
@@ -60,7 +60,7 @@ Combine the Azure Load Balancer with an Availability Set to get the most applica
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance.
 
 ### Avoid single instance virtual machines in Availability Sets
-Avoid leaving a single instance virtual machine in an Availability Set by itself. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events.  Also, if you deploy a single virtual machine instance within an Availability Set, you will receive no advanced warning or notification of platform maintenance. In this configuration, your single virtual machine instance can and will be rebooted with no advanced warning when platform maintenance occurs.
+Avoid leaving a single instance virtual machine in an Availability Set by itself. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events. Please note, single virtual machine instance within an Availability Set, will also receive advanced email notification in multi-instance virtual machines planned maintenance notification. 
 
 <!-- Link references -->
 [Configure multiple virtual machines in an Availability Set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Create and Configure an Azure SQL Database - Azure tutorial" 
+	pageTitle="How to Create and Configure an Azure SQL Database | Microsoft Azure" 
 	description="How to create and configure an Azure SQL Database." 
 	services="sql-database" 
 	documentationCenter="" 
