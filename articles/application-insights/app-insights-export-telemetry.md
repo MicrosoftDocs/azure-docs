@@ -85,7 +85,7 @@ Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-[Detailed reference for the fields](app-insights-export-data-model.md)
+[Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
 ## Processing the data
 
@@ -188,9 +188,10 @@ On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdins
 ## Code samples
 
 * [Stream Application Insights to Power BI](app-insights-export-power-bi.md)
-* [Export to SQL using a worker role][exportcode]
+* [Parse exported JSON using a worker role][exportcode]
 * [Export to SQL using Stream Analytics][exportasa]
 
+* [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
