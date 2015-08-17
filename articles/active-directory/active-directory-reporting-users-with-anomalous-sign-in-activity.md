@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2015"
-	ms.author="saah, kenhoff"/>
+	ms.author="saah;kenhoff"/>
 
 # Users with anomalous sign in activity
 
