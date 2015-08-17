@@ -144,6 +144,60 @@ Other than through the Hadoop command from the cluster, there are a variety of w
 
 * [Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
+##<a name="scaling"></a>Scaling your cluster
+
+The cluster scaling feature allows you to change the number of data nodes used by a cluster that is running in Azure HDInsight without having to delete and re-create the cluster.
+
+You can perform scaling operations while other jobs or processes are running on a cluster.
+
+The different cluster types are affected by scaling as follows:
+
+* __Hadoop__: When scaling down the number of nodes in a cluster, some of the services in the cluster are restarted. This can cause jobs running or pending to fail at the completion of the scaling operation. You can resubmit the jobs once the operation is complete.
+
+* __HBase__: Regional servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance regional servers,use the following steps:
+
+	1. Connect to the HDInsight cluster using SSH. For more information on using SSH with HDInsight, see one of the following documents:
+	
+		* [Use SSH with HDInsight from Linux, Unix, and Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+		
+		* [Use SSH with HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+	1. Use the following to start the HBase shell:
+	
+			hbase shell
+	
+	2. Once the HBase shell has loaded, use the following to manually balance the regional servers:
+	
+			balancer
+
+* __Storm__: You should rebalance any running Storm topologies after a scaling operation has been performed. This allows the topology to readjust parallelism settings based on the new number of nodes in the cluster. To rebalance running topologies, use one of the following options:
+
+	* __SSH__: Connect to the server and use the following command to rebalance a topology:
+	
+			storm rebalance TOPOLOGYNAME
+			
+		You can also specify parameters to override the parallelism hints originally provided by the topology. For example, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` will reconfigure the topology to 5 worker processes, 3 executors for the blue-spout component, and 10 executors for the yellow-bolt component.
+		
+	* __Storm UI__: Use the following steps to rebalance a topology using the Storm UI.
+	
+		1. [Create an SSH tunnel to the cluster and open the Ambari web UI](hdinsight-linux-ambari-ssh-tunnel.md).
+		
+		2. From the list of services on the left of the page, select __Storm__. Then select __Storm UI__ from __Quick Links__.
+
+			![Storm UI entry in quick links](./media/hdinsight-storm-deploy-monitor-topology-linux/ambari-storm.png)
+		
+			This will display the Storm UI:
+		
+			![the storm ui](./media/hdinsight-storm-deploy-monitor-topology-linux/storm-ui.png)
+			
+		3. Select the topology you wish to rebalance, then select the __Rebalance__ button. Enter the delay before the rebalance operation is performed.
+		
+For specific information on scaling your HDInsight cluster, see:
+
+* [Manage Hadoop clusters in HDInsight by using the Azure preview portal](hdinsight-administer-use-portal-linux.md#scaling)
+
+* [Manage Hadoop clusters in HDinsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scaling)
+
 ## Next steps
 
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
