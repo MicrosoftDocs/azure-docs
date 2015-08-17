@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2015"
+	ms.date="08/14/2015"
 	ms.author="garye" />
 
 
-#Import your training data into Azure Machine Learning Studio from various data sources
+# Import your training data into Azure Machine Learning Studio from various data sources
 
 When you develop a predictive analytics solution in Azure Machine Learning Studio, you train your model using data representative of your problem space. This tutorial shows you how to import data from various data sources for training your model in Machine Learning Studio. You'll also learn which data formats are supported.
 
@@ -36,7 +36,7 @@ To use your own data in Machine Learning Studio, you can upload a data file ahea
 
 Machine Learning Studio is designed to work with rectangular or tabular data, such as text data that's delimited or structured data from a database, though in some circumstances non-rectangular data may be used.
 
-It's best if your data is relatively clean.That is, you'll want to take care of issues such as unquoted strings before you upload the data into your experiment. 
+It's best if your data is relatively clean. That is, you'll want to take care of issues such as unquoted strings before you upload the data into your experiment.
 
 However, there are modules available in Machine Learning Studio that will let you do some manipulation of data within your experiment. Depending on the machine learning algorithms you'll be using, you may need to decide how you'll handle data structural issues such as missing values and sparse data, and there are modules that can help with that.
 Look in the **Data Transformation** section of the module palette for modules that perform these functions.
@@ -155,4 +155,3 @@ When the save finishes, the dataset will be available for use within any experim
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 

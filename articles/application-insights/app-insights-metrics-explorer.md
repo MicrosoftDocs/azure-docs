@@ -197,6 +197,6 @@ If you want even richer views of your data, you can [export to Power BI](app-ins
 
 [alerts]: app-insights-alerts.md
 [start]: app-insights-get-started.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

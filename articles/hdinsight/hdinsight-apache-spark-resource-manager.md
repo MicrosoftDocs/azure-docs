@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -23,9 +24,11 @@ Resource manager is a component of the Spark cluster dashboard that enables you 
 
 ## <a name="launchrm"></a>How do I launch the Resource Manager?
 
-1. Select your Spark cluster on the Azure portal, and from the portal task bar at the bottom, click **Spark Dashboard**.
+1. From the [Azure Preview Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**. 
+ 
+2. From the Spark cluster blade, click **Dashboard**. When prompted, enter the admin credentials for the Spark cluster.
 
-2. From the top pane in the dashboard, click the **Resource Manager** tab.  
+	![Launch Resource Manager](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "Start Resource Manager")   
 
 ##<a name="scenariosrm"></a>How do I fix these issues using the Resource Manager?
 

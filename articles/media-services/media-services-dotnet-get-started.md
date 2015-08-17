@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/11/2015"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 
@@ -40,14 +40,14 @@ The following prerequisites are required to start developing with Media Services
 
 The following tasks are shown in this Quickstart.
 
-1.  Create a Media Services account (using Azure portal).
+1.  Create a Media Services account (using the Azure portal).
 2.  Configure streaming endpoint (using the portal).
 3.  Create and configure a Visual Studio project.
 5.  Connect to the Media Services account.
 6.  Create a new asset and upload a video file.
 7.  Encode the source file into a set of adaptive bitrate MP4 files.
 8.  Configure delivery policy for the encoded asset.
-9.  Publish the asset and get streaming and progressive download URLs.  
+9.  Publish the asset and get URLs for streaming and progressive download.  
 10.  Play your content.
 
 
@@ -73,10 +73,9 @@ The following tasks are shown in this Quickstart.
 
 	At the bottom of the page, the **MANAGE KEYS** button appears. When you click this button, a dialog with the Media Services account name and the primary and secondary keys is displayed. You will need the account name and the primary key information to programmatically access the Media Services account.
 
-
 	![Media Services Page](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
 
-	When you double-click on the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page or do it from the CONTENT page.
+	When you double-click on the account name, the **Quickstart** page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page or do it from the CONTENT page.
 
 ##Configure streaming endpoint using the portal
 
@@ -105,7 +104,6 @@ To change the number of streaming reserved units, do the following:
 
 	The allocation of any new units takes around 20 minutes to complete.
 
-
 	>[AZURE.NOTE] Currently, going from any positive value of streaming units back to none can disable streaming for up to an hour.
 	>
 	> The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services pricing details](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -122,8 +120,7 @@ To change the number of streaming reserved units, do the following:
 
 4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example. To obtain the account name and key information, open the Azure portal, select your media services account, and then click the **MANAGE KEYS** button.
 
-
-	<pre><code>
+	 <pre><code>
 	&lt;configuration&gt;
         &lt;appSettings&gt;
     	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
@@ -131,7 +128,6 @@ To change the number of streaming reserved units, do the following:
   	    &lt;/appSettings&gt;
 	&lt;/configuration&gt;
 	</code></pre>
-
 
 5. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
 
@@ -187,8 +183,6 @@ The **Main** function calls methods that will be defined further in this section
                 IAsset encodedAsset =
                     EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 
-                ConfigureClearAssetDeliveryPolicy(encodedAsset);
-
                 PublishAssetGetURLs(encodedAsset);
             }
             catch (Exception exception)
@@ -215,7 +209,7 @@ The **CreateFromFile** method takes **AssetCreationOptions** which lets you spec
 
 - **None** - No encryption is used. This is the default value. Note that when using this option, your content is not protected in transit or at rest in storage.
 If you plan to deliver an MP4 using progressive download, use this option.
-- **StorageEncrypted** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
+- **StorageEncrypted** - Use this option to encrypt your clear content locally using Advanced Encryption Standard (AES)-256 bit encryption, which then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.
 - **CommonEncryptionProtected** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
 - **EnvelopeEncryptionProtected** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
 
@@ -243,7 +237,7 @@ Add the following method to the Program class.
 
 ##Encode the source file into a set of adaptive bitrate MP4 files
 
-After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs, and each Job is comprised of atomic Tasks that do the actual work on the Asset file.
+After ingesting assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs, and each Job is comprised of atomic Tasks that do the actual work on the Asset file.
 
 As was mentioned earlier, when working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
 
@@ -256,7 +250,6 @@ The following code shows how to submit an encoding job. The job contains one tas
 
 Once the job is completed, you would be able to stream your asset or progressively download MP4 files that were created as a result of transcoding.
 Note that you do not need to have more than 0 streaming units in order to progressively download MP4 files.
-
 
 Add the following method to the Program class.
 
@@ -293,26 +286,7 @@ Add the following method to the Program class.
 	    return outputAsset;
 	}
 
-##Configure delivery policy for the encoded asset
-
-One of the steps in the Media Services content delivery workflow is configuring asset delivery policies. The asset delivery policy configuration includes: what protocols can be used to deliver the asset (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), whether you want to dynamically encrypt your asset, and how (envelope or common encryption).
-
-The following **ConfigureClearAssetDeliveryPolicy** method specifies not to apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols.
-
-Add the following method to the Program class.
-
-    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
-    {
-        IAssetDeliveryPolicy policy =
-            _context.AssetDeliveryPolicies.Create("Clear Policy",
-            AssetDeliveryPolicyType.NoDynamicEncryption,
-            AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
-
-        asset.DeliveryPolicies.Add(policy);
-    }
-
-
-##Publish the asset and get streaming and progressive download URLs
+##Publish the asset and get URLs for streaming and progressive download
 
 To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
 
@@ -321,11 +295,11 @@ After you create the locators, you can build the URLs that are used to stream or
 
 A streaming URL for Smooth Streaming has the following format:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+	 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 A streaming URL for HLS has the following format:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+	 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 A streaming URL for MPEG DASH has the following format:
 
@@ -370,7 +344,7 @@ Add the following method to the Program class.
         Uri hlsUri = asset.GetHlsUri();
         Uri mpegDashUri = asset.GetMpegDashUri();
 
-        // Get progressive download URLs for each MP4 file that was generated as a result
+        // Get the URls for progressive download for each MP4 file that was generated as a result
 		// of encoding.
 		List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
 
@@ -382,7 +356,7 @@ Add the following method to the Program class.
         Console.WriteLine(mpegDashUri);
         Console.WriteLine();
 
-		// Display the progressive download URLs.
+		// Display the URLs for progressive download.
         Console.WriteLine("Use the following URLs for progressive download.");
         mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
         Console.WriteLine();

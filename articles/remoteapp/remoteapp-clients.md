@@ -3,7 +3,6 @@
     pageTitle="Accessing your apps"
     description="Learn what clients are supported for Azure RemoteApp and how to access your apps."
     services="remoteapp"
-    solutions="" 
 	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
@@ -14,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/23/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
 # Accessing your apps in Azure RemoteApp
 
-One of the beauties of Azure RemoteApp is that you can access apps published to you from any of your devices. Even better, you can start working on one device and then seamlessly transition to a second device and pick up right where you left off. To get started you need to download the appropriate client for your device and sign in to the service.
+One of the beauties of Azure RemoteApp is that you can access apps from any of your devices. Even better, you can start working on one device and then seamlessly transition to a second device and pick up right where you left off. To get started you need to download the appropriate client for your device and sign in to the service.
 
 In this topic, we'll review the clients currently supported and how to download them before I show you how to sign in to RemoteApp from each of the clients.
 
