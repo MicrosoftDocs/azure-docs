@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Install and configure PostgreSQL on a Microsoft Azure virtual machine running Linux"
-	description="Learn how to install and configure PostgreSQL on an Ubuntu or CentOS virtual machine (VM) in Azure."
+	description="Learn how to install and configure PostgreSQL on an Linux virtual machine (VM) in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="linux"
 	ms.workload="infrastructure-services"
-	ms.date="06/04/2015"
+	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
@@ -35,19 +35,19 @@ Connect to the Linux VM you created via putty. If this is the first time you use
 
 1. Run the following command to switch to root (admin):
 
-		$ sudo su -
+		# sudo su -
 
 2. Some distributions have dependencies that you must install before installing PostgreSQL. Check for your distro in this list and run the appropriate command:
 
-	- Redhat:
+	- Red Hat base Linux:
 
 			# yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
-	- Debian:
+	- Debian base Linux:
 
  			# apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
 
-	- Suse:
+	- SUSE Linux:
 
 			# zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
