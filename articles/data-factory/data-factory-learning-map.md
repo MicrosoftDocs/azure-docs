@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Learning Map for Data Factory | Azure"
+	pageTitle="Learning Map for Data Factory | Microsoft Azure"
 	description="Get a visual map of the resources available to go from 0 to 60 on Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
