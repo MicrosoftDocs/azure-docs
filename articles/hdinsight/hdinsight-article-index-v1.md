@@ -1,6 +1,7 @@
 <properties
    pageTitle="HDInsight article index for Azure portal | Microsoft Azure"
    description="An index page with links to articles about HDInsight on the Azure portal. Microsoft recommends the Azure preview portal for new Hadoop clusters on HDInsight."
+   services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
    manager="pablissima"
@@ -9,10 +10,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="index-page"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
 # HDInsight article index for the Azure portal
@@ -35,14 +36,9 @@ Use this index page to find articles covering HDInsight on the [Azure portal](ht
 
 If you're new to Hadoop on HDInsight, go to the [HDInsight documentation page](/documentation/services/hdinsight/) to get started with the Azure preview portal.
 
-* [Get started with Hadoop and a Hive query on Windows](hdinsight-hadoop-tutorial-get-started-windows-v1.md)
-* [Get started using Apache HBase with Hadoop](hdinsight-hbase-tutorial-get-started-v1.md)
-* [Get started with the Storm Starter samples for big data analytics](hdinsight-apache-storm-tutorial-get-started-v1.md)
-
 ## Linux
 
 For a complete set of articles about using Linux and Linux clusters, go to the [HDInsight documentation page](/documentation/services/hdinsight/).
-
 
 ## Hadoop: Batch query
 
@@ -69,12 +65,9 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 
 ## HBase: NoSQL analytics
 
-* [What is HBase in HDInsight](hdinsight-hbase-overview.md)
-* [Analyze real-time Twitter sentiment with HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
-* [Use Maven to build Java applications that use HBase](hdinsight-hbase-build-java-maven.md)
-* [Provision HBase clusters on Azure Virtual Network](hdinsight-hbase-provision-vnet-v1.md)
 * [Configure HBase geo-replication](hdinsight-hbase-geo-replication.md)
-* [Use Apache Phoenix and SQuirreL with HBase clusters in HDInsight](hdinsight-hbase-phoenix-squirrel.md)
+* [Use Maven to build Java applications that use HBase](hdinsight-hbase-build-java-maven.md)
+* [Analyze real-time Twitter sentiment with HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
 
 ## Apache Storm: Stream query
 
@@ -133,7 +126,6 @@ For articles about using native Apache Spark clusters in the Azure preview porta
 
 ## Troubleshoot
 
-* [Tips for Hadoop on Linux](hdinsight-hadoop-linux-information.md)
 * [Release notes](hdinsight-release-notes.md)
 * [Collect heap dumps](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Access application logs](hdinsight-hadoop-access-yarn-app-logs.md)

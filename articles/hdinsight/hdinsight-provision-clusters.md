@@ -3,7 +3,7 @@
    	description="Learn how to custom-provision clusters for Azure HDInsight by using the Azure Preview Portal, Azure PowerShell, a command line, or a .NET SDK."
    services="hdinsight"
    documentationCenter=""
-    tags="azure-portal"
+   tags="azure-portal"
    authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
@@ -17,7 +17,7 @@
    ms.date="08/11/2015"
    ms.author="jgao"/>
 
-#Provision Hadoop clusters in HDInsight
+# Provision Hadoop clusters in HDInsight
 
 Learn how to plan for provision HDInsight clusters.
 
@@ -237,9 +237,9 @@ You can install additional components or customize cluster configuration by usin
 
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-> [AZURE.NOTE] You must create the Azure virtual network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+> [AZURE.NOTE] You must create the Azure virtual network before provisioning an HDInsight cluster. For more information, see [Provision a Hadoop cluster into a virtual network](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network).
 >
-> [AZURE.NOTE] Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks. Use Azure PowerShell cmdlet Get-AzureVNetConfig to check whether an existing Azure virtual network is location-based. If your virtual network is not location-based, you have the following options:
+> Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks. Use Azure PowerShell cmdlet Get-AzureVNetConfig to check whether an existing Azure virtual network is location-based. If your virtual network is not location-based, you have the following options:
 >
 > - Export the existing Virtual Network configuration and then create a new Virtual Network. All new Virtual Networks are location based  by default.
 > - Migrate to a location-based Virtual Network.  See [Migrate existing services to regional scope](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
@@ -264,7 +264,6 @@ You can refer to the [basic configuration options], and the [advanced configurat
     ![Creating a new cluster in the Azure preview portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
 
 3. Type or select the following values:
-
   - **Cluster Name**: Enter a name for the cluster. A green check will appear beside the cluster name if the name is available.
   - **Cluster Type**: Select **Hadoop**.
   - **Cluster Operating System**: Select **Windows Server 2012 R2 Datacenter**.

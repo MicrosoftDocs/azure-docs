@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Sign ins from multiple geographies"
-	description="A report that indicates users where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions.""
+	description="A report that indicates users where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"

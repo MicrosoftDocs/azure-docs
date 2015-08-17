@@ -329,19 +329,6 @@ If you have several tabs within different HTML pages, you can specify the URL to
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### Timed page views
-
-By using this pair of methods calls instead of trackPageView, you can analyze how long users linger on your pages.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-Use the same string as the first parameter in the start and stop calls.
-
-Look at the Page Duration metric in [Metrics Explorer][metrics].
 
 
 ## Track Request

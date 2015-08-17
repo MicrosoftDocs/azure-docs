@@ -61,7 +61,7 @@ Category | Hadoop on Linux | Hadoop on Windows
 
 ### Hadoop, HBase, Storm, and customized clusters
 
-HDInsight provides cluster configurations for specific workloads: Hadoop, HBase, or Storm. Or, you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters with script actions</a>.
+HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters with script actions</a>.
 
 * **Hadoop** (the "Query" workload): Provides reliable data storage with [HDFS](#HDFS), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 
