@@ -4,7 +4,7 @@
  services="traffic-manager, automation" 
  documentationCenter="" 
  authors="eamonoreilly" 
- manager="jwinter" 
+ manager="adinah" 
  editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="na" 
  ms.topic="article" 
- ms.date="04/13/2015" 
- ms.author="eamono"/>
+ ms.date="08/12/2015" 
+ ms.author="joaoma"/>
 
 
 #Managing Azure Traffic Manager using Azure Automation

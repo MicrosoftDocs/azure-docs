@@ -65,7 +65,6 @@ Support for Windows desktop apps and services are provided by the Application In
 
 Create a `TelemetryClient` instance and then [use it to send telemetry][api].
 
-Use `TelemetryClient.Flush()` to send messages before closing the app. The Core SDK uses an in-memory buffer. The flush method will ensure this buffer is emptied helping to ensure no data loss on process shutdown. (This is not recommended for other types of app. The platforms SDKs implement this behavior automatically.)
 
 For example, in a Windows Forms application, you could write:
 
@@ -109,6 +108,10 @@ Use any of the [Application Insights API][api] to send telemetry. In Windows Des
 * TrackMetric(name, value) in a background task to send regular reports of metrics not attached to specific events.
 * TrackTrace(logEvent) for [diagnostic logging][diagnostic]
 * TrackException(exception) in catch clauses
+
+
+To make sure all telemetry is sent before closing the app, use `TelemetryClient.Flush()`. Normally, telemetry is batched and sent at regular intervals. (Flush is recommended only if you are using just the core API. The web and device SDKs implement this behavior automatically.)
+
 
 #### Context initializers
 
