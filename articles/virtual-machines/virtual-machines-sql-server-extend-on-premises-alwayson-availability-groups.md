@@ -27,7 +27,7 @@ This tutorial assumes you have the following:
 
 - An existing AlwaysOn Availability Group on-premises. For more information on Availability Groups, see [AlwaysOn Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx).
 
-- Connectivity between the on-premises network and your Azure virtual network. For more information about creating this virtual network, see [Configure a Site-to-Site VPN in the Management Portal](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/).
+- Connectivity between the on-premises network and your Azure virtual network. For more information about creating this virtual network, see [Configure a Site-to-Site VPN in the Management Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 ## Add Azure Replica Wizard
 
@@ -61,7 +61,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 |**VM Username**|Specify a user name that will become the administrator account on the VM|
 |**VM Administrator Password**|Specify a password for the new account|
 |**Confirm Password**|Confirm the password of the new account|
-|**Virtual Network**|Specify the Azure virtual network that the new VM should use. For more information on virtual networks, see [Virtual Network Overview](.\virtual-network\virtual-networks-overview.md).|
+|**Virtual Network**|Specify the Azure virtual network that the new VM should use. For more information on virtual networks, see [Virtual Network Overview](..\virtual-network\virtual-networks-overview.md).|
 |**Virtual Network Subnet**|Specify the virtual network subnet that the new VM should use|
 |**Domain**|Confirm the pre-populated value for the domain is correct|
 |**Domain User Name**|Specify an account that is in the local administrators group on the local cluster nodes|
