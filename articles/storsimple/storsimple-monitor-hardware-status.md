@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple hardware components and status"
+   pageTitle="StorSimple hardware components and status | Microsoft Azure"
    description="Learn how to monitor the hardware components of your StorSimple device through the StorSimple Manager service."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/31/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # StorSimple hardware components and status
@@ -45,14 +45,14 @@ An 8600 device has additional components that correspond to the Extended Bunch o
 Perform the following steps to view the hardware status of a device component:
 
 1. Navigate to **Devices**, select a specific StorSimple device. Click to go into the device-level menu and then click the **Maintenance** tab. 
-2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for primary enclosure](Component-list-for-primary-enclosure) and the [detailed component list for EBOD enclosure](Component-list-for-EBOD-enclosure).
+2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for the primary enclosure](#component-list-for-primary-enclosure-of-storsimple-device) and the [detailed component list for the EBOD enclosure](#component-list-for-ebod-enclosure-of-storsimple-device).
 2. Use the following color coding scheme to interpret the  component status:
 	-  **Green check** – Denotes a **Healthy** or **OK** component.
 	-  **Yellow** – Denotes a component in **Warning** state.
 	-  **Red exclamation** – Denotes a component that has a **Failure** or **Needs Attention** status.
 	-  **White with black text** – Denotes a component that is not present.
 
-3. If you encounter a component that is not in a **Healthy** state, please contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+3. If you encounter a component that is not in a **Healthy** state, please contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
 
 ## Component list for primary enclosure of StorSimple device
@@ -126,8 +126,8 @@ The following table outlines the physical and logical components contained in th
 
 ## Next steps
 If you need to troubleshoot a device component that has a degraded or failed status, refer to 
-[Troubleshoot with monitoring indicators](storsimple-monitoring-indicators). 
+[StorSimple monitoring indicators](storsimple-monitoring-indicators.md). 
 
-To replace a failed hardware component, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+To replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-If you continue to experience device issues, [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
+If you continue to experience device issues, [contact Microsoft Support](storsimple-contact-microsoft-support.md).

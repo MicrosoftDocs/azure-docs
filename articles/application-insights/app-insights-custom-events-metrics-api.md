@@ -10,7 +10,7 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
@@ -112,7 +112,7 @@ Click the Custom Events tile on the overview blade:
 
 Click through to see an overview chart and a complete list.
 
-Select the chart and segment it by Event name to see the relative contributions of the most significant events.
+Select the chart and group it by Event name to see the relative contributions of the most significant events.
 
 ![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -329,19 +329,6 @@ If you have several tabs within different HTML pages, you can specify the URL to
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### Timed page views
-
-By using this pair of methods calls instead of trackPageView, you can analyze how long users linger on your pages.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-Use the same string as the first parameter in the start and stop calls.
-
-Look at the Page Duration metric in [Metrics Explorer][metrics].
 
 
 ## Track Request
@@ -677,7 +664,7 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
 
     telemetry.Flush();
 
-Note that the function can be synchronous depending on the channel implementation.
+Note that the function is synchronous.
 
 
 
