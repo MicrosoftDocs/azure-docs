@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to connect and manage StorSimple devices
@@ -252,7 +252,7 @@ If a StorSimple device fails and is replaced by a standby (failover) device, use
 
 5. Start StorSimple Snapshot Manager. 
 
-6. To configure the new StorSimple device, complete the steps in [Step 2: Connect a StorSimple device](storsimple-snapshot-manager-deployment.md#step-2-connect-a-storsimple-device) in [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
+6. To configure the new StorSimple device, complete the steps in Step 2: Connect a StorSimple device in [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
 
 7. Right-click the top-level node in the **Scope** pane (StorSimple Snapshot Manager in the example), and then click **Toggle Imports Display**. 
 

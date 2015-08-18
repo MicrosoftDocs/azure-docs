@@ -5,14 +5,14 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="08/18/2015"
    ms.author="alkohli" />
 
 # Troubleshoot StorSimple device deployment issues
@@ -33,7 +33,7 @@ If you run into an issue when deploying your device for the first time, consider
 - Check prerequisites for deployment. Make sure that you have all the information described in the [deployment configuration checklist](storsimple-deployment-walkthrough.md#deployment-configuration-checklist).
 - Review the StorSimple Release Notes to see if the problem is described. The release notes include workarounds for known installation problems. 
 
-During device deployment, the most common issues that users face occur when they run the setup wizard and when they register the device via Windows PowerShell for StorSimple. (You use Windows PowerShell for StorSimple to register and configure your StorSimple device. For more information on device registration, see [Step 3: Configure and register your device through Windows PowerShell for StorSimple](hstorsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
+During device deployment, the most common issues that users face occur when they run the setup wizard and when they register the device via Windows PowerShell for StorSimple. (You use Windows PowerShell for StorSimple to register and configure your StorSimple device. For more information on device registration, see [Step 3: Configure and register your device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
 
 The following sections can help you resolve issues that you encounter when you configure the StorSimple device for the first time.
 
@@ -74,7 +74,7 @@ The following tables list the common errors that you might encounter when you:
 | 4 | Invoke-HcsSetupWizard: A cluster resource failed. (Exception from HRESULT:0x800713AE). | Duplicate VIP. The supplied IP is already in use.| Provide a new IP that is not in use.|
 | 5 | Invoke-HcsSetupWizard: Invalid IPv4 address. | The IP address is provided in an incorrect format.| Check the format and supply your IP address again. For more information, see [Ipv4 Addressing][1]. |
 | 6 | Invoke-HcsSetupWizard: Invalid IPv6 address. | The IP address is provided in an incorrect format.| Check the format and supply your IP address again. For more information, see [Ipv6 Addressing][2].|
-| 7 | Invoke-HcsSetupWizard: There are no more endpoints available from the endpoint mapper.(Exception from HRESULT: 0x800706D9) | The cluster functionality is not working. | [Contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps.
+| 7 | Invoke-HcsSetupWizard: There are no more endpoints available from the endpoint mapper. (Exception from HRESULT: 0x800706D9) | The cluster functionality is not working. | [Contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps.
 
 ## Errors during the optional web proxy settings
 
@@ -137,7 +137,7 @@ You use the StorSimple Manager service running in Microsoft Azure to register th
 | 4 | Error 350049: The service could not be reached during registration. | When the call is made to the service, a web exception is received. In some cases, this may get fixed with retrying the operation later. | Please check your IP address and DNS name and then retry the operation. If the problem persists, [contact Microsoft Support.](storsimple-contact-microsoft-support.md) | 
 | 5 | Error 350031: The device has already been registered. | | No action necessary. |
 | 6 | Error 350016: Device Registration failed. | |Please make sure the registration key is correct. |
-| 7 | Invoke-HcsSetupWizard: An error has occurred while registering your device; this could be due to incorrect IP address or DNS name. Please check your network settings and try again. If the problem persists, [contact Microsoft Support](storsimple-contact-microsoft-support.md).(Error 350050) | Ensure that your device can ping the outside network. If you do not have connectivity to outside network, the registration may fail with this error. This error may be a combination of one or more of the following:<ul><li>Incorrect IP</li><li>Incorrect subnet</li><li>Incorrect gateway</li><li>Incorrect DNS settings</li></ul> | See the steps in the [Step-by-step troubleshooting example](#step-by-step-storsimple-troubleshooting-example). |
+| 7 | Invoke-HcsSetupWizard: An error has occurred while registering your device; this could be due to incorrect IP address or DNS name. Please check your network settings and try again. If the problem persists, [contact Microsoft Support](storsimple-contact-microsoft-support.md). (Error 350050) | Ensure that your device can ping the outside network. If you do not have connectivity to outside network, the registration may fail with this error. This error may be a combination of one or more of the following:<ul><li>Incorrect IP</li><li>Incorrect subnet</li><li>Incorrect gateway</li><li>Incorrect DNS settings</li></ul> | See the steps in the [Step-by-step troubleshooting example](#step-by-step-storsimple-troubleshooting-example). |
 | 8 | Invoke-HcsSetupWizard: The current operation failed due to an internal service error [0x1FBE2]. Please retry the operation after sometime. If the issue persists, please contact Microsoft Support. | This is a generic error thrown for all user invisible errors from service or agent. The most common reason may be that the ACS authentication has failed. A possible cause for the failure is that there are issues with the NTP server configuration and time on the device is not set correctly. | Correct the time (if there are issues) and then retry the registration operation. If this issue persists, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps. |
 | 9 | Warning: Could not activate the device. Your device administrator and StorSimple Snapshot Manager passwords have not been changed. | If the registration fails, the device administrator and StorSimple Snapshot Manager passwords are not changed. |
 
@@ -534,9 +534,9 @@ The error could be caused by any of the following:
 
 ### To locate and fix the device registration problem
 
-1. Check your device configuration: on the active controller, run **Invoke-HcsSetupWizard**.
+1. Check your device configuration: on the active controller, run `Invoke-HcsSetupWizard`.
 
-     > [AZURE.NOTE] The setup wizard must run on the active controller. To verify that you are connected to the active controller, look at the banner presented in the serial console. The banner indicates whether you are connected to controller 0 or controller 1, and whether the controller is active or passive. For more information, go to [Identify an active controller on your device](https://msdn.microsoft.com/library/azure/dn790262.aspx).
+     > [AZURE.NOTE] The setup wizard must run on the active controller. To verify that you are connected to the active controller, look at the banner presented in the serial console. The banner indicates whether you are connected to controller 0 or controller 1, and whether the controller is active or passive. For more information, go to [Identify an active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
  
 2. Make sure that the device is cabled correctly: check the network cabling on the device back plane. The cabling is specific to the device model. For more information, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 
@@ -547,7 +547,7 @@ The error could be caused by any of the following:
    - Use the Get-NetAdapter cmdlet to detect the health of the network interfaces for DATA 0. 
    - If the link isn't functioning, the **ifindex** status will indicate that the interface is down. You will then need to check the network connection of the port to the appliance and to the switch. You will also need to rule out bad cables. 
    - If you suspect that the DATA 0 port on the active controller has failed, you can confirm this by connecting to the DATA 0 port on controller 1. To confirm this, disconnect the network cable from the back of the device from controller 0, connect the cable to controller 1, and then run the Get-NetAdapter cmdlet again. 
-   If the DATA 0 port on a controller fails, [contact Microsoft Support](storsimple-contact-microsoft.support.md) for next steps. You might need to replace the controller on your system.
+   If the DATA 0 port on a controller fails, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps. You might need to replace the controller on your system.
  
 4. Verify the connectivity to the switch:
    - Make sure that DATA 0 network interfaces on controller 0 and controller 1 in your primary enclosure are on the same subnet. 
@@ -570,7 +570,7 @@ The error could be caused by any of the following:
 9. If the preceding steps do not solve the problem, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
 ## Next steps
-Learn how to [troubleshoot an operational device](storsimple-troubleshoot-operational-device.md).
+[Learn how to troubleshoot an operational device](storsimple-troubleshoot-operational-device.md).
 
 <!--Link references-->
 

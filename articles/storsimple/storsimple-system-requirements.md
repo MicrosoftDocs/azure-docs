@@ -188,8 +188,8 @@ In addition to the above networking requirements, for the optimal performance of
 
 ## Next steps
 
-- Learn about [StorSimple limits](storsimple-limits.md).
-- Learn how to [deploy your StorSimple solution](storsimple-deployment-walkthrough.md).
+- [Learn about StorSimple system limits](storsimple-limits.md).
+- [Learn how to deploy your StorSimple solution](storsimple-deployment-walkthrough.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx

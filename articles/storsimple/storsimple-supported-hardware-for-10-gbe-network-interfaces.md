@@ -110,4 +110,4 @@ The following table lists the switches supported by Mellanox. These have not bee
 
 ## Next steps
 
-[Learn more about StorSimple hardware components](https://msdn.microsoft.com/library/azure/dn757755.aspx).
+[Learn more about StorSimple hardware components and status](storsimple-monitor-hardware-status.md).

@@ -266,7 +266,7 @@ Use the following procedure to configure a dynamic mirrored volume, and then eit
 
 ## Next steps
 
-[Use StorSimple Snapshot Manager to manage volume groups](storsimple-snapshot-manager-manage-volume-groups.md).
+[Use StorSimple Snapshot Manager to create and manage volume groups](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
