@@ -74,4 +74,4 @@ You can view the operation logs by clicking the operation logs link available in
 
 ## Next steps
 
-Learn how to [troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).
+[Learn how to troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).

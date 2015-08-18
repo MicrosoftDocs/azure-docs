@@ -539,4 +539,4 @@ The following tables show the shortcut key combinations for each node in the **S
  
 ## Next steps
 
-Learn how to [use StorSimple Snapshot Manager to connect and manage devices](storsimple-snapshot-manager-manage-devices.md).
+[Learn how to use StorSimple Snapshot Manager to connect and manage devices](storsimple-snapshot-manager-manage-devices.md).

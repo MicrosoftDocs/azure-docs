@@ -122,8 +122,8 @@ Passwords are collected before the device is registered, but are applied only af
 
 You can reset the passwords from the Management Portal of your StorSimple Manager service. For more information, see: 
 
-- [Change the device administrator password](storsimple-change-passwords.md#change-the-device-administrator-password)
-- [Change the StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
+- [Change the device administrator password](storsimple-change-passwords.md#change-the-device-administrator-password).
+- [Change the StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
 ## Errors during device registration
 
