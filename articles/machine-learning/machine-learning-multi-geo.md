@@ -43,7 +43,7 @@ If you open an experiment from Gallery, you can also select which region you wan
 
 To programmatically manage web services, such as for retraining, use the region-specific address: **https://asiasoutheast.management.azureml.net**
 
-**Things to note**
+### Things to note
 
 1.	You can only copy experiments between workspaces that belong to the same region. In the future, we will enable copying experiments between workspaces across multiple regions.
 2.	The region selector will only show workspaces for one region at a time. In the future, you will be able to see a full list of workspaces you have access to across all regions at the same time.  
