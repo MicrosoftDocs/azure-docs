@@ -20,12 +20,27 @@
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
 
+## August Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+|  MS15-079    | [3082442] | Cumulative Security Update for Internet Explorer  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-080    | [3078662] | Vulnerabilities in Microsoft Graphics Component Could Allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-082    | [3080348] | Vulnerabilities in RDP could allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-084    | [3080129] | Vulnerabilities in XML Core Services Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-085    | [3082487] | Vulnerability in Mount Manager Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-088    | [3082458] | Unsafe Command Line Parameter Passing Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-089    | [3060716] | Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-090    | [3076949] | Vulnerability in WebDAV Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-092    | [3086251] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+
+
 ## July Guest OS
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-065    | [3076321] | Cumulative Security Update for Internet Explorer | 4.22, 3.29, 2.41 | July 14, 2015 |
-| MS15-066    | [3072604] | Vulnerability in VBScript could allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-066    | [3072604] | Vulnerability in VBScript could allow Remote Code Execution | 2.41 | July 14, 2015 |
 | MS15-067    | [3073094] | Vulnerability in RDP could allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
 | MS15-068    | [3072000] | Vulnerability in Windows Hyper-V Could Allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
 | MS15-069    | [3072631] | Vulnerabilities in Windows Could Allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
@@ -142,6 +157,17 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [3007054][3007054]  | PIN-protected printing option always shows when you print a document within a Windows Store application in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+
+[3082442]: http://support.microsoft.com/kb/3082442
+[3078662]: http://support.microsoft.com/kb/3078662
+[3080348]: http://support.microsoft.com/kb/3080348
+[3080129]: http://support.microsoft.com/kb/3080129
+[3082487]: http://support.microsoft.com/kb/3082487
+[3082458]: http://support.microsoft.com/kb/3082458
+[3060716]: http://support.microsoft.com/kb/3060716
+[3076949]: http://support.microsoft.com/kb/3076949
+[3086251]: http://support.microsoft.com/kb/3086251
+
 
 [3076321]: http://support.microsoft.com/kb/3076321
 [3072604]: http://support.microsoft.com/kb/3072604

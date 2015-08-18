@@ -32,6 +32,12 @@ This tutorial uses the Resource Manager deployment model to create the virtual m
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
+## Video walkthrough
+
+Here's a walkthrough of this tutorial.
+
+[AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
+
 ## Select the image
 
 1. Sign in to the [preview portal](https://portal.azure.com).
