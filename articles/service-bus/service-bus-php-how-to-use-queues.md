@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Service Bus queues (PHP) - Azure" 
+	pageTitle="How to use Service Bus queues (PHP) | Microsoft Azure" 
 	description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." 
 	services="service-bus" 
 	documentationCenter="php" 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/01/2015"
+   ms.date="08/11/2015"
    ms.author="jimpark"; "aashishr"/>
 
 # Using vault credentials to authenticate with the Azure Backup service
@@ -39,11 +39,16 @@ The vault credential file is downloaded through a secure channel from the Azure 
 5.  The portal will generate a vault credential using a combination of the vault name and the current date. Click **Save** to download the vault credentials to the local account's downloads folder, or select Save As from the Save menu to specify a location for the vault credentials.
 
 ## Notes
-- As of March 2015, users do not have a programmatic (eg: PowerShell) way of downloading vault credentials.
 - Ensure that the vault credentials is saved in a location which can be accessed from your machine. If it is stored in a file share/SMB, check for the access permissions.
 - The vault credentials file is used only during the registration workflow.
 - The vault credentials file expires after 48hrs and can be downloaded from the portal.
 - Refer to the Azure Backup [FAQ](backup-azure-backup-faq.md) for any questions on the workflow.
+
+##Video Walkthough
+
+Here's a video walkthrough of this tutorial.
+
+[AZURE.VIDEO using-vault-credentials-to-authenticate-with-the-azure-backup-service]
 
 ## Next steps
 [Download, register and install the Azure Backup Agent](backup-azure-backup-download-register)

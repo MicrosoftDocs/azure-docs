@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Manage your StorSimple volume containers"
+   pageTitle="Manage your StorSimple volume containers | Microsoft Azure"
    description="Explains how you can use the StorSimple Manager service volume containers page to add, modify, or delete a volume container."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/13/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Manage your StorSimple volume containers

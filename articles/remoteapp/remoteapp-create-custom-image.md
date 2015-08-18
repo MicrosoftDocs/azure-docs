@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to create a custom template image for Azure RemoteApp"
-	description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment."
+	description="Learn how to create a custom template image for Azure RemoteApp. You can use this template with either a hybrid or cloud collection."
 	services="remoteapp"
 	documentationCenter=""
 	authors="lizap"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # How to create a custom template image for Azure RemoteApp
@@ -22,7 +22,7 @@ Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the pro
 
 - The image size should be a multiple of MBs. If you try to upload an image that is not an exact multiple, the upload will fail.
 - The image size must be 127 GB or smaller.
-- It must be on a VHD file (VHDX files are not currently supported).
+- It must be on a VHD file (VHDX files [Hyper-V virtual hard drives] are not currently supported).
 - The VHD must not be a generation 2 virtual machine.
 - The VHD can be either fixed-size or dynamically expanding. A dynamically expanding VHD is recommended because it takes less time to upload to Azure than a fixed-size VHD file.
 - The disk must be initialized using the Master Boot Record (MBR) partitioning style. The GUID partition table (GPT) partition style is not supported.
@@ -49,7 +49,7 @@ You need to do the following before creating the service:
 
 ## Create a template image ##
 
-To create a new template image from scratch:
+These are the high level steps to create a new template image from scratch:
 
 1.	Locate a Windows Server 2012 R2 Update DVD or ISO image.
 2.	Create a VHD file.
@@ -109,8 +109,8 @@ The detailed steps for creating a new image are:
  	**Important:**
 
 
-	- Microsoft recommends that you install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
-	- Make sure your application appears in the Start menu. Also ensure that the icon you see in the Start menu is what you want users to see. If not, change it. (You do not *have* to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp. Otherwise, you have to provide the installation path for the application when you publish the app.)
+	- Install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
+	- Make sure your application appears in the **Start** menu. Also ensure that the icon you see in the **Start** menu is what you want users to see. If not, change it. (You do not *have* to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp. Otherwise, you have to provide the installation path for the application when you publish the app.)
 
 8.	Perform any additional Windows configurations required by your applications.
 9.	Disable the Encrypting File System (EFS). Run the following command at an elevated command window:

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" 
+	pageTitle="Scale mobile services backed by Azure SQL Database | Microsoft Azure" 
 	description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" 
 	services="mobile-services" 
 	documentationCenter="" 
