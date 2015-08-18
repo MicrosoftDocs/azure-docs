@@ -21,7 +21,7 @@
 User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active users and truly engaged ones. Azure AD B2C allows you to customize user sign up, sign in (*see note below*) and profile editing pages with pixel-perfect control.
 
 > [AZURE.NOTE]
-Currently, local account sign-in and password reset pages are only customizable using the [company branding feature](https://azure.microsoft.com/en-us/documentation/articles/active-directory-add-company-branding/).
+Currently, local account sign-in and password reset pages are only customizable using the [company branding feature](active-directory-add-company-branding.md).
 
 In this article, you will read about:
 
@@ -45,7 +45,7 @@ This approach allows you to go from the default sign-up page provided by Azure A
 
 Following the steps below will allow you to exercise the page UI customization feature using our sample content. For the purposes of demonstration, the content is only **static** HTML5; you can switch it to **dynamic** HTML5 if you want.
 
-1. You will copy our sample content and store it on [Azure Blob Storage](http://azure.microsoft.com/en-us/documentation/services/storage/), and make it accessible publicly via HTTPS.
+1. You will copy our sample content and store it on [Azure Blob Storage](http://azure.microsoft.com/documentation/services/storage/), and make it accessible publicly via HTTPS.
 2. You will turn on CORS on the Azure Blob Storage URLs where the content gets stored.
 3. You will modify the page UI customization options in your existing sign-up policy to specify the above URLs.
 
@@ -57,43 +57,43 @@ Complete the following pre-requisites before you get started:
 
 ### Step 1: Store the sample content in the right locations
 
-- Sign in to the [Azure Portal](https://portal.azure.com/).
-- Click on **+ New** -> **Data + Storage** -> **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account.
-- Provide a **Name** for the storage account (for e.g., "contoso.core.windows.net") and pick the appropriate selections for **Pricing tier**, **Resource Group** and **Subscription**. Make sure that you have the **Pin to Startboard** option checked. Click **Create**.
-- Go back to the Starboard and click on the storage account that you just created.
-- Under the **Summary** section, click **Containers** and then **+ Add**.
-- Provide a **Name** for the container (for e.g., "b2c") and select **Blob** as the **Access type**. Click **OK**.
-- The container that you created will appear in the list on the **Blobs** blade. Note down the URL of the container; for e.g., it should look like `https://contoso.blob.core.windows.net/b2c`. Close the **Blobs** blade.
-- On the storage account blade, click **Keys** and note down the values of the **Storage Account Name** and **Primary Access Key** fields.
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
+2. Click on **+ New** -> **Data + Storage** -> **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account.
+3. Provide a **Name** for the storage account (for e.g., "contoso.core.windows.net") and pick the appropriate selections for **Pricing tier**, **Resource Group** and **Subscription**. Make sure that you have the **Pin to Startboard** option checked. Click **Create**.
+4. Go back to the Starboard and click on the storage account that you just created.
+5. Under the **Summary** section, click **Containers** and then **+ Add**.
+6. Provide a **Name** for the container (for e.g., "b2c") and select **Blob** as the **Access type**. Click **OK**.
+7. The container that you created will appear in the list on the **Blobs** blade. Note down the URL of the container; for e.g., it should look like `https://contoso.blob.core.windows.net/b2c`. Close the **Blobs** blade.
+8. On the storage account blade, click **Keys** and note down the values of the **Storage Account Name** and **Primary Access Key** fields.
 
 > [AZURE.NOTE]
 **Primary Access Key** is an important security credential.
 
-- Use any one of the [storage explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) listed to upload the [sample content](TBD) files downloaded from github.
+9. Use any one of the [storage explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) listed to upload the [sample content](TBD) files downloaded from github.
 
 > [AZURE.NOTE]
 The simplest storage explorer (fully browser-based) to use is [Azure Web Storage Explorer](http://azurestorage.azurewebsites.net/). Note that this project is not maintained by Microsoft, but by an independent developer on github. Click [here](https://github.com/sebagomez/azurestorageexplorer) for more details.
 
-- Make sure that the content loads as expected; try to access `https://contoso.blob.core.windows.net/b2c/idp.html` on a browser.
+10. Make sure that the content loads as expected; try to access `https://contoso.blob.core.windows.net/b2c/idp.html` on a browser.
 
 ### Step 2: Enable CORS on your storage account
 
-- Open the `App.config` file in the root of the console application project, and enter values for these configuration keys (copied down earlier):
+1. Open the `App.config` file in the root of the console application project, and enter values for these configuration keys (copied down earlier):
   - For "ida:AccountName", enter your **Storage Account Name**. For e.g., "contoso.core.windows.net".
   - For "ida:AccountKey", enter the **Primary Access Key**.
-- Build the Visual Studio solution and run the application.
-- Use [http://test-cors.org/](http://test-cors.org/) to make sure that your content is now CORS enabled (look for `XHR status: 200` in the result).
+2. Build the Visual Studio solution and run the application.
+3. Use [http://test-cors.org/](http://test-cors.org/) to make sure that your content is now CORS enabled (look for `XHR status: 200` in the result).
 
 ### Step 3: Modify the page UI customization options in your sign-up policy
 
-- Sign in to your directory on the [Azure Portal](https://portal.azure.com) and navigate to the B2C features blade.
-- Click **Sign-up policies** and then click on your sign-up policy (for e.g., "B2C_1_SiIn").
-- Click **Page UI customization** and then **Identity provider selection page**.
-- Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter the appropriate URL of the content uploaded to your storage account. For e.g., `https://contoso.blob.core.windows.net/b2c/idp.html`. Click **OK**.
-- Click **Local account sign-up page**. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter the appropriate URL of the content uploaded to your storage account. For e.g., `https://contoso.blob.core.windows.net/b2c/su.html`. Click **OK** twice.
-- Click **Save**.
-- Click the **Run now** command at the top of the blade. Select "B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down. Click the **Run now** button.
-- A new browser tab opens up and you can run through the user experience of signing up for your application with the new content in place!
+1. Sign in to your directory on the [Azure Portal](https://portal.azure.com) and navigate to the B2C features blade.
+2. Click **Sign-up policies** and then click on your sign-up policy (for e.g., "B2C_1_SiIn").
+3. Click **Page UI customization** and then **Identity provider selection page**.
+4. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter the appropriate URL of the content uploaded to your storage account. For e.g., `https://contoso.blob.core.windows.net/b2c/idp.html`. Click **OK**.
+5. Click **Local account sign-up page**. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter the appropriate URL of the content uploaded to your storage account. For e.g., `https://contoso.blob.core.windows.net/b2c/su.html`. Click **OK** twice.
+6. Click **Save**.
+7. Click the **Run now** command at the top of the blade. Select "B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down. Click the **Run now** button.
+8. A new browser tab opens up and you can run through the user experience of signing up for your application with the new content in place!
 
 > [AZURE.NOTE]
 Note that it takes up to a minute for your policy changes to take effect.
@@ -111,7 +111,8 @@ For brevity, only some of the HTML5 code is shown below. Inspect the source code
 
 This page contains a list of identity providers that the user can choose from during sign up or sign in. These are either social identity providers such as Facebook and Google+ or local accounts (email address- or username-based).
 
-`<div id="api" data-name="IdpSelections">
+```HTML
+<div id="api" data-name="IdpSelections">
 	<div>
 		<ul>
 			<li>
@@ -125,13 +126,15 @@ This page contains a list of identity providers that the user can choose from du
 			</li>
 		</ul>
 	</div>
-</div>`
+</div>
+```
 
 ### Local account sign-up page
 
 This page contains a sign-up form that the user has to fill in when signing up using an email address- or username-based local account. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down and multi-select check boxes.
 
-`<div id="api" data-name="SelfAsserted">
+```HTML
+<div id="api" data-name="SelfAsserted">
 	<p>Create your account by providing the following details</p>
 	<div class="attr" id="attributeList">
 	<ul>
@@ -213,7 +216,8 @@ This page contains a sign-up form that the user has to fill in when signing up u
 			Cancel
 		</button>
 	</div>
-</div>`
+</div>
+```
 
 ### Social account sign-up page
 
@@ -223,7 +227,8 @@ This page contains a sign-up form that the user has to fill in when signing up u
 
 This page enables users to verify their phone numbers (using text or voice) during sign up or sign in.
 
-`<div id="api" data-name="Phonefactor">
+```HTML
+<div id="api" data-name="Phonefactor">
 	<div id="phonefactor_initial">
 		<div class="phoneEntry" id="phoneEntry">
 			<div class="phoneNumber">
@@ -243,7 +248,8 @@ This page enables users to verify their phone numbers (using text or voice) duri
 			<button id="cancel" style="display:inline-block">Ask Me Later</button>
 		</div>
 	</div>
-</div>`
+</div>
+```
 
 ### Error page
 
