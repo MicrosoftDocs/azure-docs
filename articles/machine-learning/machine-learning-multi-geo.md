@@ -37,7 +37,7 @@ Currently, all Azure Machine Learning assets are hosted in the South Central Uni
 
 If you open an experiment from Gallery, you can also select which region you want to copy the experiment to.
 
-![Multi-Geo Help image 4][4]
+![Multi-Geo Help image 4][4a]
 
 ## Web service management
 
@@ -48,7 +48,7 @@ To programmatically manage web services, such as for retraining, use the region-
 1.	You can only copy experiments between workspaces that belong to the same region. In the future, we will enable copying experiments between workspaces across multiple regions.
 2.	The region selector will only show workspaces for one region at a time. In the future, you will be able to see a full list of workspaces you have access to across all regions at the same time.  
 3.	A free workspace or Guest Access (anonymous) workspace will be created and hosted in South Central US. In the future, you will be able to create Free/Guest Access workspaces in the region that you choose.  
-4.	Web services deployed from a workspace in SEA will also be hosted in SEA. In the future, you will be able to have the flexibility of creating experiments in one region, and deploying generated web service endpoints into different regions.  
+4.	Web services deployed from a workspace in Southeast Asia will also be hosted in Southeast Asia. In the future, you will be able to have the flexibility of creating experiments in one region, and deploying generated web service endpoints into different regions.  
 
 ## More information
 
@@ -58,4 +58,4 @@ Ask a question on the [Azure Machine Learning forum](https://social.msdn.microso
 [1]: ./media/machine-learning-multi-geo/multi-geo_1.png
 [2]: ./media/machine-learning-multi-geo/multi-geo_2.png
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
-[4]: ./media/machine-learning-multi-geo/multi-geo_4.png
+[4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
