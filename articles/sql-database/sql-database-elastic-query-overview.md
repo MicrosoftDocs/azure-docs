@@ -90,7 +90,7 @@ The Elastic Database query feature relies on the these four DDL statements. Typi
 A credential represents the user ID and password that the elastic database query will use to connect to your elastic scale shard map and your remote databases in Azure SQL DB. You can create the required master key and credential using the following syntax:
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';  
-    CREATE SCOPED CREDENTIAL <credential_name>
+    CREATE DATABASE SCOPED CREDENTIAL <credential_name>
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
