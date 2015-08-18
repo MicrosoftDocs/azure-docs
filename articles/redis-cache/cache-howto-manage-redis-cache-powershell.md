@@ -18,7 +18,7 @@
 
 # Manage Azure Redis Cache with Azure PowerShell
 
-This topic shows you how to create, update and delete with Azure Redis Cache.
+This topic shows you how to create, update and delete an Azure Redis Cache.
 
 ## Prerequisites ##
 
@@ -82,7 +82,7 @@ The following script demonstrates how to create, update and delete an Azure Redi
 		Set-AzureRedisCache -MaxMemoryPolicy AllKeysLRU -Name $cacheName -ResourceGroupName $resourceGroupName
 
 		# Delete the cache.
-		
+
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force
 
 ## Next steps
