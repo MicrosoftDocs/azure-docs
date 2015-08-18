@@ -47,9 +47,9 @@ You can use the VM **hostname** in the client connection string. The hostname is
 
 If you want to connect to your SQL Server database engine from the Internet, you must create a virtual machine endpoint for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
-First, follow the [steps in this article to configure connectivity](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm). Any client with internet access could then connect to the SQL Server instance by specifying the cloud service DNS name (such as **yoursqlvm.cloudapp.net**) and the VM endpoint (such as **57500**).
+First, follow the [steps in this article to configure connectivity](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm). Any client with internet access could then connect to the SQL Server instance by specifying the cloud service DNS name (such as **mycloudservice.cloudapp.net**) and the VM endpoint (such as **57500**).
 
-	"Server=yoursqlvm.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+	"Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 Although this enables connectivity for clients over the internet, this does not imply that anyone can connect to your SQL Server. Outside clients have to the correct username and password. For additional security, don't use the well-known port 1433 for the public virtual machine endpoint. And if possible, consider adding an ACL on your endpoint to restrict traffic only to the clients you permit. For instructions on using ACLs with endpoints, see [How to set up endpoints to a virtual machine](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint). 
 
@@ -65,7 +65,7 @@ First, follow the [steps in this article to configure connectivity](#steps-for-c
 
 Assuming that you have configured DNS, you can connect to your SQL Server instance by specifying the SQL Server VM hostname in the connection string. The following example assumes that Windows Authentication has also been configured and that the user has been granted access to the SQL Server instance.
 
-	"Server=yoursqlvm;Integrated Security=true" 
+	"Server=mysqlvm;Integrated Security=true" 
 
 Note that in this scenario, you could also specify the IP address of the VM.
 
