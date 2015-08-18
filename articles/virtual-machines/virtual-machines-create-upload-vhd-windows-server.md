@@ -167,17 +167,21 @@ After you upload the .vhd, you add it as an image to the list of custom images a
 
 4. In **Create an image from a VHD**, do the following:
 
-	- Specify **name**
-	- Specify **description**
+	- Specify the **name**.
+
+	- Specify the **description**.
+
 	- To specify the **URL of your VHD**, click the folder button to open the following window:
 
-	![Select VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
+    ![Select VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
 
 	- Select the storage account your VHD is in and click **Open**. This returns you to the **Create an image from a VHD** window.
-	- After you return to the **Create an image from a VHD** window, select the Operating System Family.
+
+	- After you return to the **Create an image from a VHD** window, in the Operating System Family, select your operating system.
+
 	- Check **I have run Sysprep on the virtual machine associated with this VHD** to acknowledge that you generalized the operating system in step 1, and then click **OK**.
 
-	![Add Image](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
+    ![Add Image](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
 
 5. **OPTIONAL :** You can the **Add-AzureVMImage** cmdlet instead of the portal to add your VHD as an image. In the Azure PowerShell console, type:
 
