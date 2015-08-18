@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/18/2015" 
 	ms.author="andrl"/>
 
 # DocumentDB server-side programming: Stored procedures, triggers, and UDFs
@@ -520,7 +520,24 @@ Combines and flattens arrays from each input item in to a single array. This beh
 </li>
 </ul>
 </li>
+<li>
+<b>sortBy([predicate] [, options] [, callback])</b>
+<ul>
+<li>
+Produce a new set of documents by sorting the documents in the input document stream in ascending order using the given predicate. This behaves similar to a ORDER BY clause in SQL.
+</li>
 </ul>
+</li>
+<li>
+<b>sortByDescending([predicate] [, options] [, callback])</b>
+<ul>
+<li>
+Produce a new set of documents by sorting the documents in the input document stream in descending order using the given predicate. This behaves similar to a ORDER BY x DESC clause in SQL.
+</li>
+</ul>
+</li>
+</ul>
+
 
 When included inside predicate and/or selector functions, the following JavaScript constructs get automatically optimized to run directly on DocumentDB indices:
 
@@ -537,67 +554,58 @@ For more information, please see our [Server-Side JSDocs](http://dl.windowsazure
 
 ### Example: Write a stored procedure using the JavaScript query API
 
-The following code sample is an example of how the JavaScript Query API can be used in the context of a stored procedure. In this case, the stored procedure implements upsert (create a document, or replace if it already exists) by using the `__.filter()` method to check whether the document already exists.
+The following code sample is an example of how the JavaScript Query API can be used in the context of a stored procedure. The stored procedure inserts a document, given by an input parameter, and updates a metadata document, using the `__.filter()` method, with minSize, maxSize, and totalSize based upon the input document's size property.
 
-    function upsert(newDocument) {
-      var response = getContext().getResponse();
-
-      if (!newDocument) throw new Error("The document is undefined or null.");
-
-      tryQuery(null);
-      // Query to see if a document with the given id already exists.
-      function tryQuery(continuation) {
-        __.filter(
-          // Predicate function.
-          function(doc) {
-            return doc.id == newDocument.id;
-          },
-          // Request options.
-          {
-            continuation: continuation
-          },
-          // Callback.
-          function(err, resource, options) {
-            if (resource.length > 0) {
-              // If the document already exists - replace it.
-              tryReplace(resource[0]);
-            } else if (options.continuation) {
-              // Conservative check for continuation; not expected to hit in practice for a query by id.
-              tryQuery(options.continuation);
-            } else {
-              // If the document doesn't already exist - create it.
-              tryCreate();
-            }
-          });
+    /**
+     * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
+     */
+    function insertDocumentAndUpdateMetadata(doc) {
+      // HTTP error codes sent to our callback funciton by DocDB server.
+      var ErrorCode = {
+        RETRY_WITH: 449,
       }
 
-      // If the document doesn't already exist - create it.
-      function tryCreate() {
-        var isAccepted = __.createDocument(__.getSelfLink(), newDocument, function(err, resource) {
-          if (err) throw err;
-          response.setBody({
-            "operation": "created",
-            "document": resource
+      var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+        if (err) throw err;
+
+        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+        if (!doc.isMetadata && doc.size > 0) {
+          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
+          var result = __.filter(function(x) {
+            return x.isMetadata === true
+          }, function(err, feed, options) {
+            if (err) throw err;
+
+            // We assume that metadata doc was pre-created and must exist when this script is called.
+            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
+
+            // The metadata document.
+            var metaDoc = feed[0];
+
+            // Update metaDoc.minSize:
+            // for 1st document use doc.Size, for all the rest see if it's less than last min.
+            if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
+            else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
+
+            // Update metaDoc.maxSize.
+            metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
+
+            // Update metaDoc.totalSize.
+            metaDoc.totalSize += doc.size;
+
+            // Update/replace the metadata document in the store.
+            var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
+              if (err) throw err;
+              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+              //       We have to take care of that on the client side.
+            });
+            if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
           });
-
-        });
-
-        if (!isAccepted) throw new Error("Unable to schedule create document");
-      }
-
-    // If the document already exists - replace it.
-      function tryReplace(docToReplace) {
-        var isAccepted = __.replaceDocument(docToReplace._self, newDocument, function(err, resource) {
-          if (err) throw err;
-          response.setBody({
-            "operation": "replaced",
-            "document": resource
-          });
-
-        });
-
-        if (!isAccepted) throw new Error("Unable to schedule replace document");
-      }
+          if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
+        }
+      });
+      if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
     }
 
 ## SQL to Javascript cheat sheet
@@ -717,7 +725,9 @@ __.chain()
 <td>
 <pre>
 SELECT VALUE tag
-FROM tag IN docs.Tags
+FROM docs
+JOIN tag IN docs.Tags
+ORDER BY docs._ts
 </pre>
 </td>
 <td>
@@ -726,9 +736,12 @@ __.chain()
     .filter(function(doc) {
         return doc.Tags != null;
     })
+    .sortBy(function(doc) {
+    	return doc._ts;
+    })
     .pluck("Tags")
     .flatten()
-    .value();
+    .value()
 </pre>
 </td>
 <td>Projects the id, message (aliased to msg), and action.</td>
