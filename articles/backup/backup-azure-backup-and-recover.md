@@ -3,7 +3,7 @@
    description="Learn how to backup and restore from a Windows Server or Windows Client. The article also covers alternate server recovery"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
+   authors="aashishr"
    manager="jwhit"
    editor=""/>
 
