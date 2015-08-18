@@ -26,7 +26,7 @@ Scheduler schedules [jobs](scheduler-concepts-terms.md), keeps a history of job 
 There are several scenarios that lend themselves to the usage of Scheduler. For example:
 
 + _Recurring application actions:_ Periodically gathering data from Twitter into a feed.
-+ _Daily maintenance:_ Daily pruning of logs, performing backups, and other maintenance tasks. For example, an administrator may choose to back up the database at 01:00 every day for the next 9 months.
++ _Daily maintenance:_ Daily pruning of logs, performing backups, and other maintenance tasks. For example, an administrator may choose to back up the database at 1:00 A.M. every day for the next nine months.
 
 Scheduler allows you to create, update, delete, view, and manage jobs and [job collections](scheduler-concepts-terms.md) programmatically, by using scripts, and in the portal.
 
