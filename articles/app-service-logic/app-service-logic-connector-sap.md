@@ -53,7 +53,7 @@ Browse to the just created API App via Browse -> API Apps -> <Name of the API Ap
 
 ![][2]
 
-To establish hybrid connectivity do the following:
+The SAP Conector does require hybrid connectivity to connect to *any* SAP endpoint.  To establish hybrid connectivity do the following:
 
 1. Copy the primary connection string
 2. Click on the 'Download and Configure' link

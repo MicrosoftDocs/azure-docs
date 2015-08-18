@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using offline data in your universal Windows app | Azure Mobile Services" 
+	pageTitle="Using offline data in your universal Windows app | Microsoft Azure" 
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your universal Windows app." 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -24,7 +24,7 @@ This tutorial shows you how to add offline support to a Windows Universal Store 
 
 If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.
 
-> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
 In this tutorial, you update the Universal app project from the [Get started with Mobile Services] tutorial to support the offline features of Azure Mobile Services. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 

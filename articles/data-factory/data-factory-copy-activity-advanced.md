@@ -18,7 +18,7 @@
 
 # Advanced scenarios for using the Copy Activity in Azure Data Factory 
 ## Overview
-You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. This topic describes the advanced scenarios that the Copy Activity supports. For a detailed overview of the Copy Activity and core scenarios that it supports, see [Copy data with Azure Data Factory][adf-copyactivity]. 
+You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. This topic describes the advanced scenarios that the Copy Activity supports. 
 
 
 ## Column filtering using structure definition
@@ -170,7 +170,7 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
 			},
 			"sink":
 			{
@@ -265,8 +265,6 @@ Though UTF-8 encoding is quite popular, often time text files in Azure Blob foll
 
 ## See Also
 
-- [Examples for using Copy Activity][copy-activity-examples]
-- [Copy data with Azure Data Factory][adf-copyactivity]
 - [Copy Activity - JSON Scripting Reference](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Video: Introducing Azure Data Factory Copy Activity][copy-activity-video]
 
@@ -276,9 +274,7 @@ Though UTF-8 encoding is quite popular, often time text files in Azure Blob foll
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-copyactivity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456

@@ -1,20 +1,20 @@
 <properties
    pageTitle="How to use Azure Redis Cache with Java"
-   description="Get started with Azure Redis Cache using Java"
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	description="Get started with Azure Redis Cache using Java"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="java"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="04/30/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="java"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Java
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
 #Deploy a web app in Azure App Service
@@ -135,7 +135,6 @@ For information about how to deploy to Web Apps from WebMatrix, see the followin
 For more information, see the following resources:
 
 * [Create a PHP-MySQL web app and deploy using FTP](web-sites-php-mysql-deploy-use-ftp.md).
-* [How to manage Web Apps](web-sites-manage.md#ftp-credentials). Includes additional information not included in the PHP tutorial about how to set FTP credentials.
 
 ##<a name="tfs"></a>Team Foundation Server (TFS)
 
@@ -178,8 +177,11 @@ For more information, see the following resource:
 
 You can perform MSBuild or FTP deployment functions from [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). If you do that, you can also use a collection of Windows PowerShell cmdlets that make the Azure REST management API easy to call.
 
-For more information, see the following resource:
+For more information, see the following resources:
 
+* [Deploy a web app linked to a GitHub repository](app-service-web-arm-from-github-provision.md)
+* [Provision a web app with a SQL Database](app-service-web-arm-with-sql-database-provision.md)
+* [Provision and deploy microservices predictably in Azure](app-service-deploy-complex-application-predictably.md)
 * [Building Real-World Cloud Apps with Azure - Automate Everything](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it. See the [Resources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) section for links to additional Azure PowerShell documentation.
 * [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](http://msdn.microsoft.com/library/dn642480.aspx). How to use Windows PowerShell deployment scripts that Visual Studio generates.
 

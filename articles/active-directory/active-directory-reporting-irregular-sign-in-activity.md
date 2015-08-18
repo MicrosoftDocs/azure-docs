@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Irregular sign in activity"
-	description="A report that includes sign ins that have been identified as anomalous by our machine learning algorithms.""
+	description="A report that includes sign ins that have been identified as anomalous by our machine learning algorithms."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"

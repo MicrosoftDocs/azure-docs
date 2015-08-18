@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Supportability and retirement policy guide for Azure Guest OS | Azure" 
+   pageTitle="Supportability and retirement policy guide for Azure Guest OS | Microsoft Azure" 
    description="Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services." 
    services="cloud-services" 
    documentationCenter="na" 

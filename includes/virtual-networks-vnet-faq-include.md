@@ -124,7 +124,7 @@ Yes. You can create VNet to VNet communication by using REST APIs or Windows Pow
 
 ### What are my DNS options for VNets?
 
-Use the decision table on the [Name Resolution for VMs and Role Instances](https://msdn.microsoft.com/library/azure/jj156088.aspx) page to guide you through all the DNS options available.
+Use the decision table on the [Name Resolution for VMs and Role Instances](virtual-networks-name-resolution-for-vms-and-role-instances.md) page to guide you through all the DNS options available.
 
 ### Can I specify DNS servers for a VNet?
 

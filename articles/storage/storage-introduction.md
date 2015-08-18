@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tamram"/>
 
 # Introduction to Microsoft Azure Storage
@@ -93,7 +93,9 @@ For users with large amounts of unstructured data to store in the cloud, Blob st
 
 Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500 TB capacity limit of the storage account.  
 
-Blob storage offers two types of blobs, block blobs and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. A block blob can be up to 200 GB in size. Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
+Blob storage offers three types of blobs, block blobs, append blobs, and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.
+
+Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
 
 For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center using the [Azure Import/Export Service](storage-import-export-service.md). You can also copy blob data within your storage account or across storage accounts. 
 
@@ -171,6 +173,7 @@ To get started with Azure Storage, explore these resources:
 - [Azure Storage NuGet Package - Client Libraries for .NET, Windows Phone, and Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Azure SDKs and Tools](http://azure.microsoft.com/downloads/)
 - [Azure Storage Emulator](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
+- [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
 ### Source Code
 
@@ -183,7 +186,9 @@ To get started with Azure Storage, explore these resources:
 - [AzCopy Command-Line Tool Reference](storage-use-azcopy.md)
 
 ### For PowerShell Users
-- [Azure Storage Cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
+- [Azure Storage Cmdlets for Service Management](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Azure Storage Cmdlets for Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### For .NET Developers
 
@@ -191,6 +196,7 @@ To get started with Azure Storage, explore these resources:
 - [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
 - [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)
 - [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
+- [How to use File storage with PowerShell and .NET](storage-dotnet-how-to-use-files.md)
 
 ### For Java/Android Developers
 
