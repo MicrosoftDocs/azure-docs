@@ -47,7 +47,7 @@ To programmatically manage web services, such as for retraining, use the region-
 
 1.	You can only copy experiments between workspaces that belong to the same region. In the future, we will enable copying experiments between workspaces across multiple regions.
 2.	The region selector will only show workspaces for one region at a time. In the future, you will be able to see a full list of workspaces you have access to across all regions at the same time.  
-3.	A free workspace or Guest Access (anonymous) workspace will be created and hosted in South Central US. In the future, you will be able to create Free/Guest Access workspaces in the region that you choose.  
+3.	A free workspace or Guest Access (anonymous) workspace will be created and hosted in South Central U.S. In the future, you will be able to create Free/Guest Access workspaces in the region that you choose.  
 4.	Web services deployed from a workspace in Southeast Asia will also be hosted in Southeast Asia. In the future, you will be able to have the flexibility of creating experiments in one region, and deploying generated web service endpoints into different regions.  
 
 ## More information
