@@ -15,7 +15,7 @@ ms.topic="article"
 ms.date="08/18/2015" 
 ms.author="adegeo"/>
 
-# Enable Communication for Role Instances in Azure
+# Enable communication for role instances in azure
 
 Cloud service roles communicate through internal and external connections. External connections are called **input endpoints** while internal connections are called **internal endpoints**. This topic describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.
 
