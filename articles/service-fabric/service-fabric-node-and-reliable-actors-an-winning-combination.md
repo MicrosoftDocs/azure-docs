@@ -18,7 +18,7 @@
 
 
 # Node.js and Reliable Actors: a winning combination
-This article is an overview on how you can build an application that uses node.js and Reliable Actors. The final solution is a blend of javascript code used mainly to provide the frontend side of the app (Web/Rest APIs) and C# for more complex computation. By leveraging Service Fabric programming model, the application is scalable and reliable out of the box.
+This article is an overview on how you can build an application that uses node.js and Reliable Actors. The final solution is a blend of javascript code used mainly to provide the frontend side of the app (Web/Rest APIs) and C`# for more complex computation. By leveraging Service Fabric programming model, the application is scalable and reliable out of the box.
 The process is bsed on the following steps:
 
     1. create a new Service Fabric Stateless or Stateful Actor project using Service Fabric tools for Visual Studio
@@ -179,7 +179,7 @@ AZURE.NOTE Make sure you are using the same names that you used in the `servicem
 # Using Reliable Actors in the Node.js app
 Now that the project structure is set, we can focus on the code that allow the node.js application to connect to Reliable Actors in the cluster like you can do from a .NET application. The scenario we want to enable is to buld a node.js application that act as frontend/gateway for client application and expose an web-based application or a set of rest APIs a client app can use.
 Node.js provides the frontend of the app while Reliable Actors provide the scalable and reliable 'application server' layer of the app.
-In Service Fabric, Reliable Actors can be invoked by using the [ActorProxy class](service-fabric-reliable-actors-introduction/#actor-communication). Luckly there is a great node.js module that can be use to call into .NET code: [Edge.js](https://github.com/tjanczuk/edge). You can use the instructions on the github repo to find out how to install edge on your machine.
+In Service Fabric, Reliable Actors can be invoked by using the [ActorProxy class](service-fabric-reliable-actors-introduction/`#actor-communication). Luckly there is a great node.js module that can be use to call into .NET code: [Edge.js](https://github.com/tjanczuk/edge). You can use the instructions on the github repo to find out how to install edge on your machine.
 
  
 ![][2]
@@ -193,10 +193,10 @@ var getActorStatus = edge.func(function () {
 
 /*
 
-    #r "Microsoft.ServiceFabric.Actors.dll"
-    #r "System.Globalization.dll"
-    #r "System.dll"
-    #r  "visualobjects.interfaces.dll"
+    `#r "Microsoft.ServiceFabric.Actors.dll"
+    `#r "System.Globalization.dll"
+    `#r "System.dll"
+    `#r  "visualobjects.interfaces.dll"
     
     using Microsoft.ServiceFabric.Actors;
     using System.Globalization;
