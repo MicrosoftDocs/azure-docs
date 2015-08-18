@@ -18,7 +18,7 @@
 
 
 
-# Guest OS Family 1 Retirement Notice
+# Guest OS Family 1 retirement notice
 
 The retirement of OS Family 1 was first announced on June 1, 2013.
 
