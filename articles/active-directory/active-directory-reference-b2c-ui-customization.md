@@ -112,6 +112,7 @@ For brevity, only some of the HTML5 code is shown below. Inspect the source code
 This page contains a list of identity providers that the user can choose from during sign up or sign in. These are either social identity providers such as Facebook and Google+ or local accounts (email address- or username-based).
 
 ```HTML
+
 <div id="api" data-name="IdpSelections">
 	<div>
 		<ul>
@@ -127,6 +128,7 @@ This page contains a list of identity providers that the user can choose from du
 		</ul>
 	</div>
 </div>
+
 ```
 
 ### Local account sign-up page
@@ -134,6 +136,7 @@ This page contains a list of identity providers that the user can choose from du
 This page contains a sign-up form that the user has to fill in when signing up using an email address- or username-based local account. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down and multi-select check boxes.
 
 ```HTML
+
 <div id="api" data-name="SelfAsserted">
 	<p>Create your account by providing the following details</p>
 	<div class="attr" id="attributeList">
@@ -217,6 +220,7 @@ This page contains a sign-up form that the user has to fill in when signing up u
 		</button>
 	</div>
 </div>
+
 ```
 
 ### Social account sign-up page
@@ -228,6 +232,7 @@ This page contains a sign-up form that the user has to fill in when signing up u
 This page enables users to verify their phone numbers (using text or voice) during sign up or sign in.
 
 ```HTML
+
 <div id="api" data-name="Phonefactor">
 	<div id="phonefactor_initial">
 		<div class="phoneEntry" id="phoneEntry">
@@ -249,6 +254,7 @@ This page enables users to verify their phone numbers (using text or voice) duri
 		</div>
 	</div>
 </div>
+
 ```
 
 ### Error page
