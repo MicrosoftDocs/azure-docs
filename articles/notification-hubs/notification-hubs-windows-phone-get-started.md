@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with Azure Notification Hubs | Microsoft Azure"
-	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications a Windows Phone 8 or Windows Phone 8.1 Silverlight application."
+	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application."
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -25,7 +25,7 @@
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application. If you are targeting Windows Phone 8.1 (non-Silverlight), then refer to the [Windows Universal](notification-hubs-windows-store-dotnet-get-started.md) version.
 In this tutorial, you create a blank Windows Phone 8 app that receives push notifications by using the Microsoft Push Notification Service (MPNS). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
 
-> [AZURE.NOTE] The Notification Hubs Windows Phone SDK does not support using the Windows Push Notification Service (WNS) with Windows Phone 8.1 Silverlight apps. To use WNS (instead of MPNS) with Windows Phone 8.1 Silverlight apps, follow [Notification Hub - WP Silverlight tutorial], which uses REST APIs.
+> [AZURE.NOTE] The Notification Hubs Windows Phone SDK does not support using the Windows Push Notification Service (WNS) with Windows Phone 8.1 Silverlight apps. To use WNS (instead of MPNS) with Windows Phone 8.1 Silverlight apps, follow the [Notification Hubs - Windows Phone Silverlight tutorial], which uses REST APIs.
 
 The tutorial demonstrates the simple broadcast scenario in using Notification Hubs.
 
