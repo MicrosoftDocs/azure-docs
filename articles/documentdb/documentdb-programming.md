@@ -472,7 +472,7 @@ The UDF can subsequently be used in queries like in the following sample:
 	});
 
 ## JavaScript language-integrated query API
-In addition to issuing queries using DocumentDB’s SQL grammar, the server-side SDK allows you to perform optimized queries using fluent JavaScript interfaces without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing anonymous functions into chainable function calls. Queries are parsed by the JavaScript runtime to be executed efficiently directly over DocumentDB’s indices.
+In addition to issuing queries using DocumentDB’s SQL grammar, the server-side SDK allows you to perform optimized queries using a fluent JavaScript interface without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing predicate functions into chainable function calls, with a syntax familiar to ECMAScript5's Array built-ins and popular JavaScript libraries like lodash. Queries are parsed by the JavaScript runtime to be executed efficiently using DocumentDB’s indices.
 
 > [AZURE.NOTE] `__` (double-underscore) is an alias to `getContext().getCollection()`.
 > <br/>
@@ -734,7 +734,7 @@ ORDER BY docs._ts
 <pre>
 __.chain()
     .filter(function(doc) {
-        return doc.Tags != null;
+        return doc.Tags && Array.isArray(doc.Tags);
     })
     .sortBy(function(doc) {
     	return doc._ts;
@@ -744,7 +744,7 @@ __.chain()
     .value()
 </pre>
 </td>
-<td>Projects the id, message (aliased to msg), and action.</td>
+<td>Filters for documents which have an array property, Tags, and sorts the resulting documents by the _ts timestamp system property, and then projects + flattens the Tags array.</td>
 </tr>
 </tbody>
 </table>
