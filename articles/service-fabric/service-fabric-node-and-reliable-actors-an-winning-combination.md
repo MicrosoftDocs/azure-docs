@@ -28,7 +28,7 @@ The process is bsed on the following steps:
 
 
 
-## create the node.js project
+# create the node.js project
 After you create the node.js project and add the dependencies, you need to change the directory structure of the project so it follows the structure that the Service Fabric tools for Visual Studio required in order to be able to package and deploy the app like any other Service Fabric service. The goal is to make the changes to the directory structure only once so you can benefits from being able to use the deployment process in Visual Studio and hence deploy your node.js app along with the other services in the solution. 
 The changes that needs to be done to the directory structure are:
 
@@ -44,10 +44,10 @@ As you can see all the node.js code is under the PackageRoot/Code directory. Ser
 
 ![][3]
 
-## Add servicemanifest.xml metadata file
+# Add servicemanifest.xml metadata file
 In order to deploy the node.js application, we need to add a metadata file that is required to specify some properties that will be used by Service Fabric in order to determine how to deploy and launch the application.
 
-This is an example on how the servicemanifest.xml should look like, please refer to [this article](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-deploy-existing-app/) for more details on what are the important element that needs to be updated but typically you need to update:
+This is an example on how the servicemanifest.xml should look like, please refer to [this article](service-fabric-deploy-existing-app) for more details on what are the important element that needs to be updated but typically you need to update:
 
 * Name (ServiceManifest element)
 * ServiceTypeName (StatelessServiceType element)
@@ -176,10 +176,10 @@ AZURE.NOTE Make sure you are using the same names that you used in the `servicem
 
 ```
 
-## Using Reliable Actors in the Node.js app
+# Using Reliable Actors in the Node.js app
 Now that the project structure is set, we can focus on the code that allow the node.js application to connect to Reliable Actors in the cluster like you can do from a .NET application. The scenario we want to enable is to buld a node.js application that act as frontend/gateway for client application and expose an web-based application or a set of rest APIs a client app can use.
 Node.js provides the frontend of the app while Reliable Actors provide the scalable and reliable 'application server' layer of the app.
-In Service Fabric, Reliable Actors can be invoked by using the [ActorProxy class](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-reliable-actors-introduction/#actor-communication). Luckly there is a great node.js module that can be use to call into .NET code: [Edge.js](https://github.com/tjanczuk/edge). You can use the instructions on the github repo to find out how to install edge on your machine.
+In Service Fabric, Reliable Actors can be invoked by using the [ActorProxy class](service-fabric-reliable-actors-introduction/#actor-communication). Luckly there is a great node.js module that can be use to call into .NET code: [Edge.js](https://github.com/tjanczuk/edge). You can use the instructions on the github repo to find out how to install edge on your machine.
 
  
 ![][2]
@@ -244,9 +244,9 @@ You can deploy the application (that will include the node.js app) by using, for
 ![][10]
 
 # Next steps
-* Learn more about [Reliable Actors](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-reliable-actors-introduction/)
-* Learn more about Service Fabric [application lifecycle](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-application-lifecycle/)
-* Lean more about upgrading a [Service Fabric application](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-application-upgrade/) 
+* Learn more about [Reliable Actors](service-fabric-reliable-actors-introduction)
+* Learn more about Service Fabric [application lifecycle](service-fabric-application-lifecycle)
+* Lean more about upgrading a [Service Fabric application](service-fabric-application-upgrade) 
 
 <!-- images -->
 [1]: ./media/service-fabric-node-and-reliable-actors-app/nodejs-project-structure.PNG
