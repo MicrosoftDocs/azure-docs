@@ -38,7 +38,7 @@ Elastic database pools simplify the process of creating, maintaining, and managi
 
 To create an elastic database pool you need the following:
 
-- An Azure subscription! If you need an Azure subscription simply click FREE TRIAL at the top of this page, and then come back to finish this article.
+- An Azure subscription! If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL Database version 12 server. If you do not have a V12 server, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
 
 
