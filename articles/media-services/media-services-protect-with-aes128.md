@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Using AES-128 Dynamic Encryption and Key Delivery Service"
+	pageTitle="Use AES-128 Dynamic Encryption and Key Delivery Service"
 	description="Microsoft Azure Media Services enables you to deliver your content encrypted with AES 128-bit encryption keys. Media Services also provides the Key Delivery service that delivers encryption keys to authorized users. This topic shows how to dynamically encrypt with AES-128 and use the key delivery service."
 	services="media-services"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/06/2015"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
-#Using AES-128 Dynamic Encryption and Key Delivery Service
+#Use AES-128 Dynamic Encryption and Key Delivery Service
 
 ##Overview
 
@@ -183,6 +183,8 @@ Get a test token based on the token restriction that was used for the key author
 	//so you have to add it in front of the token string. 
 	string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+
+You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) to test your stream.
 
 ##<a id="client_request"></a>How can your client request a key from the key delivery service?
 

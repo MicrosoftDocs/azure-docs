@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/13/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -85,7 +85,7 @@ Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-
+[Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
 ## Processing the data
 
@@ -185,6 +185,13 @@ On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdins
 
     Yes. Click Disable.
 
+## Code samples
+
+* [Stream Application Insights to Power BI](app-insights-export-power-bi.md)
+* [Parse exported JSON using a worker role][exportcode]
+* [Export to SQL using Stream Analytics][exportasa]
+
+* [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
 <!--Link references-->
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: Intranet SharePoint farm
@@ -110,7 +110,7 @@ Once configured, you can expand this SharePoint farm with guidance from [Microso
 
 ## Additional resources
 
-[Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](../virtual-machines-workload-deploy-spsqlao-overview.md)
+[Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-deploy-spsqlao-overview.md)
 
 [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 

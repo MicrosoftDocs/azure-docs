@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
-# How to Create Routes and Enable IP Forwarding in Azure
+# How to create routes and enable IP Forwarding in Azure
 You can use virtual appliances in Azure to handle traffic in your Azure virtual network. However, you need to create routes that will allow VMs and cloud services in your virtual network to send packets to your virtual appliance, instead of the desired destination for the packet. You also need to enable IP forwarding on the virtual appliance VM so it can receive and forward packets that are not addressed to the actual virtual appliance VM. 
 
-##How to manage routes
+## How to manage routes
 You can add, remove, and change routes in Azure by using PowerShell. Before you can create a route, you must create a route table to host the route.
 
 ### How to create a route table
@@ -105,7 +105,7 @@ Get-AzureEffectiveRouteTable -ServiceName ProductionVMs `
 	-RoleInstanceName myRole
 ```
 
-## How to Manage IP Forwarding
+## How to manage IP Forwarding
 As previously mentioned, you need to enable IP forwarding on any VM or role instance that will act as a virtual appliance. 
 
 ### How to enable IP Forwarding
@@ -144,8 +144,4 @@ To view the status of IP forwarding on a VM named *FWAppliance1*, run the follow
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
-```
-
-## See Also
-
-[User Defined Routes and IP Forwarding Overview](../virtual-networks-udr-overview) 
+``` 

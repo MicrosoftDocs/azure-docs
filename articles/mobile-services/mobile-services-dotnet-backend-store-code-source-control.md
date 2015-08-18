@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Store project code in source control - Azure Mobile Services" 
+	pageTitle="Store project code in source control | Microsoft Azure" 
 	description="Learn how to store your .NET backend project in and publish from a local Git repo on your computer." 
 	services="mobile-services" 
 	documentationCenter="" 

@@ -31,7 +31,7 @@ ExpressRoute supports most Microsoft Azure services today. We are announcing sup
 See this page for service location and availability: [ExpressRoute partners and locations](expressroute-locations.md).
 
 ### How can I use ExpressRoute to connect to Microsoft if I don’t have partnerships with one of the ExpressRoute-carrier partners?
-You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the EXP location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your network procider is present in any of the Exchange locations. You can then order an ExpressRoute circuit through the Exchange provider to connect to Azure.
+You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the EXP location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your network provider is present in any of the Exchange locations. You can then order an ExpressRoute circuit through the Exchange provider to connect to Azure.
 
 ### How much does ExpressRoute cost?
 Check [Pricing Details](http://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
