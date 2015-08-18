@@ -147,7 +147,14 @@ These types are supported in a formula:
 - double
 - doubleVec
 - string
-- timestamp
+- timestamp. timestamp is a compound structure which contains the following members.
+	- year
+	- month (1-12)
+	- day (1-31)
+	- weekday (in the format of number. E.g. 1 for Monday)
+	- hour (in 24-hour number format. E.g. 13 means 1PM)
+	- minute (00-59)
+	- second (00-59)
 - timeinterval
 	- TimeInterval_Zero
 	- TimeInterval_100ns
@@ -461,6 +468,36 @@ You should periodically check the results of the automatic scaling runs. Do this
 
 - [ICloudPool.AutoScaleRun Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx) – When using the .NET library, this property of a pool provides an instance of the [AutoScaleRun Class](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), which provides an  [AutoScaleRun.Error Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx), a [AutoScaleRun.Results Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx), and a [AutoScaleRun.Timestamp Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx).
 - [Get information about a pool](https://msdn.microsoft.com/library/dn820165.aspx) – This REST API returns information about the pool, which includes the latest automatic scaling run.
+
+## Examples
+
+### Example 1.
+
+You want to adjust pool size based on time of the week.
+
+    curTime=time();
+    workhours=curTime.hour>=8 && curTime.hour <18;
+    isweekday=curTime.weekday>=1 && curTime.weekday<=5;
+    isworkingweekdayhour = workhours && isweekday;
+    $TargetDedicated=workhours?20:10;
+    
+This formula will detect the current time. If it's weekday (1..5) and working hour (8am .. 6pm), the target pool size will be set to 20. Otherwise the pool size is targeted at 10.
+
+### Example 2.
+
+Another sample for adjusting pool size based on tasks in the queue.
+
+    // Get pending tasks for the past 15 minutes
+    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); 
+    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of last sample point and the history average
+    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+    // If number of pending task is not 0, set targetVM to pending tasks, otherwise half of current dedicated
+    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+    // The pool size is capped at 20, if target vm value is more than that, set it to 20. This value should be adjusted according to your case.
+    $TargetDedicated = max(0,min($TargetVMs,20));
+    // optionally, set vm Deallocation mode - shrink VM after task is done.
+    $TVMDeallocationOption = taskcompletion;
+    
 
 ## Next Steps
 
