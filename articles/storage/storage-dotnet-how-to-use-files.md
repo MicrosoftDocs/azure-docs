@@ -49,7 +49,7 @@ Azure File storage is currently in preview. To request access to the preview, na
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Use PowerShell to create a file share
+## Use PowerShell to manage a file share
 
 Next, we'll use Azure PowerShell to create a file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1.
 
@@ -101,6 +101,16 @@ To see the file in the directory, you can list the directory's files. This comma
 
 	# list files in the new directory
 	Get-AzureStorageFile -Share $s -Path CustomLogs
+
+### Copy files
+
+Beginning with version 0.9.7 of Azure PowerShell, you can copy a file to another file, a file to a blob, or a blob to a file. Below we demonstrate how to perform these copy operations using cmdlets.
+
+	# copy a file to the new directory
+    Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
+    # copy a blob to a file directory
+    Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
+
 
 ## Mount the share from an Azure virtual machine running Windows
 
