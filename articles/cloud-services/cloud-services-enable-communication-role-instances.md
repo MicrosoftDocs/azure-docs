@@ -64,6 +64,7 @@ To create an internal input endpoint, add the **InternalEndpoint** child element
 ```
 
 You can also use a port range.
+
 ```xml
 <Endpoints>
   <InternalEndpoint name="Endpoint3" protocol="any">
