@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="07/09/2015"
+   ms.date="08/18/2015"
    ms.author="coreyp"/>
 
 # Azure Automation DSC Overview #
@@ -57,7 +57,7 @@ PowerShell DSC introduced a new concept called configurations. Configurations al
 
 ![alt text](./media/automation-dsc-overview/AADSC_1.png)
 
-Inside the configuration block you can define node configuration blocks that specify the desired configuration for a set of nodes (computers) in your environment that should be configured exactly the same. In this way, a node configuration represents a “role” for one or more nodes to assume. A node configuration block starts with the node keyword. Follow this keyword with the name of the role, which can be a variable. After the computer name, use braces {} to delimit the node configuration block.
+Inside the configuration block you can define node configuration blocks that specify the desired configuration for a set of nodes (computers) in your environment that should be configured exactly the same. In this way, a node configuration represents a “role” for one or more nodes to assume. A node configuration block starts with the node keyword. Follow this keyword with the name of the role, which can be a variable or expression. After the role name, use braces {} to delimit the node configuration block.
 
 ![alt text](./media/automation-dsc-overview/AADSC_2.png)
  
@@ -82,14 +82,14 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 
 When a DSC Configuration is compiled, one or more node configurations are produced depending on the Node blocks in the configuration. A node configuration is the same as a “MOF,” or “configuration document” (if you are familiar with those PS DSC terms) and represents a “role,” such as webserver or worker, which desired state one or more nodes should assume.
 
-PS DSC nodes become aware of node configurations they should enact via either DSC push, or pull methods. Azure Automation DSC relies on the DSC pull method, where nodes request node configurations they should apply from Azure Automation DSC pull servers. Because the nodes make the request to Azure Automation DSC, they nodes can be behind firewalls, have all inbound ports closed, etc. They only need outbound access to the Internet.
+PS DSC nodes become aware of node configurations they should enact via either DSC push, or pull methods. Azure Automation DSC relies on the DSC pull method, where nodes request node configurations they should apply from Azure Automation DSC pull server. Because the nodes make the request to Azure Automation DSC, nodes can be behind firewalls, have all inbound ports closed, etc. They only need outbound access to the Internet.
 
 Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of DSC node configurations: `Get-AzureAutomationDscNodeConfiguration`
 
 
 ###Node###
 
-A DSC node is any computer that's configuration is managed by DSC. This could be an Azure VM or on-premises VM / physical host. Nodes enact node configurations to become and maintain compliance with the desired state they define, and also can report back to a reporting server on their configuration status and compliance.
+A DSC node is any machine that has its configuration managed by DSC. This could be an Azure VM or an on-premises VM / physical host. Nodes enact node configurations to become and maintain compliance with the desired state they define, and also can report back to a reporting server on their configuration status and compliance.
 
 Azure Automation DSC makes onboarding of nodes for management by Azure Automation DSC easy, and allows changing of the node configuration assigned to each node server-side, so next time a node checks the server for instructions it will assume a different role and change how it is configured to match. Nodes also report their status and configuration compliance to Azure Automation DSC.
 
@@ -103,7 +103,7 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 -	`Get-AzureAutomationDscNodeReport`
 -	`Export-AzureAutomationDscNodeReportContent`
 
-The `Get-AzureAutomationRegistrationInfo` cmdlet can be used to get the registration URL and key needed to onboard Azure Classic VMs to an Azure Automation account, either via the Azure Automation DSC VM extension in the Azure portal, or via PowerShell.
+The `Get-AzureAutomationRegistrationInfo` cmdlet can be used to get the registration URL and key needed to onboard Azure classic VMs to an Azure Automation account, either via the Azure Automation DSC VM extension in the Azure portal, or via PowerShell.
 
 
 Azure Automation DSC VM extension:
@@ -170,7 +170,7 @@ DSC resources can also be imported as part of PowerShell Modules to extend the s
 
 Azure Automation DSC ships with all the same built-in DSC resources as does PS DSC. Additional resources can be added to Azure Automation DSC by importing PowerShell modules containing the resources into Azure Automation.
 
-Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of DSC Nodes:
+Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of PowerShell modules:
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -195,7 +195,7 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 
 ##Gotchas / Known Issues:##
 
-- Since Azure Automation DSC is in preview, the first time you use this feature you will need to sign up for it using Azure PowerShell cmdlets. You can sign up by calling the following two cmdlets:
+- Since Azure Automation DSC is in preview, the first time you use this feature you will need to sign up for it using the Azure PowerShell cmdlets or Azure preview portal. You can sign up by calling the following two cmdlets:
 
  - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
  - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
