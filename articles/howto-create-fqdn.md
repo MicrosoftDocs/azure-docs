@@ -21,7 +21,7 @@
 
 When you create a virtual machine in the [Azure Preview Portal](https://portal.azure.com), it also creates a public IP resource. You can use this IP address to remotely access the virtual machine. However, the portal does not create a Fully Qualified Domain Name (or FQDN) by default. This article demonstrates how you can add a domain name to your virtual machine.
 
-The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images, using **Resource Manager** deployment model. Follow these steps once your virtual machine starts running. We will use an Ubuntu Server virtual machine as an example.
+The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images, using the **Resource Manager** deployment model. Follow these steps once your virtual machine starts running.
 
 1.  View the virtual machine settings on the portal and click on the Public IP address.
 
@@ -43,6 +43,8 @@ The article assumes that you have logged in to your subscription in the portal, 
 
     ![configure IP resource](media/howto-create-fqdn/configureIP.PNG)
 
-6.  Close all other blades and go back to the **Virtual Machine** blade. Click on the Public IP resource in the settings. Notice that the Public IP blade now shows the desired FQDN as the **DNS name**. You can now connect remotely to the virtual machine using this DNS name, for example, `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`.
+6.  Close all other blades and go back to the **Virtual Machine** blade. Click on the Public IP resource in the settings. Notice that the Public IP blade now shows the desired FQDN as the **DNS name**.
 
     ![FQDN is created](media/howto-create-fqdn/fqdnCreated.PNG)
+
+    You can now connect remotely to the virtual machine using this DNS name, for example, `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`.
