@@ -101,6 +101,4 @@ When you create a runbook, you should ensure that the time to run any activities
 
 ## Related articles
 
-- [Starting a runbook in Azure Automation](automation-starting-a-runbook)
-- [Viewing the status of a runbook job in Azure Automation](automation-viewing-the-status-of-a-runbook-job)
- 
+- [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
