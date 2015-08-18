@@ -1,6 +1,6 @@
 <properties
    	pageTitle="Linux tutorial: Get started with Hadoop and Hive | Microsoft Azure"
-   	description="Follow this Linux tutorial to get started using Hadoop in HDInsight. Learn how to provision Linux clusters and query data with Hive."
+   	description="Follow this Linux tutorial to get started using Hadoop in HDInsight. Learn how to provision Linux clusters, and query data with Hive."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -23,15 +23,17 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-This Hadoop tutorial gets you started quickly with Azure HDInsight on Linux by showing you how to provision a Hadoop cluster on Linux and how to run a Hive query.
+This Hadoop tutorial gets you started quickly with Azure HDInsight on Linux by showing you how to provision an Hadoop cluster on Linux and run a Hive query.
+
 
 > [AZURE.NOTE] If you are new to Hadoop and big data, you can read more about the terms <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">Hadoop Distributed File System (HDFS)</a>, and <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
 
+
 ## What does this tutorial accomplish?
 
-Assume you have a large, unstructured data set, and you want to run queries on it to extract some meaningful information. Here's how you achieve this:
+Assume you have a large unstructured data set and you want to run queries on it to extract some meaningful information. Here's how you achieve this:
 
-   ![Hadoop tutorial steps: Create a storage account, provision a Hadoop cluster, query data with Hive.](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.Linux.GetStartedFlow.png)
+   ![Hadoop tutorial steps: Create a Storage account; provision a Hadoop cluster; query data with Hive.](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.Linux.GetStartedFlow.png)
 
 
 ## Prerequisites
@@ -39,7 +41,7 @@ Assume you have a large, unstructured data set, and you want to run queries on i
 Before you begin this Linux tutorial for Hadoop, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Secure Shell (SSH) keys**. If you want to remote into a Linux cluster by using SSH with a key instead of a password. Using a key is the recommended method because it is more secure. For instructions on how to generate SSH keys, see the following articles:
+- **Secure Shell (SSH) keys**. If you want to remote into a Linux cluster by using SSH with a key instead of a password. Using a key is the recommended method as it is more secure. For instructions on how to generate SSH keys, refer to the following articles:
 	-  From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -51,47 +53,49 @@ When you provision a cluster, you provision Azure compute resources that contain
 
 >[AZURE.NOTE]  You can also create Hadoop clusters running the Windows Server operating system. For instructions, see [Get Started with HDInsight on Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
 
+
 **To provision an HDInsight cluster**
 
-1. Sign in to the [Azure preview portal](https://ms.portal.azure.com/).
-2. Click **NEW**, click **Data + Analytics**, and then click **HDInsight**.
+1. Sign in to the [Azure Preview Portal](https://ms.portal.azure.com/).
+2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure preview portal](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Creating a new cluster in the Azure preview portal")
+    ![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
 
-3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Ubuntu**. A green check appears beside the cluster name if it is available.
+3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Ubuntu**. A green check will appear beside the cluster name if it is available.
 
 	![Enter cluster name and type](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.2.png "Enter cluster name and type")
 
 4. If you have more than one subscription, click the **Subscription** entry to select the Azure subscription that will be used for the cluster.
 
-5. Click **Resource Group** to see a list of existing resource groups, and then select the one in which you want to create the cluster. Or, you can click **Create New**, and then enter the name of the new resource group. A green check appears to indicate if the new group name is available.
+5. Click **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can click **Create New** and then enter the name of the new resource group. A green check will appear to indicate if the new group name is available.
 
-	> [AZURE.NOTE] This entry defaults to one of your existing resource groups, if any are available.
+	> [AZURE.NOTE] This entry will default to one of your existing resource groups, if any are available.
 
-6. Click **Credentials**, and then enter a password for the admin user. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
+6. Click **Credentials** and then enter a password for the admin user. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
 
 	![Provide cluster credentials](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Provide cluster credentials")
 
-	For more information about using SSH with HDInsight, see one of the following articles:
+	For more information on using SSH with HDInsight, see one of the following articles:
 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-7. Click **Data Source** to choose an existing data source for the cluster, or create a new one. When you provision a Hadoop cluster in HDInsight, you specify an Azure storage account. A specific blob storage container from that account is designated as the default file system, like in the Hadoop distributed file system (HDFS). By default, the HDInsight cluster is provisioned in the same datacenter as the storage account you specify. For more information, see [Use Azure blob storage with HDInsight](hdinsight-use-blob-storage.md)
+
+7. Click **Data Source** to choose an existing data source for the cluster, or create a new one. When you provision a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, like in the Hadoop distributed file system (HDFS). By default, the HDInsight cluster is provisioned in the same data center as the storage account you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-use-blob-storage.md)
 
 	![Data source blade](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "Provide data source configuration")
 
-	Currently you can select an Azure storage account as the data source for an HDInsight cluster. Use the following to understand the entries on the **Data Source** blade.
+	Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the **Data Source** blade.
 
-	- **Selection Method**: Set this to **From all subscriptions** to let you browse storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
+	- **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
 
-	- **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account that you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check appears if the name is available.
+	- **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
 
 	- **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
 
-	- **Location**: The geographic region that the storage account is in or will be created in.
+	- **Location**: The geographic region that the storage account is in, or will be created in.
 
-		> [AZURE.IMPORTANT] Selecting the location for the default data source also sets the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
+		> [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
 
 	Click **Select** to save the data source configuration.
 
@@ -101,11 +105,11 @@ When you provision a cluster, you provision Azure compute resources that contain
 
 	Click **Select** to save the node pricing configuration.
 
-9. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This creates the cluster and adds a tile for it to the Startboard of your Azure portal. The icon indicates that the cluster is provisioning, and changes to display the HDInsight icon once provisioning has been completed.
+9. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.
 
-| While provisioning | Provisioning complete |
- | ------------------ | --------------------- |
- | ![Provisioning indicator on Startboard](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png) |
+While provisioning|Provisioning complete
+------------------|---------------------
+	![Provisioning indicator on startboard](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Provisioned cluster tile](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
 > [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
 
@@ -117,6 +121,8 @@ Now that you have an HDInsight Linux cluster provisioned, the next step is to ru
 - Connect to a Linux cluster
 - Run a Hive job
 
+
+
 ### To connect to a cluster
 
 You can connect to an HDInsight cluster on Linux from a Linux computer or a Windows-based computer by using SSH.
@@ -127,11 +133,11 @@ You can connect to an HDInsight cluster on Linux from a Linux computer or a Wind
 
 		ssh <username>@<clustername>-ssh.azurehdinsight.net
 
-	Because you provisioned a cluster with the **Quick Create** option, the default SSH user name is **hdiuser**. So, the command must be:
+	Because you provisioned a cluster with the Quick Create option, the default SSH user name is **hdiuser**. So, the command must be:
 
 		ssh hdiuser@myhdinsightcluster-ssh.azurehdinsight.net
 
-2. When prompted, enter the password that you provided while provisioning the cluster. After you are successfully connected, the prompt changes to the following:
+2. When prompted, enter the password that you provided while provisioning the cluster. After you are successfully connected, the prompt will change to the following:
 
 		hdiuser@headnode-0:~$
 
@@ -146,7 +152,7 @@ You can connect to an HDInsight cluster on Linux from a Linux computer or a Wind
 
 3. To save the connection information for future use, enter a name for this connection under **Saved Sessions**, and then click **Save**. The connection will be added to the list of saved sessions.
 
-4. Click **Open** to connect to the cluster. When prompted for the user name, enter **hdiuser**. For the password, enter the password you specified while provisioning the cluster. After you are successfully connected, the prompt changes to the following:
+4. Click **Open** to connect to the cluster. When prompted for the user name, enter **hdiuser**. For the password, enter the password you specified while provisioning the cluster. After you are successfully connected, the prompt will change to the following:
 
 		hdiuser@headnode-0:~$
 
@@ -182,14 +188,11 @@ Once you are connected to the cluster via SSH, use the following commands to run
 		Total jobs = 1
 		Launching Job 1 out of 1
 		Number of reduce tasks not specified. Estimated from input data size: 1
-
-    In order to change the average load for a reducer (in bytes):
+		In order to change the average load for a reducer (in bytes):
 		  set hive.exec.reducers.bytes.per.reducer=<number>
-
-    In order to limit the maximum number of reducers:
+		In order to limit the maximum number of reducers:
 		  set hive.exec.reducers.max=<number>
-
-    In order to set a constant number of reducers:
+		In order to set a constant number of reducers:
 		  set mapreduce.job.reduces=<number>
 		Starting Job = job_1421200049012_0006, Tracking URL = <URL>:8088/proxy/application_1421200049012_0006/
 		Kill Command = /usr/hdp/2.2.1.0-2165/hadoop/bin/hadoop job  -kill job_1421200049012_0006
@@ -213,9 +216,10 @@ Once you are connected to the cluster via SSH, use the following commands to run
 		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
 		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
+
 	These statements perform the following actions:
 
-	- **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table deletes the underlying data as well.
+	- **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table will delete the underlying data as well.
 	- **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
 	- **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
 
@@ -237,28 +241,28 @@ In this Linux tutorial, you have learned how to provision a Hadoop cluster on Li
 
 - [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md): Linux-based HDInsight clusters use Ambari for management and monitoring of Hadoop services. The Ambari web UI is available on each cluster at https://CLUSTERNAME.azurehdinsight.net.
 
-	> [AZURE.IMPORTANT] While many sections of the Ambari web are directly accessible through the Internet, the web UI for Hadoop services such as Resource Manager or Job History require the use of an SSH tunnel. For more information about using an SSH tunnel with HDInsight, see the following articles:
+	> [AZURE.IMPORTANT] While many sections of the Ambari web are directly accessible through the Internet, the web UI for Hadoop services such as Resource Manager or Job History require the use of an SSH tunnel. For more information on using an SSH tunnel with HDInsight, see the following articles:
 	>
 	> * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
 	> * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
 
 - [Provision HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md): Learn more details about how to provision HDInsight clusters.
 
-- [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md): If you are already familiar with Hadoop on Linux platforms, this document provides guidance on Azure-specific information, such as:
+- [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md): If you are already familiar with Hadoop on Linux platforms, this document provides guidance on Azure specific information, such as:
 
 	* URLs for services hosted on the cluster, such as Ambari and WebHCat
 	* The location of Hadoop files and examples on the local file system
 	* The use of Azure Storage (WASB) instead of HDFS as the default data store
 
-- For more information about Hive, or to learn about Pig and MapReduce, see the following:
+- For more information on Hive, or to learn about Pig and MapReduce, see the following:
 
 	- [Use MapReduce with HDInsight][hdinsight-use-mapreduce]
 	- [Use Hive with HDInsight][hdinsight-use-hive]
 	- [Use Pig with HDInsight][hdinsight-use-pig]
 
-- For more information about how to work with Azure Storage used by your HDInsight cluster, see the following:
+- For more information on how to work with the Azure Storage used by your HDInsight cluster, see the following:
 
-	- [Use Azure blob storage with HDInsight](../hdinsight-use-blob-storage.md)
+	- [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md)
 	- [Upload data to HDInsight][hdinsight-upload-data]
 
 
