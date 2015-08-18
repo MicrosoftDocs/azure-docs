@@ -11,7 +11,7 @@ All Azure technical articles contain two metadata sections - a properties sectio
 
 ##Syntax
 
-The properties section uses this syntax:
+The properties section uses the following syntax:
 
     <properties
        pageTitle="Page title that displays in search results and the browser tab | Microsoft Aure"
@@ -23,7 +23,7 @@ The properties section uses this syntax:
        editor=""
        tags=""/>
 
-The tags section uses this syntax:
+The tags section uses the following syntax:
 
     <tags
        ms.service="required"
