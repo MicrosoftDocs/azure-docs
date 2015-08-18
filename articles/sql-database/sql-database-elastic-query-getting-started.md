@@ -64,7 +64,7 @@ These are used to connect to the shard map manager and the shards:
 
 		CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
-		CREATE SCOPED CREDENTIAL ElasticDBQueryCred
+		CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
 		WITH IDENTITY = '<username>',
 		SECRET = '<password>';
 
