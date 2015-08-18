@@ -11,7 +11,7 @@
     ms.workload="tbd" 
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
-    ms.topic="article" 
+    ms.topic="get-started-article" 
     ms.date="04/27/2015" 
     ms.author="awills"/>
 
@@ -35,7 +35,7 @@ In the [Azure portal][portal], create a new Application Insights resource. Pick 
 
 The blade that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
 
-## Download Application Insights for Mac
+## Download Application Insights for iOS
 
 (If you didn't do this already.)
 
@@ -137,6 +137,6 @@ Click on any chart to get more detail. For example, crashes:
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

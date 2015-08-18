@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/16/2015"
+	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
 # Customizing the developer portal in Azure API Management

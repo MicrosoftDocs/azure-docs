@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" 
+	pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Microsoft Azure" 
 	description="Find out how to use Microsoft Azure DocumentDB to write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 

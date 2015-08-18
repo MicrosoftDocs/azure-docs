@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Add company branding to your Sign In and Access Panel pages" 
-	description="A topic that explains how an organization can apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Add company branding to your Sign In and Access Panel pages"
+	description="A topic that explains how an organization can apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites."
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/11/2015" 
+	ms.author="MarkVi"/>
 
 # Add company branding to your Sign In and Access Panel pages
 
 > [AZURE.NOTE]
-> 
+>
 - Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 - Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
@@ -44,7 +44,7 @@ User will see a branded sign in page when they visit a service with a tenant-spe
 If they visit a service with non-tenant specific URLs (such as https://mail.office365.com) they will see a non-branded sign in page. The sign in page will refresh to show your branding once users have entered their user ID or selected a user tile.
 
 > [AZURE.NOTE]
-> 
+>
 - Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure Management Portal where you have configured branding.
 - Sign in page branding doesn’t carry over to Microsoft’s consumer sign in page. This means that users who sign in with a personal Microsoft account (formerly Windows Live ID) may see a branded list of user tiles rendered by Azure AD, but your organization’s branding will not apply to the Microsoft account sign-in page.
 
@@ -90,7 +90,7 @@ You can also localize all elements on this page. Once you’ve configured a “d
 
 ### How will the illustration appear after the browser has been resized?
 
-During a browser window resizing, the large Illustration, like the one shown previously, will almost always be cropped to accommodate different screen aspect ratios. With this in mind, you should try to keep the key visual elements in the illustration so that they will always show in the top-left corner (top-right for right-to-left languages). This is important because resizing typically occurs from the bottom-right corner going towards the top/left or from the bottom towards the top. 
+During a browser window resizing, the large Illustration, like the one shown previously, will almost always be cropped to accommodate different screen aspect ratios. With this in mind, you should try to keep the key visual elements in the illustration so that they will always show in the top-left corner (top-right for right-to-left languages). This is important because resizing typically occurs from the bottom-right corner going towards the top/left or from the bottom towards the top.
 
 The following picture shows how the illustration will be cropped when the browser is resized to the left:
 
@@ -143,7 +143,7 @@ To remove company branding from your directory
     5. For Sign In Page Illustration, click on the check box to **Remove illustration**.
     6. For Sign In Page Background Color, clear all text.
 4. Click **Save** to remove the elements.
-5. If necessary, click **Customize Branding** again and repeat these steps for all language-specific branding that needs to be removed. 
+5. If necessary, click **Customize Branding** again and repeat these steps for all language-specific branding that needs to be removed.
     All branding settings have been removed when you click **Customize Branding** and see the **Customize Default Branding** form with no existing settings configured.
 
 ## Testing and examples
@@ -186,5 +186,3 @@ Sign In Page Background Color | The Sign In page background color is used in the
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
-
- 

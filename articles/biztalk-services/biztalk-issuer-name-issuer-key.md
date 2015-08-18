@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Issuer Name and Issuer Key in BizTalk Services | Azure" 
+	pageTitle="Issuer Name and Issuer Key in BizTalk Services | Microsoft Azure" 
 	description="Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -62,7 +62,7 @@ Issuer Key = Password value
 
 In the left navigation pane, you can also select **Active Directory** to retrieve the Access Control values. 
 
-> [AZURE.IMPORTANT] When an Access Control Namespace is created using <strong>Active Directory</strong>, a Service Identity is **not** automatically created. When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.<br /> 
+> [AZURE.IMPORTANT] When an Access Control Namespace is created using **Active Directory**, a Service Identity is **not** automatically created. When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.<br /> 
 [How to: Use ACS Management Service to Configure Service Identities](http://go.microsoft.com/fwlink/p/?LinkID=303942) provides more information on Access Control Service Identities.
 
 

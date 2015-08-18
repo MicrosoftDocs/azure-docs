@@ -3,7 +3,7 @@
 	description="Use Power BI to monitor the performance and usage of your application." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Power BI views of Application Insights data
@@ -24,6 +24,12 @@
 In this article, we'll show how to export data from Application Insights and use Stream Analytics to move the data into Power BI. [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) is an Azure service that we'll use as an adaptor.
 
 ![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/020.png)
+
+## Video
+
+Noam Ben Zeev shows what we describe in this article.
+
+> [AZURE.VIDEO export-to-power-bi-from-application-insights]
 
 ## Monitor your app with Application Insights
 
@@ -112,7 +118,7 @@ In this example:
 
 * `webapplication27` is the name of the Application Insights resource. 
 * `1000...` is the instrumentation key of the Application Insights resource. 
-* `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types.
+* `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](app-insights-export-data-model.md).
 * `/{date}/{time}` is a pattern written literally.
 
 To get the name and iKey of your Application Insights resource, open Essentials on its overview page, or open Settings.
@@ -146,7 +152,7 @@ Paste this query:
 ```SQL
 
     SELECT
-      flat.ArrayValue.name
+      flat.ArrayValue.name,
       count(*)
     INTO
       [pbi-output]
@@ -189,3 +195,4 @@ Noam Ben Zeev shows how to export to Power BI.
 
 * [Continuous export](app-insights-export-telemetry.md)
 * [Application Insights](app-insights-overview.md)
+* [More samples and walkthroughs](app-insights-code-samples.md)

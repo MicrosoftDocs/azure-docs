@@ -22,21 +22,20 @@ In order to ensure your code is compliant with SQL Data Warehouse it is quite li
 
 ## Transact-SQL code changes
 
-The following list summarizes the main features that are not supported in Azure SQL Data Warehouse:
+The following list summarizes the main features that are not supported in Azure SQL Data Warehouse. The links provided take you to workarounds for the unsupported feature:
 
-- ANSI joins on updates
-- ANSI joins on deletes
-- merge statement
+- [ANSI joins on updates][]
+- [ANSI joins on deletes][]
+- [merge statement][]
 - cross-database joins
-- [pivot and unpivot statements][]
 - [cursors][]
 - [SELECT..INTO][]
-- INSERT..EXEC
+- [INSERT..EXEC][]
 - output clause
 - inline user-defined functions
 - multi-statement functions
-- recursive common table expressions (CTE)
-- updates through CTEs
+- [recursive common table expressions (CTE)](#Recursive-common-table-expressions-(CTE)
+- [updates through CTEs](#Updates-through-CTEs)
 - CLR functions and procedures
 - $partition function
 - table variables
@@ -52,6 +51,16 @@ The following list summarizes the main features that are not supported in Azure 
 - [no MAX data type for dynamic SQL strings][]
 
 Happily most of these limitations can be worked around. Explanations have been included in the relevant development articles referenced above.
+
+### Recursive common table expressions (CTE)
+
+This is a complex scenario with no quick fix. The CTE will need to be broken down and handled in steps. You can typically use a fairly complex loop; populating a temporary table as you iterate over the recursive interim queries. Once the temporary table is populated you can then return the data as a single result set. A similar approach has been used to solve `GROUP BY WITH CUBE` in the [group by clause with rollup / cube / grouping sets options][] article.
+
+### Updates through CTEs
+
+If the CTE is non-recursive then you can re-write the query to use sub-queries. For recursive CTEs you will need to build up the resultset first as described above; then join the final resultset to the target table and perform the update.
+
+### System functions
 
 There are also some system functions that are not supported. Some of the main ones you might typically find used in data warehousing are:
 
@@ -86,7 +95,11 @@ For advice on developing your code please refer to the [development overview][].
 <!--Image references-->
 
 <!--Article references-->
-[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
+[ANSI joins on updates]: sql-data-warehouse-develop-ctas.md
+[ANSI joins on deletes]: sql-data-warehouse-develop-ctas.md
+[merge statement]: sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+
 [cursors]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [group by clause with rollup / cube / grouping sets options]: sql-data-warehouse-develop-group-by-options.md

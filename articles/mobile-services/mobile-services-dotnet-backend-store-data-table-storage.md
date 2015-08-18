@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build a Service that uses Table storage instead of a SQL Database | Azure Mobile Services" 
+	pageTitle="Build a Service that uses Table storage instead of a SQL Database | Microsoft Azure" 
 	description="Learn how to use Azure Table storage with your .NET backend mobile service." 
 	services="mobile-services" 
 	documentationCenter="" 
