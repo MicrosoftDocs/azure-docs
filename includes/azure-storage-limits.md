@@ -2,6 +2,7 @@ Resource|Default Limit
 ---|---
 Max number of storage accounts per subscription|100<sup>1</sup>
 TB per storage account|500 TB
+Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
 Max size of a single blob container, table, or queue|500 TB
 Max number of blocks in a block blob|50,000
 Max size of a block in a block blob|4 MB
