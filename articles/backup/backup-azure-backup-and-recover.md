@@ -13,10 +13,10 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="07/01/2015"
+	 ms.date="08/18/2015"
 	 ms.author="jimpark"; "aashishr"/>
 
-# Backup and restore from a Windows server or Windows client machine
+# Back up and restore from a Windows server or Windows client machine
 This article covers the steps required to back up from a Windows server or a Windows client machine. It also covers the steps required to restore the backed up files on the same machine and the steps required to restore the backed up files on any other machine.
 
 ## Backup files
