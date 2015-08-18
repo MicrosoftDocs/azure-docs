@@ -100,7 +100,7 @@ After the `servicemanifest.xml` file is added to the node.js project, the struct
 
 ![][4]
 
-## Add Service Fabric binaries
+# Add Service Fabric binaries
 Next step is to add Service Fabric binaries that are used to connect with the Actors running in the Service Fabric cluster. As you can see in the Edge.js sample, there are some references to asemblies. To make those assemblies available to edge.js, they need to be copied along with the node.js code.
 The easiest way is to copy the binaries from an existing projects, the files that needs to be included in the code directory (and will be used by edge.js) are the following:
 
@@ -131,7 +131,7 @@ After you added the binaries to the project, the project structure should like t
 
 ![][5]
 
-## Add a reference to the node.js project in the applicationmanifest file
+# Add a reference to the node.js project in the applicationmanifest file
 Next step is to add the node.js service to the application manifest so it can be deployed using Visual Studio tools for Service Fabric. This is necessary because there is no integration in Service Fabric tools for Visual Studio with the node.js project so it needs to be added manually. 
 
 In the `applicationmanifest.xml` file you need to add the following elements:
