@@ -1,6 +1,6 @@
 <properties
    pageTitle="How to create a Fully Qualified Domain Name in Azure Portal"
-   description="Learn how to create a Fully Qualified Domain Name in the Azure preview portal."
+   description="Learn how to create a Fully Qualified Domain Name or FQDN in the Azure preview portal."
    services="virtual-machines"
    documentationCenter=""
    authors="dsk-2015"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="08/18/2015"
    ms.author="dkshir"/>
 
 # Create a Fully Qualified Domain Name in Azure Portal
