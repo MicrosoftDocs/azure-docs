@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/03/2015"
+   ms.date="08/12/2015"
    ms.author="joaoma" />
 
 # Get started configuring your Internet-facing load balancer
@@ -129,8 +129,6 @@ After creating a virtual machine, you can use PowerShell cmdlets to add a load b
 In the example below, you will add a load balancer called "webfarm" to cloud service endpoint "mycloudservice" (or mycloudservice.cloudapp.net) and a virtual machine named myVM. The load balancer receives traffic on port 80 and load balances the network traffic between the virtual machines on port 8080 using HTTP.
 
 	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
-
-
 
 
 ## Next steps
