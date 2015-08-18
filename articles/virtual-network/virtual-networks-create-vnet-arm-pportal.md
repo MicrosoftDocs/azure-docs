@@ -19,7 +19,11 @@
 
 # Create a virtual network using the Azure preview portal
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-include](../../includes/virtual-networks-create-vnet-selectors-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
+
+[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
+
+- [Create a virtual network (classic) by using the Azure preview portal](virtual-networks-create-vnet-classic-pportal.md)
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 

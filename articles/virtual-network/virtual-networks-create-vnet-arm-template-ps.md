@@ -17,9 +17,13 @@
    ms.date="08/14/2015"
    ms.author="telmos"/>
 
-# Create a virtual network using a an ARM template in PowerShell
+# Create a virtual network by using a an ARM template in PowerShell
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-include](../../includes/virtual-networks-create-vnet-selectors-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
+
+[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
+
+- [Create a virtual network (classic) by using a netcfg file in PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 

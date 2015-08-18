@@ -17,9 +17,13 @@
    ms.date="08/14/2015"
    ms.author="telmos"/>
 
-# Create a virtual network using a netcfg file in the Azure portal
+# Create a virtual network (classic) by using a netcfg file in the Azure portal
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-include](../../includes/virtual-networks-create-vnet-selectors-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
+
+[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+
+- [Create a virtual network by using an ARM template](virtual-networks-create-vnet-arm-template-click.md)
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 

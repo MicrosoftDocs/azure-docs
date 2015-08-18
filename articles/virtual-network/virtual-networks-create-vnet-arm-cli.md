@@ -17,9 +17,13 @@
    ms.date="08/14/2015"
    ms.author="telmos"/>
 
-# Create a virtual network using the Azure CLI
+# Create a virtual network by using the Azure CLI
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-include](../../includes/virtual-networks-create-vnet-selectors-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
+
+[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
+
+- [Create a virtual network (classic) by using the Azure CLI](virtual-networks-create-vnet-classic-cli.md)
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
