@@ -23,7 +23,9 @@
 
 Learn how to provision an HBase cluster in HDInsight, create HBase tables, and query the tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
-**Prerequisites**
+> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on Windows-based clusters, see [Get started using Apache HBase with Hadoop in HDInsight (Windows).
+
+##Prerequisites
 
 Before you begin this HBase tutorial, you must have the following:
 
