@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="08/17/2015" 
 	ms.author="ricksal"/>
 
 
 # Work with a JavaScript backend mobile service
 
-> [AZURE.SELECTOR]
-[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
-[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
- 
 This article provides detailed information about and examples of how to work with a JavaScript backend in Azure Mobile Services. 
 
 ##<a name="intro"></a>Introduction

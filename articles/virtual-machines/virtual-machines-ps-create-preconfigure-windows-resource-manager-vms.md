@@ -104,9 +104,11 @@ To test whether a chosen domain name label is globally unique, use these command
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+	Test-AzureDnsAvailability -DomainQualifiedName $domName -Location $loc
 
 If DNSNameAvailability is "True", your proposed name is globally unique.
+
+>[AZURE.NOTE] The Test-AzureDnsAvailability cmdlet was named Get-AzureCheckDnsAvailability in versions of Azure PowerShell earlier than version 0.9.5. If you're using version 0.9.4 or earlier, replace Test-AzureDnsAvailability with Get-AzureCheckDnsAvailability in the command shown above.  
 
 Resource Manager-based virtual machines can be placed in a Resource Manager-based availability set. If needed, create a new availability set for the new virtual machine with these commands.
 
@@ -211,7 +213,7 @@ Copy these lines to your command set and specify the needed names and index numb
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 The $nicName string must be unique for the resource group. A best practice is to incorporate the virtual machine name in the string, such as "LOB07-NIC".
@@ -230,7 +232,7 @@ Copy these lines to your command set and specify the needed names and index numb
 	$nicName="<name of the NIC of the VM>"
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Next, create a local VM object and optionally add it to an availability set. Copy one of the two following options to your command set and fill in the name, size, and availability set name.
