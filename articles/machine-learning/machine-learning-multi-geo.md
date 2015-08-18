@@ -41,7 +41,7 @@ If you open an experiment from Gallery, you can also select which region you wan
 
 ## Web service management
 
-To programmatically manage web services, such as for retraining, use the region-specific address: [https://asiasoutheast.management.azureml.net](https://asiasoutheast.management.azureml.net).
+To programmatically manage web services, such as for retraining, use the region-specific address: [https://asiasoutheast.management.azureml.net](https://asiasoutheast.management.azureml.net)
 
 **Things to note**
 
