@@ -87,7 +87,7 @@ The policy definition for this operation includes the policies that define the c
 		</outbound>
 	</policies>
 
->Changes made to the caching policies in the policy editor will reflect in the **Caching** tab of an operation, and vice-versa.
+>[AZURE.NOTE] Changes made to the caching policies in the policy editor will reflect in the **Caching** tab of an operation, and vice-versa.
 
 ## <a name="test-operation"> </a>Call an operation and test the caching
 
