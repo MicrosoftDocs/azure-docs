@@ -18,7 +18,7 @@
 
 # Add push notifications to your Mobile Services app
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 ##Overview
 
@@ -28,7 +28,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-[AZURE.INCLUDE [Enable GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##<a id="configure"></a>Configure Mobile Services to send push requests
@@ -99,7 +99,7 @@ Your mobile service is now configured to work with GCM and Notification Hubs.
 
 ###Verify Android SDK Version
 
-[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 
 Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. 
@@ -108,11 +108,11 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add Google Play Services to the project
 
-[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###Add code
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 ##<a name="test-app"></a>Test the app against the published mobile service
 

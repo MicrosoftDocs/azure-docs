@@ -32,4 +32,4 @@ A *custom* virtual machine simply means a virtual machine you create using the *
 
 ##To create the virtual machine
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]

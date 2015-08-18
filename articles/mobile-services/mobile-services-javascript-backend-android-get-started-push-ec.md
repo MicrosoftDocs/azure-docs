@@ -19,7 +19,7 @@
 
 # Add push notifications to your Mobile Services app
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 This topic shows how to use Azure Mobile Services to send push notifications to your Android app using Google Cloud Messaging (GCM). In this tutorial, you enable push notifications using Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
@@ -36,11 +36,11 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 ##Prerequisites
 
-[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-ec.md)]
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-[AZURE.INCLUDE [Enable GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configure Mobile Services to send push requests
 
@@ -50,7 +50,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 ###Verify Android SDK Version
 
-[AZURE.INCLUDE [Verify SDK](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [Verify SDK](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. 
 
@@ -58,11 +58,11 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add Google Play Services to the project
 
-[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###Add code
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 
 ##<a id="update-scripts"></a>Update the registered insert script in the Management Portal
