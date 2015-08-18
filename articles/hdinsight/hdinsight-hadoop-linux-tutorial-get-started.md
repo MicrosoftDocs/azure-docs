@@ -103,13 +103,13 @@ When you provision a cluster, you provision Azure compute resources that contain
 
 9. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This creates the cluster and adds a tile for it to the Startboard of your Azure portal. The icon indicates that the cluster is provisioning, and changes to display the HDInsight icon once provisioning has been completed.
 
-	 | While provisioning | Provisioning complete |
-	 | ------------------ | --------------------- |
-	 | ![Provisioning indicator on Startboard](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png) |
+| While provisioning | Provisioning complete |
+ | ------------------ | --------------------- |
+ | ![Provisioning indicator on Startboard](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png) |
 
-	 > [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
+> [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
 
-10. Once the provisioning is completed, click the tile for the cluster from the Startboard to launch the cluster blade.
+Once the provisioning is completed, click the tile for the cluster from the Startboard to launch the cluster blade.
 
 ## <a name="hivequery"></a>Submit a Hive job on the cluster
 Now that you have an HDInsight Linux cluster provisioned, the next step is to run a sample Hive job to query sample data (sample.log) that comes with HDInsight clusters. The sample data contains log information, including trace, warnings, info, and errors. We query this data to retrieve all the error logs with a specific severity. You must perform the following steps to run a Hive query on an HDInsight Linux cluster:
