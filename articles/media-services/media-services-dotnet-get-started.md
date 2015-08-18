@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="04/16/2015"
+	ms.date="08/14/2015" 
 	ms.author="juliako"/>
 
 
@@ -46,7 +46,6 @@ The following tasks are shown in this quickstart.
 5.  Connect to the Media Services account
 1.  Create a new asset and upload a video file
 1.  Encode the source file into a set of adaptive bitrate MP4 files
-1.  Configure delivery policy for the encoded asset
 1.  Publish the asset and get streaming and progressive download URLs  
 1.  Play your content
 
@@ -88,7 +87,7 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 To take advantage of dynamic packaging, you need to do the following:
 
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
-- get at least one streaming unit for the **streaming endpoint** from which you plan to delivery your content.
+- get at least one streaming unit for the **streaming endpoint** from which you plan to deliver your content.
 
 With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
 
@@ -188,8 +187,6 @@ The **Main** function calls methods that will be defined further in this section
                 IAsset encodedAsset =
                     EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 
-                ConfigureClearAssetDeliveryPolicy(encodedAsset);
-
                 PublishAssetGetURLs(encodedAsset);
             }
             catch (Exception exception)
@@ -251,7 +248,7 @@ As was mentioned earlier, when working with Azure Media Services one of the most
 To take advantage of dynamic packaging, you need to do the following:
 
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
-- get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.
+- get at least one streaming unit for the streaming endpoint from which you plan to deliver your content.
 
 The following code shows how to submit an encoding job. The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Azure Media Encoder**. The code submits the job and waits until it is completed.
 
@@ -293,25 +290,6 @@ Add the following method to the Program class.
 
 	    return outputAsset;
 	}
-
-##Configure delivery policy for the encoded asset
-
-One of the steps in the Media Services content delivery workflow is configuring asset delivery policies. Some things that the asset delivery policy configuration includes: what protocols can be used to deliver the asset (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), whether you want to dynamically encrypt your asset and how (envelope or common encryption).
-
-The following **ConfigureClearAssetDeliveryPolicy** method specifies not to apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols.
-
-Add the following method to the Program class.
-
-    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
-    {
-        IAssetDeliveryPolicy policy =
-            _context.AssetDeliveryPolicies.Create("Clear Policy",
-            AssetDeliveryPolicyType.NoDynamicEncryption,
-            AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
-
-        asset.DeliveryPolicies.Add(policy);
-    }
-
 
 ##Publish the asset and get streaming and progressive download URLs
 
