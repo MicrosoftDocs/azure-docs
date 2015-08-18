@@ -88,7 +88,7 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 
     ![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
 
-3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Windows Server 2012 R2 Datacenter**. A green check will appear beside the cluster name if it is available.
+3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Ubuntu**. A green check will appear beside the cluster name if it is available.
 
 	![Enter cluster name and type](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.2.png "Enter cluster name and type")
 
