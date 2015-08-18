@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Manage your StorSimple bandwidth templates"
+   pageTitle="Manage your StorSimple bandwidth templates | Microsoft Azure"
    description="Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Manage your StorSimple bandwidth templates

@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Detach a disk from a Linux virtual machine in Azure"
-	description="Learn to detach a data disk from an Azure virtual machine."
+	description="Learn to detach a data disk from an Azure virtual machine created using the classic deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -25,4 +26,4 @@
 
 [How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-how-to-attach-disk.md)
 
-[Using the Azure CLI with Azure Service Management](virtual-machines-command-line-tools.md)
+[Using the Azure CLI with the Service Management API](virtual-machines-command-line-tools.md)
