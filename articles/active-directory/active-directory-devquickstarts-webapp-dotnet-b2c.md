@@ -53,14 +53,14 @@ If you have a Node.JS web application, read [this tutorial](link) instead.
 
 To secure your application, you will first need to create an application in your directory and provide Azure AD B2C with a few key pieces of information.
 
-- On the B2C features blade on the [Azure Portal](https://portal.azure.com/), click on **Applications**.
-- Click **+Add** at the top of the blade.
-- The **Name** of the application will describe your application to end users. Enter "B2C app".
-- Click **Web app / Web API**.
-- The **Reply URL** is the location that Azure AD B2C will use to return any tokens your application requests. Enter `https://localhost:44321/`. Click **OK**.
-- Click **Create** to register your application.
-- Open the application that you just created by clicking on it in the **Applications** blade.
-- Click **Properties** and copy the **Client ID** of your application; you will need this value later on. Close the two blades just opened. Leave the B2C features blade open.
+1. On the B2C features blade on the [Azure Portal](https://portal.azure.com/), click on **Applications**.
+2. Click **+Add** at the top of the blade.
+3. The **Name** of the application will describe your application to end users. Enter "B2C app".
+4. Toggle the **Include web app / web API** switch to **Yes**.
+5. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens your application requests. Enter `https://localhost:44321/`.
+6. Click **Create** to register your application.
+7. Open the application that you just created by clicking on it in the **Applications** blade.
+8. Click **Properties** and copy the **Client ID** of your application; you will need this value later on. Close the two blades just opened. Leave the B2C features blade open.
 
 ## Step 2: Create a Sign-up policy and run
 
@@ -69,114 +69,114 @@ To enable sign up on your application, you will need to create a Sign-up policy.
 > [AZURE.NOTE]
 Policies are units of re-use. You can create multiple policies of the same type and use any policy in any application at run-time. Policies have a consistent developer interface; you invoke them in your applications using standard identity protocol requests and you receive tokens (customized by you) as responses.
 
-- On the B2C features blade, click **Sign-up policies**.
-- Click **+Add** at the top of the blade.
-- The **Name** determines the sign-up policy name used by your application. Enter "SiUp".
-- Click **Identity providers** and select "Email address". Click **OK**.
-- Click **Sign-up attributes**. Here you choose attributes that you want to collect from the user during sign up. For the purposes of this tutorial, select "Display Name", "City" and "Postal Code". Click **OK**.
-- Click **Application claims**. Here you can choose the claims that you want returned in the tokens back to your application after a successful sign up experience. For now, select "Display Name", "Postal Code", "Identity Provider" and "User's Object ID".
-- Click **Create**. Note that the policy just created appears as "B2C_1_SiUp" (the B2C_1_ fragment is automatically added) in the **Sign-up policies** blade.
-- Open the policy by clicking on it and click the **Run now** command at the top of the blade.
+1. On the B2C features blade, click **Sign-up policies**.
+2. Click **+Add** at the top of the blade.
+3. The **Name** determines the sign-up policy name used by your application. Enter "SiUp".
+4. Click **Identity providers** and select "Email address". Click **OK**.
+5. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the user during sign up. For the purposes of this tutorial, select "City", "Display Name" and "Postal Code". Click **OK**.
+6. Click **Application claims**. Here you can choose the claims that you want returned in the tokens back to your application after a successful sign up experience. For now, select "Display Name", "Postal Code", "Identity Provider" and "User's Object ID".
+7. Click **Create**. Note that the policy just created appears as "B2C_1_SiUp" (the B2C_1_ fragment is automatically added) in the **Sign-up policies** blade.
+8. Open the policy by clicking on it and click the **Run now** command at the top of the blade.
 
 > [AZURE.NOTE]
 The policy "Run now" command allows you to simulate user experience without writing a single line of code. Note that it takes up to a minute for your policy changes to take effect.
 
-- Select "B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down. Click the **Run now** button.
-- A new browser tab opens up and you can run through the user experience of signing up for your application.
-- Go back to the browser tab where the Azure Portal is open. Close the two blades just opened. Leave the B2C features blade open.
+9. Select "B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down. Click the **Run now** button.
+10. A new browser tab opens up and you can run through the user experience of signing up for your application.
+11. Go back to the browser tab where the Azure Portal is open. Close the two blades just opened. Leave the B2C features blade open.
 
 ## Step 3: Create a Sign-in policy and run
 
 To enable sign in on your application, you will need to create a Sign-in policy. This policy describes the experiences that users will go through during sign in and the contents of tokens that the application will receive on successful sign ins.
 
-- On the B2C features blade, click **Sign-in policies**.
-- Click **+Add** at the top of the blade.
-- The **Name** determines the sign-in policy name used by your application. Enter "SiIn".
-- Click **Identity providers** and select "Email address". Click **OK**.
-- Click **Application claims**. Here you can choose the claims that you want returned in the tokens back to your application after a successful sign in experience. For now, select "Display Name", "Postal Code", "Identity Provider" and "User's Object ID".
-- Click **Create**. Note that the policy just created appears as "B2C_1_SiIn" (the B2C_1_ fragment is automatically added) in the **Sign-in policies** blade.
-- Open the policy by clicking on it and click the **Run now** command at the top of the blade.
-- Select "B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down. Click the **Run now** button.
-- A new browser tab opens up and you can run through the user experience of signing into your application.
-- Go back to the browser tab where the Azure Portal is open. Close the two blades just opened. Leave the B2C features blade open.
+1. On the B2C features blade, click **Sign-in policies**.
+2. Click **+Add** at the top of the blade.
+3. The **Name** determines the sign-in policy name used by your application. Enter "SiIn".
+4. Click **Identity providers** and select "Email address". Click **OK**.
+5. Click **Application claims**. Here you can choose the claims that you want returned in the tokens back to your application after a successful sign in experience. For now, select "Display Name", "Identity Provider", "Postal Code"  and "User's Object ID". Click **OK**.
+6. Click **Create**. Note that the policy just created appears as "B2C_1_SiIn" (the B2C_1_ fragment is automatically added) in the **Sign-in policies** blade.
+7. Click on the policy and then the **Run now** command at the top of the blade.
+8. Select "B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down. Click the **Run now** button.
+9. A new browser tab opens up and you can run through the user experience of signing into your application.
+10. Go back to the browser tab where the Azure Portal is open. Close the two blades just opened. Leave the B2C features blade open.
 
 ## Step 4: Set up your application to use policies created in your directory
 
 Here, we will configure the sample to use the Sign-up and Sign-in policies created in your directory. This will allow your application (using the OWIN middleware) to issue sign-up and sign-in requests to the Azure AD B2C service.
 
-- Open the `web.config` file in the root of the project, and enter values for these configuration keys:
-  - For "ida:Tenant", enter your directory name. For e.g., "contoso.onmicrosoft.com".
-	- For "ida:ClientId", enter the **Client ID** copied down in Step 1.
-	- Leave "ida:RedirectUri" as `https://localhost:44321/`.
-	- For "ida:SignUpPolicyId", enter "B2C_1_SiUp".
-	- For "ida.SignInPolicyId", enter "B2C_1_SiIn".
+Open the `web.config` file in the root of the project, and enter values for these configuration keys:
+1. For "ida:Tenant", enter your directory name. For e.g., "contoso.onmicrosoft.com".
+2. For "ida:ClientId", enter the **Client ID** copied down in Step 1.
+3. Leave "ida:RedirectUri" as `https://localhost:44321/`.
+4. For "ida:SignUpPolicyId", enter "B2C_1_SiUp".
+5. For "ida.SignInPolicyId", enter "B2C_1_SiIn".
 
 ## Step 5: Run the application and issue sign up, sign in and sign out requests to Azure AD B2C
 
 You are almost done securing your application with Azure AD B2C!
 
-- Build the Visual Studio solution and run the application.
-- Run through sign-up, sign-out and sign-in in order using any email address.
-- Click on the "Claims" tab after sign-up and sign-in to view the contents of tokens received.
+1. Build the Visual Studio solution and run the application.
+2. Run through sign-up, sign-out and sign-in in order using any email address.
+3. Click on the "Claims" tab after sign-up and sign-in to view the contents of tokens received.
 
 ## Step 6: Add a custom user attribute to the directory
 
 You can collect additional information from the user during sign-up in addition to standard directory attributes. To do that you have to create custom attributes and use them in your policies.
 
-- On the B2C features blade, click **User attributes**.
-- Click **+Add** at the top of the blade.
-- Provide a **Name** for the custom attribute. For example, enter "ShoeSize".
-- Leave **Data type** as "String".
-- Click **Create**.
-- Close the two blades just opened. Leave the B2C features blade open.
+1. On the B2C features blade, click **User attributes**.
+2. Click **+Add** at the top of the blade.
+3. Provide a **Name** for the custom attribute. For example, enter "ShoeSize".
+4. Leave **Data type** as "String".
+5. Click **Create**.
+6. Close the two blades just opened. Leave the B2C features blade open.
 
 ## Step 7: Modify the Sign-up policy to use the custom attribute
 
-- On the B2C features blade, click **Sign-up policies**.
-- Click on "B2C_1_SiUp" and then on **Sign-up attributes**.
-- Select "ShoeSize" from the list of attributes and click **OK**.
-- **Save** the sign-up policy.
-- If you want to run through the modified sign-up experience, click the **Run now** command and follow the steps outlined in Step 2.
-- Close the two blades just opened. Leave the B2C features blade open.
+1. On the B2C features blade, click **Sign-up policies**.
+2. Click on "B2C_1_SiUp" and then on **Sign-up attributes**.
+3. Select "ShoeSize" from the list of attributes and click **OK**.
+4. **Save** the sign-up policy.
+5. If you want to run through the modified sign-up experience, click the **Run now** command and follow the steps outlined in Step 2.
+6. Close the two blades just opened. Leave the B2C features blade open.
 
 ## Step 8: Register an application with Facebook
 
 To use Facebook sign-up and sign-in in your application, you will need to [create a Facebook application](link) and supply it with the right parameters to work properly with the Azure AD B2C service. Do this on a separate browser tab and leave the B2C features blade open.
 
-You can also setup [Google+](link), [LinkedIn](link) and [Amazon](link) applications as well. However, it is optional for the steps that follow.
+You can also setup [Google+](link), [LinkedIn](link) and [Amazon](link) applications as well. However, this is optional for the steps that follow.
 
 ## Step 9: Setup Facebook as a social identity provider in your directory
 
-- On the B2C features blade, click **Social identity providers**.
-- Click **+Add** at the top of the blade.
-- Provide a friendly **Name** for the identity provider configuration. For example, enter "Facebook (default)".
-- Click **Identity provider type**, select **Facebook** and click **OK**.
-- Click **Set up this identity provider** and enter the **Client ID** and **Client secret** of the Facebook application that you created in Step 8.
-- Click **OK** and then **Create** to save your Facebook configuration.
-- Close the **Social identity providers** blade. Leave the B2C features blade open.
+1. On the B2C features blade, click **Social identity providers**.
+2. Click **+Add** at the top of the blade.
+3. Provide a friendly **Name** for the identity provider configuration. For example, enter "Facebook (default)".
+4. Click **Identity provider type**, select **Facebook** and click **OK**.
+5. Click **Set up this identity provider** and enter the **Client ID** and **Client secret** of the Facebook application that you created in Step 8.
+6. Click **OK** and then **Create** to save your Facebook configuration.
+7. Close the **Social identity providers** blade. Leave the B2C features blade open.
 
 ## Step 10: Modify the Sign-up and Sign-in policies to include Facebook as an Identity Provider
 
-- On the B2C features blade, click **Sign-up policies**.
-- Click on "B2C_1_SiUp" and then on **Identity providers**.
-- Select "Facebook (default)" from the list of identity providers and click **OK**.
-- **Save** the sign-up policy.
-- If you want to run through the modified sign-up experience, click the **Run now** command and follow the steps outlined in Step 2.
-- Close the two blades just opened.
-- On the B2C features blade, click **Sign-in policies**.
-- Click on "B2C_1_SiIn" and then on **Identity providers**.
-- Select "Facebook (default)" from the list of identity providers and click **OK**.
-- **Save** the sign-in policy.
-- If you want to run through the modified sign-in experience, click the **Run now** command and follow the steps outlined in Step 1.
-- You can close the Azure Portal tab if you want to.
+1. On the B2C features blade, click **Sign-up policies**.
+2. Click on "B2C_1_SiUp" and then on **Identity providers**.
+3. Select "Facebook (default)" from the list of identity providers and click **OK**.
+4. **Save** the sign-up policy.
+5. If you want to run through the modified sign-up experience, click the **Run now** command and follow the steps outlined in Step 2.
+6. Close the two blades just opened.
+7. On the B2C features blade, click **Sign-in policies**.
+8. Click on "B2C_1_SiIn" and then on **Identity providers**.
+9. Select "Facebook (default)" from the list of identity providers and click **OK**.
+10. **Save** the sign-in policy.
+11. If you want to run through the modified sign-in experience, click the **Run now** command and follow the steps outlined in Step 1.
+12. You can close the Azure Portal tab if you want to.
 
 ## Step 11: Re-run the application to issue requests to Azure AD B2C
 
 Your application now has enhanced functionality, all without changing a single line of code!
 
-- Re-build the Visual Studio solution and re-run the application.
-- Run through sign-up, sign-out and sign-in in order using any Facebook account.
-- Click on the "Claims" tab after sign-up and sign-in to view the contents of tokens received.
+1. Re-build the Visual Studio solution and re-run the application.
+2. Run through sign-up, sign-out and sign-in in order using any Facebook account.
+3. Click on the "Claims" tab after sign-up and sign-in to view the contents of tokens received.
 
 If you want to move onto advanced topics, you may want to try:
 
