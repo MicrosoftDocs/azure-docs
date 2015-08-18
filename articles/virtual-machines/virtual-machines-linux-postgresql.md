@@ -24,7 +24,7 @@ PostgreSQL is an advanced open-source database similar to Oracle and DB2. It inc
 
 In this article, you will learn how to install and configure PostgreSQL on an Azure virtual machine running Linux.
 
-> [Azure.NOTE] You must already have a Microsoft Azure virtual machine running Linux in order to complete this tutorial. Please see the
+[Azure.NOTE] You must already have a Microsoft Azure virtual machine running Linux in order to complete this tutorial. Please see the
 [Azure Linux VM tutorial](virtual-machines-linux-tutorial.md) to create and set up a Linux VM before proceeding.
 
 [In this case, use 1999 port as the PostgreSQL port.]  
@@ -91,7 +91,7 @@ Connect to the Linux VM you created via putty. If this is the first time you use
 
 		# su - postgres
 
-    >[Azure.NOTE] For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
+    [Azure.NOTE] For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
 
 
 4. Edit the *bash_profile* by entering the commands below. These lines will be added to the end of the *bash_profile* file:
