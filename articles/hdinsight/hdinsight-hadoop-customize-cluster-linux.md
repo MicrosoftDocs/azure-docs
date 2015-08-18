@@ -71,7 +71,7 @@ Name | Script
 
 ##Use a Script Action from Azure Resource Manager templates
 
-In this section, we use Azure Resource Manager (ARM) templates to provision an HDInsight cluster and also use a script action to install custom components (Spark, in this example) on the cluster. This section provides a sample ARM template to provision a cluster using script action. 
+In this section, we use Azure Resource Manager (ARM) templates to provision an HDInsight cluster and also use a script action to install custom components (R, in this example) on the cluster. This section provides a sample ARM template to provision a cluster using script action. 
 
 ### Before you begin
 
@@ -81,7 +81,7 @@ In this section, we use Azure Resource Manager (ARM) templates to provision an H
 
 ### Provision cluster using script action
 
-1. Copy the following template to a location on your computer. This template installs Spark on headnode as well as worker nodes. You can also verify if the JSON template is valid. Paste your template content into [JSONLint](http://jsonlint.com/), an online JSON validator tool.
+1. Copy the following template to a location on your computer. This template installs R on headnode as well as worker nodes in the cluster. You can also verify if the JSON template is valid. Paste your template content into [JSONLint](http://jsonlint.com/), an online JSON validator tool.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -199,8 +199,8 @@ In this section, we use Azure Resource Manager (ARM) templates to provision an H
 		                            },
 		                            "scriptActions": [
 		                                {
-		                                    "name": "installspark",
-		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh",
+		                                    "name": "installR",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
 		                                    "parameters": ""
 		                                }
 		                            ]
@@ -219,8 +219,8 @@ In this section, we use Azure Resource Manager (ARM) templates to provision an H
 		                            },
 		                            "scriptActions": [
 		                                {
-		                                    "name": "installspark",
-		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh",
+		                                    "name": "installR",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
 		                                    "parameters": ""
 		                                }
 		                            ]
@@ -271,7 +271,7 @@ In this section, we use Azure Resource Manager (ARM) templates to provision an H
 		ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
 
-6. To create a new deployment for your resource group, run the **New-AzureResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, and the path or URL to the template you created. If your template requires any parameters, you must pass those parameters as well. In this case, the script action to install Spark on the cluster does not require any parameters.
+6. To create a new deployment for your resource group, run the **New-AzureResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, and the path or URL to the template you created. If your template requires any parameters, you must pass those parameters as well. In this case, the script action to install R on the cluster does not require any parameters.
 
 
 		New-AzureResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
@@ -326,7 +326,7 @@ Perform the following steps:
 3. Use **Add-AzureHDInsightScriptAction** cmdlet to invoke the script. The following example uses the the script to install R on the cluster: 
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION
-		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install R"  -ClusterRoleCollection HeadNode,DataNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install R"  -ClusterRoleCollection HeadNode,WorkerNode,ZookeeperNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
 
 
 	The **Add-AzureHDInsightScriptAction** cmdlet takes the following parameters:
@@ -335,7 +335,7 @@ Perform the following steps:
 	| --------- | ---------- |
 	| Config | Configuration object to which script action information is added. |
 	| Name | Name of the script action. |
-	| ClusterRoleCollection | Specifies the nodes on which the customization script is run. The valid values are **HeadNode** (to install on the head node) or **DataNode** (to install on all the data nodes). You can use either or both values. |
+	| ClusterRoleCollection | Specifies the nodes on which the customization script is run. The valid values are **HeadNode** (to install on the head node), **WorkerNode** (to install on all the data nodes), or **ZookeeperNode** (to install on the zookeeper node). You can use either or all values. |
 	| Parameters | Parameters required by the script. |
 	| Uri | Specifies the URI to the script that is executed. |
 	
