@@ -123,8 +123,8 @@ Before configuring the device, make sure that:
 
 - Your device is fully unpacked, mounted on a rack and fully cabled for power, network, and serial access as described in:
 
-	-  [Unpack your 8100 device](storsimple-8100-hardware-installation.md)
-	-  [Unpack your 8600 device](storsimple-8600-hardware-installation.md)
+	-  [Unpack, rack mount, and cable your 8100 device](storsimple-8100-hardware-installation.md)
+	-  [Unpack, rack mount, and cable your 8600 device](storsimple-8600-hardware-installation.md)
 
 
 ### For the network in the datacenter
@@ -164,7 +164,7 @@ Perform the following steps to create a new instance of the StorSimple Manager s
 
 > [AZURE.IMPORTANT] If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service. This storage account will be used when you create a volume container.
 >
-> If you did not create a storage account automatically, go to [Configure a new storage account for the service](#Configure-a-new-storage-account-for-the-service) for detailed instructions.
+> If you did not create a storage account automatically, go to [Configure a new storage account for the service](#configure-a-new-storage-account-for-the-service) for detailed instructions.
 > If you enabled the automatic creation of a storage account, go to [Step 2: Get the service registration key](#step-2:-get-the-service-registration-key).
 
 ## Step 2: Get the service registration key
