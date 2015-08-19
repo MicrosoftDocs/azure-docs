@@ -84,7 +84,7 @@ This is an example on how the servicemanifest.xml should look like, please refer
 
 ```
 
-[AZURE.NOTE] Please note that one of the servicemanifest.xml options may not work with node.js. In some cases `ConsoleRedirection` does not work if a node.js module (ex. Express) assumed that the fd for stdout and stderr are 1 and 2.
+> [AZURE.NOTE] Please note that one of the servicemanifest.xml options may not work with node.js. In some cases `ConsoleRedirection` does not work if a node.js module (ex. Express) assumed that the fd for stdout and stderr are 1 and 2.
 
 After the `servicemanifest.xml` file is added to the node.js project, the structure of the project should look like this:
 
@@ -94,7 +94,7 @@ After the `servicemanifest.xml` file is added to the node.js project, the struct
 Next step is to add Service Fabric binaries that are used to connect with the Actors running in the Service Fabric cluster. As you can see in the Edge.js sample, there are some references to asemblies. To make those assemblies available to edge.js, they need to be copied along with the node.js code.
 The easiest way is to copy the binaries from an existing projects, the files that needs to be included in the code directory (and will be used by edge.js) are the following:
 
-`
+```
 Microsoft.ServiceFabric.Actors.dll
 Microsoft.ServiceFabric.Collections.dll
 Microsoft.ServiceFabric.Data.dll
@@ -106,7 +106,7 @@ ServiceFabricServiceModel.dll
 System.Fabric.Common.Internal.dll
 System.Fabric.Common.Internal.Strings.resources.dll
 System.Fabric.dll
-`
+```
 
 After you added the binaries to the project, the project structure should like the following:
 
@@ -120,7 +120,7 @@ In the `applicationmanifest.xml` file you need to add the following elements:
 * `ServiceManifestImport`
 * `Service`
 
-[AZURE.NOTE] Make sure you are using the same names that you used in the `servicemanifest.xml` to specify `ServiceName` and `ServiceTypeName`. the `applicationmanifest.xml` file should be similar to the following:
+> [AZURE.NOTE] Make sure you are using the same names that you used in the `servicemanifest.xml` to specify `ServiceName` and `ServiceTypeName`. the `applicationmanifest.xml` file should be similar to the following:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -200,7 +200,7 @@ public class Startup
 
 ```
 
-[AZURE.NOTE] The ActorProxy uses the Actor interface in order to know which actor it should connect to. In order for the managed code running in the node.js process to be able to instantiate that class, the Actor interface assembly needs to be copied in the code directory like the other Service Fabric dlls.
+> [AZURE.NOTE] The ActorProxy uses the Actor interface in order to know which actor it should connect to. In order for the managed code running in the node.js process to be able to instantiate that class, the Actor interface assembly needs to be copied in the code directory like the other Service Fabric dlls.
 Note: you will have to copy (or set a post-build action in VS) the dll any time you are making changes to methods/parameters in the interface.
 
 ![][6]
