@@ -229,7 +229,6 @@ Create all individual configuration items.
 
 Create front end IP as shown in the following example.
 
-<<<<<<< HEAD
 	PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
 	PS C:\> $fip.Name = "fip1"
 	PS C:\> $fip.Type = "Private"
@@ -239,24 +238,18 @@ Create front end port as shown in the following example.
 
 	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
 	PS C:\> $fep.Name = "fep1"
-=======
-Create front end port:
-
-	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
-	PS C:\> $fep.Name = "fep1"
->>>>>>> ab15e5628625f50f7ca01eb9edfd241f8a4de580
 	PS C:\> $fep.Port = 80
 
-Create back end server pool:
+Create back end server pool
 
- Define the IP addresses which will be added to the back end server pool:
+ Define the IP addresses which will be added to the back end server pool as shown in the next example.
 
 
 	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
 	PS C:\> $servers.Add("10.0.0.1")
 	PS C:\> $servers.Add("10.0.0.2")
 
- Using the $server object, add the values to the back end pool object ($pool)
+ Using the $server object, add the values to the back end pool object ($pool).
 
 	PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
 	PS C:\> $pool.BackendServers = $servers
