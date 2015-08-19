@@ -3,8 +3,8 @@
 	description="A report that includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah; kenhoff"/>
 
 # Sign ins from IP addresses with suspicious activity
 

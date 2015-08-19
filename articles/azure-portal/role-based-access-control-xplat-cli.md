@@ -3,8 +3,8 @@
 	description="Managing role-based access control with Azure Command-Line Interface"
 	services="azure-portal"
 	documentationCenter="na"
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Managing Role-Based Access Control with the Azure Command-Line Interface (Azure CLI) #
 
@@ -150,4 +150,3 @@ To learn more about managing role-based access control with Azure CLI and relate
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Configure role based access control using Windows PowerShell](role-based-access-control-powershell.md)
 - [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)
- 

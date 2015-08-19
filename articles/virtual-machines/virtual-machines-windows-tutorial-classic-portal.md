@@ -44,7 +44,7 @@ This section shows you how to use the **From Gallery** option in the Azure porta
 
 > [AZURE.NOTE] You can also try the richer, customizable [Azure preview portal](https://portal.azure.com) to create a virtual machine, use enhanced monitoring and diagnostics, use Premium storage, and more. The available options for configuring a virtual machine in the two portals overlap substantially but aren't identical. For example, use the preview portal to configure a virtual machine with Premium storage.
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Next steps
 
