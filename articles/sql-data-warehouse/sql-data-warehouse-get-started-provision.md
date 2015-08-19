@@ -161,6 +161,7 @@ Now that you have configured the firewall you will be able to make connections f
 Now the SQLDW Service has been successfully provisioned we can move on to learn how to use it.
 
 The next steps are therefore to learn how to:
+
 1. [Connect and query][] the data warehouse.
 2. Load [sample data].
 

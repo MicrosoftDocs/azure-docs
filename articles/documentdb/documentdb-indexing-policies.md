@@ -468,33 +468,25 @@ The following example configures a specific path with range indexing and a custo
 
 Now that we've taken a look at how to specify paths, let's look at the options we can use to configure the indexing policy for a path. You can specify one or more indexing definitions for every path:
 
-- Data type: **String** or **Number** (can contain only one entry per data type per path)
-- Index kind: **Hash** (equality queries) or **Range** (equality, range or Order By queries)
+- Data type: **String**, **Number** or **Point** (can contain only one entry per data type per path)
+- Index kind: **Hash** (equality queries), **Range** (equality, range or Order By queries), or **Spatial** (spatial queries) 
 - Precision: 1-8 or -1 (Maximum precision) for numbers, 1-100 (Maximum precision) for string
 
 #### Index kind
 
-DocumentDB supports two Index kinds for every path and data type pair.
+DocumentDB supports Hash and Range index kinds for every path (that can configured for strings, numbers or both).
 
 - **Hash** supports efficient equality and JOIN queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes.
 - **Range** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and Order By queries. Order By queries by default also require maximum index precision (-1).
+
+DocumentDB also supporst the Spatial index kind for every path, that can be specified for the Point data type. The value at the specified path must be a valid GeoJSON point like `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+
+- **Spatial** supports efficient spatial (within and distance) queries.
 
 Here are the supported index kinds and examples of queries that they can be used to serve:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Index kind</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Description/use case</strong>
-                </p>
-            </td>
-        </tr>
         <tr>
             <td valign="top">
                 <p>
@@ -537,17 +529,36 @@ Here are the supported index kinds and examples of queries that they can be used
                 </p>
             </td>
         </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Spatial
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Range over /prop/? (or /*) can be used to serve the following queries efficiently:
+                        SELECT * FROM collection c 
+                        WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40
+                        SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... })
+                </p>
+            </td>
+        </tr>        
     </tbody>
 </table>
 
 By default, an error is returned for queries with range operators such as >= if there is no range index (of any precision) in order to signal that a scan might be necessary to serve the query. Range queries can be performed without a range index using the x-ms-documentdb-enable-scans header in the REST API or the EnableScanInQuery request option using the .NET SDK. If there are any other filters in the query that DocumentDB can use the index to filter against, then no error will be returned.
 
+The same rules apply for spatial queries. By default, an error is returned for spatial queries if there is no spatial index. They can be performed as a scan using x-ms-documentdb-enable-scan/EnableScanInQuery.
+
 #### Index precision
 
 Index precision lets you tradeoff between index storage overhead and query performance. 
-For numbers, we recommend using the default precision configuration of -1 (“maximum”). Since numbers are 8 bytes in JSON, this is equivalent to a configuration of 8 bytes. Picking a lower value for precision, such as 1-7, means that values within some ranges map to the same index entry. Therefore you will reduce index storage space, but query execution might have to process more documents and consequently consume more throughput i.e., request units.
+For numbers, we recommend using the default precision configuration of -1 ("maximum"). Since numbers are 8 bytes in JSON, this is equivalent to a configuration of 8 bytes. Picking a lower value for precision, such as 1-7, means that values within some ranges map to the same index entry. Therefore you will reduce index storage space, but query execution might have to process more documents and consequently consume more throughput i.e., request units.
 
-Index precision configuration is more useful with string ranges. Since strings can be any arbitrary length, the choice of the index precision can impact the performance of string range queries, and impact the amount of index storage space required. String range indexes can be configured with 1-100 or -1 (“maximum”). If you would like to perform Order By queries against string properties, then you must specify a precision of -1 for the corresponding paths.
+Index precision configuration is more useful with string ranges. Since strings can be any arbitrary length, the choice of the index precision can impact the performance of string range queries, and impact the amount of index storage space required. String range indexes can be configured with 1-100 or -1 ("maximum"). If you would like to perform Order By queries against string properties, then you must specify a precision of -1 for the corresponding paths.
+
+Spatial indexes always use the default index precision for points and cannot be overriden. 
 
 The following example shows how to increase the precision for range indexes in a collection using the .NET SDK. Note that this uses the default path "/*".
 
@@ -657,7 +668,7 @@ You can drop the index for a collection by moving to the None indexing mode. Thi
 When would you make indexing policy changes to your DocumentDB collections? The following are the most common use cases:
 
 - Serve consistent results during normal operation, but fall back to lazy indexing during bulk data imports
-- Start using new indexing features on your current DocumentDB collections, e.g., like Order By and string range queries which require the newly introduced string Range index kind
+- Start using new indexing features on your current DocumentDB collections, e.g., like geospatial querying which require the Spatial index kind, or Order By/string range queries which require the string Range index kind
 - Hand select the properties to be indexed and change them over time
 - Tune indexing precision to improve query performance or reduce storage consumed
 

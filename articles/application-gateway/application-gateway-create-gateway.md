@@ -20,6 +20,12 @@
 In this release, you can create an Application Gateway by using PowerShell or REST API calls. Azure portal and CLI support will be provided in an upcoming release.
 This article walks you through the steps to create and configure, start, and delete an Application Gateway.
 
+> [AZURE.SELECTOR]
+- [Azure classic steps](application-gateway-create-gateway.md)
+- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+
+
+
 ## Before you begin
 
 1. Install the latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
@@ -223,6 +229,7 @@ Create all individual configuration items.
 
 Create front end IP as shown in the following example.
 
+<<<<<<< HEAD
 	PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
 	PS C:\> $fip.Name = "fip1"
 	PS C:\> $fip.Type = "Private"
@@ -232,6 +239,12 @@ Create front end port as shown in the following example.
 
 	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
 	PS C:\> $fep.Name = "fep1"
+=======
+Create front end port:
+
+	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
+	PS C:\> $fep.Name = "fep1"
+>>>>>>> ab15e5628625f50f7ca01eb9edfd241f8a4de580
 	PS C:\> $fep.Port = 80
 
 Create back end server pool:

@@ -154,7 +154,7 @@ To learn more, see [How to use Blob storage from .NET](../storage-dotnet-how-to-
 
 		static void CreateFiles()
 		{
-		  privateCloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		  CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 			ConfigurationManager.AppSettings["StorageConnectionString"]);
 		  CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 		  CloudBlobContainer container = blobClient.GetContainerReference("testcon1");

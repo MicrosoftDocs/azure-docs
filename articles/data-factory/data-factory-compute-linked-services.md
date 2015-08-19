@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Compute Linked Services | Azure Data Factory" 
+	pageTitle="Compute Linked Services | Microsoft Azure" 
 	description="Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -208,7 +208,7 @@ poolName | Name of the pool of virtual machines. | Yes
 linkedServiceName | Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity and storing the activity execution logs. | Yes
 
 
-## Azure Batch Linked Service
+## Azure Machine Learning Linked Service
 
 You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
 
@@ -234,7 +234,9 @@ mlEndpoint | The batch scoring URL. | Yes
 apiKey | The published workspace model’s API. | Yes
 
 
+## Azure SQL Linked Service
 
+You create an Azure SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) article for details about this linked service.
 
 
   

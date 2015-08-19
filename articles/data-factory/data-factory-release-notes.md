@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Factory - Release Notes | Azure" 
+	pageTitle="Data Factory - Release Notes | Microsoft Azure" 
 	description="Data Factory release notes" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -287,7 +287,7 @@ But, if an older slice is re-run, it would not show up on the top of this list, 
 	-  [OnPremisesOracleTableLocation properties in a table JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
 	-  [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx). See the updated copy matrix and **OracleSource** properties.
 -  You can specify encoding for text files in an Azure Blob. See the new [encodingName property](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
-- You can invoke a stored procedure with additional parameters when copying into SQL Sink. See [Invoke stored procedure for SQL Sink][adf-copy-advanced] for details.   
+- You can invoke a stored procedure with additional parameters when copying into SQL Sink.    
 
 See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) for additional information including examples.  
 
@@ -302,7 +302,7 @@ See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.mi
 
 ### Changes
 - Updated **Data Management Gateway** installation package has been posted to [Microsoft Download Center][adf-gateway-download]. Starting from this release, you can find the latest Data Management Gateway to use with Azure Data Factory at this download location. This installation package serves both Azure Data Factory and Power BI for Office 365 services. If you are using both the services, note that gateways for Data Factory and Power BI must be installed on different machines, and configured differently as per guidance from the Data Factory or Power BI documentation.
-- The **Copy Activity** now supports copying data between on-premises SQL Server database and an Azure SQL database.  See [Copy Activity][adf-copy-activity] for details and [GitHub][adf-github-samples] for JSON samples.
+- The **Copy Activity** now supports copying data between on-premises SQL Server database and an Azure SQL database. 
 - **SqlSink** supports a new property: **WriteBatchTimeout**. This property gives you the flexibility to configure how long to wait for the batch insert operation to complete before the operation times out. For a hybrid copy (copy operation that involves an on-premises data source and a cloud data source), you must have the gateway of version 1.4 or higher to use this property. 
 - **SQL Server linked service** now supports **Windows Authentication**. 
 	- When creating a SQL Server linked service using the portal, you can now choose to use Windows Authentication and set appropriate credentials. This requires you to have the gateway of version 1.4 or higher. 
@@ -342,9 +342,7 @@ See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.mi
 
 [adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-copy-activity]: data-factory-copy-activity.md
 [adf-editor]: data-factory-editor.md
-[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/

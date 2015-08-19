@@ -108,7 +108,7 @@ Work with your network administrator to correct the settings of your organizatio
 
 ### Source 3: Cloud service endpoint and ACL
 
-To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created in service management, verify that another Azure virtual machine that is in the same virtual network can make SSH connections to your Azure virtual machine.
+To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created using the Service Management API, verify that another Azure virtual machine that is in the same virtual network can make SSH connections to your Azure virtual machine.
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 

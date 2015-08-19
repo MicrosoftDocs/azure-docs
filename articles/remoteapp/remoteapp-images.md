@@ -1,21 +1,21 @@
 <properties
-    pageTitle="What is in the RemoteApp template images?"
-    description="Learn about the template images included with RemoteApp."
+    pageTitle="What is in the Azure RemoteApp template images?"
+    description="Learn about the template images included with Azure RemoteApp."
     services="remoteapp"
-    solutions="" documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
 <tags
     ms.service="remoteapp"
-    ms.workload="tbd"
+    ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2015" 
+    ms.topic="get-started-article"
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
-# What is in the RemoteApp template images?
+# What is in the Azure RemoteApp template images?
 
 Your Azure RemoteApp subscription includes three template images:
 
@@ -26,7 +26,7 @@ Your Azure RemoteApp subscription includes three template images:
 
 > [AZURE.IMPORTANT]Your Azure RemoteApp subscription grants you access to the software in the images, with the exception of Office 365 ProPlus, which requires a separate subscription, and Office 2013, which cannot be used in production. This means that you can share the programs or apps on the template images with your users. For example, if you create a collection that uses the Windows Server 2012 R2 image, you can publish System Center Endpoint Protection for users to access through RemoteApp.
 > 
-> Check out the [RemoteApp licensing details](remoteapp-licensing.md) for more information.
+> Check out the [RemoteApp licensing details](remoteapp-licensing.md) for more information. And [Using Office with Azure RemoteApp](remoteapp-o365.md) for the Office licensing info.
 
 Read on for details on what each image contains.
 

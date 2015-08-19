@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add Mobile Services to an existing app (Xamarin.iOS) - Azure Mobile Services"
+	pageTitle="Add Mobile Services to an existing app (Xamarin.iOS) | Microsoft Azure"
 	description="Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app."
 	documentationCenter="xamarin"
 	authors="ggailey777"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/18/2015"
 	ms.author="ggailey777"/>
 
 # Add Mobile Services to an existing app
@@ -244,4 +244,3 @@ Once you have completed the data series, try these other iOS tutorials:
 
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Xamarin.iOS]: http://xamarin.com/download
- 
