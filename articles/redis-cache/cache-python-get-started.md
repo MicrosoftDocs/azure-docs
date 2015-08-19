@@ -1,11 +1,11 @@
 <properties
-	pageTitle="How to use Azure Redis Cache with Python"
+	pageTitle="How to use Azure Redis Cache with Python | Microsoft Azure"
 	description="Get started with Azure Redis Cache using Python"
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
 	manager="dwrede"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="cache"
@@ -18,7 +18,7 @@
 
 # How to use Azure Redis Cache with Python
 
-This topic shows how to get started with Azure Redis Cache using Python.
+This topic shows you how to get started with Azure Redis Cache using Python.
 
 
 ## Prerequisites
@@ -36,9 +36,9 @@ Enter a DNS hostname. It will have the form `<name>.redis.cache.windows.net`. Cl
 
   ![][2]
 
-Once the cache is created, click on it in the portal to view the cache settings. You will need:
+Once you create the cache, click on it in the Azure portal to view the cache settings. You will need:
 
-- **Hostname.** This is what you entered when you created the cache.
+- **Hostname.** You entered this name when you created the cache.
 - **Port.** Click the link under **Ports** to view the ports. Use the SSL port.
 - **Access Key.** Click the link under **Keys** and copy the primary key.
 

@@ -107,11 +107,11 @@ For details on this report, check out [Sign ins from unknown sources](active-dir
 
 ### Sign ins after multiple failures
 
-For details on this report, check out [Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md).
+For details on this report, check out [Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md).
 
 ### Sign ins from multiple geographies
 
-For details on this report, check out [Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md).
+For details on this report, check out [Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md).
 
 ### Sign ins from IP addresses with suspicious activity
 
