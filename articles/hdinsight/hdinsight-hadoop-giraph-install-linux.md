@@ -134,6 +134,8 @@ Once the cluster has finished provisioning, use the following steps to run the S
 
 ## Next steps
 
+- [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
+
 - [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md): Instructions on how to use cluster customization to install and use Spark on HDInsight Hadoop clusters. Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications.
 
 - [Install R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md): Instructions on how to use cluster customization to install and use R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.

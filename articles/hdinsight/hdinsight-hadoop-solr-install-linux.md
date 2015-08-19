@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/21/2015" 
+	ms.date="08/20/2015" 
 	ms.author="larryfr"/>
 
 # Install and use Solr on HDInsight Hadoop clusters
@@ -258,6 +258,8 @@ For more information on working with Solr backup and restores, see [Making and r
 
 
 ## See also##
+
+- [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
 
 - [Install and use Spark on HDInsight clusters][hdinsight-install-spark]. Use cluster customization to install Spark on HDInsight Hadoop clusters. Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications.
 
