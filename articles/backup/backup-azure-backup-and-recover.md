@@ -3,7 +3,7 @@
    description="Learn how to backup and restore from a Windows Server or Windows Client. The article also covers alternate server recovery"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
+   authors="aashishr"
    manager="jwhit"
    editor=""/>
 
@@ -13,10 +13,10 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="07/01/2015"
+	 ms.date="08/18/2015"
 	 ms.author="jimpark"; "aashishr"/>
 
-# Backup and restore from a Windows server or Windows client machine
+# Back up and restore from a Windows server or Windows client machine
 This article covers the steps required to back up from a Windows server or a Windows client machine. It also covers the steps required to restore the backed up files on the same machine and the steps required to restore the backed up files on any other machine.
 
 ## Backup files
@@ -127,6 +127,12 @@ The nomenclature used in the steps are as follows:
     ![Encryption](./media/backup-azure-backup-and-recover/encryption.png)
 
 11. Once the input is provided, click on the **Recover** button which triggers the restore of the backed up files in the destination provided.
+
+## Video walkthrough
+
+Here's a video walkthrough of this tutorial.
+
+[AZURE.VIDEO azurebackuprestoreserverandclient]
 
 ## Next Steps
 - [Azure Backup FAQ](backup-azure-backup-faq.md)
