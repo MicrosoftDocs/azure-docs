@@ -72,7 +72,7 @@ To see the list of all existing content pages, click **Content** from the **Deve
 
 ![Manage content][api-management-customization-manage-content]
 
-Click the "Welcome" page to edit what is displayed on the home page of the Azure portal. Make the changes you want, preview them if necessary, and then click **Publish Now** to make them visible to everyone.
+Click the **Welcome** page to edit what is displayed on the home page of the Azure portal. Make the changes you want, preview them if necessary, and then click **Publish Now** to make them visible to everyone.
 
 > The home page uses a special layout which allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list box, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
 
