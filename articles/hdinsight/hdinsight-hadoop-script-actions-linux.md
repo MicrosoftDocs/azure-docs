@@ -105,7 +105,6 @@ This makes the following helpers available for use in your script:
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` | Downloads a file from the source URL to the specified file path. By default, it will not overwrite an existing file. |
 | `untar_file TARFILE DESTDIR` | Extracts a tar file (using `-xf`,) to the destination directory. |
 | `test_is_headnode` | If ran on a cluster head node, returns 1; otherwise, 0. |
-| `test_is_active_headnode` | If the current head node is the active node (running the namenode process,) returns a 1; otherwise, 0. |
 | `test_is_datanode` | If the current node is a data (worker) node, returns a 1; otherwise, 0. |
 | `test_is_first_datanode` | If the current node is the first data (worker) node (named workernode0,) returns a 1; otherwise, 0. |
 
