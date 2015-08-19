@@ -61,7 +61,7 @@ Category | Hadoop on Linux | Hadoop on Windows
 
 ### Hadoop, HBase, Storm, and customized clusters
 
-HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters with script actions</a>.
+HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you can [customize clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 * **Hadoop** (the "Query" workload): Provides reliable data storage with [HDFS](#HDFS), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 
@@ -69,6 +69,25 @@ HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you c
 
 * **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>** (the "Stream" workload): A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
 
+####Example customization scripts
+
+Script Actions are scripts that are ran during cluster provisioning, and can be used to install additional components on the cluster. For Windows-based HDInsight clusters, these are PowerShell scripts. For Linux-based clusters, these are Bash scripts.
+
+The following are example scripts provided by the HDInsight team:
+
+* [Hue](hdinsight-hadoop-hue-linux.md)
+
+	> [AZURE.NOTE] The Hue script is available only for Linux-based clusters.
+	
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+
+* [R](hdinsight-hadoop-r-scripts-linux.md)
+
+* [Solr](hdinsight-hadoop-solr-install-linux.md)
+
+* [Spark](hdinsight-hadoop-spark-install-linux.md)
+
+For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ## What are the Hadoop components?
 
