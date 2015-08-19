@@ -28,13 +28,14 @@ Do you:
 You can now do this easily in the Microsoft Azure portal! We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any subscription that you own.
 
 ## How to transfer an Azure subscription
+
 1.  Sign in at <https://account.windowsazure.com/Subscriptions>
 
 2.  Select the subscription to transfer.
 
 3.  Click the **Transfer Subscription** option.
 
-    ![Azure account subscriptions tab](/media/billing-subscription-transfer/image1.png)
+    ![Azure account subscriptions tab](./media/billing-subscription-transfer/image1.png)
 
 4.  Follow the prompts to specify the recipient.
 
@@ -54,7 +55,6 @@ You can now do this easily in the Microsoft Azure portal! We’ve added the abil
 7. Success! The subscription is now transferred.
 
 ## Frequently asked questions (FAQ)
-----
 
 -   **Does a subscription transfer result in any service downtime?**
 
