@@ -89,7 +89,7 @@ An example timeline illustrating the monitoring process with a single cloud serv
 
 ## Child and parent endpoint status for nested profiles
 
-The following table describes the behavior of Traffic Manager monitoring for child and parent profiles of a nested profile and the minChildEndpoints setting. For more information, see [Traffic Manager Overview](traffic-manager-overview.md).
+The following table describes the behavior of Traffic Manager monitoring for child and parent profiles of a nested profile and the minChildEndpoints setting. For more information, see [What is Traffic Manager?](traffic-manager-overview.md).
 
 |Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
 |---|---|---|
@@ -108,7 +108,7 @@ The following table describes the behavior of Traffic Manager monitoring for chi
 
 ## See Also
 
-[What is Traffic Manager](traffic-manager-overview.md)
+[What is Traffic Manager?](traffic-manager-overview.md)
 
 [About Traffic Manager traffic routing Methods](traffic-manager-load-balancing-methods.md)
 
