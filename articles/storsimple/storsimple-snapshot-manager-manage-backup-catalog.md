@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to manage the backup catalog
@@ -205,4 +205,4 @@ You should regularly back up the StorSimple Snapshot Manager database on the hos
 
 ## Next steps
 
-See the available [StorSimple Snapshot Manager tasks and workflows](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows).
+Learn more about [StorSimple Snapshot Manager tasks and workflows](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
