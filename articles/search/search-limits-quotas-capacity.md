@@ -82,14 +82,15 @@ Additional capacity is calculated as partitions multiplied by replicas, yielding
 
 The following table is a chart that lists replicas on the vertical axis, and partitions on the horizontal axis. The intersection shows the number of search units required to support each combination. For example, if you want 6 replicas and 2 partitions, this configuration would require 12 search units. To use 4 replicas and 2 partitions, you would need 8 search units. As a general rule, most search applications tend to need more replicas than partitions.
 
-   | --------|---------|
+   |  |  |   |   |   |   |  |
+   | ---| --- | --- | --- | --- | --- |-- |
    | 6 replicas | 6 SU | 12 SU | 18 SU | 24 SU | 36 SU | N/A |
    | 5 replicas | 5 SU | 10 SU | 15 SU | 20 SU | 30 SU | N/A |
    | 4 replicas | 4 SU | 8 SU | 12 SU | 16 SU | 24 SU | N/A | 
    | 3 replicas | 3 SU | 6 SU | 9 SU | 12 SU | 18 SU | 36 SU | 
    | 2 replicas | 2 SU | 4 SU | 6 SU | 8 SU | 12 SU | 24 SU | 
    | 1 replica | 1 SU | 2 SU | 3 SU | 4 SU | 6 SU | 12 SU | 
-   |   | 1 Partition | 2 Partitions | 3 Partitions | 4 Partitions | 6 Partitions | 12 Partitions | 
+   | N/A | 1 Partition | 2 Partitions | 3 Partitions | 4 Partitions | 6 Partitions | 12 Partitions | 
 
 Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details]() for more information.
 
