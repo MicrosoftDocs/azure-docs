@@ -24,13 +24,13 @@ There are several different places you can go to change your multi-factor authen
 
 How you use multi-factor authentiation|Description
 :------------- | :------------- | 
-[I use it with Office 365](#i-use-it-with-office-365)|  This means that you will want to change your settings through the Office 365 portal.
-[I don't know](#i-don't-know)|This means you will want to sign-in to [http://myapps.microsoft.com](http://myapps.microsoft.com) and change your setting here.
-[I use it with Microsoft Azure](#i-use-it-with-microsoft-azure)| This means that you will want to change your settings through the Azure portal.
+[I use it with Office 365](#changing-your-settings-with-office-365)|  This means that you will want to change your settings through the Office 365 portal.
+[I don't know](#changing-your-settings-with-the-myapps-portal)|This means you will want to sign-in to [http://myapps.microsoft.com](http://myapps.microsoft.com) and change your setting here.
+[I use it with Microsoft Azure](#changing-your-settings-with-microsoft-azure)| This means that you will want to change your settings through the Azure portal.
 
 
  
-## I use it with Office 365
+## Changing your settings with Office 365
 
 
 If you use multi-factor authentication with Office 365 you will want to manage your additional security verification settings through the Office 365 portal.
@@ -46,7 +46,7 @@ If you use multi-factor authentication with Office 365 you will want to manage y
 ![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
 
-## I don't know
+## Changing your settings with the Myapps portal
 
 If you are not sure how you use multi-factor authentication, then you can always change your settings through the myapps portal.
 
@@ -60,7 +60,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 ![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
 
-## I use it with Microsoft Azure
+## Changing your settings with Microsoft Azure
 
 If you use multi-factor authentication with Azure you will want to change your settings through the Azure portal.
 

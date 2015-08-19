@@ -231,6 +231,9 @@ In some apps, like Office 2010 or older and Apple Mail you can't use multi-facto
 >
 > Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
+>[AZURE.WARNING]  App passwords will not work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints.
+>Please be aware that app passwords will not work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints since domain passwords are required to authenticate on-premises and app passwords are required to authenticate with the cloud.
+
 ### Important things to know about app passwords
 
 The following is an important list of things that you should know about app passwords.
