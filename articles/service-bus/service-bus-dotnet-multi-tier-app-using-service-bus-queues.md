@@ -156,7 +156,7 @@ application.
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
-    computer resources). Also, make sure that you select **Messaging** in the namespace **Type** field, and **Standard** in the **Messaging Tier** field.
+    compute resources). Also, make sure that you select **Messaging** in the namespace **Type** field, and **Standard** in the **Messaging Tier** field.
 
     > [AZURE.IMPORTANT] Pick the **same region** that you intend to choose to
     deploy your application. This will give you the best performance.
@@ -505,7 +505,7 @@ receiving messages.
 
 ### Connection string
 
-To instantiate a client (for example, a Service Bus **QueueClient**), you can represent the configuration information as a connection string. On the client side, there is a `CreateFromConnectionString()` method that instantiates that client type by using that connection string. For example, given the following configuration section.
+To instantiate a client (for example, a Service Bus **QueueClient**), you can represent the configuration information as a connection string. On the client side, there is a `CreateFromConnectionString()` method that instantiates that client type by using that connection string. For example, given the following configuration section
 
 	<ConfigurationSettings>
     ...
@@ -527,7 +527,7 @@ The following code retrieves the connection string, creates a queue, and initial
         namespaceManager.CreateQueue(QueueName);
     }
 
-	// Initialize the connection to Service Bus Queue.
+	// Initialize the connection to Service Bus queue.
 	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
 
 The code in the following section uses the **CloudConfigurationManager** class.
@@ -535,7 +535,7 @@ The code in the following section uses the **CloudConfigurationManager** class.
 ## Create the worker role
 
 You will now create the worker role that processes the order
-submissions. This example uses the Worker Role with Service Bus Queue Visual Studio project template. First, use Server Explorer in Visual Studio to obtain the required credentials.
+submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, use Server Explorer in Visual Studio to obtain the required credentials.
 
 1. Make sure you have connected Visual Studio to your Azure account as described in the section "Manage namespaces and messaging entities using the Visual Studio Server Explorer."
 
@@ -623,7 +623,7 @@ To learn how to deploy the front end to an Azure website, see [Deploying an ASP.
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-  [sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
+  [sbqueuecomparison]: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
@@ -660,6 +660,6 @@ To learn how to deploy the front end to an Azure website, see [Deploying an ASP.
   [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/  
-  [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
-  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
+  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md  
+  [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
+  [executionmodels]: ../cloud-services/fundamentals-application-models.md
