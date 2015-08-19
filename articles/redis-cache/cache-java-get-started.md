@@ -18,7 +18,7 @@
 
 # How to use Azure Redis Cache with Java
 
-Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
+Azure Redis Cache gives you access to a dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
 This topic shows you how to get started with Azure Redis Cache using Java.
 
