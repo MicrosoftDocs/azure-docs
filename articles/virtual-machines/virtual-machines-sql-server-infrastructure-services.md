@@ -42,7 +42,7 @@ You can achieve high availability for SQL Server by using SQL Server AlwaysOn Av
 If you want to manually configure your Availability Group and associated listener, see the following articles:
 
 - [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
+- [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
 - [Extend on-premises AlwaysOn Availability Groups to Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
@@ -52,7 +52,7 @@ You can run common SQL Server workloads on Azure Virtual Machines. SQL Server ha
 
 - [Business Intelligence](https://msdn.microsoft.com/library/azure/jj992719.aspx)
 - [Data Warehousing](https://msdn.microsoft.com/library/azure/dn387396.aspx)
-- [OLTP](https://msdn.microsoft.com/library/azure/dn387396.aspx).
+- [OLTP](https://msdn.microsoft.com/library/azure/dn387396.aspx)
 
 ## Migrate your data
 
@@ -61,4 +61,4 @@ After your SQL Server virtual machine is up and running, you might want to migra
 ## Backup and restore
 For on-premises databases, Azure can act as a secondary data center to store SQL Server backup files. For an overview of backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-backup-and-restore.md).
 
-[SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) stores Azure backup files in Azure blob storage. [SQL Server Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) allows you to schedule backup and retention in Azure. These services can be used with either on-premises SQL Server instances or SQL Server running on Azure VMs. Azure VMs can also take advantage of [Automated Backup](https://msdn.microsoft.com/library/azure/dn906091.aspx) and [Automated Patching](https://msdn.microsoft.com/library/azure/dn961166.aspx) for SQL Server.
+[SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) stores Azure backup files in Azure blob storage. [SQL Server Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) allows you to schedule backup and retention in Azure. These services can be used with either on-premises SQL Server instances or SQL Server running on Azure VMs. Azure VMs can also take advantage of [Automated Backup](virtual-machines-sql-server-automated-backup.md) and [Automated Patching](virtual-machines-sql-server-automated-patching.md) for SQL Server.
