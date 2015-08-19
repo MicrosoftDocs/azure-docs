@@ -18,7 +18,7 @@
 
 # Get started with the Azure Batch Library for .NET  
 
-Start working with the Azure Batch .NET Library by creating a console application that sets up support files and a program that runs on several compute nodes in an Azure Batch pool. The tasks that are created in this tutorial evaluate text in files uploaded to Azure Storage and return the words that most commonly appear in those files. The samples are written in C# and use the [Azure Batch .NET Library](https://msdn.microsoft.com/en-us/library/azure/mt348682.aspx).
+Start working with the Azure Batch .NET Library by creating a console application that sets up support files and a program that runs on several compute nodes in an Azure Batch pool. The tasks that are created in this tutorial evaluate text in files uploaded to Azure Storage and return the words that most commonly appear in those files. The samples are written in C# and use the [Azure Batch .NET Library](https://msdn.microsoft.com/library/azure/mt348682.aspx).
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ To learn more about Azure Storage connection strings, see [Configure Azure Stora
 
 5. Save the Program.cs file.
 
-	> [AZURE.NOTE] In a production environment, it is recommended that you use a [shared access signature](https://msdn.microsoft.com/en-us/library/azure/ee395415.aspx).
+	> [AZURE.NOTE] In a production environment, it is recommended that you use a [shared access signature](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 To learn more about Blob storage, see [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
