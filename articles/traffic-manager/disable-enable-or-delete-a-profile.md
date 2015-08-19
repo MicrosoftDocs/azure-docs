@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Disable, enable, or delete a Traffic Manager profile"
+   pageTitle="Disable, enable, or delete a Traffic Manager profile | Microsoft Azure"
    description="This article will help you work with your Traffic Manager profiles."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/09/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Disable, Enable, or Delete a Profile
@@ -44,9 +44,8 @@ You can disable an existing Traffic Manager profile so that it will not refer us
 
 ## Next Steps
 
-[Traffic Manager](../traffic-manager.md)
+[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
-
+[What is Traffic Manager?](traffic-manager-overview.md)
 
  
