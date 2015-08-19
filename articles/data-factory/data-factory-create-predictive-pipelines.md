@@ -307,11 +307,6 @@ In the above JSON example:
 
 
 
-## See Also
-
-Article | Description
------- | ---------------
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, .NET class library, functions, etc… 
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
