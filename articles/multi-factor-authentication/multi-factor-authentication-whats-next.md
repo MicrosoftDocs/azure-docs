@@ -231,9 +231,7 @@ In some apps, like Office 2010 or older and Apple Mail you can't use multi-facto
 >
 > Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
->[AZURE.WARNING]  App passwords will not work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints.
->
->Please be aware that app passwords will not work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints since domain passwords are required to authenticate on-premises and app passwords are required to authenticate with the cloud.
+
 
 ### Important things to know about app passwords
 
@@ -248,6 +246,10 @@ Authentication Experience|For browser based apps|For non-browser based apps
 - The actual password is automatically generated and is not supplied by the user. This is because the automatically generated password, is harder for an attacker to guess and is more secure.
 - Currently there is a limit of 40 passwords per user. You will be prompted to delete told to delete one of your existing app passwords in order to create a new one.
 - Once multi-factor authentication is enabled on a user's account, app passwords can be used with most non-browser clients such as Outlook and Lync, but administrative actions cannot be performed using app passwords through non-browser applications such as Windows PowerShell even if that user has an administrative account.  Ensure you create a service account with a strong password to run PowerShell scripts and do not enable that account for multi-factor authentication.
+
+>[AZURE.WARNING]  App passwords will not work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints.
+>
+>Please be aware that app passwords will not work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints since domain passwords are required to authenticate on-premises and app passwords are required to authenticate with the cloud.
 
 
 ### Naming Guidance for App Passwords
