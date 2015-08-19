@@ -81,7 +81,7 @@ In this section you will create a new Android app that is connected to your mobi
 If you would like to see the source code of the completed app, go [here](https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStarted/AndroidStudio).
 
 
-If you would like to see the Eclipse version of this tutorial, go to : [Get started (Eclipse)](mobile-services-android-get-started-EC.md).
+If you would like to see the Eclipse version of this tutorial, go to : [Get started (Eclipse)](mobile-services-android-get-started-ec.md).
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
@@ -116,7 +116,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Get started (Eclipse)]: mobile-services-android-get-started-EC.md
+[Get started (Eclipse)]: mobile-services-android-get-started-ec.md
 [Get started with data]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
