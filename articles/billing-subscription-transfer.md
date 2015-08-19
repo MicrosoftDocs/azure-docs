@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Transferring an Azure subscription for customers | Microsoft Azure"
+   pageTitle="Transferring an Azure subscription | Microsoft Azure"
    description="How to transfer an Azure subscription to another user, and some Frequently Asked Questions (FAQ) about the process"
    services="billing"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="08/19/2015"
    ms.author="curtand;ruchic"/>
 
-# Transferring an Azure subscription for customers
+# Transferring an Azure subscription
 
 Do you:
 
@@ -25,7 +25,7 @@ Do you:
 - Want to move your Azure subscription from one directory to another?
 - Have Azure and Office 365 in different tenants and want to consolidate?
 
-You can now do this easily in the Microsoft Azure portal! We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any subscription that you own.
+You can now do this easily in the Microsoft Azure Account Center! We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any subscription that you own.
 
 ## How to transfer an Azure subscription
 
@@ -72,11 +72,7 @@ You can now do this easily in the Microsoft Azure portal! We’ve added the abil
     -	Access keys for services like Storage. For more information, see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
     -	Remote Access credentials for services like Azure Virtual Machines
 
-    This is not a complete list. The recipient should consider updating any secrets associated with the service if they need to restrict access to their resources.  
-
-    The recipient should consider updating any secrets associated with the service if they need to restrict access to their resources.
-
-    Most resources can be updated as follows:
+    This is not a complete list. The recipient should consider updating any secrets associated with the service if they need to restrict access to their resources. Most resources can be updated as follows:
 
     1.   Go to the Azure portal:   [*https://portal.azure.com*](https://portal.azure.com)
 
