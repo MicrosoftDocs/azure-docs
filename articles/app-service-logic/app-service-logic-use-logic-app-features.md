@@ -30,11 +30,11 @@ Before you complete this topic, you should complete the steps in [Create a new l
 ## Reference material
 
 You may find the follow documents useful:
+
 - [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/dn948513.aspx) - including how to invoke Logic apps directly
 - [Language reference](https://msdn.microsoft.com/library/azure/dn948512.aspx) - a comprehensive list of all supported functions/expressions
 - [Trigger and action types](https://msdn.microsoft.com/library/azure/dn948511.aspx) - the different types of actions and the inputs they take
 - [Overview of App Service](app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
-
 
 ## Adding conditional logic and a repeat
 
