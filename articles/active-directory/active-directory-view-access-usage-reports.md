@@ -76,7 +76,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Users with anomalous sign in activity				|			|		|	✓			|
 |	Users with leaked credentials						|			|		|	✓			|
 |	**Activity logs**
-|	Audit report										|			|		|	✓			|
+|	Audit report										|	✓		|	✓	|	✓			|
 |	Password reset activity								|			|		|	✓			|
 |	Password reset registration activity				|			|		|	✓			|
 |	Self service groups activity						|			|		|	✓			|
