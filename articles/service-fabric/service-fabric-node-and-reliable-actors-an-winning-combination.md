@@ -18,7 +18,7 @@
 
 
 # Node.js and Reliable Actors: a winning combination
-This article is an overview on how you can build an application that uses node.js and Reliable Actors. The final solution is a blend of javascript code used mainly to provide the frontend side of the app (Web/Rest APIs) and C`# for more complex computation. By leveraging Service Fabric programming model, the application is scalable and reliable out of the box.
+This article is an overview on how you can build an application that uses node.js and Reliable Actors. The final solution is a blend of javascript code used mainly to provide the frontend side of the app (Web/Rest APIs) and C# for more complex computation. By leveraging Service Fabric programming model, the application is scalable and reliable out of the box.
 The process is bsed on the following steps:
 
     1. create a new Service Fabric Stateless or Stateful Actor project using Service Fabric tools for Visual Studio
@@ -28,7 +28,7 @@ The process is bsed on the following steps:
 
 
 
-# create the node.js project
+## create the node.js project
 After you create the node.js project and add the dependencies, you need to change the directory structure of the project so it follows the structure that the Service Fabric tools for Visual Studio required in order to be able to package and deploy the app like any other Service Fabric service. The goal is to make the changes to the directory structure only once so you can benefits from being able to use the deployment process in Visual Studio and hence deploy your node.js app along with the other services in the solution. 
 The changes that needs to be done to the directory structure are:
 
@@ -44,7 +44,7 @@ As you can see all the node.js code is under the PackageRoot/Code directory. Ser
 
 ![][3]
 
-# Add servicemanifest.xml metadata file
+## Add servicemanifest.xml metadata file
 In order to deploy the node.js application, we need to add a metadata file that is required to specify some properties that will be used by Service Fabric in order to determine how to deploy and launch the application.
 
 This is an example on how the servicemanifest.xml should look like, please refer to [this article](service-fabric-deploy-existing-app) for more details on what are the important element that needs to be updated but typically you need to update:
@@ -92,7 +92,7 @@ After the `servicemanifest.xml` file is added to the node.js project, the struct
 
 ![][4]
 
-# Add Service Fabric binaries
+## Add Service Fabric binaries
 Next step is to add Service Fabric binaries that are used to connect with the Actors running in the Service Fabric cluster. As you can see in the Edge.js sample, there are some references to asemblies. To make those assemblies available to edge.js, they need to be copied along with the node.js code.
 The easiest way is to copy the binaries from an existing projects, the files that needs to be included in the code directory (and will be used by edge.js) are the following:
 
@@ -113,7 +113,7 @@ After you added the binaries to the project, the project structure should like t
 
 ![][5]
 
-# Add a reference to the node.js project in the applicationmanifest file
+## Add a reference to the node.js project in the applicationmanifest file
 Next step is to add the node.js service to the application manifest so it can be deployed using Visual Studio tools for Service Fabric. This is necessary because there is no integration in Service Fabric tools for Visual Studio with the node.js project so it needs to be added manually. 
 
 In the `applicationmanifest.xml` file you need to add the following elements:
@@ -148,10 +148,10 @@ AZURE.NOTE Make sure you are using the same names that you used in the `servicem
 
 ```
 
-# Using Reliable Actors in the Node.js app
+## Using Reliable Actors in the Node.js app
 Now that the project structure is set, we can focus on the code that allow the node.js application to connect to Reliable Actors in the cluster like you can do from a .NET application. The scenario we want to enable is to buld a node.js application that act as frontend/gateway for client application and expose an web-based application or a set of rest APIs a client app can use.
 Node.js provides the frontend of the app while Reliable Actors provide the scalable and reliable 'application server' layer of the app.
-In Service Fabric, Reliable Actors can be invoked by using the [ActorProxy class](service-fabric-reliable-actors-introduction/`#actor-communication). Luckly there is a great node.js module that can be use to call into .NET code: [Edge.js](https://github.com/tjanczuk/edge). You can use the instructions on the github repo to find out how to install edge on your machine.
+In Service Fabric, Reliable Actors can be invoked by using the [ActorProxy class](service-fabric-reliable-actors-introduction/#actor-communication). Luckly there is a great node.js module that can be use to call into .NET code: [Edge.js](https://github.com/tjanczuk/edge). You can use the instructions on the github repo to find out how to install edge on your machine.
 
  
 ![][2]
@@ -165,10 +165,10 @@ var getActorStatus = edge.func(function () {
 
 /*
 
-    `#r "Microsoft.ServiceFabric.Actors.dll"
-    `#r "System.Globalization.dll"
-    `#r "System.dll"
-    `#r  "visualobjects.interfaces.dll"
+    #r "Microsoft.ServiceFabric.Actors.dll"
+    #r "System.Globalization.dll"
+    #r "System.dll"
+    #r  "visualobjects.interfaces.dll"
     
     using Microsoft.ServiceFabric.Actors;
     using System.Globalization;
@@ -206,7 +206,7 @@ Note: you will have to copy (or set a post-build action in VS) the dll any time 
 
 ![][6]
 
-# Deployment
+## Deployment
 At this point the project can be deployed using Service Fabric Tools for Visual Studio. The last step of the process is to reference the project in the Service Fabric Application project so it can be included in the Application package and deployed in the cluster.
 
 ![][9]
