@@ -62,8 +62,8 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 1. Enable SSH tunneling from your desktop computer and configure your Firefox Web browser to use the SSH tunnel. While configuring tunneling, use a port other than port 8888.
 
-	* For instructions on enabling SSH tunneling from a Linux computer, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-	* For instructions on enabling SSH tunneling from a Windows computer, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+	* For instructions on enabling SSH tunneling from a Linux computer, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-linux-ambari-ssh-tunnel.md#usessh).
+	* For instructions on enabling SSH tunneling from a Windows computer, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-linux-ambari-ssh-tunnel.md#useputty).
 
 	Keep the PuTTY session running.
  
