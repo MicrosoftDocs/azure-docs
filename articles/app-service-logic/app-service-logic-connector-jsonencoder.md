@@ -39,24 +39,10 @@ Follow steps for [Creating a Logic App]. BizTalk JSON Encoder can be used as an 
 
 	![Encode and send configured][6]
 
-<table>
-	<tr>
-		<th>Parameter</th>
-		<th>Type</th>
-		<th>Description of the parameter</th>
-	</tr>
-	<tr>
-		<td>Input Xml</td>
-		<td>object</td>
-		<td>Input Xml content</td>
-	</tr>
-	<tr>
-		<td>Remove Outer Envelope</td>
-		<td>string</td>
-		<td>Flag set to remove Root node from Xml content</td>
-	</tr>
-</table>
-
+Parameter|Type|Description of the parameter
+---|---|---
+Input Xml|object|Input Xml content
+Remove Outer Envelope|string|Flag set to remove Root node from Xml content
 
 The action returns a json representation of the input content.
 

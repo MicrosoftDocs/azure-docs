@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server on Azure Virtual Machines" 
+	pageTitle="SQL Server IaaS Agent Extension" 
 	description="Describes the SQL Server agent extension, which enables virtual machines running SQL Server in the cloud on Azure to use automation features, and how to install the agent if it isn't already installed automatically." 
 	services="virtual-machines" 
 	documentationCenter="" 

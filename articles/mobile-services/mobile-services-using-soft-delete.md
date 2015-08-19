@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using soft delete in Mobile Services (Windows Store) | Mobile Dev Center" 
+	pageTitle="Using soft delete in Mobile Services (Windows Store) | Microsoft Azure" 
 	description="Learn how to use Azure Mobile Services soft delete feature in your application" 
 	documentationCenter="" 
 	authors="wesmc7777" 

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Install and configure PostgreSQL on a Microsoft Azure virtual machine running Linux"
-	description="Learn how to install and configure PostgreSQL on an Ubuntu or CentOS virtual machine in Azure."
+	pageTitle="Install and configure PostgreSQL on a Microsoft Azure virtual machine running Linux | Microsoft Azure"
+	description="Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="linux"
 	ms.workload="infrastructure-services"
-	ms.date="06/04/2015"
+	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
@@ -35,19 +35,19 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 
 1. Run the following command to switch to the root (admin):
 
-		$ sudo su -
+		# sudo su -
 
 2. Some distributions have dependencies that you must install before installing PostgreSQL. Check for your distro in this list and run the appropriate command:
 
-	- Red Hat:
+	- Red Hat base Linux:
 
 			# yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
-	- Debian:
+	- Debian base Linux:
 
  			# apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
 
-	- SUSE:
+	- SUSE Linux:
 
 			# zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
@@ -91,7 +91,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 
 		# su - postgres
 
-    >[AZURE.NOTE] For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
+   > [AZURE.NOTE] For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
 
 
 4. Edit the *bash_profile* file by entering the commands below. These lines will be added to the end of the *bash_profile* file:

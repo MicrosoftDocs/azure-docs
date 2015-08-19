@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Service Bus queues (Java) - Azure"
+	pageTitle="How to use Service Bus queues (Java) | Microsoft Azure"
 	description="Learn how to use Service Bus queues in Azure. Code samples written in Java."
 	services="service-bus"
 	documentationCenter="java"

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/20/2015" 
+	ms.date="08/13/2015" 
 	ms.author="anbacker"/>
 	
 # Monitor and troubleshoot protection for VMware, VMM, Hyper-V and Physical sites
@@ -218,9 +218,6 @@ of the error is documented in a separate WIKI page.
 
 ### Setup
 
--   [The selected certificate cannot be validated. Please select a
-    different certificate.](http://social.technet.microsoft.com/wiki/contents/articles/25569.the-selected-certificate-cannot-be-validated-please-select-a-different-certificate.aspx)
-
 -   [The VMM server cannot be registered due to an internal error.
     Please refer to the jobs view in the Site Recovery Portal for more
     details on the error. Run Setup again to register the
@@ -231,25 +228,15 @@ of the error is documented in a separate WIKI page.
     later.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### Configuration
+-   [Unable to create Protection Group: An error occurred while retrieving the list of servers.](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx)
 
 -   [Hyper-V host cluster contains at least one static network adapter,
     or no connected adapters are configured to use DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
-
--   [The Hyper-V profile isn't enabled in the Capability Profiles for
-    cloud](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
-
--   [Protection configuration for '%CloudName;' couldn't be applied. A
-    newly added Hyper-V host or cluster couldn't be configured because
-    cloud protection isn't
-    configured.](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
 
 -   [VMM does not have permissions to complete an
     action](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
 
 ### Protection
-
--   [The operating system is not
-    supported](http://social.technet.microsoft.com/wiki/contents/articles/31103.the-operating-system-is-not-supported.aspx)
 
 -   [Enable protection failed since Agent not installed on host
     machine](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
@@ -311,11 +298,6 @@ of the error is documented in a separate WIKI page.
     -   [Failover could not be initiated since test failover is in
         progress](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
--   Specific to recovery to Azure
-
-    -   [Failover could not be started due to unsupported characters in
-        the VM
-        name](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
 
 ### Configuration Server, Process Server, Master Target
 
@@ -325,4 +307,5 @@ Configuration Server (CS), Process Server (PS), Master Targer (MT)
     screen of
     death.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
-
+### Remote desktop troubleshooting after failover
+Many customers have faced issues to connect to the failed over VM in Azure. Use the troubleshooting document to RDP into the VM. [Document Link](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)

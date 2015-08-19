@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Distributed Computation pattern"
-   description="Azure Service Fabric is a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation."
+   pageTitle="Reliable Actors Distributed Computation pattern"
+   description="Service Fabric Reliable Actors are a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Service Fabric Actors design pattern: distributed computation
-We owe this one in part to watching a real life customer whip out a financial calculation in Azure Service Fabric Actors in an absurdly small amount of time—a Monte Carlo simulation for risk calculation to be exact.
+# Reliable Actors design pattern: distributed computation
+We owe this one in part to watching a real life customer whip out a financial calculation in Service Fabric Reliable Actors in an absurdly small amount of time—a Monte Carlo simulation for risk calculation to be exact.
 
 At first, especially to those who do not have domain specific knowledge, Azure Service Fabric's handling of this kind of workload, as opposed to say more traditional approaches such as Map/Reduce or MPI, may not be obvious.
 
@@ -203,4 +203,3 @@ We are by no means asserting that Azure Service Fabric is a drop-in replacement 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
- 

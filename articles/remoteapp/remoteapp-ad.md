@@ -3,7 +3,7 @@
     pageTitle="Configure Active Directory for Azure RemoteApp" 
     description="Learn how to set up Active Directory to work with Azure RemoteApp." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/28/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
 
 
@@ -21,7 +21,7 @@
 # Configuring Active Directory for Azure RemoteApp
 
 
-For a hybrid collection of RemoteApp, you need to set up an Active Directory domain infrastructure on-premises and an Azure Active Directory tenant with Directory Integration (and optionally single sign-on). Additionally, you need to create some Active Directory objects in the on-premises directory. Use the following information to configure the on-premises Active Directory and Azure AD, and then integrate the two.
+For a hybrid collection of Azure RemoteApp, you need to set up an Active Directory domain infrastructure on-premises and an Azure Active Directory tenant with Directory Integration (and optionally single sign-on). Additionally, you need to create some Active Directory objects in the on-premises directory. Use the following information to configure the on-premises Active Directory and Azure AD, and then integrate the two.
 
 ## Configure your on-premises Active Directory
 Start by configuring your on-premises Active Directory. You need to identify the UPN domain suffix to use, and then create Active Directory objects for RemoteApp. 
