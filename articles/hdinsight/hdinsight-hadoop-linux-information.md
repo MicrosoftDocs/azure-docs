@@ -198,6 +198,22 @@ For specific information on scaling your HDInsight cluster, see:
 
 * [Manage Hadoop clusters in HDinsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scaling)
 
+## How do I install Hue (or other Hadoop component)?
+
+HDInsight is a managed service, which means that nodes in a cluster may be destroyed and reprovisioned automatically by Azure if a problem is detected. Because of this, it is not recommended to manually install components on the cluster nodes.
+
+Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster.md).
+
+Script Actions are Bash scripts that are ran during cluster provisioning, and can be used to install additional components on the cluster. Example scripts are provided for installing the following components:
+
+* [Hue](hdinsight-hadoop-hue-linux.md)
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [R](hdinsight-hadoop-r-scripts-linux.md)
+* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Spark](hdinsight-hadoop-spark-install-linux.md)
+
+For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
 ## Next steps
 
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
