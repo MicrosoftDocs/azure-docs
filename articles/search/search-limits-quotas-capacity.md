@@ -27,18 +27,18 @@ Standard runs on dedicated machines that are used only by your service. Sole use
 
 Azure subscribers can use the shared (multi-tenant) Search service for development or very small search applications. The shared service comes with your Azure subscription. It's a no-cost option that allows you to experiment with the service before signing up. It provides:
 
-   |Object|Limit
-   |--------|---------
-   |Maximum number of indexes|3
-   |Maximum number of fields per index|1000
-   |Maximum document count|10,000
-   |Maximum storage size|50 MB
-   |Maximum partitions|N/A
-   |Maximum replicas|N/A
-   |Maximum search units|N/A
-   |Maximum number of indexers|3
-   |Maximum number of Indexer data sources|3
-   |Maximum number of indexed documents per indexer invocation|10,000
+Object|Limit
+------|-----
+Maximum number of indexes|3
+Maximum number of fields per index|1000
+Maximum document count|10,000
+Maximum storage size|50 MB
+Maximum partitions|N/A
+Maximum replicas|N/A
+Maximum search units|N/A
+Maximum number of indexers|3
+Maximum number of Indexer data sources|3
+Maximum number of indexed documents per indexer invocation|10,000
 
 Notice that there are no quotas or maximum limits associated with queries. Queries-per-second (QPS) are variable, depending on available bandwidth and competition for system resources. The Azure compute and storage resources backing your shared service are shared by multiple subscribers, so QPS for your solution will vary depending on how many other workloads are running at the same time.
 
@@ -48,18 +48,18 @@ Under the Standard pricing tier, a dedicated Search service stores only your dat
 
 The following table is a list of upper limits, but you should review the matrix chart further on to understand capacity in terms of allowable [combinations of partitions and replicas](#chart).
 
-   | Object | Limit
-   | --------|--------
-   |Maximum number of indexes |50 per Search service
-   |Maximum number of fields per index |1000
-   |Maximum document count |15 million per partition
-   |Maximum storage size |25 GB per partition
-   |Maximum partitions |12 per Search service
-   |Maximum replicas |6 per Search service
-   |Maximum search units |36 per Search service
-   |Maximum number of indexers |50 per Search service
-   |Maximum number of Indexer data sources |50 per Search service
-   |Maximum number of indexed documents per indexer invocation|Unlimited
+Object|Limit
+------|----
+Maximum number of indexes|50 per Search service
+Maximum number of fields per index|1000
+Maximum document count|15 million per partition
+Maximum storage size|25 GB per partition
+Maximum partitions|12 per Search service
+Maximum replicas|6 per Search service
+Maximum search units|36 per Search service
+Maximum number of indexers|50 per Search service
+Maximum number of Indexer data sources|50 per Search service
+Maximum number of indexed documents per indexer invocation|Unlimited
 
 Capacity in Azure Search can be purchased in increments called search units. The Standard pricing tier allows for up to 36 search units per Search service. This limit overrides the individual limits on partitions and replicas. For example, you can't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
 
@@ -82,15 +82,15 @@ Additional capacity is calculated as partitions multiplied by replicas, yielding
 
 The following table is a chart that lists replicas on the vertical axis, and partitions on the horizontal axis. The intersection shows the number of search units required to support each combination. For example, if you want 6 replicas and 2 partitions, this configuration would require 12 search units. To use 4 replicas and 2 partitions, you would need 8 search units. As a general rule, most search applications tend to need more replicas than partitions.
 
-   |   |   |   |   |   |   |  |
-   |---|---|---|---|---|---|--|
-   |6 replicas |6 SU |12 SU |18 SU |24 SU |36 SU |N/A
-   |5 replicas |5 SU |10 SU |15 SU |20 SU |30 SU |N/A
-   |4 replicas |4 SU |8 SU |12 SU |16 SU |24 SU |N/A 
-   |3 replicas |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU
-   |2 replicas |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU
-   |1 replica |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU
-   |N/A |1 Partition |2 Partitions |3 Partitions |4 Partitions |6 Partitions |12 Partitions 
+   |   |   |   |   |   |  |
+---|---|---|---|---|---|--|
+6 replicas|6 SU|12 SU|18 SU|24 SU|36 SU|N/A
+5 replicas|5 SU|10 SU|15 SU|20 SU|30 SU|N/A
+4 replicas|4 SU|8 SU|12 SU|16 SU|24 SU|N/A 
+3 replicas|3 SU|6 SU|9 SU|12 SU|18 SU|36 SU
+2 replicas|2 SU|4 SU|6 SU|8 SU|12 SU|24 SU
+1 replica|1 SU|2 SU|3 SU|4 SU|6 SU|12 SU
+N/A|1 Partition|2 Partitions|3 Partitions|4 Partitions|6 Partitions|12 Partitions 
 
 Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details]() for more information.
 
