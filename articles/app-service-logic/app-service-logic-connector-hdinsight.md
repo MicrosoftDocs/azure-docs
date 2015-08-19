@@ -51,6 +51,7 @@ Browse to the just created HDInsight Connector API App and you will see that the
 ![][2]
 
 To upload the management certificate to your API App:
+
 1. Select the 'Security' component.
 2. In the 'Security' blade, select **UPLOAD CERTIFICATE**.
 3. Browse and select the certificate file in the next blade.
@@ -70,7 +71,7 @@ HDInsight Connector can be used only as an action in logic app. Let us take a si
 2. Select the HDInsight Connector API App created from the gallery. The available actions are listed:  
 ![][5]
 
-3. Select 'Create Cluster', enter all the required cluster parameters, and select the ✓: 
+3. Select 'Create Cluster', enter all the required cluster parameters, and select the ✓:   
 ![][6]
 
 4. The action now appears as configured in the logic app. The output(s) of the action are shown and can be used inputs in any subsequent actions:  
