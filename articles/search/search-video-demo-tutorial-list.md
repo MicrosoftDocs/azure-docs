@@ -66,25 +66,17 @@ Walkthrough|Description
 
 [**https://github.com/AzureSearch**](https://github.com/AzureSearch) is a GitHub repository for Azure Search containing code samples created by the Azure Search development team. You can browse the repository to see what it contains, or click links below to go directly to specific samples. 
 
-[**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) on GitHub.
-
-[**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo) on GitHub.
-
-[**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) on GitHub.
-
-[**AzureSearch-Microsoft Virtual Academy Training Materials**](https://github.com/MicrosoftLearning/AzureSearch-MVA) on GitHub.
+- [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) on GitHub.
+- [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo) on GitHub.
+- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) on GitHub.
+- [**AzureSearch-Microsoft Virtual Academy Training Materials**](https://github.com/MicrosoftLearning/AzureSearch-MVA) on GitHub.
 
 On CodePlex, you can find several samples published during the public preview that are still relevant in the current version.
 
-[**Management REST API Demo**](https://azuresearchmgmtapi.codeplex.com/) on CodePlex.
-
-[**AdventureWorks Demo**](https://azuresearchadventureworksdemo.codeplex.com/) on CodePlex.
-
-[**Suggestions Demo**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) on CodePlex.
-
-[**GeoSearch sample**](https://azuresearchgeospatial.codeplex.com/) on CodePlex.
-
-[**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) on CodePlex.
-
-[**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) on CodePlex.
+- [**Management REST API Demo**](https://azuresearchmgmtapi.codeplex.com/) on CodePlex.
+- [**AdventureWorks Demo**](https://azuresearchadventureworksdemo.codeplex.com/) on CodePlex.
+- [**Suggestions Demo**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) on CodePlex.
+- [**GeoSearch sample**](https://azuresearchgeospatial.codeplex.com/) on CodePlex.
+- [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) on CodePlex.
+- [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) on CodePlex.
 
