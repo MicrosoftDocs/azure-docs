@@ -45,6 +45,7 @@ HDInsight provides several scripts to install the following components on HDInsi
 
 Name | Script
 ----- | -----
+**Install Hue** | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh. See [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md).
 **Install Spark** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh. See [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md).
 **Install R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. See [Install and use R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md).
 **Install Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md).
@@ -62,7 +63,7 @@ Name | Script
 	| -------- | ----- |
 	| Name | Specify a name for the script action. |
 	| Script URI | Specify the URI to the script that is invoked to customize the cluster. |
-	| Head/Worker | Specify the nodes (**Head** or **Worker**) on which the customization script is run. |
+	| Head/Worker | Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the customization script is run. |
 	| Parameters | Specify the parameters, if required by the script. |
 
 	Press ENTER to add more than one script action to install multiple components on the cluster. 
