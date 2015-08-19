@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server on Azure Virtual Machines" 
+	pageTitle="SQL Server on Azure Virtual Machines Overview" 
 	description="This article provides an overview of SQL Server hosted on Azure IaaS Virtual Machines. This includes links to depth content." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -16,10 +16,10 @@
 	ms.date="08/18/2015"
 	ms.author="jroth"/>
 
-# SQL Server on Azure Virtual Machines
+# SQL Server on Azure Virtual Machines Overview
 
 ## Overview
-You can host [SQL Server on Azure Virtual Machines](http://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using AlwaysOn Availability Groups and an Azure Virtual Network.
+You can host [SQL Server on Azure Virtual Machines](http://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using AlwaysOn Availability Groups and an Azure Virtual Network. This topic attempts to point you to some of the best resources for getting started with running SQL Server in an Azure Virtual Machine.
 
 >[AZURE.NOTE] Running SQL Server on an Azure VM is one option for storing relational data in Azure. You can also use the Azure SQL Database service. For more information, see [Understanding Azure SQL Database and SQL Server in Azure VMs](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
  
