@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Hosting Web Apps in Docker"
+   pageTitle="Hosting Web Apps in Docker | Microsoft Azure"
    description="Learn how to use Visual Studio to host a web app in a Docker container."
    services="visual-studio-online"
    documentationCenter="na"
