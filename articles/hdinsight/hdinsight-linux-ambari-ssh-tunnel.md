@@ -54,7 +54,7 @@ When using an SSH tunnel for web traffic, you must have the following:
 
 	> [AZURE.WARNING] Without a plugin such as FoxyProxy, all requests made through the browser may be routed through the tunnel. This can result in slower loading of web pages in your browser.
 	
-##Create a tunnel using the SSH command
+##<a name="usessh"></a>Create a tunnel using the SSH command
 
 Use the following command to create an SSH tunnel using the `ssh` command. Replace __USERNAME__ with an SSH user for your HDInsight cluster, and replace __CLUSTERNAME__ with the name of your HDInsight cluster
 
@@ -82,7 +82,7 @@ If you configured the cluster with an SSH key, you may need use the `-i` paramet
 
 Once the command finishes, traffic sent to port 9876 on the local computer will be routed over Secure Sockets Layer (SSL) to the cluster head node and appear to originate there.
 
-##Create a tunnel using PuTTY
+##<a name="useputty"></a>Create a tunnel using PuTTY
 
 Use the following steps to create an SSH tunnel using PuTTY.
 
