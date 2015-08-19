@@ -51,6 +51,7 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh
 	* __HEAD__: Check this option
 	* __WORKER__: Check this option
+	* __ZOOKEEPER__: Check this option to install on the Zookeeper node.
 	* __PARAMETERS__: Leave this field blank
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
