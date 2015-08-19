@@ -477,6 +477,24 @@ The HDInsight service provides several ways to use custom components. Regardless
 
 3. Samples - For popular custom components, Microsoft and others may provide samples of how these components can be used on the HDInsight clusters. These samples are provided without support.
 
+##Troubleshooting
+
+You can use Ambari web UI to view information logged by scripts during cluster provisioning.
+
+1. In your browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
+
+	When prompted, enter the admin account name (admin) and password for the cluster. You may have to re-enter the admin credentials in a web form.
+	
+2. From the bar at the top of the page, select the __ops__ entry. This will show a list of current and previous operations performed on the cluster through Ambari.
+
+	![Ambari web UI bar with ops selected](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+	
+3. Find the entries that have __run\_customscriptaction__ in the __Operations__ column. These are created when the Script Actions are ran.
+
+	![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+
+	Select this entry, and drill down through the links to view the STDOUT and STDERR output generated when the script was ran on the cluster.
+
 ## Next steps
 
 See the following for information and examples on creating and using scripts to customize a cluster:
