@@ -230,7 +230,7 @@ If you need more bandwidth or security than an Azure Virtual Network connection 
 
 Setting it up an ExpressRoute connection requires more time and planning, so you might want to start with a site-to-site VPN, then migrate to an ExpressRoute connection.
 
-For more information about ExpressRoute, see [ExpressRoute Technical Overview](http://msdn.microsoft.com/library/azure/dn606309.aspx).
+For more information about ExpressRoute, see [ExpressRoute Technical Overview](expressroute/expressroute-introduction.md).
 
 ### Traffic Manager
 
