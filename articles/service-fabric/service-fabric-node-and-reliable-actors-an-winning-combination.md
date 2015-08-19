@@ -56,41 +56,33 @@ This is an example on how the servicemanifest.xml should look like, please refer
 
 ```xml
 
-< ?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
-< ServiceManifest Name="NodejsFrontendPkg"
+<ServiceManifest Name="NodejsFrontendPkg"
                  Version="1.0.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-  < ServiceTypes >
-
-    < StatelessServiceType ServiceTypeName="NodejsFrontendType" UseImplicitHost="true" />
-
-  < /ServiceTypes >
-
-  < CodePackage Name="Code" Version="1.0.0.0" >
-
-    < EntryPoint >
-      < ExeHost >
-        < Program>node.exe< /Program>
-        < Arguments>server.js< /Arguments>
-        < WorkingFolder>CodeBase< /WorkingFolder>
-      < /ExeHost>
-    < /EntryPoint>
-  < /CodePackage >
-
-  < ConfigPackage Name="Config" Version="1.0.0.0" />
-
-  < Resources >
-
-    < Endpoints>
-      < Endpoint Name="ServiceEndpoint" />
-    < /Endpoints>
-  < /Resources >
-
-< /ServiceManifest >
+  <ServiceTypes>
+    <StatelessServiceType ServiceTypeName="NodejsFrontendType" UseImplicitHost="true" />
+  </ServiceTypes>
+  <CodePackage Name="Code" Version="1.0.0.0">
+    <EntryPoint>
+      <ExeHost>
+        <Program>node.exe</Program>
+        <Arguments>server.js</Arguments>
+        <WorkingFolder>CodeBase</WorkingFolder>
+      </ExeHost>
+    </EntryPoint>
+  </CodePackage>
+  <ConfigPackage Name="Config" Version="1.0.0.0" />
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="ServiceEndpoint" />
+    </Endpoints>
+  </Resources>
+</ServiceManifest>
 
 ```
 
@@ -106,25 +98,15 @@ The easiest way is to copy the binaries from an existing projects, the files tha
 
 `
 Microsoft.ServiceFabric.Actors.dll
-
 Microsoft.ServiceFabric.Collections.dll
-
 Microsoft.ServiceFabric.Data.dll
-
 Microsoft.ServiceFabric.Data.Log.dll
-
 Microsoft.ServiceFabric.ReplicatedStore.dll
-
 Microsoft.ServiceFabric.Replicator.dll
-
 Microsoft.ServiceFabric.Services.dll
-
 ServiceFabricServiceModel.dll
-
 System.Fabric.Common.Internal.dll
-
 System.Fabric.Common.Internal.Strings.resources.dll
-
 System.Fabric.dll
 `
 After you added the binaries to the project, the project structure should like the following:
@@ -142,37 +124,27 @@ In the `applicationmanifest.xml` file you need to add the following elements:
 AZURE.NOTE Make sure you are using the same names that you used in the `servicemanifest.xml` to specify `ServiceName` and `ServiceTypeName`. the `applicationmanifest.xml` file should be similar to the following:
 
 ```
-< ?xml version="1.0" encoding="utf-8"?>
-< ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeServiceFabricSampleApplication" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-   
-    < ServiceManifestImport>
-
-      < ServiceManifestRef ServiceManifestName="NodeServiceFabricSamplePkg" ServiceManifestVersion="1.0.0.0" />
-
-   < /ServiceManifestImport>
-
-   < ServiceManifestImport>
-
-       < ServiceManifestRef ServiceManifestName="VisualObjectsNodejsWebServicePkg" ServiceManifestVersion="1.0.0.0" />
-
-       < /ServiceManifestImport>
-
-   < DefaultServices>
-
-      < Service Name="NodeServiceFabricSampleActorService">
-         < StatelessService ServiceTypeName="NodeServiceFabricSampleActorServiceType">
-            < UniformInt64Partition PartitionCount="9" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-         < /StatelessService>
-      < /Service>
-     < Service Name="NodejsFrontendPkg">
-       < StatelessService ServiceTypeName="NodejsFrontendType">
-         < SingletonPartition />
-       < /StatelessService>
-     < /Service>
-
-   < /DefaultServices>
-
-< /ApplicationManifest>
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeServiceFabricSampleApplication" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="NodeServiceFabricSamplePkg" ServiceManifestVersion="1.0.0.0" />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
+       <ServiceManifestRef ServiceManifestName="VisualObjectsNodejsWebServicePkg" ServiceManifestVersion="1.0.0.0" />
+       </ServiceManifestImport>
+   <DefaultServices>
+      <Service Name="NodeServiceFabricSampleActorService">
+         <StatelessService ServiceTypeName="NodeServiceFabricSampleActorServiceType">
+            <UniformInt64Partition PartitionCount="9" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+         </StatelessService>
+      </Service>
+     <Service Name="NodejsFrontendPkg">
+       <StatelessService ServiceTypeName="NodejsFrontendType">
+         <SingletonPartition />
+       </StatelessService>
+     </Service>
+   </DefaultServices>
+</ApplicationManifest>
 
 ```
 
@@ -207,7 +179,7 @@ var getActorStatus = edge.func(function () {
 
 public class Startup
     {
-         public async Task< object > Invoke(dynamic input)
+         public async Task<object> Invoke(dynamic input)
         {
 
             var objectId = (string) input.actorId;
@@ -243,7 +215,7 @@ You can deploy the application (that will include the node.js app) by using, for
 
 ![][10]
 
-# Next steps
+## Next steps
 * Learn more about [Reliable Actors](service-fabric-reliable-actors-introduction)
 * Learn more about Service Fabric [application lifecycle](service-fabric-application-lifecycle)
 * Lean more about upgrading a [Service Fabric application](service-fabric-application-upgrade) 
@@ -259,13 +231,3 @@ You can deploy the application (that will include the node.js app) by using, for
 [8]: ./media/service-fabric-node-and-reliable-actors-app/nodejs-project-structure1.PNG
 [9]: ./media/service-fabric-node-and-reliable-actors-app/application-project-reference.PNG
 [10]: ./media/service-fabric-node-and-reliable-actors-app/solution-deploy.PNG
-
-
-
-
-	
-
-
-
-
-
