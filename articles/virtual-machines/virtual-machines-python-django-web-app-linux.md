@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Python web app with Django on Mac - Azure tutorial" 
+	pageTitle="Python web app with Django on Mac | Microsoft Azure" 
 	description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="python" 

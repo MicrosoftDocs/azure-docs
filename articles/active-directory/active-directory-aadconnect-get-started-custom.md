@@ -21,7 +21,7 @@
 
 The following documentation provides information on using the custom installation option for Azure AD Connect.  You can use this option if you have additional configuration options or need optional features that are not covered in the express installation.
 
-For information on an Express Installation see [Express Installation](active-directory-aadconnect/#getting-started-with-azure-ad-connect).   For information on upgrading from DirSync to Azure AD Connect see [Upgrading DirSync to Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+For information on an Express Installation see [Express Installation](active-directory-aadconnect.md#getting-started-with-azure-ad-connect).   For information on upgrading from DirSync to Azure AD Connect see [Upgrading DirSync to Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
 

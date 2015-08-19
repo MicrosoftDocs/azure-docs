@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/10/2015"
+   ms.date="08/12/2015"
    ms.author="mbaldwin"/>
 
 
@@ -25,13 +25,13 @@ As an identity management as a service (IDMaaS) platform, Azure Active Directory
 
 1. [Integrating with Azure Active Directory](active-directory-how-to-integrate.md): Discover why integration with Azure Active Directory offers the best solution for secure sign-in and authorization.
 
-1. [Authentication scenarios for Azure Active Directory](active-directory-authentication-scenarios.md): Take advantage of simplified authentication in Azure Active Directory to provide sign-on to your application.
+1. [Active Directory authentication scenarios](active-directory-authentication-scenarios.md): Take advantage of simplified authentication in Azure Active Directory to provide sign-on to your application.
 
 1. [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx): Use the Azure Active Directory Graph API to programmatically access Azure Active Directory through REST API endpoints.
 
-1. [Integrating applications in Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151122.aspx): Learn about registering your application and the branding guidelines for multitenant applications.
+1. [Integrating applications in Azure Active Directory](active-directory-integrating-applications.md): Learn about registering your application and the branding guidelines for multitenant applications.
 
-1. [Azure Active Directory authentication libraries](https://msdn.microsoft.com/library/azure/dn151135.aspx): Easily authenticate users to obtain access tokens by using the Azure authentication libraries.
+1. [Azure Active Directory authentication libraries](active-directory-authentication-libraries.md): Easily authenticate users to obtain access tokens by using the Azure authentication libraries.
 
 To view Azure Active Directory overviews presented at the Build 2015 conference, see the [Videos](#videos) section below.
 
@@ -42,24 +42,19 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 
 ### Mobile or PC application quick-start guides
 
-- [iOS](active-directory-devquickstarts-ios.md)
-- [Android](active-directory-devquickstarts-android.md)
-- [.NET](active-directory-devquickstarts-dotnet.md)
-- [Windows Phone](active-directory-devquickstarts-windowsphone.md)
-- [Windows Store](active-directory-devquickstarts-windowsstore.md)
-- [Xamarin](active-directory-devquickstarts-xamarin.md)
-- [Cordova](active-directory-devquickstarts-cordova.md)
+[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Windows Store](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:
+|[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
 
 ### Web application or web API quick-start guides
 
-- [.NET web app](active-directory-devquickstarts-webapp-dotnet.md)
-- [.NET web API](active-directory-devquickstarts-webapi-dotnet.md)
-- [JavaScript](active-directory-devquickstarts-angular.md)
-- [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
+[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
+|:--:|:--:|:--:|:--:
+|[.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)|[.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
 
-## How-Tos
+## How-tos
 
 These articles describe how to perform specific tasks by using Azure Active Directory:
 
@@ -79,7 +74,7 @@ These articles provide a foundation reference for REST and authentication librar
 
 ### Code
 
-- [Azure Active Directory open-source libraries](http://github.com/AzureAD): The easiest way to find a library’s source is by using our [library list](https://msdn.microsoft.com/library/azure/dn151135.aspx).
+- [Azure Active Directory open-source libraries](http://github.com/AzureAD): The easiest way to find a library’s source is by using our [library list](active-directory-authentication-libraries.md).
 
 - [Azure Active Directory samples](http://github.com/AzureADSamples): The easiest way to navigate the list of samples is by using the [index of code samples](active-directory-code-samples.md).
 

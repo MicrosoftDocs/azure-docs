@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" 
+	pageTitle="Access SharePoint on behalf of the user | Microsoft Azure" 
 	description="Learn how to make calls to SharePoint on behalf of the user" 
 	documentationCenter="" 
 	authors="mattchenderson" 

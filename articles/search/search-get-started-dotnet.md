@@ -13,16 +13,16 @@
 	ms.workload="search"
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
 #Get started with your first Azure Search application in .NET#
 
-Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise, as well as the Azure Search service REST API.
+Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET client library](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise, as well as the Azure Search service REST API.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com).
 
-> [AZURE.TIP] Download the source code for this tutorial at [Azure Search .NET Samples](http://go.microsoft.com/fwlink/p/?LinkId=530196).
+> [AZURE.TIP] Download the source code for this tutorial at [Azure Search .NET Samples](http://go.microsoft.com/fwlink/p/?LinkId=530196). Learn how to set up connections and send requests in [How to use Azure Search from a .NET application](search-howto-dotnet-sdk.md).
 
 ##About the data##
 
@@ -127,9 +127,7 @@ A partial list of the assemblies used in this example is shown below.
 
 Each project includes configuration files that specify the service name and api-key.
 
-1. In **DataIndexer**, replace App.config with the following example, updating the [SERVICE NAME] and [SERVICE KEY] with values that are valid for your service.
-
-   The service name is not the full URL. For example, if your Search service endpoint is *https://mysearchsrv.search.microsoft.net*, the service name you would enter in App.config is *mysearchsrv*.
+1. In **DataIndexer**, replace App.config with the following example, updating the [SERVICE NAME] and [SERVICE KEY] with values that are valid for your service. Note that the service name is not the full URL. For example, if your Search service endpoint is *https://mysearchsrv.search.microsoft.net*, the service name you would enter in App.config is *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>

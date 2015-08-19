@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use an HTML client - Azure Mobile Services" 
+	pageTitle="How to use an HTML client | Microsoft Azure" 
 	description="Learn how to use an HTML client for Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="08/16/2015" 
 	ms.author="glenga"/>
 
 

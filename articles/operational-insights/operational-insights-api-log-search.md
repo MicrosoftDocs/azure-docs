@@ -205,7 +205,7 @@ The following table describes the properties that are available.
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-  ```
+```
 
 Supported methods: GET PUT DELETE
 

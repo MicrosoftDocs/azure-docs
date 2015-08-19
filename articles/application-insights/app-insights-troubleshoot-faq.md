@@ -137,7 +137,7 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 #### <a name="q03"></a>I added Application Insights successfully and ran my app, but I've never seen data in the portal.
 
 + On the Overview page, click the Search tile to open Diagnostic Search. Data appears here first.
-+ Click the Refresh button. In the current version, the content of a blade doesn't refresh automatically.
++ Click the Refresh button. The blade refreshes itself periodically, but you can also do it manually. The refresh interval is longer for larger time ranges.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 + Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/).
 + In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.

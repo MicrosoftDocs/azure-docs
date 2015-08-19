@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Service Bus queues (Node.js) - Azure" 
+	pageTitle="How to use Service Bus queues (Node.js) | Microsoft Azure" 
 	description="Learn how to use Service Bus queues in Azure from a Node.js app." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
