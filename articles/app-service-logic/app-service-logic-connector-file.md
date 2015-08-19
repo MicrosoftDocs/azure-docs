@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Using the File connector in your logic app #
@@ -27,9 +27,8 @@ To use the File connector, you need to first create an instance of the File conn
 
 1.	Open the Azure Marketplace using the + NEW option on the left side of the Azure Portal.
 2.	Browse to “Marketplace > API Apps” and search for “File Connector”.
-3.	Configure the File connector as follows:
-
-	![][1]
+3.	Configure the File connector as follows:  
+![][1]
 
 	- **Name** - give a name for your File Connector
 	- **Package Settings**
@@ -56,24 +55,28 @@ Once your API app is created, you can now use the File connector as an action fo
 
 3.	The File connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.
 
-4.	You can drop the File Connector API app into the editor by clicking on the “File Connector”. File Connector exposes one trigger and 4 Actions.
+4.	You can drop the File Connector API app into the editor by clicking on the “File Connector”. File Connector exposes one trigger and 4 Actions:  
+![][5]
 
-	![][5]
-
-6.	Each one of these exposes certain properties. The image below lists the properties for the trigger and Get File Action
-
-	![][6]
+6.	Each one of these exposes certain properties. The image below lists the properties for the trigger and Get File Action:  
+![][6]
 
 7. Once these are configured, the Trigger and Action can be used in your flow. Similarly, other actions can be configured as well.
 
 > [AZURE.NOTE] The file trigger will delete the file after it is successfully read from the folder.
 
 ## File Connector REST APIs ##
-To use the connector outside of a logic App, the REST APIs exposed by the connector can be leveraged. You can view this API Definitions using Browse->Api App->File Connector. Now click on the API Definition lens under the Summary Section to view all the APIs exposed by this connector.
-
-  ![][7]
+To use the connector outside of a logic App, the REST APIs exposed by the connector can be leveraged. You can view this API Definitions using Browse->Api App->File Connector. Now click on the API Definition lens under the Summary Section to view all the APIs exposed by this connector:  
+![][7]
 
 Details of the APIs can be found at [File Connector API Definition].
+
+## Do more with your Connector
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -83,5 +86,5 @@ Details of the APIs can be found at [File Connector API Definition].
 
 <!-- Links -->
 [Create a new Logic App]: app-service-logic-create-a-logic-app.md
-[File Connector API Definition]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
+[File Connector API Definition]: https://msdn.microsoft.com/library/dn936296.aspx
 [Using the Hybrid Connection Manager]: app-service-logic-hybrid-connection-manager.md
