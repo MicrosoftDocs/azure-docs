@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Deploy an Azure App Service API App

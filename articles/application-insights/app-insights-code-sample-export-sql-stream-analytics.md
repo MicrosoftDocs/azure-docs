@@ -3,7 +3,7 @@
 	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -161,6 +161,8 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
+In this sample, we are using data from page views. To see the other data available, inspect your JSON output, and see the [export data model](app-insights-export-data-model.md).
+
 ## Create an Azure Stream Analytics instance
 
 From the [Classic Azure Portal](https://manage.windowsazure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
@@ -200,7 +202,7 @@ In this example:
 
 * `webapplication27` is the name of the Application Insights resource. 
 * `1000...` is the instrumentation key of the Application Insights resource. 
-* `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types.
+* `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](app-insights-export-data-model.md).
 * `/{date}/{time}` is a pattern written literally.
 
 To get the name and iKey of your Application Insights resource, open Essentials on its overview page, or open Settings.
