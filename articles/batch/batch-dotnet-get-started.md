@@ -338,7 +338,7 @@ After the job is created, tasks can be added to it. Each task runs on a compute 
 			Console.ReadLine();
 		}
 
-	**[account-name]** needs to be replaced with the name of the storage account that you previously created. In previous example, update all four instances of **[account-name]**.
+	**[account-name]** needs to be replaced with the name of the storage account that you previously created. In the previous code snippet, update all four instances of **[account-name]**.
 
 2. Add this code to Main that calls the method you just added:
 
