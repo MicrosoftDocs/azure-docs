@@ -31,4 +31,4 @@
 
 5. After you have applied the hotfix on one controller, log on to the other controller. Apply the hotfix as you did for the previous controller.
 
-6. After the hotfixes are applied, exit Maintenance mode. See [Step 4: Exit Maintenance mode](#storsimple-update-device.md#step4) for instructions.
+6. After the hotfixes are applied, exit Maintenance mode. See [Step 4: Exit Maintenance mode](storsimple-update-device.md#step4) for instructions.

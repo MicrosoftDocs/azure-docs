@@ -39,7 +39,7 @@ After reading this article, you will be able to:
 
 You can access the Windows PowerShell for StorSimple using one of the following methods:
 
-- [Connect to StorSimple device serial console](#connect-to-windows-powershell-for-storsimple-via-device-serial-console)
+- [Connect to StorSimple device serial console](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
 - [Connect remotely to StorSimple using Windows PowerShell](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
 	
 
@@ -163,8 +163,8 @@ The following table shows a summary of all the common management tasks and compl
 |Stop a controller </br> Restart or shut down a controller </br> Shut down a device</br>Reset the device to factory default settings|[Manage device controllers](storsimple-manage-device-controller.md)|
 |Install maintenance mode updates and hotfixes|[Update your device](storsimple-update-device.md)|
 |Enter maintenance mode </br>Exit maintenance mode|[StorSimple device modes](storsimple-device-modes.md)|
-|Create a Support package</br>Decrypt and edit a Support package|[Create and manage a Support package](storsimple-create-manage-support-package.md)|
-|Start a Support session</br>|[Start a Support session in Windows PowerShell for StorSimple](/storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)
+|Create a Support package</br>Decrypt and edit a support package|[Create and manage a Support package](storsimple-create-manage-support-package.md)|
+|Start a Support session</br>|[Start a support session in Windows PowerShell for StorSimple](/storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)
  
 
 ## Get Help in Windows PowerShell for StorSimple
@@ -199,8 +199,8 @@ You can easily update the Help in the Windows PowerShell interface. Perform the 
 1. After the Help files are installed, type: `Get-Help Get-Command`. This will display a list of cmdlets for which Help is available.
 
 
->[AZURE.NOTE] **To get a list of all the available cmdlets in any of the runspaces, log in to the corresponding menu option and run the `Get-Command` cmdlet.**
+>[AZURE.NOTE] To get a list of all the available cmdlets in any of the runspaces, log in to the corresponding menu option and run the `Get-Command` cmdlet.
 
 ## Next steps
-If you experience any issues with your StorSimple device when performing one of the above workflows, refer to [Cmdlets available for troubleshooting](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting).
+If you experience any issues with your StorSimple device when performing one of the above workflows, refer to [Tools for troubleshooting StorSimple deployments](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
