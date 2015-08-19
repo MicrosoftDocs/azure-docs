@@ -537,7 +537,7 @@ The code in the following section uses the **CloudConfigurationManager** class.
 You will now create the worker role that processes the order
 submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, use Server Explorer in Visual Studio to obtain the required credentials.
 
-1. Make sure you have connected Visual Studio to your Azure account as described in the section "Manage namespaces and messaging entities using the Visual Studio Server Explorer."
+1. Make sure you have connected Visual Studio to your Azure account.
 
 2.  In Visual Studio, in **Solution Explorer** right-click the
     **Roles** folder under the **MultiTierApp** project.
