@@ -27,10 +27,10 @@ This update does not change the physical device software version from the Octobe
 Please review the following information contained in the release notes for the January 2015 update.
 
 > [AZURE.IMPORTANT]  
-
-- This update is not available through Windows Update and cannot be installed like other updates. Your device will not receive this update even if you have applied the updates using the Management Portal. This update will only apply to virtual devices created after January 20, 2015. 
- 
-- The January release of StorSimple does not contain any updates to the StorSimple physical device. You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the StorSimple physical device.
+>
+>- This update is not available through Windows Update and cannot be installed like other updates. Your device will not receive this update even if you have applied the updates using the Management Portal. This update will only apply to virtual devices created after January 20, 2015. 
+> 
+>- The January release of StorSimple does not contain any updates to the StorSimple physical device. You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the StorSimple physical device.
 
 ## What's new in the January release
 
@@ -72,7 +72,7 @@ This update does not contain any other changes to the StorSimple device.
 
 This release does not contain any updates to the serial-attached SCSI (SAS) controller or the firmware. The driver update was in the October, 2014 release. 
 
-## Virtual device updates in the January
+## Virtual device updates in the January release
 
 This release contains an updated image for the virtual device. All the virtual devices created after January 20, 2015 will show the software version as 6.3.9600.17361.
 
