@@ -39,6 +39,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 - [Ensure that the cluster customization script is idempotent](#bPS3)
 - [Ensure high availability of the cluster architecture](#bPS5)
 - [Configure the custom components to use Azure Blob storage](#bPS6)
+- [Write information to STDOUT and STDERR](#bPS7)
 
 ### <a name="bPS1"></a>Target the Hadoop version
 
@@ -73,6 +74,22 @@ Components that you install on the cluster might have a default configuration th
 For example, the following copies the giraph-examples.jar file from the local file system to WASB:
 
     hadoop fs -copyFromLocal /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+    
+### <a name="bPS7"></a>Write information to STDOUT and STDERR
+
+Information written to STDOUT and STDERR is logged, and can be viewed after the cluster has been provisioned by using the Ambari web UI.
+
+Most utilities and installation packages will already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT use `echo`. For example:
+
+        echo "Getting ready to install Foo"
+
+By default, `echo` will send the string to STDOUT. To direct it to STDERR, add `>&2` before `echo`. For example:
+
+        >&2 echo "An error occured installing Foo"
+        
+This redirects information sent to STDOUT (1, which is default so not listed here,) to STDERR (2). For more information on IO redirection, see [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+        
+For more information on viewing information logged by Script Actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ## <a name="helpermethods"></a>Helper methods for custom scripts
 
@@ -128,6 +145,7 @@ You can use Script Actions to customize HDInsight clusters by using the Azure po
 
 Microsoft provides sample scripts to install components on an HDInsight cluster. The sample scripts and instructions on how to use them are available at the links below:
 
+- [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
 - [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md)
 - [Install and use R on HDInsight Hadoop clusters](hdinsight-hadoop-r-scripts-linux.md)
 - [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
