@@ -42,7 +42,7 @@ Start working with the Azure Batch .NET Library by creating a console applicatio
 
 	2. Search online for **WindowsAzure.Storage** and then click **Install** to install the Azure Storage package and dependencies.
 
-> [AZURE.TIP] This tutorial makes use of some of the core Batch concepts discussed in [API basics for Azure Batch](https://azure.microsoft.com/en-us/documentation/articles/batch-api-basics/), highly recommended reading for those new to Batch.
+> [AZURE.TIP] This tutorial makes use of some of the core Batch concepts discussed in [API basics for Azure Batch](batch-api-basics.md), highly recommended reading for those new to Batch.
 
 ## Step 1: Create and upload the support files
 
