@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/14/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 
 #### To create a new service
 
-1. Using your Microsoft account credentials, log on to the Management Portal at this URL: [http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. Using your Microsoft account credentials, log on to the Management Portal at this URL: [http://azure.microsoft.com/](http://azure.microsoft.com/).
 
 2. In the Management Portal, click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
 
