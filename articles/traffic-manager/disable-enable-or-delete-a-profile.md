@@ -31,7 +31,7 @@ You can disable an existing Traffic Manager profile so that it will not refer us
 
 1. Select the profile that you want to enable. To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile name. Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.
 1. After selecting the profile, click Enable at the bottom of the page.
-1. Modify the DNS resource record on your Internet DNS server to use the CNAME record type, which maps your company domain name to the domain name of your Traffic Manager profile. For more information, see [Point a Company Internet Domain to a Traffic Manager Domain](../point-a-company-internet-domain-to-a-traffic-manager-domain.md).
+1. Modify the DNS resource record on your Internet DNS server to use the CNAME record type, which maps your company domain name to the domain name of your Traffic Manager profile. For more information, see [Point a Company Internet Domain to a Traffic Manager Domain](traffic-manager-point-internet-domain.md).
 1. Traffic will start being directed to the endpoints again.
 
 ## Delete a profile
