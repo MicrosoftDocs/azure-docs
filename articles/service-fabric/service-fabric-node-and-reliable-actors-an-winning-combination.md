@@ -21,20 +21,18 @@
 This article is an overview on how you can build an application that uses node.js and Reliable Actors. The final solution is a blend of javascript code used mainly to provide the frontend side of the app (Web/Rest APIs) and C# for more complex computation. By leveraging Service Fabric programming model, the application is scalable and reliable out of the box.
 The process is bsed on the following steps:
 
-    1. create a new Service Fabric Stateless or Stateful Actor project using Service Fabric tools for Visual Studio
-    2. create a node.js project using, for instance, [node.js tools for Visual Studio](https://github.com/Microsoft/nodejstools/releases/tag/v1.1.RC) 
-    3. Add a node.js project (a basic express 4 app for instance) to the Service Fabric solution. You can simply use solution/Add Existing project to include the node.js project. 
-    4. Package the node.js app so it can be deployed using VS Tools for Service Fabric
-
-
+1. create a new Service Fabric Stateless or Stateful Actor project using Service Fabric tools for Visual Studio
+2. create a node.js project using, for instance [node.js tools for Visual Studio](https://github.com/Microsoft/nodejstools/releases/tag/v1.1.RC) 
+3. Add a node.js project (a basic express 4 app for instance) to the Service Fabric solution. You can simply use solution/Add Existing project to include the node.js project. 
+4. Package the node.js app so it can be deployed using VS Tools for Service Fabric
 
 ## create the node.js project
 After you create the node.js project and add the dependencies, you need to change the directory structure of the project so it follows the structure that the Service Fabric tools for Visual Studio required in order to be able to package and deploy the app like any other Service Fabric service. The goal is to make the changes to the directory structure only once so you can benefits from being able to use the deployment process in Visual Studio and hence deploy your node.js app along with the other services in the solution. 
 The changes that needs to be done to the directory structure are:
 
-	1. Create a PackageRoot directory
-	2. Create a Code directory under PackageRoot
-	3. Move all files and directories under the Code directory
+1. Create a PackageRoot directory
+2. Create a Code directory under PackageRoot
+3. Move all files and directories under the Code directory
 
 After you are done, the project structure in Visual Studio should look like the following:
 
@@ -86,7 +84,7 @@ This is an example on how the servicemanifest.xml should look like, please refer
 
 ```
 
-AZURE.NOTE Please note that one of the servicemanifest.xml options may not work with node.js. In some cases `ConsoleRedirection` does not work if a node.js module (ex. Express) assumed that the fd for stdout and stderr are 1 and 2.
+[AZURE.NOTE] Please note that one of the servicemanifest.xml options may not work with node.js. In some cases `ConsoleRedirection` does not work if a node.js module (ex. Express) assumed that the fd for stdout and stderr are 1 and 2.
 
 After the `servicemanifest.xml` file is added to the node.js project, the structure of the project should look like this:
 
@@ -109,6 +107,7 @@ System.Fabric.Common.Internal.dll
 System.Fabric.Common.Internal.Strings.resources.dll
 System.Fabric.dll
 `
+
 After you added the binaries to the project, the project structure should like the following:
 
 ![][5]
@@ -121,7 +120,7 @@ In the `applicationmanifest.xml` file you need to add the following elements:
 * `ServiceManifestImport`
 * `Service`
 
-AZURE.NOTE Make sure you are using the same names that you used in the `servicemanifest.xml` to specify `ServiceName` and `ServiceTypeName`. the `applicationmanifest.xml` file should be similar to the following:
+[AZURE.NOTE] Make sure you are using the same names that you used in the `servicemanifest.xml` to specify `ServiceName` and `ServiceTypeName`. the `applicationmanifest.xml` file should be similar to the following:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -201,7 +200,7 @@ public class Startup
 
 ```
 
-AZURE.NOTE The ActorProxy uses the Actor interface in order to know which actor it should connect to. In order for the managed code running in the node.js process to be able to instantiate that class, the Actor interface assembly needs to be copied in the code directory like the other Service Fabric dlls.
+[AZURE.NOTE] The ActorProxy uses the Actor interface in order to know which actor it should connect to. In order for the managed code running in the node.js process to be able to instantiate that class, the Actor interface assembly needs to be copied in the code directory like the other Service Fabric dlls.
 Note: you will have to copy (or set a post-build action in VS) the dll any time you are making changes to methods/parameters in the interface.
 
 ![][6]
