@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/22/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 #### To add a StorSimple backup policy

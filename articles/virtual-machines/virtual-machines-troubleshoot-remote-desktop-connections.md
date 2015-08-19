@@ -171,7 +171,7 @@ Work with your network administrator to correct the settings of your organizatio
 
 ### Source 3: Cloud service endpoint and ACL
 
-To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created in Service Management, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.
+To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created using the Service Management API, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
 
@@ -210,7 +210,7 @@ Try the connection from your computer again. If you are not successful, these ar
 - Windows Firewall or another local firewall has an outbound rule that is preventing Remote Desktop traffic.
 - Intrusion detection or network monitoring software running on the Azure virtual machine is preventing Remote Desktop connections.
 
-To correct these possible problems for virtual machines created in Service Management, you can use a remote Azure PowerShell session to the Azure virtual machine. First, you must install a certificate for the virtual machine's hosting cloud service. Go to [Configures Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) and download the **InstallWinRMCertAzureVM.ps1** script file to a folder on your local computer.
+To correct these possible problems for virtual machines created using the Service Management API, you can use a remote Azure PowerShell session to the Azure virtual machine. First, you must install a certificate for the virtual machine's hosting cloud service. Go to [Configures Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) and download the **InstallWinRMCertAzureVM.ps1** script file to a folder on your local computer.
 
 Next, install Azure PowerShell if you haven't already. See [How to install and configure Azure PowerShell](../install-configure-powershell.md).
 

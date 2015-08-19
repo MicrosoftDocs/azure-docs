@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -33,12 +33,12 @@ Dotted lines show the value of the metric one week previously.
 
 ## Time range
 
-You can change the Time range covered by most of the charts or grids on any blade.
+You can change the Time range covered by the charts or grids on any blade.
 
 ![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/03-range.png)
 
 
-Click Refresh if you're expecting some data that hasn't appeared yet. Charts don't update automatically. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
+If you're expecting some data that hasn't appeared yet, click Refresh. Charts refresh themselves at intervals, but the intervals are longer for larger time ranges. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
 
 In the Overview blade, drag over a part of the chart to zoom into it in a new chart.
 
@@ -197,6 +197,6 @@ If you want even richer views of your data, you can [export to Power BI](app-ins
 
 [alerts]: app-insights-alerts.md
 [start]: app-insights-get-started.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

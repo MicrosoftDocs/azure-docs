@@ -1,5 +1,5 @@
 Resource|Default Limit|Maximum Limit
---|--|--
+---|---|---
 [Virtual machines](../documentation/services/virtual-machines/) per cloud service<sup>1</sup>|50|50
 Input endpoints per cloud service<sup>2</sup>|150|150
 

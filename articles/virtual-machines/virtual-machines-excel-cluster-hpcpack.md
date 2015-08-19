@@ -12,12 +12,12 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="07/27/2015"
+ ms.date="08/18/2015"
  ms.author="danlep"/>
 
 # Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads
 
-This article shows you how to deploy an HPC Pack cluster on Azure infrastructure services (IaaS) using an Azure quickstart template or an Azure PowerShell deployment script. You'll use Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA)  workloads with HPC Pack. You can use the cluster to run simple Excel HPC and SOA services from an on-premises client computer. The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.
+This article shows you how to deploy an HPC Pack cluster on Azure infrastructure services (IaaS) using an Azure quickstart template or an Azure PowerShell deployment script. You'll use Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA) workloads with HPC Pack. You can use the cluster to run simple Excel HPC and SOA services from an on-premises client computer. The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.
 
 At a high level the following diagram shows the HPC Pack cluster you'll create.
 
@@ -26,7 +26,6 @@ At a high level the following diagram shows the HPC Pack cluster you'll create.
 ## Prerequisites
 
 * **Client computer** - You'll need a Windows-based client computer to run the Azure PowerShell cluster deployment script (if you choose that deployment method) and to submit sample Excel and SOA jobs to the cluster.
-
 
 * **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -61,7 +60,7 @@ Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluste
     >
     >Compute node VMs will be created from the latest image of the selected compute node family. Select the **ComputeNode** option for the latest HPC Pack 2012 R2 Update 2 compute image for general purposes. Select **ComputeNodeWithExcel** option for the latest HPC Pack compute node image that includes an evaluation version of Microsoft Excel Professional Plus 2013. If you want to deploy a cluster for general SOA sessions or for Excel UDF offloading, choose the **ComputeNode** option (without Excel installed).
     >
-    >When uisng  **ComputeNodeWithExcel** for production workloads, you'll need to provide a valid Excel license to activate Excel on the compute nodes. Otherwise, the evaluation version of Excel expires after 60 days and any Excel workloads will fail to run at that time.
+    >When uisng  **ComputeNodeWithExcel** for production workloads, you'll need to provide a valid Excel license to activate Excel on the compute nodes. Otherwise, the evaluation version of Excel expires after 30 days and any Excel workloads will fail to run at that time.
 
     c. Choose the subscription.
 

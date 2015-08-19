@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Guest OS family 1 retirement notice | Azure" 
+   pageTitle="Guest OS family 1 retirement notice | Microsoft Azure" 
    description="Provides information about when the Azure Guest OS Family 1 retirement happened and how to determine if you are affected" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/16/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
 
 
-# Guest OS Family 1 Retirement Notice
+# Guest OS Family 1 retirement notice
 
 The retirement of OS Family 1 was first announced on June 1, 2013.
 
@@ -77,3 +77,6 @@ We recommend you migrate your Cloud Service roles to one of the supported Guest 
 
 ## Extended Support for Guest OS Family 1 ended Nov 3, 2014
 Cloud services on Guest OS family 1 are no longer supported. Please migrate off family 1 as soon as possible to avoid service disruption.  
+
+## Next steps
+Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).

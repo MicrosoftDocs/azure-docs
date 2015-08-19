@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="03/24/2015"
+	ms.date="08/18/2015"
 	ms.author="mwasson"/>
 
 # Build and deploy a Node.js web app in Azure App Service
