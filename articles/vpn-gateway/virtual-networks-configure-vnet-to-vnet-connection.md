@@ -26,7 +26,7 @@
 This article will walk you through connecting virtual networks together in the classic deployment mode by using a combination of the Azure Portal and PowerShell. 
 
 
-Connecting a virtual network to another virtual network (VNet-to-Vnet) is very similar to connecting a virtual network to an on-premises site location. Both connectivity types use a virtual network gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
+Connecting a virtual network to another virtual network (VNet-to-Vnet) is very similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
 
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
