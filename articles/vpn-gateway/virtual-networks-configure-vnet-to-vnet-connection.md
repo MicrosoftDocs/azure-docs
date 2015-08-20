@@ -220,10 +220,6 @@ Wait for the connections to initialize. Once the gateway has initialized, the ga
 
 ## Next Steps
 
-You can learn more about cross-premises connectivity in this article: [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx).
-
-
-If you want to configure a site-to-site VPN connection, see [Configure a Site-to-Site VPN Connection](vpn-gateway-site-to-site-create.md).
 
 If you want to add virtual machines to your virtual network, see [How to Create a Custom Virtual Machine](../virtual-machines/virtual-machines-create-custom.md).
 
