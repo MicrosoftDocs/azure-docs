@@ -255,7 +255,7 @@ If you want to export your virtual network settings to a network configuration f
 
 -  [Azure Virtual Network Technical Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
--  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
+-  [Virtual Network FAQ](virtual-networks-faq.md)
 
 -  [Configuring a Virtual Network Using Network Configuration Files](virtual-networks-using-network-configuration-file.md)
 

@@ -32,7 +32,7 @@ Source IP affinity solves a previous [incompatibility between the Azure Load Bal
 Source IP Affinity can be configured for: 
 
 * [Virtual machine endpoints](../virtual-machines/virtual-machines-set-up-endpoints.md)
-* [Load-balanced endpoint sets](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [Load-balanced endpoint sets](../load-balancer/load-balancer-overview.md)
 * [Web roles](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Worker roles](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
