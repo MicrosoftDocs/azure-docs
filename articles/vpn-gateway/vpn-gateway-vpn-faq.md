@@ -155,13 +155,13 @@ We are limited to using pre-shared keys (PSK) for authentication.
 
 ### What is the "gateway subnet" and why is it needed?
 
-We have a gateway service that we run to enable cross-premises connectivity. We need 2 IP addresses from your routing domain for us to enable routing between your premises and the cloud. We require you to specify at least a /29 subnet from which we can pick IP addresses for setting up routes. Note that some features require a specific gateway size. Please follow the  gateway subnet requirements for the feature you want to configure.
+We have a gateway service that we run to enable cross-premises connectivity. We need 2 IP addresses from your routing domain for us to enable routing between your premises and the cloud. We require you to specify at least a /29 subnet from which we can pick IP addresses for setting up routes. Even though you can create a /29 subnet, understand that some features require a specific gateway size. Please follow the  gateway subnet requirements for the feature you want to configure.
 
 Please note that you must not deploy virtual machines or role instances in the gateway subnet.
 
 ### How do I specify which traffic goes through the VPN gateway?
 
-Add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.
+If you are using the Azure Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.
 
 ### Can I configure Forced Tunneling?
 
