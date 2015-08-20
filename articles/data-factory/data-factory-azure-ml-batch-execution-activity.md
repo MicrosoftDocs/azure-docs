@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Factory - Create Predictive Pipelines using Data Factory and Machine Learning | Microsoft Azure" 
+	pageTitle="Create predictive pipelines using Azure Machine Learning Bach Execution activity | Microsoft Azure" 
 	description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="08/19/2015" 
 	ms.author="spelluru"/>
 
-# Use Azure Machine Learning Bach Execution activity to create predictive pipelines 
+# Create predictive pipelines using Azure Machine Learning Bach Execution activity   
 ## Overview
 
 Azure Data Factory enables you to easily create pipelines that leverage a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using Azure Data Factory, you can make use of big data pipelines (e.g. Pig and Hive) to process the data that you have ingested from various data sources, and use the Azure Machine Learning web services to make predictions on the data in batch. 
