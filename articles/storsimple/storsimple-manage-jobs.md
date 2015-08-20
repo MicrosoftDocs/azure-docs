@@ -1,6 +1,6 @@
 <properties 
    pageTitle="View and manage StorSimple jobs | Microsoft Azure"
-   description="Describes the StorSimple Manager service Jobs page and how to use it."
+   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent, current, and scheduled backup jobs."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"

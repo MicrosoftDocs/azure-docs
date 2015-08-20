@@ -28,7 +28,7 @@ Start working with the Azure Batch .NET Library by creating a console applicatio
 
 	- **Batch account** - See the **Batch Account** section of [Azure Batch technical overview](batch-technical-overview.md).
 
-	- **Storage account** - See the **Create a storage account** section of [About Azure storage accounts](../storage/storage-create-storage-account.md). In this tutorial, you create a container in this account named **testcon1**.
+	- **Storage account** - See the **Create a storage account** section of [About Azure storage accounts](../storage-create-storage-account.md). In this tutorial, you create a container in this account named **testcon1**.
 
 - A Visual Studio console application project:
 
@@ -63,7 +63,7 @@ To support the application, a container is created in Azure Storage, the text fi
 
 	- **[account-name]** - The name of the storage account that you previously created.
 
-	- **[account-key]** - The primary key of the storage account. You can find the primary key in the Storage page in the Azure portal.
+	- **[account-key]** - The primary key of the storage account. You can find the primary key on the Storage page in the Azure portal.
 
 2. Save the App.config file.
 
@@ -338,7 +338,9 @@ After the job is created, tasks can be added to it. Each task runs on a compute 
 			Console.ReadLine();
 		}
 
-	**[account-name]** needs to be replaced with the name of the storage account that you previously created. In the previous code snippet, update all four instances of **[account-name]**.
+
+	**[account-name]** needs to be replaced with the name of the storage account that you previously created. In previous example, update all four instances of **[account-name]**.
+
 
 2. Add this code to Main that calls the method you just added:
 
@@ -487,8 +489,8 @@ Because you are charged for resources in Azure, it's always a good idea to delet
 
 8. At this point you can go into the Azure portal to look at the resources that were created. To delete the resources, press Enter until the program finishes.
 
-## Next Steps
+## Next steps
 
-1. Now that you've learned the basics of running tasks, you can learn about how to automatically scale compute nodes when the demand for your application changes. To do so, see [Automatically scale Compute Nodes in an Azure Batch Pool](batch-automatic-scaling.md)
+1. Now that you've learned the basics of running tasks, you can learn about how to automatically scale compute nodes when the demand for your application changes. To do this, see [Automatically scale Compute Nodes in an Azure Batch Pool](batch-automatic-scaling.md)
 
 2. Some applications produce large amounts of data that can be difficult to process. One way to solve this is through [efficient list querying](batch-efficient-list-queries.md).
