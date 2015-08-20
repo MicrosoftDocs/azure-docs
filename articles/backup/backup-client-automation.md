@@ -82,7 +82,7 @@ The available options include:
 
 
 ### Registering with the Azure Backup service
-Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-try-azure-backup-in-10-mins.md) are met. You must:
+Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-azure-backup-configure-vault.md) are met. You must:
 
 - Have a valid Azure subscription
 - Have a backup vault
@@ -585,4 +585,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ```
 
 ## Next steps
-For more information about Azure Backup for Windows Server/Client see [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
+For more information about Azure Backup for Windows Server/Client see
+
+- [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
+- [Back up Windows Servers](backup-azure-backup-windows-server.md)
