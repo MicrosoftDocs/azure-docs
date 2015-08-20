@@ -13,10 +13,20 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/19/2015" 
+	ms.date="08/20/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 08/20/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Added LAST function |The [LAST](http://msdn.microsoft.com/library/mt421186.aspx) function is now available in Stream Analytics jobs, enabling you to retrieve the most recent event in an event stream within a given timeframe.
+New Array functions|Array functions [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) and [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) are now available.
+New Record functions|Record functions [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) and [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) are now available.
 
 ## Notes for 07/30/2015 release of Stream Analytics ##
 
