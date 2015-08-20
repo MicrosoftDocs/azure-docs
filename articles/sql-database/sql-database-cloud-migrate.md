@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="08/06/2015"
+   ms.date="08/20/2015"
    ms.author="carlrab"/>
 
 # Migrating a Database to Azure SQL Database
@@ -62,8 +62,8 @@ Use the [lastest SQL Server Data Tools for Visual Studio](https://msdn.microsoft
 |![SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram.png)| ![Offline Edit](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png) |
 | Uses SSMS | Uses VS and SSMS |
 |Simple process requires that schema is compatible. Schema is migrated unchanged. | Schema is imported into a database project in Visual Studio and (optionally) transformed with SAMW. Additional updates are made using SSDT in Visual Studio and final schema used to update the database in situ. |
-| If exporting a BACPAC then can choose to migrate schema only.   | Can publish schema only directly to Azure from Visual Studio. Database is updated with any required changes in situ to allow schema and data to be deployed/exported. |
+| If exporting a BACPAC then can choose to migrate schema only. | Can publish schema only directly to Azure from Visual Studio. Database is updated with any required changes in situ to allow schema and data to be deployed/exported. |
 | Always deploys or exports the entire database. | Full control of the objects that are included in the migration. |
-| No provision for changing the output if there are errors, the source schema must be compatible. | Full features of SSDT in Visual Studio available. Schema is changed offline. | Application validation occurs in Azure. Should be minimal as schema is migrated without change. 
+| No provision for changing the output if there are errors, the source schema must be compatible. | Full features of SSDT in Visual Studio available. Schema is changed offline. | Application validation occurs in Azure. Should be minimal as schema is migrated without change. |
 | Application validation can be done in SQL Server before the database is deployed to Azure. |
 | Simple, easily configured one- or two-step process. | More complex multi-step process (easier if only deploying schema). |
