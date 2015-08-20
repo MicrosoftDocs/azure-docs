@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Enable Communication for Role Instances in Azure Cloud Services" 
+pageTitle="Enable Communication for Role Instances in Cloud Services | Microsoft Azure" 
 description="" 
 services="cloud-services" 
 documentationCenter="" 

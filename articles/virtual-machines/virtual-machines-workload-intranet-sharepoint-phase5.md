@@ -123,3 +123,5 @@ For additional information about SharePoint with SQL Server AlwaysOn Availabilit
 [Microsoft Azure architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-workload-high-availability-lob-application.md)

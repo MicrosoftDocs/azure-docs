@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Troubleshooting Docker Errors"
+   pageTitle="Troubleshooting Docker Errors | Microsoft Azure"
    description="Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker."
    services="visual-studio-online"
    documentationCenter="na"
@@ -55,6 +55,10 @@ If you choose to use your own certificates when creating the Docker host in Visu
 If your operating system is Windows 7 or Windows Server 2008, you'll need to install PowerShell 3.0 before you can publish to Docker containers. PowerShell 3.0 is included in [Windows Management Framework 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595). You'll need to reboot your system after installing it.
 
 As an alternative workaround, you can upgrade to Windows 8.1 or Windows 10, which already has PowerShell 3.0.
+
+## PowerShell window does not automatically close
+
+After creating a VM, sometimes the PowerShell window does not close automatically. Closing this window also closes Visual Studio. Because the window does not affect any Visual Studio or Docker tools features, please leave it open until you finish your work.
 
 ## FAQ
 

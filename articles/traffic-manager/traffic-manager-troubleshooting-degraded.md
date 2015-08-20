@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
+
 # Troubleshooting degraded status on Azure Traffic Manager
 This page will describe how to troubleshoot Azure Traffic Manager profile which is showing a degraded status, and provide some key points to understand about traffic manager probes.
 
@@ -66,9 +67,9 @@ If your probe is using HTTPs protocol you will want to add the “--no-check-cer
 ## Next Steps
 
 
-[About Traffic Manager Load Balancing Methods](traffic-manager-load-balancing-methods.md)
+[About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md)
 
-[Traffic Manager Overview](../traffic-manmager-overview.md)
+[What is Traffic Manager](../traffic-manmager-overview.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
