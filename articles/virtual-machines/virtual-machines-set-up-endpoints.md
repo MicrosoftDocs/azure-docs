@@ -29,7 +29,7 @@ Each endpoint has a public port and a private port:
 
 Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the portal. For custom endpoints, you must specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you must create a load-balanced set consisting of multiple endpoints.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For more information, see [About network security groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For more information, see [About network security groups](virtual-networks-nsg.md).
 
 **Important**: Firewall configuration for Azure virtual machines is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration.
 
@@ -65,7 +65,7 @@ To define the set of computers that can send traffic, the ACL on an endpoint can
 
 > [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
 
-If the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+If the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](virtual-networks-nsg.md).
 
 
 1.	If you have not already done so, sign in to the portal.
@@ -93,4 +93,4 @@ To use an Azure PowerShell cmdlet to set this up, see [Managing access control l
 
 [About network access control lists](http://go.microsoft.com/fwlink/p/?linkid=303816)
 
-[About network security groups](https://msdn.microsoft.com/library/azure/dn848316.aspx)
+[About network security groups](virtual-networks-nsg.md)
