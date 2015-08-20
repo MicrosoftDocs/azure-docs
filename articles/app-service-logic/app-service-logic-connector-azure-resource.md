@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/09/2015"
+   ms.date="08/19/2015"
    ms.author="stepsic"/>
 
 # Azure Resource Connector
@@ -86,6 +86,8 @@ Get metrics | Get a metric for a resource Id.
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
 

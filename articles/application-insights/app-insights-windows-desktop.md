@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/19/2015" 
 	ms.author="awills"/>
 
-# Application Insights on Windows Desktop apps and services
+# Application Insights on Windows Desktop apps, services and worker roles
 
 *Application Insights is in preview.*
 
@@ -23,7 +23,7 @@
 
 Application Insights lets you monitor your deployed application for usage and performance.
 
-Support for Windows desktop apps and services are provided by the Application Insights core SDK. This SDK provides full API support for all telemetry data but does not provide any telemetry auto collection.
+All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights core SDK to send telemetry to Application Insights. The core SDK just provides an API: unlike the Web or device SDKs, it doesn't include any modules that collect data automatically, so you have to write code to send your own telemetry.
 
 
 ## <a name="add"></a> Create an Application Insights resource
@@ -43,21 +43,33 @@ Support for Windows desktop apps and services are provided by the Application In
 
 
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
+
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Install the Application Insights API package.
+2. Install the Application Insights Core API package.
 
     ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. Set your InstrumentationKey in code through the `TelemetryConfiguration.Active` object. 
+    You can install other packages such as the Performance Counter or log capture packages if you want to use their facilities.
+
+3. Set your InstrumentationKey in code, for example in main(). 
 
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+
+*Why isn't there an ApplicationInsights.config?*
+
+* The .config file isn't installed by the Core API package, which is only used to configure telemetry collectors. So you write your own code to set the instrumentation key and send telemetry.
+* If you installed one of the other packages, you will have a .config file. You can insert the instrumentation key there instead of setting it in code.
+
+*Could I use a different NuGet package?*
+
+* Yes, you could use the web server package (Microsoft.ApplicationInsights.Web), which would install collectors for a variety of collection modules such as performance counters. It would install a .config file, where you would put your instrumentation key. Use  [ApplicationInsights.config to disable modules you don't want](app-insights-configuration-with-applicationinsights-config.md), such as the HTTP Request collector. 
+* If you want to use the [log or trace collector packages](app-insights-asp-net-trace-logs.md), start with the web server package. 
 
 ## <a name="telemetry"></a>Insert telemetry calls
 
 Create a `TelemetryClient` instance and then [use it to send telemetry][api].
 
-Use `TelemetryClient.Flush()` to send messages before closing the app. The Core SDK uses an in-memory buffer. The flush method will ensure this buffer is emptied helping to ensure no data loss on process shutdown. (This is not recommended for other types of app. The platforms SDKs implement this behavior automatically.)
 
 For example, in a Windows Forms application, you could write:
 
@@ -101,6 +113,10 @@ Use any of the [Application Insights API][api] to send telemetry. In Windows Des
 * TrackMetric(name, value) in a background task to send regular reports of metrics not attached to specific events.
 * TrackTrace(logEvent) for [diagnostic logging][diagnostic]
 * TrackException(exception) in catch clauses
+
+
+To make sure all telemetry is sent before closing the app, use `TelemetryClient.Flush()`. Normally, telemetry is batched and sent at regular intervals. (Flush is recommended only if you are using just the core API. The web and device SDKs implement this behavior automatically.)
+
 
 #### Context initializers
 

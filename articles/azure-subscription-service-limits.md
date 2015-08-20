@@ -189,6 +189,10 @@ For additional details on SQL Database limits, please see the following topics:
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
+## Application Insights Limits
+
+[AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
+
 ## API Management Limits
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

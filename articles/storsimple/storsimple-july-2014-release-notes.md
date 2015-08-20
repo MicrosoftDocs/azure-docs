@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="StorSimple 8000 Series Release Version release notes - July 2014"
+    pageTitle="StorSimple 8000 Series Release Version release notes - July 2014 | Microsoft Azure"
     description="Describes the new features, issues, and workarounds for the July 2014 Microsoft Azure StorSimple release."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
+    ms.date="08/19/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 Series Release Version release notes - July 2014 

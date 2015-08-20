@@ -3,8 +3,8 @@
    description="Azure Data Catalog: Catalog frequently asked questions"
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/> 
+   ms.date="08/19/2015"
+   ms.author="maroche"/>
 
 # Azure Data Catalog frequently asked questions
 
@@ -54,7 +54,7 @@ The Standard Edition of Azure Data Catalog supports up to 100,000 registered dat
 
 ## Q: What are the supported data source and asset types?
 
-During preview, Azure Data Catalog currently supports the SQL Server relational (including Azure SQL DB) and SQL Server Analysis Services (multidimensional and tabular) databases as well as SQL Server Reporting Services (native mode only) and Oracle Database. 
+During preview, Azure Data Catalog currently supports the SQL Server relational (including Azure SQL DB) and SQL Server Analysis Services (multidimensional and tabular) databases as well as SQL Server Reporting Services (native mode only) and Oracle Database.
 
 During preview, Azure Data Catalog supports the following asset types:
 
@@ -62,16 +62,18 @@ During preview, Azure Data Catalog supports the following asset types:
 - SQL Server View
 - SQL Server Analysis Services Dimension
 - SQL Server Analysis Services Measure
-- SQL Server Analysis Services KPI 
+- SQL Server Analysis Services KPI
 - SQL Server Analysis Services Table
 - SQL Server Reporting Services Report  
 - Oracle Database Table
 - Oracle Database View
+- Azure Storage Blob
+- Azure Storage Directory
 
 ## Q: How do I request support for another data source?
 
 Feature requests and other feedback can be submitted in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
- 
+
 ## Q: How do I get started with Azure Data Catalog?
 
 The best place to get started is by following the instructions in Getting Started with Data Catalog. This article is an end-to-end tour of the capabilities in the public preview.
@@ -87,7 +89,7 @@ The specific properties will differ from data source to data source, but in gene
 - Asset Name
 - Asset Type
 - Asset Description
-- Attribute/Column Names 
+- Attribute/Column Names
 - Attribute/Column Data Types
 - Attribute/Column Description
 
@@ -95,7 +97,7 @@ The specific properties will differ from data source to data source, but in gene
 
 <br/>
 
-> [AZURE.NOTE] For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the **Azure Data Catalog** publishing application will extract that property value. For SQL Server relational databases, which lack a first-class **Description** property, the **Azure Data Catalog** publishing application will extract the value from the ms_description extended property for objects and columns. For more information, see TechNet [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx). 
+> [AZURE.NOTE] For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the **Azure Data Catalog** publishing application will extract that property value. For SQL Server relational databases, which lack a first-class **Description** property, the **Azure Data Catalog** publishing application will extract the value from the ms_description extended property for objects and columns. For more information, see TechNet [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## Q: How long should it take for newly registered assets to appear in Azure Data Catalog?
 
@@ -117,14 +119,14 @@ An expert is a person who has an informed perspective about a data object. An ob
 
 ## Q: What is the SLA for preview?
 
-During **Azure Data Catalog** preview, there is no explicit service level agreement. 
+During **Azure Data Catalog** preview, there is no explicit service level agreement.
 
 ## Q: How do I share information with the Azure Data Catalog team if I encounter problems?
 
-Please use the **Azure Data Catalog** forum to report problems, share information, and ask questions. The forum can be found at http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409 
+Please use the **Azure Data Catalog** forum to report problems, share information, and ask questions. The forum can be found at http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
-##Q: Does Azure Data Catalog work with this other data source I’m interested in? 
-We’re actively working on adding more data sources to **Azure Data Catalog**. If there is a data source that you would like to see supported, please suggest it (or voice your support if it has already been suggested) in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). 
+##Q: Does Azure Data Catalog work with this other data source I’m interested in?
+We’re actively working on adding more data sources to **Azure Data Catalog**. If there is a data source that you would like to see supported, please suggest it (or voice your support if it has already been suggested) in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q: How is Azure Data Catalog related to the Data Catalog in Power BI for Office 365?
 
@@ -152,9 +154,8 @@ A: To update the metadata for data assets that are already registered in the Cat
 
 ## Q: How do I ask questions or get help when working with Azure Data Catalog?
 
-If you encounter problems or require assistance with the Azure Data Catalog preview, please post in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). 
+If you encounter problems or require assistance with the Azure Data Catalog preview, please post in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q: My question isn’t answered here – what should I do?
 
 Head on over to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Questions asked there will find their way here.
-

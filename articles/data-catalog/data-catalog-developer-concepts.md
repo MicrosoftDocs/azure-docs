@@ -46,19 +46,19 @@ Azure Data Catalog uses Azure Active Directory for identity and access managemen
 
 ### Assets
 
-A **Catalog** contains data assets. **Assets** are the unit of item managed by the catalog.
+A **Catalog** contains data assets. **Assets** are the unit of granularity managed by the catalog.
 
-The granularity of an asset varies by data source. For SQL Server or Oracle Database an asset can be a Table or a View. For SQL Server Analysis Services an asset can be a Measures, a Dimensions, or a Key Performance Indicator (KPI). For SQL Server Reporting Services an asset can be a Report.
+The granularity of an asset varies by data source. For SQL Server or Oracle Database an asset can be a Table or a View. For SQL Server Analysis Services an asset can be a Measure, a Dimension, or a Key Performance Indicator (KPI). For SQL Server Reporting Services an asset is a Report.
 
-An **Asset** is the item you add or remove from a Catalog. It is the unit of result you get back from **Search**.
+An **Asset** is the thing you add or remove from a Catalog. It is the unit of result you get back from **Search**.
 
-An **Asset** is made up from the core information, its location and its type as well as annotations that further describe it.
+An **Asset** is made up from its name, location and type as well as annotations that further describe it.
 
 ### Annotations
 
 Annotations are items that represent metadata about Assets.
 
-Examples of annotations are Description, tags, schema, documentation, etc… A full list of the asset types and annotation types are in the Asset Object model section.
+Examples of annotations are description, tags, schema, documentation, etc… A full list of the asset types and annotation types are in the Asset Object model section.
 
 ## Crowdsourcing annotations and user perspective (multiplicity of opinion)
 
@@ -80,21 +80,7 @@ The UX can then choose how to display the combination. There are three different
 
 -	The simplest pattern is “Show All”. In this pattern all the objects are shown in some sort of list view. This is what the Azure Data Catalog portal UX does for description.
 -	Another pattern is “Merge”. In this pattern all the values from the different users are merged together, with duplicate removed. Examples of this pattern in the Azure Data Catalog portal UX are the tags and experts properties.
--	A third pattern is “last writer wins”. In this pattern only the most recent value typed in is shown. friendlyName is an example of this pattern. Some types are not allowed to have multiple instances.
-
-Below is a list of types that are allowed and not allowed to have multiple instances:
-
-The following types are allowed to have multiple instances:
-
-- Description
-- Experts
-- Schema Description
-
-The following types are **not** allowed to have multiple instances:
-
-- Root types
-- Schema
-- Preview
+-	A third pattern is “last writer wins”. In this pattern only the most recent value typed in is shown. friendlyName is an example of this pattern.
 
 ## Asset object model
 

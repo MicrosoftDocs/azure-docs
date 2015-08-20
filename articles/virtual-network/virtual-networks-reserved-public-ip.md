@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/17/2015"
    ms.author="telmos" />
 
 # Reserved IP Overview
@@ -32,8 +32,6 @@ To prevent IP addresses from changing, you can reserve an IP address. Reserved I
   - At this time, all Azure subscriptions are authorized to use 20 reserved IPs. However, you can request additional reserved IPs. See the [Subscription and Service Limits](../azure-subscription-service-limits/) page for more information.
 1. Is there a charge for reserved IPs? 
   - See [Reserved IP Address Pricing Details](http://go.microsoft.com/fwlink/?LinkID=398482) for pricing information.
-1. How many reserved IPs can I assign to a cloud service? 
-  - Only one IP address is allowed is per endpoint in a cloud service, whether or not that IP address is reserved. Reserving an IP address does not allow you to add additional IP addresses to a cloud service.
 1. How do I reserve an IP address? 
   - You can use PowerShell or the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) to request a reserved IP from a particular region. Azure will reserve an IP address from that region and correlate it to your subscription. You can then use the reserved IP in that region. You cannot reserve an IP address by using the Management Portal.
 1. Can I use this with affinity group based VNets? 
