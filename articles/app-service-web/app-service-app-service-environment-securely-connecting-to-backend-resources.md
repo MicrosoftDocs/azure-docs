@@ -99,7 +99,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [ControlInboundTraffic]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[NetworkAccessControlLists]: https://msdn.microsoft.com/library/azure/dn376541.aspx
+[NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/ 
