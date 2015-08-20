@@ -267,4 +267,5 @@ To continue with the configuration of this workload, go to [Phase 4: Configure W
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
+[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
 
