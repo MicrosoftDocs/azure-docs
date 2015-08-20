@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Schedules in Azure Automation"
+   pageTitle="Schedules in Azure Automation | Microsoft Azure"
    description="Automation schedules are used to schedule runbooks in Azure Automation to start automatically.  This article describes how to create schedules."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Schedules in Azure Automation

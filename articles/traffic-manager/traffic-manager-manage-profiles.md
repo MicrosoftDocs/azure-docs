@@ -12,16 +12,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Manage an Azure Traffic Manager profile
 
-You use a Traffic Manager profile to specify the cloud services or website endpoints that will be monitored by Traffic Manager, and what load balancing method you want to use to distribute connections to those endpoints.
+You use a Traffic Manager profile to specify the cloud services or website endpoints that will be monitored by Traffic Manager, and what traffic routing  method you want to use to distribute connections to those endpoints.
 
 ## Create a Traffic Manager profile using Quick Create
 
-You can quickly create a Traffic Manager profile by using Quick Create in the Azure portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover load balancing method, or monitoring settings. After creating your profile, you can configure these settings in the Azure portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a small number of endpoints. See [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx) for a list of configuration procedures.
+You can quickly create a Traffic Manager profile by using Quick Create in the Azure portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover traffic routing method, or monitoring settings. After creating your profile, you can configure these settings in the Azure portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a small number of endpoints. 
 
 ### To create a new Traffic Manager profile
 
@@ -30,9 +30,10 @@ You can quickly create a Traffic Manager profile by using Quick Create in the Az
 2. **Log in to the Azure portal.** To create a new Traffic Manager profile, click **New** on the lower left of the portal, click **Network Services > Traffic Manager**, and then click **Quick Create** to begin configuring your profile.
 3. **Configure the DNS prefix.** Give your traffic manager profile a unique DNS prefix name. You can specify only the prefix for a Traffic Manager domain name.
 4. **Select the subscription.** Select the appropriate Azure subscription. Each profile is associated with a single subscription. If you only have one subscription, this option does not appear.
-5. **Select the load balancing method.** Select the load balancing method in **Load Balancing Policy**. For more information about load balancing methods, see [About Traffic Manager load balancing methods](traffic-manager-load-balancing-methods.md).
+5. **Select the traffic routing method.** Select the traffic routing method in **traffic routing Policy**. For more information about traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md).
 6. **Click “Create” to create your new profile**. When the profile configuration is completed, you can locate your profile in the Traffic Manager pane in the Azure portal.
-7. **Configure endpoints, monitoring, and additional settings in the Azure portal.** Because you can only configure basic settings by using Quick Create, it is necessary to configure additional settings, such as the list of endpoints and the endpoint failover order, in order to complete your desired configuration. See [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx) for a list of procedures to help you complete the configuration.
+7. **Configure endpoints, monitoring, and additional settings in the Azure portal.** Because you can only configure basic settings by using Quick Create, it is necessary to configure additional settings, such as the list of endpoints and the endpoint failover order, in order to complete your desired configuration. 
+
 
 ## Disable, enable, or delete a profile
 
@@ -74,13 +75,15 @@ You can view the change history for your Traffic Manager profile in the Azure po
 
 ## Additional resources
 
-[Traffic Manager overview](traffic-manager-overview.md)
+[What is Traffic Manager?](traffic-manager-overview.md)
 
 [Manage endpoints in Traffic Manager](traffic-manager-endpoints.md)
 
 [About Traffic Manager monitoring](traffic-manager-monitoring.md)
 
-[Traffic Manager configuration tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
+
+[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
