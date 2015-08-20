@@ -160,7 +160,7 @@ When you create a VNet-to-VNet configuration, you need to configure each VNet to
 
 2. On the **Specify your local network details** page, for **Name**, enter the name of a virtual network that you want to use in your VNet-to-VNet configuration. For this example, we’ll use VNet 1, as we’ll be pointing VNet2 to this virtual network for our configuration.
 
-  For VPN Device IP Address, use any IP address. Typically, you’d use the actual external IP address for a VPN device. For VNet to VNet configurations, you will use the Gateway IP address. But, given that you’ve not created the gateway yet, we use the IP address that you specify here as a placeholder. You will then go back into these settings and configure them with the corresponding gateway IP addresses once Azure generates it.
+  For VPN Device IP Address, use any IP address. Typically, you’d use the actual external IP address for a VPN device. For VNet-to-VNet configurations, you will use the Gateway IP address. But, given that you’ve not created the gateway yet, we use the IP address that you specify here as a placeholder. You will then go back into these settings and configure them with the corresponding gateway IP addresses once Azure generates it.
 
 3. On the **Specify the address page**, you will put in the actual IP address range and address count for VNet1. This must correspond exactly to the range that you specified earlier for VNet1.
 
