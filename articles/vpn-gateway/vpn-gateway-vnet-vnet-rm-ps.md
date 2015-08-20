@@ -16,7 +16,7 @@
    ms.date="08/20/2015"
    ms.author="cherylmc"/>
 
-# Configure a VNet-to-VNet connection
+# Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
@@ -30,7 +30,7 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is very s
 
  
 
->[AZURE.NOTE] Azure currently has two deployment modes: the classic deployment mode, and the Azure Resource Manager deployment mode. The configuration cmdlets and steps differ between deployment modes. This topic will walk you through connecting virtual networks that are created using the Azure Resource Manager mode. If you want to create a VNet-to-VNet connection using the classic deployment mode, see [Configure a VNet-to-VNet Connection](virtual-networks-configure-vnet-to-vnet-connection.md).
+>[AZURE.NOTE] Azure currently has two deployment modes: the classic deployment mode, and the Azure Resource Manager deployment mode. The configuration cmdlets and steps differ between deployment modes. This topic will walk you through connecting virtual networks that are created using the Azure Resource Manager mode. If you want to create a VNet-to-VNet connection using the classic deployment mode, see [Configure a VNet-to-VNet connection using the Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ## Why connect virtual networks?
 
@@ -71,6 +71,8 @@ This article will walk you through connecting two virtual networks, VNet1 and VN
 - Redundant tunnels between a pair of virtual networks are not supported.
 
 - All VPN tunnels of the virtual network share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
+
+- VNet-to-VNet traffic travels across Azure's backbone.
 
 
 ## Before beginning
