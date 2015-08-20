@@ -61,7 +61,7 @@ ExpressRoute connections offer better security, more reliability, higher bandwid
 
 See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more details.
 
-## VPN devices and site-to-site connections
+## Site-to-site connections and VPN devices
 
 ### What should I consider when selecting a VPN device?
 
