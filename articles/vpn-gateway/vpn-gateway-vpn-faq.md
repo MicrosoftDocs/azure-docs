@@ -37,11 +37,11 @@ The following cross-premises connections are supported:
 
 - [Point-to-Site](vpn-gateway-point-to-site-create.md) – VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device.
 
-- [VNet-to-VNet](../virtual-networks-vnet-to-vnet-connection.md) - This type of connection is the same as a site-to-site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
+- [VNet-to-VNet](virtual-networks-configure-vnet-to-vnet-connection.md) - This type of connection is the same as a site-to-site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
 
-- [Multi-Site](http://go.microsoft.com/fwlink/?LinkID=615106) - This is a variation of a site-to-site configuration that allows you to connect multiple on-premises sites to a virtual network.
+- [Multi-Site](vpn-gateway-multi-site.md) - This is a variation of a site-to-site configuration that allows you to connect multiple on-premises sites to a virtual network.
 
-- [ExpressRoute](../expressroute-overview.md) - ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute-overview.md) and the [ExpressRoute FAQ](../expressroute-faqs.md) for more information.
+- [ExpressRoute](../expressroute/expressroute-introduction.md) - ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
 
 ### What is the difference between a site-to-site connection and point-to-site?
 
