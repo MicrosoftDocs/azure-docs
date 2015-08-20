@@ -121,3 +121,5 @@ Once configured, you can expand this SharePoint farm with guidance from [Microso
 [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Azure infrastructure services implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-workload-high-availability-lob-application.md)
