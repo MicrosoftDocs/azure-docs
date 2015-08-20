@@ -102,11 +102,16 @@ To see what other metrics you can display, click a graph, and then deselect all 
 
 Selecting any metric will disable the others that can't appear on the same chart.
 
-## Collect more performance counters
+## System performance counters
 
 Some of the metrics you can choose from are [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows provides a wide variety of them, and you can also define your own.
 
-If the counters you want aren't on the list, you can add them to the set that the SDK collects. Open ApplicationInsights.config and edit the performance collector directive:
+This example shows performance counters that are available by default. We have [added a separate chart](app-insights-metrics-explorer.md#editing-charts-and-grids) for each counter, and named the chart by [saving it as a favorite](app-insights-metrics-explorer.md#editing-charts-and-grids):
+
+![](./media/app-insights-web-monitor-performance/sys-perf.png)
+
+
+If the counters you want aren't in the properties list, you can add them to the set that the SDK collects. Open ApplicationInsights.config and edit the performance collector directive:
 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
@@ -115,7 +120,7 @@ If the counters you want aren't on the list, you can add them to the set that th
       </Counters>
     </Add>
 
-The format is `\Category(instance)\Counter"` or for categories that don't have instances, just `\Category\Counter`. 
+The format is `\Category(instance)\Counter"` or for categories that don't have instances, just `\Category\Counter`. To discover what counters are available in your system, read [this introduction](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 `ReportAs` is required for counter names that contain characters other than these: letters, round brackets, forward slahes, hyphens, underscores, spaces and dots.
 

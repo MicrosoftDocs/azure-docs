@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to create and manage volume groups
