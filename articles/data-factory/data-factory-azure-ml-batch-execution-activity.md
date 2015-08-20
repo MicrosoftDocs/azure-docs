@@ -76,6 +76,13 @@ In this scenario, you have data in Azure Blob storage, and you want to use Azure
 		  }
 		}
 
+### Azure Blob as a source
+
+When using the Reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (e.g. 000000_0) that are produced by a Pig and Hive script running on HDInsight. The Reader module allows you to read files (with no extensions) by configuring the **Path to container, directory or blob** property of the reader module to point to the container/folder that contains the files as shown below. Note, the asterisk (i.e. \*) **specifies that all the files in the container/folder (i.e. data/aggregateddata/year=2014/month-6/\*)** will be read as part of the experiment.
+
+![Azure Blob properties](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+
+
 ## Scenario 2
 
 You have data in other data sources (e.g. Azure SQL Database), and you want to use the Reader and Writer module to read and write data. 
@@ -102,6 +109,11 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
   	}
  
 > [AZURE.NOTE] The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service. 
+
+### Reader and Writer Modules
+
+A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
+For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.  
  
 
 ## Frequently asked questions
@@ -289,16 +301,6 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 
 
 
-### Reader and Writer Modules
-
-A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
-For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.  
-
-#### Azure Blob as a source
-
-When using the Reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (e.g. 000000_0) that are produced by a Pig and Hive script running on HDInsight. The Reader module allows you to read files (with no extensions) by configuring the **Path to container, directory or blob** property of the reader module to point to the container/folder that contains the files as shown below. Note, the asterisk (i.e. \*) **specifies that all the files in the container/folder (i.e. data/aggregateddata/year=2014/month-6/\*)** will be read as part of the experiment.
-
-![Azure Blob properties](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
 ### Example of using Web service parameters
 #### Pipeline with AzureMLBatchExecution activity with Web Service Parameters
