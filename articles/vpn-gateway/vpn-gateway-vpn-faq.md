@@ -230,7 +230,7 @@ For traffic between different Azure virtual networks, Azure charges only for tra
 
 Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-coexist.md).
 
-## Connectivity and virtual machines
+## Connectivity and VMs
 
 ### If my VM is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
