@@ -97,10 +97,12 @@ There are multiple steps to creating and configuring a VNet-to-VNet connection. 
 5. [Create the gateway configuration](#create-the-gateway-configuration)
 6. [Create the gateway](#create-the-gateway)
 7. [Repeat to configure VNet2](#create-vnet2)
-9. [Connect the VPN gateways](#connect-the-gateways)
+8. [Connect the VPN gateways](#connect-the-gateways)
 
 
 ## Plan your IP address ranges
+
+**Step 1**
 
 It’s important to decide the ranges that you’ll use to configure your network configuration. From the perspective of VNet1, VNet2 is just another VPN connection that’s defined in the Azure platform. And from VNet2, VNet1 is just another VPN connection. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way.
 
@@ -108,7 +110,7 @@ It’s important to decide the ranges that you’ll use to configure your networ
 In the steps below, we’ll create two virtual networks along with their respective gateway subnets and configurations. We'll then create a VPN gateway connection between the two VNets.
 For this exercise, use the following values for the VNets:
 
-**VNet1:** 
+VNet1: 
 
 - Virtual Network Name = VNet1
 - Resource Group = testrg1
@@ -117,7 +119,7 @@ For this exercise, use the following values for the VNets:
 - GatewaySubnet = 10.1.0.0/28
 - Subnet1 = 10.1.1.0/28
 
-**VNet2:** 
+VNet2: 
 
 - Virtual Network Name = VNet2
 - Resource Group = testrg2
@@ -127,6 +129,8 @@ For this exercise, use the following values for the VNets:
 - Subnet1 = 10.2.1.0/28
 
 ## Connect to your subscription 
+
+**Step 2**
 
 
 Open your PowerShell console and switch to the Azure Resource Manager mode. Use the following sample to help you connect:
@@ -143,6 +147,8 @@ Next, switch to the ARM mode. This will switch the mode to allow you to use the 
 
 ## Create a virtual network
 
+**Step 3**
+
 
 Use the sample below to create a virtual network and a gateway subnet. Substitute the values for your own. In this example, we'll create VNet1. You'll repeat the steps to create VNet2 later.
 
@@ -158,6 +164,8 @@ Next, create your virtual network. The sample below creates a virtual network na
 
 ## Request a public IP address
 
+**Step 4**
+
 Next, you'll request a public IP address to be allocated to the gateway you will create for your VNet. You cannot specify the IP address that you want to use; it’s dynamically allocated to your gateway. You'll use this IP address in the next configuration section.
 
 Use the sample below. The Allocation Method for this address must be Dynamic. 
@@ -167,6 +175,8 @@ Use the sample below. The Allocation Method for this address must be Dynamic.
 
 
 ## Create the gateway configuration
+
+**Step 5**
 
 The gateway configuration defines the subnet and the public IP address to use. Use the sample below to create your gateway configuration. 
 
@@ -178,16 +188,22 @@ The gateway configuration defines the subnet and the public IP address to use. U
 
 ## Create the gateway
 
+**Step 6**
+
 In this step, you'll create the virtual network gateway for your VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can take a while, so be patient.
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 ## Create VNet2
 
+**Step 7**
+
 Once you've configured VNet1, repeat the previous steps to configure VNet2 along with its gateway configuration. After you've completed the configuration for both of the VNets and their respective gateways, proceed to [Connect the gateways](#connect-the-gateways).
 
 
 ## Connect the gateways
+
+**Step 8**
 
 In this step, you'll create the VPN gateway connections between the two virtual network gateways. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both configurations.
 
