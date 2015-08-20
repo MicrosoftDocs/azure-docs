@@ -31,7 +31,7 @@ Connecting a virtual network to another virtual network (VNet-to-Vnet) is very s
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
 
->[AZURE.NOTE] Azure currently has two deployment modes: the classic deployment mode, and the Azure Resource Manager deployment mode. The configuration cmdlets and steps differ between deployment modes. This topic will walk you through connecting virtual networks that are created using the classic deployment mode. If you want to connect virtual networks together that were created in Azure Resource Manager mode, see [Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell](vnet-to-vnet-rm-ps.md). If you want to connect a virtual network that was created in the classic mode to a virtual network created in Azure Resource Manager, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] Azure currently has two deployment modes: the classic deployment mode, and the Azure Resource Manager deployment mode. The configuration cmdlets and steps differ between deployment modes. This topic will walk you through connecting virtual networks that are created using the classic deployment mode. If you want to connect virtual networks together that were created in Azure Resource Manager mode, see [Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). If you want to connect a virtual network that was created in the classic mode to a virtual network created in Azure Resource Manager, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Why connect virtual networks?
 
