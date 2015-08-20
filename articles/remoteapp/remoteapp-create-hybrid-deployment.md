@@ -53,7 +53,7 @@ You can deploy a hybrid RemoteApp collection that uses an existing Azure virtual
 
 ### Create an Azure VNET and join it to your Active Directory deployment
 
-Start by creating a [virtual network](https://msdn.microsoft.com/library/azure/dn631643.aspx). This is done on the **Network** tab in the Azure Management portal. You need to connect your virtual network to the Active Directory deployment that is synchronized to your Azure Active Directory tenant.
+Start by creating a [virtual network](../virtual-network/virtual-networks-create-vnet.md). This is done on the **Network** tab in the Azure Management portal. You need to connect your virtual network to the Active Directory deployment that is synchronized to your Azure Active Directory tenant.
 
 See [About Virtual Network Settings in the Management Portal](https://msdn.microsoft.com/library/azure/jj156074.aspx) for more information.
 
