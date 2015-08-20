@@ -50,11 +50,6 @@ SSMS can be used to deploy a compatible database directly to Azure SQL Database 
 
 [Download the latest version of SSMS](https://msdn.microsoft.com/library/mt238290.aspx) or be sure to use CU6 in SQL Server 2013 or later.  
 
-### SQL Azure Migration Wizard (SAMW)
-SAMW can be used to analyze the schema of an existing database for compatibility with Azure SQL Database, and in many cases can be used to generate and then deploy a Transact-SQL script containing schema and data. The wizard will report errors during the transformation if it encounters schema content that it cannot transform. If this occurs, the generated script will require further editing before it can be deployed successfully. SAMW will process the body of functions or stored procedures which is normally excluded from validation performed by the SQL Server tooling in Visual Studio (see below) so may find issues that might not otherwise be reported by validation in Visual Studio alone. Combining use of SAMW with the SQL Server tooling in Visual Studio can substantially reduce the amount of work required to migrate a complex schema.
-
-Be sure to use the latest version of the [SQL Azure Migration Wizard](http://sqlazuremw.codeplex.com/) from CodePlex .
-
 ### SQL Server tooling in Visual Studio (VS, SSDT)
 The SQL Server tooling in Visual Studio can be used to create and manage a database project comprising a set of Tranact-SQL files for each object in the schema. The project can be imported from a database or from a script file. Once created, the project can be to Azure SQL Database v12; building the project then validates schema compatibility. Clicking on an error opens the corresponding Transact-SQL file allowing it to be edited and the error corrected. Once all the errors are fixed the project can be published, either directly to SQL Database to create an empty database or back to (a copy of) the original SQL Server database to update its schema, which allows the database to be deployed with its data using SSMS as above.
 
@@ -69,7 +64,6 @@ Use the [lastest SQL Server Data Tools for Visual Studio](https://msdn.microsoft
 |Simple process requires that schema is compatible. Schema is migrated unchanged. | Schema is imported into a database project in Visual Studio and (optionally) transformed with SAMW. Additional updates are made using SSDT in Visual Studio and final schema used to update the database in situ. |
 | If exporting a BACPAC then can choose to migrate schema only.   | Can publish schema only directly to Azure from Visual Studio. Database is updated with any required changes in situ to allow schema and data to be deployed/exported. |
 | Always deploys or exports the entire database. | Full control of the objects that are included in the migration. |
-| No provision for changing the output if there are errors, the source schema must be compatible. | Full features of SSDT in Visual Studio available. Schema is changed offline. |
+| No provision for changing the output if there are errors, the source schema must be compatible. | Full features of SSDT in Visual Studio available. Schema is changed offline. | Application validation occurs in Azure. Should be minimal as schema is migrated without change. 
 | Application validation can be done in SQL Server before the database is deployed to Azure. |
-| Microsoft supported tool. | Microsoft supported tools with optional use of community supported tool downloaded from CodePlex. |
 | Simple, easily configured one- or two-step process. | More complex multi-step process (easier if only deploying schema). |
