@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="08/20/2015" 
 	ms.author="mimig"/>
 
 # DocumentDB SQL query cheat sheet
@@ -26,11 +26,11 @@ DocumentDB supports relational, hierarchical,  and spatial querying of JSON docu
 
 Download the DocumentDB query cheat sheet for a quick reference to all the query functions available to you. To keep it nearby, you can print the single-sided cheat sheet in page letter size (8.5 x 11 in.).
 
-**Download the cheat sheet here: [Microsoft DocumentDB SQL query cheat sheet](http://go.microsoft.com/fwlink/?LinkId=623215)**
+**Download the cheat sheet here: [Microsoft DocumentDB query cheat sheet](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
-![DocumentDB SQL Query Cheat Sheet: Quick reference guide to the SQL grammar that DocumentDB suppots.][cheat-sheet]
+![DocumentDB query cheat Sheet: Quick reference guide to the SQL grammar that DocumentDB supports.][cheat-sheet]
 
-[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v1.png
+[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
 
 ## More help with queries
