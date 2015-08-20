@@ -70,7 +70,7 @@ You may want to connect virtual networks for the following reasons:
 
 - All VPN tunnels of the virtual network, including P2S VPNs, share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
 
-- VNet-to-VNet traffic travels across Azure's backbone.
+- VNet-to-VNet traffic travels across the Azure backbone.
 
 ## Configure a VNet to VNet connection
 
