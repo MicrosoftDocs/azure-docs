@@ -3,9 +3,9 @@
    description="Microsoft Azure SQL Database, database migration, import database, export database, migration wizard" 
    services="sql-database" 
    documentationCenter="" 
-   authors="pehteh" 
+   authors="carlrabeler" 
    manager="jeffreyg" 
-   editor="monicar"/>
+   editor=""/>
 
 <tags
    ms.service="sql-database"
@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/17/2015"
-   ms.author="pehteh"/>
+   ms.date="08/20/2015"
+   ms.author="carlrab"/>
 
 #Update database in place then deploy to Azure SQL Database
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/01VSSSDTDiagram.png)
 
-Use this Option when the migration of a database to Azure SQL Database V12 requires schema changes that cannot be addressed using the SQL Azure Migration Wizard (SAMW) because the database uses SQL Server features that are not supported in Azure SQL Database.  With this option, Visual Studio is first used to create a database project from the source database. The project’s target platform is then set to Azure SQL Database V12 and the project is built to identify all compatibility issues. SAMW can fix many compatibility issues, but not all of them, so SAMW is used to process all the scripts in the projects as a first pass. Using SAMW is optional but highly recommended. Building the project after processing the script files with SAMW will identify remaining issues which must then be addressed manually using the Transact-SQL editing tools in Visual Studio. Once the project builds successfully, the schema is published back to a copy (recommended) of the source database to update its schema and data in situ. The updated database is then deployed to Azure, either directly or by exporting and importing a BACPAC file, using the techniques described in Option #1.
+Use this Option when the migration of a database to Azure SQL Database V12 requires schema changes because the database uses SQL Server features that are not supported in Azure SQL Database.  With this option, Visual Studio is first used to create a database project from the source database. The project’s target platform is then set to Azure SQL Database V12 and the project is built to identify all compatibility issues. Once the project builds successfully, the schema is published back to a copy (recommended) of the source database to update its schema and data in situ. The updated database is then deployed to Azure, either directly or by exporting and importing a BACPAC file, using the techniques described in Option #1.
  
 As this Option involves updating the schema of the database in situ before deploying to Azure it is strongly recommended to perform this on a copy of the database. The Visual Studio Schema Compare tool can be used to review the full set of changes that will be applied to the database before publishing the project.
-
-Use of the SQL Azure Migration Wizard (SAMW) is optional but recommended. SAMW will detect compatibility issues within the body of functions, stored procedures and triggers which will not otherwise be detected until deployment.
 
 If a schema-only deployment is required, the updated schema can be published directly from Visual Studio to Azure SQL Database.
 
