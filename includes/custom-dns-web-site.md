@@ -302,7 +302,7 @@ Once configuration has completed, the custom domain name will be listed in the *
 [cloudservicedns]: ../articles/custom-dns.md
 [trafficmanager]: ../article/app-service-web/web-sites-traffic-manager.md
 [addendpoint]: http://msdn.microsoft.com/library/windowsazure/hh744839.aspx
-[createprofile]: http://msdn.microsoft.com/library/windowsazure/dn339012.aspx
+[createprofile]: ../articles/traffic-manager/traffic-manager-manage-profiles.md
 
 <!-- images -->
 
