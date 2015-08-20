@@ -22,13 +22,13 @@ You can use an Active Directory Group Policy to configure your Windows 8.1 domai
 
 ## Configure the Group Policy for your Windows 8.1 domain joined devices
 
-1. Open Server Manager and navigate to Tools > Group Policy Management.
-2. From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable Automatic Workplace Join.
-3. Right-click Group Policy Objects and select New. Give your Group Policy object a name, for example, Automatic Workplace Join. Click OK.
-4. Right-click on your new Group Policy object and then select Edit.
-5. Navigate to Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join.
-6. Right-click Automatically workplace join client computers and then select Edit.
-7. Select the Enabled radio button and then click Apply. Click OK.
+1. Open Server Manager and navigate to **Tools** > **Group Policy Management**.
+2. From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable **Automatic Workplace Join**.
+3. Right-click **Group Policy Objects** and select **New**. Give your Group Policy object a name, for example, **Automatic Workplace Join**. Click **OK**.
+4. Right-click on your new Group Policy object and then select **Edit**.
+5. Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Workplace Join**.
+6. Right-click Automatically workplace join client computers and then select **Edit**.
+7. Select the Enabled radio button and then click Apply. Click **OK**.
 8. You may now link the Group Policy object to a location of your choice. To enable this policy for all of the domain joined Windows 8.1 devices at your organization, link the Group Policy to the domain.
 
 ## Unregistering your Windows 8.1 domain joined devices
@@ -38,18 +38,20 @@ Modify the Workplace Join Group Policy settings created in the previous section.
 
 Unregister the existing domain joined Windows 8.1 machines by following one of the two options below:
 
-* Option 1: Unregister a Windows 8.1 domain joined device using PC Settings
-On the Windows 8.1 device, navigate to PC Settings > Network > Workplace
-Select Leave.
+* Option 1: **Unregister a Windows 8.1 domain joined device using PC Settings**
+  1. On the Windows 8.1 device, navigate to **PC Settings** > **Network** > **Workplace**
+  2. Select **Leave**.
 This process must be repeated for each domain user that has signed into the machine and has been automatically workplace joined.
-* Option 2: Unregister a Windows 8.1 domain joined device using a script
-  Open a command prompt on the Windows 8.1 machine and execute the following command:
-    **%SystemRoot%\System32\AutoWorkplace.exe leave**.
 
-   This command must be run in the context of each domain user that has signed into the machine.
+* Option 2: Unregister a Windows 8.1 domain joined device using a script
+  	1. Open a command prompt on the Windows 8.1 machine and execute the following command:
+   ` %SystemRoot%\System32\AutoWorkplace.exe leave`
+   
+This command must be run in the context of each domain user that has signed into the machine.
 Event Viewer & Errors for Windows 8.1 domain joined devices
 
-The Windows Event Log on the Windows 8.1 machine will display messages related to device registration. You will find messages for both successful and unsuccessful events. The Event Log can be found in the Event Viewer under Applications and Services Logs > Microsoft > Windows > Workplace Join.
-Additional details
+The Windows Event Log on the Windows 8.1 machine will display messages related to device registration. You will find messages for both successful and unsuccessful events. The Event Log can be found in the Event Viewer under Applications and Services **Logs** > **Microsoft** > **Windows > Workplace Join**.
+
+##Additional details
 
 The Group Policy enables a Scheduled Task on the system that runs in the user’s context and is triggered on user sign-in. The task will silently register the user and device with Azure AD after the sign-in is complete. The Scheduled Task can be found on Windows 8.1 devices in the Task Scheduler Library under Microsoft > Windows > Workplace Join. The task will run and register any and all Active Directory users that sign-into
