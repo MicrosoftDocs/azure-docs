@@ -25,16 +25,13 @@
 
 This article will walk you through connecting virtual networks together in the classic deployment mode by using a combination of the Azure Portal and PowerShell. 
 
-Azure currently has two deployment modes: the classic deployment mode, and the Azure Resource Manager deployment mode. The configuration steps differ, depending on the mode that was used to deploy your virtual network. 
-
-- If you want to connect virtual networks together that were created in Azure Resource Manager mode, see [Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell](vnet-to-vnet-rm-ps.md)
-
-- If you want to connect a virtual network that was created in the classic mode to a virtual network created in Azure Resource Manager, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
-
 
 Connecting a virtual network to another virtual network (VNet-to-Vnet) is very similar to connecting a virtual network to an on-premises site location. Both connectivity types use a virtual network gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
 
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
+
+
+>[AZURE.NOTE] Azure currently has two deployment modes: the classic deployment mode, and the Azure Resource Manager deployment mode. The configuration cmdlets and steps differ between deployment modes. This topic will walk you through connecting virtual networks that are created using the classic deployment mode. If you want to connect virtual networks together that were created in Azure Resource Manager mode, see [Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell](vnet-to-vnet-rm-ps.md). If you want to connect a virtual network that was created in the classic mode to a virtual network created in Azure Resource Manager, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Why connect virtual networks?
 
