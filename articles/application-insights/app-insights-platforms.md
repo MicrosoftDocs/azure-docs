@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Application Insights: platforms" 
-	description="Can I use Application Insights with...?" 
-	services="application-insights" 
+<properties
+	pageTitle="Application Insights: languages and platforms| Microsoft Azure"
+	description="Languages and platforms available for Application Insights"
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
- 
-# Application Insights: platforms
+
+# Application Insights: languages and platforms
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -30,7 +30,7 @@
 + [Objective-C](app-insights-ios.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-+ [Ruby](https://rubygems.org/gems/application_insights) 
++ [Ruby](https://rubygems.org/gems/application_insights)
 + [Anything else](#projects)
 
 ## Platforms
@@ -76,6 +76,3 @@ If there isn't yet an SDK for your language or platform, perhaps you'd like to b
 [Windows Store apps using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
 
 <!--Link references-->
-
-
- 
