@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="08/20/2015"
 	ms.author="markvi"/>
 
 
@@ -108,7 +108,7 @@ The following screenshot shows an example for this.
  
      3.1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your CloudPassage app (e.g.: *https://portal.cloudpassage.com/saml/init/accountid*). 
 
-     3.2. In the Reply URL textbox, type your AssertionConsumerService URL (e.g.: *https://portal.cloudpassage.com/saml/consume/accountid*). <br> >[AZURE.NOTE] You can get your value for this attribute by clicking **SSO Setup documentation** in the **Single Sign-on Settings** section of your CloudPassage portal. <br><br>![Configure Single Sign-On][10]
+     3.2. In the Reply URL textbox, type your AssertionConsumerService URL (e.g.: *https://portal.cloudpassage.com/saml/consume/accountid*). <br> >[AZURE.NOTE]You can get your value for this attribute by clicking **SSO Setup documentation** in the **Single Sign-on Settings** section of your CloudPassage portal. <br><br>![Configure Single Sign-On][10]
 
      3.3. Click **Next**.
 
@@ -215,7 +215,7 @@ The objective of this section is to create a user called Britta Simon in CloudPa
 
 3.	Click the **Users** tab, and then click **Add New User**. <br>![Creating a CloudPassage test user][23]
 	
-4.	In the **Add New User** section, perform the following steps: <br>![Creating a CloudPassage test user][23]
+4.	In the **Add New User** section, perform the following steps: <br>![Creating a CloudPassage test user][24]
 
      4.1. In the **First Name** textbox, type Britta.
 
