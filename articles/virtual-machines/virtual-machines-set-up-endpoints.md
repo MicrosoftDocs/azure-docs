@@ -85,7 +85,7 @@ You can use rules to allow only traffic from specific computers corresponding to
 
 The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [About network access control lists](http://go.microsoft.com/fwlink/p/?linkid=303816).
 
-To use an Azure PowerShell cmdlet to set this up, see [Managing access control lists (ACLs) for endpoints by using PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+To use an Azure PowerShell cmdlet to set this up, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ## Additional resources
 
