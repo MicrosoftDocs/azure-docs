@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="08/06/2015"
+   ms.date="08/20/2015"
    ms.author="carlrab"/>
 
 #Migrating a compatible database using SSMS
 
 ![SSMS migration diagram](./media/sql-database-migrate-ssms/01SSMSDiagram.png)
 
-If a database schema is already compatible with Azure SQL Database then migration will be straightforward. If no schema modifications are required, a migration only requires that the database is imported into Azure. This can be done in a single step using SSMS by ‘deploying’ the database to Azure SQL Database, or as a two-step process by first exporting a BACPAC of the current database and then importing that BACPAC to Azure to create a new Azure SQL database.
+If a database schema is compatible with Azure SQL Database then migration is straightforward. If no schema modifications are required, a migration only requires that the database is imported into Azure. This can be done in a single step using SSMS by ‘deploying’ the database to Azure SQL Database, or as a two-step process by first exporting a BACPAC of the current database and then importing that BACPAC to Azure to create a new Azure SQL database.
 
 Additionally, you can upload the exported BACPAC to Azure Storage and then import the BACPAC as a database using the portal. Running the import in Azure will reduce the latency in the import step which will improve performance and reliability of the migration with large databases.
 
