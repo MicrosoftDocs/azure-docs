@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Setting up on-premises conditional access using Azure Active Directory Device Registration | Microsoft Azure"
-	description="A topic that explains how users can register their personal Windows 10 computers to their corporate network."
+	description="A step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"

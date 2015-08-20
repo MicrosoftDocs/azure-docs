@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory Device Registration Overview| Microsoft Azure"
-	description="A topic that explains how users can register their personal Windows 10 computers to their corporate network."
+	pageTitle="Azure Conditional Access Preview for SaaS Apps| Microsoft Azure"
+	description="A topic that explains how conditional access in Azure AD allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -85,5 +85,5 @@ The following example shows how to enable on-premises MFA by using the [Set-Msol
 
     Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
 
-In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for deploying Windows Azure Multi-Factor Authentication on-premises.
+In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for deploying Azure Multi-Factor Authentication on-premises.
 

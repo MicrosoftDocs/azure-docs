@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Setting up on-premises conditional access using Azure Active Directory Device Registration | Microsoft Azure"
-	description="A topic that explains how users can register their personal Windows 10 computers to their corporate network."
+	pageTitle="Azure Authenticator for Android | Microsoft Azure"
+	description="A topic for end users that details how the Microsoft Azure Authenticator app can be used to sign-in to access work resources"
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"

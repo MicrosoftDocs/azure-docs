@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Conditional access device policies for Office 365 services | Microsoft Azure"
-	description="A topic that explains how users can register their personal Windows 10 computers to their corporate network."
+	description="This topic primarily focusses on device-based conditions to control access to Office 365 services. While Information Workers (IWs) want to access Office 365 services like Exchange and SharePoint Online at work or school from their personal devices, their IT admin wants the access to be secure."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"

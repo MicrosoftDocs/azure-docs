@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory Device Registration Overview| Microsoft Azure"
-	description="A topic that explains how users can register their personal Windows 10 computers to their corporate network."
+	description="A topic that explains concepts about device registration in Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
