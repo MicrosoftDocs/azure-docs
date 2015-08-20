@@ -16,13 +16,11 @@
 	ms.date="07/09/2015" 
 	ms.author="ricksal"/>
 
-# Upload images from Android device to Azure Storage
+# Upload images to Azure Blob Storage from an Android  device
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-This topic shows how to use Azure Mobile Services to enable your Android app to upload and store user-generated images in Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service. 
-
-In this tutorial you add functionality to the Mobile Services quickstart app to take pictures with the Android camera, and upload the images to Azure storage. 
+This topic shows how to use Azure Mobile Services to enable your Android app to upload images to Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in the Azure Storage service. In this tutorial you enable the Mobile Services quickstart app to take pictures with the Android camera, and upload the images to Azure Storage. 
 
 
 ## What you need to get started
@@ -33,6 +31,19 @@ This tutorial also requires the following:
 
 + An [Azure Storage account](../storage-create-storage-account.md)
 + An Android device with a camera
+
+## How the app works
+
+Uploading the photo image is a multistep process:
+
+- First you insert a TodoItem row into the SQL database that contains some new fields used by Azure Storage.
+- A new mobile service SQL **insert** script asks Azure Storage for a Shared Access Signature (SAS).
+- That script returns the SAS and a URI for the blob to the client.
+- The client uploads the photo, using the SAS and blob URI.
+
+So what is a SAS?
+
+It's not safe to store the credentials needed to upload data to the Azure Storage service inside your client app. Instead, you store these credentials in your mobile service and use them to generate a Shared Access Signature (SAS) that grants permission to upload a new image. The SAS, a credential with a 5 minute expiration, is returned securely by Mobile Services to the client app. The app then uses this temporary credential to upload the image. 
 
 ## Update the registered insert script in the Management Portal
 
@@ -48,10 +59,12 @@ This tutorial also requires the following:
 
 1. To add the reference to the Azure Storage Android client library, in the **app** **build.gradle** file, add this line to the `dependencies` section:
 
-		compile 'com.microsoft.azure.android:azure-storage-android:0.5.1@aar'
+		compile 'com.microsoft.azure.android:azure-storage-android:0.6.0@aar'
 
 
 2. Change the `minSdkVersion` value to 15 (required by the camera API).
+
+3. Press the **Sync Project with Gradle Files** icon.
 
 ### Update the manifest file for camera and storage
 
@@ -86,12 +99,10 @@ Specify your app depends on having a camera,and needs permission to write to ext
              android:onClick="uploadPhoto"
              android:text="@string/upload_button_text" />
 
-4. In **ToDoActivity.java**, rename the **addItem** method to **upLoadPhoto**.
-
 
 ### Add code for photo capture
 
-1. Add this code to create a **File** object with a unique name.
+1. In **ToDoActivity.java** add this code to create a **File** object with a unique name.
 
 		// Create a File object for storing the photo
 	    private File createImageFile() throws IOException {
@@ -137,19 +148,6 @@ Specify your app depends on having a camera,and needs permission to write to ext
 	    }
 
 ### Add code to upload photo file to blob storage
-
-Uploading the photo is a multistep process:
-
-- First you insert a TodoItem row to the SQL database that contains some new fields used by Azure Storage.
-- The mobile service backend SQL **insert** script asks blob storage for a Shared Access Signature (SAS).
-- That script returns the SAS and location information to the client.
-- The client uploads the photo, using the SAS and blob URI.
-
-So what is a SAS?
-
-You cannot securely distribute with the client app the credentials required to securely upload data to the Azure Storage service. Instead, you must store these credentials in your mobile service and use them to generate a Shared Access Signature (SAS) that is used to upload a new image. The SAS, a credential with a short expiration--in this case 5 minutes, is returned securely by Mobile Services to the client app. The app then uses this temporary credential to upload the image. 
-
-In this example, downloads from Azure Storage are public.
 
 
 1. First we add some new properties to the `ToDoItem` object by adding this code to **ToDoItem.java**.
@@ -246,7 +244,44 @@ In this example, downloads from Azure Storage are public.
 	        mSasQueryString = SasQueryString;
 	    }
 
-2. Next replace the addItem method with the following code that uploads the image.
+2. Replace the 0-parameter constructor with this code:
+
+	    /**
+	     * ToDoItem constructor
+	     */
+	    public ToDoItem() {
+	        mContainerName = "";
+	        mResourceName = "";
+	        mImageUri = "";
+	        mSasQueryString = "";
+	    }
+
+3. Replace the multi-parameter constructor with this code:
+
+	    /**
+	     * Initializes a new ToDoItem
+	     *
+	     * @param text
+	     *            The item text
+	     * @param id
+	     *            The item id
+	     */
+	    public ToDoItem(String text,
+	                    String id,
+	                    String containerName,
+	                    String resourceName,
+	                    String imageUri,
+	                    String sasQueryString) {
+	        this.setText(text);
+	        this.setId(id);
+	        this.setContainerName(containerName);
+	        this.setResourceName(resourceName);
+	        this.setImageUri(imageUri);
+	        this.setSasQueryString(sasQueryString);
+	    }
+
+
+4. In the **ToDoActivity.java** file, replace the **addItem** method in **ToDoActivity.java**  with the following code that uploads the image.
 
 	    /**
 	     * Add a new item
