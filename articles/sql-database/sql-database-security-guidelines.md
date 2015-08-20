@@ -90,7 +90,7 @@ GO
 - To ``CREATE/ALTER/DROP`` a user requires the ``ALTER ANY USER`` permission on the database.
 - When the owner of a database role tries to add or remove another database user to or from that database role, the following error may occur: **User or role 'Name' does not exist in this database.** This error occurs because the user is not visible to the owner. To resolve this issue, grant the role owner the ``VIEW DEFINITION`` permission on the user. 
 
-For more information about logins and users, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
+For more information about logins and users, see [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md).
 
 ## Security best practices
 
@@ -109,4 +109,4 @@ Consider the following points to make your Azure SQL Database applications less 
 
 [Azure SQL Database General Guidelines and Limitations](https://msdn.microsoft.com/library/azure/ee336245.aspx)
 
-[Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md)
+[Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)

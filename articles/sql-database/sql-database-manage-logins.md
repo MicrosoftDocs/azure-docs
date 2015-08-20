@@ -149,4 +149,4 @@ SELECT * FROM sys.databases;
 
 ## See also
 
-[Azure SQL Database security guidelines and limitations](https://msdn.microsoft.com/library/azure/ff394108.aspx) 
+[Azure SQL Database security guidelines and limitations](sql-database-security-guidelines.md)
