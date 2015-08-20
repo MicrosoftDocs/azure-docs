@@ -59,7 +59,7 @@ ExpressRoute lets you create private connections between Microsoft datacenters a
 
 ExpressRoute connections offer better security, more reliability, higher bandwidth, and lower latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits. If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.
 
-See the [ExpressRoute FAQ](../expressroute-faqs.md) for more details.
+See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more details.
 
 ## VPN devices and site-to-site connections
 
@@ -165,7 +165,7 @@ If you are using the Azure Portal, add each range that you want sent through the
 
 ### Can I configure Forced Tunneling?
 
-Yes. See [About Forced Tunneling](vpn-gateway-about-forced-tunneling.md).
+Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I setup my own VPN server in Azure and use it to connect to my on-premises network?
 
@@ -223,7 +223,7 @@ No, Azure by default generates different pre-shared keys for different VPN conne
 
 ### Does Azure charge for traffic between virtual networks?
 
-For traffic between different Azure virtual networks, Azure charges only for traffic traversing from one Azure region to another. The charge rate is listed in the Azure VPN Gateway [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) page.
+For traffic between different Azure virtual networks, Azure charges only for traffic traversing from one Azure region to another. The charge rate is listed in the Azure [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) page.
 
 
 ### Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
@@ -246,8 +246,8 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 
 View more networking FAQs for additional details:
 
-- [Virtual Network FAQ](http://go.microsoft.com/fwlink/p/?LinkId=615155)
+- [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
 
-- [ExpressRoute FAQ](../expressroute-faqs.md)
+- [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)
 
  
