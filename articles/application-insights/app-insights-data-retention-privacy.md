@@ -52,6 +52,7 @@ A *data point* is an item of telemetry sent to the Azure portal about your app. 
 * [Availability web tests](app-insights-monitor-web-app-availability.md) that you have set up.
 
 Telemetry data include:
+
 * Each row in [diagnostic search](app-insights-diagnostic-search.md)
 * The raw data from which charts in [metric explorer](app-insights-metrics-explorer.md) are aggregated. Metric data such as performance counter data don't usually appear as individual points in metric explorer.
 * Each web test result in an [availability](app-insights-monitor-web-app-availability.md) report.

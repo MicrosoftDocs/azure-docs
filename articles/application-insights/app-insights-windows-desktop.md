@@ -43,11 +43,14 @@ All Windows applications - including desktop apps, background services, and work
 
 
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
+
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-desktop/03-nuget.png)
 
 2. Install the Application Insights Core API package.
 
     ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
+
+    You can install other packages such as the Performance Counter or log capture packages if you want to use their facilities.
 
 3. Set your InstrumentationKey in code, for example in main(). 
 
@@ -56,6 +59,7 @@ All Windows applications - including desktop apps, background services, and work
 *Why isn't there an ApplicationInsights.config?*
 
 * The .config file isn't installed by the Core API package, which is only used to configure telemetry collectors. So you write your own code to set the instrumentation key and send telemetry.
+* If you installed one of the other packages, you will have a .config file. You can insert the instrumentation key there instead of setting it in code.
 
 *Could I use a different NuGet package?*
 

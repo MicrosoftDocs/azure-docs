@@ -46,7 +46,7 @@ To zoom into part of a chart, drag over it and then click the magnifier symbol:
 
 
 
-## Grain and point values
+## Granularity and point values
 
 Hover your mouse over the chart to display the values of the metrics at that point.
 
@@ -54,15 +54,15 @@ Hover your mouse over the chart to display the values of the metrics at that poi
 
 The value of the metric at a particular point is aggregated over the preceding sampling interval. 
 
-The sampling interval or "grain" is shown at the top of the blade. 
+The sampling interval or "granularity" is shown at the top of the blade. 
 
 ![The header of a blade.](./media/app-insights-metrics-explorer/11-grain.png)
 
-You can adjust the grain in the Time range blade:
+You can adjust the granularity in the Time range blade:
 
 ![The header of a blade.](./media/app-insights-metrics-explorer/grain.png)
 
-The grains available depend on the time range you select. The explicit grains are alternatives to the "automatic" grain for the time range. 
+The granularities available depend on the time range you select. The explicit granularities are alternatives to the "automatic" granularity for the time range. 
 
 ## Metrics Explorer
 
@@ -77,7 +77,7 @@ For example, click through the web app's Failed Requests chart:
 
 The legend at the side by default shows the aggregated value over the period of the chart.
 
-Each data point on the chart is also an aggregate of the data values received in the preceding sampling interval or "grain". The grain is shown at the top of the blade, and varies with the overall timescale of the chart.
+Each data point on the chart is also an aggregate of the data values received in the preceding sampling interval or "granularity". The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.
 
 Different metrics are aggregated in different ways: 
 
