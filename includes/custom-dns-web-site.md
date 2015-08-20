@@ -300,8 +300,8 @@ Once configuration has completed, the custom domain name will be listed in the *
 [portal]: http://manage.windowsazure.com
 [digweb]: http://www.digwebinterface.com/
 [cloudservicedns]: ../articles/custom-dns.md
-[trafficmanager]: ../article/app-service-web/web-sites-traffic-manager.md
-[addendpoint]: http://msdn.microsoft.com/library/windowsazure/hh744839.aspx
+[trafficmanager]: ../articles/app-service-web/web-sites-traffic-manager.md
+[addendpoint]: ../articles/traffic-manager/traffic-manager-endpoints.md
 [createprofile]: ../articles/traffic-manager/traffic-manager-manage-profiles.md
 
 <!-- images -->
