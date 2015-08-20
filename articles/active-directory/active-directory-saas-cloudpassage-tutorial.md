@@ -114,7 +114,7 @@ The following screenshot shows an example for this.
 
 
 
-4. On the **Configure single sign-on at CloudPassage** page, click **Download certificate**, and then save the certificate file locally on your computer.<br><br>![Configure Single Sign-On][11]
+4. On the **Configure single sign-on at CloudPassage** page, click **Download certificate**, and then save the certificate file locally on your computer. <br><br>![Configure Single Sign-On][11]
 
 5. In a different browser window, sign-on to your CloudPassage company site as administrator.
 
