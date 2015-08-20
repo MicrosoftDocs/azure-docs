@@ -53,7 +53,7 @@ To edit a DNS server list by using a network configuration file, you'll first ex
 
 1. Specify the DNS server information for your virtual network. For more information about specifying a DNS server, see [Specifying a DNS Server in a Virtual Network Configuration File](https://msdn.microsoft.com/library/windowsazure/jj156098.aspx). For additional information about network configuration files, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) and [Configure a Virtual Network Using a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 
-1. Import the network configuration file. For more information and steps to import your network configuration file, see [Import a Network Configuration File](https://msdn.microsoft.com/library/azure/jj156213.aspx).
+1. Import the network configuration file. For more information and steps to import your network configuration file, see [Import a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 
 1. Restart the virtual machines located in the virtual network to allow them to acquire the new DNS settings.
 
