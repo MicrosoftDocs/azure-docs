@@ -12,6 +12,7 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
+
 		info:    Executing command group create
 		+ Getting resource group TestRG
 		+ Creating resource group TestRG
@@ -28,6 +29,7 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
 
 4. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
+5. 
 		azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
 		info:    Executing command network vnet create
