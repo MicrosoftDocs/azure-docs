@@ -105,7 +105,7 @@ To use this feature, in the customized path you will see this page:
 
 This screen allows you to select the optional features for your specific scenarios.  Below is a brief explanations of each of the individual features.
 
-<center>![Express Installation](./media/active-directory-aadconnect-get-started-custom/of.png)</center>
+<center>![Express Installation](./media/active-directory-aadconnect-get-started-custom/optional.png)</center>
 
 
 Optional Features      | Description
@@ -113,7 +113,6 @@ Optional Features      | Description
 Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Azure by synchronizing a specific set of attributes from Azure AD back into your on-premises directory.
 Azure AD app and attribute filtering|By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored to a specific set on a subsequent page of the wizard.  This opens two additional configuration pages in the wizard.  
 Password writeback|By enabling password writeback, password changes that originate with Azure AD will be written back to your on-premises directory.
-User writeback|By enabling user writeback, users created in Azure AD will be written back to your on-premises directory.  This opens an additional configuration page in the wizard.  
 Directory extension attribute sync|By enabling directory extensions attribute sync, attributes specified will be synced to Azure AD.  This opens an additional configuration page in the wizard.  
 
 For additional configuration options such as changing the default configuration, using the Synchronization Rules Editor and Declarative Provisioning see [Manage Azure AD Connect](active-directory-aadconnect-whats-next.md)
@@ -139,17 +138,7 @@ These attributes will now be available through Graph:
 ![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension4.png)
 
 
-## User writeback (preview)
 
-> [AZURE.WARNING] If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect
-
-User writeback allows you to take a user created in Azure AD (through the portal, graph, PowerShell, or any other method) and write the user back to on-premises ADDS. To enable the feature, select “User writeback” on the optional features page. You will now be presented with the location where you want these users to be created. The default configuration will create all users in one location in AD DS.
-
-![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
-
-The users will be created with a random password so you have to reset the password in AD DS for the user to actually be able to login.
-
->[AZURE.NOTE] Password sync and Password writeback are not compatible with this preview feature.
 
 ## Group writeback (preview)
 
