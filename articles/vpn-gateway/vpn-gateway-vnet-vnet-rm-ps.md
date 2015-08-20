@@ -108,9 +108,10 @@ It’s important to decide the ranges that you’ll use to configure your networ
 
 
 In the steps below, we’ll create two virtual networks along with their respective gateway subnets and configurations. We'll then create a VPN gateway connection between the two VNets.
+
 For this exercise, use the following values for the VNets:
 
-VNet1: 
+Values for VNet1: 
 
 - Virtual Network Name = VNet1
 - Resource Group = testrg1
@@ -119,7 +120,7 @@ VNet1:
 - GatewaySubnet = 10.1.0.0/28
 - Subnet1 = 10.1.1.0/28
 
-VNet2: 
+Values for VNet2: 
 
 - Virtual Network Name = VNet2
 - Resource Group = testrg2
