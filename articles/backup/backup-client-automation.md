@@ -82,7 +82,7 @@ The available options include:
 
 
 ### Registering with the Azure Backup service
-Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-azure-backup-configure-vault.md) are met. You must:
+Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-configure-vault.md) are met. You must:
 
 - Have a valid Azure subscription
 - Have a backup vault
