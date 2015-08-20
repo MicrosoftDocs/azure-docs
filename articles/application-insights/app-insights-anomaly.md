@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: Proactive Anomaly Detection

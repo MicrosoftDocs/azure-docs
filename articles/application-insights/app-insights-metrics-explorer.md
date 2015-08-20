@@ -21,7 +21,7 @@ Metrics in [Application Insights][start] are measured values and counts of event
 
 Metrics and event counts are displayed in charts of aggregated values such as sums, averages, or counts.
 
-For example, if you add Application Insights to a web application, here's what you see near the top of the overview:
+Here's a sample chart:
 
 ![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/01-overview.png)
 
@@ -40,10 +40,11 @@ You can change the Time range covered by the charts or grids on any blade.
 
 If you're expecting some data that hasn't appeared yet, click Refresh. Charts refresh themselves at intervals, but the intervals are longer for larger time ranges. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
 
-In the Overview blade, drag over a part of the chart to zoom into it in a new chart.
-
+To zoom into part of a chart, drag over it and then click the magnifier symbol:
 
 ![Drag across part of a chart.](./media/app-insights-metrics-explorer/12-drag.png)
+
+
 
 ## Grain and point values
 

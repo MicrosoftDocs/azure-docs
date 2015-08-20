@@ -40,16 +40,23 @@ There are three buckets which are counted separately:
 
 * [TrackTrace calls](app-insights-api-custom-events-metrics.md#track-trace) and [captured logs](app-insights-asp-net-trace-logs.md)
 * [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), subject to a lower limit of 50/s.
-* All other telemetry (page views, requests, dependencies, metrics, custom events).
+* All other telemetry (page views, requests, dependencies, metrics, custom events and web test results).
 
 **Monthly**: Between 5 and 15 million data points in each calendar month, depending on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/). Except for the free [pricing tier][pricing], you can buy additional capacity if you hit the limit.
 
 
-A *data point* is an item of telemetry, such as:
+A *data point* is an item of telemetry sent to the Azure portal about your app. It can be sent by:
 
-* API `Track...` calls such as `TrackEvent` or `trackPageView`.
-* Telemetry items sent by SDK modules, for example to report a request or crash.
-* Performance counter data - one point for each measurement.
+* [SDK modules](app-insights-configuration-with-applicationinsights-config.md) that automatically collect data, for example to report a request or crash, or to measure performance.
+* [API](app-insights-api-custom-events-metrics.md) `Track...` calls that you have written, such as `TrackEvent` or `trackPageView`.
+* [Availability web tests](app-insights-monitor-web-app-availability.md) that you have set up.
+
+Telemetry data include:
+* Each row in [diagnostic search](app-insights-diagnostic-search.md)
+* The raw data from which charts in [metric explorer](app-insights-metrics-explorer.md) are aggregated. Metric data such as performance counter data don't usually appear as individual points in metric explorer.
+* Each web test result in an [availability](app-insights-monitor-web-app-availability.md) report.
+
+User and session counts aren't included in the quota for pricing purposes.
 
 *How do I know how many data points my app is sending?*
 
@@ -202,7 +209,7 @@ Dependencies|Type(SQL, HTTP, ...), connection string or URI, sync/async, duratio
 Crashes | Process id, parent process id, crash thread id; application patch, id, build;  exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type
 Trace | **Message** and severity level
 Perf counters | Processor time, available memory, request rate, exception rate, process private bytes, IO rate, request duration, request queue length
-Availability | Web test response code, duration of each test step
+Availability | Web test response code, duration of each test step, test name, timestamp, success, response time, test location
 SDK diagnostics | Trace message or Exception 
 
 You can [switch off some of the data by editing ApplicationInsights.config][config]
