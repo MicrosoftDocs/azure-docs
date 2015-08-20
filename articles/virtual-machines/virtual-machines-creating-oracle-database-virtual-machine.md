@@ -50,7 +50,7 @@ The following example shows you how you can create a virtual machine (VM) based 
 
 6.	Create an environment variable named **ORACLE_HOSTNAME** with its value set to the computer name of the VM. You can create an environment variable using the following steps:
 
-	a.	In Windows, click **Start**, click **Control Panel**, click the **Control Panel** icon, click **System and Security**, click **System**, and then click **Advanced system settings**.
+	a.	In Windows, click **Start**, type **Control Panel**, click the **Control Panel** icon, click **System and Security**, click **System**, and then click **Advanced system settings**.
 
 	b.	Click the **Advanced** tab, and then click **Environment Variables**.
 
@@ -114,7 +114,7 @@ To allow your database to be reached remotely (for example, from a client comput
 
 ### Open port 1521 in your virtual machine’s firewall
 
-1.	While still logged in to your virtual machine, In Windows, click **Start**, type **Windows Firewall with Advanced Security**, and then click the **Windows Firewall with Advanced Security** icon. This opens the **Windows Firewall with Advanced Security** management console.
+1.	While still logged in to your virtual machine, in Windows, click **Start**, type **Windows Firewall with Advanced Security**, and then click the **Windows Firewall with Advanced Security** icon. This opens the **Windows Firewall with Advanced Security** management console.
 
 2.	Within the firewall management console, click **Inbound Rules** in the left pane (if you don’t see **Inbound Rules**, expand the top node in the left pane), and then click **New Rule** in the right pane.
 
