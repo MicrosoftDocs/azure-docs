@@ -108,7 +108,7 @@ The following screenshot shows an example for this.
  
      3.1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your CloudPassage app (e.g.: *https://portal.cloudpassage.com/saml/init/accountid*). 
 
-     3.2. In the Reply URL textbox, type your AssertionConsumerService URL (e.g.: *https://portal.cloudpassage.com/saml/consume/accountid*). <br> >[AZURE.NOTE]You can get your value for this attribute by clicking **SSO Setup documentation** in the **Single Sign-on Settings** section of your CloudPassage portal. <br><br>![Configure Single Sign-On][10]
+     3.2. In the Reply URL textbox, type your AssertionConsumerService URL (e.g.: *https://portal.cloudpassage.com/saml/consume/accountid*). <br> > [AZURE.NOTE]You can get your value for this attribute by clicking **SSO Setup documentation** in the **Single Sign-on Settings** section of your CloudPassage portal. <br><br>![Configure Single Sign-On][10]
 
      3.3. Click **Next**.
 
