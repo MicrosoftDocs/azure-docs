@@ -47,7 +47,9 @@ The following cross-premises connections are supported:
 
 **Site-to-site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. In order to create this type of connection, you'll have to have the required VPN hardware and an externally facing IPv4 address.
 
-**Point-to-site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection. Note: You can configure your virtual network to use both site-to-site and point-to-site concurrently, provided that you create your site-to-site connection using a dynamic routing gateway. 
+**Point-to-site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection. 
+
+Note: You can configure your virtual network to use both site-to-site and point-to-site concurrently, provided that you create your site-to-site connection using a dynamic routing gateway. 
 
 For more information, see [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md).
 
@@ -226,7 +228,7 @@ For traffic between different Azure virtual networks, Azure charges only for tra
 
 ### Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
-No, this is not supported.
+Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-coexist.md).
 
 ## Connectivity and virtual machines
 
