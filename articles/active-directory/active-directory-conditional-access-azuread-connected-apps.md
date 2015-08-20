@@ -35,7 +35,7 @@ This preview applies to pre-integrated federated SaaS applications, applications
 
 This section describes how to configure per-application access rules.
 
-1. Log on to the Windows Azure Portal as Administrator.
+1. Log on to the Microsoft Azure Portal as Administrator.
 2. On the left pane, select **Active Directory**.
 3. On the Directory tab, select your directory.
 4. Select the **Applications** tab.

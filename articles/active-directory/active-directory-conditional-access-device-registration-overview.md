@@ -76,13 +76,13 @@ enterpriseregistration.windows.net
 
 ## View and manage device objects in Azure Active Directory
 1. From the Azure Administrator portal, you can view, block, and unblock devices. A device that is blocked will no longer have access to applications that are configured to allow only registered devices.
-1. Log on to the Windows Azure Portal as Administrator.
-1. On the left pane, select Active Directory.
+1. Log on to the Microsoft Azure Portal as Administrator.
+1. On the left pane, select **Active Directory**.
 1. Select your directory.
-1. Select the Users tab. Then select a user to view their devices
-1. Select the Devices tab.
-1. Select Registered Devices from the drop down menu.
-1. Here you can view, block, or unblock the users registered devices.1. 
+1. Select the **Users** tab. Then select a user to view their devices
+1. Select the **Devices** tab.
+1. Select **Registered Devices** from the drop down menu.
+1. Here you can view, block, or unblock the users registered devices. 
 
 ## Additional Topics
 
