@@ -18,4 +18,4 @@
 
 # Enable your pipelines to work with on-premises data
 
-Please see [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) article. This article will be retired soon. 
+This article will be retired soon. Please see [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) article.  
