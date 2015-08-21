@@ -111,16 +111,14 @@ To add a local site with multiple address prefixes, use this example:
 If you find that you need to associate additional address prefixes to your local site after you create it, you can use the example below:
 
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-		
-		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24', '30.0.0.0/24')
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 ### Remove an address prefix from a local site
 
 If you need to remove an address prefix associated with your local site, you'll use the same steps to update the address prefixes, leaving out the prefix that you no longer need. 
 
 		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-		
-		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24', '30.0.0.0/24')
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
 
 ## Request a public IP address for the VNet gateway
