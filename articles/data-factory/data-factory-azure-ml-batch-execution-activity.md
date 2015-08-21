@@ -76,6 +76,8 @@ In this scenario, you have data in Azure Blob storage, and you want to use Azure
 		  }
 		}
 
+> [AZURE.NOTE] Any dataset that is included in webServiceInput or webServiceOutputs, must be specified as input/output(s) for the activity, but not all (or any) activity input/outputs need to be specified as webService input/outputs.  
+
 ### Example
 
 This example uses Azure Storage to hold both the input and output data. You can also use Azure SQL Database instead of using Azure Storage. 
@@ -186,7 +188,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 		    }
 		  }
 		}
-5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. It will get the location of the input file from your input tables, call the Azure Machine Learning batch execution API, and copy the batch execution output to the blob given in your output table. Unlike some other Data Factory activities, AzureMLBatchExecution activity can have only one input and one output table.
+5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. It will get the location of the input file from your input tables, call the Azure Machine Learning batch execution API, and copy the batch execution output to the blob given in your output table. Unlike some other Data Factory activities, AzureMLBatchExecution activity can have 0 (zero) or more inputs and one or more outputs.
 
 		{
 		  "name": "PredictivePipeline",
