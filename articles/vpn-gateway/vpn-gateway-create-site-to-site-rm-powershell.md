@@ -106,14 +106,14 @@ To add a local site with multiple address prefixes, use this example:
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
 
 
-### Add an additional address prefix to a local site
+### To add an additional address prefix to a local site
 
 If you find that you need to associate additional address prefixes to your local site after you create it, you can use the example below:
 
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
-### Remove an address prefix from a local site
+### To remove an address prefix from a local site
 
 To remove an address prefix from a local site, update the address prefixes, leaving out the prefix that you no longer need. 
 
