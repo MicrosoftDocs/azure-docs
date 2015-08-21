@@ -13,10 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
+   ms.date="08/20/2015"
    ms.author="joaoma"/>
 
 # Get started with Azure DNS
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+
 The domain ‘contoso.com’ may contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site).  A DNS zone is used to host the DNS records for a particular domain.<BR><BR>
 To start hosting your domain we need to first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.<BR><BR>
 These instructions use Microsoft Azure PowerShell.  Be sure to update to the latest Azure PowerShell to use the Azure DNS cmdlets. The same steps can also be executed using the Microsoft Azure Command Line Interface, REST API or SDK.<BR><BR>

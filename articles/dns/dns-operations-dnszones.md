@@ -18,6 +18,10 @@
 
 # How to manage DNS Zones
 
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-operations-dnszones-cli.md)
+- [Azure Powershell](dns-operations-dnszones.md)
+
 
 This guide will show how to manage your DNS zone. It will help understanding the sequence of operations to be done in order to administer your DNS zone.
 
