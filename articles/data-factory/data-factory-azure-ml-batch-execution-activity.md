@@ -239,7 +239,7 @@ You have data in other data sources (e.g. Azure SQL Database), and you want to u
 In this case, you have a deployed Azure Machine Learning web service that is using the Reader module to read data from one of the Azure Machine Learning supported data sources. After the batch execution is performed, the results are written using a Writer module.  No web service inputs and outputs are defined in the experiments.
 
 In this case, we recommend that you setup the relevant Web service parameters for the Reader and Writer modules. This will allow it to be configured when using the 
-AzureMLBatchExecution activity. You specify Web service parameters in the globalParameters section as follows. 
+AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section as follows. 
 
 
 	"typeProperties": {
@@ -263,6 +263,7 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
 ### Reader and Writer Modules
 
 A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
+
 For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.   
 
 ### Using a Reader module to read data from multiple files in Azure Blob
