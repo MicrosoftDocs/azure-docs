@@ -116,6 +116,7 @@ You can manage namespaces and Service Bus messaging entities using either the [A
     **Service Bus**.
 
 3.  In the lower pane of the Azure portal, click **Create**.
+
     ![][5]
 
 4.  In the **Add a new namespace** dialog box, enter a namespace name.
