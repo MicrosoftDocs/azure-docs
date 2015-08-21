@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to create a Fully Qualified Domain Name in Azure Portal"
+   pageTitle="How to create a Fully Qualified Domain Name in Azure Preview Portal"
    description="Learn how to create a Fully Qualified Domain Name or FQDN in the Azure preview portal."
    services="virtual-machines"
    documentationCenter=""
@@ -17,11 +17,11 @@
    ms.date="08/18/2015"
    ms.author="dkshir"/>
 
-# Create a Fully Qualified Domain Name in Azure Portal
+# Create a Fully Qualified Domain Name in Azure portal
 
-When you create a virtual machine in the [Azure Preview Portal](https://portal.azure.com), it also creates a public IP resource. You can use this IP address to remotely access the virtual machine. However, the portal does not create a Fully Qualified Domain Name (or FQDN) by default. This article demonstrates how you can add a domain name to your virtual machine.
+When you create a virtual machine in the [Azure preview portal](https://portal.azure.com) using the **Resource Manager** deployment model, the portal creates a public IP resource for the virtual machine. You can use this IP address to remotely access the virtual machine. However, the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) or FQDN, by default. Since it would be easier to remember and use an FQDN instead of an IP address, this article demonstrates how you can add one to your virtual machine.
 
-The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images, using the **Resource Manager** deployment model. Follow these steps once your virtual machine starts running.
+The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images, using the **Resource Manager**. Follow these steps once your virtual machine starts running.
 
 1.  View the virtual machine settings on the portal and click on the Public IP address.
 
@@ -30,6 +30,8 @@ The article assumes that you have logged in to your subscription in the portal, 
 2.  **Dissociate** the Public IP from the virtual machine. Note that it does not yet show a domain name. After you click on the **Yes** button, it might take a few seconds before it completes the dissociation.
 
     ![dissociate ip resource](media/howto-create-fqdn/dissociateIP.PNG)
+
+    We will associate this Public IP with the virtual machine after the following steps. If the Public IP is a _Dynamic Public IP_, then you will lose the IPV4 address and a new one will be assigned after the FQDN is configured.
 
 3.  Once the **Dissociate** button grays out, click the **All settings** section of the Public IP and open the **Configuration** tab. Enter the desired DNS name label. **Save** this configuration.
 
@@ -47,4 +49,4 @@ The article assumes that you have logged in to your subscription in the portal, 
 
     ![FQDN is created](media/howto-create-fqdn/fqdnCreated.PNG)
 
-    You can now connect remotely to the virtual machine using this DNS name, for example, `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`.
+    You can now connect remotely to the virtual machine using this DNS name. For example, use `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`, when connecting to a Linux virtual machine which has the fully qualified domain name of `testdnslabel.eastus.cloudapp.azure.com` and user name of `adminuser`.
