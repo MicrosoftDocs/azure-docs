@@ -371,7 +371,7 @@ The final step is to test the app and validate that uploads succeed.
 
 4. Press Upload. Note how the ToDo item has been added to the list, as usual.
 
-5. In the Windows Azure portal, go to your storage account and press the **Containers** tab, and press the name of your container in the list.
+5. In the Microsoft Azure portal, go to your storage account and press the **Containers** tab, and press the name of your container in the list.
 
 6. A list of your uploaded blob files will appear. Select one and press **Download**.
 
