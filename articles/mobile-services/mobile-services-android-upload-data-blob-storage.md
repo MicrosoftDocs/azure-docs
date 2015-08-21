@@ -49,9 +49,6 @@ It's not safe to store the credentials needed to upload data to the Azure Storag
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
-[AZURE.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
-
-
 
 ## Update the quickstart app to capture and upload images.
 
