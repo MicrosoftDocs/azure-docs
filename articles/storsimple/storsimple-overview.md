@@ -66,7 +66,7 @@ The Microsoft Azure StorSimple solution includes the following components:
 
 ## Next steps
 
-Learn more about [StorSimple](https://azure.microsoft.com/en-us/documentation/services/storsimple/).
+Learn more about [StorSimple](https://azure.microsoft.com/documentation/services/storsimple/).
 
 Read more about [StorSimple components and terminology](storsimple-components.md).
 
