@@ -37,7 +37,11 @@ In this topic, we use a Script Action custom script to install Spark on an HDIns
 
 You can modify this script or create your own script to install other versions of Spark.
 
-## <a name="install"></a>How do I install Spark?
+## What the script does
+
+This script installs Spark version 1.3.1 into `/usr/hdp/current/spark`.
+
+## <a name="install"></a>Install Spark using Script Actions
 
 A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal. 
 
