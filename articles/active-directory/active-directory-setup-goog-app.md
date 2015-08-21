@@ -28,10 +28,10 @@ To use Google+ as an identity provider in Azure AD B2C, you will first need to c
 4. Click **Create new Client ID** under the **OAuth** section.
 5. Under **Application type**, select **Web application**. Click **Configure consent screen**.
 6. Specify a valid **Email address**, provide a **Product name** and click **Save**.
-7. On the **Create Client ID** dialog, enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Authorized JavaScript origins** field and [https://login.microsoftonline.com/te/<directory>/oauth2/authresp](https://login.microsoftonline.com/te/<directory>/oauth2/authresp) in the **Authorized redirect URIs** field, where **<directory>** is to be replaced with your directory's name (for e.g., contoso.onmicrosoft.com). Click **Create Client ID**.
+7. On the **Create Client ID** dialog, enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Authorized JavaScript origins** field and [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) in the **Authorized redirect URIs** field, where **{directory}** is to be replaced with your directory's name (for e.g., contoso.onmicrosoft.com). Click **Create Client ID**.
 
 > [AZURE.NOTE]
-The **<directory>** value is case-sensitive.
+The **{directory}** value is case-sensitive.
 
 8. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google+ as an identity provider in your directory.
 

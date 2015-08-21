@@ -32,10 +32,10 @@ To use Amazon as an identity provider in Azure AD B2C, you will first need to cr
 **Client secret** is an important security credential.
 
 6. Click **Edit** in the **Web Settings** section.
-7. Enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Allowed JavaScript origins** field and [https://login.microsoftonline.com/te/<directory>/oauth2/authresp](https://login.microsoftonline.com/te/<directory>/oauth2/authresp) in the **Allowed Return URLs** field, where **<directory>** is to be replaced with your directory's name (for e.g., contoso.onmicrosoft.com). Click **Save**.
+7. Enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Allowed JavaScript origins** field and [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) in the **Allowed Return URLs** field, where **{directory}** is to be replaced with your directory's name (for e.g., contoso.onmicrosoft.com). Click **Save**.
 
 > [AZURE.NOTE]
-The **<directory>** value is case-sensitive.
+The **{directory}** value is case-sensitive.
 
 ## Configure Amazon as an identity provider in your directory
 

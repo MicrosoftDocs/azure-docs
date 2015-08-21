@@ -34,7 +34,7 @@ To use Facebook as an identity provider in Azure AD B2C, you will first need to 
 > [AZURE.NOTE]
 **App Secret** is an important security credential.
 
-9. Click the **Advanced** tab at the top, and then enter [https://login.microsoftonline.com/te/<directory>/oauth2/authresp](https://login.microsoftonline.com/te/<directory>/oauth2/authresp) in the **Valid OAuth redirect URIs** field (in the **Security** section), where **<directory>** is to be replaced with your directory's name (for e.g., contoso.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
+9. Click the **Advanced** tab at the top, and then enter [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) in the **Valid OAuth redirect URIs** field (in the **Security** section), where **{directory}** is to be replaced with your directory's name (for e.g., contoso.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
 10. To make your Facebook application usable by Azure AD B2C, you need to make it publicly available. You can do this by clicking on **Status & Review** on the left navigation and turning the switch at the top of the page to **YES**. And click **Confirm**.
 
 ## Configure Facebook as an identity provider in your directory

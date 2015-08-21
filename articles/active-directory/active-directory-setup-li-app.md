@@ -31,7 +31,7 @@ To use LinkedIn as an identity provider in Azure AD B2C, you will first need to 
 > [AZURE.NOTE]
 **Client Secret** is an important security credential.
 
-6. Enter [https://login.microsoftonline.com/te/<directory>/oauth2/authresp](https://login.microsoftonline.com/te/<directory>/oauth2/authresp) in the **Authorized Redirect URLs** field (under the **OAuth 2.0** section), where **<directory>** is to be replaced with your directory's name (for e.g., contoso.onmicrosoft.com) and click **Add**. Then click **Update**.
+6. Enter [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) in the **Authorized Redirect URLs** field (under the **OAuth 2.0** section), where **{directory}** is to be replaced with your directory's name (for e.g., contoso.onmicrosoft.com) and click **Add**. Then click **Update**.
 
 ## Configure LinkedIn as an identity provider in your directory
 
