@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Get started with Application Insights in a Java web project" 
-	description="Monitor performance and usage of your Java website with Application Insights" 
-	services="application-insights" 
+<properties
+	pageTitle="Get started with Application Insights in a Java web project | Microsoft Azure"
+	description="Monitor performance and usage of your Java website with Application Insights"
+	services="application-insights"
     documentationCenter="java"
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/30/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/30/2015"
 	ms.author="awills"/>
- 
+
 # Get started with Application Insights in a Java web project
 
 *Application Insights is in Preview.*
@@ -37,8 +37,8 @@ You'll need:
 
 ## 1. Get an Application Insights instrumentation key
 
-1. Log into the [Microsoft Azure Portal](https://portal.azure.com).
-2. Create a new Application Insights resource
+1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com).
+2. Create a new Application Insights resource.
 
     ![Click + and choose Application Insights](./media/app-insights-java-get-started/01-create.png)
 3. Set the application type to Java web application.
@@ -58,9 +58,9 @@ Use the [Application Insights SDK for Java plug-in][eclipse].
 
 #### If you're using Maven...
 
-If your project is already set up to use Maven for build, merge the following snippet of code to your pom.xml file.
+If your project is already set up to use Maven for build, merge the following code example to your pom.xml file.
 
-Then refresh the project dependencies, to get the binaries downloaded.
+Then, refresh the project dependencies to get the binaries downloaded.
 
     <repositories>
        <repository>
@@ -80,15 +80,14 @@ Then refresh the project dependencies, to get the binaries downloaded.
     </dependencies>
 
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *To update to a new SDK*
- * Refresh your project's dependencies.
+* *Build or checksum validation errors?* Try using a specific version, such as: `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Need to update to a new SDK?* Refresh your project's dependencies.
 
 #### If you're using Gradle...
 
-If your project is already set up to use Gradle for build, merge the following snippet of code to your build.gradle file.
+If your project is already set up to use Gradle for build, merge the following code example to your build.gradle file.
 
-Then refresh the project dependencies, to get the binaries downloaded.
+Then refresh the project dependencies to get the binaries downloaded.
 
     repositories {
       mavenCentral()
@@ -99,7 +98,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).* 
+* *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).*
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -107,15 +106,15 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 Manually add the SDK:
 
-1. Download the [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)
-2. Extract the binaries from the zip file, and add them to your project.
+1. Download the [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
+2. Extract the binaries from the zip file and add them to your project.
 
 ### Questions...
 
 * *What's the relationship between the `-core` and `-web` components in the zip?*
 
- * `applicationinsights-core` gives you the bare API. You always need this. 
- * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this if you don't want this telemetry automatically collected - for example if you want to write your own.
+ * `applicationinsights-core` gives you the bare API. You always need this.
+ * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this if you don't want this telemetry automatically collected. For example, if you want to write your own.
 
 * *To update the SDK when we publish changes*
  * Download the latest [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) and replace the old ones.
@@ -123,9 +122,9 @@ Manually add the SDK:
 
 
 
-## 3. Add an Application Insights xml file
+## 3. Add an Application Insights .xml file
 
-Add ApplicationInsights.xml to the resources folder in your project, or otherwise make sure it is added to your project’s deployment class path. Copy into it the following XML.
+Add ApplicationInsights.xml to the resources folder in your project, or make sure it is added to your project’s deployment class path. Copy the following XML into it.
 
 Substitute the instrumentation key that you got from the Azure portal.
 
@@ -168,7 +167,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 
 The last configuration step allows the HTTP request component to log each web request. (Not required if you just want the bare API.)
 
-Locate and open the web.xml file in your project, and merge the following snippet of code under the web-app node, where your application filters are configured.
+Locate and open the web.xml file in your project, and merge the following code example under the web-app node, where your application filters are configured.
 
 To get the most accurate results, the filter should be mapped before all other filters.
 
@@ -226,16 +225,16 @@ Return to your Application Insights resource in [Microsoft Azure Portal](https:/
 HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
- 
 
-Click through any chart to see more detailed metrics. 
+
+Click through any chart to see more detailed metrics.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
- 
+
 
 And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
- 
+
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
@@ -270,20 +269,20 @@ To collect data on other exceptions, you have two options:
 
 ## Performance counters
 
-Click the Servers tile, and you'll see a range of performance counters.
+Click the **Servers** tile, and you'll see a range of performance counters.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
-### Customizing performance counter collection
+### Customize performance counter collection
 
-To disable collection of the standard set of performance counters, add the following snippet under the root node of the ApplicationInsights.xml file:
+To disable collection of the standard set of performance counters, add the following code example under the root node of the ApplicationInsights.xml file:
 
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
 
-### Collecting additional performance counters
+### Collect additional performance counters
 
 You can specify additional performance counters to be collected.
 
@@ -306,7 +305,7 @@ You can specify additional performance counters to be collected.
 
 
 
-#### Windows performance counters 
+#### Windows performance counters
 
 Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
@@ -317,9 +316,9 @@ Each [Windows performance counter](https://msdn.microsoft.com/library/windows/de
       </Windows>
     </PerformanceCounters>
 
-*	displayName – The name displayed in the Application Insights portal
-*	categoryName – The performance counter category (performance object) with which this performance counter is associated
-*	counterName – The name of the performance counter
+*	displayName – The name displayed in the Application Insights portal.
+*	categoryName – The performance counter category (performance object) with which this performance counter is associated.
+*	counterName – The name of the performance counter.
 *	instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
 
 Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
@@ -344,7 +343,7 @@ You can use Application Insights to slice and dice logs from Log4J, Logback or o
 
 ## Send your own telemetry
 
-Now that you've installed the SDK, you can use the API to send your own telemetry. 
+Now that you've installed the SDK, you can use the API to send your own telemetry.
 
 * [Track custom events and metrics][api] to learn what users are doing with your application.
 * [Search events and logs][diagnostic] to help diagnose problems.
@@ -370,5 +369,3 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
-
- 
