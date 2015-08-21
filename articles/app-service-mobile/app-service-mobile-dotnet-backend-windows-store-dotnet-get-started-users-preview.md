@@ -24,7 +24,7 @@
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
 
-This tutorial is based on the Mobile App quickstart. You must first complete the tutorial [Get started with your mobile app].
+This tutorial is based on the Mobile App quickstart. You must first complete the tutorial [Get started with your mobile app]. 
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)] 
 
