@@ -13,12 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2015"
+   ms.date="08/21/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
 
 This topic describes all of the functions you can use in an Azure Resource Manager template.
+
+## add
+
+**add(operand1, operand2)**
+
+Returns the sum of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
 
 ## base64
 
@@ -85,6 +97,18 @@ The following example shows how to return deployment information in the outputs 
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+Returns the integer division of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -104,6 +128,30 @@ The following example shows how to return the keys from a storage account in the
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+Returns the remainder of the integer division using the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+Returns the multiplication of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
 
 ## padLeft
 
@@ -311,6 +359,38 @@ Often, you need to use this function when using a storage account or virtual net
            }
       }]
     }
+
+## split
+
+**split(inputString, delimiter)**
+**split(inputString, [delimiters])**
+
+Returns an array of strings that contains the substrings of the input string that are delimited by the sent delimiters.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| inputString                        |   Yes    | The string to to be splitted.
+| delimiter                          |   Yes    | The delimiter to use, can be a single string or an array of strings.
+
+The following example splits the input string with a comma.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+Returns the subtraction of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number which is to be subtracted from.
+| operand2                           |   Yes    | Number to be subtracted.
 
 
 ## subscription
