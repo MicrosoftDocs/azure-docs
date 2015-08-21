@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory Device Registration Overview| Microsoft Azure"
-	description="A topic that explains concepts about device registration in Azure Active Directory."
+	description="is the foundation for device-based conditional access scenarios. When a device is registered, Azure Active Directory Device Registration provisions the device with an identity which is used to authenticate the device when the user signs in."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -66,13 +66,10 @@ You must create a DNS CNAME record that points to the A record associated with y
 
 For example, if you use two UPN suffixes at your organization named @contoso.com and @region.contoso.com, you will create the following DNS records.
  
-Entry	Type	Address
-enterpriseregistration.contoso.com
-CNAME
-enterpriseregistration.windows.net
-enterpriseregistration.region.contoso.com
-CNAME
-enterpriseregistration.windows.net
+| Entry                                     | Type  | Address                            |
+|-------------------------------------------|-------|------------------------------------|
+| enterpriseregistration.contoso.com        | CNAME | enterpriseregistration.windows.net |
+| enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
 ## View and manage device objects in Azure Active Directory
 1. From the Azure Administrator portal, you can view, block, and unblock devices. A device that is blocked will no longer have access to applications that are configured to allow only registered devices.

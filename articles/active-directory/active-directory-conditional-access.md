@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Managing Risk With Conditional Access"
-	description="A topic that explains how to allow anywhere access to specific resources from known devices compliant with policies and disallow access from lost, stolen, non-compliant devices."
+	description="Allow anywhere access to specific resources within the corporate network from known devices compliant with policies and disallow access from lost, stolen, non-compliant devices."
 	services="active-directory, virtual-network"
 	documentationCenter=""
 	authors="femila"

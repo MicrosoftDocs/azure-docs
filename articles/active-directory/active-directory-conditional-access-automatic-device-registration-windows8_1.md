@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configure automatic device registration for Windows 8.1 domain joined devices| Microsoft Azure"
-	description="A topic that explains how users can register their personal Windows 10 computers to their corporate network."
+	description=" Steps to configure group policy for Windows 8.1 domain-joined devices to automatically register with Azure AD. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -54,4 +54,4 @@ The Windows Event Log on the Windows 8.1 machine will display messages related t
 
 ##Additional details
 
-The Group Policy enables a Scheduled Task on the system that runs in the user’s context and is triggered on user sign-in. The task will silently register the user and device with Azure AD after the sign-in is complete. The Scheduled Task can be found on Windows 8.1 devices in the Task Scheduler Library under Microsoft > Windows > Workplace Join. The task will run and register any and all Active Directory users that sign-into
+The Group Policy enables a Scheduled Task on the system that runs in the user’s context and is triggered on user sign-in. The task will silently register the user and device with Azure AD after the sign-in is complete. The Scheduled Task can be found on Windows 8.1 devices in the Task Scheduler Library under **Microsoft** > **Windows** > **Workplace Join**. The task will run and register any and all Active Directory users that sign-into. 

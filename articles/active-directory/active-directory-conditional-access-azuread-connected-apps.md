@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Conditional Access Preview for SaaS Apps| Microsoft Azure"
-	description="A topic that explains how conditional access in Azure AD allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. "
+	description="Conditional access in Azure AD allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -18,7 +18,9 @@
 
 # Azure Conditional Access Preview for SaaS Apps
 
-The Azure Conditional Access for SaaS apps is available for public preview. The preview allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
+The Azure Conditional Access for SaaS apps is available for public preview. The preview allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. 
+
+You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
 These capabilities will be available to customers that have purchased an Azure Active Directory Premium license.
 
 ## Scenario prerequisites
@@ -55,7 +57,7 @@ By default the policy will apply to all users that have access to the applicatio
 Security groups can also be explicitly excluded from the policy by selecting the Except option and specifying one or more groups. Users that are a member of a group in the Except list will not be subject to the multi-factor authentication requirement, even if they are a member of a group that the access rule applies to.
 The access rule shown in the below will require all users in the Managers group to use multi-factor authentication when accessing the application.
 
-[Setting conditional access rules with MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.bmp)
+![Setting conditional access rules with MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.bmp)
 
 ##Conditional Access Rules with MFA
 If a user has been configured using the per-user multi-factor authentication feature, this setting on the user will take precedence over the app multi-factor authentication rules. This means a user that has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application multi-factor authentication rules. Learn more about multi-factor authentication and per-user settings.
