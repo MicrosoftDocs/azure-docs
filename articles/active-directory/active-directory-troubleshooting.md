@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/06/2015"
+   ms.date="08/021/2015"
    ms.author="mbaldwin"/>
 
 # Troubleshooting: 'Active Directory' item is missing or not available
