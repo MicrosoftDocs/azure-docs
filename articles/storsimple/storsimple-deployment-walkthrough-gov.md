@@ -243,7 +243,7 @@ Updating your device can take several hours. Perform the following steps to scan
 #### To update your device
 
 1.	On the device **Quick Start** page, click **Devices**. Select the physical device, click **Maintenance** and then click **Scan Updates**.  
-2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. <!-- You may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
+2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. 
 3.	An update job will be created. Monitor the status of your update by navigating to **Jobs**.
 
 	> [AZURE.NOTE] When the update job starts, it immediately displays the status as 50 percent. The status changes to 100 percent only after the update job is complete. There is no real-time status for the update process.
