@@ -52,9 +52,9 @@ It's not safe to store the credentials needed to upload data to the Azure Storag
 
 ## Update the quickstart app to capture and upload images.
 
-### Reference the Storage client for Android apps
+### Reference the Azure Storage Android client library
 
-1. To add the reference to the Azure Storage Android client library, in the **app** **build.gradle** file, add this line to the `dependencies` section:
+1. To add the reference to the library, in the **app** > **build.gradle** file, add this line to the `dependencies` section:
 
 		compile 'com.microsoft.azure.android:azure-storage-android:0.6.0@aar'
 
@@ -65,7 +65,7 @@ It's not safe to store the credentials needed to upload data to the Azure Storag
 
 ### Update the manifest file for camera and storage
 
-Specify your app depends on having a camera,and needs permission to write to external storage by adding these lines to **AndroidManifest.xml**:
+Specify your app depends on having a camera, and needs permission to write to external storage by adding these lines to **AndroidManifest.xml**:
 
 	    <uses-feature android:name="android.hardware.camera"
 	        android:required="true" />
@@ -314,7 +314,8 @@ Specify your app depends on having a camera,and needs permission to write to ext
 	
 	                        // Get the URI generated that contains the SAS
 	                        // and extract the storage credentials.
-	                        StorageCredentialsSharedAccessSignature cred = new StorageCredentialsSharedAccessSignature(entity.getSasQueryString());
+	                        StorageCredentialsSharedAccessSignature cred = 
+								new StorageCredentialsSharedAccessSignature(entity.getSasQueryString());
 	                        URI imageUri = new URI(entity.getImageUri());
 	
 	                        // Instantiate a Blob store container based on the info in the returned item.
@@ -328,8 +329,6 @@ Specify your app depends on having a camera,and needs permission to write to ext
 	                                container.getBlockBlobReference(entity.getResourceName());
 	
 	                        blobFromSASCredential.upload(new FileInputStream(mPhotoFileUri.getPath()), -1);
-	
-			//                        await ResetCaptureAsync();
 	                    }
 	
 	                    runOnUiThread(new Runnable() {
@@ -360,33 +359,19 @@ The final step is to test the app and validate that uploads succeed.
 
 ## Test uploading the images from your app
 
-1. In Android Studio press **Run**.
+1. In Android Studio press **Run**. In the dialogue, choose the device to use.
 
-2. Enter text in the textbox labeled "Add a ToDo item".
+2. Enter text in the textbox labeled **Add a ToDo item**.
 
-3. Press **Take Photo**. When the camera app comes up, take a photo. Press the check mark to accept the photo.
+3. Press **Take Photo**. When the camera app starts, take a photo. Press the check mark to accept the photo.
 
-4. Press Upload. Note how the ToDo item has been added to the list, as usual.
+4. Press **Upload**. Note how the ToDoItem has been added to the list, as usual.
 
 5. In the Microsoft Azure portal, go to your storage account and press the **Containers** tab, and press the name of your container in the list.
 
 6. A list of your uploaded blob files will appear. Select one and press **Download**.
 
 7. The image that you uploaded now appears in a browser window.
-
-### Archive
-
-TBD: delete this stuff
-
-6. Add this code at the end of the `try` block in the `onCreate` method. This code enables the **previewButton** to take the photos.
-
-            Button previewButton = (Button) this.findViewById(R.id.buttonPreview);
-            previewButton.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    takePictureIntent();
-		//          simplePix();
 
 
 ## <a name="next-steps"> </a>Next steps
