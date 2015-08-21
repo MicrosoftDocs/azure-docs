@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Operations on DNS zones | Microsoft Azure" 
-   description="You can manage DNS zones using Azure Powershell cmdlets. How to update, delete and create DNS zones on Azure DNS" 
+   description="You can manage DNS zones using Azure Powershell cmdlets or CLI. How to update, delete and create DNS zones on Azure DNS" 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 

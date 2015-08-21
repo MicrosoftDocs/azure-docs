@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a record set and records for a DNS Zone | Microsoft Azure"
-   description="How to create host records for Azure DNS.Setting up record sets and records using PowerShell"
+   description="How to create host records for Azure DNS.Setting up record sets and records using PowerShell or CLI"
    services="dns"
    documentationCenter="na"
    authors="joaoma"
