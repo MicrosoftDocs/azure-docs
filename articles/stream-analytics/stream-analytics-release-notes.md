@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stream Analytics Release Notes | Azure" 
+	pageTitle="Stream Analytics Release Notes | Microsoft Azure" 
 	description="Stream Analytics GA Release Notes" 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,10 +13,20 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/05/2015" 
+	ms.date="08/20/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 08/20/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Added LAST function |The [LAST](http://msdn.microsoft.com/library/mt421186.aspx) function is now available in Stream Analytics jobs, enabling you to retrieve the most recent event in an event stream within a given timeframe.
+New Array functions|Array functions [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) and [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) are now available.
+New Record functions|Record functions [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) and [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) are now available.
 
 ## Notes for 07/30/2015 release of Stream Analytics ##
 
@@ -27,8 +37,6 @@ Title|Description
 Power BI Org Id decoupled from Azure Id|This feature enables [Power BI output](stream-analytics-power-bi-dashboard.md) for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output.
 Support for Service Bus Queues output|[Service Bus Queues](stream-analytics-connect-data-event-outputs.md#service-bus-queues) outputs are now available in Stream Analytics jobs.
 Support for Service Bus Topics output|[Service Bus Topics](stream-analytics-connect-data-event-outputs.md#service-bus-topics) outputs are now available in Stream Analytics jobs.
-New Array functions|Added the Array functions GetArrayElement, GetArrayElements, GetArrayLength
-New Record functions|Added the Record functions GetRecordProperties and GetRecordPropertyValue
 
 ## Notes for 07/09/2015 release of Stream Analytics ##
 

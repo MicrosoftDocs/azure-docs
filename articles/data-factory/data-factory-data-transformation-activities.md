@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Transformation Activities | Azure Data Factory" 
+	pageTitle="Data Transformation Activities | Microsoft Azure" 
 	description="Learn how you can use the Azure Data Factory service to transform and analyze data." 
 	services="data-factory" 
 	documentationCenter="" 

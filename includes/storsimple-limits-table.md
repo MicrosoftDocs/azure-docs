@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/19/2015"
+   ms.date="08/18/2015"
    ms.author="alkohli" />
 
 | Limit identifier | Limit | Comments |
@@ -20,7 +20,6 @@
 | Maximum number of storage account credentials | 64 | |
 | Maximum number of volume containers | 64 | |
 | Maximum number of volumes | 255 | |
-| Maximum number of bandwidth templates | 25 | |
 | Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
 | Maximum size of a volume | 64 TB |  |
 | Maximum number of iSCSI connections | 512 | |

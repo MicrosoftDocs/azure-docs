@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Factory - Create Predictive Pipelines using Data Factory and Machine Learning | Azure" 
+	pageTitle="Data Factory - Create Predictive Pipelines using Data Factory and Machine Learning | Microsoft Azure" 
 	description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning" 
 	services="data-factory" 
 	documentationCenter="" 

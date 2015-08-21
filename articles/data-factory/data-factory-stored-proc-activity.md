@@ -29,7 +29,7 @@ You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": "<name of the stored procedure",
+        	"storedProcedureName": "<name of the stored procedure>",
         	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
@@ -69,6 +69,8 @@ Datetime | Date & time when the corresponding ID was generated
 	    VALUES (newid(), @DateTime)
 	END
 
+> [AZURE.NOTE] **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the activity JSON below. In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.   
+
 To execute this stored procedure in a Data Factory pipeline, you need to the do the following:
 
 1.	Create a [linked service](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties)  to register the connection string of the Azure SQL database where the stored procedure should be executed.
@@ -83,19 +85,19 @@ To execute this stored procedure in a Data Factory pipeline, you need to the do 
 		        "activities":
 		        [
 		            {
-		             "name": "SprocActivitySample",
-		             "type": " SqlServerStoredProcedure",
-		             "outputs": [ {"name": "sprocsampleout"} ],
-		             "typeProperties":
-		              {
-		                "storedProcedureName": "sp_sample",
-		        		"storedProcedureParameters": 
-		        		{
-		            		"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        		}
+		            	"name": "SprocActivitySample",
+		             	"type": " SqlServerStoredProcedure",
+		             	"outputs": [ {"name": "sprocsampleout"} ],
+		             	"typeProperties":
+		              	{
+		                	"storedProcedureName": "sp_sample",
+			        		"storedProcedureParameters": 
+		        			{
+		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		        			}
 						}
-		            }
-		          ]
+	            	}
+		        ]
 		     }
 		}
 5.	Deploy the [pipeline](data-factory-create-pipelines.md).

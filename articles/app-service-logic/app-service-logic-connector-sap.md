@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="SAP Connector"
    description="How to use the SAPConnector"
    services="app-service\logic"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -53,7 +53,7 @@ Browse to the just created API App via Browse -> API Apps -> <Name of the API Ap
 
 ![][2]
 
-To establish hybrid connectivity do the following:
+The SAP Conector does require hybrid connectivity to connect to *any* SAP endpoint.  To establish hybrid connectivity do the following:
 
 1. Copy the primary connection string
 2. Click on the 'Download and Configure' link
@@ -85,6 +85,13 @@ The step/action will now appear as configured in the logic app. The output(s) of
 ![][7]
 
 Complete the logic app to define the business process and then execute it to achieve the desired purpose.  
+
+## Do more with your Connector
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sap/Create.jpg

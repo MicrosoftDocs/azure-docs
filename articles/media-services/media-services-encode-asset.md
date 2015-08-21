@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Encoding On-Demand Content with Azure Media Services" 
-	description="This topic gives an overview of encoding of On-Demand content with Media Services." 
+	pageTitle="Overview and Comparison of Encoders" 
+	description="This topic gives an overview and gives a comparison of Media Services encoders." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/21/2015"  
 	ms.author="juliako"/>
 
-#Encoding On-Demand Content with Azure Media Services
-
-This topic is part of the [Media Services Video-on-Demand Workflow](media-services-video-on-demand-workflow.md).
+#Overview and Comparison of Encoders
 
 ##Overview
 
@@ -27,6 +25,8 @@ Media Services supports the following encoders:
 - [Media Encoder Standard](#media_encoder_standard)
 - [Azure Media Encoder](#azure_media_encoder)
 - [Media Encoder Premium Workflow](#media_encoder_premium_workflow)
+	
+	**Media Encoder Premium Workflow** is configured using complex workflows. Workflow files could be created using the [Workflow Designer](media-services-workflow-designer.md) tool.
 
 The [following section](#compare_encoders) compares encoding capabilities of supported encoders.
 
@@ -48,6 +48,8 @@ For more information, see [this blog](http://azure.microsoft.com/blog/2015/07/16
 
 **Azure Media Encoder** is configured using one of the encoder preset strings described [here](https://msdn.microsoft.com/library/azure/dn619392.aspx). You can also get the actual Azure Media Encoder preset files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
+###Example
+
 Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
@@ -67,10 +69,13 @@ Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**,
 
 [Formats Supported by Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – Discusses file formats and codecs supported by **Media Encoder Premium Workflow**.
 
+### Workflow Designer
+
 **Media Encoder Premium Workflow** is configured using complex workflows. Workflow files could be created using the [Workflow Designer](media-services-workflow-designer.md) tool. 
 
 You can get the default workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). The folder also contains the description of these files.
 
+###Example
 Encode with **Media Encoder Premium Workflow** using **.NET**. For more information, see [Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
  
 
@@ -80,19 +85,15 @@ Encode with **Media Encoder Premium Workflow** using **.NET**. For more informat
 
 Media Processor Name|Applicable Pricing|Notes
 ---|---|---
-**Windows Azure Media Encoder** |LEGACY ENCODER|Encoding Tasks will be charged according to the sum of sizes of the input Asset(s) and output Asset, in GBytes, at the rate specified [here][1], under the LEGACY ENCODER column.
-**Azure Media Encoder** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the ENCODER column.
 **Media Encoder Standard** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the ENCODER column.
+**Azure Media Encoder** |ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the ENCODER column.
 **Media Encoder Premium Workflow** |PREMIUM ENCODER|Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the PREMIUM ENCODER column.
 
 
+This section compares the encoding capabilities of **Media Encoder Standard**, **Azure Media Encoder**, and **Media Encoder Premium Workflow**.
 
-This section compares the encoding capabilities of **Azure Media Encoder**, **Media Encoder Premium Workflow**, and **Media Encoder Standard**.
 
-
-###Input formats
-
-Input Container/File Formats
+##Input Container/File Formats
 
 Input Container/File Formats|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
 ---|---|---|---
@@ -109,7 +110,7 @@ Smooth Streaming File Format (PIFF 1.3)|No|Yes|Yes
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|No|No|Yes
 Matroska/WebM|No|No|Yes
 
-Input Video Codecs
+##Input Video Codecs
 
 Input Video Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
 ---|---|---|---
@@ -124,7 +125,7 @@ Canopus HQ/HQX|No|Yes|No
 MPEG-4 Part 2|No|No|Yes
 [Theora](https://en.wikipedia.org/wiki/Theora)|No|No|Yes
 
-Input Audio Codecs
+##Input Audio Codecs
 
 Input Audio Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
 ---|---|---|---
@@ -141,9 +142,8 @@ WAV/PCM|Yes|Yes|Yes
 [Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |No|No|Yes
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|No|No|Yes
 
-###Output formats
 
-Output Container/File Formats
+##Output Container/File Formats
 
 Output Container/File Formats|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
 ---|---|---|---
@@ -157,7 +157,7 @@ Windows Media/ASF|Yes|Yes|No
 AVI (Uncompressed 8bit/10bit)|Yes|No|No
 Smooth Streaming File Format (PIFF 1.3)|Yes|Yes|No
 
-Output Video Codecs
+##Output Video Codecs
 
 Output Video Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
 ---|---|---|---
@@ -169,7 +169,7 @@ MPEG-1|Yes|No|No
 Windows Media Video/VC-1|Yes|Yes|No
 JPEG thumbnail creation|Yes|Yes|No
 
-Output Audio Codecs
+##Output Audio Codecs
 
 Output Audio Codecs|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
 ---|---|---|---

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Using offline data in Mobile Services (Xamarin Android) | Mobile Dev Center"
+	pageTitle="Using offline data in Mobile Services (Xamarin Android) | Microsoft Azure"
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin Android application"
 	documentationCenter="xamarin"
 	authors="lindydonna"

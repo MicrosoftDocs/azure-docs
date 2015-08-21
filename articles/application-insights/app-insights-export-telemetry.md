@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/13/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -55,12 +55,9 @@ To stop the stream permanently, delete the export. Doing so doesn't delete your 
 
 ## <a name="analyze"></a> What events do you get?
 
-The exported data is the raw telemetry we receive from your application, except: 
+The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address.  
 
-* Web test results aren't currently included. 
-* We add location data which we calculate from the client IP address.  
-
-Calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
+Other calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
 ## <a name="get"></a> Inspect the data
 
@@ -85,7 +82,7 @@ Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-
+[Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
 ## Processing the data
 
@@ -185,6 +182,13 @@ On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdins
 
     Yes. Click Disable.
 
+## Code samples
+
+* [Stream Application Insights to Power BI](app-insights-export-power-bi.md)
+* [Parse exported JSON using a worker role][exportcode]
+* [Export to SQL using Stream Analytics][exportasa]
+
+* [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
 <!--Link references-->
 

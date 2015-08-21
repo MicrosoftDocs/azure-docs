@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Note that you can integrate Media Services with your existing tools and processe
 The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
 ![VoD workflow][vod-overview]
 
-##<a id="vod_scenarios"></a>Common Scenarios: Delivering Media on-Demand. 
+##<a id="vod_scenarios"></a>Common Scenarios: Delivering Media on-Demand
 
 ###Protect content in storage and deliver streaming media in the clear (non-encrypted)
 

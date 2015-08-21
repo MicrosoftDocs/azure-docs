@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Customer Case Studies | Azure Data Factory" 
+	pageTitle="Customer Case Studies | Microsoft Azure" 
 	description="Learn about how some of our customers have been using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -47,4 +47,3 @@ Data Factory is a cloud-based information management service that automates the 
 ## Pier 1 Imports
 
 [Finding a Better Connection with Customers through Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
-

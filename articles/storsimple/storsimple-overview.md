@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # What is StorSimple? 
@@ -34,7 +34,7 @@ StorSimple uses storage tiering to manage stored data across various storage med
 
 In addition to storage management, StorSimple data protection features enable you to create on-demand and scheduled backups, and store them locally or in the cloud. Backups are taken in the form of incremental snapshots, which means that they can be created and restored quickly. Cloud snapshots can be critically important in disaster recovery scenarios because they replace secondary storage systems (such as tape backup), and allow you to restore data to your datacenter or to alternate sites if necessary. 
 
->[AZURE.NOTE] The StorSimple 8000 series with software update 1 or later supports Amazon S3 with RRS, HP, and OpenStack cloud services, as well as Microsoft Azure.  (You will still need a Microsoft Azure storage account for device management purposes.) For more information, see [Configure a new storage account](storsimple-deployment-walkthrough.md#configure-a-new-storage-account) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u1.md).
+>[AZURE.NOTE] The StorSimple 8000 series with software update 1 or later supports Amazon S3 with RRS, HP, and OpenStack cloud services, as well as Microsoft Azure.  (You will still need a Microsoft Azure storage account for device management purposes.) For more information, see [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
 
 ## Why use StorSimple?
 
@@ -66,7 +66,7 @@ The Microsoft Azure StorSimple solution includes the following components:
 
 ## Next steps
 
-Read the [StorSimple Solutions Overview](http://www.microsoft.com/en-us/server-cloud/products/storsimple/resources.aspx) and view the [StorSimple chalk talk](http://www.microsoft.com/en-us/server-cloud/products/storsimple/Features.aspx).
+Learn more about [StorSimple](https://azure.microsoft.com/documentation/services/storsimple/).
 
 Read more about [StorSimple components and terminology](storsimple-components.md).
 

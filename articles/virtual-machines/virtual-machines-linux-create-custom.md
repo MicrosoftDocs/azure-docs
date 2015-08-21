@@ -19,7 +19,7 @@
 
 # How to Create a Custom Virtual Machine Running Linux in Azure
 
-This topic describes how to create a *custom* virtual machine using the Azure CLI for Mac, Linux, and Windows in Azure Service Management mode. We will use a Linux image from the available **IMAGES** on Azure. The Azure CLI commands give following configuration choices among others:
+This topic describes how to create a *custom* virtual machine with the Azure CLI using the classic deployment model. We will use a Linux image from the available **IMAGES** on Azure. The Azure CLI commands give following configuration choices among others:
 
 - Connecting the VM to a virtual network
 - Adding the VM to an existing cloud service
@@ -34,6 +34,6 @@ This topic describes how to create a *custom* virtual machine using the Azure CL
 - [Create a Virtual Machine Running Linux](virtual-machines-linux-tutorial.md)
 
 
-## How to create a Linux virtual machine with Azure Service Management
+## How to create a Linux virtual machine using the classic deployment model
 
-[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]

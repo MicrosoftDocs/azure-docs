@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/09/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -142,6 +142,10 @@ For additional details on SQL Database limits, please see the following topics:
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
+## CDN Limits
+
+[AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
+
 ## Mobile Services Limits
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
@@ -184,6 +188,10 @@ For additional details on SQL Database limits, please see the following topics:
 ## Site Recovery Limits
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+
+## Application Insights Limits
+
+[AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ## API Management Limits
 

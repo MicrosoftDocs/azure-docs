@@ -88,7 +88,7 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 
 ## Step 3: Publish the ASP.NET web app
 
-Using Visual Studio or WebMatrix, publish your web app. If you have previously published your web app, publish it again so that the Web Apps instance would add the required New Relic NuGet package to enable New Relic monitoring.
+Using Visual Studio, publish your web app. If you have previously published your web app, publish it again so that the Web Apps instance would add the required New Relic NuGet package to enable New Relic monitoring.
 
 ## Step 4. Check out your application's performance in New Relic.
 
@@ -180,7 +180,6 @@ browsers to load your webpages, where they come from, and what browsers they use
 * For a guide to the change of the Azure portal to the Azure preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
 [vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png

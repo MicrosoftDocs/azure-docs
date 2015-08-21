@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" 
+	pageTitle="Scale mobile services backed by Azure SQL Database | Microsoft Azure" 
 	description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/08/2015" 
 	ms.author="donnam;ricksal"/>
 
 # Scale mobile services backed by Azure SQL Database
@@ -41,18 +41,18 @@ If any of the above is not true, consider adjusting your scale settings on the *
 
 ### Choosing the Right SQL Database Tier 
 
-It is important to understand the different database tiers you have at your disposal to ensure you've picked the right tier given your app's needs. Azure SQL Database offers two different database editions with different tiers:
+It is important to understand the different database tiers you have at your disposal to ensure you've picked the right tier given your app's needs. Azure SQL Database offers two different database editions and three different service tiers:
 
-- Web and Business Edition (retired)
-- Basic, Standard, and Premium Edition 
+- Web and Business Editions (retired)
+- Basic, Standard, and Premium service tiers
 
-While the Web and Business Edition is fully supported, it is being sunset by April 24, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium Edition in preparation for this change. This new edition provides a variety of new tiers and monitoring capabilities that make it even easier to understand and troubleshoot database performance. All new mobile services are created using the new Edition.
+While the Web and Business Editions are fully supported, they will be retired on September 12, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium service tiers in preparation for this change. They provide a variety of monitoring capabilities that make it even easier to understand and troubleshoot database performance. All new mobile services are created using one of the new service tiers.
 
-To convert a mobile service using the Web and Business Edition to the Basic, Standard, and Premium Edition, follow these steps.
+To convert a mobile service using the Web and Business Edition to the Basic, Standard, and Premium service tiers, follow these steps.
 
 1. Launch the [Azure Management Portal][].
 2. Select **+NEW** in the toolbar and then pick **Data Services**, **SQL Database**, **Quick Create**.
-3. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, and Premium Edition. 
+3. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, or Premium service tier. 
 4. Fill out the rest of the fields and select **Create SQL Database**. This will create a 100MB database using the Basic tier.
 5. Configure your mobile service to use the database you just created. Navigate to the **Configure** tab for that service and select **Change Database** in the toolbar. On the next screen, select **Use an existing SQL database** in the **SQL Database** field and then select **Next**. On the next screen be sure to pick the database you created in step 5, then select **OK**.
 

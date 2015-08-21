@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for Azure RemoteApp
@@ -53,9 +53,9 @@ You can deploy a hybrid RemoteApp collection that uses an existing Azure virtual
 
 ### Create an Azure VNET and join it to your Active Directory deployment
 
-Start by creating a [virtual network](https://msdn.microsoft.com/library/azure/dn631643.aspx). This is done on the **Network** tab in the Azure Management portal. You need to connect your virtual network to the Active Directory deployment that is synchronized to your Azure Active Directory tenant.
+Start by creating a [virtual network](../virtual-network/virtual-networks-create-vnet.md). This is done on the **Network** tab in the Azure Management portal. You need to connect your virtual network to the Active Directory deployment that is synchronized to your Azure Active Directory tenant.
 
-See [About Virtual Network Settings in the Management Portal](https://msdn.microsoft.com/library/azure/jj156074.aspx) for more information.
+See [About Virtual Network Settings in the Management Portal](../virtual-network/virtual-networks-settings.md) for more information.
 
 ### Make sure your virtual network is ready for RemoteApp
 Before you create your RemoteApp collection, let's make sure that your new virtual network is ready. You can validate this by doing the following:
@@ -78,7 +78,7 @@ You can find more information about creating Azure virtual machines and connecti
 4. Choose the plan that you want to use - standard or basic.
 5. Click **Create RemoteApp collection**.
 
-After your RemoteApp collection has been created, go to the RemoteApp **Quick Start** page to continue with the set up steps.
+After your RemoteApp collection has been created, double-click the name of the collection. That will bring up the **Quick Start** page - this is where you finish configuring the collection.
 
 ## Step 3: Link your collection to the virtual network ##
 
