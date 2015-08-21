@@ -30,7 +30,7 @@ There are several scenarios that lend themselves to the usage of Scheduler. For 
 
 Scheduler allows you to create, update, delete, view, and manage jobs and [job collections](scheduler-concepts-terms.md) programmatically, by using scripts, and in the portal.
 
-## See Also
+## See also
 
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
