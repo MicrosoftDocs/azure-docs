@@ -16,16 +16,18 @@
 	ms.date="08/19/2015" 
 	ms.author="spelluru"/>
 
-# Create predictive pipelines using Azure Machine Learning Bach Execution activity   
+# Create predictive pipelines using Azure Machine Learning Batch Execution activity   
 ## Overview
 
 > [AZURE.NOTE] See [Introduction to Azure Data Factory](data-factory-introduction.md) and [Build your first pipeline](data-factory-build-your-first-pipeline.md) articles to quickly get started with the Azure Data Factory service.
 
 Azure Data Factory enables you to easily create pipelines that leverage a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using Azure Data Factory, you can make use of big data pipelines (e.g. Pig and Hive) to process the data that you have ingested from various data sources, and use the Azure Machine Learning web services to make predictions on the data in batch. You use Azure Data Factory to orchestrate  data movement and processing, and then perform batch execution using Azure Machine Learning. To achieve this, you will need to do the following:
 
-1. Use the **AzureMLBatchExecution** activity.
-2. **Request URI** for the Batch Execution API. You can find the Request URI by clicking on the **BATCH EXECUTION** link in the web services page (shown below).
-3. **API key** for the published Azure Machine Learning web service. You can find the API key by clicking on the web service that you have published. 
+
+1. Create an Azure Machne Learning linked service. You will require the following:
+	1. **Request URI** for the Batch Execution API. You can find the Request URI by clicking on the **BATCH EXECUTION** link in the web services page (shown below).
+	1. **API key** for the published Azure Machine Learning web service. You can find the API key by clicking on the web service that you have published. 
+ 2. Use the **AzureMLBatchExecution** activity.
 
 	![Machine Learning Dashboard](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
@@ -34,7 +36,7 @@ Azure Data Factory enables you to easily create pipelines that leverage a publis
 
 ## Scenario 1
 
-In this scenario, you have data in Azure Blob storage, and you want to use Azure Data Factory and Machine Learning to make predictions using the data in blob storage. The results will be stored in the Azure Blob storage as well. To do this, you specify the Azure storage used by using the **webServiceInput** and **webServiceOutputs** properties of the **AzureMLBatchExecution** activity.
+In this scenario, you want to use Azure Data Factory and Azure Machine Learning to make predictions using the data in blob storage. The results will be stored in the Azure Blob storage as well. Your Azure Machine Learning Web service endpoint uses standard Web service input and Web service output. To do this, you specify the Azure blob datasets in the **webServiceInput** and **webServiceOutputs** properties of the **AzureMLBatchExecution** activity.
 
 		{
 		  "name": "PredictivePipeline",
@@ -76,13 +78,13 @@ In this scenario, you have data in Azure Blob storage, and you want to use Azure
 		  }
 		}
 
-> [AZURE.NOTE] Any dataset that is included in webServiceInput or webServiceOutputs, must be specified as input/output(s) for the activity, but not all (or any) activity input/outputs need to be specified as webService input/outputs.  
+> [AZURE.NOTE] Any dataset that is included in webServiceInput or webServiceOutputs, must be specified as input/output(s) for the activity, but not all (or any) activity input/outputs need to be specified as webService input/outputs. For example, an Azure Machine Learning Web service that uses Reader or Writer modules may not utilize the WebServiceInput or WebServiceOutputs properties of batch execution requests, but the datasets for those storage locations would still be inputs and outputs to the activity itself.
 
 ### Example
 
-This example uses Azure Storage to hold both the input and output data. You can also use Azure SQL Database instead of using Azure Storage. 
+This example uses Azure Storage to hold both the input and output data. 
 
-We recommend that you go through the [Build your first pipeline with Data Factory][adf-build-1st-pipeline] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.   
+We recommend that you go through the [Build your first pipeline with Data Factory][adf-build-1st-pipeline] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, datasets, pipeline) in this example.   
  
 
 1. Create a **linked service** for your **Azure Storage**. If the input and output files will be in different storage accounts, you will need two linked services. Here is a JSON example:
@@ -97,7 +99,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 		  }
 		}
 
-2. Create the **input** Azure Data Factory **table**. Note that unlike some other Data Factory tables, these must both contain both **folderPath** and **fileName** values. You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files. You will likely need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice. In that case, you would not include the **external** and **externalData** settings shown in the example below, and your DecisionTreeInputBlob would be the output table of a different Activity.
+2. Create the **input** Azure Data Factory **dataset**. Note that unlike some other Data Factory datasets, these must both contain both **folderPath** and **fileName** values. You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files. You will likely need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice. In that case, you would not include the **external** and **externalData** settings shown in the example below, and your DecisionTreeInputBlob would be the output dataset of a different Activity.
 
 		{
 		  "name": "DecisionTreeInputBlob",
@@ -136,7 +138,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 	     }
 	 
 	If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
-3. Create the **output** Azure Data Factory **table**. This example uses partitioning to create a unique output path for each slice execution. Without this, the activity would overwrite the file.
+3. Create the **output** Azure Data Factory **dataset**. This example uses partitioning to create a unique output path for each slice execution. Without this, the activity would overwrite the file.
 
 		{
 		  "name": "DecisionTreeResultBlob",
@@ -188,7 +190,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 		    }
 		  }
 		}
-5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. It will get the location of the input file from your input tables, call the Azure Machine Learning batch execution API, and copy the batch execution output to the blob given in your output table. Unlike some other Data Factory activities, AzureMLBatchExecution activity can have 0 (zero) or more inputs and one or more outputs.
+5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. It will get the location of the input file from your input datasets, call the Azure Machine Learning batch execution API, and copy the batch execution output to the blob given in your output dataset. Unlike some other Data Factory activities, AzureMLBatchExecution activity can have 0 (zero) or more inputs and one or more outputs.
 
 		{
 		  "name": "PredictivePipeline",
