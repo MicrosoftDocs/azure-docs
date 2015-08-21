@@ -33,7 +33,7 @@ You can access the current iteration value with the **copyIndex()** function, su
 
     [concat('examplecopy-', copyIndex())]
 
-When you are working with an array of values to use when creating the resources, you can use the length function to specify the count.
+When creating multiple resources from an array of values, you can use the **length** function to specify the count. You provide the array as the parameter to the length function.
 
     "copy": {
         "name": "websitescopy",
