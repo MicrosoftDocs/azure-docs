@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="08/21/2015"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device
