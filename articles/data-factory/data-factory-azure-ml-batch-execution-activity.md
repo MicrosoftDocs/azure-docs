@@ -186,7 +186,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 		    }
 		  }
 		}
-5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. It will get the location of the input file from your input tables, call the AzureML batch execution API, and copy the batch execution output to the blob given in your output table. Unlike some other Data Factory activities, AzureMLBatchExecution activity can have only one input and one output table.
+5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. It will get the location of the input file from your input tables, call the Azure Machine Learning batch execution API, and copy the batch execution output to the blob given in your output table. Unlike some other Data Factory activities, AzureMLBatchExecution activity can have only one input and one output table.
 
 		{
 		  "name": "PredictivePipeline",
@@ -263,10 +263,9 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
 ### Reader and Writer Modules
 
 A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
-For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.  
+For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.   
 
 ### Using a Reader module to read data from multiple files in Azure Blob
-
 When using the Reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (e.g. 000000_0) that are produced by a Pig and Hive script running on HDInsight. The Reader module allows you to read files (with no extensions) by configuring the **Path to container, directory or blob** property of the reader module to point to the container/folder that contains the files as shown below. Note, the asterisk (i.e. \*) **specifies that all the files in the container/folder (i.e. data/aggregateddata/year=2014/month-6/\*)** will be read as part of the experiment.
 
 ![Azure Blob properties](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
