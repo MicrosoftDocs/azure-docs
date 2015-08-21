@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Continuous delivery for cloud services with TFS in Azure"
+	pageTitle="Continuous delivery for cloud services with TFS in Azure | Microsoft Azure"
 	description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts."
 	services="cloud-services"
 	documentationCenter=""
