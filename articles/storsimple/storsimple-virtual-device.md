@@ -245,7 +245,7 @@ Now that you have created and configured the StorSimple virtual device, you are 
 
 - [Volumes](storsimple-manage-volumes.md)
 
-- [Backup policies](storsimple-manage-backup-policies)
+- [Backup policies](storsimple-manage-backup-policies.md)
 
 The following sections discuss some of the differences you will encounter when working with the virtual device.
 
@@ -385,4 +385,4 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 ## Next steps
 
-To administer your virtual device, refer to the detailed list of workflows in [Use StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
+To administer your virtual device, refer to the detailed list of workflows in [Administer StorSimple device using StorSimple Manager service](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
