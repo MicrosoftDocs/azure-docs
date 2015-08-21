@@ -49,11 +49,11 @@ documentation.
 
 1.  On the build server, install the [.NET Framework 4][], [.NET Framework 4.5][], or [.NET Framework 4.5.2][], which include MSBuild.
 2.  Install the [Azure Authoring Tools for .NET](http://go.microsoft.com/fwlink/?LinkId=623518) (substitute MicrosoftAzureAuthoringTools-x86.msi in the link instead of MicrosoftAzureAuthoringTools-x64.msi if your build server has a 32-bit OS/processor).
-3. Install the [Azure Libraries for .NET][] (substitute MicrosoftAzureLibsForNet-x86.msi in the link if needed).
+3. Install the [Azure Libraries for .NET](http://go.microsoft.com/fwlink/?LinkId=623519) (substitute MicrosoftAzureLibsForNet-x86.msi in the link if needed).
 4.  Copy the Microsoft.WebApplication.targets file from a Visual Studio installation to the build server.
 
 	On a computer with Visual Studio installed, this file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications (v12.0 for Visual Studio 2013). You should copy it to the same directory on the build server.
-5.  Install the [Azure Tools for Visual Studio][]. Use MicrosoftAzureTools.VS140.exe to build Visual Studio 2015 projects, or MicrosoftAzureTools.VS120.exe to build Visual Studio 2013 projects.
+5.  Install the [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=623520). Use MicrosoftAzureTools.VS140.exe to build Visual Studio 2015 projects, or MicrosoftAzureTools.VS120.exe to build Visual Studio 2013 projects.
 
 ## Step 2: Build a Package using MSBuild Commands
 
@@ -63,7 +63,7 @@ everything is configured correctly and that the MSBuild command does
 what you want it to do. You can either add this command line to existing
 build scripts on the build server, or you can use the command line in a
 TFS Build Definition, as described in the next section. For more
-information about command-line parameters and MSBuild, see [MSBuild Command Line Reference][].
+information about command-line parameters and MSBuild, see [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
 1.  If Visual Studio is installed on the build server, click
     **Start**, click **All Programs**, and then locate and click
@@ -777,10 +777,7 @@ To enable remote debugging when using continuous delivery, see [Enable remote de
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
-	[Azure Libraries for .NET]: http://go.microsoft.com/fwlink/?LinkId=623519
-  [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623520
-  [MSBuild Command Line Reference]: https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx
-  [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
+	[1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Scale out your build system]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Deploy and configure a build server]: http://go.microsoft.com/fwlink/?LinkId=238799
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
