@@ -265,6 +265,6 @@ TBD.
 
 If you are planning to use the page UI customization feature, please review the following best practices:
 
-- Don't cover Azure AD's default template and attempt to modify it. It is best to build your HTML5 content from scratch.
-- For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out-of-the-box. If not, please use [our forums](Stackoverflow?) to request new functionality.
+- Don't copy over Azure AD's default template and attempt to modify it. It is best to build your HTML5 content from scratch and to use the default template as reference.
+- For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out-of-the-box. If not, please use [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) to request new functionality.
 - Don't duplicate Azure AD's content in your own. This causes JavaScript binding issues during run time.

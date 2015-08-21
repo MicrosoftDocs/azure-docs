@@ -65,6 +65,7 @@ These articles describe how to perform specific tasks using Azure Active Directo
 - [How to get started with the Office 365 APIs in apps](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [How to submit Web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
+- [Preview: How to build apps that sign up & sign in consumers](active-directory-b2c-overview.md)
 
 
 ## Reference

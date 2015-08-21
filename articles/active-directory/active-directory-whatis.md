@@ -35,7 +35,6 @@ Additionally, with just [four clicks](http://blogs.technet.com/b/ad/archive/2014
 
 If you are an Office365, Azure or Dynamics CRM Online customer, you might not realize that you are already using Azure AD. Every Office365, Azure and Dynamics CRM tenant is actually already an Azure AD tenant. Whenever you want you can start using that tenant to manage access to thousands of other cloud applications Azure AD integrates with!
 
-Azure AD B2C (the Business-to-Consumer offering) makes it easy to add user sign up, sign in, password reset, profile editing and multi-factor authentication to your consumer-facing applications, and helps scale to hundreds of millions of identities.
 
 
 
@@ -99,8 +98,6 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 - [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 - [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
-
-- [How to secure your direct-to-consumer applications?](active-directory-get-started-b2c.md)
 
 - [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
