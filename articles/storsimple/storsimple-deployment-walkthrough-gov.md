@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -54,8 +54,11 @@ Perform these required steps to configure your StorSimple device and connect it 
 | **OTHER PROCEDURES**                                                                   | You may need to refer to these procedures as you deploy your solution.                                                                                     	 |
 | Configure a new storage account for the service.                                      |                                                                                                                                                               |
 | Use PuTTY to connect to the device serial console.                                    |                                                                                                                                                               |
+| Scan for and apply updates.                                                   |                                                                                                                                                               |
 | Get the IQN of a Windows Server host.                                                   |                                                                                                                                                               |
 | Create a manual backup.                                                                 | 
+| Configure MPIO                                                                          |
+
 
 ## Deployment configuration checklist
 
@@ -233,7 +236,7 @@ To connect to Windows PowerShell for StorSimple, you need to use terminal emulat
 
 ## Scan for and apply updates
 
-Updating your device can take <!-- 1-4--> several hours. Perform the following steps to scan for and apply updates on your device.
+Updating your device can take several hours. Perform the following steps to scan for and apply updates on your device.
 
 <!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
