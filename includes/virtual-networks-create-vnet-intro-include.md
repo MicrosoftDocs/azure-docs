@@ -2,3 +2,4 @@ An Azure virtual network (VNet) is a representation of your own network in the c
 
 Before you create a VNet, it's important to understand that Azure currently works with two deployment models: Resource Manager, and classic. Classic VNets can only contain resource deployed in the classic deployment model, and Resource Manager VNets can only contain resources deployed in the Resource Manager deployment model. There are also several tools you can use to deploy a VNet. Make sure you understand [deployment models and tools](virtual-networks-arm-asm.md) before creating VNets. You can view the documentation on different tools by clicking the tabs at the top of this article.
 
+
