@@ -30,7 +30,16 @@ The sample script used in this topic creates a Solr cluster with a specific conf
 
 [Apache Solr](http://lucene.apache.org/solr/features.html) is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data. This topic provides instructions on how to customize an HDInsight cluster to install Solr.   
 
-## <a name="install"></a>How do I install Solr?
+## What the script does
+
+This script makes the following changes to the HDInsight cluster:
+
+* Installs Solr into `/usr/hdp/current/solr`
+* Creates a new user, __solrusr__, which is used to run the Solr service
+* Sets __solruser__ as the owner of `/usr/hdp/current/solr`
+* Adds an [Upstart](http://upstart.ubuntu.com/) configuration that will start Solr if a cluster node restarts. Solr is also automatically started on the cluster nodes after installation
+
+## <a name="install"></a>Install Solr using Script Actions
 
 A sample script to install Solr on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal. 
 
@@ -51,8 +60,9 @@ A sample script to install Solr on an HDInsight cluster is available from a read
 
 4. Continue provisining the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
 
-
 ## <a name="usesolr"></a>How do I use Solr in HDInsight?
+
+###Indexing data
 
 You must start with indexing Solr with some data files. You can then use Solr to run search queries on the indexed data. Use the following steps to add some example data to Solr, and then query it:
 
@@ -218,6 +228,15 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 			      }
 			    ]
 			  }
+
+###Starting and stopping Solr
+
+If you need to manually stop or start Solar, use the following commands:
+
+	sudo stop solr
+
+	sudo start solr
+	
    
 ##Backup indexed data
 

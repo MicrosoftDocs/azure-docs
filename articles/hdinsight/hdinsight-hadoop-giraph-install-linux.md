@@ -33,8 +33,14 @@ In this topic, you will learn how to install Giraph by using Script Action. Once
 - Identifying the shortest route between two computers in a network.
 - Calculating the page rank of webpages.
 
+##What the script does
+
+This script performs the following actions:
+
+* Installs Giraph to `/usr/hdp/current/giraph`
+* Copies the `giraph-examples.jar` file to default storage (WASB) for your cluster: `/example/jars/giraph-examples.jar`
    
-## <a name="install"></a>How do I install Giraph?
+## <a name="install"></a>Install Giraph using Script Actions
 
 A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal. 
 

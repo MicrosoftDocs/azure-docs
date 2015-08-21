@@ -28,7 +28,7 @@ The <a href="http://www.r-project.org/" target="_blank">R Project for Statistica
 
 R scripts can be run on Hadoop clusters in HDInsight that were customized using Script Action when created to install the R environment. R is compatible with Azure Blob Storage (WASB) so that data that is stored there can be processed using R on HDInsight.
 
-### R on HDInsight
+## What the script does
 
 The script action used to install R on your HDInsight cluster installs the following Ubuntu packages, which provide a basic R installation:
 
