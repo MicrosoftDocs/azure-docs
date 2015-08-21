@@ -232,7 +232,7 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 
 ## Connectivity and VMs
 
-### If my VM is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
+### If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
 You have a few options. If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP. In that case, you would specify the VIP and the port that you want to connect to. You'll need to configure the port on your virtual machine for the traffic. Typically, you would go to the Management Portal and save the settings for the RDP connection to your computer. The settings will contain the necessary connection information.
 
