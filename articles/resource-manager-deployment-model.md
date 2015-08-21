@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="08/20/2015"
    ms.author="tomfitz"/>
 
 # Understanding Resource Manager deployment and classic deployment
@@ -164,6 +164,8 @@ For a list of equivalent Azure CLI commands when transitioning from classic depl
 
 For more details about transitioning Compute, Storage, and 
 Networking resources, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+
+To learn about connecting virtual networks from different deployment models, see [Connecting classic VNets to new VNets](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Next steps
 
