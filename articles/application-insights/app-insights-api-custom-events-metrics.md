@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -728,12 +728,25 @@ There are some limits on the number of metrics and events per application.
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+
+## SDK Code
+
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+* [All platforms](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Questions
 
-* *What exceptions might Track * calls throw?*
+* *What exceptions might Track_() calls throw?*
     
-    None. You shouldn't need to wrap them in catch clauses.
+    None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages that you will see in the debug console output, and - if the messages get through - in diagnostic search.
 
 
 
