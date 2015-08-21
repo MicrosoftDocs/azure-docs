@@ -15,12 +15,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="08/06/2015"
+      ms.date="08/24/2015"
       ms.author="v-jibran@microsoft.com"/>
 
 # Quickstart for the Azure AD Graph API
 
-The Azure Active Directory (AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, you can use the Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable or delete the user. For more information on the Graph API features and application scenarios, see [Azure AD Graph API](api-catalog.md) and [Azure AD Graph API Prerequisites](https://msdn.microsoft.com/library/azure/hh974464.aspx).
+The Azure Active Directory (AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, you can use the Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable or delete the user. For more information on the Graph API features and application scenarios, see [Azure AD Graph API](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/api/api-catalog) and [Azure AD Graph API Prerequisites](https://msdn.microsoft.com/library/azure/hh974464.aspx).
 
 ## How to construct a Graph API URL
 
@@ -90,7 +90,7 @@ In the example below, you will use Fiddler Web Debugger to create a new security
 **Compose and run a query**: Complete the following steps.
 
 1. Open Fiddler Web Debugger and switch to the **Composer** tab.
-2. Since you want to create a new security group, select **Post** as the HTTP method from the pull-down menu. For more information about operations and permissions on a group object, see [Group](https://msdn.microsoft.com/library/azure/hh974486.aspx) within the [Azure AD Graph REST API Reference](api-catalog.md).
+2. Since you want to create a new security group, select **Post** as the HTTP method from the pull-down menu. For more information about operations and permissions on a group object, see [Group](https://msdn.microsoft.com/library/azure/hh974486.aspx) within the [Azure AD Graph REST API Reference](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/api/api-catalog).
 3. In the field next to **Post**, type in the following as the request URL: `https://graph.windows.net/mytenantdomain/groups?api-version=1.5`.
 
     > [AZURE.NOTE] You must substitute mytenantdomain with the domain name of your own Azure AD directory.
@@ -118,8 +118,8 @@ Content-Type: application/json
 
     For more information about creating groups, see [Create Group](https://msdn.microsoft.com/library/azure/dn151614.aspx).
 
-For more information on Azure AD entities and types that are exposed by Graph and information about the operations that can be performed on them with Graph, see [Azure AD Graph REST API Reference](api-catalog.md).
+For more information on Azure AD entities and types that are exposed by Graph and information about the operations that can be performed on them with Graph, see [Azure AD Graph REST API Reference](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/api/api-catalog).
 
 ## Next steps
 
-Learn more about the [Azure AD Graph API](api-catalog.md)
+Learn more about the [Azure AD Graph API](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/api/api-catalog)
