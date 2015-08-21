@@ -108,6 +108,11 @@ Returns the integer division of the two provided integers.
 | operand1                           |   Yes    | Number being divided.
 | operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
 
+## length
+
+**length(array)**
+
+Returns the number of elements in an array. Typically, used to specify the number of iterations when creating resources. For an example of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 ## listKeys
 
