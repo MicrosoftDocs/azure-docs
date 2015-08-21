@@ -34,8 +34,6 @@ The basic process is the following:
 3.	Traffic Manager sends back the DNS name of the cloud service in the round robin list. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
 4.	The Internet client connects with the chosen cloud service.
 
-For more information, see [Traffic Manager](http://msdn.microsoft.com/library/azure/hh745750.aspx).
-
 ## Azure load balancing for virtual machines ##
 
 Virtual machines in the same cloud service or virtual network can communicate with each other directly using their private IP addresses. Computers and services outside the cloud service or virtual network can only communicate with virtual machines in a cloud service or virtual network with a configured endpoint. An endpoint is a mapping of a public IP address and port to that private IP address and port of a virtual machine or web role within an Azure cloud service.
