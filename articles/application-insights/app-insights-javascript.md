@@ -25,6 +25,10 @@ Find out about the performance and usage of your web page. Add Visual Studio App
 
 If you already set up server telemetry for your [ASP.NET][greenbrown] or [Java][java] web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
 
+#### Quick demo
+
+If you don't have an Azure subscription and would like to try Application Insights on your web page, visit [Try Application Insights](http://aka.ms/ainow). 
+
 ## Create an Application Insights resource
 
 The Application Insights resource is where data about your page's performance and usage is displayed. (If you already created a resource, maybe to collect data from your web server, skip this step.)

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Manage your StorSimple backup policies | Microsoft Azure"
-   description="Explains how you can use the StorSimple Manager service to create and manage backup jobs and backup schedules."
+   description="Explains how you can use the StorSimple Manager service to create and manage manual backups, backup schedules, and backup retention."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"

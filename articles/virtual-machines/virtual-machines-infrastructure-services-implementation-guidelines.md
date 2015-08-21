@@ -25,7 +25,7 @@ This guidance identifies many areas for which planning is vital to the success o
 
 This article was adapted from the content in the [Azure implementation guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft) and Hugo Salcedo (Application Development Manager for Microsoft) for their original material.
 
-> [AZURE.NOTE] Affinity groups have been deprecated. Their use is not described here. For more information, see [About regional VNets and affinity groups](https://msdn.microsoft.com/library/azure/jj156085.aspx).
+> [AZURE.NOTE] Affinity groups have been deprecated. Their use is not described here. For more information, see [About regional VNets and affinity groups](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1. Naming conventions
 

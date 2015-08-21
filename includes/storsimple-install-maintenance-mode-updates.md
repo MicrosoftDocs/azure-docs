@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/29/2015"
+   ms.date="08/18/2015"
    ms.author="alkohli" />
 
 #### To install Maintenance mode updates via Windows PowerShell for StorSimple
@@ -25,7 +25,7 @@
 
      `Get-HcsUpdateAvailability` 
     
-4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Enter Maintenance mode](#enter-maintenance-mode) for instructions.
+4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Step 2: Enter Maintenance mode](storsimple-update-device.md#step2) for instructions.
 
 5. When your device is in Maintenance mode, at the command prompt, type: `Start-HcsUpdate`
 
@@ -39,4 +39,4 @@
 
 7. When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.
 
-8. After both controllers are updated, exit Maintenance mode. See [Exit Maintenance mode](#exit-maintenance-mode) for instructions.
+8. After both controllers are updated, exit Maintenance mode. See [Step 4: Exit Maintenance mode](storsimple-update-device.md#step4) for instructions.

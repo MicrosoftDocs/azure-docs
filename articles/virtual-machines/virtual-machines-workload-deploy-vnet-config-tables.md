@@ -30,7 +30,7 @@ These tables are typically filled out in a topic that describes the configuratio
 
 The following procedure references the information in these tables to guide you through the virtual network configuration process. If you have not already specified the settings in these tables in another topic, but you still want to configure a cross-premises virtual network, see [Configure a cross-premises site-to-site connection to an Azure virtual network](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-> [AZURE.NOTE] This procedure steps you through creating a virtual network that uses a site-to-site VPN connection. For information about using Azure ExpressRoute for your site-to-site connection, see [ExpressRoute technical overview](https://msdn.microsoft.com/library/dn606309.aspx).
+> [AZURE.NOTE] This procedure steps you through creating a virtual network that uses a site-to-site VPN connection. For information about using Azure ExpressRoute for your site-to-site connection, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
 
 ## Create a new cross-premises Azure virtual network by using your configuration table settings
 
