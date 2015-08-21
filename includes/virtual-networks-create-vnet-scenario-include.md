@@ -1,5 +1,3 @@
-## Scenario
-
 To better illustrate how to create a VNet and subnets, this document will use the scenario detailed below.
 
 ![VNet scenario](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
