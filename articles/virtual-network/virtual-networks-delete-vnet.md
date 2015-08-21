@@ -19,7 +19,7 @@
 
 If you want to delete a VNet, you can't simply click **Delete**. There are a few things you'll need to do first:
 
-1. **Save Settings (optional) –** If you want to save the settings of the virtual network to a local file, export the configuration file before deleting your virtual network. See [Export Virtual Network Settings to a Network Configuration File](https://msdn.microsoft.com/library/azure/dn133804.aspx) for more information. Saving the settings allows you to recreate the VNet in the future, if needed.
+1. **Save Settings (optional) –** If you want to save the settings of the virtual network to a local file, export the configuration file before deleting your virtual network. See [Export Virtual Network Settings to a Network Configuration File](virtual-networks-using-network-configuration-file.md) for more information. Saving the settings allows you to recreate the VNet in the future, if needed.
 
 1. **Delete the Virtual Network Gateway –** If you configured a gateway for the VNet, you need to delete it before deleting the VNet. To delete the Virtual Network Gateway, go to the Dashboard page for your virtual network. At the bottom of the page, click **Delete Gateway**.
 						
