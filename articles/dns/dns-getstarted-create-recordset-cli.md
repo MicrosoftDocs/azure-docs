@@ -19,6 +19,12 @@
 
 # Create DNS records
 
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-recordset.md)
+
+
+
 After creating your DNS Zone, you need to add the DNS records for your domain.  To do this, you first need to understand DNS records and record sets.
 
 
@@ -48,14 +54,16 @@ The Time-to-Live, or TTL, specifies how long each record is cached by clients be
 
 ## Create record sets and records using CLI
 
-In the following example we will show how to create a record set and records.  We'll use the DNS 'A' record type, for other record types see [How to manage DNS records](dns-operations-recordsets.md)
+In the following example we will show how to create a record set and records.  We'll use the DNS 'A' record type, for other record types see [How to manage DNS records](dns-operations-recordsets-cli.md)
 
 
 ### Step 1
 
 Create record set using CLI:
 
-	azure network dns-record-set create -g myresourcegroup -z contoso.com -n www -y A --ttl 60
+	Usage: network dns-record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
+
+	azure network dns-record-set create myresourcegroup  contoso.com  www A  60
 
 The record set has relative name ‘www’ in the DNS Zone ‘contoso.com’, so the fully-qualified name of the records will be ‘www.contoso.com’.  The record type is ‘A’ and the TTL is 60 seconds.
 
@@ -67,13 +75,15 @@ The record set is empty and we have to add records to be able to use the newly c
 
 Add IPv4 A records to the "www" record set using the following command:
 
-	azure network dns-record-set add-record -g myresourcegroup -z contoso.com -n www -a 134.170.185.46
+	Usage: network dns-record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
+
+	azure network dns-record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 	
 
 The changes are complete.  You can retrieve the record set from Azure DNS using "azure network dns-record-set show" :
 
 
-	azure network dns-record-set show -g myresourcegroup -z "joaomatest.com" -n www -y A
+	azure network dns-record-set show myresourcegroup "contoso.com" www A
 	
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "www"
@@ -105,9 +115,9 @@ You can also use nslookup or other DNS tools to query the new record set.
 
 
 ## Next Steps
-[How to manage DNS zones](dns-operations-dnszones.md)
+[How to manage DNS zones](dns-operations-dnszones-cli.md)
 
-[How to manage DNS records](dns-operations-recordsets.md)<BR>
+[How to manage DNS records](dns-operations-recordsets-cli.md)<BR>
 
 [Automate Azure Operations with .NET SDK](dns-sdk.md)
  
