@@ -45,13 +45,10 @@ Property | Description | Required
 name | Name of the activity | Yes
 description | Text describing what the activity is used for | No
 type | SqlServerStoredProcedure | Yes
-inputs | Input(s) that must be available (in ‘Ready’ status) for the stored procedure activity to execute | No
-outputs | Output(s) produced by the stored procedure activity. Ensure that the output table uses a linked service that links an Azure SQL Database to the data factory. | Yes
+inputs | Input dataset(s) that must be available (in ‘Ready’ status) for the stored procedure activity to execute. The input(s) to the stored procedure activity only serve as dependency management when chaining this activity with others. The input dataset(s) cannot be consumed in the stored procedure as a parameter | No
+outputs | Output dataset(s) produced by the stored procedure activity. Ensure that the output table uses a linked service that links an Azure SQL Database to the data factory. The output(s) in the stored procedure activity can serve as a way to pass the result of the stored procedure activity for subsquent processing and/or it can serve as dependency management when chaining this activity with others | Yes
 storedProcedureName | Specify the name of the stored procedure in the Azure SQL database that is represented by the  linked service that the output table uses. | Yes
 storedProcedureParameters | Specify values for stored procedure parameters | No
-
-> [AZURE.NOTE] The input(s) to the stored procedure activity is only used for dependency management and chaining this activity with others. The input(s) cannot be consumed in the stored procedure as a parameter.
- 
 
 ## Example
 
@@ -106,7 +103,7 @@ To execute this stored procedure in a Data Factory pipeline, you need to the do 
 5.	Deploy the [pipeline](data-factory-create-pipelines.md).
 6.	[Monitor the pipeline](data-factory-monitor-manage-pipelines.md) using the data factory monitoring and management views.
 
-> [AZURE.NOTE] In the above example, the SprocActivitySample has no inputs. If you want to chain this with an activity upstream, the output(s) of the upstream activity can be used as input(s) in this activity.  In which case, this activity will not execute until the upstream activity is completed and the output(s) are available (in Ready status). The input(s) cannot be used directly as a parameter to the stored procedure activity
+> [AZURE.NOTE] In the above example, the SprocActivitySample has no inputs. If you want to chain this with an activity upstream (i.e. prior processing), the output(s) of the upstream activity can be used as input(s) in this activity.  In such a  case, this activity will not execute until the upstream activity is completed and the output(s) of the upstream activities are available (in Ready status). The input(s) cannot be used directly as a parameter to the stored procedure activity
 > 
 > The names and casing (upper/lower) of stored procedure parameters in the JSON file must match the names of stored procedure parameters in the target database.
 
