@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 
@@ -131,6 +131,7 @@ This section describes the steps you can take to encode your content with Azure 
 
 ##<a id="encrypt"></a>How to: Encrypt content
 
+
 If you want for Media Services to dynamically encrypt your asset with an AES key or PlayReady DRM make sure to do the following:
 
 - Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated in the [Encode](#encode) section).
@@ -143,6 +144,11 @@ If you want for Media Services to dynamically encrypt your asset with an AES key
 	![Encrypt][encrypt] 
 
 	Once you enabled encryption, whenever a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+
+Also, see:
+
+- [Protect with PlayReady DRM](media-services-rest-deliver-streaming-content.md)
+- [Protect with AES-128 key](media-services-protect-with-aes128.md)
 
 ##<a id="publish"></a>How to: Publish content
 
