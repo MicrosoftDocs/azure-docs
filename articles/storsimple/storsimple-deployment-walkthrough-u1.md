@@ -146,7 +146,7 @@ A StorSimple Manager service can manage multiple StorSimple devices. Perform the
 > [AZURE.IMPORTANT] If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service. This storage account will be used when you create a volume container. 
 >
 > * If you did not create a storage account automatically, go to [Configure a new storage account for the service](#configure-a-new-storage-account-for-the-service) for detailed instructions. 
-> * If you enabled the automatic creation of a storage account, go to [Step 2: Get the service registration key](#step-2:-get-the-service-registration-key).
+> * If you enabled the automatic creation of a storage account, go to [Step 2: Get the service registration key](#step-2-get-the-service-registration-key).
 
 ## Step 2: Get the service registration key
 
@@ -243,11 +243,12 @@ Updating your device can take <!-- 1-4--> several hours. Perform the following s
 <!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### To update your device
+
 1.	On the device **Quick Start** page, click **Devices**. Select the physical device, click **Maintenance** and then click **Scan Updates**.  
 2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. <!-- You may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 3.	An update job will be created. Monitor the status of your update by navigating to **Jobs**.
 
-	> [AZURE.NOTE] When the update job starts, it immediately displays the status as 50 percent. The status then changes to 100 percent only after the update job is complete. There is no real time status for the updates process.
+	> [AZURE.NOTE] When the update job starts, it immediately displays the status as 50 percent. The status changes to 100 percent only after the update job is complete. There is no real-time status for the update process.
 
 4.	After the device is successfully updated, enable Data 2 and Data 3 network interfaces if these were disabled.
 
