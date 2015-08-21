@@ -91,6 +91,10 @@ This example retrieves a database named "Database02" from a server named "Server
 	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
+
+> [AZURE.NOTE] Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the powershell cmdlets.
+
+
 ## Next steps
 For more reference information, see [SQL Data Warehouse reference overview][].
 
