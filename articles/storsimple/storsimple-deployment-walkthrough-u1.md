@@ -204,12 +204,6 @@ The following steps are performed on your Windows Server host.
 
 > - For MPIO and iSCSI installation and configuration instructions on a Linux host, go to [Configure MPIO for your StorSimple Linux host](storsimple-configure-mpio-linux.md)
 
-> - For MPIO and iSCSI installation and configuration instructions on a VMware host, go to:
- 	
-	[http://www.vmware.com/files/pdf/iSCSI_design_deploy.pdf](http://www.vmware.com/files/pdf/iSCSI_design_deploy.pdf) 
- 
-	 Follow the guidelines listed for Software iSCSI initiator. 
-
 If you decide not to configure MPIO, perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.
 
 [AZURE.INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
