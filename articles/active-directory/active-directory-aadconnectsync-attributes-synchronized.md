@@ -26,7 +26,7 @@ The attributes are grouped by the related Azure AD app.
 ## Office 365 ProPlus
 
 | Attribute Name| User| Comment |
-| --- | :---: | --- |
+| --- | :-: | --- |
 | accountEnabled| X| Defines if an account is enabled.|
 | cn| X|  |
 | displayName| X|  |
@@ -40,7 +40,7 @@ The attributes are grouped by the related Azure AD app.
 ## Exchange Online
 
 | Attribute Name| User| Contact| Group| Comment |
-| --- | :---: | :---: | :---: | --- |
+| --- | :-: | :-: | :-: | --- |
 | accountEnabled| X|  |  | Defines if an account is enabled.|
 | assistant| X| X|  |  |
 | authOrig| X| X| X|  |
@@ -165,7 +165,7 @@ The attributes are grouped by the related Azure AD app.
 ## SharePoint Online
 
 | Attribute Name| User| Contact| Group| Comment |
-| --- | :---: | :---: | :---: | --- |
+| --- | :-: | :-: | :-: | --- |
 | accountEnabled| X|  |  | Defines if an account is enabled.|
 | authOrig| X| X| X|  |
 | c| X| X|  |  |
@@ -248,7 +248,7 @@ The attributes are grouped by the related Azure AD app.
 ## Lync Online
 
 | Attribute Name| User| Contact| Group| Comment |
-| --- | :---: | :---: | :---: | --- |
+| --- | :-: | :-: | :-: | --- |
 | accountEnabled| X|  |  | Defines if an account is enabled.|
 | c| X| X|  |  |
 | cn| X|  | X|  |
@@ -317,7 +317,7 @@ The attributes are grouped by the related Azure AD app.
 ## Intune
 
 | Attribute Name| User| Contact| Group| Comment |
-| --- | :---: | :---: | :---: | --- |
+| --- | :-: | :-: | :-: | --- |
 | accountEnabled| X|  |  | Defines if an account is enabled.|
 | c| X| X|  |  |
 | cn| X|  | X|  |
@@ -339,7 +339,7 @@ The attributes are grouped by the related Azure AD app.
 ## Dynamics CRM
 
 | Attribute Name| User| Contact| Group| Comment |
-| --- | :---: | :---: | :---: | --- |
+| --- | :-: | :-: | :-: | --- |
 | accountEnabled| X|  |  | Defines if an account is enabled.|
 | c| X| X|  |  |
 | cn| X|  | X|  |
@@ -374,7 +374,7 @@ The attributes are grouped by the related Azure AD app.
 This is a set of attributes which can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
 
 | Attribute Name| User| Contact| Group| Comment |
-| --- | :---: | :---: | :---: | --- |
+| --- | :-: | :-: | :-: | --- |
 | accountEnabled| X|  |  | Defines if an account is enabled.|
 | cn| X|  | X|  |
 | displayName| X| X| X|  |
@@ -396,7 +396,7 @@ This is a set of attributes which can be used if the Azure AD directory is not u
 These attributes are written back from Azure AD to on-premises Active Directory when you select to enable Exchange hybrid. Depending on your Exchange version, fewer attributes might be synchronized.
 
 | Attribute Name| User| Contact| Group| Comment |
-| --- | :---: | :---: | :---: | --- |
+| --- | :-: | :-: | :-: | --- |
 | msDS-ExternalDirectoryObject| X|  |  | Derived from cloudAnchor in Azure AD.|
 | msExchArchiveStatus| X|  |  | Online Archive: Enables customers to archive mail.|
 | msExchBlockedSendersHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|
