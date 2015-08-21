@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/20/2015"
+    ms.date="08/21/2015"
     ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1 release notes  
@@ -27,10 +27,11 @@ Please review the information contained in the release notes before you deploy t
 
 >[AZURE.IMPORTANT]
 > 
-- A critical patch, Update 1.2 was released on September 1. If you are currently using software version **6.3.9600.17521**, there is no action required on your part. If you are running version **6.3.9600.17491** or below, make sure that you apply this critical update. After you install the update, the software version will change to **6.3.9600.17XXX**.
+- A critical patch, Update 1.2 was released on September 1. If you are currently using software version **6.3.9600.17521**, there is no action required on your part. If you are running versions prior to **6.3.9600.17491**, make sure that you apply this critical update. After you install the update, the software version will change to **6.3.9600.17XXX**.
 - A critical patch, Update 1.1, was released on June 23. This patch addresses an issue in the backup engine. If you applied Update 1 before June 23rd and are currently using software version **6.3.9600.17491**, make sure that you apply this critical update to avoid any issues with backups. After you install the update, the software version will change to **6.3.9600.17521**.
 - If you created a virtual device between May 27th and July 10th that is in  software version **6.3.9600.17481**, create a new virtual device and fail over any volumes from the old virtual device to the new one. (This is because the older virtual device cannot be updated.) If you do not create a new virtual device, you might see that backups start failing. For failover and disaster recovery procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
+- This release also contains disk firmware updates that can only be applied when the device is in Maintenance mode. These are disruptive updates that will result in down time for your device. You can apply these updates during planned maintenance.
 - It takes approximately 5-10 hours to install this update (including the Windows Updates). 
 - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Scan for updates in a few days again as these will become available soon.
 
@@ -96,21 +97,19 @@ The following table provides a summary of known issues in this release.
 
 ## Physical device updates in Update 1
 
-When these updates are applied to a physical device, the software version will change to 6.3.9600.17521. 
+If patch update 1.2 is applied to a physical device (running versions prior to Update 1), the software version will change to 6.3.9600.175XXX.
 
-## Serial-attached SCSI (SAS) controller and firmware updates in Update 1
+## Controller and firmware updates in Update 1
 
 This release updates the driver and the firmware on the SAS controller of your physical device. It also updates the disk firmware on your device.
  
 - For more information about the SAS controller update, see [Update 1 for LSI SAS controllers in Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3043005). 
 
-- For more information about the firmware update, see [Firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063414). 
-
 - For more information about the disk firmware update, see [Disk firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063416).
  
 ## Virtual device updates in Update 1
 
-This update cannot be applied to the virtual device. However, any virtual devices created after 10th July will automatically be in this version.
+This update cannot be applied to the virtual device. New virtual devices will need to be created.
 
 ## Next steps
 
