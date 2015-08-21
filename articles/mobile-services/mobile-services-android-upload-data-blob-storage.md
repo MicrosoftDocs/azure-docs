@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="08/21/2015" 
 	ms.author="ricksal"/>
 
 # Upload images to Azure Blob Storage from an Android  device
@@ -132,8 +132,6 @@ Specify your app depends on having a camera,and needs permission to write to ext
 	            // Create the File where the photo should go
 	            try {
 	                mPhotoFile = createImageFile();
-	     //           mCurrentPhotoPath = "file:" + mPhotoFile.getAbsolutePath();
-	
 	            } catch (IOException ex) {
 	                // Error occurred while creating the File
 	                //
