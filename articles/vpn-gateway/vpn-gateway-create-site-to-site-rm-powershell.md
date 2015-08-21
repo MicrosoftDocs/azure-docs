@@ -97,25 +97,22 @@ You'll also specify the address space prefix for the local site. Azure will use 
 - The *GatewayIPAddress* is the IP address of your on-premises VPN device. Your VPN device cannot be located behind a NAT. 
 - The *AddressPrefix* is your on-premises address space.
 
-Use this example to add your local site:
+Use this example to add a local site with a single address prefix.
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 
-To add a local site with multiple address prefixes, use this example:
+If you want to add a local site with multiple address prefixes, use this example.
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
 
 
-### To add an additional address prefix to a local site
-
-If you find that you need to associate additional address prefixes to your local site after you create it, you can use the example below:
+To add additional address prefixes to a local site that you already created, use the example below.
 
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
-### To remove an address prefix from a local site
 
-To remove an address prefix from a local site, update the address prefixes, leaving out the prefix that you no longer need. 
+To remove an address prefix from a local site, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local site and exclude that prefix.
 
 		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
