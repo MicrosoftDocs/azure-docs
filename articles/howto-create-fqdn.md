@@ -12,9 +12,9 @@
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
+   ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="08/20/2015"
    ms.author="dkshir"/>
 
 # Create a Fully Qualified Domain Name in Azure portal
