@@ -40,7 +40,7 @@ To build Media Services solutions, you can use:
 
 To start using Azure Media Services, you should have the following:
  
-3. An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5).
+3. An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](azure.microsoft.com).
 2. An Azure Media Services account. Use Azure Management Portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-create-account.md).
 3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md). 
 
