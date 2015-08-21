@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create Multiple Instances of Resources"
-   description="Describes how to use the copy operation in an Azure Resource Manager template to iterate multiple times when deploying resources."
+   pageTitle="Deploy Multiple Instances of Resources | Microsoft Azure"
+   description="Use copy operation and arrays in an Azure Resource Manager template to iterate multiple times when deploying resources."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2015"
+   ms.date="08/21/2015"
    ms.author="tomfitz"/>
 
 # Create multiple instances of resources in Azure Resource Manager
 
 This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
 
-## copy and copyIndex()
+## copy, copyIndex, and length
 
 Within the resource to create multiple times, you can define a **copy** object that specifies the number of times to iterate. The copy takes the following format:
 
@@ -32,6 +32,13 @@ Within the resource to create multiple times, you can define a **copy** object t
 You can access the current iteration value with the **copyIndex()** function, such as shown below within the concat function.
 
     [concat('examplecopy-', copyIndex())]
+
+When you are working with an array of values to use when creating the resources, you can use the length function to specify the count.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
 
 ## Use index value in name
 
@@ -90,11 +97,7 @@ Use the following template:
              "Fabrikam", 
              "Coho" 
           ] 
-      },
-      "count": { 
-         "type": "int", 
-         "defaultValue": 3 
-      } 
+      }
     }, 
     "resources": [ 
       { 
@@ -104,13 +107,13 @@ Use the following template:
           "apiVersion": "2014-06-01",
           "copy": { 
              "name": "websitescopy", 
-             "count": "[parameters('count')]" 
+             "count": "[length(parameters('org'))]" 
           }, 
           "properties": {} 
       } 
     ]
 
 ## Next steps
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
+- If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
+- For all of the functions you can use in a template, see [Azure Resource Manager Template Functions](./resource-group-template-functions.md).
+- To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md).
