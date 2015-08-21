@@ -1,11 +1,11 @@
 <properties
    pageTitle="Topologies for Azure AD Connect"
-   description="This document details supported and unsupported topologies for Azure AD Connect"
+   description="This topic details supported and unsupported topologies for Azure AD Connect"
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="swadhwa"
-   editor="billmath"/>
+   manager="kbrint"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -18,9 +18,9 @@
 
 # Topologies for Azure AD Connect
 
-Organizations have very many different topologies on-premises and they are considering different topologies for the cloud and Azure Active Directory.
+The objective of this topic is to describe different on-premises and Azure AD topologies with Azure AD Connect sync as the key integration solution. It describes both supported and unsupported configurations.
 
-Legend for pictures in the document
+Legend for pictures in the document:
 
 On-premises Active Directory forest | Active Directory with filtered import | Azure AD Connect sync server |  Azure AD Connect sync server “Staging mode” | GALSync with FIM2010 or MIM2016 | Azure AD Connect sync server, detailed | Azure AD directory | Unsupported scenario |
 :-----:| :-----:| :-----:| :-----:| :-----:| :-----:| :-----:| :-----:|
@@ -44,7 +44,7 @@ When you have multiple forests all forests must be reachable by single Azure AD 
 
 The Azure AD Connect wizard will offer several options for how to consolidate users so even if the same user is represented multiple times in different forests, the user will be represented only once in Azure AD. There are some common topologies described below. You configure which topology you have by using the custom installation path in the installation wizard and select the corresponding option on the page “Uniquely identifying your users”. The consolidation is only happening for users. If groups are duplicated, these are not consolidated with the default configuration.
 
-Common topologies are discussed in the next section: Separate topologies, Full mesh, and Account-Resource.
+Common topologies are discussed in the next section: [Separate topologies](#multiple-forests-separate-topologies), [Full mesh](#multiple-forests-full-mesh-with-optional-galsync), and [Account-Resource](#multiple-forests-account-resource-forest).
 
 In the default configuration delivered by Azure AD Connect sync, the following assumptions are made:
 1.	Users have only one enabled account and the forest where this account is located is used to authenticate the user. This is for both password sync and for federation; userPrincipalName and sourceAnchor/immutableID will come from this forest.
@@ -85,7 +85,7 @@ FSPs are used in ADDS to represent members from other forests in a security grou
 
 A full mesh topology allows users and resources to be located in any forest and commonly there would be two-way trusts between the forests.
 
-If Exchange is present in more than one forest, there could optionally be an on-prem GALSync solution representing a user in one forest as a contact in every other forest. GALSync is commonly implemented using Forefront Identity Manager 2010 or Microsoft Identity Manager 2016. Azure AD Connect cannot be used for on-premises GALSync.
+If Exchange is present in more than one forest, there could optionally be an on-premises GALSync solution representing a user in one forest as a contact in every other forest. GALSync is commonly implemented using Forefront Identity Manager 2010 or Microsoft Identity Manager 2016. Azure AD Connect cannot be used for on-premises GALSync.
 
 In this scenario, identity objects are joined using the mail attribute. As a consequence of this, a user with a mailbox in one forest is joined with the contacts in the other forests.
 
@@ -105,8 +105,8 @@ Some Office 365 workloads have certain restrictions to supported topologies. If 
 
 | Workload |  |
 | --------- | --------- |
-| Exchange Online |	If there is more than one Exchange org on-premises then you must use Exchange 2013 SP1 or later. Details can be found here: [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/en-us/library/jj873754.aspx) |
-| Skype for Business | When using multiple forests on-prem only the account-resource forest topology is supported. Details for supported topologies can be found here: [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/en-us/library/dn933910.aspx) |
+| Exchange Online |	If there is more than one Exchange organization on-premises (i.e. Exchange has been deployed to more than one forest) then you must use Exchange 2013 SP1 or later. Details can be found here: [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/en-us/library/jj873754.aspx) |
+| Skype for Business | When using multiple forests on-premises then only the account-resource forest topology is supported. Details for supported topologies can be found here: [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/en-us/library/dn933910.aspx) |
 
 ## Staging server
 ![StagingServer](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -121,11 +121,11 @@ It is possible to have more than one staging server if you want to have multiple
 
 ## Multiple Azure AD directories
 Microsoft recommends to have a single directory in Azure AD for an organization.
-To plan for your Azure AD design, the following topics would be of use:
+Before you plan to use multiple Azure AD directories these topics cover common scenarios which will allow you to use a single directory.
 
 | Topic |  |
 | --------- | --------- |
-| Delegation using administrative units | [Administrative units management in Azure AD ](https://azure.microsoft.com/en-us/documentation/articles/active-directory-administrative-units-management/)
+| Delegation using administrative units | [Administrative units management in Azure AD ](active-directory-administrative-units-management.md)
 
 ![MultiForestMultiDirectory](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -133,13 +133,13 @@ There is a 1:1 relationship between an Azure AD Connect sync server and an Azure
 
 ![SingleForestFiltered](./media/active-directory-aadconnect-topologies/SingleForestFiltered.png)
 
-In this topology one AAD Connect Sync server is connected to each Azure AD Directory. The sync servers must be configured for filtering so they each have a mutually exclusive set of objects to operate on, for example by scoping each server to a particular domain. A DNS domain can only be registered in a single Azure AD directory so the UPNs of the users in the on-prem AD must use separate namespaces as well. For example, in the picture above three separate UPN suffixes are registered in the on-prem AD: contoso.com, fabrikam.com, and wingtiptoys.com. The users in each on-prem AD domain use a different namespace.
+In this topology one AAD Connect Sync server is connected to each Azure AD Directory. The Azure AD Connect sync servers must be configured for filtering so they each have a mutually exclusive set of objects to operate on, for example by scoping each server to a particular domain. A DNS domain can only be registered in a single Azure AD directory so the UPNs of the users in the on-premises AD must use separate namespaces as well. For example, in the picture above three separate UPN suffixes are registered in the on-premises AD: contoso.com, fabrikam.com, and wingtiptoys.com. The users in each on-premises AD domain use a different namespace.
 
 In this topology there is no “GALsync” between the Azure AD directory instances so the address book in Exchange Online and Skype for Business will only show users in the same directory.
 
 With this topology only one of the Azure AD directories can enable Exchange hybrid with the on-premises Active Directory.
 
-The requirement for mutually exclusive set of objects also applies to write-back. This makes some writeback features not supported with this topology since these assume a single configuration on-prem. This includes:
+The requirement for mutually exclusive set of objects also applies to write-back. This makes some writeback features not supported with this topology since these assume a single configuration on-premises. This includes:
 -	Group writeback with default configuration
 -	Device writeback
 
@@ -149,8 +149,12 @@ It is unsupported to sync the same user to multiple Azure AD directories. It is 
 
 ![MultiForestMultiDirectoryGALSync1Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![MultiForestMultiDirectoryGALSync2Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
-Azure AD directories are by design isolated. It is unsupported to change the configuration of Azure AD Connect sync to read data from another Azure AD directory in an attempt to build a common and unified GAL between the directories. It is also unsupported to export users as contacts to another on-prem AD using Azure AD Connect sync.
+Azure AD directories are by design isolated. It is unsupported to change the configuration of Azure AD Connect sync to read data from another Azure AD directory in an attempt to build a common and unified GAL between the directories. It is also unsupported to export users as contacts to another on-premises AD using Azure AD Connect sync.
 
 ![MultiForestMultiDirectoryGALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
 
 It is supported to use FIM2010/MIM2016 on-premises to GALsync users between two Exchange orgs. The users in one org will show up as foreign users/contacts in the other org. These different on-premises ADs can then be synchronized to their own Azure AD directories.
+
+## Next steps
+To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+To learn more on the configuration for Azure AD Connect sync, see [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
