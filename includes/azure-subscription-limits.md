@@ -11,7 +11,7 @@ DNS servers per subscription|9|100
 Reserved IPs per subscription|20|100
 ExpressRoute dedicated circuits per subscription|10|25
 Hosted service certificates per subscription|400|400
-[Affinity groups](http://msdn.microsoft.com/library/azure/jj156085.aspx) per subscription|256|256
+[Affinity groups](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription|256|256
 [Batch](http://azure.microsoft.com/services/batch/) accounts per region per subscription|1|50
 Alert rules per subscription|250|250
 
