@@ -70,7 +70,7 @@ The following sections will help you prepare to use the StorSimple virtual devic
 
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-settings.md). 
+- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet.md). 
 - It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid, creation of the virtual device will fail.
 - Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
 
@@ -90,7 +90,7 @@ Make the following updates to your Azure StorSimple service before you create a 
 
 - Add [access control records](storsimple-manage-acrs.md) for the VMs that are going to be host servers for your virtual device.
 
-- Make sure that you have a [storage account](storsimple-manage-storage-accounts.md) in the same region as the virtual device. Storage accounts in different regions may result in poor performance.
+- Make sure that you have a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance.
 
 - Make sure that you use a different storage account for virtual device creation from the one used for your data. Using the same storage account may result in poor performance.
 

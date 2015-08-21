@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/13/2015"
+   ms.date="08/21/2015"
    ms.author="alkohli" />
 
 # StorSimple virtual device
@@ -76,7 +76,7 @@ Before you provision the virtual device, you need to make the following preparat
 
 >[AZURE.IMPORTANT] **Make sure that the virtual network is in the same region as the cloud storage accounts that you are going to be using with the virtual device.**
 
-- You can create [Azure Virtual Machines ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:
+- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:
 	- Be Windows or Linux VMs with iSCSI Initiator software installed.
 	- Be running in the same virtual network as the virtual device.
 	- Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.
@@ -121,21 +121,21 @@ Perform the following steps to create the StorSimple virtual device.
 
 1.  In the Azure portal, go to the **StorSimple Manager** service.
 
-- Go to the **Devices** page.
+2. Go to the **Devices** page.
 
-- In the **Create Virtual Device** dialog box, specify the following details.
+3. In the **Create Virtual Device** dialog box, specify the following details.
 
 	![StorSimple create virtual device](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
 
-	a. **Name** – A unique name for your virtual device.
+	1. **Name** – A unique name for your virtual device.
 
-	b. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
+	2. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
 
-	c. **Subnet** – The subnet on the virtual network for use with the virtual device.
+	3. **Subnet** – The subnet on the virtual network for use with the virtual device.
 
-	d. **Storage Account for Virtual Device Creation** – The storage account that will be used to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list.
+	4. **Storage Account for Virtual Device Creation** – The storage account that will be used to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list.
 
-- Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. A virtual device will now be created. It may take up to 45 minutes to 1 hour to create a virtual device.
+4. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. A virtual device will now be created. It may take up to 45 minutes to 1 hour to create a virtual device.
 	![StorSimple virtual device creating stage](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [Security considerations for using a virtual device](#security-considerations-for-using-a-virtual-device).
@@ -282,7 +282,7 @@ After you have enabled it on the StorSimple device configuration page, you can u
 
 >[AZURE.WARNING] For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.
 
-You should follow the procedures in [Connecting remotely using Windows PowerShell](storsimple-remote-connect.md) to set up remoting for your virtual device.
+You should follow the procedures in [Connect remotely to your StorSimple device](storsimple-remote-connect.md) to set up remoting for your virtual device.
 
 However, if you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure.
 
@@ -364,7 +364,7 @@ The failover process will begin. When the failover is finished, go to the Device
 
 If you previously configured and used a StorSimple virtual device but now want to stop accruing compute charges for its use, you can shut down the virtual device. Shutting down the virtual device doesn’t delete its operating system or data disks in storage. It does stop charges accruing on your subscription, but storage charges for the OS and data disks will continue.
 
-If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate a device](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
 
 ### To shut down the StorSimple virtual device
 
@@ -385,4 +385,4 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 ## Next steps
 
-To administer your virtual device, refer to the detailed list of workflows in [Administer your StorSimple device](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
+To administer your virtual device, refer to the detailed list of workflows in [Use StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
