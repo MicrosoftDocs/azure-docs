@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/14/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
-#BizTalk JSON Encoder
+# BizTalk JSON Encoder
 BizTalk JSON Encode Decode connector helps your app interop between JSON and XML data. It can convert a given JSON instance to XML and vice versa.
 
-##Using BizTalk JSON Encoder
+## Using BizTalk JSON Encoder
 To use the BizTalk JSON Encoder, you need to first create an instance of the BizTalk JSON Encoder API app. This can be done either inline while creating a logic app or by selecting the BizTalk JSON Encoder API app from the Azure Marketplace.
 
-##Using BizTalk JSON Encoder in Logic Apps designer surface
+## Using BizTalk JSON Encoder in Logic Apps designer surface
 Follow steps for [Creating a Logic App]. BizTalk JSON Encoder can be used as an action. It does not have any triggers.
 
-###Action
+### Action
 - Click on BizTalk JSON Encoder from the right pane
 
 	![Action settings][3]
@@ -48,6 +48,8 @@ The action returns a json representation of the input content.
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
 

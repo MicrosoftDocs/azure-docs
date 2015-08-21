@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 
@@ -85,9 +85,9 @@ Given the above information we know that the only performance impact that Traffi
 ## Next Steps
 
 
-[About Traffic Manager Load Balancing Methods](traffic-manager-load-balancing-methods.md)
+[About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md)
 
-[Traffic Manager Overview](../traffic-manmager-overview.md)
+[What is Traffic Manager?](../traffic-manmager-overview.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 

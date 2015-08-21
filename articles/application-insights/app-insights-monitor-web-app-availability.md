@@ -30,8 +30,6 @@ There are two types of web test:
 * [URL ping test](#set-up-a-url-ping-test): a simple test that you can create in the Azure portal.
 * [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.
 
-*Is it an Azure web app? Just [create the web test in the web app blade][azure-availability].*
-
 
 
 ## Set up a URL ping test

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use the Xamarin Component client | Microsoft Azure" 
-	description="Learn how to use the Xamarin Component client for Azure Mobile Services." 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
-	services="mobile-services" 
+<properties
+	pageTitle="How to use the Xamarin Component client | Microsoft Azure"
+	description="Learn how to use the Xamarin Component client for Azure Mobile Services."
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
+	services="mobile-services"
 	documentationCenter="xamarin"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="lindydonna"/>
 
 # How to use the Xamarin Component client for Azure Mobile Services
@@ -40,53 +40,53 @@ The corresponding typed client-side .NET type is the following:
 		[JsonProperty(PropertyName = "complete")]
 		public bool Complete { get; set; }
 	}
-	
+
 When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271).
 
 ## <a name="create-client"></a>How to: Create the Mobile Services client
 
-The following code creates the `MobileServiceClient` object that is used to access your mobile service. 
-			
-	MobileServiceClient client = new MobileServiceClient( 
-		"AppUrl", 
-		"AppKey" 
-	); 
+The following code creates the `MobileServiceClient` object that is used to access your mobile service.
+
+	MobileServiceClient client = new MobileServiceClient(
+		"AppUrl",
+		"AppKey"
+	);
 
 In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".
 
 ## <a name="instantiating"></a>How to: Create a table reference
 
-All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) function on an instance of the `MobileServiceClient`. 
+All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) function on an instance of the `MobileServiceClient`.
 
-    IMobileServiceTable<TodoItem> todoTable = 
+    IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
 This is the typed serialization model; see discussion of <a href="#untyped">the untyped serialization model</a> below.
-			
-## <a name="querying"></a>How to: Query data from a mobile service 
 
-This section describes how to issue queries to the mobile service. Subsections describe different aspects such as sorting, filtering, and paging. 
-			
+## <a name="querying"></a>How to: Query data from a mobile service
+
+This section describes how to issue queries to the mobile service. Subsections describe different aspects such as sorting, filtering, and paging.
+
 ### <a name="filtering"></a>How to: Filter returned data
 
-The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from `todoTable` whose `Complete` property is equal to `false`. The `Where` function applies a row filtering predicate to the query against the table. 
-	
+The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from `todoTable` whose `Complete` property is equal to `false`. The `Where` function applies a row filtering predicate to the query against the table.
 
-	// This query filters out completed TodoItems and 
-	// items without a timestamp. 
+
+	// This query filters out completed TodoItems and
+	// items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
 
 You can view the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or Fiddler. If you look at the request URI below,  notice that we are modifying the query string  itself:
 
-	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1				   
+	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 This request would normally be translated roughly into the following SQL query on the server side:
-			
-	SELECT * 
-	FROM TodoItem 			
+
+	SELECT *
+	FROM TodoItem
 	WHERE ISNULL(complete, 0) = 0
-			
+
 The function which is passed to the `Where` method can have an arbitrary number of conditions. For example, the line below:
 
 	// This query filters out completed TodoItems where Text isn't null
@@ -96,9 +96,9 @@ The function which is passed to the `Where` method can have an arbitrary number 
 	   .ToListAsync();
 
 Would be roughly translated (for the same request shown before) as
-			
-	SELECT * 
-	FROM TodoItem 
+
+	SELECT *
+	FROM TodoItem
 	WHERE ISNULL(complete, 0) = 0
 	      AND ISNULL(text, 0) = 0
 
@@ -117,7 +117,7 @@ The `where` clause supports operations that be translated into the Mobile Servic
 
 ### <a name="sorting"></a>How to: Sort returned data
 
-The following code illustrates how to sort data by including an `OrderBy` or `OrderByDescending` function in the query. It returns items from `todoTable` sorted ascending by the `Text` field. By default, the server returns only the first 50 elements. 
+The following code illustrates how to sort data by including an `OrderBy` or `OrderByDescending` function in the query. It returns items from `todoTable` sorted ascending by the `Text` field. By default, the server returns only the first 50 elements.
 
 > [AZURE.NOTE] A server-driven page size is used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service.
 
@@ -125,21 +125,21 @@ You may increase the number of items to be returned by calling `Take` as describ
 
 	// Sort items in ascending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.OrderBy(todoItem => todoItem.Text)       
+					.OrderBy(todoItem => todoItem.Text)
  	List<TodoItem> items = await query.ToListAsync();
 
 	// Sort items in descending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.OrderByDescending(todoItem => todoItem.Text)       
- 	List<TodoItem> items = await query.ToListAsync();			
+					.OrderByDescending(todoItem => todoItem.Text)
+ 	List<TodoItem> items = await query.ToListAsync();
 
 ### <a name="paging"></a>How to: Return data in pages
 
-The following code shows how to implement paging in returned data by using the `Take` and `Skip` clauses in the query.  The following query, when executed, returns the top three items in the table. 
+The following code shows how to implement paging in returned data by using the `Take` and `Skip` clauses in the query.  The following query, when executed, returns the top three items in the table.
 
 	// Define a filtered query that returns the top 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Take(3);                              
+					.Take(3);
 	List<TodoItem> items = await query.ToListAsync();
 
 The following revised query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
@@ -147,14 +147,14 @@ The following revised query skips the first three results and returns the next t
 	// Define a filtered query that skips the top 3 items and returns the next 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Skip(3)
-					.Take(3);                              
+					.Take(3);
 	List<TodoItem> items = await query.ToListAsync();
-			
+
 You can also use the [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) method to ensure that the query will get the total count for <i>all</i> the records that would have been returned, ignoring any take paging/limit clause specified:
 
 	query = query.IncludeTotalCount();
 
-This is a simplified scenario of passing hard-coded paging values to the `Take` and `Skip` methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. 
+This is a simplified scenario of passing hard-coded paging values to the `Take` and `Skip` methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.
 
 ### <a name="selecting"></a>How to: Select specific columns
 
@@ -164,12 +164,12 @@ You can specify which set of properties to include in the results by adding a `S
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Select(todoItem => todoItem.Text);
 	List<string> items = await query.ToListAsync();
-	
+
 	// Select multiple fields -- both Complete and Text info
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Select(todoItem => string.Format("{0} -- {1}", todoItem.Text.PadRight(30), todoItem.Complete ? "Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
-			
+
 All the functions described so far are additive, so we can just keep calling them and we'll each time affect more of the query. One more example:
 
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -178,10 +178,10 @@ All the functions described so far are additive, so we can just keep calling the
 					.Skip(3).
 					.Take(3);
 	List<string> items = await query.ToListAsync();
-	
+
 ### <a name="lookingup"></a>How to: Look up data by ID
 
-The `LookupAsync` function can be used to look up objects from the database with a particular ID. 
+The `LookupAsync` function can be used to look up objects from the database with a particular ID.
 
 	// This query filters out the item with the ID of 25
 	TodoItem item25 = await todoTable.LookupAsync(25);
@@ -194,16 +194,16 @@ The following code illustrates how to insert new rows into a table. The paramete
 
 	await todoTable.InsertAsync(todoItem);
 
-After the await `todoTable.InsertAsync` call returns, the ID of the object in the server is populated to the `todoItem` object in the client. 
+After the await `todoTable.InsertAsync` call returns, the ID of the object in the server is populated to the `todoItem` object in the client.
 
 To insert untyped data, you may take advantage of Json.NET as shown below. Again, note that an ID must not be specified when inserting an object.
 
-	JObject jo = new JObject(); 
-	jo.Add("Text", "Hello World"); 
+	JObject jo = new JObject();
+	jo.Add("Text", "Hello World");
 	jo.Add("Complete", false);
 	var inserted = await table.InsertAsync(jo);
 
-If you attempt to insert an item with the "Id" field already set, you will get back a `MobileServiceInvalidOperationException` from the service. 
+If you attempt to insert an item with the "Id" field already set, you will get back a `MobileServiceInvalidOperationException` from the service.
 
 ## <a name="modifying"></a>How to: Modify data in a mobile service
 
@@ -214,15 +214,15 @@ The following code illustrates how to update an existing instance with the same 
 
 To insert untyped data, you may take advantage of Json.NET like so. Note that when making an update, an ID must be specified, as that is how the mobile service identifies which instance to update. The ID can be obtained from the result of the `InsertAsync` call.
 
-	JObject jo = new JObject(); 
+	JObject jo = new JObject();
 	jo.Add("Id", 52);
-	jo.Add("Text", "Hello World"); 
+	jo.Add("Text", "Hello World");
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
-			
-If you attempt to update an item without the "Id" field already set, there is no way for the service to tell which instance to update, so you will get back a `MobileServiceInvalidOperationException` from the service. Similarly, if you attempt to update an untyped item without the "Id" field already set, you will again get back a `MobileServiceInvalidOperationException` from the service. 
-			
-			
+
+If you attempt to update an item without the "Id" field already set, there is no way for the service to tell which instance to update, so you will get back a `MobileServiceInvalidOperationException` from the service. Similarly, if you attempt to update an untyped item without the "Id" field already set, you will again get back a `MobileServiceInvalidOperationException` from the service.
+
+
 ## <a name="deleting"></a>How to: Delete data in a mobile service
 
 The following code illustrates how to delete an existing instance. The instance is identified by the "Id" field set on the `todoItem`.
@@ -231,12 +231,12 @@ The following code illustrates how to delete an existing instance. The instance 
 
 To delete untyped data, you may take advantage of Json.NET like so. Note that when making a delete request, an ID must be specified, as that is how the mobile service identifies which instance to delete. A delete request needs only the ID; other properties are not passed to the service, and if any are passed, they are ignored at the service. The result of a `DeleteAsync` call is usually `null` as well. The ID to pass in can be obtained from the result of the `InsertAsync` call.
 
-	JObject jo = new JObject(); 
+	JObject jo = new JObject();
 	jo.Add("Id", 52);
 	await table.DeleteAsync(jo);
-			
-If you attempt to delete an item without the "Id" field already set, there is no way for the service to tell which instance to delete, so you will get back a `MobileServiceInvalidOperationException` from the service. Similarly, if you attempt to delete an untyped item without the "Id" field already set, you will again get back a `MobileServiceInvalidOperationException` from the service. 
-		
+
+If you attempt to delete an item without the "Id" field already set, there is no way for the service to tell which instance to delete, so you will get back a `MobileServiceInvalidOperationException` from the service. Similarly, if you attempt to delete an untyped item without the "Id" field already set, you will again get back a `MobileServiceInvalidOperationException` from the service.
+
 
 
 ## <a name="authentication"></a>How to: Authenticate users
@@ -246,10 +246,10 @@ Mobile Services supports authenticating and authorizing app users using a variet
 Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
 ### Server flow
-To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app, 
+To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app,
 you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the "Get started with authentication" tutorial ([Xamarin.iOS][Xamarin.iOS authentication]/[Xamarin.Android][Xamarin.Android authentication]).
 
-Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow login by using Facebook. 
+Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow login by using Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -261,7 +261,7 @@ Once you have registered your identity provider, simply call the [LoginAsync met
 			{
 				user = await client
 					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-				message = 
+				message =
 					string.Format("You are now logged in - {0}", user.UserId);
 			}
 			catch (InvalidOperationException)
@@ -281,15 +281,15 @@ In this case, Mobile Services manages the OAuth 2.0 authentication flow by displ
 
 ### Client flow
 
-Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. 
+Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
 
-In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google. 
+In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google.
 
 	var token = new JObject();
-	// Replace access_token_value with actual value of your access token obtained 
+	// Replace access_token_value with actual value of your access token obtained
 	// using the Facebook or Google SDK.
 	token.Add("access_token", "access_token_value");
-			
+
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
 	{
@@ -298,11 +298,11 @@ In the most simplified form, you can use the client flow as shown in this snippe
 			string message;
 			try
 			{
-				// Change MobileServiceAuthenticationProvider.Facebook 
+				// Change MobileServiceAuthenticationProvider.Facebook
 				// to MobileServiceAuthenticationProvider.Google if using Google auth.
 				user = await client
 					.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
-				message = 
+				message =
 					string.Format("You are now logged in - {0}", user.UserId);
 			}
 			catch (InvalidOperationException)
@@ -317,7 +317,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 	}
 
 ### <a name="caching"></a>Caching the authentication token
-In some cases, the call to the login method can be avoided after the first time the user authenticates. You can use a local secure store (such as [Xamarin.Auth][Xamarin.Auth component]) to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache. When the cache is empty, you still need to send the user through the login process. 
+In some cases, the call to the login method can be avoided after the first time the user authenticates. You can use a local secure store (such as [Xamarin.Auth][Xamarin.Auth component]) to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache. When the cache is empty, you still need to send the user through the login process.
 
 	using Xamarin.Auth;
 	var accountStore = AccountStore.Create(); // Xamarin.iOS
@@ -327,7 +327,7 @@ In some cases, the call to the login method can be avoided after the first time 
 	var account = new Account (user.UserId, new Dictionary<string,string> {{"token",user.MobileServiceAuthenticationToken}});
 	accountStore.Save(account, "Facebook");
 
-	// Log in 
+	// Log in
 	var accounts = accountStore.FindAccountsForService ("Facebook").ToArray();
 	if (accounts.Count != 0)
 	{
@@ -343,7 +343,7 @@ In some cases, the call to the login method can be avoided after the first time 
 		// Replace access_token_value with actual value of your access token
 		token.Add("access_token", "access_token_value");
 	}
-			
+
 	 // Log out
 	client.Logout();
 	accountStore.Delete(account, "Facebook");
@@ -351,11 +351,11 @@ In some cases, the call to the login method can be avoided after the first time 
 
 ## <a name="errors"></a>How to: Handle errors
 
-There are several ways to encounter, validate, and work around errors in Mobile Services. 
+There are several ways to encounter, validate, and work around errors in Mobile Services.
 
 As an example, server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. Imagine defining and registering a server script that validate and modify data, like so:
 
-	function insert(item, user, request) 
+	function insert(item, user, request)
 	{
 	   if (item.text.length > 10) {
 		  request.respond(statusCodes.BAD_REQUEST, { error: "Text cannot exceed 10 characters" });
@@ -388,7 +388,7 @@ Now that the mobile service is validating data and sending error responses on th
 The Xamarin Component client is designed for strongly typed scenarios. However, sometimes, a more loosely typed experience is convenient; for example, this could be when dealing with objects with open schema. That scenario is enabled as follows. In queries, you forego LINQ and use the wire format.
 
 	// Get an untyped table reference
-	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");			
+	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 
 	// Lookup untyped data using OData
 	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
@@ -419,7 +419,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
   <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
 * Authorize users with scripts ([Xamarin.iOS][Authorize users with scripts iOS]/[Xamarin.Android][Authorize users with scripts Android])
-  <br/>Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+  <br/>Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -438,7 +438,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [How to: Delete data in a mobile service]: #deleting
 [How to: Authenticate users]: #authentication
 [How to: Handle errors]: #errors
-[How to: Design unit tests]: #unit-testing 
+[How to: Design unit tests]: #unit-testing
 [How to: Query data from a mobile service]: #querying
 [How to: Customize the client]: #customizing
 [How to: Work with untyped data]: #untyped
@@ -477,4 +477,3 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
- 

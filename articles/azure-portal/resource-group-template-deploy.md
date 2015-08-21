@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="08/20/2015"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
@@ -256,6 +256,8 @@ If you use a parameter file to pass the parameter values to your template during
             }
        }
     }
+
+The size of the parameter file cannot be more than 64 KB.
 
 ## Next steps
 - For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../arm-template-deployment.md)
