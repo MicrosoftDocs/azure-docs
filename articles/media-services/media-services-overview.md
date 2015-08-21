@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Media Services Overview" 
+	pageTitle="Azure Media Services Overview and Common Scenarios" 
 	description="This topic gives an overview of Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
-#Azure Media Services Overview
+#Azure Media Services Overview and Common Scenarios
 
 Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
