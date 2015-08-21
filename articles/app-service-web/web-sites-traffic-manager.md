@@ -58,8 +58,6 @@ When using Azure Traffic Manager with Azure, keep in mind the following points:
 
 For a conceptual and technical overview of Azure Traffic Manager, see [Traffic Manager Overview](../traffic-manager/traffic-manager-overview.md). 
 
-For information on how to configure Azure Traffic Manager, including for Web Apps use, see [Traffic Manager Configuration Tasks](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx).
-
 For detailed information about load balancing in Azure Traffic Manager, see [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 For more information about using Traffic Manager with Web Apps, see the blog posts 
