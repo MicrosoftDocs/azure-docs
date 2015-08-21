@@ -43,7 +43,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 1. Click **Virtual Machines** in the left pane.
 
-	![windows azure virtual machines](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660124.gif)
+	![microsoft azure virtual machines](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660124.gif)
 
 1. Click **New**.
 
@@ -651,7 +651,7 @@ After configuring and verifying the report server, a common administrative task 
 
 The following table summarizes some of the options available to publish existing reports from an on-premises computer to the report server hosted on the Microsoft Azure Virtual Machine:
 
-- **RS.exe script**: Use RS.exe script to copy report items from and existing report server to your Microsoft Azure Virtual Machine. For more information, see the section “Native mode to Native Mode – Windows Azure Virtual Machine” in [Sample Reporting Services rs.exe Script to Migrate Content between Report Servers](https://msdn.microsoft.com/library/dn531017.aspx).
+- **RS.exe script**: Use RS.exe script to copy report items from and existing report server to your Microsoft Azure Virtual Machine. For more information, see the section “Native mode to Native Mode – Microsoft Azure Virtual Machine” in [Sample Reporting Services rs.exe Script to Migrate Content between Report Servers](https://msdn.microsoft.com/library/dn531017.aspx).
 
 - **Report Builder**: The virtual machine includes the click-once version of Microsoft SQL Server Report Builder. To start Report builder the first time on the virtual machine:
 

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="SQL Server Business Intelligence in Azure Virtual Machines"
-   description="This topic describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs)."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
+	pageTitle="SQL Server Business Intelligence in Azure Virtual Machines"
+	description="This topic describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs)."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" />
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/19/2015"
+	ms.author="jroth" />
 
 # SQL Server Business Intelligence in Azure Virtual Machines
 
@@ -84,7 +84,7 @@ The following table summarizes the Business Intelligence features installed on t
 |**Analysis Services Tabular**|No|Supported in SQL Server 2012 and 2014 images but it is not installed by default. Install another instance of Analysis Services. See the section Install other SQL Server Services and features in this topic.|
 |**Analysis Services Power Pivot for SharePoint**|No|The Microsoft Azure Virtual Machine gallery image does not include SharePoint or SharePoint installation files. <sup>1</sup>|
 
-<sup>1</sup> For additional information on SharePoint and Azure virtual machines, see [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) and [SharePoint Deployment on Windows Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
+<sup>1</sup> For additional information on SharePoint and Azure virtual machines, see [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) and [SharePoint Deployment on Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
 
 ![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) Run the following PowerShell command to get a list of installed services that contain “SQL” in the service name.
 
