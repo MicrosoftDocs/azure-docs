@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB SQL query cheat sheet | Microsoft Azure" 
+	pageTitle="DocumentDB query cheat sheet | Microsoft Azure" 
 	description="A printable query cheat sheet that helps you use DocumentDB's SQL-like grammar to query JSON documents in its NoSQL database." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="08/20/2015" 
 	ms.author="mimig"/>
 
-# DocumentDB SQL query cheat sheet
+# Downloadable DocumentDB SQL query cheat sheet
 
 The **DocumentDB Query Cheat Sheet** helps you quickly write queries for DocumentDB data by displaying common queries, keywords, built-in functions, and operators in an easy to print reference sheet. 
 
@@ -24,11 +24,11 @@ DocumentDB supports relational, hierarchical,  and spatial querying of JSON docu
 
 ## Download  the DocumentDB query cheat sheet
 
-Download the DocumentDB query cheat sheet for a quick reference to all the query functions available to you. To keep it nearby, you can print the single-sided cheat sheet in page letter size (8.5 x 11 in.).
+Write your queries faster by downloading the query cheat sheet and using it as a quick reference. The cheat sheet shows common SQL queries used to retrieve data from two example JSON documents. To keep it nearby, you can print the single-sided cheat sheet in page letter size (8.5 x 11 in.).
 
 **Download the cheat sheet here: [Microsoft DocumentDB query cheat sheet](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
-![DocumentDB query cheat Sheet: Quick reference guide to the SQL grammar that DocumentDB supports.][cheat-sheet]
+![DocumentDB query cheat sheet: Quick reference to the SQL grammar supported by DocumentDB.][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
