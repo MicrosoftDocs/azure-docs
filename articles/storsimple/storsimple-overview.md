@@ -66,7 +66,7 @@ The Microsoft Azure StorSimple solution includes the following components:
 
 ## Next steps
 
-Read the [StorSimple 8000 Series Solutions Overview](http://www.microsoft.com/en-us/server-cloud/products/storsimple/resources.aspx) and view the [StorSimple chalk talk](https://azure.microsoft.com/en-us/documentation/videos/storsimple-hybrid-cloud-storage-solution/).
+Learn more about [StorSimple](https://azure.microsoft.com/en-us/documentation/services/storsimple/).
 
 Read more about [StorSimple components and terminology](storsimple-components.md).
 
