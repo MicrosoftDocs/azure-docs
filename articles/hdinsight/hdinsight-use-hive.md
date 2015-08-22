@@ -124,18 +124,22 @@ HDInsight can run HiveQL jobs using a variety of methods. Use the following tabl
 
 You can also use SQL Server Integration Services (SSIS) to run a Hive job. The Azure Feature Pack for SSIS provides the following components that work with Hive jobs on HDInsight.
 
-* [Azure HDInsight Hive Task](msdn.microsoft.com/en-US/library/mt146771(v=sql.120).aspx)
-* [Azure Subscription Connection Manager](msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx)
-Learn more about the Azure Feature Pack for SSIS [here](msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx).
+
+- [Azure HDInsight Hive Task][hivetask]
+- [Azure Subscription Connection Manager][connectionmanager]
+
+
+Learn more about the Azure Feature Pack for SSIS [here][ssispack].
 
 
 ##<a id="nextsteps"></a>Next steps
 
 Now that you've learned what Hive is and how to use it with Hadoop in HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Upload data to HDInsight][hdinsight-upload-data]
-* [Use Pig with HDInsight][hdinsight-use-pig]
-* [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
+
+- [Upload data to HDInsight][hdinsight-upload-data]
+- [Use Pig with HDInsight][hdinsight-use-pig]
+- [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
@@ -152,6 +156,9 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: http://msdn.microsoft.com/en-US/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md

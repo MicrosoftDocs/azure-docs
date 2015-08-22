@@ -99,9 +99,12 @@ HDInsight can run Pig Latin jobs by using a variety of methods. Use the followin
 
 You can also use SQL Server Integration Services (SSIS) to run a Pig job. The Azure Feature Pack for SSIS provides the following components that work with Pig jobs on HDInsight.
 
-* [Azure HDInsight Pig Task](msdn.microsoft.com/en-US/library/mt146781(v=sql.120).aspx)
-* [Azure Subscription Connection Manager](msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx)
-Learn more about the Azure Feature Pack for SSIS [here](msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx).
+
+- [Azure HDInsight Pig Task][pigtask]
+- [Azure Subscription Connection Manager][connectionmanager]
+
+
+Learn more about the Azure Feature Pack for SSIS [here][ssispack].
 
 
 ##<a id="nextsteps"></a>Next steps
@@ -117,6 +120,9 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
+[pigtask]: http://msdn.microsoft.com/en-US/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
