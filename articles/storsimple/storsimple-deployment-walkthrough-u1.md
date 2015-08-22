@@ -238,14 +238,16 @@ To connect to Windows PowerShell for StorSimple, you need to use terminal emulat
 
 ## Scan for and apply updates
 
-Updating your device can take <!-- 1-4--> several hours. Perform the following steps to scan for and apply updates on your device.
+Updating your device can take several hours. Perform the following steps to scan for and apply updates on your device.
+<!-- > can take 1-4 hours--> 
 
 <!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### To update your device
 
 1.	On the device **Quick Start** page, click **Devices**. Select the physical device, click **Maintenance** and then click **Scan Updates**.  
-2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. <!-- You may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
+2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. 
+    <!-- You may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 3.	An update job will be created. Monitor the status of your update by navigating to **Jobs**.
 
 	> [AZURE.NOTE] When the update job starts, it immediately displays the status as 50 percent. The status changes to 100 percent only after the update job is complete. There is no real-time status for the update process.

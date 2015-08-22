@@ -57,7 +57,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 | Scan for and apply updates.                                                   |                                                                                                                                                               |
 | Get the IQN of a Windows Server host.                                                   |                                                                                                                                                               |
 | Create a manual backup.                                                                 | 
-| Configure MPIO                                                                          |
+| Configure MPIO.                                                                          |
 
 
 ## Deployment configuration checklist
