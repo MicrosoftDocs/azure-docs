@@ -94,6 +94,8 @@ Edit your `AndroidManifest.xml` file:
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 			<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
+  -   On Android M and if your application targets Android API level 23 or greater, ``WRITE_EXTERNAL_STORAGE`` permission requires user approval. Please read [this section](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
+
 -   For system notifications you can also specify in the Reach campaign if the device should ring and/or vibrate. For it to work, you have to make sure you declared the following permission (after the `</application>` tag):
 
 			<uses-permission android:name="android.permission.VIBRATE" />
