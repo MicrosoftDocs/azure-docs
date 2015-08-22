@@ -97,8 +97,8 @@ HDInsight can run Pig Latin jobs by using a variety of methods. Use the followin
 
 ## Running Pig jobs on Azure HDInsight using on-premises SQL Server Integration Services
 
-You can also use SQL Server Integration Services (SSIS) to run a Pig job. The Azure Feature Pack for SSIS provides the following components that work with Hive and Pig jobs on HDInsight.
-* [Azure HDInsight Hive Task](msdn.microsoft.com/en-US/library/mt146771(v=sql.120).aspx)
+You can also use SQL Server Integration Services (SSIS) to run a Pig job. The Azure Feature Pack for SSIS provides the following components that work with Pig jobs on HDInsight.
+
 * [Azure HDInsight Pig Task](msdn.microsoft.com/en-US/library/mt146781(v=sql.120).aspx)
 * [Azure Subscription Connection Manager](msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx)
 Learn more about the Azure Feature Pack for SSIS [here](msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx).
