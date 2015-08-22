@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="08/21/2015"
    ms.author="larryfr"/>
 
 # Use Pig with Hadoop on HDInsight
@@ -93,6 +93,16 @@ HDInsight can run Pig Latin jobs by using a variety of methods. Use the followin
 | [.NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md) |           &nbsp;            |            ✔            | Linux or Windows                          | Windows (for now)                        |
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md)  |           &nbsp;            |            ✔            | Linux or Windows                          | Windows                                  |
 | [Remote Desktop](hdinsight-hadoop-use-pig-remote-desktop.md)  |              ✔              |            ✔            | Windows                                   | Windows                                  |
+
+
+## Running Pig jobs on Azure HDInsight using on-premises SQL Server Integration Services
+
+You can also use SQL Server Integration Services (SSIS) to run a Pig job. The Azure Feature Pack for SSIS provides the following components that work with Hive and Pig jobs on HDInsight.
+* [Azure HDInsight Hive Task](msdn.microsoft.com/en-US/library/mt146771(v=sql.120).aspx)
+* [Azure HDInsight Pig Task](msdn.microsoft.com/en-US/library/mt146781(v=sql.120).aspx)
+* [Azure Subscription Connection Manager](msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx)
+Learn more about the Azure Feature Pack for SSIS [here](msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx).
+
 
 ##<a id="nextsteps"></a>Next steps
 

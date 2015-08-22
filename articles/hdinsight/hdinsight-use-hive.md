@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/06/2015"
+	ms.date="08/21/2015"
 	ms.author="larryfr"/>
 
 # Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file
@@ -119,6 +119,15 @@ HDInsight can run HiveQL jobs using a variety of methods. Use the following tabl
 | [.NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md)                   |           &nbsp;            |            ✔            | Linux or Windows                          | Windows (for now)                        |
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md)                   |           &nbsp;            |            ✔            | Linux or Windows                          | Windows                                  |
 | [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md)                   |              ✔              |            ✔            | Windows                                   | Windows                                  |
+
+## Running Hive jobs on Azure HDInsight using on-premises SQL Server Integration Services
+
+You can also use SQL Server Integration Services (SSIS) to run a Hive job. The Azure Feature Pack for SSIS provides the following components that work with Hive and Pig jobs on HDInsight.
+* [Azure HDInsight Hive Task](msdn.microsoft.com/en-US/library/mt146771(v=sql.120).aspx)
+* [Azure HDInsight Pig Task](msdn.microsoft.com/en-US/library/mt146781(v=sql.120).aspx)
+* [Azure Subscription Connection Manager](msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx)
+Learn more about the Azure Feature Pack for SSIS [here](msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx).
+
 
 ##<a id="nextsteps"></a>Next steps
 
