@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Using Application Proxy to publish applications for secure remote access" 
-	description="A topic that explains how to publish applications, such as SharePoint sites, Outlook Web Access and IIS-based apps, inside your private network and provides secure access to users outside your network." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Using Application Proxy to publish applications for secure remote access"
+	description="A topic that explains how to publish applications, such as SharePoint sites, Outlook Web Access and IIS-based apps, inside your private network and provides secure access to users outside your network."
+	services="active-directory"
+	documentationCenter=""
+	authors="rkarlin"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015" 
+	ms.author="rkarlin"/>
 
 
 # Using Application Proxy to publish applications for secure remote access
@@ -36,4 +36,3 @@ To get started using Application Proxy, follow these steps:
 [Enable Application Proxy services](https://msdn.microsoft.com/library/azure/dn768214.aspx)
 [Publish applications with Application Proxy](https://msdn.microsoft.com/library/azure/dn768220.aspx)
 [Troubleshoot Application Proxy](https://msdn.microsoft.com/library/azure/dn768218.aspx)
- 

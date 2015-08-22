@@ -487,7 +487,7 @@ If you want to customize the size of the Redis Cluster deployment, then you can 
 
 Note:  The `totalMemberCountExcludingLast` and `totalMemberCount` properties are needed because the template language currently does not have “math” operations.
 
-More information regarding the template language can be found in MSDN at [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+More information regarding the template language can be found in MSDN at [Azure Resource Manager Template Language](../resource-group-authoring-templates.md).
 
 ### "resources" section
 
@@ -664,4 +664,4 @@ In essence, this approach suggests to:
 - For identical members of a group of resources (nodes in a cluster, etc.), create specific templates that leverage resource looping in order to deploy multiple instances with unique properties.
 - For all post-deployment tasks (product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology.
 
-For more information, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+For more information, see [Azure Resource Manager Template Language](../resource-group-authoring-templates.md).

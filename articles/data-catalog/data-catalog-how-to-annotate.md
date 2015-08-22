@@ -1,6 +1,6 @@
 <properties
    pageTitle="How to annotate data sources"
-   description="How-to article highlighting how to annotate data assets in **Azure Data Catalog**, including friendly names, tags, descriptions, and experts."
+   description="How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/13/2015"
+   ms.date="08/17/2015"
    ms.author="maroche"/>
 
 
