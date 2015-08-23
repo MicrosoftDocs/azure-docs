@@ -10,12 +10,14 @@
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
+   ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
+   ms.date="08/14/2015"
    ms.author="patshea" />
 
-# Debugging a Published Cloud Service with IntelliTrace and Visual Studio
+
+
+# Debugging a published cloud service with IntelliTrace and Visual Studio
 
 ##Overview
 
@@ -36,7 +38,7 @@ To enable IntelliTrace for an Azure application, you must create and publish the
 
 1. To collect IntelliTrace logs for your application when it is published in the cloud, select the **Enable IntelliTrace** check box.
 
-    >[AZURE.NOTE] You can enable either IntelliTrace or profiling when you publish your Azure application. You cannot enable both.
+    >[AZURE.IMPORTANT] You can enable either IntelliTrace or profiling when you publish your Azure application. You cannot enable both.
 
 1. To customize the basic IntelliTrace configuration, choose the **Settings** hyperlink.
 
@@ -50,7 +52,7 @@ After the Azure application has been published to Azure, you can determine if In
 
 ![VST_DeployComputeNode](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC744134.png)
 
-## Downloading IntelliTrace logs for a role Instance
+## Downloading IntelliTrace Logs for a Role Instance
 
 You can download IntelliTrace logs for a role instance from the **Cloud Services** node in **Server Explorer**. Expand the **Cloud Services** node until you locate the instance you are interested in, open the shortcut menu for this instance and choose **View IntelliTrace Logs**. The IntelliTrace logs are downloaded to a file in a directory on your local computer. Each time that you request the IntelliTrace logs, a new snapshot is created.
 
@@ -62,7 +64,7 @@ You can continue to work in Visual Studio while the IntelliTrace logs are downlo
 
 >[AZURE.NOTE] The IntelliTrace logs might contain exceptions that the framework generates and subsequently handles. Internal framework code generates these exceptions as a normal part of starting up a role, so you may safely ignore them.
 
-## Next steps
+## See Also
 
-[Debugging Cloud Services](http://go.microsoft.com/fwlink/p/?LinkID=62304)
+[Debugging Cloud Services](https://msdn.microsoft.com/library/ee405479.aspx)
 

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Debugging cloud services"
-   description="Debugging cloud services"
+   pageTitle="Debugging Azure Cloud Services"
+   description="Debugging Azure Cloud Services"
    services="visual-studio-online"
    documentationCenter="n/a"
    authors="patshea123"
@@ -10,9 +10,9 @@
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
+   ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
+   ms.date="08/14/2015"
    ms.author="patshea" />
 
 # Debugging cloud services
