@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Testing the performance of a cloud service"
+   pageTitle="Testing the performance of a cloud service | Microsoft Azure"
    description="Test the performance of a cloud service using the Visual Studio profiler"
    services="visual-studio-online"
    documentationCenter="n/a"

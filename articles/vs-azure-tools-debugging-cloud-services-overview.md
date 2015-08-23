@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Debugging Azure Cloud Services"
+   pageTitle="Debugging Azure Cloud Services | Microsoft Azure"
    description="Debugging Azure Cloud Services"
    services="visual-studio-online"
    documentationCenter="n/a"

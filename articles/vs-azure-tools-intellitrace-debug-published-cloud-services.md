@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Debugging a published cloud service with IntelliTrace and Visual Studio"
+   pageTitle="Debugging a published cloud service with IntelliTrace and Visual Studio | Microsoft Azure"
    description="Debugging a published cloud service with IntelliTrace and Visual Studio"
    services="visual-studio-online"
    documentationCenter="n/a"

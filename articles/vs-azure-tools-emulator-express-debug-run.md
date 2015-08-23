@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Using Emulator Express to run and debug a cloud service on a local machine"
+   pageTitle="Using Emulator Express to run and debug a cloud service on a local machine | Microsoft Azure"
    description="Using Emulator Express to run and debug a cloud service on a local machine"
    services="visual-studio-online"
    documentationCenter="n/a"

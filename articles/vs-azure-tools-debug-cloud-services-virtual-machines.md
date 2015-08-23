@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Debugging an Azure cloud service or virtual machine in Visual Studio"
+   pageTitle="Debugging an Azure cloud service or virtual machine in Visual Studio | Microsoft Azure"
    description="Debugging a Cloud Service or Virtual Machine in Visual Studio"
    services="visual-studio-online"
    authors="patshea123"

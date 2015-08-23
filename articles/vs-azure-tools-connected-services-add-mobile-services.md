@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Adding Mobile Services by using Connected Services in Visual Studio"
+   pageTitle="Adding Mobile Services by using Connected Services in Visual Studio | Microsoft Azure"
    description="Add Mobile Services by using the Visual Studio Add Connected Services dialog box"
    services="visual-studio-online"
    documentationCenter="na"
