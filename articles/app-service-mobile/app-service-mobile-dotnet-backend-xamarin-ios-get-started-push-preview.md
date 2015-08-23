@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="07/29/2015" 
+	ms.date="08/22/2015" 
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Xamarin.iOS App
@@ -30,11 +30,11 @@ In this tutorial, you add push notifications to the [Xamarin.iOS quick start] pr
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account.  
+If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
 * A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it.  
-
-    >[AZURE.NOTE] It's easier to run your Xamarin.iOS app on a Mac by using Xamarin Studio. You can run the Xamarin.iOS app by using Visual Studio on your Windows computer if you want, but it's a bit more complicated because you have to connect to a networked Mac. If you're interested in doing that, see [Installing Xamarin.iOS on Windows].
+Note that it's easier to run your Xamarin.iOS app on a Mac by using Xamarin Studio. You can run the Xamarin.iOS app by using Visual Studio on your Windows computer if you want, but it's a bit more complicated because you have to connect to a networked Mac. If you're interested in doing that, see [Installing Xamarin.iOS on Windows].
 
 * A physical iOS device.
 
