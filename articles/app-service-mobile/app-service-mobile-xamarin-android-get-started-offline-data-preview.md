@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="08/22/2015"
     ms.author="wesmc"/>
 
 # Enable offline sync for your Xamarin.Android mobile app
@@ -35,8 +35,6 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 * Visual Studio 2013
 * Visual Studio [Xamarin extension] **or** [Xamarin Studio]
 * Completion of the tutorial [Create a Xamarin Android app]. This tutorial uses the completed app covered in that tutorial.
-
-##<a name="review"></a>Review your server project configuration (optional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
 

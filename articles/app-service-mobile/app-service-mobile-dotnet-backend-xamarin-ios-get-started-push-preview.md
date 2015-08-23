@@ -30,27 +30,21 @@ In this tutorial, you add push notifications to the [Xamarin.iOS quick start] pr
 
 To complete this tutorial, you need the following:
 
-* An active Azure account.
-
-    If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
-
-    >[AZURE.NOTE] If you want to get started with mobile apps before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). You can create a short-lived starter mobile app  immediately. No credit cards required; no commitments.
+* An active Azure account. If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
 * A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it.  
 
     >[AZURE.NOTE] It's easier to run your Xamarin.iOS app on a Mac by using Xamarin Studio. You can run the Xamarin.iOS app by using Visual Studio on your Windows computer if you want, but it's a bit more complicated because you have to connect to a networked Mac. If you're interested in doing that, see [Installing Xamarin.iOS on Windows].
 
-* An physical iOS device
+* A physical iOS device.
 
-* Complete the [quickstart tutorial](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
+* Complete the [quickstart tutorial](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md).
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)] 
 
 ## <a id="register"></a>Register app for push notifications
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
-
-##<a name="review"></a>Review your server project configuration (optional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
 ## Configure Azure to send push notifications
 

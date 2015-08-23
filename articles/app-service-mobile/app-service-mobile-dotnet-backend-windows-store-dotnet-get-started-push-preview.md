@@ -36,8 +36,6 @@ To complete this tutorial, you need the following:
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
 * Complete the [quickstart tutorial](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
 
-##<a name="review"></a>Review your server project configuration (optional)
-
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)] 
 
 ##<a name="create-gateway"></a>Create a Notification Hub

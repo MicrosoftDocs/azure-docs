@@ -26,8 +26,6 @@ This topic shows you how to authenticate users of an App Service Mobile App from
 
 This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Create a Xamarin.iOS app]. 
 
-##<a name="review"></a>Review your server project configuration (optional)
-
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)] 
 
 ##<a name="create-gateway"></a>Create an App Service Gateway
