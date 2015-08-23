@@ -1,6 +1,6 @@
 <properties
-   pageTitle="QuickBooks Connector"
-   description="How to use the QuickBooks Connector"
+   pageTitle="Using the QuickBooks Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the QuickBooks Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-#Using the QuickBooks Connector in your Logic App#
-
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. QuickBooks connector lets you create and modify different QuickBooks entities. Following is the list of QuickBooks entities that are supported by the QuickBooks Connector.
+# Get started with the QuickBooks Connector and add it to your Logic App
+Use the QuickBooks connector to create and modify different QuickBooks entities. The following table lists the supported entities:
 
 Entities|Description
 ---|---
@@ -31,7 +30,7 @@ Invoice|An Invoice represents a sales form where the customer pays for a product
 Item|An item is a thing that your company buys, sells, or re-sells, such as products, shipping and handling charges, discounts, and sales tax (if applicable).  An item is shown as a line on an invoice or other sales form.
 SalesReceipt|This entity represents the sales receipt that is given to a customer.
 
-
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the QuickBooks Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ##QuickBooks Actions ##
 Following are the different actions available in QuickBooks connector.
