@@ -42,7 +42,7 @@ X12 Connector can be used either as a trigger or as an action.
 - Launch the Azure Logic Apps flow designer.
 - Click on X12 Connector from the right pane:  
 ![Trigger settings][3]
-- Click on ->: 
+- Click on ->:  
 ![Trigger options][4]
 - BizTalk X12 Connector exposes a single trigger. Select *Release Batch*:  
 ![Release batch input][5]
