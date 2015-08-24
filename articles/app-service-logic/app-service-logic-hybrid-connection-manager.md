@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Using the Hybrid Connection Manager for Azure App Service" 
-	description="Install and configure the Hybrid Connection Manager in Azure App Service; microservices architecture" 
+	pageTitle="Using the Hybrid Connection Manager | Microsoft Azure App Service" 
+	description="Install and configure the Hybrid Connection Manager and connect to on-premises connectors in Azure App Service" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/23/2015" 
 	ms.author="mandia"/>
 
-# Using the Hybrid Connection Manager in Azure App Service
-Some Connectors can connect to an on-premises system, like SQL Server, SAP, SharePoint, and so on. To use an on-premises system, Azure App Service uses the Hybrid Connection Manager. 
+# Connect to on-premises connectors in Azure App Service using the Hybrid Connection Manager
+To use an on-premises system, Azure App Service uses the Hybrid Connection Manager. Some Connectors can connect to an on-premises system, like SQL Server, SAP, SharePoint, and so on. 
 
 The Hybrid Connection Manager (HCM) is a click-once installer that is installed on an IIS server within your network, behind your firewall. Using an Azure Service Bus relay, HCM authenticates the on-premises system with the Connector in Azure. 
 

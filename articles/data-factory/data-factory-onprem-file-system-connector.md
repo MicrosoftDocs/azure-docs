@@ -429,10 +429,10 @@ Property | Description | Required
 -------- | ----------- | --------
 type | The type property should be set to **OnPremisesFileServer** | Yes 
 host | Host name of the server. Use ‘ \ ’ as the escape character as in the following example: if your share is: \\servername, specify \\\\servername.<p>If the file system is local to the gateway machine, use Local or localhost. If the file system is on a server different from the gateway machine, use \\\\servername.</p> | Yes
-userid  | Specify the ID of the user who has access to the server | No (if you choose encryptedcredential)
-Password | Specify the password for the user (userid) | No (if you choose encryptedcredential 
-Encryptedcredential | Specify the encrypted credentials that you can get by running the New-AzureDataFactoryEncryptValue cmdlet<p>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService</p> | No (if you choose to specify userid and password in plain text)
-Gatewayname | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
+userid  | Specify the ID of the user who has access to the server | No (if you choose encryptedCredential)
+password | Specify the password for the user (userid) | No (if you choose encryptedCredential 
+encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureDataFactoryEncryptValue cmdlet<p>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService</p> | No (if you choose to specify userid and password in plain text)
+gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
 
 **Example: Using username and password in plain text**
 	
@@ -457,7 +457,7 @@ Gatewayname | Name of the gateway that the Data Factory service should use to co
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
 	      "host": "localhost",
-	      "encryptedcredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+	      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
 	      "gatewayName": "mygateway"
 	    }
 	  }
