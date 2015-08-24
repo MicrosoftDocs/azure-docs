@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing" 
+	pageTitle="Office 365 DirSync test environment  | Microsoft Azure" 
 	description="Learn how to configure an Office 365 Directory Synchronization (DirSync) server in a hybrid cloud for IT pro or development testing." 
 	services="virtual-network" 
 	documentationCenter="" 

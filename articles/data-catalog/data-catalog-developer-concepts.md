@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Data Catalog developer concepts"
-   description="Developer concepts in Azure Data Catalog: Catalog, users, assets, crowdsourcing."
+   description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
