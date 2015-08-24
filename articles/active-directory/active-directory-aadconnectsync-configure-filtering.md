@@ -38,7 +38,7 @@ The following three filtering configuration types can be applied to the Director
 
 - [**Attribute–based**](#configure-attribute-based-filtering): You can use this filtering method to specify attribute-based filters. This enables you to control which objects should be synchronized to the cloud.
 
-> [AZURE.NOTE]If you make a change to filter configuration and you use password synchronization then you need to trigger a full sync of all passwords after you have completed the configuration. For steps on how to trigger a password full sync see (active-directory-aadconnectsync-implement-password-synchronization.md#trigger-a-full-sync-of-all-passwords)
+> [AZURE.NOTE]If you make a change to filter configuration and you use password synchronization then you need to trigger a full sync of all passwords after you have completed the configuration. For steps on how to trigger a password full sync see [Trigger a full sync of all passwords](active-directory-aadconnectsync-implement-password-synchronization.md#trigger-a-full-sync-of-all-passwords)
 
 ## Configure domain-based filtering
 

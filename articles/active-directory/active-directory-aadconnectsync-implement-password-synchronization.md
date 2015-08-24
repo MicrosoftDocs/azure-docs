@@ -136,7 +136,7 @@ A successfully synchronized password is in an event with the Event ID 657 indica
 If you have changed the filter configuration then you need to trigger a full sync of all passwords so the users now in scope will have their passwords synchronized.
 
     $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
-    $aadConnector = “<CASE SENSITIVE AAD CONNECTOR NAME>”
+    $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
     Import-Module adsync
     $c = Get-ADSyncConnector -Name $adConnector
     $p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter “Microsoft.Synchronize.ForceFullPasswordSync”, String, ConnectorGlobal, $null, $null, $null
