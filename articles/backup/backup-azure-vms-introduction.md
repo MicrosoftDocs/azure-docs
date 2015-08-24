@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2015"
+	ms.date="08/24/2015"
 	ms.author="aashishr"/>
 
 # Azure virtual machine backup - Introduction
@@ -117,7 +117,7 @@ Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=
 
 ## Limitations during Preview
 
-- Backup of virtual machines with more than 5 disks is not supported.
+- Backup of virtual machines with more than 16 data disks is not supported.
 - Backup of virtual machines using Premium storage is not supported.
 - Backup of virtual machines using multiple NICs or in a load-balanced configuration is not supported.
 - Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
