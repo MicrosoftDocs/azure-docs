@@ -73,7 +73,7 @@ To send push notifications to Windows Store apps, you must associate your app to
 
 7. (Optional) Repeat steps 4-6 for the Windows Phone Store app project.  
 
-8. Back in the Windows Dev Center page for your new app, click **Services**, **Push notifications** and then click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobiles Services**.
+8. Back in the Windows Dev Center page for your new app, click **Services**, **Push notifications** and then click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Services**.
 
    	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-live-services.png)
 
