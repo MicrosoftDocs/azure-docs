@@ -59,6 +59,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
+Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the powershell cmdlets.
+
 ### REST API
 Use REST to programmatically perform database restore.
 
