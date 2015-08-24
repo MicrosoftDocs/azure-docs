@@ -45,7 +45,7 @@ Here's what you need before you start:
 4. [Deploy an on-premises process server](site-recovery-vmware-to-azure.md/#step-4-deploy-the-on-premises-process-server). Note that:
 
 	- You should deploy the process server on the same virtual network/subnet as the IaaS VMs you want to migrate. 
-		![IaaS VMs](./media/site-recovery-migrate-aws-to-azure/ASR_AWSMigration1.png)
+		![IaaS VMs](./media/site-recovery-migrate-azure-to-azure/ASR_MigrateAzure1.png)
 
 	- After you've deployed the process server validate that it can communicate with the virtual machines that you'll migrate.
 	- Each VM you want to protect needs the Mobility service installed. This service sends data to the process server. The Mobility service can be installed manually or pushed and installed automatically by the process server when protection for the VM is enabled. Firewall rules on IaaS virtual machines that you want to migrate should be configured to allow push installation of this service. 
