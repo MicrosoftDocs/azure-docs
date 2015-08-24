@@ -22,9 +22,18 @@ The objective of this topic is to describe different on-premises and Azure AD to
 
 Legend for pictures in the document:
 
-On-premises Active Directory forest | Active Directory with filtered import | Azure AD Connect sync server |  Azure AD Connect sync server “Staging mode” | GALSync with FIM2010 or MIM2016 | Azure AD Connect sync server, detailed | Azure AD directory | Unsupported scenario |
-:-----:| :-----:| :-----:| :-----:| :-----:| :-----:| :-----:| :-----:|
-![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)|![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)|![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)|![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)|![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|![Unsupported](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+| Description | Icon |
+|-----| :-----:|
+| On-premises Active Directory forest | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
+| Active Directory with filtered import | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
+| Azure AD Connect sync server | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
+|  Azure AD Connect sync server “Staging mode” | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
+| GALSync with FIM2010 or MIM2016 | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
+| Azure AD Connect sync server, detailed |![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
+| Azure AD directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
+| Unsupported scenario | ![Unsupported](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+
+
 
 ## Single forest, single Azure AD directory
 ![SingleForestSingleDirectory](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
