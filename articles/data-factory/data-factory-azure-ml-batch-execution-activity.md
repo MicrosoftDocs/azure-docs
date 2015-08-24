@@ -34,9 +34,15 @@ Azure Data Factory enables you to easily create pipelines that leverage a publis
 	![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
 
-## Scenario 1
+## Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
+In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. To invoke the Azure Machine Learning (ML) Web service from an Azure Data Factory pipeline, you first create an Azure ML linked service and use the AzureMLBatchExecution activity in the pipeline. You can pass Azure blob datasets that are input and output for the activity as Web service input and Web service output parameters. The Azure ML Batch Execution activity can have zero or more inputs and one or more outputs.  
 
-In this scenario, you want to use Azure Data Factory and Azure Machine Learning to make predictions using the data in blob storage. The results will be stored in the Azure Blob storage as well. Your Azure Machine Learning Web service endpoint uses standard Web service input and Web service output. To do this, you specify the Azure blob datasets in the **webServiceInput** and **webServiceOutputs** properties of the **AzureMLBatchExecution** activity.
+In the following example, note the following:
+ 
+- **type** of the activity is set to **AzureMLBatchExecution**.
+- The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. 
+- The **DecisionTreeInputBlob** is passed as an input to the Web service by using the **webServiceInput** JSON property and **DecisionTreeResultBlob** as an output to the Web service by using the **webServiceOutputs** JSON property.   
+
 
 		{
 		  "name": "PredictivePipeline",
@@ -78,7 +84,7 @@ In this scenario, you want to use Azure Data Factory and Azure Machine Learning 
 		  }
 		}
 
-> [AZURE.NOTE] Any dataset that is included in webServiceInput or webServiceOutputs, must be specified as input/output(s) for the activity, but not all (or any) activity input/outputs need to be specified as webService input/outputs. For example, an Azure Machine Learning Web service that uses Reader or Writer modules may not utilize the WebServiceInput or WebServiceOutputs properties of batch execution requests, but the datasets for those storage locations would still be inputs and outputs to the activity itself.
+> [AZURE.NOTE] Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, DecisionTreeInputBlob is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.   
 
 ### Example
 
@@ -190,7 +196,9 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 		    }
 		  }
 		}
-5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. It will get the location of the input file from your input datasets, call the Azure Machine Learning batch execution API, and copy the batch execution output to the blob given in your output dataset. Unlike some other Data Factory activities, AzureMLBatchExecution activity can have 0 (zero) or more inputs and one or more outputs.
+5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. It will get the location of the input file from your input datasets, call the Azure Machine Learning batch execution API, and copy the batch execution output to the blob given in your output dataset. 
+
+	> [AZURE.NOTE] AzureMLBatchExecution activity can have zero or more inputs and one or more outputs.
 
 		{
 		  "name": "PredictivePipeline",
@@ -236,14 +244,15 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 
 	> [AZURE.NOTE] Specifying input for the AzureMLBatchExecution activity is optional. 
 
-## Scenario 2
+## Scenario: Experiments using Reader/Writer Modules to refer to data in various storages
 
-You have data in other data sources (e.g. Azure SQL Database), and you want to use the Reader and Writer module to read and write data. 
+Another common scenario when creating Azure ML experiments is to use Reader and Writer modules. The reader module is used to load data into an experiment and the writer module is to save data from your experiments. For details about reader and writer modules, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.     
 
-In this case, you have a deployed Azure Machine Learning web service that is using the Reader module to read data from one of the Azure Machine Learning supported data sources. After the batch execution is performed, the results are written using a Writer module.  No web service inputs and outputs are defined in the experiments.
+When using the reader and writer modules, it is good practice to use a Web service parameter for each property of these reader/writer modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with a reader module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another Azure SQL Server called YYY.database.windows.net. You can use a Web service parameter to allow this value to be configured.
 
-In this case, we recommend that you setup the relevant Web service parameters for the Reader and Writer modules. This will allow it to be configured when using the 
-AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section as follows. 
+> [AZURE.NOTE] Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for an Azure ML Web service. In this scenario, you will pass parameters for a Web service that correspond to properties of reader/writer modules. 
+
+Let's look at a scenario for using Web service parameters. You have a deployed Azure Machine Learning web service that is using a reader module to read data from one of the Azure Machine Learning supported data sources (for example: Azure SQL Database). After the batch execution is performed, the results are written using a Writer module (Azure SQL Database).  No web service inputs and outputs are defined in the experiments. In this case, we recommend that you setup the relevant Web service parameters for the reader and writer modules. This will allow the reader/writer modules to be configured when using the AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section in the activity JSON as follows. 
 
 
 	"typeProperties": {
@@ -263,17 +272,13 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
  
 > [AZURE.NOTE] The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service. 
 
-
-### Reader and Writer Modules
-
-A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
-
-For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.   
-
 ### Using a Reader module to read data from multiple files in Azure Blob
-When using the Reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (e.g. 000000_0) that are produced by a Pig and Hive script running on HDInsight. The Reader module allows you to read files (with no extensions) by configuring the **Path to container, directory or blob** property of the reader module to point to the container/folder that contains the files as shown below. Note, the asterisk (i.e. \*) **specifies that all the files in the container/folder (i.e. data/aggregateddata/year=2014/month-6/\*)** will be read as part of the experiment.
+Big data pipelines (Pig, Hive, etc...) can produce one or more output files with no extensions. For example, when you specify an external Hive table, the data for the external Hive table can be stored in Azure blob storage with the following name 000000_0. You can use the reader module in an experiment to read multiple files, and use them for predictions. 
+
+When using the reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (e.g. 000000_0) that are produced by a Pig and Hive script running on HDInsight. The reader module allows you to read files (with no extensions) by configuring the **Path to container, directory or blob** property of the reader module to point to the container/folder that contains the files as shown below. Note, the asterisk (i.e. \*) **specifies that all the files in the container/folder (i.e. data/aggregateddata/year=2014/month-6/\*)** will be read as part of the experiment.
 
 ![Azure Blob properties](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+
 
 ### Example 
 #### Pipeline with AzureMLBatchExecution activity with Web Service Parameters
@@ -305,14 +310,11 @@ When using the Reader module in an Azure Machine Learning experiment, you can sp
                     "output1": "MLSqlOutput"
                 }
 	          	"globalParameters": {
-	            	"Database server name1": "output.database.windows.net",
-		            "Database name1": "outputDatabase",
-		            "Server user account name1": "outputUser",
-		            "Server user account password1": "outputPassword",
-		            "Comma separated list of columns to be saved": "CustID, Scored Labels, Scored Probabilities",
-		            "Data table name": "BikeBuyerPredicted"
-	          	}
-                
+	            	"Database server name": "<myserver>.database.windows.net",
+		            "Database name": "<database>",
+		            "Server user account name": "<user name>",
+		            "Server user account password": "<password>"
+	          	}              
             },
 	        "policy": {
 	          "concurrency": 1,
@@ -329,16 +331,7 @@ When using the Reader module in an Azure Machine Learning experiment, you can sp
  
 In the above JSON example:
 
-- The Azure ML model uses both Azure SQL Reader and Azure SQL Writer
-- When exposed via Web service, the default names are used for the parameters
-	- For the **reader**: Database server name, Database name, Server user account name, and Server user account password.
-	- For the **writer**: Database server name1, Database name1, Server user account name1, and Server user account password1.
-	
-		Note that the reader and writer do not share parameters in this case.  
-- The Data Factory service automatically generates values for Web service parameters with the names **Database server name**, **Database name**, **Server user account name**, and **Server user account password**, which match the names of the input reader. Therefore, you do not need to explicitly pass the values for these parameters via **globalParameters** in the activity JSON below.  
-- The parameters for writer (the ones with '1' suffix) are not automatically filled in by the Data Factory service. Therefore, you need to specify values for these parameters in the **globalParameters** section of the activity JSON.  
-- **Customer ID**, **scored labels**, and **scored probabilities** are saved as comma separated columns. 
-- The **Data table name** in this example corresponds to a table in the output database.
+- The deployed Azure Machine Learning Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.  
 - Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
  
 
