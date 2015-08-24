@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Set up a simulated hybrid cloud environment for testing" 
-	description="Learn how to create a simulated hybrid cloud environment for IT pro or development testing, using two Azure virtual networks and a VNet-to-VNet connection." 
+	pageTitle="Simulated hybrid cloud test environment | Microsoft Azure" 
+	description="Create a simulated hybrid cloud environment for IT pro or development testing, using two Azure virtual networks and a VNet-to-VNet connection." 
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 

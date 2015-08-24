@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Set up a hybrid cloud environment for testing" 
-	description="Learn how to create a hybrid cloud environment for IT pro or development testing." 
+	pageTitle="Hybrid cloud test environment | Microsoft Azure" 
+	description="Learn how to create a hybrid cloud environment for IT pro or development testing, complete with a simplfied on-premises network." 
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 

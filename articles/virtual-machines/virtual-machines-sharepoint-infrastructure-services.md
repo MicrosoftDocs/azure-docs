@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Farms Hosted in Azure Infrastructure Services"
-	description="Find the key articles that describe how to set up a dev/test or production SharePoint 2013 farm in Microsoft Azure infrastructure services."
+	pageTitle="SharePoint Server 2013 farms in Azure | Microsoft Azure"
+	description="Find the articles that describe how to set up a dev/test environment or a production SharePoint Server 2013 farm in Microsoft Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
