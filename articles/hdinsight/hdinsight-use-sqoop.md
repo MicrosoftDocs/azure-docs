@@ -67,7 +67,7 @@ Before you begin this tutorial, you must have the following:
 
 	> [AZURE.NOTE] HDInsight supports only location-based virtual networks, and it does not currently work with affinity group-based virtual networks.
 
-	* To create and configure a virtual network, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+	* To create and configure a virtual network, see [Virtual Network Configuration Tasks](../services/virtual-machines/).
 
 		* When you are using SQL Server in your datacenter, you must configure the virtual network as *site-to-site* or *point-to-site*.
 
