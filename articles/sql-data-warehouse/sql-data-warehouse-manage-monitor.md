@@ -137,8 +137,10 @@ ORDER BY step_index;
 Save the Step Index of the long-running step.
 
 Check the *operation_type* column of the long-running query step:
-- Proceed with Step 4a for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation
-- Proceed with Step 4b for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation
+
+- Proceed with Step 4a for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
+- Proceed with Step 4b for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+
 
 
 
