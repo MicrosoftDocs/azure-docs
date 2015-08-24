@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="08/20/2015"
+   ms.date="08/24/2015"
    ms.author="carlrab"/>
 
 #Migrating a compatible database using SSMS
