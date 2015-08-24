@@ -29,11 +29,10 @@ To create a SQL Server virtual machine in Azure, you must first obtain an Azure 
 
 After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure Management Portal](virtual-machines-provision-sql-server.md). Those images include licensing of SQL Server in the pricing for the VM. 
 
-You can run common SQL Server workloads on Azure Virtual Machines. SQL Server has several optimized virtual machine images available in the gallery. These include images for:
+You can run common SQL Server workloads on Azure Virtual Machines. SQL Server has several optimized virtual machine images available in the gallery. For more information on specific workloads, see:
 
-- [Business Intelligence](https://msdn.microsoft.com/library/azure/jj992719.aspx)
-- [Data Warehousing](https://msdn.microsoft.com/library/azure/dn387396.aspx)
-- [OLTP](https://msdn.microsoft.com/library/azure/dn387396.aspx)
+- [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-sql-server-business-intelligence.md)
+- [SQL Server Data Warehousing and Transactional Workloads in Azure Virtual Machines](virtual-machines-sql-server-dw-and-oltp-workloads.md)
 
 The following table provides a matrix of available SQL Server images in the virtual machine gallery.
 
@@ -51,8 +50,8 @@ In addition to these preconfigured images, you can also [create an Azure virtual
 
 During these early stages of provisioning and configuring, common tasks include:
 
-- [Review performance best practices for SQL Server in Azure VMs](https://msdn.microsoft.com/library/azure/dn133149.aspx)
-- [Review security best practices for SQL Server in Azure VMs](https://msdn.microsoft.com/library/azure/dn133147.aspx)
+- [Review performance best practices for SQL Server in Azure VMs](virtual-machines-sql-server-performance-best-practices.md)
+- [Review security best practices for SQL Server in Azure VMs](virtual-machines-sql-server-security-considerations.md)
 - [Set up connectivity](virtual-machines-sql-server-connectivity.md)
 
 ### Migrate your data
