@@ -78,7 +78,7 @@ The encoders output metadata is described [here](http://msdn.microsoft.com/libra
 
 Currently, not supported.
 
-##Audio and/or video overlays
+###Audio and/or video overlays
 
 Currently, not supported.
 
@@ -112,7 +112,9 @@ The encoders output metadata is described [here](http://msdn.microsoft.com/libra
 
 ###Thumbnail
 
-##Audio and/or video overlays
+[Creating a thumbnail](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+
+###Audio and/or video overlays
 
 [Creating Overlays](media-services-azure-media-customize-ame-presets.md#creating-overlays).
 
@@ -120,7 +122,7 @@ The encoders output metadata is described [here](http://msdn.microsoft.com/libra
 
 [How to modify the output file names](media-services-azure-media-customize-ame-presets.md#controlling-azure-media-encoder-output-file-names)
 
-##See also
+###See also
 
 [Encoding your media with Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md)
 

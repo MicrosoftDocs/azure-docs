@@ -211,13 +211,8 @@ The following **CreateChainedTaskEncodingJob** method creates a job that contain
     }
 
 
-##Next Steps
+##See Also 
 
-[Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
-[How to: Get a Media Processor Instance]:http://go.microsoft.com/fwlink/?LinkId=301732
-[How to: Upload an Encrypted Asset]:http://go.microsoft.com/fwlink/?LinkId=301733
-[How to: Deliver an Asset by Download]:http://go.microsoft.com/fwlink/?LinkId=301734
-[How to Check Job Progress]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+[Media Services Encoding Overview](media-services-encode-asset.md)
+
  
