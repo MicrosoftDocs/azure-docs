@@ -193,7 +193,7 @@ As with the previous steps, there is very little difference between implementing
 
 	When adding the file, make sure that **All Files** is selected in the drop-down list next to the **File name:** field. The rest of this tutorial assumes that the name of the image is "image.jpg". If you have a different file, you will have to rename the image, or change your code to compensate.
 
-4. To make sure that the running service can find the image file, in Solution Explorer right-click the image file. In the **Properties** pane, set **Copy to Output Directory** to **Copy if newer**.
+4. To make sure that the running service can find the image file, in **Solution Explorer** right-click the image file. In the **Properties** pane, set **Copy to Output Directory** to **Copy if newer**.
 
 5. Add references to the **System.Drawing.dll**, **System.Runtime.Serialization.dll**, and **Microsoft.ServiceBus.dll** assemblies to the project, and also add the following associated `using` statements.  
 
@@ -243,7 +243,7 @@ As with the previous steps, there is very little difference between implementing
 
 1. Right-click the **ImageListener** project. Then click **Add**, then **New Item**.
 
-2. In Solution Explorer, double-click **App.config**, which currently contains the following XML elements.
+2. In **Solution Explorer**, double-click **App.config**, which currently contains the following XML elements.
 
 	```xml
 	<?xml version="1.0" encoding="utf-8" ?>
@@ -458,7 +458,7 @@ This step describes how to run a web service using a console application on Serv
 
 ### To create and configure the web service host
 
-1. Create the web service host, using the URI address created earlier in this section.
+- Create the web service host, using the URI address created earlier in this section.
 
 	```c
 	WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
