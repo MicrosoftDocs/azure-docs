@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure AD Connect: Version Release History"
+   pageTitle="Azure AD Connect: Version Release History | Microsoft Azure"
    description="This topic lists all releases of Azure AD Connect and Azure AD Sync"
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="kbrint"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -33,7 +33,7 @@ Released: 2015 August
 **Fixed issues:**
 
 - Azure AD Connect installation wizard crashes if another user continues installation rather than the person who first started the installation.
-- If a previous uninstall of Azure AD Connect fails to uninstall Azue AD Connect sync cleanly, it is not possible to reinstall.
+- If a previous uninstall of Azure AD Connect fails to uninstall Azure AD Connect sync cleanly, it is not possible to reinstall.
 - Cannot install Azure AD Connect using Express install if the user is not in the root domain of the forest or if a non-English version of Active Directory is used.
 - If the FQDN of the Active Directory user account cannot be resolved, a misleading error message “Failed to commit the schema” is shown.
 - If the account used on the Active Directory Connector is changed outside the wizard, the wizard will fail on subsequent runs.
