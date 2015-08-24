@@ -19,7 +19,7 @@
 
 #Release notes
 
-##4.1.0 (08/24/2015)
+##4.1.0 (08/25/2015)
 
 - Handle new permission model for Android M.
 - Can now configure location features at runtime instead of using  `AndroidManifest.xml`.
