@@ -16,7 +16,7 @@
 	ms.date="08/24/2015"
 	ms.author="raynew"/>
 
-#  Migrate Azure IaaS virtual machines from one region to another 
+#  Migrate Azure IaaS virtual machines between Azure regions
 
 
 ## Overview
