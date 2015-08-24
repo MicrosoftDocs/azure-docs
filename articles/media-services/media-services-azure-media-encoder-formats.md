@@ -13,97 +13,107 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="08/23/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Encoder formats and codecs
 
-Encoders compress digital media using codecs. Encoders typically have various settings that allow you to specify properties of the media generated for example, the codecs used, file format, resolution, and bitrate. File formats are containers that hold the compressed video as well as information about what codecs were used to compress the video. 
-
-Codecs have two components: one to compress digital media files for transmission and the other to decompress digital media files for playback. There are audio codecs that compress and decompress audio and video codecs that compress and decompress video. Codecs can use lossless or lossy compression. Lossless codecs preserve all of the information when compression occurs. When the file is decompressed, the result is a file that is identical to the input media, making lossless codecs well suited to archiving and storage. Lossy codecs lose some of the information when encoding and produce smaller files (than the original) at the cost of video quality and are well suited to streaming over the internet. The two main codecs used by the Azure Media Encoder to encode are H.264 and VC-1. Other codecs may be available in our partner ecosystem of encoders.
-
-It is important to understand the difference between codecs and file formats. Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video. For more information, see [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
-
-This document contains a list of the most common import and export file formats that you can use with Azure Media Encoder.
+This document contains a list of the most common input and output file formats and codecs that you can use with Azure Media Encoder.
 
 
-[Azure Media Encoder Import Formats ](#import_formats)
-
-[Azure Media Encoder Export Formats](#export_formats)
-
-
-##<a id="import_formats"></a>Azure Media Encoder Import Formats 
-
-The following section lists the codecs and file format that are supported for import.
-
-###Video Codecs
-
-- H.264 (Baseline, Main, and High Profiles)
-- MPEG-1 (Including MPEG-PS)
-- MPEG-2 (Simple and Main Profile and 4:2:2 Profile)
-- MPEG-4 v2 (Simple Visual Profile and Advanced Simple Profile)
-- VC-1 (Simple, Main, and Advanced Profiles)
-- Windows Media Video (Simple, Main, and Advanced Profiles)
-- DV (DVC, DVHD, DVSD, DVSL)
-- Grass Valley HQ/HQX
+##Input video file formats (containers)
  
-###Audio Codecs
-
-- AC-3 (Dolby Digital audio)
-- AAC (AAC-LC, HE-AAC v1 with AAC-LC core, and HE-AAC v2 with AAC-LC core)
-- MP3
-- Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional, and Windows Media Audio Lossless)
-
-###Video File Formats
- 
-File format|File Extensions
+File format (file extensions)|Supported
 ---|---
-3GPP, 3GPP2|.3gp, .3g2, .3gp2
-Advanced Systems Format (ASF)|.asf
-Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream]|.mts, .m2ts
-Audio-Video Interleaved (AVI)|.avi
-Digital camcorder MPEG-2 (MOD)|.mod
-DVD transport stream (TS) file|.ts
-DVD video object (VOB) file|.vob
-Expression Encoder Screen Capture Codec file|.xesc
-MP4|.mp4
-MPEG-1 System Stream|.mpeg, .mpg
-MPEG-2 video file|.m2v
-Smooth Streaming File Format (PIFF 1.3)|.ismv
-Windows Media Video (WMV)|.wmv
-
+3GPP, 3GPP2 (.3gp, .3g2, .3gp2)	|Yes
+Advanced Systems Format (ASF) (.asf)	|Yes
+Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream] (.mts, .m2ts)	|Yes
+Audio-Video Interleaved (AVI) (.avi)	|Yes
+Digital camcorder MPEG-2 (MOD) (.mod)	|Yes
+DVD transport stream (TS) file (.ts)	|Yes
+DVD video object (VOB) file (.vob)	|Yes
+Expression Encoder Screen Capture Codec file (.xesc)	|Yes
+MP4 (.mp4)	|Yes
+MPEG-1 System Stream (.mpeg, .mpg)	|Yes
+MPEG-2 video file (.m2v)	|Yes
+Smooth Streaming File Format (PIFF 1.3) (.ismv)	|Yes
+Windows Media Video (WMV) (.wmv)	|Yes
+Adobe® Flash® F4V			|No		
+MXF/SMPTE 377M				|Limited 
+GXF							|No		 
+[Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|No
+Matroska/WebM				|No
 
 Some uncompressed formats are supported. For more information, see [Supported Uncompressed Video Formats](#uncompressed)
 
-###Audio File Formats
+##Input audio file formats
 
-File Format|File Extensions
+File Format (file extensions)|Supported
 ---|---
-AC-3 (Dolby Digital) audio|.ac3
-Audio Interchange File Format (AIFF)|.aiff
-Broadcast Wave Format|.bwf
-MP3 (MPEG-1 Audio Layer 3)|.mp3
-MP4 audio|.m4A
-MPEG-4 audio book|.m4b
-WAVE file|.wav
-Windows Media Audio|.wma
+AC-3 (Dolby Digital) audio(.ac3)|Yes
+Audio Interchange File Format (AIFF)(.aiff)|Yes
+Broadcast Wave Format(.bwf)|Yes
+MP3 (MPEG-1 Audio Layer 3)(.mp3)|Yes
+MP4 audio(.m4A)|Yes
+MPEG-4 audio book(.m4b)|Yes
+WAVE file(.wav)|Yes
+Windows Media Audio(.wma)|Yes
 
-###Image File Formats
 
-File Format|File Extensions
+##Input video Codecs
+
+Input Video Codecs|Supported
+---|--- 
+H.264 (Baseline, Main, and High Profiles)			|Yes
+AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra	|Only 8bit 4:2:0
+Avid DNxHD (in MXF)									|No
+DVCPro/DVCProHD (in MXF)							|No
+JPEG2000											|No
+MPEG-2 (Simple and Main Profile and 4:2:2 Profile)	|Up to 4:2:2 Profile
+MPEG-1 (Including MPEG-PS)							|Yes
+Windows Media Video/VC-1							|Yes
+Canopus HQ/HQX										|Yes
+MPEG-4 v2 (Simple Visual Profile and Advanced Simple Profile)	|Yes
+[Theora](https://en.wikipedia.org/wiki/Theora)		|No
+VC-1 (Simple, Main, and Advanced Profiles)			|Yes
+Windows Media Video (Simple, Main, and Advanced Profiles)	|Yes
+DV (DVC, DVHD, DVSD, DVSL)							|Yes
+Grass Valley HQ/HQX									|Yes
+ 
+
+##Input audio Codecs
+
+Input Audio Codecs|Supported
 ---|---
-Bitmap|.bmp
-GIF, Animated GIF|.gif
-JPEG|.jpeg, .jpg
-PNG|.png
-TIFF|.tif
-WPF Canvas XAML|.xaml
+AES (SMPTE 331M and 302M, AES3-2003)		|No
+Dolby® E									|No
+Dolby® Digital (AC3)						|Yes
+Dolby® Digital Plus (E-AC3)					|No
+AAC (AAC-LC, HE-AAC v1 with AAC-LC core, and HE-AAC v2 with AAC-LC core; up to 5.1)|Yes
+MPEG Layer 2|Yes|Yes|Yes
+MP3 (MPEG-1 Audio Layer 3)|Yes
+Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional, and Windows Media Audio Lossless)	|Yes
+WAV/PCM|Yes
+[FLAC](https://en.wikipedia.org/wiki/FLAC)|No
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |No
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)|No
 
 
-##<a id="export_formats"></a>Azure Media Encoder Export Formats
+##Input image file formats
+
+File Format (file extensions) | Supported
+---|---
+Bitmap (.bmp)
+GIF, Animated GIF (.gif)
+JPEG (.jpeg, .jpg)
+PNG (.png)
+TIFF (.tif)
+WPF Canvas XAML (.xaml)
+
+
+##Output Formats and codecs
 
 The following table lists the codecs and file formats that are supported for export.
-
 
 File Format|Video Codec|Audio Codec
 ---|---|---
