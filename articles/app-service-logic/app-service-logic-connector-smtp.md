@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SMTP Connector API App"
-   description="How to use the SMTPConnector"
+   pageTitle="Using the SMTP Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the SMTP Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="andalmia"/>
 
 
-# SMTP Connector
+# Get started with the SMTP Connector and add it to your Logic App
+Connect to a SMTP server and send email, including emails with attachments. SMTP connector "Send Email" action lets you send email to the specified email address(es).
 
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of a workflow.
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of a workflow. You can add the SMTP Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
-SMTP Connector lets you connect to a SMTP server and perform an action to send email with attachments. SMTP connector "Send Email" action lets you send email to the specified email address(es).
 
 ## Triggers and Actions
 *Triggers* are events that happen. For example, when an order is updated or when a new customer is added. An *Action* is the result of the trigger. For example, when an order is updated or a new customer is added, send an email to the new customer.
@@ -57,15 +57,12 @@ A connector can be created within a logic app or be created directly from the Az
 ## Using the SMTP Connector in your Logic App
 Once your connector is created, you can now use the SMTP connector as an action for your Logic App. To do this:
 
-1.	Create a new Logic App:
-
-	![][2]
-2.	Open **Triggers and Actions** to open the Logic Apps designer and configure your workflow:
-
-	![][3]
-3.	The SMTP connector is listed in the “API Apps in this resource group” section in the gallery on the right hand side. Select it:
-
-	![][4]
+1.	Create a new Logic App:  
+![][2]
+2.	Open **Triggers and Actions** to open the Logic Apps designer and configure your workflow:  
+![][3]
+3.	The SMTP connector is listed in the “API Apps in this resource group” section in the gallery on the right hand side. Select it:  
+![][4]
 4.	Select the SMTP Connector to automatically add it to the workflow designer.
 
 You can now configure the SMTP connector to use in your workflow. Select the **Send Email** action and configure the input properties:
@@ -81,8 +78,8 @@ You can now configure the SMTP connector to use in your workflow. Select the **S
 	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
 	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-	![][5]
-	![][6]
+![][5]  
+![][6]
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
