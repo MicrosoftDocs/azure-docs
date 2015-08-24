@@ -61,6 +61,28 @@ There are ways to further limit what a user can do with Azure SQL Database:
 Managing databases and logical servers from the Azure Management Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure preview portal][].
 
 
+
+## Encryption
+
+Azure SQL Data Warehouse can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent Data Encryption][]. To encrypt your database, connect as a database owner and execute:
+
+
+```
+
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+
+```
+
+You can also enable Transparent Data Encryption from database settings in the [Azure Portal][].
+
+
+
+## Auditing
+
+Auditing and tracking database events can help you maintain regulatory compliance and identify suspicious activity. SQL Data Warehouse Auditing allows you to record events in your database to an audit log in your Azure Storage account. SQL Data Warehouse Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses. For more information, see [Get started with SQL Database Auditing][].
+
+
+
 ## Next steps
 For more development tips, see [development overview][].
 
@@ -76,7 +98,9 @@ For more development tips, see [development overview][].
 [Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
 [Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
 [Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx 
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
+[Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
+[Azure Portal]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Role-based access control in Azure preview portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx

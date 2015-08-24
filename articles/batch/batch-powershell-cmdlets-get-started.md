@@ -41,6 +41,12 @@ Use standard procedures to start Azure PowerShell and [connect to your Azure sub
     Switch-AzureMode -Name AzureResourceManager
     ```
 
+* **Register with the Batch provider namespace (one-time operation)** - Before you can manage your Batch accounts, you must register with the Batch provider namespace. This operation only needs to be performed once per subscription.
+
+    ```
+    Register-AzureProvider -ProviderNamespace Microsoft.Batch
+    ```
+
 ## Manage Batch accounts and keys
 
 You can use Azure PowerShell cmdlets to create and manage Batch accounts and keys.
