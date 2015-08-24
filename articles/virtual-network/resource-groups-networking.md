@@ -269,7 +269,7 @@ Load balancers contain the following child resources:
 
 ## Application Gateway
 
-Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. Application load balancing enables IT administrators and developers to create routing rules for network traffic based on HTTP. 
+Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. Application load balancing allows the use of routing rules for network traffic based on HTTP. 
 
 Application Gateways contain the following child resources:
 
@@ -347,7 +347,7 @@ Key properties of an endpoint include:
 
 ## Azure DNS
 
-Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure.
+Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.
 
 Key properties of Azure DNS include:
 
