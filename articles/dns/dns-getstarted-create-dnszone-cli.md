@@ -18,6 +18,12 @@
 
 # Get started with Azure DNS
 
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+
+
 The domain ‘contoso.com’ can contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website). A DNS zone is used to host the DNS records for a particular domain.
 
 To start hosting your domain, you first need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
@@ -69,7 +75,7 @@ The Azure DNS service is managed by the Microsoft.Network resource provider. You
 
 ## Tags
 
-Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md). Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
+Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md). Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
 
 	Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
@@ -90,9 +96,14 @@ Your DNS zone has now been created in Azure DNS. Creating a DNS zone also create
 
 To view these records, use "azure network dns-record-set show":
 
-	azure network dns-record-set show -g myresourcegroup --dns-zone "contoso.com" -n "@" --type SOA
+	Usage: network dns-record-set show <resource-group> <dns-zone-name> <name> <type>
+
+
+In the example below, running the command with resource group "myresourcegroup", record set name "@" (for a root record) and type "SOA" will yield the following output:
+ 
+
+	azure network dns-record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
-	DNS zone name: contoso.com
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
 	data:    Name                            : @
@@ -110,9 +121,8 @@ To view these records, use "azure network dns-record-set show":
 <BR>
 To view the NS records created, use the following command:
 
-	azure network dns-record-set show -g myresourcegroup --dns-zone "contoso.com" -n "@" --type NS
+	azure network dns-record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
-	DNS zone name: contoso.com
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
 	data:    Name                            : @
@@ -156,4 +166,11 @@ The following example uses DIG to query the domain contoso.com using the name se
 	WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
 	MSG SIZE  rcvd: 120
 
-## Next steps
+## Next Steps
+
+
+[Get started creating record sets and records](dns-getstarted-create-recordset-cli.md)<BR>
+[How to manage DNS zones](dns-operations-dnszones-cli.md)<BR>
+[How to manage DNS records](dns-operations-recordsets-cli.md)<BR>
+[Automate Azure operations with .NET SDK](dns-sdk.md)<BR>
+[Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)
