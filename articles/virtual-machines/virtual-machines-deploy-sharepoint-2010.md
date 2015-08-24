@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 2010 deployment on Azure virtual machines"
-	description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines."
+	pageTitle="SharePoint Server 2010 on Azure VMs | Microsoft Azure"
+	description="Learn the value of SharePoint on Azure virtual machines, the step-by-step process, and the supported scenarios for using SharePoint 2010."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -58,15 +58,15 @@ Azure Virtual Machines provide developers with the flexibility to pick their des
 
 The image library in Azure provides the list of available preconfigured VMs. Users can publish SharePoint Server, SQL Server, Windows Server, and other ISO/VHDs to the image library. To simplify the creation of VMs, base images are created and published to the library. Authorized users can use these images to generate the desired VM. For more information, go to [Create a Virtual Machine Running Windows in the Azure Preview Portal](virtual-machines-windows-tutorial.md). Figure 1 shows the basic steps for creating a VM using the Azure Management Portal.
 
-**Figure 1: Overview of steps for creating a VM**
-
 ![azure-sharepoint-wp-2](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
+
+**Figure 1: Overview of steps for creating a VM**
 
 Users also can upload a sysprepped image on the Azure Management Portal. For more information, go to [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md). Figure 2 shows the basic steps for uploading an image to create a VM.
 
-**Figure 2: Overview of steps for uploading an image**
-
 ![azure-sharepoint-wp-3](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
+
+**Figure 2: Overview of steps for uploading an image**
 
 ## Deploying SharePoint 2010 on Azure 
 
@@ -146,9 +146,9 @@ To fully utilize load-testing machines, organizations can configure SharePoint v
 
 Figure 3 shows a SharePoint development and testing environment in an Azure VM. To build this deployment, start by using the same on-premises SharePoint development and testing environment used to develop applications. Then, upload and deploy the applications to the Azure VM for testing and development. If your organization decides to move the application back on-premises, it can do so without having to modify the application.
 
-**Figure 3: SharePoint development and testing environment in Azure Virtual Machines**
-
 ![azure-sharepoint-wp-11](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png)
+
+**Figure 3: SharePoint development and testing environment in Azure Virtual Machines**
 
 To implement a SharePoint development and testing environment on Azure, follow these steps:
 
@@ -184,9 +184,9 @@ VMs in Azure infrastructure are validated and supported for working with other M
 
 In this scenario, more front-end web servers for SharePoint Server must be added to support extra traffic. These servers require enhanced security and Active Directory Domain Services domain controllers to support user authentication and authorization. Figure 4 shows the layout for this scenario.
 
-**Figure 4: Public-facing SharePoint farm with customization**
-
 ![azure-sharepoint-wp-12](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-12.png)
+
+**Figure 4: Public-facing SharePoint farm with customization**
 
 To implement a public-facing SharePoint farm on Azure, follow these steps:
 
@@ -211,9 +211,9 @@ Migrating existing BI applications to Azure provides better scaling. With the po
 
 To scale out the deployment of BI components, a new application server with services such as PowerPivot, Power View, Excel Services, or PerformancePoint Services must be installed. Or, SQL Server BI instances like SSAS or SSRS must be added to the existing farm to support additional query processing. The server can be added as a new Azure VM with SharePoint 2010 Server or SQL Server installed. Then, the BI components can be installed, deployed, and configured on that server (Figure 5).
 
-**Figure 5: Scaled-out SharePoint farm for additional BI services**
-
 ![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-13.png)
+
+**Figure 5: Scaled-out SharePoint farm for additional BI services**
 
 To scale out a BI environment on Azure, follow these steps:
 
@@ -242,9 +242,9 @@ Organizations can use Azure Virtual Machines to host customized applications and
 
 To implement a completely customized SharePoint website on Azure, an organization must deploy an Active Directory domain in the cloud and provision new VMs into this domain. Then, a VM running SQL Server 2012 must be created and configured as part of a SharePoint farm. Finally, the SharePoint farm must be created, load balanced, and connected to Active Directory and SQL Server (Figure 6).
 
-**Figure 6: Completely customized SharePoint-based website**
-
 ![azure-sharepoint-wp-14](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-14.png)
+
+**Figure 6: Completely customized SharePoint-based website**
 
 The following steps show how to create a customized SharePoint farm environment from prebuilt images available in the image library. Note, however, that you also can upload SharePoint farm VMs to the image library, and authorized users can choose those VMs to build the required SharePoint farm on Azure.
 

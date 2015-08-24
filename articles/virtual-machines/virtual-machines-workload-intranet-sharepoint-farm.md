@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Infrastructure Services Workload: Intranet SharePoint farm"
-	description="Learn about the value of an intranet SharePoint farm deployed in Azure, how to set up a dev/test environment, and how to deploy a high-availability production configuration."
+	pageTitle="SharePoint Server 2013 farm in Azure | Microsoft Azure"
+	description="Learn the value of a SharePoint Server 2013 farm in Azure, set up a test environment, and deploy a high-availability configuration."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
