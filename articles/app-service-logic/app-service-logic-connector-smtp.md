@@ -78,8 +78,8 @@ You can now configure the SMTP connector to use in your workflow. Select the **S
 	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
 	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-	![][5]  
-	![][6]
+![][5]  
+![][6]
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
