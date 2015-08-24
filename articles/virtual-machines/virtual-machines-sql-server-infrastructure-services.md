@@ -34,7 +34,7 @@ You can run common SQL Server workloads on Azure Virtual Machines. SQL Server ha
 - [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-sql-server-business-intelligence.md)
 - [SQL Server Data Warehousing and Transactional Workloads in Azure Virtual Machines](virtual-machines-sql-server-dw-and-oltp-workloads.md)
 
-The following table provides a matrix of available SQL Server images in the virtual machine gallery.
+The following table provides a matrix of available SQL Server images in the virtual machine gallery. 
 
 |Operating system|SQL Server version|SQL Server edition|
 |---|---|---|
