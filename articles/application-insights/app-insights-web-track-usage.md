@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="08/24/2015" 
 	ms.author="awills"/>
  
 # Usage analysis for web applications with Application Insights
@@ -131,7 +131,7 @@ If your web app lets users sign in, you can get a more accurate count by providi
 
 If your app groups users into accounts, you can also pass an identifier for the account. 
 
-      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+      appInsights.setAuthenticatedUserContext(userId, accountId);
 
 The user and account ids must not contain spaces or the characters `,;=|`
 
