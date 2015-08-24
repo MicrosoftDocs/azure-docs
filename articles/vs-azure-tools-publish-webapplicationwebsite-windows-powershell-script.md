@@ -35,65 +35,65 @@ Publishes a web project to an Azure website. The script creates the required res
 The path to the JSON configuration file that describes the details of the deployment.
 
 	|Parameter|Default value|
-	|---|---|
-	|Aliases|none|
-	|Required?|true|
-	|Position|named|
-	|Default value|none|
-	|Accept pipeline input?|false|
-	|Accept wildcard characters?|false|
+    |---|---|
+    |Aliases|none|
+    |Required?|true|
+    |Position|named|
+    |Default value|none|
+    |Accept pipeline input?|false|
+    |Accept wildcard characters?|false|
 
-### SubscriptionName
+## SubscriptionName
 
 The name of the Azure subscription that you want to create the website in.
 
-	|Parameter|Default value|
-	|---|---|
-	|Aliases|none|
-	|Required?|false|
-	|Position|named|
-	|Default value|none|
-	|Accept pipeline input?|false|
-	|Accept wildcard characters?|false|
+    |Parameter|Default value|
+    |---|---|
+    |Aliases|none|
+    |Required?|false|
+    |Position|named|
+    |Default value|none|
+    |Accept pipeline input?|false|
+    |Accept wildcard characters?|false|
 
-### WebDeployPackage
+## WebDeployPackage
 
 The path to the web deployment package to publish to the website. You can create this package by using the Publish Web wizard in Visual Studio. See [How to: Create a Web Deployment Package in Visual Studio](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
-	|Parameter|Default value|
-	|---|---|
-	|Aliases|none|
-	|Required?|false|
-	|Position|named|
-	|Default value|none|
-	|Accept pipeline input?|false|
-	|Accept wildcard characters?|false|
+    |Parameter|Default value|
+    |---|---|
+    |Aliases|none|
+    |Required?|false|
+    |Position|named|
+    |Default value|none|
+    |Accept pipeline input?|false|
+    |Accept wildcard characters?|false|
 	
-### DatabaseServerPassword
+## DatabaseServerPassword
 
 The username and password for the SQL database in Azure.
 
-	|Parameter|Default value|
-	|Aliases|none|
-	|---|---|
-	|Required?|false|
-	|Position|named|
-	|Default value|none|
-	|Accept pipeline input?|false|
-	|Accept wildcard characters?|false|
+    |Parameter|Default value|
+    |Aliases|none|
+    |---|---|
+    |Required?|false|
+    |Position|named|
+    |Default value|none|
+    |Accept pipeline input?|false|
+    |Accept wildcard characters?|false|
 
-### SendHostMessagesToOutput
+## SendHostMessagesToOutput
 
 If true, print messages from the script to the output stream.
 
-	|Parameter|Default value|
-	|---|---|
-	|Aliases|none|
-	|Required?|false|
-	|Position|named|
-	|Default value|false|
-	|Accept pipeline input?|false|
-	|Accept wildcard characters?|false|
+    |Parameter|Default value|
+    |---|---|
+    |Aliases|none|
+    |Required?|false|
+    |Position|named|
+    |Default value|false|
+    |Accept pipeline input?|false|
+    |Accept wildcard characters?|false|
 
 ## Remarks
 

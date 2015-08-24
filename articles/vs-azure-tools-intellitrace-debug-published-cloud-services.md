@@ -34,11 +34,12 @@ To enable IntelliTrace for an Azure application, you must create and publish the
 1. When you are ready to deploy your Azure application, verify that your project build targets are set to **Debug**.
 
 1. Open the shortcut menu for the Azure project in Solution Explorer and choose **Publish**.
-							The Publish Azure Application wizard appears.
+ 
+    The Publish Azure Application wizard appears.
 
 1. To collect IntelliTrace logs for your application when it is published in the cloud, select the **Enable IntelliTrace** check box.
 
-    >[AZURE.IMPORTANT] You can enable either IntelliTrace or profiling when you publish your Azure application. You cannot enable both.
+    >[AZURE.NOTE] You can enable either IntelliTrace or profiling when you publish your Azure application. You cannot enable both.
 
 1. To customize the basic IntelliTrace configuration, choose the **Settings** hyperlink.
 
