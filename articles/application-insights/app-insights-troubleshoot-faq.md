@@ -222,8 +222,8 @@ See [Data Retention and Privacy][data].
 <tr><td>Get stack traces from exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insert TrackException calls in your code</a> (but some are reported automatically)</td><td>Detect and diagnose exceptions</td></tr>
 <tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
 <tr><td>Client usage basics: page views, sessions, ...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">JavaScript initializer in web pages</a></td><td>Usage analytics</td></tr>
-<tr><td>Client custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
-<tr><td>Server custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
+<tr><td>Client custom metrics</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
+<tr><td>Server custom metrics</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
 </table>
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
