@@ -139,7 +139,7 @@ A variety of other resources are available for you to learn more about Azure Aut
 
 ## Samples and utility runbooks
 
-Microsoft and the Azure Automation community provide sample runbooks, which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks. You can either download these runbooks from [Script Center](http://azure.microsoft.com/documentation/scripts/) or import them directly into Azure Automation using the [Runbook Gallery](http://aka.ms/runbookgallery).
+Microsoft and the Azure Automation community provide sample runbooks, which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks. You can either download these runbooks from the [Script Center](http://azure.microsoft.com/documentation/scripts/) or import them directly into Azure Automation using the [Runbook Gallery](http://aka.ms/runbookgallery).
 
 
 ## Feedback
