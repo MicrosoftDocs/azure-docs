@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/22/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 #### To add a new storage account in StorSimple Release version (GA)

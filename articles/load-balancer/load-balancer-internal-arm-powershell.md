@@ -9,17 +9,17 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# How to create a load balancer using Azure Resource Manager
+# Get started configuring internal load balancer using Azure Resource Manager
 
 
 > [AZURE.SELECTOR]
-- [Service Manager steps](load-balancer-internal-getstarted.md)
+- [Azure Classic steps](load-balancer-internal-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 

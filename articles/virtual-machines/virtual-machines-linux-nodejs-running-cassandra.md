@@ -53,7 +53,7 @@ Figure 1: Single region deployment
 
 Note that at the time of this writing, Azure doesn’t allow the explicit mapping of a group of VMs to a specific fault domain; consequently, even with the deployment model shown in Figure 1, it is statistically probable that all the virtual machines may be mapped to two fault domains instead of four. 
 
-**Load Balancing Thrift Traffic:** Thrift client libraries inside the web server connect to the cluster through an internal load balancer. This requires the process of adding the internal load balancer to the “data” subnet (refer Figure 1) in the context of the cloud service hosting the Cassandra cluster. Once the internal load balancer is defined, each node requires the load balanced endpoint to be added with the annotations of a load balanced set with previously defined load balancer name. See [Azure Internal Load Balancing ](http://msdn.microsoft.com/library/azure/dn690121.aspx)for more details.
+**Load Balancing Thrift Traffic:** Thrift client libraries inside the web server connect to the cluster through an internal load balancer. This requires the process of adding the internal load balancer to the “data” subnet (refer Figure 1) in the context of the cloud service hosting the Cassandra cluster. Once the internal load balancer is defined, each node requires the load balanced endpoint to be added with the annotations of a load balanced set with previously defined load balancer name. See [Azure Internal Load Balancing ](../load-balancer/load-balancer-internal-overview.md)for more details.
 
 **Cluster Seeds:** It is important to select the most highly available nodes for seeds as the new nodes will communicate with seed nodes to discover the topology of the cluster. One node from each availability set is designated as seed nodes to avoid single point of failure. 
 
@@ -305,7 +305,7 @@ This will take a few seconds and the image should be available in MY IMAGES sect
 
 ##Single Region Deployment Process
 **Step 1: Create the Virtual Network**
-Log into the management portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Management Portal](http://msdn.microsoft.com/library/azure/dn631643.aspx) for detailed steps of the process.      
+Log into the management portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Management Portal](../virtual-network/virtual-networks-create-vnet.md) for detailed steps of the process.      
 
 <table>
 <tr><th>VM Attribute Name</th><th>Value</th><th>Remarks</th></tr>
@@ -472,7 +472,7 @@ Please note that the keyspace created in step 4 uses SimpleStrategy with a  repl
 Will leverage the single region deployment completed and repeat the same process for installing the second region. The key difference between the single and multiple region deployment is the VPN tunnel setup for inter-region communication; we will start with the network installation, provision the VMs and configure Cassandra. 
 
 ###Step 1: Create the Virtual Network at the 2nd Region
-Log into the management portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Management Portal](http://msdn.microsoft.com/library/azure/dn631643.aspx) for detailed steps of the process.      
+Log into the management portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Management Portal](../virtual-network/virtual-networks-create-vnet.md) for detailed steps of the process.      
 
 <table>
 <tr><th>Attribute Name    </th><th>Value	</th><th>Remarks</th></tr>

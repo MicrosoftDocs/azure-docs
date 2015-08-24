@@ -94,7 +94,7 @@ All the articles in this repository use GitHub flavored markdown.  Here's a list
 
 - [Printable markdown cheatsheet](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-If you are looking for a good markdown editor, try [Atom Editor](https://atom.io/).
+- For our list of markdown editors, see the [tools and setup topic](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
 ## Article metadata
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Service Bus Messaging overview - Azure"
+	pageTitle="Service Bus Messaging overview | Microsoft Azure"
 	description="Service Bus Messaging: Flexible Data Delivery in the Cloud"
 	services="service-bus"
 	documentationCenter=".net"

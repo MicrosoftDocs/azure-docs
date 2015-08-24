@@ -12,7 +12,7 @@
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>

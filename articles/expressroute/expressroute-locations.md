@@ -4,15 +4,15 @@
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/07/2015"
+   ms.date="08/06/2015"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -28,6 +28,7 @@ You will have access to Azure services across all regions within a geopolitical 
 |**Geopolitical Region**|**Azure Regions**|**ExpressRoute Locations**|
 |---|---|---|
 |**US**|All US Regions - East US, West US,East US 2, Central US, South Central US, North Central US|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
+|**USGov**|Iowa, Virginia|Ashburn, Chicago|
 |**South America**|Brazil South|Sao Paulo|
 |**Europe**|North Europe, West Europe|Amsterdam, London|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|

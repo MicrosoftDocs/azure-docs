@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use the autoscaling application block (.NET) - Azure" 
+	pageTitle="Use the autoscaling application block (.NET) | Microsoft Azure" 
 	description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." 
 	services="cloud-services" 
 	documentationCenter=".net" 

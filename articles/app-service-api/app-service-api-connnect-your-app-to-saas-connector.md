@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/06/2015" 
 	ms.author="tdykstra"/>
 
 # Deploy and configure a SaaS connector API app in Azure App Service
@@ -24,7 +24,7 @@ This tutorial shows how to install, configure, and test a [Software-as-a-Service
 
 For example, if you want to code HTTP requests to read and write files in your Dropbox account, the authentication process for working directly with Dropbox is complicated. A Dropbox connector takes care of the complexity of authentication so that you can focus on writing your business-specific code.
 
-> [AZURE.NOTE] The instructions here are not required if you want to use a SaaS connector from a logic app. For information  about how to use SaaS connectors inside logic apps, see [Create a new logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+> [AZURE.NOTE] The instructions here are not required if you want to use a SaaS connector from a logic app. For information  about how to use SaaS connectors inside logic apps, see [Create a new logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) and [Using custom OAUTH Application in Connectors](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
  
 This tutorial uses a DropBox connector as an example and walks you through the following steps:
 

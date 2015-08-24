@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with authentication (Windows Phone) | Mobile Dev Center" 
+	pageTitle="Get started with authentication (Windows Phone) | Microsoft Azure" 
 	description="Learn how to use Mobile Services to authenticate users of your Windows Phone app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -24,8 +24,9 @@
 
 This topic shows you how to authenticate users in Azure Mobile Services from your app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
-> [AZURE.VIDEO windows-phone-getting-started-with-authentication-in-windows-azure-mobile-services]
+This tutorial is also demonstrated by Nick Harris in the following video:
 
+> [AZURE.VIDEO mobile-authorize-users-in-scripts-windows-phone]
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Add Mobile Services to an existing app]. 
 
@@ -33,15 +34,11 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 ##<a name="register"></a>Register your app for authentication and configure Mobile Services
 
-
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
-
 
 ##<a name="permissions"></a>Restrict permissions to authenticated users
 
-
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
-
 
 
 &nbsp;&nbsp;3. In Visual Studio 2012 Express for Windows Phone, open the project that you created when you completed the tutorial [Add Mobile Services to an existing app](mobile-services-windows-phone-get-started-data.md).

@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="07/06/2015"
+	 ms.date="08/20/2015"
 	 ms.author="aashishr"; "jimpark"/>
 
 # Try Azure Backup in 10mins
@@ -50,4 +50,5 @@ Go through the steps mentioned in the video [Getting Started with Azure Backup 3
 
 ## Next steps
 - To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md).
+- [Back up Windows Server](backup-azure-backup-windows-server.md)
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).

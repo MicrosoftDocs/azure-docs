@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Service Bus relay (.NET) - Azure" 
+	pageTitle="How to use Service Bus relay (.NET) | Microsoft Azure" 
 	description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 

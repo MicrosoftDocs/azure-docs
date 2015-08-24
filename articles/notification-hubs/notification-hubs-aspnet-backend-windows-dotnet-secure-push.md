@@ -18,10 +18,11 @@
 
 #Azure Notification Hubs Secure Push
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##Overview
 

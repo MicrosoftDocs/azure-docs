@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Backup - restore a virtual machine"
+	pageTitle="Azure Backup - restore a virtual machine | Microsoft Azure"
 	description="Learn how to restore an Azure virtual machine"
 	services="backup"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="08/11/2015"
 	ms.author="trinadhk"; "jimpark"/>
 
 # Restore a virtual machine
@@ -57,7 +57,7 @@ You can restore a virtual machine to a new VM from the backups stored in Azure b
 
         Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/en-us/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. Select a storage account for the VM: This is mandatory for creating the VM. You can select from existing storage accounts in the same region as the Azure Backup vault. We don’t support storage accounts that are Zone redundant or of Premium storage type.
 
@@ -100,4 +100,4 @@ For most errors, you can follow the recommended action suggested in the Error De
 | Restore | Restore failed with Cloud Internal error | <ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Next steps
-- [Manage virtual machines](backup-azure-manage-vms)
+- [Manage virtual machines](backup-azure-manage-vms.md)

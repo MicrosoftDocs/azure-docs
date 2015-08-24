@@ -1,9 +1,8 @@
 <properties
-    pageTitle="What's coming in RemoteApp"
-    description="Learn about new features for RemoteApp"
+    pageTitle="What's coming in Azure RemoteApp"
+    description="Learn when new features for Azure RemoteApp will be available"
     services="remoteapp"
-    solutions=""
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,12 +12,12 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="06/10/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
-# What's coming in RemoteApp
+# What's coming in Azure RemoteApp
 
-We are always working to improve RemoteApp based on your feedback. Here are rough time lines for feature availability.
+We are always working to improve Azure RemoteApp based on your feedback. Here are rough time lines for future feature availability.
 
 |Feature|Jan-March 2015|Apr-June 2015|July-Sep 2015|Oct-Dec 2015|
 |-----------|-------|-------|-------|-------|

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="08/06/2015" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -42,7 +42,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 2. Click <b>Tools</b>, point to <b>NuGet Package Manager</b>, and click <b>Package Manager Console</b>.
 3.	In the <b>Package Manager Console</b>, execute the following commands one-by-one.</b>. 
 
-		Install-Package Microsoft.Azure.Management.DataFactories –Pre
+		Install-Package Microsoft.Azure.Management.DataFactories
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. Add the following **appSetttings** section to the **App.config** file. These are used by the helper method: **GetAuthorizationHeader**. 
 
@@ -244,11 +244,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                                 },
                                 TypeProperties = new CopyActivity()
                                 {
-                                    Source = new BlobSource()
-                                    {
-                                        BlobColumnSeparators = ",",
-                                    },
-                        
+                                    Source = new BlobSource(),
                                     Sink = new BlobSink()
                                     {
                                         WriteBatchSize = 10000,
@@ -313,20 +309,23 @@ You can create, monitor, and manage Azure data factories programmatically using 
             Thread.Sleep(1000 * 12);
 
             var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Table_Destination,
-                PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
-                PipelineActivePeriodEndTime.ConvertToISO8601DateTimeString());
+                new DataSliceListParameters()
+                {
+                    DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
+                    DataSliceRangeEndTime = PipelineActivePeriodEndTime.ConvertToISO8601DateTimeString()
+                });
 
             foreach (DataSlice slice in datalistResponse.DataSlices)
             {
-                if (slice.Status == DataSliceStatus.Failed || slice.Status == DataSliceStatus.Ready)
+                if (slice.State == DataSliceState.Failed || slice.State == DataSliceState.Ready)
                 {
-                    Console.WriteLine("Slice execution is done with status: {0}", slice.Status);
+                    Console.WriteLine("Slice execution is done with status: {0}", slice.State);
                     done = true;
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("Slice status is: {0}", slice.Status);
+                    Console.WriteLine("Slice status is: {0}", slice.State);
                 }
             }
         }

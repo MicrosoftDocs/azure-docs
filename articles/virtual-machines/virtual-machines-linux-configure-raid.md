@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
 
 
@@ -24,7 +24,7 @@ It's a common scenario to use software RAID on Linux virtual machines in Azure t
 
 
 ## Attaching data disks
-Two or more empty data disks will typically be needed to configure a RAID device.  This article will not go into detail on how to attach data disks to a Linux virtual machine.  Please see the Windows Azure article [attach a disk](storage-windows-attach-disk.md#attachempty) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
+Two or more empty data disks will typically be needed to configure a RAID device.  This article will not go into detail on how to attach data disks to a Linux virtual machine.  Please see the Microsoft Azure article [attach a disk](storage-windows-attach-disk.md#attachempty) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
 >[AZURE.NOTE] The ExtraSmall VM size does not support more than one data disk attached to the virtual machine.  Please see [Virtual Machine and Cloud Service Sizes for Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) for detailed information about VM sizes and the number of data disks supported.
 
@@ -109,20 +109,20 @@ In this example, after running this command a new RAID device called **/dev/md12
 
 2. Create the file system on the new RAID device
 
-	**CentOS, Oracle Linux, openSUSE and Ubuntu**
+	**CentOS, Oracle Linux, SLES 12, openSUSE and Ubuntu**
 
 		# sudo mkfs -t ext4 /dev/md127
 
-	**SLES**
+	**SLES 11**
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES & openSUSE** - enable boot.md and create mdadm.conf
+3. **SLES 11 & openSUSE** - enable boot.md and create mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE] A reboot may be required after making these changes on SUSE systems.
+	>[AZURE.NOTE] A reboot may be required after making these changes on SUSE systems. This step is *not* required on SLES 12.
 
 
 ## Add the new file system to /etc/fstab
@@ -143,7 +143,7 @@ In this example, after running this command a new RAID device called **/dev/md12
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	Or on **SLES & openSUSE**:
+	Or on **SLES 11 & openSUSE**:
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 

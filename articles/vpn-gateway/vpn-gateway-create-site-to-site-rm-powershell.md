@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="08/21/2015"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and PowerShell
@@ -26,8 +26,8 @@
 
 This topic will walk you through creating an Azure Resource Manager virtual network and a site-to-site VPN connection to your on-premises network. 
 
-Azure currently has two management modes: Azure Service Management, and Azure Resource Manager (ARM). The site-to-site setup is different, depending on the mode your virtual network was created in.
-These instructions apply to ARM. If you want to create a Azure Service Management site-to-site VPN connection instead, see [Create a site-to-site VPN connection in the Management Portal](vpn-gateway-site-to-site-create.md).
+Azure currently has two deployment models: the classic deployment model, and the Azure Resource Manager deployment model. The site-to-site setup is different, depending on the model that was used to deploy your virtual network.
+These instructions apply to Resource Manager. If you want to create a site-to-site VPN gateway connection using the classic deployment model, see [Create a site-to-site VPN connection in the Management Portal](vpn-gateway-site-to-site-create.md).
 
 
 ## Before you begin
@@ -97,9 +97,26 @@ You'll also specify the address space prefix for the local site. Azure will use 
 - The *GatewayIPAddress* is the IP address of your on-premises VPN device. Your VPN device cannot be located behind a NAT. 
 - The *AddressPrefix* is your on-premises address space.
 
-Use this example to add your local site:
+Use this example to add a local site with a single address prefix.
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+
+If you want to add a local site with multiple address prefixes, use this example.
+
+		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+
+
+To add additional address prefixes to a local site that you already created, use the example below.
+
+		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+
+To remove an address prefix from a local site, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local site and exclude that prefix.
+
+		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+
 
 ## Request a public IP address for the VNet gateway
 
@@ -121,9 +138,13 @@ The gateway configuration defines the subnet and the public IP address to use. U
 
 ## Create the gateway
 
-In this step, you'll create the virtual network gateway. 
+In this step, you'll create the virtual network gateway. Use the following values:
 
-		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig
+- The Gateway Type is *Vpn*.
+- The VpnType can be RouteBased* (referred to as a Dynamic Gateway in some documentation), or *Policy Based* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md). 	
+
+		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
 
 ## Configure your VPN device
 
@@ -135,14 +156,14 @@ To find the public IP address of your virtual network gateway, use the following
 
 ## Create the VPN connection
 
-Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. Note that the shared key must match the value you used for your VPN device configuration.
+Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. The shared key must match the value you used for your VPN device configuration.
 
 		$gateway1 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
 		New-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-After a few minutes, the connection should be established. Note that at this time, site-to-site VPN connections created with ARM are not visible in the Portal.
+After a few minutes, the connection should be established. At this time, the site-to-site VPN connections created with Resource Manager are not visible in the Portal.
 
 
 ## Next Steps

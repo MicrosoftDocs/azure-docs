@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Service Bus topics (Ruby) - Azure"
+	pageTitle="How to use Service Bus topics (Ruby) | Microsoft Azure"
 	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications."
 	services="service-bus"
 	documentationCenter="ruby"

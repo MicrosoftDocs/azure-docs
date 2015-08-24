@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Service Bus - Azure fundamentals" 
+	pageTitle="Azure Service Bus | Microsoft Azure" 
 	description="An introduction to different ways you can use the Service Bus to connect Azure applications to other software." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/25/2015" 
 	ms.author="sethm"/>
 
 # Azure Service Bus
@@ -25,7 +25,7 @@ Different situations call for different styles of communication. Sometimes, lett
 
 Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. Figure 1 shows how this looks.
 
-![Diagram of Azure Service Bus][svc-bus]
+![][1]
  
 **Figure 1: Service Bus provides a multi-tenant service for connecting applications through the cloud.**
 
@@ -42,12 +42,11 @@ To use any of these objects, Windows applications can use Windows Communication 
 
 It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a generic communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
 
-
 ## Queues
 
 Suppose you decide to connect two applications using a Service Bus queue. Figure 2 illustrates this situation.
 
-![Diagram of Service Bus Queues][queues]
+![][2]
  
 **Figure 2: Service Bus queues provide one-way asynchronous queuing.**
 
@@ -67,12 +66,11 @@ Notice what can happen here: The same message might be delivered twice, perhaps 
 
 Queues are useful in quite a few situations. They let applications communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
 
-
 ## Topics
 
 Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. Figure 3 illustrates this idea.
 
-![Diagram of Service Bus Topics and Subscriptions][topics-subs]
+![][3]
  
 **Figure 3: Based on the filter a subscribing application specifies, it can receive some or all of the messages sent to a Service Bus topic.**
 
@@ -84,12 +82,11 @@ A topic is similar in many ways to a queue. Senders submit messages to a topic i
 
 As with queues, subscribers to a topic can read messages using either ReceiveAndDelete or PeekLock. Unlike queues, however, a single message sent to a topic can be received by multiple subscribers. This approach, commonly called *publish and subscribe*, is useful whenever multiple applications might be interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
 
-
 ## Relays
 
 Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive messages, or perhaps you want a direct link between them and you don't need a broker to store messages. To address scenarios such as this, Service Bus provides relays, as Figure 4 shows.
 
-![Diagram of Service Bus Relay][relay]
+![][4]
  
 **Figure 4: Service Bus relay provides synchronous, two-way communication between applications.**
 
@@ -127,3 +124,8 @@ Now that you've learned the fundamentals of Azure Service Bus, follow these link
 [topics-subs]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
 [MSDN]: https://msdn.microsoft.com/library/dn194201.aspx 
+
+[1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
+[2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
+[3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
+[4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png

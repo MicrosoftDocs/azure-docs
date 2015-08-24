@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Offline Data Sync in Mobile Services (iOS) | Mobile Dev Center"
+	pageTitle="Get Started with Offline Data Sync in Mobile Services (iOS) | Microsoft Azure"
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application"
 	documentationCenter="ios"
 	authors="krisragh"

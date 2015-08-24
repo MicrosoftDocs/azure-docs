@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Service Bus queues (Ruby) - Azure"
+	pageTitle="How to use Service Bus queues (Ruby) | Microsoft Azure"
 	description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby."
 	services="service-bus"
 	documentationCenter="ruby"

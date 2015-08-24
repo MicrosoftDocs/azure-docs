@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="Erikre" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="08/06/2015" 
 	ms.author="erikre"/>
 
 
@@ -110,105 +110,106 @@ You have created a web app, but there is no content in it yet. Your next step is
 5. In the **New ASP.NET Project** dialog box, select the **Web Forms** template. Uncheck the **Host in the cloud** check box if it is selected and click **OK**.  
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png)  
 	The Web Forms application will be created.
+
 ###Update the Master Page
 In ASP.NET Web Forms, master pages allow you to create a consistent layout for the pages in your application. A single master page defines the look and feel and standard behavior that you want for all of the pages (or a group of pages) in your application. You can then create individual content pages that contain the content you want to display. When users request the content pages, ASP.NET merges them with the master page to produce output that combines the layout of the master page with the content from the content page.
 The new site needs the application name and a link updated. The link will point to a page that will display contact details. To make these changes you will modify the HTML on the master page. 
 
 1. In **Solution Explorer**, find and open the *Site.Master* page. 
 2. If the page is in **Design** view, switch to **Source** view.
-3. Update the master page by modifying or adding the markup highlighted in yellow:
+3. Update the master page by modifying or adding markup so that the markup for the page appears as follows:
 
-<pre class="prettyprint">
-&lt;%@ Master Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;Site.master.cs&quot; Inherits=&quot;ContactManager.SiteMaster&quot; %&gt;
+		<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ContactManager.SiteMaster" %>
+		
+		<!DOCTYPE html>
+		
+		<html lang="en">
+		<head runat="server">
+		    <meta charset="utf-8" />
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		    <title><%: Page.Title %> - Contact Manager</title>
+		
+		    <asp:PlaceHolder runat="server">
+		        <%: Scripts.Render("~/bundles/modernizr") %>
+		    </asp:PlaceHolder>
+		    <webopt:bundlereference runat="server" path="~/Content/css" />
+		    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		
+		</head>
+		<body>
+		    <form runat="server">
+		        <asp:ScriptManager runat="server">
+		            <Scripts>
+		                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+		                <%--Framework Scripts--%>
+		                <asp:ScriptReference Name="MsAjaxBundle" />
+		                <asp:ScriptReference Name="jquery" />
+		                <asp:ScriptReference Name="bootstrap" />
+		                <asp:ScriptReference Name="respond" />
+		                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+		                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+		                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+		                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+		                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+		                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+		                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+		                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+		                <asp:ScriptReference Name="WebFormsBundle" />
+		                <%--Site Scripts--%>
+		            </Scripts>
+		        </asp:ScriptManager>
+		
+		        <div class="navbar navbar-inverse navbar-fixed-top">
+		            <div class="container">
+		                <div class="navbar-header">
+		                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                    </button>
+		                    <a class="navbar-brand" runat="server" id="ContactDemoLink" href="~/Contacts/Default.aspx">Contact Demo</a>
+		                </div>
+		                <div class="navbar-collapse collapse">
+		                    <ul class="nav navbar-nav">
+		                        <li><a runat="server" href="~/">Home</a></li>
+		                        <li><a runat="server" href="~/About">About</a></li>
+		                        <li><a runat="server" href="~/Contact">Contact</a></li>
+		                    </ul>
+		                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+		                        <AnonymousTemplate>
+		                            <ul class="nav navbar-nav navbar-right">
+		                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+		                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+		                            </ul>
+		                        </AnonymousTemplate>
+		                        <LoggedInTemplate>
+		                            <ul class="nav navbar-nav navbar-right">
+		                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+		                                <li>
+		                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+		                                </li>
+		                            </ul>
+		                        </LoggedInTemplate>
+		                    </asp:LoginView>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="container body-content">
+		            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+		            </asp:ContentPlaceHolder>
+		            <hr />
+		            <footer>
+		                <p>&copy; <%: DateTime.Now.Year %> - Contact Manager</p>
+		            </footer>
+		        </div>
+		    </form>
+		</body>
+		</html>
 
-&lt;!DOCTYPE html&gt;
-
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head runat=&quot;server&quot;&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-    &lt;title&gt;&lt;%: Page.Title %&gt; - <mark>Contact Manager</mark>&lt;/title&gt;
-
-    &lt;asp:PlaceHolder runat=&quot;server&quot;&gt;
-        &lt;%: Scripts.Render(&quot;~/bundles/modernizr&quot;) %&gt;
-    &lt;/asp:PlaceHolder&gt;
-    &lt;webopt:bundlereference runat=&quot;server&quot; path=&quot;~/Content/css&quot; /&gt;
-    &lt;link href=&quot;~/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;
-
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;form runat=&quot;server&quot;&gt;
-        &lt;asp:ScriptManager runat=&quot;server&quot;&gt;
-            &lt;Scripts&gt;
-                &lt;%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%&gt;
-                &lt;%--Framework Scripts--%&gt;
-                &lt;asp:ScriptReference Name=&quot;MsAjaxBundle&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;jquery&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;bootstrap&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;respond&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;WebForms.js&quot; Assembly=&quot;System.Web&quot; Path=&quot;~/Scripts/WebForms/WebForms.js&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;WebUIValidation.js&quot; Assembly=&quot;System.Web&quot; Path=&quot;~/Scripts/WebForms/WebUIValidation.js&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;MenuStandards.js&quot; Assembly=&quot;System.Web&quot; Path=&quot;~/Scripts/WebForms/MenuStandards.js&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;GridView.js&quot; Assembly=&quot;System.Web&quot; Path=&quot;~/Scripts/WebForms/GridView.js&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;DetailsView.js&quot; Assembly=&quot;System.Web&quot; Path=&quot;~/Scripts/WebForms/DetailsView.js&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;TreeView.js&quot; Assembly=&quot;System.Web&quot; Path=&quot;~/Scripts/WebForms/TreeView.js&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;WebParts.js&quot; Assembly=&quot;System.Web&quot; Path=&quot;~/Scripts/WebForms/WebParts.js&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;Focus.js&quot; Assembly=&quot;System.Web&quot; Path=&quot;~/Scripts/WebForms/Focus.js&quot; /&gt;
-                &lt;asp:ScriptReference Name=&quot;WebFormsBundle&quot; /&gt;
-                &lt;%--Site Scripts--%&gt;
-            &lt;/Scripts&gt;
-        &lt;/asp:ScriptManager&gt;
-
-        &lt;div class=&quot;navbar navbar-inverse navbar-fixed-top&quot;&gt;
-            &lt;div class=&quot;container&quot;&gt;
-                &lt;div class=&quot;navbar-header&quot;&gt;
-                    &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
-                        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
-                        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
-                        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
-                    &lt;/button&gt;
-                    &lt;a class=&quot;navbar-brand&quot; runat=&quot;server&quot; <mark>id=&quot;ContactDemoLink&quot;</mark> href=&quot;~/<mark>Contacts/Default.aspx</mark>&quot;&gt;<mark>Contact Demo</mark>&lt;/a&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;navbar-collapse collapse&quot;&gt;
-                    &lt;ul class=&quot;nav navbar-nav&quot;&gt;
-                        &lt;li&gt;&lt;a runat=&quot;server&quot; href=&quot;~/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-                        &lt;li&gt;&lt;a runat=&quot;server&quot; href=&quot;~/About&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
-                        &lt;li&gt;&lt;a runat=&quot;server&quot; href=&quot;~/Contact&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
-                    &lt;/ul&gt;
-                    &lt;asp:LoginView runat=&quot;server&quot; ViewStateMode=&quot;Disabled&quot;&gt;
-                        &lt;AnonymousTemplate&gt;
-                            &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
-                                &lt;li&gt;&lt;a runat=&quot;server&quot; href=&quot;~/Account/Register&quot;&gt;Register&lt;/a&gt;&lt;/li&gt;
-                                &lt;li&gt;&lt;a runat=&quot;server&quot; href=&quot;~/Account/Login&quot;&gt;Log in&lt;/a&gt;&lt;/li&gt;
-                            &lt;/ul&gt;
-                        &lt;/AnonymousTemplate&gt;
-                        &lt;LoggedInTemplate&gt;
-                            &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
-                                &lt;li&gt;&lt;a runat=&quot;server&quot; href=&quot;~/Account/Manage&quot; title=&quot;Manage your account&quot;&gt;Hello, &lt;%: Context.User.Identity.GetUserName()  %&gt; !&lt;/a&gt;&lt;/li&gt;
-                                &lt;li&gt;
-                                    &lt;asp:LoginStatus runat=&quot;server&quot; LogoutAction=&quot;Redirect&quot; LogoutText=&quot;Log off&quot; LogoutPageUrl=&quot;~/&quot; OnLoggingOut=&quot;Unnamed_LoggingOut&quot; /&gt;
-                                &lt;/li&gt;
-                            &lt;/ul&gt;
-                        &lt;/LoggedInTemplate&gt;
-                    &lt;/asp:LoginView&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;container body-content&quot;&gt;
-            &lt;asp:ContentPlaceHolder ID=&quot;MainContent&quot; runat=&quot;server&quot;&gt;
-            &lt;/asp:ContentPlaceHolder&gt;
-            &lt;hr /&gt;
-            &lt;footer&gt;
-                &lt;p&gt;&amp;copy; &lt;%: DateTime.Now.Year %&gt; - <mark>Contact Manager</mark>&lt;/p&gt;
-            &lt;/footer&gt;
-        &lt;/div&gt;
-    &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>  
-
-Later in this tutorial you will add Web Forms scaffolding. Scaffolding will create the page that the above “Contact Demo” link references.
+	Later in this tutorial you will add Web Forms scaffolding. Scaffolding will create the page that the above “Contact Demo” link references.
+ 
 ###Run the Application Locally 
+ 
 1. In **Solution Explorer**, right-click the *Default.aspx* page and select **Set As Start Page**. 
 2. Next, press **CTRL+F5** to run the application.  
 	The application default page appears in the default browser window.
@@ -252,27 +253,26 @@ You begin by creating a simple data model using code. This data model will be co
 2. Name this new class *Contacts.cs*.  
 	![Add New Item dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)  
 3. Replace the default code with the following code:  
-	<pre class="prettyprint">
-	using System.ComponentModel.DataAnnotations;
-	using System.Globalization;
-	
-	namespace ContactManager.Models
-	{
-	    public class Contacts
-	    {
-	        [ScaffoldColumn(false)]
-	        [Key]
-	        public int ContactId { get; set; }
-	        public string Name { get; set; }
-	        public string Address { get; set; }
-	        public string City { get; set; }
-	        public string State { get; set; }
-	        public string Zip { get; set; }
-	        [DataType(DataType.EmailAddress)]
-	        public string Email { get; set; }
-	    }
-	}
-	</pre>
+
+		using System.ComponentModel.DataAnnotations;
+		using System.Globalization;
+		
+		namespace ContactManager.Models
+		{
+		    public class Contacts
+		    {
+		        [ScaffoldColumn(false)]
+		        [Key]
+		        public int ContactId { get; set; }
+		        public string Name { get; set; }
+		        public string Address { get; set; }
+		        public string City { get; set; }
+		        public string State { get; set; }
+		        public string Zip { get; set; }
+		        [DataType(DataType.EmailAddress)]
+		        public string Email { get; set; }
+		    }
+		}
 
 The **Contacts** class defines the data that you will store for each contact, plus a primary key (`ContactID`) that is needed by the database. The **Contacts** class represents the contact data that will be displayed. Each instance of a Contacts object will correspond to a row within a relational database table, and each property of the Contacts class will map to a column in the relational database table. Later in this tutorial, you'll review the contact data contained in the database.
 
@@ -306,83 +306,84 @@ The next task is to enable the Code First Migrations feature in order to create 
 1. In the **Tools** menu, select **NuGet Package Manager** and then **Package Manager Console**.  
 	![Add Web Forms Pages dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
 2. In the Package Manager Console window, enter the following command:  
-	<pre class="prettyprint">
-	enable-migrations
-	</pre>  
+
+		enable-migrations
+ 
 	The enable-migrations command creates a *Migrations* folder, and it puts in that folder a *Configuration.cs* file that you can edit to seed the database and configure data migrations.  
 3. In the **Package Manager Console** window, enter the following command:  
-	<pre class="prettyprint">
-	add-migration Initial
-	</pre>  
+
+		add-migration Initial
+
 	The `add-migration Initial` command generates a file named <date_stamp>Initial in the *Migrations* folder that creates the database. The first parameter ( Initial ) is arbitrary and is used to create the name of the file. You can see the new class files in **Solution Explorer**. In the `Initial` class, the `Up` method creates the `Contact` table, and the `Down` method (used when you want to return to the previous state) drops it.  
 4. Open the *Migrations\Configuration.cs* file. 
+
 5. Add the following namespace:  
-	<pre class="prettyprint">
-	using ContactManager.Models;
-	</pre>  
+
+		using ContactManager.Models;
+
 6. Replace the `Seed` method with the following code:  
-	<pre class="prettyprint">
-	protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-	{
-	    context.Contacts.AddOrUpdate(p => p.Name,
-	       new Contacts
-	       {
-	           ContactId = 1,
-	           Name = "Ivan Irons",
-	           Address = "One Microsoft Way",
-	           City = "Redmond",
-	           State = "WA",
-	           Zip = "10999",
-	           Email = "ivani@wideworldimporters.com",
-	       },
-	       new Contacts
-	        {
-	            ContactId = 2,
-	            Name = "Brent Scholl",
-	            Address = "5678 1st Ave W",
-	            City = "Redmond",
-	            State = "WA",
-	            Zip = "10999",
-	            Email = "brents@wideworldimporters.com",
-	        },
-	        new Contacts
-	        {
-	            ContactId = 3,
-	            Name = "Terrell Bettis",
-	            Address = "9012 State St",
-	            City = "Redmond",
-	            State = "WA",
-	            Zip = "10999",
-	            Email = "terrellb@wideworldimporters.com",
-	        },
-	        new Contacts
-	        {
-	            ContactId = 4,
-	            Name = "Jo Cooper",
-	            Address = "3456 Maple St",
-	            City = "Redmond",
-	            State = "WA",
-	            Zip = "10999",
-	            Email = "joc@wideworldimporters.com",
-	        },
-	        new Contacts
-	        {
-	            ContactId = 5,
-	            Name = "Ines Burnett",
-	            Address = "7890 2nd Ave E",
-	            City = "Redmond",
-	            State = "WA",
-	            Zip = "10999",
-	            Email = "inesb@wideworldimporters.com",
-	        }
-	        );
-	}
-	</pre>
-This code initializes (seeds) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
+
+		protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+		{
+		    context.Contacts.AddOrUpdate(p => p.Name,
+		       new Contacts
+		       {
+		           ContactId = 1,
+		           Name = "Ivan Irons",
+		           Address = "One Microsoft Way",
+		           City = "Redmond",
+		           State = "WA",
+		           Zip = "10999",
+		           Email = "ivani@wideworldimporters.com",
+		       },
+		       new Contacts
+		        {
+		            ContactId = 2,
+		            Name = "Brent Scholl",
+		            Address = "5678 1st Ave W",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "brents@wideworldimporters.com",
+		        },
+		        new Contacts
+		        {
+		            ContactId = 3,
+		            Name = "Terrell Bettis",
+		            Address = "9012 State St",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "terrellb@wideworldimporters.com",
+		        },
+		        new Contacts
+		        {
+		            ContactId = 4,
+		            Name = "Jo Cooper",
+		            Address = "3456 Maple St",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "joc@wideworldimporters.com",
+		        },
+		        new Contacts
+		        {
+		            ContactId = 5,
+		            Name = "Ines Burnett",
+		            Address = "7890 2nd Ave E",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "inesb@wideworldimporters.com",
+		        }
+		        );
+		}
+
+	This code initializes (seeds) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
 7. In the **Package Manager Console** enter the command:  
-	<pre class="prettyprint">
-	update-database
-	</pre>  
+
+		update-database
+
 The `update-database` runs the first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database.  
 	![Package Manager Console](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)  
 
@@ -431,13 +432,13 @@ The following steps will allow you to add a Google authentication provider.
 
 1. Open the *App_Start\Startup.Auth.cs* file. 
 2. Remove the comment characters from the `app.UseGoogleAuthentication()` method so that the method appears as follows:  
-	<pre class="prettyprint">
-	            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-	            {
-	                ClientId = "",
-	                ClientSecret = ""
-	            });
-	</pre>
+
+		app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+		{
+		    ClientId = "",
+		    ClientSecret = ""
+		});
+
 3. Navigate to the [Google Developers Console](https://console.developers.google.com/). You will also need to sign-in with your Google developer email account (gmail.com). If you do not have a Google account, select the **Create an account** link.  
 	Next, you'll see the **Google Developers Console**.
 	![Google Developers Console](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)  
@@ -454,74 +455,75 @@ The following steps will allow you to add a Google authentication provider.
 	This URL is the origin for your application. For this sample, you will only enter the localhost test URL. However, you can enter multiple URL to account for localhost and production.  
 
 9. Set the **Authorized Redirect URI** to the following:  
-	<pre class="prettyprint">  
-	https://localhost:44300/signin-google  
-	</pre>  
-	This value is the URI that ASP.NET OAuth users to communicate with the google OAuth server. Remember to the SSL URL you used above (**https://localhost:44300/** unless you've created other SSL projects).  
+
+		https://localhost:44300/signin-google  
+
+	This value is the URI that ASP.NET OAuth users to communicate with the google OAuth server. Remember to the SSL URL you used above (**https://localhost:44300/** unless you've created other SSL projects). 
+ 
 10. Click the **Create Client ID** button.
 11. In Visual Studio, update the `UseGoogleAuthentication` method of the *Startup.Auth.cs* page by copying and pasting the **AppId** and **App Secret** into the method. The **AppId** and **App Secret** values shown below are samples and will not work.  
-	<pre class="prettyprint">  
-	using System;
-	using Microsoft.AspNet.Identity;
-	using Microsoft.AspNet.Identity.EntityFramework;
-	using Microsoft.AspNet.Identity.Owin;
-	using Microsoft.Owin;
-	using Microsoft.Owin.Security.Cookies;
-	using Microsoft.Owin.Security.DataProtection;
-	using Microsoft.Owin.Security.Google;
-	using Owin;
-	using ContactManager.Models;
-	
-	namespace ContactManager
-	{
-	    public partial class Startup {
-	
-	        // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
-	        public void ConfigureAuth(IAppBuilder app)
-	        {
-	            // Configure the db context and user manager to use a single instance per request
-	            app.CreatePerOwinContext(ApplicationDbContext.Create);
-	            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-	
-	            // Enable the application to use a cookie to store information for the signed in user
-	            // and to use a cookie to temporarily store information about a user logging in with a third party login provider
-	            // Configure the sign in cookie
-	            app.UseCookieAuthentication(new CookieAuthenticationOptions
-	            {
-	                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-	                LoginPath = new PathString("/Account/Login"),
-	                Provider = new CookieAuthenticationProvider
-	                {
-	                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
-	                        validateInterval: TimeSpan.FromMinutes(20),
-	                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-	                }
-	            });
-	            // Use a cookie to temporarily store information about a user logging in with a third party login provider
-	            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-	
-	            // Uncomment the following lines to enable logging in with third party login providers
-	            //app.UseMicrosoftAccountAuthentication(
-	            //    clientId: "",
-	            //    clientSecret: "");
-	
-	            //app.UseTwitterAuthentication(
-	            //   consumerKey: "",
-	            //   consumerSecret: "");
-	
-	            //app.UseFacebookAuthentication(
-	            //   appId: "",
-	            //   appSecret: "");
-	
-	            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-	            {
-	                ClientId = "<mark>000000000000.apps.googleusercontent.com</mark>",
-	                ClientSecret = "<mark>00000000000</mark>"
-	            });
-	        }
-	    }
-	}
-	</pre>  
+
+		using System;
+		using Microsoft.AspNet.Identity;
+		using Microsoft.AspNet.Identity.EntityFramework;
+		using Microsoft.AspNet.Identity.Owin;
+		using Microsoft.Owin;
+		using Microsoft.Owin.Security.Cookies;
+		using Microsoft.Owin.Security.DataProtection;
+		using Microsoft.Owin.Security.Google;
+		using Owin;
+		using ContactManager.Models;
+		
+		namespace ContactManager
+		{
+		    public partial class Startup {
+		
+		        // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
+		        public void ConfigureAuth(IAppBuilder app)
+		        {
+		            // Configure the db context and user manager to use a single instance per request
+		            app.CreatePerOwinContext(ApplicationDbContext.Create);
+		            app.CreatePerOwinContext(ApplicationUserManager.Create);
+		
+		            // Enable the application to use a cookie to store information for the signed in user
+		            // and to use a cookie to temporarily store information about a user logging in with a third party login provider
+		            // Configure the sign in cookie
+		            app.UseCookieAuthentication(new CookieAuthenticationOptions
+		            {
+		                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+		                LoginPath = new PathString("/Account/Login"),
+		                Provider = new CookieAuthenticationProvider
+		                {
+		                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity(
+		                        validateInterval: TimeSpan.FromMinutes(20),
+		                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+		                }
+		            });
+		            // Use a cookie to temporarily store information about a user logging in with a third party login provider
+		            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+		
+		            // Uncomment the following lines to enable logging in with third party login providers
+		            //app.UseMicrosoftAccountAuthentication(
+		            //    clientId: "",
+		            //    clientSecret: "");
+		
+		            //app.UseTwitterAuthentication(
+		            //   consumerKey: "",
+		            //   consumerSecret: "");
+		
+		            //app.UseFacebookAuthentication(
+		            //   appId: "",
+		            //   appSecret: "");
+		
+		            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+		            {
+		                ClientId = "000000000000.apps.googleusercontent.com",
+		                ClientSecret = "00000000000"
+		            });
+		        }
+		    }
+		}
+
 12. Press **CTRL+F5** to build and run the application. Click the **Log in** link.
 13. Under **Use another service to log in**, click **Google**.  
 	![Log in](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21d.png)  
@@ -543,54 +545,54 @@ Using ASP.NET Identity, you can add an administrator role and assign a user to t
 
 1. In **Solution Explorer**, open the *Configuration.cs* file in the *Migrations* folder.
 2. Add the following `using` statements within the `ContactManger.Migrations` namespace:  
-	<pre class="prettyprint">
-	using Microsoft.AspNet.Identity;
-	using Microsoft.AspNet.Identity.EntityFramework;
-	</pre>
+
+		using Microsoft.AspNet.Identity;
+		using Microsoft.AspNet.Identity.EntityFramework;
+
 3. Add the following `AddUserAndRole` method to the `Configuration` class after the `Seed` method:  
-	<pre class="prettyprint">
-        public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-        {
-            IdentityResult IdRoleResult;
-            IdentityResult IdUserResult;
 
-            var roleStore = new RoleStore&lt;IdentityRole&gt;(context);
-            var roleMgr = new RoleManager&lt;IdentityRole&gt;(roleStore);
+		public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+		{
+		    IdentityResult IdRoleResult;
+		    IdentityResult IdUserResult;
+		
+		    var roleStore = new RoleStore<IdentityRole>(context);
+		    var roleMgr = new RoleManager<IdentityRole>(roleStore);
+		
+		    if (!roleMgr.RoleExists("canEdit"))
+		    {
+		        IdRoleResult = roleMgr.Create(new IdentityRole { Name = "canEdit" });
+		    }
+		
+		    //var userStore = new UserStore<ApplicationUser>(context);
+		    //var userMgr = new UserManager<ApplicationUser>(userStore);
+		    var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+		
+		    var appUser = new ApplicationUser
+		    {
+		        UserName = "canEditUser@wideworldimporters.com",
+		        Email = "canEditUser@wideworldimporters.com"
+		    };
+		    IdUserResult = userMgr.Create(appUser, "Pa$$word1");
+		
+		    if (!userMgr.IsInRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit"))
+		    {
+		      //  IdUserResult = userMgr.AddToRole(appUser.Id, "canEdit");
+		        IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit");
+		    }
+		}
 
-            if (!roleMgr.RoleExists(&quot;canEdit&quot;))
-            {
-                IdRoleResult = roleMgr.Create(new IdentityRole { Name = &quot;canEdit&quot; });
-            }
-
-            //var userStore = new UserStore&lt;ApplicationUser&gt;(context);
-            //var userMgr = new UserManager&lt;ApplicationUser&gt;(userStore);
-            var userMgr = new UserManager&lt;ApplicationUser&gt;(new UserStore&lt;ApplicationUser&gt;(context));
-
-            var appUser = new ApplicationUser
-            {
-                UserName = &quot;canEditUser@wideworldimporters.com&quot;,
-                Email = &quot;canEditUser@wideworldimporters.com&quot;
-            };
-            IdUserResult = userMgr.Create(appUser, &quot;Pa$$word1&quot;);
-
-            if (!userMgr.IsInRole(userMgr.FindByEmail(&quot;canEditUser@wideworldimporters.com&quot;).Id, &quot;canEdit&quot;))
-            {
-              //  IdUserResult = userMgr.AddToRole(appUser.Id, &quot;canEdit&quot;);
-                IdUserResult = userMgr.AddToRole(userMgr.FindByEmail(&quot;canEditUser@wideworldimporters.com&quot;).Id, &quot;canEdit&quot;);
-            }
-        }
-	</pre>
 4. Add a call to the `AddUserAndRole` method from within the beginning of the `Seed` method. Note that only the beginning of the `Seed` method is being shown.  
-	<pre class="prettyprint">
-        protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-        {
-            <mark>AddUserAndRole(context);</mark>
-	</pre>  
+
+		protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+		{
+		    AddUserAndRole(context);
+
 5. After saving all your changes, in the **Package Manager Console** run the following command:  
-	<pre class="prettyprint">
-	Update-Database
-	</pre>
-	This code creates a new role called `canEdit` and creates a new local user with the email of canEditUser@wideworldimporters.com. Then, the code adds canEditUser@wideworldimporters.com to the `canEdit` role. For more information, see the [ASP.NET Identity](http://www.asp.net/identity) resource page.  
+
+		Update-Database
+
+This code creates a new role called `canEdit` and creates a new local user with the email of canEditUser@wideworldimporters.com. Then, the code adds canEditUser@wideworldimporters.com to the `canEdit` role. For more information, see the [ASP.NET Identity](http://www.asp.net/identity) resource page.  
 
 ###Restrict Access to the Administration Folder 
 The **ContactManager** sample application allows both anonymous users and logged-in users to view contacts. However, after you complete this section, the logged-in users that are assigned to the "canEdit" role will be the only users able to modify the contacts.
@@ -602,73 +604,73 @@ You will create a folder named *Admin* where only users that are assigned to the
 	- *Delete.aspx *and* Delete.aspx.cs*
 	- *Edit.aspx *and* Edit.aspx.cs*
 	- *Insert.aspx *and* Insert.aspx.cs*
-3. Update the link references in *Contacts/Default.aspx* by adding "Admin/" before the pages references that link to *Insert.aspx*, *Edit.aspx*, and *Delete.aspx*:  
-	<pre class="prettyprint">
-	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
-	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
-	
-	&lt;asp:Content runat=&quot;server&quot; ContentPlaceHolderID=&quot;MainContent&quot;&gt;
-	    &lt;h2&gt;Contacts List&lt;/h2&gt;
-	    &lt;p&gt;
-	        &lt;asp:HyperLink runat=&quot;server&quot; NavigateUrl=&quot;<mark>Admin/</mark>Insert.aspx&quot; Text=&quot;Create new&quot; /&gt;
-	    &lt;/p&gt;
-	    &lt;div&gt;
-	        &lt;asp:ListView runat=&quot;server&quot;
-	            DataKeyNames=&quot;ContactId&quot; ItemType=&quot;ContactManager.Models.Contacts&quot;
-	            AutoGenerateColumns=&quot;false&quot;
-	            AllowPaging=&quot;true&quot; AllowSorting=&quot;true&quot;
-	            SelectMethod=&quot;GetData&quot;&gt;
-	            &lt;EmptyDataTemplate&gt;
-	                There are no entries found for Contacts
-	            &lt;/EmptyDataTemplate&gt;
-	            &lt;LayoutTemplate&gt;
-	                &lt;table class=&quot;table&quot;&gt;
-	                    &lt;thead&gt;
-	                        &lt;tr&gt;
-	                            &lt;th&gt;Name&lt;/th&gt;
-	                            &lt;th&gt;Address&lt;/th&gt;
-	                            &lt;th&gt;City&lt;/th&gt;
-	                            &lt;th&gt;State&lt;/th&gt;
-	                            &lt;th&gt;Zip&lt;/th&gt;
-	                            &lt;th&gt;Email&lt;/th&gt;
-	                            &lt;th&gt;&amp;nbsp;&lt;/th&gt;
-	                        &lt;/tr&gt;
-	                    &lt;/thead&gt;
-	                    &lt;tbody&gt;
-	                        &lt;tr runat=&quot;server&quot; id=&quot;itemPlaceholder&quot; /&gt;
-	                    &lt;/tbody&gt;
-	                &lt;/table&gt;
-	            &lt;/LayoutTemplate&gt;
-	            &lt;ItemTemplate&gt;
-	                &lt;tr&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Name&quot; ID=&quot;Name&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Address&quot; ID=&quot;Address&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;City&quot; ID=&quot;City&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;State&quot; ID=&quot;State&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Zip&quot; ID=&quot;Zip&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Email&quot; ID=&quot;Email&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;a href=&quot;<mark>Admin/</mark>Edit.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Edit&lt;/a&gt; | 
-	                        &lt;a href=&quot;<mark>Admin/</mark>Delete.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Delete&lt;/a&gt;
-	                    &lt;/td&gt;
-	                &lt;/tr&gt;
-	            &lt;/ItemTemplate&gt;
-	        &lt;/asp:ListView&gt;
-	    &lt;/div&gt;
-	&lt;/asp:Content&gt;
-	</pre>
+3. Update the link references in *Contacts/Default.aspx* by adding "Admin/" before the pages references that link to *Insert.aspx*, *Edit.aspx*, and *Delete.aspx* as shown below:  
+
+		<%@ Page Title="ContactsList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="ContactManager.Contacts.Default" ViewStateMode="Disabled" %>
+		<%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
+		
+		<asp:Content runat="server" ContentPlaceHolderID="MainContent">
+		    <h2>Contacts List</h2>
+		    <p>
+		        <asp:HyperLink runat="server" NavigateUrl="Admin/Insert.aspx" Text="Create new" />
+		    </p>
+		    <div>
+		        <asp:ListView runat="server"
+		            DataKeyNames="ContactId" ItemType="ContactManager.Models.Contacts"
+		            AutoGenerateColumns="false"
+		            AllowPaging="true" AllowSorting="true"
+		            SelectMethod="GetData">
+		            <EmptyDataTemplate>
+		                There are no entries found for Contacts
+		            </EmptyDataTemplate>
+		            <LayoutTemplate>
+		                <table class="table">
+		                    <thead>
+		                        <tr>
+		                            <th>Name</th>
+		                            <th>Address</th>
+		                            <th>City</th>
+		                            <th>State</th>
+		                            <th>Zip</th>
+		                            <th>Email</th>
+		                            <th>&nbsp;</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <tr runat="server" id="itemPlaceholder" />
+		                    </tbody>
+		                </table>
+		            </LayoutTemplate>
+		            <ItemTemplate>
+		                <tr>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Name" ID="Name" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Address" ID="Address" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="City" ID="City" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="State" ID="State" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Zip" ID="Zip" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Email" ID="Email" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <a href="Admin/Edit.aspx?ContactId=<%#: Item.ContactId%>">Edit</a> | 
+		                        <a href="Admin/Delete.aspx?ContactId=<%#: Item.ContactId%>">Delete</a>
+		                    </td>
+		                </tr>
+		            </ItemTemplate>
+		        </asp:ListView>
+		    </div>
+		</asp:Content>
+
 4. Update the six references of the `Response.Redirect("Default.aspx")` code to `Response.Redirect("~/Contacts/Default.aspx")` for the following three files:  
 	- *Delete.aspx.cs*
 	- *Edit.aspx.cs*
@@ -678,17 +680,17 @@ You will create a folder named *Admin* where only users that are assigned to the
 5. To restrict access to the *Admin* folder, from the **Solution Explorer** right-click the *Admin* folder and select **Add New Item**.
 6. From the list of Visual C# Web templates, select **Web Configuration File** from the middle list, accept the default name of *Web.config*, and then select **Add**.
 7. Replace the existing XML content in the *Web.config* file with the following:
-	<pre class="prettyprint">
-	&lt;?xml version=&quot;1.0&quot;?&gt;
-	&lt;configuration&gt;
-	  &lt;system.web&gt;
-	    &lt;authorization&gt;
-	      &lt;allow roles=&quot;canEdit&quot;/&gt;
-	      &lt;deny users=&quot;*&quot;/&gt;
-	    &lt;/authorization&gt;
-	  &lt;/system.web&gt;
-	&lt;/configuration&gt;
-	</pre>
+
+		<?xml version="1.0"?>
+		<configuration>
+		  <system.web>
+		    <authorization>
+		      <allow roles="canEdit"/>
+		      <deny users="*"/>
+		    </authorization>
+		  </system.web>
+		</configuration>
+
 8. Save the *Web.config* file. 
 	The *Web.config* file specifies that only users assigned to the "canEdit" role can access the pages contained in the *Admin* folder. 
 
@@ -714,8 +716,6 @@ Now that the web application is complete, you can publish it to Azure.
 7. Set the **Configuration** dropdown box to **Debug**.
 8. Click the **down arrow** icon next to **ApplicationDbContext** and set it to **ContactDB**.
 9. Check the **Execute Code First Migrations** checkbox.  
-
-	>[AZURE.NOTE]  
 	In this example, you should select this checkbox only the first time you publish the application. This way, the *Seed* method in the *Configuration.cs* file will only be called once.  
 
 10. Then, click **Publish**.  

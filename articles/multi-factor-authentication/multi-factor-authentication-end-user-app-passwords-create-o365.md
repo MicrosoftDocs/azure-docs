@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="stevenp" 
+	editor="curtland"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
-# Create app passwords in the Office 365 portal for Azure Multi-Factor Authentication
+# Create or delete app passwords in the Office 365 portal for Azure Multi-Factor Authentication
 
-If you use multi-factor authentication with Office 365 you will want to create app passwords through the Office 365 portal.
+If you use multi-factor authentication with Office 365 you will want to create and delete app passwords through the Office 365 portal.
 
 ## To create app passwords in the Office 365 portal
 --------------------------------------------------------------------------------
@@ -45,4 +45,30 @@ If you use multi-factor authentication with Office 365 you will want to create a
 
 
 
+## To delete app passwords in the Office 365 portal
+--------------------------------------------------------------------------------
+
+<ol>
+<li>Sign-in to the Office 365 portal</li>
+<li>In the top right corner select the widget and choose Office 365 Settings</li>
+<li>At the bottom, click Additional Security Verification and select **Update your phone numbers used for account security**.3</li>
+
+![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)
+
+<li>On the right, select **Update my phone numbers used for account security**</li>
+<li>On the proofup page, at the top, select app passwords</li>
+
+<center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/addsec.png)</center>
+
+<li>Next to the app password you want to remove, select **Delete**.</li>
+
+
+<center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)</center>
+
+<li>You will get a pop-up asking you to confirm the deletion.</li>
+<li>Click **Yes**.</li>
+
+
+
+ 
  

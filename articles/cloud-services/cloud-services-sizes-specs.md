@@ -62,7 +62,16 @@ The following considerations might help you decide on a size:
 |Standard_D13|8|56 GB|OS = Guest OS size<br/>Local resource = 400 GB<br/>Apps = approx. 1.5 GB|
 |Standard_D14|16|112 GB|OS = Guest OS size<br/>Local resource = 800 GB<br/>Apps = approx. 1.5 GB|
 
+## Configure sizes for Cloud Services
+
+You can specify the Virtual Machine size of a role instance as part of the service model described by the service definition file. The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
+
+Here is an example for setting the role size to be small for a Web Role instance:
+
+
+    <WebRole name="WebRole1" vmsize="Small">
+    …
+    </WebRole>
 ## Next steps
 
 [Set Up a Cloud Service for Azure](https://msdn.microsoft.com/library/hh124108)  
-[Configure Sizes for Cloud Services](https://msdn.microsoft.com/library/ee814754) 

@@ -48,19 +48,9 @@ Validate Xml action Validates a given xml input against pre-configured schemas.
 
 ![BizTalk XML Validator Validate Xml][5]
 
-<table>
-	<tr>
-		<th>Parameter</th>
-		<th>Type</th>
-		<th>Description of the parameter</th>
-	</tr>
-	<tr>
-		<td>Input Xml</td>
-		<td>string</td>
-		<td>Input Xml to be validated</td>
-	</tr>
-</table>
-
+Parameter|Type|Description of the parameter
+---|---|---
+Input Xml|string|Input Xml to be validated
 
 The action returns the output as an object. Output contains the model representing response of Xml Validator. It consists of result, schema name, root node and error description.
 

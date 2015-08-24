@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Service Bus topics (Java) - Azure"
+	pageTitle="How to use Service Bus topics (Java) | Microsoft Azure"
 	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications."
 	services="service-bus"
 	documentationCenter="java"

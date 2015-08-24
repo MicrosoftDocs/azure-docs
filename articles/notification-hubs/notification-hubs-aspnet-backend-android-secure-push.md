@@ -18,11 +18,11 @@
 
 #Azure Notification Hubs Secure Push
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
-</div>
-
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+    
 ##Overview
 
 Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. 

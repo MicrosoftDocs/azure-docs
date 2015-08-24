@@ -5,7 +5,8 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="Blackmist"/>
+	authors="Blackmist"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -207,7 +208,7 @@ You can also use Sqoop to import and export data from SQL Server, either in your
 
     > [AZURE.NOTE] For **point-to-site** virtual networks, SQL Server must be running the VPN client configuration application, which is available from the **Dashboard** of your Azure virtual network configuration.
 
-    For more information on creating and configuring a virtual network, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+    For more information on creating and configuring a virtual network, see [Virtual Network Configuration Tasks](../services/virtual-machines/).
 
 * SQL Server must be configured to allow SQL authentication. For more information, see [Choose an Authentication Mode](https://msdn.microsoft.com/ms144284.aspx)
 
@@ -243,9 +244,6 @@ Now you have learned how to use Sqoop. To learn more, see:
 - [Upload data to HDInsight][hdinsight-upload-data]: Find other methods for uploading data to HDInsight/Azure Blob storage.
 
 
-
-
-[azure-management-portal]: https://manage.windowsazure.com/
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
