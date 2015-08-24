@@ -269,7 +269,7 @@ Load balancers contain the following child resources:
 
 ## Application Gateway
 
-Application Gateway is provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. Application load balancing enables IT administrators and developers to create routing rules for network traffic based on HTTP. 
+Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. Application load balancing enables IT administrators and developers to create routing rules for network traffic based on HTTP. 
 
 Application Gateways contain the following child resources:
 
