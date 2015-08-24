@@ -34,14 +34,14 @@ Publishes a web project to an Azure website. The script creates the required res
 
 The path to the JSON configuration file that describes the details of the deployment.
 
-	|Parameter|Default value|
-    |---|---|
-    |Aliases|none|
-    |Required?|true|
-    |Position|named|
-    |Default value|none|
-    |Accept pipeline input?|false|
-    |Accept wildcard characters?|false|
+|Parameter|Default value|
+|---|---|
+|Aliases|none|
+|Required?|true|
+|Position|named|
+|Default value|none|
+|Accept pipeline input?|false|
+|Accept wildcard characters?|false|
 
 ## SubscriptionName
 
