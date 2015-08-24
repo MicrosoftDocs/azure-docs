@@ -90,7 +90,7 @@ Currently, not supported.
 
 ###Overview
 
-Azure Media Encoder is one of the encoders supported by Media Services. Starting with August 2015, it is recommended to use [Media Encoder Standard](media-services-encode-asset.md#media_encoder_standard).
+Azure Media Encoder is one of the encoders supported by Media Services. Starting with July 2015, it is recommended to use [Media Encoder Standard](media-services-encode-asset.md#media_encoder_standard).
 
 ###How to use
 
