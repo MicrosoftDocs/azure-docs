@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Line of Business Application Workload Phase 4: Configure web servers" 
-	description="In this fourth phase of deploying a high-availability line of business application in Azure infrastructure services, you create the web servers and load your line of business application on them." 
+	pageTitle="Line of business application Phase 4 | Microsoft Azure" 
+	description="Create the web servers and load your line of business application on them in Phase 4 of the line of business application in Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 

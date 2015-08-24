@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a Cross-Premises Virtual Network Using Configuration Tables"
-	description="This topic describes how to configure a cross-premises virtual network using pre-determined configuration tables."
+	pageTitle="Virtual network using configuration tables | Microsoft Azure"
+	description="Learn how to configure a cross-premises Azure virtual network with settings from a configuration table with pre-determined settings."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
