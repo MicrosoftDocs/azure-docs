@@ -103,12 +103,12 @@ WAV/PCM|Yes
 
 File Format (file extensions) | Supported
 ---|---
-Bitmap (.bmp)
-GIF, Animated GIF (.gif)
-JPEG (.jpeg, .jpg)
-PNG (.png)
-TIFF (.tif)
-WPF Canvas XAML (.xaml)
+Bitmap (.bmp) | Yes
+GIF, Animated GIF (.gif)| Yes
+JPEG (.jpeg, .jpg)| Yes
+PNG (.png)| Yes
+TIFF (.tif)| Yes
+WPF Canvas XAML (.xaml)| Yes
 
 
 ##Output Formats and codecs
