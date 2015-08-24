@@ -63,6 +63,6 @@ The following procedure references the information in these tables to guide you 
 
 [Virtual network overview](https://msdn.microsoft.com/library/jj156007.aspx)
 
-[Virtual network configuration tasks](../services/virtual-machines/)
+[Virtual network configuration tasks](../documentation/services/virtual-machines/)
 
 [Configure a cross-premises site-to-site connection to an Azure virtual network](../vpn-gateway/vpn-gateway-site-to-site-create.md)
