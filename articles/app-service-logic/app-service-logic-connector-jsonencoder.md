@@ -1,6 +1,6 @@
 <properties
-   pageTitle="BizTalk JSON Encoder"
-   description="BizTalk JSON Encoder"
+   pageTitle="Using the BizTalk JSON Encoder connector in Logic Apps | Microsoft Azure App Service "
+   description="How to create and configure the BizTalk JSON Encoder Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="rajram"/>
 
-# BizTalk JSON Encoder
+# Get started with the BizTalk JSON Encoder and add it to your Logic App 
 BizTalk JSON Encode Decode connector helps your app interop between JSON and XML data. It can convert a given JSON instance to XML and vice versa.
+
+You can add the BizTalk JSON Encoder to your business workflow and process data as part of this workflow within a Logic App. 
 
 ## Using BizTalk JSON Encoder
 To use the BizTalk JSON Encoder, you need to first create an instance of the BizTalk JSON Encoder API app. This can be done either inline while creating a logic app or by selecting the BizTalk JSON Encoder API app from the Azure Marketplace.

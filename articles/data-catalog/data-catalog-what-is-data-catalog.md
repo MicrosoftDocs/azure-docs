@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Data Catalog what is data catalog"
-   description="Microsoft Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
+   pageTitle="Azure Data Catalog - What is Data Catalog"
+   description="Overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/19/2015"
+   ms.date="08/21/2015"
    ms.author="maroche"/>
 
 # What is Azure Data Catalog?

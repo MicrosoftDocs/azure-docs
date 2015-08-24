@@ -53,7 +53,7 @@ Item | Subnet name | Subnet address space | Purpose
 
 **Table S: Subnets in the virtual network**
 
-> [AZURE.NOTE] This pre-defined architecture uses a single subnet for simplicity. If you want to overlay a set of traffic filters to emulate subnet isolation, you can use Azure [Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+> [AZURE.NOTE] This pre-defined architecture uses a single subnet for simplicity. If you want to overlay a set of traffic filters to emulate subnet isolation, you can use Azure [Network Security Groups](virtual-networks-nsg.md).
 
 For the two on-premises DNS servers that you want to use when initially setting up the domain controllers in your virtual network, fill in Table D. Give each DNS server a friendly name and a single IP address. This friendly name does not need to match the host name or computer name of the DNS server. Note that two blank entries are listed, but you can add more. Work with your IT department to determine this list.
 
@@ -78,7 +78,7 @@ Item | Local network address space
 
 To create the virtual network with the settings from Tables V, S, D, and L, use the instructions in [Create a Cross-Premises Virtual Network Using Configuration Tables](virtual-machines-workload-deploy-vnet-config-tables.md).
 
-> [AZURE.NOTE] This procedure steps you through creating a virtual network that uses a site-to-site VPN connection. For information about using ExpressRoute for your site-to-site connection, see [ExpressRoute Technical Overview](http://msdn.microsoft.com/en-us/library/dn606309.aspx).
+> [AZURE.NOTE] This procedure steps you through creating a virtual network that uses a site-to-site VPN connection. For information about using ExpressRoute for your site-to-site connection, see [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
 After creating the Azure virtual network, the Azure Management Portal will determine the following:
 
@@ -87,9 +87,9 @@ After creating the Azure virtual network, the Azure Management Portal will deter
 
 To see these in the Azure Management Portal after you create the virtual network, click **Networks**, click the name of the virtual network, and then click the **Dashboard** menu option.
 
-Next, you’ll configure the virtual network gateway to create a secure site-to-site VPN connection. See [Configure the Virtual Network Gateway in the Management Portal](http://msdn.microsoft.com/library/jj156210.aspx) for the instructions.
+Next, you’ll configure the virtual network gateway to create a secure site-to-site VPN connection. See [Configure the Virtual Network Gateway in the Management Portal](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
 
-Next, create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. For the details, see [Configure a Virtual Network Gateway in the Management Portal](http://msdn.microsoft.com/library/jj156210.aspx) for the instructions.
+Next, create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. For the details, see [Configure a Virtual Network Gateway in the Management Portal](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
 
 Next, ensure that the address space of the virtual network is reachable from your on-premises network. This is usually done by adding a route corresponding to the virtual network address space to your VPN device and then advertising that route to the rest of the routing infrastructure of your organization network. Work with your IT department to determine how to do this.
 

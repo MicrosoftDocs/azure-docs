@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/11/2015"
+   ms.date="08/21/2015"
    ms.author="jgao"/>
 
 # Provision Hadoop clusters in HDInsight
@@ -554,6 +554,19 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster.
 
 
+## Creating HDInsight cluster using on-premises SQL Server Integration Services
+
+You can also use SQL Server Integration Services (SSIS) to create or delete an HDInsight cluster. The Azure Feature Pack for SSIS provides the following components that work with HDInsight clusters.
+
+
+- [Azure HDInsight Create Cluster Task][ssisclustercreate]
+- [Azure HDInsight Delete Cluster Task][ssisclusterdelete]
+- [Azure Subscription Connection Manager][connectionmanager]
+
+Learn more about the Azure Feature Pack for SSIS [here][ssispack].
+
+
+
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
 
@@ -566,3 +579,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
+[connectionmanager]: http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/en-US/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/en-US/library/mt146778(v=sql.120).aspx
