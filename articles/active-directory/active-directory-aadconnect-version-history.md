@@ -26,10 +26,12 @@ This article is designed to help you keep track of the versions that have been r
 Released: 2015 August
 
 **New features:**
+
 - The Azure AD Connect installation wizard is now localized to all Windows Server languages.
 - Added support for account unlock when using Azure AD password management.
 
 **Fixed issues:**
+
 - Azure AD Connect installation wizard crashes if another user continues installation rather than the person who first started the installation.
 - If a previous uninstall of Azure AD Connect fails to uninstall Azue AD Connect sync cleanly, it is not possible to reinstall.
 - Cannot install Azure AD Connect using Express install if the user is not in the root domain of the forest or if a non-English version of Active Directory is used.
@@ -43,7 +45,7 @@ Released: 2015 August
 ## 1.0.8641.0
 Released: 2015 June
 
-**Initial Release of Azure AD Connect.**
+**Initial release of Azure AD Connect.**
 
 Changed name from Azure AD Sync to Azure AD Connect.
 
@@ -51,15 +53,18 @@ Changed name from Azure AD Sync to Azure AD Connect.
 Released: 2015 May
 
 **New Requirement:**
+
 - Azure AD Sync now requires the .Net framework version 4.5.1 to be installed.
 
 **Fixed issues:**
+
 - Password writeback from Azure AD is failing with a servicebus connectivity error.
 
 ## 1.0.491.0413
 Released: 2015 April
 
 **Fixed issues and improvements:**
+
 - The Active Directory Connector does not process deletes correctly if the recycle bin is enabled and there are multiple domains in the forest.
 - The performance of import operations has been improved for the Azure Active Directory Connector.
 - When a group has exceeded the membership limit (by default, the limit is set to 50k objects), the group was deleted in Azure Active Directory. The new behavior is that the group will remain, an error is thrown and no new membership changes will be exported.
@@ -69,15 +74,18 @@ Released: 2015 April
 - CSExportAnalyzer has problems with some objects states.
 
 **New features:**
+
 - A join can now connect to “ANY” object type in the MV.
 
 ## 1.0.485.0222
 Released: 2015 February
 
 **Improvements:**
+
 - Improved import performance.
 
 **Fixed issues:**
+
 - Password Sync honors the cloudFiltered attribute used by attribute filtering. Filtered objects will no longer be in scope for password synchronization.
 - In rare situations where the topology had very many domain controllers, password sync doesn’t work.
 - “Stopped-server” when importing from the Azure AD Connector after device management has been enabled in Azure AD/Intune.
@@ -87,15 +95,18 @@ Released: 2015 February
 Released: 2014 December
 
 **New features:**
+
 - It is now supported to do password synchronization with attribute based filtering. For more details, see Password synchronization with filtering.
 - The attribute msDS-ExternalDirectoryObjectID is written back to AD. This adds support for Office 365 applications using OAuth2 to access both, Online and On-Premises mailboxes in a Hybrid Exchange Deployment.
 
 **Fixed upgrade issues:**
+
 - A newer version of the sign-in assistant is available on the server.
 - A custom installation path was used to install Azure AD Sync.
 - An invalid custom join criterion blocks the upgrade.
 
 **Other fixes:**
+
 - Fixed the templates for Office Pro Plus.
 - Fixed installation issues caused by user names that start with a dash.
 - Fixed losing the sourceAnchor setting when running the installation wizard a second time.
@@ -105,12 +116,14 @@ Released: 2014 December
 Released: 2015 October
 
 **New features:**
+
 - Password synchronization from multiple on-premise AD to Azure AD.
 - Localized installation UI to all Windows Server languages.
 
 **Upgrading from AADSync 1.0 GA**
 
 If you already have Azure AD Sync installed, there is one additional step you have to take in case you have changed any of the out-of-box Synchronization Rules. After you have upgraded to the 1.0.470.1023 release, the synchronization rules you have modified are duplicated. For each modified Sync Rule do the following:
+
 - Locate the Sync Rule you have modified and take a note of the changes.
 - Delete the Sync Rule.
 - Locate the new Sync Rule created by Azure AD Sync and re-apply the changes.
@@ -122,7 +135,7 @@ The AD account must be granted additional permissions to be able to read the pas
 ## 1.0.419.0911
 Released: 2015 September
 
-**Initial Release of Azure AD Sync.**
+**Initial release of Azure AD Sync.**
 
 ## Additional Resources
 [Azure AD Connect sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
