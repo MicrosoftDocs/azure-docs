@@ -17,7 +17,7 @@
 
 # Add, disable, enable or delete endpoints
 
-Azure websites already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode. Azure Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters. The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.
+The Web Apps feature in Azure App Service already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode. Azure Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters. The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.
 
 >[AZURE.NOTE] You cannot add external locations or Traffic Manager profiles as endpoints using the Azure portal. You must use the REST API [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) or Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774).
 
