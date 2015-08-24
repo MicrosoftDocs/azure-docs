@@ -16,7 +16,7 @@
 	ms.date="08/24/2015"
 	ms.author="raynew"/>
 
-#  Migrate Windows virtual machines from Amazon Web Services (AWS) to Azure
+#  Migrate Windows virtual machines in Amazon Web Services (AWS) to Azure
 
 
 ## Overview
