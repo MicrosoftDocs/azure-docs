@@ -25,8 +25,8 @@ Logic apps can trigger based on a variety of data sources and offer connectors t
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
 
 1. In the Azure startboard, select **Marketplace**.
-2. Search for “Facebook Connector”, select it, and select **Create**.
-3.	Configure the SFTP connector as follows:  
+2. Search for “SFTP Connector”, select it, and select **Create**.
+3. Configure the SFTP connector as follows:  
 ![][1]
 	- **Location** - choose the geographic location where you would like the connector to be deployed
 	- **Subscription** - choose a subscription you want this connector to be created in
@@ -65,7 +65,7 @@ Once your API app is created, you can now use the SFTP connector as a trigger/ac
 
 5.	You can now use SFTP connector in the flow. You can use the File retrieved from the SFTP trigger ("TriggerOnFileAvailable") in other actions in the flow.
 
-	**Note:** The SFTP trigger "TriggerOnFileAvailable" will delete the retrieved file after processing the file.
+	> [AZURE.IMPORTANT] The SFTP trigger "TriggerOnFileAvailable" deletes the retrieved file after processing the file.
 
 6.	Configure the input properties for SFTP trigger as Follows:
 
