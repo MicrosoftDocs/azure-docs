@@ -30,7 +30,7 @@ With this option:
  - The project’s target platform is then set to Azure SQL Database V12 and the project is built to identify all compatibility issues. 
  - Once the project builds successfully, the schema is published back to a copy of the source database (do not overwrite the source database).
  - The data compare feature in SSDT is then used to compare the source database to the newly created Azure SQL compatible database and then update the new database with data from the source database. 
- - The updated database is then deployed to Azure using SSMS, either directly or by exporting and importing a BACPAC file.
+ - The updated database is then deployed to Azure using SSMS, either directly or by exporting and then importing a BACPAC file.
  
 >[AZURE.NOTE] Note: If a schema-only deployment is required, the updated schema can be published directly from Visual Studio to Azure SQL Database.
 
@@ -40,7 +40,7 @@ With this option:
 
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
 
-2.	Configure the import settings to **Import application-scoped objects only**. Uncheck the options to import referenced logins, permissions and database settings.
+2.	Configure the import settings to **Import application-scoped objects only**. Uncheck the options to import the following: referenced logins, permissions and database settings.
 
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/03MigrateSSDT.png)
 
@@ -56,7 +56,7 @@ With this option:
 
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/06MigrateSSDT.png)
 
-6.	The Error List displays each incompatibility. In this case, the user name NT AUTHORITY\NETWORK SERVICE is incompatible. Since it is incompatible, you can comment it out or remove it (and address the implications of removing this login and role from the database solution). 
+6.	The **Error List** displays each incompatibility. In this case, the user name NT AUTHORITY\NETWORK SERVICE is incompatible. Since it is incompatible, you can comment it out or remove it (and address the implications of removing this login and role from the database solution). 
 
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/07MigrateSSDT.png)
   
@@ -74,14 +74,14 @@ With this option:
 
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)
 
-10.	Click Schema Compare to compare the project to the original database to understand what changes have been made by the wizard. Select your source database and then click Compare.
+10.	In SQL Server Object Explorer, right-click your source database and click **Data Comparison** to compare the project to the original database to understand what changes have been made by the wizard. Select your Azure SQL V12 version of the database and then click **Finish**.
 
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
 
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
-12.	Review the differences detected and then click Update. 
+12.	Review the differences detected and then click **Update Target** to migrate data from the source database into the Azure SQL V12 database. 
 
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/14MigrateSSDT.png)
 
-14.	Deploy the copied database to Azure SQL Database using SSMS.
+14.	Deploy the Azure SQL V12 compatible database schema and data to Azure SQL Database using SSMS. See [Migrating a compatible database using SSMS.](sql-database-migrate-ssms.md)
