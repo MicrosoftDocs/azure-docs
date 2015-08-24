@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure"
-	description="You can deploy SharePoint with SQL Server AlwaysOn Availability Groups in Azure in five phases."
+	pageTitle="Deploy a SharePoint Server 2013 farm | Microsoft Azure"
+	description="Deploy a high-availability SharePoint Server 2013 farm using SQL Server AlwaysOn Availability Groups in Azure in five phases."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"

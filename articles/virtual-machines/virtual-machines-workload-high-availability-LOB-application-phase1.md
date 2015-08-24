@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Line of Business Application Workload Phase 1: Configure Azure" 
-	description="In this first phase of deploying a high-availability line of business application in Azure infrastructure services, you create the Azure virtual network and other Azure infrastructure elements." 
+	pageTitle="Line of business application Phase 1 | Microsoft Azure" 
+	description="Create the virtual network and other Azure infrastructure elements in Phase 1 of the line of business application in Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 

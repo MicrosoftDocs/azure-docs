@@ -41,7 +41,7 @@ Independent of cloud storage, SQL Data Warehouse's elasticity lets you grow, shr
 
 Increasing your compute power can be done through the [Azure Portal][], using T-SQL, via REST APIs or through Powershell.  Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.
 
-The T-SQL code below shows how to adjust the DWU allocation for your SQL Data Warehouse:
+The T-SQL code below will adjust the DWU allocation for your SQL Data Warehouse when run against the master database of your server:
 
 ```
 ALTER DATABASE MySQLDW 

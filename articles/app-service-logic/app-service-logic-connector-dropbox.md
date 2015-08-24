@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Using the Dropbox Connector in your logic app in Azure App Service"
-	description="how to get started with Dropbox Connector in a logic app in App Service"
+	pageTitle="Using the Dropbox Connector in Logic Apps | Microsoft Azure App Service"
+	description="How to create and configure the Dropbox Connector or API app and use it in a logic app in Azure App Service"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
-# Dropbox Connector
-
-Dropbox Connector allows you to upload or download files from your Dropbox account.
-
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.
+# Get started with the Dropbox Connector and add it to your Logic App 
+Connect to Dropbox account to upload or download files. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data. You can add the Dropbox connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ## Triggers and Actions
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Infrastructure Services Workload: High-Availability Line of Business Application" 
-	description="Learn about the value of an web-based, line of business application deployed in Azure, how to set up a dev/test environment, and how to deploy a high-availability production configuration." 
+	pageTitle="Line of business application in Azure | Microsoft Azure" 
+	description="Learn the value of a line of business application in Azure, set up a test environment, and deploy a high-availability configuration." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the Box Connector in your logic app"
-   description="How to use the Box Connector in your logic app"
+   pageTitle="Using the Box Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the Box Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="andalmia"/>
 
-# Box Connector
+# Get started with the Box Connector and add it to your Logic App 
+Connect to your Box to get, upload, delete. and more to your files. Connectors are used in Logic Apps as a part of a "workflow". 
 
 You may have scenarios where you may need to work with Box that allows you to share data securely with anyone – even if they’re outside your firewall. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.
 

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Intranet Farm Workload Phase 4: Configure SharePoint Servers"
-	description="In this fourth phase of deploying an intranet-only SharePoint 2013 farm, you create the SharePoint server virtual machines and a new SharePoint farm."
+	pageTitle="SharePoint Server 2013 farm Phase 4 | Microsoft Azure"
+	description="Create the SharePoint server virtual machines and a new SharePoint farm in Phase 4 of the SharePoint Server 2013 farm in Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Resource Connector"
-   description="Azure Resource Connector"
+   pageTitle="Using the Azure Resource Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the Azure Resource Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="stepsic"/>
 
-# Azure Resource Connector
-The Azure Resource Connector gives you an easy way to manage Azure Resources inside of your Logic app.
+# Get started with the Azure Resource Connector and add it to your Logic App 
+Use the Azure Resource Connector to easily manage Azure Resources inside of your Logic app.
 
 ## Create the Azure Resource Connector
 To use the Azure Resource Connector API App, you need to first create an instance of it. This can be done either inline while creating a Logic app or by selecting the Azure Resource Manger Connector API app from the Azure Marketplace.

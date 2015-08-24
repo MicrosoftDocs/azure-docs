@@ -21,18 +21,14 @@
 # Connecting to SQL Database: Links, Best Practices and Design Guidelines
 
 
-This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. Recommendations are given that apply generally regardless of the specific connection technology or programming language.
+This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. The information provided applies regardless of which specific technology you use to connect to SQL Database.
 
 
 ## Technology-independent recommendations
 
 
-The information in this section applies regardless of which specific technology you use to connect to SQL Database.
-
-
 - [Guidelines for Connecting to Azure SQL Database Programmatically](http://msdn.microsoft.com/library/azure/ee336282.aspx) - discussions include the following:
- - Ports
- - Firewalls
+ - [Ports and Firewalls](https://azure.microsoft.com/en-us/documentation/articles/sql-database-configure-firewall-settings/)
  - Connection strings
 - [Azure SQL Database Resource Management](https://msdn.microsoft.com/library/azure/dn338083.aspx) - discussions include the following:
  - Resource governance
@@ -40,19 +36,13 @@ The information in this section applies regardless of which specific technology 
  - Throttling
 
 
-Regardless of which connection technology you use, certain firewall settings for SQL Database server, and even individual databases, matter:
-
-
-- [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
 ## Authentication recommendations
 
 
-- Use SQL Database authentication, not Windows authentication.
+- Use Azure SQL Database authentication, not Windows authentication which is not available in Azure SQL Database.
 - Specify a particular database, instead of defaulting to the *master* database.
-- Sometimes the user name must be given with the suffix of *@yourservername*, but other times the suffix must be omitted. It depends on how your tool or API was written.
- - Check the details on each individual technology.
 - Connect by specifying a user in a [contained database](http://msdn.microsoft.com/library/ff929071.aspx).
  - This approach provides better performance and scalability by avoiding the need for a login in the master database.
  - You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database.
