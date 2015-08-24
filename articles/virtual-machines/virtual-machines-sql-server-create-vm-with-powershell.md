@@ -19,7 +19,7 @@
 
 This article provides steps for how to create a SQL Server virtual machine in Azure by using the PowerShell cmdlets.
 
->[AZURE.NOTE] This article is for a resource created in Service Management, and it is a SQL Server specific expansion on the more general steps found in the topic [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md). Instead of Service Management, if you want to create a SQL Server virtual machine with Resource Manager in PowerShell, see the generic instructions for resource manager VMs in the following topic: [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+>[AZURE.NOTE] This article is for a virtual machine created in Service Management, and it is a SQL Server specific expansion on the more general steps found in the topic [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md). Instead of Service Management, if you want to create a SQL Server virtual machine with Resource Manager in PowerShell, see the generic instructions for resource manager VMs in the following topic: [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
 
 ## Install and Configure PowerShell
 
@@ -57,12 +57,12 @@ Your SQL Server Virtual Machine will be hosted in a cloud service that resides a
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
+	>[AZURE.NOTE] If you require a new storage account, first create an all-lower-case storage account name with the New-AzureStorageAccount command as in the following example: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
+
 1. Assign the target storage account name to the **$staccount**. Then use **Set-AzureSubscription** to set the subscription and current storage account.
 
 		$staccount="<storage account name>"
 		Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
-
-	>[AZURE.NOTE] If you require a new storage account, first create an all-lower-case storage account name with the New-AzureStorageAccount command as in the following example: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
 
 ## Select a SQL Server virtual machine image
 
@@ -106,13 +106,22 @@ Finally, create the virtual machine with PowerShell:
 
 ## Example PowerShell script
 
-The following script provides and example of a complete script that creates a **SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2** virtual machine. If you use this script, you must customize the parameters based on the previous steps in this topic.
+The following script provides and example of a complete script that creates a **SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2** virtual machine. If you use this script, you must customize the initial variables based on the previous steps in this topic.
 
+	# Customize these variables based on your settings and requirements:
 	$dcLocation = "East US"
+	$subscr="mysubscription"
+	$staccount="mystorageaccount"
 	$family="SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2"
 	$svcname = "mycloudservice"
 	$vmname="myvirtualmachine"
 	$vmsize="A5" 
+	
+	# Set the current subscription and storage account
+	# Comment out the New-AzureStorageAccount line if the account already exists
+	Select-AzureSubscription -SubscriptionName $subscr –Current
+	New-AzureStorageAccount -StorageAccountName $staccount -Location $dcLocation
+	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 	
 	# Select the most recent VM image in this image family:
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -129,7 +138,7 @@ The following script provides and example of a complete script that creates a **
 	
 	# Create the SQL Server VM:
 	New-AzureVM –ServiceName $svcname -VMs $vm1
-	
+	 
 
 ## Connect with remote desktop
 
