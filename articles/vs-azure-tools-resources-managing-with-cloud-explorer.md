@@ -21,7 +21,7 @@
 
 Cloud Explorer is designed to let you more easily and quickly browse and manage your Azure resources within the Visual Studio IDE. You can, for example, use it to open a Web app in the Azure portal or in a browser, or attach a debugger to it, or you can view the properties of a blob container and open it in the Blob Container Editor.
 
-Cloud Explorer is built on the Azure resource manager stack, just like the Microsoft Azure Preview portal. It understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) (RBAC). To see Azure resources that have been added or changed, choose the **Refresh** button on the Cloud Explorer toolbar.
+Cloud Explorer is built on the Azure resource manager stack, just like the Microsoft Azure Preview portal. It understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](../role-based-access-control-configure/) (RBAC). To see Azure resources that have been added or changed, choose the **Refresh** button on the Cloud Explorer toolbar.
 
 Cloud Explorer is installed as part of the Visual Studio Tools for Azure SDK 2.7. 
 
@@ -30,7 +30,7 @@ Cloud Explorer is installed as part of the Visual Studio Tools for Azure SDK 2.7
 - Visual Studio 2015 RTM.
 
 - The Visual Studio Tools for Azure SDK. 
-- You must also have an Azure account and be logged into it to view Azure resources in Cloud Explorer. See [Create an Azure account and enable preview features](https://azure.microsoft.com/documentation/articles/php-create-account/) for more information.
+- You must also have an Azure account and be logged into it to view Azure resources in Cloud Explorer. See [Create an Azure account and enable preview features](../php-create-account/) for more information.
 
 - If Cloud Explorer isn't visible, you can view it by choosing **View**, **Other Windows,** **Cloud Explorer** on the menu bar.
 
