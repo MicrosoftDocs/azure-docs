@@ -148,7 +148,7 @@ Figure 3 shows a SharePoint development and testing environment on an Azure virt
 
 To implement a SharePoint development and testing environment on Azure, follow these steps:
 
-1. Provision: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not used here, a VPN tunnel is needed.) For more information, go to [Virtual Network overview](http://msdn.microsoft.com/library/jj156007.aspx). Then, use the Azure portal to provision a new virtual machine using a stock image from the image library.
+1. Provision: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not used here, a VPN tunnel is needed.) For more information, go to [Virtual Network overview](../virtual-network/virtual-networks-overview.md). Then, use the Azure portal to provision a new virtual machine using a stock image from the image library.
 	- You can upload the on-premises SharePoint development and testing virtual machines to your Azure storage account and reference those virtual machines through the image library for building the required environment.
 	- You can use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to [Provision a SQL Server virtual machine on Azure](virtual-machines-provision-sql-server.md).
 
