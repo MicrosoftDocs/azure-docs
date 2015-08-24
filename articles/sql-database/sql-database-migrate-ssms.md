@@ -22,15 +22,15 @@
 
 If a database schema is compatible with Azure SQL Database then migration is straightforward. If no schema modifications are required, a migration only requires that the database is imported into Azure. This can be done in a single step using SSMS by ‘deploying’ the database to Azure SQL Database, or as a two-step process by first exporting a BACPAC of the current database and then importing that BACPAC to Azure to create a new Azure SQL database.
 
-Additionally, you can upload the exported BACPAC to Azure Storage and then import the BACPAC as a database using the portal. Running the import in Azure will reduce the latency in the import step which will improve performance and reliability of the migration with large databases.
+Additionally, you can upload the exported BACPAC to Azure Storage and then import the BACPAC as a database using the Azure portal. Running the import in Azure will reduce the latency in the import step which will improve performance and reliability of the migration with large databases.
 
-Deploying directly from SSMS will always deploy the schema and data, while export and import always deploys the schema and provides an option to deploy data from all or a subset of the tables.  Whether you deploy from SSMS or export and then import from SSMS (or later the portal) the same DAC technology is used under the hood and the outcome is the same.
+Deploying directly from SSMS will always deploy the schema and data, while export and import using a BACPAC always deploys the schema and provides an option to deploy data from all or a subset of the tables.  Whether you deploy from SSMS or export and then import from SSMS (or the Azure portal) the same DAC technology is used under the hood and the outcome is the same.
 
-This option is also used as the final step in option #3 to migrate the databases after it has been updated to make it compatible with Azure SQL Database.
+This option is also used as the final step in option #2 to migrate the databases after it has been updated to make it compatible with Azure SQL Database.
 
 ## Get Latest Version of SQL Server Management Studio
 
-Use the latest version of Microsoft SQL Server Management Studio for SQL Server to ensure that you have the most recent updates for the tools within SSMS and for interacting with the Azure portal. To get the latest version of Microsoft SQL Server Management Studio for SQL Server, [download it](http://go.microsoft.com/fwlink/?LinkId=616025) and install it on a client computer with connectivity to the database that you plan to migrating and to the internet.
+Use the latest version of Microsoft SQL Server Management Studio for SQL Server to ensure that you have the most recent updates for the tools within SSMS and for interacting with the Azure portal. To get the latest version of Microsoft SQL Server Management Studio for SQL Server, [download it](https://msdn.microsoft.com/library/mt238290.aspx) and install it on a client computer with connectivity to the database that you plan to migrating and to the internet.
 
 ##Using SSMS to Deploy to Azure SQL Database
 1.	Provision a logical server using the Azure Management Portal.
@@ -54,12 +54,12 @@ The deployment process can be broken into two steps: export and import. In the f
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-migrate-ssms/04MigrateusingSSMS.png)
 
-3. In the export wizard, configure the export to save the BACPAC file locally. The exported BACPAC always includes the complete database schema and, by default, data from all the tables. Use the Advanced tab if you want to exclude data from some or all of the tables. You might, for example, choose to export only the data for reference tables.
-	>[AZURE.NOTE] Note: once the Azure management portal supports import running in Azure then you could choose to save the exported BACPAC file to Azure Storage and run the import in the cloud.
+3. In the export wizard, configure the export to save the BACPAC file to either a local disk location or to a Windows Azure blob. The exported BACPAC always includes the complete database schema and, by default, data from all the tables. Use the Advanced tab if you want to exclude data from some or all of the tables. You might, for example, choose to export only the data for reference tables.
 
 	![Export settings](./media/sql-database-migrate-ssms/05MigrateusingSSMS.png)
 
 4.	Once the BACPAC has been created, connect to the server you created in Step 1, right click the **Databases** folder and click **Import Data-tier Application...**
+	>[AZURE.NOTE] Note: You could also import the BACPAC file from within the Azure management portal.
 
 	![Import data-tier application menu item](./media/sql-database-migrate-ssms/06MigrateusingSSMS.png)
 
