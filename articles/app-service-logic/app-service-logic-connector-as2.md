@@ -19,6 +19,8 @@
 # Get started with the AS2 Connector and add it to your Logic App
 Use the AS2 Connector to receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet. Security is achieved using digital certificates and encryption.
 
+You can add the AS2 Connecto to your business workflow and process data as part of a business-to-business workflow within a Logic App. 
+
 ## Triggers and Actions
 A Trigger starts a new instance based on a specific event, like the arrival of an AS2 message from a partner. An Action is the result, like after receiving an AS2 message, then send the message using AS2.
 
