@@ -61,7 +61,7 @@ The following procedure references the information in these tables to guide you 
 
 ## Additional resources
 
-[Virtual network overview](https://msdn.microsoft.com/library/jj156007.aspx)
+[Virtual network overview](../virtual-network/virtual-networks-overview.md)
 
 [Virtual network configuration tasks](../documentation/services/virtual-machines/)
 

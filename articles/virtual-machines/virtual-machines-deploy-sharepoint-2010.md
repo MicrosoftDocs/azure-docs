@@ -152,7 +152,7 @@ Figure 3 shows a SharePoint development and testing environment in an Azure VM. 
 
 To implement a SharePoint development and testing environment on Azure, follow these steps:
 
-1. Provision: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not being used here, a VPN tunnel is needed.) For more information, go to [Virtual Network Overview](http://msdn.microsoft.com/library/jj156007.aspx). Then, use the Management Portal to provision a new VM using a stock image from the image library.
+1. Provision: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not being used here, a VPN tunnel is needed.) For more information, go to [Virtual Network Overview](../virtual-network/virtual-networks-overview.md). Then, use the Management Portal to provision a new VM using a stock image from the image library.
 	- You can upload the on-premises SharePoint development and testing VMs to your Azure storage account and reference those VMs through the image library for building the required environment.
 	- You can use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md).
 
@@ -218,7 +218,7 @@ To scale out the deployment of BI components, a new application server with serv
 To scale out a BI environment on Azure, follow these steps:
 
 1. Provision:
-	- Provision a VPN connection between on premises and Azure using Azure Virtual Network. For more information, go to [Virtual Network Overview](http://msdn.microsoft.com/library/jj156007.aspx).
+	- Provision a VPN connection between on premises and Azure using Azure Virtual Network. For more information, go to [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 	- Use the Management Portal to provision a new VM from a stock image in the image library. You can upload SharePoint Server or SQL Server BI workload images to the image library and any authorized user can pick those BI component VMs to build the scaled-out environment.
 2. Install: 
 	- If your organization does not have prebuilt images of SharePoint Server or SQL Server BI components, install SharePoint Server and SQL Server on the VMs using a Remote Desktop connection.
@@ -257,7 +257,7 @@ The following steps show how to create a customized SharePoint farm environment 
 	- Configure SQL Server on the VM. For more information, go to [Install SQL Server Using SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 	- Join the VM to the newly created Active Directory domain.
 3. Deploy a multi-server SharePoint farm:
-	- Create a virtual network. For more information, go to [Virtual Network Overview](http://msdn.microsoft.com/library/jj156007.aspx).
+	- Create a virtual network. For more information, go to [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 	- When deploying the SharePoint VMs, you need subnets provided for SharePoint Server so that the DNS addresses in the local Active Directory box are available during provisioning.
 	- Use the Management Portal to create a VM.
 	- Install SharePoint Server on this VM and generate a reusable image. For more information about installing SharePoint Server, go to [Install and Configure SharePoint Server 2010 by Using Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) or [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
