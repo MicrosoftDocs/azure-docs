@@ -57,7 +57,7 @@ If you need to add more resources to a resource group, you can do this in the JS
 
 [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/dn654592.aspx)
 
-[Using Windows PowerShell with Azure Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)
+[Using Windows PowerShell with Azure Resource Manager](../powershell-azure-resource-manager/)
 
 [Channel9 Video: Azure Resource Manager](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 

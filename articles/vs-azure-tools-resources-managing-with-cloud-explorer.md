@@ -64,7 +64,7 @@ If you haven't used Azure before, or you haven't added the necessary accounts to
 
 To view your Azure resources, you can choose either **Resource Types** or **Resource Groups** view.
 
-![Resource view dropdown](./media/vs-azure-tools-resources-managing-with-cloud-explorerr/IC819516.png)
+![Resource view dropdown](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819516.png)
 
 - **Resource Types** view, which is also the common view used on the Azure portal, shows your Azure resources categorized by their type, such as web apps, storage accounts and virtual machines. This is similar to how Azure resources appear in Server Explorer.
 
