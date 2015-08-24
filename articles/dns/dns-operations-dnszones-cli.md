@@ -30,7 +30,7 @@ To create a new DNS zone to host your domain, use the `azure network dns-zone cr
 
 		Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
-The operation creates a new DNS zone in Azure DNS. You can optionally specify an array of Azure Resource Manager tags, for more information see [Etags and Tags](../dns-getstarted-create-dnszone#Etags-and-tags).
+The operation creates a new DNS zone in Azure DNS. You can optionally specify an array of Azure Resource Manager tags, for more information see [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 The name of the zone must be unique within the resource group, and the zone must not exist already, otherwise the operation will fail.
 
@@ -54,7 +54,7 @@ To retrieve DNS zones within a resource group, use `azure network dns-zone list`
 
 ## Update a DNS zone
 
-Changes to a DNS zone resource can be made using `azure network dns-zone set`.  This does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets.md)). It is only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See [Etags and Tags](../dns-getstarted-create-dnszone#Etags-and-tags) for more information.
+Changes to a DNS zone resource can be made using `azure network dns-zone set`.  This does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets.md)). It is only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags) for more information.
 
 	azure network dns-zone set myresourcegroup contoso.com -t prod=value2
 
@@ -74,4 +74,4 @@ This operation has an optional ‘-q’ switch which suppresses the prompt to co
 
 [Manage DNS records](dns-operations-recordsets-cli.md)
 
-[Automate operations using .NET SDK](../dns-sdk) 
+[Automate operations using .NET SDK](dns-sdk.md) 

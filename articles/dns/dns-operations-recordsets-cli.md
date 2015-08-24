@@ -24,7 +24,7 @@
 
 This guide will show how to manage record sets and records for your DNS zone.
 
-It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
+It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](dns-getstarted-create-recordset.md#Understanding-record-sets-and-records).
 
 ## Create a record set
 
@@ -236,7 +236,7 @@ The optional ‘-q’ switch can be used to suppress the confirmation prompt.
 
 ##See Also
 
-[Get started creating record sets and records](../dns-getstarted-create-recordset-cli)<BR>
-[Perform operations on DNS zones](../dns-operations-dnszones-cli)<BR>
-[Automate operations using .NET SDK](../dns-sdk)
+[Get started creating record sets and records](dns-getstarted-create-recordset-cli.md)<BR>
+[Perform operations on DNS zones](dns-operations-dnszones-cli.md)<BR>
+[Automate operations using .NET SDK](dns-sdk.md)
  
