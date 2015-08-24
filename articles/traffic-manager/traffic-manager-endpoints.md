@@ -32,7 +32,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 2. At the top of the page, click **Endpoints** to view the endpoints that are already part of your configuration.
 3. At the bottom of the page, click **Add** to access the **Add Service Endpoints** page. By default, the page lists the cloud services under **Service Endpoints**.
 4. For cloud services, select the cloud services in the list to enable them as endpoints for this profile. Clearing the cloud service name removes it from the list of endpoints.
-5. For websites, click the **Service Type** dropdown, and then select **Website**.
+5. For websites, click the **Service Type** drop-down list, and then select **Web app**.
 6. Select the websites in the list to add them as endpoints for this profile. Clearing the website name removes it from the list of endpoints. Note that you can only select a single website per Azure datacenter (also known as a region). If you select a website in a datacenter that hosts multiple websites, when you select the first website, the others in the same datacenter become unavailable for selection. Also note that only Standard websites are listed.
 7. After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.
 
