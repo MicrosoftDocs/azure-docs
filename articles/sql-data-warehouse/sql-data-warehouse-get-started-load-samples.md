@@ -66,13 +66,13 @@ We can even use the WHERE clause to filter out orders from before a certain date
 In fact, SQL Data Warehouse supports almost all of the T-SQL constructs that SQL Server does, and you can find some of the differences in our [migrate code][] documentation.  
 
 ## Next steps
-Now that we've given you some time to warm up with the sample data check out how to [development][], [load][], or [migrate][].
+Now that we've given you some time to warm up with the sample data check out how to [develop][], [load][], or [migrate][].
 
 <!--Image references-->
 
 <!--Article references-->
 [migrate]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/
-[development]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
+[develop]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
 [load]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/
 [connect and query]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-query/
 [migrate code]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/
