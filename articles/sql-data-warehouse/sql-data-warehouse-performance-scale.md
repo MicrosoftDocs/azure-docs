@@ -39,7 +39,7 @@ If you have an application with a fluctuating workload, you can move performance
 ## Scaling compute resources up and down
 Independent of cloud storage, SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This gives you the flexibility to tune your compute power to something that is optimal for your business.  
 
-Increasing your compute power can be done through the Azure Portal, using T-SQL, via REST APIs or through Powershell.  Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.
+To increase the compute power you can add more DWUs to the service using the scale slider in the Azure Portal.  You can also add DWUs through T-SQL, REST APIs, or Powershell cmdlets.  Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.
 
 In the [Azure Portal][], you can click the 'Scale' icon at the top of your SQL Data Warehouse page and then use the slider to increase or decrease the amount of DWUs applied to your Data Warehouse before clicking 'Save'.  If you would rather change the scale programmatically, the T-SQL code below shows how to adjust the DWU allocation for your SQL Data Warehouse:
 
