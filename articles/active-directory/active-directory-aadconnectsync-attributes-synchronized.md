@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect sync: Attributes synchronized to Azure Active Directory"
+	pageTitle="Azure AD Connect sync: Attributes synchronized to Azure Active Directory | Microsoft Azure"
 	description="Lists the attributes that are synchronized to Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.date="08/24/2015"
 	ms.author="markusvi;andkjell"/>
 
 

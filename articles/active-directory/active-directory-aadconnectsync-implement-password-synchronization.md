@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect sync - Implement password synchronization"
+	pageTitle="Azure AD Connect sync - Implement password synchronization | Microsoft Azure"
 	description="Provides you with the information you need to understand how password synchronization works and how to enable it in your environment."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
