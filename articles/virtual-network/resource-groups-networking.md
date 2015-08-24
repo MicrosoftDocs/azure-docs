@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="08/23/2015"
    ms.author="telmos" />
 
 # Network Resource Provider
@@ -267,6 +267,19 @@ Load balancers contain the following child resources:
 - **Probes** – probes enable you to keep track of the health of VM instances. If a health probe fails, the VM instance will be taken out of rotation automatically.
 - **Inbound NAT rules** – NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP.
 
+## Application Gateway
+
+Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. Application load balancing allows the use of routing rules for network traffic based on HTTP. 
+
+Application Gateways contain the following child resources:
+
+- **Back end server pool** - The list of IP addresses of the back end servers. The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP. 
+- **Back end server pool settings** - Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
+- **Front end Port** - This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back end servers.
+- **Listener** - listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
+- **Rule** - The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed to when it hits a particular listener. Currently, only the basic rule is supported. The basic rule is round-robin load distribution.
+
+
 ## Public IP
 A public IP address resource provides either a reserved or dynamic public IP address.  
 A Public IP address can be assigned to a load balancer, NAT, or associated with a private IP address on a NIC of a VM.  
@@ -308,6 +321,8 @@ Key properties of a VPN gateway include:
 - **Gateway type** - dynamically routed or a static routed gateway. 
 - **VPN Client Address Pool Prefix** – IP addresses to be assigned to clients connecting in a point to site configuration.
 
+
+
 ## Traffic Manager Profile
 Traffic manager and its child endpoint resource enable distribution of your traffic to endpoints in Azure and outside of Azure. Such traffic distribution is governed by policies. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
 
@@ -330,6 +345,16 @@ Key properties of an endpoint include:
 - **Weight** - endpoint weight used in traffic management. 
 - **Priority** - priority of the endpoint, used to define a failover action. 
 
+## Azure DNS
+
+Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.
+
+Key properties of Azure DNS include:
+
+- ** DNS zones** - Domain zone information to host DNS records of a particular domain.
+- ** DNS record sets** - a collection of records of a specific type. Supported types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT.
+
+
 ## Using a template
 
 You can deploy services to Azure from a template by using PowerShell, AzureCLI, or by performing a click to deploy from GitHub. To deploy services from a template in GitHub, execute the following steps:
@@ -343,6 +368,7 @@ You can deploy services to Azure from a template by using PowerShell, AzureCLI, 
 3. Click **Create**. Notice the tile displaying **Provisioning Template deployment**. Once the deployment is done, you will see a screen similar to one below.
 
 ![Sample template deployment](./media/resource-groups-networking/Figure6.png)
+
 
 ## See Also
 
