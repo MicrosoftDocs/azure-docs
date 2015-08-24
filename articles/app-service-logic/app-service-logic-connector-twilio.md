@@ -18,14 +18,14 @@
 
 
 # Get started with the Twilio Connector and add it to your Logic App
-Connect to your Twilio to send and receive SMS messages. You can also retrieve phone numbers and usage data. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the Twilio Connector to your business workflow and process data as part of this workflow within a Logic App. 
+Connect to your Twilio account to send and receive SMS messages. You can also retrieve phone numbers and usage data. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the Twilio Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ## Creating an Twilio connector for your Logic App ##
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
 
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “Twilio Connector”, select it, and select **Create**.
-3.	Configure the Twilio connector as follows:  
+3. Configure the Twilio connector as follows:  
 ![][1]  
 	- **Location** - choose the geographic location where you would like the connector to be deployed
 	- **Subscription** - choose a subscription you want this connector to be created in
