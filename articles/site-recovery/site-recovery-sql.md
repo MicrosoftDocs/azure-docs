@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -31,109 +31,35 @@ Many workloads use SQL Server as a foundation. Applications such as SharePoint, 
 
 Site Recovery can protect SQL Server running as a Hyper-V virtual machine, a VMware virtual machine, or as a physical server.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td colspan = "2"><b>Hyper-V</b></td>
-		<td colspan = "2"><b>VMware</b></td>
-		<td colspan = "2"><b>Physical server</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>On-premises to on-premises</td>
-		<td>On-premises to Azure</td>
-		<td>On-premises to on-premises</td>
-		<td>On-premises to Azure</td>
-		<td>On-premises to on-premises</td>
-		<td>On-premises to Azure</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Yes</td>
-		<td>Yes</td>
-		<td>Yes</td>
-		<td>Coming soon</td>
-		<td>Yes</td>
-		<td>Coming soon</td>
-    </tr>
-    </tbody>
-    </table>
+ |**On-premises to on-premises** | **On-premises to Azure** 
+---|---|---
+**Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes 
+**Physical server** | Yes | Yes
+
 
 ## Support and integration
 
 Site Recovery can be integrated with native SQL Server BCDR technologies summarized in the table to provide a disaster recovery solution.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Feature</b></td>
-		<td><b>Details</b></td>
-		<td><b>SQL Server version</b></td>
-    </tr>
-    </tr><tr align="left" valign="top">
-		<td><b>AlwaysOn availability groups</b></td>
-		<td><p>Multiple standalone instances of SQL Server each run in a failover cluster that has multiple nodes.</p> <p>Databases can be grouped into failover groups that can be copied (mirrored) on SQL Server instances so that no shared storage is needed.</p> <p>Provides disaster recovery between a primary site and one or more secondary sites. Two nodes can be set up in a shared nothing cluster with SQL Server databases configured in an availability group with synchronous replication and automatic failover.</p></td>
-		<td>SQL Server 2014/2012 Enterprise edition</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>Failover clustering (AlwaysOn FCI)</b></td>
-		<td><p>SQL Server leverages Windows failover clustering for high availability of on-premises SQL Server workloads.</p><p>Nodes running instances of SQL Server with shared disks are configured in a failover cluster. If an instance is down the cluster fails over to different one.</p> <p>The cluster doesn't protect against failure or outages in shared storage. The shared disk can be implemented with iSCSI, fiber channel, or shared VHDXs.</p></td>
-		<td><p>SQL Server Enterprise editions</p> <p>SQL Server Standard edition (limited to two nodes only)</p></td>
-	<tr align="left" valign="top">
-		<td><b>Database mirroring in high safety mode</b></td>
-		<td>Protects a single database to a single secondary copy. Available in both high safety (synchronous) and high performance (asynchronous) replication modes. Doesn’t require a failover cluster.</td>
-		<td><p>SQL Server 2008 R2</p><p>SQL Server Enterprise all editions</p></td>
-    </tr>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>Standalone SQL Server</b></td>
-		<td>The SQL Server and database are hosted on a single server (physical or virtual). Host clustering is used for high availability if the server is virtual. No guest-level high availability.</td>
-		<td>Enterprise or Standard edition</td>
- 
-    </tbody>
-    </table>
+**Feature** |**Details** | **SQL Server version** 
+---|---|---
+**AlwaysOn availability group** | <p>Multiple standalone instances of SQL Server each run in a failover cluster that has multiple nodes.</p> <p>Databases can be grouped into failover groups that can be copied (mirrored) on SQL Server instances so that no shared storage is needed.</p> <p>Provides disaster recovery between a primary site and one or more secondary sites. Two nodes can be set up in a shared nothing cluster with SQL Server databases configured in an availability group with synchronous replication and automatic failover.</p> | SQL Server 2014/2012 Enterprise edition
+**Failover clustering (AlwaysOn FCI)** | <p>SQL Server leverages Windows failover clustering for high availability of on-premises SQL Server workloads.</p><p>Nodes running instances of SQL Server with shared disks are configured in a failover cluster. If an instance is down the cluster fails over to different one.</p> <p>The cluster doesn't protect against failure or outages in shared storage. The shared disk can be implemented with iSCSI, fiber channel, or shared VHDXs.</p> | SQL Server Enterprise editions</p> <p>SQL Server Standard edition (limited to two nodes only)
+**Database mirroring (high safety mode)** | Protects a single database to a single secondary copy. Available in both high safety (synchronous) and high performance (asynchronous) replication modes. Doesn’t require a failover cluster. | <p>SQL Server 2008 R2</p><p>SQL Server Enterprise all editions</p>
+**Standalone SQL Server** | The SQL Server and database are hosted on a single server (physical or virtual). Host clustering is used for high availability if the server is virtual. No guest-level high availability. | Enterprise or Standard edition
+
+
 
 The following table summarizes our recommendations for integrating SQL Server BCDR technologies into Site Recovery deployment.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Version</b></td>
-		<td><b>Edition</b></td>
-		<td><b>Deployment</b></td>
-		<td><b>On-premises to on-premises</b></td>
-		<td><b>On-premises to Azure</b></td
-    </tr>
-    <tr align="left" valign="top">
-		<td rowspan = "3">SQL Server 2014 or 2012</td>
-		<td rowspan = "2">Enterprise</td>
-		<td>Failover cluster instance</td>
-		<td>AlwaysOn availability groups</td>
-		<td>AlwaysOn availability groups</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>AlwaysOn availability groups for high availability</td>
-		<td>AlwaysOn availability group</td>
-		<td>AlwaysOn availability group</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Standard</td>
-		<td>Failover cluster instance</td>
-		<td>Site Recovery replication with local mirror</td>
-		<td>Site Recovery replication with local mirror</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Enterprise or Standard</td>
-		<td>Standalone</td>
-		<td>Site Recovery replication with local mirror</td>
-		<td>Site Recovery replication with local mirror</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>SQL Server 2008 R2</td><td>Enterprise or Standard</td>
-		<td>Standalone</td>
-		<td>Site Recovery replication with local mirror</td>
-		<td>Site Recovery replication with local mirror</td>
-    </tr>
-    </tbody>
-    </table>
+**Version** |**Edition** | **Deployment** | **On-prem to on-prem** | **On-prem to Azure** 
+---|---|---|---|
+SQL Server 2014 or 2012 | Enterprise | Failover cluster instance | AlwaysOn availability groups | AlwaysOn availability groups
+ | Enterprise | AlwaysOn availability groups for high availability | AlwaysOn availability group | AlwaysOn availability group
+ | Standard | Failover cluster instance | Site Recovery replication with local mirror | Site Recovery replication with local mirror
+ | Enterprise or Standard | Standalone | Site Recovery replication with local mirror | Site Recovery replication with local mirror
+SQL Server 2008 R2 | Enterprise or Standard | Standalone | Site Recovery replication with local mirror | Site Recovery replication with local mirror
 
 
 ## Deployment prerequisites

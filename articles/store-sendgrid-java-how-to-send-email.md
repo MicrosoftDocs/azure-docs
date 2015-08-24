@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use the SendGrid email service (Java) - Azure" 
+	pageTitle="How to use the SendGrid email service (Java) | Microsoft Azure" 
 	description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." 
 	services="" 
 	documentationCenter="java" 

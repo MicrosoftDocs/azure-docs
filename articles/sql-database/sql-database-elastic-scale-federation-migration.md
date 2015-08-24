@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/21/2015" 
+    ms.date="08/14/2015" 
     ms.author="sidneyh"/>
 
 # Federations migration 
 
-The Azure SQL Database Federations feature is being retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the Federations feature will cease to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution. This document provides the context, examples, and introduction to the Federations Migration Utility that illustrates how to successfully migrate a current Federations application seamlessly to the [Elastic database client library](http://go.microsoft.com/?linkid=9862592) APIs for sharding. The objective of the document is to walk you through the suggested steps to migrate a Federations application without any data movement.
+The Azure SQL Database Federations feature is being retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the Federations feature will cease to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution.
+
+If your application is not yet ready to work without Federations, then contact Microsoft Support using instructions mentioned [here](https://support.microsoft.com/kb/3087180).  
+
+This document provides the context, examples, and introduction to the Federations Migration Utility that illustrates how to successfully migrate a current Federations application seamlessly to the [Elastic database client library](http://go.microsoft.com/?linkid=9862592) APIs for sharding. The objective of the document is to walk you through the suggested steps to migrate a Federations application without any data movement.
 
 There are three major steps for migrating an existing Federations application to one that uses elastic database tools.
 
@@ -128,6 +132,9 @@ Although Elastic database tools offers many additional features (for example, [m
 * Both the Web and Business edition and Federations are being deprecated in fall of 2015.  As part the migration of a Federations application, it is highly recommended to perform performance testing on the Basic, Standard, and Premium editions. 
 
 * Performing the SWITCH OUT statement on a federation member enables the resulting database to take advantage of all of the Azure SQL database features (i.e., new editions, backup, PITR, auditing, etc.) 
+
+##Need more time for migration? 
+If your application is not yet ready to work without Federations, then contact Microsoft Support using instructions mentioned [here](https://support.microsoft.com/kb/3087180). 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

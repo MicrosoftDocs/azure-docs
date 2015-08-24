@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="08/24/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Questions - Application Insights for ASP.NET
@@ -137,7 +137,7 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 #### <a name="q03"></a>I added Application Insights successfully and ran my app, but I've never seen data in the portal.
 
 + On the Overview page, click the Search tile to open Diagnostic Search. Data appears here first.
-+ Click the Refresh button. In the current version, the content of a blade doesn't refresh automatically.
++ Click the Refresh button. The blade refreshes itself periodically, but you can also do it manually. The refresh interval is longer for larger time ranges.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 + Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/).
 + In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
@@ -221,9 +221,9 @@ See [Data Retention and Privacy][data].
 <tr><td>Dependency telemetry</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose issues with databases or other external components</td></tr>
 <tr><td>Get stack traces from exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insert TrackException calls in your code</a> (but some are reported automatically)</td><td>Detect and diagnose exceptions</td></tr>
 <tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
-<tr><td>Client usage basics: page views, sessions, ...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">JavaScript initializer in web pages</a></td><td>Usage analytics</td></tr>
-<tr><td>Client custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
-<tr><td>Server custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
+<tr><td>Client usage basics: page views, sessions, ...</td><td><a href="../app-insights-javascript/">JavaScript initializer in web pages</a></td><td>Usage analytics</td></tr>
+<tr><td>Client custom metrics</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
+<tr><td>Server custom metrics</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
 </table>
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="How to use Service Bus queues (.NET) - Azure"
+    pageTitle="How to use Service Bus queues (.NET) | Microsoft Azure"
     description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API."
     services="service-bus"
     documentationCenter=".net"

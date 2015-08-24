@@ -52,7 +52,7 @@ For connections to V12 we must ask whether your client program runs *outside* or
 Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
 
-#### *Inside:* Client runs on an Azure VM
+#### *Inside:* Client runs on Azure
 
 
 When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no middleware proxy.
@@ -107,8 +107,6 @@ This section clarifies the monikers that refer to product versions. It also list
 
 - ADO.NET 4.0 supports the TDS 7.3 protocol, but not 7.4.
 - ADO.NET 4.5 and later supports the TDS 7.4 protocol.
-- ADO.NET 4.5 internally uses ODBC 11.
- - The information here that applies to ADO.NET 4.5 also applies to ODBC 11.
 
 
 #### SQL Database V11 and V12

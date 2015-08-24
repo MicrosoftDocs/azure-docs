@@ -110,6 +110,7 @@ You have created a web app, but there is no content in it yet. Your next step is
 5. In the **New ASP.NET Project** dialog box, select the **Web Forms** template. Uncheck the **Host in the cloud** check box if it is selected and click **OK**.  
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png)  
 	The Web Forms application will be created.
+
 ###Update the Master Page
 In ASP.NET Web Forms, master pages allow you to create a consistent layout for the pages in your application. A single master page defines the look and feel and standard behavior that you want for all of the pages (or a group of pages) in your application. You can then create individual content pages that contain the content you want to display. When users request the content pages, ASP.NET merges them with the master page to produce output that combines the layout of the master page with the content from the content page.
 The new site needs the application name and a link updated. The link will point to a page that will display contact details. To make these changes you will modify the HTML on the master page. 
@@ -205,8 +206,10 @@ The new site needs the application name and a link updated. The link will point 
 		</body>
 		</html>
 
-Later in this tutorial you will add Web Forms scaffolding. Scaffolding will create the page that the above “Contact Demo” link references.
+	Later in this tutorial you will add Web Forms scaffolding. Scaffolding will create the page that the above “Contact Demo” link references.
+ 
 ###Run the Application Locally 
+ 
 1. In **Solution Explorer**, right-click the *Default.aspx* page and select **Set As Start Page**. 
 2. Next, press **CTRL+F5** to run the application.  
 	The application default page appears in the default browser window.
@@ -311,8 +314,9 @@ The next task is to enable the Code First Migrations feature in order to create 
 
 		add-migration Initial
 
-The `add-migration Initial` command generates a file named <date_stamp>Initial in the *Migrations* folder that creates the database. The first parameter ( Initial ) is arbitrary and is used to create the name of the file. You can see the new class files in **Solution Explorer**. In the `Initial` class, the `Up` method creates the `Contact` table, and the `Down` method (used when you want to return to the previous state) drops it.  
+	The `add-migration Initial` command generates a file named <date_stamp>Initial in the *Migrations* folder that creates the database. The first parameter ( Initial ) is arbitrary and is used to create the name of the file. You can see the new class files in **Solution Explorer**. In the `Initial` class, the `Up` method creates the `Contact` table, and the `Down` method (used when you want to return to the previous state) drops it.  
 4. Open the *Migrations\Configuration.cs* file. 
+
 5. Add the following namespace:  
 
 		using ContactManager.Models;
@@ -375,7 +379,7 @@ The `add-migration Initial` command generates a file named <date_stamp>Initial i
 		        );
 		}
 
-This code initializes (seeds) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
+	This code initializes (seeds) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
 7. In the **Package Manager Console** enter the command:  
 
 		update-database
@@ -454,7 +458,8 @@ The following steps will allow you to add a Google authentication provider.
 
 		https://localhost:44300/signin-google  
 
-This value is the URI that ASP.NET OAuth users to communicate with the google OAuth server. Remember to the SSL URL you used above (**https://localhost:44300/** unless you've created other SSL projects).  
+	This value is the URI that ASP.NET OAuth users to communicate with the google OAuth server. Remember to the SSL URL you used above (**https://localhost:44300/** unless you've created other SSL projects). 
+ 
 10. Click the **Create Client ID** button.
 11. In Visual Studio, update the `UseGoogleAuthentication` method of the *Startup.Auth.cs* page by copying and pasting the **AppId** and **App Secret** into the method. The **AppId** and **App Secret** values shown below are samples and will not work.  
 
@@ -711,8 +716,6 @@ Now that the web application is complete, you can publish it to Azure.
 7. Set the **Configuration** dropdown box to **Debug**.
 8. Click the **down arrow** icon next to **ApplicationDbContext** and set it to **ContactDB**.
 9. Check the **Execute Code First Migrations** checkbox.  
-
-	>[AZURE.NOTE]  
 	In this example, you should select this checkbox only the first time you publish the application. This way, the *Seed* method in the *Configuration.cs* file will only be called once.  
 
 10. Then, click **Publish**.  

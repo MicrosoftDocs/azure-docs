@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
 #How to Scale Encoding
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series.
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encoding-units.md)
+- [Portal](media-services-portal-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 
 ##Overview
 

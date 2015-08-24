@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Working with the Mobile Services .NET Client Library" 
-	description="Learn how to use an .NET client for Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Working with the Mobile Services .NET Client Library"
+	description="Learn how to use an .NET client for Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # How to use a .NET client for Azure Mobile Services
@@ -22,7 +22,7 @@
 
 ##Overview
 
-This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart]() tutorial or the tutorial [Add Mobile Services to an existing app](). 
+This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart]() tutorial or the tutorial [Add Mobile Services to an existing app]().
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -230,7 +230,7 @@ Here is an example using an email address as a unique string id.
 
 ###Working with ID values
 
-Mobile Services supports unique custom string values for the table's **id** column. This allows applications to use custom values such as email addresses or user names for the ID. 
+Mobile Services supports unique custom string values for the table's **id** column. This allows applications to use custom values such as email addresses or user names for the ID.
 
 String IDs provide you with the following benefits:
 
@@ -238,7 +238,7 @@ String IDs provide you with the following benefits:
 + Records are easier to merge from different tables or databases.
 + IDs values can integrate better with an application's logic.
 
-When a string ID value is not set on an inserted record, Mobile Services generates a unique value for the ID. You can use the `Guid.NewGuid()` method To generate your own ID values, either on the client or in a .NET mobile backend service. To learn more about generating GUIDs in a JavaScript backend mobile service, see [How to: Generate unique ID values](mobile-services-how-to-use-server-scripts.md#generate-guids). 
+When a string ID value is not set on an inserted record, Mobile Services generates a unique value for the ID. You can use the `Guid.NewGuid()` method To generate your own ID values, either on the client or in a .NET mobile backend service. To learn more about generating GUIDs in a JavaScript backend mobile service, see [How to: Generate unique ID values](mobile-services-how-to-use-server-scripts.md#generate-guids).
 
 You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](../virtual-machines-command-line-tools.md#Mobile_Tables).
 
@@ -296,7 +296,7 @@ The Mobile Services client enables you to register for push notifications with A
 		    var channel =
 		        await PushNotificationChannelManager
 		            .CreatePushNotificationChannelForApplicationAsync();
-		
+
 		    // Register for notifications using the new channel and a tag collection.
 			var tags = new List<string>{ "mytag1", "mytag2"};
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
@@ -604,7 +604,7 @@ The value returned by `MobileServiceClient.GetTable` and the queries are interfa
 
 ##<a name="customizing"></a>How to: Customize the client
 
-This section shows ways in which you can customize the request headers and customize the serialization of JSON objects in the response. 
+This section shows ways in which you can customize the request headers and customize the serialization of JSON objects in the response.
 
 ### <a name="headers"></a>How to: Customize request headers
 
@@ -639,7 +639,7 @@ This code adds a new **x-my-header** header in the request and arbitrarily sets 
 
 The Mobile Services client library uses Json.NET to convert a JSON response into .NET objects on the client. You can configure the behavior of this serialization between .NET types and JSON in the messages. The [MobileServiceClient](http://msdn.microsoft.com/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) class exposes a `SerializerSettings` property of type [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
 
-Using this property, you may set one of the many Json.NET properties, such as the following: 
+Using this property, you may set one of the many Json.NET properties, such as the following:
 
 	var settings = new JsonSerializerSettings();
 	settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
@@ -699,4 +699,3 @@ This property converts all properties to lower case during serialization.
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
- 

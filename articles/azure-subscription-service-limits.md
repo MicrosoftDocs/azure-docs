@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/09/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -23,7 +23,6 @@
 This document specifies some of the most common Microsoft Azure limits. Note that this does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
-
 
 ### Limits and the Azure Resource Manager
 
@@ -143,6 +142,10 @@ For additional details on SQL Database limits, please see the following topics:
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
+## CDN Limits
+
+[AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
+
 ## Mobile Services Limits
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
@@ -185,6 +188,10 @@ For additional details on SQL Database limits, please see the following topics:
 ## Site Recovery Limits
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+
+## Application Insights Limits
+
+[AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ## API Management Limits
 

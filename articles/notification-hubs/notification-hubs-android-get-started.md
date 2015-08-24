@@ -40,7 +40,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 ##Create a Project that supports Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##Configure a New Notification Hub
@@ -63,7 +63,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 ###Add Google Play Services to the project
 
-[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Add code
 

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Diagnose performance issues on a running website" 
-	description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK to get dependency telemetry." 
-	services="application-insights" 
+<properties
+	pageTitle="Diagnose performance issues on a running website | Microsoft Azure"
+	description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK to get dependency telemetry."
+	services="application-insights"
     documentationCenter=".net"
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="ronmart"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/27/2015"
 	ms.author="awills"/>
- 
+
 
 # Install Application Insights Status Monitor to monitor website performance
 
@@ -27,12 +27,12 @@ The Status Monitor of Visual Studio Application Insights lets you diagnose excep
 You have a choice of three ways to apply Application Insights to your IIS web applications:
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code. This gives you:
- * A range of standard diagnostic and usage telemetry. 
+ * A range of standard diagnostic and usage telemetry.
  * And you can use the [Application Insights API][api] if you want to write your own telemetry to track usage or diagnose problems.
 * **Run time:** Use Status Monitor to instrument your web app on the server.
  * Monitor web apps that are already running: no need to rebuild or republish them.
  * A range of standard diagnostic and usage telemetry.
- * Dependency diagnostics - locate faults or poor performance where your app uses other components such as databases, REST APIs, or other services.
+ * Dependency diagnostics&#151;locate faults or poor performance where your app uses other components such as databases, REST APIs, or other services.
  * Troubleshoot any issues with telemetry.
 * **Both:** Compile the SDK into your web app code, and run Status Monitor on your web server.  The best of both worlds:
  * Standard diagnostic and usage telemetry.
@@ -42,12 +42,12 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 
 
 
-> [AZURE.TIP] Is your app an [Azure App Service Web App](../app-service-web/websites-learning-map.md)? [Add the Application Insights SDK][greenbrown] and then [add the Application Insights extension](../insights-perf-analytics.md) from the app's control panel in Azure.
+> [AZURE.TIP] Is your app an [Azure App Service Web App](../app-service-web/websites-learning-map.md)? [Add the Application Insights SDK][greenbrown] and then [add the Application Insights extension](../insights-perf-analytics.md) from the app's control panel in Microsoft Azure.
 
 
 ## Install Application Insights Status Monitor on your IIS web server
 
-1. You need a [Microsoft Azure](http://azure.com) subscription. 
+1. You need a [Microsoft Azure](http://azure.com) subscription.
 
 1. On your IIS web server, login with administrator credentials.
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -60,9 +60,9 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 
     ![Choose an app and a resource.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    Normally, you should choose to configure a new resource and [resource group][roles].
+    Normally, you choose to configure a new resource and [resource group][roles].
 
-    You would use an existing resource if you already set up [web tests][availability] for your site, or [web client monitoring][client].
+    Otherwise, use an existing resource if you already set up [web tests][availability] for your site, or [web client monitoring][client].
 
 6. Restart IIS.
 
@@ -105,8 +105,8 @@ The charts labeled HTTP, SQL, AZUREBLOB show the response times and counts of ca
 
 #### Performance counters
 
-Click any performance counter chart to change what it shows. Or you can add a new chart. 
- 
+Click any performance counter chart to change what it shows. Or you can add a new chart.
+
 #### Exceptions
 
 ![Click through the server exceptions chart](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
@@ -117,21 +117,21 @@ You can drill down to specific exceptions (from the last seven days) and get sta
 ### No telemetry?
 
   * Use your site, to generate some data.
-  * Wait a few minutes to let the data arrive, then click Refresh.
+  * Wait a few minutes to let the data arrive, then click **Refresh**.
   * Open Diagnostic Search (the Search tile) to see individual events. Events are often visible in Diagnostic Search before aggregate data appears in the charts.
   * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
-  
+
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com. 
-  * If on the server you see a message about "insufficient permissions":
-  * In IIS Manager, select your application pool, open Advanced Settings, and under Process Model note the Identity.
-  * In Computer management control panel, add this identity to the Performance Monitor Users group.
+  * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com.
+  * On the server, if you see a message about "insufficient permissions", try the following:
+    * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
+    * In Computer management control panel, add this identity to the Performance Monitor Users group.
   * See [Troubleshooting][qna].
 
 ## System Requirements
 
-OS support for Application Insights Status Monitor on Server: 
+OS support for Application Insights Status Monitor on Server:
 
 - Windows Server 2008
 - Windows Server 2008 R2
@@ -168,5 +168,3 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
-
- 

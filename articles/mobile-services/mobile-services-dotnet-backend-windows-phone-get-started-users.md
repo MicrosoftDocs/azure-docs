@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add authentication to your Windows Phone Silverlight app | Azure Mobile Services" 
+	pageTitle="Add authentication to your Windows Phone Silverlight app | Microsoft Azure" 
 	description="Learn how to use Mobile Services to authenticate users of your Windows Phone Silverlight app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft account." 
 	services="mobile-services" 
 	documentationCenter="windows" 

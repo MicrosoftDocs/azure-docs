@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduction to Linux in Azure - Azure Tutorial"
+	pageTitle="Introduction to Linux in Azure | Microsoft Azure"
 	description="Learn about using Linux virtual machines on Azure."
 	services="virtual-machines"
 	documentationCenter="python"

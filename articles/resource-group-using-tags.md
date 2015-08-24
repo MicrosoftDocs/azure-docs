@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="08/07/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -23,7 +23,10 @@ Resource Manager enables you to logically organize resources by applying tags. T
 
 When you view resources with a particular tag, you see resources from all of your resource groups. You are not limited to only resources in the same resource group which enables you to organize your resources in a way that is independent of the deployment relationships. Tags can be particularly helpful when you need to organize resources for billing or management. 
 
+Each tag you add to a resource or resource group is automatically added to the subscription-wide taxonomy. You can also prepopulate the taxonomy for your subscription with tag names and values you'd like to use as resources are tagged in the future.
+
 > [AZURE.NOTE] You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the Azure portal or [Service Management API](https://msdn.microsoft.com/library/azure/dn948465.aspx)), you cannot apply a tag to that resource. You must re-deploy these resources through Resource Manager to support tagging. All other resources support tagging.
+
 
 ## Tags in the preview portal
 
@@ -35,8 +38,13 @@ This will open a blade with the list of tags that have already been applied. If 
 
 ![Tag resources with name/value pairs](./media/resource-group-using-tags/tag-resources.png)
 
-Later in this topic, you'll be able to see a list of all the resources with the same tag. Of course, if this is your first tag, that list won't be very interesting. For now, let's jump over to PowerShell to tag all of our resources quickly.
+To view your taxonomy of tags in the portal, use the Browse hub to view Everything and then select Tags.
 
+![Find tags via the Browse hub](./media/resource-group-using-tags/browse-tags.png)
+
+Pin the most important tags to your Startboard for quick access and you're ready to go. Have fun!
+
+![Pin tags to the Startboard](./media/resource-group-using-tags/pin-tags.png)
 
 ## Tagging with PowerShell
 
@@ -107,34 +115,30 @@ To remove one or more tags, simply save the array without the ones you want to r
 
 The process is the same for resources, except you'll use the `Get-AzureResource` and `Set-AzureResource` cmdlets. To get resources or resource groups with a specific tag, use `Get-AzureResource` or `Get-AzureResourceGroup` cmdlet with the `-Tag` parameter.
 
-![Getting tagged resources and resource groups with Get-AzureResource and Get-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Get-AzureResourceGroup-with-tags-in-PowerShell.png)
-
-
-## Tagging with REST API
-
-The portal and PowerShell both use the [Resource Manager REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
-
-
-## Managing your taxonomy
-
-Earlier, we talked about how autocomplete helps you ensure consistency and avoid mistakes. Autocomplete is populated based on the taxonomy of available tags setup for the subscription. Each tag you add to a resource or resource group is automatically added to the subscription-wide taxonomy, but you can also prepopulate that taxonomy with tag names and values you'd like to use as resources are tagged in the future.
+    PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
+    rbacdemo-group
+    tag-demo
+    PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
+    rbacdemo-web
+    rbacdemo-docdb
+    ...
 
 To get a list of all tags within a subscription using PowerShell, use the `Get-AzureTag` cmdlet.
 
-![Get-AzureTag in PowerShell](./media/resource-group-using-tags/Get-AzureTag-in-PowerShell.png)
-
+    PS C:/> Get-AzureTag
+    Name                      Count
+    ----                      ------
+    env                       8
+    project                   1
 
 You may see tags that start with "hidden-" and "link:". These are internal tags, which you should ignore and avoid changing. 
 
 Use the `New-AzureTag` cmdlet to add new tags to the taxonomy. These tags will be included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the `Remove-AzureTag` cmdlet to remove it from the taxonomy.
 
-To view your taxonomy of tags in the portal, use the Browse hub to view Everything and then select Tags.
+## Tagging with REST API
 
-![Find tags via the Browse hub](./media/resource-group-using-tags/browse-tags.png)
+The portal and PowerShell both use the [Resource Manager REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
 
-Pin the most important tags to your Startboard for quick access and you're ready to go. Have fun!
-
-![Pin tags to the Startboard](./media/resource-group-using-tags/pin-tags.png)
 
 ## Tagging and billing
 
@@ -143,7 +147,7 @@ you to define and apply tags to organize the billing usage for virtual machines.
 You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.
 
 You can retrieve information about tags through the [usage api](billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file that you can download from 
-the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com).
+the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com). For more information about programmatic access to billing information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
 
 When you download the usage CSV for services that support tags with billing, the tags will appear in the **Tags** column. For more details, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 

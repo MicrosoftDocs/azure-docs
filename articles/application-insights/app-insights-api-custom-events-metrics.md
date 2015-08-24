@@ -10,9 +10,9 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -329,19 +329,6 @@ If you have several tabs within different HTML pages, you can specify the URL to
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### Timed page views
-
-By using this pair of methods calls instead of trackPageView, you can analyze how long users linger on your pages.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-Use the same string as the first parameter in the start and stop calls.
-
-Look at the Page Duration metric in [Metrics Explorer][metrics].
 
 
 ## Track Request
@@ -423,6 +410,36 @@ Use this call to track the response times and success rates of calls to an exter
 Remember that the server SDKs include a [dependency module](app-insights-dependencies.md) that discovers and tracks certain dependency calls automatically - for example to databases and REST APIs. You have to install an agent on your server to make the module work. You'd use this call if you want to track calls that aren't caught by the automated tracking, or if you don't want to install the agent.
 
 To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
+
+
+## Authenticated users
+
+In a web app, users are by default identified by cookie. A user might be counted more than once if they access your app from a different machine or browser, or delete cookies. 
+
+But if users sign in to your app, you can get a more accurate count by setting the authenticated user id in the browser code:
+
+*JavaScript*
+
+```JS
+    // Called when my app has identified the user.
+    function Authenticated(signInId) {
+      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
+      appInsights.setAuthenticatedUserContext(validatedId);
+      ...
+    }
+```
+
+It isn't necessary to use the user's actual sign-in name. It only has to be an id that is unique to that user. It must not include spaces, or any of the characters `,;=|`. 
+
+The user id is also set in a session cookie and sent to the server. If the server SDK is installed, the authenticated user id will be sent as part of the context properties of both client and server telemetry, so that you can filter and search on it.
+
+If your app groups users into accounts, you can also pass an identifier for the account (with the same character restrictions).
+
+
+      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+
+In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart of **Authenticated Users** and **Accounts**. 
+
 
 ## <a name="defaults"></a>Set defaults for selected custom telemetry
 
@@ -717,7 +734,7 @@ If you set any of these values yourself, consider removing the relevant line fro
  * **SyntheticSource**: If not null or empty, this string indicates that the source of the request has been identified as a robot or web test. By default it will be excluded from calculations in Metrics Explorer.
 * **Properties** Properties that are sent with all telemetry data. Can be overridden in individual Track* calls.
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
-* **User** Allows users to be counted. In a web app, if there is a cookie, the user Id is taken from that. If there isn't, a new one is generated. If your users have to login to your app, you could set the id from their authenticated ID, so as to provide a more reliable count that is correct even if the user signs in from a different machine. 
+* **User** User information. 
 
 
 
@@ -741,12 +758,25 @@ There are some limits on the number of metrics and events per application.
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+
+## SDK Code
+
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+* [All platforms](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Questions
 
-* *What exceptions might Track * calls throw?*
+* *What exceptions might Track_() calls throw?*
     
-    None. You shouldn't need to wrap them in catch clauses.
+    None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages that you will see in the debug console output, and - if the messages get through - in diagnostic search.
 
 
 

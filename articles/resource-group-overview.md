@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="08/20/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Overview
@@ -22,7 +22,9 @@ Applications are typically made up of many components – maybe a web app, datab
 
 Azure Resource Manager natively integrates access control into the management platform so you can specify which actions a user in your organization can take for a resource group.  
 
-Here's a demonstration of this overview.
+Resource Manager provides a new way to deploy and manage your solutions. To learn about the changes in this new deployment model, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md).
+
+Here's a video demonstration of this overview:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 

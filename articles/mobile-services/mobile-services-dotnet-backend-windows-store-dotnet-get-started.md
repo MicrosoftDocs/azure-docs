@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Windows Universal apps | Mobile Dev Center"
+	pageTitle="Get Started with Mobile Services for Windows Universal apps | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Mobile Services for universal Windows app development in C#."
 	services="mobile-services"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 
