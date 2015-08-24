@@ -2,7 +2,7 @@
 	pageTitle="Use Mobile Services to upload images to blob storage (Android) | Mobile Services" 
 	description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Android app." 
 	services="mobile-services" 
-	documentationCenter="windows" 
+	documentationCenter="android" 
 	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/21/2015" 
+	ms.date="08/24/2015" 
 	ms.author="ricksal"/>
 
 # Upload images to Azure Blob Storage from an Android  device
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-This topic shows how to use Azure Mobile Services to enable your Android app to upload images to Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in the Azure Storage service. In this tutorial you enable the Mobile Services quickstart app to take pictures with the Android camera, and upload the images to Azure Storage. 
+This topic shows how to enable your Android Azure Mobile Services app to upload images to Azure Storage. 
+
+Mobile Services uses a SQL Database to store data. However, it's more efficient to store binary large object (BLOB) data in the Azure Storage service. In this tutorial you enable the Mobile Services quickstart app to take pictures with the Android camera, and upload the images to Azure Storage. 
 
 
 ## What you need to get started
@@ -36,7 +38,7 @@ This tutorial also requires the following:
 
 Uploading the photo image is a multistep process:
 
-- First you insert a TodoItem row into the SQL database that contains some new fields used by Azure Storage.
+- First you take a photo, and insert a TodoItem row into the SQL database that contains  new meta-data fields used by Azure Storage.
 - A new mobile service SQL **insert** script asks Azure Storage for a Shared Access Signature (SAS).
 - That script returns the SAS and a URI for the blob to the client.
 - The client uploads the photo, using the SAS and blob URI.
@@ -44,6 +46,8 @@ Uploading the photo image is a multistep process:
 So what is a SAS?
 
 It's not safe to store the credentials needed to upload data to the Azure Storage service inside your client app. Instead, you store these credentials in your mobile service and use them to generate a Shared Access Signature (SAS) that grants permission to upload a new image. The SAS, a credential with a 5 minute expiration, is returned securely by Mobile Services to the client app. The app then uses this temporary credential to upload the image. 
+
+>[AZURE.NOTE] [Here](https://github.com/RickSaling/mobile-services-samples/tree/storage/UploadImages) is the completed client source code part of this app.
 
 ## Update the registered insert script in the Management Portal
 
@@ -78,7 +82,7 @@ Specify your app depends on having a camera, and needs permission to write to ex
 	    <string name="preview_button_text">Take Photo</string>
 	    <string name="upload_button_text">Upload</string>
 
-2. In the **activity_to_do.xml** file in the **res => layout** folder,  add the following button code before the existing code for the **Add** button.
+2. In the **activity_to_do.xml** file in the **res => layout** folder,  add this code before the existing code for the **Add** button.
 
          <Button
              android:id="@+id/buttonPreview"
@@ -115,7 +119,7 @@ Specify your app depends on having a camera, and needs permission to write to ex
 	        return image;
 	    }
 
-5. Add this code that starts up the Android camera app. You can then take  pictures, and when one looks OK, press **Save**, and that will store it in the file you just created.
+5. Add this code to start the Android camera app. You can then take pictures, and when one looks OK, press **Save**, which will store it in the file you just created.
 
 		// Run an Intent to start up the Android camera
 	    static final int REQUEST_TAKE_PHOTO = 1;
@@ -145,7 +149,7 @@ Specify your app depends on having a camera, and needs permission to write to ex
 ### Add code to upload photo file to blob storage
 
 
-1. First we add some new properties to the `ToDoItem` object by adding this code to **ToDoItem.java**.
+1. First we add some new meta-data fields to the `ToDoItem` object by adding this code to **ToDoItem.java**.
 
 		/**
 	     *  imageUri - points to location in storage where photo will go
@@ -355,13 +359,11 @@ Specify your app depends on having a camera, and needs permission to write to ex
 This code sends a request to the mobile service to insert a new TodoItem. The response contains the SAS, which is then used to upload the image from local storage to Azure Blob storage. 
 
 
-The final step is to test the app and validate that uploads succeed.
-
-## Test uploading the images from your app
+## Test uploading the images 
 
 1. In Android Studio press **Run**. In the dialogue, choose the device to use.
 
-2. Enter text in the textbox labeled **Add a ToDo item**.
+2. When the app UI appears, enter text in the textbox labeled **Add a ToDo item**.
 
 3. Press **Take Photo**. When the camera app starts, take a photo. Press the check mark to accept the photo.
 
