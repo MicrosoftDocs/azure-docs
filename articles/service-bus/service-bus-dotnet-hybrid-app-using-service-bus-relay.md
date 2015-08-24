@@ -195,8 +195,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
     click **Properties**.
 
 6.  Click the **Application** tab on the left, then ensure that **.NET
-    Framework 4** or **.NET Framework 4.5** appears in the **Target framework** list. If not, select it from the list and then click **Yes**
-    when prompted to reload the project.
+    Framework 4** or **.NET Framework 4.5** appears in the **Target framework** list. If not, select it from the list and then click **Yes** when prompted to reload the project.
 
     ![][12]
 
@@ -234,7 +233,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
             using System.ServiceModel;
 
             // Define the data contract for the service
-            [DataContract].
+            [DataContract]
             // Declare the serializable properties.
             public class ProductData
             {
@@ -419,7 +418,7 @@ In this section you will build a simple ASP.NET application that displays data r
             }
         }
 
-3.  In Solution Explorer, expand the Views\Shared directory.
+3.  In Solution Explorer, expand the Views\Shared folder.
 
     ![][18]
 
@@ -431,7 +430,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
 	![][41]
 
-7.  In Solution Explorer, expand the Views\Home directory:
+7.  In Solution Explorer, expand the Views\Home folder:
 
     ![][20]
 
@@ -595,9 +594,9 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
 
 3.  Sign in using your Microsoft Account.
 
-8.  Click **Next**. If your subscription doesn't already contain any hosted services, you will be asked to create one. The hosted service acts as a container for your application within your Azure subscription. Enter a name that identifies your application and choose the region for which the application should be optimized. (You can expect faster loading times fo users accessing it from this region.)
+8.  Click **Next**. If your subscription doesn't already contain any hosted services, you will be asked to create one. The hosted service acts as a container for your application within your Azure subscription. Enter a name that identifies your application and choose the region for which the application should be optimized. (You can expect faster loading times for users accessing it from this region.)
 
-9.  Select the hosted service you would like to publish your application to. Keep the defaults as shown below for the remaining settings. Click **Next**.
+9.  Select the hosted service to which you would like to publish your application. Keep the defaults as shown below for the remaining settings. Click **Next**.
 
     ![][33]
 
@@ -637,7 +636,7 @@ application.
 
 1.  Sign in to the [Azure portal], click **Cloud Services**, then click the name of your service.
 
-2.  Click the **Dashboard** tab, and then click **Stop** to temporarily suspend your application. You will be able to start it again just by clicking **Start**. Click **Delete** to completely remove your application from Azure with no ability to restore it.
+2.  Click the **Dashboard** tab, and then click **Stop** to temporarily suspend your application. You will be able to start it again by clicking **Start**. Click **Delete** to completely remove your application from Azure with no ability to restore it.
 
 	![][43]
 
@@ -664,7 +663,7 @@ To learn more about Service Bus, see the following resources:
 
 
 
-  [Using the NuGet Service Bus Package]: http://go.microsoft.com/fwlink/?LinkId=234589
+  [Using the NuGet Service Bus Package]: https://msdn.microsoft.com/library/azure/dn741354.aspx
   [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [12]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png
@@ -703,5 +702,5 @@ To learn more about Service Bus, see the following resources:
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
-  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
+  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [executionmodels]: ../cloud-services/fundamentals-application-models.md
