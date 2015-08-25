@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Manage multiple environments in Service Fabric"
+   pageTitle="Manage multiple environments in Service Fabric | Microsoft Azure"
    description="Service Fabric applications can be run on clusters ranging in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application instance parameters per environment."
    services="service-fabric"
    documentationCenter=".net"
@@ -88,6 +88,9 @@ The `DeployCreate-FabricApplication.ps1` PowerShell script accepts an instance d
 
     ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
 
+# Next Steps
+
+To learn more about some of the core concepts discussed in this topic, see the [Service Fabric Technial Overview](service-fabric-technical-overview.md). For information about other app management capabilities available in Visual Studio, see [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
