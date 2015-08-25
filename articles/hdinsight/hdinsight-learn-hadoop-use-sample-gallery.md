@@ -36,11 +36,11 @@ The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoo
 
 ![HDInsight Hadoop, Storm, and HBase Getting Started Gallery solutions including sample data.][hdinsight.sample.gallery]
 
-The following video clip shows how to run the Twitter trend analysis sample:
+The following video shows how to run the Twitter trend analysis sample:
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-The Dashboard can be access by browsing to http://<YourHDInsightClusterName>.azurehdinsight.net/ or from the Azure preview portal.
+The Dashboard can be accessed by browsing to http://<YourHDInsightClusterName>.azurehdinsight.net/ or from the Azure preview portal.
 
 **To run a sample from the Getting Started Gallery**
 
