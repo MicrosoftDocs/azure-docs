@@ -4,7 +4,7 @@
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
-   manager="madhana"
+   manager="timlt"
    editor=""/>
 
 <tags
