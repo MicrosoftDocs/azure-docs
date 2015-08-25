@@ -53,7 +53,7 @@ When using an SSH tunnel for web traffic, you must have the following:
 * __(optional)__: A plugin such as [FoxyProxy](http://getfoxyproxy.org/,) that can apply rules that only route specific requests through the tunnel.
 
 	> [AZURE.WARNING] Without a plugin such as FoxyProxy, all requests made through the browser may be routed through the tunnel. This can result in slower loading of web pages in your browser.
-	
+
 ##<a name="usessh"></a>Create a tunnel using the SSH command
 
 Use the following command to create an SSH tunnel using the `ssh` command. Replace __USERNAME__ with an SSH user for your HDInsight cluster, and replace __CLUSTERNAME__ with the name of your HDInsight cluster
@@ -149,10 +149,16 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 	* **URL pattern** - **\*headnode\*** - This defines a pattern that matches any URL with the word **headnode** in it.
 
 	![foxyproxy pattern](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-	
-	> [AZURE.NOTE] If you are using an HBase cluster, you must also add the following pattern, as it hosts a web UI on the zookeeper nodes of the cluster:
+
+	> [AZURE.NOTE] If you are using an __HBase__ cluster, you must also add the following pattern, as it hosts a web UI on the zookeeper nodes of the cluster:
+	>
 	> * __Pattern Name__ - __zookeeper__
 	> * __URL pattern__ - __\*zookeeper\*__
+	>
+	> If you are using a __Storm__ cluster, you must add the following patterns, as the Storm UI links to the IP address of the worker nodes when retrieving logs. We are working to change this to use the domain name in a future update.
+	>
+	> * __Pattern Name__ - __nodesbyip__
+	> * __URL pattern__ - __\*10.0.0.\*__
 
 4. Click **OK** to add the proxy and close **Proxy Settings**.
 
@@ -169,7 +175,7 @@ Once the cluster has been established, use the following steps to verify that yo
 1. In your browser, go to https://CLUSTERNAME.azurehdinsight.net, where CLUSTERNAME is the name of your HDInsight cluster.
 
 	When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, re-enter the information.
-	
+
 2. From the Ambari Web UI, select YARN from the list on the left of the page.
 
 	![Image with YARN selected](./media/hdinsight-linux-ambari-ssh-tunnel/yarnservice.png)
@@ -177,16 +183,16 @@ Once the cluster has been established, use the following steps to verify that yo
 3. When the YARN service information is displayed, select __Quick Links__. A list of the cluster head nodes will appear. Select one of the head nodes, and then select __ResourceManager UI__.
 
 	![Image with the QuickLinks menu expanded](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
-	
+
 	> [AZURE.NOTE] If you have a slow internet connection, or the head node is very busy, you may get a wait indicator instead of a menu when you select __Quick Links__. If so, wait a minute or two for the data to be received from the server, then try the list again.
-	
-	   
+
+
 	> [AZURE.TIP] If you have a lower resolution monitor, or your browser window is not maximized, some entries in the __Quick Links__ menu may be cut off by the right side of the screen. If so, expand the menu using your mouse, then use the right arrow key to scroll the screen to the right to see the rest of the menu.
-	
+
 4. A page similar to the following should appear:
 
 	![Image of the YARN ResourceManager UI](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
-	
+
 	> [AZURE.TIP] Notice the URL for this page; it should be similar to __http://headnode1.CLUSTERNAME-ssh.j8.internal.cloudapp.net:8088/cluster__. This is using the internal fully qualified domain name (FQDN) of the node, and is not accessible without using an SSH tunnel.
 
 ##Next steps
