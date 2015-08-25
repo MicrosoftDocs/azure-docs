@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the Twitter Connector in Microsoft Azure App Service"
-   description="How to use the Twitter Connector API App"
+   pageTitle="Using the Twitter Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the Twitter Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,12 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-# Twitter Connector
-
+# Get started with the Twitter Connector and add it to your Logic App
 Connect to your Twitter feed to post tweets and gets tweets from your timeline, your friends' timeline, and followers of your Twitter account. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the Twitter Connector in your workflow, you can achieve a variety of scenarios. For example, you can:
 
 - Get new tweets associated with a given keyword or text. When a new tweet is retrieved, it triggers a new instance of your workflow and passes the data to the next connector in your workflow. For example, you create a Twitter Connector and use the New Tweet From Search trigger to monitor #peanutbutterandjelly. Whenever there's a new tweet for #peanutbutterandjelly, your workflow (aka logic app) starts automatically.
@@ -46,15 +45,14 @@ The **New Tweet** trigger has been archived. Currently, it is still available as
 
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
-1. Create a free application for Twitter at [http://apps.twitter.com](http://apps.twitter.com)
+1. Create a free application for Twitter at [http://apps.twitter.com](http://apps.twitter.com).
     * When registering for the app, you can put in any URL for the website, and leave the callback URL blank.
 2. In the Azure startboard, select **Marketplace**.
-2. Search for “Twitter Connector”.
-3. Select the "Twitter Connector" and click "Create".  This will open the Create blade.
-3. Click on 'Package Settings' and paste the 'Consumer Key' from your Twitter App into the 'clientId' field.  Paste the 'Consumer Secret' from your Twitter App into the 'clientSecret' field.
-	![][10]
-4. Enter other required settings around connector Name, App Service, and Resource Group.
-5.	Click **Create**.
+3. Search for “Twitter Connector”, select it, and select **Create**.
+4. Click on 'Package Settings' and paste the 'Consumer Key' from your Twitter App into the 'clientId' field.  Paste the 'Consumer Secret' from your Twitter App into the 'clientSecret' field:  
+![][10]
+5. Enter other required settings around connector Name, App Service, and Resource Group.
+6.	Click **Create**.
 
 > [AZURE.NOTE] If you want to further secure your Twitter API with the redirect URL, you can see details on how to do that [here](app-service-logic-oauth-security.md)
 
@@ -62,27 +60,21 @@ A connector can be created within a logic app or be created directly from the Az
 ## Using the Twitter Connector in your Logic App
 Once your API app is created, you can now use the Twitter connector as a trigger or action for your Logic Apps. To do this:
 
-1.	Create a new Logic App or open an existing Logic App:
-
-	![][2]
-2.	Open **Triggers and Actions** to open the Logic Apps designer:
-
-	![][3]
-3.	The Twitter connector is listed on the right hand side. Select it to automatically add it to your logic app:
-
-	![][4]
-4.	Select **Authorize**, enter your Twitter credentials, and select **Authorize app**:
-
-	![][5]
+1.	Create a new Logic App or open an existing Logic App:  
+![][2]
+2.	Open **Triggers and Actions** to open the Logic Apps designer:  
+![][3]
+3.	The Twitter connector is listed on the right hand side. Select it to automatically add it to your logic app:  
+![][4]
+4.	Select **Authorize**, enter your Twitter credentials, and select **Authorize app**:  
+![][5]
 
 
-You can now configure the Twitter connector to build your workflow. You can use the Tweets retrieved from the Twitter trigger in other actions in the flow:
-
+You can now configure the Twitter connector to build your workflow. You can use the Tweets retrieved from the Twitter trigger in other actions in the flow:  
 ![][6]
 
-In the similar way, you can use the Twitter actions in your workflow. Select a Twitter action and configure the inputs for that action:
-
-![][7]
+In the similar way, you can use the Twitter actions in your workflow. Select a Twitter action and configure the inputs for that action:  
+![][7]  
 ![][8]
 
 ## Do more with your Connector

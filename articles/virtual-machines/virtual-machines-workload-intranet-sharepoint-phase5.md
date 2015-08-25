@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Intranet Farm Workload Phase 5: Create the Availability Group and add the SharePoint databases"
-	description="In this final phase of deploying an intranet-only SharePoint 2013 farm, you create an availability group and add your SharePoint databases to it."
+	pageTitle="SharePoint Server 2013 farm Phase 5 | Microsoft Azure"
+	description="Create an availability group and add your SharePoint databases to it in Phase 5 of the SharePoint Server 2013 farm in Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"

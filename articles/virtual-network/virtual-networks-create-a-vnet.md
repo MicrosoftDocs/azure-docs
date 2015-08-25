@@ -22,7 +22,7 @@ When you create a virtual network, your services and VMs within the VNet can com
 
 Once you create your virtual network, you can add new VMs and PaaS instances to it. Note that if you use the Management Portal to create your VMs, be sure to select **From Gallery** so that you can specify the virtual network. This is important because you can’t go back and put a VM in a virtual network after you’ve created the VM.
 
-[Azure Note] **Use this procedure to create a dedicated cloud-only virtual network.** Because of the greater complexity involved with creating a cross-premises configuration, don’t use this procedure to create a virtual network that will later be connected to your on-premises network. If you want to create a secure cross-premises connection between Azure and your on-premises network, see [About Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx).
+[Azure Note] **Use this procedure to create a dedicated cloud-only virtual network.** Because of the greater complexity involved with creating a cross-premises configuration, don’t use this procedure to create a virtual network that will later be connected to your on-premises network. If you want to create a secure cross-premises connection between Azure and your on-premises network, see [About Secure Cross-Premises Connectivity](vpn-gateway-cross-premises-options.md).
 
 ## Creating your virtual network
 
@@ -48,6 +48,6 @@ Once you create your virtual network, you can add new VMs and PaaS instances to 
 
 
 ## Next steps
--  Learn more about [virtual networks](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx) in Azure. 
+-  Learn more about [virtual networks](../virtual-network/virtual-networks-overview.md) in Azure. 
 
 -  [Add a Virtual Machine](../virtual-machines/virtual-machines-create-custom.md) to a virtual network.

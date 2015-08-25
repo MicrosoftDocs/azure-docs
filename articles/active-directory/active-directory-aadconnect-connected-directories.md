@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 
@@ -43,5 +43,5 @@ Single Sign-On and AD FS| Domain admin permissions in the domain in which your f
 * [Permissions for Exchange Hybrid](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange)
 * [Permissions for password writeback](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect on MSDN](active-directory-aadconnect.md)
  

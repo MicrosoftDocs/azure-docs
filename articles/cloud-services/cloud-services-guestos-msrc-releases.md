@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+   ms.date="08/24/2015"
+   ms.author="yuemlu"/>
 
 # Azure Guest OS 
 
@@ -32,7 +32,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  MS15-088    | [3082458] | Unsafe Command Line Parameter Passing Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
 |  MS15-089    | [3060716] | Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
 |  MS15-090    | [3076949] | Vulnerability in WebDAV Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
-|  MS15-092    | [3086251] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
 
 
 ## July Guest OS
