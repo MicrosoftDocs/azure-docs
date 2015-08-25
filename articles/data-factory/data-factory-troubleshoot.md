@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -354,8 +354,6 @@ In this scenario, data set is in an error state due to a failure in Hive process
 
 
 [adfgetstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
