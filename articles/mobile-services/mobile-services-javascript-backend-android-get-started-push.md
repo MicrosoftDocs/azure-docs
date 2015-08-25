@@ -37,7 +37,7 @@ This topic shows how to use Azure Mobile Services to send push notifications to 
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configure Mobile Services to send push requests
 
@@ -53,7 +53,7 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add Google Play Services to the project
 
-[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Add code
 
@@ -160,7 +160,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 
 <!-- URLs. -->
-[Get started with push notifications (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[Get started with push notifications (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md

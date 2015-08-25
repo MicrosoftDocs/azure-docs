@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/13/2015" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -254,7 +254,7 @@ For additional documentation on working with Azure AD Connect see the following;
 - [Using the Azure AD Connect Synchronization Rules Editor](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Using declarative provisioning](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-Also, some of the documentation that was created for Azure AD Sync is still relevant and applies to Azure AD Connect.  Although every effort is being made to bring this documentation over to Azure.com, some of this documentation still resides in the MSDN scoped library.  For additional documentation see [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) and [Azure AD Sync on MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
+Also, some of the documentation that was created for Azure AD Sync is still relevant and applies to Azure AD Connect.  Although every effort is being made to bring this documentation over to Azure.com, some of this documentation still resides in the MSDN scoped library.  For additional documentation see [Azure AD Connect on MSDN](active-directory-aadconnect.md) and [Azure AD Sync on MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
 
 
 **Additional Resources**

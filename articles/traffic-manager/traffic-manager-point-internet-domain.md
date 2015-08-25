@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Point a company Internet Domain to a Traffic Manager Domain"
+   pageTitle="Point a company Internet Domain to a Traffic Manager Domain | Microsoft Azure"
    description="This article will help you point your company domain name to a Traffic Manager domain name."
    services="traffic-manager"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Point a Company Internet Domain to a Traffic Manager Domain
 
@@ -27,11 +27,13 @@ All traffic requests to *www.contoso.com* will now be directed to *contoso.traff
 
 >[AZURE.IMPORTANT]You cannot point a second level domain, such as *contoso.com*, to the Traffic Manager domain. This is a limitation of the DNS protocol, which does not allow CNAME records for second level domain names.
 
-## See Also
+## Next steps
 
-[About Traffic Manager Load Balancing Methods](traffic-manager-load-balancing-methods.md)
+[About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
 
-[Traffic Manager Overview](traffic-manager-overview.md)
+[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
+
+[What is Traffic Manager?](traffic-manager-overview.md)
  

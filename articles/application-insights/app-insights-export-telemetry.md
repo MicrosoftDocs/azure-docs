@@ -55,12 +55,9 @@ To stop the stream permanently, delete the export. Doing so doesn't delete your 
 
 ## <a name="analyze"></a> What events do you get?
 
-The exported data is the raw telemetry we receive from your application, except: 
+The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address.  
 
-* Web test results aren't currently included. 
-* We add location data which we calculate from the client IP address.  
-
-Calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
+Other calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
 ## <a name="get"></a> Inspect the data
 

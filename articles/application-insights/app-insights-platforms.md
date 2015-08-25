@@ -52,7 +52,7 @@
 + [SharePoint](app-insights-sharepoint.md)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
-+ [Windows desktop applications and services](app-insights-windows-desktop.md)
++ [Windows desktop applications, services, and worker roles](app-insights-windows-desktop.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Anything else](#projects)
 

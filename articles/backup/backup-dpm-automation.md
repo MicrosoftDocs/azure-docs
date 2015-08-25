@@ -3,7 +3,7 @@
 	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="SamirMehta"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
-	ms.author="jimpark"; "aashishr"/>
+	ms.date="08/18/2015"
+	ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 
-# Deploy and manage back up to Azure for Data Protection Manager (DPM) servers using PowerShell
+# Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 This article shows you how to use PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.
 
 ## Setting up the PowerShell environment
@@ -28,11 +28,11 @@ PS C:> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliIni
 
 Welcome to the DPM Management Shell!
 
-Full list of cmdlets: Get-Command 
-Only DPM cmdlets: Get-DPMCommand 
-Get general help: help 
-Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? 
-Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax 
+Full list of cmdlets: Get-Command
+Only DPM cmdlets: Get-DPMCommand
+Get general help: help
+Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -?
+Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax
 Sample DPM scripts: Get-DPMSampleScript
 ```
 
@@ -104,7 +104,7 @@ f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.Vaul
 Registering the machine with the vault is done using the [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787) cmdlet:
 
 ```
-PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> $cred = $credspath + $credsfilename
 PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath $cred
 ```
 

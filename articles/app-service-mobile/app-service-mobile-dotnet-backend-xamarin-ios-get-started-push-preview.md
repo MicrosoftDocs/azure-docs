@@ -70,7 +70,7 @@ To complete this tutorial, you need the following:
 
 ## <a name="add-push"></a>Add push notifications to your app
 
-1. In **QSTodoService**, override the existing client declaration so **AppDelegate** can acquire the mobile client:
+1. In **QSTodoService**, add the following property so that **AppDelegate** can acquire the mobile client:
         
             public MobileServiceClient GetClient {
             get

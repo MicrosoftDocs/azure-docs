@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Line of Business Application Workload Phase 3: Configure SQL Server infrastructure" 
-	description="In this third phase of deploying a high-availability line of business application in Azure infrastructure services, you create the SQL Server cluster computers and the cluster itself." 
+	pageTitle="Line of business application Phase 3 | Microsoft Azure" 
+	description="Create the computers and the SQL Server cluster and enable Availability Groups in Phase 3 of the line of business application in Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
@@ -267,4 +267,5 @@ To continue with the configuration of this workload, go to [Phase 4: Configure W
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
+[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
 

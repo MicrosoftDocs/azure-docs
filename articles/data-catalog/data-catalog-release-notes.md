@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Data Catalog release notes"
-   description="Release notes for the 13 July 2015 release of Azure Data Catalog"
+   description="Release notes for the 13 July 2015 public preview release of Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -35,7 +35,7 @@ Support for SQL Server Reporting Services (SSRS) data sources in the initial pre
 
 When opening data assets in Microsoft Excel from the Azure Data Catalog portal, users may be prompted with a **Microsoft Excel Security Notice** dialog box. This is standard, expected behavior, and users can select **Enable** to continue.
 
-For more information, see [Enable or disable security alerts about links and files from suspicious websites](https://support.office.com/en-us/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE). 
+For more information, see [Enable or disable security alerts about links and files from suspicious websites](https://support.office.com/en-us/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ## BLOB and UDT columns missing in previews
 
@@ -52,7 +52,7 @@ The data source registration tool uses Forms Authentication to validate user log
 
 In some situations, this error behavior may occur only when the user is on the company network, or only when the user is connecting from outside the company network. The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
 
-For more information, see [Configuring intranet forms-based authentication for devices that do not support WIA](https://technet.microsoft.com/library/dn727110.aspx). 
+For more information, see [Configuring intranet forms-based authentication for devices that do not support WIA](https://technet.microsoft.com/library/dn727110.aspx).
 
 **Cause 2: Network Proxy Configuration**
 If the corporate network uses a proxy server, the registration tool may not be able to connect to Azure Active Directory through the proxy. Users can ensure that the registration tool by editing the tool’s configuration file, adding this section to the file:

@@ -208,7 +208,7 @@ You can also use Sqoop to import and export data from SQL Server, either in your
 
     > [AZURE.NOTE] For **point-to-site** virtual networks, SQL Server must be running the VPN client configuration application, which is available from the **Dashboard** of your Azure virtual network configuration.
 
-    For more information on creating and configuring a virtual network, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+    For more information on creating and configuring a virtual network, see [Virtual Network Configuration Tasks](../services/virtual-machines/).
 
 * SQL Server must be configured to allow SQL authentication. For more information, see [Choose an Authentication Mode](https://msdn.microsoft.com/ms144284.aspx)
 
