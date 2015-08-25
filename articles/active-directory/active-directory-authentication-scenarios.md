@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/01/2015"
+   ms.date="08/25/2015"
    ms.author="mbaldwin"/>
 
 # Authentication Scenarios for Azure AD
@@ -60,7 +60,7 @@ With the diagram above in mind, here’s what you need to know about its various
 - Developers can use the open source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. See [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md) for more information.
 
 
-• Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful for the intended parties. Developers can use the provided authentication libraries to handle validation of any token from Azure AD, including JSON Web Tokens (JWT) or SAML 2.0. If you want to perform validation manually, see the [JWT Token Handler](<https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx>) documentation.
+• Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful for the intended parties. Developers can use the provided authentication libraries to handle validation of any token from Azure AD, including JSON Web Tokens (JWT) or SAML 2.0. If you want to perform validation manually, see the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx) documentation.
 
 
 > [AZURE.IMPORTANT] Azure AD uses public key cryptography to sign tokens and verify that they are valid. See [Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) for more information on the necessary logic you must have in your application to ensure it’s always updated with the latest keys.
