@@ -311,29 +311,23 @@ Specify your app depends on having a camera, and needs permission to write to ex
 	            @Override
 	            protected Void doInBackground(Void... params) {
 	                try {
-	                    final ToDoItem entity = addItemInTable(item);
-	
-	                    // If we have a returned SAS, then upload the blob.
-	                    if (entity.getSasQueryString() != null) {
-	
-	                        // Get the URI generated that contains the SAS
+		                    final ToDoItem entity = addItemInTable(item);
+		
+		                    // If we have a returned SAS, then upload the blob.
+		                    if (entity.getSasQueryString() != null) {
+		
+	                       // Get the URI generated that contains the SAS
 	                        // and extract the storage credentials.
-	                        StorageCredentialsSharedAccessSignature cred = 
+	                        StorageCredentials cred = 
 								new StorageCredentialsSharedAccessSignature(entity.getSasQueryString());
 	                        URI imageUri = new URI(entity.getImageUri());
 	
-	                        // Instantiate a Blob store container based on the info in the returned item.
-	                        URI containerUri = new URI("https://" +
-	                                imageUri.getHost() + "/" + entity.getContainerName());
-	
-	                        CloudBlobContainer container = new CloudBlobContainer(containerUri, cred);
-	
 	                        // Upload the new image as a BLOB from a stream.
 	                        CloudBlockBlob blobFromSASCredential =
-	                                container.getBlockBlobReference(entity.getResourceName());
+	                                new CloudBlockBlob(imageUri, cred);
 	
-	                        blobFromSASCredential.upload(new FileInputStream(mPhotoFileUri.getPath()), -1);
-	                    }
+	                        blobFromSASCredential.uploadFromFile(mPhotoFileUri.getPath());
+  	                    }
 	
 	                    runOnUiThread(new Runnable() {
 	                        @Override
