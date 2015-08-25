@@ -36,7 +36,7 @@ As an identity management as a service (IDMaaS) platform, Azure Active Directory
 To view Azure Active Directory overviews presented at the Build 2015 conference, see the [Videos](#videos) section below.
 
 
-## Getting started
+## Getting started 
 
 These tutorials are tailored for multiple platforms and can help you quickly start developing with Azure Active Directory. As a prerequisite, you must [get an Azure Active Directory tenant](active-directory-howto-tenant.md).
 
