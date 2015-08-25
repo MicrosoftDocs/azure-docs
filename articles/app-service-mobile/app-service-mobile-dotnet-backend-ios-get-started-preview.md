@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an iOS app on Azure App Service Mobile Apps | Microsoft Azure"
-	description="Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift"
+	description="Follow this tutorial to get started with using Azure Mobile App backends for iOS development in Objective-C or Swift"
 	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="krisragh"
@@ -24,7 +24,7 @@
 
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to an iOS mobile app by using an Azure mobile app backend.  You will create both a new mobile app backend and a simple _Todo list_ iOS app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an iOS mobile app by using an Azure Mobile App backend.  You will create both a new Mobile App backend and a simple _Todo list_ iOS app that stores app data in Azure.
 
 Completing this tutorial is a prerequisite for all other iOS tutorials about using the Mobile Apps feature in Azure App Service.
 
@@ -32,21 +32,21 @@ Completing this tutorial is a prerequisite for all other iOS tutorials about usi
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] or a later version.
 
 * A Mac with Xcode v7.0 or a later version.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). There, you can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
+>[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). There, you can immediately create a short-lived starter Mobile App in App Service—no credit card required, and no commitments.
 
-## Create a new Azure mobile app backend
+## Create a new Azure Mobile App backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
 ## Download the server project
 
-1. On your PC, visit the [Azure portal]. Click **Browse All** > **Mobile Apps**, and then click the mobile app backend that you just created.
+1. On your PC, visit the [Azure portal]. Click **Browse All** > **Mobile Apps**, and then click the Mobile App backend that you just created.
 
 2. In the Mobile App blade, click **Settings**, and then under **Mobile App**, click **Quickstart** > **iOS (Objective-C)**. If you prefer Swift, click **Quickstart** > **iOS (Swift)** instead.
 
