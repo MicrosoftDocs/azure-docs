@@ -622,7 +622,7 @@ res.send(200, routes);
 next();
 });
 server.listen(serverPort, function() {
-var consoleMessage = '\n Windows Azure Active Directory Tutorial';
+var consoleMessage = '\n Microsoft Azure Active Directory Tutorial';
 consoleMessage += '\n +++++++++++++++++++++++++++++++++++++++++++++++++++++';
 consoleMessage += '\n %s server is listening at %s';
 consoleMessage += '\n Open your browser to %s/tasks\n';

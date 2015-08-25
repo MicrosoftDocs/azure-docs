@@ -23,10 +23,11 @@
     This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 
- Here we'll use Passport to:
--	Sign the user into the app using Azure AD and the v2.0 app model.
--	Display some information about the user.
--	Sign the user out of the app.
+Here we'll use Passport to:
+
+- Sign the user into the app using Azure AD and the v2.0 app model.
+- Display some information about the user.
+- Sign the user out of the app.
 
 In order to do this, you'll need to:
 
@@ -67,6 +68,7 @@ var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 - After that, use the strategy we just referenced to handle our login requests
 
+```JavaScript
 // Use the OIDCStrategy within Passport.
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
