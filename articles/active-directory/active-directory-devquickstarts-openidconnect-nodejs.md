@@ -1,6 +1,6 @@
 <properties
-	pageTitle="App Model v2.0 | Microsoft Azure"
-	description="How to build a Node JS web app that signs users in with both personal Microsoft Account and work or school accounts."
+	pageTitle="Azure AD node.js Getting Started | Microsoft Azure"
+	description="How to build a node.js Express MVC Web App that integrates with Azure AD for sign in."
 	services="active-directory"
 	documentationCenter="nodejs"
 	authors="brandwe"
@@ -16,7 +16,7 @@
 	ms.date="08/02/2015"
 	ms.author="brandwe"/>
 
-# Add sign-in to an nodeJS Web App
+# Web App Sign In & Sign Out with Azure AD
 
 
 Here we'll use Passport to:
