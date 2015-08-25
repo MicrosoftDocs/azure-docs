@@ -202,7 +202,7 @@ For additional details on SQL Database limits, please see the following topics:
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-## Azure Redis Cache Limits 
+## Azure Redis Cache Limits
 
 [AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
