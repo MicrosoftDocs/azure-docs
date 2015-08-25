@@ -81,14 +81,17 @@ The optimizations included in the images are based on the [Performance Best Prac
 
 ### Disk Configurations
 
-
+|Configuration|Setting|
 |---|---|
 |Number of data disks attached|15|
-|Storage spaces|Two storage pools:<br/>-- 1 data pool with 12 data disks; fixed size 12 TB; Column = 12<br/>-- 1 log pool with 3 data disks; fixed size 3 TB; Column = 3<br/><br/>One data disk remaining for the user to attach and determine the usage.<br/><br/>**DW**: Stripe size = 256 KB<br/>**Transactional**: Stripe size = 64 KB|
-|Disk sizes, caching, allocation size|1 TB each, HostCache=None, NTFS Allocation Unit Size = 64KB|
+|Storage spaces|Two storage pools:<br/>--1 data pool with 12 data disks; fixed size 12 TB; Column = 12<br/>--1 log pool with 3 data disks; fixed size 3 TB; Column = 3<br/><br/>One data disk remaining for the user to attach and determine the usage.<br/><br/>**DW**: Stripe size = 256 KB<br/>**Transactional**: Stripe size = 64 KB|
+|Disk sizes|1 TB each|
+|Caching|HostCache=None|
+|Allocation size|NTFS Allocation Unit Size = 64KB|
 
 ### SQL Server Configurations
 
+|Configuration|Setting|
 |---|---|
 |Startup Parameters|-T1117 to help keep data files the same size in case the database needs to autogrow<br/><br/>-T1118 to assist in tempdb scalability (For more information, see [SQL Server (2005 and 2008) Trace Flag 1118 (-T1118) Usage](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce).)|
 |Recovery model|**DW**: Set to SIMPLE for model database using ALTER DATABASE<br/>**Transactional**: No change|
