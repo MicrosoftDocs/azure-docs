@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add push notifications to your Xamarin Android app | Azure Mobile Services" 
+	pageTitle="Add push notifications to your Xamarin Android app | Microsoft Azure" 
 	description="Learn how to configure push notifications with Google Cloud Messaging for you Xamarin.Android apps using Azure Mobile Services and Azure Notification Hubs." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -32,7 +32,7 @@ You should already have the [Xamarin.Android] and the [Azure Mobile Services Com
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configure your mobile service to send push requests
 

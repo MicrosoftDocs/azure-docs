@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
-	ms.date="04/14/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sstein"/>
 
 
@@ -64,7 +64,7 @@ The above support article provides help for the following SQL Database connectiv
 
 - For additional information about connecting to SQL Database, see [Guidelines for Connecting to Azure SQL Database Programmatically](https://msdn.microsoft.com/library/azure/ee336282.aspx).   
 
-- Details about specific connection errors can be found in the **Connection-Loss Errors** section in [Error Messages (Azure SQL Database)](https://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors).
+- Details about specific connection errors can be found in the **Transient faults, Connection-loss errors** section in [Error messages for SQL Database client programs](sql-database-develop-error-messages.md#bkmk_connection_errors).
 
 - Connection event data can be accessed by querying for connectivity events using the [**sys.event_log (Azure SQL Database)**](https://msdn.microsoft.com/library/dn270018.aspx) view.
 

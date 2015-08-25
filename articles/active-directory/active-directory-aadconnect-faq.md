@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect FAQ
 
-## How can I get help with Azure AD Connect?
+
+## Troubleshooting
+
+**Q:How can I get help with Azure AD Connect?**
 
 [Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
@@ -33,3 +36,6 @@
 
 - Use this link to get support through the Azure portal. 
 
+**Q:What do I do if I receive an email that asking me to renew my Office 365 certificate**
+
+Use the guidance that is outlined in the article here to resolve to [here](active-directory-aadconnect-o365-certs.md) renew the certificate.

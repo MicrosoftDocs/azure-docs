@@ -3,8 +3,8 @@
 	description="How to use the Azure Active Directory reporting notifications for suspicious sign ins."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="TerryLan"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor="LisaToft"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Azure Active Directory Reporting Notifications
 

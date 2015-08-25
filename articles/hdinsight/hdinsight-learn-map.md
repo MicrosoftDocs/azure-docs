@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="01/16/2015"
+	ms.date="07/11/2015"
 	ms.author="nitinme"/>
 
 

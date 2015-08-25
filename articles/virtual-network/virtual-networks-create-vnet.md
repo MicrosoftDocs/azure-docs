@@ -19,7 +19,7 @@
 
 When you create a VNet, your services and VMs within the VNet can communicate securely with each other without having to go out through the Internet. Creating an Azure VNet is a relatively fast and easy process if the VNet isn’t intended to be connected to other VNets or to your on-premises network, since you will not need to acquire and configure a VPN device, or coordinate the IP addresses you choose with other VNets or the local network.
 
->[AZURE.WARNING] Don’t use this procedure to create a VNet that will later be connected other VNets or your on-premises network. If you want to create a secure cross-premises or hybrid connection, see [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx). If you want to create a VNet that connects to another VNet, see [Configure a VNet to VNet Connection](https://msdn.microsoft.com/library/azure/dn690122.aspx).
+>[AZURE.WARNING] Don’t use this procedure to create a VNet that will later be connected other VNets or your on-premises network. If you want to create a secure cross-premises or hybrid connection, see [About Virtual Network Secure Cross-Premises Connectivity](vpn-gateway-cross-premises-options.md). If you want to create a VNet that connects to another VNet, see [Configure a VNet to VNet Connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ## Configure your VNet
 
@@ -35,7 +35,7 @@ When you create a VNet, your services and VMs within the VNet can communicate se
 
 	- **Location –** Select the location (region) from the drop-down. The location is directly related to the physical location where you want your resources (VMs) to reside when you deploy them to this VNet. For example, if you want your VMs to be physically located in *East US*, select that location region. You can’t change the region associated with your VNet after you create it.
 
-1. On the **DNS Servers and VPN Connectivity** page, don’t make any changes. Just move forward to the next page by clicking the arrow. By default, Azure provides basic name resolution for your VNet. It’s possible that your name resolution requirements are more complex than can be handled by the basic Azure name resolution. In that case, you may later want to add a virtual machine running DNS to your VNet. For more information about Azure name resolution and DNS, see [Name Resolution (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx).
+1. On the **DNS Servers and VPN Connectivity** page, don’t make any changes. Just move forward to the next page by clicking the arrow. By default, Azure provides basic name resolution for your VNet. It’s possible that your name resolution requirements are more complex than can be handled by the basic Azure name resolution. In that case, you may later want to add a virtual machine running DNS to your VNet. For more information about Azure name resolution and DNS, see [Name Resolution (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 1. The **Virtual Network Address Spaces** page is where you enter the address space that you want to use for this VNet. Unless you require a certain internal IP address range for your VMs or you want to create a specific subnet for VMs that will receive a static DIP, you don’t need to make any changes on this page. If you do want to create multiple subnets, you can do so on this page by clicking **add subnet**.
 

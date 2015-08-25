@@ -1,24 +1,36 @@
 <properties
    pageTitle="Azure Resource Manager Template Functions"
    description="Describes the functions to use in an Azure Resource Manager template to retrieve values, format strings and retrieve deployment information."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="08/21/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
 
 This topic describes all of the functions you can use in an Azure Resource Manager template.
+
+## add
+
+**add(operand1, operand2)**
+
+Returns the sum of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
 
 ## base64
 
@@ -52,6 +64,12 @@ The following example shows how to combine multiple values to return a value.
         }
     }
 
+## copyIndex
+
+**copyIndex(offset)**
+
+Returns the current index of an iteration loop. For examples of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
 ## deployment
 
 **deployment()**
@@ -79,6 +97,23 @@ The following example shows how to return deployment information in the outputs 
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+Returns the integer division of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+## length
+
+**length(array)**
+
+Returns the number of elements in an array. Typically, used to specify the number of iterations when creating resources. For an example of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -98,6 +133,30 @@ The following example shows how to return the keys from a storage account in the
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+Returns the remainder of the integer division using the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+Returns the multiplication of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
 
 ## padLeft
 
@@ -188,7 +247,8 @@ Enables an expression to derive its value from another resource's runtime state.
 
 The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
 
-By using the reference expression, you declare that one resource depends on another resource if the referenced resource is provisioned within same template.
+By using the reference expression, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the **dependsOn** property. 
+The expression is not evaluated until the referenced resource has completed deployment.
 
     "outputs": {
       "siteUri": {
@@ -265,7 +325,7 @@ The following example shows how to retrieve the resource ids for a web site and 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
 
     {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
           "virtualNetworkName": {
@@ -304,6 +364,38 @@ Often, you need to use this function when using a storage account or virtual net
            }
       }]
     }
+
+## split
+
+**split(inputString, delimiter)**
+**split(inputString, [delimiters])**
+
+Returns an array of strings that contains the substrings of the input string that are delimited by the sent delimiters.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| inputString                        |   Yes    | The string to to be splitted.
+| delimiter                          |   Yes    | The delimiter to use, can be a single string or an array of strings.
+
+The following example splits the input string with a comma.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+Returns the subtraction of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number which is to be subtracted from.
+| operand2                           |   Yes    | Number to be subtracted.
 
 
 ## subscription
@@ -377,7 +469,8 @@ Returns the value of variable. The specified variable name must be defined in th
 
 
 ## Next Steps
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
-- [Advanced Template Operations](./resource-group-advanced-template.md)
-- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
-- [Azure Resource Manager Overview](./resource-group-overview.md)
+- For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
+- To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
+- To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
+- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md)
+

@@ -14,17 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/15/2015"
 	ms.author="genemi"/>
 
 
 # Plan and prepare to upgrade to SQL Database V12
-
-
-<!-- What is being changed this time?:
-GeneMi , 2015-May-15 14:31pm
-Powershell cmdlets.
--->
 
 
 This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 ([at preview in some regions](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
@@ -54,9 +48,9 @@ The following subsections describe the learning and decision making you must add
 This document concerns the upgrade of Microsoft Azure SQL Database from version V11 to V12. More formally the version numbers are close to the following two values, as reported by the Transact-SQL statement **SELECT @@version;** :
 
 
-- 11.0.9228.18 *(V11)*
 - 12.0.2000.8 *(or a bit higher, V12)*
-
+- 11.0.9228.18 *(V11)*
+ - Sometimes V11 was also referred to as SAWA v2.
 
 ### Service tier planning
 
@@ -157,9 +151,12 @@ For another alternative, you can use SQL Server Management Studio (SSMS) 2014 wi
 ### Limitation *during* upgrade to V12
 
 
+The V11 database remains available for data access during the upgrade to V12. Yet there are a couple limitations to consider.
+
+
 | Limitation | Description |
 | :--- | :--- |
-| Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The upgrade process can run for hours to days for servers especially for servers that has databases:<br/><br/>* Larger than 50 GB, or <br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
+| Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The upgrade process can run for hours to days for servers especially for servers that has databases:<br/><br/>* Larger than 50 GB, or<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
 
 

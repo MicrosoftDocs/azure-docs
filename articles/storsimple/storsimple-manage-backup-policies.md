@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Manage your StorSimple backup policies | Microsoft Azure"
-   description="Explains how you can use the StorSimple Manager service to create and manage backup jobs and backup schedules."
+   description="Explains how you can use the StorSimple Manager service to create and manage manual backups, backup schedules, and backup retention."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/17/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 # Manage your StorSimple backup policies
@@ -82,4 +82,4 @@ Perform the following steps in the Management Portal to create a custom backup p
 
 ## Next steps
 
-Learn how to manage StorSimple backups with the [StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/dn772365.aspx). 
+Learn how to [Use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md). 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
 
 
@@ -42,7 +42,7 @@ You can also enable passwordless sudo by editing the `/etc/sudoers.d/waagent` fi
 	#/etc/sudoers.d/waagent
 	azureuser ALL = (ALL) NOPASSWD: ALL
 
-This change will allow for passwordless sudo by the azureuser user.
+This change will allow for passwordless sudo by the user "azureuser".
 
 ## SSH Key Only
 

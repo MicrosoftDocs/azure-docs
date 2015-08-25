@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Monitor application performance" 
+	pageTitle="Monitor Azure web app performance" 
 	description="Chart load and response time, dependency information and set alerts on performance." 
 	services="azure-portal"
     documentationCenter="na"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="azure-portal" 
@@ -12,32 +12,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="07/17/2015" 
 	ms.author="awills"/>
 
-# Monitor application performance
+# Monitor Azure web app performance
 
-In the [Azure Portal](http://portal.azure.com) you can set up monitoring to collect the  statistics and details on the application dependencies in your web apps or virtual machines.
+In the [Azure Portal](http://portal.azure.com) you can set up monitoring to collect the  statistics and details on the application dependencies in your [Azure web apps](../app-service-web/app-service-web-overview.md) or [virtual machines](../virtual-machines/virtual-machines-about.md).
 
 Azure supports Application performance monitoring (or, *APM*) by leveraging *extensions*. These extensions are installed into your application and collect the data and report back to the monitoring services. 
+
+Application Insights and New Relic are two of the performance monitoring extensions that are available. To use New Relic, you install an agent at runtime. To use Application Insights, you rebuild your code with an SDK; and you can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail.  
 
 ## Enable an extension
 
 1. Click **Browse** and select the web app or virtual machine you would like to instrument.
 
-2. Click on the **Application monitoring** tile under **Monitoring**.
+2. Add the Application Insights or the New Relic extension. 
 
-3. Choose the extension provider you would like to use, such as **Application Insights** or **New Relic**.
+    If you're instrumenting a web app:
 
-![Web app APM](./media/insights-perf-analytics/05-extend.png)
+![Settings, Extensions, Add, Application Insights](./media/insights-perf-analytics/05-extend.png)
 
 Or if you're using a virtual machine:
 
-![Virtual machine](./media/insights-perf-analytics/10-vm1.png)
+![Click the Analytics tile](./media/insights-perf-analytics/10-vm1.png)
 
 ### For Application Insights: rebuild with the SDK
 
-New Relic can be automatically installed without any additional instrumentation, but Application Insights has one additional requirement.
+Application Insights works by installing an SDK into your app. 
 
 In Visual Studio, add the Application Insights SDK to your project.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Shard map management
@@ -38,63 +38,28 @@ Shard maps can be constructed using **lists of individual sharding key values**,
 
 ###List shard maps
 **Shards** contain **shardlets** and the mapping of shardlets to shards is maintained by a shard map. A **list shard map** is an association between the individual key values that identify the shardlets and the databases that serve as shards.  **List mappings** are explicit (for example, key 1 maps to Database A) and different key values can be mapped to the same database (key values 3 and 6 both reference Database B).
-<table>
-   <tr>
-    <td>Key</td>
-     <td>Shard Location</td>
-   </tr>
-   <tr>
-    <td>1</td>
-     <td>Database_A</td>
-   </tr>
-  <tr>
-    <td>3</td>
-     <td>Database_B</td>
-   </tr>
-  <tr>
-    <td>4</td>
-     <td>Database_C</td>
-   </tr>
-  <tr>
-    <td>6</td>
-     <td>Database_B</td>
-   </tr>
-  <tr>
-    <td>...</td>
-     <td>...</td>
-   </tr>
-</table> 
+
+| Key | Shard Location |
+|-----|----------------|
+| 1   | Database_A     |
+| 3   | Database_B     |
+| 4   | Database_C     |
+| 6	  | Database_B     |
+| ... | ...            |
+ 
 
 ### Range shard maps 
 In a **range shard map**, the key range is described by a pair **[Low Value, High Value)** where the *Low Value* is the minimum key in the range, and the *High Value* is the first value higher than the range. 
 
 For example, **[0, 100)** includes all integers greater than or equal 0 and less than 100. Note that multiple ranges can point to the same database, and disjoint ranges are supported (e.g., [100,200) and [400,600) both point to Database C in the example below.)
-<table>
-   <tr>
-    <td><b>Key Range</b></td>
-     <td><b>Shard Location</b></td>
-   </tr>
-   <tr>
-    <td>[1, 50)</td>
-     <td>Database_A</td>
-   </tr>
-  <tr>
-    <td>[50, 100)</td>
-     <td>Database_B</td>
-   </tr>
-  <tr>
-    <td>[100, 200)</td>
-     <td>Database_C</td>
-   </tr>
-  <tr>
-    <td>[400, 600)</td>
-     <td>Database_C</td>
-   </tr>
-  <tr>
-    <td>...</td>
-     <td>...</td>
-   </tr>
-</table> 
+
+| Key       | Shard Location |
+|-----------|----------------|
+| [1,50)    | Database_A     |
+| [50,100)  | Database_B     |
+| [100,200) | Database_C     |
+| [400,600) | Database_C     |
+| ...       | ...            
 
 Each of the tables shown above is a conceptual example of a **ShardMap** object.  Each row is a simplified example of an individual **PointMapping** (for the list shard map) or **RangeMapping** (for the range shard map) object.
 

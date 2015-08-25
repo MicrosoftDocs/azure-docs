@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Optimize your environment with Assessment solutions
@@ -116,7 +116,7 @@ Every recommendation made includes guidance about why the recommendation might b
 
 ## Use assessment focus area recommendations
 
-Before you can use an assessment solution in Microsoft Azure Operational Insights, you must have the solution installed. To read more about installing solutions, see [Use the Solution Gallery to add or remove solutions](operational-insights-add-solution.md). After it is installed, you can view the summary of recommendations by using the Assessment tile on the Overview page in Operational Insights.
+Before you can use an assessment solution in Microsoft Azure Operational Insights, you must have the solution installed. To read more about installing solutions, see [Use the Solution Gallery to add or remove solutions](operational-insights-setup-workspace.md). After it is installed, you can view the summary of recommendations by using the Assessment tile on the Overview page in Operational Insights.
 
 You can summary compliance assessments for your infrastructure and then drill-into recommendations.
 
@@ -133,3 +133,5 @@ You can summary compliance assessments for your infrastructure and then drill-in
 3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation to view its details about why the recommendation is made and it appears under **Affected Objects**.
 
 4. Take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]

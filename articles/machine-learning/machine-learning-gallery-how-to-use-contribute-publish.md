@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/15/2015" 
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -63,6 +63,7 @@ Follow these steps:
 - Create your experiment and run it
 - When you’re ready to publish your experiment to the Gallery, click on ‘Publish to Gallery’ in the Studio’s lower black bar.
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
+
 Enjoy!
 
 ## We want to hear from you! 

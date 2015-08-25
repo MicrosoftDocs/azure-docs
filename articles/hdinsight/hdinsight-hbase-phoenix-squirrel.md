@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/05/2015"
+   ms.date="07/29/2015"
    ms.author="jgao"/>
 
 # Use Apache Phoenix and SQuirreL with HBase clusters in HDinsight  
@@ -108,7 +108,7 @@ There are 3 steps involved configuring a point-to-site VPN connection:
 2. [Create your certificates](#Create-your-certificates)
 3. [Configure your VPN client](#Configure-your-VPN-client)
 
-See [Configure a Point-to-Site VPN connection to an Azure Virtual Network](https://msdn.microsoft.com/library/azure/dn133792.aspx) for more information.
+See [Configure a Point-to-Site VPN connection to an Azure Virtual Network](../vpn-gateway/vpn-gateway-point-to-site-create.md) for more information.
 
 #### Configure a virtual network and a dynamic routing gateway
 
@@ -288,7 +288,7 @@ With virtual network integration, HBase clusters can be deployed to the same vir
 - [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]:
 Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data by using HBase in a Hadoop cluster in HDInsight.
 
-[azure-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-versions]: hdinsight-component-versioning.md

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/09/2015"
    ms.author="seanmck"/>
 
 # Troubleshoot your local development cluster setup
@@ -85,4 +85,3 @@ Ensure that you do not have any service projects set as startup projects in your
 
 - [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
- 

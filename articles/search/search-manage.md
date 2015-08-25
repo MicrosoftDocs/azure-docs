@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure
@@ -164,29 +164,12 @@ Azure provides a global role-based authorization model for all services managed 
 
 In terms of Azure Search, role-based access controls determine the following administrative tasks:
 
-<table>
-<tr>
-<td>Owner</td>
-<td>
-Start, stop, or delete the service.</br>
-Generate and view admin keys and query keys.</br>
-View service status, including index count, index names, document count, and storage size.</br>
-Add or delete role membership (only an Owner can manage role membership).</br>
-</br>
-Subscription and service administrators have automatic membership in the Owners role.
-</td>
-</tr>
-<tr>
-<td>Contributor</td>	
-<td>Has the same level of access as Owner, except for role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
-</td>
-</tr>
-<tr>
-<td>Reader</td>
-<td>View service status and query keys. Members of this role cannot start or stop a service, nor can they view admin keys.
-</td>
-</tr>
-</table>
+
+Role|Task
+---|---
+Owner|Start, stop, or delete the service.<p>Generate and view admin keys and query keys.<p>View service status, including index count, index names, document count, and storage size.<p>Add or delete role membership (only an Owner can manage role membership).<p>Subscription and service administrators have automatic membership in the Owners role.
+Contributor|Has the same level of access as Owner, except for role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
+Reader|View service status and query keys. Members of this role cannot start or stop a service, nor can they view admin keys.
 
 Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Portal](../role-based-access-control-configure.md) for more information.
 

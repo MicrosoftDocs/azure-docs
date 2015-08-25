@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB limits and quotas | Azure" 
+	pageTitle="DocumentDB limits and quotas | Microsoft Azure" 
 	description="Learn about the limits and quota enforcements of DocumentDB." 
 	services="documentdb" 
 	authors="mimig1" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="08/11/2015" 
 	ms.author="mimig"/>
 
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" 
+	pageTitle="Schedule Backend Tasks with Scheduler | Microsoft Azure" 
 	description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." 
 	services="mobile-services" 
 	documentationCenter="" 

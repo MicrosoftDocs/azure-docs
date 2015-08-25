@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,12 +40,12 @@ First, let's set up the boosted decision tree model:
 
 1.	Find the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] module in the module palette and drag it onto the canvas.
 2.	Find the [Train Model][train-model] module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the [Train Model][train-model] module.
-3.	Connect the output of the left [Execute R Script][execute-r-script] module to the right input port ("Dataset") of the [Train Model][train-model] module.
+3.	Connect the left output ("Result Dataset") of the left [Execute R Script][execute-r-script] module to the right input port ("Dataset") of the [Train Model][train-model] module.
 
 	> [AZURE.TIP] We don't need two of the inputs and one of the outputs of the [Execute R Script][execute-r-script] module for this experiment, so we'll just leave them unattached. This is not uncommon for some modules.
 
 
-4.	Select the [Train Model][train-model] module. In the **Properties** pane, click **Launch column selector**, select **Include** in the first dropdown, select **column indices** in the second dropdown, and enter "21" in the text field (you can also select **Column name** and enter "Credit Risk"). This identifies column 21, the credit risk value, as the column for the model to predict.
+4.	Select the [Train Model][train-model] module. In the **Properties** pane, click **Launch column selector**, select **Include** in the first dropdown, select **column indices** in the second dropdown, and enter "21" in the text field (you can also select **column names** and enter "Credit Risk"). This identifies column 21, the credit risk value, as the column for the model to predict.
 
 
 This portion of the experiment now looks something like this:  
@@ -63,7 +63,7 @@ Boosted decision trees work well with features of any type. However, since the S
 5.	Connect the input of this transform module to the output of the left [Execute R Script][execute-r-script] module.
 6.	Connect the left output port ("Transformed Dataset") of the transform module to the right input port ("Dataset") of the [Train Model][train-model] module.
 7.	In the **Properties** pane for the transform module, select **Tanh** for the **Transformation method** parameter.
-8.	Click **Launch column selector**, select **Include** in the first dropdown, select **column type** in the second dropdown, and select **Numeric** in the third dropdown. This specifies that all the numeric columns (and only numeric) will be transformed.
+8.	Click **Launch column selector**, select "No columns" for **Begin With**, select **Include** in the first dropdown, select **column type** in the second dropdown, and select **Numeric** in the third dropdown. This specifies that all the numeric columns (and only numeric) will be transformed.
 9.	Click the plus sign (+), which creates a new row of dropdowns. Select **Exclude** in the first dropdown, select **column indices** in the second dropdown, and enter "21" in the text field. This specifies that column 21 (the Credit Risk column) will be ignored.
 10.	Click **OK**.  
 
@@ -79,7 +79,7 @@ We'll use the scoring data that was separated out by the **Split** module to sco
 
 1.	Find the [Score Model][score-model] module and drag it onto the canvas.
 2.	Connect the left input port of this module to the boosted decision tree model (that is, connect it to the output port of the [Train Model][train-model] module that's connected to the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] module).
-3.	Connect the right input port of the [Score Model][score-model] module to the output of the right [Execute R Script][execute-r-script] module. Note that it's okay to have the output of a module go to multiple places.
+3.	Connect the right input port of the [Score Model][score-model] module to the output of the right [Execute R Script][execute-r-script] module. 
 4.	Copy and paste the [Score Model][score-model] module to create a second copy, or drag a new module onto the canvas.
 5.	Connect the left input port of this module to the SVM model (that is, connect to the output port of the [Train Model][train-model] module that's connected to the [Two-Class Support Vector Machine][two-class-support-vector-machine] module).
 6.	For the SVM model, we have to do the same transformation to the test data as we did to the training data. So copy and paste the [Normalize Data][normalize-data] module to create a second copy and connect it to the output of the right [Execute R Script][execute-r-script] module.
@@ -97,7 +97,7 @@ The experiment should now look something like this:
  
 Click the **RUN** button below the canvas to run the experiment. It may take a few minutes. You'll see a spinning indicator on each module to indicate that it's running, and then a green check mark when the module is finished.   
 
-When all the modules have a check mark, the experiment has finished running. To check the results, right-click the output port of the [Evaluate Model][evaluate-model] module and select **Visualize**.  
+When all the modules have a check mark, the experiment has finished running. To check the results, click the output port of the [Evaluate Model][evaluate-model] module and select **View Results**.  
 
 The [Evaluate Model][evaluate-model] module produces a pair of curves and metrics that allow you to compare the results of the two scored models. You can view the results as Receiver Operator Characteristic (ROC) curves, Precision/Recall curves, or Lift curves. Additional data displayed includes a confusion matrix, cumulative values for the area under the curve (AUC), and other metrics. You can change the threshold value by moving the slider left or right and see how it affects the set of metrics.  
 

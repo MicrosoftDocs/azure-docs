@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 #Convert a Machine Learning training experiment to a scoring experiment
@@ -54,7 +54,7 @@ When you convert this training experiment to a scoring experiment, some of these
 
 - **Prep** - Depending on the data that will be submitted for scoring, these modules may or may not be necessary to process the incoming data. 
 
-	For instance, in this example the sample dataset may have missing values and it includes columns that are not needed to train the model. So a **Clean Missing Data** module was included to deal with missing values, and a [Project Columns][project-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the **Clean Missing Data** module. However, since the [Project Columns][project-columns] module helps define the set of features being scored, that module needs to remain.
+	For instance, in this example the sample dataset may have missing values and it includes columns that are not needed to train the model. So a [Clean Missing Data][clean-missing-data] module was included to deal with missing values, and a [Project Columns][project-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Project Columns][project-columns] module helps define the set of features being scored, that module needs to remain.
 
 - **Train** - Once the model has been successfully trained, you save it as a single trained model module. You then replace these individual modules with the saved trained model.
 

@@ -81,23 +81,10 @@ Consider the following variables:
 
 As an example, if you assume a daily upload size of 100 KB per agent and the default archival period, you would need the following storage for the management group:
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Number of agents</b></td>
-		<td><b>Estimated space required for the management group</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>5</td>
-		<td>~2.5 MB (5 agents x 100 KB data/day x 5 days = 2,500 KB)</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>50</td>
-		<td>~25 MB (50 agents x 100 KB data/day x 5 days = 25,000 KB)</td>
-    </tr>
-
-    </tbody>
-    </table>
+Number of agents|Estimated space required for the management group
+---|---
+5|~2.5 MB (5 agents x 100 KB data/day x 5 days = 2,500 KB)
+50|~25 MB (50 agents x 100 KB data/day x 5 days = 25,000 KB)
 
 ## Operations Manager run-as accounts for Operational Insights
 

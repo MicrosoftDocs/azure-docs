@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="06/21/2015"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the portal
 
-Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you access and manage using the portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, and multi-language support. For more information about what Search does, see [Introducing Azure Search](../fundamentals-azure-search-chappell/).
+Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you access and manage using the portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, and multi-language support. For more information about what Search does, see [Introducing Azure Search](fundamentals-azure-search-chappell/).
 
 ##Add Search to your subscription  
 
@@ -91,8 +91,8 @@ You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792)
 
 Confirming that your service is operational and accessible from a client application is the final step in configuring Search. You can use either of the links below for a code-free approach to verifying service availability.
 
-- [How to use Chrome Postman with Azure Search](../search-chrome-postman/)
-- [How to use Telerik Fiddler with Azure Search](../search-fiddler/)
+- [How to use Chrome Postman with Azure Search](search-chrome-postman.md)
+- [How to use Telerik Fiddler with Azure Search](search-fiddler.md)
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
@@ -100,9 +100,9 @@ Confirming that your service is operational and accessible from a client applica
 
 The following additional material shows you how to build and manage search applications that use Azure Search.
 
-- [How to use Azure Search in .NET](../search-howto-dotnet-sdk/)
+- [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
 
-- [Manage your search solution in Microsoft Azure](../search-manage/)
+- [Manage your search solution in Microsoft Azure](search-manage.md)
 
 - [Azure Search on MSDN](http://msdn.microsoft.com/library/dn798933.aspx)
 

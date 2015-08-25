@@ -220,9 +220,13 @@ In this section, you will create a local Git repository and push from that repos
 
 		git remote add azure [URL for remote repository]
 
-7. Push your changes to Azure by entering the following command.
+7. Configure Git to save your credentials locally so that they will be automatically appended to your push commands generated from VS Code.
 
-		git push azure master
+		git config credential.helper store
+
+8. Push your changes to Azure by entering the following command. After this initial push to Azure, you will be able to do all the push commands from VS Code. 
+
+		git push -u azure master
 
 	You are prompted for the password you created earlier. **Note: Your password will not be visible.**
 
@@ -232,7 +236,9 @@ In this section, you will create a local Git repository and push from that repos
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE] If you make changes to your app, you can republish by selecting the **Commit All** option in VS Code, and then entering the **git push azure master** command at a command prompt.
+> [AZURE.NOTE] If you make changes to your app, you can republish directly in VS Code using the built-in Git functionality by selecting the **Commit All** option followed by the **Push** option. You will find the **Push** option available in the drop-down menu next to the **Commit All** and **Refresh** buttons.
+
+If you need to collaborate on a project, you should consider pushing to GitHub in between pushing to Azure.
 
 ## Run the app in Azure
 Now that you have deployed your web app, let's run the app while hosted in Azure. 

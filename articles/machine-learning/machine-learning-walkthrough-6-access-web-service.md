@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,4 +40,4 @@ On the **DASHBOARD** tab for the web service, there are two links to information
 
 The API help page includes samples for R, C#, and Python programming languages. 
 
-<!-- Add link to Derrick's articles on web services --> 
+For more information about how to access and use the web service, see [How to consume an Azure Machine Learning web service that has been published from a Machine Learning experiment](machine-learning-consume-web-services.md).

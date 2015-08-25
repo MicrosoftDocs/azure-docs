@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
-	ms.author="patshea123"/>
+	ms.date="07/22/2015" 
+	ms.author="patshea"/>
 
 # What happened to my project?
 
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###<span id="whathappened">What happened to my project?</span>
+###What happened to my project?
 
 ##### References Added
 
@@ -43,7 +43,7 @@ This package adds the following .NET references:
 - `System.Data`
 - `System.Spatial`
 
-Also, the NuGet package **Microsoft.Framework.ConfigurationModel.Json** was added.
+Also, the NuGet package **Microsoft.Framework.Configuration.Json** was added.
 
 #####Connection string for Azure Storage added 
 In the config.json file of your project, an element was created with the selected storage account's connection string and key.

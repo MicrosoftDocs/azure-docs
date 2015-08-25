@@ -4,18 +4,18 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="hero-article" 
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
-#  Configure an ExpressRoute Connection through an Exchange Provider
+#  Configure an ExpressRoute connection through an Exchange Provider
 
 To configure your ExpressRoute connection through an exchange provider, you’ll need to complete multiple steps in the proper order. These instructions will help you do the following:
 
@@ -23,7 +23,7 @@ To configure your ExpressRoute connection through an exchange provider, you’ll
 - Configure BGP peering for ExpressRoute circuits
 - Link a Virtual Network to the ExpressRoute circuit
 
-##  Configuration Prerequisites
+##  Configuration prerequisites
 
 
 Before you begin configuration, verify that you have met the following prerequisites:
@@ -42,12 +42,12 @@ Before you begin configuration, verify that you have met the following prerequis
 	- Two 1 Gbps / 10 Gbps cross-connects to the Exchange provider’s Ethernet Exchange.
 	- A pair of routers capable of supporting BGP for routing
 
-##  Deployment Workflow
+##  Deployment workflow
 
 
 ![](./media/expressroute-configuring-exps/expressroute-exp-connectivity-workflow.png)
 
-##  Configuring Settings using PowerShell
+##  Configuring settings using PowerShell
 
 Windows PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For more information please refer to the PowerShell documentation in [MSDN](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx).
 
@@ -216,9 +216,9 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 		State               : Enabled
 		VlanId              : 101
 
-8. **Configure your Virtual Network and Gateway.**
+8. **Configure your virtual network and gateway.**
 
-	See [Configure a Virtual Network and Gateway for ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Note that the gateway subnet must be /28 in order to work with an ExpressRoute connection.
+	See [Configure a Virtual Network and Gateway for ExpressRoute](expressroute-configuring-vnet-gateway.md). Note that the gateway subnet must be /28 in order to work with an ExpressRoute connection.
 
 9. **Link your network to a circuit.** Proceed with the following instructions only after you have confirmed that your circuit has moved to the following state and status:
 	- ServiceProviderProvisioningState: Provisioned
@@ -227,3 +227,6 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
+## Next Steps
+
+- For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

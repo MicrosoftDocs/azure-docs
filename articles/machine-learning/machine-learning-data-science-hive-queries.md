@@ -14,54 +14,58 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/29/2015" 
+	ms.date="07/17/2015" 
 	ms.author="hangzh;bradsev" /> 
 
 #<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process
 
-This document describes various ways of submitting Hive queries to Hadoop clusters managed by an HDInsight service in Azure. Hive queries can be submitted by using: 
+This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. Hive queries can be submitted by using: 
 
 * the Hadoop Command Line on the headnode of the cluster
 * the IPython Notebook 
 * the Hive Editor
 * Azure PowerShell scripts 
 
-Generic Hive queries that can used to explore the data or to generate features that use embedded Hive User Defined Functions (UDFs) are provided. 
+Generic Hive queries that can be used to explore the data or to generate features that use embedded Hive User Defined Functions (UDFs) are provided. 
 
-Examples of queries the specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run. 
+Examples of queries the specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run for this scenario. 
 
-In the final section, parameters that users can tune so that the performance of Hive queries can be improved are discussed.
+In the final section, parameters that users can tune to improve the performance of Hive queries are discussed.
 
 ## Prerequisites
 This article assumes that you have:
  
-* created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../hdinsight-get-started.md#storage) 
+* created an Azure storage account. If you need instructions for this task, see [Create an Azure Storage account](../hdinsight-get-started.md#storage) 
 * provisioned an Hadoop cluster with the HDInsight service.  If you need instructions, see [Provision an HDInsight cluster](../hdinsight-get-started.md#provision).
-* the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
+* the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow the instructions provided at [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
 * enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
-- [How to Submit Hive Queries](#submit)
-- [Data Exploration and Feature Engineering](#explore)
-- [Advanced topics: Tune Hive Parameters to Improve Query Speed](#tuning)
+## <a name="submit"></a>How to submit Hive queries
 
-## <a name="submit"></a>How to Submit Hive Queries
+1. [Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster](#headnode)
+2. [Submit Hive queries with the Hive Editor](#hive-editor)
+3. [Submit Hive queries with Azure PowerShell Commands](#ps)
+ 
+###<a name="headnode"></a> 1. Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster
 
-###1. Through Hadoop Command Line in Head Node of Hadoop Cluster
-
-If the query is complex, submitting Hive queries directly in the head node of the Hadoop cluster typically leads to faster turn around than submitting in with a Hive Editor or Azure PowerShell scripts. 
+If the Hive query is complex, submitting it directly in the head node of the Hadoop cluster typically leads to faster turn around than submitting it with a Hive Editor or Azure PowerShell scripts. 
 
 Log in to the head node of the Hadoop cluster, open the Hadoop Command Line on the desktop of the head node, and enter command `cd %hive_home%\bin`.
 
-Users have three ways to submit Hive queries in Hadoop Command Line. 
+Users have three ways to submit Hive queries in the Hadoop Command Line: 
 
-####Submit Hive queries directly in Hadoop Command Line. 
+* directly
+* using .hql files
+* with the Hive command console
+
+#### Submit Hive queries directly in Hadoop Command Line. 
 
 Users can run command like `hive -e "<your hive query>;` to submit simple Hive queries directly in Hadoop Command Line. Here is an example, where the red box outlines the command that submits the Hive query, and the green box outlines the output from the Hive query.
 
 ![Create workspace][10]
 
-####Submit Hive queries in .hql files
+#### Submit Hive queries in .hql files
 
 When the Hive query is more complicated and has multiple lines, editing queries in command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster to save the Hive queries in a .hql file in a local directory of the head node. Then the Hive query in the .hql file can be submitted by using the `-f` argument as follows:
 	
@@ -70,14 +74,14 @@ When the Hive query is more complicated and has multiple lines, editing queries 
 ![Create workspace][15]
 
 
-####Suppress progress status screen print of Hive queries
+**Suppress progress status screen print of Hive queries**
 
 By default, after Hive query is submitted in Hadoop Command Line, the progress of the Map/Reduce job will be printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use an argument `-S` ("S" in upper case) in the command line as follows:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
-####Submit Hive queries in Hive command console.
+#### Submit Hive queries in Hive command console.
 
 Users can also first enter the Hive command console by running command `hive` in Hadoop Command Line, and then submit Hive queries in Hive command console. Here is an example. In this example, the two red boxes highlight the commands used to enter the Hive command console, and the Hive query submitted in Hive command console, respectively. The green box highlights the output from the Hive query. 
 
@@ -85,7 +89,7 @@ Users can also first enter the Hive command console by running command `hive` in
 
 The previous examples directly output the Hive query results on screen. Users can also write the output to a local file on the head node, or to an Azure blob. Then, users can use other tools to further analyze the output of Hive queries.
 
-####Output Hive query results to a local file. 
+**Output Hive query results to a local file.** 
 
 To output Hive query results to a local directory on the head node, users have to submit the Hive query in the Hadoop Command Line as follows:
 
@@ -95,7 +99,7 @@ In the following example, the output of Hive query is written into a file `hiveq
 
 ![Create workspace][12]
 
-####Output Hive query results to an Azure blob
+**Output Hive query results to an Azure blob**
 
 Users can also output the Hive query results to an Azure blob, within the default container of the Hadoop cluster. The Hive query has to be like this:
 
@@ -109,17 +113,20 @@ If you open the default container of the Hadoop cluster using tools like Azure S
 
 ![Create workspace][14]
 
-###2. Through Hive Editor or Azure PowerShell Commands
+###<a name="hive-editor"></a> 2. Submit Hive queries with the Hive Editor
 
-Users can also use Query Console (Hive Editor) by entering the URL in a web browser `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (you will be asked to input the Hadoop cluster credentials to log in), or can [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell). 
+Users can also use Query Console (Hive Editor) by entering the URL in a web browser `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (you will be asked to input the Hadoop cluster credentials to log in),
+
+###<a name="ps"></a> 3. Submit Hive queries with Azure PowerShell Commands
+
+Users can also us PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell). 
 
 ## <a name="explore"></a>Data Exploration, Feature Engineering and Hive Parameter Tuning
 
-We describe the following data wrangling tasks in this section using Hive in Azure HDInsight Hadoop clusters, and a more advanced topic of tuning some Hive parameters to improve the performance of Hive queries:
+We describe the following data wrangling tasks in this section using Hive in Azure HDInsight Hadoop clusters:
 
 1. [Data Exploration](#hive-dataexploration)
 2. [Feature Generation](#hive-featureengineering)
-3. [Advanced topic: tune Hive parameters to improve query speed](#tune-parameters)
 
 > [AZURE.NOTE] The sample Hive queries assume that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
 
@@ -171,17 +178,16 @@ Here are a few sample Hive scripts that can be used to explore data in Hive tabl
 ###<a name="hive-featureengineering"></a>Feature Generation
 
 In this section, we describe ways of generating features using Hive queries: 
-
-> [AZURE.NOTE]
-> Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, which can be joined with the original table.  
-
+  
 1. [Frequency based Feature Generation](#hive-frequencyfeature)
 2. [Risks of Categorical Variables in Binary Classification](#hive-riskfeature)
-3. [Extract features from Datetime Field](#hive-datefeatures)
-4. [Extract features from Text Field](#hive-textfeatures)
+3. [Extract features from Datetime Field](#hive-datefeature)
+4. [Extract features from Text Field](#hive-textfeature)
 5. [Calculate distance between GPS coordinates](#hive-gpsdistance)
 
-####<a name="hive-frequencyfeature"></a>Frequency based Feature Generation
+> [AZURE.NOTE] Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, which can then be joined with the original table.
+
+####<a name="hive-frequencyfeature"></a> Frequency based Feature Generation
 
 Sometimes, it is valuable to calculate the frequencies of the levels of a categorical variable, or the frequencies of level combinations of multiple categorical variables. Users can use the following script to calculate the frequencies:
 
@@ -196,7 +202,7 @@ Sometimes, it is valuable to calculate the frequencies of the levels of a catego
 		order by frequency desc;
 	
 
-####<a name="hive-riskfeature"></a>Risks of Categorical Variables in Binary Classification
+####<a name="hive-riskfeature"></a> Risks of Categorical Variables in Binary Classification
 
 In binary classification, sometimes we need to convert non-numeric categorical variables into numeric features by replacing the non-numeric levels with numeric risks, since some models might only take numeric features. In this section, we show some generic Hive queries of calculating the risk values (log odds) of a categorical variable. 
 
@@ -223,7 +229,7 @@ In this example, variables `smooth_param1` and `smooth_param2` are set to smooth
 
 After the risk table is calculated, users can assign risk values to a table by joining it with the risk table. The Hive joining query has been given in previous section.
 
-####<a name="hive-datefeature"></a>Extract features from Datetime Fields
+####<a name="hive-datefeature"></a> Extract features from Datetime Fields
 
 Hive comes along with a set of UDFs for processing datetime fields. In Hive, the default datetime format is 'yyyy-MM-dd 00:00:00' (like '1970-01-01 12:21:32'). In this section, we show examples of extracting the day of a month, and the month from a datetime field, and examples of converting a datetime string in a format other than the default format to a datetime string in default format. 
 
@@ -245,14 +251,14 @@ In this query, if the `<datetime field>` has the pattern like `03/26/2015 12:04:
 In this query, `hivesampletable` comes with all Azure HDInsight Hadoop clusters by default when the clusters are provisioned. 
 
 
-####<a name="hive-textfeature"></a>Extract features from Text Fields
+####<a name="hive-textfeature"></a> Extract features from Text Fields
 
 Assume that the Hive table has a text field, which is a string of words separated by space, the following query extract the length of the string, and the number of words in the string.
 
     	select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num 
 		from <databasename>.<tablename>;
 
-####<a name="hive-gpsdistance"></a>Calculate distance between GPS coordinates
+####<a name="hive-gpsdistance"></a> Calculate distance between GPS coordinates
 
 The query given in this section can be directly applied on the NYC Taxi Trip Data. The purpose of this query is to show how to apply the embedded mathematical functions in Hive to generate features. 
 

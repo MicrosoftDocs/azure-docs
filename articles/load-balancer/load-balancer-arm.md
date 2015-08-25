@@ -35,7 +35,7 @@ With ARM, Azure Load Balancer contains the following child resources:
 - Inbound NAT rules – NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP.
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](./media/load-balancer-arm/load-balancer-arm.png)
 
 
 

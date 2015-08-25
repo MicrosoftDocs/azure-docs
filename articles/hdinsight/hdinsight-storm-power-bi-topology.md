@@ -5,7 +5,8 @@
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
- editor="cgronlun"/>
+ editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -13,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/28/2015"
+ ms.date="07/17/2015"
  ms.author="larryfr"/>
 
 # Use Power BI (preview) to visualize data from an Apache Storm topology
@@ -137,4 +138,3 @@ The topology will continue to run until you stop it or delete the Storm on HDIns
 In this document, you learned how to send data from a Storm topology to Power BI using REST. For information on how to work with other Azure technologies, see the following:
 
 * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
- 

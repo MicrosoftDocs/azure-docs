@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Set Alerts in Application Insights
@@ -36,7 +36,7 @@ To get an email when a metric crosses a threshold, start either from Metrics Exp
 
 ![In the Alert rules blade, choose Add Alert. Set the your app as the resource to measure, provide a name for the alert, and choose a metric.](./media/app-insights-alerts/01-set-metric.png)
 
-Set the resource before the other properties. Don't choose the webtest resources if you want to set alerts on performance or usage metrics.
+Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
 
 Be careful to note the units in which you're asked to enter the threshold value.
 
@@ -44,9 +44,11 @@ Be careful to note the units in which you're asked to enter the threshold value.
 
 ## See your alerts
 
-Alerts are emailed to you. 
+You get an email when an alert changes state between inactive and active. 
 
-They also appear in the Operations Events log:
+The current state of each alert is shown in the Alert rules blade.
+
+The history of state changes is in the Operations Events log:
 
 ![On the Overview blade, near the bottom, click 'Events in the past week'](./media/app-insights-alerts/09-alerts.png)
 

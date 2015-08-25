@@ -1,6 +1,6 @@
 A new insert script is registered that generates an SAS when a new Todo item is inserted.
 
-0. If you haven't yet created your storage account, see [How To Create a Storage Account].
+0. If you haven't yet created your storage account, see [How To Create a Storage Account](../storage/storage-create-storage-account.md).
 
 1. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
 
@@ -16,6 +16,8 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
 	The storage account access key is stored encrypted in app settings. You can access this key from any server script at runtime. For more information, see [App settings].
+
+4. In the Configure tab, make sure that [Dynamic schema](http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7) is enabled. You need dynamic schema enabled to be able to add new columns to the TodoItem table. Dynamic schema should not be enabled in any production service.
 
 4. Click the **Data** tab and then click the **TodoItem** table. 
 
@@ -76,8 +78,9 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 
    	This replaces the function that is invoked when an insert occurs in the TodoItem table with a new script. This new script generates a new SAS for the insert, which is valid for 5 minutes, and assigns the value of the generated SAS to the `sasQueryString` property of the returned item. The `imageUri` property is also set to the resource path of the new BLOB to enable image display during binding in the client UI.
 
-	>[AZURE.NOTE] This code creates an SAS for an individual BLOB. If you need to upload multiple blobs to a container using the same SAS, you can instead call the <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature method</a> with an empty blob resource name, like this: 
-	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+	>[AZURE.NOTE] This code creates an SAS for an individual BLOB. If you need to upload multiple blobs to a container using the same SAS, you can instead call the [generateSharedAccessSignature method](http://go.microsoft.com/fwlink/?LinkId=390455)</a> with an empty blob resource name, like this: 
+	>                 
+	>     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
 
 Next, you will update the quickstart app to add image upload functionality by using the SAS generated on insert.
  
@@ -86,5 +89,4 @@ Next, you will update the quickstart app to add image upload functionality by us
 <!-- Images. -->
 
 <!-- URLs. -->
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

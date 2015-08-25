@@ -4,17 +4,16 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	writer="curtand"
-	manager="TerryLan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/12/2015"
 	ms.author="curtand"/>
 
 # Azure AD service limits and restrictions

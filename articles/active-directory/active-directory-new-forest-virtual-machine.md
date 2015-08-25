@@ -3,7 +3,7 @@
 	description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="markusvi" 
 	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
@@ -14,18 +14,18 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/23/2015" 
+	ms.author="markusvi"/>
 
 
 # Install a new Active Directory forest on an Azure virtual network
 
-This topic shows how to create a new Windows Server Active Directory environment on an Azure virtual network on a virtual machine (VM) on an [Azure virtual network](https://msdn.microsoft.com/library/azure/jj156007.aspx). In this case, the Azure virtual network is not connected to an on-premises network. 
+This topic shows how to create a new Windows Server Active Directory environment on an Azure virtual network on a virtual machine (VM) on an [Azure virtual network](../virtual-network/virtual-networks-overview.md). In this case, the Azure virtual network is not connected to an on-premises network. 
 
 You might also be interested in these related topics:
 
 - For a video that shows these steps, see [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-- You can optionally [configure a site-to-site VPN](https://msdn.microsoft.com/library/azure/dn133795.aspx) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](../virtual-networks-install-replica-active-directory-domain-controller.md).
+- You can optionally [configure a site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](../virtual-networks-install-replica-active-directory-domain-controller.md).
 -  For conceptual guidance about installing Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Scenario Diagram
@@ -33,7 +33,7 @@ You might also be interested in these related topics:
 In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the VMs that run domain controllers are installed installed in their own cloud service in an Azure virtual network. They are also included within an availability set for improved fault tolerance.
 
 ![][1]
-
+7
 ## How does this differ from on-premises?
 
 There is not much difference between installing a domain controller on Azure versus on-premises. The main differences are listed in the following table. 
@@ -79,7 +79,7 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-For more information about setting a static IP address, see [Configure a Static Internal IP Address for a VM](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+For more information about setting a static IP address, see [Configure a Static Internal IP Address for a VM](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## Install Windows Server Active Directory
 
@@ -120,12 +120,12 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 
 -  [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [Configure a Cloud-Only Virtual Network](https://msdn.microsoft.com/library/dn631643.aspx)
--  [Configure a Site-to-Site VPN](https://msdn.microsoft.com/library/dn133795.aspx)
+-  [Configure a Cloud-Only Virtual Network](../virtual-network/virtual-networks-create-vnet.md)
+-  [Configure a Site-to-Site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Install a Replica Active Directory Domain Controller in an Azure virtual network](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 -  [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx)

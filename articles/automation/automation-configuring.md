@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Configuring Azure Automation
@@ -61,7 +61,7 @@ You can retrieve the credential in a runbook using the [Get-AutomationPSCredenti
 	Add-AzureAccount –Credential $cred
 	Select-AzureSubscription –SubscriptionName "My Subscription"
 
-You should repeat these lines after any [checkpoints](automation-runbook-execution/#checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
+You should repeat these lines after any [checkpoints](automation-runbook-execution#checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
 
 ## Related articles
 - [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)

@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="07/27/2015" 
 	ms.author="mahender"/>
 
 # How to configure your application to use Azure Active Directory login
+
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider. 
 
 ## <a name="register"> </a>Register your application with Azure Active Directory
 
-1. Log on to the [Preview Azure Management Portal], and navigate to your App Service gateway.
+1. Log on to the [Preview Azure Management Portal], and navigate to your Mobile App.
 
-2. Under **Settings**, choose **Identity**, and then select **Azure Active Directory**. Copy the **APP URL**. Make sure that you are using the HTTPS scheme.
+2. Under **Settings**, click **User authentication**, and then click **Azure Active Directory**. Copy the **App URL** and the **Reply URL** listed there. You will use these later. Make sure that the **App URL** and **Reply URL** are using the HTTPS scheme.
 
     ![][1]
 
@@ -38,9 +40,9 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 6. In the Add Application Wizard, enter a **Name** for your application and click the  **Web Application And/Or Web API** type. Then click to continue.
 
-7. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your gateway. Enter the same unique resource identifier in the **App ID URI** box. Then click to continue.
+7. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your Mobile App. Enter that same resource identifier in the **App ID URI** box. Then click to continue.
 
-8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the URL of your gateway appended with the path, _/signin-aad_. For example, `https://contosogateway.azurewebsites.net/signin-aad`. Make sure that you are using the HTTPS scheme.
+8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the Mobile App Reply URL you copied earlier. It should be the Mobile App gateway appended with _/signin-aad_. For example, `https://contosogateway.azurewebsites.net/signin-aad`. Make sure that you are using the HTTPS scheme.
 
     ![][3]
 
@@ -48,9 +50,9 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 ## <a name="secrets"> </a>Add Azure Active Directory information to your Mobile App
 
-10. Return to the preview management portal and the **User Authentication** blade for your gateway. Paste in the **Client ID** setting for the Azure Active Directory identity provider.
+1. Return to the preview management portal and the **Azure Active Directory** settings blade for your Mobile App. Paste in the **Client ID** setting for the Azure Active Directory identity provider.
   
-11. In the **Allowed Tenants** list, you need to add the domain of the directory in which you registered the application (e.g. contoso.onmicrosoft.com). You can find your default domain name by clicking the **Domains** tab on your Azure Active Directory tenant. Add your domain name to the **Allowed Tenants** list then click **Save**.  
+2. In the **Allowed Tenants** list, you need to add the domain of the directory in which you registered the application (e.g. contoso.onmicrosoft.com). You can find your default domain name by clicking the **Domains** tab on your Azure Active Directory tenant. Add your domain name to the **Allowed Tenants** list then click **Save**.  
 
 You are now ready to use Azure Active Directory for authentication in your app. 
 
@@ -62,7 +64,7 @@ Authenticate users of your Mobile App with Azure Active Directory single sign-on
 
 <!-- Images. -->
 
-[1]: ./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/app-service-aad-settings.png
+[1]: ./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/mobile-app-aad-settings.png
 [2]: ./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/app-service-navigate-aad.png
 [3]: ./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/app-service-aad-app-configure.png
 

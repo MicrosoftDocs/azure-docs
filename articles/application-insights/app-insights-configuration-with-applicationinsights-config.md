@@ -52,7 +52,7 @@ tracked by this module appears in the [Diagnostic Search][diagnostic].
 
 ## [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet package
 
-The `Microsoft.ApplicationInsights.DependencyCollector` NuGet package provides the following telemetry modules in the
+The `Microsoft.ApplicationInsights.DependencyCollector` NuGet package provides the following telemetry modules in 
 `ApplicationInsights.config`.
 
 ```
@@ -64,6 +64,8 @@ The `Microsoft.ApplicationInsights.DependencyCollector` NuGet package provides t
 ```
 The `DependencyTrackingTelemetryModule` tracks telemetry about calls to external dependencies made by your application, 
 such as HTTP requests and SQL queries. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension][azure].
+
+You can also write your own dependency tracking code using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
 ## [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
 

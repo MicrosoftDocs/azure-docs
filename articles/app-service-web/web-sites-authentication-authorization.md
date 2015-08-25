@@ -32,19 +32,19 @@ In many scenarios, you want to customize the authentication and authorization be
 
 -	[Azure AD](web-sites-dotnet-lob-application-azure-ad.md) - You can implement authentication and authorization for your web app with Azure AD. Using Azure AD as the identity provider has the following characteristics:
 	-	Supports popular authentication protocols, such as [OAuth 2.0](http://oauth.net/2/), [OpenID Connect](http://openid.net/connect/), and [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0). For the complete list of supported protocols, see [Azure Active Directory Authentication Protocols](http://msdn.microsoft.com/library/azure/dn151124.aspx).
-	-	Can use an Azure-only identity provider without any on-premise infrastructure.
-	-	Can also configure directory sync with an on-premise AD (managed on-premise).
-	-	Azure AD with directory sync from your on-premise AD domain enables a smooth SSO experience to your web app when AD users access from the intranet and the internet. From the intranet, AD users can automatically access the web app through Integrated Authentication. From the internet, AD users can log into the web app using their Windows credentials.
+	-	Can use an Azure-only identity provider without any on-premises infrastructure.
+	-	Can also configure directory sync with an on-premises AD (managed on-premises).
+	-	Azure AD with directory sync from your on-premises AD domain enables a smooth SSO experience to your web app when AD users access from the intranet and the internet. From the intranet, AD users can automatically access the web app through Integrated Authentication. From the internet, AD users can log into the web app using their Windows credentials.
 	-	Provides SSO to [all applications supported by Azure AD](/marketplace/active-directory/), including Azure, Office 365, Dynamics CRM Online, Microsoft Intune, and thousands of non-Microsoft cloud applications. 
 	-	Azure AD delegates management of [relying party](http://en.wikipedia.org/wiki/Relying_party) applications to non-administrator roles, while application access to sensitive directory data must still be configured by global administrators.
 	-	Sends a general-purpose set of claim types for all relying party applications. For the list of claim types, see [Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx). Claims are not customizable.
 	-	[Azure AD Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx) enables application access to directory data in Azure AD.
--	[On-premise secure token service (STS), such as AD FS](../web-sites-dotnet-lob-application-adfs/) - You can implement authentication and authorization for your web app with an on-premise STS like AD FS. Using on-premise AD FS has the following characteristics:
-	-	AD FS topology must be deployed on-premise, with cost and management overhead.
-	-	Best when company policy demands that AD data be stored on-premise.
+-	[On-premises secure token service (STS), such as AD FS](../web-sites-dotnet-lob-application-adfs/) - You can implement authentication and authorization for your web app with an on-premises STS like AD FS. Using on-premises AD FS has the following characteristics:
+	-	AD FS topology must be deployed on-premises, with cost and management overhead.
+	-	Best when company policy demands that AD data be stored on-premises.
 	-	Only AD FS administrators can configure [relying party trusts and claim rules](http://technet.microsoft.com/library/dd807108.aspx).
 	-	Can manage [claims](http://technet.microsoft.com/library/ee913571.aspx) on a per-application basis.
-	-	Must have a separate solution for accessing on-premise AD data through the corporate firewall.
+	-	Must have a separate solution for accessing on-premises AD data through the corporate firewall.
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 

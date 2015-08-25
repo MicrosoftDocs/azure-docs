@@ -74,11 +74,11 @@ The Microsoft Azure Import/Export Tool generates a *drive journal* file for each
 
 ### Create the Import Job
 
-1.	Once you have prepared your drive, navigate to your storage account in the Management Portal, and view the 	Dashboard. Under <strong>Quick Glance</strong>, click <strong>Create an Import Job</strong>. 
+1.	Once you have prepared your drive, navigate to your storage account in the Management Portal, and view the 	Dashboard. Under **Quick Glance**, click **Create an Import Job**. 
  
 2.	In Step 1 of the wizard, indicate that you have prepared your drive and that you have the drive journal file 	available.
  
-3.	In Step 2, provide contact information for the person responsible for this import job. If you wish to save 	verbose log data for the import job, check the option to <strong>Save the verbose log in my 'waimportexport' 	blob container</strong>.
+3.	In Step 2, provide contact information for the person responsible for this import job. If you wish to save 	verbose log data for the import job, check the option to **Save the verbose log in my 'waimportexport' 	blob container**.
 
 4.	In Step 3, upload the drive journal files that you obtained during the drive preparation step. You'll need 	to upload one file for each drive that you have prepared.
 
@@ -104,9 +104,9 @@ The Microsoft Azure Import/Export Tool generates a *drive journal* file for each
 
 Create an export job to notify the Import/Export service that you'll be shipping one or more empty drives to the data center, so that data can be exported from your storage account to the drives, and the drives then shipped to you.
 
-1. 	To create an export job, navigate to your storage account in the Management Portal, and view the Dashboard. 	Under <strong>Quick Glance</strong>, click <strong>Create an Export Job</strong>, and proceed through the 	wizard.
+1. 	To create an export job, navigate to your storage account in the Management Portal, and view the Dashboard. 	Under **Quick Glance**, click **Create an Export Job**, and proceed through the 	wizard.
 
-2. 	In Step 2, provide contact information for the person responsible for this export job. If you wish to save 	verbose log data for the export job, check the option to <strong>Save the verbose log in my 'waimportexport' 	blob container</strong>.
+2. 	In Step 2, provide contact information for the person responsible for this export job. If you wish to save 	verbose log data for the export job, check the option to **Save the verbose log in my 'waimportexport' 	blob container**.
 
 3.	In Step 3, specify which blob data you wish to export from your storage account to your blank drive or 	drives. You can choose to export all blob data in the storage account, or you can specify which blobs 	or 	sets of blobs to export.
 
@@ -117,50 +117,15 @@ Create an export job to notify the Import/Export service that you'll be shipping
 
 	The table shows examples of valid blob paths:
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-		<tbody>
-			<tr>
-				<td><strong>Selector</strong></td>
-				<td><strong>Blob Path</strong></td>
-				<td><strong>Description</strong></td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/</td>
-				<td>Exports all blobs in the storage account</td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/$root/</td>
-				<td>Exports all blobs in the root container</td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/book</td>
-				<td>Exports all blobs in any container that begins with prefix <strong>book</strong></td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/music/</td>
-				<td>Exports all blobs in container <strong>music</strong></td>
-			</tr>
-			<tr>
-				<td>Starts With</td>
-				<td>/music/love</td>
-				<td>Exports all blobs in container <strong>music</strong> that begin with prefix <strong>love</strong></td>
-			</tr>
-			<tr>
-				<td>Equal To</td>
-				<td>$root/logo.bmp</td>
-				<td>Exports blob <strong>logo.bmp</strong> in the root container</td>
-			</tr>
-			<tr>
-				<td>Equal To</td>
-				<td>videos/story.mp4</td>
-				<td>Exports blob <strong>story.mp4</strong> in container <strong>videos</strong></td>
-			</tr>
-		</tbody>
-	</table>
+	Selector|Blob Path|Description
+	---|---|---
+	Starts With|/|Exports all blobs in the storage account
+	Starts With|/$root/|Exports all blobs in the root container
+	Starts With|/book|Exports all blobs in any container that begins with prefix **book**
+	Starts With|/music/|Exports all blobs in container **music**
+	Starts With|/music/love|Exports all blobs in container **music** that begin with prefix **love**
+	Equal To|$root/logo.bmp|Exports blob **logo.bmp** in the root container
+	Equal To|videos/story.mp4|Exports blob **story.mp4** in container **videos**
 
 
 4.	In Step 4, enter a descriptive name for the export job. The name you enter may contain only lowercase 	letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces.
@@ -171,7 +136,7 @@ Create an export job to notify the Import/Export service that you'll be shipping
 
 	If you have your tracking number, then select your delivery carrier from the list, and enter your tracking number. 
 
-	If you do not have a tracking number yet, choose <strong>I will provide my shipping information for this export job once I have shipped my package</strong>, then complete the export process.
+	If you do not have a tracking number yet, choose **I will provide my shipping information for this export job once I have shipped my package**, then complete the export process.
 
 6. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2. 
 	
@@ -187,34 +152,14 @@ You can track the status of your import or export jobs from the Management Porta
 
 The table describes what each job status designation means:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Job Status</strong></td>
-			<td><strong>Description</strong></td>
-		</tr>
-		<tr>
-			<td>Creating</td>
-			<td>Your job has been created, but you have not yet provided your shipping information.</td>
-		</tr>
-		<tr>
-			<td>Shipping</td>
-			<td>Your job has been created and you have provided your shipping information.</td>
-		</tr>
-		<tr>
-			<td>Transferring</td>
-			<td>Your data is being transferred from your hard drive (for an import job) or to your hard drive (for an export job).</td>
-		</tr>
-		<tr>
-			<td>Packaging</td>
-			<td>The transfer of your data is complete, and your hard drive is being prepared for shipping back to you.</td>
-		</tr>
-		<tr>
-			<td>Complete</td>
-			<td>Your hard drive has been shipped back to you.</td>
-		</tr>
-	</tbody>
-</table>
+Job Status|Description
+---|---
+Creating|Your job has been created, but you have not yet provided your shipping information.
+Shipping|Your job has been created and you have provided your shipping information.
+Transferring|Your data is being transferred from your hard drive (for an import job) or to your hard drive (for an export job).
+Packaging|The transfer of your data is complete, and your hard drive is being prepared for shipping back to you.
+Complete|Your hard drive has been shipped back to you.
+
 
 ## View BitLocker Keys for an Export Job ##
 

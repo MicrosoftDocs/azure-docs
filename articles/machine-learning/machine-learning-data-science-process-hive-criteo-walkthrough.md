@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Advanced Analytics Process and Technology in Action: Use Hadoop clusters on the 1 TB Criteo dataset | Microsoft Azure" 
+	pageTitle="Advanced Analytics Process and Technology in Action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Microsoft Azure" 
 	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset" 
 	metaKeywords="" 
 	services="machine-learning,hdinsight" 
@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/21/2015" 
 	ms.author="ginathan;mohabib;bradsev" /> 
 
 # Advanced Analytics Process and Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
 
-In this walkthrough, we demonstrate using the Advanced Analytics Process and Technology (ADAPT) end-to-end with an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. We use Azure Machine Learning to build binary classification and regression models against this data. We also shows how to publish one of these models as a Web service.
+In this walkthrough, we demonstrate using the Advanced Analytics Process and Technology (ADAPT) end-to-end with an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. We use Azure Machine Learning to build a binary classification model on this data. We also show how to publish one of these models as a Web service.
 
-It is also possible to use an iPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
+It is also possible to use an IPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
 
 ## <a name="dataset"></a>Criteo Dataset Description
@@ -64,7 +64,7 @@ Two sample prediction problems are addressed in this walkthrough:
 
 Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
-1. [Create a storage account](../storage-whatis-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
+1. [Create a storage account](storage-whatis-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
 
 2. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
 
@@ -82,7 +82,7 @@ The [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dat
 
 Click on **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in a public [Azure blob storage](../storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
+The data resides in a public [Azure blob storage](storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
 
 1. The data in this public blob storage consists of three sub-folders of unzipped data.
 		
@@ -123,9 +123,9 @@ After the Hive REPL appears with a "hive >"sign, simply cut and paste the query 
 The code below creates a database "criteo" and then generates 4 tables: 
 
 
-* a *count table* built on days day\_00 to day\_20, 
-* a *train table* built on day\_21, and 
-* two *test tables* on day\_22 ans day\_23 respectively. 
+* a *table for generating counts* built on days day\_00 to day\_20, 
+* a *table for use as the train dataset* built on day\_21, and 
+* two *tables for use as the test datasets* built on day\_22 and day\_23 respectively. 
 
 We split our test dataset into two different tables because one of the days is a holiday, and we want to determine if the model can detect differences between a holiday and non-holiday from the clickthrough rate.
 
@@ -441,25 +441,28 @@ Our model building process in Azure Machine Learning will follow these steps:
 5. [Evaluate the model](#step5)
 6. [Publish the model as a web-service to be consumed](#step6)
 
-Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We will use the Azure Machine Learning Reader module to read this data. The credentials to access the storage account of this cluster are below.
+Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We will use the Azure Machine Learning **Reader** module to read this data. The credentials to access the storage account of this cluster are provided below.
 
 ### <a name="step1"></a> Step 1: Get data from Hive tables into Azure Machine Learning using the Reader module and select it for a machine learning experiment
 
-For the **Reader** module, the values of the parameters that are set in the graphic are just examples. Here is the general guidance on 'filling out' the parameter set for the **Reader** module.
-
-1. Choose "Hive query" for Data Source
-2. In the "Hive query", a simple SELECT * FROM <your\_database\_name.your\_table\_name> - is enough.
-3. Hcatalog server URI: If your cluster is "abc", then this is: https://abc.azurehdinsight.net
-4. Hadoop user account name: User name chosen at the time of commissioning the cluster ( NOT the Remote Access username)
-5. Hadoop user account password: Password for the above user name chosen at the time of commissioning the cluster (NOT the Remote Access password)
-6. Location of output data: Choose "Azure"
-7. Azure storage account name: The storage account associated with the cluster
-8. Azure storage account key: Key of the storage account associated with the cluster
-9. Azure container name: If the cluster name is "abc", then this is simply "abc" usually 
+Start by selecting a **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Then, from the **Search** box on the top left, search for "Reader". Drag and drop the **Reader** module on to the experiment canvas (the middle portion of the screen) to use the module for data access.
 
 This is what the **Reader** looks like while getting data from the Hive table:
 
 ![Reader gets data](http://i.imgur.com/i3zRaoj.png)
+
+For the **Reader** module, the values of the parameters that are provided in the graphic are just examples of the sort of values you will need to provide. Here is some general guidance on how to fill out the parameter set for the **Reader** module.
+
+1. Choose "Hive query" for **Data Source**
+2. In the **Hive database query** box, a simple SELECT * FROM <your\_database\_name.your\_table\_name> - is enough.
+3. **Hcatalog server URI**: If your cluster is "abc", then this is simply: https://abc.azurehdinsight.net
+4. **Hadoop user account name**: The user name chosen at the time of commissioning the cluster. (NOT the Remote Access user name!)
+5. **Hadoop user account password**: The password for the above user name chosen at the time of commissioning the cluster. (NOT the Remote Access password!)
+6. **Location of output data**: Choose "Azure"
+7. **Azure storage account name**: The storage account associated with the cluster
+8. **Azure storage account key**: The key of the storage account associated with the cluster.
+9. **Azure container name**: If the cluster name is "abc", then this is simply "abc", usually. 
+
 
 Once the **Reader** finishes getting data (you see the green tick on the Module), save this data as a Dataset (with a name of your choice). What this looks like:
 
@@ -468,159 +471,168 @@ Once the **Reader** finishes getting data (you see the green tick on the Module)
 
 Right click on the output port of the **Reader** module. This reveals a **Save as dataset** option and a **Visualize** option. The **Visualize** option, if clicked, displays 100 rows of the data, along with a right panel that is useful for some summary statistics. To save data, simply select **Save as dataset** and follow instructions.
 
-To select the saved dataset for use in a machine learning experiment,
-locate the datasets using the **Search** shown below. Then simply type out the name of the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
+To select the saved dataset for use in a machine learning experiment, locate the datasets using the **Search** box shown below. Then simply type out the name you gave the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
-![Locate dataset](http://i.imgur.com/rx4nnUH.png)
+![](http://i.imgur.com/cl5tpGw.png)
 
-Do this for both the train and the test datasets.
-
+***IMPORTANT NOTE:*** **Do this for both the train and the test datasets. Also, remember to use the database name and table names that you gave for this purpose. The values used in the figure are solely for illustration purposes.**
+ 
 ### <a name="step2"></a> Step 2: Create a simple experiment in Azure Machine Learning to predict clicks / no clicks
 
-We first show a simple experiment architecture, then drill down a bit into the specifics. First we clean the data, then choose a learner, and finally show how to featurize with count tables that are either pre-build or constructed from scratch by the user.
+Our Azure ML experiment looks like the below:
 
-![Experiment architecture](http://i.imgur.com/R4iTLYi.png)
+![](http://i.imgur.com/xRpVfrY.png)
 
-To drill down, we begin with our saved datasets as shown.
+We now examine the key components of this experiment. As a reminder, we need to drag our saved train and test datasets on to our experiment canvas first.
 
-The **Clean Missing Data** module does what its name says: cleans missing data in ways that can be user-specified. Looking into this module, we see this:
+#### Clean Missing Data
+
+The **Clean Missing Data** module does what its name suggests:  it cleans missing data in ways that can be user-specified. Looking into this module, we see this:
 
 ![Clean missing data](http://i.imgur.com/0ycXod6.png)
 
 Here, we chose to replace all missing values with a 0. There are other options as well, which can be seen by looking at the dropdowns in the module.
 
-Next, we need a choice of learner. We'll use a two class boosted decision tree as our learner. In particular, we will show how to use count features on high-dimensional categorical features to build compact representations of our model, and also for efficient train and test. 
+#### Feature engineering on the data
 
-A segue here to discuss what the count tables really are: they are class conditional counts (sometimes, we also refer to them as just "conditional counts"). Essentially, they are a way of counting the values of a feature for each class, and using these counts to compute log-odds.
+There can be millions of unique values for some categorical features of large datasets. Using naive methods such as one-hot encoding for representing such high-dimensional categorical features is entirely infeasible. In this walkthrough, we demonstrate how to use count features using built-in Azure Machine Learning modules to generate compact representations of these high-dimensional categorical variables. The end-result is a smaller model size, faster training times, and performance metrics that are quite comparable to using other techniques.
 
+##### Building counting transforms
 
-#### Get access to the pre-built count tables for modeling
+To build count features, we use the **Build Counting Transform** module that is available in Azure Machine Learning. The module looks like this :
 
-To get access to our pre-built count tables, please click on **Gallery**, shown below:
+![](http://i.imgur.com/e0eqKtZ.png)
+![](http://i.imgur.com/OdDN0vw.png)
 
-![Gallery](http://i.imgur.com/TsWkig3.png)
+**Important Note** : In the **Count columns** box, we enter those columns that we wish to perform counts on. Typically, these are (as mentioned) high-dimensional categorical columns. At the start, we mentioned that the Criteo dataset has 26 categorical columns : from Col15 to Col40. Here, we count on all of them and give their indices (from 15 to 40 separated by commas as shown).
 
-Clicking on **Gallery** takes the user to a page that looks like the below:
+To use the module in the MapReduce mode (appropriate for large datasets), we need access to an HDInsight Hadoop cluster (the one used for feature exploration above can be reused for this purpose as well) and its credentials. The figures above illustrate what the filled-in values look like (replace the values provided for illustration with those relevant for your own use-case). 
 
-![Gallery mainpage](http://i.imgur.com/dmXo0KR.png)
+![](http://i.imgur.com/05IqySf.png)
 
-Here, search for the phrase "criteo counts" and scroll down the list of results. You should see:
-
-![Criteo counts](http://i.imgur.com/JZ119Jf.png)
-
-Clicking on this experiment leads to a page that looks like the below:
-
-![Counts](http://i.imgur.com/dxdjMjh.png)
-
-Here, click **Open in studio** to copy the experiment over to your workspace. This automatically also copies over the datasets -- in this case, the two key datasets of interest are the count table and the count metadata, which we describe in more detail.
-
-#### Count features in the dataset
-
-The next modules in our experiment involve the use of pre-built count tables. To use these pre-built count tables, search for "cr\_count\_" in the Search tab of a new experiment and you should see two datasets: "cr\_count\_cleanednulls\_metadata" and "cr\_count\_table\_cleanednulls". Drag and drop both of these on to the experiment pane to the right. Right clicking on the output ports, as always, enables us to visualize what these look like. 
-
-The count table metadata visualization looks like the below:
-
-![Count table metadata](http://i.imgur.com/A39PIe7.png)
-
-Note that the metadata has information on what columns we built the conditional counts on, whether we used a dictionary to build it (an alternative is the count-min sketch), the hash seed used, the number of hash bits used for hashing the features, the number of classes, and the like.
-
-The count table's visualization looks like the below:
-
-![Count table](http://i.imgur.com/NJn1EQO.png)
-
-We see that the count table has information on the class conditional counts. The value of the categorical features is in "Hash value", so the features themselves are hashed. 
-
-How are the count features built into the datasets? For this, we use the count **Featurizer** module, shown below:
-
-![Count Featurizer module](http://i.imgur.com/dnMdrR1.png)
-
-Once the count table is built (remember we are producing class-conditional counts of categorical features here), we use the **Count Featurizer** module shown above to build these count features into our dataset. As we see, the **Featurizer** module allows for choosing which features to count on, whether we need just the log odds or the counts as well, and other advanced options. 
-
-#### Build a count table from scratch
-
-Recall that we mentioned in "A brief discussion on the count table" that in addition to using pre-built count tables (which we discussed in preceding sections in detail), users can also build their own count tables from scratch. 
-
-In this section, we demonstrate how to build a count table from scratch. To do this, we use the **Build Count Table** module shown below with its settings:
-
-![Build Count Table module](http://i.imgur.com/r7pP8Qq.png)
-
-The latter part of the settings for this module follow:
-
-![Build Count Table module settings](http://i.imgur.com/PvmSh3C.png)
+In the figure above, we show how to enter the input blob location. This location has the data reserved for building count tables on.
 
 
-**Important Note:** For the cluster and storage account settings, please use YOUR relevant values! 
+After this module finishes running, we can save the transform for later by right clicking on the module and selecting the **Save as Transform** option:
 
-Clicking on **Run** allows us to build the count tables on the cluster chosen. The output is, as shown before, the count table and its associated metadata. With these tables ready, we can now build the experiment.
+![](http://i.imgur.com/IcVgvHR.png)
 
+In our experiment architecture shown above, the dataset "ytransform2" corresponds precisely to a saved count transform. For the remainder of this experiment, we assume that the reader used a **Build Counting Transform** module on some data to generate counts, and can then use those counts to generate count features on the train and test datasets.
 
-### <a name="step3"></a> Step 3: Train the model
+##### Choosing what count features to include as part of the train and test datasets
 
-To select this, simply type "two class boosted" at the Search box and drag the module over. We use the default values of the boosted decision tree learner, shown below:
+Once we have a count transform ready, the user can choose what features to include in their train and test datasets using the **Modify Count Table Parameters** module. We just show this module below for completeness, but in interests of simplicity do not actually use it in our experiment.
 
-![BDT learner](http://i.imgur.com/dDk0Jtv.png)
+![](http://i.imgur.com/PfCHkVg.png)
 
-We need three final components before running the ML experiment.
+In this case, as can be seen, we have chosen to use just the log-odds and to ignore the back off column. We can also set parameters such as the garbage bin threshold, how many pseudo-prior examples to add for smoothing, and whether to use any Laplacian noise or not. All these are advanced features and it is to be noted that the default values are a good starting point for users who are new to this type of feature generation.
 
-The first is a Train Model module ; while its first port takes the learner as input, its second port takes the train dataset for learning. We show what this looks like below, and then show what parameters need to be set in the module.
+##### Data transformation before generating the count features
 
-![BDT Train Model module connections](http://i.imgur.com/szS2xBb.png)
+Now we focus on an important point about transforming our train and test data prior to actually generating count features. Note that there are two **Execute R Script** modules used before we apply the count transform to our data.
 
-![BDT Train Model module settings](http://i.imgur.com/nd7lHBL.png)
+![](http://i.imgur.com/aF59wbc.png)
 
-### <a name="step4"></a> Step 4: Score the model on a test dataset
+Here is the first R script:
 
-The second component is a way to score on the test dataset. This is conveniently achieved by using the **Score Model** module - it takes as input the learned model from train data, and the test dataset to make predictions on. Below, we show what that looks like.
+![](http://i.imgur.com/3hkIoMx.png)
 
-![Score BDT model connections](http://i.imgur.com/AwIH1rH.png)
+In this R script, we rename our columns to names "Col1" to "Col40". This is because the count transform expects names of this format.
+
+In the second R script, we balance the distribution between positive and negative classes (classes 1 ansd 0 respectively) by downsampling the negative class. The R script below shows how to do this :
+
+![](http://i.imgur.com/91wvcwN.png)
+
+In this simple R script, we use "pos\_neg\_ratio" to set the amount of balance between the positive and the negative classes. This is important to do since improving class imbalance usually has performance benefits for classification problems where the class distribution is skewed (recall that in our case, we have 3.3% positive class and 96.7% negative class).
+
+##### Applying the count transformation on our data
+
+Finally, we can use the **Apply Transformation** module to apply the count transforms on our train and test datasets. This module takes the saved count transform as one input and the train or test datasets as the other input, and returns data with count features. It is shown below :
+
+![](http://i.imgur.com/xnQvsYf.png)
+
+##### An excerpt of what the count features look like
+
+It is instructive to see what the count features look like in our case. Below, we show an excerpt of this :
+
+![](http://i.imgur.com/FO1nNfw.png)
+
+In this excerpt, we show that for the columns that we counted on, we get the counts and log odds in addition to any relevant backoffs. 
+
+We are now ready to build an Azure Machine Learning model using these transformed datasets. In the next section, we show how this can be done.
+
+#### Azure Machine Learning model building
+
+##### Choice of learner
+
+First, we need to choose a learner. We are going to use a two class boosted decision tree as our learner. Here are the default options for this learner:
+
+![](http://i.imgur.com/bH3ST2z.png)
+
+For our experiment, we simply going to choose the default values. We note that the defaults are usually meaningful and a good way to get quick baselines on performance. You can improve on performance by sweeping parameters if you choose to once you have a baseline.
+
+#### Train the model
+
+For training, we simply invoke a **Train Model** module. The two inputs to it are the Two-Class Boosted Decision Tree learner and our train dataset. This is shown below :
+
+![](http://i.imgur.com/2bZDZTy.png)
+
+#### Score the model
+
+Once we have a trained model, we are ready to score on the test dataset and to evaluate its performance. We do this by using the **Score Model** module shown below, along with an **Evaluate Model** module :
+
+![](http://i.imgur.com/fydcv6u.png)
 
 ### <a name="step5"></a> Step 5: Evaluate the model
 
-Finally, we would like to see model performance. Usually, for two class (binary) classification problems, a good measure is the AUC. To visualize this, we hook up the "Score Model" module to an "Evaluate Model" module for this. Clicking **Visualize** on the **Evaluate Model** module yields a graphic like the below:
+Finally, we would like to analyze model performance. Usually, for two class (binary) classification problems, a good measure is the AUC. To visualize this, we hook up the **Score Model** module to an **Evaluate Model** module for this. Clicking **Visualize** on the **Evaluate Model** module yields a graphic like the below:
 
 ![Evaluate module BDT model](http://i.imgur.com/0Tl0cdg.png)
 
-In binary (or two class) classification problems, a good measure of prediction accuracy is the AUC. Below, we show our results using this model on our test dataset. To get this, right click the output port of the **Evaluate Model** module and then **Visualize**.
+In binary (or two class) classification problems, a good measure of prediction accuracy is the Area Under Curve (AUC). Below, we show our results using this model on our test dataset. To get this, right click the output port of the **Evaluate Model** module and then **Visualize**.
 
 ![Visualize Evaluate Model module](http://i.imgur.com/IRfc7fH.png)
 
 ### <a name="step6"></a> Step 6: Publish the model as a Web service
-Of great interest is the ability to be able to publish machine learning models as web services. Once that is done, we may make calls to the web service using data we need predictions for, and the model would ideally return a prediction of some kind.
+The ability to publish an Azure Machine Learning model as web services with a minimum of fuss is a valuable feature for making it widely available. Once that is done, anyone can make calls to the web service with input data that they need predictions for, and the web service uses the model to return those predictions.
 
-To do this, we first save our trained model as a Trained Model object. This is done by right clicking on the **Train Model** module and using the "Save as Trained Model" option.
+To do this, we first save our trained model as a Trained Model object. This is done by right clicking on the **Train Model** module and using the **Save as Trained Model** option.
 
-Next, we want to create an input and output port for our web service -- an input port that takes data in the same form as the data that we need predictions for, and an output port that returns the Scored Labels and the associated probabilities.
+Next, we need to create input and output ports for our web service: 
+
+* an input port takes data in the same form as the data that we need predictions for 
+* an output port returns the Scored Labels and the associated probabilities.
 
 #### Select a few rows of data for the input port
 
-We now show how to select just a few rows of data for our input port.
+It is convenient to use an **Apply SQL Transformation** module to select just 10 rows to serve as the input port data. Select just these rows of data for our input port using the SQL query shown below.
 
 ![Input port data](http://i.imgur.com/XqVtSxu.png)
-
-We can conveniently use an Apply SQL transformation to select just 10 rows to serve as the input port data.
 
 #### Web service
 Now we are ready to run a small experiment that can be used to publish our web service.
 
 #### Generate input data for webservice
 
-As a zeroth step, since the count table is large, we take a few lines of test data and generate output data from it with count features. This serves as the input data format for our webservice. This is shown below:
+As a zeroth step, since the count table is large, we take a few lines of test data and generate output data from it with count features. This can serve as the input data format for our webservice. This is shown below:
 
 ![Create BDT input data](http://i.imgur.com/OEJMmst.png)
 
-Note: for the input data format, we will now use the OUTPUT of the **Count Featurizer** module. Once this experiment finishes running, save the output from the **Count Featurizer** module as a Dataset. **Important Note:** This Dataset will be used for the input data in the webservice. 
+Note: for the input data format, we will now use the OUTPUT of the **Count Featurizer** module. Once this experiment finishes running, save the output from the **Count Featurizer** module as a Dataset. 
+
+**Important Note:** This Dataset will be used for the input data in the webservice. 
 
 #### Scoring experiment for publishing webservice
 
-First, we show what this looks like. The essential structure is a Score model module that accepts our trained model object and a few lines of input data that we generated in the previous steps using the **Count Featurizer** module. We use "Project Columns" to project out the Scored labels and the Score probabilities. 
+First, we show what this looks like. The essential structure is a **Score Model** module that accepts our trained model object and a few lines of input data that we generated in the previous steps using the **Count Featurizer** module. We use "Project Columns" to project out the Scored labels and the Score probabilities. 
 
 ![Project Columns](http://i.imgur.com/kRHrIbe.png)
 
-It is instructive to see how the Project Columns module can be used for 'filtering' out data from a dataset. We show the contents below:
+Notice how the **Project Columns** module can be used for 'filtering' data out from a dataset. We show the contents below:
 
 ![Filtering with the Project Columns module](http://i.imgur.com/oVUJC9K.png)
 
-To get the blue input and output ports, we simply click "prepare webservice" at the bottom right. Running this experiment also allows us to publish the web service  by clicking the **PUBLISH WEB SERVICE** icon at the bottom right, shown below.
+To get the blue input and output ports, you simply click **prepare webservice** at the bottom right. Running this experiment also allows us to publish the web service  by clicking the **PUBLISH WEB SERVICE** icon at the bottom right, shown below.
 
 ![Publish Web service](http://i.imgur.com/WO0nens.png)
 
@@ -631,22 +643,20 @@ Once the webservice is published, we get redirected to a page that looks thus:
 We see two links for webservices on the left side:
 
 * The **REQUEST/RESPONSE** Service (or RRS) is meant for single predictions and is what we will utilize in this workshop. 
-* The **BATCH EXECUTION** Service (BES), as the name implies, is used for batch predictions and requires that the data to make predictions on reside in an Azure blob.
+* The **BATCH EXECUTION** Service (BES) is used for batch predictions and requires that the input data used to make predictions reside in Azure Blob Storage.
 
 Clicking on the link **REQUEST/RESPONSE** takes us to a page that gives us pre-canned code in C#, python, and R. This code can be conveniently used for making calls to the webservice. Note that the API key on this page needs to be used for authentication. 
 
-It is convenient to copy this python code over to a new cell in the iPython notebook. 
+It is convenient to copy this python code over to a new cell in the IPython notebook. 
 
 Below, we show a segment of python code with the correct API key.
 
 ![Python code](http://i.imgur.com/f8N4L4g.png)
 
-Note that we replaced the default API key with our webservices's API key. clicking "Run" on this cell in an iPython notebook yields the following response:
+Note that we replaced the default API key with our webservices's API key. Clicking **Run** on this cell in an IPython notebook yields the following response:
 
-![iPython response](http://i.imgur.com/KSxmia2.png)
+![IPython response](http://i.imgur.com/KSxmia2.png)
 
-We see that for the two test examples we asked about (in the JSON framework of the python script), we get back answers in the form "Scored Labels, Scored Probabilities". Note that in this case, we chose the default values that the pre-canned code provides (0's for all numeric columns, the string "value" for all categorical columns).
+We see that for the two test examples we asked about (in the JSON framework of the python script), we get back answers in the form "Scored Labels, Scored Probabilities". Note that in this case, we chose the default values that the pre-canned code provides (0's for all numeric columns and the string "value" for all categorical columns).
 
-This concludes our discussion of handling large scale dataset end-to-end using Azure ML - we went from a a terabyte of data all the way to a prediction model deployed as a web service in the cloud.
-
- 
+This concludes our end-to-end walkthrough showing how to handle large scale dataset using Azure Machine Learning. We started with a terabyte of data, constructed a prediction model and deployed it as a web service in the cloud.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -35,11 +35,14 @@ We need to create a new experiment in ML Studio that uses the dataset we uploade
 
 1.	In ML Studio, click **+NEW** at the bottom of the window.
 2.	Select **EXPERIMENT**, and then select "Blank Experiment". Select the default experiment name at the top of the canvas and rename it to something meaningful
+
+	> [AZURE.TIP] It's a good practice to fill in **Summary** and **Description** for the experiment in the **Properties** pane. These properties give you the chance to document the experiment so that anyone who looks at it later will understand your goals and methodology.
+
 3.	In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
-4.	Find the dataset you created and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
+4.	Find the dataset you created under **My Datasets** and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
 
 ##Prepare the data
-You can view the first 100 rows of the data and some statistical information for the whole dataset by right-clicking the output port of the dataset and selecting **Visualize**. Notice that ML Studio has already identified the data type for each column. It has also given generic headings to the columns because the data file did not come with column headings.  
+You can view the first 100 rows of the data and some statistical information for the whole dataset by clicking the output port of the dataset and selecting **View Results**. Notice that ML Studio has already identified the data type for each column. It has also given generic headings to the columns because the data file did not come with column headings.  
 
 Column headings are not essential, but they will make it easier to work with the data in the model. Also, when we eventually publish this model in a web service, the headings will help identify the columns to the user of the service.  
 
@@ -54,15 +57,19 @@ The [Metadata Editor][metadata-editor] module is used to change the metadata ass
 6.	The row beneath **Begin With** allows you to include or exclude specific columns for the [Metadata Editor][metadata-editor] to modify. Since we want to modify all columns, delete this row by clicking the minus sign ("-") to the right of the row. The dialog should look like this:
     ![Column Selector with all columns selected][4]
 7.	Click the **OK** checkmark. 
-8.	Back in the **Properties** pane, look for the **New column name** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following:  
+8.	Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following:  
 
+<!-- try the same thing without upper-case 
 		Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+-->
+
+	status of checking account, duration in months, credit history, purpose, credit amount, savings account/bond, present employment since, installment rate in percentage of disposable income, personal status and sex, other debtors, present residence since, property, age in years, other installment plans, housing, number of existing credits, job, number of people providing maintenance for, telephone, foreign worker, credit risk  
 
 The Properties pane will look like this:
 
 ![Properties for Metadata Editor][1] 
 
-> [AZURE.TIP] If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas), right-click the output port of the [Metadata Editor][metadata-editor] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
+> [AZURE.TIP] If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas), click the output port of the [Metadata Editor][metadata-editor] module, and select **View Results**. You can view the output of any module in the same way to view the progress of the data through the experiment.
 
 The experiment should now look something like this:  
 
@@ -81,8 +88,8 @@ As mentioned on the UCI website, the cost of misclassifying a high credit risk a
 
 We can do this replication using R code:  
 
-1.	Find and drag the [Execute R Script][execute-r-script] module onto the experiment canvas and connect it to the left output port of the [Split][split] module.
-2.	In the **Properties** pane, delete the default text in the **Script** parameter and enter this script: 
+1.	Find and drag the [Execute R Script][execute-r-script] module onto the experiment canvas and connect the left output port of the [Split][split] module to the first input port ("Dataset1") of the [Execute R Script][execute-r-script] module.
+2.	In the **Properties** pane, delete the default text in the **R Script** parameter and enter this script: 
 
 		dataset1 <- maml.mapInputPort(1)
 		data.set<-dataset1[dataset1[,21]==1,]
@@ -95,7 +102,7 @@ We need to do this same replication operation for each output of the [Split][spl
 
 1.	Right-click the [Execute R Script][execute-r-script] module and select **Copy**.
 2.	Right-click the experiment canvas and select **Paste**.
-3.	Connect this [Execute R Script][execute-r-script] module to the right output port of the [Split][split] module.  
+3.	Connect the first input port of this [Execute R Script][execute-r-script] module to the right output port of the [Split][split] module.  
 
 > [AZURE.TIP] The copy of the Execute R Script module contains the same script as the original module. When you copy and paste a module on the canvas, the copy retains all the properties of the original.  
 >

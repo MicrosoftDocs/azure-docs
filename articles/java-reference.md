@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Javadocs - Azure resources" 
+	pageTitle="Javadocs | Microsoft Azure" 
 	description="Javadoc API reference for the Azure SDK for Java." 
 	services="" 
 	documentationCenter="java" 

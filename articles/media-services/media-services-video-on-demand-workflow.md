@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Note that you can integrate Media Services with your existing tools and processe
 The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
 ![VoD workflow][vod-overview]
 
-##<a id="vod_scenarios"></a>Common Scenarios: Delivering Media on-Demand. 
+##<a id="vod_scenarios"></a>Common Scenarios: Delivering Media on-Demand
 
 ###Protect content in storage and deliver streaming media in the clear (non-encrypted)
 
@@ -119,7 +119,7 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-###Creating jobs \ tasks
+###Creating jobs / tasks
 
 A job is an entity that contains metadata about a set of tasks (for example, encoding or indexing). Each task performs an atomic operation on the input asset(s). For example on how to create encoding jobs, see:
 

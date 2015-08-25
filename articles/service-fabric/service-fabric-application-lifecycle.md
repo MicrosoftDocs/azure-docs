@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Application Life-cycle"
-   description="Azure Service Fabric Application Life-cycle"
+   pageTitle="Azure Service Fabric Application Life-cycle | Microsoft Azure"
+   description="Describes the developing, deploying, testing, upgrading , maintaining, and removing Service Fabric applications."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/06/2015"
+   ms.date="07/17/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
 # Service Fabric application life-cycle
-Similar to other platforms, an application on Service Fabric usually goes through the following phases: design, development, test, deployment, upgrade, maintenance, and removal. Service Fabric provides first class support for the full application life-cycle of cloud applications: from development to deployment, to daily management, to maintenance, and to eventual decommissioning. The service model enables several different roles to participate independently in the application life-cycle. This article provides an overview of the APIs used by the different roles throughout the phases of the Service Fabric application lifecycle.
+Similar to other platforms, an application on Service Fabric usually goes through the following phases: design, development, test, deployment, upgrade, maintenance, and removal. Service Fabric provides first class support for the full application life-cycle of cloud applications: from development to deployment, to daily management, to maintenance, and to eventual decommissioning. The service model enables several different roles to participate independently in the application life-cycle. This article provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
 
 ## Service model roles
 The service model roles are:

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/21/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Set up your environment

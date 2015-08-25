@@ -3,6 +3,7 @@
    description="Quickly learn Hadoop by running sample applications from the HDInsight Getting Started Gallery. Use sample data or supply your own."
    services="hdinsight"
    documentationCenter=""
+   tags="azure-portal"
    authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
@@ -12,8 +13,8 @@
    ms.workload="big-data"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="get-started-article" 
-   ms.date="03/31/2015"
+   ms.topic="get-started-article"
+   ms.date="07/09/2015"
    ms.author="jgao"/>
 
 # Learn Hadoop by using the HDInsight Getting Started Gallery
@@ -29,20 +30,24 @@ The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoo
 	- Website log analysis
 	- Mahout movie recommendation
 
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Learn Hadoop by using the HDInsight Getting Started Gallery](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
+
 ![HDInsight Hadoop, Storm, and HBase Getting Started Gallery solutions including sample data.][hdinsight.sample.gallery]
 
 The following video clip shows how to run the Twitter trend analysis sample:
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
+The Dashboard can be access by browsing to http://<YourHDInsightClusterName>.azurehdinsight.net/ or from the Azure preview portal.
 
 **To run a sample from the Getting Started Gallery**
 
-1.	Sign in to the [Azure portal][azure.portal].
-2.	Click **HDInsight** in the left menu. You will see a list of existing HDInsight clusters, including Hadoop, Storm, and HBase clusters.
-3.	Click the cluster where you want to run the sample.
-4.	Click **QUERY CONSOLE** at the bottom of the page.
-5.	Enter the Hadoop user name and password for the cluster.
+1. Sign in to the [Azure preview portal][azure.portal].
+2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
+3. Click **Dashboard** from the top menu.
+4. Enter the HTTP user (it is also called cluster user) username and password.
 6.	Click **Getting Started Gallery** at the top of the page.
 7.	Click one of the samples. Each sample gives detailed steps for running it. The following image shows the Twitter trend analysis sample:
 
@@ -61,5 +66,4 @@ Other ways to learn about HDInsight include:
 <!--Link references-->
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
-[azure.portal]:https://manage.windowsazure.com
- 
+[azure.portal]:https://portal.azure.com

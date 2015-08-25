@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="07/20/2015"
 	ms.author="mebha"/>
 
 
@@ -27,19 +27,7 @@
 This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.
 
 
-## Prerequisites
-
-
-To run the PHP code sample given in this topic, your client computer must have the following software items installed:
-
-
-- [Microsoft Drivers for PHP for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (SQLSRV32.EXE contains the latest bits)
-- [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Microsoft ODBC Driver] (https://www.microsoft.com/en-us/download/details.aspx?id=36434)
-- IIS Express
-- [PHP 5.6 for IIS Express] (http://www.microsoft.com/web/downloads/platform.aspx) : Download using the platform installer. Make sure you use Internet Explorer to download the platform installer
-
-Check out our [team blog](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) and [video](https://www.youtube.com/watch?v=0oCjiRK_tUk) to learn how to install and setup aforementioned requirements.
+[AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
 
 ## Create a database and retrieve your connection string
@@ -105,7 +93,7 @@ The [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) functio
 ## Insert a row, pass parameters, and retrieve the generated primary key
 
 
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
 
 
 	function InsertData()

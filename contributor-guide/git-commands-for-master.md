@@ -46,15 +46,15 @@ Follow the steps in this article to create a local working branch on your comput
         git add <file path>
         git commit –m "<comment>"
 
-9. Periodically, update your local working branch with changes from upstream:
+9. Update your local working branch with changes from upstream:
 
         git pull upstream master
 
-10. Daily at least, push the changes to your fork on GitHub for safe keeping:
+10. Push the changes to your fork on GitHub:
 
         git push origin <working branch>
 
-12. Create a pull request from your fork to the master branch when you are ready for your content contribution to be reviewed.
+12. When you are ready to submit your content to the upstream master branch for staging, validation, and/or publishing, in the GitHub UI, create a pull request from your fork to the master branch.
 
 13. The pull request acceptor reviews your pull request, provides feedback, and/or accepts your pull request. 
 

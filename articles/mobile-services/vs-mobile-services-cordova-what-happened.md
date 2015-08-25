@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
-	ms.author="patshea123"/>
+	ms.date="08/12/2015" 
+	ms.author="patshea"/>
 
 # What happened to my project?
 
@@ -22,13 +22,11 @@
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
 > - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
-###<span id="whathappened">What happened to my project?</span>
-
-#####References Added
+##References Added
 
 The Azure Mobile Service Client plugin included with all Multi-Device Hybrid Apps has been enabled.
   
-#####Connection string values for Mobile Services
+##Connection string values for Mobile Services
 
 Under `services\mobileServices\settings`, a new JavaScript (.js) file with a **MobileServiceClient** was generated containing the selected mobile service’s application URL and application key. The file contains the initialization of a mobile service client object, similar to the following code.
 

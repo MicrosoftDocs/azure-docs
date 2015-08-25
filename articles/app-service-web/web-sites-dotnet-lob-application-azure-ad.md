@@ -13,16 +13,16 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="04/09/2015" 
+	ms.date="07/07/2015" 
 	ms.author="cephalin"/>
 
 # Create a .NET MVC web app in Azure App Service with Azure Active Directory authentication #
 
 In this article, you will learn how to create an ASP.NET MVC line-of-business application in [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) using [Azure Active Directory](/services/active-directory/) as the identity provider. You will also learn how to use the [Azure Active Directory Graph Client Library](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx) to query directory data in the application.
 
-The Azure Active Directory tenant that you use can be can have an Azure-only directory, or it can be directory-synced with your on-premise Active Directory (AD) to create a single sign-on experience for workers that are on-premise or remote.
+The Azure Active Directory tenant that you use can be an Azure-only directory, or it can be directory-synced with your on-premise Active Directory (AD) to create a single sign-on experience for workers that are on-premise or remote.
 
->[AZURE.NOTE] The Easy Auth feature in Azure App Service Web Apps enables you to set up simple authentication against an Azure Active Directory tenant with a few clicks of the button. For more information, see [Use Active Directory for authentication in Azure App Service](web-sites-authentication-authorization.md).
+>[AZURE.NOTE] For Azure App Service Web Apps you can configure authentication against an Azure Active Directory tenant with a few clicks of a button. For more information, see [Use Active Directory for authentication in Azure App Service](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## What you will build ##
@@ -75,7 +75,7 @@ The sample application in this tutorial, [WebApp-GroupClaims-DotNet](https://git
 
 5.	If you configured the Azure Active Directory application properly and set the corresponding settings in Web.config, you should be redirected to the log in. Simply log in with the account you used to create the Azure Active Directory application in the Azure portal, since it's the Azure Active Directory application's default owner. 
 	
-	> [AZURE.NOTE] In Startup.Auth.cs of the sample project, note that the application has a method called <code>AddOwnerAdminClaim</code>, which it uses to add the application owner into the Admin role. This enables you to immediatley start managing application roles in the <code>Roles</code> controller.
+	> [AZURE.NOTE] In Startup.Auth.cs of the sample project, note that the application has a method called <code>AddOwnerAdminClaim</code>, which it uses to add the application owner into the Admin role. This enables you to immediately start managing application roles in the <code>Roles</code> controller.
 	
 4.	Once signed in, click **Roles** to manage application roles.
 

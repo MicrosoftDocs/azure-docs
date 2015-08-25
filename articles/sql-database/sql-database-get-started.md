@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with SQL Database"
-	description="Create your first cloud database in minutes with Azure SQL Database, Microsoft's relational database management service (RDBMS) in the cloud, using the Azure Portal and the AdventureWorks sample database."
+	pageTitle="Get started with SQL Database | Microsoft Azure"
+	description="Create your first cloud database in minutes with Azure SQL Database, Microsoft's relational database management service (RDBMS) in the cloud, using the Azure portal and the AdventureWorks sample database."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/14/2015"
+	ms.date="07/15/2015"
 	ms.author="genemi"/>
 
 
@@ -29,7 +29,7 @@ This article shows you how to create a sample Azure SQL Database in under five m
 - Set a firewall rule for the database to configure which IP addresses can access your database.
 
 
-This tutorial assumes that you have an Azure Subscription. If you do not, you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+This tutorial assumes that you have an Azure subscription. If you do not, you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Step 1: Sign in
@@ -46,8 +46,8 @@ This tutorial assumes that you have an Azure Subscription. If you do not, you ca
 
 
 
-1. In the SQL Database blade, choose a **Name** for your database, in this example **AdventureWorks**.
-2. To create the logical server for your database, click **Server**, then **Create a new server**.
+1. In the **SQL Database** blade, choose a **Name** for your database, in this example **AdventureWorks**.
+2. To create the logical server for your database, click **Server**, and then click **Create a new server**.
 
 
 ## Step 3: Configure your server
@@ -66,7 +66,7 @@ This tutorial assumes that you have an Azure Subscription. If you do not, you ca
 ## Step 4: Create your database
 
 
-1. In the SQL Database blade, specify the source of the database by clicking **Select Source**.
+1. In the **SQL Database** blade, specify the source of the database by clicking **Select Source**.
  - If you skip this step, an empty database is created.
 2. Select **Sample**.
  - This creates a database that is a copy of the standard sample database named **AdventureWorks**.
@@ -83,10 +83,10 @@ The following steps demonstrate how to specify which IP address ranges are allow
 ![Browse server][3]
 
 
-1. In the ribbon on the left-hand side of the screen, click **Browse** and then **SQL Servers**.
+1. In the ribbon on the left side of the screen, click **Browse** and then click **SQL Servers**.
 2. From the available options, click the SQL server that you created earlier.
-3. Click **Settings**, then **Firewall**.
-4. Click this link to get your current IP address from [Bing](http://www.bing.com/search?q=my%20ip%20address).
+3. Click **Settings**, and then click **Firewall**.
+4. Get your current IP address from [Bing](http://www.bing.com/search?q=my%20ip%20address).
 5. In the Firewall Settings, enter a **Rule Name**, and paste your public IP address from the previous step into the **Start IP** and **End IP** fields.
 6. When complete, click **Save** at the top of the page.
 
@@ -109,4 +109,3 @@ You are now ready to write a small client program that can connect to your datab
 [2]: ./media/sql-database-get-started/GettingStarted_CreateServer.png
 [3]: ./media/sql-database-get-started/GettingStarted_BrowseServer.png
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
- 

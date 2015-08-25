@@ -13,14 +13,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/16/2015" 
+	ms.date="07/07/2015" 
 	ms.author="heidist"/>
 
-#How to implement faceted navigation in Azure Search#
+#How to implement faceted navigation in Azure Search
 
 Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. While the term ‘faceted navigation’ might be unfamiliar, it’s almost a given that you have used one before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
 
-## What it looks like ##
+## What it looks like
 
  ![][1]
   
@@ -47,10 +47,10 @@ This article contains the following sections:
 - [Faceted navigation based on GeoPoints](#geofacets)
 - [Try it out](#tryitout)
 
-##Why use it##
+##Why use it
 The most effective search applications have multiple interaction models besides a Search box. Faceted navigation is an alternative entry point to search, offering a convenient alternative to typing complex search expressions by hand.
 
-##Know the fundamentals##
+##Know the fundamentals
 
 If you are new to search development, the best way to think of faceted navigation is that it shows the possibilities for self-directed search. It’s a type of drill-down search experience, based on predefined filters, used for quickly narrowing down search results through point-and-click actions. 
 
@@ -99,7 +99,7 @@ Although both queries are valid, the second is superior if you’re looking for 
 In applications that include faceted navigation, you will want to be sure that each user action over a faceted navigation structure is accompanied by a narrowing of search results, achieved through a filter expression.
 
 <a name="howtobuildit"></a>
-# How to build it #
+##How to build it
 
 Faceted navigation in Azure Search is implemented in your application code that builds the request, but relies on predefined elements in your schema.
 
@@ -116,7 +116,7 @@ The presentation layer in your code provides the user experience. It should list
 In the following sections, we’ll take a closer look at how to build each part, starting with the presentation layer.
 
 <a name="presentationlayer"></a>
-# Build the presentation layer #
+##Build the presentation layer
 
 Working back from the presentation layer can help you uncover requirements that might be missed otherwise, and understand which capabilities are essential to the search experience.
 
@@ -134,7 +134,7 @@ Notice that each facet has a label (Colors, Categories, Prices), a binding to a 
 > [AZURE.TIP] When designing the search results page, remember to add a mechanism for clearing facets. If you use check boxes, users can easily intuit how to clear the filters. For other layouts, you might need a breadcrumb pattern or another creative approach. For example, in the AdventureWorks Catalog sample application, you can click the title, AdventureWorks Catalog, to reset the search page.
 
 <a name="buildindex"></a>
-# Build the index #
+##Build the index
 
 Faceting is enabled on a field-by-field basis in the index, via this index attribute: `"Facetable": true`.  
 All field types that could possibly be used in faceted navigation are `Facetable` by default. Such field types include `Edm.String`, `Edm.DateTimeOffset`, and all the numeric field types (essentially, all field types are facetable except `Edm.GeographyPoint`, which can’t be used in faceted navigation). 
@@ -150,7 +150,7 @@ Note that `Facetable` is turned off for string fields that shouldn’t be used a
 > [AZURE.TIP] As a best practice, include the full set of index attributes for each field. Although `Facetable` is on by default for almost all fields, purposely setting each attribute can help you think through the implications of each schema decision. 
 
 <a name="checkdata"></a>
-# Check for Data Quality 
+##Check for Data Quality 
 
 When developing any data-centric application, preparing the data is often one of the bigger parts of the job. Search applications are no exception. The quality of your data has a direct bearing on whether the faceted navigation structure materializes as you expect it to, as well as its effectiveness in helping you construct filters that reduce the result set.
 
@@ -166,7 +166,7 @@ A few reminders of what to scrub for are listed below:
 As you can imagine, diligence in preparing the data is an essential aspect of effective faceted navigation.
 
 <a name="buildquery"></a>
-# Build the query #
+##Build the query
 
 The code that you write for building queries should specify all parts of a valid query, including search expressions, facets, filters, scoring profiles– anything used to formulate a request. In this section, we’ll explore where facets fit into a query, and how filters are used with facets to deliver a reduced result set.
 
@@ -182,7 +182,7 @@ Along with facets, the request formulated by your application should also build 
 
 When a user clicks "Red" to indicate that only Red products should be shown, the next query the application sends would include `$filter=Color eq ‘Red’`.
 
-## Best practices for faceted navigation ##
+## Best practices for faceted navigation
 
 The following list summarizes a few best practices.
 
@@ -200,7 +200,7 @@ Filters narrow down the set of candidate documents for search and exclude them f
 
 
 <a name="tips"></a> 
-# Tips on how to control faceted navigation #
+##Tips on how to control faceted navigation
 
 Below is a tip sheet with guidance on specific issues.
 
@@ -269,7 +269,7 @@ Facet counts can be inaccurate due to the sharding architecture. Every search in
 Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:<number> to a very large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are really high, there is a performance penalty, so used this option judiciously.
 
 <a name="rangefacets"></a>
-# Facet navigation based on a range values #
+##Facet navigation based on a range values
 
 Faceting over ranges is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
@@ -299,7 +299,7 @@ In the sample application, the filter expression uses **priceFrom** and **priceT
   ![][6]
 
 <a name="geofacets"></a> 
-# Filtered navigation based on GeoPoints #
+##Filtered navigation based on GeoPoints
 
 It’s common to see filters that help you choose a store, restaurant, or destination based on its proximity to your current location. While this type of filter might look like faceted navigation, it’s actually just a filter. We mention it here for those of you who are specifically looking for implementation advice for that particular design problem.
 
@@ -312,7 +312,7 @@ There are two Geospatial functions in Azure Search, **geo.distance** and **geo.i
 You can find filter examples in [OData expression syntax (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx). To learn more about geospatial search, see [Create a geospatial search application in Azure Search](search-create-geospatial.md).
 
 <a name="tryitout"></a>
-# Try it out #
+##Try it out
 
 Azure Search Adventure Works Demo on Codeplex contains the examples referenced in this article. As you work with search results, watch the URL for changes in query construction. This application happens to append facets to the URI as you select each one.
 
@@ -341,7 +341,7 @@ Azure Search Adventure Works Demo on Codeplex contains the examples referenced i
 	![][10]
  
 <a name="nextstep"></a>
-# Next Step #
+##Next Step
 
 To test your knowledge, you can add a facet field for *modelName*. The index is already set up for this facet, so no changes to the index are required. But you will need to modify the HTML to include a new facet for Models, and add the facet field to the query constructor.
 

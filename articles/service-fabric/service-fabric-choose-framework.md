@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/09/2015"
    ms.author="seanmck"/>
 
 # Choosing a framework for your service
@@ -35,4 +35,3 @@ Keep in mind that it is perfectly reasonable to use different frameworks for dif
 
 - [Learn more about the Reliable Actors APIs](service-fabric-reliable-actors-introduction.md)
 - [Learn more about the Reliable Services APIs](../Service-Fabric/service-fabric-reliable-services-introduction.md)
- 

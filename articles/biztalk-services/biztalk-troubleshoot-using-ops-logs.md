@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Troubleshoot BizTalk Services using operation logs | Azure" 
+	pageTitle="Troubleshoot BizTalk Services using operation logs | Microsoft Azure" 
 	description="Troubleshoot BizTalk Services using operation logs. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 

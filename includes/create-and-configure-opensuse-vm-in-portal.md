@@ -1,4 +1,4 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" /> 
+<properties writer="kathydav" editor="tysonn" manager="timlt" />
 
 **Important**: If you want your virtual machine to use a virtual network, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
@@ -30,13 +30,13 @@
 ##Connect to the Virtual Machine
 You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system you're running on your computer:
 
-- If you're using Linux to connect to the VM, use SSH. At the command prompt, run: 
+- If you're using Linux to connect to the VM, use SSH. At the command prompt, run:
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
-	
+
 	Type the user's password.
 
-- If you're using Windows computer to connect to the VM, use PuTTY. You can PuTTY download from the [PuTTY Download Page][PuTTYDownLoad]. 
+- If you're using Windows computer to connect to the VM, use PuTTY. You can PuTTY download from the [PuTTY Download Page][PuTTYDownload].
 
 	Download and save **putty.exe** to a directory on your computer. Open a command prompt, navigate to that folder, and execute **putty.exe**.
 
@@ -49,7 +49,7 @@ You'll use SSH or PuTTY to connect to the virtual machine, depending on the oper
 
 	`$ sudo zypper update`
 
-2. Select **Software**, then **Online Update** to list available updates. Select **Accept** to start the installation and apply all new available patches (except the optional ones). 
+2. Select **Software**, then **Online Update** to list available updates. Select **Accept** to start the installation and apply all new available patches (except the optional ones).
 
 3. After installation is done, select **Finish**.  Your system is now up to date.
 

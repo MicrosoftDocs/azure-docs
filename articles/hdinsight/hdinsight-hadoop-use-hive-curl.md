@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Use Hadoop Pig with Curl in HDInsight | Microsoft Azure"
+   pageTitle="Use Hadoop Hive with Curl in HDInsight | Microsoft Azure"
    description="Learn how to remotely submit Pig jobs to HDInsight using Curl."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"

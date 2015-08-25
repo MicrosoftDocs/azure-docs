@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tomfitz"/>
 
 # Create a Web App plus Redis Cache using a template
@@ -77,40 +77,40 @@ Creates the web app with name specified in the **siteName** parameter.
 Notice that the web app is configured with app setting properties that enable it to work with the Redis Cache. This app settings are dynamically created based on values provided during deployment.
         
     {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2015-04-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/sites",
       "location": "[parameters('siteLocation')]",
       "dependsOn": [
-        "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
+          "[resourceId('Microsoft.Web/serverFarms', parameters('hostingPlanName'))]",
+          "[resourceId('Microsoft.Cache/Redis', parameters('redisCacheName'))]"
       ],
       "properties": {
-        "name": "[parameters('siteName')]",
-        "serverFarm": "[parameters('hostingPlanName')]"
+          "serverFarmId": "[parameters('hostingPlanName')]"
       },
       "resources": [
-        {
-          "apiVersion": "2014-04-01",
-          "type": "config",
-          "name": "web",
-          "dependsOn": [
-            "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
-          ],
-          "properties": {
-            "appSettings": [
-              {
-                "name": "REDIS_HOST",
-                "value": "[concat(parameters('siteName'), '.redis.cache.windows.net:6379')]"
-              },
-              {
-                "name": "REDIS_KEY",
-                "value": "[listKeys(resourceId('Microsoft.Cache/Redis', parameters('siteName')), '2014-04-01').primaryKey]"
+          {
+              "apiVersion": "2015-06-01",
+              "type": "config",
+              "name": "web",
+              "dependsOn": [
+                  "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+              ],
+              "properties": {
+                  "appSettings": [
+                      {
+                          "name": "REDIS_HOST",
+                          "value": "[concat(parameters('siteName'), '.redis.cache.windows.net:6379')]"
+                      },
+                      {
+                          "name": "REDIS_KEY",
+                          "value": "[listKeys(resourceId('Microsoft.Cache/Redis', parameters('redisCacheName')), '2014-04-01').primaryKey]"
+                      }
+                  ]
               }
-            ]
           }
-        }
       ]
-    }     
+    }
 
 
 

@@ -3,7 +3,7 @@
 	description="Guidelines on how to diagnose common issues with Azure Notification Hubs." 
 	services="notification-hubs" 
 	documentationCenter="Mobile" 
-	authors="piyushjo" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
-	ms.author="piyushjo"/>
+	ms.date="07/14/2015" 
+	ms.author="wesmc"/>
 
 #Azure Notification Hubs - Diagnosis guidelines
 

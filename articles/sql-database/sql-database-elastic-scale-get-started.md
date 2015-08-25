@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh@microsoft.com"/>
 
-#Get started with elastic database tools
+#Get started with Elastic Database tools
 
 Growing and shrinking capacity on demand is one of the key cloud computing promises. For database applications, an important technique for building such scalable solutions is the pattern known as sharding – where data is physically partitioned across a number of identically structured databases.  But traditionally, building and managing applications that use sharding has required significant coding outside of the application’s business logic. 
 
@@ -24,27 +24,27 @@ Elastic database tools simplify creating and managing applications using databas
 
 This document introduces you to the developer experience using the elastic database client library. 
 
-For more information about how elastic database tools work, see [Elastic database tools overview](sql-database-elastic-scale-introduction.md).
+For more information about how elastic database tools work, see [Elastic Database tools overview](sql-database-elastic-scale-introduction.md).
 
-For a list of all topics on elastic database tools, see the [Documentation map](sql-database-elastic-scale-documentation-map.md)
+For a list of all topics on elastic database tools, see the [learning map](sql-database-elastic-scale-documentation-map.md)
 
-## The elastic database sample application
+## The Elastic Database sample application
 
-The sample creates a simple sharded application and explores key capabilities of elastic database tools. To download and run the application, follow the steps shown below or in the video [Elastic Scale - Get Started](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started). 
+The sample creates a simple sharded application and explores key capabilities of elastic database tools. To download and run the application, follow the steps shown below or in the video [Elastic Scale - Get Started video](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started). 
 
-### Prerequisites
+## Prerequisites
 To run the sample app, you must use Visual Studio, and you must have access to an Azure SQL Database running on Azure. If you do not already have a subscription to Azure, sign up for a [trial subscription](http://azure.microsoft.com/pricing/free-trial/).
-#### Visual Studio and Nuget
+### Visual Studio and Nuget
 
 1. Visual Studio 2012 or higher with C# is required. Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 2. Nuget 2.7 or higher. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
-#### Create an Azure SQL database
+### Create an Azure SQL database
 
 * See [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
 
 ## Download and run the sample app
 
-The **Elastic DB with Azure SQL— Getting Started** sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL elastic database tools. It focuses on key use cases for [Shard Map Management](sql-database-elastic-scale-shard-map-management.md), [Data Dependent Routing](sql-database-elastic-scale-data-dependent-routing.md) and [Multi-Shard Querying](sql-database-elastic-scale-multishard-querying.md). To download and run the sample, follow these steps: 
+The **Elastic Database with Azure SQL— Getting Started** sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL elastic database tools. It focuses on key use cases for [shard map management](sql-database-elastic-scale-shard-map-management.md), [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard querying](sql-database-elastic-scale-multishard-querying.md). To download and run the sample, follow these steps: 
 
 1. Open Visual Studio and select **File -> New -> Project**.
 2. In the dialog, click **Online**.

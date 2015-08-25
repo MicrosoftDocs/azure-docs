@@ -29,7 +29,7 @@
 
      `Start-HcsUpdate`
 
-    The update process with start.
+    The update process will start.
 
 > [AZURE.IMPORTANT]
 >

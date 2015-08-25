@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor=""/>
+   editor="JRJ@BigBangData.co.uk"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -80,11 +80,13 @@ Open Notepad and copy the following lines of data into a new file.
 
 Save this to your local temp directory, C:\Temp\DimDate2.txt.
 
+> [AZURE.NOTE] It is important to remember that bcp.exe does not support the UTF-8 file encoding. Please use ASCII encoded files or UTF-16 encoding for your files when using bcp.exe.
+
 ### Step 3: Connect and import the data
 Using bcp, you can connect and import the data using the following command replacing the values as appropriate:
 
 ```
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 You can verify the data was loaded by connecting with sqlcmd as before and executing the following TSQL command:
@@ -119,7 +121,7 @@ In this tutorial, you will create a data file from a table in SQL Data Warehouse
 Using the bcp utility, you can connect and export data using the following command replacing the values as appropriate:
 
 ```
-bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 You can verify the data was exported correctly by opening the new file. The data in the file should match the text below:
 

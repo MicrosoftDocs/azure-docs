@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# How to: add elastic database client library references to a Visual Studio project 
+# How to: add Elastic Database client library references to a Visual Studio project 
 
 ### Prerequisites: 
 

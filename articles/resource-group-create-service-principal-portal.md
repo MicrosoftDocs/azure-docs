@@ -1,19 +1,19 @@
 <properties
    pageTitle="Create a new Azure Service Principal using the Azure portal"
    description="Describes how to create a new Azure service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Create a new Azure Service Principal using the Azure portal
@@ -97,30 +97,12 @@ Your application is now ready and the service principal created on your tenant. 
 * **KEY** - as your password.
 
 ## Next Steps
-Getting Started  
 
-- [Azure Resource Manager Overview](./resource-group-overview.md)  
-- [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md)  
-  
-Creating and Deploying Applications  
-  
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)  
-- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)  
-- [Troubleshooting Resource Group Deployments in Azure](virtual-machines/resource-group-deploy-debug.md)  
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)  
-- [Advanced Template Operations](./resource-group-advanced-template.md)  
-- [Deploy Azure Resources Using .NET Libraries and a Template](virtual-machines/arm-template-deployment.md)
-  
-Organizing Resources  
-  
-- [Using tags to organize your Azure resources](./resource-group-using-tags.md)  
-  
-Managing and Auditing Access  
-  
-- [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
-- [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
+- To learn about specifying security policies, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
+- For the steps to permit a service principal to access resources, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
+- For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md)
+- For guidance on implementing security with Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
+
 
 <!-- Images. -->
 [1]: ./media/resource-group-create-service-principal-portal/active-directory.png
