@@ -1,4 +1,4 @@
-## Deploy the ARM template by using click to deploy from github
+## Deploy the ARM template by using click to deploy
 
 You can reuse pre-defined ARM templates upload to a github repository maintained by Microsoft and open to the community. THese templates can be deployed straight out of github, or downloaded and modified to fit your needs. To deploy a template that creates a VNet with two subnets, follow the steps below.
 
