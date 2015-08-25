@@ -91,5 +91,5 @@ AD FS:GMSA account (aadcsvc$)|Domain user|FS service logon account
 * [Permissions for Exchange hybrid](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange)
 * [Permissions for password writeback](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect on MSDN](active-directory-aadconnect.md)
  

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Line of Business Application Workload Phase 2: Configure domain controllers" 
-	description="In this second phase, you create and configure the two Active Directory domain controllers." 
+	pageTitle="Line of business application Phase 2 | Microsoft Azure" 
+	description="Create and configure the two Active Directory replica domain controllers in Phase 2 of the line of business application in Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
