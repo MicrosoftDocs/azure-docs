@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creating Filters with Media Services .NET SDK" 
-	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achive this selective streaming." 
+	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
