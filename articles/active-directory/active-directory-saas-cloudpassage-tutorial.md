@@ -32,7 +32,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with CloudPassage, you need the following items:
 
 - An Azure AD subscription
-- An CloudPassage single-sign on enabled subscription
+- A CloudPassage single-sign on enabled subscription
 
 
 > [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
@@ -41,12 +41,12 @@ To configure Azure AD integration with CloudPassage, you need the following item
 To test the steps in this tutorial, you should follow these recommendations:
 
 - You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
+- If you don't have an Azure AD test environment, you can get a free one-month Azure trial subscription [here](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. <br>
-The scenario outlined in this tutorial consists of three main building blocks:
+The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding CloudPassage from the gallery 
 2. Configuring and testing Azure AD single sign-on
@@ -132,7 +132,9 @@ The following screenshot shows an example for this.
 
      8.3. In the Azure portal, on the **Configure single sign-on at CloudPassage** dialog page, copy the **Logout URL** value, and then paste it into the **Logout landing page** textbox.
 
-     8.4. Create a **base-64** encoded file from your downloaded certificate. >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+     8.4. Create a **base-64** encoded file from your downloaded certificate. 
+          
+      >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
      8.5. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **x 509 certificate** textbox.
 
@@ -149,6 +151,7 @@ The following screenshot shows an example for this.
 11. In the nu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. <br><br> ![Configure Single Sign-On][17]
 
 12. To add the required user attributes, for each row in the table below, perform the following steps: <br>
+
 | Attribute Name | Attribute Value |
 | --- | --- |
 | firstname | user.givenname |
@@ -168,7 +171,7 @@ The following screenshot shows an example for this.
 
 ### Creating an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
+The objective of this section is to create a test user in the Azure portal called Britta Simon.<br><br>
 In the Users list, select **Britta Simon**.<br>![Creating an Azure AD test user](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
 
 **To create a test user in Azure AD, perform the following steps:**
@@ -189,7 +192,7 @@ In the Users list, select **Britta Simon**.<br>![Creating an Azure AD test user]
 
 6.  On the **User Profile** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png) 
   1. In the **First Name** textbox, type **Britta**.  
-  2. In the **Last Name** txtbox, type, **Simon**.
+  2. In the **Last Name** textbox, type, **Simon**.
   3. In the **Display Name** textbox, type **Britta Simon**.
   4. In the **Role** list, select **User**.
   5. Click **Next**.
@@ -238,7 +241,7 @@ The objective of this section is to create a user called Britta Simon in CloudPa
 
 ### Assigning the Azure AD test user
 
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to CloudPassage.
+The objective of this section is to enable Britta Simon to use Azure single sign-on by granting her access to CloudPassage.
 <br><br>![Assign User][30]
 
 **To assign Britta Simon to CloudPassage, perform the following steps:**
