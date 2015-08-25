@@ -30,11 +30,11 @@ The fully qualified domain name (FQDN) to use when connecting to the cluster is 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
 	Authenticate by using the cluster administrator user and password, and then log in to Ambari. This also uses the cluster administrator user and password.
-	
+
 	Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
 	> [AZURE.IMPORTANT] While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you will receive "server not found" errors when trying to access some features over the Internet.
-	> 
+	>
 	> To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
@@ -97,11 +97,11 @@ During cluster creation, you selected to either use an existing Azure Storage ac
 	> [AZURE.TIP] If you have installed [jq](http://stedolan.github.io/jq/), you can use the following to return just the `fs.defaultFS` entry:
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
-	
+
 3. To find the key used to authenticate to the storage account, or to find any secondary storage accounts associated with the cluster, use the following:
 
 		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
-		
+
 4. In the JSON data returned, find the entries that begin with `fs.azure.account.key`. The remainder of the entry name is the storage account name. For example, `fs.azure.account.key.mystorage.blob.core.windows.net`. The value stored in this entry is the key used to authenticate to the storage account.
 
 	> [AZURE.TIP] If you have installed [jq](http://stedolan.github.io/jq/), you can use the following to return a list of the keys and values:
@@ -157,41 +157,41 @@ The different cluster types are affected by scaling as follows:
 * __HBase__: Regional servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance regional servers,use the following steps:
 
 	1. Connect to the HDInsight cluster using SSH. For more information on using SSH with HDInsight, see one of the following documents:
-	
+
 		* [Use SSH with HDInsight from Linux, Unix, and Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-		
+
 		* [Use SSH with HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 	1. Use the following to start the HBase shell:
-	
+
 			hbase shell
-	
+
 	2. Once the HBase shell has loaded, use the following to manually balance the regional servers:
-	
+
 			balancer
 
 * __Storm__: You should rebalance any running Storm topologies after a scaling operation has been performed. This allows the topology to readjust parallelism settings based on the new number of nodes in the cluster. To rebalance running topologies, use one of the following options:
 
 	* __SSH__: Connect to the server and use the following command to rebalance a topology:
-	
+
 			storm rebalance TOPOLOGYNAME
-			
+
 		You can also specify parameters to override the parallelism hints originally provided by the topology. For example, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` will reconfigure the topology to 5 worker processes, 3 executors for the blue-spout component, and 10 executors for the yellow-bolt component.
-		
+
 	* __Storm UI__: Use the following steps to rebalance a topology using the Storm UI.
-	
+
 		1. [Create an SSH tunnel to the cluster and open the Ambari web UI](hdinsight-linux-ambari-ssh-tunnel.md).
-		
+
 		2. From the list of services on the left of the page, select __Storm__. Then select __Storm UI__ from __Quick Links__.
 
 			![Storm UI entry in quick links](./media/hdinsight-storm-deploy-monitor-topology-linux/ambari-storm.png)
-		
+
 			This will display the Storm UI:
-		
+
 			![the storm ui](./media/hdinsight-storm-deploy-monitor-topology-linux/storm-ui.png)
-			
+
 		3. Select the topology you wish to rebalance, then select the __Rebalance__ button. Enter the delay before the rebalance operation is performed.
-		
+
 For specific information on scaling your HDInsight cluster, see:
 
 * [Manage Hadoop clusters in HDInsight by using the Azure preview portal](hdinsight-administer-use-portal-linux.md#scaling)
