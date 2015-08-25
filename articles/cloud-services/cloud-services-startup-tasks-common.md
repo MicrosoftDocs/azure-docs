@@ -480,7 +480,11 @@ If you want to copy or create a file during your startup task that is then acces
 
 ## Next steps
 
+Review the cloud [service model and package](cloud-services-model-and-package.md)
 
+Learn more about how [Tasks](cloud-services-startup-tasks.md) work.
+
+[Create and deploy](cloud-services-how-to-create-deploy-portal.md) your cloud service package.
 
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
