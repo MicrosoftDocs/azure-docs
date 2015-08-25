@@ -16,7 +16,7 @@
    ms.date="08/18/2015"
    ms.author="mcoskun"/>
 
-# Reliable Service Backup and Restore
+# Backup and Restore Reliable Services
 
 Service Fabric is a high availability platform.
 State of stateful services are replicated across multiple replicas.
