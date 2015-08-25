@@ -31,4 +31,4 @@ For Express Settings and DirSync Upgrade | <li>For Express Settings, we create t
 
 * [More on Azure AD Connect accounts and permissions](active-directory-aadconnect-account-summary.md)
 * [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
+* [Azure AD Connect on MSDN](active-directory-aadconnect.md) 
