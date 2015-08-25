@@ -106,8 +106,11 @@ This step ensures that the recovered state is consistent.
 ### How to Restore
 
 One can classify the restoration scenarios where the running service has to restore data from the backup store into the following:
+
 1. Service partition lost data. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted/wiped. The data for the new primary has to be restored.
+
 2. Entire service is lost. For example, an administrator removes the entire service – thus the service and the data needs to be restored.
+
 3. Service replicated application level corrupted data. In this case, the service has to be upgraded/reverted to remove the cause of the corruption and non-corrupt data has to be restored.
 
 While many approaches are possible, we offer some examples on using RestoreAsync to recover from the above scenarios.
