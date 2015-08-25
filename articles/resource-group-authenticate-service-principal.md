@@ -35,8 +35,8 @@ In this section, you will perform the steps to create a service principal for an
 
 1. Switch to Azure Resource Manager mode and sign in to your account.
 
-        Switch-AzureMode AzureResourceManager
-        Add-AzureAccount
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. Create a new AAD Application by running the **New-AzureADApplication** command. Provide a display name for your application, the URI to a page that describes your application (the link is not verified), the URIs that identify your application, and the password for your application identity.
 
@@ -133,8 +133,8 @@ First, you must set up some values in PowerShell that you will use later when cr
 
 1. Switch to Azure Resource Manager mode and sign in to your account.
 
-        Switch-AzureMode AzureResourceManager
-        Add-AzureAccount
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. For both approaches, create an X509Certificate object from your certificate and retrieve the key value. Use the path to your certificate and the password for that certificate.
 
