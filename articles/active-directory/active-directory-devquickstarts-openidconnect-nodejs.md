@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD node.js Getting Started | Microsoft Azure"
+	pageTitle="Getting started with Azure AD sign in and sign out using node.js"
 	description="How to build a node.js Express MVC Web App that integrates with Azure AD for sign in."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="08/25/2015"
 	ms.author="brandwe"/>
 
 # Web App Sign In & Sign Out with Azure AD
@@ -24,6 +24,8 @@ Here we'll use Passport to:
 - Sign the user into the app using Azure AD and the v2.0 app model.
 - Display some information about the user.
 - Sign the user out of the app.
+
+**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We will install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
 
 In order to do this, you'll need to:
 
@@ -38,7 +40,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 
 The completed application is provided at the end of this tutorial as well.
 
-## *1. Register an App*
+## 1. Register an App
 - Sign into the Azure Management Portal.
 - In the left hand nav, click on **Active Directory**.
 - Select the tenant where you wish to register the application.
@@ -49,7 +51,7 @@ The completed application is provided at the end of this tutorial as well.
     - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
 
-## *2. Add pre-requisities to your directory*
+## 2. Add pre-requisities to your directory
 
 From the command-line, change directories to your root folder if not already there and run the following commands:
 
@@ -68,7 +70,7 @@ From the command-line, change directories to your root folder if not already the
 
 This will install the libraries that passport-azure-ad depend on.
 
-## *2. Set up your app to use the passport-node-js strategy*
+## 3. Set up your app to use the passport-node-js strategy
 Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 -	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
@@ -123,9 +125,8 @@ passport.use(new OIDCStrategy({
 ```
 Passport uses a similar pattern for all it’s Strategies (Twitter, Facebook, etc.) that all Strategy writers adhere to. Looking at the strategy you see we pass it a function() that has a token and a done as the parameters. The strategy will dutifully come back to us once it does all it’s work. Once it does we’ll want to store the user and stash the token so we won’t need to ask for it again.
 
-**SIDEBAR:** Auto-registration and why you shouldn’t do it
 
-The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a sample application, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
+[AZURE.IMPORTANT] The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a sample application, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
 
 - Next, let's add the methods that will allow us to keep track of the logged in users as required by Passport. This includes serializing and deserializing the user's information:
 
@@ -226,7 +227,7 @@ app.get('/logout', function(req, res){
 });
 ```
 
-## *4. Use Passport to issue sign-in and sign-out requests to Azure AD*
+## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
 
 Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
 
@@ -289,7 +290,7 @@ app.listen(3000);
 ```
 
 
-## *5. Create the views and routes in express to display our user in the website*
+## 5. Create the views and routes in express to display our user in the website
 
 We have our `app.js` complete. Now we simply need to add the routes and views that will show the information we get to the user as well as handle the `/logout` and `/login` routes we've created.
 
@@ -378,7 +379,7 @@ These simple routes will just pass along the request to our views, including the
 
 Finally, build and run your app! 
 
-Run `node app.js` and navigate to http://localhost:3000
+Run `node app.js` and navigate to `http://localhost:3000`
 
 
 Sign in with either a personal Microsoft Account or a work or school account, and notice how the user's identity is reflected in the /account list.  You now have a web app secured using industry standard protocols that can authenticate users with both their personal and work/school accounts.
