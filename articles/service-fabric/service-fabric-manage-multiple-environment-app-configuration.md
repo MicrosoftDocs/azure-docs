@@ -70,13 +70,25 @@ The Service Fabric application project can include one or more application insta
         </Parameters>
     </Application>
 
+To create a new instance definition file, simply copy and past an existing one and give it a new name.
+
 ## Identifying environment-specific parameters during deployment
+
+At deployment time, you need to choose the appropriate definition file to apply with your application. You can do this through the Publish dialog in Visual Studio or in PowerShell.
 
 ### Deploying from Visual Studio
 
+You can choose from the list of available instance definition files when publishing your application in Visual Studio.
+
+![Choose an instance definition file in the Publish dialog][publishdialog]
 
 ### Deploying from PowerShell
 
-## Changing parameters for an existing application
+The `DeployCreate-FabricApplication.ps1` PowerShell script accepts an instance definition file as a paramater.
 
-In some cases, you may need to modify the parameters for a given service instance after the application has been created.
+    ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
+
+
+<!-- Image references -->
+
+[publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
