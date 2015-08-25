@@ -235,6 +235,20 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 
 ## Examples
 
+### Strip known domain name
+
+You need to strip a known domain name from a user’s email to obtain a user name. <br>
+For example, if the domain is "contoso.com", then you could use the following expression:
+
+
+**Expression:** <br>
+`Replace([mail], "@contoso.com", , ,"", ,)`
+
+**Sample input / output:** <br>
+
+- **INPUT** (mail): "john.doe@contoso.com"
+
+- **OUTPUT**:  "john.doe"
 
 
 ### Append constant suffix to user name
