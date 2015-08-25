@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/17/2015"
+   ms.date="08/20/2015"
    ms.author="kempb" />
 
 # Hosting Web Apps in Docker
@@ -25,7 +25,7 @@ You can publish the app to a new Docker host hosted on Azure, or to an on-premis
 
 ## Create and publish a new Docker container
 
-In these procedures, you'll create a new ASP.NET 5 web application project, create container host, then build and run the web app project in the Docker container. To get started, download and install the [Visual Studio 2015 Tools for Docker](aka.ms/DockerToolsForVS).
+In these procedures, you'll create a new ASP.NET 5 web application project, create container host, then build and run the web app project in the Docker container. To get started, download and install the [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS).
 
 ### Add an ASP.NET 5 web application project
 
@@ -63,7 +63,7 @@ In these procedures, you'll create a new ASP.NET 5 web application project, crea
 
     Note that you also have the choice of using an existing Docker host. To do this, choose it in the **Existing Azure Docker Virtual Machines** dropdown list rather than choose the **New** button. This list doesn't show only container hosts, it lists all of the VMs in your Azure tenant.
 
-    As an alternative, you can choose to publish to a custom Docker host. See [Provide a custom Docker host](#BKMK_CustomHost) later in this topic for more information.
+    As an alternative, you can choose to publish to a custom Docker host. See **Provide a custom Docker host** later in this topic for more information.
 
 1. Enter the following information in the **Create a virtual machine on Microsoft Azure** dialog box. When you're done, choose the **OK** button. This creates a Linux virtual machine with a configured Docker extension.
 
@@ -151,11 +151,11 @@ The procedure below is for communicating with a Docker host that's been deployed
 
     |Command line|Description|
     |---|---|
-    |docker info|Get Docker version info.|
-    |docker ps|Get a list of running containers.|
-    |docker ps –a|Get a list of containers, including ones that are stopped.|
-    |docker logs <Docker container name>|Get a log for the specified container.|
-    |docker images|Get a list of images.|
+    |`docker info`|Get Docker version info.|
+    |`docker ps`|Get a list of running containers.|
+    |`docker ps –a`|Get a list of containers, including ones that are stopped.|
+    |`docker logs <Docker container name>`|Get a log for the specified container.|
+    |`docker images`|Get a list of images.|
 
     For a full list of Docker commands, just enter the command `docker` in the command prompt. For more information, see [Docker Command Line](https://docs.docker.com/reference/commandline/cli/).
 
@@ -163,7 +163,9 @@ The procedure below is for communicating with a Docker host that's been deployed
 
 Now that you have a Docker host, you can issue Docker commands to it. To learn more about Docker, see the [Docker documentation](https://docs.docker.com/) and the [Docker online tutorial](https://www.docker.com/tryit/).
 
-For issues with using Docker in Visual Studio, see [Troubleshooting Docker Errors](vs-docker-troubleshooting-docker-errors.md).
+To learn about using the Docker VM extension for Linux on Azure, see [The Docker Virtual Machine Extension for Linux on Azure](virtual-machines-docker-vm-extension.md).
+
+For issues with using Docker in Visual Studio, see [Troubleshooting Docker Client Errors on Windows Using Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
 [0]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796678.png
 [1]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796679.png

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Monitor availability and responsiveness of any web site" 
-	description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." 
-	services="application-insights" 
+<properties
+	pageTitle="Monitor availability and responsiveness of any web site | Microsoft Azure"
+	description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/08/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/08/2015"
 	ms.author="awills"/>
- 
+
 # Monitor availability and responsiveness of any web site
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -38,19 +38,19 @@ There are two types of web test:
 
 Skip this step if you've already [set up an Application Insights resource][start] for this application, and you want to see the availability data in the same place.
 
-Sign up to [Microsoft Azure](http://azure.com), go to the [Azure portal](https://portal.azure.com), and create a new Application Insights resource. 
+Sign up to [Microsoft Azure](http://azure.com), go to the [Azure portal](https://portal.azure.com), and create a new Application Insights resource.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-The Overview blade for the new resource will open. To find this at any time in the [Azure portal](https://portal.azure.com), click Browse.
+The Overview blade for the new resource will open. To find this at any time in the [Azure portal](https://portal.azure.com), click **Browse**.
 
 ### <a name="setup"></a>2. Create a web test
 
-In your Application Insights resource, look for the Availability tile. Click it to open the Web tests blade for your application, and add a web test. 
+In your Application Insights resource, look for the Availability tile. Click it to open the Web tests blade for your application, and add a web test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- **The URL** must be visible from the public internet. It can include a query string - so for example you could exercise your database a little. If the URL resolves to a redirect, we will follow it, up to 10 redirects.
+- **The URL** must be visible from the public internet. It can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we will follow it up to 10 redirects.
 
 - If **Enable retries** is selected, then when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual interval. Retry is temporarily suspended until the next success. This rule is applied independently at each test location.
 
@@ -58,7 +58,7 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 - **Success criteria**:
 
-    **HTTP status code**: 200 is usual. 
+    **HTTP status code**: 200 is usual.
 
     **Content match**: a string, like "Welcome!" We'll test that it occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
 
@@ -67,12 +67,12 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 #### Test more URLs
 
-Add more tests. For example, as well as testing your home page, you could make sure your database is running by testing the URL for a search.
+Add more tests. For example, as well as testing your home page, you can make sure your database is running by testing the URL for a search.
 
 
 ### <a name="monitor"></a>3. View availability reports
 
-After 1-2 minutes, click Refresh on the availability/web tests blade. (It doesn't refresh automatically.)
+After 1-2 minutes, click **Refresh** on the availability/web tests blade. (It doesn't refresh automatically.)
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -102,7 +102,7 @@ This shows you the results for that test.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
-The test is run from several locations - pick one where the results are less than 100%.
+The test is run from several locations&#151;pick one where the results are less than 100%.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
 
@@ -123,7 +123,7 @@ Alternatively, you can download the result file and inspect it in Visual Studio.
 
 ## Multi-step web tests
 
-You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you could test that adding items to the shopping cart works correctly. 
+You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
 To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights will replay the scenario at intervals and verify the responses.
 
@@ -139,7 +139,7 @@ Use Visual Studio Ultimate to record a web session.
 
     ![Open the .webtest file and click Record.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
 
-3. Do the user actions you want to simulate in your test: open your website, add a product to the cart, and so on. Then stop your test. 
+3. Do the user actions you want to simulate in your test: open your website, add a product to the cart, and so on. Then stop your test.
 
     ![The web test recorder runs in Internet Explorer.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)
 
@@ -147,10 +147,10 @@ Use Visual Studio Ultimate to record a web session.
 
 4. Run the test in Visual Studio to make sure it works.
 
-    The web test runner opens a web browser and repeats the actions you recorded. Make sure it works as you expected. 
+    The web test runner opens a web browser and repeats the actions you recorded. Make sure it works as you expect.
 
     ![In Visual Studio, open the .webtest file and click Run.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
- 
+
 
 (Don't insert loops in your web test code.)
 
@@ -164,7 +164,7 @@ Use Visual Studio Ultimate to record a web session.
 
     ![Select multi-step webtest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-View your test results and any failures in the same way as for single-url tests. 
+View your test results and any failures in the same way as for single-url tests.
 
 A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
 
@@ -185,7 +185,7 @@ Web Test Plug-ins provide the way to do this.
 
     ![Choose Add Web Test Plugin and select a type.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    In this example, we'll use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now". 
+    In this example, we'll use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now".
 
 2. Open the properties of each plug-in. Give it a name and set it to use the current time. For one of them, set Add Minutes = -15.
 
@@ -195,7 +195,7 @@ Web Test Plug-ins provide the way to do this.
 
     ![In the test parameter, use {{plug-in name}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Now upload your test to the portal. It will use the dynamic values on every run of the test.
+Now, upload your test to the portal. It will use the dynamic values on every run of the test.
 
 ## <a name="edit"></a> Edit or disable a test
 
@@ -207,11 +207,11 @@ You might want to disable web tests while you are performing maintenance on your
 
 ## Questions? Problems?
 
-* I get an error about "invalid characters" when I 
+* I get an error about "invalid characters" when I
 
 * *Is there a difference between "web tests" and "availability"?
 
-    We use the two terms interchangeably. 
+    We use the two terms interchangeably.
 
 
 
@@ -234,5 +234,3 @@ You might want to disable web tests while you are performing maintenance on your
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
-
- 

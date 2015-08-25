@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="08/20/2015"
    ms.author="tomfitz"/>
 
 # Authenticating a service principal with Azure Resource Manager
@@ -98,6 +98,24 @@ In this section, you will perform the steps to create a service principal for an
 
      You should now be authenticated as the service principal for the AAD application that you created.
 
+7. To authenticate from an application, include the following .NET code. After retrieving the token, you can access resources in the subscription.
+
+        public static string GetAToken()
+        {
+          var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+          var credential = new ClientCredential(clientId: "{application id}", clientSecret: {application password}");
+          var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+          if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+          }
+
+          string token = result.AccessToken;
+
+          return token;
+        }
+
+
 
 ## Authenticate service principal with certificate - PowerShell
 
@@ -173,11 +191,11 @@ First, you must set up some values in PowerShell that you will use later when cr
 
         PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
-6. To authenticate from an application, include the following code. After retrieving the client, you can access resources in the subscription.
+6. To authenticate from an application, include the following .NET code. After retrieving the client, you can access resources in the subscription.
 
-        string clientId = "<Client ID for your AAD app>"; 
+        string clientId = "<Application ID for your AAD app>"; 
         var subscriptionId = "<Your Azure SubscriptionId>"; 
-        string tenant = "<AAD tenant name>.onmicrosoft.com"; 
+        string tenant = "<Tenant id or tenant name>"; 
 
         var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
 

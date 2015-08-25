@@ -41,7 +41,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure web apps and VMs](../insights-perf-analytics.md)
-+ [Azure Cloud Services](app-insights-cloudservices.md) including both web and worker roles
++ [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - already live](app-insights-java-live.md)
@@ -61,7 +61,7 @@
 
 +	[Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J, or Logback](app-insights-java-trace-logs.md)
-+   [Semantic Logging](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
++   [Semantic Logging](https://github.com/fidmor89/SLAB_AppInsights)&#151;integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Cloud-based load testing](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> Build your own SDK

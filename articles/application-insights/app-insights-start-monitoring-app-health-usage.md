@@ -145,7 +145,11 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ## 6. Add client-side monitoring
 
+<<<<<<< HEAD
 You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client.
+=======
+You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client. 
+>>>>>>> c5b0469826afcd3a44bf6b957d1e558f18d15421
 
 You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
