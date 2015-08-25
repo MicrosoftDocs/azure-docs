@@ -58,7 +58,7 @@ Use the [Application Insights SDK for Java plug-in][eclipse].
 
 #### If you're using Maven...
 
-If your project is already set up to use Maven for build, merge the following code example to your pom.xml file.
+If your project is already set up to use Maven for build, merge the following code snippet to your pom.xml file.
 
 Then, refresh the project dependencies to get the binaries downloaded.
 
@@ -85,7 +85,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
 
 #### If you're using Gradle...
 
-If your project is already set up to use Gradle for build, merge the following code example to your build.gradle file.
+If your project is already set up to use Gradle for build, merge the following code snippet to your build.gradle file.
 
 Then refresh the project dependencies to get the binaries downloaded.
 
@@ -167,7 +167,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 
 The last configuration step allows the HTTP request component to log each web request. (Not required if you just want the bare API.)
 
-Locate and open the web.xml file in your project, and merge the following code example under the web-app node, where your application filters are configured.
+Locate and open the web.xml file in your project, and merge the following code snippet under the web-app node, where your application filters are configured.
 
 To get the most accurate results, the filter should be mapped before all other filters.
 
@@ -276,7 +276,7 @@ Click the **Servers** tile, and you'll see a range of performance counters.
 
 ### Customize performance counter collection
 
-To disable collection of the standard set of performance counters, add the following code example under the root node of the ApplicationInsights.xml file:
+To disable collection of the standard set of performance counters, add the following code snippet under the root node of the ApplicationInsights.xml file:
 
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
