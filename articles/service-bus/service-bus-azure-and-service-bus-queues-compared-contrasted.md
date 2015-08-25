@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/21/2015"
+   ms.date="08/25/2015"
    ms.author="sethm" />
 
 # Azure Queues and Service Bus queues - compared and contrasted
 
-This article analyzes the differences and similarities between the two types of queues offered by Microsoft Azure today: Azure Queues and Service Bus Queues. By using this information, you can compare and contrast the respective technologies and be able to make a more informed decision about which solution best meets your needs.
+This article analyzes the differences and similarities between the two types of queues offered by Microsoft Azure today: Azure Queues and Service Bus queues. By using this information, you can compare and contrast the respective technologies and be able to make a more informed decision about which solution best meets your needs.
 
 ## Introduction
 
@@ -27,7 +27,7 @@ Microsoft Azure supports two types of queue mechanisms: **Azure Queues** and **S
 
 **Service Bus queues** are part of a broader [Azure messaging](http://azure.microsoft.com/services/messaging/) infrastructure that supports queuing as well as publish/subscribe, Web service remoting, and integration patterns. For more information about Service Bus queues, topics/subscriptions, and relays, see [Overview of Service Bus Messaging Patterns](https://msdn.microsoft.com/library/hh410103.aspx).
 
-While both queuing technologies exist concurrently, Azure Queues were introduced first, as a dedicated queue storage mechanism built on top of the Azure storage services. Service Bus queues are built on top of the broader “brokered messaging” infrastructure designed to integrate applications or application components that may span multiple communication protocols, data contracts, trust domains, and/or network environments.
+While both queuing technologies exist concurrently, Azure Queues were introduced first, as a dedicated queue storage mechanism built on top of the Azure storage services. Service Bus queues are built on top of the broader "brokered messaging" infrastructure designed to integrate applications or application components that may span multiple communication protocols, data contracts, trust domains, and/or network environments.
 
 This article compares the two queue technologies offered by Azure by discussing the differences in the behavior and implementation of the features provided by each. The article also provides guidance for choosing which features might best suit your application development needs.
 
@@ -290,8 +290,6 @@ This section compares Azure Queues and Service Bus queues from a cost perspectiv
 - Data transfers between Azure services located within the same region are not subject to charge.
 
 - As of this writing, all inbound data transfers are not subject to charge.
-
-- The cost of ACS transactions is insignificant when performing messaging operations against Service Bus queues. Service Bus acquires one ACS token per a single instance of the messaging factory object. The token is then reused until it expires, after about 20 minutes. Therefore, the volume of messaging operations in Service Bus is not directly proportional to the amount of ACS transactions required to support these operations.
 
 - Given the support for long polling, using Service Bus queues can be cost effective in situations where low-latency delivery is required.
 

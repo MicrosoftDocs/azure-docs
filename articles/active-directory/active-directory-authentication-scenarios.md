@@ -60,7 +60,7 @@ With the diagram above in mind, here’s what you need to know about its various
 - Developers can use the open source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. See [Azure Active Directory Authentication Libraries](https://msdn.microsoft.com/library/azure/dn151135.aspx) for more information.
 
 
-• Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful for the intended parties. Developers can use the provided authentication libraries to handle validation of any token from Azure AD, including JSON Web Tokens (JWT) or SAML 2.0. If you want to perform validation manually, see the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx) documentation.
+• Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful for the intended parties. Developers can use the provided authentication libraries to handle validation of any token from Azure AD, including JSON Web Tokens (JWT) or SAML 2.0. If you want to perform validation manually, see the [JWT Token Handler](<https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx>) documentation.
 
 
 > [AZURE.IMPORTANT] Azure AD uses public key cryptography to sign tokens and verify that they are valid. See [Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) for more information on the necessary logic you must have in your application to ensure it’s always updated with the latest keys.
@@ -338,7 +338,7 @@ Both the application identity and delegated user identity types are discussed in
 
 ##### Application Identity with OAuth 2.0 Client Credentials Grant
 
-1. A user is signed in to Azure AD in the web application (see the Web Browser to Web Application section above).
+1. A user is signed in to Azure AD in the web application (see the [Web Browser to Web Application](#web-browser-to-web-application) above).
 
 
 2. The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource. It makes a request to Azure AD’s token endpoint, providing the credential, client ID, and web API’s application ID URI.
@@ -351,7 +351,7 @@ Both the application identity and delegated user identity types are discussed in
 
 ##### Delegated User Identity with OpenID Connect
 
-1. A user is signed in to a web application using Azure AD (see the [Web Browser to Web Application](#web-browser-to-web-application) above). If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent. The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent. This consent process only applies to multi-tenant applications, not single tenant applications, as the application will already have the necessary permissions. When the user signed in, the web application received an ID token with information about the user, as well as an authorization code.
+1. A user is signed in to a web application using Azure AD (see the [Web Browser to Web Application](#web-browser-to-web-application) section above). If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent. The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent. This consent process only applies to multi-tenant applications, not single tenant applications, as the application will already have the necessary permissions. When the user signed in, the web application received an ID token with information about the user, as well as an authorization code.
 
 
 2. Using the authorization code issued by Azure AD, the web application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (client ID and redirect URI), and the desired resource (application ID URI for the web API).
