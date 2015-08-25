@@ -23,7 +23,7 @@ The objective of this topic is to describe different on-premises and Azure AD to
 Legend for pictures in the document:
 
 | Description | Icon |
-|-----| :-----:|
+|-----|-----|
 | On-premises Active Directory forest | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
 | Active Directory with filtered import | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
 | Azure AD Connect sync server | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
