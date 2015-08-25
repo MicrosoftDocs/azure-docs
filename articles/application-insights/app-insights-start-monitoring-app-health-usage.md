@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Add Application Insights SDK to monitor your ASP.NET app" 
-	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
-	services="application-insights" 
+<properties
+	pageTitle="Add Application Insights SDK to monitor your ASP.NET app | Microsoft Azure"
+	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights."
+	services="application-insights"
     documentationCenter=".net"
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
 
 
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. It can be used with a wide variety of application types. It works for apps that are hosted on your own on-premises IIS servers or on Azure VMs, as well as Azure web apps. 
+Visual Studio Application Insights monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. It can be used with a wide variety of application types. It works for apps that are hosted on your own on-premises IIS servers or on Azure VMs, as well as Azure web apps.
 
 
 
@@ -46,7 +46,7 @@ You need:
 
 ## <a name="add"></a> 1. Create an Application Insights resource
 
-Sign in to the [Azure portal][portal], and create a new Application Insights resource. Choose ASP.NET as the application type. 
+Sign in to the [Azure portal][portal], and create a new Application Insights resource. Choose ASP.NET as the application type.
 
 ![Click New, Application Insights](./media/app-insights-start-monitoring-app-health-usage/01-new-asp.png)
 
@@ -54,7 +54,7 @@ A [resource][roles] in Azure is an instance of a service. This resource is where
 
 The choice of application type sets the default content of the resource blades and the properties visible in [Metrics Explorer][metrics].
 
-####  Take a copy of the Instrumentation Key.
+#### Copy of the Instrumentation Key
 
 The key identifies the resource, and you'll install it soon in the SDK to direct data to the resource.
 
@@ -75,24 +75,24 @@ Installing and configuring the Application Insights SDK varies depending on the 
     ![Search for "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
 
 
-3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
+3. Edit ApplicationInsights.config (which was added by the NuGet install). Insert this just before the closing tag:
 
     `<InstrumentationKey>` *the instrumentation key you copied* `</InstrumentationKey>`
 
-    (You can alternatively [set the key by writing some code][apikey] in your app.)
+    (Alternatively, you can [set the key by writing some code][apikey] in your app.)
 
 #### To upgrade to future SDK versions
 
 We release a new version of the SDK from time to time.
 
-To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again and filter on installed packages. Select Microsoft.ApplicationInsights.Web and choose Upgrade.
+To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again and filter on installed packages. Select **Microsoft.ApplicationInsights.Web** and choose **Upgrade**.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
 
 ## <a name="run"></a> 3. Run your project
 
-Run your application with F5 and try it out: open different pages to generate some telemetry.
+Use the **F5** to run your application and try it out: open different pages to generate some telemetry.
 
 In Visual Studio, you'll see a count of the events that have been sent.
 
@@ -100,7 +100,7 @@ In Visual Studio, you'll see a count of the events that have been sent.
 
 ## <a name="monitor"></a> 4. View your telemetry
 
-Return to the [Azure portal][portal] and Browse to your Application Insights resource.
+Return to the [Azure portal][portal] and browse to your Application Insights resource.
 
 
 Look for data in the Overview charts. At first, you'll just see one or two points. For example:
@@ -118,20 +118,20 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 
 * Open the [Search][diagnostic] tile, to see individual events.
 * Use the application, opening different pages so that it generates some telemetry.
-* Wait a few seconds and click Refresh. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
+* Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
 * See [Troubleshooting][qna].
 
 #### Trouble on your build server?
 
 Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
 
-## Add dependency tracking
+## 5. Add dependency tracking
 
 The SDK needs a little help to get access to some data. In particular, you'll need this additional step in order to automatically measure calls from your app to databases, REST APIs, and other external components. These dependency metrics can be invaluable to help you diagnose performance issues.
 
 #### If your app runs in your IIS server
 
-Login to your server with admin rights, and install [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648). 
+Sign in to your server with admin rights, and install [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
 (You can also use Status Monitor to [instrument an app that's already running](app-insights-monitor-performance-live-website-now.md), even if it hasn't been built with the SDK.)
 
@@ -143,9 +143,9 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 (The extension only assists an app that has been built with the SDK. Unlike Status Monitor, it can't instrument an existing app.)
 
-## Add client-side monitoring
+## 6. Add client-side monitoring
 
-You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side  monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client. 
+You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client. 
 
 You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
@@ -166,7 +166,7 @@ If your application is serving clients such as phones or other devices, add the 
 If you configure the client SDK with the same instrumentation key as the server SDK, the two streams will be integrated so that you can see them together.
 
 
-## Complete your installation
+## 7. Complete your installation
 
 To get the full 360-degree view of your application, there are a few more things you can do:
 
@@ -176,13 +176,13 @@ To get the full 360-degree view of your application, there are a few more things
 
 ## <a name="ide"></a> The automated way
 
-We said at the top of this article that we'd show you the manual way to create a Application Insights resource, and then install the SDK. We believe it's good to understand the two parts of that procedure. But for ASP.NET apps (and many others) there's an even quicker automated way.
+We said at the beginning of this article that we'd show you the manual way to create a Application Insights resource, and then install the SDK. We believe it's good to understand the two parts of that procedure. But for ASP.NET apps (and many others) there's an even quicker automated way.
 
 You'll need [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 update 3 or later) and an account in [Microsoft Azure](http://azure.com).
 
 #### If it's a new project...
 
-When you create a new project in Visual Studio, make sure Application Insights is selected. 
+When you create a new project in Visual Studio, make sure **Add Application Insights** is selected.
 
 
 ![Create an ASP.NET project](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -193,7 +193,7 @@ If your project has web pages, it also adds the [JavaScript SDK][client] to the 
 
 #### ... or if it's an existing project
 
-Right click the project in Solution Explorer, and choose Add Application Insights.
+Right-click the project in Solution Explorer, and choose **Add Application Insights**.
 
 ![Choose Add Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -203,9 +203,9 @@ In this case, it doesn't add the [JavaScript SDK][client] to your web pages - we
 
 #### Setup options
 
-If this is your first time, you'll be asked login or sign up to Microsoft Azure Preview. (It's separate from your Visual Studio Online account.)
+If this is your first time, you'll be asked sign in or sign up to Microsoft Azure Preview. (It's separate from your Visual Studio Online account.)
 
-If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components. 
+If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components.
 
 *No Application Insights option? Check you're using Visual Studio 2013 Update 3 or later, that Application Insights Tools are enabled in Extensions and Updates.*
 
@@ -240,5 +240,3 @@ If this app is part of a bigger application, you might want to use **Configure s
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
-
- 
