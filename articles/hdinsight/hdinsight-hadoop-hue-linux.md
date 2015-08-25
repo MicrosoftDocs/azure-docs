@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Azure" 
-	description="Learn how to install and use Hue with Hadoop clusters on HDInsight Linux." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Azure"
+	description="Learn how to install and use Hue with Hadoop clusters on HDInsight Linux."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/21/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="nitinme"/>
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -52,7 +52,7 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/inst
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue provisining the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-provision-linux-clusters.md#portal).
 
 ## Use Hue with HDInsight clusters
 
@@ -66,7 +66,7 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 	* For instructions on enabling SSH tunneling from a Windows computer, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-linux-ambari-ssh-tunnel.md#useputty).
 
 	Keep the PuTTY session running.
- 
+
 2. From your computer, use the Firefox Web browser with FoxyProxy configured to launch the Hue portal at http://headnode0:8888. When you log in for the first time, you are prompted to create an account to log into the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
 
 	![Login to the Hue portal](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Specify credentials for Hue portal")
@@ -91,9 +91,9 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 	![Use file browser](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Use file browser")
 
-3. Right-click on a file or folder to see the available operations. Use the **Upload** button in the right corner to upload files to the current directory. Use the **New** button to create new files or directories. 
+3. Right-click on a file or folder to see the available operations. Use the **Upload** button in the right corner to upload files to the current directory. Use the **New** button to create new files or directories.
 
-> [AZURE.NOTE] The Hue file browser can only show the contents of the default container associated with the HDInsight cluster. Any additional storage accounts/containers that you might have associated with the cluster will not be accessible using the file browser. However, the additional containers associated with the cluster will always be accessible for the Hive jobs. For example, if you enter the command `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` in the Hive editor, you can see the contents of additional containers as well. In this command, **newcontainer** is not the default container associated with a cluster. 
+> [AZURE.NOTE] The Hue file browser can only show the contents of the default container associated with the HDInsight cluster. Any additional storage accounts/containers that you might have associated with the cluster will not be accessible using the file browser. However, the additional containers associated with the cluster will always be accessible for the Hive jobs. For example, if you enter the command `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` in the Hive editor, you can see the contents of additional containers as well. In this command, **newcontainer** is not the default container associated with a cluster.
 
 
 ## Important considerations
@@ -102,7 +102,7 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 2. During installation, multiple Hadoop services (HDFS, YARN, MR2, Oozie) are restarted for updating the configuration. After the script finishes installing Hue, it might take some time for other Hadoop services to start up. This might affect Hue's performance initially. Once all services start up, Hue will be fully functional.
 
-3.	Hue does not understand Tez jobs, which is the current default for Hive. If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script: 
+3.	Hue does not understand Tez jobs, which is the current default for Hive. If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script:
 
 		set hive.execution.engine=mr;
 
@@ -129,4 +129,3 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 

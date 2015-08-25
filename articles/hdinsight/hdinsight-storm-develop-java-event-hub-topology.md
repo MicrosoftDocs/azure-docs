@@ -27,7 +27,7 @@ In this tutorial, you will learn how to use the Event Hubs spout and bolt to rea
 * An Apache Storm on HDInsight cluster. Use one of the following getting started articles to create a cluster:
 
     - A [Linux-based cluster](hdinsight-apache-storm-tutorial-get-started-linux.md): Select this if you want to use SSH to work with the cluster from Linux, Unix, OS X, or Windows clients
-    
+
     - A [Windows-based cluster](hdinsight-apache-storm-tutorial-get-started.md): Select this if you want to use PowerShell to work with the cluster from a Windows client
 
     > [AZURE.NOTE] The only difference between the two cluster types is whether you use SSH to submit the topology to the cluster or a web form.
@@ -41,13 +41,13 @@ In this tutorial, you will learn how to use the Event Hubs spout and bolt to rea
 * A text editor or Java integrated development environment (IDE)
 
 	> [AZURE.NOTE] Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
-    
+
  * An SSH client. See one of the following articles for more information on using SSH with HDInsight:
- 
+
     - [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
+
     - [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-    
+
 * An SCP client. This is provided with all Linux, Unix, and OS X systems. For Windows clients, we recommend PSCP, which is available from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ##Understanding the example
@@ -105,7 +105,7 @@ The HdfsBolt is normally used to store data to the Hadoop Distributed File Syste
      For now, we have to build hadoop-client, hadoop-hdfs and hadoop-azure from Hadoop trunk
      (which defaults to 3.0.0-SNAPSHOT version). And push those jars and dependencies to local
      mvn repo (take a look at push_lib_mvn.ps1).
-    
+
      Once Hadoop 2.7 is released, we can just switch to that version.
      Note that hadoop-azure is added to Hadoop on Hadoop 2.7.
      -->
@@ -140,7 +140,7 @@ The HdfsBolt is normally used to store data to the Hadoop Distributed File Syste
        <artifactId>microsoft-windowsazure-storage-sdk</artifactId>
        <version>0.6.0</version>
      </dependency>
-     
+
 > [AZURE.NOTE] The packages to enable WASB are not available on the Maven repository, and will be manually installed in a later step.
 
 ####The maven-compiler-plugin
@@ -222,7 +222,7 @@ This is used to package the solution into an uber jar that contains both the pro
 This allows you to run the topology locally on your development environment using the following command:
 
     mvn compile exec:java -Dstorm.topology=<CLASSNAME>
-    
+
 For example, `mvn compile exec:java -Dstorm.topology=com.microsoft.example.EventHubWriter`.
 
 ####The resources section
@@ -298,29 +298,29 @@ Event Hubs is the data source for this example. Use the following steps to creat
 2. Use the following commands to install packages included in the project into your local Maven repository. These enable the Event Hub spout and bolt, as well as the ability to use the HdfsBolt to write to Azure Storage (WASB).
 
 		mvn -q install:install-file -Dfile=lib/eventhubs/eventhubs-storm-spout-0.9.3-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9.3 -Dpackaging=jar
-	
+
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-azure-3.0.0-SNAPSHOT.jar
-		
+
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-client-3.0.0-SNAPSHOT.jar
-		
+
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-hdfs-3.0.0-SNAPSHOT.jar
-	
+
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.jar -DpomFile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.pom
-	
+
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom
-		
+
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom
-		
+
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
 
-	> [AZURE.NOTE] If you're using Powershell, you mau have to put the `-D` parmeters in quotes. For example, `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`.
-	
+	> [AZURE.NOTE] If you're using Powershell, you mau have to put the `-D` parameters in quotes. For example, `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`.
+
 	Also these files are originally from https://github.com/hdinsight/hdinsight-storm-examples, so can find the latest versions there.
-    
+
 3. Use the following to build and package the project:
 
         mvn package
-    
+
     This will download required dependencies, build, and then package the project. The output will be stored in the __/target__ directory as __EventHubExample-1.0-SNAPSHOT.jar__.
 
 ## Deploy the topologies
@@ -332,11 +332,11 @@ The jar created by this project contains two topologies; __com.microsoft.example
 1. Use SCP to copy the jar package to your HDInsight cluster. Replace USERNAME with the SSH user for your cluster. Replace CLUSTERNAME with the name of your HDInsight cluster:
 
         scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.
-        
+
     If you used a password for your SSH account, you will be prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. For example, `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`.
-    
+
     > [AZURE.NOTE] If your client is a Windows workstation, you may not have an SCP command installed. We recommend PSCP, which can be downloaded from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-    
+
     This command will copy the file to the home directory of your SSH user on the cluster.
 
 1. Once the file has finished uploading, use SSH to connect to the HDInsight cluster. Replace **USERNAME** the the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
@@ -346,12 +346,12 @@ The jar created by this project contains two topologies; __com.microsoft.example
     > [AZURE.NOTE] If you used a password for your SSH account, you will be prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example will load the private key from `~/.ssh/id_rsa`:
     >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
-    
+
     If you are using PuTTY, enter `CLUSTERNAME-ssh.azurehdinsight.net` in the __Host Name (or IP address)__ field, and then click __Open__ to connect. You will be prompted to enter your SSH account name.
-    
+
     > [AZURE.NOTE] If you used a password for your SSH account, you will be prompted to enter the password. If you used an SSH key with the account, you may need to use the following steps to select the key:
     >
-    > 1. In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. 
+    > 1. In **Category**, expand **Connection**, expand **SSH**, and select **Auth**.
     > 2. Click **Browse** and select the .ppk file that contains your private key.
     > 3. Click __Open__ to connect.
 
@@ -365,23 +365,23 @@ The jar created by this project contains two topologies; __com.microsoft.example
 3. Wait a minute or two to allow the topologies to write and read events from event hub, then use the following command to verify that the EventHubReader is storing data to your HDInsight storage:
 
         hadoop fs -ls /devicedata
-        
+
     This should return a list of files similar to the following:
-        
+
         -rw-r--r--   1 storm supergroup      10283 2015-08-11 19:35 /devicedata/wasbbolt-14-0-1439321744110.txt
         -rw-r--r--   1 storm supergroup      10277 2015-08-11 19:35 /devicedata/wasbbolt-14-1-1439321748237.txt
         -rw-r--r--   1 storm supergroup      10280 2015-08-11 19:36 /devicedata/wasbbolt-14-10-1439321760398.txt
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
-        
+
     > [AZURE.NOTE] Some files may show a size of 0, as they have been created by the EventHubReader, but data has not been stored to them yet.
-    
+
     You can view the contents of these files by using the following command:
-    
+
         hadoop fs -text /devicedata/*.txt
-    
+
     This will return data similar to the following:
-    
+
         3409e622-c85d-4d64-8622-af45e30bf774,848981614
         c3305f7e-6948-4cce-89b0-d9fbc2330c36,-1638780537
         788b9796-e2ab-49c4-91e3-bc5b6af1f07e,-1662107246
@@ -389,14 +389,14 @@ The jar created by this project contains two topologies; __com.microsoft.example
         d7c7f96c-581a-45b1-b66c-e32de6d47fce,543829859
         9a692795-e6aa-4946-98c1-2de381b37593,1857409996
         3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
-        
+
     The first column contains the device ID value and the second column is the device value.
-    
+
 4. Use the following commands to stop the topologies:
-    
+
         storm kill reader
         storm kill writer
-    
+
 ###If using a Windows-based cluster
 
 1. Open your browser to https://CLUSTERNAME.azurehdinsight.net. When prompted, enter the administrator credentials for your HDInsight cluster. You will arrive at the Storm Dashboard.
@@ -412,18 +412,18 @@ The jar created by this project contains two topologies; __com.microsoft.example
     * __Jar File__: select the EventHubExample-1.0-SNAPSHOT.jar that was previously uploaded
     * __Class Name__: enter `com.microsoft.example.EventHubReader`
     * __Additional Parameters__: enter `reader`
-    
+
     Click submit to start the EventHubReader topology.
-    
+
 6. Wait a few minutes to allow the topologies to generate events and store then to Azure Storage, then select the __Query Console__ tab at the top of the __Storm Dashboard__ page.
 
 7. On the __Query Console__, select __Hive Editor__ and replace the default `select * from hivesampletable` with the following:
 
         create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasb:///devicedata/';
         select * from devicedata limit 10;
-        
+
     Click __Select__ to run the query. This will return 10 rows from the data written to Azure Storage (WASB) by the EventHubReader. Once the query completes, you should see data similar to the following:
-    
+
         3409e622-c85d-4d64-8622-af45e30bf774,848981614
         c3305f7e-6948-4cce-89b0-d9fbc2330c36,-1638780537
         788b9796-e2ab-49c4-91e3-bc5b6af1f07e,-1662107246
@@ -433,7 +433,7 @@ The jar created by this project contains two topologies; __com.microsoft.example
         3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
 
 8. Select the __Storm Dashboard__ at the top of the page, then select __Storm UI__. From the __Storm UI__, select the link for the __reader__ topology and then use the __Kill__ button to stop the topology. Repeat the process for the __writer__ topology.
-    
+
 
 
 ### Checkpointing
