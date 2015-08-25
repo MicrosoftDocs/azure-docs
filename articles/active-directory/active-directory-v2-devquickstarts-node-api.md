@@ -301,7 +301,7 @@ var users = [];
 var owner = null;
 // Our logger
 var log = bunyan.createLogger({
-name: 'Windows Azure Active Directory Sample'
+name: 'Microsoft Azure Active Directory Sample'
 });
 ```
 
@@ -554,7 +554,7 @@ Restify (and Express) have a lot of deep customization you can do for a REST API
 * Our Server
 */
 var server = restify.createServer({
-name: "Windows Azure Active Directroy TODO Server",
+name: "Microsoft Azure Active Directroy TODO Server",
 version: "2.0.1"
 });
 // Ensure we don't drop data on uploads
