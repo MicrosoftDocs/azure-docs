@@ -49,6 +49,26 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or
 - Add the **Web** platform for your app.
 - Enter the correct **Redirect URI**. The redirect uri indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `http://localhost:3000/auth/openid/return`.
 
+## *2. Add pre-requisities to your directory*
+
+From the command-line, change directories to your root folder if not already there and run the following commands:
+
+- `npm install express`
+- `npm install ejs`
+- `npm install ejs-locals`
+- `npm install restify`
+- `npm install mongoose`
+- `npm install bunyan`
+- `npm install assert-plus`
+- `npm install passport`
+
+- In addition, we've included a special `passport-azure-ad` for our Preview in the skeleton of the quickstart. You'll need to install the pre-requisites in there as well.
+
+- `cd /lib/passport-azure-ad`
+- `npm install`
+
+This will install the libraries that passport-azure-ad depend on.
+
 ## *2. Set up your app to use the passport-node-js strategy*
 Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
@@ -69,7 +89,8 @@ var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 - After that, use the strategy we just referenced to handle our login requests
 
 ```JavaScript
-// Use the OIDCStrategy within Passport.
+// Use the OIDCStrategy within Passport. (Section 2) 
+
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -116,7 +137,8 @@ When writing APIs you should always link the data to something unique from the t
 
 ```JavaScript
 
-// Passport session setup.
+// Passport session setup. (Section 2)
+
 //   To support persistent login sessions, Passport needs to be able to
 //   serialize users into and deserialize users out of the session.  Typically,
 //   this will be as simple as storing the user ID when serializing, and finding
@@ -150,9 +172,11 @@ var findByEmail = function(email, fn) {
 
 ```JavaScript
 
+// configure Express (Section 2)
+
 var app = express();
 
-// configure Express
+
 app.configure(function() {
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
@@ -171,7 +195,44 @@ app.configure(function() {
 
 ```
 
-## *3. Use Passport to issue sign-in and sign-out requests to Azure AD*
+- Finally, let's add the POST routes that will hand off the actual login requests to the `passport-azure-ad` engine:
+
+```JavaScript
+
+// Our POST routes (Section 3)
+
+// POST /auth/openid
+//   Use passport.authenticate() as route middleware to authenticate the
+//   request.  The first step in OpenID authentication will involve redirecting
+//   the user to their OpenID provider.  After authenticating, the OpenID
+//   provider will redirect the user back to this application at
+//   /auth/openid/return
+app.post('/auth/openid',
+  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+  function(req, res) {
+    log.info('Authenitcation was called in the Sample');
+    res.redirect('/');
+  });
+
+// GET /auth/openid/return
+//   Use passport.authenticate() as route middleware to authenticate the
+//   request.  If authentication fails, the user will be redirected back to the
+//   login page.  Otherwise, the primary route function function will be called,
+//   which, in this example, will redirect the user to the home page.
+app.get('/auth/openid/return',
+  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+  function(req, res) {
+    log.info('We received a return from AzureAD.');
+    res.redirect('/');
+  });
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+```
+
+## *4. Use Passport to issue sign-in and sign-out requests to Azure AD*
 
 Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
 
@@ -179,6 +240,7 @@ Your app is now properly configured to communicate with the v2.0 endpoint using 
 
 ```JavaScript
 
+//Routes (Section 4)
 
 app.get('/', function(req, res){
   res.render('index', { user: req.user });
@@ -213,7 +275,7 @@ app.get('/logout', function(req, res){
 
 ```JavaScript
 
-// Simple route middleware to ensure user is authenticated.
+// Simple route middleware to ensure user is authenticated. (Section 4)
 //   Use this route middleware on any resource that needs to be protected.  If
 //   the request is authenticated (typically via a persistent login session),
 //   the request will proceed.  Otherwise, the user will be redirected to the
@@ -233,7 +295,7 @@ app.listen(3000);
 ```
 
 
-## *4. Create the views and routes in express to display our user in the website*
+## *5. Create the views and routes in express to display our user in the website*
 
 We have our `app.js` complete. Now we simply need to add the routes and views that will show the information we get to the user as well as handle the `/logout` and `/login` routes we've created.
 
