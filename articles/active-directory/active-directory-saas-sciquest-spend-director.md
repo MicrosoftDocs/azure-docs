@@ -71,7 +71,7 @@ To configure the integration of SciQuest Spend Director into Azure AD, you need 
 6. In the search box, type **sciQuest spend director**.<br>
 ![Applications][5]
 7. In the results pane, select **SciQuest Spend Director**, and then click **Complete** to add the application.<br>
-
+![Applications][6]
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -102,9 +102,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 3. On the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][10]
  
-     3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your SciQuest Spend Director application using the following pattern: *https://.*sciquest.com/.**
+     3.1. In the **Sign On URL** textbox, type your URL used by your users to sign on to your SciQuest Spend Director application using the following pattern: *https://.*sciquest.com/.**
 
-     3.2. Click **Next**.
+     3.2. In the **Reply URL** textbox, type the same value you have typed into the **Sign On URL** textbox. 
+
+     3.3. Click **Next**.
  
 4. On the **Configure single sign-on at SciQuest Spend Director** page, click **Download metadata**, and then save the metadata file locally on your computer.<br><br>![What is Azure AD Connect][11]
 
@@ -152,10 +154,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in SciQuest Spend Director.
 
-**To create a user called Britta Simon in SciQuest Spend Director, perform the following steps:**
+You need to contact your SciQuest Spend Director support team and provide them with the details about your test account to get it created.
 
+Alternatively, you can also leverage just-in-time provisioning, a single sign-on feature that is supported by SciQuest Spend Director. <br>
+If just-in-time provisioning is enabled, users are automatically created by SciQuest Spend Director during a single sign-on attempt if they don't exist. This feature eliminates the need to manually create single sign-on counterpart users.
 
-
+To get just-in-time provisioning enabled, you need to contact your your SciQuest Spend Director support team.
+  
 
 ### Assigning the Azure AD test user
 
@@ -167,13 +172,13 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.<br>
 <br><br>![What is Azure AD Connect][201]
 2. In the applications list, select **SciQuest Spend Director**.
-<br><br>
-1. In the menu on the top, click **Users**.<br>
 <br><br>![What is Azure AD Connect][202]
-1. In the Users list, select **Britta Simon**.
+1. In the menu on the top, click **Users**.<br>
 <br><br>![What is Azure AD Connect][203]
-2. In the toolbar on the bottom, click **Assign**.
+1. In the Users list, select **Britta Simon**.
 <br><br>![What is Azure AD Connect][204]
+2. In the toolbar on the bottom, click **Assign**.
+<br><br>![What is Azure AD Connect][205]
 
 
 
@@ -194,6 +199,7 @@ When you click the SciQuest Spend Director tile in the Access Panel, you should 
 [3]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_04.png
 [5]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_01.png
+[6]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_05.png
 [8]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_06.png
 [9]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_07.png
 [10]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_08.png
@@ -209,6 +215,8 @@ When you click the SciQuest Spend Director tile in the Access Panel, you should 
 [106]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_15.png 
 [200]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_16.png 
 [201]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_17.png 
-[202]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png
-[203]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
-[204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
+[202]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_06.png
+[203]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png
+[204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
+[205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
+

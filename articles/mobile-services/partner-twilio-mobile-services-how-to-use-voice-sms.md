@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" 
+	pageTitle="Use Twilio for Voice and SMS Capabilities | Microsoft Azure" 
 	description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Mobile Services to an existing app (HTML 5) | Mobile Dev Center" 
+	pageTitle="Add Mobile Services to an existing app (HTML 5) | Microsoft Azure" 
 	description="Learn how to get started using Mobile Services in an existing HTML app." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="08/16/2015" 
 	ms.author="glenga"/>
 
 # Add Mobile Services to an existing app

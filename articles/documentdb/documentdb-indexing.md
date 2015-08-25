@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Automatic Indexing in DocumentDB | Azure" 
+	pageTitle="Automatic Indexing in DocumentDB | Microsoft Azure" 
 	description="Learn about how automatic indexing works in Azure DocumentDB." 
 	services="documentdb" 
 	authors="arramac" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="08/11/2015" 
 	ms.author="arramac"/>
 	
 # Automatic Indexing in Azure DocumentDB
 
-This article is an introduction to how automatic indexing works in DocumentDB and excerpted from the "Schema-Agnostic Indexing with Azure DocumentDB" paper which will be presented at the [VLDB conference in 2015](http://www.vldb.org/2015/). After reading this, you will be answer the following questions:
+This article is excerpted from the ["Schema-Agnostic Indexing with Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, which will be presented at the [41st Internal Conference on Very Large Databases](http://www.vldb.org/2015/) between August 31 - September 4, 2015, and is an introduction into how indexing works in Azure DocumentDB. 
+
+After reading this, you will be answer the following questions:
 
 - How does DocumentDB infer the schema from a JSON document?
 - How does DocumentDB build an index across disparate docuemnts?
@@ -60,6 +62,7 @@ The default indexing policy automatically indexes all properties of all document
 DocumentDB’s indexing is designed for storage efficiency and to handle multi-tenancy. For cost effectiveness, the on-disk storage overhead of the index is low and predictable. Index updates are also performed within the budget of system resources allocated per DocumentDB collection.
 
 ##<a name="NextSteps"></a> Next steps
-- Now that you've seen how indexing works, learn about how to [Query with DocumentDB SQL](documentdb-sql-query.md)
+- Download ["Schema-Agnostic Indexing with Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), to be presented at the 41st Internal Conference on Very Large Databases, August 31 - September 4, 2015.
+- [Query with DocumentDB SQL](documentdb-sql-query.md)
 - Learn about how to customize the DocumentDB index [here](documentdb-indexing-policies.md)
  

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitor, diagnose, and troubleshoot Storage | Azure" 
+	pageTitle="Monitor, diagnose, and troubleshoot Storage | Microsoft Azure" 
 	description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues." 
 	services="storage" 
 	documentationCenter="" 

@@ -69,24 +69,13 @@ This example retrieves a database named "Database02" from a server named "Server
 
 This cmdlet lists the backup restore points for an Azure SQL database. The restore points are used to restore the database.
 The properties for the returned object are as follows.
-<table>
-   <tr>
-    <td>Property</td>
-     <td>Description</td>
-   </tr>
-   <tr>
-    <td>RestorePointType</td>
-     <td>DISCRETE / CONTINUOUS. Discrete restore points describe the possible point-in-times that an Azure SQL database can be restored to. Continuous restore points describe the earliest possible point-in-times that an Azure SQL database can be restored to. The database can be restored to any point-in-time after the earliest point.</td>
-   </tr>
-  <tr>
-    <td>EarliestRestoreDate</td>
-     <td>Earliest Restore Time (Populated when restorePointType = CONTINUOUS)</td>
-   </tr>
-  <tr>
-    <td>RestorePointCreationDate </td>
-     <td>Backup Snapshot Time (Populated when restorePointType = DISCRETE)</td>
-   </tr>
-</table>
+
+Property|Description
+---|---
+RestorePointType|DISCRETE / CONTINUOUS. Discrete restore points describe the possible point-in-times that an Azure SQL database can be restored to. Continuous restore points describe the earliest possible point-in-times that an Azure SQL database can be restored to. The database can be restored to any point-in-time after the earliest point.
+EarliestRestoreDate|Earliest Restore Time (Populated when restorePointType = CONTINUOUS)
+RestorePointCreationDate |Backup Snapshot Time (Populated when restorePointType = DISCRETE)
+
 ### Example 1: Retrieving a database’s restore points by name on a server
 This example retrieves the restore points for a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."
 
@@ -117,7 +106,3 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
-
-
-
-

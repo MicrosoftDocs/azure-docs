@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/06/2015"
 	ms.author="sdanie"/>
 
 # How to protect a Web API backend with Azure Active Directory and API Management
 
 The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
 
--	Build a Web API backend and secure it with AAD
--	Import the API into API Management
--	Configure the Developer portal to call the API
--	Configure a desktop application to call the API
--	Configure a JWT validation policy to pre-authorize requests
+-	Build a Web API backend and secure it with AAD - starting at 1:30
+-	Import the API into API Management - starting at 7:10
+-	Configure the Developer portal to call the API - starting at 9:09
+-	Configure a desktop application to call the API - starting at 18:08
+-	Configure a JWT validation policy to pre-authorize requests - starting at 20:47
 
 >[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 

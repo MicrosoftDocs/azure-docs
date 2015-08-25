@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Getting started with Azure Queue storage and Visual Studio connected services"
-	description="How to get started using Azure Queue storage in an ASP.NET 5 project in Visual Studio"
+	pageTitle="Getting started with Azure queue storage and Visual Studio connected services"
+	description="How to get started using Azure queue storage in an ASP.NET 5 project in Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -16,7 +16,7 @@
 	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
-# Getting started with Azure Queue storage and Visual Studio connected services
+# Getting started with Azure queue storage and Visual Studio connected services
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet5-getting-started-queues.md)
@@ -37,7 +37,13 @@ To get started, you first need to create an Azure queue in your storage account.
 
 **NOTE:** Some of the APIs that perform calls to Azure storage in ASP.NET 5 are asynchronous. See [Asynchronous programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
 
-See [How to use queue storage from .NET](storage-dotnet-how-to-use-queues.md/ "How to use Queue Storage from .NET") for more information.
+- See [How to use queue storage from .NET](storage-dotnet-how-to-use-queues.md) for more information on programmatically manipulating queues.
+- See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
+- See [Cloud Services documentation](http://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
+- See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
+
+
+
 
 
 ##Access queues in code

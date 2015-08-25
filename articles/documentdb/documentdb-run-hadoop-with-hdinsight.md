@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Run a Hadoop job using DocumentDB and HDInsight | Azure" 
+	pageTitle="Run a Hadoop job using DocumentDB and HDInsight | Microsoft Azure" 
 	description="Learn how to run a simple Hive, Pig, and MapReduce job with DocumentDB and Azure HDInsight."
 	services="documentdb" 
 	authors="AndrewHoh" 

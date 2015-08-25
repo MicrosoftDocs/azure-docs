@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Attach a disk to a virtual machine | Azure"
+	pageTitle="Attach a disk to a virtual machine | Microsoft Azure"
 	description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use."
 	services="virtual-machines, storage"
 	documentationCenter=""

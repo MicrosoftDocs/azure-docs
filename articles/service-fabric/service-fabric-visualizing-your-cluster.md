@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Visualizing your cluster using Service Fabric Explorer
@@ -74,4 +74,3 @@ To view a remote Service Fabric cluster, click on **Connect** to bring up the **
 [connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
- 
