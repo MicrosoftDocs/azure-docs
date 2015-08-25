@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Storage Blob Connector" 
-   description="Get started with Azure Storage Blob Connector" 
+   pageTitle="Using the Azure Storage Blob Connector in Logic Apps | Microsoft Azure App Service" 
+   description="How to create and configure the Azure Storage Blob Connector or API app and use it in a logic app in Azure App Service" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="anuragdalmia" 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="rajram"/>
    
-# Azure Storage Blob Connector
-Connect to your Azure Storage Blob to upload, download, and delete blobs from the blob container. Connectors can be used in Logic Apps as a part of a "workflow". 
+# Get started with the Azure Storage Blob Connector and add it to your Logic App 
+Connect to your Azure Storage Blob to upload, download, and delete blobs from the blob container. Connectors are used in Logic Apps as a part of a "workflow". 
 
 ## Triggers and Actions
 *Triggers* are events that happen. For example, when an order is updated or when a new customer is added. An *Action* is the result of the trigger. For example, when an order is updated, send an alert to the salesperson. Or, when a new customer is added, send a welcome email to the new customer. 

@@ -83,7 +83,7 @@ An Azure Resource Manager Template makes it possible for you to deploy and manag
             "contentVersion": "1.0.0.0",
         }
 
-6. [Parameters](https://msdn.microsoft.com/library/azure/dn835138.aspx#parameters) are not always required, but they make template management easier. They describe the type of the value, the default value if needed, and possibly the allowed values of the parameter. For this tutorial, the parameters that are used to create a virtual machine, a storage account, and a virtual network are added to the template.
+6. [Parameters](../resource-group-authoring-templates.md#parameters) are not always required, but they make template management easier. They describe the type of the value, the default value if needed, and possibly the allowed values of the parameter. For this tutorial, the parameters that are used to create a virtual machine, a storage account, and a virtual network are added to the template.
 
     Add the parameters element and its child elements after the contentVersion element:
 
@@ -114,7 +114,7 @@ An Azure Resource Manager Template makes it possible for you to deploy and manag
           },
         }
 
-7.	[Variables](https://msdn.microsoft.com/library/azure/dn835138.aspx#variables) can be used in a template to specify values that may change frequently or values that need to be created from a combination of parameter values.
+7.	[Variables](../resource-group-authoring-templates.md#variables) can be used in a template to specify values that may change frequently or values that need to be created from a combination of parameter values.
 
     Add the variables element after the parameters section:
 
@@ -150,7 +150,7 @@ An Azure Resource Manager Template makes it possible for you to deploy and manag
           },
         }
 
-8.	[Resources](https://msdn.microsoft.com/library/azure/dn835138.aspx#resources) such as the virtual machine, the virtual network, and the storage account are defined next in the template.
+8.	[Resources](../resource-group-authoring-templates.md#resources) such as the virtual machine, the virtual network, and the storage account are defined next in the template.
 
     Add the resources section after the variables section:
 

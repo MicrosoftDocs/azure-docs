@@ -1,6 +1,6 @@
 <properties
-   pageTitle="POP3 Connector API App"
-   description="How to use the POP3Connector"
+   pageTitle="Using the POP3 Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the POP3 Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-# Using the POP3 connector in your logic app #
+# Get started with the POP3 Connector and add it to your Logic App
+Connect to a POP3 server to retrieve emails, including emails with attachments.
 
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the POP3 Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
-POP3 Connector lets you connect to a POP3 server and provides a trigger to retrieve emails with attachments.
 
 ## Creating an POP3 connector for your Logic App ##
 To use the POP3 connector, you need to first create an instance of the POP3 connector API app. This can be done from either the logic app designer directly or outside it. Creating an instance outside the designer can be done as follows:

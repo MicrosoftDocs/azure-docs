@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the Azure Service Bus Connector in Azure App Service"
-   description="How to use the Azure Service Bus Connector"
+   pageTitle="Using the Azure Service Bus Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the Azure Service Bus Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="andalmia"/>
 
 
-# Azure Service Bus connector
-
-Azure Service Bus connector lets you send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.
+# Get started with the Azure Service Bus Connector and add it to your Logic App 
+Connect to Azure Service Bus to send messages to Queues and Topics and receive messages from Queues and Subscriptions. Connectors are used in Logic Apps as a part of a "workflow". 
 
 ## Triggers and Actions
 Triggers are events that happen. For example, when an order is updated or when a new customer is added. An Action is the result of the trigger. For example, when an order or a new message is put in a queue, send an alert or a message.  
