@@ -31,4 +31,4 @@ You will learn to create a VNet from the Azure portal by using the UI, and by de
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-portal-include](../../includes/virtual-networks-create-vnet-classic-portal-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-classic-netcfg-ps-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-vnet-classic-netcfg-portal-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]

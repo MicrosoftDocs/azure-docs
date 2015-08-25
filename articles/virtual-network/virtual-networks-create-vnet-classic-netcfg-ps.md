@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-This document covers creating a VNet by using the classic deployment model. You can also [create a virtual network in the Resource Manager deployment model](virtual-networks-create-vnet-arm-template-click.md).
+This document covers creating a VNet by using the classic deployment model. You can also [create a virtual network in the Resource Manager deployment model](virtual-networks-create-vnet-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
