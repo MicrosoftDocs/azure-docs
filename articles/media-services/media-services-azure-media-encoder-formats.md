@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2015" 
+	ms.date="08/24/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Encoder formats and codecs
@@ -27,7 +27,7 @@ File format (file extensions)|Supported
 ---|---
 3GPP, 3GPP2 (.3gp, .3g2, .3gp2)	|Yes
 Advanced Systems Format (ASF) (.asf)	|Yes
-Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream] (.mts, .m2ts)	|Yes
+Advanced Video Coding High Definition (AVCHD) [ MPEG-2 Transport Stream ] (.mts, .m2ts)	|Yes
 Audio-Video Interleaved (AVI) (.avi)	|Yes
 Digital camcorder MPEG-2 (MOD) (.mod)	|Yes
 DVD transport stream (TS) file (.ts)	|Yes
