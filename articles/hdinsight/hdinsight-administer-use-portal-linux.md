@@ -149,30 +149,11 @@ Use the following to understand the icons at the top of this blade, and in the _
 
 ###<a name="scaling"></a>Scaling
 
-The cluster scaling feature allows you to change the number of data nodes used by a cluster that is running in Azure HDInsight without having to delete and re-create the cluster.
-
-You can perform scaling operations while other jobs or processes are running on a cluster.
-
-The different cluster types are affected by scaling as follows:
-
-* __Hadoop__: When scaling down the number of nodes in a cluster, some of the services in the cluster are restarted. This can cause jobs running or pending to fail at the completion of the scaling operation. You can resubmit the jobs once the operation is complete.
-
-* __HBase__: Regional servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance regional servers, connect to the headnode of the cluster using SSH and run the following commands:
-
-	1. `hbase shell`
-	2. `balancer`
-
-* __Storm__: You should rebalance any running Storm topologies after a scaling operation has been performed. This allows the topology to readjust parallelism settings based on the new number of nodes in the cluster. To rebalance running topologies, use one of the following options:
-
-	* __SSH__: Connect to the server and use the following command to rebalance a topology:
-	
-			storm rebalance TOPOLOGYNAME
-			
-		You can also specify parameters to override the parallelism hints originally provided by the topology. For example, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` will reconfigure the topology to 5 worker processes, 3 executors for the blue-spout component, and 10 executors for the yellow-bolt component.
-
 To scale a cluster using the portal, select your HDInsight cluster and then select __Scale Cluster__. Enter the __Number of worker nodes__ you wish to set for the cluster, and then click __Save__.
 
 ![image of scaling ui](./media/hdinsight-administer-use-portal-linux/scaling.png)
+
+For more information on scaling operations, see [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md#scaling).
 
 ##Monitor a cluster
 

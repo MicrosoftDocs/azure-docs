@@ -46,7 +46,7 @@ Before you begin this tutorial, you must have the following:
 
 - **Azure SQL database**: This document provides instructions for creating an example SQL database. For more information on SQL Database, see [Get started using Azure SQL database][sqldatabase-get-started].
 
-* **SQL Server**: The steps in this document can also be used, with some modification, with SQL Server. For more information on requirements specific to using this article with SQL Server, see the [Using SQL Server](#using-sql-server) section.
+* **SQL Server**: The steps in this document can also be used, with some modification, with SQL Server; however, both the HDInsight cluster and SQL Server must be on the same Azure Virtual Network. For more information on requirements specific to using this article with SQL Server, see the [Using SQL Server](#using-sql-server) section.
 
 ##Understand the scenario
 

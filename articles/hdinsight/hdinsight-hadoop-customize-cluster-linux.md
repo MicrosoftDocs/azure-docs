@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="08/21/2015" 
 	ms.author="larryfr"/> 
 
 # Customize HDInsight clusters using Script Action
@@ -31,7 +31,7 @@ Script Action is only used while a clusters is in the process of being created. 
 
 The script is ran while HDInsight is being configured. At this stage, the script is run in parallel on all the specified nodes in the cluster, and is ran with root privileges on the nodes. 
 
-> [AZURE.NOTE] Because you have root privileges on the cluster nodes during the **ClusterCustomization** stage, you can use the script to perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully ascertain the health and state of the cluster while it is being created.
+> [AZURE.NOTE] Because you have root privileges on the cluster nodes when the script is ran, you can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully ascertain the health and state of the cluster while it is being created.
 
 Each cluster can accept multiple script actions that are invoked in the order in which they are specified. A script can be ran on the head nodes, the worker nodes, or both.
 
@@ -45,6 +45,7 @@ HDInsight provides several scripts to install the following components on HDInsi
 
 Name | Script
 ----- | -----
+**Install Hue** | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh. See [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md).
 **Install Spark** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh. See [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md).
 **Install R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. See [Install and use R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md).
 **Install Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md).
@@ -62,12 +63,239 @@ Name | Script
 	| -------- | ----- |
 	| Name | Specify a name for the script action. |
 	| Script URI | Specify the URI to the script that is invoked to customize the cluster. |
-	| Head/Worker | Specify the nodes (**Head** or **Worker**) on which the customization script is run. |
+	| Head/Worker | Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the customization script is run. |
 	| Parameters | Specify the parameters, if required by the script. |
 
 	Press ENTER to add more than one script action to install multiple components on the cluster. 
 
 3. Click **Select** to save the script action configuration and continue with cluster provisioning. 
+
+##Use a Script Action from Azure Resource Manager templates
+
+In this section, we use Azure Resource Manager (ARM) templates to provision an HDInsight cluster and also use a script action to install custom components (R, in this example) on the cluster. This section provides a sample ARM template to provision a cluster using script action. 
+
+### Before you begin
+
+* For information about configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md). 
+* For instructions on how to create ARM templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). 
+* If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager).
+
+### Provision cluster using script action
+
+1. Copy the following template to a location on your computer. This template installs R on headnode as well as worker nodes in the cluster. You can also verify if the JSON template is valid. Paste your template content into [JSONLint](http://jsonlint.com/), an online JSON validator tool.
+
+			{
+		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+		    "contentVersion": "1.0.0.0",
+		    "parameters": {
+		        "clusterLocation": {
+		            "type": "string",
+		            "defaultValue": "West US",
+		            "allowedValues": [ "West US" ]
+		        },
+		        "clusterName": {
+		            "type": "string"
+		        },
+		        "clusterUserName": {
+		            "type": "string",
+		            "defaultValue": "admin"
+		        },
+		        "clusterUserPassword": {
+		            "type": "securestring"
+		        },
+		        "sshUserName": {
+		            "type": "string",
+		            "defaultValue": "hdiuser"
+		        },
+		        "sshPassword": {
+		            "type": "securestring"
+		        },
+		        "clusterStorageAccountName": {
+		            "type": "string"
+		        },
+		        "clusterStorageAccountResourceGroup": { 
+		            "type": "string"
+		        },
+		        "clusterStorageType": {
+		            "type": "string",
+		            "defaultValue": "Standard_LRS",
+		            "allowedValues": [
+		                "Standard_LRS",
+		                "Standard_GRS",
+		                "Standard_ZRS"
+		            ]
+		        },
+		        "clusterStorageAccountContainer": {
+		            "type": "string"
+		        },
+		        "clusterHeadNodeCount": {
+		            "type": "int",
+		            "defaultValue": 1
+		        },
+		        "clusterWorkerNodeCount": {
+		            "type": "int",
+		            "defaultValue": 2
+		        }
+		    },
+		    "variables": {
+		    },
+		    "resources": [
+		        {
+		            "name": "[parameters('clusterStorageAccountName')]",
+		            "type": "Microsoft.Storage/storageAccounts",
+		            "location": "[parameters('clusterLocation')]",
+		            "apiVersion": "2015-05-01-preview",
+		            "dependsOn": [ ],
+		            "tags": { },
+		            "properties": {
+		                "accountType": "[parameters('clusterStorageType')]"
+		            }
+		        },
+		        {
+		            "name": "[parameters('clusterName')]",
+		            "type": "Microsoft.HDInsight/clusters",
+		            "location": "[parameters('clusterLocation')]",
+		            "apiVersion": "2015-03-01-preview",
+		            "dependsOn": [
+		                "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
+		            ],
+		            "tags": { },
+		            "properties": {
+		                "clusterVersion": "3.2",
+		                "osType": "Linux",
+		                "clusterDefinition": {
+		                    "kind": "hadoop",
+		
+		                    "configurations": {
+		                        "gateway": {
+		                            "restAuthCredential.isEnabled": true,
+		                            "restAuthCredential.username": "[parameters('clusterUserName')]",
+		                            "restAuthCredential.password": "[parameters('clusterUserPassword')]"
+		                        }
+		                    }
+		                },
+		                "storageProfile": {
+		                    "storageaccounts": [
+		                        {
+		                            "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
+		                            "isDefault": true,
+		                            "container": "[parameters('clusterStorageAccountContainer')]",
+		                            "key": "[listKeys(resourceId(parameters('clusterStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).key1]"
+		                        }
+		                    ]
+		                },
+		                "computeProfile": {
+		                    "roles": [
+		                        {
+		                            "name": "headnode",
+		                            "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
+		                            "hardwareProfile": {
+		                                "vmSize": "Large"
+		                            },
+		                            "osProfile": {
+		                                "linuxOperatingSystemProfile": {
+		                                    "username": "[parameters('sshUserName')]",
+		                                    "password": "[parameters('sshPassword')]"
+		                                }
+		                            },
+		                            "scriptActions": [
+		                                {
+		                                    "name": "installR",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
+		                                    "parameters": ""
+		                                }
+		                            ]
+		                        },
+		                        {
+		                            "name": "workernode",
+		                            "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
+		                            "hardwareProfile": {
+		                                "vmSize": "Large"
+		                            },
+		                            "osProfile": {
+		                                "linuxOperatingSystemProfile": {
+		                                    "username": "[parameters('sshUserName')]",
+		                                    "password": "[parameters('sshPassword')]"
+		                                }
+		                            },
+		                            "scriptActions": [
+		                                {
+		                                    "name": "installR",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
+		                                    "parameters": ""
+		                                }
+		                            ]
+		                        }
+		                    ]
+		                }
+		            }
+		        }
+		    ],
+		    "outputs": {
+		        "cluster":{
+		            "type" : "object",
+		            "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
+		        }
+		    }
+		}
+
+
+	
+2. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
+
+		Add-AzureAccount
+	
+		Id                             Type       ...
+		--                             ----    
+		someone@example.com            User       ...   
+
+3. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
+
+		Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+
+4. Switch to the Azure Resource Manager module.
+
+		Switch-AzureMode AzureResourceManager
+
+5. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
+
+		New-AzureResourceGroup -Name myresourcegroup -Location "West US"
+
+		ResourceGroupName : myresourcegroup
+		Location          : westus
+		ProvisioningState : Succeeded
+		Tags              :
+		Permissions       :
+		            		Actions  NotActions
+		            		=======  ==========
+		            		*
+		ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
+
+
+6. To create a new deployment for your resource group, run the **New-AzureResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, and the path or URL to the template you created. If your template requires any parameters, you must pass those parameters as well. In this case, the script action to install R on the cluster does not require any parameters.
+
+
+		New-AzureResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
+
+
+	You will be prompted to provide values for the parameters defined in the template.
+
+7. When the resource group has been deployed, you will see a summary of the deployment.
+
+		  DeploymentName    : mydeployment
+		  ResourceGroupName : myresourcegroup
+		  ProvisioningState : Succeeded
+		  Timestamp         : 8/17/2015 7:00:27 PM
+		  Mode              : Incremental
+		  ... 
+
+8. If your deployment fails, you can use the following cmdlets to get information about the failures.
+
+		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed
+
+	For detailed information about the deployment failures, use the following cmdlet.
+
+		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed -DetailedOutput
 
 ##Use a Script Action from Azure PowerShell
 
@@ -99,7 +327,7 @@ Perform the following steps:
 3. Use **Add-AzureHDInsightScriptAction** cmdlet to invoke the script. The following example uses the the script to install R on the cluster: 
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION
-		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install R"  -ClusterRoleCollection HeadNode,DataNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install R"  -ClusterRoleCollection HeadNode,WorkerNode,ZookeeperNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
 
 
 	The **Add-AzureHDInsightScriptAction** cmdlet takes the following parameters:
@@ -108,7 +336,7 @@ Perform the following steps:
 	| --------- | ---------- |
 	| Config | Configuration object to which script action information is added. |
 	| Name | Name of the script action. |
-	| ClusterRoleCollection | Specifies the nodes on which the customization script is run. The valid values are **HeadNode** (to install on the head node) or **DataNode** (to install on all the data nodes). You can use either or both values. |
+	| ClusterRoleCollection | Specifies the nodes on which the customization script is run. The valid values are **HeadNode** (to install on the head node), **WorkerNode** (to install on all the data nodes), or **ZookeeperNode** (to install on the zookeeper node). You can use either or all values. |
 	| Parameters | Parameters required by the script. |
 	| Uri | Specifies the URI to the script that is executed. |
 	
@@ -248,6 +476,24 @@ The HDInsight service provides several ways to use custom components. Regardless
 2. Cluster customization - During cluster creation, you can specify additional settings and custom components that will be installed on the cluster nodes.
 
 3. Samples - For popular custom components, Microsoft and others may provide samples of how these components can be used on the HDInsight clusters. These samples are provided without support.
+
+##Troubleshooting
+
+You can use Ambari web UI to view information logged by scripts during cluster provisioning.
+
+1. In your browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
+
+	When prompted, enter the admin account name (admin) and password for the cluster. You may have to re-enter the admin credentials in a web form.
+	
+2. From the bar at the top of the page, select the __ops__ entry. This will show a list of current and previous operations performed on the cluster through Ambari.
+
+	![Ambari web UI bar with ops selected](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+	
+3. Find the entries that have __run\_customscriptaction__ in the __Operations__ column. These are created when the Script Actions are ran.
+
+	![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+
+	Select this entry, and drill down through the links to view the STDOUT and STDERR output generated when the script was ran on the cluster.
 
 ## Next steps
 

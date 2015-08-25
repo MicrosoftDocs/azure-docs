@@ -39,6 +39,8 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 - [Ensure that the cluster customization script is idempotent](#bPS3)
 - [Ensure high availability of the cluster architecture](#bPS5)
 - [Configure the custom components to use Azure Blob storage](#bPS6)
+- [Write information to STDOUT and STDERR](#bPS7)
+- [Save files as ASCII with LF line endings](#bps8)
 
 ### <a name="bPS1"></a>Target the Hadoop version
 
@@ -74,13 +76,36 @@ For example, the following copies the giraph-examples.jar file from the local fi
 
     hadoop fs -copyFromLocal /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 
+### <a name="bPS7"></a>Write information to STDOUT and STDERR
+
+Information written to STDOUT and STDERR is logged, and can be viewed after the cluster has been provisioned by using the Ambari web UI.
+
+Most utilities and installation packages will already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT use `echo`. For example:
+
+        echo "Getting ready to install Foo"
+
+By default, `echo` will send the string to STDOUT. To direct it to STDERR, add `>&2` before `echo`. For example:
+
+        >&2 echo "An error occured installing Foo"
+
+This redirects information sent to STDOUT (1, which is default so not listed here,) to STDERR (2). For more information on IO redirection, see [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+
+For more information on viewing information logged by Script Actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+
+###<a name="bps8"></a> Save files as ASCII with LF line endings
+
+Bash scripts should be stored as ASCII format, with lines terminated by LF. If files are stored as UTF-8, which may include a Byte Order Mark at the beginning of the file, or with line endings of CRLF, which is common for Windows editors, then the script will fail with errors similar to the following:
+
+    $'\r': command not found
+    line 1: #!/usr/bin/env: No such file or directory
+
 ## <a name="helpermethods"></a>Helper methods for custom scripts
 
 Script Action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh), and can be included in your scripts using the following:
 
     # Import the helper method module.
     wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
-    
+
 This makes the following helpers available for use in your script:
 
 | Helper usage | Description |
@@ -88,7 +113,6 @@ This makes the following helpers available for use in your script:
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` | Downloads a file from the source URL to the specified file path. By default, it will not overwrite an existing file. |
 | `untar_file TARFILE DESTDIR` | Extracts a tar file (using `-xf`,) to the destination directory. |
 | `test_is_headnode` | If ran on a cluster head node, returns 1; otherwise, 0. |
-| `test_is_active_headnode` | If the current head node is the active node (running the namenode process,) returns a 1; otherwise, 0. |
 | `test_is_datanode` | If the current node is a data (worker) node, returns a 1; otherwise, 0. |
 | `test_is_first_datanode` | If the current node is the first data (worker) node (named workernode0,) returns a 1; otherwise, 0. |
 
@@ -114,7 +138,7 @@ Here are the steps we took when preparing to deploy these scripts:
 
 - Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment. This can be any of the default or additional Storage accounts specified at the time of cluster deployment, or any other publicly accessible storage container.
 
-- Add checks into scripts to make sure that they execute idempotently, so that the script can be executed multiple times on the same node.
+- Add checks into scripts to make sure that they execute impotently, so that the script can be executed multiple times on the same node.
 
 - Use a temporary file directory /tmp to keep the downloaded files used by the scripts and then clean them up after scripts have executed.
 
@@ -128,12 +152,44 @@ You can use Script Actions to customize HDInsight clusters by using the Azure po
 
 Microsoft provides sample scripts to install components on an HDInsight cluster. The sample scripts and instructions on how to use them are available at the links below:
 
+- [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
 - [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md)
 - [Install and use R on HDInsight Hadoop clusters](hdinsight-hadoop-r-scripts-linux.md)
 - [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
 - [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)  
 
 > [AZURE.NOTE] The documents linked above are specific to Linux-based HDInsight clusters. For a scripts that work with Windows-based HDInsight, see [Script action development with HDInsight (Windows)](hdinsight-hadoop-script-actions.md) or use the links available at the top of each article.
+
+##Troubleshooting
+
+The following are errors you may encounter when using scripts you have developed:
+
+__Error__: `$'\r': command not found`. Sometimes followed by `syntax error: unexpected end of file`.
+
+_Cause_: This error is caused when the lines in a script end with CRLF. Unix systems expect only LF as the line ending.
+
+This problem most often occurs when the script is authored on a Windows environment, as CRLF is a common line ending for many text editors on Windows.
+
+_Resolution_: If it is an option in your text editor, select Unix format or LF for the line ending. You may also use the following commands on a Unix system to change the CRLF to an LF:
+
+> [AZURE.NOTE] The following commands are roughly equivalent in that they should change the CRLF line endings to LF. Select one based on the utilities available on your system.
+
+| Command | Notes |
+| ------- | ----- |
+| `unix2dos -b INFILE` | The original file will be backed up with a .BAK extension |
+| `tr -d '\r' < INFILE > OUTFILE` | OUTFILE will contain a version with only LF endings |
+| `perl -pi -e 's/\r\n/\n/g' INFILE` | This will modify the file directly without creating a new file |
+| ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` | OUTFILE will contain a version with only LF endings.
+
+__Error__: `line 1: #!/usr/bin/env: No such file or directory`.
+
+_Cause_: This error occurs when the script was saved as UTF-8 with a Byte Order Mark (BOM).
+
+_Resolution_: Save the file either as ASCII, or as UTF-8 without a BOM. You may also use the following command on a Linux or Unix system to create a new file without the BOM:
+
+    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+
+For the above command, replace __INFILE__ with the file containing the BOM. __OUTFILE__ should be a new file name, which will contain the script without the BOM.
 
 ## <a name="seeAlso"></a>See also
 

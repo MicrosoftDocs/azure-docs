@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="08/20/2015" 
 	ms.author="larryfr"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
@@ -37,7 +37,11 @@ In this topic, we use a Script Action custom script to install Spark on an HDIns
 
 You can modify this script or create your own script to install other versions of Spark.
 
-## <a name="install"></a>How do I install Spark?
+## What the script does
+
+This script installs Spark version 1.3.1 into `/usr/hdp/current/spark`.
+
+## <a name="install"></a>Install Spark using Script Actions
 
 A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal. 
 
@@ -51,6 +55,7 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh
 	* __HEAD__: Check this option
 	* __WORKER__: Check this option
+	* __ZOOKEEPER__: Check this option to install on the Zookeeper node.
 	* __PARAMETERS__: Leave this field blank
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
@@ -212,13 +217,15 @@ In this section, you will create a Scala application that counts the number of l
 
 ## Next steps
 
+- [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
+
 - [Install R on HDInsight clusters][hdinsight-install-r] provides instructions on how to use cluster customization to install and use R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
 
 - [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
 
 - [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on data stored.
 
-
+- [Install Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Use cluster customization to install Hue on HDInsight Hadoop clusters. Hue is a set of Web applications used to interact with a Hadoop cluster.
 
 
 

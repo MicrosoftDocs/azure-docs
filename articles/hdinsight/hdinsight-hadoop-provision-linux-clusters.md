@@ -45,11 +45,6 @@ Before you begin this article, you must have the following:
 
 ## <a id="configuration"></a>Configuration options
 
-### Clusters on Linux
-
-HDInsight provides the option of provisioning Linux clusters on Azure. Provision a Linux cluster if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information about Azure HDInsight on Linux, see [Introduction to Hadoop on HDInsight](hdinsight-hadoop-introduction.md).
-
-
 ### Additional storage
 
 During configuration, you must specify an Azure Blob storage account and a default container. This is used as the default storage location by the cluster. Optionally, you can specify additional blobs that will also be associated with your cluster.
@@ -63,6 +58,40 @@ For more information on using secondary blob stores, see [Using Azure Blob stora
 The metastore contains information about Hive tables, partitions, schemas, columns, etc. This information is used by Hive to locate where data is stored in Hadoop Distributed File System (HDFS), or Azure Blob storage for HDInsight. By default, Hive uses an embedded database to store this information.
 
 When provisioning an HDInsight cluster, you can specify a SQL database that will contain the metastore for Hive. This allows the metadata information to be preserved when you delete a cluster, as it is stored externally in the SQL database. For instructions on how to create a SQL database in Azure, see [Create your first Azure SQL Database](sql-database-get-started.md).
+
+### Customize clusters using Script action
+
+You can install additional components or customize cluster configuration by using scripts during provisioning. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the preview portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+
+
+### Use Azure virtual networks
+
+[Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
+
+* Connect cloud resources together in a private network (cloud-only).
+
+	![diagram of cloud-only configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
+
+* Connect your cloud resources to your local data-center network (site-to-site or point-to-site) by using a virtual private network (VPN).
+
+	Site-to-site configuration allows you to connect multiple resources from your data center to the Azure virtual network by using a hardware VPN or the Routing and Remote Access Service.
+
+	![diagram of site-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png)
+
+	Point-to-site configuration allows you to connect a specific resource to the Azure virtual network by using a software VPN.
+
+	![diagram of point-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png)
+
+For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+
+> [AZURE.NOTE] You must create the Azure virtual network before provisioning a cluster. For more information, see [How to create a Virtual Network](virtual-networks-create-vnet.md).
+>
+> Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks. Use Azure PowerShell cmdlet Get-AzureVNetConfig to check whether an existing Azure virtual network is location-based. If your virtual network is not location-based, you have the following options:
+>
+> - Export the existing Virtual Network configuration and then create a new Virtual Network. All new Virtual Networks are by default, location-based.
+> - Migrate to a location-based Virtual Network.  See [Migrate existing services to regional scope](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
+>
+> It is highly recommended to designate a single subnet for one cluster.
 
 
 ## <a id="options"></a> Options for provisioning an HDInsight Linux cluster
@@ -140,6 +169,14 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 
 	* Click the **HDInsight Version** drop-down and select the version you want to use for the cluster. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 
+
+	* **Virtual Network**: Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network.  
+
+		![Virtual network blade](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
+
+    	>[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
+
+
 	* Click **External Metastores** to specify SQL database that you want to use to save Hive and Oozie metadata associated with the cluster.
 
 		![Custom metastores blade](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.7.png "Specify external metastores")
@@ -148,6 +185,12 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 
 		>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
 
+	
+	* **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). On the Script Actions blade provide the details as shown in the screen capture.
+
+		![Script action blade](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.8.png "Specify script action")
+
+	
 	* Click **Azure Storage Keys** to specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
 
 		![Additional storage blade](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
