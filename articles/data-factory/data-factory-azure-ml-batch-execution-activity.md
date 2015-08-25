@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="08/24/2015" 
 	ms.author="spelluru"/>
 
 # Create predictive pipelines using Azure Machine Learning Batch Execution activity   
@@ -21,8 +21,9 @@
 
 > [AZURE.NOTE] See [Introduction to Azure Data Factory](data-factory-introduction.md) and [Build your first pipeline](data-factory-build-your-first-pipeline.md) articles to quickly get started with the Azure Data Factory service.
 
-Azure Data Factory enables you to easily create pipelines that leverage a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using Azure Data Factory, you can make use of big data pipelines (e.g. Pig and Hive) to process the data that you have ingested from various data sources, and use the Azure Machine Learning web services to make predictions on the data in batch. You use Azure Data Factory to orchestrate  data movement and processing, and then perform batch execution using Azure Machine Learning. To achieve this, you will need to do the following:
+Azure Data Factory enables you to easily create pipelines that leverage a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using Azure Data Factory, you can make use of big data pipelines (e.g. Pig and Hive) to process the data that you have ingested from various data sources, and use the Azure Machine Learning web services to make predictions on the data in batch. 
 
+You use Azure Data Factory to orchestrate  data movement and processing, and then perform batch execution using Azure Machine Learning. To achieve this, you will need to do the following:
 
 1. Create an Azure Machne Learning linked service. You will require the following:
 	1. **Request URI** for the Batch Execution API. You can find the Request URI by clicking on the **BATCH EXECUTION** link in the web services page (shown below).
@@ -35,54 +36,48 @@ Azure Data Factory enables you to easily create pipelines that leverage a publis
 
 
 ## Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
-In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. To invoke the Azure Machine Learning (ML) Web service from an Azure Data Factory pipeline, you first create an Azure ML linked service and use the AzureMLBatchExecution activity in the pipeline. You can pass Azure blob datasets that are input and output for the activity as Web service input and Web service output parameters. The Azure ML Batch Execution activity can have zero or more inputs and one or more outputs.  
-
-In the following example, note the following:
- 
-- **type** of the activity is set to **AzureMLBatchExecution**.
-- The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. 
-- The **DecisionTreeInputBlob** is passed as an input to the Web service by using the **webServiceInput** JSON property and **DecisionTreeResultBlob** as an output to the Web service by using the **webServiceOutputs** JSON property.   
+In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Azure Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the Web service by using the **webServiceInput** JSON property and **DecisionTreeResultBlob** as an output to the Web service by using the **webServiceOutputs** JSON property. Only datasets that are inputs/outputs for the activity can be passed as Web service inputs and outputs.    
 
 
-		{
-		  "name": "PredictivePipeline",
-		  "properties": {
-		    "description": "use AzureML model",
-		    "activities": [
-		      {
-		        "name": "MLActivity",
-		        "type": "AzureMLBatchExecution",
-		        "description": "prediction analysis on batch input",
-		        "inputs": [
-		          {
-		            "name": "DecisionTreeInputBlob"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "DecisionTreeResultBlob"
-		          }
-		        ],
-		        "linkedServiceName": "MyAzureMLLinkedService",
-                "typeProperties":
-                {
-                    "webServiceInput": "DecisionTreeInputBlob ",
-                    "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob "
-                    }                
-                },
-		        "policy": {
-		          "concurrency": 3,
-		          "executionPriorityOrder": "NewestFirst",
-		          "retry": 1,
-		          "timeout": "02:00:00"
-		        }
-		      }
-		    ],
-		    "start": "2015-02-13T00:00:00Z",
-		    "end": "2015-02-14T00:00:00Z"
-		  }
-		}
+	{
+	  "name": "PredictivePipeline",
+	  "properties": {
+	    "description": "use AzureML model",
+	    "activities": [
+	      {
+	        "name": "MLActivity",
+	        "type": "AzureMLBatchExecution",
+	        "description": "prediction analysis on batch input",
+	        "inputs": [
+	          {
+	            "name": "DecisionTreeInputBlob"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "DecisionTreeResultBlob"
+	          }
+	        ],
+	        "linkedServiceName": "MyAzureMLLinkedService",
+            "typeProperties":
+            {
+                "webServiceInput": "DecisionTreeInputBlob ",
+                "webServiceOutputs": {
+                    "output1": "DecisionTreeResultBlob "
+                }                
+            },
+	        "policy": {
+	          "concurrency": 3,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "02:00:00"
+	        }
+	      }
+	    ],
+	    "start": "2015-02-13T00:00:00Z",
+	    "end": "2015-02-14T00:00:00Z"
+	  }
+	}
 
 > [AZURE.NOTE] Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, DecisionTreeInputBlob is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.   
 
