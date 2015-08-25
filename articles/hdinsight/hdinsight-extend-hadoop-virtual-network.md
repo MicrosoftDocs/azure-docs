@@ -55,9 +55,9 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 
 	* **Invoking HDInsight services or jobs** from an LOB application. An example is using HBase Java APIs to store and retrieve data from an HDInsight HBase cluster.
 
-For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+> [AZURE.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](/documentation/services/virtual-network/).
 >
 > Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group.
 >
@@ -169,4 +169,4 @@ The following examples demonstrate how to use HDInsight with Azure Virtual Netwo
 
 * [Use Sqoop with Hadoop in HDInsight](hdinsight-use-sqoop-mac-linux.md) - Provides information on using Sqoop to transfer data with SQL Server over a virtual network.
 
-To learn more about Azure virtual networks, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+To learn more about Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
