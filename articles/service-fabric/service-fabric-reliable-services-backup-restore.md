@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Collections"
-   description="Backup and Restore for Reliable Collections"
+   pageTitle="Reliable Service Backup and Restore | Microsoft Azure"
+   description="Conceptual Documentation for Service Fabric Reliable Service Backup and Restore"
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -12,11 +12,11 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="required"
+   ms.workload="na"
    ms.date="08/18/2015"
    ms.author="mcoskun"/>
 
-# Backup and Restore
+# Reliable Service Backup and Restore
 
 Service Fabric is a high availability platform.
 State of stateful services are replicated across multiple replicas.
