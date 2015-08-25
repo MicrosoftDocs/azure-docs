@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="08/25/2015" 
 	ms.author="ricksal"/>
 
-# Upload images to Azure Blob Storage from an Android  device
+# Upload images to Azure Storage from an Android  device
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 This topic shows how to enable your Android Azure Mobile Services app to upload images to Azure Storage. 
 
-Mobile Services uses a SQL Database to store data. However, it's more efficient to store binary large object (BLOB) data in the Azure Storage service. In this tutorial you enable the Mobile Services quickstart app to take pictures with the Android camera, and upload the images to Azure Storage. 
+Mobile Services uses a SQL Database to store data. However, it's more efficient to store binary large object (BLOB) data in Azure Storage. In this tutorial you enable the Mobile Services quickstart app to take pictures with the Android camera, and upload the images to Azure Storage. 
 
 
 ## What you need to get started
@@ -356,7 +356,7 @@ Specify your app depends on having a camera, and needs permission to write to ex
 	    }
 	
 
-This code sends a request to the mobile service to insert a new TodoItem. The response contains the SAS, which is then used to upload the image from local storage to Azure Blob storage. 
+This code sends a request to the mobile service to insert a new TodoItem. The response contains the SAS, which is then used to upload the image from local storage to a blob in Azure storage. 
 
 
 ## Test uploading the images 
