@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="06/02/2015" 
+	ms.date="08/26/2015" 
 	ms.author="lauraa"/>
 
 
@@ -59,7 +59,10 @@ This isn't supported. Send us your feedback through [Azure Site Recovery Feedbac
 [Standard Geo-redundant storage](https://azure.microsoft.com/documentation/articles/storage-redundancy/#geo-redundant-storage) is supported. [Premium Storage Account](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/) is supported only for [VMware virtual machine or Physical machine scenarios](https://azure.microsoft.com/documentation/articles/site-recovery-vmware-to-azure). Support for [Standard locally redundant storage](https://azure.microsoft.com/en-us/documentation/articles/storage-redundancy/#locally-redundant-storage) is in backlogs, send us your feedback through [Standard locally redundant storage support](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
 
 ### Can I extended replication from existing recovery site to tertiary site?
-This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Support for exisiting extended replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Support for extending replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+
+### Can I seed the initial disks to Azure using offline mechanism?
+This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Support for offline replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ## Version support
 
