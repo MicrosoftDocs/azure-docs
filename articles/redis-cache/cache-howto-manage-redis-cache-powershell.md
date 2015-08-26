@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple"
-   ms.date="08/25/2015"
+   ms.date="08/26/2015"
    ms.author="riande"/>
 
 # Manage Azure Redis Cache with Azure PowerShell
@@ -46,8 +46,8 @@ The following script demonstrates how to create, update and delete an Azure Redi
 		Switch-AzureMode AzureResourceManager
 		$VerbosePreference = "Continue"
 
-		# Create a new Azure Cache.
-		$cacheName = "MovieCache91117"
+	        # Create a new cache with date string to make name unique. 
+		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm')) 
 		$location = "West US"
 		$resourceGroupName = "Default-Web-WestUS"
 
