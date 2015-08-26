@@ -89,9 +89,9 @@ By using Service Fabric, you can:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-* For more information: [Technical Overview](service-fabric/service-fabric-technical-overview).
-* Setup your Service Fabric [development environment](service-fabric/service-fabric-get-started).  
-* Choosing a [framework](service-fabric/service-fabric-choose-framework) for your service.
+* For more information: [Technical Overview](service-fabric-technical-overview).
+* Setup your Service Fabric [development environment](service-fabric-get-started).  
+* Choosing a [framework](service-fabric-choose-framework) for your service.
 
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
