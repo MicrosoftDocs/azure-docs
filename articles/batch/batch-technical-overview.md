@@ -83,12 +83,12 @@ Figure 3 shows a basic workflow to publish an application by using the Batch App
 
 **Figure 3. Workflow to publish and run an application with Batch Apps**
 
-1.	Prepare an **application image**&#151;a zip file of your existing application executables and any support files they need. These might be the same executables you run in a traditional server farm or cluster.
+1.	Prepare an **application image** - a zip file of your existing application executables and any support files they need. These might be the same executables you run in a traditional server farm or cluster.
 2.	Create a zip file of the **cloud assembly** that invokes and dispatches your workloads to the Batch service. This contains two components:
 
-	a. **Job splitter**&#151;Breaks a job down into tasks that can be processed independently. For example, in an animation scenario, the job splitter would take a movie rendering job and divide it into individual frames.
+	a. **Job splitter** - Breaks a job down into tasks that can be processed independently. For example, in an animation scenario, the job splitter would take a movie rendering job and divide it into individual frames.
 
-	b. **Task processor**&#151;Invokes the application executable for a given task. For example, in an animation scenario, the task processor would invoke a rendering program to render the single frame specified by the task.
+	b. **Task processor** - Invokes the application executable for a given task. For example, in an animation scenario, the task processor would invoke a rendering program to render the single frame specified by the task.
 
 3.	Use the Batch Apps API or developer tools to upload the zip files prepared in the previous two steps to an Azure storage account. These files must be in the storage account so that the Batch service can access them. This is typically done once per application, by a service administrator.
 4.	Provide a way to submit jobs to the enabled application service in Azure. This might be a plugin in your application UI, a web portal, or an unattended service as part of your backend system.
