@@ -144,7 +144,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ## 6. Add client-side monitoring
 
-You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client.
+You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client. 
 
 You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
@@ -206,9 +206,9 @@ If this is your first time, you'll be asked sign in or sign up to Microsoft Azur
 
 If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components.
 
-*No Application Insights option? Check you're using Visual Studio 2013 Update 3 or later, that Application Insights Tools are enabled in Extensions and Updates.*
+*No Application Insights option? Check that you're using Visual Studio 2013 Update 3 or later and that Application Insights Tools are enabled in Extensions and Updates.*
 
-#### Open Application Insights from your project.
+#### Open Application Insights from your project
 
 ![Right-click your project and open the Azure portal](./media/app-insights-start-monitoring-app-health-usage/appinsights-04-openPortal.png)
 
