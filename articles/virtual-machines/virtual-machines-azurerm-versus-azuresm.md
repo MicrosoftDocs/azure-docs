@@ -4,7 +4,7 @@
    services="virtual-machines"
    documentationCenter="dev-center-name"
    authors="mahthi"
-   manager="coreysa"
+   manager="timlt"
    editor=""
 	tags="azure-resource-manager,azure-service-management"/>
 

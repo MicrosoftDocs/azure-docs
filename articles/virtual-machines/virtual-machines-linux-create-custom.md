@@ -36,4 +36,4 @@ This topic describes how to create a *custom* virtual machine with the Azure CLI
 
 ## How to create a Linux virtual machine using the classic deployment model
 
-[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrating runbooks and integration packs from Orchestrator"
+   pageTitle="Migrating from Orchestrator to Azure Automation | Microsoft Azure"
    description="Describes how to migrate runbooks and integration packs from System Center Orchestrator to Azure Automation."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/22/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 

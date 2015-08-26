@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="StorSimple 8000 Series Update 1 release notes"
+    pageTitle="StorSimple 8000 Series Update 1 release notes | Microsoft Azure"
     description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 1."
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/12/2015"
+    ms.date="08/21/2015"
     ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1 release notes  
@@ -27,8 +27,9 @@ Please review the information contained in the release notes before you deploy t
 
 >[AZURE.IMPORTANT]
 > 
+- A critical patch, Update 1.2 was released on September 1. If you are currently using software version **6.3.9600.17521**, there is no action required on your part. If you are running versions prior to **6.3.9600.17491**, make sure that you apply this critical update. After you install the update, the software version will change to **6.3.9600.17XXX**.
 - A critical patch, Update 1.1, was released on June 23. This patch addresses an issue in the backup engine. If you applied Update 1 before June 23rd and are currently using software version **6.3.9600.17491**, make sure that you apply this critical update to avoid any issues with backups. After you install the update, the software version will change to **6.3.9600.17521**.
-- If you created a virtual device between May 27th and July 10th that is in  software version 6.3.9600.17481, create a new virtual device and fail over any volumes from the old virtual device to the new one. (This is because the older virtual device cannot be updated.) If you do not create a new virtual device, you might see that backups start failing. For failover and disaster recovery procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).
+- If you created a virtual device between May 27th and July 10th that is in  software version **6.3.9600.17481**, create a new virtual device and fail over any volumes from the old virtual device to the new one. (This is because the older virtual device cannot be updated.) If you do not create a new virtual device, you might see that backups start failing. For failover and disaster recovery procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
 - This release also contains disk firmware updates that can only be applied when the device is in Maintenance mode. These are disruptive updates that will result in down time for your device. You can apply these updates during planned maintenance.
 - It takes approximately 5-10 hours to install this update (including the Windows Updates). 
@@ -45,7 +46,7 @@ This update contains the following new features and improvements:
 
     Refer to the [migration guide](http://www.microsoft.com/download/details.aspx?id=47322) for details on how to migrate a StorSimple 5000-7000 series to an 8000 series device. 
 
-- **Availability in the Azure Government Portal** – StorSimple is now available in the Azure Government portal. See how to [deploy a StorSimple device in Azure Government Portal](storsimple-deployment-walkthrough-gov.md).
+- **Availability in the Azure Government Portal** – StorSimple is now available in the Azure Government portal. See how to [deploy a StorSimple device in the Azure Government Portal](storsimple-deployment-walkthrough-gov.md).
 
 - **Support for other cloud service providers** – The other cloud service providers supported are Amazon S3, Amazon S3 with RRS, HP, and OpenStack (beta).
 
@@ -68,8 +69,10 @@ The following table provides a summary of issues that were fixed in this update.
 | 5 | Factory reset | If a factory reset was interrupted prior to completion, the device entered recovery mode and did not allow you to access Windows PowerShell for StorSimple. This bug is now fixed. | Yes | No |
 | 6 | Disaster recovery | A disaster recovery (DR) bug was fixed wherein DR would fail during the discovery of backups on the target device. | Yes | Yes |
 | 7 | Monitoring LEDs | In certain instances, monitoring LEDs at the back of appliance did not indicate correct status. The blue LED was turned off. DATA 0 and DATA 1 LEDs were flashing even when these interfaces were not configured. The issue has been fixed and monitoring LEDs now indicate the correct status.  | Yes | No |
-| 8 | Network interfaces | In previous versions, a StorSimple device configured with a non-routable gateway could go offline. In this release, the routing metric for Data 0 has been made the lowest; therefore, even if other network interfaces are cloud-enabled, all the cloud traffic from the device will be routed via Data 0. | Yes | Yes | 
-| 9 | Backups | A bug in Update 1 (software version 6.3.9600.17491) which caused backups to fail after 24 days has been fixed in the patch release Update 1.1 (software version 6.3.9600.17521). | Yes | Yes |
+| 8 | Monitoring LEDs | In certain instances, after applying Update 1, the blue light on the active controller turned off thereby making it hard to identify the active controller. This issue has been fixed in patch release Update 1.2 (6.3.9600.17XXX).| Yes | No |
+| 9 | Network interfaces | In previous versions, a StorSimple device configured with a non-routable gateway could go offline. In this release, the routing metric for Data 0 has been made the lowest; therefore, even if other network interfaces are cloud-enabled, all the cloud traffic from the device will be routed via Data 0. | Yes | Yes | 
+| 10 | Backups | A bug in Update 1 (software version 6.3.9600.17491) which caused backups to fail after 24 days has been fixed in the patch release Update 1.1 (software version 6.3.9600.17521). | Yes | Yes |
+| 11 | Backups | A bug in previous versions resulted in poor performance for cloud snapshots with low change rates. This bug has been fixed in the patch release Update 1.2 (software version 6.3.9600.17XXX).
 
 ## Known issues in Update 1
 
@@ -82,7 +85,7 @@ The following table provides a summary of known issues in this release.
 | 3 | Storage accounts | Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved. | Yes | Yes |
 | 4 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported. Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Management Portal. | | Yes | No |
 | 5 | Installation | During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully.	| | Yes | No |
-| 6 | Web proxy | If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. | Make sure that the web proxy URL has HTTP as the specified protocol. For more information, go to [Configure web proxy for your device](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Yes | No |
+| 6 | Web proxy | If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. | Make sure that the web proxy URL has HTTP as the specified protocol. For more information, go to [Configure web proxy for your device](storsimple-configure-web-proxy.md). | Yes | No |
 | 7 | Web proxy | If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device. | | Yes | No |
 | 8 | High cloud latency and high I/O workload | When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error. | You will need to manually reboot the device controllers or perform a device failover to recover from this situation. | Yes | No |
 | 9 | Azure PowerShell | When you use the StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** to select the first object so that you can create a new **VolumeContainer** object, the cmdlet returns all the objects. | Wrap the cmdlet in parentheses as follows: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Yes | Yes |
@@ -94,23 +97,21 @@ The following table provides a summary of known issues in this release.
 
 ## Physical device updates in Update 1
 
-When these updates are applied to a physical device, the software version will change to 6.3.9600.17521. 
+If patch update 1.2 is applied to a physical device (running versions prior to Update 1), the software version will change to 6.3.9600.175XXX.
 
-## Serial-attached SCSI (SAS) controller and firmware updates in Update 1
+## Controller and firmware updates in Update 1
 
 This release updates the driver and the firmware on the SAS controller of your physical device. It also updates the disk firmware on your device.
  
 - For more information about the SAS controller update, see [Update 1 for LSI SAS controllers in Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3043005). 
 
-- For more information about the firmware update, see [Firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063414). 
-
 - For more information about the disk firmware update, see [Disk firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063416).
  
 ## Virtual device updates in Update 1
 
-This update cannot be applied to the virtual device. However, any virtual devices created after 10th July will automatically be in this version.
+This update cannot be applied to the virtual device. New virtual devices will need to be created.
 
 ## Next steps
 
-- [Install Update 1 on your device](storsimple-install-update-1.md)
+- [Install Update 1 on your device](storsimple-install-update-1.md).
  

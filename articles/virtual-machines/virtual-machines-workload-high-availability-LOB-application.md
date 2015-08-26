@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Infrastructure Services Workload: High-Availability Line of Business Application" 
-	description="Learn about the value of an web-based, line of business application deployed in Azure, how to set up a dev/test environment, and how to deploy a high-availability production configuration." 
+	pageTitle="Line of business application in Azure | Microsoft Azure" 
+	description="Learn the value of a line of business application in Azure, set up a test environment, and deploy a high-availability configuration." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -100,3 +100,5 @@ Once configured, you can easily expand this line of business application by addi
 [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
