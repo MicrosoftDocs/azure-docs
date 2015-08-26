@@ -1,6 +1,6 @@
 <properties
-	pageTitle="App Model v2.0 | Microsoft Azure"
-	description="How to build a Node JS web app that signs users in with both personal Microsoft Account and work or school accounts."
+	pageTitle="Getting started with Azure AD sign in and sign out using node.js"
+	description="How to build a node.js Express MVC Web App that integrates with Azure AD for sign in."
 	services="active-directory"
 	documentationCenter="nodejs"
 	authors="brandwe"
@@ -16,11 +16,7 @@
 	ms.date="08/25/2015"
 	ms.author="brandwe"/>
 
-# App Model v2.0 Preview: Add sign-in to a nodeJS Web App
-
-
-  > [AZURE.NOTE]
-    This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+# Web App Sign In & Sign Out with Azure AD
 
 
 Here we'll use Passport to:
@@ -38,18 +34,22 @@ In order to do this, you'll need to:
 3. Use Passport to issue sign-in and sign-out requests to Azure AD.
 4. Print out data about the user.
 
-The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) or clone the skeleton:
+The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) or clone the skeleton:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
 The completed application is provided at the end of this tutorial as well.
 
 ## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
-
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Web** platform for your app.
-- Enter the correct **Redirect URI**. The redirect URI indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `http://localhost:3000/auth/openid/return`.
+- Sign into the Azure Management Portal.
+- In the left hand nav, click on **Active Directory**.
+- Select the tenant where you wish to register the application.
+- Click the **Applications** tab, and click add in the bottom drawer.
+- Follow the prompts and create a new **Web Application and/or WebAPI**.
+    - The **name** of the application will describe your application to end-users
+    -	The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
+    - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
+- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
 
 ## 2. Add pre-requisities to your directory
 
@@ -64,10 +64,9 @@ From the command-line, change directories to your root folder if not already the
 - `npm install assert-plus`
 - `npm install passport`
 
-- In addition, we've included a special `passport-azure-ad` for our Preview in the skeleton of the quickstart. You'll need to install the pre-requisites in there as well.
+- In addition, you'll need our `passport-azure-ad` as well:
 
-- `cd /lib/passport-azure-ad`
-- `npm install`
+- `npm install passport-azure-ad`
 
 This will install the libraries that passport-azure-ad depend on.
 
@@ -76,9 +75,9 @@ Here, we'll configure the Express middleware to use the OpenID Connect authentic
 
 -	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
     -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect URI** you entered in the portal.
+    -	The `returnURL` is the **Redirect Uri** you entered in the portal.
     - The `clientSecret` is the secret you generated in the portal
-    - The `realm` is the **Redirect URI** you entered in the portal without the route. (example: http//localhost:3000)
+    - The `realm` is the **Redirect Uri** you entered in the portal without the route. (example: http//localhost:3000)
     - The `issuer` is where you append the **Application Id** after, as an example: https://sts.windows.net/96702724-991f-4576-bc90-be9862749ac5/
 
 - Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDStrategy` strategy that comes with `passport-azure-ad`
@@ -102,22 +101,21 @@ passport.use(new OIDCStrategy({
     clientID: config.creds.clientID,
     clientSecret: config.creds.clientSecret,
     oidcIssuer: config.creds.issuer,
-    identityMetadata: config.creds.identityMetadata,
-    skipUserProfile: true // doesn't fetch user profile
+    identityMetadata: config.creds.identityMetadata
   },
-  function(iss, sub, email, claims, profile, accessToken, refreshToken, done) {
-    log.info('We received claims of: ', claims);
-    log.info('Example: Email address we received was: ', claims.preferred_username);
+  function(iss, sub, profile, accessToken, refreshToken, done) {
+    log.info('We received profile of: ', profile);
+    log.info('Example: Email address we received was: ', profile._json.upn);
     // asynchronous verification, for effect...
     process.nextTick(function () {
-      findByEmail(claims.preferred_username, function(err, user) {
+      findByEmail(profile._json.upn, function(err, user) {
         if (err) {
           return done(err);
         }
         if (!user) {
           // "Auto-registration"
-          users.push(claims);
-          return done(null, claims);
+          users.push(profile);
+          return done(null, profile);
         }
         return done(null, user);
       });
@@ -126,6 +124,7 @@ passport.use(new OIDCStrategy({
 ));
 ```
 Passport uses a similar pattern for all it’s Strategies (Twitter, Facebook, etc.) that all Strategy writers adhere to. Looking at the strategy you see we pass it a function() that has a token and a done as the parameters. The strategy will dutifully come back to us once it does all it’s work. Once it does we’ll want to store the user and stash the token so we won’t need to ask for it again.
+
 
 > [AZURE.IMPORTANT] 
 The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a sample application, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
@@ -156,7 +155,7 @@ var users = [];
 var findByEmail = function(email, fn) {
   for (var i = 0, len = users.length; i < len; i++) {
     var user = users[i];
-    if (user.preferred_username === email) {
+    if (user._json.upn === email) {
       return fn(null, user);
     }
   }
@@ -329,10 +328,11 @@ These simple routes will just pass along the request to our views, including the
 	<h2>Welcome! Please log in.</h2>
 	<a href="/login">Log In</a>
 <% } else { %>
-	<h2>Hello, <%= user.name %>.</h2>
+	<h2>Hello, <%= user._json.given_name %>.</h2>
 	<a href="/account">Account Info</a></br>
 	<a href="/logout">Log Out</a>
 <% } %>
+
 ```
 
 - Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azuread` has put in the user request.
@@ -342,8 +342,11 @@ These simple routes will just pass along the request to our views, including the
 	<h2>Welcome! Please log in.</h2>
 	<a href="/login">Log In</a>
 <% } else { %>
-<p>displayName: <%= user.name %></p>
-<p>Profile ID: <%= user.sub %></p>
+<p>displayName: <%= user.displayName %></p>
+<p>givenName: <%= user.name.givenName %></p>
+<p>familyName: <%= user.name.familyName %></p>
+<p>UPN: <%= user._json.upn %></p>
+<p>Profile ID: <%= user.id %></p>
 <a href="/logout">Log Out</a>
 <% } %>
 ```
@@ -382,16 +385,13 @@ Run `node app.js` and navigate to `http://localhost:3000`
 
 Sign in with either a personal Microsoft Account or a work or school account, and notice how the user's identity is reflected in the /account list.  You now have a web app secured using industry standard protocols that can authenticate users with both their personal and work/school accounts.
 
-##Next Steps
+For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip), or you can clone it from GitHub:
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip), or you can clone it from GitHub:
+```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
 You can now move onto more advanced topics.  You may want to try:
 
-[Secure a Web API with the v2.0 app model in node.js >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
+[Secure a Web API with Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
-For additional resources, check out:
-- [The App Model v2.0 Preview >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
