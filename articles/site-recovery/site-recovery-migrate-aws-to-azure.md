@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Migrate Windows virtual machines from Amazon Web Services to Azure"
+	pageTitle="Migrate Windows virtual machines from Amazon Web Services to Microsoft Azure"
 	description="Use Azure Site Recovery to migrate Windows virtual machines running in Amazon Web Services (AWA) to Azure."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
-	ms.workload="backup-recovery"
-	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="backup-recovery"
 	ms.date="08/24/2015"
 	ms.author="raynew"/>
 
