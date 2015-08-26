@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure AD Connect Health AD FS Agent installation." 
+	pageTitle="Azure AD Connect Health AD FS Agent installation | Microsoft Azure" 
 	description="This is the Azure AD Connect Health page that describes the Active Directory Federation Services (AD FS) agent installation." 
 	services="active-directory" 
 	documentationCenter="" 
