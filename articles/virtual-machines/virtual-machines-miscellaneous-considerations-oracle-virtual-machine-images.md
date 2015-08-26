@@ -1,5 +1,5 @@
-<properties title="Miscellaneous considerations for Oracle virtual machine images"
-pageTitle="Miscellaneous considerations for Oracle virtual machine Images"
+<properties 
+pageTitle="Miscellaneous considerations for Oracle virtual machine images"
 description="Learn about additional considerations before you deploy an Oracle virtual machine in Azure."
 services="virtual-machines"
 documentationCenter=""
