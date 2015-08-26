@@ -137,7 +137,7 @@ There are two ways to create and run Hive queries:
 
 1. From **Server Explorer**, expand **Azure**, and then expand **HDInsight Clusters**.
 2. Right-click the cluster where you want to run the query, and then click **Write a Hive Query**.
-3. Enter the Hive queries. Notice the Hive editor supports IntelliSense. HDInsight Tools for Visual Studio supports loading the remote metadata when you are editing your Hive script. For example, when you type "SELECT * FROM", the IntelliSense lists all the suggested table names. When a table name is specified, the column names are listed by the IntelliSense. The tool supports almost all Hive DML statements, subquries, and the built-in UDFs.
+3. Enter the Hive queries. Notice the Hive editor supports IntelliSense. HDInsight Tools for Visual Studio supports loading the remote metadata when you are editing your Hive script. For example, when you type "SELECT * FROM", the IntelliSense lists all the suggested table names. When a table name is specified, the column names are listed by the IntelliSense. The tool supports almost all Hive DML statements, subqueries, and the built-in UDFs.
 
 	![Hadoop tools: HDInsight Visual Studio Tools IntelliSense][13]
 
