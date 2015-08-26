@@ -336,7 +336,7 @@ To create a new pool on a server:
 
 ## Move an existing database into an elastic database pool
 
-> [AZURE.NOTE] After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool, and moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).
+*After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 To move an existing database into a pool:
 
@@ -368,7 +368,7 @@ To move an existing database into a pool:
 
 ## Create a new database in an elastic database pool
 
-> [AZURE.NOTE] After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool, and moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).
+*After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 To create a new database directly in a pool:
 
