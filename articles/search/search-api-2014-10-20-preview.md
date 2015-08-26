@@ -1,6 +1,6 @@
 <properties pageTitle="Azure Search Service REST API Version 2014-10-20-Preview" description="Azure Search Service REST API Version 2014-10-20-Preview" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist" />
 
 # Azure Search Service REST API: Version 2014-10-20-Preview #
 
