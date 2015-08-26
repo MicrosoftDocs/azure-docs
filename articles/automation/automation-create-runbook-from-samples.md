@@ -36,9 +36,9 @@ Here's a walkthrough of this tutorial.
 
 [AZURE.VIDEO get-started-with-azure-automation]
 
-## <a name="automationaccount"></a>Create an Automation Account
+## <a name="automationaccount"></a>Create an automation account
 
-An Automation Account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your workflows. For more information, see [Automation Accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an automation account, you can skip this step.
+An automation account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your workflows. For more information, see [Automation accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an automation account, you can skip this step.
 
 1.	Log in to the [Azure portal](http://manage.windowsazure.com).
 
@@ -52,7 +52,7 @@ An Automation Account is a container for your Azure Automation resources. It pro
 
 ## <a name="importrunbook"></a>Import runbook from Runbook Gallery
 
-The [Runbook Gallery](http://aka.ms/runbookgallery) includes sample runbooks that you can import directly into an Azure Automation Account, allowing you to leverage the work of other Azure Automation and PowerShell users. In this step, you will use the gallery to import the "Hello World" sample runbook.
+The [Runbook Gallery](http://aka.ms/runbookgallery) includes sample runbooks that you can import directly into an Azure Automation account, allowing you to leverage the work of other Azure Automation and PowerShell users. In this step, you will use the gallery to import the "Hello World" sample runbook.
 
 4.	On the **Automation** page, click the new account you just created.
 
