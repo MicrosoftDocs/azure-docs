@@ -54,7 +54,7 @@ The following numbered steps correspond to the numbers in Figure 1.
 
 ## Round robin traffic routing method
 
-A common traffic routing pattern is to provide a set of identical endpoints and send traffic to each in a round-robin fashion. The Round Robin method splits up traffic across various endpoints. It selects a healthy endpoint at random and will not send traffic to services that are detected as being down. For more information, see [Traffic Manager Monitoring](../traffic-manager-onitoring.md).
+A common traffic routing pattern is to provide a set of identical endpoints and send traffic to each in a round-robin fashion. The Round Robin method splits up traffic across various endpoints. It selects a healthy endpoint at random and will not send traffic to services that are detected as being down. For more information, see [Traffic Manager Monitoring](../traffic-manager-monitoring.md).
 
 Figure 2 shows an example of the Round Robin traffic routing method for a set of endpoints.
 
@@ -121,7 +121,7 @@ The following numbered steps correspond to the numbers in Figure 4.
 
 If you want the figures in this topic as PowerPoint sides for your own presentation on Traffic Manager or to modify for your own purposes, see [Traffic Manager figures in MSDN documentation](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-## Next Steps
+## Next steps
 
 [What is Traffic Manager?](traffic-manager-overview.md)
 
