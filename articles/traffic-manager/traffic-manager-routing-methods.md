@@ -41,7 +41,7 @@ When configuring the Failover traffic routing method, the order of the selected 
 
 Figure 1 shows an example of the Failover traffic routing method for a set of endpoints.
 
-![Traffic Manager Failover load balancing](./media/traffic-manager-routing-methods/IC750592.jpg)
+![Traffic Manager Failover routing method](./media/traffic-manager-routing-methods/IC750592.jpg)
 
 **Figure 1**
 
@@ -58,7 +58,7 @@ A common traffic routing pattern is to provide a set of identical endpoints and 
 
 Figure 2 shows an example of the Round Robin traffic routing method for a set of endpoints.
 
-![Traffic Manager Round Robin load balancing](./media/traffic-manager-routing-methods/IC750593.jpg)
+![Traffic Manager Round Robin routing method](./media/traffic-manager-routing-methods/IC750593.jpg)
 
 **Figure 2**
 
@@ -71,7 +71,7 @@ The following numbered steps correspond to the numbers in Figure 2.
 
 Round Robin traffic routing also supports weighted distribution of network traffic. Figure 3 shows an example of the weighted Round Robin traffic routing method for a set of endpoints.
 
-![Round Robin Weighted Load Balancing](./media/traffic-manager-routing-methods/IC750594.png)
+![Round Robin Weighted routing method](./media/traffic-manager-routing-methods/IC750594.png)
 
 **Figure 3**
 
@@ -97,7 +97,7 @@ The Performance traffic routing method locates the requesting client and refers 
 
 Figure 4 shows an example of the Performance traffic routing method for a set of endpoints.
 
-![Traffic Manager Performance load balancing](./media/traffic-manager-routing-methods/IC753237.jpg)
+![Traffic Manager Performance routing method](./media/traffic-manager-routing-methods/IC753237.jpg)
 
 **Figure 4**
 
