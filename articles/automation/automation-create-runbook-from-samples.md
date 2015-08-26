@@ -24,7 +24,7 @@
 Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which are based on Windows PowerShell workflows. In this article, you will go through a tutorial for running a simple example runbook. You will then find resources for exploring more advanced capabilities of the service.
 
 ## Tutorial
-This tutorial walks you through creating an Automation Account, importing a sample "Hello World" runbook into Azure Automation, executing that runbook, and then viewing its output.
+This tutorial walks you through creating an automation account, importing a sample "Hello World" runbook into Azure Automation, executing that runbook, and then viewing its output.
 
 To complete this tutorial, you will need an Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](../pricing/member-offers/msdn-benefits-details/) or [sign up for a free trial](../pricing/free-trial.md)</a>.
 
@@ -38,7 +38,7 @@ Here's a walkthrough of this tutorial.
 
 ## <a name="automationaccount"></a>Create an Automation Account
 
-An Automation Account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your workflows. For more information, see [Automation Accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an Automation Account, you can skip this step.
+An Automation Account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your workflows. For more information, see [Automation Accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an automation account, you can skip this step.
 
 1.	Log in to the [Azure portal](http://manage.windowsazure.com).
 
