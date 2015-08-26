@@ -1,7 +1,7 @@
 
 <properties 
-	pageTitle="Monitor your on-premises identity infrastructure in the cloud." 
-	description="This is the Azure AD Connect Health page that describes what it is and why you would use it." 
+	pageTitle="Using Azure AD Connect Health with AD FS." 
+	description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
