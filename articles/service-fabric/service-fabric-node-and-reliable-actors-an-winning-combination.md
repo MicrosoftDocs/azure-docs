@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Node.js and Reliable Actors: a winning combination"
+   pageTitle="Node.js and reliable actors: a winning combination"
    description="A walk through on how to build an node.js express application that uses Reliable Actors and runs on top of the Azure Service Fabric platform."
    services="service-fabric"
    documentationCenter=".net"
@@ -17,7 +17,7 @@
    ms.author="claudioc"/>
 
 
-# Node.js and Reliable Actors: a winning combination
+# Node.js and reliable actors: a winning combination
 This article is an overview on how you can build an application that uses node.js and Reliable Actors. The final solution is a blend of javascript code used mainly to provide the frontend side of the app (Web/Rest APIs) and C# for more complex computation. By leveraging Service Fabric programming model, the application is scalable and reliable out of the box.
 The process is bsed on the following steps:
 
