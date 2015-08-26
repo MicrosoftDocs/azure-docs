@@ -215,9 +215,9 @@ You can deploy the application (that will include the node.js app) by using, for
 ![][10]
 
 ## Next steps
-* Learn more about [Reliable Actors](service-fabric-reliable-actors-introduction)
-* Learn more about Service Fabric [application lifecycle](service-fabric-application-lifecycle)
-* Lean more about upgrading a [Service Fabric application](service-fabric-application-upgrade) 
+* Learn more about [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+* Learn more about Service Fabric [application lifecycle](service-fabric-application-lifecycle.md)
+* Lean more about upgrading a [Service Fabric application](service-fabric-application-upgrade.md) 
 
 <!-- images -->
 [1]: ./media/service-fabric-node-and-reliable-actors-app/nodejs-project-structure.PNG
