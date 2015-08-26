@@ -42,6 +42,25 @@ Yes. When you create a Site Recovery vault in a region of your choice, we ensure
 
 Yes. ASR workflows can be automated using Rest API, PowerShell, or Azure SDK. You can find more details in the blog post titled [Introducing PowerShell support for Azure Site Recovery](http://azure.microsoft.com/blog/2014/11/05/introducing-powershell-support-for-azure-site-recovery/).
 
+### Does ASR encrypt the replication 
+Between on-premises to Azure & between on-premises replication supports encryption in transit for *Hyper-V & VMM protection scenarios*. *Hyper-V & VMM protection* to Azure supports encryption at rest as well. Refer [this article](https://azure.microsoft.com/blog/2014/09/02/azure-site-recovery-privacy-security-part1/) for more information.
+
+### Can I increase replication/copy frequency to higher than 15 mins?
+* **Hyper-V & VMM scenarios**: No, Hyper-V virtual machine replication using Host based replication can only be configured for 30 secs, 5 mins and 15 mins
+* **VMware/Physical scenario**: This isn't applicable because in-guest based replication using continuous data protection.
+
+### Can I exclude specific disks from replication using ASR?
+This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Exclude disk from replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+
+### Can I replicate dynamic disks based virtual machines?
+*Hyper-V & VMM scenarios* supports dynamic disks. *VMware virtual machine or Physical machine scenarios* aren't supported. Refer [VMware virtual machines or physical servers and Azure documentation](https://azure.microsoft.com/documentation/articles/site-recovery-vmware-to-azure/#before-you-start) for more information.
+
+### What kind of storage accounts types are supported?
+[Standard Geo-redundant storage](https://azure.microsoft.com/documentation/articles/storage-redundancy/#geo-redundant-storage) is supported. [Premium Storage Account](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/) is supported only for [VMware virtual machine or Physical machine scenarios](https://azure.microsoft.com/documentation/articles/site-recovery-vmware-to-azure). Support for [Standard locally redundant storage](https://azure.microsoft.com/en-us/documentation/articles/storage-redundancy/#locally-redundant-storage) is in backlogs, send us your feedback through [Standard locally redundant storage support](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+
+### Can I extended replication from existing recovery site to tertiary site?
+This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Support for exisiting extended replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+
 ## Version support
 
 ### What versions of Windows Server hosts and clusters are supported?
@@ -57,7 +76,7 @@ You can't configure Hyper-V runing on a client operating system to replicate vir
 
 ### Does ASR support generation 2 machines?
 
-ASR currently supports replication of generation 2 virtual machines on Hyper-V to Azure. ASR converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 1. [Read more](http://azure.microsoft.com/updates/azure-site-recovery-supports-gen-2-vm-protection-in-west-us-north-europe-and-japan-west/) about current support. 
+Yes, ASR supports replication of generation 2 virtual machines on Hyper-V to Azure. ASR converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 1. [Read more](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) for further information. 
 
 
 ## Deploy between service provider sites 

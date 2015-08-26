@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/13/2015" 
+	ms.date="08/26/2015" 
 	ms.author="anbacker"/>
 	
 # Monitor and troubleshoot protection for VMware, VMM, Hyper-V and Physical sites
@@ -134,6 +134,11 @@ Replication Health* to see the details.
 
 ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image13.png)
 
+For cases where replication is paused for the virtual machine, right-click Select *Replication*->*Resume replication*
+![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image19.png)
+
+In case virtual machine migrates a new Hyper-V host (within the cluster or a standalone machine), which has been configured through ASR, replication for the virtual machine wouldn't be impacted. Ensure that the new Hyper-V host meets all the per-requisites and is configured using ASR.
+
 ### Hyper-V Replication Logging Options
 
 All events pertaining to Hyper-V Replica are logged in the
@@ -252,6 +257,8 @@ of the error is documented in a separate WIKI page.
 -   [Cannot connect to the replica host machine - connection could not
     be
     established](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
+
+	[Live migration error 23848 - The virtual machine is going to be moved using type Live. This could break the recovery protection status of the virtual machine.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
 
 ### Recovery
 
