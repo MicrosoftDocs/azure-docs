@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/05/2015"
+	ms.date="08/25/2015"
 	ms.author="huvalo"/>
 
 
@@ -118,7 +118,7 @@ Using PTVS is optional, but is recommended as it gives you Python and Web Projec
 
 PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services][] and [Websites][].
 
-PTVS works with your existing Visual Studio 2010, 2012 or 2013 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio on CodePlex][].  
+PTVS works with your existing Visual Studio 2010, 2012, 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio on GitHub][].  
 
 ## Windows Uninstall
 
@@ -185,7 +185,7 @@ For more information on developing and publishing Azure Websites, see the tutori
 * [Django Project - A mature web framework/CMS][]
 * [IPython - an advanced REPL/Notebook for Python][]
 * [IPython Notebook on Azure][]
-* [Python Tools for Visual Studio on CodePlex][]
+* [Python Tools for Visual Studio on GitHub][]
 
 
 [Continuum Analytics Python Distribution]: http://continuum.io
@@ -204,7 +204,7 @@ For more information on developing and publishing Azure Websites, see the tutori
 [Cloud Services]: cloud-services-python-ptvs.md
 [Websites]: web-sites-python-ptvs-django-mysql.md
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com
+[Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
 [Python Package Index]: http://pypi.python.org/pypi
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409
