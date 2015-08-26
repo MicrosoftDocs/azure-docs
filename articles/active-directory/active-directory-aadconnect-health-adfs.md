@@ -1,6 +1,6 @@
 
 <properties 
-	pageTitle="Using Azure AD Connect Health with AD FS." 
+	pageTitle="Using Azure AD Connect Health with AD FS | Microsoft Azure" 
 	description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure." 
 	services="active-directory" 
 	documentationCenter="" 
