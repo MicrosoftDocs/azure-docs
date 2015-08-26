@@ -30,8 +30,8 @@ This article describes how to use Site Recovery to migrate Azure IaaS virtual ma
 Here's what you need before you start:
 
 - **Configuration server**: An Azure virtual machine that acts as the configuration server. The configuration server coordinates communication between on-premises machines and Azure servers.
-- **Master target server**: An Azure virtual machines that acts as the master target server. This server receives and retains replicated data from protected machines.
-- **A process server**: An on-premises virtual or physical server running Windows Server 2012 R2. Protected virtual machines send replication data to this server.
+- **Master target server**: An Azure virtual machine that acts as the master target server. This server receives and retains replicated data from protected machines.
+- **A process server**: A machine running Windows Server 2012 R2. Protected virtual machines send replication data to this server.
 - **IaaS virtual machines**: The VMs you want to migrate.
 
 - Read more about these components in [What do I need?](site-recovery-vmware-to-azure.md#what-do-i-need)
@@ -42,7 +42,7 @@ Here's what you need before you start:
 1. [Create a vault](site-recovery-vmware-to-azure.md/#step-1-create-a-vault)
 2. [Deploy a configuration server](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) as an Azure VM.
 3. [Deploy the master target server](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) as an Azure VM.
-4. [Deploy an on-premises process server](site-recovery-vmware-to-azure.md#step-4-deploy-the-on-premises-process-server). Note that:
+4. [Deploy a process server](site-recovery-vmware-to-azure.md#step-4-deploy-the-on-premises-process-server). Note that:
 
 	- You should deploy the process server on the same virtual network/subnet as the IaaS VMs you want to migrate. 
 		![IaaS VMs](./media/site-recovery-migrate-azure-to-azure/ASR_MigrateAzure1.png)
