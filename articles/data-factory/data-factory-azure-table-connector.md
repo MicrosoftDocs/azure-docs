@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Table Connector - Move data to and from Azure Table" 
-	description="Learn about Azure Table Connector for the Data Factory service that lets you move data to/from Azure Table Storage" 
+	pageTitle="Move data to and from Azure Table | Azure Data Factory" 
+	description="Learn how to move data to/from Azure Table Storage using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# Azure Table Connector - Move data to and from Azure Table
+# Move data to and from Azure Table using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Table from another data store and move data from another data store to Azure Table. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 

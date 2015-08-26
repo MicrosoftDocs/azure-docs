@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure SQL Data Warehouse Connector - Move data to and from Azure SQL Data Warehouse" 
-	description="Learn about Azure SQL Data Warehouse Connector for the Data Factory service that lets you move data to/from Azure SQL Data Warehouse" 
+	pageTitle="Move data to and from Azure SQL Data Warehouse | Azure Data Factory" 
+	description="Learn how to move data to/from Azure SQL Data Warehouse using Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# Azure SQL Data Warehouse Connector - Move data to and from Azure SQL Data Warehouse 
+# Move data to and from Azure SQL Data Warehouse using Azure Data Factory
 
 This article outlines how you can use data factory copy activity to move data to Azure SQL Data Warehouse from another data store and move data from another data store to Azure SQL. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 

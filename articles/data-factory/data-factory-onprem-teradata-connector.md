@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Teradata Connector - Move data from Teradata" 
+	pageTitle="Move data from Teradata | Azure Data Factory" 
 	description="Learn about Teradata Connector for the Data Factory service that lets you move data from Teradata Database" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# Teradata Connector - Move data from Teradata
+# Move data from Teradata using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Teradata to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 

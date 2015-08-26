@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure SQL Connector - Move data to and from Azure SQL" 
-	description="Learn about Azure SQL Connector for the Data Factory service that lets you move data to/from Azure SQL Database" 
+	pageTitle="Move data to and from Azure SQL | Azure Data Factory" 
+	description="Learn how to move data to/from Azure SQL Database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,7 +16,7 @@
 	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
-# Azure SQL Connector - Move data to and from Azure SQL
+# Move data to and from Azure SQL using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure SQL from another data store and move data from another data store to Azure SQL. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 

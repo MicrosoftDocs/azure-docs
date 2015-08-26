@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="DB2 Connector - Move data from DB2" 
-	description="Learn about DB2 Connector for the Data Factory service that lets you move data from DB2 Database" 
+	pageTitle="Move data from DB2 | Azure Data Factory" 
+	description="Learn about how move data from DB2 Database using Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# DB2 Connector - Move data from DB2
+# Move data from DB2 using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to from DB2 to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory supports connecting to on-premises DB2 sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 

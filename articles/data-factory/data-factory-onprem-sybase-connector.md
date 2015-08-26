@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Sybase Connector - Move data from Sybase" 
-	description="Learn about Sybase Connector for the Data Factory service that lets you move data from Sybase Database" 
+	pageTitle="Move data from Sybase | Azure Data Factory" 
+	description="Learn about how to move data from Sybase Database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,7 +16,7 @@
 	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
-# Sybase Connector - Move data from Sybase 
+# Move data from Sybase using Azure Data Factory 
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data from Sybase to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 

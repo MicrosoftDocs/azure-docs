@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="PostgreSQL Connector - Move data From PostgreSQL" 
-	description="Learn about PostgreSQL Connector for the Data Factory service that lets you move data from PostgreSQL Database" 
+	pageTitle="Move data From PostgreSQL | Azure Data Factory" 
+	description="Learn about how to move data from PostgreSQL Database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# PostgreSQL Connector - Move data from PostgreSQL using Azure Data Factory
+# Move data from PostgreSQL using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data from PostgreSQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 

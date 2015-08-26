@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Blob Connector - Move data to and from Azure Blob" 
-	description="Learn about Azure Blob Connector for the Data Factory service that lets you move data to/from Azure Blob Storage" 
+	pageTitle="Move data to and from Azure Blob | Azure Data Factory" 
+	description="Learn how to move data to/from Azure Blob Storage using Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# Azure Blob Connector - Move data to and from Azure Blob
+# Move data to and from Azure Blob using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Blob from another data store and move data from another data store to Azure Blob. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
 ## Sample: Copy data from Azure Blob to Azure SQL
@@ -24,9 +24,9 @@ The sample below shows:
 
 1.	A linked service of type [AzureSqlDatabase](data-factory-azure-sql-connector.md).
 2.	A linked service of type [AzureStorage](#LinkedService).
-3.	An input dataset of type [AzureBlob](#Dataset).
-4.	An output dataset of type [AzureSqlTable](data-factory-azure-sql-connector.md).
-4.	A pipeline with a Copy activity that uses [BlobSource](#CopyActivity) and [SqlSink](data-factory-azure-sql-connector.md).
+3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](#Dataset).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md).
+4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#CopyActivity) and [SqlSink](data-factory-azure-sql-connector.md).
 
 The sample copies data belonging to a time series from an Azure blob to a table in an Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
 

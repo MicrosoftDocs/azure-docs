@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="SQL Server Connector - Move data to and from SQL Server" 
-	description="Learn about SQL Server Connector for the Data Factory service that lets you move data to/from SQL Server database that is on-premises or in an Azure VM." 
+	pageTitle="Move data to and from SQL Server | Azure Data Factory" 
+	description="Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# SQL Server Connector - Move data to and from SQL Server on-premises or on IaaS (Azure VM)
+# Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to SQL Server from another data store and move data from another data store to SQL Server. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 

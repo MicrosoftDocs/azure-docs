@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="File System Connector - Move data to and from File System" 
-	description="Learn about File System Connector for the Data Factory service that lets you move data to/from on-premises File System" 
+	pageTitle="Move data to and from File System | Azure Data Factory" 
+	description="Learn how to move data to/from on-premises File System using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# File System Connector - Move data to and from On-premises File System
+# Move data to and from On-premises File System using Azure Data Factory
 
 This article outlines how you can use data factory copy activity to move data to and from on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
