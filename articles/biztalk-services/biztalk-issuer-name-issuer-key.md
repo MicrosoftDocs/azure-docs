@@ -44,8 +44,8 @@ The Access Control Issuer Name and Issuer Key are used by the following:
 3. Select your BizTalk Service. 
 4. Select **Connection Information** in the task bar. The Access Control Namespace, Default Issuer (Issuer Name), and Default Key (Issuer Key) are listed and can be copied and pasted.  
 
-To summarize:
-Issuer Name = Default Issuer
+To summarize: 
+Issuer Name = Default Issuer 
 Issuer Key = Default Key
 
 
@@ -58,8 +58,8 @@ You can also select **Open ACS Management Portal** to get the Access Control val
 5. In the Portal under **Service Settings**, select **Service Identities**. This displays your Service Identity, which is your Access Control Issuer Name value. Select your Service Identity link to see the Password, which is your Issuer Key value. Their values can be copied.<br/><br/>
 For example, in **Service Identities**, you see "owner". "Owner" is your Access Control Issuer Name. When you click the "owner" link, you see the **Password**. When you click the "Password" link, you see the value. This Password value is your Access Control Issuer Key.  
 
-To summarize:
-Issuer Name = Service Identity name
+To summarize: 
+Issuer Name = Service Identity name 
 Issuer Key = Password value
 
 In the left navigation pane, you can also select **Active Directory** to retrieve the Access Control values. 
@@ -77,8 +77,8 @@ Service Bus Issuer Name and Issuer Key are used by BizTalk Adapter Services. In 
 2. In the left navigation pane, select **Service Bus**.
 3. Select your namespace. In the task bar, select **Connection Information**. This displays the **Default Issuer** (Issuer Name) and **Default Key** (Issuer Key). Their values can be copied.  
 
-To summarize:
-Issuer Name = Default Issuer
+To summarize: 
+Issuer Name = Default Issuer 
 Issuer Key = Default Key
 
 ## Next
