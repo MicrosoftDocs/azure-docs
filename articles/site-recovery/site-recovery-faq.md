@@ -147,6 +147,23 @@ Yes. We need the SAN array to be brought under management by VMM using an array-
 We support single VMM HA deployments based on the array type, though the recommended configuration is to use separate VMM servers to manage the sites.
 
 
+### What are the supported storage arrays?
+
+NetApp, EMC and HP have enabled support for Azure Site Recovery SAN replication with updates to their SMI-S providers. For more details see below links.
+
+
+
+- [NetApp Clustered Data ONTAP 8.2](http://community.netapp.com/t5/Technology/NetApp-Unveils-Support-for-Microsoft-Azure-SAN-Replication-with-SMI-S-and/ba-p/94483)
+ 
+
+
+- [EMC VMAX series](https://thecoreblog.emc.com/high-end-storage/microsoft-azure-site-recovery-now-generally-available-vmax-srdf-integration-pack-ready-for-public-review/)    
+
+
+
+- [HP 3PAR](http://h20195.www2.hp.com/V2/GetDocument.aspx?docname=4AA5-7068ENW&cc=us&lc=en)
+
+
 ### What if I'm not sure about my storage admin?
 We work with existing replication set up by your storage administrator, which means that the storage administrator does not need to make any changes on their arrays. However, organizations that want to automate their storage management through SCVMM can also provision storage using ASR and VMM.
 
