@@ -218,7 +218,7 @@ Because you can create VMs on demand, then remove them (and stop paying) when th
 
 To make this really useful, though, your users ought to be able to treat these applications as if they were running in your own datacenter. This is exactly what Azure Virtual Network allows. Using a VPN gateway device, an administrator can set up a virtual private network (VPN) between your local network and your VMs that are deployed to a virtual network in Azure. Because you assign your own IP v4 addresses to the cloud VMs, they appear to be on your own network. Users in your organization can access the applications those VMs contain as if they were running locally.
 
-For more information about planning and creating a virtual network that works for you, see [Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+For more information about planning and creating a virtual network that works for you, see [Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 ### Express Route
 
@@ -230,7 +230,7 @@ If you need more bandwidth or security than an Azure Virtual Network connection 
 
 Setting it up an ExpressRoute connection requires more time and planning, so you might want to start with a site-to-site VPN, then migrate to an ExpressRoute connection.
 
-For more information about ExpressRoute, see [ExpressRoute Technical Overview](http://msdn.microsoft.com/library/azure/dn606309.aspx).
+For more information about ExpressRoute, see [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
 ### Traffic Manager
 

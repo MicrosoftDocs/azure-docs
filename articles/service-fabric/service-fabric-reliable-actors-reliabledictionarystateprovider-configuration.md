@@ -4,7 +4,7 @@
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
-   manager="vipulm"
+   manager="anuragg"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2015"
+   ms.date="08/26/2015"
    ms.author="sumukhs"/>
 
 # Configuring Reliable Actors - ReliableDictionaryActorStateProvider

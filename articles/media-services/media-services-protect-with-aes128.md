@@ -18,6 +18,10 @@
 
 #Use AES-128 Dynamic Encryption and Key Delivery Service
 
+> [AZURE.SELECTOR]
+- [.NET](media-services-protect-with-aes128.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+
 ##Overview
 
 Microsoft Azure Media Services enables you to deliver Http-Live-Streaming (HLS) and Smooth Streams encrypted with Advanced Encryption Standard (AES) (using 128-bit encryption keys). Media Services also provides the Key Delivery service that delivers encryption keys to authorized users. If you want for Media Services to encrypt an asset, you need to associate an encryption key with the asset and also configure authorization policies for the key. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.

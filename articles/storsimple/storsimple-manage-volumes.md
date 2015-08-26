@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/14/2015"
+   ms.date="08/21/2015"
    ms.author="v-sharos" />
 
 # Manage your StorSimple volumes
@@ -71,7 +71,7 @@ You [created a volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-v
 
   1. Supply a **Name** for your volume.
   2. Specify the **Provisioned Capacity** for your volume in GB or TB. The capacity must be between 1 GB and 64 TB for a physical device. The maximum capacity that can be provisioned for a volume on a StorSimple virtual device is 30 TB.
-  3. From the drop-down list, select the **Usage Type** for your volume. Choose **Archival Volume** if you are working with less frequently accessed archival data. For all other use cases, select **Primary Volume**.
+  3. From the drop-down list, select the **Usage Type** for your volume. Choose **Archival Volume** if you are working with less frequently accessed archival data. For all other use cases, select **Tiered Volume**. (Tiered volumes were formerly called primary volumes.)
   5. Click the arrow icon ![arrow-icon](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)to go to the **Additional Settings** page.
 
      ![add-volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)

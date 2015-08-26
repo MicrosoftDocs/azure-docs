@@ -94,13 +94,15 @@ To create a role assignment, you need to think about:
 
 - Who you want to assign the role to: you can use the following Azure Active Directory cmdlets to see what users, groups and service principals you have in your directory.
 
-    `azure ad user list
-    azure ad user show
-    azure ad group list
-    azure ad group show
-    azure ad group member list
-    azure ad sp list
-    azure ad sp show`
+    ```
+    azure ad user list  
+    azure ad user show  
+    azure ad group list  
+    azure ad group show  
+    azure ad group member list  
+    azure ad sp list  
+    azure ad sp show  
+    ```
 
 - What role you want to assign: you can use the following cmdlet to see the supported role definitions.
 
