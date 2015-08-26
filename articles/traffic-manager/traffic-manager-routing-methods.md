@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="About Traffic Manager - traffic routing methods | Microsoft Azure"
-   description="This articles will help you understand the different load balancing methods used by Traffic Manager"
+   pageTitle=" Traffic Manager - traffic routing methods | Microsoft Azure"
+   description="This articles will help you understand the different traffic routing methods used by Traffic Manager"
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
@@ -15,7 +15,7 @@
    ms.date="08/19/2015"
    ms.author="joaoma" />
 
-# Traffic Manager traffic routing methods
+# Traffic Manager routing methods
 
 There are three traffic routing methods available in Traffic Manager. Each Traffic Manager profile can use only one traffic routing method at a time, although you can select a different traffic routing method for your profile at any time.
 
@@ -29,11 +29,11 @@ The three Traffic Manager traffic routing methods are:
 
 - **Performance**: Select Performance when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency. For more information, see [Performance traffic routing method](#performance-traffic-routing-method).
 
-Note that Azure Websites already provides failover and round-robin load balancing functionality for websites within a datacenter, regardless of the website mode. Traffic Manager allows you to specify failover and round-robin load traffic routing for websites in different datacenters.
+Note that Azure Websites already provides failover and round-robin traffic routing method functionality for websites within a datacenter, regardless of the website mode. Traffic Manager allows you to specify failover and round-robin traffic routing for websites in different datacenters.
 
 >[AZURE.NOTE] The DNS Time-to-Live (TTL) informs DNS clients and resolvers on DNS servers how long to cache the resolved names. Clients will continue to use a given endpoint when resolving its domain name until the local DNS cache entry for the name expires.
 
-### Failover traffic routing method
+## Failover traffic routing method
 
 Often an organization wants to provide reliability for its services. It does this by providing backup services in case their primary service goes down. A common pattern for service failover is to provide a set of identical endpoints and send traffic to a primary service, with a list of one or more backups. If the primary service is not available, requesting clients are referred to the next in order. If both the first and second services in the list are not available, the traffic goes to the third and so on.
 
@@ -41,7 +41,7 @@ When configuring the Failover traffic routing method, the order of the selected 
 
 Figure 1 shows an example of the Failover traffic routing method for a set of endpoints.
 
-![Traffic Manager Failover traffic routing](./media/traffic-manager-load-balancing-methods/IC750592.jpg)
+![Traffic Manager Failover load balancing](./media/traffic-manager-routing-methods/IC750592.jpg)
 
 **Figure 1**
 
@@ -52,13 +52,13 @@ The following numbered steps correspond to the numbers in Figure 1.
 3. Traffic Manager returns CS-B’s domain name to the client's DNS server, which resolves the domain name to an IP address and sends it to the client.
 4. The client initiates traffic to CS-B.
 
-### Round robin traffic routing method
+## Round robin traffic routing method
 
-A common traffic routing pattern is to provide a set of identical endpoints and send traffic to each in a round-robin fashion. The Round Robin method splits up traffic across various endpoints. It selects a healthy endpoint at random and will not send traffic to services that are detected as being down. For more information, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
+A common traffic routing pattern is to provide a set of identical endpoints and send traffic to each in a round-robin fashion. The Round Robin method splits up traffic across various endpoints. It selects a healthy endpoint at random and will not send traffic to services that are detected as being down. For more information, see [Traffic Manager Monitoring](../traffic-manager-onitoring.md).
 
 Figure 2 shows an example of the Round Robin traffic routing method for a set of endpoints.
 
-![Traffic Manager Round Robin traffic routing](./media/traffic-manager-load-balancing-methods/IC750593.jpg)
+![Traffic Manager Round Robin load balancing](./media/traffic-manager-routing-methods/IC750593.jpg)
 
 **Figure 2**
 
@@ -71,7 +71,7 @@ The following numbered steps correspond to the numbers in Figure 2.
 
 Round Robin traffic routing also supports weighted distribution of network traffic. Figure 3 shows an example of the weighted Round Robin traffic routing method for a set of endpoints.
 
-![Round Robin Weighted traffic routing](./media/traffic-manager-load-balancing-methods/IC750594.png)
+![Round Robin Weighted Load Balancing](./media/traffic-manager-routing-methods/IC750594.png)
 
 **Figure 3**
 
@@ -89,15 +89,15 @@ For information about using the Azure PowerShell cmdlets, see [Azure Traffic Man
 
 To test the profile from a single client and observe the equal or weighted round robin behavior, verify that the DNS name is resolved to the different IP addresses of the endpoints according to the equal or weighted values in the profile. When testing, you must either disable client-side DNS caching or clear the DNS cache between each attempt to ensure that a new DNS name query gets sent.
 
-### Performance traffic routing method
+## Performance traffic routing method
 
-In order to route traffic to endpoints that are located in different datacenters across the globe, you can direct incoming traffic to the closest endpoint in terms of the lowest latency between the requesting client and the endpoint. Usually, the “closest” endpoint directly corresponds to the shortest geographic distance. The Performance traffic routing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load.
+In order to traffic route endpoints that are located in different datacenters across the globe, you can direct incoming traffic to the closest endpoint in terms of the lowest latency between the requesting client and the endpoint. Usually, the “closest” endpoint directly corresponds to the shortest geographic distance. The Performance traffic routing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load.
 
 The Performance traffic routing method locates the requesting client and refers it to the closest endpoint. “Closeness” is determined by an Internet Latency Table showing the round trip time between various IP addresses and each Azure datacenter. This table is updated at periodic intervals and is not meant to be a real time reflection of performance across the Internet. It does not take into account the load on a given service, although Traffic Manager monitors your endpoints based on the method you choose and will not include them in DNS query responses if they are unavailable. In other words, Performance traffic routing also incorporates the Failover traffic routing method.
 
 Figure 4 shows an example of the Performance traffic routing method for a set of endpoints.
 
-![Traffic Manager Performance traffic routing](./media/traffic-manager-load-balancing-methods/IC753237.jpg)
+![Traffic Manager Performance load balancing](./media/traffic-manager-routing-methods/IC753237.jpg)
 
 **Figure 4**
 
@@ -115,15 +115,15 @@ The following numbered steps correspond to the numbers in Figure 4.
 - If your profile contains multiple endpoints in the same datacenter, then traffic directed to that datacenter is distributed evenly across the endpoints that are available and healthy according to endpoint monitoring.
 - If all endpoints in a given datacenter are not available (according to endpoint monitoring), traffic for those endpoints will be distributed across all other available endpoints that are specified in the profile, not to the next-closest endpoint(s). This is to help avoid a cascading failure that could potentially occur if the next-closest endpoint becomes overloaded.
 - When the Internet Latency Table is updated, you may notice a difference in traffic patterns and load on your endpoints. These changes should be minimal.
-- When using the Performance  traffic routing method with external endpoints, you will need to specify the location of those endpoints. Choose the Azure region closest to your deployment. For more information, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
+- When using the Performance traffic routing method with external endpoints, you will need to specify the location of those endpoints. Choose the Azure region closest to your deployment. For more information, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
 
 ## Traffic Manager figures
 
 If you want the figures in this topic as PowerPoint sides for your own presentation on Traffic Manager or to modify for your own purposes, see [Traffic Manager figures in MSDN documentation](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-## Next steps
+## Next Steps
 
-[What is Traffic Manager](traffic-manager-overview.md)
+[What is Traffic Manager?](traffic-manager-overview.md)
 
 [About Traffic Manager Monitoring](traffic-manager-monitoring.md)
 
