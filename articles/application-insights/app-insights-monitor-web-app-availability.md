@@ -152,7 +152,7 @@ Use Visual Studio Ultimate to record a web session.
     ![In Visual Studio, open the .webtest file and click Run.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-(Don't insert loops in your web test code.)
+(Don't insert loops in your web test.)
 
 #### 2. Upload the web test to Application Insights
 
@@ -169,6 +169,8 @@ View your test results and any failures in the same way as for single-url tests.
 A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
 
 Don't forget that all the resources of a page must load correctly for the test to succeed, including scripts, style sheets, images and so forth.
+
+Note that the web test must be entirely contained in the .webtest file: you can't use coded functions in the test.
 
 
 ### Plugging time and random numbers into your multi-step test
@@ -207,13 +209,14 @@ You might want to disable web tests while you are performing maintenance on your
 
 ## Questions? Problems?
 
-* I get an error about "invalid characters" when I
 
 * *Is there a difference between "web tests" and "availability"?
 
     We use the two terms interchangeably.
 
+* *Can I call code from my web test?*
 
+    No. The steps of the test must be in the .webtest file.
 
 ## <a name="video"></a>Video
 
