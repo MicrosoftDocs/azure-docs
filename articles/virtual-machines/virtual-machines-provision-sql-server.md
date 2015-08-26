@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="08/26/2015" 
 	ms.author="jroth"/>
 
 # Provisioning a SQL Server Virtual Machine on Azure #
