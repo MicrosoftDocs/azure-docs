@@ -20,6 +20,8 @@
 
 # Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes
 
+##Overview
+
 This document contains the release notes for the Azure SDK for .NET 2.7 release.
 
 The document also contain the release notes for the Azure SDK for .NET 2.7.1 release.
