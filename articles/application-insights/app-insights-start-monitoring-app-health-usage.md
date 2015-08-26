@@ -74,7 +74,6 @@ Installing and configuring the Application Insights SDK varies depending on the 
 
     ![Search for "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
 
-
 3. Edit ApplicationInsights.config (which was added by the NuGet install). Insert this just before the closing tag:
 
     `<InstrumentationKey>` *the instrumentation key you copied* `</InstrumentationKey>`
@@ -145,7 +144,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ## 6. Add client-side monitoring
 
-You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client. 
+You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client.
 
 You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
