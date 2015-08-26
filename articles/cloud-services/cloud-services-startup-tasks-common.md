@@ -197,6 +197,7 @@ This causes the **startup.cmd** batch file to be run every time the web role is 
 Finally, modify the [system.webServer section](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) your web role’s **web.config** file to add a list of IP addresses that are granted access, as shown in the following example:
 
 This sample config **allows** all IPs to access the server except the two defined
+
 ```xml
 <system.webServer>
     <security>
@@ -211,6 +212,7 @@ This sample config **allows** all IPs to access the server except the two define
 ```
 
 This sample config **denies** all IPs from accessing the server except for the two defined.
+
 ```xml
 <system.webServer>
     <security>
