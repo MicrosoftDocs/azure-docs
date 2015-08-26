@@ -129,6 +129,11 @@ The most current list of supported guest operating systems is available in the a
 
 No, this type of chained replication isn't supported
 
+### Do I need certificates to configure protection between two VMM datacenters?
+
+No. While configuring protection between VMM clouds in ASR specify the authentication type. Select HTTPS unless you have a working Kerberos environment configured. Azure Site Recovery will automatically configure certificates for HTTPS authentication. No manual configuration is required. If you do select Kerberos, a Kerberos ticket will be used for mutual authentication of the host servers. By default, port 8083 (for Kerberos) and 8084 (for certificates) will be opened in the Windows Firewall on the Hyper-V host servers. Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.
+
+
 
 ## Deploy between two VMM datacenters with SAN
 
