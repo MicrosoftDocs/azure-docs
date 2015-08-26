@@ -21,7 +21,7 @@
 
 ## Overview
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see the [Azure Site Recovery overview](site-recovery-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployments. For a full list of deployment scenarios see the [Azure Site Recovery overview](site-recovery-overview.md).
 
 This article describes how to use Site Recovery to migrate or fail over Windows instances running in AWS to Azure. The articles uses most of the steps described in [Set up protection between on-premises VMware virtual machines or physical servers and Azure](site-recovery-vmware-to-azure.md). We suggest you read through that article for detailed instructions on each step in the deployment.
 
