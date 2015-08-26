@@ -47,27 +47,27 @@ Before you begin this HBase tutorial, you must have the following:
 2. Click **New** in the upper left corner, and then click **Data + Analytics**, **HDInsight**.
 3. Enter the following values:
 
-	- **Cluster Name**&#151;enter a name to identify this cluster
-	- **Cluster Type**&#151;HBase
-	- **Cluster Operating System**&#151;the HDInsight HBase cluster currently only available on Windows operating system
-	- **Subscription**&#151;select your Azure subscription used for provisioning this cluster
-	- **Resource Group**&#151;add or select an Azure resource group.  For more information, see [Azure Resource Manager Overview](resource-group-overview.md)
-	- **Configure the credentials**&#151;for Windows based cluster, you can create a cluster user (a.k.a HTTP user, HTTP web service user)  and a Remote Desktop user
-	- **Data Source**&#151;create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster. This Azure Storage account must be in the same location as the HDInsight HBase cluster
-	- **Note Pricing Tiers**&#151;select the number of region servers for the HBase cluster
+	- **Cluster Name** - enter a name to identify this cluster
+	- **Cluster Type** - HBase
+	- **Cluster Operating System** - the HDInsight HBase cluster currently only available on Windows operating system
+	- **Subscription** - select your Azure subscription used for provisioning this cluster
+	- **Resource Group** - add or select an Azure resource group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md)
+	- **Configure the credentials** - for Windows based cluster, you can create a cluster user (a.k.a HTTP user, HTTP web service user) and a Remote Desktop user
+	- **Data Source** - create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster. This Azure Storage account must be in the same location as the HDInsight HBase cluster
+	- **Note Pricing Tiers** - select the number of region servers for the HBase cluster
 
 		> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
 		> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
 
-	- **Optional Configuration**&#151;select the cluster version, configure Azure virtual network, configure Hive/Oozie metastore, configure Script actions, and add additional storage accounts.
+	- **Optional Configuration** - select the cluster version, configure Azure virtual network, configure Hive/Oozie metastore, configure Script actions, and add additional storage accounts.
 
 4. Click **Create**.
 
 >[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
 
 ## Use the HBase shell
-Currently, there are two way to access HBase. This section covers using the HBase shell.  The next section covers using the .NET SDK.
+Currently, there are two way to access HBase. This section covers using the HBase shell. The next section covers using the .NET SDK.
 
 For most people, data appears in the tabular format:
 
@@ -118,10 +118,10 @@ It'll make more sense after you finish the next procedure.
 
 **To bulk load data into the contacts HBase table**
 
-HBase includes several methods of loading data into tables.  For more information, see [Bulk loading](http://hbase.apache.org/book.html#arch.bulk.load).
+HBase includes several methods of loading data into tables. For more information, see [Bulk loading](http://hbase.apache.org/book.html#arch.bulk.load).
 
 
-A sample data file has been uploaded to a public blob container, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt.  The content of the data file is:
+A sample data file has been uploaded to a public blob container, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt. The content of the data file is:
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -147,7 +147,7 @@ You can create a text file and upload the file to your own storage account if yo
 
 		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
-4. Run the following command to upload the data from  /example/data/storeDataFileOutput to the HBase table:
+4. Run the following command to upload the data from /example/data/storeDataFileOutput to the HBase table:
 
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 
