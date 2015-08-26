@@ -31,7 +31,7 @@ Here's what you need before you start:
 
 - **Configuration server**: An Azure virtual machine that acts as the configuration server. The configuration server coordinates communication between on-premises machines and Azure servers.
 - **Master target server**: An Azure virtual machine that acts as the master target server. This server receives and retains replicated data from protected machines.
-- **A process server**: A virtual running Windows Server 2012 R2. Protected virtual machines send replication data to this server.
+- **A process server**: A virtual machine running Windows Server 2012 R2. Protected virtual machines send replication data to this server.
 - **EC2 VM instances**: The instances you want to migrate and then protect.
 
 - Read more about these components in [what do I need?](site-recovery-vmware-to-azure.md#what-do-i-need)
