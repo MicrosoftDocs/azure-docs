@@ -17,7 +17,7 @@
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
-# Use Chrome Postman with Azure Search #
+# How to use Chrome Postman with Azure Search #
 
 [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") is a tool provided as part of Google Chrome that allows developers to work efficiently with REST-based API services such as Azure Search. You can use Postman to quickly create and query your search indexes by sending API calls through Postman, without having to write any code. This approach is an efficient way to learn the API and try out new features.
 
