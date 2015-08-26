@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Protect virtual machines in VMM to another VMM site with PowerShell and Azure Resource Manager"
+	pageTitle="Protect VMs from one VMM site to another  with PowerShell and Microsoft Azure Resource Manager"
 	description="Automate protection between two on-premises VMM site and Azure using PowerShell and Azure Resource Manager."
 	services="site-recovery"
 	documentationCenter=""
@@ -9,12 +9,13 @@
 
 <tags
 	ms.service="site-recovery"
-	ms.workload="backup-recovery"
-	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="backup-recovery"
 	ms.date="08/26/2015"
 	ms.author="raynew"/>
+	
 
 #  VMM site to VMM site with PowerShell and Azure Resource Manager
 
