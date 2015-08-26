@@ -92,6 +92,8 @@ For more information on Virtual Network features, benefits, and capabilities, se
 > - Migrate to a location-based Virtual Network.  See [Migrate existing services to regional scope](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
 >
 > It is highly recommended to designate a single subnet for one cluster.
+>
+> Currently (8/25/2015,) you can only provision one Linux-based cluster in an Azure Virtual Network.
 
 
 ## <a id="options"></a> Options for provisioning an HDInsight Linux cluster
@@ -185,12 +187,12 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 
 		>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
 
-	
+
 	* **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). On the Script Actions blade provide the details as shown in the screen capture.
 
 		![Script action blade](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.8.png "Specify script action")
 
-	
+
 	* Click **Azure Storage Keys** to specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
 
 		![Additional storage blade](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")

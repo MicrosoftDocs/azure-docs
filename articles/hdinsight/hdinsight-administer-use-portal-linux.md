@@ -76,35 +76,45 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 6. For __Data Source__, you can select the entry to choose an existing data source, or create a new one.
 
 	![Data source blade](./media/hdinsight-administer-use-portal-linux/datasource.png)
-	
+
 	Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the __Data Source__ blade.
-	
+
 	- __Selection Method__: Set this to __From all subscriptions__ to enable browsing of storage accounts on your subscriptions. Set to __Access Key__ if you want to enter the __Storage Name__ and __Access Key__ of an existing storage account.
-	
+
 	- __Create New__: Use this to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
-	
+
 	- __Choose Default Container__: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
-	
+
 	- __Location__: The geographic region that the storage account will be is in, or will be created in.
-	
+
 		> [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
-		
+
 	- __Select__: Use this to save the data source configuration.
-	
-7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. Set this to __1__, as this will be sufficient for this tutorial and will reduce the cost of the cluster. You can also change the number of nodes in a cluster after it has been provisioned. 
+
+7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. Set this to __1__, as this will be sufficient for this tutorial and will reduce the cost of the cluster. You can also change the number of nodes in a cluster after it has been provisioned.
 
 	The estimated cost of the cluster will be shown at the bottom of this blade.
 
 	![Node pricing tiers blade](./media/hdinsight-administer-use-portal-linux/nodepricingtiers.png)
-	
+
 	Use the __Select__ button to save the __Node Pricing Tiers__ information.
 
 8. Select __Optional Configuration__. This blade allows you to configure the following items:
 
 	* __HDInsight Version__: The version of HDInsight used for the cluster. For more information on HDInsight versioning, see [HDInsight component versioning](hdinsight-component-versioning.md)
+
 	* __External Metastores__: This allows you to select a SQL Database, which will be used to store configuration information for Oozie and Hive. This allows you to reuse the configuration when deleting and recreating a cluster, instead of having to recreate the Hive and Oozie configuration each time.
-	*__Azure Storage Keys__: This allows you to associate additional storage accounts with the HDInsight server.
-	
+
+	* __Virtual Network__: This allows you to place the HDInsight cluster on the same virtual network as other resources, such as SQL Database or an Azure Virtual Machine. Placing resources on a virtual network allows the to directly communicate with each other, bypassing the public gateways that handle incoming traffic from the Internet. For more information on how HDInsight benefits from Azure Virtual Networks, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+
+		> [AZURE.IMPORTANT] You must create the Azure Virtual Network before creating the HDInsight cluster, as you cannot create a new network from HDInsight configuration.
+		>
+		> Currently (8/25/2015) there is a limitation that only one Linux-based HDInsight cluster can be present on an Azure Virtual Network.
+
+	* __Script Actions__: This allows you to specify Bash scripts that customize the HDInsight cluster during provisioning. For example, there is a [script that installs Hue](hdinsight-hadoop-hue-linux.md) (a graphical client for working with Hadoop.) For more information on Script Actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+
+	* __Azure Storage Keys__: This allows you to associate additional storage accounts with the HDInsight server.
+
 		> [AZURE.NOTE] HDInsight can only access Azure Storage accounts used as the default data store, added through this configuration section, or that are publicly accessible.
 
 	![Optional configuration blade](./media/hdinsight-administer-use-portal-linux/optionalconfiguration.png)
