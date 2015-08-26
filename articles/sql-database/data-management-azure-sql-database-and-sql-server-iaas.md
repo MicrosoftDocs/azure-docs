@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/26/2015" 
 	ms.author="selcint"/>
 
 # Understanding Azure SQL Database and SQL Server in Azure VMs
