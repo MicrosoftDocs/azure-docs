@@ -16,7 +16,7 @@
 	ms.author="jroth" />
 
 # SQL Server Business Intelligence in Azure Virtual Machines
-
+ 
 The Microsoft Azure Virtual Machine gallery includes images that contain SQL Server installations. The SQL Server editions supported in the gallery images are the same installation files you can install to on-premises computers and virtual machines. This topic summarizes the SQL Server Business Intelligence (BI) Features installed on the images and configuration steps required after a virtual machine is provisioned. This topic also describes supported deployment topologies for BI features and best practices.
 
 ## License Considerations
