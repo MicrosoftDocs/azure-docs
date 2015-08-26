@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="What is StorSimple?" 
-   description="Describes StorSimple features and architecture, and introduces the StorSimple components." 
+   pageTitle="What is StorSimple? | Microsoft Azure" 
+   description="Describes the StorSimple data management and protection process, benefits, and architecture, and introduces the StorSimple components." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/14/2015"
+   ms.date="08/26/2015"
    ms.author="v-sharos@microsoft.com"/>
 
-# What is StorSimple? 
+# What is Azure StorSimple and how does it store and protect my data? 
 
 ## Overview
 

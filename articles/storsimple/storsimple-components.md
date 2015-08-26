@@ -1,6 +1,6 @@
 <properties 
    pageTitle="What are the StorSimple components? | Microsoft Azure" 
-   description="Describes the StorSimple device, services, and management technologies." 
+   description="Describes the StorSimple device, virtual device, services, and management technologies, and defines key terms used in the solution." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/13/2015"
+   ms.date="08/26/2015"
    ms.author="v-sharos"/>
 
 
-# What are the StorSimple components? 
+# What are the StorSimple components and how do they work? 
 
-Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage.  StorSimple is designed to reduce storage costs, simplify storage management, improve disaster recovery capability and efficiency, and provide data mobility.
+Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage. StorSimple is designed to reduce storage costs, simplify storage management, improve disaster recovery capability and efficiency, and provide data mobility.
 
 The following sections describe the Microsoft Azure StorSimple components, and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection. The last section provides definitions of some of the important terminology related to StorSimple components and their management.
 
