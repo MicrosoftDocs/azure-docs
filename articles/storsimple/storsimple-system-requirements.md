@@ -16,7 +16,7 @@
    ms.date="08/26/2015"
    ms.author="alkohli"/>
 
-# Software, high availability, and networking requirements for your StorSimple system
+# StorSimple software, high availability, and networking requirements
 
 ## Overview
 

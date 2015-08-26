@@ -16,7 +16,7 @@
    ms.date="08/26/2015"
    ms.author="v-sharos@microsoft.com"/>
 
-# What is StorSimple and how does it store and protect data? 
+# StorSimple 8000 series: a hybrid cloud storage solution 
 
 ## Overview
 
