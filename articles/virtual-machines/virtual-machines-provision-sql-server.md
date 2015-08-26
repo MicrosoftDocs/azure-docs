@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Provision a SQL Server virtual machine in Azure" 
-	description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." 
+	description="This tutorial teaches you how to create and configure a SQL Server VM on Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="rothja" 
@@ -16,7 +16,7 @@
 	ms.date="08/26/2015" 
 	ms.author="jroth"/>
 
-# Provisioning a SQL Server Virtual Machine on Azure #
+# Provision a SQL Server virtual machine in Azure
 
 > [AZURE.SELECTOR]
 - [Portal](virtual-machines-provision-sql-server.md)
