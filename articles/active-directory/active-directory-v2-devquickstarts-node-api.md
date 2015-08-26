@@ -57,7 +57,7 @@ To successfully use this sample, you must have a working installation of MongoDB
 
 Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 
-**NOTE:** This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
+> [AZURE.NOTE] This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
 
 ## 4: Install the Restify modules in to your Web API
 
@@ -149,7 +149,7 @@ The output of the commadn should appear similar to the following:
 
 Next, we will add the OAuth strategy, using passport-azuread, a suite of strategies that connect Azure Active Directory with  Passport. We will use this strategy for Bearer Tokens in this Rest API sample.
 
-[AZURE.NOTE] Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained wide-spread use. For protecting endpoints, that has turned out to be Bearer Tokens. Bearer tokens are the most widely issued type of token in OAuth2, and many implementations assume that bearer tokens are the only type of token issued.
+> [AZURE.NOTE] Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained wide-spread use. For protecting endpoints, that has turned out to be Bearer Tokens. Bearer tokens are the most widely issued type of token in OAuth2, and many implementations assume that bearer tokens are the only type of token issued.
 
 From the command-line, change directories to the azuread directory
 
@@ -272,7 +272,8 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 *audience*: Your redirect URI from the portal.
 
-> [AZURE.NOTE] We roll our keys at frequent intervals. Please ensure that you are always pulling from the "openid_keys" URL and that the app can access the internet.
+> [AZURE.NOTE] 
+We roll our keys at frequent intervals. Please ensure that you are always pulling from the "openid_keys" URL and that the app can access the internet.
 
 
 ## 11: Add configuration to your server.js file
@@ -762,10 +763,12 @@ passport.use(oidcStrategy);
 
 Passport uses a similar pattern for all it’s Strategies (Twitter, Facebook, etc.) that all Strategy writers adhere to. Looking at the strategy you see we pass it a function() that has a token and a done as the parameters. The strategy will dutifully come back to us once it does all it’s work. Once it does we’ll want to store the user and stash the token so we won’t need to ask for it again.
 
-> [AZURE.IMPORTANT] The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command line program, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
+> [AZURE.IMPORTANT] 
+The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command line program, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
 
 
-> [AZURE.TIP] When writing APIs you should always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the subscription ID of the user in the token (called through token.sub) which we put in the “owner” field. This ensures that only that user can access his TODOs and no one else can access the TODOs entered. There is no exposure in the API of “owner” so an external user can request other’s TODOs even if they are authenticated.
+> [AZURE.TIP] 
+When writing APIs you should always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the subscription ID of the user in the token (called through token.sub) which we put in the “owner” field. This ensures that only that user can access his TODOs and no one else can access the TODOs entered. There is no exposure in the API of “owner” so an external user can request other’s TODOs even if they are authenticated.
 
 ### 2. Finally, protect some endpoints
 
