@@ -1,6 +1,6 @@
 ﻿<properties
-	pageTitle="Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine"
-	description="If you can't connect your Windows-based Azure virtual machine, use these diagnotics and steps to isolate the source of the problem."
+	pageTitle="Troubleshoot Remote Desktop connection to an Azure Virtual Machine"
+	description="Troubleshoot Remote Desktop or RDP connections to an Azure virtual machine running Windows."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -14,19 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/26/2015"
 	ms.author="dkshir"/>
 
-# Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine
+# Troubleshoot Remote Desktop connections to an Azure virtual machine
 
-If you can't connect to Windows-based Azure virtual machines, this article describes a methodical approach for correction and root-cause determination of Remote Desktop connections.
+Do you have trouble connecting to your Azure virtual machine running Windows? Use the steps in this article to find out the cause and correct it.
 
-## Step 1: Run the Azure IaaS diagnostics package
+## Run the Azure IaaS diagnostics package
 
-To address many of the common problems with creating Remote Desktop connections, Microsoft has created an [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864).
+This step applies only if you are troubleshooting from a Windows machine. Proceed to the next step if you are on any other system.
 
-1.	Click **Microsoft Azure IaaS (Windows) diagnostics package** on this page to create a new diagnostics session.
-2.	On the **Which of the following issues are you experiencing with your Azure VM?** page, select the **RDP connectivity to an Azure VM (Reboot Required)** issue.
+1.	Click **Microsoft Azure IaaS (Windows) diagnostics package** on the [Support diagnostics page](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). Click **Create** for a new diagnostics session. You can either **Share** this session with a different target computer or **Download** it on your local machine.
+2.	**Run** the session, **Accept** the Micrsoft license agreement and **Start** the diagnostic tool.
+3.	When prompted, authenticate to your Azure subscription in the pop-up window. Follow along with the prompts that follow.
+3.	On the **Which of the following issues are you experiencing with your Azure VM?** page, select the **RDP connectivity to an Azure VM (Reboot Required)** issue.
 
 For more information, see the [Microsoft Azure IaaS (Windows) diagnostics package Knowledgebase article](http://support.microsoft.com/kb/2976864).
 
