@@ -18,7 +18,9 @@
 # Integrating Applications with Azure Active Directory
 Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line of business applications that can be integrated with Azure Active Directory (Azure AD) to provide secure sign in and authorization for their services. To integrate an application or service with Azure AD, a developer must first register the details about their application with Azure AD by using the Azure Management Portal.
 
-This article shows you how to add, update, or remove an application in Azure AD. You will learn about the different types of applications that can be integrated with Azure AD, how to configure your applications to access other resources such as web APIs, and more. For more information about app properties, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
+This article shows you how to add, update, or remove an application in Azure AD. You will learn about the different types of applications that can be integrated with Azure AD, how to configure your applications to access other resources such as web APIs, and more.
+
+To more information about app properties, see [Application Objects and Service Principal Objects](active-directory-application-objects.md); to learn the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md).
 
 ## Adding an Application
 
@@ -297,3 +299,11 @@ This section describes how to remove an application from your directory for both
 1. Click Yes in the confirmation message.
 
 In order for a company administrator to remove an app’s access to their directory (after having granted consent), the company administrator must have an Azure subscription to remove access through the Azure Management Portal. Alternatively, the company administrator can use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
+
+## Next steps
+
+- See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md)
+
+- Learn about [Application Objects and Service Principal Objects](active-directory-application-objects.md)
+
+- Visit the [Active Directory developer's guide](active-directory-developer's guide.md)

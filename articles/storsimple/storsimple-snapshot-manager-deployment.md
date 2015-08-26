@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Deploy StorSimple Snapshot Manager
@@ -35,8 +35,8 @@ Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Mi
 
 The following steps provide a high-level overview of configuration tasks that you must complete before you install the StorSimple Snapshot Manager. For complete Microsoft Azure StorSimple configuration and setup information, including system requirements and step-by-step instructions, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT] Before you begin, review the [pre-installation checklist](storsimple-deployment-walkthrough.md#pre-installation-checklist) and
-> and [deployment prerequisites](storsimple-deployment-walkthrough.md#deployment-prerequisites) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+>[AZURE.IMPORTANT] Before you begin, review the [Deployment configuration checklist](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) and
+> and [Deployment prerequisites](storsimple-deployment-walkthrough.md#deployment-prerequisites) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 <br>
  
 ### Before you install StorSimple Snapshot Manager
@@ -63,7 +63,7 @@ The following steps provide a high-level overview of configuration tasks that yo
     - Mirrored dynamic volumes (RAID 1)
     - Cluster-shared volumes
  
-    For information about creating volumes on the StorSimple device or StorSimple virtual device, go to "Step 6: Create a volume," in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+    For information about creating volumes on the StorSimple device or StorSimple virtual device, go to [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume), in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 
 ## Install a new StorSimple Snapshot Manager
 
@@ -253,4 +253,4 @@ To reinstall StorSimple Snapshot Manager, follow the steps in [Install a new Sto
 
 To learn more about StorSimple Snapshot Manager, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-To learn more about the StorSimple Snapshot Manager user interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md)
+To learn more about the StorSimple Snapshot Manager user interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).

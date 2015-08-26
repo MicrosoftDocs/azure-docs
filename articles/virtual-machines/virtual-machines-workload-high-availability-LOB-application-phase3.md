@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Line of Business Application Workload Phase 3: Configure SQL Server infrastructure" 
-	description="In this third phase of deploying a high-availability line of business application in Azure infrastructure services, you create the SQL Server cluster computers and the cluster itself." 
+	pageTitle="Line of business application Phase 3 | Microsoft Azure" 
+	description="Create the computers and the SQL Server cluster and enable Availability Groups in Phase 3 of the line of business application in Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
@@ -177,7 +177,7 @@ The SQL Server service requires a port that clients use to access the database s
 
 For each of the SQL Server virtual machines, sign out as the local administrator. 
 
-For information about optimizing SQL Server performance in Azure, see [Performance Best Practices for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx). You can also disable Geo Redundant Storage (GRS) for the line of business application storage account and use storage spaces to optimize IOPs.
+For information about optimizing SQL Server performance in Azure, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). You can also disable Geo Redundant Storage (GRS) for the line of business application storage account and use storage spaces to optimize IOPs.
 
 ## Configure the cluster majority node server
 
@@ -267,4 +267,5 @@ To continue with the configuration of this workload, go to [Phase 4: Configure W
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
+[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
 

@@ -14,15 +14,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/21/2015"
 	ms.author="jgao"/>
 
 # Develop Script Action scripts for HDInsight
 
 Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster. Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration. A script action is executed under system admin account privileges and provides full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to be executed in the order in which they are specified.
 
+## Helper methods for custom scripts
 
+Script Action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), and can be included in your scripts using the following:
 
+    # Download config action module from a well-known directory.
+	$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
+	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
+	$webclient = New-Object System.Net.WebClient;
+	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
+	
+	# (TIP) Import config action helper method module to make writing config action easy.
+	if (Test-Path ($CONFIGACTIONMODULE))
+	{ 
+		Import-Module $CONFIGACTIONMODULE;
+	} 
+	else
+	{
+		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
+		exit;
+	}
+
+Here are the helper methods that are provided by this script:
+
+Helper method | Description
+-------------- | -----------
+**Save-HDIFile** | Download a file from the specified Uniform Resource Identifier (URI) to a location on the local disk that is associated with the Azure VM node assigned to the cluster.
+**Expand-HDIZippedFile** | Unzip a zipped file.
+**Invoke-HDICmdScript** | Run a script from cmd.exe.
+**Write-HDILog** | Write output from the custom script used for a script action.
+**Get-Services** | Get a list of services running on the machine where the script executes.
+**Get-Service** | With the specific service name as input, get detailed information for a specific service (service name, process ID, state, etc.) on the machine where the script executes.
+**Get-HDIServices** | Get a list of HDInsight services running on the computer where the script executes.
+**Get-HDIService** | With the specific HDInsight service name as input, get detailed information for a specific service (service name, process ID, state, etc.) on the machine where the script executes.
+**Get-ServicesRunning** | Get a list of services that are running on the computer where the script executes.
+**Get-ServiceRunning** | Check if a specific service (by name) is running on the computer where the script executes.
+**Get-HDIServicesRunning** | Get a list of HDInsight services running on the computer where the script executes.
+**Get-HDIServiceRunning** | Check if a specific HDInsight service (by name) is running on the computer where the script executes.
+**Get-HDIHadoopVersion** | Get the version of Hadoop installed on the computer where the script executes.
+**Test-IsHDIHeadNode** | Check if the computer where the script executes is a head node.
+**Test-IsActiveHDIHeadNode** | Check if the computer where the script executes is an active head node.
+**Test-IsHDIDataNode** | Check if the computer where the script executes is a data node.
+**Edit-HDIConfigFile** | Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml.
 
 ## Call script actions
 
@@ -127,30 +167,6 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 - Configure the custom components to use Azure Blob storage
 
 	The custom components that you install on the cluster nodes might have a default configuration to use Hadoop Distributed File System (HDFS) storage. You should change the configuration to use Azure Blob storage instead. On a cluster re-image, the HDFS file system gets formatted and you would lose any data that is stored there. Using Azure Blob storage instead ensures that your data will be retained.
-
-## Helper methods for custom scripts
-
-Script Action provides the following helper methods that you can use while writing custom scripts.
-
-Helper method | Description
--------------- | -----------
-**Save-HDIFile** | Download a file from the specified Uniform Resource Identifier (URI) to a location on the local disk that is associated with the Azure VM node assigned to the cluster.
-**Expand-HDIZippedFile** | Unzip a zipped file.
-**Invoke-HDICmdScript** | Run a script from cmd.exe.
-**Write-HDILog** | Write output from the custom script used for a script action.
-**Get-Services** | Get a list of services running on the machine where the script executes.
-**Get-Service** | With the specific service name as input, get detailed information for a specific service (service name, process ID, state, etc.) on the machine where the script executes.
-**Get-HDIServices** | Get a list of HDInsight services running on the computer where the script executes.
-**Get-HDIService** | With the specific HDInsight service name as input, get detailed information for a specific service (service name, process ID, state, etc.) on the machine where the script executes.
-**Get-ServicesRunning** | Get a list of services that are running on the computer where the script executes.
-**Get-ServiceRunning** | Check if a specific service (by name) is running on the computer where the script executes.
-**Get-HDIServicesRunning** | Get a list of HDInsight services running on the computer where the script executes.
-**Get-HDIServiceRunning** | Check if a specific HDInsight service (by name) is running on the computer where the script executes.
-**Get-HDIHadoopVersion** | Get the version of Hadoop installed on the computer where the script executes.
-**Test-IsHDIHeadNode** | Check if the computer where the script executes is a head node.
-**Test-IsActiveHDIHeadNode** | Check if the computer where the script executes is an active head node.
-**Test-IsHDIDataNode** | Check if the computer where the script executes is a data node.
-**Edit-HDIConfigFile** | Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml.
 
 ## Common usage patterns
 

@@ -444,7 +444,6 @@ Select a third-party FTP client to publish the application. This procedure descr
 
 For more information on deployment to an App Service web app using FTP, see the following topics:
 
-- [Manage web apps using the Azure Portal: Deployment](web-sites-manage.md/#deployment)
 - [Deploy using an FTP utility](web-sites-deploy.md)
 
 
