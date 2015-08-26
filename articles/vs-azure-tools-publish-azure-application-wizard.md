@@ -27,7 +27,7 @@ After you develop a web application in Visual Studio, you can publish that appli
 
 Before you can publish your web application to Azure, you need to have a Microsoft account and an Azure subscription, and you have to associate your web application with an Azure cloud service. If you’ve already completed these tasks, you can skip to the next section.
 
-1. Get a Microsoft account and an Azure subscription. To get an Azure subscription, see [Welcome to Windows Azure!](https://account.windowsazure.com/Home/Index).
+1. Get a Microsoft account and an Azure subscription. You can try a free one month free Azure subscription [here](https://azure.microsoft.com/pricing/free-trial/)
 
 1. Create a cloud service and a storage account on Azure. You can do this from Server Explorer in Visual Studio, or by using the [Azure Management portal](http://go.microsoft.com/fwlink/?LinkID=213885). For more information about how to set up your Azure environment, see [Setting Up Services Required to Publish a Cloud Service from Visual Studio](./vs-azure-tools-publish-azure-application-wizard).
 

@@ -17,7 +17,7 @@
 
 # Creating and deploying Azure Resource Group deployment projects
 
-The **Azure Resource Group** deployment project template is available in Visual Studio when Azure SDK 2.6 is installed. Azure Resource Group projects let you group together and publish multiple related Azure resources in a single deployment operation. Azure Resource Group projects use a technology called Azure Resource Manager to do their work. Azure Resource Manager is a REST API service that lets you define Azure resource groups, which contain multiple Azure resources that are typically used together and have a similar lifecycle. By using resource groups, you can operate on all the resources in a group with a single function call, instead of calling different functions for each individual resource. To learn more about Azure resource groups, see [Using resource groups to manage your Azure resources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/).
+The **Azure Resource Group** deployment project template is available in Visual Studio when Azure SDK 2.6 is installed. Azure Resource Group projects let you group together and publish multiple related Azure resources in a single deployment operation. Azure Resource Group projects use a technology called **Azure Resource Manager** to do their work. **Azure Resource Manager** is a REST API service that lets you define Azure resource groups, which contain multiple Azure resources that are typically used together and have a similar lifecycle. By using resource groups, you can operate on all the resources in a group with a single function call, instead of calling different functions for each individual resource. To learn more about Azure resource groups, see [Using resource groups to manage your Azure resources](./azure-portal/azure-preview-portal-using-resource-groups/).
 
 Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the elements that are deployed to a resource group. See [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx) for more information.
 
@@ -62,7 +62,7 @@ All Azure Resource Group deployment projects contain these four basic files. Oth
 
 You can customize a deployment project by modifying the JSON template files that describe the Azure resources you want to deploy. JSON stands for JavaScript Object Notation, and is a serialized data format that is easy to work with.
 
-Azure Resource Group projects have two template files under the **Templates** node in Solution Explorer you can modify: an Azure Resource Manager template file and a parameter file.
+Azure Resource Group projects have two template files under the **Templates** node in Solution Explorer that you can modify: an Azure Resource Manager template file and a parameter file.
 
 - **Azure Resource Manager template files** (which have the extension .json) specify the file(s) containing the resources you want, as well as parameters needed by the deployment project, such as site name and location. They also specify the dependencies of the components in the Azure Resource Group and their properties, such as names, tags, and rules for triggers. You can modify this file to add your own functionality. For example, you could add a database to the template. Refer to the documentation for each resource provider to find out the parameters you need to provide. See [Resource Providers](https://msdn.microsoft.com/library/azure/dn790572.aspx) for more information.
 
@@ -86,7 +86,7 @@ When you deploy an Azure Resource Group project, you deploy it to an Azure resou
 
     The **Deploy to Resource Group** dialog box appears.
 
-    ****![Deploy To Resource Group Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
+    ![Deploy To Resource Group Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
 1. In the **Resource group** dropdown box, choose an existing resource group or create a new one.To create a resource group, open the **Resource Group** dropdown box and choose **<Create New...>**. 
 

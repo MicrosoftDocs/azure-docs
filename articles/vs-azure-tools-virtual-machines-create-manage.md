@@ -63,7 +63,7 @@ While you can create a virtual machine in the [Azure Management Portal](http://g
 
    >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
-1. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Cloud Services](http://www.windowsazure.com/services/cloud-services/) and [Introduction to Microsoft Azure Storage](http://azure.microsoft.com/documentation/articles/storage-introduction/) for more information.
+1. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Microsoft Azure Storage](./storage/storage-introduction/) for more information.
 
 1. If you want to specify a virtual network (which is optional), select it in the Virtual Network and Subnet dropdown list boxes.
 
@@ -158,7 +158,7 @@ As you configure your virtual machine and install software on it, it's a good id
 
 ### To restore a virtual machine to a previously saved state
 
-- Follow the steps outlined in [Step-by-Step: Perform Cloud Restores of Windows Azure Virtual Machines using PowerShell - Part 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+- Follow the steps outlined in [Step-by-Step: Perform Cloud Restores of Microsoft Azure Virtual Machines using PowerShell - Part 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
 ### To delete a checkpoint
 
