@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/24/2015"
+	ms.date="08/26/2015"
 	ms.author="raynew"/>
 
 #  Migrate Windows virtual machines in Amazon Web Services (AWS) to Azure
