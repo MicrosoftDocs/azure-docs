@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tomcat on a virtual machine - Azure tutorial"
+	pageTitle="Tomcat on a virtual machine | Microsoft Azure"
 	description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server."
 	services="virtual-machines"
 	documentationCenter="java"

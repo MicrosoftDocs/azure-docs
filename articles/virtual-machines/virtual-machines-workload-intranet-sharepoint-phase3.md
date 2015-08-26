@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Intranet Farm Workload Phase 3: Configure SQL Server Infrastructure"
-	description="In this third phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create the SQL Server cluster computers and the cluster itself."
+	pageTitle="SharePoint Server 2013 farm Phase 3 | Microsoft Azure"
+	description="Create the computers and the SQL Server cluster and enable Availability Groups in Phase 3 of the SharePoint Server 2013 farm in Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -44,7 +44,7 @@ When you have supplied all the proper values, run the resulting block at the Azu
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 2 – Availability set name column>"
 
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Enterprise on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
 
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
@@ -226,3 +226,5 @@ To continue with the configuration of this workload, go to [Phase 4: Configure S
 [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-workload-high-availability-lob-application.md)

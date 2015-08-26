@@ -92,7 +92,7 @@ If not, you can store it in any persistent store. A common design pattern we've 
 
 ## Adding and removing partitions
 
-With DocumentDB, you can add and remove create collections at any time and use them to store new incoming data or re-balance data available on existing collections. Review the [Limits](documentdb-limits.md) page for the number of collections. You can always call us to increase these limits.
+With DocumentDB, you can add and remove collections at any time and use them to store new incoming data or re-balance data available on existing collections. Review the [Limits](documentdb-limits.md) page for the number of collections. You can always call us to increase these limits.
 
 Adding and removing a new partition with lookup and range partitioning is straightforward. For example, adding a new geographic region or new time range for recent data, you just need to append the new partitions to the partition map. Splitting an existing partition into multiple partitions, or merge two partitions requires a little more effort. You need to either 
 

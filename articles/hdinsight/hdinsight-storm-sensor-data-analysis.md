@@ -302,7 +302,7 @@ If you plan to use HBase with this example, you must create an Azure virtual net
 
 	- **Location**: The location must be the same as the HBase cluster that you will create.
 
-	- **DNS server**: This article uses the internal DNS server provided by Azure; therefore, you can choose **None**. More advanced networking configurations with custom DNS servers are also supported. For the detailed guidance, see [Name Resolution (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+	- **DNS server**: This article uses the internal DNS server provided by Azure; therefore, you can choose **None**. More advanced networking configurations with custom DNS servers are also supported. For the detailed guidance, see [Name Resolution (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 4. Click **Create a Virtual Network**. The new virtual network name will appear in the list. Wait until the Status column shows **Created**.
 

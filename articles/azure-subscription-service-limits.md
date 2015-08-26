@@ -150,6 +150,11 @@ For additional details on SQL Database limits, please see the following topics:
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
+## Notification Hub Service Limits
+
+[AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
+
+
 ## Service Bus Limits
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
@@ -188,6 +193,10 @@ For additional details on SQL Database limits, please see the following topics:
 ## Site Recovery Limits
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+
+## Application Insights Limits
+
+[AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ## API Management Limits
 

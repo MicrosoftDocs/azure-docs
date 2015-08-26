@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use CDN - Azure feature guide" 
+	pageTitle="How to use CDN | Microsoft Azure" 
 	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
 	services="cdn" 
 	documentationCenter=".net" 

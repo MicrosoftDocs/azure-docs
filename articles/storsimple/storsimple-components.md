@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="What are the StorSimple components?" 
+   pageTitle="What are the StorSimple components? | Microsoft Azure" 
    description="Describes the StorSimple device, services, and management technologies." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 
@@ -110,7 +110,11 @@ Windows PowerShell for StorSimple provides a command-line interface that you can
 
 You can access Windows PowerShell for StorSimple from a serial console (on a host computer connected directly to the device) or remotely by using Windows PowerShell remoting. Note that some Windows PowerShell for StorSimple tasks, such as initial device registration, can only be done on the serial console. 
 
-For more information, see [Windows PowerShell for StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
+For more information, see [Use Windows PowerShell for StorSimple to administer your device](storsimple-windows-powershell-administration.md).
+
+## Azure PowerShell StorSimple cmdlets
+
+The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](https://msdn.microsoft.com/library/dn920427.aspx).
 
 ## StorSimple Manager service
 
@@ -142,7 +146,7 @@ Backups are captured as snapshots, which record only the changes since the last 
 
 If a disaster occurs or if you need to restore data for another reason, StorSimple Snapshot Manager restores it incrementally as it is needed. Data restoration does not require that you shut down the entire system while you restore a file, replace equipment, or move operations to another site.
 
-For more information, see [What is StorSimple Snapshot Manager](storsimple-what-is-snapshot-manager.md).
+For more information, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ## StorSimple Adapter for SharePoint
 
@@ -215,7 +219,7 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 
 ## Next steps
 
-Review the [StorSimple release notes](https://msdn.microsoft.com/library/azure/dn772367.aspx)
+Learn about [StorSimple security](storsimple-security.md).
 
 
 

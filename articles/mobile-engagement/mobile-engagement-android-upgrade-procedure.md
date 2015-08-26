@@ -3,7 +3,7 @@
 	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #Upgrade procedures
@@ -24,6 +24,30 @@ If you already have integrated an older version of our SDK into your application
 You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.
 
 Whatever the version you upgrade from, you have to replace the `mobile-engagement-VERSION.jar` with the new one.
+
+##From 4.0.0 to 4.1.0
+
+The SDK now handle new permission model from Android M.
+
+If you use location features or big picture notifications please read [this section](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
+
+In addition to the new permission model, we now support configuring location features at runtime.
+We are still compatible with the manifest parameters for location but it's now deprecated. To use runtime configuration, remove the following sections from your ``AndroidManifest.xml``:
+
+    <meta-data
+      android:name="engagement:locationReport:lazyArea"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:background"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:fine"
+      android:value="true"/>
+
+and read [this updated procedure](mobile-engagement-android-integrate-engagement.md#location-reporting) to use runtime configuration instead.
 
 ##From 3.0.0 to 4.0.0
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/18/2015" 
 	ms.author="paulettm"/>
 
 #Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
@@ -180,7 +180,7 @@ Not currently, but with the standard Python module or a set of them the same res
 
 **Is there a REPL environment for Python?** 
 
-No, there is no REPL environment for Python in the studio. 
+You can use the Jupyter Notebooks in the Machine Learning Studio. For more information, see [Introducing Jupyter Notebooks in Azure ML Studio] (http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Web service
 ###Retrainining Models Programmatically
@@ -205,7 +205,9 @@ The Request Response service (RRS) is a low-latency, high-scale web service that
 
 **How do I update the model for the deployed web service?** 
 
-Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See [Publish a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) for details on how to update a deployed web service. 
+Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See [Publish a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) for details on how to update a deployed web service.
+
+You can also use the Retraining APIs. The sample code is available [here](https://azuremlretrain.codeplex.com/).
 
 
 **How do I monitor my Web service deployed in production?** 
@@ -214,15 +216,17 @@ Once a predictive model has been put into production, you can monitor it from th
 
 **Is there a place where I can see the output of my RRS/BES?** 
 
-Yes, you must provide a blob storage location and the output of the RRS/BES will be placed there. 
-
-
+For RRS, the web service response is typically where you see the result. You can also write it a blob. For BES, the output is written to a blob by default. You can also write the output to a database or table using the Writer module.
+ 
+ **Can I create web services only from models created in the Studio?
+ No. You can also create web services directly from Jupyter Notebooks, and RStudio.
+ 
 
 ##Scalability 
 
 **What is the scalability of the web service?** 
 
-Currently, the maximum is 20 concurrent requests per end point, though it can scale to 80 end points. This translates to 4,800 concurrent request if we use every resource (300 workers).  
+Currently, the maximum is 20 concurrent requests per end point, though it can scale to 10,000 end points. This translates to 4,800 concurrent request if we use every resource (300 workers).  
 
 
 **Are R jobs spread across nodes?** 
@@ -264,7 +268,8 @@ No.
 
 **Who has access to the http end point for the web service deployed in production by default? How do I restrict access to the end point?** 
 
-Once a predictive model has been put into production, the Azure Portal lists the URL for the deployed web services. Staging service URLs are accessible from the Machine Learning Studio Environment in the web services section; Production service URLs are accessible from Azure Portal, in the Machine Learning section. Access keys are provided for both Staging and Production web services from the web service dashboard in the Machine Learning Studio and Azure portal environments, respectively. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
+After a web service is published, we create a default endpoint for that service. That default endpoint is deployed to production and can be called using its API Key. Additional endpoints can be added with their own keys from the Azure Portal or programmatically using the Web Service Management APIs. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
+
 
 **What happens if my Storage Account cannot be found?** 
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Python web app with Django - Azure tutorial"
+	pageTitle="Python web app with Django | Microsoft Azure"
 	description="A tutorial that teaches you how to host a Django-based website on Azure using a Windows Server 2012 R2 Datacenter virtual machine."
 	services="virtual-machines"
 	documentationCenter="python"

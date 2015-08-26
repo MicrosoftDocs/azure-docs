@@ -1,6 +1,6 @@
-The server project downloaded from the portal already has push enabled.
+The server project downloaded from the portal already has push notifications enabled.
 
-In your ASP.NET project, you should see the following:
+In your ASP.NET project, you can verify the following:
 
 * The `Microsoft.Azure.Mobile.Server.Notifications` NuGet package is installed.
 

@@ -29,13 +29,19 @@ To use this scenario you will need:
 
 ## Getting your connectors
 
-First, you need to create the two connectors you will be using: [**Dropbox Connector**](app-service-logic-connector-dropbox.md) and [**Twitter Connector**](app-service-logic-connector-twitter.md). To create these:
+First, you need to create the two connectors you will be using: [**Dropbox Connector**](app-service-logic-connector-dropbox.md) and [**Twitter Connector**](app-service-logic-connector-twitter.md). Due to restrictions on the Twitter API, we will also need to register for a free app with Twitter. To create these:
 
 0. Sign in to the Azure portal.
 
 1. Click on [**Marketplace** ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) on the home screen and search for **Twitter** (or [click here](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
 
-2. Select Twitter Connector and click the create button. You will get a view for all of your settings. You can leave the name as **Twitter Connector**.
+2. Select Twitter Connector and click the create button. You will get a view for all of your settings. You can leave the name as **Twitter Connector**.  
+3. Select 'Package settings' -- here you will need to input the information from your Twitter Application.  You can set up a free application with these steps:
+	1. Go to the [Twitter App Registration Page](http://apps.twitter.com)
+	2. Create a new app
+	3. Give it a name and description.  You can input any URL for the website, and leave the callback URL blank.
+	4. Once registered, copy the 'Consumer Key' from Twitter into the 'clientId' field in Azure, and the 'Consumer Secret' from Twitter into the 'clientSecret.'
+	5. Click 'Ok' in the Azure Pane to return to the other API settings
 
 3. Type a plan name in **Create new app service plan**.
 
