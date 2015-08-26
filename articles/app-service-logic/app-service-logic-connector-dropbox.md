@@ -23,7 +23,7 @@ Connect to Dropbox account to upload or download files. Logic apps can trigger b
 
 A Trigger starts a new instance based on a specific event, like the arrival of a new message. An Action is the result, like after receiving a new message, then upload the file to Dropbox.
 
-The Dropbox connector can be used as an action in a logic app and supports data in JSON and XML formats. The Chatter connector has the following Triggers and Actions available:
+The Dropbox connector can be used as an action in a logic app and supports data in JSON and XML formats. The Dropbox connector has the following Triggers and Actions available:
 
 Triggers | Actions
 --- | ---
