@@ -14,7 +14,7 @@
 	 ms.devlang="na"
 	 ms.topic="article"
 	 ms.date="08/26/2015"
-	 ms.author= "giridham"; "arunak"; "jimpark"; "aashishr"/>
+	 ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - FAQ
 The following is a list of commonly asked questions about Azure Backup. If you have any additional questions about Azure Backup, please go to the the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
