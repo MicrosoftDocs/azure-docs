@@ -1,6 +1,6 @@
 <properties pageTitle="Azure Search Service REST API Version 2014-07-31-Preview" description="Azure Search Service REST API: Version 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/26/2015" ms.author="heidist" />
 
 # Azure Search Service REST API Version: 2014-07-31-Preview
 
@@ -126,8 +126,7 @@ The following example provides an illustration of a schema used for searching on
     "fields": [
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
-      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
+      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true}
       {"name": "hotelName", "type": "Edm.String", "suggestions": true},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -165,7 +164,7 @@ HTTPS is required for all service requests. The **Create Index** request can be 
 
 The index name must be lower case, start with a letter or number, have no slashes or dots, and be less than 128 characters. After starting the index name with a letter or number, the rest of the name can include any letter, number and dashes, as long as the dashes are not consecutive.
 
-The `api-version` is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features, such as support for language analyzers expressed through the analyzer index attribute. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details about API versions. See [Language support](#LanguageSupport) for details about language analyzers.
+The `api-version` is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features, such as support for language analyzers expressed through the analyzer index attribute.
 
 **Request Headers**
 
@@ -276,323 +275,6 @@ The following attributes can be set when creating an index. For details about sc
 
 `scoringProfiles` - Defines custom scoring behaviors that let you influence which items appear higher in search results. Scoring profiles are made up of weighted fields and functions. See [Add scoring profiles to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) for more information about the attributes used in a scoring profile.
 
-`analyzer` - Sets the name of the text analyzer to use for the field. For the allowed set of values see [Language Support](#LanguageSupport). This option can be used only with `searchable` fields. Once the analyzer is chosen, it cannot be changed for the field.
-
-
-<a name="LanguageSupport"></a>
-**Language support**
-
-Searchable fields undergo analysis that most frequently involves word-breaking, text normalization, and filtering out terms. By default, searchable fields in Azure Search are analyzed with the [Apache Lucene Standard analyzer](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html) which breaks text into elements following the["Unicode Text Segmentation"](http://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.
-
-Azure Search allows indexing fields in a variety of languages. Each of those languages requires a non-standard text analyzer which accounts for characteristics of a given language. For example, the French analyzer applies a [Light French Stemmer](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/fr/FrenchLightStemmer.html) to reduce words to their [word stems](http://en.wikipedia.org/wiki/Stemming). Additionally, it removes [elisions](http://en.wikipedia.org/wiki/Elision) and French stop words from the analyzed text.
-The analyzer for English extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per [Porter Stemming algorithm](http://tartarus.org/~martin/PorterStemmer/) and removes English [stop words](http://en.wikipedia.org/wiki/Stop_words).
-
-The analyzer can be configured independently for each field in the index definition by setting the `analyzer` property. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side-by-side in the same index. The query specifies which language-specific field to return in your search queries.
-
-Below is the list of supported analyzers together with a short description of their features:
-
-<table style="font-size:12">
-    <tr>
-		<th>Language</th>
-		<th>Analyzer name</th>
-		<th>Description</th>
-	</tr>
-    <tr>
-		<td>Arabic</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>Implements Arabic orthographic normalization</li>
-			<li>Applies light algorithmic stemming</li>
-			<li>Filters out Arabic stop wordsr</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Brazilian</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Brazilian stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Chinese Simplified</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>Uses probabilistic knowledge models to find the optimal word segmentation</li>
-			<li>Filters out Chinese stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Chinese Traditional</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>Indexes bigrams (overlapping groups of two adjacent Chinese characters)</li>
-			<li>Normalizes character width differences</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>Czech</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Czech stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Danish</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Danish stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Dutch</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Dutch stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>German</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out German stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Greek</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Greek stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>English</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out English stop words</li>
-			<li>Removes possessives</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Finnish</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Finnish stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>French</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out French stop words</li>
-			<li>Removes ellisions</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hindi</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Hindi stop words</li>
-			<li>Removes some differences in spelling variations</li>
-			<li>Normalizes the Unicode representation of text in Indian languages.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hungarian</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Hungarian stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Indonesian (Bahasa)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Indonesian stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Italian</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Italian stop words</li>
-			<li>Removes ellisions</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Japanese</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>Uses morphological analysis</li>
-			<li>Normalizes common katakana spelling variations</li>
-			<li>Light stopwords/stoptags removal</li>
-			<li>Character width-normalization</li>
-			<li>Lemmatization - reduces inflected adjectives and verbs to their base form</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Korean</td>
-		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>Indexes bigrams (overlapping groups of two adjacent Chinese characters)</li>
-			<li>Normalizes character width differences</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Latvian</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Latvian stop words</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>Norwegian</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Norwegian stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Polish</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>Applies algorithmic stemming (Stempel)</li>
-			<li>Filters out Polish stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Portuguese</td>
-		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Portuguese stop words</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>Romanian</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Romanian stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Russian</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Russian stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Spanish</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Spanish stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Swedish</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Swedish stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Turkish</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>Strips all characters after an apostrophe (including the apostrophe itself)</li>
-			<li>Applies light stemming</li>
-			<li>Filters out Turkish stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Thai</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Thai stop words</li>
-		</ul>
-		</td>
-	</tr>
-</table>
-
-All analyzers with names annotated with <i>lucene</i> are powered by [Apache Lucene's language analyzers](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html).
-
 **CORS Options**
 
 Client-side Javascript cannot call any APIs by default since the browser will prevent all cross-origin requests. Enable CORS (Cross-Origin Resource Sharing) by setting the `corsOptions` attribute to allow cross-origin queries to your index. Note that only query APIs support CORS for security reasons. The following options can be set for CORS:
@@ -610,7 +292,6 @@ Client-side Javascript cannot call any APIs by default since the browser will pr
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String", "suggestions": true},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -637,7 +318,7 @@ You can update an existing index within Azure Search using an HTTP PUT request. 
     Content-Type: application/json
     api-key: [admin key]
 
-**Important:** In the Azure Search Public Preview, there is support for limited index schema updates. Any schema updates that would require re-indexing such as changing field types are not currently supported. New fields can be added at any time, although existing fields cannot be changed or deleted.
+**Important:** In the Azure Search Public Preview, there is no support for schema updates that would require re-indexing, including changing field types. New fields can be added at any time, but existing fields cannot be changed or deleted.
 
 When adding a new field to an index, all existing documents in the index will automatically have a null value for that field. No additional storage space will be consumed until new documents are added to the index.
 
@@ -1004,7 +685,6 @@ Status code: 429 indicates that you have exceeded your quota on the number of do
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1019,7 +699,6 @@ Status code: 429 indicates that you have exceeded your quota on the number of do
           "hotelId": "2",
           "baseRate": 79.99,
           "description": "Cheapest hotel in town",
-	      "description_fr": "Hôtel le moins cher en ville",
           "hotelName": "Roach Motel",
 		  "category": "Budget",
           "tags": ["motel", "budget"],
