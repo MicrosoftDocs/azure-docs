@@ -16,16 +16,16 @@
    ms.date="08/26/2015"
    ms.author="carlrab"/>
 
-# Migrating a Database to Azure SQL Database
+# Migrating a database to Azure SQL Database
 
 Azure SQL Database V12 brings near-complete engine compatibility with SQL Server 2014 and later. As such, the task of migrating most databases from an on-premises instance of SQL Server 2005 or greater to an Azure SQL database is much simpler. Migration for many databases is a straightforward schema and data movement operation requiring few, if any, changes to the schema and little or no re-engineering of applications. Where databases need to be changed, the scope of these changes is more confined.
 
 By design, server-scoped features of SQL Server are not supported by Azure SQL Database V12. Databases and applications that rely on these features will need some re-engineering before they can be migrated. While Azure SQL Database V12 improves compatibility with an on-premises SQL Server database, migration still needs to be planned and executed carefully, particularly for large and complex databases.
 
-## Determining Compatibility
+## Determining compatibility
 To determine if your on-premises SQL Server database is compatible with Azure SQL Database V12, you can either begin the migration using one of the two methods discussed under option #1 below and see if the schema validation routines detect an incompatibility or you can use SQL Server Data Tools in Visual Studio as discussed in option #2 below to validate compatibility. If your on-premises SQL Server database has compatibility issues, you can use SQL Server Data Tools in Visual Studio or SQL Server Management Studio to address and resolve the compatibility issues.
 
-## Migration Methods
+## Migration methods
 There are a number of methods for migrating a compatible on-premises SQL Server database to Azure SQL Database V12.
 
 - For small to medium databases, migrating compatible SQL Server 2005 or later databases is as simple as running the Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio, provided you do not have connectivity challenges (no connectivity, low bandwidth, or timeout issues).
@@ -38,7 +38,7 @@ There are a number of methods for migrating a compatible on-premises SQL Server 
 SQL Server Management Studio provides two methods for migrating your compatible on-premises SQL Server database to an Azure SQL database. You can either use the Deploy Database to Microsoft Azure SQL Database wizard or export the database to a BACPAC file, which can then be imported to create a new Azure SQL database.  The wizard validates Azure SQL Database V12 compatibility, extracts the schema and data into a BACPAC file and then imports it into the Azure SQL database instance specified.
 
 ### Option #2
-***Update the database schema off-line using Visual Studio  and then deploy with SQL Server Management Studio***
+***Update the database schema off-line using Visual Studio and then deploy with SQL Server Management Studio***
 
 If your on-premises SQL Server database is not compatible or to determine if it is compatible, you can import the database schema into a Visual Studio database project for analysis. To analyze, you specify the target platform for the project as SQL Database V12 and then build the project. If the build is successful, the database is compatible. If the build fails, you can resolve the errors in SQL Server Data Tools for Visual Studio ("SSDT"). Once the project builds successfully, you can publish it back as a copy of the source database and then use the data compare feature in SSDT to copy the data from the source database to the Azure SQL V12 compatible database. This updated database is then deployed to Azure SQL Database using option #1. If schema-only migration is required, the schema can be published directly from Visual Studio directly to Azure SQL Database. Use this method when the database schema requires more changes than can be handled by the migration wizard alone.
 
