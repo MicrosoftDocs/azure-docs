@@ -5,7 +5,7 @@
  documentationCenter=".NET"
  authors="krisragh"
  manager="dwrede"
- editor="v-lincan"/>
+ editor=""/>
 <tags
  ms.service="scheduler"
  ms.workload="infrastructure-services"
@@ -19,7 +19,7 @@
 
 ## Configure Scheduler using the Azure portal to quickly and easily create jobs
 
-To complete this tutorial, you need an Azure account that has the Azure Scheduler feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, refer to [Azure Free Trial](https://msdn.microsoft.com/library/).
+To complete this tutorial, you need an Azure account that has the Azure Scheduler feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, refer to [Azure Free Trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 
 ## Get started
 
@@ -228,21 +228,21 @@ Finally, for all action types, you may change the schedule itself and its recurr
 
  [What is Scheduler?](scheduler-intro.md)
 
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
+ [Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)
+ [Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
+ [Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ [Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
+ [Scheduler limits, lefaults, and error codes](scheduler-limits-defaults-errors.md)
 
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
+ [Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
 
 
