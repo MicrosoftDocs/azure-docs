@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Performance Best Practices for SQL Server in Azure Virtual Machines"
-	description="Provides best practices for optimizing SQL Server performance in Microsoft Azure Virtual Machine."
+	pageTitle="Performance best practices for SQL Server in Azure Virtual Machines"
+	description="Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
@@ -15,7 +15,7 @@
 	ms.date="08/24/2015"
 	ms.author="jroth" />
 
-# Performance Best Practices for SQL Server in Azure Virtual Machines
+# Performance best practices for SQL Server in Azure Virtual Machines
 
 ## Overview
 

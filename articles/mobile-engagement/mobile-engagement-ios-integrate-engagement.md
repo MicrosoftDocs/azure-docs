@@ -26,13 +26,13 @@
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.
 
-> [AZURE.IMPORTANT] The Engagement SDK requires iOS5+: the deployment target of your application must be at least iOS 5.
+> [AZURE.IMPORTANT] The Engagement SDK requires iOS6+: the deployment target of your application must be at least iOS 6.
 
 The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API  (see [How to use the advanced Mobile Engagement tagging API in your iOS app](mobile-engagement-ios-use-engagement-api.md) since these statistics are application dependent.
 
 ##Embed the Engagement SDK into your iOS project
 
-Add the Engagement SDK to your iOS project: in Xcode 4, right click on your project and select **"Add files to ..."** and choose the `EngagementSDK` folder.
+Add the Engagement SDK to your iOS project: in Xcode, right click on your project and select **"Add files to ..."** and choose the `EngagementSDK` folder.
 
 Engagement requires additional frameworks to work: in the project explorer, open your project pane and select the correct target. Then, open the **"Build phases"** tab and in the **"Link Binary With Libraries"** menu, add these frameworks:
 
