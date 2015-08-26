@@ -127,9 +127,11 @@ You can monitor a scenario that involves a sequence of URLs. For example, if you
 
 To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights will replay the scenario at intervals and verify the responses.
 
+Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
+
 #### 1. Record a scenario
 
-Use Visual Studio Ultimate to record a web session.
+Use Visual Studio Ultimate to record a web session. 
 
 1. Create a web performance test project.
 
@@ -210,7 +212,7 @@ You might want to disable web tests while you are performing maintenance on your
 ## Questions? Problems?
 
 
-* *Is there a difference between "web tests" and "availability"?
+* *Is there a difference between "web tests" and "availability"?*
 
     We use the two terms interchangeably.
 
