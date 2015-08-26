@@ -18,6 +18,12 @@
 
 # Provisioning a SQL Server Virtual Machine on Azure #
 
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-provision-sql-server.md)
+- [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
+
+## Overview
+
 The Azure virtual machine gallery includes several images that contain Microsoft SQL Server. You can select one of the virtual machine images from the gallery and with a few clicks you can provision the virtual machine to your Azure environment.
 
 In this tutorial, you will:
