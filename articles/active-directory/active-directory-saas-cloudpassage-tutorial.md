@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with CloudPassage"
+	pageTitle="Tutorial: Azure Active Directory integration with CloudPassage | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and CloudPassage."
 	services="active-directory"
 	documentationCenter=""
@@ -89,7 +89,7 @@ To configure and test Azure AD single sign-on with CloudPassage, you need to com
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Single Sign-On
+### Configuring Azure AD Single Sign-On
 
 The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your CloudPassage application.<br>
 Your CloudPassage application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. 
