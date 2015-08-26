@@ -27,7 +27,6 @@ Please review the information contained in the release notes before you deploy t
 
 >[AZURE.IMPORTANT]
 > 
-- A critical patch, Update 1.2 was released on September 1. If you are currently using software version **6.3.9600.17521**, there is no action required on your part. If you are running versions prior to **6.3.9600.17491**, make sure that you apply this critical update. After you install the update, the software version will change to **6.3.9600.17XXX**.
 - A critical patch, Update 1.1, was released on June 23. This patch addresses an issue in the backup engine. If you applied Update 1 before June 23rd and are currently using software version **6.3.9600.17491**, make sure that you apply this critical update to avoid any issues with backups. After you install the update, the software version will change to **6.3.9600.17521**.
 - If you created a virtual device between May 27th and July 10th that is in  software version **6.3.9600.17481**, create a new virtual device and fail over any volumes from the old virtual device to the new one. (This is because the older virtual device cannot be updated.) If you do not create a new virtual device, you might see that backups start failing. For failover and disaster recovery procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
@@ -69,10 +68,8 @@ The following table provides a summary of issues that were fixed in this update.
 | 5 | Factory reset | If a factory reset was interrupted prior to completion, the device entered recovery mode and did not allow you to access Windows PowerShell for StorSimple. This bug is now fixed. | Yes | No |
 | 6 | Disaster recovery | A disaster recovery (DR) bug was fixed wherein DR would fail during the discovery of backups on the target device. | Yes | Yes |
 | 7 | Monitoring LEDs | In certain instances, monitoring LEDs at the back of appliance did not indicate correct status. The blue LED was turned off. DATA 0 and DATA 1 LEDs were flashing even when these interfaces were not configured. The issue has been fixed and monitoring LEDs now indicate the correct status.  | Yes | No |
-| 8 | Monitoring LEDs | In certain instances, after applying Update 1, the blue light on the active controller turned off thereby making it hard to identify the active controller. This issue has been fixed in patch release Update 1.2 (6.3.9600.17XXX).| Yes | No |
-| 9 | Network interfaces | In previous versions, a StorSimple device configured with a non-routable gateway could go offline. In this release, the routing metric for Data 0 has been made the lowest; therefore, even if other network interfaces are cloud-enabled, all the cloud traffic from the device will be routed via Data 0. | Yes | Yes | 
-| 10 | Backups | A bug in Update 1 (software version 6.3.9600.17491) which caused backups to fail after 24 days has been fixed in the patch release Update 1.1 (software version 6.3.9600.17521). | Yes | Yes |
-| 11 | Backups | A bug in previous versions resulted in poor performance for cloud snapshots with low change rates. This bug has been fixed in the patch release Update 1.2 (software version 6.3.9600.17XXX).
+| 8 | Network interfaces | In previous versions, a StorSimple device configured with a non-routable gateway could go offline. In this release, the routing metric for Data 0 has been made the lowest; therefore, even if other network interfaces are cloud-enabled, all the cloud traffic from the device will be routed via Data 0. | Yes | Yes | 
+| 9 | Backups | A bug in Update 1 (software version 6.3.9600.17491) which caused backups to fail after 24 days has been fixed in the patch release Update 1.1 (software version 6.3.9600.17521). | Yes | Yes |
 
 ## Known issues in Update 1
 
@@ -97,7 +94,7 @@ The following table provides a summary of known issues in this release.
 
 ## Physical device updates in Update 1
 
-If patch update 1.2 is applied to a physical device (running versions prior to Update 1), the software version will change to 6.3.9600.175XXX.
+If patch update 1.2 is applied to a physical device (running versions prior to Update 1), the software version will change to 6.3.9600.17521.
 
 ## Controller and firmware updates in Update 1
 
@@ -105,11 +102,13 @@ This release updates the driver and the firmware on the SAS controller of your p
  
 - For more information about the SAS controller update, see [Update 1 for LSI SAS controllers in Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3043005). 
 
+- For more information about the firmware update, see [Firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063414).
+
 - For more information about the disk firmware update, see [Disk firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063416).
  
 ## Virtual device updates in Update 1
 
-This update cannot be applied to the virtual device. New virtual devices will need to be created.
+This update cannot be applied to the virtual device. However, any virtual devices created after 10th July will automatically be in this version. 
 
 ## Next steps
 
