@@ -144,6 +144,8 @@ In order to start sending data and ensuring that the users are active, you must 
 			xmlns:engagement="using:Microsoft.Azure.Engagement"
 
 	b. Replace the **Page** in the XML tag name with **engagement:EngagementPage**.
+	
+> [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise,  the activity will not be reported (the `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method. 
 
 ###Ensure your app is connected with real-time monitoring
 
