@@ -16,7 +16,7 @@
    ms.date="08/26/2015"
    ms.author="v-sharos"/>
 
-# StorSimple security and data protection features
+# StorSimple security and data protection
 
 ## Overview
 

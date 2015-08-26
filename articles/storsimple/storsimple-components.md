@@ -19,6 +19,8 @@
 
 # What are the StorSimple components and how do they work? 
 
+## Overview
+
 Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage. StorSimple is designed to reduce storage costs, simplify storage management, improve disaster recovery capability and efficiency, and provide data mobility.
 
 The following sections describe the Microsoft Azure StorSimple components, and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection. The last section provides definitions of some of the important terminology related to StorSimple components and their management.
