@@ -119,8 +119,9 @@ There are three parameters you can set that define the performance for the pool:
 
 ## Adding databases into a pool, and removing elastic databases from a pool
 
-After the pool is created, you can add or remove databases in and out of the pool by selecting or clearing databases on the **Add Databases** page. 
+After the pool is created, you can add or remove databases in and out of the pool by selecting or clearing databases on the **Add Databases** page.
 
+After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool, and moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).
 
 
 ## Monitor and manage an elastic database pool
@@ -159,7 +160,6 @@ Click **Edit chart** to add parameters so you can easily view telemetry data for
 ## Next steps
 After creating an elastic database pool, you can manage the databases in the pool by creating elastic jobs. Elastic jobs facilitate running Transact-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 
-After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool, and moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).
 
 
 ## Additional resources

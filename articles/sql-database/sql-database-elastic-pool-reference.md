@@ -165,7 +165,7 @@ Several PowerShell cmdlets and REST API commands are available for creating and 
 You can use Transact-SQL to do the following elastic database management tasks:
 
 | Task | Details |
-| --: | --: |
+| :-- | :-- |
 | Create a new elastic database (directly in a pool) | [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) |
 | Move existing databases in and out of a pool | [ALTER DATABASE(Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) |
 | Get a pool's resource usage statistics | [sys.elastic_pool_resource_stats (Azure SQL Database)](https://msdn.microsoft.com/library/mt280062.aspx) |
