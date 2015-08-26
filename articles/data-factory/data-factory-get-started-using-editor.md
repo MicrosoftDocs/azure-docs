@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Data Factory Editor
@@ -401,7 +401,6 @@ To do this tutorial using Azure PowerShell, see [Create and monitor a data facto
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
