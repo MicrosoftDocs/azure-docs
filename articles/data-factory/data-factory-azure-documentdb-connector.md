@@ -24,11 +24,11 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 The sample below shows:
 
-1. A linked service of type DocumentDb.
-2. A linked service of type AzureStorage. 
-3. An input [dataset](data-factory-create-datasets.md) of type DocumentDbCollection. 
+1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
+2. A linked service of type [AzureStorage](). 
+3. An input [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
 4. An output [dataset](data-factory-create-datasets.md) of type AzureBlob.
-4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses DocumentDbCollectionSource and BlobSink.
+4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) and BlobSink.
 
 The sample copies data in Azure DocumentDB to Azure Blob. The JSON properties used in these samples are described in sections following the samples.
 
