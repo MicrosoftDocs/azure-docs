@@ -25,9 +25,9 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 The sample below shows:
 
 1.	A linked service of type AzureStorage (used for both table & blob).
-2.	An input dataset of type AzureTable.
-3.	An output dataset of type AzureBlob. 
-3.	The pipeline with Copy activity that uses AzureTableSource and BlobSink. 
+2.	An input [dataset](data-factory-create-datasets.md) of type AzureTable.
+3.	An output [dataset](data-factory-create-datasets.md) of type AzureBlob. 
+3.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses AzureTableSource and BlobSink. 
 
 The sample copies data belonging to the default partition in an Azure Table to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -184,9 +184,9 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 The sample below shows:
 
 1.	A linked service of type AzureStorage (used for both table & blob)
-3.	An input dataset of type AzureBlob.
-4.	An output dataset of type AzureTable. 
-4.	The pipeline with Copy activity that uses BlobSource and AzureTableSink. 
+3.	An input [dataset](data-factory-create-datasets.md) of type AzureBlob.
+4.	An output [dataset](data-factory-create-datasets.md) of type AzureTable. 
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses BlobSource and AzureTableSink. 
 
 The sample copies data belonging to a time series from Azure blob to a table in Azure Table database every hour. The JSON properties used in these samples are described in sections following the samples.
 

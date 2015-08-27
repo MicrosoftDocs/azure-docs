@@ -34,9 +34,9 @@ The sample below shows:
 
 1.	A linked service of type OnPremisesSqlServer.
 2.	A linked service of type AzureStorage.
-3.	An input dataset of type SqlServerTable. 
-4.	An output dataset of type AzureBlob.
-4.	The pipeline with Copy activity that uses SqlSource and BlobSink.
+3.	An input [dataset](data-factory-create-datasets.md) of type SqlServerTable. 
+4.	An output [dataset](data-factory-create-datasets.md) of type AzureBlob.
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses SqlSource and BlobSink.
 
 The sample copies data belonging to a time series from a table in SQL Server database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -210,9 +210,9 @@ The sample below shows:
 
 1.	The linked service of type OnPremisesSqlServer.
 2.	The linked service of type AzureStorage.
-3.	An input dataset of type AzureBlob.
-4.	An output dataset of type SqlServerTable.
-4.	The pipeline with Copy activity that uses BlobSource and SqlSink.
+3.	An input [dataset](data-factory-create-datasets.md) of type AzureBlob.
+4.	An output [dataset](data-factory-create-datasets.md) of type SqlServerTable.
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses BlobSource and SqlSink.
 
 The sample copies data belonging to a time series from Azure blob to a table in SQL Server database every hour. The JSON properties used in these samples are described in sections following the samples.
 

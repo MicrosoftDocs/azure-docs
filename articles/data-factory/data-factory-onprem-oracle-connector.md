@@ -26,9 +26,9 @@ The sample below shows:
 
 1.	A linked service of type OnPremisesOracle
 2.	A linked service of type AzureStorage.
-3.	An input dataset of type OracleTable. 
-4.	An output dataset of type AzureBlob.
-5.	A pipeline with Copy activity that uses OracleSource as source and BlobSink as sink.
+3.	An input [dataset](data-factory-create-datasets.md) of type OracleTable. 
+4.	An output [dataset](data-factory-create-datasets.md) of type AzureBlob.
+5.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses OracleSource as source and BlobSink as sink.
 
 The sample copies data from a table in an on-premises Oracle database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
 

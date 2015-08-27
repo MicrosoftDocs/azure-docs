@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL using Azure Data Factory
@@ -26,9 +26,9 @@ The sample below shows:
 
 1. A linked service of type AzureSqlDatabase.
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md/#LinkedService). 
-3. An input dataset of type AzureSqlTable. 
-4. An output dataset of type [AzureBlob](data-factory-azure-blob-connector.md/#Dataset).
-4. A pipeline with Copy Activity that uses SqlSource and [BlobSink](data-factory-azure-blob-connector.md/#CopyActivity).
+3. An input [dataset](data-factory-create-datasets.md) of type AzureSqlTable. 
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md/#Dataset).
+4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses SqlSource and [BlobSink](data-factory-azure-blob-connector.md/#CopyActivity).
 
 The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.  
 
@@ -198,9 +198,9 @@ The sample below shows:
 
 1.	A linked service of type AzureSqlDatabase.
 2.	A linked service of type AzureStorage.
-3.	An input dataset of type AzureBlob.
-4.	An output dataset of type AzureSqlTable.
-4.	A pipeline with Copy activity that uses BlobSource and SqlSink.
+3.	An input [dataset](data-factory-create-datasets.md) of type AzureBlob.
+4.	An output [dataset](data-factory-create-datasets.md) of type AzureSqlTable.
+4.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses BlobSource and SqlSink.
 
 The sample copies data belonging to a time series from Azure blob to a table in Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
 

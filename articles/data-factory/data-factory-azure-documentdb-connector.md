@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
@@ -167,9 +167,10 @@ The sample below shows:
 
 1. A linked service of type DocumentDb.
 2. A linked service of type AzureStorage.
-3. An input dataset of type AzureBlob.
-4. An output dataset of type DocumentDbCollection. 
-4. A pipeline with Copy Activity that uses BlobSource and DocumentDbCollectionSink.
+3. An input [dataset](data-factory-create-datasets.md) of type AzureBlob.
+4. An output [dataset](data-factory-create-datasets.md) of type DocumentDbCollection. 
+4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses BlobSource and DocumentDbCollectionSink.
+
 
 The sample copies data from Azure blob to Azure DocumentDB. The JSON properties used in these samples are described in sections following the samples.
 
