@@ -25,10 +25,10 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 The sample below shows:
 
 1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
-2. A linked service of type [AzureStorage](). 
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service properties). 
 3. An input [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
-4. An output [dataset](data-factory-create-datasets.md) of type AzureBlob.
-4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) and BlobSink.
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data in Azure DocumentDB to Azure Blob. The JSON properties used in these samples are described in sections following the samples.
 
@@ -165,11 +165,11 @@ The following pipeline copies data from the Person collection in the DocumentDB 
 
 The sample below shows:
 
-1. A linked service of type DocumentDb.
-2. A linked service of type AzureStorage.
-3. An input [dataset](data-factory-create-datasets.md) of type AzureBlob.
-4. An output [dataset](data-factory-create-datasets.md) of type DocumentDbCollection. 
-4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses BlobSource and DocumentDbCollectionSink.
+1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
 
 
 The sample copies data from Azure blob to Azure DocumentDB. The JSON properties used in these samples are described in sections following the samples.
