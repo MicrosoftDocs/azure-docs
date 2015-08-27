@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Node.js
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
-</div>
+
+> [AZURE.SELECTOR]
+- [Java](notification-hubs-java-backend-how-to.md)
+- [PHP](notification-hubs-php-backend-how-to.md)
+- [Python](notification-hubs-python-backend-how-to)
 
 ##Overview
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Identify differences with Change Tracking
@@ -25,7 +25,7 @@ You install the solution to update the Operations Manager agent and base configu
 
 ## Use Change Tracking
 
-Before you can use Change Tracking in Operational Insights, you must have the solution installed. To read more about installing solution, see [Use the Solution Gallery to add or remove solutions](operational-insights-add-solution.md).
+Before you can use Change Tracking in Operational Insights, you must have the solution installed. To read more about installing solution, see [Use the Solution Gallery to add or remove solutions](operational-insights-setup-workspace.md).
 
 After it is installed, you can view the summary of changes for your monitored servers by using the **Change Tracking** tile on the **Overview** page in Operational Insights.
 

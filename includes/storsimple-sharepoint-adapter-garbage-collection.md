@@ -23,7 +23,7 @@ In this procedure, you will:
 
 3. [Run Maintainer.exe](#to-run-the-maintainer).
 
-4. [Revert the content database and Recycle Bin settings](to-revert-the-content-database-and-recycle-bin-settings).
+4. [Revert the content database and Recycle Bin settings](#to-revert-the-content-database-and-recycle-bin-settings).
 
 #### To prepare to run the Maintainer
 

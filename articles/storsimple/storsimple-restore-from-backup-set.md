@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/25/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Restore a StorSimple volume from a backup set
@@ -80,4 +80,4 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
 
 ## Next steps
 
-Learn how to [Manage storsimple volumes](storsimple-manage-volumes.md) 
+Learn how to [Manage StorSimple volumes](storsimple-manage-volumes.md).

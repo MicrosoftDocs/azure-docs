@@ -9,10 +9,10 @@
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -78,7 +78,7 @@ Perform the following steps if you only have a single device and need to perform
 
 1. Take cloud snapshots of all the volumes in your device.
 
-1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](https://msdn.microsoft.com/library/dn772373.aspx).
+1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 1. Configure your device and register it again with your StorSimple Manager service.
 
@@ -143,8 +143,5 @@ After you have performed a failover, you may need to:
 - [Deactivate your StorSimple device](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Delete your StorSimple device](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-For information on how to manage your device using the StorSimple Manager service, see:
-
-- [Administrator's Guide](https://msdn.microsoft.com/library/dn772401.aspx)
-
+For information about how to manage your device using the StorSimple Manager service, go to [Use StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  

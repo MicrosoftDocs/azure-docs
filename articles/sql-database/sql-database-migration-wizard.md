@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the SQL Azure Migration Wizard | Microsoft" 
+   pageTitle="Use the SQL Azure Migration Wizard | Microsoft Azure" 
    description="Microsoft Azure SQL Database, database migration, import database, export database, migration wizard" 
    services="sql-database" 
    documentationCenter="" 

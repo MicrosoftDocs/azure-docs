@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="08/20/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Overview
@@ -21,6 +21,12 @@
 Applications are typically made up of many components – maybe a web app, database, database server, storage, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group.  
 
 Azure Resource Manager natively integrates access control into the management platform so you can specify which actions a user in your organization can take for a resource group.  
+
+Resource Manager provides a new way to deploy and manage your solutions. To learn about the changes in this new deployment model, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md).
+
+Here's a video demonstration of this overview:
+
+[AZURE.VIDEO azure-resource-manager-overview]
 
 > [AZURE.NOTE] This topic describes resources, groups, and templates using the preview portal to demonstrate the concepts. However, you can also create, manage, and delete Azure resources using the [Azure CLI for Mac, Linux, and Windows](virtual-machines/xplat-cli-azure-resource-manager.md) as well as [PowerShell](powershell-azure-resource-manager.md).
 

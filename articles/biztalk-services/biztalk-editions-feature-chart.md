@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Learn about features in BizTalk Services editions | Azure"
+	pageTitle="Learn about features in BizTalk Services editions | Microsoft Azure"
 	description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium. MABS, WABS"
 	services="biztalk-services"
 	documentationCenter=""

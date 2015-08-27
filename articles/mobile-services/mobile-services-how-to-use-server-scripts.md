@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="08/17/2015" 
 	ms.author="ricksal"/>
 
 
 # Work with a JavaScript backend mobile service
 
-<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET backend</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
- 
 This article provides detailed information about and examples of how to work with a JavaScript backend in Azure Mobile Services. 
 
 ##<a name="intro"></a>Introduction
@@ -773,38 +771,16 @@ When you are writing server scripts that use [insert], [update], [read] or [dele
 
 When you use the [tables object] or the [mssql object], or just let your table scripts execute, the deserialized JavaScript objects are inserted into your SQL database. In that process, object properties are mapped to T-SQL types:
 
-<table border="1">
-<tr>
-<td>JavaScript property</td>
-<td>T-SQL type</td>
-</tr><tr>
-<td>Number</td>
-<td>Float(53)</td>
-</tr><tr>
-<td>Boolean</td>
-<td>Bit</td>
-</tr><tr>
-<td>Date</td>
-<td>DateTimeOffset(3)</td>
-</tr>
-<tr>
-<td>String</td>
-<td>Nvarchar(max)</td>
-</tr>
-<tr>
-<td>Buffer</td>
-<td>Not supported</td>
-</tr><tr>
-<td>Object</td>
-<td>Not supported</td>
-</tr><tr>
-<td>Array</td>
-<td>Not supported</td>
-</tr><tr>
-<td>Stream</td>
-<td>Not supported</td>
-</tr>
-</table> 
+JavaScript property|T-SQL type
+---|---
+Number|Float(53)
+Boolean|Bit
+Date|DateTimeOffset(3)|
+String|Nvarchar(max)
+Buffer|Not supported
+Object|Not supported
+Array|Not supported
+Stream|Not supported
 
 ###<a name="TSQL"></a>Using Transact-SQL to access tables
 

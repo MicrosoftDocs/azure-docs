@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/29/2015"
+    ms.date="08/03/2015"
     ms.author="sidneyh"/>
 
 # Elastic Database features overview
 
 **Elastic Database** features enables you to use the virtually unlimited database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the following:
 
-* Elastic Database tools: These two tools simplify development and management of sharded database solutions. The tools are: the [Elastic Database client library](sql-database-elastic-client-overview.md) and the [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
+* Elastic Database tools: These two tools simplify development and management of sharded database solutions. The tools are: the [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
 * [Elastic Database pools](sql-database-elastic-pool-guidance.md) (preview): A pool is a collection of databases to which you can add or remove databases at any time. The databases in the pool share a fixed amount of resources (known as database throughput units, or DTUs). You pay a fixed price for the resources, which enables you to easily calculate costs while managing performance. 
-* [Elastic Database jobs](sql-database-elastic-jobs-overview.md) (preview): Use jobs to manage large numbers of Azure SQL databases. A **job** is an idempotent T-SQL script that is run against a predefined set of databases. Failures are automatically retried (configurable) and all errors are logged for debugging. 
+* [Elastic Database jobs](sql-database-elastic-jobs-overview.md) (preview): Use jobs to manage large numbers of Azure SQL databases. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection using jobs.
 * [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, PowerBI, Tableau, etc.
 
 The graphic below shows an architecture that includes the **Elastic Database features** in relation to a collection of databases. 

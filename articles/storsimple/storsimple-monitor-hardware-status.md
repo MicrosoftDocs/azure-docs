@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple hardware components and status"
+   pageTitle="StorSimple hardware components and status | Microsoft Azure"
    description="Learn how to monitor the hardware components of your StorSimple device through the StorSimple Manager service."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/28/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # StorSimple hardware components and status
@@ -45,25 +45,23 @@ An 8600 device has additional components that correspond to the Extended Bunch o
 Perform the following steps to view the hardware status of a device component:
 
 1. Navigate to **Devices**, select a specific StorSimple device. Click to go into the device-level menu and then click the **Maintenance** tab. 
-2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for primary enclosure](Component-list-for-primary-enclosure) and the [detailed component list for EBOD enclosure](Component-list-for-EBOD-enclosure).
+2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for the primary enclosure](#component-list-for-primary-enclosure-of-storsimple-device) and the [detailed component list for the EBOD enclosure](#component-list-for-ebod-enclosure-of-storsimple-device).
 2. Use the following color coding scheme to interpret the  component status:
 	-  **Green check** – Denotes a **Healthy** or **OK** component.
 	-  **Yellow** – Denotes a component in **Warning** state.
 	-  **Red exclamation** – Denotes a component that has a **Failure** or **Needs Attention** status.
 	-  **White with black text** – Denotes a component that is not present.
 
-3. If you encounter a component that is not in a **Healthy** state, please contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+3. If you encounter a component that is not in a **Healthy** state, please contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
 
-## Component list for the StorSimple device
+## Component list for primary enclosure of StorSimple device
 
-The following table outlines the physical and logical components contained in your on-premises StorSimple device. The device has two enclosures, the primary and the EBOD enclosure. The lists for the two enclosures are tabulated separately.
-
-### Component list for primary enclosure
+The following table outlines the physical and logical components contained in the primary enclosure of your on-premises StorSimple device.
 
 |Component|Module|Type|Location|Field replaceable unit (FRU)?|Description|
 |---|---|---|---|---|---|
-|Drive in slot *n*|Disk Drives|Physical|Shared|Yes|One line is presented for each of the SSD or the HDD drives in the primary enclosure.|
+|Drive in slot [0-11]|Disk Drives|Physical|Shared|Yes|One line is presented for each of the SSD or the HDD drives in the primary enclosure.|
 |Ambient temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature within the chassis.|
 |Mid-plane temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature of the mid-plane.|
 |Audible alarm|Enclosure|Physical|Shared|No|Indicates whether the audible alarm subsystem within the chassis is functional.|
@@ -72,9 +70,9 @@ The following table outlines the physical and logical components contained in yo
 |Line voltage sensors|PCM|Physical|Shared|No|Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.|
 |Line current sensors|PCM|Physical|Shared|No|Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.|
 |Temperature sensors in PCM|PCM|Physical|Shared|No|Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, indicating whether the measured temperature is within tolerance.|
-|Power supply n|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
-|Cooling *n*|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
-|Battery *n*|PCM|Physical|Shared|Yes|One line is presented for each of the backup battery modules that are seated in the PCM.|
+|Power supply [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
+|Cooling [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
+|Battery [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the backup battery modules that are seated in the PCM.|
 |Metis|N/A|Logical|Shared|N/A|Displays the state of the batteries: whether they need charging and are approaching end-of-life.|
 |Cluster|N/A|Logical|Shared|N/A|Displays the state of the cluster that is created between the two integrated controller modules.|
 |Cluster node|N/A|Logical|Shared|N/A|Indicates the state of the controller as part of the cluster.|
@@ -87,10 +85,10 @@ The following table outlines the physical and logical components contained in yo
 |SSD NVRAM space|N/A|Logical|Shared|N/A|The storage space in the SSD storage pool that is dedicated for NVRAM logic.|
 |HDD storage pool|N/A|Logical|Shared|N/A|Displays the state of the logical storage pool that is created from device HDDs.|
 |SSD storage pool|N/A|Logical|Shared|N/A|Displays the state of the logical storage pool that is created from device SSDs.|
-|Controller *n* [state]|I/O|Physical|Controller|Yes|Displays the state of the controller, and whether it is in active or standby mode within the chassis.|
+|Controller [0-1] [state]|I/O|Physical|Controller|Yes|Displays the state of the controller, and whether it is in active or standby mode within the chassis.|
 |Temperature sensors in controller|I/O|Physical|Controller|No|Numerous temperature sensors such as I/O module, CPU temperature, DIMM and PCIe sensors have their state displayed, which indicates whether or not the temperature encountered is within tolerance.|
 |﻿SAS expander|I/O|Physical|Controller|No|Indicates the state of the serial attached SCSI (SAS) expander, which is used to connect the integrated storage to the controller.|
-|SAS connector *n*|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
+|SAS connector [0-1]|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
 |SBB mid-plane interconnect|I/O|Physical|Controller|No|Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.|
 |Processor core|I/O|Physical|Controller|No|Indicates the state of the processor cores within each controller.|
 |Enclosure electronics power|I/O|Physical|Controller|No|Indicates the state of the power system used by the enclosure.|
@@ -99,11 +97,13 @@ The following table outlines the physical and logical components contained in yo
 |Ethernet|I/O|Physical|Controller|No|Indicates the state of each of the network interfaces, that is, the management and data ports provided on the controller.|
 |NVRAM|I/O|Physical|Controller|No|Indicates the state of NVRAM, a non-volatile random access memory backed up by the battery that serves to retain application-critical information in the event of power failure.|
 
-### Component list for EBOD enclosure
+## Component list for EBOD enclosure of StorSimple device
+
+The following table outlines the physical and logical components contained in the EBOD enclosure of your on-premises StorSimple device.
 
 |Component|Module|Type|Location|FRU?|Description|
 |---|---|---|---|---|---|
-|Drive in slot *n*|Disk Drives|Physical|Shared|Yes|One line is presented for each of the HDD drives in the front of the EBOD enclosure.|
+|Drive in slot [0-11]|Disk Drives|Physical|Shared|Yes|One line is presented for each of the HDD drives in the front of the EBOD enclosure.|
 |Ambient temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature within the chassis.|
 |Mid-plane temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature of the mid-plane.|
 |Audible alarm|Enclosure|Physical|Shared|No|Indicates whether the audible alarm subsystem within the chassis is functional.|
@@ -112,22 +112,22 @@ The following table outlines the physical and logical components contained in yo
 |Line voltage sensors|PCM|Physical|Shared|No|Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.|
 |Line current sensors|PCM|Physical|Shared|No|Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.|
 |Temperature sensors in PCM|PCM|Physical|Shared|No|Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, which indicates whether the measured temperature is within tolerance.|
-|Power supply *n*|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
-|Cooling *n*|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
+|Power supply [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
+|Cooling [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
 |Local storage [HDD]|N/A|Logical|Shared|N/A|Displays the state of the logical storage pool that is created from device HDDs.|
-|Controller *n* [state]|I/O|Physical|Controller|Yes|Displays the state of the controllers in the EBOD module.|
+|Controller [0-1] [state]|I/O|Physical|Controller|Yes|Displays the state of the controllers in the EBOD module.|
 |Temperature sensors in EBOD|I/O|Physical|Controller|No|Numerous temperature sensors from each controller have their state displayed, which indicates whether the temperature encountered is within tolerance.|
 |﻿SAS expander|I/O|Physical|Controller|No|Indicates the state of the SAS expander, which is used to connect the integrated storage to the controller.|
-|SAS connector *n*|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
+|SAS connector [0-2]|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
 |SBB mid-plane interconnect|I/O|Physical|Controller|No|Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.|
 |Enclosure electronics power|I/O|Physical|Controller|No|Indicates the state of the power system used by the enclosure.|
 |Enclosure electronics diagnostics|I/O|Physical|Controller|No|Indicates the state of the diagnostics subsystems provided by the controller.|
 |Connection to device controller|I/O|Physical|Controller|No|Indicates the state of the connection between the EBOD I/O module and the device controller.|
 
-## Next step
+## Next steps
 If you need to troubleshoot a device component that has a degraded or failed status, refer to 
-[Troubleshoot with monitoring indicators](storsimple-monitoring-indicators). 
+[StorSimple monitoring indicators](storsimple-monitoring-indicators.md). 
 
-To replace a failed hardware component, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+To replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-If you continue to experience device issues, [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
+If you continue to experience device issues, [contact Microsoft Support](storsimple-contact-microsoft-support.md).

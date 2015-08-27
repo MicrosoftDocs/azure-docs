@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Database Downlevel Clients Support for Auditing and Dynamic Data Masking | Azure" 
+	pageTitle="SQL Database Downlevel Clients Support for Auditing and Dynamic Data Masking | Microsoft Azure" 
 	description="SQL Database Downlevel Clients Support for Auditing and Dynamic Data Masking" 
 	services="sql-database" 
 	documentationCenter="" 

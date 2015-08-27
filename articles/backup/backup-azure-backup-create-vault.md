@@ -13,13 +13,21 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="07/28/2015"
-	 ms.author="prvijay"; "jimpark"/>
+	 ms.date="08/11/2015"
+	 ms.author="aashishr"; "jimpark"/>
 
 # Create a Backup Vault
 To back up files and data from your Windows Server or System Center Data Protection Manager (SCDPM) to Azure or when backing up IaaS VMs to Azure, you must create a backup vault in the geographic region where you want to store the data.
 
 This tutorial will walk you through the creation of the vault you will use to store backups.
+
+## Video walkthrough
+
+Here's a walkthrough of this tutorial.
+
+[AZURE.VIDEO azure-backup-vault-creation]
+
+## Creating the Backup Vault
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
 2. Click **New** -> **Data Services** -> **Recovery Services** -> **Backup Vault** and choose **Quick Create**
@@ -59,7 +67,6 @@ If you are using Azure as a tertiary backup storage endpoint (e.g. you are using
 
 ## Note
 
-- As of March 2015, customers do not have a programmatic (eg: PowerShell) way of creating a backup vault. 
 - The storage redundancy should be selected right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 
 <!--Image references-->

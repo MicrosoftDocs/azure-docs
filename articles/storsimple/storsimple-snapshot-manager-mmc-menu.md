@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Use the MMC menu actions in StorSimple Snapshot Manager
@@ -125,4 +125,4 @@ You can use the **Help** menu to view available online help for StorSimple Snaps
 
 ## Next steps
 
-[Learn more about the StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md)
+[Learn more about the StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
