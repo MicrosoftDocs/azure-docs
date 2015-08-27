@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Authoring Templates with Azure VM Extensions"
+   pageTitle="Authoring Templates with Azure VM Extensions | Microsoft Azure"
    description="Learn more about authoring Templates with Extensions"
    services="virtual-machines"
    documentationCenter=""
