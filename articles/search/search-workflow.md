@@ -60,7 +60,7 @@ After saving the index in Azure Search, the next step is to populate the index w
 
 Data that you upload to an index must conform to the schema you defined in the previous step. Document data is represented as a set of key/value pairs for each field, in JSON format. If your schema specifies an ID (key) field, a name field, a number field, and a URL field (which you might do if external images are part of your search results), then all the documents you feed into the index must have values (or null) for each field.
 
-There are several ways to load documents, but right now, all of them require an API. For most prototypes, this step might be the most time consuming due to a coding requirement. Options are described later in article.
+There are several ways to load documents, but right now, all of them require an API. For most prototypes, this step might be the most time consuming due to a coding requirement. Options are described later in this article.
 
 > [AZURE.NOTE] Remember that the shared service limits you to 10,000 documents per index. Be sure to reduce your dataset so that it stays under the limits. See [Limits and constraints](https://msdn.microsoft.com/library/dn798934.aspx) for more information.
 
