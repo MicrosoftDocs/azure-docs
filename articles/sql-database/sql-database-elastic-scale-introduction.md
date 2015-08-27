@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="08/27/2015"
-    ms.author="ddove, sidneyh"/>
+    ms.author="sidneyh"/>
 
 # Elastic Database features overview
 
