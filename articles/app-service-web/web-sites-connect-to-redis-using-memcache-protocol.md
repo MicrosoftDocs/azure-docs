@@ -130,7 +130,7 @@ Now that the **object-cache.php** file is in the **wp-content** folder, the Memc
 
 ![Enable the memcache object-cache.php plugin](./media/web-sites-connect-to-redis-using-memcache-protocol/14-enable-memcache-object-cache-plugin.png)
 
-## Verifying the Memcache Object Cache plugin is functioning
+## Verify the Memcache Object Cache plugin is functioning
 
 All of the steps to enable the Web Apps Memcache shim are now complete. The only thing left is to verify that the data is populating your Redis Cache instance.
 
