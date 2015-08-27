@@ -16,8 +16,8 @@
 	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
-# Get started with the Dropbox Connector and add it to your Logic App 
-Connect to Dropbox account to upload or download files. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data. You can add the Dropbox connector to your business workflow and process data as part of this workflow within a Logic App. 
+# Get started with the Dropbox Connector and add it to your Logic App
+Connect to Dropbox account to upload or download files. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data. You can add the Dropbox connector to your business workflow and process data as part of this workflow within a Logic App.
 
 ## Triggers and Actions
 
