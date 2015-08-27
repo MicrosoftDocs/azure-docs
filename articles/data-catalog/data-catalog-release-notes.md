@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure Data Catalog release notes"
-   description="Release notes for the 13 July 2015 public preview release of Azure Data Catalog."
+   description="Release notes for the 28 August 2015 public preview release of Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="08/28/2015"
+   ms.author="maroche"/>
+
+# Notes for the 28 August 2015 release of Azure Data Catalog
+
+## Data profile missing for Azure SQL Database tables
+
+When registering Azure SQL Database tables, or when registering Oracle Database tables and views with long column names, data profile information may not be included even if the data profile option is selected in the data source registration tool. This is due to a known issue in the August 28 release, and will be addressed in a future release of Azure Data Catalog.
 
 # Notes for the 13 July 2015 release of Azure Data Catalog
 
