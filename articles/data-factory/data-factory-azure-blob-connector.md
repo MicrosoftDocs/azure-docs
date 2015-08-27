@@ -23,7 +23,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 The sample below shows:
 
 1.	A linked service of type [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
-2.	A linked service of type [AzureStorage](#azure-storage-linked-service properties).
+2.	A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
 3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
@@ -193,7 +193,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 The sample below shows:
 
 1.	A linked service of type [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
-2.	A linked service of type [AzureStorage](#azure-storage-linked-service properties).
+2.	A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
 3.	An input [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties).
