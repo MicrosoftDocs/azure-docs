@@ -71,7 +71,7 @@ The API key is an authentication token generated during service provisioning (ad
 
 All API keys are GUIDs. Visually, there is no distinction between admin and query keys. You would need to check the portal or use the Management REST API to determine the type of key.
 
-> [AZURE.TIP] A query key delivers a read-only experience to the client. See the [TryAppService + Azure Search](https://azure.microsoft.com/en-us/documentation/articles/search-tryappservice/) to test-drive the Azure Search operations that are available in a read-only service. Note that in TryAppService, the Web app code is fully modifiable – you can change any of the C# code in the ASP.NET project to modify web page layout, search query construction, or search results—it’s just the Azure Search service index and document load operations that are read-only, per the inclusion of a query api-key on the service connection.
+> [AZURE.TIP] A query key delivers a read-only experience to the client. See the [TryAppService + Azure Search](search-tryappservice.md) to test-drive the Azure Search operations that are available in a read-only service. Note that in TryAppService, the Web app code is fully modifiable – you can change any of the C# code in the ASP.NET project to modify web page layout, search query construction, or search results—it’s just the Azure Search service index and document load operations that are read-only, per the inclusion of a query api-key on the service connection.
 
 ####Client Connection
 
