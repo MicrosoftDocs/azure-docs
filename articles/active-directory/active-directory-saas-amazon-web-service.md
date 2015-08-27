@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Amazon Web Service (AWS) "| Microsoft Azure"
+	pageTitle="Tutorial: Azure Active Directory integration with Amazon Web Service (AWS) | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and Amazon Web Service (AWS)."
 	services="active-directory"
 	documentationCenter=""
