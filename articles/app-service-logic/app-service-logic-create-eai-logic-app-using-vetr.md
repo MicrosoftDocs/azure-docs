@@ -60,7 +60,7 @@ Next, let's add triggers and actions.
 
 ## Add Validate Action
 
-Now, let’s enter actions that run whenever the trigger fires -- that is, whenever a call is received on the HTTP endpoint.
+Now, let’s enter actions that run whenever the trigger fires--that is, whenever a call is received on the HTTP endpoint.
 
 1. Add **BizTalk XML Validator** from the gallery and name it _(Validate1)_ to create an instance.
 2. Configure an XSD schema to validate the incoming XML messages. Select the _Validate_ action and select _triggers(‘httplistener’).outputs.Content_ as the value for the _inputXml_ parameter.
@@ -82,7 +82,7 @@ Let's configure transforms to normalize the incoming data.
 
 
 ## Add Service Bus Connector
-Next, let's add the destinatio--a Service Bus Queu--to write data to.
+Next, let's add the destination--a Service Bus Queu--to write data to.
 
 1. Add a **Service Bus Connector** from the gallery. Set the **Name** to _Servicebus1_, set **Connection String* to the connection string to your service bus instance, set **Entity Name** to _Queue_, and skip **Subscription name**.
 2. Select the **Send Message** action and set the **Message** field for the action to _actions('transformservice').outputs.OutputXml_
