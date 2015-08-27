@@ -77,7 +77,6 @@ Here, we'll configure the Express middleware to use the OpenID Connect authentic
     -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
     -	The `returnURL` is the **Redirect Uri** you entered in the portal.
     - The `clientSecret` is the secret you generated in the portal
-    - The `realm` is the **Redirect Uri** you entered in the portal without the route. (example: http//localhost:3000)
 
 - Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
 
