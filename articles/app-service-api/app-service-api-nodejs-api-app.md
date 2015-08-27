@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Build and deploy a Node.js API app in Azure App Service Microsoft Azure"
+	pageTitle="Build and deploy a Node.js API app in Azure App Service | Microsoft Azure"
 	description="Learn how to create a Node.js API app package and deploy it to Azure App Service."
 	services="app-service\api"
 	documentationCenter="nodejs"
