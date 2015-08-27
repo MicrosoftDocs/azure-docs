@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Overview of Service Fabric" 
+   pageTitle="Overview of Service Fabric | Microsoft Azure" 
    description="An overview of Service Fabric where applications are composed of microservices. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud" 
    services="service-fabric" 
    documentationCenter=".net" 
@@ -19,7 +19,7 @@
 # Overview of Service Fabric
 Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. Service Fabric addresses the significant challenges in developing and managing cloud applications. By using Service Fabric developers and administrators can avoid solving complex infrastructure problems and focus instead on implementing mission critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise class, Tier-1 cloud scale services.
 
-## Applications composed of microservices ##
+## Applications composed of microservices
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices running at very high density on a shared pool of machines (commonly referred to as a Service Fabric cluster).  It provides a sophisticated runtime for building distributed, scalable stateless and stateful microservices and comprehensive application management capabilities for provisioning, deploying, monitoring, upgrading/patching, and deleting deployed applications. 
 
 Service Fabric powers many Microsoft services today such as Azure SQL Databases, Azure DocumentDB, Cortana, Power BI, Microsoft Intune, Azure Event Hubs, many core Azure Services, and Skype for Business to name a few.
@@ -42,7 +42,7 @@ Why are stateful microservices important? Why not simply use stateless services 
 
 2) Application design simplification as stateful microservices remove the need for additional queues and caches that have traditionally been required to address the availability and latency requirements of a purely stateless application. Since stateful service are naturally highly-available and low-latency this means less moving parts to manage in your application as a whole. 
 
-For more information on application patterns and design using Service Fabric see [Application Scenarios](../service-fabric-application-scenarios)
+For more information on application patterns and design using Service Fabric see [Application Scenarios](service-fabric-application-scenarios.md)
 
 ## Application lifecycle management
 Service Fabric provides first class support for the full application lifecycle management (ALM) of cloud applications: from development to deployment, to daily management, to maintenance, and to eventual decommissioning.
@@ -51,7 +51,7 @@ The Service Fabric ALM capabilities enable application administrators/IT operato
 
 Most applications consist of a combination of stateless and stateful microservices and other EXE/runtimes that are deployed together. By having strong types on the applications and the packaged microservices, Service Fabric enables the deployment of multiple application instances each of which can be managed and upgraded independently. Importantly Service Fabric is able to deploy *any* executables or runtimes and make these reliable. For example it can be used to deploy ASP.NET 5, node.js, scripts, or anything that makes up your application. 
   
-For more information on application lifecycle management see [Application Lifecycle](../service-fabric-application-lifecycle)
+For more information on application lifecycle management see [Application Lifecycle](service-fabric-application-lifecycle.md)
 
 ## Key capabilities
 By using Service Fabric, you can:
@@ -89,9 +89,9 @@ By using Service Fabric, you can:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-* For more information: [Technical Overview](../service-fabric-technical-overview.md).
-* Setup your Service Fabric [development environment](../service-fabric-get-started.md).  
-* Choosing a [framework](../service-fabric-choose-framework.md) for your service.
+* For more information: [Technical Overview](service-fabric-technical-overview.md).
+* Setup your Service Fabric [development environment](service-fabric-get-started.md).  
+* Choosing a [framework](service-fabric-choose-framework.md) for your service.
 
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
