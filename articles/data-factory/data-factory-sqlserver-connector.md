@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="SQL Server Connector - Move data to and from SQL Server" 
-	description="Learn about SQL Server Connector for the Data Factory service that lets you move data to/from SQL Server database that is on-premises or in an Azure VM." 
+	pageTitle="Move data to and from SQL Server | Azure Data Factory" 
+	description="Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# SQL Server Connector - Move data to and from SQL Server on-premises or on IaaS (Azure VM)
+# Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to SQL Server from another data store and move data from another data store to SQL Server. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
@@ -32,11 +32,11 @@ While you can install the gateway on the same on-premises machine or cloud VM in
 
 The sample below shows:
 
-1.	A linked service of type OnPremisesSqlServer.
-2.	A linked service of type AzureStorage.
-3.	An input dataset of type SqlServerTable. 
-4.	An output dataset of type AzureBlob.
-4.	The pipeline with Copy activity that uses SqlSource and BlobSink.
+1.	A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data belonging to a time series from a table in SQL Server database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -208,11 +208,11 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 The sample below shows:
 
-1.	The linked service of type OnPremisesSqlServer.
-2.	The linked service of type AzureStorage.
-3.	An input dataset of type AzureBlob.
-4.	An output dataset of type SqlServerTable.
-4.	The pipeline with Copy activity that uses BlobSource and SqlSink.
+1.	The linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	The linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
 
 The sample copies data belonging to a time series from Azure blob to a table in SQL Server database every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -388,6 +388,10 @@ The following table provides description for JSON elements specific to SQL Serve
 | username | Specify user name if you are using Windows Authentication. | No |
 | password | Specify password for the user account you specified for the username. | No |
 
+You can encrypt credentials using the **New-AzureDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
 ### Samples
 
 **JSON for using SQL Authentication**
@@ -417,6 +421,8 @@ If username and password are specified, gateway will use them to impersonate the
 	         "gatewayName": "<gateway name>" 
 	     } 
 	}
+
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an SQL Server data source.
 
 ## SQL Server Dataset type properties
 
