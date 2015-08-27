@@ -21,9 +21,31 @@
 This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Linux VMs.
 To learn more about these extensions click <a href="https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx" target="_blank">here</a>.
 
+## Sample template snippet for VM Extensions.
+The template snippet for Deploying extensions looks as following:
+
+      {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "MyExtension",
+      "apiVersion": "2015-05-01-preview",
+      "location": "[parameters('location')]",
+      "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
+      "properties":
+      {
+      "publisher": "Publisher Namespace",
+      "type": "extension Name",
+      "typeHandlerVersion": "extension version",
+      "settings": {
+      // Extension specific configuration goes in here.
+      }
+      }
+      }
+
 Before deploying the extension please check the latest extension version and replace the "typeHandlerVersion" with the current latest version.
 
-#### CloudLink SecureVM Agent
+Rest of the article provides sample configurations for Linux VM Extensions.
+
+### CloudLink SecureVM Agent
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMLinuxAgent",
@@ -33,7 +55,7 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
-#### CustomScript Extension for Linux.
+### CustomScript Extension for Linux.
     {
         "publisher": " Microsoft.OSTCExtensions",
         "type": "CustomScriptForLinux",
@@ -47,7 +69,7 @@ Before deploying the extension please check the latest extension version and rep
     }
 
 
-#### Datadog Agent
+### Datadog Agent
         {
           "publisher": "Datadog.Agent",
           "type": "DatadogLinuxAgent",
@@ -57,7 +79,7 @@ Before deploying the extension please check the latest extension version and rep
           }
         }
 
-#### Chef Agent
+### Chef Agent
         {
           "publisher": "Chef.Bootstrap.WindowsAzure",
           "type": "CentosChefClient|LinuxChefClient",
@@ -69,7 +91,7 @@ Before deploying the extension please check the latest extension version and rep
           }
         }
 
-#### VM Access Extension (Password Reset)
+### VM Access Extension (Password Reset)
 For updated schema refer to the link <a href="https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess" target="_blank">here </a>.
 
         {
@@ -85,7 +107,7 @@ For updated schema refer to the link <a href="https://github.com/Azure/azure-lin
           }
         }
 
-#### OS Patching
+### OS Patching
 For updated schema refer to the link <a href="https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching" target="_blank">here </a>.
 
         {
@@ -110,7 +132,7 @@ For updated schema refer to the link <a href="https://github.com/Azure/azure-lin
         }
         }
 
-#### Docker Extension
+### Docker Extension
 For updated schema refer to the link <a href="https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema" target="_blank">here </a>.
 
         {

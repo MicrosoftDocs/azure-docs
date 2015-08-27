@@ -21,9 +21,33 @@
 This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Windows VMs.
 To learn more about these extensions click <a href="https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx" target="_blank">here</a>.
 
+## Sample template snippet for VM Extensions.
+The template snippet for Deploying extensions looks as following:
+
+      {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "MyExtension",
+      "apiVersion": "2015-05-01-preview",
+      "location": "[parameters('location')]",
+      "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
+      "properties":
+      {
+      "publisher": "Publisher Namespace",
+      "type": "extension Name",
+      "typeHandlerVersion": "extension version",
+      "settings": {
+      // Extension specific configuration goes in here.
+      }
+      }
+      }
+
 Before deploying the extension please check the latest extension version and replace the "typeHandlerVersion" with the current latest version.
 
-#### CustomScript Extension.
+Rest of the article provides sample configurations for Windows VM Extensions.
+
+Before deploying the extension please check the latest extension version and replace the "typeHandlerVersion" with the current latest version.
+
+### CustomScript Extension.
     {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
@@ -36,7 +60,7 @@ Before deploying the extension please check the latest extension version and rep
         }
     }
 
-#### VMAccess Extension.
+### VMAccess Extension.
 
       {
           "publisher": "Microsoft.Compute",
@@ -50,7 +74,7 @@ Before deploying the extension please check the latest extension version and rep
           }
       }
 
-#### DSC Extension.
+### DSC Extension.
       {
           "publisher": "Microsoft.Powershell",
           "type": "DSC",
@@ -82,7 +106,7 @@ Before deploying the extension please check the latest extension version and rep
       }
 
 
-#### Symantec Endpoint Protection.
+### Symantec Endpoint Protection.
       {
         "publisher": "SymantecEndpointProtection",
         "type": "Symantec",
@@ -90,7 +114,7 @@ Before deploying the extension please check the latest extension version and rep
         "settings": {}
       }
 
-#### Trend Micro Deep Security Agent.
+### Trend Micro Deep Security Agent.
       {
         "publisher": "TrendMicro.DeepSecurity",
         "type": "TrendMicroDSA",
@@ -108,7 +132,7 @@ Before deploying the extension please check the latest extension version and rep
         }
       }
 
-#### Vormertric Transparent Encryption Agent.
+### Vormertric Transparent Encryption Agent.
             {
               "publisher": "Vormetric",
               "type": "VormetricTransparentEncryptionAgent",
@@ -117,7 +141,7 @@ Before deploying the extension please check the latest extension version and rep
               }
             }
 
-#### Puppet Enterprise Agent.
+### Puppet Enterprise Agent.
             {
               "publisher": "PuppetLabs",
               "type": "PuppetEnterpriseAgent",
@@ -127,7 +151,7 @@ Before deploying the extension please check the latest extension version and rep
               }
             }  
 
-#### Microsoft Monitoring Agent for Azure Operational Insights
+### Microsoft Monitoring Agent for Azure Operational Insights
             {
               "publisher": "Microsoft.EnterpriseCloud.Monitoring",
               "type": "MicrosoftMonitoringAgent",
@@ -138,7 +162,7 @@ Before deploying the extension please check the latest extension version and rep
               }
             }
 
-#### McAfee EndpointSecurity
+### McAfee EndpointSecurity
             {
               "publisher": "McAfee.EndpointSecurity",
               "type": "McAfeeEndpointSecurity",
@@ -152,7 +176,7 @@ Before deploying the extension please check the latest extension version and rep
               }
             }
 
-#### Azure IaaS Antimalware
+### Azure IaaS Antimalware
           {
             "publisher": "Microsoft.Azure.Security",
             "type": "IaaSAntimalware",
@@ -170,7 +194,7 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
-#### ESET File Security
+### ESET File Security
           {
             "publisher": "ESET",
             "type": "FileSecurity",
@@ -179,7 +203,7 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
-#### Datadog Agent
+### Datadog Agent
           {
             "publisher": "Datadog.Agent",
             "type": "DatadogWindowsAgent",
@@ -189,7 +213,7 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
-#### Confer Advanced Threat Prevention and Incident Response for Azure
+### Confer Advanced Threat Prevention and Incident Response for Azure
           {
             "publisher": "Confer",
             "type": "ConferForAzure",
@@ -200,7 +224,7 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
-#### CloudLink SecureVM Agent
+### CloudLink SecureVM Agent
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMWindowsAgent",
@@ -210,7 +234,7 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
-#### Barracuda VPN Connectivity Agent for Microsoft Azure
+### Barracuda VPN Connectivity Agent for Microsoft Azure
           {
             "publisher": "Barracuda.Azure.ConnectivityAgent",
             "type": "BarracudaConnectivityAgent",
@@ -223,7 +247,7 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
-#### Alert Logic Log Manager
+### Alert Logic Log Manager
           {
             "publisher": "AlertLogic.Extension",
             "type": "AlertLogicLM",
@@ -233,7 +257,7 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
-#### Chef Agent
+### Chef Agent
           {
             "publisher": "Chef.Bootstrap.WindowsAzure",
             "type": "ChefClient",

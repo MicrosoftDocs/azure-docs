@@ -18,7 +18,7 @@
 
 # Authoring Azure Resource Manager Templates with VM Extensions.
 
-#### Overview of Azure Resource Manager Templates.
+## Overview of Azure Resource Manager Templates.
 
 Azure Resource Manager Template allows you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager Templates, please refer to the articles below:
 
@@ -28,7 +28,7 @@ Azure Resource Manager Template allows you to declaratively specify the Azure Ia
 <br/>
 <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Deploying Templates with Azure Powershell</a>.
 
-#### Sample template snippet for VM Extensions.
+## Sample template snippet for VM Extensions.
 The template snippet for Deploying extensions looks as following:
 
       {
@@ -48,7 +48,7 @@ The template snippet for Deploying extensions looks as following:
       }
       }
 
-#### Identifying the publisher, type and the typeHandlerVersion for any extension.
+## Identifying the publisher, type and the typeHandlerVersion for any extension.
 
 Azure VM Extensions are published by Microsoft and trusted 3rd party publishers and each extension is uniquely identified by its publisher,type and the typeHandlerVersion. These can be determined as following:
 
@@ -69,7 +69,7 @@ This cmdlet returns the publisher name, extension name and version as following:
 These three properties map to "publisher", "type" & "typeHandlerVersion" respectively in the above template snippet.
 Note : Its always recommended to use the latest extension version to get the most updated functionality.
 
-### Identifying the schema for the Extension configuration parameters
+## Identifying the schema for the Extension configuration parameters
 
 The next step with authoring extension template is to identify the format for providing configuration parameters. Each extension supports its own set of parameters.
 
