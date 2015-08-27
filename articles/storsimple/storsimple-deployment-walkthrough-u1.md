@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Deploy your on-premises StorSimple device"
-   description="Steps and best practices for deploying the StorSimple Update 1 device and service."
+   pageTitle="Deploy your on-premises StorSimple device | Microsoft Azure"
+   description="Describes steps and best practices for deploying the StorSimple Update 1 device and service."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/21/2015"
+   ms.date="08/27/2015"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device
