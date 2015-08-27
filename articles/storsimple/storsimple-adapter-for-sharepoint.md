@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm."
+   description="Describes how to install and configure the StorSimple Adapter for SharePoint in a SharePoint server farm."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/11/2015"
+   ms.date="08/27/2015"
    ms.author="v-sharos" />
 
-# StorSimple Adapter for SharePoint
+# Install and configure the StorSimple Adapter for SharePoint
 
 ## Overview
 
