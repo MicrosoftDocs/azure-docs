@@ -43,7 +43,7 @@ In this tutorial, you will:
 
 	![Choose an Image](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
 
-For the most up-to-date information on the supported SQL Server images on Azure, see [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720).
+For the most up-to-date information on the supported SQL Server images on Azure, see [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md).
 
 >[AZURE.NOTE] If you have a virtual machine created by using the platform image SQL Server Evaluation edition, you cannot upgrade it to a per-minute paid edition image in the gallery. You can choose one of the following two options:
 >
@@ -67,7 +67,7 @@ For the most up-to-date information on the supported SQL Server images on Azure,
     > - Select A3 or higher when using SQL Server Enterprise Edition.
    	> - Select A4 or higher when using SQL Server 2012 or 2014 Enterprise Optimized for Transactional Workloads images.  
    	> - Select A7 or higher when using SQL Server 2012 or 2014 Enterprise Optimized for Data Warehousing Workloads images. 
-   	> - For the best performance use DS2 or DS3 with Premium Storage. For more information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+   	> - For the best performance use DS2 or DS3 with Premium Storage. For more information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
    	> - The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
 
 5. After entering your VM configuration details, click the next arrow on the bottom right to continue.
@@ -130,28 +130,28 @@ For more information, see [How to Troubleshoot Connecting to the SQL Server Data
 
 You've seen how to create and configure a SQL Server on an Azure virtual machine using the platform image. In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
 
-In addition to these resources, we recommend that you review [other topics related to running SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md). The following list provides some specific recommendations.
+The following list provides additional resources for SQL Server in Azure virtual machines.
 
 ### Recommended resources for SQL Server on Azure VMs:
-- [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720)
+- [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md)
 
-- [Connectivity Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294723)
+- [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-sql-server-connectivity.md)
 
-- [Performance Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294724)
+- [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md)
 
-- [Security Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294725)
+- [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md)
 
 ### High Availability and Disaster Recovery:
-- [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294727)
+- [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 
-- [Backup and Restore for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294728)
+- [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-backup-and-restore.md)
 
 ### SQL Server Workloads in Azure:
-- [SQL Server Business Intelligence in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294729)
+- [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-sql-server-business-intelligence.md)
 
-- [SQL Server Data Warehousing and Transactional Workloads in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+- [SQL Server Data Warehousing and Transactional Workloads in Azure Virtual Machines](virtual-machines-sql-server-dw-and-oltp-workloads.md)
 
 ### Whitepapers:
 - [Understand Azure SQL Database and SQL Server in Azure Virtual Machines](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
-- [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn574746.aspx)
+- [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
