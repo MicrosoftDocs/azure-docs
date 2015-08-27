@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Use Mobile Services to upload images to blob storage (Android) | Mobile Services" 
-	description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Android app." 
+	description="Learn how to use Mobile Services to upload images to Azure Storage and access the images from your Android app." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="08/27/2015" 
 	ms.author="ricksal"/>
 
 # Upload images to Azure Storage from an Android  device
@@ -45,7 +45,7 @@ Uploading the photo image is a multistep process:
 
 So what is a SAS?
 
-It's not safe to store the credentials needed to upload data to the Azure Storage service inside your client app. Instead, you store these credentials in your mobile service and use them to generate a Shared Access Signature (SAS) that grants permission to upload a new image. The SAS, a credential with a 5 minute expiration, is returned securely by Mobile Services to the client app. The app then uses this temporary credential to upload the image. 
+It's not safe to store the credentials needed to upload data to the Azure Storage service inside your client app. Instead, you store these credentials in your mobile service and use them to generate a Shared Access Signature (SAS) that grants permission to upload a new image. The SAS, a credential with a 5 minute expiration, is returned securely by Mobile Services to the client app. The app then uses this temporary credential to upload the image. For more information, see [Shared Access Signatures, Part 1: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
 
 >[AZURE.NOTE] [Here](https://github.com/RickSaling/mobile-services-samples/tree/storage/UploadImages) is the completed client source code part of this app.
 
@@ -69,11 +69,16 @@ It's not safe to store the credentials needed to upload data to the Azure Storag
 
 ### Update the manifest file for camera and storage
 
-Specify your app depends on having a camera, and needs permission to write to external storage by adding these lines to **AndroidManifest.xml**:
+1. Specify your app requires having a camera available by adding this line to **AndroidManifest.xml**:
 
 	    <uses-feature android:name="android.hardware.camera"
 	        android:required="true" />
+
+2. Specify your app needs permission to write to external storage by adding these lines to **AndroidManifest.xml**:
+
 	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+	Note that Android external storage is not necessarily an SD card: for more see [Saving Files](http://developer.android.com/training/basics/data-storage/files.html).
 
 ### Update resource files for the new user interface
 
