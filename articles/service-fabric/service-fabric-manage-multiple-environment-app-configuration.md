@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/24/2015"
+   ms.date="08/26/2015"
    ms.author="seanmck"/>
 
 # Managing application parameters for multiple environments
@@ -39,10 +39,9 @@ Service Fabric applications are made up of a collection of service instances. Wh
                     PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808"
                     HighKey="9223372036854775807"
                 />
-
         </StatefulService>
     </Service>
-</DefaultServices>
+  </DefaultServices>
 
 Each of the named parameters must defined within the Parameters element of the application manifest:
 
@@ -55,6 +54,33 @@ Each of the named parameters must defined within the Parameters element of the a
 The DefaultValue attributes specifies the value to be used in the absence of a more specific parameter for a given environment.
 
 >[AZURE.NOTE] Not all service instance parameters are suitable for per-environment configuration. In the example above, the LowKey and HighKey values for the service's partitioning scheme are explicitly defined for all instances of the service since the partition range is a function of your data domain, not of the environment.
+
+### Per-environment service configuration settings
+
+The [Service Fabric application model](service-fabric-application-model.md) enables services to include configuration packages containing custom key-value pairs readable at runtime. The values of these settings can also be differentiated by environment by specifying a `ConfigOverride` in the application manifest.
+
+Suppose that you have the following setting in the service manifest for the `Stateful1` service:
+
+
+    <Section Name="MyConfigSection">
+      <Parameter Name="MaxQueueSize" Value="25" />
+    </Section>
+
+To override this value for a specific application/environment pair, create a `ConfigOverride` when importing the service manifest in the application manifest.
+
+    <ConfigOverrides>
+     <ConfigOverride Name="Config">
+        <Settings>
+           <Section Name="MyConfigSection">
+              <Parameter Name="FooBar" Value="[Stateful1_MaxQueueSize]" />
+           </Section>
+        </Settings>
+     </ConfigOverride>
+  </ConfigOverrides>
+
+This parameter can then be configured by environment as shown above, by declaring it in the parameters section of the application manifest and specifying environment-specific values in the app instance definition files.
+
+>[AZURE.NOTE] In the case of service configuration settings, there are three places where the value of a key can be set: the service configuration package, the application manifest, and the application instance file. Service Fabric will always choose from the application instance file first (if specified), then the application manifest, and finally the configuration package.
 
 ### Application instance definition files
 
