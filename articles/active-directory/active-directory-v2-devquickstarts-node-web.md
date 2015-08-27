@@ -80,7 +80,7 @@ Here, we'll configure the Express middleware to use the OpenID Connect authentic
     - The `clientSecret` is the secret you generated in the portal
     - The `realm` is the **Redirect URI** you entered in the portal without the route. (example: http//localhost:3000)
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDStrategy` strategy that comes with `passport-azure-ad`
+- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
 
 
 ```JavaScript
