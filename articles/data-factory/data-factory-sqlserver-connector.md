@@ -32,11 +32,11 @@ While you can install the gateway on the same on-premises machine or cloud VM in
 
 The sample below shows:
 
-1.	A linked service of type OnPremisesSqlServer.
-2.	A linked service of type AzureStorage.
-3.	An input [dataset](data-factory-create-datasets.md) of type SqlServerTable. 
-4.	An output [dataset](data-factory-create-datasets.md) of type AzureBlob.
-4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses SqlSource and BlobSink.
+1.	A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data belonging to a time series from a table in SQL Server database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 

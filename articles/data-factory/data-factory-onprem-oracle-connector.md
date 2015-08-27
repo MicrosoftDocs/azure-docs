@@ -24,11 +24,11 @@ This article outlines how you can use data factory copy activity to move data fr
 
 The sample below shows:
 
-1.	A linked service of type OnPremisesOracle
-2.	A linked service of type AzureStorage.
-3.	An input [dataset](data-factory-create-datasets.md) of type OracleTable. 
-4.	An output [dataset](data-factory-create-datasets.md) of type AzureBlob.
-5.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses OracleSource as source and BlobSink as sink.
+1.	A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
+2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+5.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) as source and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) as sink.
 
 The sample copies data from a table in an on-premises Oracle database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
 
