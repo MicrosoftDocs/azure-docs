@@ -26,7 +26,7 @@
 
 This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamarin.iOS. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.
 
-In this tutorial, you will update the Xamarin.iOS app project from the tutorial [Create a Xamarin iOS app] to support the offline features of Azure Mobile Apps. 
+In this tutorial, you will update the Xamarin.iOS app project from the tutorial [Create a Xamarin iOS app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
