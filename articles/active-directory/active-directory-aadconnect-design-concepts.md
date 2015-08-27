@@ -25,6 +25,7 @@ The sourceAnchor attribute is defined as *an attribute immutable during the life
 The word immutable, i.e. cannot be changed, is important to this topic. Since this attribute’s value cannot be changed after it has been set it is important to pick a design which will support your scenario.
 
 The attribute is used for the following scenarios:
+
 - When a new sync engine server is built, or rebuilt after a disaster recovery scenario, this attribute will link existing objects in Azure AD with objects on-premises.
 - If you move from a cloud-only identity to a synchronized identity model this attribute will allow objects to “hard match” existing objects in Azure AD with on-premises objects.
 - If you use federation, this attribute together with the **userPrincipalName** is used in the claim to uniquely identify a user.
@@ -33,6 +34,7 @@ This topic will only talk about sourceAnchor as it relates to users. The same ru
 
 ### Selecting a good sourceAnchor attribute
 The attribute value must follow the following rules:
+
 - Be less than 60 characters in length
 - Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @
 - Must be globally unique
@@ -54,6 +56,7 @@ In the case where there is absolutely no suitable attribute to use, then a synth
 The sourceAnchor attribute value cannot be changed after the object has been created in Azure AD and the identity is synchronized.
 
 For this reason, the following restrictions apply to Azure AD Connect:
+
 - The sourceAnchor attribute can only be set during initial installation. If you re-run the installation wizard this option is read-only. If you need to change this, then you must uninstall and reinstall.
 - If you install another Azure AD Connect server, then you must select the same sourceAnchor attribute as previously used. If you have earlier been using DirSync and move to Azure AD Connect, then you must use **objectGUID** since that is the attribute used by DirSync.
 - If the value for sourceAnchor is changed after the object has been exported to Azure AD, then Azure AD Connect sync will throw an error and will not allow any more changes on that object before the issue has been fixed and the sourceAnchor is changed back in the source directory.
