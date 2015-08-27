@@ -16,6 +16,8 @@
    ms.date="08/28/2015"
    ms.author="maroche"/>
 
+# Azure Data Catalog release notes
+
 ## Notes for the 28 August 2015 release of Azure Data Catalog
 
 ### Data profile missing for Azure SQL Database tables
