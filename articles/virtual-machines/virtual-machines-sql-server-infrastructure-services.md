@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Overview of SQL Server on Azure Virtual Machines"
+	pageTitle="SQL Server on Azure Virtual Machines overview"
 	description="This article provides an overview of SQL Server hosted on Azure IaaS Virtual Machines. This includes links to depth content." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="08/24/2015"
 	ms.author="jroth"/>
 
-# Overview of SQL Server on Azure Virtual Machines
+# SQL Server on Azure Virtual Machines overview
 
 ## Getting started
 You can host [SQL Server on Azure Virtual Machines](http://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using AlwaysOn Availability Groups and an Azure Virtual Network.
@@ -36,15 +36,15 @@ You can run common SQL Server workloads on Azure Virtual Machines. SQL Server ha
 
 The following table provides a matrix of available SQL Server images in the virtual machine gallery. 
 
-|Operating system|SQL Server version|SQL Server edition|
+|SQL Server version|Operating system|SQL Server edition|
 |---|---|---|
-|Windows Server 2008 R2|SQL Server 2008 R2 SP2|Enterprise, Standard, and Web|
-|Windows Server 2008 R2|SQL Server 2008 R2 SP3|Enterprise, Standard, and Web|
-|Windows Server 2012|SQL Server 2012 SP2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|Windows Server 2012 R2|SQL Server 2012 SP2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|Windows Server 2012 R2|SQL Server 2014|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|Windows Server 2012 R2|SQL Server 2014 SP1|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|Windows Server 2012 R2|SQL Server 2016 CTP|Evaluation|
+|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard, and Web|
+|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard, and Web|
+|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
+|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
+|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
+|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
+|SQL Server 2016 CTP|Windows Server 2012 R2|Evaluation|
 
 In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](http://azure.microsoft.com/pricing/details/virtual-machines) associated with the virtual machine.
 
