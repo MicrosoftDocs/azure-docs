@@ -29,8 +29,9 @@ In this article, learn how create your own custom business intelligence tools by
 
 ## Prerequisites ##
 
-* Microsoft Azure Account using Org Id (Power BI works with Org ID only. Org ID is your work or business email address e.g. xyz@mycompany.com. Personal emails like xyz@hotmail.com are not org ids. You can learn more about org id [here](https://msdn.microsoft.com/subscriptions/dn531048.aspx) and there is also a FAQ that can be downloaded from [here](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409) ).
+* Microsoft Azure Account
 * An input for the Stream Analytics job to consume streaming data from. Stream Analytics accepts input from Azure Event Hubs or Azure Blob storage.  
+* Microsoft Power BI Org Id
 
 ## Create Azure Stream Analytics Job ##
 
@@ -50,7 +51,7 @@ Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
 
 ## Specify job input ##
 
-For this tutorial, we are assuming you are using EventHub as an input with JSON serialization and utf-8 encoding.
+For this tutorial, we are assuming you are using Event Hub as an input with JSON serialization and UTF-8 encoding.
 
 * Click the job name.
 * Click **Inputs** from the top of the page, and then click **Add Input**. The dialog that opens will walk you through a number of steps to set up your input.
@@ -63,15 +64,15 @@ For this tutorial, we are assuming you are using EventHub as an input with JSON 
 
 > [AZURE.NOTE]	This sample uses the default number of partitions, which is 16.
 
-* **Event Hub Name** - Select the name of the Azure event hub you have.
-* **Event Hub Policy Name** - Select the event-hub policy for the eventhub you are using. Ensure that this policy has manage permissions.
-*	**Event Hub Consumer Group** – You can leave this empty or specify a consumer group you have on your event hub. Note that each consumer group of an event hub can have only 5 readers at a time. So, decide the right consumer group for your job accordingly. If you leave the field blank, it will use the default consumer group.
+* **Event Hub Name** - Select the name of the Azure Event Hub you have.
+* **Event Hub Policy Name** - Select the Event Hub policy for the Event Hub you are using. Ensure that this policy has manage permissions.
+*	**Event Hub Consumer Group** – You can leave this empty or specify a consumer group you have on your Event Hub. Note that each consumer group of an Event Hub can have only 5 readers at a time. So, decide the right consumer group for your job accordingly. If you leave the field blank, it will use the default consumer group.
 
 *	Click the right button.
 *	Specify the following values:
   *	**Event Serializer Format** - JSON
   *	**Encoding** - UTF8
-*	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the event hub.
+*	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the Event Hub.
 
 ## Add Power BI output ##
 
@@ -79,14 +80,15 @@ For this tutorial, we are assuming you are using EventHub as an input with JSON 
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE] Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
-
 2.  Select **Power BI** and then click the right button.
 3.  You will see a screen like the following:
 
 ![graphic3][graphic3]
 
-4.  In this step, you have to be careful to use the same Org Id that you are using for your Stream Analytics job. At this point, Power BI output has to use the same Org Id that your Stream Analytics job uses. If you already have Power BI account using the same Org Id, select “Authorize Now”. If not, choose “Sign up now” and use same Org Id as your azure account while signing up for Power BI. [Here is a good blog walking through details of Power BI sign up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  In this step, supply an Ord Id for the Stream Analytics job output. If you already have Power BI account, select **Authorize Now**. If not, choose **Sign up now**. [Here is a good blog walking through details of Power BI sign up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+
+![graphic11][graphic11]
+
 5.  Next you will see a screen like the following:
 
 ![graphic4][graphic4]
@@ -209,4 +211,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
- 
+[graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png

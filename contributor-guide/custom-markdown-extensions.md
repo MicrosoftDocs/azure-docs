@@ -159,9 +159,9 @@ Published article: [http://azure.microsoft.com/documentation/articles/web-sites-
 
 ## Technology and platform selectors
 
-Use technology and platform switchers in technical articles when you author multiple flavors of the same article to address differences in implementation across technologies or platforms. This is typically most applicable to our mobile platform content for developers. There are currently two different types of selectors, [simple selectors](#simple-selectors) and and [two-way selectors](#two-way-selectors).
+Use technology and platform switchers in technical articles when you author multiple flavors of the same article to address differences in implementation across technologies or platforms. This is typically most applicable to our mobile platform content for developers. There are currently two different types of selectors, [simple selectors](#simple-selectors) and [two-way selectors](#two-way-selectors).
 
->[AZURE.NOTE]Because the same selector markdown goes in each topic in the selection, we recommend placing the selector for your topic in an include, then referencing that include in all of your topics that use the same selector.
+Because the same selector markdown goes in each topic in the selection, we recommend placing the selector for your topic in an include, then referencing that include in all of your topics that use the same selector.
 
 ###<a id="simple-selectors"></a>Simple selectors
 
@@ -187,7 +187,7 @@ Example:
     - [Kindle](../articles/notification-hubs-kindle-get-started/)
     - [Baidu](../articles/notification-hubs-baidu-get-started/)
     - [Xamarin.iOS](../articles/partner-xamarin-notification-hubs-ios-get-started/)
-    -[Xamarin.Android](../articles/partner-xamarin-notification-hubs-android-get-started/)
+    - [Xamarin.Android](../articles/partner-xamarin-notification-hubs-android-get-started/)
 
 #### Rendering
 

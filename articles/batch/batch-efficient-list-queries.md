@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Efficient List Queries" 
-	description="Learn to reduce the number of items returned in a list as well as reduce the amount of information returned for each item" 
-	services="batch" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Efficient List Queries"
+	description="Learn to reduce the number of items returned in a list as well as reduce the amount of information returned for each item"
+	services="batch"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="05/09/2015" 
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Efficient List Queries

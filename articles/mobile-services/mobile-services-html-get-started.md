@@ -33,8 +33,6 @@ A screenshot from the completed app is below:
 
 Completing this tutorial is a prerequisite for all other Mobile Services tutorials for HTML apps. For a PhoneGap/Cordova app, see the the [PhoneGap/Cordova version](mobile-services-javascript-backend-phonegap-get-started.md) of this tutorial.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need  
-
 ##Prerequisites
 
 The following are required to complete this tutorial:

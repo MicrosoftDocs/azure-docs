@@ -1,37 +1,36 @@
-<properties 
-	pageTitle="List of Connectors and API Apps | Azure" 
-	description="Read about the Connectors and API Apps in Azure App Service; microservices architecture" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="List of Connectors and API Apps | Azure"
+	description="Read about the Connectors and API Apps in Azure App Service; microservices architecture"
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015" 
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2015"
 	ms.author="mandia"/>
 
 
 # Connectors and API Apps List in Microsoft Azure App Service
-This topic lists all the available connectors and API Apps created by Microsoft. 
+This topic lists all the available connectors and API Apps created by Microsoft.
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/).
 
 
 ## Standard Connectors
-The following table lists all the available connectors and API Apps created by Microsoft that are available with the Standard Connectors: 
+The following table lists all the available connectors and API Apps created by Microsoft that are available with the Standard Connectors:
 
 Name | Description
 --- | ---
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | Use this connector to create a Hadoop cluster on Azure and submit different Hadoop jobs such as Hive, Pig, MapReduce, and Streaming MapReduce. Using this connector, you can also spin a cluster, submit a job, and wait for the job to complete.
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Using this connector, you can send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.
 [Azure Storage Blob](app-service-logic-connector-azurestorageblob.md) | Connects to Blob storage and can Upload Blob, Get Blob, Delete Blob, List Blobs in Container, Snapshot Blob, Copy Blob, and use a trigger to retrieve Blobs.
-Azure WebJobs | Connects to WebJobs.
 [Box](app-service-logic-connector-box.md) | Connects to Box and can Upload File, Get File, Delete File, List Files, and uses a trigger to retrieve files.
 [Chatter](app-service-logic-connector-chatter.md) | Connects to Chatter and can Post Message, Search, and use a trigger to retrieve new messages.
 [Dropbox](app-service-logic-connector-dropbox.md) | Connect to Dropbox and can Upload File, Get File, Delete File, List Files, and use a trigger to retrieve files.
@@ -57,7 +56,7 @@ Azure WebJobs | Connects to WebJobs.
 
 
 ## Premium Connectors
-The following table lists all the available Connectors and API Apps created by Microsoft available in Premium Connectors: 
+The following table lists all the available Connectors and API Apps created by Microsoft available in Premium Connectors:
 
 Name  | Description
 ------------- | -------------

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/02/2015"
+   ms.date="07/28/2015"
    ms.author="alkohli" />
 
 #### To install regular hotfixes via Windows PowerShell for StorSimple
@@ -23,13 +23,12 @@
 
 3. At the command prompt, type:
 
-     `Start-HcsHotfix`
-	<br/>
+    `Start-HcsHotfix`
 
-     > [AZURE.IMPORTANT]
-     >
-     > - This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
-     > - You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+       >[AZURE.IMPORTANT]
+       >
+       >- This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
+       >- You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
 
 4. When prompted, supply the path to the network shared folder that contains the hotfix files.
 
