@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Migrate on-premises database to SQL Server in Azure virtual machine"
+	pageTitle="Migrate a database to SQL Server on an Azure virtual machine"
 	description="Learn about how to migrate an on-premises user database to SQL Server in an Azure virtual machine."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="carlrab"/>
 
 
-# Migrating a Database to SQL Server on an Azure VM
+# Migrate a database to SQL Server on an Azure VM
 
 There are a number of methods for migrating an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods, recommend the best method for various scenarios, and include a tutorial to guide you through the use of the Deploy a SQL Server Database to a Microsoft Azure VM wizard.
 

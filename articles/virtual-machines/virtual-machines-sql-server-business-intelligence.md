@@ -16,7 +16,7 @@
 	ms.author="jroth" />
 
 # SQL Server Business Intelligence in Azure Virtual Machines
-
+ 
 The Microsoft Azure Virtual Machine gallery includes images that contain SQL Server installations. The SQL Server editions supported in the gallery images are the same installation files you can install to on-premises computers and virtual machines. This topic summarizes the SQL Server Business Intelligence (BI) Features installed on the images and configuration steps required after a virtual machine is provisioned. This topic also describes supported deployment topologies for BI features and best practices.
 
 ## License Considerations
@@ -27,11 +27,7 @@ There are two ways to license SQL Server in Microsoft Azure Virtual Machines:
 
 1. Pay per hour rate of Azure Virtual Machines with SQL Server installed. See the “SQL Server” section in [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-For more information on licensing and current rates, see the following:
-
-- [Virtual Machines Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/%20)
-
-- See the section “Licensing for SQL Server images and editions in Azure” in [Getting Ready to Migrate to SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133142.aspx)
+For more information on licensing and current rates, see [Virtual Machines Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/%20).
 
 ## SQL Server Images Available in Azure Virtual Machine Gallery
 
@@ -78,7 +74,7 @@ The following table summarizes the Business Intelligence features installed on t
 
 |SQL Server BI Feature|Installed on the gallery image|Notes|
 |---|---|---|
-|**Reporting Services Native Mode**|Yes|Installed but requires configuration, including the report manager URL. See the section [Configure Reporting Services](https://msdn.microsoft.com/library/azure/jj992719.aspx#bkmk_ssrs_configure).|
+|**Reporting Services Native Mode**|Yes|Installed but requires configuration, including the report manager URL. See the section [Configure Reporting Services](#configure-reporting-services).|
 |**Reporting Services SharePoint Mode**|No|The Microsoft Azure Virtual Machine gallery image does not include SharePoint or SharePoint installation files. <sup>1</sup>|
 |**Analysis Services Multidimensional and Data mining (OLAP)**|Yes|Installed and configured as the default Analysis Services instance|
 |**Analysis Services Tabular**|No|Supported in SQL Server 2012 and 2014 images but it is not installed by default. Install another instance of Analysis Services. See the section Install other SQL Server Services and features in this topic.|
@@ -94,7 +90,7 @@ The following table summarizes the Business Intelligence features installed on t
 
 - The minimum recommended size for a virtual machine is **A3** when using SQL Server Enterprise Edition. The **A4** virtual machine size is recommended for SQL Server BI deployments of Analysis Services and Reporting Services.
 
-	For information on the current VM sizes, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+	For information on the current VM sizes, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
 
 - A best practice for disk management is to store data, log, and backup files on drives other than **C**: and **D**:. For example, create data disks **E**: and **F**:.
 
