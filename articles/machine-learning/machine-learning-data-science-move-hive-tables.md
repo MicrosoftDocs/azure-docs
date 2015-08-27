@@ -20,7 +20,7 @@
  
 #Create and load data into Hive tables from Azure blob storage
  
-# Introduction
+## Introduction
 In this document, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
 
 ## Prerequisites
