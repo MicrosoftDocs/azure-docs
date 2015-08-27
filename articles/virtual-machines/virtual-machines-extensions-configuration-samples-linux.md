@@ -16,7 +16,8 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-## Sample Configuration for Azure VM Extensions for Linux.
+# Azure Linux VM Extension Configuration Samples.
+
 This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Linux VMs.
 To learn more about these extensions click <a href="https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx" target="_blank">here</a>.
 

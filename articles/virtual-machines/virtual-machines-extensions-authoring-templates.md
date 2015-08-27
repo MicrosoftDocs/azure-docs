@@ -16,7 +16,7 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-### Authoring Azure Resource Manager Templates with VM Extensions.
+# Authoring Azure Resource Manager Templates with VM Extensions.
 
 #### Overview of Azure Resource Manager Templates.
 
