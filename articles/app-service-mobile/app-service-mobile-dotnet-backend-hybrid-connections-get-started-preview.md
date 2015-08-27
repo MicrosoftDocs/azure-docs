@@ -79,7 +79,7 @@ In this step, you define a connection string for the on-premises database and mo
 
 2. In Solution Explorer, open the Web.config file, locate the **connectionStrings** section, add a new SqlClient entry like the following, which points to the on-premises SQL Server database:
 
-	    <add name="OnPremisesDBConnection" 
+	    <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
          Initial Catalog=OnPremisesDB;
          User ID=HybridConnectionLogin;
@@ -147,7 +147,7 @@ Finally, you need to publish the Mobile App backend to Azure and verify that it 
 
 	Note that changes generated in your client app are saved by your Mobile App backend to your on-premises database using the hybrid connection.
 
-##See Also##
+## See Also ##
 
 + [Hybrid Connections web site](../../services/biztalk-services/)
 + [Hybrid Connections overview](../integration-hybrid-connection-overview.md)
