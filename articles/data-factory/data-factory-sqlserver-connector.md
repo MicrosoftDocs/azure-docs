@@ -208,11 +208,11 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 The sample below shows:
 
-1.	The linked service of type OnPremisesSqlServer.
-2.	The linked service of type AzureStorage.
-3.	An input [dataset](data-factory-create-datasets.md) of type AzureBlob.
-4.	An output [dataset](data-factory-create-datasets.md) of type SqlServerTable.
-4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses BlobSource and SqlSink.
+1.	The linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	The linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
 
 The sample copies data belonging to a time series from Azure blob to a table in SQL Server database every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -417,6 +417,8 @@ If username and password are specified, gateway will use them to impersonate the
 	         "gatewayName": "<gateway name>" 
 	     } 
 	}
+
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an SQL Server data source.
 
 ## SQL Server Dataset type properties
 

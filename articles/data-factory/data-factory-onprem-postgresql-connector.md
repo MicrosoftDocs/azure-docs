@@ -223,6 +223,8 @@ username | Specify user name if you are using Basic or Windows authentication. |
 password | Specify password for the user account you specified for the username. | No 
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises PostgreSQL database. | Yes 
 
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises PostgreSQL data source.
+
 ## PostgreSQL Dataset type properties
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
