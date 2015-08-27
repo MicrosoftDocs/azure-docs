@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -447,10 +447,8 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
@@ -469,7 +467,7 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-get-started.md
-[hivewalkthrough]: data-factory-pig-hive-activities.md
+[hivewalkthrough]: data-factory-data-transformation-activities.md
 
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="08/26/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -411,6 +411,36 @@ Remember that the server SDKs include a [dependency module](app-insights-depende
 
 To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
 
+
+## Authenticated users
+
+In a web app, users are by default identified by cookie. A user might be counted more than once if they access your app from a different machine or browser, or delete cookies. 
+
+But if users sign in to your app, you can get a more accurate count by setting the authenticated user id in the browser code:
+
+*JavaScript*
+
+```JS
+    // Called when my app has identified the user.
+    function Authenticated(signInId) {
+      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
+      appInsights.setAuthenticatedUserContext(validatedId);
+      ...
+    }
+```
+
+It isn't necessary to use the user's actual sign-in name. It only has to be an id that is unique to that user. It must not include spaces, or any of the characters `,;=|`. 
+
+The user id is also set in a session cookie and sent to the server. If the server SDK is installed, the authenticated user id will be sent as part of the context properties of both client and server telemetry, so that you can filter and search on it.
+
+If your app groups users into accounts, you can also pass an identifier for the account (with the same character restrictions).
+
+
+      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+
+In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart of **Authenticated Users** and **Accounts**. 
+
+
 ## <a name="defaults"></a>Set defaults for selected custom telemetry
 
 If you just want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient. They are attached to every telemetry item sent from that client. 
@@ -443,10 +473,12 @@ If you just want to set default property values for some of the custom events th
     context.getProperties().put("Game", currentGame.Name);
     
     gameTelemetry.TrackEvent("WinGame");
+
+
     
 Individual telemetry calls can override the default values in their property dictionaries.
 
-
+**For JavaScript web clients**, [use JavaScript telemetry initializers](#js-initializer).
 
 
 ## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
@@ -540,7 +572,10 @@ In ApplicationInsights.config:
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
 ```
 
-In the JavaScript web client, there isn't currently a way to set default properties.
+
+### JavaScript web client
+
+For JavaScript web clients, [use telemetry initializers to set default values](#js-initializer).
 
 ## Telemetry Initializers
 
@@ -617,6 +652,55 @@ In ApplicationInsights.config:
 
 
 [See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+
+<a name="js-initializer"></a>
+### JavaScript telemetry initializers
+
+*JavaScript*
+
+Insert a telemetry initializer immediately after the initialization code that you got from the portal: 
+
+```JS
+
+    <script type="text/javascript">
+        // ... initialization code
+        ...({
+            instrumentationKey: "your instrumentation key"
+        });
+        window.appInsights = appInsights;
+
+
+        // Adding telemetry initializer.
+        // This is called whenever a new telemetry item
+        // is created.
+
+        appInsights.queue.push(function () {
+            appInsights.context.addTelemetryInitializer(function (envelope) {
+                var telemetryItem = envelope.data.baseData;
+
+                // To check the telemetry item’s type - for example PageView:
+                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                    // this statement removes url from all page view documents
+                    telemetryItem.url = "URL CENSORED";
+                }
+
+                // To set custom properties:
+                telemetryItem.properties = telemetryItem.properties || {};
+                telemetryItem.properties["globalProperty"] = "boo";
+
+                // To set custom metrics:
+                telemetryItem.measurements = telemetryItem.measurements || {};
+                telemetryItem.measurements["globalMetric"] = 100;
+            });
+        });
+
+        // End of inserted code.
+
+        appInsights.trackPageView();
+    </script>
+```
+
+For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md/#lttelemetrytypegt).
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
@@ -704,7 +788,7 @@ If you set any of these values yourself, consider removing the relevant line fro
  * **SyntheticSource**: If not null or empty, this string indicates that the source of the request has been identified as a robot or web test. By default it will be excluded from calculations in Metrics Explorer.
 * **Properties** Properties that are sent with all telemetry data. Can be overridden in individual Track* calls.
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
-* **User** Allows users to be counted. In a web app, if there is a cookie, the user Id is taken from that. If there isn't, a new one is generated. If your users have to login to your app, you could set the id from their authenticated ID, so as to provide a more reliable count that is correct even if the user signs in from a different machine. 
+* **User** User information. 
 
 
 

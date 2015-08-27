@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Data Catalog frequently asked questions"
-   description="Azure Data Catalog: Catalog frequently asked questions"
+   description="Frequently asked questions about Azure Data Catalog preview, including capabilities for data source discovery, annotation, and management."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/19/2015"
+   ms.date="08/21/2015"
    ms.author="maroche"/>
 
 # Azure Data Catalog frequently asked questions

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/17/2015"
+   ms.date="08/26/2015"
    ms.author="alkohli"/>
 
-# StorSimple system requirements
+# StorSimple software, high availability, and networking requirements
 
 ## Overview
 

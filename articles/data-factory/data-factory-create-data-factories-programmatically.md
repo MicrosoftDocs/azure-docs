@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -384,7 +384,6 @@ Article | Description
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
