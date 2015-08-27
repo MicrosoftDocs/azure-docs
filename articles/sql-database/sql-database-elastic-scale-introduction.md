@@ -29,6 +29,8 @@ The graphic below shows an architecture that includes the **Elastic Database fea
 
 ![Elastic Database tools][1]
 
+For a printable version of this graphic, go to [Elastic database overview download](http://aka.ms/axmybc).
+
 In this graphic, colors of the database represent schemas. Databases with the same color share the same schemas.
 
 1. A set of **Azure SQL databases** are hosted on Azure using sharding architecture. 
