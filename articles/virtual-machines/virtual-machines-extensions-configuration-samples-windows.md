@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sample Configuration for Azure VM Extensions"
+   pageTitle="Sample Configuration for Azure VM Extensions | Microsoft Azure"
    description="Sample Configuration for authoring Templates with Extensions"
    services="virtual-machines"
    documentationCenter=""
