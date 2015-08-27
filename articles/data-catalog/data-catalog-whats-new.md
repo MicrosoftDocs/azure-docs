@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="0825/2015"
+   ms.date="08/28/2015"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
