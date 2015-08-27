@@ -82,7 +82,7 @@ public class PooledTask : Actor, IPooledTask
                 pi.InCircle++;
         }
 
-        var agg = ActorProxy.Create<IAggregator>(0);
+        var agg = ActorProxy.Create<IAggregator>(ActorId.NewId());
         return agg.AggregateAsync(pi);
     }
 }
