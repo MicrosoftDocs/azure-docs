@@ -41,7 +41,7 @@ The first time you open the Azure portal, you are automatically placed at the **
 
 5.  Click the arrow key to create the job collection and move to the next stage – creating a job.
 
-6.  Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the Job Action screen, define the following values for the requested form fields:  
+6.  Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the **Job action** screen, define the following values for the requested form fields:  
 
     1.  **Name:** ` getmicrosoft`  
 
@@ -92,7 +92,7 @@ The following topics describe these tabs in greater detail.
 
 ### Dashboard
 
-When you click your job collection name, the Dashboard tab is displayed. The Dashboard displays the following information:
+When you click your job collection name, the **Dashboard** tab is displayed. The Dashboard displays the following information:
 
 ![][9]
 
@@ -100,17 +100,17 @@ When you click your job collection name, the Dashboard tab is displayed. The Das
 
 A table and series of charts that shows a fixed list of metrics. These metrics provide real-time values regarding the health of your job collection including:
 
-1.  Current Jobs  
+1.  Current jobs  
 
-2.  Completed Jobs  
+2.  Completed jobs  
 
-3.  Faulted Jobs  
+3.  Faulted jobs  
 
-4.  Enabled Jobs  
+4.  Enabled jobs  
 
-5.  Disabled Jobs  
+5.  Disabled jobs  
 
-6.  Job Executions  
+6.  Job executions  
 
 #### Quick glance
 
@@ -128,7 +128,7 @@ A table that shows a fixed list of status and settings metrics. These metrics pr
 
 ### Scale
 
-In the Scale tab, you can change the settings and tier of service used by your Scheduler.
+In the **Scale** tab, you can change the settings and tier of service used by your Scheduler.
 
 ![][10]
 
@@ -140,15 +140,15 @@ This displays whether you are on the **Free** or **Standard** plan.
 
 Azure Scheduler implements quotas based on several conditions. This section lists the quota thresholds and allows you to change them. By default, there is one set of quotas configured. The limits of these quota settings are constrained by your plan, and changing the Plan may impact pricing.. Quotas can be changed to scale your Scheduler. Options include:
 
-1.  Max Jobs  
+1.  Max jobs  
 
-2.  Max Frequency  
+2.  Max frequency  
 
-3.  Max Interval  
+3.  Max interval  
 
 ### History
 
-The history tab displays the following information for the selected job:
+The **History** tab displays the following information for the selected job:
 
 ![][11]
 
@@ -164,7 +164,7 @@ The following performance counters/metrics are available:
 
 2.  Details  
 
-3.  Retry Attempt  
+3.  Retry attempt  
 
 4.  Number of executions (1st, 2nd, 3rd, etc.)  
 
@@ -212,7 +212,7 @@ The following counters and metrics are available:
 
 ### Configure a job
 
-Clicking on a job in the “Jobs” screen allows you to configure that job. This lets you configure additional advanced settings beyond what’s available in the quick-create wizard. To configure a job, click the right arrow next to the job’s name in the “Jobs” screen.
+Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure additional advanced settings beyond what’s available in the quick-create wizard. To configure a job, click the right arrow next to the job’s name in the **Jobs** screen.
 
 The job configuration page lets you update job settings. The job config page is shown below for HTTP and HTTPS jobs. For HTTP and HTTPS job action types, you may change the method to any allowed HTTP verb. You may also add, delete, or change the headers and basic authentication information.
 
