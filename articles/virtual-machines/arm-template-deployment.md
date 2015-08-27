@@ -9,12 +9,12 @@
 	tags="azure-resource-manager/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-resource-manager"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Deploy Azure Resources Using .NET Libraries and a Template
