@@ -20,9 +20,9 @@
 
 ## Notes for the 28 August 2015 release of Azure Data Catalog
 
-### Data profile missing for Azure SQL Database tables
+### Data profile missing for some registered data assets
 
-When registering Azure SQL Database tables, or when registering Oracle Database tables and views with long column names, data profile information may not be included even if the data profile option is selected in the data source registration tool. This is due to a known issue in the August 28 release, and will be addressed in a future release of Azure Data Catalog.
+When registering Azure SQL Database tables, or when registering Oracle Database tables and views with long or multibyte column names, data profile information may not be included even if the data profile option is selected in the data source registration tool. This is due to a known issue in the August 28 release, and will be addressed in a future release of Azure Data Catalog.
 
 ## Notes for the 13 July 2015 release of Azure Data Catalog
 

@@ -49,7 +49,7 @@ In this pattern, registering individual files with **Azure Data Catalog** probab
 
 ## Reference data files
 
-An complementary pattern is to store reference data sets as individual files. These data sets may be thought of as the 'small' side of big data and are often similar to dimensions in an analytical data model. Reference data files contain records that are used to provide context for the bulk of the data files stored elsewhere in the big data store.
+A complementary pattern is to store reference data sets as individual files. These data sets may be thought of as the 'small' side of big data, and are often similar to dimensions in an analytical data model. Reference data files contain records that are used to provide context for the bulk of the data files stored elsewhere in the big data store.
 
 An example of this pattern might be:
 
