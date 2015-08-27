@@ -23,7 +23,7 @@ Excel makes it easy to call web services directly without the need to write any 
 
 ## Steps to Use an Existing Web Service in the Workbook
 
-1. Open the ([sample Excel file](http://aka.ms/amlexcel-sample-2), which contains the Excel add-in and data about passengers on the Titanic.
+1. Open the [sample Excel file](http://aka.ms/amlexcel-sample-2), which contains the Excel add-in and data about passengers on the Titanic.
 2. Choose the web service by clicking it - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" in this example.
 
     ![Select web service][01]
@@ -64,7 +64,7 @@ Excel makes it easy to call web services directly without the need to write any 
 
 If you save your workbook, then the API keys for the web services you have added will also be saved.  That means you should only share the workbook with individuals you trust.
 
-Ask any questions below or on our ([forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Ask any questions below or on our [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/machine-learning-excel-add-in-for-web-services/image1.png
 [02]: ./media/machine-learning-excel-add-in-for-web-services/image2.png
