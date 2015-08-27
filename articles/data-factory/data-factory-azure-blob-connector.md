@@ -383,7 +383,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | fileName | <p>Name of the blob. fileName is optional. </p><p>If you specify a filename, the activity (including Copy) works on the specific Blob.</p><p>When fileName is not specified Copy will include all Blobs in the folderPath for input dataset.</p><p>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the Leverage partitionedBy prperty section below for details and examples. | No
 | format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. See the [Specifying TextFormat](#specifying-textformat) section below for more details. | No
-| compression | Specify the type and level of compression for the data. Supported types are: GZip, Deflate, and BZip2 and supported levels are: Optional and Fastest. For more details, see the Compression Support section below. | No |
+| compression | Specify the type and level of compression for the data. Supported types are: GZip, Deflate, and BZip2 and supported levels are: Optional and Fastest. For more details, see the Compression Support section below. See [Compression support](#compression-support) section for more details.  | No |
 
 ### Leveraging partitionedBy property
 As mentioned above, you can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
@@ -459,7 +459,7 @@ If the format is set to AvroFormat, you do not need to specify any properties in
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 ### Compression support  
-Processing large data sets can cause I/O and network bottlenecks. Therefore, compressing data from data stores and then copying compressed files to Azure Blob Storage can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data.
+Processing large data sets can cause I/O and network bottlenecks. Therefore, compressing data from data stores and then copying compressed files to Azure Blob Storage can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. At this time, compression is supported when Azure Blob or On-premises File System is used as a source or a sink for the Copy Activity in a pipeline.  
 
 To specify compression for a dataset, use the compression JSON property as in the following example:   
 Here is an example of using the **compression** JSON property:
@@ -489,11 +489,7 @@ Notice that the **compression** section has two properties:
 - **Type:** the compression codec, which can be **GZIP**, **Deflate** or **BZIP2** for this release.  
 - **Level:** the compression ratio, which can be **Optimal** or **Fastest**.  
 
-In the above scenario, the copy activity does the following:   
-  
-1. Reads pagecounts.csv.  
-2. Compresses with GZIP codec using optimal ratio.  
-3. Copy the compressed data over as pagecounts.csv.gz in Azure Blob Storage.
+In this example, the above JSON definition is for an output of a copy activity. The copy activity reads pagecounts.csv, compresses the output data with GZIP codec using optimal ratio, and writes the compressed data into a file named pagecounts.cs.gz in the Azure Blob Storage.   
 
 When you specify compression property in an input JSON, the pipeline can read compressed data from the source and when you specify the property in an output JSON, the copy activity can write compressed data to the destination. Here are a few sample scenarios: 
 
