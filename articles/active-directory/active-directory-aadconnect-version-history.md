@@ -113,7 +113,7 @@ Released: 2014 December
 - Fixed ETW tracing for password synchronization
 
 ## 1.0.470.1023
-Released: 2015 October
+Released: 2014 October
 
 **New features:**
 
@@ -133,7 +133,7 @@ If you already have Azure AD Sync installed, there is one additional step you ha
 The AD account must be granted additional permissions to be able to read the password hashes from AD. The permissions to grant are named “Replicating Directory Changes” and “Replicating Directory Changes All”. Both permissions are required to be able to read the password hashes
 
 ## 1.0.419.0911
-Released: 2015 September
+Released: 2014 September
 
 **Initial release of Azure AD Sync.**
 
