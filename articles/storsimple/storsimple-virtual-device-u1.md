@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple virtual device | Microsoft Azure"
-   description="Learn to create, configure, deploy and manage a StorSimple virtual device running Update 1.0."
+   pageTitle="StorSimple virtual device in Microsoft Azure | Microsoft Azure"
+   description="Learn how to create, configure, deploy, and manage a StorSimple virtual device running Update 1.0 in a Microsoft Azure virtual network."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,7 +15,7 @@
    ms.date="08/27/2015"
    ms.author="alkohli" />
 
-# Create, configure, and manage the StorSimple virtual device
+# Create, configure, and manage a StorSimple virtual device deployed in Microsoft Azure
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 

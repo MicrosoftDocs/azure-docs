@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Deploy StorSimple Snapshot Manager | Microsoft Azure"
-   description="Describes how to download and install the StorSimple Snapshot Manager, an MMC snap-in for managing StorSimple data protection and backup features."
+   description="Learn how to download and install the StorSimple Snapshot Manager, an MMC snap-in for managing StorSimple data protection and backup features."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"

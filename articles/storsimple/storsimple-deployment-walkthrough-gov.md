@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Deploy StorSimple device in Government Portal | Microsoft Azure"
-   description="Describes steps and best practices for deploying the StorSimple Update 1 device and service in the Azure Government portal."
+   description="Describes the steps and best practices for deploying the StorSimple Update 1 device and service in the Azure Government portal."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
