@@ -384,7 +384,7 @@ For information on using Azure Table Storage and MongoDB:
 
 <!--Link references-->
 [Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
-[Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-bottle-mongodb.md
+[Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
 
 <!--External Link references-->
 [Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
