@@ -41,7 +41,7 @@ For all Batch APIs the following apply:
 
 - Each property name is a string that maps to the property of the object
 - All property names are case sensitive, but property values are case insensitive
-- Property name casing are as the elements appear in the Batch REST API
+- Property names and casing are as the elements appear in the Batch REST API
 - Date/time strings may be specified in one of two formats, and must be preceded with DateTime
 	- W3CDTF (e.g. *creationTime gt DateTime'2011-05-08T08:49:37Z'*)
 	- RFC1123 (e.g. *creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'*)
@@ -64,7 +64,7 @@ An ODataDetailLevel object has three public string properties that can be specif
 
 The number of items returned can be reduced by a filter string. One or more property values with qualifiers can be specified to ensure only the items relevant to your query are returned. For example, perhaps you wish to list only the running tasks for a job, or list only the compute nodes that are ready to run tasks.
 
- [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) is a string consisting of one or more expressions, with an expression consisting of a *property name*, *operator*, and *value*. The properties that can be specified are specific to each API call, as are the operators supported for each property. Multiple expressions can be combined using logical operators **and** and **or**.
+ [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) is a string consisting of one or more expressions, with an expression consisting of a *property name*, *operator*, and *value*. The properties that can be specified are specific to each API call, as are the operators supported for each property. Multiple expressions can be combined using the logical operators **and** and **or**.
 
 For example, this filter string returns only running tasks whose *displayName* starts with "MyTask":
 
