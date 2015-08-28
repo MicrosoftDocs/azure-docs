@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="08/28/2015" 
 	ms.author="ricksal"/>
 
 # Upload images to Azure Storage from an Android  device
@@ -74,7 +74,7 @@ It's not safe to store the credentials needed to upload data to the Azure Storag
 	    <uses-feature android:name="android.hardware.camera"
 	        android:required="true" />
 
-2. Specify your app needs permission to write to external storage by adding these lines to **AndroidManifest.xml**:
+2. Specify your app needs permission to write to external storage by adding this line to **AndroidManifest.xml**:
 
 	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
