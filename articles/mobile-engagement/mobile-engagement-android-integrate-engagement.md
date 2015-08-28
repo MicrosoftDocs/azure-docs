@@ -57,10 +57,6 @@ The connection string for your application is displayed on Azure Portal.
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
--   On a few device models we cannot generate the Engagement device identifier from the ANDROID\_ID (it can be buggy or unavailable). In that case, the SDK generates a random device identifier and tries to save it on the device's external storage so that other Engagement applications can share the same device identifier (it's also saved as a shared preference to ensure that the application itself always use the same device identifier, whatever happens to the external storage). For this mechanism to work properly, you need to add the following permission if missing (before the `<application>` tag):
-
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
 -   Add the following section (between the `<application>` and `</application>` tags):
 
 			<service
@@ -179,16 +175,20 @@ If you want locations to be reported, you need to add a few lines of configurati
 
 Lazy area location reporting allows to report the country, region and locality associated to devices. This type of location reporting only uses network locations (based on Cell ID or WIFI). The device area is reported at most once per session. The GPS is never used, and thus this type of location report has very few (not to say no) impact on the battery.
 
-Reported areas are used to compute geographic statistics about users, sessions, events and errors. They can also be used as criterion in Reach campaigns. The last known area reported for a device can be retrieved thanks to the [Device
-API].
+Reported areas are used to compute geographic statistics about users, sessions, events and errors. They can also be used as criterion in Reach campaigns.
 
-To enable lazy area location reporting, add:
+To enable lazy area location reporting, you can do it by using the configuration previously mentioned in this procedure :
 
-			<meta-data android:name="engagement:locationReport:lazyArea" android:value="true"/>
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setLazyAreaLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 You also need to add the following permission if missing:
 
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+Or you can keep using ``ACCESS_FINE_LOCATION`` if you already use it in your application.
 
 ### Real time location reporting
 
@@ -197,19 +197,28 @@ Real time location reporting allows to report the latitude and longitude associa
 Real time locations are *NOT* used to compute statistics. Their only purpose is to allow the use of real time
 geo-fencing \<Reach-Audience-geofencing\> criterion in Reach campaigns.
 
-To enable real time location reporting, add:
+To enable real time location reporting, you can do it by using the configuration previously mentioned in this procedure :
 
-			<meta-data android:name="engagement:locationReport:realTime" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 You also need to add the following permission if missing:
 
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
+Or you can keep using ``ACCESS_FINE_LOCATION`` if you already use it in your application.
+
 #### GPS based reporting
 
-By default, real time location reporting only uses network based locations. To enable the use of GPS based locations (which are far more precise), add:
+By default, real time location reporting only uses network based locations. To enable the use of GPS based locations (which are far more precise), use the configuration object:
 
-			<meta-data android:name="engagement:locationReport:realTime:fine" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    engagementConfiguration.setFineRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 You also need to add the following permission if missing:
 
@@ -217,9 +226,13 @@ You also need to add the following permission if missing:
 
 #### Background reporting
 
-By default, real time location reporting is only active when the application runs in foreground (i.e. during a session). To enable the reporting also in background, add:
+By default, real time location reporting is only active when the application runs in foreground (i.e. during a session). To enable the reporting also in background, use the configuration object:
 
-			<meta-data android:name="engagement:locationReport:realTime:background" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    engagementConfiguration.setBackgroundRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 > [AZURE.NOTE] When the application runs in background, only network based locations are reported, even if you enabled the GPS.
 
@@ -235,6 +248,63 @@ The background location report will be stopped if the user reboots its device, y
 You also need to add the following permission if missing:
 
 			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+### Android M permissions
+
+Starting with Android M, some permissions are managed at runtime and needs user approval.
+
+The runtime permissions will be turned off by default for new app installations if you target Android API level 23. Otherwise it will be turned on by default.
+
+The user can enable/disable those permissions from the device settings menu. Turning off permissions from system menu kills background processes of the application, this is a system behavior and has no impact on ability to receive push in background.
+
+In the context of Mobile Engagement, the permissions that require approval at runtime are:
+
+- `ACCESS_COARSE_LOCATION`
+- `ACCESS_FINE_LOCATION`
+- `WRITE_EXTERNAL_STORAGE` (only when targeting Android API level 23 for this one)
+
+The external storage is used only for Reach big picture feature. If you find asking users this permission to be disruptive, you can remove it if you used it only for Mobile Engagement but at the cost of disabling big picture feature.
+
+For the location features, you should request permissions to user using a standard system dialog. If the user approves, you need to tell ``EngagementAgent`` to take that change into account in real time (otherwise the change will be processed the next time the user launches the application).
+
+Here is a code sample to use in an activity of your application to request permissions and forward the result if positive to ``EngagementAgent``:
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+      /* Other code... */
+    
+      /* Request permissions */
+      requestPermissions();
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private void requestPermissions()
+    {
+      /* Avoid crashing if not on Android M */
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+      {
+        /*
+         * Request location permission, but this won't explain why it is needed to the user.
+         * The standard Android documentation explains with more details how to display a rationale activity to explain the user why the permission is needed in your application.
+         * Putting COARSE vs FINE has no impact here, they are part of the same group for runtime permission management.
+         */
+        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+          requestPermissions(new String[] { android.Manifest.permission.ACCESS_FINE_LOCATION }, 0);
+    
+        /* Only if you want to keep features using external storage */
+        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+          requestPermissions(new String[] { android.Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1);
+      }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+      /* Only a positive location permission update requires engagement agent refresh, hence the request code matching from above function */
+      if (requestCode == 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        getEngagementAgent().refreshPermissions();
+    }
 
 ##Advanced reporting
 

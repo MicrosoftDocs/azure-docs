@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/14/2015"
+   ms.date="08/28/2015"
    ms.author="aashishr"; "jimpark"/>
 
 # Offline Backup workflow in Azure Backup

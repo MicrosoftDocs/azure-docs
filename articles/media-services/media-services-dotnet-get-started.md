@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/14/2015"
+	ms.date="08/18/2015"
 	ms.author="juliako"/>
 
 
@@ -46,9 +46,8 @@ The following tasks are shown in this Quickstart.
 5.  Connect to the Media Services account.
 6.  Create a new asset and upload a video file.
 7.  Encode the source file into a set of adaptive bitrate MP4 files.
-8.  Configure delivery policy for the encoded asset.
-9.  Publish the asset and get URLs for streaming and progressive download.  
-10.  Play your content.
+8.  Publish the asset and get URLs for streaming and progressive download.  
+9.  Play your content.
 
 
 ##Create a Media Services account using the portal

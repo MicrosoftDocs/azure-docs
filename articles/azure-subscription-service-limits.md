@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/28/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -127,17 +127,6 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 For additional details on Azure Search limits, see [Limits and Constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-## SQL Database Limits
-
-[AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
-
-For additional details on SQL Database limits, please see the following topics:
-
- - [Azure SQL Database Service Tiers (Editions)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
- - [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/library/azure/dn741336.aspx)
- - [Database Throughput Unit (DTU) Quotas](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
- - [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md)
-
 ## Media Services Limits
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
@@ -149,6 +138,11 @@ For additional details on SQL Database limits, please see the following topics:
 ## Mobile Services Limits
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
+
+## Notification Hub Service Limits
+
+[AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
+
 
 ## Service Bus Limits
 
@@ -207,6 +201,10 @@ For additional details on SQL Database limits, please see the following topics:
 
 ## Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
+
+## SQL Database Limits
+
+For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
 
 ## See Also
 

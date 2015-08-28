@@ -40,7 +40,7 @@ This tutorial requires the following:
 <!--
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-[WACOM.INCLUDE [Enable GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[WACOM.INCLUDE [Enable GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 You will use your GCM API key later when setting up your app for Mobile Engagement.
 -->

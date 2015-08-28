@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Update your Service Fabric development environment"
+   pageTitle="Update your Service Fabric development environment | Microsoft Azure"
    description="Update your Service Fabric development environment to use the latest runtime, SDK, and tools."
    services="service-fabric"
    documentationCenter=".net"
@@ -29,7 +29,7 @@
  You can clean your local cluster as follows:
 
 
- 1. Close all other PowerShell windows and launch a new one as an Administrator.
+ 1. Close all other PowerShell windows and start a new one as an Administrator.
 
  2. Navigate to the cluster setup directory with `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
 
@@ -41,13 +41,13 @@
  Once you have successfully cleaned up your existing cluster, you can proceed with the upgrade as follows:
 
 
- 1. Launch the Web Platform Installer to [update to the new release][1].
+ 1. Start the Web Platform Installer to [update to the new release][1].
 
- 2. Upon completion, launch a new PowerShell window as an Administrator and navigate to the cluster setup directory with `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
+ 2. Upon completion, start a new PowerShell window as an Administrator and navigate to the cluster setup directory with `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
 
- 3. Run `.\DevClusterSetup.ps1` to setup your local cluster.
+ 3. Run `.\DevClusterSetup.ps1` to set up your local cluster.
 
-That's it! You can now launch Visual Studio and continue building Service Fabric applications.
+That's it! You can now start Visual Studio and continue building Service Fabric applications.
 
 >[AZURE.NOTE] The default project structure has changed in this release. You should be able to open and run existing projects in Visual Studio. However, if you encounter any issues with building, deploying, or debugging your applications, consider creating a new project and migrating your code over.
 
