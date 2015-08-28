@@ -14,4 +14,4 @@ Hosted service certificates per subscription|400|400
 [Batch](http://azure.microsoft.com/services/batch/) accounts per region per subscription|1|50
 Alert rules per subscription|250|250
 
-<sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
+<sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core. 
