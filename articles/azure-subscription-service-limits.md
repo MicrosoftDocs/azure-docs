@@ -129,14 +129,7 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 
 ## SQL Database Limits
 
-[AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
-
-For additional details on SQL Database limits, please see the following topics:
-
- - [Azure SQL Database Service Tiers (Editions)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
- - [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/library/azure/dn741336.aspx)
- - [Database Throughput Unit (DTU) Quotas](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
- - [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md)
+For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
 
 ## Media Services Limits
 
