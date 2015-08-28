@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Connect remotely to your StorSimple device | Microsoft Azure"
-   description="Explains how to use Windows PowerShell remoting and HTTP or HTTPS to remotely connect to your StorSimple device."
+   description="Explains how to configure your device for remote management and how to connect to Windows PowerShell for StorSimple via HTTP or HTTPS."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/14/2015"
+   ms.date="08/28/2015"
    ms.author="alkohli" />
 
 # Connect remotely to your StorSimple device
