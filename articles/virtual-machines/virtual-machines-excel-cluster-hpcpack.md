@@ -60,7 +60,7 @@ Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluste
     >
     >Compute node VMs will be created from the latest image of the selected compute node family. Select the **ComputeNode** option for the latest HPC Pack 2012 R2 Update 2 compute image for general purposes. Select **ComputeNodeWithExcel** option for the latest HPC Pack compute node image that includes an evaluation version of Microsoft Excel Professional Plus 2013. If you want to deploy a cluster for general SOA sessions or for Excel UDF offloading, choose the **ComputeNode** option (without Excel installed).
     >
-    >When uisng  **ComputeNodeWithExcel** for production workloads, you'll need to provide a valid Excel license to activate Excel on the compute nodes. Otherwise, the evaluation version of Excel expires after 30 days and any Excel workloads will fail to run at that time.
+    >When using  **ComputeNodeWithExcel** for production workloads, you'll need to provide a valid Excel license to activate Excel on the compute nodes. Otherwise, the evaluation version of Excel could be expired within 30 days, and running the Excel workbook would constantly fail with the COMExeption (0x800AC472). If this happens, you may log on the head node to clusrun “%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe” on all Excel compute nodes via HPC Cluster Manager console to rearm Excel for another 30 days of evaluation time. The max rearm time for the grace period is 2, after that you may need to provide a valid Excel license.
 
     c. Choose the subscription.
 
