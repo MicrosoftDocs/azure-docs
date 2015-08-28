@@ -215,7 +215,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 12. Create a zip file **MyDotNetActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder. You may want to include the MyDotNetActivity.pdb file so that you get additional details such as line number in the source code that caused the issue in case of a failure. 
 13. Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **customactivitycontainer** if it does not already exist.
 
-> [AZURE.NOTE] If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project (see [this article](data-factory-build-your-first-pipeline.md) for a sample), you do not need to perform the last two steps of creating the zip file and manually uploading it to the Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process.    
+> [AZURE.NOTE] If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project (see [this article](data-factory-build-your-first-pipeline-using-vs.md) for a sample), you do not need to perform the last two steps of creating the zip file and manually uploading it to the Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process.    
 
 
 ## Step 2: Use the custom activity in a pipeline
