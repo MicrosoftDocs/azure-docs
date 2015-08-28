@@ -4,15 +4,15 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/15/2015"
+   ms.date="08/25/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute technical overview

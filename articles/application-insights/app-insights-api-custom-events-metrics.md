@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="08/26/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -473,10 +473,12 @@ If you just want to set default property values for some of the custom events th
     context.getProperties().put("Game", currentGame.Name);
     
     gameTelemetry.TrackEvent("WinGame");
+
+
     
 Individual telemetry calls can override the default values in their property dictionaries.
 
-
+**For JavaScript web clients**, [use JavaScript telemetry initializers](#js-initializer).
 
 
 ## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
@@ -570,7 +572,10 @@ In ApplicationInsights.config:
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
 ```
 
-In the JavaScript web client, there isn't currently a way to set default properties.
+
+### JavaScript web client
+
+For JavaScript web clients, [use telemetry initializers to set default values](#js-initializer).
 
 ## Telemetry Initializers
 
@@ -647,6 +652,55 @@ In ApplicationInsights.config:
 
 
 [See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+
+<a name="js-initializer"></a>
+### JavaScript telemetry initializers
+
+*JavaScript*
+
+Insert a telemetry initializer immediately after the initialization code that you got from the portal: 
+
+```JS
+
+    <script type="text/javascript">
+        // ... initialization code
+        ...({
+            instrumentationKey: "your instrumentation key"
+        });
+        window.appInsights = appInsights;
+
+
+        // Adding telemetry initializer.
+        // This is called whenever a new telemetry item
+        // is created.
+
+        appInsights.queue.push(function () {
+            appInsights.context.addTelemetryInitializer(function (envelope) {
+                var telemetryItem = envelope.data.baseData;
+
+                // To check the telemetry item’s type - for example PageView:
+                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                    // this statement removes url from all page view documents
+                    telemetryItem.url = "URL CENSORED";
+                }
+
+                // To set custom properties:
+                telemetryItem.properties = telemetryItem.properties || {};
+                telemetryItem.properties["globalProperty"] = "boo";
+
+                // To set custom metrics:
+                telemetryItem.measurements = telemetryItem.measurements || {};
+                telemetryItem.measurements["globalMetric"] = 100;
+            });
+        });
+
+        // End of inserted code.
+
+        appInsights.trackPageView();
+    </script>
+```
+
+For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md/#lttelemetrytypegt).
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 

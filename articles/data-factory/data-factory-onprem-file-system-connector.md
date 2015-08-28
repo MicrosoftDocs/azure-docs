@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="File System Connector - Move data to and from File System" 
-	description="Learn about File System Connector for the Data Factory service that lets you move data to/from on-premises File System" 
+	pageTitle="Move data to and from File System | Azure Data Factory" 
+	description="Learn how to move data to/from on-premises File System using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# File System Connector - Move data to and from On-premises File System
+# Move data to and from On-premises File System using Azure Data Factory
 
 This article outlines how you can use data factory copy activity to move data to and from on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
@@ -35,11 +35,11 @@ Perform the following two steps to use a Linux file share with the File Server L
 
 The sample below shows:
 
-1.	A linked service of type OnPremisesFileServer
-2.	A linked service of type AzureStorage
-3.	An input dataset of type FileShare.
-4.	An output dataset of type AzureBlob.
-4.	The pipeline with Copy Activity that uses FileSystemSource and BlobSink. 
+1.	A linked service of type [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
+2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+3.	An input [dataset](data-factory-create-datasets.md) of type [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 The sample below copies data belonging to a time series from on-premises file system to Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -433,6 +433,8 @@ userid  | Specify the ID of the user who has access to the server | No (if you c
 password | Specify the password for the user (userid) | No (if you choose encryptedCredential 
 encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureDataFactoryEncryptValue cmdlet<p>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService</p> | No (if you choose to specify userid and password in plain text)
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
+
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises File System data source.
 
 **Example: Using username and password in plain text**
 	
