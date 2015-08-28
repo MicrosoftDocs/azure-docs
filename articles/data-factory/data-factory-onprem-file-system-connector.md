@@ -478,6 +478,7 @@ fileName | Specify the name of the file in the **folderPath** if you want the ta
 partitionedBy | partitionedBy can be leveraged to specify a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data. | No
 Format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either if this value. When the forAvroFormatmat is TextFormat you can specify additional optional properties for format. See the format section below for more details. | No
 fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <p>Allowed values are: * (multiple characters) and ? (single character).</p><p>Examples 1: "fileFilter": "*.log"</p>Example 2: "fileFilter": 2014-1-?.txt"</p><p>**Note**: fileFilter is applicable for an input FileShare dataset</p> | No
+| compression | Specify the type and level of compression for the data. Supported types are: GZip, Deflate, and BZip2 and supported levels are: Optimal and Fastest. See [Compression support](#compression-support) section for more details.  | No |
 
 > [AZURE.NOTE] filename and fileFilter cannot be used simultaneously.
 
@@ -556,6 +557,8 @@ If the format is set to **AvroFormat**, you do not need to specify any propertie
 	}
 	
 To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).		
+
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## File Share Copy Activity type properties
 
