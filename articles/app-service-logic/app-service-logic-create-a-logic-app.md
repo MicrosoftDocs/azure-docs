@@ -17,6 +17,13 @@
 	ms.author="stepsic"/>
 
 # Create a new logic app
+
+| Quick Reference |
+| --------------- |
+| [Logic Apps Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [Logic Apps Connector Documentation](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-connectors-list/) |
+| [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
+
 This topic demonstrates how, in just a few minutes, you can get started with [App Services Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a workflow that lets you deliver a set of Tweets that you’re interested in to a Dropbox folder.
 
 To use this scenario you will need:
