@@ -57,23 +57,22 @@ Once Remote Desktop is enabled on the roles you can remote into a role instance 
 
 To connect to a role instance from the portal:
     
-    1. Click **Instances** to open the **Instances** page.
-    
-    2. Select a role instance that has Remote Desktop configured.
-    
-    3. Click **Connect**, and follow the instructions to open the desktop. 
-    
-    4. Click **Open** and then **Connect** to start the Remote Desktop connection. 
+  1.   Click **Instances** to open the **Instances** page.
+  2.   Select a role instance that has Remote Desktop configured.
+  3.   Click **Connect**, and follow the instructions to open the desktop. 
+  4.   Click **Open** and then **Connect** to start the Remote Desktop connection. 
 
 
 ### Use Visual Studio to remote into a role instance
-In Visual Studio, Server Explorer:
-	1. Expand the **Azure\\Cloud Services\\[cloud service name]** node.
-	2. Expand either **Staging** or **Production**.
-	3. Expand the individual role.
-	4. Right-click one of the role instances, click **Connect using Remote Desktop...**, and then enter the user name and password.
 
-	![Server explorer remote desktop](./media/cloud-services-role-enable-remote-desktop/ServerExplorer_RemoteDesktop.png)
+In Visual Studio, Server Explorer:
+
+1. Expand the **Azure\\Cloud Services\\[cloud service name]** node.
+2. Expand either **Staging** or **Production**.
+3. Expand the individual role.
+4. Right-click one of the role instances, click **Connect using Remote Desktop...**, and then enter the user name and password. 
+
+![Server explorer remote desktop](./media/cloud-services-role-enable-remote-desktop/ServerExplorer_RemoteDesktop.png)
 
 
 ### Use PowerShell to get the RDP file
