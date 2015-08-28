@@ -269,4 +269,27 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
+### Azure Diagnostics
+
+Click the link below for complete documentation of the Azure Diagnostics schema and documentation
+<a href="https://msdn.microsoft.com/en-us/library/azure/dn782207.aspx/" target="_blank">WAD Configuration</a>.
+
+          {
+            "publisher": "Microsoft.Azure.Diagnostics",
+            "type": "IaaSDiagnostics",
+            "typeHandlerVersion": "1.4",
+            "settings": {
+              "xmlCfg": "[base64(variables('wadcfgx'))]",
+              "storageAccount": "[parameters('diagnosticsStorageAccount')]"
+            },
+            "protectedSettings": {
+            "storageAccountName": "[parameters('diagnosticsStorageAccount')]",
+            "storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+            "storageAccountEndPoint": "https://core.windows.net"
+          }
+          }
+
 In the examples above, replace the version number with the latest version number.
+
+Here is an example of a full VM template with Custom Script Extension.
+<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Custom Script Extension on a Windows VM</a>.
