@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/28/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -127,10 +127,6 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 For additional details on Azure Search limits, see [Limits and Constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-## SQL Database Limits
-
-For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
-
 ## Media Services Limits
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
@@ -205,6 +201,10 @@ For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-dat
 
 ## Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
+
+## SQL Database Limits
+
+For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
 
 ## See Also
 

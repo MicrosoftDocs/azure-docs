@@ -6,7 +6,6 @@ Cores per [subscription](http://msdn.microsoft.com/library/azure/hh531793.aspx) 
 [Cloud services](cloud-services-what-is.md) per subscription|20|200
 [Local networks](http://msdn.microsoft.com/library/jj157100.aspx) per subscription|10|500
 SQL Database servers per subscription|6|150
-SQL Databases per server|150|500
 DNS servers per subscription|9|100
 Reserved IPs per subscription|20|100
 ExpressRoute dedicated circuits per subscription|10|25
