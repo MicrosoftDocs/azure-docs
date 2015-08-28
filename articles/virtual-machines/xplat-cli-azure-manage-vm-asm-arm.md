@@ -34,7 +34,7 @@ The next table compares common VM tasks you can perform with Azure CLI commands 
 
 Task | Service Management | Resource Manager
 -------------- | ----------- | -------------------------
-Create the most basic VM | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/>>[AZURE.NOTE] Obtain the `image-urn` from the `azure vm image list` command.
+Create the most basic VM | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtain the `image-urn` from the `azure vm image list` command.)
 Create a Linux VM | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Create a Windows VM | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 List VMs | `azure  vm list [options]` | `azure  vm list [options] <resource_group>`
