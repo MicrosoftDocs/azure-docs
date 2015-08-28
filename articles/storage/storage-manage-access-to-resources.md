@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="08/04/2015" 
 	ms.author="micurd;tamram"/>
 
 # Manage Access to Azure Storage Resources

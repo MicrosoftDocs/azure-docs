@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.topic="article"
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
@@ -22,7 +22,7 @@
 
 ##Overview
 
-This tutorial shows you how to leverage Azure Mobile Services in your Sencha Touch application. You will create a simple To Do List app using Sencha Touch that utilizes a mobile service you define through the Management Portal. This tutorial is intended for intermediate to advanced web application developers who have a good understanding of JavaScript and who are familiar with the Sencha Touch framework. 
+This tutorial shows you how to leverage Azure Mobile Services in your Sencha Touch application. You will create a simple To Do List app using Sencha Touch that utilizes a mobile service you define through the Management Portal. This tutorial is intended for intermediate to advanced web application developers who have a good understanding of JavaScript and who are familiar with the Sencha Touch framework.
 
 If you prefer to watch a video, this clip follows the same steps as this tutorial. In the video, Arthur Kay  explains how to build a Sencha Touch application using an Azure Mobile Services backend.
 
@@ -712,4 +712,3 @@ For more information about getting started with Sencha Touch please visit the fu
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
- 

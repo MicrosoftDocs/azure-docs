@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Service Bus queues (Python) - Azure" 
+	pageTitle="How to use Service Bus queues (Python) | Microsoft Azure" 
 	description="Learn how to use Azure Service Bus queues from Python." 
 	services="service-bus" 
 	documentationCenter="python" 

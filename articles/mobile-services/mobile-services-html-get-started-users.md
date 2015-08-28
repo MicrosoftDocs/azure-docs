@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add authentication to your HTML/JavaScript app | Azure Mobile Services" 
+	pageTitle="Add authentication to your HTML/JavaScript app | Microsoft Azure" 
 	description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft account." 
 	services="mobile-services" 
 	documentationCenter="" 

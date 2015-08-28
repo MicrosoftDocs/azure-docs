@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administering a Mobile Service from the command line | Azure Mobile Services" 
+	pageTitle="Administering a Mobile Service from the command line | Microsoft Azure" 
 	description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 

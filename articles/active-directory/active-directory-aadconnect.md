@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -104,7 +104,25 @@ Before you install Azure AD Connect with Express Settings, there are a few thing
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server.
 - The AD schema version and forest level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
 - If Active Directory Federation Services is being deployed, the servers where AD FS will be installed must be Windows Server 2012 or later.
+- Azure AD Connect requires a SQL Server database to store identity data. By default a SQL  Server 2012 Express LocalDB (a light version of SQL Server Express) is installed and the service account for the service is created on the local machine. SQL Server Express has a 10GB size limit that enables you to manage approximately 100.000 objects.
+- If you need to manager a higher volume of directory objects, you need to point the installation process to a different version of SQL Server. 
+Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2014.
 - An Enterprise Administrator account for your local Active Directory
+- If you are using an outbound proxy, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added in order to complete the installation. 
+<code>
+		
+		<system.net>
+    		<defaultProxy>
+      		<proxy
+        	usesystemdefault="true"
+        	proxyaddress=http://<PROXYIP>:80"
+        	bypassonlocal="true"
+     		 />
+    		</defaultProxy>
+  		</system.net>
+</code>
+This text must be entered at the bottom of the file.  In this code, &lt;PROXYIP&gt; represents the actual proxy IP address.
+
 - Optional:  A test user account to verify synchronization. 
 
 #### Hardware requirements for Azure AD Connect
@@ -231,11 +249,12 @@ Enable Staging Mode |  This allows you to stage information that will later be s
 ### Additional Documentation
 For additional documentation on working with Azure AD Connect see the following;
 
+- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md) 
 - [Changing the Azure AD Connect default configuration](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Using the Azure AD Connect Synchronization Rules Editor](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Using declarative provisioning](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-Also, some of the documentation that was created for Azure AD Sync is still relevant and applies to Azure AD Connect.  Although every effort is being made to bring this documentation over to Azure.com, some of this documentation still resides in the MSDN scoped library.  For additional documentation see [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) and [Azure AD Sync on MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
+Also, some of the documentation that was created for Azure AD Sync is still relevant and applies to Azure AD Connect.  Although every effort is being made to bring this documentation over to Azure.com, some of this documentation still resides in the MSDN scoped library.  For additional documentation see [Azure AD Connect on MSDN](active-directory-aadconnect.md) and [Azure AD Sync on MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
 
 
 **Additional Resources**
@@ -250,7 +269,7 @@ Ignite 2015 presentation on extending your on-premises directories to the cloud.
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - Monitor the health of your on-premises AD FS infrastructure.
 
-[Azure D Connect FAQ](active-directory-aadconnect-faq.md) - Frequently asked questions around Azure AD Connect.
+[Azure AD Connect FAQ](active-directory-aadconnect-faq.md) - Frequently asked questions around Azure AD Connect.
 
 
 

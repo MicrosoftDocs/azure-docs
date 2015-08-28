@@ -14,25 +14,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
 # Connecting to SQL Database: Links, Best Practices and Design Guidelines
 
 
-This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. Recommendations are given that apply generally regardless of the specific connection technology or programming language.
+This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. The information provided applies regardless of which specific technology you use to connect to SQL Database.
 
 
 ## Technology-independent recommendations
 
 
-The information in this section applies regardless of which specific technology you use to connect to SQL Database.
-
-
 - [Guidelines for Connecting to Azure SQL Database Programmatically](http://msdn.microsoft.com/library/azure/ee336282.aspx) - discussions include the following:
- - Ports
- - Firewalls
+ - [Ports and Firewalls](https://azure.microsoft.com/en-us/documentation/articles/sql-database-configure-firewall-settings/)
  - Connection strings
 - [Azure SQL Database Resource Management](https://msdn.microsoft.com/library/azure/dn338083.aspx) - discussions include the following:
  - Resource governance
@@ -40,25 +36,19 @@ The information in this section applies regardless of which specific technology 
  - Throttling
 
 
-Regardless of which connection technology you use, certain firewall settings for SQL Database server, and even individual databases, matter:
 
 
-- [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx)
+## Authentication recommendations
 
 
-## Recommendation: Authentication
-
-
-- Use SQL Database authentication, not Windows authentication.
+- Use Azure SQL Database authentication, not Windows authentication which is not available in Azure SQL Database.
 - Specify a particular database, instead of defaulting to the *master* database.
-- Sometimes the user name must be given with the suffix of *@yourservername*, but other times the suffix must be omitted. It depends on how your tool or API was written.
- - Check the details on each individual technology.
 - Connect by specifying a user in a [contained database](http://msdn.microsoft.com/library/ff929071.aspx).
  - This approach provides better performance and scalability by avoiding the need for a login in the master database.
  - You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database.
 
 
-## Recommendations: Connection
+## Connection recommendations
 
 
 - In your client connection logic, override the default timeout to be 30 seconds.
@@ -121,22 +111,19 @@ For links to code sample topics that demonstrate retry logic, see:
 <a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
 
 
-## Middleware proxy no longer provides retry logic in V12
-
-
-In a production environment, clients that connect to Azure SQL Database V11 or V12 are advised to implement retry logic in their code. This can be custom code, or can be code that leverages an API such as the Enterprise Library.
+## Middleware proxy and retry logic
 
 
 The middleware proxy that mediates between V11 and your ADO.NET 4.5 client handles a small subset of transient faults gracefully with retry logic. In cases where the proxy successfully connects on its second attempt, your client program is blissfully unaware that the first attempt failed.
 
 
-In contrast, the V12 proxy does not provide any retry functionality. Further, in other V12 cases the the proxy is bypassed for the superior speed of connecting to SQL Database directly. Therefore the recommendation for retry logic is more pressing after upgrade from V11 to V12.
-
-
-To a client ADO.NET 4.5 program, these changes make Azure SQL Database V12 look more like Microsoft SQL Server.
+The V12 proxy handles a smaller subset of transient faults. In other V12 cases the proxy is bypassed for the superior speed of connecting to SQL Database directly. To a client ADO.NET 4.5 program, these changes make Azure SQL Database V12 look more like Microsoft SQL Server.
 
 
 For code samples that demonstrate retry logic, see:<br/>[Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md).
+
+
+> [AZURE.TIP] In a production environment, clients that connect to Azure SQL Database V11 or V12 are advised to implement retry logic in their code. This can be custom code, or can be code that leverages an API such as the Enterprise Library.
 
 
 ## Technologies

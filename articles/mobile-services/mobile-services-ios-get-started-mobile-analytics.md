@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get Started with Mobile Analytics | Mobile Dev Center" 
+	pageTitle="Get Started with Mobile Analytics | Microsoft Azure" 
 	description="Get Started with Mobile Analytics." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Xamarin Android apps - Azure Mobile Services"
+	pageTitle="Get Started with Mobile Services for Xamarin Android apps | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Mobile Services for Xamarin Android development"
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="mobile-services"
-	ms.workload="mobile" 
+	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/18/2015"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -139,4 +139,3 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
- 

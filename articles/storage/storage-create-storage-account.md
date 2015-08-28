@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to create, manage, or delete a storage account | Azure"
+	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
 	description="Learn how to create, manage, or delete a storage account in the Azure management portal."
 	services="storage"
 	documentationCenter=""

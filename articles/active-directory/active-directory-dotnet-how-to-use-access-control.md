@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Access Control (.NET) - Azure feature guide" 
+	pageTitle="How to use Access Control (.NET) | Microsoft Azure" 
 	description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." 
 	services="active-directory" 
 	documentationCenter=".net" 

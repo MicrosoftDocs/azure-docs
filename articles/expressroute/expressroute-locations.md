@@ -1,33 +1,34 @@
 <properties
-   pageTitle="ExpressRoute Locations"
-   description="This page provides a detailed overview of locations where services are offered and how to connect to Azure regions."
+   pageTitle="ExpressRoute locations | Microsoft Azure"
+   description="This article provides a detailed overview of locations where services are offered and how to connect to Azure regions."
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/07/2015"
+   ms.date="08/06/2015"
    ms.author="cherylmc" />
 
-# ExpressRoute partners and peering locations
-The tables on this page provide information on ExpressRoute connectivity providers (EXPs and NSPs), ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
+# Azure ExpressRoute partners and peering locations
+The tables in this article provide information on ExpressRoute connectivity providers (EXPs and NSPs), ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
 ## ExpressRoute connectivity providers
-ExpressRoute is supported across all Azure regions and locations. The map below provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
- 
+ExpressRoute is supported across all Azure regions and locations. The following map provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
+
 ![](./media/expressroute-locations/expressroute-locations-map.png)
 
-You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. The table below provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
+You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
 
-|**Geopolitical Region**|**Azure Regions**|**ExpressRoute Locations**|
+|**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|
-|**US**|All US Regions - East US, West US,East US 2, Central US, South Central US, North Central US|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
+|**US**|All US Regions - East US, West US, East US 2, Central US, South Central US, North Central US|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
+|**USGov**|Iowa, Virginia|Ashburn, Chicago|
 |**South America**|Brazil South|Sao Paulo|
 |**Europe**|North Europe, West Europe|Amsterdam, London|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
@@ -40,7 +41,7 @@ Connectivity across geopolitical regions is not supported. You can work with you
 
 ## Exchange Provider (EXP) locations
 
-| **Service Provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
+| **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks]( http://www.aryaka.com/)** | Supported | Not Supported | Silicon Valley, Singapore, Washington DC |
 | **[Colt Ethernet]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supported | Not Supported | Amsterdam, London |
@@ -62,7 +63,7 @@ See [Configure your EXP connection](expressroute-configuring-exps.md) for steps 
 ## Network Service Provider (NSP) locations
 
 
-| **Service Provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
+| **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Coming Soon | Amsterdam+, London+, Dallas, Silicon Valley, Washington DC |
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supported | Coming Soon | Amsterdam, London, Silicon Valley+, Washington DC |
@@ -70,7 +71,7 @@ See [Configure your EXP connection](expressroute-configuring-exps.md) for steps 
 | **[Colt IPVPN]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Not Supported | Amsterdam, London |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** |  Supported | Not Supported | Tokyo |
 | **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Not Supported | Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC |
-| **NTT Communications** | Coming Soon | Not Supported | Tokyo+ | 
+| **NTT Communications** | Coming Soon | Not Supported | Tokyo+ |
 | **[Orange]( http://www.orange-business.com/)** | Supported | Not Supported | Amsterdam, London, Silicon Valley, Washington DC |
 | **PCCW Global Limited** | Supported | Not Supported | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Not Supported | Singapore |
@@ -82,35 +83,34 @@ See [Configure your EXP connection](expressroute-configuring-exps.md) for steps 
 
 See [Configure your NSP connection](expressroute-configuring-nsps.md) for steps to set up your connection.
 
-## Connectivity through service providers not listed 
+## Connectivity through service providers not listed
 
-If your connectivity provider is not in the list above sections, you can still create a connection.
+If your connectivity provider is not listed in previous sections, you can still create a connection.
 
-- Check with your connectivity provider to see if they are connected to any of the Exchange providers in the listed EXP locations. You can check the links below to gather more information on services offered by Exchange Providers. Several connectivity providers are already connected to EXPs' Ethernet exchanges.
-	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/) 
+- Check with your connectivity provider to see if they are connected to any of the Exchange providers in the listed EXP locations. You can check the following links to gather more information about services offered by Exchange Providers. Several connectivity providers are already connected to EXPs' Ethernet exchanges.
+	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 - Have your connectivity provider extend your network to the Exchange location of choice.
 	- Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
-	- Connectivity providers (specifically Ethernet providers) may require you to procure a pair of circuits to the Ethernet exchanges to ensure high availability. 
+	- Connectivity providers (specifically Ethernet providers) may require you to procure a pair of circuits to the Ethernet exchanges to ensure high availability.
 - Order an ExpressRoute circuit through the Exchange provider to connect to Azure.
 	- Follow steps in [Configure your EXP connection](expressroute-configuring-exps.md) to set up connectivity.
 
-|**Connectivity Provider**|**Exchange Providers**|**Peering Locations**|
+|**Connectivity provider**|**Exchange Provider**|**Peering locations**|
 |---|---|---|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 ## ExpressRoute system integrators
-Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the System Integrators listed in the table below to assist you with onboarding to ExpressRoute. 
+Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the System Integrators listed in the following table to assist you with onboarding to ExpressRoute.
 
 
-|**System Integrator**|**Continent**|
+|**System integrator**|**Continent**|
 |---|---|
 |**[Nimbo](http://www.nimbo.com/)**|US||
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|EMEA|
 
-## Next Steps
+## Next steps
 - Verify that you meet the [ExpressRoute prerequisites](expressroute-prerequisites.md).
 - Visit the [FAQ](expressroute-faqs.md) for more information.
 - If you want to configure an ExpressRoute connection, see [Configure your EXP connection](expressroute-configuring-exps.md) or [Configure your NSP connection](expressroute-configuring-nsps.md).
 - If you want to configure both a site-to-site VPN connection and ExpressRoute for the same virtual network, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](expressroute-coexist.md).
- 

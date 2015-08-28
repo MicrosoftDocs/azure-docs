@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Media Encoder Standard Formats and Codecs
@@ -27,7 +27,7 @@ This document contains a list of the most common import and export file formats 
 [Media Encoder Export Formats](#export_formats)
 
 
-##<a id="import_formats"></a>Media Encoder Import Formats 
+##<a id="import_formats"></a>Media Encoder Standard Import Formats 
 
 The following section lists the codecs and file format that are supported for import.
 
@@ -69,7 +69,7 @@ GXF|.gxf
 WAVE/WAV |.wav
 
 
-##<a id="export_formats"></a>Media Encoder Export Formats
+##<a id="export_formats"></a>Media Encoder Standard Export Formats
 
 The following table lists the codecs and file formats that are supported for export.
 

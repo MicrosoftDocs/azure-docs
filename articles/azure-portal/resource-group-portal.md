@@ -3,8 +3,7 @@
 	description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it." 
 	services="azure-portal" 
 	documentationCenter="" 
-	authors="" 
-	writer="tfitzmac" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 

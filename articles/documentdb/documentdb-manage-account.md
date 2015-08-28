@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage a DocumentDB account | Azure" 
+	pageTitle="Manage a DocumentDB account | Microsoft Azure" 
 	description="Learn how to manage your DocumentDB account." 
 	services="documentdb" 
 	documentationCenter="" 

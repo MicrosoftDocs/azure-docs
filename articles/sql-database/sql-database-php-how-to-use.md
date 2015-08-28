@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use SQL Database (PHP) - Azure feature guides" 
+	pageTitle="How to use SQL Database (PHP) | Microsoft Azure" 
 	description="Learn how to create and connect to an Azure SQL Database from PHP." 
 	services="sql-database" 
 	documentationCenter="php" 

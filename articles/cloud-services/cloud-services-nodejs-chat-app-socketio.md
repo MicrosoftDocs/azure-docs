@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Node.js application using Socket.io - Azure tutorial" 
+	pageTitle="Node.js application using Socket.io | Microsoft Azure" 
 	description="Learn how to use socket.io in a node.js application hosted on Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 

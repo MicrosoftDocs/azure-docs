@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
 
 # Provision an API app with a new gateway
@@ -43,6 +43,14 @@ To run the deployment automatically, click the following button:
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
 
+### hostingPlanName
+
+The name of the App Service plan. 
+
+    "hostingPlanName": {
+      "type": "string"
+    }
+
 ### hostingPlanSettings
 
 The settings for the new hosting plan.
@@ -66,7 +74,7 @@ This template defines a variable which is used when deploying the resources.
       "packageId": "Microsoft.ApiApp"
     }
     
-The value is used below as **variables('packageId')**.
+The value is used below as **variables('packageId')**. It contains the NuGet package Id for API apps.
 
 ## Resources to deploy
 
@@ -93,7 +101,7 @@ Creates the service hosting plan for the API app.
 Creates a web app that hosts the gateway. 
 
 Notice that **kind** is set to **gateway** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web apps blade. 
-A link is defined between the hosting web app and the gateway. The app settings section includes necessary values for hosting the API app.
+A link is defined between the hosting web app and the gateway. The app settings section includes necessary values for hosting the API app. The **serverFarmId** contains the App Service plan name that you provided in the **hostingPlanName** parameter.
 
 
     {
@@ -181,7 +189,7 @@ The hosting web app is defined as a property of the gateway.
 Creates a web app that hosts the API app. 
 
 Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting an API app. The portal will hide the web app from the browse web apps blade. The app includes an extension 
-to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app.
+to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app. The **serverFarmId** contains the App Service plan name that you provided in the **hostingPlanName** parameter.
 
     {
       "type": "Microsoft.Web/sites",

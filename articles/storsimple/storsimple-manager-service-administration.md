@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Use StorSimple Manager service to administer your StorSimple device"
-   description="Manage your StorSimple device by using StorSimple Manager service in Azure Management Portal."
+   description="Manage your StorSimple device by using the StorSimple Manager service in Azure Management Portal."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Use StorSimple Manager service to administer your StorSimple device
@@ -75,8 +75,8 @@ For more information about each workflow, click the appropriate procedure in the
 |If you want to do this ...|Go to this UI page ...|Use this procedure.|
 |---|---|---|
 |Create a service</br>Delete a service</br>Get service registration key</br>Regenerate service registration key|StorSimple Manager service|[Deploy a StorSimple Manager service](storsimple-manage-service.md)
-|Change the service data encryption key</br>View the operation logs|StorSimple Manager service → Dashboard|[Use StorSimple Manager service dashboard](storsimple-service-dashboard.md)|
-|Deactivate a device</br>Delete a device|StorSimple Manager service → Devices|[Deactivate or delete a device]()|
+|Change the service data encryption key</br>View the operation logs|StorSimple Manager service → Dashboard|[Use the StorSimple Manager service dashboard](storsimple-service-dashboard.md)|
+|Deactivate a device</br>Delete a device|StorSimple Manager service → Devices|[Deactivate or delete a device](storsimple-deactivate-and-delete-device.md)|
 |Learn about disaster recovery and device failover</br>Failover to a physical device</br>Failover to a virtual device</br>Business continuity disaster recovery (BCDR)|StorSimple Manager service → Devices|[Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md)|
 |List backups for a volume</br>Select a backup set</br>Delete a backup set|StorSimple Manager service → Backup Catalog|[Manage backups](storsimple-manage-backup-catalog.md)|
 |Clone a volume|StorSimple Manager service → Backup Catalog|[Clone a volume](storsimple-clone-volume.md)|
@@ -87,7 +87,7 @@ For more information about each workflow, click the appropriate procedure in the
 |View job details</br>Cancel a job|StorSimple Manager service → Jobs|[Manage jobs](storsimple-manage-jobs.md)
 |Receive alert notifications</br>Manage alerts</br>Review alerts|StorSimple Manager service → Alerts|[View and manage StorSimple alerts](storsimple-manage-alerts.md)
 |View connected initiators</br>Find the device serial number</br>Find the target IQN|StorSimple Manager service → Devices → Dashboard|[Use the StorSimple device dashboard](storsimple-device-dashboard.md)|
-|Create monitoring charts|StorSimple Manager service → Devices → Monitor|[Monitor your StorSimple device](https://msdn.microsoft.com/library/azure/dn757759.aspx)|
+|Create monitoring charts|StorSimple Manager service → Devices → Monitor|[Monitor your StorSimple device](storsimple-monitor-device.md)|
 |Add a volume container</br>Modify a volume container</br>Delete a volume container|StorSimple Manager service → Devices → Volume Containers|[Manage volume containers](storsimple-manage-volume-containers.md)|
 |Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume|StorSimple Manager service → Devices → Volume Containers → Volumes|[Manage volumes](storsimple-manage-volumes.md)|
 |Modify device settings</br>Modify time settings</br>Modify DNS.md settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure|[Modify device configuration for your StorSimple device](storsimple-modify-device-config.md)|
@@ -111,4 +111,4 @@ If you experience any issues with the day-to-day operation of your StorSimple de
 
 If you cannot resolve the issues and you need to create a service request, refer to:
 
--  [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx)
+-  [Contact Microsoft Support](storsimple-contact-microsoft-support.md)

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use SQL Database (.NET) - Azure feature guide" 
+	pageTitle="How to use SQL Database (.NET) | Microsoft Azure" 
 	description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." 
 	services="sql-database" 
 	documentationCenter=".net" 

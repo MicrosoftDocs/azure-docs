@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Hybrid Connections Overview | Azure" 
+	pageTitle="Hybrid Connections Overview | Microsoft Azure" 
 	description="Learn about hybrid connections, including Security, TCP Ports, and supported configurations. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -12,7 +12,7 @@
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/14/2015" 
 	ms.author="mandia"/>
 
