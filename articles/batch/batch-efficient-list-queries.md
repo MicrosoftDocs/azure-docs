@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
 	ms.date="08/27/2015"
-	ms.author="davidmu"/>
+	ms.author="davidmu;v-marsma"/>
 
 # Efficient Batch list queries
 
