@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Restore a StorSimple volume from backup" | Microsoft Azure
+   pageTitle="Restore a StorSimple volume from backup | Microsoft Azure"
    description="Explains how to use the StorSimple Manager service Backup Catalog page to restore a StorSimple volume from a backup set."
    services="storsimple"
    documentationCenter="NA"
