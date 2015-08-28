@@ -114,7 +114,7 @@ Note: If there are any active operations which are in-progress or failed
 then navigate to the JOBS view as mentioned earlier to view the JOB
 specific error.
 
-## Event Viewer
+## Event Log
 
 | Scenarios               	| Event Sources                                                                                                                                                                                        	|
 |-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -179,7 +179,7 @@ Diagnostics Platform (SDP)
 Tool](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)
 to collect the required logs.
 
-For Hyper-V Branch Office and SMB Site protection, download the
+For Hyper-V Site protection, download the
 [tool](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)
 & execute it on the Hyper-V host to collect the logs.
 
@@ -188,7 +188,11 @@ for VMware and Physical site
 protection](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx)
 to collect the required logs.
 
-SDP tool collects the log file locally which you can also locate under a randomly named subfolder under **%LocalAppData%\ElevatedDiagnostics**
+	[AZURE.NOTE] SDP tool collects the log file locally which you can also locate under a randomly named subfolder under **%LocalAppData%\ElevatedDiagnostics**
+
+![Sample steps shown from Hyper-V site protection.](media/site-recovery-monitoring-and-troubleshooting/animate01.gif)
+
+
 
 ### Opening a support ticket
 

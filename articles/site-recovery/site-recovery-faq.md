@@ -47,18 +47,18 @@ Between on-premises to Azure & between on-premises replication supports encrypti
 
 ### Can I increase replication/copy frequency to higher than 15 mins?
 * **Hyper-V & VMM scenarios**: No, Hyper-V virtual machine replication using Host based replication can only be configured for 30 secs, 5 mins and 15 mins
-* **VMware/Physical scenario**: This isn't applicable because in-guest based replication using continuous data protection.
+* **VMware/Physical scenario**: This isn't applicable for in-guest based replication because technology uses continuous data protection.
 
 ### Can I exclude specific disks from replication using ASR?
 This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Exclude disk from replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
 
 ### Can I replicate dynamic disks based virtual machines?
-*Hyper-V & VMM scenarios* supports dynamic disks. *VMware virtual machine or Physical machine scenarios* aren't supported. Refer [VMware virtual machines or physical servers and Azure documentation](https://azure.microsoft.com/documentation/articles/site-recovery-vmware-to-azure/#before-you-start) for more information.
+*Hyper-V & VMM scenarios* supports dynamic disks. *VMware virtual machine or Physical machine scenarios* doesn't support dynamic disk. Send us your feedback through [Azure Site Recovery Feedback Forum](http://feedback.azure.com/forums/256299-site-recovery).
 
 ### What kind of storage accounts types are supported?
-[Standard Geo-redundant storage](https://azure.microsoft.com/documentation/articles/storage-redundancy/#geo-redundant-storage) is supported. [Premium Storage Account](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/) is supported only for [VMware virtual machine or Physical machine scenarios](https://azure.microsoft.com/documentation/articles/site-recovery-vmware-to-azure). Support for [Standard locally redundant storage](https://azure.microsoft.com/en-us/documentation/articles/storage-redundancy/#locally-redundant-storage) is in backlogs, send us your feedback through [Standard locally redundant storage support](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+[Standard Geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) is supported. [Premium Storage Account]((../storage/storage-premium-storage-preview-portal/) is supported only for [VMware virtual machine or Physical machine scenarios](site-recovery-vmware-to-azure.md). Support for Standard locally redundant storage is in backlogs, send us your feedback through [Support for locally redundant storage support](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
 
-### Can I extended replication from existing recovery site to tertiary site?
+### Can I extend replication from existing recovery site to a tertiary site?
 This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Support for extending replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
 
 ### Can I seed the initial disks to Azure using offline mechanism?
