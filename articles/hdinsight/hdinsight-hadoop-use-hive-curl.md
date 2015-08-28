@@ -97,8 +97,10 @@ To complete the steps in this article, you will need the following:
     * **SELECT** - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This should return a value of **3** as there are three rows that contain this value.
 
     > [AZURE.NOTE] Notice that the spaces between HiveQL statements are replaced by the `+` character when used with Curl. Quoted values that contain a space, such as the delimiter, should not be replaced by `+`.
-    >
-    > Also notice the `INPUT__FILE__NAME LIKE '%25.log'`. This limits the search to only use files ending in .log. If this is not present, Hive will attempt to search all files in this directory and its subdirectories, including files that do not match the column schema defined for this table.
+
+    * **INPUT__FILE__NAME LIKE '%25.log'** - This limits the search to only use files ending in .log. If this is not present, Hive will attempt to search all files in this directory and its subdirectories, including files that do not match the column schema defined for this table.
+
+    > [AZURE.NOTE] Note that %25 is the URL encoded form of %, so the actual condition is `like '%.log'`. The % has to be URL encoded, as it is treated as a special character in URLs.
 
     This command should return a job ID that can be used to check the status of the job.
 
