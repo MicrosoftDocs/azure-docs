@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/28/2015"
 	ms.author="kathydav"/>
 
 
 # Create and upload a Windows Server VHD to Azure#
 
-This article shows you how to upload a virtual hard disk (VHD) with an operating system so you can use it as an image to create virtual machines based on that image. For more details about disks and VHDs in Microsoft Azure, see [About Disks and VHDs  for Virtual Machines](virtual-machines-disks-vhds.md).
+This article shows you how to upload a virtual hard disk (VHD) with an operating system so you can use it as an image to create virtual machines based on that image. For more details about disks and VHDs in Microsoft Azure, see [About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md).
 
 > [AZURE.NOTE] When you create a virtual machine based on an image, you can customize the operating system settings as appropriate for the applications you plan to run on the virtual machine. This configuration is saved for that virtual machine and doesn't affect the image.
 
@@ -28,21 +28,13 @@ This article shows you how to upload a virtual hard disk (VHD) with an operating
 
 This article assumes you have the following:
 
-1. **An Azure subscription** - If you don't have one, you can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged. You also can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+1. **An Azure subscription** - If you don't have one, you can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card won't be charged, unless you explicitly change your settings and ask to be charged. You also can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 2. **Microsoft Azure PowerShell** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Microsoft Azure Downloads](http://azure.microsoft.com/downloads/). A tutorial to install and configure the module is available [here](../powershell-install-configure.md). You'll use the [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the VHD.
 
-3. **A supported Windows operating system stored in a .vhd file** - You have installed a supported Windows Server operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solution such as Hyper-V to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
+3. **A supported Windows operating system stored in a .vhd file** - You have installed a supported Windows Server operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solution such as Hyper-V to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For details about operating systems, see [Microsoft server software support for Microsoft Azure virtual machines](http://go.microsoft.com/fwlink/p/?LinkId=393550).
 
 > [AZURE.NOTE] The VHDX format is not supported in Microsoft Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx). A tutorial on this can be found [here](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
-
- The following Windows Server versions are supported:
-
-OS|SKU|Service Pack|Architecture
----|---|---|---
-Windows Server 2012 R2|All editions|N/A|x64
-Windows Server 2012|All editions|N/A|x64
-Windows Server 2008 R2|All editions|SP1|x64
 
 ## Step 1: Prepare the image to be uploaded ##
 
@@ -68,7 +60,7 @@ From the virtual machine that the operating system was installed to, complete th
 
 ## Step 2: Create a storage account in Azure ##
 
-You need a storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine. You can use the  Azure portal to create a storage account.
+You need a storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine. You can use the Azure portal to create a storage account.
 
 1. Sign in to the [portal](http://manage.windowsazure.com).
 
