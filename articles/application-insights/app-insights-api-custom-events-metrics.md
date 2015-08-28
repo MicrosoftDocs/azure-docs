@@ -385,7 +385,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
 * ASP.NET: [Write code to catch exceptions](app-insights-asp-net-exceptions.md)
 * J2EE: [Exceptions are caught automatically](app-insights-java-get-started.md#exceptions-and-request-failures)
 * Windows apps: [Crashes are caught automatically](app-insights-windows-crashes.md)
-* JavaScript: If you want to disable automatic collection, add a line in the code snippet you insert in your web pages:
+* JavaScript: Caught automatically. If you want to disable automatic collection, add a line into the code snippet that you insert in your web pages:
 
     ```
     ({
@@ -393,8 +393,6 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
       , disableExceptionTracking: true
     })
     ```
-
-    In Windows mobile apps, the SDK catches unhandled exceptions, so that you don't have to log them. In ASP.NET, you can [write code to catch exceptions automatically][exceptions].
 
 
 ## Track Trace 
