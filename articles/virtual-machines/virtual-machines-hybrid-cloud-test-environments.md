@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure hybrid cloud test environments"
-	description="Get to the key topics that describe how to build test environments that you can use for dev/test or a proof-of-concept for your Azure hybrid cloud."
+	pageTitle="Hybrid cloud test environments in Azure | Microsoft Azure"
+	description="Find the articles that describe how to build dev/test or proof-of-concept IT pro environments for your Azure-based hybrid cloud."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"

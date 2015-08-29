@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Replace a controller module on your StorSimple device
@@ -180,13 +180,13 @@ Use the following procedure to remove a faulty controller module from your StorS
 
 2. Gently squeeze your thumb and forefinger together to release the controller latch.
 
-    ![Releasing Controller Latch](./media/storsimple-controller-replacement/IC741047.png)
+    ![Releasing controller latch](./media/storsimple-controller-replacement/IC741047.png)
 
     **Figure 2** Releasing controller latch
 
 2. Use the latch as a handle to slide the controller out of the chassis.
 
-    ![Sliding Controller Out Of Chassis](./media/storsimple-controller-replacement/IC741048.png)
+    ![Sliding controller out of chassis](./media/storsimple-controller-replacement/IC741048.png)
 
     **Figure 3** Sliding the controller out of the chassis
 
@@ -200,13 +200,13 @@ Use the following procedure to install a factory-supplied controller module afte
 
 2. Slide the controller module into the chassis while the latch is fully released. 
 
-    ![Sliding Controller Into Chassis](./media/storsimple-controller-replacement/IC741053.png)
+    ![Sliding controller into chassis](./media/storsimple-controller-replacement/IC741053.png)
 
     **Figure 4** Sliding controller into the chassis
 
 3. With the controller module inserted, begin closing the latch while continuing to push the controller module into the chassis. The latch will engage to guide the controller into place.
 
-    ![Closing Controller Latch](./media/storsimple-controller-replacement/IC741054.png)
+    ![Closing controller latch](./media/storsimple-controller-replacement/IC741054.png)
 
     **Figure 5** Closing the controller latch
 
@@ -232,7 +232,7 @@ Each of these procedures is described next.
 
 In the Management Portal, navigate to **Devices** > **Maintenance**, and scroll to the **Controllers** section. Here you can verify which controller is active.
 
-![Identify Active Controller In Management Portal](./media/storsimple-controller-replacement/IC752072.png)
+![Identify active controller in Management Portal](./media/storsimple-controller-replacement/IC752072.png)
 
 **Figure 6** Management Portal showing active controller
 
@@ -240,7 +240,7 @@ In the Management Portal, navigate to **Devices** > **Maintenance**, and scroll 
 
 When you access your device through the serial console, a banner message is presented. The banner message contains basic device information such as the model, name, installed software version, and status of the controller you are accessing. The following image shows an example of a banner message:
 
-![Serial Banner Message](./media/storsimple-controller-replacement/IC741098.png)
+![Serial banner message](./media/storsimple-controller-replacement/IC741098.png)
 
 **Figure 7** Banner message showing controller 0 as Active
 
@@ -252,7 +252,7 @@ To identify the active controller on your device, locate the blue LED above the 
 
 If this LED is blinking, the controller is active and the other controller is in standby mode. Use the following diagram and table as an aid.
 
-![Device Primary Enclosure Backplane with Dataports](./media/storsimple-controller-replacement/IC741055.png)
+![Device primary enclosure backplane with dataports](./media/storsimple-controller-replacement/IC741055.png)
 
 **Figure 8** Back of primary enclosure with data ports and monitoring LEDs
 

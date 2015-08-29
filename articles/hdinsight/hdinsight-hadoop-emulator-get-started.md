@@ -6,15 +6,16 @@
 	manager="paulettm"
 	services="hdinsight"
 	authors="nitinme"
-	documentationCenter=""/>
+	documentationCenter=""
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="05/07/2015"
+	ms.topic="article" 
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
 # Get started in the Hadoop ecosystem with the HDInsight Emulator, a Hadoop sandbox
@@ -437,13 +438,17 @@ Before you start with the instructions below, you must have created a storage ac
 
 **To create a container**
 
-1. Sign in to the [Azure portal][azure-management-portal].
-2. Click **STORAGE** on the left. A list of storage accounts appears under your subscription.
-3. Click the storage account where you want to create the container from the list.
-4. Click **CONTAINERS** from the top of the page.
-5. Click **ADD** on the bottom of the page.
-6. Enter **NAME** and select **ACCESS**. You can use any of the three access levels. The default is **Private**.
-7. Click **OK** to save the changes. The new container is now listed on the portal.
+1. Sign in to the [Azure Preview Portal](https://ms.portal.azure.com/).
+2. Click **NEW** on the left, click **Data + Storage**, and then click **Storage**.
+3. In the Storage Account blade, configure the properties as shown in the screen capture below.
+	
+	![Create a storage account](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
+
+	Select **Pin to Startboard**, and the click **Create**.
+4. Once the storage account is created, from the new storage account blade, click **Containers** to open the containers blade, click **Add**.
+5. Enter the name of the container and then click **Select**.
+
+	![Create a container](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
 
 Before you can access an Azure Storage account, you must add the account name and the account key to the configuration file.
 

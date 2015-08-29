@@ -1,29 +1,27 @@
 <properties
-   pageTitle="Clone your StorSimple volume"
+   pageTitle="Clone your StorSimple volume | Microsoft Azure"
    description="Describes the different clone types and when to use them, and explains how you can use a backup set to clone an individual volume."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="08/27/2015"
    ms.author="alkohli" />
 
-# Clone a StorSimple volume
+# Use the StorSimple Manager service to clone a volume
 
 ## Overview
 
-The **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
+The StorSimple Manager service **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 
-  ![backup-catalog](./media/storsimple-clone-volume/HCS_BackupCatalog.png)  
-
-**Figure 1: Backup catalog**
+  ![Backup catalog page](./media/storsimple-clone-volume/HCS_BackupCatalog.png)  
 
 This tutorial describes how you can use a backup set to clone an individual volume. It also explains the difference between *transient* and *permanent* clones. 
 
@@ -37,7 +35,7 @@ You can create a clone on the same device, another device, or even a virtual mac
 
 2. Expand the backup set to view the associated volumes. Click and select a volume from the backup set.
 
-     ![Clone](./media/storsimple-clone-volume/HCS_Clone.png) 
+     ![Clone a volume](./media/storsimple-clone-volume/HCS_Clone.png) 
 
 3. Click **Clone** to begin cloning the selected volume.
 

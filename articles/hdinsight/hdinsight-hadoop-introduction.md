@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2015"
+   ms.date="07/27/2015"
    ms.author="cgronlun"/>
 
 
@@ -53,7 +53,7 @@ Category | Hadoop on Linux | Hadoop on Windows
 ---------| -------------------| --------------------
 **Cluster OS** | Ubuntu 12.04 Long Term Support (LTS) | Windows Server 2012 R2
 **Cluster Type** | Hadoop | Hadoop, HBase, Storm
-**Deployment** | Azure Management Portal, Azure CLI, Azure PowerShell | Azure Management Portal, Azure CLI, Azure PowerShell, HDInsight .NET SDK
+**Deployment** | Azure Portal, Azure CLI, Azure PowerShell | Azure Portal, Azure CLI, Azure PowerShell, HDInsight .NET SDK
 **Cluster UI** | Ambari | Cluster Dashboard
 **Remote Access** | Secure Shell (SSH) | Remote Desktop Protocol (RDP)
 
@@ -61,7 +61,7 @@ Category | Hadoop on Linux | Hadoop on Windows
 
 ### Hadoop, HBase, Storm, and customized clusters
 
-HDInsight provides cluster configurations for specific workloads: Hadoop, HBase, or Storm. Or, you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters with script actions</a>.
+HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters with script actions</a>.
 
 * **Hadoop** (the "Query" workload): Provides reliable data storage with [HDFS](#HDFS), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 
@@ -179,7 +179,7 @@ Build on this introduction to Hadoop on HDInsight and big data analysis with the
 
 * [Get started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md): A quick-start tutorial for provisioning HDInsight Hadoop clusters on Linux and running sample Hive queries.
 
-* [Provision HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md): Learn how to provision an HDInsight Hadoop cluster on Linux by using custom options through the Azure Management Portal, Azure CLI, or Azure PowerShell.
+* [Provision HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md): Learn how to provision an HDInsight Hadoop cluster on Linux by using custom options through the Azure Portal, Azure CLI, or Azure PowerShell.
 
 * [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md): Get some quick tips on working with Hadoop Linux clusters provisioned on Azure.
 

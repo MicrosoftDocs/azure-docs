@@ -12,7 +12,7 @@
     ms.workload="data-management"
     ms.tgt_pltfrm="na"
     ms.devlang="python"
-    ms.topic="hero-article" 
+    ms.topic="hero-article"
     ms.date="07/07/2015"
     ms.author="ryancraw"/>
 
@@ -25,7 +25,7 @@ tutorial showing how to build a voting web application using Azure DocumentDB.
 This tutorial shows you how to use the DocumentDB service provided by
 Azure to store and access data from a Python web application hosted on
 Azure and presumes that you have some prior experience using Python and
-Azure Websites.
+Azure websites.
 
 This tutorial covers:
 
@@ -45,7 +45,7 @@ application that allows you to vote for a poll.
 Before following the instructions in this article, you should ensure
 that you have the following installed:
 
-- [Visual Studio 2013](http://www.visualstudio.com/) or higher, or [Visual Studio Express], which is the free version.
+- [Visual Studio 2013](http://www.visualstudio.com/) or higher, or Visual Studio Express, which is the free version.
 - Python Tools for Visual Studio from [here][].
 - Azure SDK for Visual Studio 2013, version 2.4 or higher available from
 [here][1].
@@ -54,39 +54,39 @@ that you have the following installed:
 
 ## Step 1: Create a DocumentDB database account
 
-Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Step 2: Create a new Python Flask Web Application](#Step-2:-Create-a-new-Python-Flask-Web-Application).
+Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Step 2: Create a new Python Flask web application](#Step-2:-Create-a-new-Python-Flask-Web-Application).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
 <br/>
-We will now walk through how to create a new Python Flask web application from the ground-up.
+We will now walk through how to create a new Python Flask web application from the ground up.
 
 ## Step 2: Create a new Python Flask web application
 
-1. Open Visual Studio, then click **File** -\> **New Project** -\> **Python** -\>, **Flask Web
-Project**, and create a new project with the name **tutorial**.
+1. Open Visual Studio, click **File** -\> **New Project** -\> **Python** -\>, **Flask Web
+Project**, and then create a new project with the name **tutorial**.
 
 	For those new to Flask, it is a web framework that helps us build web
 applications in Python faster. [Click here to access Flask tutorials][].
 
-	![Screen shot of the New Project window in Vidual Studio with Python highlighted on the left, Flask Web Project selected in the middle, and the name tutorial in the Name box](./media/documentdb-python-application/image9.png)
+	![Screen shot of the New Project window in Visual Studio with Python highlighted on the left, Flask Web Project selected in the middle, and the name tutorial in the Name box](./media/documentdb-python-application/image9.png)
 
 2. It will ask you whether you want to
-install external packages. Click on **Install into a virtual environment**. Be sure to use Python 2.7 as the base environment as PyDocumentDB does not currently support Python 3.x.  This will setup the required Python virtual environment for your project.
+install external packages. Click **Install into a virtual environment**. Be sure to use Python 2.7 as the base environment because PyDocumentDB does not currently support Python 3.x.  This will set up the required Python virtual environment for your project.
 
 	![Screen shot of the tutorial - Python Tools for Visual Studio window](./media/documentdb-python-application/image10.png)
 
 
 ## Step 3: Modify the Python Flask web application
 
-### Add flask packages to your project
+### Add Flask packages to your project
 
-Once your project is setup you need to add certain flask packages that
-we will need for our project, including pydocumentdb, the python package for DocumentDB.
+After your project is set up, you need to add certain Flask packages that
+you will need for your project, including pydocumentdb, the Python package for DocumentDB.
 
-1. Open the file named **requirements.txt** and replace the contents with the following.
+1. Open the file named **requirements.txt** and replace the contents with the following:
 
     	flask==0.9
     	flask-mail==0.7.6
@@ -100,32 +100,31 @@ we will need for our project, including pydocumentdb, the python package for Doc
     	flup
     	pydocumentdb>=1.0.0
 
-2. Right-click on **env** and click **install from requirements.txt**.
+2. Right-click **env** and click **install from requirements.txt**.
 
 	![Screen shot showing env (Python 2.7) selected with Install from requirements.txt highlighted in the list](./media/documentdb-python-application/image11.png)
 
-> [AZURE.NOTE] In rare cases, you may see a failure in the output window. If
+> [AZURE.NOTE] In rare cases, you might see a failure in the output window. If
 this happens, check if the error is related to cleanup. Sometimes the
-cleanup will fail but installation will still be successful (scroll up
+cleanup fails, but the installation will still be successful (scroll up
 in the output window to verify this).
-<a name="verify-the-virtual-environment"></a> If this occurs it's ok to continue.
+<a name="verify-the-virtual-environment"></a> If this occurs, it's OK to continue.
 
 
 ### Verify the virtual environment
 
-Let's make sure that everything is installed properly.
+Let's make sure that everything is installed correctly.
 
-- Start the web
-site by hitting **F5** This will launch the flask development server
-and start your web browser. You should see the following page.
+- Start the website by pressing **F5** This launches the Flask development server
+and starts your web browser. You should see the following page.
 
-	![The empty flask project displayed in a browser](./media/documentdb-python-application/image12.png)
+	![The empty Flask project displayed in a browser](./media/documentdb-python-application/image12.png)
 
-### Create Database, Collection and Document definitions
+### Create database, collection, and document definitions
 
-Now let's create our voting application.
+Now let's create your voting application.
 
-- Add a Python file by right-clicking on on the folder named **tutorial** in the Solution Explorer.  Name the file **forms.py**.  
+- Add a Python file by right-clicking the folder named **tutorial** in the Solution Explorer.  Name the file **forms.py**.  
 
     	from flask.ext.wtf import Form
     	from wtforms import RadioField
@@ -138,15 +137,14 @@ Now let's create our voting application.
 
 ### Add the required imports to views.py
 
-- Add the following import statements at the top in **views.py**. These
-will import DocumentDB's PythonSDK and the Flask packages.
+- Add the following import statements at the top in **views.py**. These import DocumentDB's PythonSDK and the Flask packages.
 
     	from forms import VoteForm
     	import config
     	import pydocumentdb.document_client as document_client
 
 
-### Create Database, Collection and Document
+### Create database, collection, and document
 
 - Add the following code to **views.py**. This takes care of creating the
 database used by the form. Do not delete any of the existing code in
@@ -182,9 +180,9 @@ database used by the form. Do not delete any of the existing code in
             	year=datetime.now().year,
             	message='You just created a new database, collection, and document.  Your old votes have been deleted')
 
-> [AZURE.TIP] The CreateCollection method takes an optional RequestOptionsas the 3rd parameter. This can be used to specify the Offer Type for the Collection. If no offerType value is supplied then the Collection will be created using the default Offer Type. For more information on DocumentDB Offer Types please refer to [Performance levels in DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP] The **CreateCollection** method takes an optional **RequestOptions** as the third parameter. This can be used to specify the Offer Type for the collection. If no offerType value is supplied, then the collection will be created using the default Offer Type. For more information on DocumentDB Offer Types, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
 >
-### Read Database, Collection, Document, and submit form
+### Read database, collection, document, and submit form
 
 - Add the following code to **views.py**. This takes care of setting up
 the form, reading the database, collection, and document. Do not delete
@@ -197,16 +195,16 @@ any of the existing code in **views.py**. Simply append this to the end.
         	if form.validate_on_submit(): # is user submitted vote  
             	client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
 
-            	# Read databases and take first since id should not be duplicated.
+            	# Read databases and take the first since the id should not be duplicated.
             	db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
 
-            	# Read collections and take first since id should not be duplicated.
+            	# Read collections and take the first since the id should not be duplicated.
             	coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
 
-            	# Read documents and take first since id should not be duplicated.
+            	# Read documents and take the first since the id should not be duplicated.
             	doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
 
-            	# Take the data from the deploy_preference and increment our database
+            	# Take the data from the deploy_preference and increment your database
             	doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
             	replaced_document = client.ReplaceDocument(doc['_self'], doc)
 
@@ -236,7 +234,7 @@ any of the existing code in **views.py**. Simply append this to the end.
                 	form = form)
 
 
-### Create the html files
+### Create the HTML files
 
 Under the templates folder, add the following html files: create.html, results.html, vote.html.
 
@@ -277,8 +275,8 @@ the results of the poll.
     	{% endblock %}
 
 3. Add the following code to **vote.html**. It takes care of displaying the
-poll and accepting the votes. On registering the votes the control is
-passed over to views.py where we will recognize the vote casted and
+poll and accepting the votes. On registering the votes, the control is
+passed over to views.py where we will recognize the vote cast and
 append the document accordingly.
 
     	{% extends "layout.html" %}
@@ -305,9 +303,9 @@ serves as the landing page for your application.
 
 ### Add a configuration file and change the \_\_init\_\_.py
 
-1. Right-click on the project name tutorial and add a file, **config.py**.
-This config is required by forms in flask. You may use it to provide a
-secret key as well. This is not needed for this tutorial though.
+1. Right-click the project name tutorial and add a file, **config.py**.
+This config file is required by forms in Flask. You can use it to provide a
+secret key as well. This key is not needed for this tutorial though.
 
 2. Add the following code to config.py. Alter the values of **DOCUMENTDB\_HOST** and **DOCUMENTDB\_KEY**.
 
@@ -336,20 +334,20 @@ Explorer should look.
 
 ## Step 4: Run your application locally
 
-1. Hit F5 or the run button in Visual Studio and you should see the
+1. Press F5 or click the **Run** button in Visual Studio, and you should see the
 following on your screen.
 
 	![Screen shot of the Python + DocumentDB Voting Application displayed in a web browser](./media/documentdb-python-application/image16.png)
 
-2. Click on **Create/Clear the Voting Database** to generate the database.
+2. Click **Create/Clear the Voting Database** to generate the database.
 
 	![Screen shot of the Create Page of the web application](./media/documentdb-python-application/image17.png)
 
-3. Then, click on **Vote** and select your option.
+3. Then, click **Vote** and select your option.
 
 	![Screen shot of the web application with a voting question posed](./media/documentdb-python-application/image18.png)
 
-4. For every vote you cast it will increment the appropriate counter.
+4. For every vote you cast, it increments the appropriate counter.
 
 	![Screen shot of the Results of the vote page shown](./media/documentdb-python-application/image19.png)
 
@@ -357,15 +355,14 @@ following on your screen.
 ## Step 5: Deploy the application to Azure Websites
 
 Now that you have the complete application working correctly against
-DocumentDB we're going to deploy this to Azure Websites.
+DocumentDB, we're going to deploy this to Azure Websites.
 
-1. Right-click on
-the Project in Solution Explorer (make sure you're not still running it
-locally) and select Publish.  Then, select Microsoft Azure Websites.
+1. Right-click the project in Solution Explorer (make sure you're not still running it
+locally) and select **Publish**.  Then, select **Microsoft Azure Websites**.
 
  	![Screen shot of the tutorial selected in Solution Explorer, with the Publish option highlighted](./media/documentdb-python-application/image20.png)
 
-2. Configure your Azure Website by providing your credentials and click **Publish**.
+2. Configure your Azure website by providing your credentials and click **Publish**.
 
 	![Screen shot of the Publish Web window](./media/documentdb-python-application/image21.png)
 
@@ -387,5 +384,4 @@ To add additional functionality to your application, review the APIs available i
   [2]: https://www.python.org/downloads/windows/
   [3]: http://aka.ms/vcpython27
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-  [Azure Management Portal]: http://portal.azure.com
- 
+  [Azure portal]: http://portal.azure.com

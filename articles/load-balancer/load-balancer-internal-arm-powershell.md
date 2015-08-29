@@ -15,7 +15,7 @@
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# How to create a load balancer using Azure Resource Manager
+# Get started configuring internal load balancer using Azure Resource Manager
 
 
 > [AZURE.SELECTOR]
