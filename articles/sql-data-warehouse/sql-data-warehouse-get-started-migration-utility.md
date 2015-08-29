@@ -25,7 +25,7 @@ In addition to schema and data migration, this tool gives users the option to ge
 ##Getting Started
 
 ###Installing
-The Data Warehouse Migration Utility can be downloaded [here].  As a prerequisite for installation, you will need the BCP command-line utility to run migration scripts and Office to view the compatibility report.  After launching the executable that is downloaded you will be prompted to accept a standard EULA before the tool will be installed.
+The Data Warehouse Migration Utility can be downloaded [here][].  As a prerequisite for installation, you will need the BCP command-line utility to run migration scripts and Office to view the compatibility report.  After launching the executable that is downloaded you will be prompted to accept a standard EULA before the tool will be installed.
 
 ###Launching the tool and Connecting
 The tool can easily be launched by clicking on the desktop icon that will appear post install.  On opening the tool you will be prompted with an initial connection page where you can choose your source and destination for the migration tool.  At this time we support SQL Server and Azure SQL Database as sources and SQL Data Warehouse as a destination.  After selecting this you will be asked to connect to your source server by filling in server name and authenticating and then clicking ‘Connect’.
