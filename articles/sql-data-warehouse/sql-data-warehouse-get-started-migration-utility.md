@@ -57,4 +57,4 @@ Now that you've migrated some data, check out how to [develop][].
 <!--Article references-->
 [migration documentation]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/
 [develop]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
-[here]:https://migrhoststorage.blob.core.windows.net/sqldwsample/Data Warehouse Migration Utility.zip
+[here]:https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
