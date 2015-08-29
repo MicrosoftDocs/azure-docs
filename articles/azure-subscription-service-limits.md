@@ -39,7 +39,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 
 - [Active Directory](#active-directory-limits)
 - [API Management](#api-management-limits)
-- [App Service](#app-service)
+- [App Service](#app-service-limits)
 - [Application Insights](#application-insights-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
@@ -71,7 +71,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 
 
 ### Subscription Limits
-
+#### Subscription Limits
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### Subscription Limits - Azure Resource Manager
@@ -87,7 +87,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 
 ### Virtual Machines Limits
-
+#### Virtual Machine Limits
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 
@@ -99,7 +99,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 
 ### Networking Limits
-
+#### Networking Limits
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### Traffic Manager Limits
