@@ -1,6 +1,6 @@
 <properties 
    pageTitle="View and manage StorSimple alerts | Microsoft Azure"
-   description="Describes StorSimple alert conditions and severity, how to configure notifications, and how to use the StorSimple Manager service to view and clear them."
+   description="Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Manager service to manage alerts."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
