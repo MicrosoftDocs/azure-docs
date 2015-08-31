@@ -346,7 +346,6 @@ Normally notifications would be sent by a backend service but, for this tutorial
 
 3. Each device subscribed to breaking news will receive the breaking news notifications you just sent.
 
-	![][4] ![][5]
 
 
 ## Next steps
@@ -367,8 +366,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-subscribed.png
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
-[4]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews1.png
-[5]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews2.png
+
 
 
 

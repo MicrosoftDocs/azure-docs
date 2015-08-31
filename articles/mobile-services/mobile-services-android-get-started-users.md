@@ -10,7 +10,7 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android" 
+	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="06/16/2015"
@@ -24,7 +24,7 @@
 
 This topic shows you how to authenticate users in Azure Mobile Services from your app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
-> [AZURE.VIDEO Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services]
+> [AZURE.VIDEO android-getting-started-with-authentication-in-windows-azure-mobile-services]
 
 This tutorial walks you through the basic steps to enable authentication in your app.
 
