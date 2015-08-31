@@ -68,6 +68,11 @@ Accessing Media Services requires two associated accounts:
 
 	In addition, you can view code that uses the Azure Media Services SDK to accomplish the following tasks: upload, encode, and publish videos. You can click one of the links under the **WRITE SOME CODE** section, copy the code  and use it in your application.
 
+## Next steps
+
+- [Get started with delivering Video-on-Demand (VoD) content using .NET SDK](media-services-dotnet-get-started.md)
+
+- [Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream (Preview)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
