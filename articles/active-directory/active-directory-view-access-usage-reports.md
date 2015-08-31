@@ -39,8 +39,8 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	------												|	-----																						|
 |	**Anomalous activity reports**
 |	[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)	|	May indicate an attempt to sign in without being traced.									|
-|	[Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md)		|	May indicate a successful brute force attack.												|
-|	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
+|	[Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md)		|	May indicate a successful brute force attack.												|
+|	[Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
 |	[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)	|	May indicate a successful sign in after a sustained intrusion attempt.						|
 |	[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)				|	May indicate an attempt to sign in from possibly infected devices.							|
 |	[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md)							|	May indicate events anomalous to users’ sign in patterns.									|
@@ -76,7 +76,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Users with anomalous sign in activity				|			|		|	✓			|
 |	Users with leaked credentials						|			|		|	✓			|
 |	**Activity logs**
-|	Audit report										|			|		|	✓			|
+|	Audit report										|	✓		|		|				|
 |	Password reset activity								|			|		|	✓			|
 |	Password reset registration activity				|			|		|	✓			|
 |	Self service groups activity						|			|		|	✓			|

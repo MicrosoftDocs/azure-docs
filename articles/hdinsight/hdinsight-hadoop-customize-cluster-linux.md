@@ -165,7 +165,6 @@ In this section, we use Azure Resource Manager (ARM) templates to provision an H
 		                "osType": "Linux",
 		                "clusterDefinition": {
 		                    "kind": "hadoop",
-
 		                    "configurations": {
 		                        "gateway": {
 		                            "restAuthCredential.isEnabled": true,
@@ -238,8 +237,6 @@ In this section, we use Azure Resource Manager (ARM) templates to provision an H
 		        }
 		    }
 		}
-
-
 
 2. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
 
@@ -349,7 +346,6 @@ When prompted, enter the credentials for the cluster. It can take several minute
 ##Use a Script Action from the HDInsight .NET SDK
 
 The HDInsight .NET SDK provides client libraries that makes it easier to work with HDInsight from a .NET application. The following steps demonstrate how to use a script to customize a cluster from the HDInsight .NET SDK.
-
 
 > [AZURE.IMPORTANT] You must first create a self-signed certificate, install it on your workstation, and then upload it to your Azure subscription. For instructions, see [Create a self-signed certificate](http://go.microsoft.com/fwlink/?LinkId=511138).
 

@@ -237,7 +237,6 @@ If you need to manually stop or start Solar, use the following commands:
 
 	sudo start solr
 
-
 ##Backup indexed data
 
 As a good practice, you should back up the indexed data from the Solr cluster nodes onto Azure Blob storage. Perform the following steps to do so:

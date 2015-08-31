@@ -59,7 +59,7 @@ SELECT * FROM sys.database_credentials;
 -- Create a database scoped credential
 CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
 WITH IDENTITY = 'joe'
-,    Secret = 'myazurestoragekey=='
+,    Secret = '<azure_storage_account_key>'
 ;
 ```
 

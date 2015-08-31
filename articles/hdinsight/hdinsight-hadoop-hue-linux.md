@@ -95,7 +95,6 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 > [AZURE.NOTE] The Hue file browser can only show the contents of the default container associated with the HDInsight cluster. Any additional storage accounts/containers that you might have associated with the cluster will not be accessible using the file browser. However, the additional containers associated with the cluster will always be accessible for the Hive jobs. For example, if you enter the command `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` in the Hive editor, you can see the contents of additional containers as well. In this command, **newcontainer** is not the default container associated with a cluster.
 
-
 ## Important considerations
 
 1. The script used to install Hue installs it only on HEADNODE0 of the cluster.
