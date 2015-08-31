@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/31/2015"
    ms.author="alkohli" />
 
-# StorSimple hardware component replacement
+# Introduction to StorSimple hardware component replacement
 
 ## Overview
 
-The hardware component replacement tutorials describe the hardware components of your Microsoft Azure StorSimple device and the steps necessary to remove and replace the components. In these tutorials, you will learn which components are replaceable and how to replace them.
+The hardware component replacement tutorials describe the hardware components of your Microsoft Azure StorSimple device and the steps necessary to remove and replace them. This article describes the safety icons, provides pointers to the detailed tutorials, and lists the components that are replaceable.
 
-Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](#safety-icon-conventions) and other [safety precautions](storsimple-safety.md).
+>[AZURE.IMPORTANT] Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](#safety-icon-conventions) and other [safety precautions](storsimple-safety.md).
  
 ### Safety icon conventions
 
