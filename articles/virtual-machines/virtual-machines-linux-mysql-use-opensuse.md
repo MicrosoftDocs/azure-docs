@@ -6,7 +6,7 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor=""
-	tags="mysql"/>
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
