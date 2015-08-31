@@ -143,7 +143,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 
 Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure. You can use the Microsoft Azure Active Directory method or the certificate method to do this.
 
-<h3>Use the Microsoft Azure AD method</h3>
+###Use the Microsoft Azure AD method
 
 1. Open the Azure PowerShell console.
 
@@ -156,7 +156,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 3. Azure authenticates and saves the credential information, and then closes the window.
 
-<h3>Use the certificate method</h3> 
+###Use the certificate method
 
 1. Open the Azure PowerShell console. 
 
