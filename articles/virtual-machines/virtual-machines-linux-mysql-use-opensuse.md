@@ -32,7 +32,7 @@
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
 ## Next steps
-For more information on MySQL, see the [MySQL Documentation][MySQLDocs].
+For details about MySQL, see the [MySQL Documentation][MySQLDocs].
 
 [MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
