@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" 
-	description="Learn how to use the Python Tools for Visual Studio to create a Bottle application that stores data in Azure Table Storage and deploy the web app to Azure App Service Web Apps." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio"
+	description="Learn how to use the Python Tools for Visual Studio to create a Bottle application that stores data in Azure Table Storage and deploy the web app to Azure App Service Web Apps."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="huguesv"/>
 
 
 
 
-# Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio 
+# Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=GJXDGaEPy94).
 
@@ -206,7 +206,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 [Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
 [Bottle Documentation]: http://bottlepy.org/docs/dev/index.html
@@ -215,4 +215,3 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 [Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 [Azure Storage]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
- 
