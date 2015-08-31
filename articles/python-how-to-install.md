@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="08/31/2015"
 	ms.author="huvalo"/>
 
 
@@ -21,12 +21,7 @@
 
 # Installing Python and the SDK
 
-Python is pretty easy to setup on Windows and comes pre-installed on Mac and Linux.  This guide walks you through installation and getting your machine ready for use with Azure.  This guide will help you with the following:
-
-* What's in the Python Azure SDK?
-* Which Python and which version to use
-* Installation on Windows
-* Installation on Mac and Linux
+Python is pretty easy to setup on Windows and comes pre-installed on Mac and Linux.  This guide walks you through installation and getting your machine ready for use with Azure.
 
 ## What's in the Python Azure SDK?
 
@@ -55,9 +50,36 @@ There are several ways to get CPython:
 
 Unless you have a specific need, we recommend the first two options, as described below.
 
-## Installation on Windows
+## Installation on Windows, Linux and MacOS (client libraries only)
 
-For Windows, you can use the Web Platform Installer to streamline the installation. These include CPython from [www.python.org][].
+If you already have Python installed, you can use pip to install a bundle of all the client libraries in your existing Python 2.7 or Python 3.3+ environment. This will download the packages from the [Python Package Index][] (PyPI).
+
+Note that you may need to use the `sudo` command on Linux and MacOS ie. `sudo pip install azure`.
+
+	pip install azure
+
+Starting with version 1.0.0, the libraries have been separated into multiple packages. You can now install only the packages that you need, or the bundle.
+
+To install Azure Storage Runtime client libraries:
+
+	pip install azure-storage
+
+To install Azure Service Bus Runtime client libraries:
+
+	pip install azure-servicebus
+
+To install Azure Resource Manager (ARM) client libraries:
+
+	pip install azure-mgmt
+
+To install Azure Service Management (ASM) client libraries:
+
+	pip install azure-servicemanagement-legacy
+
+
+## Installation on Windows (Python, Azure Emulators and client libraries)
+
+You can use the Web Platform Installer to streamline the installation. These include CPython from [www.python.org][].
 
 * [Microsoft Azure SDK for Python 2.7][]
 * [Microsoft Azure SDK for Python 3.4][]
@@ -70,10 +92,6 @@ For Windows, you can use the Web Platform Installer to streamline the installati
 The WebPI installer provides everything you need to develop Python Azure apps.
 
 ![how-to-install-python-webpi-27-1](./media/python-how-to-install/how-to-install-python-webpi-27-1.png)
-
-Once finished, you should see this screen confirming your install choices:
-
-![how-to-install-python-webpi-27-2](./media/python-how-to-install/how-to-install-python-webpi-27-2.png)
 
 After installation is complete, type `python` at the prompt to make sure things went smoothly.  Depending on how you installed, you may need to set your "path" variable to find (the right version of) Python:
 
@@ -90,10 +108,6 @@ The WebPI installer provides everything you need to develop Python Azure apps.
 
 ![how-to-install-python-webpi-34-1](./media/python-how-to-install/how-to-install-python-webpi-34-1.png)
 
-Once finished, you should see this screen confirming your install choices:
-
-![how-to-install-python-webpi-34-2](./media/python-how-to-install/how-to-install-python-webpi-34-2.png)
-
 After installation is complete, type python at the prompt to make sure things went smoothly.  Depending on how you installed, you may need to set your "path" variable to find (the right version of) Python:
 
 ![how-to-install-python-win-run-34](./media/python-how-to-install/how-to-install-python-win-run-34.png)
@@ -103,12 +117,17 @@ After the installation you should have Python and the Client Libraries available
 		C:\Python34\Lib\site-packages\azure
 
 
-### Getting More Packages
+### Uninstall
 
-The [Python Package Index][] (PyPI) has a rich selection of Python libraries.  If you chose to install a Distro, you'll already have most of the interesting bits for a variety of scenarios from web development to Technical Computing.
+The **Azure SDK for Python** WebPI products are not applications in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7/3.4, Azure client libraries for Python, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
 
+If you ever wish to reinstall **Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
 
-### Python Tools for Visual Studio
+	rm -force "HKLM:\SOFTWARE\Microsoft\Python Tools for Azure"
+
+and then rerun WebPI.
+
+## Python Tools for Visual Studio
 
 [Python Tools for Visual Studio][] (PTVS) is a free/OSS plugin from Microsoft which turns VS into a full-fledged Python IDE:
 
@@ -120,39 +139,9 @@ PTVS also makes it easy to deploy to Microsoft Azure, with support for deploymen
 
 PTVS works with your existing Visual Studio 2010, 2012, 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio on GitHub][].  
 
-## Windows Uninstall
+## Getting More Packages
 
-The **Azure SDK for Python** WebPI products are not applications in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7/3.4, Azure client libraries for Python, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
-
-If you ever wish to reinstall **Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
-
-	rm -force "HKLM:\SOFTWARE\Microsoft\Python Tools for Azure"
-
-and then rerun WebPI.
-
-## Installation on Linux and MacOS
-
-Python is most likely already installed on your development machine.  You can check by entering:
-
-![how-to-install-python-linux-run](./media/python-how-to-install/how-to-install-python-linux-run.png)
-
-Here we see that this Ubuntu Server 14.04 LTS VM running on Azure has CPython 2.7.6 installed. If you need to upgrade, follow your OS's recommended package upgrade instructions.
-
-To install the Python Azure Client Libraries, use **pip** to grab it from **PyPI**.
-
-If you don't have **pip** installed, use this command to install it:
-
-	curl https://bootstrap.pypa.io/get-pip.py | sudo python
-
-The command above will silently prompt for the root password. Type it and press Enter.  
-
-Next, use the `pip` command to install the Python Azure Client Libraries:
-
-	sudo pip install azure
-
-You should now see the client libraries installed under **site-packages**.  On MacOS:
-
-![how-to-install-python-mac-site](./media/python-how-to-install/how-to-install-python-mac-site.png)
+The [Python Package Index][] (PyPI) has a rich selection of Python libraries.  If you chose to install a Distro, you'll already have most of the interesting bits for a variety of scenarios from web development to Technical Computing.
 
 ## Python Azure Scenarios for Linux and MacOS
 
