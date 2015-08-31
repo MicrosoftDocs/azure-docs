@@ -77,3 +77,10 @@ Extra data (or extras) is some arbitrary data that can be attached to events, er
 Extras are structured similarly to JSON objects: they are made of a tree of key/value pairs. Keys are limited to 64 ASCII letters [a-zA-Z], numbers [0-9] and underscores [_]) and the total size of extras is limited to 1024 characters (once encoded in JSON by the Mobile Engagement SDK).
 
 The whole tree of key/value pairs is stored as a JSON object. Nevertheless, only the first level of keys/values is decomposed to be directly accessible to some advanced functions like Segments (for example, you can easily define a segment called “SciFi fans” that is made of all users having sent at least 10 times the event named “content_viewed” with the extra key “content_type” set to the value “scifi” in the last month). It is thus highly recommended to send only extras made of simple lists of key/value pairs using scalar values (for example, strings, dates, integers or Boolean).
+
+## Next steps
+
+- [Windows Universal SDK overview for Azure Mobile Engagement](windows-store-sdk-overview.md)
+- [Windows Phone Silverlight SDK overview for Azure Mobile Engagement](windows-phone-sdk-overview.md)
+- [iOS SDK for Azure Mobile Engagement](ios-sdk-overview.md)
+- [Android SDK for Azure Mobile Engagement](android-sdk-overview.md)
