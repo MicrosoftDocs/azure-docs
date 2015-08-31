@@ -155,7 +155,7 @@ For example, to create an environment variable that is "**true**" when the insta
 ```
 
 ## Next steps
-Learn how to perform some [common startup tasks](cloud-services-common-startup-tasks.md) with your Cloud Service.
+Learn how to perform some [common startup tasks](cloud-services-startup-tasks-common.md) with your Cloud Service.
 
 [Package](cloud-services-model-and-package.md) your Cloud Service.  
 
