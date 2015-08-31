@@ -5,13 +5,13 @@
 
 	Enter your password.
 
-2. To install MySQL Community Server edition, use this command:
+2. To install MySQL Community Server edition, type:
 
 		# zypper install mysql-community-server
 
 	Wait while MySQL downloads and installs.
 
-3. To set MySQL to start when the system boots, use this command:
+3. To set MySQL to start when the system boots, type:
 
 		# insserv mysql
 
@@ -19,19 +19,21 @@
 
 		# rcmysql start
 
-	To check the status of the MySQL daemon, use this command:
+	To check the status of the MySQL daemon, type:
 
 		# rcmysql status
 
-	To stop the MySQL daemon, use this command:
+	To stop the MySQL daemon, type:
 
 		# rcmysql stop
 
-5. Warning! After installation, the MySQL root password is empty by default. We recommended that you run **mysql\_secure\_installation**, a script that helps secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. It is recommended that you answer yes to all of these options and change the root password. Use this command to run the script:
+	> [Azure.Important] After installation, the MySQL root password is empty by default. We recommended that you run **mysql\_secure\_installation**, a script that helps secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
+
+5. Type this to run the script MySQL installation script:
 
 		$ mysql_secure_installation
 
-6. After you run, you can login to MySQL:
+6. After you run, you can log in to MySQL:
 
 		$ mysql -u root -p
 
@@ -50,17 +52,17 @@
 
 	Note that database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
 
-9. To log in from another computer, use this command:
+9. To log in from another computer, type:
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
 	where `ip-address` is the IP address of the computer from which you will connect to MySQL.
 
-10. To exit the MySQL database administration utility, use this command:
+10. To exit the MySQL database administration utility, type:
 
 		quit
 
-11. After MySQL is installed, you'll need to configure an endpoint so that MySQL can be accessed remotely. Log in to the [Azure Management Portal][AzurePreviewPortal]. In the Azure portal, click **Virtual Machines**, click the name of your new VM, and then click **Endpoints**.
+11. After MySQL is installed, you'll need to configure an endpoint so that MySQL can be accessed remotely. Log in to the [Azure  Portal][AzurePortal]. In the Azure portal, click **Virtual Machines**, click the name of your new VM, and then click **Endpoints**.
 
 12. Click **Add** at the bottom of the page.
 
@@ -74,9 +76,7 @@
 
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. You've successfully configured MySQL, created a database, and a new user.  For details on MySQL, see the [MySQL Documentation][MySQLDocs].
-
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePreviewPortal]: http://manage.windowsazure.com
+[AzurePortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
