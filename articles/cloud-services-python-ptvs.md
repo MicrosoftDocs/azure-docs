@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio"
+	pageTitle="Python Web and Worker Roles with Python Tools 2.2 for Visual Studio"
 	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles."
 	services=""
 	documentationCenter="python"
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="02/09/2015"
+	ms.date="08/30/2015"
 	ms.author="huvalo"/>
 
 
 
 
-# Python Web and Worker Roles with Python Tools 2.1 for Visual Studio
+# Python Web and Worker Roles with Python Tools 2.2 for Visual Studio
 
 This guide provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][].
 
 ## Prerequisites
 
  - Visual Studio 2012 or 2013
- - [Python Tools 2.1 for Visual Studio][]
+ - [Python Tools 2.2 for Visual Studio][]
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
 
@@ -132,10 +132,9 @@ For more details on using Azure services from your web and worker roles, such as
 <!--External Link references-->
 
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
-[Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
 [Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
