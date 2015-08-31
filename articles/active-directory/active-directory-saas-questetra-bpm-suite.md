@@ -130,7 +130,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
      9.4. In the **NameID format** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
 
-     9.5. Create a base-64 encoded file from your downloaded certificate. >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+     9.5. Create a base-64 encoded file from your downloaded certificate. 
+
+    >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
      9.6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. <br><br>![Configure Single Sign-On][16]
 
