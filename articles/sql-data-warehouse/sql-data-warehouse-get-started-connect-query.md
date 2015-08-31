@@ -31,7 +31,7 @@ After completing this article you will have:
 2. Created a connection to SQL Data Warehouse in SSDT.
 3. Executed queries against the SQL Data Warehouse database.
 
->[AZURE.NOTE] It is assumed that you have either completed the provisioning guide or have a SQL Data Warehouse available. If you have not provisioned the SQL Data Warehouse then please refer back to the [provisioning quick start].
+>[AZURE.NOTE] It is assumed that you have either completed the provisioning guide or have a SQL Data Warehouse available. If you have not provisioned the SQL Data Warehouse then please refer back to the [provisioning quick start](sql-data-warehouse-get-started-provision.md).
 
 ## Set up Visual Studio for development##
 For development, the SQL Data Warehouse team recommends using Visual Studio 2013 or later in combination with SQL Server Data Tools. The following will outline how to download and update Visual Studio 2013 if you do not already have a viable version of visual studio installed.
