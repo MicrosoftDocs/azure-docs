@@ -15,7 +15,7 @@
    ms.date="08/31/2015"
    ms.author="alkohli" />
 
-# Introduction to StorSimple hardware component replacement
+# StorSimple hardware component replacement
 
 ## Overview
 
