@@ -62,17 +62,17 @@
 
 		quit
 
-11. After MySQL is installed, you'll need to configure an endpoint so that MySQL can be accessed remotely. Log in to the [Azure  Portal][AzurePortal]. In the Azure portal, click **Virtual Machines**, click the name of your new VM, and then click **Endpoints**.
+11. After MySQL is installed, you'll need to configure an endpoint to access MySQL remotely. Log in to the [Azure  Portal][AzurePortal]. Click **Virtual Machines**, click the name of your new virtual machine, and then click **Endpoints**.
 
 12. Click **Add** at the bottom of the page.
 
-13. Add an endpoint named "MySQL" with protocol **TCP**, and **Public** and **Private** ports set to "3306". This allows remote access to MySQL.
+13. Add an endpoint named "MySQL" with protocol **TCP**, and **Public** and **Private** ports set to "3306".
 
-14. To remotely connect to MySQL running on your OpenSUSE virtual machine in Azure, run the following command on your local computer:
+14. To remotely connect to the virtual machine from your computer, type:
 
 		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 
-	For example, using the virual machine we created in this tutorial, the command would be:
+	For example, using the virual machine we created in this tutorial, type this command:
 
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 

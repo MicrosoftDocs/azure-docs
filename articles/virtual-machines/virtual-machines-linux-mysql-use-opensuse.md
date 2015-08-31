@@ -19,7 +19,7 @@
 
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure
 
-[MySQL][MySQL] is a popular, open-source SQL database. This tutorial shows you how to create a virtual machine running OpenSUSE Linux, then install MySQL on it.
+[MySQL][MySQL] is a popular, open-source SQL database. This tutorial shows you how to create a virtual machine running OpenSUSE Linux, then install MySQL.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -31,9 +31,9 @@
 
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
-##Summary
-In this tutorial you learned to create a virtual machine running OpenSUSE Linux and remotely connect to it using SSH or PuTTY.  You also learned to install and configure MySQL on the Linux virtual machine.  For more information on MySQL, see the [MySQL Documentation][MySQLDocs].
+## Next steps
+For more information on MySQL, see the [MySQL Documentation][MySQLDocs].
 
-[MySQLDocs]: http://dev.mysql.com/doc/
+[MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com

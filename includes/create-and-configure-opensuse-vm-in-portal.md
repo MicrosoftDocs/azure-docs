@@ -26,13 +26,15 @@
 	- In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
 	- Under **Endpoints**, keep the SSH endpoint. You can add others now, or add, change, or delete them after the virtual machine is created.
 
-6.	One the last **Virtual machine configuration** page, keep the default settings and then click the check mark to finish. The portal lists the new virtual machine under **Virtual Machines**. While the status is reported as **(Provisioning)**, the virtual machine is being setup. When the status is reported as **Running**, you can move on to the next step.
+6.	On the last **Virtual machine configuration** page, keep the default settings and then click the check mark to finish.
+
+The portal lists the new virtual machine under **Virtual Machines**. While the status is reported as **(Provisioning)**, the virtual machine is being set up. When the status is reported as **Running**, you can move on to the next step.
 
 ##Connect to the Virtual Machine
 
 You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system on the computer you'll connect from:
 
-- From a computer running Linux, use SSH. At the command prompt, run:
+- From a computer running Linux, use SSH. At the command prompt, type:
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
 
