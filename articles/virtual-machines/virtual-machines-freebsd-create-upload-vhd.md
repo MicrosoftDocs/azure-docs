@@ -23,7 +23,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 ##Prerequisites##
 This article assumes that you have the following items:
 
-- **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](../php-create-account.md). 
+- **An Azure subscription** - If you don't have one, you can create an account in just a couple of minutes. If you have an MSDN subscription, see [Azure Benefit for MSDN Subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, see [create a free trial account](http://azure.microsoft.com/pricing/free-trial/).  
 
 - **Azure PowerShell tools** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Azure Downloads](http://azure.microsoft.com/downloads/). A tutorial to install and configure the module is available here. You'll use the [Azure Downloads](http://azure.microsoft.com/downloads/) cmdlet to upload the VHD.
 
