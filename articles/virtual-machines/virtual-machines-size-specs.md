@@ -14,7 +14,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/02/2015"
+ ms.date="09/02/2015"
  ms.author="kathydav"/>
 
 # Sizes for Virtual Machines
