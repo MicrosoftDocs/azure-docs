@@ -112,7 +112,7 @@ Each program is associated with an asset. To publish the program you must create
 
 A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only the last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
-You should not reuse existing programs for new events. Instead, create and start a new program for each event as described in the Programming Live Streaming Applications section.
+You should not reuse existing programs for new events. Instead, create and start a new program for each event.
 
 Start the program when you are ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event.
 
@@ -190,7 +190,8 @@ If you are done streaming events and want to clean up the resources provisioned 
 - Stop the channel. Once the channel is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 - You can stop your streaming endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the channel is in a stopped state, it will not incur any charges.
 
-
+## Additional resources
+- [Getting Started with Live Streaming Using the Azure Management Portal](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
 [Azure portal]: http://manage.windowsazure.com/
