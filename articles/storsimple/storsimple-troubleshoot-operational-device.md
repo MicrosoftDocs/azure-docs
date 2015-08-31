@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Troubleshoot an operational StorSimple device | Microsoft Azure"
-   description="Describes how to diagnose and fix errors that occur on a StorSimple device that is operational."
+   pageTitle="Troubleshoot a deployed StorSimple device | Microsoft Azure"
+   description="Describes how to diagnose and fix errors that occur on a StorSimple device that is currently deployed and operational."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="08/28/2015"
    ms.author="v-sharos" />
 
 # Troubleshoot an operational StorSimple device
