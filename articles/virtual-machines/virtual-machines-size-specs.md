@@ -29,13 +29,14 @@ Azure Virtual Machines and Cloud Services are two of several types of compute re
 
 ## Planning considerations
 
-Virtual machines are available in two tiers: basic and standard. Both types offer a choice of sizes, but the basic tier doesn’t provide some capabilities available in the standard tier, such as load-balancing and auto-scaling. The standard tier of sizes consists of A series, D series, DS series, and G series. Considerations for some of these sizes include:
+Virtual machines are available in two tiers: basic and standard. Both types offer a choice of sizes, but the basic tier doesn’t provide some capabilities available in the standard tier, such as load-balancing and auto-scaling. The standard tier of sizes consists of different series: A, D, DS, G, and GS. Considerations for some of these sizes include:
 
 *   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
 
 *   DS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. It uses solid-state drives (SSDs) to host a virtual machine’s disks and offers a local SSD disk cache. Premium storage is in preview and is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage-premium-storage-preview-portal.md).  
 
-*   G-series VMs offer the biggest size and best performance and run on hosts that have Intel Xeon E5 V3 family processors.  
+*   G-series VMs offer the biggest size and best performance and run on hosts that have Intel Xeon E5 V3 family processors.
+
 The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=398570) and [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/). For more information about the disks and storage used in Azure Virtual Machines, see [About Disks and Images in Azure](https://msdn.microsoft.com/library/jj672979).
 
 The following considerations might help you decide on a size:
@@ -132,15 +133,15 @@ The following tables show the sizes and the capacities they provide.
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
 |---|---|---|---|---|---|---|
-|Standard_GS1|2|28|<p>OS = 1023 GB</p><p>Local SSD disk = 56 GB</p>|X|264|<p>5,000</p><p>125 MB per second</p>|
-|Standard_GS2|4|56|<p>OS = 1023 GB</p><p>Local SSD disk = 112 GB</p>|X|528|<p>10,000</p><p>250 MB per second</p>|
-|Standard_GS3|8|112|<p>OS = 1023 GB</p><p>Local SSD disk = 224 GB</p>|X|1056|<p>20,000</p><p>500 MB per second</p>|
-|Standard_GS4|16|224|<p>OS = 1023 GB</p><p>Local SSD disk = 448 GB</p>|X|2112|<p>40,000</p><p>1,000 MB per second</p>|
-|Standard_GS5|32|448|<p>OS = 1023 GB</p><p>Local SSD disk = 896 GB</p>|X|4224|<p>80,000</p><p>2,000 MB per second</p>|
+|Standard_GS1|2|28|<p>OS = 1023 GB</p><p>Local SSD disk = 56 GB</p>|4|264|<p>5,000</p><p>125 MB per second</p>|
+|Standard_GS2|4|56|<p>OS = 1023 GB</p><p>Local SSD disk = 112 GB</p>|8|528|<p>10,000</p><p>250 MB per second</p>|
+|Standard_GS3|8|112|<p>OS = 1023 GB</p><p>Local SSD disk = 224 GB</p>|16|1056|<p>20,000</p><p>500 MB per second</p>|
+|Standard_GS4|16|224|<p>OS = 1023 GB</p><p>Local SSD disk = 448 GB</p>|32|2112|<p>40,000</p><p>1,000 MB per second</p>|
+|Standard_GS5|32|448|<p>OS = 1023 GB</p><p>Local SSD disk = 896 GB</p>|64|4224|<p>80,000</p><p>2,000 MB per second</p>|
 
 
 ### See also
 
-[Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+[Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 
 [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-a8-a9-a10-a11-specs.md)
