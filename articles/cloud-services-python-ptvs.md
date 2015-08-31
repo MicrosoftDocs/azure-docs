@@ -26,7 +26,7 @@ This guide provides an overview of using Python web and worker roles using [Pyth
 ## Prerequisites
 
  - Visual Studio 2012 or 2013
- - [Python Tools 2.2 for Visual Studio][]
+ - [Python Tools 2.2 for Visual Studio][] (PTVS)
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
 

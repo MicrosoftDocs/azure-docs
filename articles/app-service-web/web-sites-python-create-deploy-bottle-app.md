@@ -34,7 +34,7 @@ You will create a web app using the Bottle web framework (see alternate versions
 - Python 2.7 or 3.4
 - setuptools, pip, virtualenv (Python 2.7 only)
 - Git
-- [Python Tools 2.2 for Visual Studio] (PTVS) - Note: this is optional
+- [Python Tools 2.2 for Visual Studio][] (PTVS) - Note: this is optional
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
