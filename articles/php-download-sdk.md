@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 #Download the Azure SDK for PHP
@@ -106,19 +106,10 @@ For information about how to use Azure PowerShell, see [How to Use Azure PowerSh
 
 ##Azure CLI
 
-The Azure CLI is a set of commands for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. The following list describes how to install the Azure CLI, depending on your operating system:
-
-* **Mac**: Download the Azure SDK Installer here: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Open the downloaded .pkg file and complete the installation steps as your are prompted.
-
-* **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
-
-		npm install azure-cli -g
-
-	> [AZURE.NOTE]
-	> You may need to run this command with elevated privileges:  `sudo npm install azure-cli -g`
+The Azure CLI is a set of commands for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. For information about installing Azure CLI, see [Install the Azure CLI](xplat-cli-install.md).
 
 
-For information about how to use the Azure CLI, see [How to Use the Azure Command-Line Interface for Mac, Linux, and Windows][azure cli].
+
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
