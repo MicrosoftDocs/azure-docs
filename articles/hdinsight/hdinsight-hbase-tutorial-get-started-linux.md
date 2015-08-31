@@ -60,8 +60,6 @@ Before you begin this HBase tutorial, you must have the following:
 
 		> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
-		> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
-
 	- **Optional Configuration**: select the cluster version, configure Azure virtual network, configure Hive/Oozie metastore, configure Script actions, and add additional storage accounts.
 
 4. Click **Create**.
