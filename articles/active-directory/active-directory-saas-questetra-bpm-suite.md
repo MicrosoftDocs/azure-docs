@@ -136,7 +136,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
      9.6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. <br><br>![Configure Single Sign-On][16]
 
-     9.4. Click **Save**.
+     9.7. Click **Save**.
 
 
 6. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br>![What is Azure AD Connect][17]
