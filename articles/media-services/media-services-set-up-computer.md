@@ -46,5 +46,5 @@ Choose .NET or the REST API to programmatically connect to Azure Media Services.
 
 ## Next steps
 
-- [x](media-services-dotnet-get-started)
-- [xx](media-services-dotnet-creating-live-encoder-enabled-channel)
+- [Get started with delivering Video-on-Demand (VoD) content using .NET SDK](media-services-dotnet-get-started)
+- [Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream (Preview)](media-services-dotnet-creating-live-encoder-enabled-channel)
