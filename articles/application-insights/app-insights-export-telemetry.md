@@ -62,9 +62,9 @@ Other calculated metrics are not included. For example, we don't export average 
 
 ## <a name="get"></a> Inspect the data
 
-To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. If you don't have that menu command, open the **New Project** dialog, expand Visual C#/Cloud and choose **Get Microsoft Azure SDK for .NET**.
+To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. (If you don't have that menu command, you need to install the Azure SDK: Open the **New Project** dialog, expand Visual C#/Cloud and choose **Get Microsoft Azure SDK for .NET**.)
 
-When you open your blob store, you'll see a container with a set of blob files. The URI of each file is application-name_ikey/telemetry-type/date/time. (The application name is all lowercase, and the instrumentation key omits dashes.)
+When you open your blob store, you'll see a container with a set of blob files. The URI of each file derived from your Application Insights resource name, its instrumentation key, telemetry-type/date/time. (The resource name is all lowercase, and the instrumentation key omits dashes.)
 
 ![Inspect the blob store with a suitable tool](./media/app-insights-export-telemetry/04-data.png)
 
@@ -74,7 +74,7 @@ The date and time are UTC and are when the telemetry was deposited in the store 
 ## <a name="format"></a> Data format
 
 * Each blob is a text file that contains multiple '\n'-separated rows.
-* Each row is an unformatted JSON document. If you want to sit and stare at it, try a viewer such as Notepad++ with the JSON plug-in:
+* Each row is an unformatted JSON document. If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:
 
 ![View the telemetry with a suitable tool](./media/app-insights-export-telemetry/06-json.png)
 

@@ -76,14 +76,15 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
 3. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md). 
 
-    And also, the data will export to your storage. It might take up to an hour for data to appear.
+    And also, the data will export to your storage. 
 
-4. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
+4. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
 
     ![](./media/app-insights-export-power-bi/04-data.png)
 
-    Make a note of the path name of the blobs. 
+    Make a note of the common part of the path name, which is derived from the application name and instrumentation key. 
 
+The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to pipe the data to Power BI.
 
 ## Create an Azure Stream Analytics instance
 
@@ -202,5 +203,6 @@ Noam Ben Zeev shows how to export to Power BI.
 ## Related stuff
 
 * [Continuous export](app-insights-export-telemetry.md)
+* [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [More samples and walkthroughs](app-insights-code-samples.md)
