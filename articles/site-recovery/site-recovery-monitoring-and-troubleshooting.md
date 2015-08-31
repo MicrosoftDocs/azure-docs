@@ -102,9 +102,7 @@ operations are shown in the bottom pane.
 
 As shown above in-case the virtual machine HEALTH is critical – you can
 click the ERROR DETAILS button on the bottom to see the error. Based on
-the “Possible causes” and “Recommendation” mentioned resolve the issue –
-here in this case the virtual machine needs to be re-synchronized which
-can be done from the portal itself by clicking the RESYNCHRONIZE button.
+the “Possible causes” and “Recommendation” mentioned resolve the issue.
 
 ![Monitor replication health for virtual machine](media/site-recovery-monitoring-and-troubleshooting/image10.png)
 
@@ -164,6 +162,41 @@ To view the information collected, first stop the tracing session by
 disabling the log, and then save the log and re-open it in Event Viewer
 or use other tools to convert it as desired.
 
+## Understanding Hyper-V or VMM site to Azure protection
+
+### Enable Protection
+Once you protect a virtual machine from portal or on-premises, an ASR job named *Enable Protection* will be initiated and can be monitored under the JOBS tab. 
+
+![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image20.png)
+
+*Enable Protection* job will ensure that the virtual machine prerequisites are met and invokes [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) which creates a replication to Azure using inputs configured during protection. *Enable Protection* job finally starts the initial replication from on-premises by invoking [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) which starts sending the virtual machine's virtual disks to Azure.
+
+![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image21.png)
+
+### Finalize Protection
+A [Hyper-V VM snapshot](https://technet.microsoft.com/en-us/library/dd560637(v=ws.10).aspx) is taken when Initial Replication is triggered. Initial replication processes virtual hard disks one by one till all the disks are uploaded. This normally takes a while to complete based on the disk size and the bandwidth. Refer [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159) for optimizing your network usage. Once initial replication completes *Finalize protection on the virtual machine* job configures the network and post-replication settings. 
+
+![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image22.png)
+
+### Delta Replication
+Post *Finalize protection* Hyper-V Replica Replication Tracker, which is part of the Hyper-V Replica Replication Engine, tracks the changes to a virtual hard disk as a Hyper-V Replication Log (*.hrl). HRL files will be located in the same directory as of the associated disks. Each disk configured for replication will have an associated HRL file. This log(s) is (are) sent to the customer's storage account after initial replication is complete. When a log is in transit to the Azure, the changes in the primary are tracked in another log file in the same directory.
+
+VM health during delta-replication can be monitored in the VM view as mentioned under [Monitor replication health for virtual machine](site-recovery-monitoring-and-troubleshooting/#monitor-replication-health-for-virtual-machine).  
+
+### Re-synchronization 
+Re-synchronization is applicable when both Delta Replication fails and Full Initial Replication is costly in terms of network bandwidth or the time it would take to complete a Full Initial Replication. In-cases when HRL files piles up to 50% of the total VHD size then the virtual machine is marked for re-synchronization. Re-synchronization minimizes the amount of data sent over the network by computing check-sums of the Primary and Replica virtual machine disks and sending only the deltas. After re-synchronization completes, normal Delta Replication should resume. Re-synchronization can be resumed in the event of an outage (e.g. network outage, VMMS crash, etc…). By default *Automatically scheduled re-synchronization* is configured during the non-office work hours.
+
+In-case the virtual machine needs to be re-synchronized, select the virtual machine from the portal and click RESYNCHRONIZE.
+![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image23.png)
+
+Re-synchronization uses a fixed-block chunking algorithm where Source and Target files are divided into fixed chunks; checksum for each chunk are generated and then compared to determine which block(s) from the Source need to be applied to the Target. 
+
+### Retry logic
+There is built-in retry logic for errors during replication which can be classified into two categories.
+| Category | Scenarios |
+| Non-Recoverable Error | No retires will be attempted. Virtual machine replication status will be shown as Critical and an administrator intervention is required. Examples would include 
+<ul><li>A broken VHD chain</li><li>Replica virtual machine is in an invalid state</li><li>Network authentication error</li><li>Authorization Error/li><li>If a virtual machine isn't found in the case of a standalone Hyper-V server</li></ul>|
+| Recoverable Error | Retries occur every replication interval using exponentially backoff which increases the retry interval from start of first attempt (1, 2, 4, 8, 10 minutes). If error persists, retry every 30 minutes. Examples would include <ul><li>Network Error</li><li>Low disk space</li><li>Low memory condition</li></ul>|
 
 ## Understanding the Hyper-V virtual machine protection and recovery life cycle
 
