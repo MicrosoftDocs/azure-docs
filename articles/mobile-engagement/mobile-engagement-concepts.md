@@ -80,7 +80,7 @@ The whole tree of key/value pairs is stored as a JSON object. Nevertheless, only
 
 ## Next steps
 
-- [Windows Universal SDK overview for Azure Mobile Engagement](windows-store-sdk-overview.md)
-- [Windows Phone Silverlight SDK overview for Azure Mobile Engagement](windows-phone-sdk-overview.md)
-- [iOS SDK for Azure Mobile Engagement](ios-sdk-overview.md)
-- [Android SDK for Azure Mobile Engagement](android-sdk-overview.md)
+- [Windows Universal SDK overview for Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
+- [Windows Phone Silverlight SDK overview for Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
+- [iOS SDK for Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
+- [Android SDK for Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
