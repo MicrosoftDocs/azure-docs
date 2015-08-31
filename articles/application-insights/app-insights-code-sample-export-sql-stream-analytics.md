@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="08/31/2015" 
 	ms.author="awills"/>
  
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
@@ -92,12 +92,16 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     ![Choose event types](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
-Now sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer][metrics] and individual events in [diagnostic search][diagnostic]. 
 
-And also, the data will export to your storage, where you can inspect the content. For example, there's a storage browser in Visual Studio:
+3. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md). 
 
+    And also, the data will export to your storage. It might take up to an hour for data to appear.
 
-![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+4. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
+
+    ![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+
+    Make a note of the path name of the blobs. 
 
 The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to a SQL database. That will make it easy to run lots of interesting queries.
 
@@ -196,12 +200,12 @@ Be sure to set the Date Format to YYYY-MM-DD (with dashes).
 
 The Path Prefix Pattern specifies how Stream Analytics finds the input files in the storage. You need to set it up to correspond to how Continuous Export stores the data. Set it like this:
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 In this example:
 
-* `webapplication27` is the name of the Application Insights resource. 
-* `1000...` is the instrumentation key of the Application Insights resource. 
+* `webapplication27` is the name of the Application Insights resource, **all in lower case**. 
+* `1234...` is the instrumentation key of the Application Insights resource **with dashes removed**. 
 * `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](app-insights-export-data-model.md).
 * `/{date}/{time}` is a pattern written literally.
 
