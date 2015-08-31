@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/21/2015"
+   ms.date="08/25/2015"
    ms.author="maroche"/>
 
 # Azure Data Catalog frequently asked questions
@@ -69,6 +69,8 @@ During preview, Azure Data Catalog supports the following asset types:
 - Oracle Database View
 - Azure Storage Blob
 - Azure Storage Directory
+- HDFS File
+- HDSF Directory
 
 ## Q: How do I request support for another data source?
 

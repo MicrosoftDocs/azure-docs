@@ -11,7 +11,7 @@
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/14/2015"

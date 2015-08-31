@@ -39,8 +39,8 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	------												|	-----																						|
 |	**Anomalous activity reports**
 |	[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)	|	May indicate an attempt to sign in without being traced.									|
-|	[Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md)		|	May indicate a successful brute force attack.												|
-|	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
+|	[Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md)		|	May indicate a successful brute force attack.												|
+|	[Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
 |	[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)	|	May indicate a successful sign in after a sustained intrusion attempt.						|
 |	[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)				|	May indicate an attempt to sign in from possibly infected devices.							|
 |	[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md)							|	May indicate events anomalous to users’ sign in patterns.									|
@@ -76,7 +76,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Users with anomalous sign in activity				|			|		|	✓			|
 |	Users with leaked credentials						|			|		|	✓			|
 |	**Activity logs**
-|	Audit report										|			|		|	✓			|
+|	Audit report										|	✓		|		|				|
 |	Password reset activity								|			|		|	✓			|
 |	Password reset registration activity				|			|		|	✓			|
 |	Self service groups activity						|			|		|	✓			|
@@ -100,36 +100,17 @@ In the Azure Management Portal, reports are categorized in the following ways:
 
 
 ## Anomalous activity reports
+The anomalous sign in activity reports contain suspicious sign in activity to the Azure Management Portal, Azure AD Access Panel, Office365, Sharepoint Online, Dynamics CRM Online, and other Microsoft online services, regardless of the federation provider. 
+<p>The following reports are available: </p><ul>
+<li>[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
+<li>[Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li>
+<li>[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
+<li>[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md).</li>
+<li>[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
+<li>[Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
+<li>Users with leaked credentials</li></ul>
 
-### Sign ins from unknown sources
-
-For details on this report, check out [Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md).
-
-### Sign ins after multiple failures
-
-For details on this report, check out [Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md).
-
-### Sign ins from multiple geographies
-
-For details on this report, check out [Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md).
-
-### Sign ins from IP addresses with suspicious activity
-
-For details on this report, check out [Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
-
-### Irregular sign in activity
-
-For details on this report, check out [Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md).
-
-### Sign ins from possibly infected devices
-
-For details on this report, check out [Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
-
-### Users with anomalous sign in activity
-
-For details on this report, check out [Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
-
-<!-- Users with leaked credentials goes here -->
 
 
 
