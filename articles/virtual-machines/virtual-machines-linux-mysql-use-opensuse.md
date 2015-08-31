@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [create-and-configure-opensuse-vm-in-portal](../../includes/create-and-configure-opensuse-vm-in-portal.md)]
 
-##Install and run MySQL on the virtual machine
+## Install and run MySQL on the virtual machine
 
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
