@@ -43,3 +43,8 @@ Choose .NET or the REST API for your development environment.
 Choose .NET or the REST API to programmatically connect to Azure Media Services.
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+
+## Next steps
+
+- [x](media-services-dotnet-get-started)
+- [xx](media-services-dotnet-creating-live-encoder-enabled-channel)
