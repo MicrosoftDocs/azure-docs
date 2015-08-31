@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/13/2015"
+   ms.date="08/27/2015"
    ms.author="v-sharos"/>
 
-# Manage your StorSimple backup policies
+# Use the StorSimple Manager service to manage backup policies
 
 ## Overview
 

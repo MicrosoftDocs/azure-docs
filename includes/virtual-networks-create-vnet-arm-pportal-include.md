@@ -1,8 +1,8 @@
 ## How to create a VNet in the Azure preview portal
 
-To create a classic VNet based on the scenario above by using the Azure preview portal, follow the steps below.
+To create a VNet based on the scenario above by using the Azure preview portal, follow the steps below.
 
-1. From a browser, navigate to http://ms.portal.azure.com and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**, as seen in the figure below.
 
 	![Create VNet in preview portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use Windows PowerShell for StorSimple to administer your StorSimple device | Microsoft Azure"
-   description="Learn how to manage your StorSimple device using the Windows PowerShell for StorSimple"
+   pageTitle="PowerShell for StorSimple device management | Microsoft Azure"
+   description="Learn how to use Windows PowerShell for StorSimple to manage your StorSimple device."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,24 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="08/28/2015"
    ms.author="alkohli@microsoft.com" />
 
 # Use Windows PowerShell for StorSimple to administer your device
 
 ## Overview
+
 Windows PowerShell for StorSimple provides a command-line interface that you can use to manage your Microsoft Azure StorSimple device. As the name suggests, it is a Windows PowerShell-based, command-line interface that is built in a constrained runspace. From the perspective of the user at the command line, a constrained runspace appears as a restricted version of Windows PowerShell. While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing your Microsoft Azure StorSimple device. 
 
-This article describes the features in Windows PowerShell for StorSimple including how you can connect to this interface and links out to step-by-step procedures of workflows that can be performed using this interface. The workflows include how to register your device, configure the network interface on your device, install updates that require the device to be in maintenance mode, change the device state, and troubleshoot any issues that you may experience.
+This article describes the Windows PowerShell for StorSimple features, including how you can connect to this interface, and contains links to step-by-step procedures or workflows that you can perform using this interface. The workflows include how to register your device, configure the network interface on your device, install updates that require the device to be in maintenance mode, change the device state, and troubleshoot any issues that you may experience.
 
 After reading this article, you will be able to:
 
+- Connect to your StorSimple device using Windows PowerShell for StorSimple.
 
-- Connect to your StorSimple device using Windows PowerShell for StorSimple
+- Administer your StorSimple device using Windows PowerShell for StorSimple.
 
-- Administer your StorSimple device using Windows PowerShell for StorSimple
-
-- Get help in Windows PowerShell for StorSimple
+- Get help in Windows PowerShell for StorSimple.
 
 >[AZURE.NOTE] 	
 
