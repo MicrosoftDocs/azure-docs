@@ -193,10 +193,11 @@ Re-synchronization uses a fixed-block chunking algorithm where Source and Target
 
 ### Retry logic
 There is built-in retry logic for errors during replication which can be classified into two categories.
-| Category | Scenarios |
-| Non-Recoverable Error | No retires will be attempted. Virtual machine replication status will be shown as Critical and an administrator intervention is required. Examples would include 
-<ul><li>A broken VHD chain</li><li>Replica virtual machine is in an invalid state</li><li>Network authentication error</li><li>Authorization Error/li><li>If a virtual machine isn't found in the case of a standalone Hyper-V server</li></ul>|
-| Recoverable Error | Retries occur every replication interval using exponentially backoff which increases the retry interval from start of first attempt (1, 2, 4, 8, 10 minutes). If error persists, retry every 30 minutes. Examples would include <ul><li>Network Error</li><li>Low disk space</li><li>Low memory condition</li></ul>|
+
+| Category              	| Scenarios                                    |
+|---------------------------|----------------------------------------------|
+| Non-Recoverable Error 	| No retires will be attempted. Virtual machine replication status will be shown as Critical and an administrator intervention is required. Examples would include <ul><li>A broken VHD chain</li><li>Replica virtual machine is in an invalid state</li><li>Network authentication error</li><li>Authorization Error/li><li>If a virtual machine isn't found in the case of a standalone Hyper-V server</li></ul>|
+| Recoverable Error     	| Retries occur every replication interval using exponentially backoff which increases the retry interval from start of first attempt (1, 2, 4, 8, 10 minutes). If error persists, retry every 30 minutes. Examples would include <ul><li>Network Error</li><li>Low disk space</li><li>Low memory condition</li></ul>|
 
 ## Understanding the Hyper-V virtual machine protection and recovery life cycle
 
