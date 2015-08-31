@@ -188,7 +188,7 @@ for VMware and Physical site
 protection](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx)
 to collect the required logs.
 
-SDP tool collects the log file locally which you can also locate under a randomly named subfolder under **%LocalAppData%\ElevatedDiagnostics**
+Tool collects the logs locally under a randomly named sub-folder under **%LocalAppData%\ElevatedDiagnostics**
 
 ![Sample steps shown from Hyper-V site protection.](media/site-recovery-monitoring-and-troubleshooting/animate01.gif)
 
