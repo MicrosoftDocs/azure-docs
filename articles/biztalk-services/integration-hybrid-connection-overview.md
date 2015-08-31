@@ -79,7 +79,7 @@ See [Create and Manage Hybrid Connections](integration-hybrid-connection-create-
 #### TCP ports
 Hybrid Connections require only outbound TCP or HTTP connectivity from your private network. You do not need to open any firewall ports or change your network perimeter configuration to allow any inbound connectivity into your network.
 
-The following TCP ports are used by Hybrid Connections.
+The following TCP ports are used by Hybrid Connections:
 
 Port | Why you need it
 --- | ---
