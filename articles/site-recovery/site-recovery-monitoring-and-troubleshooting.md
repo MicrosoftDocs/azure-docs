@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/13/2015" 
+	ms.date="08/26/2015" 
 	ms.author="anbacker"/>
 	
 # Monitor and troubleshoot protection for VMware, VMM, Hyper-V and Physical sites
@@ -114,7 +114,7 @@ Note: If there are any active operations which are in-progress or failed
 then navigate to the JOBS view as mentioned earlier to view the JOB
 specific error.
 
-## Event Viewer
+## Event Log
 
 | Scenarios               	| Event Sources                                                                                                                                                                                        	|
 |-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -133,6 +133,11 @@ In this case *Replication Health* is being indicated as Critical – *View
 Replication Health* to see the details.
 
 ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image13.png)
+
+For cases where replication is paused for the virtual machine, right-click Select *Replication*->*Resume replication*
+![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image19.png)
+
+In case virtual machine migrates a new Hyper-V host (within the cluster or a standalone machine), which has been configured through ASR, replication for the virtual machine wouldn't be impacted. Ensure that the new Hyper-V host meets all the per-requisites and is configured using ASR.
 
 ### Hyper-V Replication Logging Options
 
@@ -174,7 +179,7 @@ Diagnostics Platform (SDP)
 Tool](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)
 to collect the required logs.
 
-For Hyper-V Branch Office and SMB Site protection, download the
+For Hyper-V Site protection, download the
 [tool](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)
 & execute it on the Hyper-V host to collect the logs.
 
@@ -183,7 +188,9 @@ for VMware and Physical site
 protection](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx)
 to collect the required logs.
 
-SDP tool collects the log file locally which you can also locate under a randomly named subfolder under **%LocalAppData%\ElevatedDiagnostics**
+Tool collects the logs locally under a randomly named sub-folder under **%LocalAppData%\ElevatedDiagnostics**
+
+![Sample steps shown from Hyper-V site protection.](media/site-recovery-monitoring-and-troubleshooting/animate01.gif)
 
 ### Opening a support ticket
 
@@ -252,6 +259,8 @@ of the error is documented in a separate WIKI page.
 -   [Cannot connect to the replica host machine - connection could not
     be
     established](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
+
+	[Live migration error 23848 - The virtual machine is going to be moved using type Live. This could break the recovery protection status of the virtual machine.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
 
 ### Recovery
 
