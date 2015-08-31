@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the StorSimple Manager service to change your StorSimple passwords | Microsoft Azure" 
+   pageTitle="Change your StorSimple passwords | Microsoft Azure" 
    description="Describes how to use the StorSimple Manager service to change your StorSimple Snapshot Manager and device administrator passwords." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/31/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Use the StorSimple Manager service to change your StorSimple passwords
