@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="08/30/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Encoder formats and codecs
@@ -94,6 +94,7 @@ MPEG Layer 2|Yes|Yes|Yes
 MP3 (MPEG-1 Audio Layer 3)|Yes
 Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional, and Windows Media Audio Lossless)	|Yes
 WAV/PCM|Yes
+AMR (adaptive multi-rate)|Yes
 [FLAC](https://en.wikipedia.org/wiki/FLAC)|No
 [Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |No
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)|No
