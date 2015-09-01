@@ -31,11 +31,11 @@
 
 This article describes how get started using Azure Queue storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET project by using the  Visual Studio **Add Connected Services** dialog.
 
-We'll show you how to create and access an Azure Queue in your storage account. We'll also show you how to perform basic Queue operations, such as adding, modifying, reading and removing Queue messages. The samples are written in C# code and use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
+We'll show you how to create and access an Azure Queue in your storage account. We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages. The samples are written in C# code and use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single Queue message can be up to 64 KB in size, and a Queue can contain millions of messages, up to the total capacity limit of a storage account.
+Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
 
-## Access Queues in code
+## Access queues in code
 
 To access queues in ASP.NET projects, you need to include the following items to any C# source file that access Azure Queue storage.
 
@@ -50,9 +50,9 @@ To access queues in ASP.NET projects, you need to include the following items to
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Get a `CloudQueueClient` object to reference the Queue objects in your storage account.  
+3. Get a `CloudQueueClient` object to reference the queueobjects in your storage account.  
 
-	    // Create the Queue client.
+	    // Create the queueclient.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 4. Get a `CloudQueue` object to reference a specific queue.
@@ -142,10 +142,10 @@ will become visible again.
 ## Get the queue length
 
 You can get an estimate of the number of messages in a queue. The
-`FetchAttributes` method asks the Queue service to
+`FetchAttributes` method asks the queueservice to
 retrieve the queue attributes, including the message count. The `ApproximateMethodCount`
 property returns the last value retrieved by the
-`FetchAttributes` method, without calling the Queue service.
+`FetchAttributes` method, without calling the queueservice.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -158,9 +158,9 @@ property returns the last value retrieved by the
 	// Display number of messages.
 	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## Use Async-Await pattern with common Queue APIs
+## Use Async-Await pattern with common queueAPIs
 
-This example shows how to use the Async-Await pattern with common Queue APIs. The sample calls the async version of each of the given methods, this can be seen by the Async post-fix of each method. When an async method is used the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)
+This example shows how to use the Async-Await pattern with common queueAPIs. The sample calls the async version of each of the given methods, this can be seen by the Async post-fix of each method. When an async method is used the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
