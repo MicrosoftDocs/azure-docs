@@ -1,26 +1,27 @@
-<properties 
- pageTitle="About the virtual machine agent and extensions | Microsoft Azure" 
- description="Gives an overview of the agent and extensions, and how to install the agent." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
+<properties
+ pageTitle="About the virtual machine agent and extensions | Microsoft Azure"
+ description="Gives an overview of the agent and extensions, and how to install the agent."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="squillace"
+ manager="timlt"
  editor=""/>
-<tags 
-ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
+<tags
+ms.service="virtual-machines"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="kathydav"/>
+ ms.date="03/10/2015"
+ ms.author="rasquill"/>
+ 
 #About the virtual machine agent and extensions
 The Azure Virtual Machine Agent (VM Agent) is used to install, configure, manage and run Azure Virtual Machine Extensions (VM Extensions). VM Extensions provide dynamic features that Microsoft and other third parties provide. The agent and extensions are added primarily through the Management Portal, but you can also use the [Powershell](../install-configure-powershell.md) cmdlets or the [xplat-cli](virtual-machines-command-line-tools.md) to add and configure either when you create a VM or with existing VMs. VM Extensions include support for [Remote Debugging in Visual Studio](https://msdn.microsoft.com/library/y7f5zaaa.aspx), [System Center 2012](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx), [Microsoft Azure Diagnostics](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/), and [Docker](virtual-machines-docker-vm-extension.md) -- just to name a few.
 
 VM extensions can help you:
 
--   Modify security and identity features, such as resetting account values and using antimalware 
--   Start, stop, or configure monitoring and diagnostics 
+-   Modify security and identity features, such as resetting account values and using antimalware
+-   Start, stop, or configure monitoring and diagnostics
 -   Reset or install connectivity features, such as RDP and SSH
 -   Diagnose, monitor, and manage your VMs
 
