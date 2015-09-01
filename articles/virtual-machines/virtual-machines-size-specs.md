@@ -37,7 +37,7 @@ Virtual machines are available in two tiers: basic and standard. Both types offe
 
 *   DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is in preview and is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage-premium-storage-preview-portal.md).
 
-The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=398570) and [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/). For more information about the disks and storage used in Azure Virtual Machines, see [About Disks and Images in Azure](https://msdn.microsoft.com/library/jj672979).
+The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/). For more details about the disks and storage used by the virtual machines, see [About disks and VHDs for virtual machines ](virtual-machines-disks-vhds.md).
 
 The following considerations might help you decide on a size:
 
