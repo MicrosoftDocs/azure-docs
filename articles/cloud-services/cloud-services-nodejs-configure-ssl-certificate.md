@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="09/01/2015" 
 	ms.author="mwasson"/>
 
 
