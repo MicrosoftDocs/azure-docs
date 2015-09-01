@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2015"
+   ms.date="08/17/2015"
    ms.author="ryanwi"/>
 
 # REST-based application lifecycle sample
@@ -49,7 +49,7 @@ This sample uses the [WordCount sample](https://github.com/azure/servicefabric-s
 
 To create the application packages and copy them to the ImageStore, take the following steps:
 
-1. Copy C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug to C:\Temp\WordCount. This creates the WordCount application package. 
+1. Copy C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug to C:\Temp\WordCount. This creates the WordCount application package.
 2. Copy C:\Temp\WordCount to C:\Temp\WordCountUpgrade. This creates the WordCountUpgrade application package.
 3. Open C:\Temp\WordCountUpgrade\ApplicationManifest.xml in a text editor.
 4. In the ApplicationManifest element, change the ApplicationTypeVersion attribute to "1.1.0.0".  This updates the version number of the application.
@@ -709,5 +709,3 @@ namespace ServiceFabricRestCaller
 ## Next steps
 
 [Service Fabric Application Lifecycle](service-fabric-application-lifecycle.md)
-
- 

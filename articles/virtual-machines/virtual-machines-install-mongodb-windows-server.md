@@ -19,14 +19,14 @@
 
 #Install MongoDB on a virtual machine running Windows Server
 
-[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database.  Using the [Azure portal][AzureManagementPortal], you can create a virtual machine running Windows Server from the Image Gallery.  You can then install and configure a MongoDB database on the virtual machine.
+[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database.  Using the [Azure portal][AzureManagementPortal], you can create a virtual machine running Windows Server from the Image Gallery, using the classic deployment model. You can then install and configure a MongoDB database on the virtual machine.
 
 
 ## Create a virtual machine running Windows Server
 
 Follow these instructions to create a virtual machine.
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 > [AZURE.NOTE] You can add an endpoint for MongoDB while creating the virtual machine, and configure it as follows: name it as **Mongo**, use **TCP** as the protocol, and set both the public and private ports to **27017**.
 

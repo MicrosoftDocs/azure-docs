@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Build and deploy a Node.js API app in Azure App Service"
+	pageTitle="Build and deploy a Node.js API app in Azure App Service | Microsoft Azure"
 	description="Learn how to create a Node.js API app package and deploy it to Azure App Service."
 	services="app-service\api"
 	documentationCenter="nodejs"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="04/21/2015"
+	ms.date="08/11/2015"
 	ms.author="pakefali"/>
 
 # Build and deploy a Node.js API app in Azure App Service
 
 This tutorial shows how to create a [Node.js](http://nodejs.org) application and deploy it to Azure App Service API Apps using [Git](http://git-scm.com). The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
-Here is a screenshot of the completed application:
+The screenshot below shows you the completed application:
 
 ![][sample-api-app-page]
 
@@ -35,7 +35,7 @@ Here is a screenshot of the completed application:
 
 2. Click **NEW** at the bottom left of the portal.
 
-3. Click **Web + Mobile > API App**.
+3. Click **Web + Mobile** > **API App**.
 
 	![][portal-quick-create]
 
@@ -51,7 +51,7 @@ Here is a screenshot of the completed application:
 
 	If you left **Add to Startboard** check box selected, the portal automatically opens the blade for your API app after it's created. If you cleared the checkbox, click **Notifications** on the portal home page to see the API app creation status, and click the notification to go to the blade for the new API app.
 
-7. Click **Settings > Application Settings**.
+7. Click **Settings** > **Application Settings**.
 
 9. Set the Access level to **Public (anonymous)**.
 
@@ -79,7 +79,7 @@ In the portal you manage the features specific to API apps in the **API App** bl
 
 	![][setup-git-publishing]
 
-6. If you have have not previously set up deployment credentials for publishing an API app or other App Service app, set them up now:
+6. If you have not previously set up deployment credentials for publishing an API app or other App Service app, set them up now:
 
 	* Click **Set deployment credentials**.
 
@@ -172,7 +172,6 @@ In this section you create a local Git repository and push from that repository 
 
 		git init
 
-
 2. Enter the following commands to add files to the repository:
 
 		git add .
@@ -196,7 +195,7 @@ In this section you create a local Git repository and push from that repository 
 
 ## View the API definition in the Azure preview portal
 
-Now that you have deployed an API to your API app, you can see the API definition in the Azure preview portal. You'll begin by restarting the *gateway*, which enables Azure to recognize that an API app's API definition has changed. The gateway is a web app that handles API administration and authorization for the API apps in a resource group.
+Now that you've deployed an API to your API app, you can see the API definition in the Azure preview portal. You'll begin by restarting the *gateway*, which enables Azure to recognize that an API app's API definition has changed. The gateway is a web app that handles API administration and authorization for the API apps in a resource group.
 
 6. In the Azure preview portal, go to the **API App** blade for the API app that you created earlier, and click the **Gateway** link.
 
@@ -244,4 +243,3 @@ You've deployed a Node.js web application that uses an API app backend to Azure.
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
- 

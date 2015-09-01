@@ -26,7 +26,7 @@ Azure treats this template as an image and stores it under **Images**. This is a
 
 ## Before You Begin
 
-These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you haven't done this yet, see these instructions:
+These steps assume that you've already created an Azure virtual machine using the classic deployment model and configured the operating system, including attaching any data disks. If you haven't done this yet, see these instructions:
 
 - [How to Create a Virtual Machine Running Linux] []
 
@@ -86,7 +86,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 
 ## Next Steps
-The image is ready to be used as a template to create virtual machines. You can use the Azure CLI command `azure vm create` and supply the image name you just created. See [Using Azure CLI with Service Management](virtual-machines-command-line-tools.md) for details about the command. Alternatively, you can use the [Management Portal] [] to create a custom virtual machine by using the **From Gallery** method and selecting the image you just created. See [How to Create a Custom Virtual Machine] [] for more details.
+The image is ready to be used as a template to create virtual machines. You can use the Azure CLI command `azure vm create` and supply the image name you just created. See [Using Azure CLI with the Service Management API](virtual-machines-command-line-tools.md) for details about the command. Alternatively, you can use the [Management Portal] [] to create a custom virtual machine by using the **From Gallery** method and selecting the image you just created. See [How to Create a Custom Virtual Machine] [] for more details.
 
 **See Also:** [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
 

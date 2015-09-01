@@ -6,7 +6,7 @@ Suppose the Blob dataset is in CSV format and contains 3 columns. One of them is
 You will define the Blob Source dataset as follows along with type definitions for the columns.
 
 	{
-	    "name": " AzureBlobTypeSystemInput",
+	    "name": "AzureBlobTypeSystemInput",
 	    "properties":
 	    {
 	         "structure": 
@@ -30,7 +30,7 @@ You will define the Blob Source dataset as follows along with type definitions f
 	        "availability":
 	        {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        },
 			"policy": {
 	            "externalData": {
@@ -62,7 +62,7 @@ Next you will define the Azure SQL dataset as follows. Note: You do not need to 
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        }
 	    }
 	}

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/27/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos" />
 
 #### To install regular updates via the Management Portal

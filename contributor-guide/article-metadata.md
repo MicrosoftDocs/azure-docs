@@ -11,10 +11,10 @@ All Azure technical articles contain two metadata sections - a properties sectio
 
 ##Syntax
 
-The properties section uses this syntax:
+The properties section uses the following syntax:
 
     <properties
-       pageTitle="Page title that displays in search results and the browser tab | Microsoft Aure"
+       pageTitle="Page title that displays in search results and the browser tab | Microsoft Azure"
        description="Article description that will be displayed on landing pages and in most search results"
        services="service-name"
        documentationCenter="dev-center-name"
@@ -23,7 +23,7 @@ The properties section uses this syntax:
        editor=""
        tags=""/>
 
-The tags section uses this syntax:
+The tags section uses the following syntax:
 
     <tags
        ms.service="required"
@@ -42,9 +42,9 @@ The tags section uses this syntax:
 
 ## Attributes and values for the properties section
 
-![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Azure* (typed as: space pipe space Microsoft Azure).
+![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Azure* (typed as: space pipe space Microsoft Azure).  The pageTitle should be different from the H1.
 
-![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionalities. Use at least 140 characters, but don't exceed 170 characters including spaces. Describe the  purpose of your content so customers will know whether to choose it from a list of search results. The value is:
+![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionalities. The description should be at least 125 characters long to 155 characters maximum including spaces. Describe the  purpose of your content so customers will know whether to choose it from a list of search results. The value is:
 
 - Usually displayed as the description or abstract paragraph in search results
 - Will soon be displayed automatically on documentation landing pages as the description that appears when you click "More". It may appear in other contexts on azure.microsoft.com.
@@ -151,6 +151,7 @@ The tags section uses this syntax:
  - **application-insights**
  - **automation**
  - **azure-resource-manager**
+ - **azure-security**
  - **backup**
  - **batch**
  - **biztalk-services**
