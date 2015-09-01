@@ -56,9 +56,11 @@ To stop the stream permanently, delete the export. Doing so doesn't delete your 
 
 ## <a name="analyze"></a> What events do you get?
 
-The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address.  
+The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address. 
 
 Other calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
+
+The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) you have set up. 
 
 ## <a name="get"></a> Inspect the data
 
