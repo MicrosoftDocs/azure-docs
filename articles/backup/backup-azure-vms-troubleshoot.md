@@ -62,8 +62,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Cancel job | The job is not in a cancellable state - Please wait until the job completes. <br>OR<br> The selected job is not in a cancellable state - Please wait for the job to complete.| In all likelihood the job is almost completed; please wait until the job completes |
 | Cancel job | Cannot cancel the job because it is not in progress - Cancellation is only supported for jobs which are in progress. Please attempt cancel on an in progress job. | This happens due to a transitory state. Wait for a minute and retry the cancel operation |
 | Cancel job | Failed to cancel the Job - Please wait till job finishes. | None |
-| Report generation | The report generation is in progress - Please wait until the report generation is complete and try again later. | ??? |
-| Report generation | Failed to generate the requested report - Please retry the report generation after sometime. |  Why ?? |
+
 
 ## Restore
 | Operation | Error details | Workaround |
