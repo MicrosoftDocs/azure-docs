@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Deploy and manage backup for Azure VMs using PowerShell | Microsoft Azure"
 	description="Learn how to deploy and manage Azure Backup using PowerShell"
 	services="backup"
@@ -126,6 +126,7 @@ Instead of polling these jobs for completion - which is unnecessary, additional 
 PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
+
 ## Restore an Azure VM
 
 In order to restore backup data, you need to identify the backed-up Item and the Recovery Point that holds the point-in-time data. This information is supplied to the Restore-AzureRMBackupItem commandlet to initiate a restore of data from the vault to the customer's account.
@@ -219,6 +220,7 @@ New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
 ```
 
 For more information on how to build a VM from the restored disks, read about the following commandlets:
+
 - [Add-AzureDisk](https://msdn.microsoft.com/library/azure/dn495252.aspx)
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
