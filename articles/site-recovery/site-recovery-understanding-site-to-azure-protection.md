@@ -17,7 +17,7 @@
 	ms.author="anbacker"/>
 
 
-# Understanding Site to Azure Protection
+# Understanding Hyper-V or VMM site to Azure protection
 
 This article describes the technical concepts which helps you successfully configure and manage Hyper-V site or VMM site to Azure protection using Azure Site Recovery.
 
@@ -53,9 +53,11 @@ Hyper-V Replica Replication Tracker, which is part of the Hyper-V Replica Replic
 VM replication health during Initial Replication or Delta Replication can be monitored in the VM view as mentioned under [Monitor replication health for virtual machine](./site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machine).  
 
 ### Re-synchronization 
-A virtual machine is marked for re-synchronization when both Delta Replication fails and Full Initial Replication is costly in terms of network bandwidth or the time it would take to complete a Full Initial Replication. For example when HRL file-size piles up to 50% of the total disk size then the virtual machine is marked for re-synchronization. Re-synchronization minimizes the amount of data sent over the network by computing check-sums of the Source and Target virtual machine disks and sending only the differential. After re-synchronization completes, normal Delta Replication should resume. Re-synchronization can be resumed in the event of an outage (e.g. network outage, VMMS crash, etc.). By default *Automatically scheduled re-synchronization* is configured during the non-office work hours.
+A virtual machine is marked for re-synchronization when both Delta Replication fails and Full Initial Replication is costly in terms of network bandwidth or the time it would take to complete a Full Initial Replication. For example when HRL file-size piles up to 50% of the total disk size then the virtual machine is marked for re-synchronization. Re-synchronization minimizes the amount of data sent over the network by computing check-sums of the Source and Target virtual machine disks and sending only the differential. 
 
-If the virtual machine needs to be re-synchronized manually, select the virtual machine from the portal and click RESYNCHRONIZE.
+After re-synchronization completes, normal Delta Replication should resume. Re-synchronization can be resumed in the event of an outage (e.g. network outage, VMMS crash, etc.). 
+
+By default *Automatically scheduled re-synchronization* is configured during the non-office work hours. If the virtual machine needs to be re-synchronized manually, select the virtual machine from the portal and click RESYNCHRONIZE.
 ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-understanding-site-to-azure-protection/image04.png)
 
 Re-synchronization uses a fixed-block chunking algorithm where Source and Target files are divided into fixed chunks; check-sum for each chunk are generated and then compared to determine which block(s) from the Source need to be applied to the Target. 
