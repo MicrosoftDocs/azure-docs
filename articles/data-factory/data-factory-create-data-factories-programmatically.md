@@ -117,7 +117,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     Name = "LinkedService-AzureStorage",
                     Properties = new LinkedServiceProperties
                     (
-                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>")
                     )
                 }
             }
