@@ -35,9 +35,9 @@ Virtual machines are available in two tiers: basic and standard. Both types offe
 
 *   G-series VMs offer the biggest size and best performance and run on hosts that have Intel Xeon E5 V3 family processors.
 
-*   DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is in preview and is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage-premium-storage-preview-portal.md).
+*   DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage-premium-storage-preview-portal.md).
 
-The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/). For more details about the disks and storage used by the virtual machines, see [About disks and VHDs for virtual machines ](virtual-machines-disks-vhds.md).
+The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/). For more details about storage for VMss, see [About disks and VHDs for virtual machines ](virtual-machines-disks-vhds.md).
 
 The following considerations might help you decide on a size:
 
