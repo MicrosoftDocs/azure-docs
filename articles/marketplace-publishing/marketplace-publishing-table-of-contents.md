@@ -16,7 +16,7 @@
    ms.date="mm/dd/yyyy"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
-# Publishing an Offer in the Azure Marketplace
+# Publishing an Offer on the Microsoft Azure Marketplace
 ## Getting Started
 What is it to be an Azure Marketplace Publisher
 
