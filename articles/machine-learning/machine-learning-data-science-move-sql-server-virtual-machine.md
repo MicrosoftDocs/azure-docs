@@ -235,6 +235,7 @@ A screenshot of the Database backup/restore options from SQL Server Management S
 ## Resources
 
 [Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+
 [SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
