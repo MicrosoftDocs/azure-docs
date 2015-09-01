@@ -201,7 +201,7 @@ The Storm UI can be used to monitor the topology.
 
 ### Stop the topology
 
-Return to the **Topology summary** page for the word-count topology, and then select **Kill** from the **Topology actions** section. When prompted, enter 10 for the seconds to wait before stopping the topology. After the timeout period, the topology no longer appeara when you visit the **Storm UI** section of the dashboard.
+Return to the **Topology summary** page for the word-count topology, and then select **Kill** from the **Topology actions** section. When prompted, enter 10 for the seconds to wait before stopping the topology. After the timeout period, the topology no longer appears when you visit the **Storm UI** section of the dashboard.
 
 ## Summary
 
