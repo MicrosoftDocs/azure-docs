@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2015"
+   ms.date="08/26/2015"
    ms.author="jesseb"/>
 
 # Debugging your Service Fabric Application in Visual Studio using F5
@@ -28,7 +28,7 @@ You can save time and money by deploying and debugging your Service Fabric appli
 
 3. Set breakpoints in your code and step through the application by clicking on commands in the **Debug** menu.
 
-    > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit, making the breakpoint conditional on the thread ID, or use Diagnostic Events.
+    > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit, making the breakpoint conditional on the thread ID, or using Diagnostic Events.
 
 4. The **Diagnostic Events** window will automatically open to view diagnostic events in real time.
 

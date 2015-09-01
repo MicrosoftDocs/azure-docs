@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Failover and disaster recovery for your StorSimple device | Microsoft Azure"
+   pageTitle="StorSimple failover and disaster recovery | Microsoft Azure"
    description="Learn how to fail over your StorSimple device to itself, another physical device, or a virtual device."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/12/2015"
+   ms.date="08/28/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device

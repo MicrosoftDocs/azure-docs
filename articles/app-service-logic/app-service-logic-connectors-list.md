@@ -1,6 +1,6 @@
 <properties
-	pageTitle="List of Connectors and API Apps | Microsoft Azure"
-	description="Read about the Connectors and API Apps in Azure App Service; microservices architecture"
+	pageTitle="List of available Connectors and API Apps | Microsoft Azure App Service"
+	description="Read about the Connectors and API Apps in Azure App Service"
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
 
-# Connectors and API Apps List in Microsoft Azure App Service
-This topic lists all the available connectors and API Apps created by Microsoft.
+# Connectors and API Apps List to use in your Logic Apps
+Learn about all the available connectors and API Apps created by Microsoft to use within your Logic Apps.
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/).
 

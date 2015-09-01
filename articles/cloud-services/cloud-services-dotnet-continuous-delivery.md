@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Continuous delivery for cloud services with TFS in Azure"
+	pageTitle="Continuous delivery for cloud services with TFS in Azure | Microsoft Azure"
 	description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts."
 	services="cloud-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/19/2015"
 	ms.author="kempb"/>
 
 # Continuous Delivery for Cloud Services in Azure
@@ -48,10 +48,12 @@ server, follow the instructions in the [Team Foundation Build Service][]
 documentation.
 
 1.  On the build server, install the [.NET Framework 4][], [.NET Framework 4.5][], or [.NET Framework 4.5.2][], which include MSBuild.
-2.  Install the [Azure Authoring Tools][] (look for MicrosoftAzureAuthoringTools-x86.msi or MicrosoftAzureAuthoringTools-x64.msi, depending on your build server's processor). Older versions of the files might have WindowsAzure in the filename.
-3. Install the [Azure Libraries][] (look for MicrosoftAzureLibsForNet-x86.msi or MicrosoftAzureLibsForNet-x64.msi).
-4.  Copy the Microsoft.WebApplication.targets file from a Visual Studio installation to the build server.On a computer with Visual Studio installed, the file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0 for Visual Studio 2013). You should copy it to the same directory on the build server.
-5.  Install the [Azure Tools for Visual Studio][]. Look for MicrosoftAzureTools.VS110.exe to build Visual Studio 2012 projects, and MicrosoftAzureTools.VS120.exe to build Visual Studio 2013 projects, and MicrosoftAzureTools.VS140.exe to build Visual Studio 2015 Preview projects.
+2.  Install the [Azure Authoring Tools for .NET](http://go.microsoft.com/fwlink/?LinkId=623518) (substitute MicrosoftAzureAuthoringTools-x86.msi in the link instead of MicrosoftAzureAuthoringTools-x64.msi if your build server has a 32-bit OS/processor).
+3. Install the [Azure Libraries for .NET](http://go.microsoft.com/fwlink/?LinkId=623519) (substitute MicrosoftAzureLibsForNet-x86.msi in the link if needed).
+4.  Copy the Microsoft.WebApplication.targets file from a Visual Studio installation to the build server.
+
+	On a computer with Visual Studio installed, this file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications (v12.0 for Visual Studio 2013). You should copy it to the same directory on the build server.
+5.  Install the [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=623520). Use MicrosoftAzureTools.VS140.exe to build Visual Studio 2015 projects, or MicrosoftAzureTools.VS120.exe to build Visual Studio 2013 projects.
 
 ## Step 2: Build a Package using MSBuild Commands
 
@@ -61,7 +63,7 @@ everything is configured correctly and that the MSBuild command does
 what you want it to do. You can either add this command line to existing
 build scripts on the build server, or you can use the command line in a
 TFS Build Definition, as described in the next section. For more
-information about command-line parameters and MSBuild, see [MSBuild Command Line Reference][].
+information about command-line parameters and MSBuild, see [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
 1.  If Visual Studio is installed on the build server, click
     **Start**, click **All Programs**, and then locate and click
@@ -142,9 +144,9 @@ If you have Team Foundation Server (TFS) set up as a build controller
 and the build server set up as a TFS build machine, then you can set up
 an automated build for your Azure package. For information on
 how to set up and use Team Foundation server as a build system, see
-[Understanding the Team Foundation Build System][]. In particular, the
+[Scale out your build system][]. In particular, the
 following procedure assumes that you have configured your build server
-as described in [Configure a Build Machine][], and that you have created
+as described in [Deploy and configure a build server][], and that you have created
 a team project, created a cloud service project in the team project.
 
 To configure TFS to build Azure packages, perform the following
@@ -768,20 +770,16 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 ## Next steps
 
-To enable remote debugging when using continuous delivery, see [these instructions](http://go.microsoft.com/fwlink/p/?LinkID=402354).
+To enable remote debugging when using continuous delivery, see [Enable remote debugging when using continuous delivery to publish to Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
   [Continuous Delivery to Azure by Using Visual Studio Online]: cloud-services-continuous-delivery-use-vso.md  
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
-  [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
-  [Azure Libraries]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild Command Line Reference]: http://msdn.microsoft.com/library/ms164311(v=VS.90).aspx
-  [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
-  [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
-  [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799
+	[1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
+  [Scale out your build system]: http://go.microsoft.com/fwlink/?LinkId=238798
+  [Deploy and configure a build server]: http://go.microsoft.com/fwlink/?LinkId=238799
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [Azure PowerShell cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
