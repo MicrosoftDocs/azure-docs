@@ -136,7 +136,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	![Solution Explorer](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-	The **Web Publish Activity** window shows that the web app has been created.
+	The **Azure App Service Activity** window shows that the web app has been created.
 
 	![Web app created](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -200,7 +200,7 @@ This section of the tutorial is optional. What you'll do is change the **h1** he
 
 	![Web app running locally](./media/web-sites-dotnet-get-started/localandazure.png)
 
-	The `localhost` URL shows that it's running on your local computer. By default, it's running in IIS Express. This is a lightweight version of IIS that's designed for use during web application development.
+	The `localhost` URL shows that it's running on your local computer. By default it's running in IIS Express, which is a lightweight version of IIS that's designed for use during web application development.
 
 1. Close the browser.
 
@@ -276,7 +276,7 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 	For information about how to use SSL and your own domain (for example, www.contoso.com instead of contoso.azurewebsites.net), see the following resources:
 
-	* [Configure a custom domain name for an Azure website](web-sites-custom-domain-name.md)
+	* [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md)
 	* [Enable HTTPS for an Azure website](web-sites-configure-ssl-certificate.md)
 
 * How to avoid wake-up wait time after idle time-outs
