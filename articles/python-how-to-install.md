@@ -118,7 +118,7 @@ Using PTVS is optional, but is recommended as it gives you Python and Web Projec
 
 PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services][] and [Websites][].
 
-PTVS works with your existing Visual Studio 2010, 2012 or 2013 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
+PTVS works with your existing Visual Studio 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
 
 ## Windows Uninstall
 
