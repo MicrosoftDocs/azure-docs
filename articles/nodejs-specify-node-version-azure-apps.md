@@ -40,9 +40,11 @@ If you are hosting the application in a Website, you can set the environment var
 
 If you are hosting the application in a Cloud Service, and are deploying the application using Azure PowerShell, you can override the default Node.js version by using the **Set-AzureServiceProjectRole** PowerShell cmdlet. For example:
 
-	Set-AzureServiceProjectRole WebRole1 node 0.8.4
+	Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-You can also use the **Get-AzureServiceProjectRoleRuntime** to retrieve a list of Node.js versions available for applications hosted as a Cloud Service.
+Note the parameters in the above statement are case-sensitive.  You can verify the correct version of Node.js has been selected by checking the **engines** property in your role's **package.json**.
+
+You can also use the **Get-AzureServiceProjectRoleRuntime** to retrieve a list of Node.js versions available for applications hosted as a Cloud Service.  Always verify the version of Node.js your project depends on is in this list.
 
 ##Using a custom version with Azure Websites
 

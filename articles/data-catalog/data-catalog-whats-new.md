@@ -13,12 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/21/2015"
+   ms.date="08/28/2015"
    ms.author="maroche"/>
 
-# What's New in Azure Data Catalog
+# What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
+
+## What's new for the week of August 28, 2015 release
+
+As of the week of August 28, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for data profiling of SQL Server and Oracle data sources. When registering SQL Server and Oracle tables and views, users can choose to include data profile information for the objects being registered. The data profile includes object-level and column-level statistics.
+- Support for Hadoop HDFS data sources. Users can now register and discover HDFS files and directories.
 
 ## What's new for the week of August 21, 2015 release
 
