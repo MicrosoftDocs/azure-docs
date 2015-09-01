@@ -35,13 +35,13 @@ As part of setting up DR between two on-premises location; Azure Site Recovery P
 
 ### VMM Site Deployment for replication between on-premises & Azure.
 
-As part of setting up DR between on-premises & Azure; Azure Site Recovery Provider needs to be downloaded and installed on the VMM server along with Azure Recovery Services Agent which needs to be installed on each Hyper-V host.
+As part of setting up DR between on-premises & Azure; Azure Site Recovery Provider needs to be downloaded and installed on the VMM server along with Azure Recovery Services Agent which needs to be installed on each Hyper-V host. Refer [Understanding Site to Azure Protection](./site-recovery-understanding-site-to-azure-protection.md) for information.
 
 ![VMM Site Deployment for replication between on-premises & Azure](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### Hyper-V Site Deployment for replication between on-premises & Azure
 
-This is same as that of VMM Deployment – only difference being Provider & Agent gets installed on the Hyper-V host itself.
+This is same as that of VMM Deployment – only difference being Provider & Agent gets installed on the Hyper-V host itself. Refer [Understanding Site to Azure Protection](./site-recovery-understanding-site-to-azure-protection.md) for information.
 
 ## Monitor configuration, protection and recovery operations
 
@@ -162,8 +162,7 @@ URL at <http://aka.ms/getazuresupport>
 
 ## Common ASR errors and their resolutions
 
-Below are the common errors that you may hit and their resolutions. Each
-of the error is documented in a separate WIKI page.
+Below are the common errors that you may hit and their resolutions. Each of the error is documented in a separate WIKI page.
 
 ### Setup
 -   [The VMM server cannot be registered due to an internal error. Please refer to the jobs view in the Site Recovery Portal for more details on the error. Run Setup again to register the server.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
