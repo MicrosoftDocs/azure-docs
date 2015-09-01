@@ -287,7 +287,7 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
     > clusrun /interleaved echo \"for i in {1..10}; do echo \\\"\$i\\\"; sleep 1; done\" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
->[AZURE.NOTE] You might need to use certain escape characters in clusrun commands. As shown in this example, use ^ in a Command window to escape the ">" symbol.
+>[AZURE.NOTE] You might need to use certain escape characters in **clusrun** commands. As shown in this example, use ^ in a Command window to escape the ">" symbol.
 
 ## Next steps
 
@@ -296,9 +296,6 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
 * Try scaling up the cluster to a larger number of nodes, or deploy size [A8 or A9](virtual-machines-a8-a9-a10-a11-specs.md) compute nodes to run MPI workloads.
 
 * Try an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) with Azure Resource Manager to speed up deployments of HPC Pack with a larger number of  Linux compute nodes.
-
-
-
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-linux-cluster-hpcpack/scenario.png
