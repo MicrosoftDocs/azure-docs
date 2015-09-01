@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2015" 
+	ms.date="09/01/2015" 
 	ms.author="rasquill"/>
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI
