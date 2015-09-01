@@ -18,8 +18,8 @@
 	ms.author="genemi"/>
 
 
-# Create your first Azure SQL Database
-This article shows you how to create a sample Azure SQL Database in just a few minutes using the Azure portal. You'll learn how to:
+# Create your first Azure SQL database
+This article shows you how to create a sample SQL database in just a few minutes using the Azure portal. You'll learn how to:
 
 - Create a server to host the database you create, and then set up a firewall rule for it
 - Create a database from an AdventureWorks sample, which has data that you can play with
@@ -30,68 +30,57 @@ You'll need an Azure account and subscription before you start. If you don't hav
 1. Sign in to the [Azure portal](http://portal.azure.com/).
 2. Click **New** > **Data + Storage** > **SQL Database**.
 
-	![Create a new SQL database](./media/sql-database-get-started/get-started-createdb.png)
-
-    The SQL Database settings that appear let you set up the server and database you'll create.
+	![Create a new SQL database](./media/sql-database-get-started/create-db.png)
+	
+	The **SQL Database** settings blade that appears is where you'll set up the server and database details.
 
 	![Database and server settings for SQL database](./media/sql-database-get-started/get-started-dbandserversettings.png)
 
-
 ## Step 2: Choose server settings
-A SQL database in Azure lives on a database *server*. A server can host multiple databases. As you set up your database, you'll also create and set up the server.  
-
-> [AZURE>NOTE] The server isn't technically a physical server. It may move between physical servers in the data center (without impacting your data or app), and it's always backed up on more than one physical server at a time, so we sometimes call it a *logical* server.
+A SQL database in Azure lives on a database server. A server can host multiple databases. As you set up a database, you can also create and set up the server that will host it, or you can use one that was created earlier. We'll set up a new one.
 
 1. Type a **Name** for your database (we use **AdventureWorks**). We'll come back to cover other database settings later.
 2. Under **Server** click **Configure required settings**, and then click **Create a new server**.
 
 	![Name your database](./media/sql-database-get-started/name-and-newserver.png)
 
-	You now see settings for your **New server**.
-
-3. Type a **Server Name** that's unique throughout Azure and easy to remember. You'll need this name later, when you connect and work with your database.
+3. In the **New server** blade, type a **Server Name** that's unique throughout Azure and easy to remember. You'll need this name later, when you connect and work with your database.
 4. Type a **Server admin login** that's easy to remember (we use **AdventureAdmin**). Then type a secure **Password** and type it again in **Confirm password**.
 
 	![New database server settings](./media/sql-database-get-started/get-started-serversettings.png)
 
-	The **Location** determines the data center region where your server is created. Azure picks a default that works for now. 
+	 Leave **Create V12 Server (latest update)** set to **Yes** to use the latest features. The **Location** determines the data center region where your server is created, and Azure picks a default that works for now.
 
 	>[AZURE.TIP] Create database servers in a location close to  you and close to the applications that will use the database. If you want to change the location, just click **Location**, pick a different one, and then click **OK**.
 
-	Leave **Create V12 Server (latest update)** set to **Yes** and then click **OK** to go back to **SQL Database** settings. 
+5. Click **OK** to go back to **SQL Database** blade. 
 
 The database and server aren't created yet. This happens after the next step, where you choose to create the database from the AdventureWorks sample and confirm settings.
 
 ## Step 4: Set up the database source and then create the server and database
-1. Click **Select source** and then click **Sample**. 
+1. In the **SQL Database** blade, click **Select source** and then click **Sample**. 
 
 	![Create a database from a sample](./media/sql-database-get-started/new-sample-db.png)
 
-	You return to settings, where **Select sample** shows **AdventureWorks LT [V12]**. 
-
-2. Click **Create**.
+2. You return to the **SQL Database** blade, where **Select sample** now shows **AdventureWorks LT [V12]**. Now click **Create** to kick off creation of the server and database.
 
 	![Create a sample database](./media/sql-database-get-started/adworks_create.png)
 
-	>[AZURE.NOTE] For this quick how-to, we didn't change the settings for **Pricing tier**, **Collation**, and **Resource group**. You can change the pricing tier of a database and scale up and down at any time, with no downtime. See [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/) and [SQL database pricing tiers](sql-database-service-tiers.md) to learn more. The collation of a database can't be changed once you set it up here. See [Collation and Unicode Support](https://msdn.microsoft.com/library/ms143726.aspx) for details about collation. See [Azure Resource Manager Overview](resource-group-overview.md) for details about Azure resource groups.
-
-	You jump back to the Azure Startboard, where a tile shows progress...
-
-	![Create a database from a sample](./media/sql-database-get-started/get-started-creating.png)
-
-	...until the database is created and it's Online.
+	You jump back to the Azure Startboard, where a tile shows progress until the database is created and it's online.
 	
 	![Create a database from a sample](./media/sql-database-get-started/get-started-online.png)
 
-Congratulations! You now have a database running in the cloud.  You're almost finished. There's one key step left. You need to create a rule on the database server so you can connect to the database.
+	Congratulations! You now have a database running in the cloud.  You're almost finished. There's one key step left. You need to create a rule on the database server so you can connect to the database.
+
+>[AZURE.NOTE] For this quick how-to, we didn't change the settings for **Pricing tier**, **Collation**, and **Resource group**. You can change the pricing tier of a database and scale up and down at any time, with no downtime. See [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/) and [SQL database pricing tiers](sql-database-service-tiers.md) to learn more. The collation of a database can't be changed once you set it up here. See [Collation and Unicode Support](https://msdn.microsoft.com/library/ms143726.aspx) for details about collation. See [Azure Resource Manager Overview](resource-group-overview.md) for details about Azure resource groups.
 
 ## Step 5: Configure the firewall
 
-A firewall rule on the server will allow connections from your client computer's IP address, so you can move on to the next steps below.
+You need to set up a firewall rule on the server that allows connections from your client computer's IP address so you can work with the database. This helps ensure you can connect and it's also a great way to show you the area where you can get and set other details about SQL Servers in Azure. 
 
-1. Click **Browse all**, scroll to click **SQL Servers**, and then click the name of the server you created earlier from the list of **SQL servers**.
+1. Click **Browse all**, scroll down and then click **SQL Servers**, and then click the name of the server you created earlier from the list of **SQL servers**.
 
-	![Select your database server](./media/sql-database-get-started/browse-dbservers.png)
+	![Select your database server](./media/sql-database-get-started/browse_dbservers.png)
 
 	
 3. In the database properties blade that appears to the right, click **Settings** and then click **Firewall** from the list.
