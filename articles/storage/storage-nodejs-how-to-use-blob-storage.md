@@ -24,7 +24,7 @@
 
 ## Overview
 
-This guide will show you how to perform common scenarios using the
+This guide shows you how to perform common scenarios using the
 Azure Blob service. The samples are written using the
 Node.js API. The scenarios covered include **uploading**, **listing**,
 **downloading**, and **deleting** blobs.
@@ -71,13 +71,13 @@ Using Notepad or another text editor, add the following to the top the
 
     var azure = require('azure-storage');
 
-## Setup an Azure storage connection
+## Set up an Azure storage connection
 
 The azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING` for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
 For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
 
-## How to: create a container
+## Create a container
 
 The **BlobService** object lets you work with containers and blobs. The
 following code creates a **BlobService** object. Add the following near
@@ -144,7 +144,7 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var blobSvc = azure.createBlobService().withFilter(retryOperations);
 
-## How to: Upload a blob into a container
+## Upload a blob into a container
 
 A blob can be either block, or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
@@ -194,19 +194,20 @@ The following example uploads the contents of the **test.txt** file into **mypag
 
 > [AZURE.NOTE] Page blobs consist of 512-byte 'pages'. You may receive an error when uploading data with a size that is not a multiple of 512.
 
-## How to: List the blobs in a container
+## List the blobs in a container
 
 To list the blobs in a container, use the **listBlobsSegmented** method. If you would like to return blobs with a specific prefix, use **listBlobsSegmentedWithPrefix**.
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
       if(!error){
-        // result contains the entries
+        // result.entries contains the entries
+        // If not all blobs were returned, result.continuationToken has the continuation token.
 	  }
 	});
 
 The `result` will contain an `entries` collection, which is an array of objects describing each blob. If all blobs cannot be returned, the `result` will also provide a `continuationToken`, which may be used as the second parameter to retrieve additional entries.
 
-## How to: Download blobs
+## Download blobs
 
 To download data from a blob, use the following:
 
@@ -229,7 +230,7 @@ The following example demonstrates using **getBlobToStream** to download the con
 
 The `result` will contain information about the blob, including **ETag** information.
 
-## How to: Delete a blob
+## Delete a blob
 
 Finally, to delete a blob, call **deleteBlob**. The following example deletes the blob named **myblob**.
 
@@ -239,7 +240,7 @@ Finally, to delete a blob, call **deleteBlob**. The following example deletes th
 	  }
 	});
 
-## How to: Concurrent access
+## Concurrent access
 
 To support concurrent access to a blob from multiple clients or multiple process instances, you can use **ETags** or **leases**.
 
@@ -283,7 +284,7 @@ Subsequent operations on **myblob** must provide `options.leaseId` parameter. Th
 
 To remove a lease, use **releaseLease**. To break a lease, but prevent others from obtaining a new lease until the original duration has expired, use **breakLease**.
 
-## How to: Work with shared access signatures
+## Work with shared access signatures
 
 Shared Access Signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
 
