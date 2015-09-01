@@ -136,6 +136,8 @@ Like service manifests, **Version** attributes are unstructured strings and not 
 
 > [AZURE.NOTE] An application manifest can contain multiple service manifest imports and default services. Each service manifest import can be versioned independently.
 
+To learn how to manage application and service configuration parameters for different environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
+
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
 
@@ -223,6 +225,7 @@ Once the application is packaged correctly and passes verification, then it's re
 ## Next steps
 
 [Deploy and remove applications][10]
+[Manage application configurations for different environments][11]
 
 <!--Image references-->
 [1]: ./media/service-fabric-application-model/application-model.jpg
@@ -232,3 +235,4 @@ Once the application is packaged correctly and passes verification, then it's re
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
+[11]: service-fabric-manage-multiple-environment-app-configuration.md
