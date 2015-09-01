@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/06/2015"
+    ms.date="08/27/2015"
     ms.author="banders"/>
 
 # Onboard to Azure Operational Insights in minutes
@@ -27,6 +27,10 @@ You can get up and running with Azure Operational Insights in minutes. You have 
 - Microsoft Azure subscription
 
 You can create an Operations Management Suite workspace using the Operations Management Suite website. Or, you can use a Microsoft Azure subscription to create an Operational Insights workspace. Currently, both workspaces are functionally equivalent. The only difference between the two is the name. If you use an Azure subscription, you can also use that subscription to access other Azure services. Regardless of the method that you use to create the workspace, you'll create the workspace with either a Microsoft account or organizational account.
+
+Here's a look at the process:
+
+![onboarding process](./media/operational-insights-onboard-in-minutes/onboard-oms.png)
 
 ## Sign up in 3 steps using the Operations Management Suite
 
