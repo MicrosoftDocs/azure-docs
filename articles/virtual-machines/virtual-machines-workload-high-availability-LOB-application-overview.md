@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Deploy a High-Availability Line of Business Application in Azure" 
-	description="You can deploy a web-based, high-availability, line of business application with SQL Server AlwaysOn Availability Groups in Azure in five phases." 
+	pageTitle="Deploy a line of business application | Microsoft Azure" 
+	description="Deploy a web-based, highly-available, line of business application with SQL Server AlwaysOn Availability Groups in Azure in five phases." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
@@ -63,3 +63,5 @@ To start the configuration of this workload, go to [Phase 1: Configure Azure](vi
 [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)

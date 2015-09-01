@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos"/>
 
 # StorSimple security 
@@ -92,7 +92,7 @@ CHAP is an authentication scheme used by the StorSimple device to validate the i
 > * You cannot use the same password for both the CHAP initiator and the CHAP target.
 > * After you set the password, it can be changed but it cannot be retrieved. If the password is changed, be sure to notify all remote access users so that they can successfully connect to the StorSimple device.
 
-For more information and to configure CHAP, go to [Configure CHAP for your StorSimple device](storsimple-configure-chap.md)
+For more information and to configure CHAP, go to [Configure CHAP for your StorSimple device](storsimple-configure-chap.md).
 
 ### StorSimple Snapshot Manager password
 
@@ -135,7 +135,7 @@ The primary purpose of the StorSimple Manager service is to manage and configure
 > [AZURE.IMPORTANT]
 > 
 > * The service data encryption key is generated only on the first device registered with the service. All subsequent devices that are registered with the service must use the same service data encryption key. It is very important to make a copy of this key and save it in a secure location. A copy of the service data encryption key should be stored in such a way that it can be accessed by an authorized person and can be easily communicated to the device administrator.
-> * You can change the service data encryption key and the corresponding data encryption certificate by selecting the **Change service data encryption key** option on the service dashboard. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Use the service dashboard](storsimple-service-dashboard.md).
+> * You can change the service data encryption key and the corresponding data encryption certificate by selecting the **Change service data encryption key** option on the service dashboard. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Use the StorSimple Manager service dashboard](storsimple-service-dashboard.md).
 > * To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key.
 > * If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state. We recommend that you change the service data encryption key after it is retrieved. For instructions, go to [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > * The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key on a regular schedule to help prevent key compromise.</li></ul>
@@ -153,7 +153,7 @@ The StorSimple device manages data by storing it in tiers locally and in the clo
 
 ### Additional security best practices
 
-- To implement redundancy, use multipathing (MPIO) to avoid a single point of failure in the iSCSI SAN. For detailed instructions, see [Configure MPIO for your StorSimple device](#storsimple-configure-mpio-windows-server.md).
+- To implement redundancy, use multipathing (MPIO) to avoid a single point of failure in the iSCSI SAN. For detailed instructions, see [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
 
 - Split traffic: isolate your iSCSI SAN from user traffic on a corporate LAN by deploying a totally separated network and using VLANs where physical isolation is not an option. A dedicated network for iSCSI storage will guarantee the safety and performance of your business-critical data. Mixing storage and user traffic over a corporate LAN is not recommended and can increase latency and cause network failures.
 
@@ -250,5 +250,5 @@ The following are some questions and answers about security and Microsoft Azure 
 
 ## Next steps
 
-[Deploy your StorSimple device](storsimple-deployment-walkthrough.md)
+[Deploy your StorSimple device](storsimple-deployment-walkthrough.md).
  

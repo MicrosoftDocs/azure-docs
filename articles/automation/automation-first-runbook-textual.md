@@ -1,5 +1,5 @@
 <properties
-	pageTitle="My first textual runbook in Azure Automation"
+	pageTitle="My first textual runbook in Azure Automation | Microsoft Azure"
 	description="Tutorial that walks you through the creation, testing, and publishing of a simple textual runbook using PowerShell Workflow.  Several concepts are covered such as authenticating to Azure resources and input parameters."
 	services="automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.date="08/18/2015"
 	ms.author="bwren"/>
 
 
@@ -98,15 +98,15 @@ The options across the top allow us to start the runbook, schedule it to start a
 
 ## Step 5 - Add authentication to manage Azure resources
 
-We've tested and published our runbook, but so far it doesn't do anything useful.  We want to have it manage Azure resources.  It won't be able to do that though unless we have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites).  We do that with the **Set-AzureAccount** cmdlet.
+We've tested and published our runbook, but so far it doesn't do anything useful.  We want to have it manage Azure resources.  It won't be able to do that though unless we have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites).  We do that with the **Add-AzureAccount** cmdlet.
 
 1.  Open the textual editor by clicking **Edit** on the MyFirstRunbook-Textual pane.<br>
 ![Edit runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png) 
 2.  We don't need the **Write-Output** line anymore, so go ahead and delete it.
 3.  Position the cursor on a blank line between the braces.
 3.  In the Library control, expand **Assets** and then **Credentials**.
-4.  Right click your credential and click **Add to canvas**.  This adds a **Get-AutomationCredential** activity for your credential.
-5.  In front of **Get-AutomationCredential**, type *$Credential =* to assign the credential to a variable. 
+4.  Right click your credential and click **Add to canvas**.  This adds a **Get-AutomationPSCredential** activity for your credential.
+5.  In front of **Get-AutomationPSCredential**, type *$Credential =* to assign the credential to a variable. 
 3.  On the next line, type *Add-AzureAccount -Credential $Credential*. <br>
 ![Authenticate](media/automation-first-runbook-textual/authentication.png) 
 3. Click **Test pane** so that we can test the runbook.

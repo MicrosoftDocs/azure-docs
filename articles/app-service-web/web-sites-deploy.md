@@ -127,7 +127,6 @@ For information about how to deploy to Web Apps from Visual Studio, see the foll
 
 For information about how to deploy to Web Apps from WebMatrix, see the following resources:
 
-* [Develop and deploy a web app with Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md). How to create a simple ASP.NET web app by using a WebMatrix template and deploy it to Web Apps by using WebMatrix and Web Deploy.
 * [Build and deploy a Node.js web site to Azure using WebMatrix](web-sites-nodejs-use-webmatrix.md).
 * [Create and deploy a PHP-MySQL web app using WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Integrated Git and Deployment to Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). How to use WebMatrix to deploy from a Git source control repository.
