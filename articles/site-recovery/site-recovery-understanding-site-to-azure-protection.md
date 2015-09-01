@@ -27,7 +27,7 @@ This article describes the technical concepts which helps you successfully confi
 
 As part of setting up DR between on-premises & Azure; Azure Site Recovery Provider needs to be downloaded and installed on the VMM server along with Azure Recovery Services Agent which needs to be installed on each Hyper-V host.
 
-![VMM Site Deployment for replication between on-premises & Azure](media/site-recovery-monitoring-and-troubleshooting/image00.png)
+![VMM Site Deployment for replication between on-premises & Azure](media/site-recovery-understanding-site-to-azure-protection/image00.png)
 
 Hyper-V Site deployment is same as that of VMM Deployment – only difference being Provider & Agent gets installed on the Hyper-V host itself.
 
