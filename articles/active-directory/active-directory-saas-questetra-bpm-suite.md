@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="09/01/2015"
 	ms.author="markusvi"/>
 
 
@@ -102,10 +102,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 3. In a different web browser window, log into your **Questetra BPM Suite** company site as an administrator.
-4. In the menu on the top, click **System Settings**. <br><br> ![Azure AD Single Sign-On][10]
-5. Click **SSO (SAML)**. <br><br> ![Azure AD Single Sign-On][11]
 
-6. On the System Settings page... <Something is missing here>.  
+4. In the menu on the top, click **System Settings**. <br><br> ![Azure AD Single Sign-On][10]
+
+5. To open the System Settings page, click **SSO (SAML)**. <br><br> ![Azure AD Single Sign-On][11]
 
 
 7. In the Azure portal, on the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][13]
