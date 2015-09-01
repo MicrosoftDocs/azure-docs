@@ -29,88 +29,59 @@ To setup DR between on-premises VMware/Physical machine; Configuration Server, M
 
 ### VMM Site Deployment for replication between on-premises site.
 
-As part of setting up DR between two on-premises location; Azure Site
-Recovery Provider needs to be downloaded and installed on the VMM
-server. Provider needs internet connectivity to ensure that all the
-operations triggered from Azure Portal gets translated to on-premises
-operations like enable protection, shutdown primary side virtual
-machines as part of failovers etc.
+As part of setting up DR between two on-premises location; Azure Site Recovery Provider needs to be downloaded and installed on the VMM server. Provider needs internet connectivity to ensure that all the operations triggered from Azure Portal gets translated to on-premises operations like enable protection, shutdown primary side virtual machines as part of failovers etc.
 
 ![VMM Site Deployment for replication between on-premises site](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### VMM Site Deployment for replication between on-premises & Azure.
 
-As part of setting up DR between on-premises & Azure; Azure Site
-Recovery Provider needs to be downloaded and installed on the VMM server
-along with Azure Recovery Services Agent which needs to be installed on
-each Hyper-V host.
+As part of setting up DR between on-premises & Azure; Azure Site Recovery Provider needs to be downloaded and installed on the VMM server along with Azure Recovery Services Agent which needs to be installed on each Hyper-V host.
 
 ![VMM Site Deployment for replication between on-premises & Azure](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### Hyper-V Site Deployment for replication between on-premises & Azure
 
-This is same as that of VMM Deployment – only different being Provider &
-Agent gets installed on the Hyper-V host itself.
+This is same as that of VMM Deployment – only difference being Provider & Agent gets installed on the Hyper-V host itself.
 
 ## Monitor configuration, protection and recovery operations
 
-Every operation in ASR gets audited and is tracked under the “JOBS” tab.
-In case of any configuration, protection or recovery error navigate to
-the JOBS tab and see if there are any failures.
+Every operation in ASR gets audited and is tracked under the “JOBS” tab. In case of any configuration, protection or recovery error navigate to the JOBS tab and see if there are any failures.
 
 ![Monitor configuration, protection and recovery operations](media/site-recovery-monitoring-and-troubleshooting/image3.png)
 
-Once you find failures under the JOBS view, select the JOB and click
-ERROR DETAILS for that job.
+Once you find failures under the JOBS view, select the JOB and click ERROR DETAILS for that job.
 
 ![Monitor configuration, protection and recovery operations](media/site-recovery-monitoring-and-troubleshooting/image4.png)
 
-The error details will help you identify possible cause and
-recommendation for the issue.
+The error details will help you identify possible cause and recommendation for the issue.
 
 ![Monitor configuration, protection and recovery operations](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-In the above case there seems to be another operation which is in
-progress because of which Protection configuration is failing. Ensure
-that you resolve the issue as per the recommendation – there-after click
-RESART to re-initiate the operation.
+In the above case there seems to be another operation which is in progress because of which Protection configuration is failing. Ensure that you resolve the issue as per the recommendation – there-after click RESART to re-initiate the operation.
 
 ![Monitor configuration, protection and recovery operations](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 
-Option to RESTART is not available for all operations – for those which
-doesn’t have the RESTART option navigate back to the object and redo the
-operation once again. Every JOB can be cancelled at any point of time
-while in-progress using the CANCEL button.
+Option to RESTART is not available for all operations – for those which doesn’t have the RESTART option navigate back to the object and redo the operation once again. Every JOB can be cancelled at any point of time while in-progress using the CANCEL button.
 
 ![Monitor configuration, protection and recovery operations](media/site-recovery-monitoring-and-troubleshooting/image7.png)
 
 ## Monitor replication health for virtual machine
 
-ASR provider central & remote monitoring through the Azure Portal for
-each of the protected entities. Navigate to the PROTECTED ITEMS
-there-after select VMM CLOUDS or PROTECTION GROUPS. VMM CLOUDS tab is
-only for VMM based deployments and all other scenarios have the
-protected entities under PROTECTION GROUPS tab.
+ASR provider central & remote monitoring through the Azure Portal for each of the protected entities. Navigate to the PROTECTED ITEMS there-after select VMM CLOUDS or PROTECTION GROUPS. VMM CLOUDS tab is only for VMM based deployments and all other scenarios have the protected entities under PROTECTION GROUPS tab.
 
 ![Monitor replication health for virtual machine](media/site-recovery-monitoring-and-troubleshooting/image8.png)
 
-There-after select the protected entity under the respective cloud or
-the protection group. Once you select the protected entity all allowed
-operations are shown in the bottom pane.
+There-after select the protected entity under the respective cloud or the protection group. Once you select the protected entity all allowed operations are shown in the bottom pane.
 
 ![Monitor replication health for virtual machine](media/site-recovery-monitoring-and-troubleshooting/image9.png)
 
-As shown above in-case the virtual machine HEALTH is critical – you can
-click the ERROR DETAILS button on the bottom to see the error. Based on
-the “Possible causes” and “Recommendation” mentioned resolve the issue.
+As shown above in-case the virtual machine HEALTH is critical – you can click the ERROR DETAILS button on the bottom to see the error. Based on the “Possible causes” and “Recommendation” mentioned resolve the issue.
 
 ![Monitor replication health for virtual machine](media/site-recovery-monitoring-and-troubleshooting/image10.png)
 
 ![Monitor replication health for virtual machine](media/site-recovery-monitoring-and-troubleshooting/image11.png)
 
-Note: If there are any active operations which are in-progress or failed
-then navigate to the JOBS view as mentioned earlier to view the JOB
-specific error.
+Note: If there are any active operations which are in-progress or failed then navigate to the JOBS view as mentioned earlier to view the JOB specific error.
 
 ## Event Log
 
@@ -139,12 +110,7 @@ In case virtual machine migrates a new Hyper-V host (within the cluster or a sta
 
 ### Hyper-V Replication Logging Options
 
-All events pertaining to Hyper-V Replica are logged in the
-Hyper-V-VMMS\\Admin log located under **Applications and Services
-Logs\\Microsoft\\Windows**. In addition, an Analytic log can be enabled
-for Hyper-V-VMMS. To enable this log, first make the Analytic and Debug
-logs viewable in the Event Viewer. Open Event Viewer, then in the **View
-menu**, click **Show Analytic and Debug logs**.
+All events pertaining to Hyper-V Replica are logged in the Hyper-V-VMMS\\Admin log located under **Applications and Services Logs\\Microsoft\\Windows**. In addition, an Analytic log can be enabled for Hyper-V-VMMS. To enable this log, first make the Analytic and Debug logs viewable in the Event Viewer. Open Event Viewer, then in the **View menu**, click **Show Analytic and Debug logs**.
 
 ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 
@@ -158,9 +124,7 @@ under **Data Collector Sets.**
 
 ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image16.png)
 
-To view the information collected, first stop the tracing session by
-disabling the log, and then save the log and re-open it in Event Viewer
-or use other tools to convert it as desired.
+To view the information collected, first stop the tracing session by disabling the log, and then save the log and re-open it in Event Viewer or use other tools to convert it as desired.
 
 ## Reaching out for Microsoft Support
 

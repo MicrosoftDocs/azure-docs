@@ -21,7 +21,17 @@
 
 This article describes the technical concepts which helps you successfully configure and manage Hyper-V site or VMM site to Azure protection using Azure Site Recovery.
 
-## Understanding Hyper-V or VMM site to Azure protection
+## Understanding the components
+
+### Hyper-V Site or VMM Site Deployment for replication between on-premises & Azure.
+
+As part of setting up DR between on-premises & Azure; Azure Site Recovery Provider needs to be downloaded and installed on the VMM server along with Azure Recovery Services Agent which needs to be installed on each Hyper-V host.
+
+![VMM Site Deployment for replication between on-premises & Azure](media/site-recovery-monitoring-and-troubleshooting/image00.png)
+
+Hyper-V Site deployment is same as that of VMM Deployment – only difference being Provider & Agent gets installed on the Hyper-V host itself.
+
+## Understanding the workflows
 
 ### Enable Protection
 Once you protect a virtual machine from portal or on-premises, an ASR job named *Enable Protection* will be initiated and can be monitored under the JOBS tab. 
@@ -58,7 +68,7 @@ There is built-in retry logic for errors during replication which can be classif
 | Non-Recoverable Error 	| No retry will be attempted. Virtual machine replication status will be shown as Critical and an administrator intervention is required. Examples would include <ul><li>A broken VHD chain</li><li>Replica virtual machine is in an invalid state</li><li>Network authentication error</li><li>Authorization Error/li><li>If a virtual machine isn't found in the case of a standalone Hyper-V server</li></ul>|
 | Recoverable Error     	| Retries occur every replication interval using exponentially backoff which increases the retry interval from the start of first attempt (1, 2, 4, 8, 10 minutes). If an error persists, retry every 30 minutes. Examples would include <ul><li>Network Error</li><li>Low disk space</li><li>Low memory condition</li></ul>|
 
-## Understanding the Hyper-V virtual machine protection and recovery life cycle
+## Understanding Hyper-V virtual machine protection and recovery life cycle
 
 ![Understanding the Hyper-V virtual machine protection & recovery life cycle](media/site-recovery-understanding-site-to-azure-protection/image05.png)
 
