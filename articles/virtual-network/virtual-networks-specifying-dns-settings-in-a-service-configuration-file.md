@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
+   ms.date="09/01/2015"
    ms.author="joaoma" />
 
 # Specifying DNS Settings in a Service Configuration File
