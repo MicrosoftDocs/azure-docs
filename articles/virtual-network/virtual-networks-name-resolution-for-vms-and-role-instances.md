@@ -17,29 +17,28 @@
 
 # Name Resolution for VMs and Role Instances
 
-Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you may need to allow the VMs and role instances that you create to communicate with other VMs and role instances. Although this communication can be done by using IP addresses, it is much simpler to use hostnames that can be easily remembered. 
+Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you may need to allow the VMs and role instances that you create to communicate with each other. Although this communication can be done by using IP addresses, it is much simpler to use names that can be easily remembered and do not change. 
 
-When role instances and VMs hosted in Azure need to resolve hostnames and domain names to internal IP addresses, they can use one of two methods:
+When role instances and VMs hosted in Azure need to resolve domain names to internal IP addresses, they can use one of two methods:
 
 - [Azure-provided name resolution](#azure-provided-name-resolution)
 
 - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) 
 
-The type of name resolution you use depends on how your VMs and role instances need to communicate within your cloud service and with other cloud services.
+The type of name resolution you use depends on how your VMs and role instances need to communicate with each other.
 
 **The following table illustrates scenarios and corresponding name resolution solutions:**
 
 | **Scenario**                                                                                         | **Name resolution provided by:**                                                                                                    | **For more information see:**                                                                                                                                                                                                                                                                                               |
 |------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name resolution between role instances or VMs located in the same cloud service                      | Azure-provided name resolution                                                                                                      | [Azure-provided name resolution](#azure-provided-name-resolution)                                                                                                                                                                                                                          |
-| Name resolution between VMs and role instances located in the same virtual network                   | Azure-provided name resolution or Name resolution using your own DNS server                                              | - [Azure-provided name resolution](#azure-provided-name-resolution)  - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  - [DNS server requirements](#dns-server-requirements) |
+| Name resolution between role instances or VMs located in the same cloud service                      | Azure-provided name resolution                                                                                                      | - [Azure-provided name resolution](#azure-provided-name-resolution)                                                                                                                                                                                                                          |
+| Name resolution between VMs and role instances located in the same virtual network                   | Azure-provided name resolution (ARM-based deployments only) or Name resolution using your own DNS server | - [Azure-provided name resolution](#azure-provided-name-resolution)  - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  - [DNS server requirements](#dns-server-requirements) |
 | Name resolution between VMs and role instances located in different virtual networks                 | Name resolution using your own DNS server                                                                                           | - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  - [DNS server requirements](#dns-server-requirements)                                                                                                       |
 | Cross-premises: Name resolution between role instances or VMs in Azure and on-premises computers     | Name resolution using your own DNS server                                                                                           | - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  - [DNS server requirements](#dns-server-requirements)                                                                                                       |
 | Reverse lookup of internal IPs                                                                       | Name resolution using your own DNS server                                                                                           | - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  - [DNS server requirements](#dns-server-requirements)                                                                                                  |
 | Name resolution for non-public domains (e.g. Active Directory domains)             | Name resolution using your own DNS server                                                                                           | - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  - [DNS server requirements](#dns-server-requirements)                                                                                                       |
 | Name resolution between role instances located in different cloud services, not in a virtual network | Not applicable. Connectivity between VMs and role instances in different cloud services is not supported outside a virtual network. | Not applicable.                                                                                                                                                                                                                                                                                                             |
 
-> [AZURE.NOTE] Name resolution between computers on the internet and your public endpoints is automatically provided by Azure, and requires no configuration.
 
 ## Azure-provided name resolution
 
@@ -66,8 +65,6 @@ Although Azure-provided name resolution does not require any configuration, it i
 
 - You can only register hostnames for VMs and role instances that reside in the first 180 cloud services added to an Azure virtual network. If you have more than 180 cloud services, independent of the number of VMs and role instances in each service, you need to provide your own DNS server for name resolution.
 
-- Use of multiple hostnames for the same virtual machine or role instance is not supported.
-
 - Cross-premises name resolution is not available.
 
 - The Azure-created DNS suffix cannot be modified.
@@ -78,7 +75,7 @@ Although Azure-provided name resolution does not require any configuration, it i
 
 - Hostnames must be DNS-compatible (They must use only 0-9, a-z and '-', and cannot start or end with a '-'. See RFC 3696 section 2.)
 
-- DNS query traffic is throttled per VM. If your application performs frequent DNS queries on multiple target names, it is possible that some queries may time out. To avoid that, it is recommended to use client caching.
+- DNS query traffic is throttled per VM. If your application performs frequent DNS queries on multiple target names, it is possible that some queries may time out. To avoid that, it is recommended to enable client caching.  This is enabled by default on Windows but some Linux distros may not have caching enabled.
 
 ## Name resolution using your own DNS server
 
@@ -92,7 +89,7 @@ If you plan to use name resolution that is not provided by Azure, the DNS server
 
 - The DNS server should accept dynamic DNS registration, via the Dynamic DNS (DDNS) protocol, or you must create the required records.
 
-- If using dynamic DNS, the DNS server should have record scavenging turned off. Azure IP addresses have long DHCP leases, which can result in the removal of records from the DNS server during scavenging.
+- If relying on dynamic DNS, the DNS server should have record scavenging turned off. In Azure, IP addresses have long DHCP leases which can result in the removal of records from the DNS server during scavenging.
 
 - The DNS server must have recursion enabled to allow resolution for external domain names.
 
@@ -104,25 +101,24 @@ If you plan to use name resolution that is not provided by Azure, the DNS server
 
 ## Specifying DNS servers
 
-You can specify multiple DNS servers to be used by your VMs and role instances.  For each DNS query the client will first try the preferred DNS server and only try the alternate servers if the preferred one doesn't respond. For this reason, verify that you have your DNS servers listed in the correct order for your environment.
+You can specify multiple DNS servers to be used by your VMs and role instances.  For each DNS query, the client will first try the preferred DNS server and only try the alternate servers if the preferred one doesn't respond, i.e. DNS queries are not load-balanced across DNS servers. For this reason, verify that you have your DNS servers listed in the correct order for your environment.
 
 > [AZURE.NOTE] If you change the DNS settings on a network configuration file for virtual network that is already deployed, you need to restart each VM for the changes to take effect.
 
 ### Specifying a DNS server in the Management Portal
 
-When you create a virtual network in the Management Portal, you can specify the IP address and name of the DNS server(s) that you want to use. Once the virtual network is created, the virtual machines and role instances that you deploy to the virtual network are automatically configured with your specified DNS settings.  DNS servers specified for a specific cloud service (classic) or network interface card (ARM-based deployments) take precedence over those specificed for the virtual network.  See [About Configuring a Virtual Network in the Management Portal](virtual-networks-settings.md).
+When you create a virtual network in the Management Portal, you can specify the IP address and name of the DNS server(s) that you want to use. Once the virtual network is created, the virtual machines and role instances that you deploy to the virtual network are automatically configured with the specified DNS settings.  DNS servers specified for a specific cloud service (classic) or network interface card (ARM-based deployments) take precedence over those specificed for the virtual network.  See [About Configuring a Virtual Network in the Management Portal](virtual-networks-settings.md).
 
-> [AZURE.NOTE] You can only use up to 9 DNS servers.
-
-### Specifying a DNS server by using configuration files
+### Specifying a DNS server by using configuration files (classic)
 
 For classic virtual networks, you can specify DNS settings by using two different configuration files: the *Network Configuration* file and the *Service Configuration* file.
 
-The network configuration file describes the virtual networks in your subscripion. When you add role instances or VMs to a cloud service in a virtual network, the DNS settings from your network configuration file are applied to the role instance or VM, unless the service configuration file has its own DNS settings.
-
-The service configuration file is created for each cloud service you add the Azure. When you add role instances or VMs to the cloud service, the DNS settings from your service configuration file are applied to the role instance or VM.
-
 > [AZURE.NOTE] DNS servers in the service configuration file override settings in the network configuration file. 
+ 
+The network configuration file describes the virtual networks in your subscripion. When you add role instances or VMs to a cloud service in a virtual network, the DNS settings from your network configuration file are applied to each role instance or VM unless cloud-service specific DNS servers have been specified.
+
+The service configuration file is created for each cloud service you add the Azure. When you add role instances or VMs to the cloud service, the DNS settings from your service configuration file are applied to each role instance or VM.
+
 
 
 ## Next steps
