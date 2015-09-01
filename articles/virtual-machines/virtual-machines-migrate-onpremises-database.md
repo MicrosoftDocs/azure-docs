@@ -32,7 +32,7 @@ The primary migration methods are:
 - Convert on-premises physical machine to Hyper-V VHD, upload to Azure Blob storage, and then deploy as new VM using uploaded VHD
 - Ship hard drive using Windows Import/Export Service
 
-> [AZURE.NOTE] If you have an AlwaysOn deployment on-premises, you can also consider using the [Add Azure Replica Wizard](https://msdn.microsoft.com/library/dn463980.aspx) to create a replica in Azure and then failover as a method of migrating.
+> [AZURE.NOTE] If you have an AlwaysOn deployment on-premises, you can also consider using the [Add Azure Replica Wizard](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md) to create a replica in Azure and then failover as a method of migrating.
 
 ## Choosing your migration method
 
@@ -160,3 +160,7 @@ Use this method to migrate all system and user databases in an on-premises SQL S
 ## Ship hard drive
 
 Use the [Windows Import/Export Service method](../storage-import-export-service/) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account.
+
+## Next Steps
+
+For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-sql-server-infrastructure-services.md).
