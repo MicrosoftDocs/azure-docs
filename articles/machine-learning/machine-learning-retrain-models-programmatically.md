@@ -74,14 +74,27 @@ To create an updatable endpoint visit the Azure Portal and click on Add Endpoint
 	We then copy the sample C# code from the Training Web Service's API help page for batch execution (created in Step 3 above) and paste it into the Program.cs file, making sure the namespace remains intact.  
 
 	Note that sample code has comments which indicate parts of the code that need updates. 
-	Also, when specifiying the "output1" location in the Reqeust Payload, the file extention of the "RelativeLocation" has to be changed an ".ileaner" as in "Outputs": {Global Parameters ... { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==", "RelativeLocation": "mycontainer/output1results.ilearner"}}.
-
+	Also, when specifiying the "output1" location in the Reqeust Payload, the file extention of the "RelativeLocation" has to be changed an ".ilearner" as in
+	
+	```c#
+	Outputs = new Dictionary<string, AzureBlobDataReference>()
+	{
+		{ 
+			"output1",
+			new AzureBlobDataReference()
+			{
+				ConnectionString = "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==",
+				RelativeLocation = "mycontainer/output1results.ilearner"
+			}
+		},
+	},
+	```
 	1. Provide Azure Storage info
 The sample code for BES will upload a file from a local drive (e.g. “C:\temp\CensusIpnput.csv”) to Azure Storage, process it, and write the results back to Azure Storage.  
 
 		To accomplish that, you need to retrieve the Storage account name, key, and container information from the Azure Management Portal for your Storage account and the update the code here. You also need to ensure the input file is available at the location you specify in the code.  
 
-		We had set up this Training Experiment with two outputs, so the results will include storage location information for both of them, as seen below. “output1” is the output of the Trained Model, “output2” the output of Evaluate Model.  Also note that the file extention of the Output for the Trained Model (Output1) is ".ileaner" and not ".csv".
+		We had set up this Training Experiment with two outputs, so the results will include storage location information for both of them, as seen below. “output1” is the output of the Trained Model, “output2” the output of Evaluate Model.  Also note that the file extention of the Output for the Trained Model (Output1) is ".ilearner" and not ".csv".
 
 		![][6]
  
@@ -93,10 +106,48 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 7. *Update the added endpoint’s Trained Model*  
 	To complete the process, we need to update the trained model of the scoring endpoint we created in Step 4 above.  
 
-	The BES output above shows the information for the result of retraining for “output1” which contains the retrained model location information. We now need to take this trained model and update the scoring endpoint. (created  in step 4 above)
+	The BES output above shows the information for the result of retraining for “output1” which contains the retrained model location information. We now need to take this trained model and update the scoring endpoint (created  in step 4 above). Sample code follows:
 
-	![][7]
-  
+	```C#
+	private async Task OverwriteModel()
+	{
+		var resourceLocations = new
+		{
+			Resources = new[]
+			{
+				new
+				{
+					Name = "Your Endpoint Resource Name Here",
+					Location = new AzureBlobDataReference()
+					{
+						BaseLocation = "Your Endpoint Base Location Here",
+						RelativeLocation = "Your Endpoint Relative Location Here",
+						SasBlobToken = "Your Endpoint Sas Blob Token Here"
+					}
+				}
+			}
+		};
+
+		using (var client = new HttpClient())
+		{
+			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+
+			using (var request = new HttpRequestMessage(new HttpMethod("PATCH"), endpointUrl))
+			{
+				request.Content = new StringContent(JsonConvert.SerializeObject(resourceLocations), System.Text.Encoding.UTF8, "application/json");
+				HttpResponseMessage response = await client.SendAsync(request);
+
+				if (!response.IsSuccessStatusCode)
+				{
+					await WriteFailedResponse(response);
+				}
+
+				// Do what you want with a successful response here.
+			}
+		}
+	}
+	```
+
 	The “apiKey” and the “endpointUrl” for this call are visible on the endpoint dashboard.
 
 	With the success of this call, the new endpoint will start using a retrained model approximately within 15 seconds.  
@@ -110,7 +161,6 @@ Using the Retraining APIs, we can update the trained model of a predictive Web S
 [4]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE04.png
 [5]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE05.png
 [6]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
-[7]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE07.png
 
 
 <!-- Module References -->
