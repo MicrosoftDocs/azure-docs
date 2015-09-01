@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Specifying DNS Settings in a Service Configuration File"
-   description="Description"
+   pageTitle="Specifying DNS Settings in a service configuration file | Microsoft Azure"
+   description="specifying custom DNS settings using service configuration file for virtual network"
    services="virtual-network"
    documentationCenter="na"
    authors="joaoma"
