@@ -1,5 +1,5 @@
 <properties 
-   pageTitle=" Traffic Manager routing Methods"
+   pageTitle=" Traffic Manager - traffic routing methods | Microsoft Azure"
    description="This articles will help you understand the different traffic routing methods used by Traffic Manager"
    services="traffic-manager"
    documentationCenter=""
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Traffic Manager routing methods
 
-There are three routing methods available in Traffic Manager. Each Traffic Manager profile can use only one routing method at a time, although you can select a different routing method for your profile at any time.
+There are three traffic routing methods available in Traffic Manager. Each Traffic Manager profile can use only one traffic routing method at a time, although you can select a different traffic routing method for your profile at any time.
 
-It’s important to note that all routing methods include endpoint monitoring. After you configure your Traffic Manager profile to specify the routing method that best fits your requirements, configure your monitoring settings. When monitoring is correctly configured, Traffic Manager will monitor the state of your endpoints, consisting of cloud services and websites, and won’t send traffic to endpoints it thinks are unavailable. For information about Traffic Manager monitoring, see [About Traffic Manager Monitoring](traffic-manager-monitoring.md). 
+It’s important to note that all traffic routing methods include endpoint monitoring. After you configure your Traffic Manager profile to specify the traffic routing method that best fits your requirements, configure your monitoring settings. When monitoring is correctly configured, Traffic Manager will monitor the state of your endpoints, consisting of cloud services and websites, and won’t send traffic to endpoints it thinks are unavailable. For information about Traffic Manager monitoring, see [About Traffic Manager Monitoring](traffic-manager-monitoring.md). 
 
-The three Traffic Manager routing methods are:
+The three Traffic Manager traffic routing methods are:
 
 - **Failover**: Select Failover when you have endpoints in the same or different Azure datacenters (known as regions in the Management Portal) and want to use a primary endpoint for all traffic, but provide backups in case the primary or the backup endpoints are unavailable. For more information, see [Failover traffic routing method](#failover-traffic-routing-method).
 
@@ -123,7 +123,7 @@ If you want the figures in this topic as PowerPoint sides for your own presentat
 
 ## Next Steps
 
-[Traffic Manager Overview](traffic-manager-overview.md)
+[What is Traffic Manager?](traffic-manager-overview.md)
 
 [About Traffic Manager Monitoring](traffic-manager-monitoring.md)
 

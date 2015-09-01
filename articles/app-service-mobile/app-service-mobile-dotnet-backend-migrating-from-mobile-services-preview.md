@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Migrate from Mobile Services to an App Service Mobile App" 
 	description="Learn how to easily migrate your Mobile Services application to an App Service Mobile App" 
 	services="app-service\mobile" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="mahender"/>
 
 # Migrate your existing Azure Mobile Service to an Azure App Service Mobile App

@@ -3,8 +3,8 @@
 	description="Describes how role based access control works and how to set it up"
 	services=""
 	documentationCenter=""
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
 	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Role-based access control in the Microsoft Azure portal
 
