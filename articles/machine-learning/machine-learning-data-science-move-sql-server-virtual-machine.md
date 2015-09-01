@@ -42,9 +42,10 @@ The following table summarizes the options for moving data to SQL Server on an A
 <tr>
   <td><b>On-Premises SQL Server</b></td>
   <td>
-    1. <a href="#export-flat-file">Export to a flat File </a><br>
-    2. <a href="#sql-migration">SQL Database Migration Wizard </a> <br>    
-    3. <a href="#sql-backup">Database backup and restore </a> <br>
+    1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Deploy a SQL Server Database to a Microsoft Azure VM wizard</a><br>
+    2. <a href="#export-flat-file">Export to a flat File </a><br>
+    3. <a href="#sql-migration">SQL Database Migration Wizard </a> <br>    
+    4. <a href="#sql-backup">Database backup and restore </a> <br>
   </td>
 </tr>
 </table>
@@ -231,6 +232,10 @@ A screenshot of the Database backup/restore options from SQL Server Management S
 
 ![SQL Server Import Tool][1]
 
+## Resources
+
+[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+[SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
