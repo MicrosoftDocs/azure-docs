@@ -12,18 +12,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Create a Java web app in Azure App Service
 
-This tutorial shows how to create a web app on Microsoft Azure using Java, using either the Azure Marketplace, or the [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) configuration UI.
+This tutorial shows how to create a web app on Microsoft Azure using Java, using either the Azure Marketplace, or the [App Service Web Apps][] configuration UI.
 
 If you don't want to use either of those techniques, for example, if you want to customize your application container, see [Upload a custom Java web app to Azure](web-sites-java-custom-upload.md).
 
-> [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>.
+> [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits][] or [sign up for a free trial][].
 
-If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service][], where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## Create a Java web app using the Azure Marketplace
 
@@ -82,6 +82,13 @@ Now that you've create the web app with an app container, see the **Next steps**
 At this point, you have a Java application server running as your Java web app on Azure. To add in your own application or web page, see [Add an application or web page to your Java web app](web-sites-java-add-app.md).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services][]
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal][]
+
+<!-- External Links -->
+[activate your MSDN subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
+[sign up for a free trial]: http://go.microsoft.com/fwlink/?LinkId=623901
+[App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Azure App Service and Its Impact on Existing Azure Services]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Reference for navigating the preview portal]: http://go.microsoft.com/fwlink/?LinkId=529715

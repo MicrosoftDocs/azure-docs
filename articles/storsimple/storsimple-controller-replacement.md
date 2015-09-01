@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Replace a controller module on your StorSimple device | Microsoft Azure"
+   pageTitle="Replace a StorSimple device controller | Microsoft Azure"
    description="Explains how to remove and replace one or both controller modules on your StorSimple device."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="08/31/2015"
    ms.author="alkohli" />
 
 # Replace a controller module on your StorSimple device

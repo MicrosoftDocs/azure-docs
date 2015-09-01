@@ -98,7 +98,7 @@ The following table summarizes the Business Intelligence features installed on t
 	
 	- The **D**: drive is a temporary drive that is used primarily for the page file. The **D**: drive is not persisted and is not saved in blob storage. Management tasks such as a change to the virtual machine size reset the **D**: drive. It is recommended to **NOT** use the **D**: drive for database files, including tempdb.
 
-	For more information on creating and attaching disks, see [How to Attach a Data Disk to a Virtual Machine](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/).
+	For more information on creating and attaching disks, see [How to Attach a Data Disk to a Virtual Machine](storage-windows-attach-disk.md).
 
 - Stop or uninstall services you do not plan to use. For example if the virtual machine is only used for Reporting Services, stop or uninstall Analysis Services and SQL Server Integration Services. The following image is an example of the services that are started by default.
 
