@@ -1,0 +1,93 @@
+<properties
+   pageTitle="Troubleshooting Azure VM Extensions Failures"
+   description="Learn about troubleshooting Azure VM Extension failures"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
+
+<tags
+   ms.service="virtual-machines"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
+
+# Troubleshooting Azure VM Extension failures.
+
+## Overview of Azure Resource Manager Templates.
+
+Azure Resource Manager Template allows you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources.
+Click the article  [Authoring Extension Templates](virtual-machines-extensions-authoring-templates.md) to learn more about authoring templates for using Extensions.
+
+In this article we'll learn about troubleshooting some of the common VM Extension failures.
+
+## Viewing Extension Status:
+Azure Resource Manager templates can be executed from Azure Powershell or Azure CLI. Once the template is executed, the extension status can be viewed from Azure Resource Explorer or the command line tools.
+Here are some examples:
+
+Azure CLI:
+
+      azure vm get-instance-view
+
+Azure Powershell:
+
+      Get-AzureVM -ResourceGroupName $RGName -Name $vmName -Status
+
+Here is the sample output:
+
+      Extensions:  {
+      "ExtensionType": "Microsoft.Compute.CustomScriptExtension",
+      "Name": "myCustomScriptExtension",
+      "SubStatuses": [
+        {
+          "Code": "ComponentStatus/StdOut/succeeded",
+          "DisplayStatus": "Provisioning succeeded",
+          "Level": "Info",
+          "Message": "    Directory: C:\\temp\\n\\n\\nMode                LastWriteTime     Length Name
+              \\n----                -------------     ------ ----                              \\n-a---          9/1/2015   2:03 AM         11
+              test.txt                          \\n\\n",
+                      "Time": null
+          },
+        {
+          "Code": "ComponentStatus/StdErr/succeeded",
+          "DisplayStatus": "Provisioning succeeded",
+          "Level": "Info",
+          "Message": "",
+          "Time": null
+        }
+    }
+  ]
+
+## Troubleshooting Extenson failures:
+
+### Re-running the extension on the VM:
+
+If you are running scripts on the VM using Custom Script Extension, you could sometimes run into an error where VM was created successful but the script has failed. Under these conditons, the recommended way to recover from this error is to remove the extension and rerun the template again.
+Note: In future, this functionality would be enhanced to remove the need for uninstalling the extension.
+
+#### Remove the extension from Azure CLI:
+
+      azure vm extension set --resource-group "KPRG1" --vm-name "kundanapdemo" --publisher-name "Microsoft.Compute.CustomScriptExtension" --name "myCustomScriptExtension" --version 1.4 --uninstall
+
+Where "publsher-name" corresponds to the extension type from the output of "azure vm get-instance-view"
+and name is the name of the extension resource from the template
+
+#### Remove the extension from Azure Powershell:
+
+    Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+
+Once the extension has been removed, the template can be reexecuted to run the scripts on the VM.
+
+<a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Deploying Templates with Azure CLI</a>.
+<br/>
+<a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Deploying Templates with Azure Powershell</a>.
+
+Please refer to the following to the VM Templates to get a fully complete Template with VM Extensions.
+
+<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Custom Script Extension on a Linux VM</a>.
+</br>
+<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Custom Script Extension on a Windows VM</a>.
