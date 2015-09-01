@@ -16,9 +16,6 @@
 	ms.date="08/31/2015"
 	ms.author="huvalo"/>
 
-
-
-
 # Installing Python and the SDK
 
 Python is pretty easy to setup on Windows and comes pre-installed on Mac and Linux.  This guide walks you through installation and getting your machine ready for use with Azure.
@@ -77,7 +74,7 @@ To install Azure Service Management (ASM) client libraries:
 	pip install azure-servicemanagement-legacy
 
 
-### Installation on Windows (Python, Azure Emulators and client libraries)
+## Installation on Windows (Python, Azure Emulators and client libraries)
 
 You can use the Web Platform Installer to streamline the installation. These include CPython from [www.python.org][].
 
@@ -85,16 +82,6 @@ You can use the Web Platform Installer to streamline the installation. These inc
 * [Microsoft Azure SDK for Python 3.4][]
 
 **Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Administrative Tools/Server Manager/Local Server, then click **IE Enhanced Security Configuration**, set to Off)
-
-### Windows Uninstall
-
-The **Azure SDK for Python** WebPI products are not applications in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7/3.4, Azure client libraries for Python, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
-
-If you ever wish to reinstall **Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
-
-	rm -force "HKLM:\SOFTWARE\Microsoft\Python Tools for Azure"
-
-and then rerun WebPI.
 
 ### Python 2.7
 
@@ -125,23 +112,20 @@ After the installation you should have Python and the Client Libraries available
 
 		C:\Python34\Lib\site-packages\azure
 
+### Windows Uninstall
 
-### Getting More Packages
+The **Azure SDK for Python** WebPI products are not applications in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7/3.4, Azure client libraries for Python, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
+
+If you ever wish to reinstall **Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
+
+	rm -force "HKLM:\SOFTWARE\Microsoft\Python Tools for Azure"
+
+and then rerun WebPI.
+
+## Getting More Packages
 
 The [Python Package Index][] (PyPI) has a rich selection of Python libraries.  If you chose to install a Distro, you'll already have most of the interesting bits for a variety of scenarios from web development to Technical Computing.
 
-
-### Python Tools for Visual Studio
-
-[Python Tools for Visual Studio][] (PTVS) is a free/OSS plugin from Microsoft which turns VS into a full-fledged Python IDE:
-
-![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
-
-Using PTVS is optional, but is recommended as it gives you Python and Web Project/Solution support, debugging, profiling, interactive window, Template editing and Intellisense.
-
-PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services][] and [Websites][].
-
-PTVS works with your existing Visual Studio 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
 
 ## Python Tools for Visual Studio
 
@@ -153,11 +137,7 @@ Using PTVS is optional, but is recommended as it gives you Python and Web Projec
 
 PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services][] and [Websites][].
 
-PTVS works with your existing Visual Studio 2010, 2012, 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio on GitHub][].  
-
-## Getting More Packages
-
-The [Python Package Index][] (PyPI) has a rich selection of Python libraries.  If you chose to install a Distro, you'll already have most of the interesting bits for a variety of scenarios from web development to Technical Computing.
+PTVS works with your existing Visual Studio 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
 
 ## Python Azure Scenarios for Linux and MacOS
 
