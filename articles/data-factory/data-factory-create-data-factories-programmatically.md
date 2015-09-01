@@ -336,6 +336,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
         Console.WriteLine("Getting run details of a data slice");
 
 		// give it a few minutes for the output slice to be ready
+        Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
         Console.ReadKey();
 
         var datasliceRunListResponse = client.DataSliceRuns.List(
