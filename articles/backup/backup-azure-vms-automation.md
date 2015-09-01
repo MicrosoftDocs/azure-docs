@@ -219,6 +219,6 @@ New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
 ```
 
 For more information on how to build a VM from the restored disks, read about the following commandlets:
-- [Add-AzureDisk](https://msdn.microsoft.com/en-us/library/azure/dn495252.aspx)
-- [New-AzureVMConfig](https://msdn.microsoft.com/en-us/library/azure/dn495159.aspx)
-- [New-AzureVM](https://msdn.microsoft.com/en-us/library/azure/dn495254.aspx)
+- [Add-AzureDisk](https://msdn.microsoft.com/library/azure/dn495252.aspx)
+- [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
+- [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
