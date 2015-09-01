@@ -29,21 +29,40 @@ The type of name resolution you use depends on how your VMs and role instances n
 
 **The following table illustrates scenarios and corresponding name resolution solutions:**
 
-| **Scenario**                                                                                         | **Name resolution provided by:**                                                                                                    | **For more information see:**                                                                                                                                                                                                                                                                                               |
-|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name resolution between role instances or VMs located in the same cloud service                      | Azure-provided name resolution                                                                                                      | - [Azure-provided name resolution](#azure-provided-name-resolution)                                                                                                                                                                                                                          |
-| Name resolution between VMs and role instances located in the same virtual network                   | Azure-provided name resolution (ARM-based deployments only) or Name resolution using your own DNS server | - [Azure-provided name resolution](#azure-provided-name-resolution)  
+| **Scenario** 
+| **Name resolution provided by:** 
+| **For more information see:** |                                                                                                                                                                                                                                                                                               
+|--------------
+|----------------------------------
+|-------------------------------|
+| Name resolution between role instances or VMs located in the same cloud service
+| Azure-provided name resolution
+| - [Azure-provided name resolution](#azure-provided-name-resolution)                                                                                                                                                                                                                          |
+| Name resolution between VMs and role instances located in the same virtual network
+| Azure-provided name resolution (ARM-based deployments only) or Name resolution using your own DNS server 
+| - [Azure-provided name resolution](#azure-provided-name-resolution)
 - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  
-- - [DNS server requirements](#dns-server-requirements) |
-| Name resolution between VMs and role instances located in different virtual networks                 | Name resolution using your own DNS server                                                                                           | - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  
+- [DNS server requirements](#dns-server-requirements) 
+|
+| Name resolution between VMs and role instances located in different virtual networks
+| Name resolution using your own DNS server
+| - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  
 - [DNS server requirements](#dns-server-requirements)                                                                                                       |
-| Cross-premises: Name resolution between role instances or VMs in Azure and on-premises computers     | Name resolution using your own DNS server                                                                                           | - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  
+| Cross-premises: Name resolution between role instances or VMs in Azure and on-premises computers
+| Name resolution using your own DNS server
+| - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  
 - [DNS server requirements](#dns-server-requirements)                                                                                                       |
-| Reverse lookup of internal IPs                                                                       | Name resolution using your own DNS server                                                                                           | - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  
+| Reverse lookup of internal IPs
+| Name resolution using your own DNS server
+| - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  
 - [DNS server requirements](#dns-server-requirements)                                                                                                  |
-| Name resolution for non-public domains (e.g. Active Directory domains)             | Name resolution using your own DNS server                                                                                           | - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  
+| Name resolution for non-public domains (e.g. Active Directory domains)
+| Name resolution using your own DNS server
+| - [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)  
 - [DNS server requirements](#dns-server-requirements)                                                                                                       |
-| Name resolution between role instances located in different cloud services, not in a virtual network | Not applicable. Connectivity between VMs and role instances in different cloud services is not supported outside a virtual network. | Not applicable.                                                                                                                                                                                                                                                                                                             |
+| Name resolution between role instances located in different cloud services, not in a virtual network 
+| Not applicable. Connectivity between VMs and role instances in different cloud services is not supported outside a virtual network. 
+| Not applicable.                                                                                                                                                                                                                                                                                                             |
 
 
 ## Azure-provided name resolution
