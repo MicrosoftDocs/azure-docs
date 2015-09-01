@@ -13,6 +13,7 @@ Programs in running state per channel </p></td>|3</p></td>|N/A<sup>1</sup>
 Streaming endpoints in running state per AMS account</p></td>|2</p></td>|N/A<sup>1</sup>
 Streaming units per streaming endpoint </p></td>|10 </p></td>|N/A<sup>1</sup>
 Encoding units per AMS account </p></td>|25</p></td>|N/A<sup>1</sup>
+Storage accounts | |1,000<sup>5</sup>
 
 <sup>1</sup> You can request to update the limits for this quota by opening a support ticket. Do not create more AMS accounts to increase limits, instead submit a support ticket.
 
@@ -21,3 +22,5 @@ Encoding units per AMS account </p></td>|25</p></td>|N/A<sup>1</sup>
 <sup>3</sup> When making a request to list Job entities, a maximum of 1,000 will be returned per request. If you need to keep track of all submitted Jobs, you can use top/skip as described in [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx).
 
 <sup>4</sup> Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
+
+<sup>5</sup> The storage accounts must be from the same Azure subscription.
