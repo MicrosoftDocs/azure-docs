@@ -77,7 +77,7 @@ To install Azure Service Management (ASM) client libraries:
 	pip install azure-servicemanagement-legacy
 
 
-## Installation on Windows (Python, Azure Emulators and client libraries)
+### Installation on Windows (Python, Azure Emulators and client libraries)
 
 You can use the Web Platform Installer to streamline the installation. These include CPython from [www.python.org][].
 
@@ -86,6 +86,15 @@ You can use the Web Platform Installer to streamline the installation. These inc
 
 **Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Administrative Tools/Server Manager/Local Server, then click **IE Enhanced Security Configuration**, set to Off)
 
+### Windows Uninstall
+
+The **Azure SDK for Python** WebPI products are not applications in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7/3.4, Azure client libraries for Python, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
+
+If you ever wish to reinstall **Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
+
+	rm -force "HKLM:\SOFTWARE\Microsoft\Python Tools for Azure"
+
+and then rerun WebPI.
 
 ### Python 2.7
 
@@ -133,16 +142,6 @@ Using PTVS is optional, but is recommended as it gives you Python and Web Projec
 PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services][] and [Websites][].
 
 PTVS works with your existing Visual Studio 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
-
-## Windows Uninstall
-
-The **Azure SDK for Python** WebPI products are not applications in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7/3.4, Azure client libraries for Python, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
-
-If you ever wish to reinstall **Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
-
-	rm -force "HKLM:\SOFTWARE\Microsoft\Python Tools for Azure"
-
-and then rerun WebPI.
 
 ## Python Tools for Visual Studio
 
