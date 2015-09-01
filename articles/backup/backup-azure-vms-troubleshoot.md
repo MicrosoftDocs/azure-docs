@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="09/01/2015"
 	ms.author="aashishr"/>
 
 
@@ -31,21 +31,59 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup operation | Error details | Workaround |
 | -------- | -------- | -------|
 | Register | Azure VM role is not in a state to install extension – Please check if the VM is in the Running state. Azure Recovery Services extension requires the VM to be Running. | Start the virtual machine and when it is in the Running state, retry the register operation.|
-| Register | Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 5 data disks attached to an Azure virtual machine for backup | None |
+| Register | Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup | None |
 | Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configurations: <ol><li>Premium LRS <li>Multi NIC <li>Load balancer </ol> |
-| Register | VM Guest Agent Certificate not found | Follow these instructions to resolve the error: <ol><li>Download the latest version of the VM Agent from [here](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Ensure that the version of the downloaded agent is 2.6.1198.718 or higher. <li>Install the VM Agent in the virtual machine.</ol> [Learn](#validating-vm-agent-installation) how to check  the version of the VM Agent. |
 | Register | Registration failed with Install Agent operation timeout | Check if the OS version of the virtual machine is supported. |
 | Register | Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed | None |
+| Register | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
+| Register | Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation. | [Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
 
 ## Backup
 
 | Backup operation | Error details | Workaround |
 | -------- | -------- | -------|
 | Backup | Copying VHDs from backup vault timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | This happens when there is too much data to be copied. Please check if you have less than 6 data disks. |
-| Backup | Snapshot VM sub task timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support | This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. <ul><li>Learn about [debugging VM Agent issues](#Troubleshooting-vm-agent-related-issues) <li>Learn about [debugging networking issues](#troubleshooting-networking-issues) </ul> |
+| Backup | Could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out. - Please see the troubleshooting guide on how to resolve this. | This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. <ul><li>Learn about [debugging VM Agent issues](#Troubleshooting-vm-agent-related-issues) <li>Learn about [debugging networking issues](#troubleshooting-networking-issues) </ul> |
 | Backup | Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support | You can get this error for 2 reasons: <ol><li> There is too much data to be copied. Please check if you have less than 6 disks. <li>The original VM has been deleted and therefore backup cannot be taken. In order to keep the backup data for a deleted VM but stop the backup errors, Unprotect the VM and choose the option to keep the data. This will stop the backup schedule and also the recurring error messages. |
 | Backup | Failed to install the Azure Recovery Services extension on the selected item - VM Agent is a pre-requisite for Azure Recovery Services Extension. Please install the Azure VM agent and restart the registration operation | <ol> <li>Check if the VM agent has been installed correctly. <li>Ensure that the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about VM agent installation, and how to validate the VM agent installation. |
 | Backup | Command execution failed - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry | An existing backup or restore job for the VM is running, and a new job cannot be started while the existing job is running. <br><br>If you would like the option to cancel an ongoing job, add your vote to the [Azure Feedback forum](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
+| Backup | Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator | This usually means that the COM+ service is not running. Contact Microsoft support for help on fixing this issue. |
+| Backup | Snapshot operation failed with the VSS operation error "This drive is locked by BitLocker Drive Encryption. You must unlock this drive from Control Panel. | Turn off BitLocker for all drives on the VM and observe if the VSS issue is resolved |
+| Backup | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
+| Backup | Backup of a virtual machine with a load balancer configuration is not supported. | None |
+| Backup | Backup of a virtual machine with more than one NIC is not supported. | None |
+| Backup | Azure Virtual Machine Not Found. | This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li>Recreate the virtual machine with the same name and same resource group name [cloud service name], <br>(OR) <li> Disable protection for this VM so that backup jobs will not be created </ol> |
+| Backup | Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation. | [Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
+
+## Jobs
+| Operation | Error details | Workaround |
+| -------- | -------- | -------|
+| Cancel job | Cancellation is not supported for this job type - Please wait until the job completes. | None |
+| Cancel job | The job is not in a cancellable state - Please wait until the job completes. <br>OR<br> The selected job is not in a cancellable state - Please wait for the job to complete.| In all likelihood the job is almost completed; please wait until the job completes |
+| Cancel job | Cannot cancel the job because it is not in progress - Cancellation is only supported for jobs which are in progress. Please attempt cancel on an in progress job. | This happens due to a transitory state. Wait for a minute and retry the cancel operation |
+| Cancel job | Failed to cancel the Job - Please wait till job finishes. | None |
+| Report generation | The report generation is in progress - Please wait until the report generation is complete and try again later. | ??? |
+| Report generation | Failed to generate the requested report - Please retry the report generation after sometime. |  Why ?? |
+
+## Restore
+| Operation | Error details | Workaround |
+| -------- | -------- | -------|
+| Restore | The selected DNS name is already taken - Please specify a different DNS name and try again. | The DNS name here refers to the cloud service name (usually ending with .cloudapp.net). This needs to be unique. If you encounter this error, you need to choose a different VM name during restore. <br><br> Note that this error is shown only to users of the Azure portal. The restore operation through PowerShell will succeed because it only restores the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation. |
+| Restore | The specified virtual network configuration is not correct - Please specify a different virtual network configuration and try again. | None |
+| Restore | The specified cloud service is using a reserved IP, which doesn't match with the configuration of the virtual machine being restored - Please specify a different cloud service which is not using reserved IP, or choose another recovery point to restore from. | None |
+| Restore | Cloud service has reached limit on number of input end points - Retry the operation by specifying a different cloud service or by using an existing endpoint. | None |
+| Restore | Backup vault and target storage account are in two different regions - Ensure that the storage account specified in restore operation is in the same Azure region as the backup vault. | None |
+| Restore | Storage Account specified for the restore operation is not supported - Only Basic/Standard storage accounts with locally redundant or geo redundant replication settings are supported. Please select a supported storage account | None |
+| Restore | Type of Storage Account specified for restore operation is not online - Make sure that the storage account specified in restore operation is online | This might happen because of a transient error in Azure Storage or due to an outage. Please choose another storage account. |
+| Restore | Resource Group Quota has been reached - Please delete some resource groups from preview portal or Contact Azure support to increase the limits. | None |
+| Restore | Selected subnet does not exist - Please select a subnet which exists | None |
+
+
+## Policy
+| Operation | Error details | Workaround |
+| -------- | -------- | -------|
+| Create policy | Failed to create the policy - Please reduce the retention choices to continue with policy configuration. | None |
+
 
 ### VM Agent
 
