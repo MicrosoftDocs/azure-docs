@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="cephalin"/>
 
 # Set up staging environments for web apps in Azure App Service
@@ -61,7 +61,7 @@ The web app must be running in the **Standard** or **Premium** mode in order for
 
 	![Configuration sources][MultipleConfigurationSources]
 
-5. In the **Deployment slots** blade, click the deployment slot to open a blade for the slot, with a set of metrics and configuration just like any other web app. <strong><i>your-web-app-name</i>-<i>deployment-slot-name</i></strong> will appear at the top of blade to remind you that you are viewing the deployment slot.
+5. In the **Deployment slots** blade, click the deployment slot to open a blade for the slot, with a set of metrics and configuration just like any other web app. **your-web-app-name-deployment-slot-name** will appear at the top of blade to remind you that you are viewing the deployment slot.
 
 	![Deployment Slot Title][StagingTitle]
 

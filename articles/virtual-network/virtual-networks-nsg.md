@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="08/13/2015"
    ms.author="telmos" />
 
 # What is a Network Security Group (NSG)?
 
 You can use an NSG to control traffic to one or more virtual machine (VM) instances in your virtual network. A network security group is a top level object that is associated to your subscription An NSG contains access control rules that allow or deny traffic to VM instances. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a VNet that is associated with a region (location). 
 
->[AZURE.WARNING] NSGs are not compatible with VNets that are associated with an affinity group. If you don’t have a regional VNet and you want to control traffic to your endpoints, please see [What is a Network Access Control List (ACL)?](../virtual-networks-acl).
+>[AZURE.WARNING] NSGs are not compatible with VNets that are associated with an affinity group. If you don’t have a regional VNet and you want to control traffic to your endpoints, please see [What is a Network Access Control List (ACL)?](./virtual-networks-acl.md). You can also [migrate your VNet to a regional VNet](./virtual-networks-migrate-to-regional-vnet.md).
 
 You can associate an NSG to a VM, or to a subnet within a VNet. When associated with a VM, the NSG applies to all the traffic that is sent and received by the VM instance. When applied to a subnet within your VNet, it applies to all the traffic that is sent and received by ALL the VM instances in the subnet. A VM or subnet can be associated with only 1 NSG, and each NSG can contain up to 200 rules. You can have 100 NSGs per subscription.
 
@@ -149,6 +149,7 @@ Instead of using a deny rule, consider using a rule to allow access from the vir
 |TO INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|ALLOW|
 |FROM INTERNET|110| INTERNET|&#42;|VIRTUAL_NETWORK|&#42;|TCP|DENY| 
 
+>[AZURE.WARNING] Azure uses a special subnet referred to as the **Gateway** subnet to handle VPN gateway to other VNets and on-premises networks. Associating an NSG to this subnet will cause your VPN gateway to stop functioning as expected. Do NOT associate NSGs to gateway subnets!
 
 ## Planning - network security group workflow
 

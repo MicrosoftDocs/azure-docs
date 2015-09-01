@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="05/18/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host
@@ -35,9 +35,11 @@ The Web API application itself doesn't change here - it's no different from Web 
 
 ## Set up a Web API application
 
-Start by creating a new Stateless Service in Visual Studio 2015:
+Start by creating a new application, with a single stateless service, in Visual Studio 2015:
 
-![](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+![Create a new Service Fabric application](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+
+![Create a single stateless service](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
 This gives us an empty Stateless Service that will host the Web API application. We're going to set the application up from scratch to see how it's all put together.
 
@@ -580,7 +582,7 @@ Once the service is running, open a browser and navigate to [http://localhost/ap
 
 ## Scale it out
 
-Scaling out stateless web apps typically means adding more machines and spinning up the web app on them. Service Fabric's orchestration engine can do this for you whenever new nodes are added to a cluster. When creating instances of a stateless service, you can specify the number of instances you want to create. Service Fabric will place that number of instances on nodes in the cluster accordingly, making sure not to create more than one instance on any one node. You can also instruct Service Fabric to always create an instance on every node by specifying "-1" for the instance count. This guarantees that whenever you add nodes to scale out your cluster, an instance of your stateless service will be created on the new nodes. This value is a property of the service instance, so it is set when creating a service instance either through PowerShell: 
+Scaling out stateless web apps typically means adding more machines and spinning up the web app on them. Service Fabric's orchestration engine can do this for you whenever new nodes are added to a cluster. When creating instances of a stateless service, you can specify the number of instances you want to create. Service Fabric will place that number of instances on nodes in the cluster accordingly, making sure not to create more than one instance on any one node. You can also instruct Service Fabric to always create an instance on every node by specifying "-1" for the instance count. This guarantees that whenever you add nodes to scale out your cluster, an instance of your stateless service will be created on the new nodes. This value is a property of the service instance, so it is set when creating a service instance either through PowerShell:
 
 ```powershell
 
@@ -611,4 +613,3 @@ In ASP.NET 5, the concept and programming model of separating the *application* 
 ## Next Steps
 
 [Debugging your Service Fabric Application in Visual Studio](service-fabric-debugging-your-application.md)
- 

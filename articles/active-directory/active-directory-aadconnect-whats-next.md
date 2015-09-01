@@ -18,13 +18,12 @@
 
 # Managing Azure AD Connect 
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="What is It">What is It</a>
-<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
-<a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="What's Next" class="current">What's Next</a>
-<a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
-</div>
+> [AZURE.SELECTOR]
+- [What is It](../active-directory-aadconnect/)
+- [How it Works](../active-directory-aadconnect-how-it-works/)
+- [Getting Started](../active-directory-aadconnect-get-started/)
+- [What's Next](../active-directory-aadconnect-whats-next/) 
+- [Learn More](../active-directory-aadconnect-learn-more/)
 
 The following are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organization's needs and requirements.  
 
@@ -34,13 +33,12 @@ Now that your users have been synchronized to the cloud, you will need to assign
 
 ### To assign an Azure AD Premium or Enterprise Mobility Suite License
 --------------------------------------------------------------------------------
-<ol>
-<li>Sign-in to the Azure Portal as an Administrator.</li>
-<li>On the left, select **Active Directory**.</li>
-<li>On the Active Directory page, double-click on the directory that has the users you wish to enable.</li>
-<li>At the top of the directory page, select **Licenses**.</li>
-<li>On the Licenses page, select Active Directory Premium or Enterprise Mobility Suite, and then click **Assign**.</li>
-<li>In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.</li>
+1. Sign-in to the Azure Portal as an Administrator.
+2. On the left, select **Active Directory**.
+3. On the Active Directory page, double-click on the directory that has the users you wish to enable.
+4. At the top of the directory page, select **Licenses**.
+5. On the Licenses page, select Active Directory Premium or Enterprise Mobility Suite, and then click **Assign**.
+6. In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.
 
 
 ## Verifying the scheduled synchronization task
@@ -70,8 +68,8 @@ After your initial installation of Azure AD Connect, you can always start the wi
 
 The following table provides a summary of these tasks and a brief description on each of them.
 
-<center>![Join Rule](./media/active-directory-aadconnect-whats-next/addtasks.png)
-</center>
+![Join Rule](./media/active-directory-aadconnect-whats-next/addtasks.png)
+
 
 Additional Task | Description 
 ------------- | ------------- |
@@ -90,6 +88,7 @@ Enable Staging Mode |  This allows you to stage information that will later be s
 ## Additional Documentation
 For additional documentation on working with Azure AD Connect see the following;
 
+- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 - [Changing the Azure AD Connect default configuration](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Using the Azure AD Connect Synchronization Rules Editor](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Using declarative provisioning](active-directory-aadconnect-whats-next-declarative-prov.md)

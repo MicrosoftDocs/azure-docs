@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Backup - restore a virtual machine"
+	pageTitle="Azure Backup - restore a virtual machine | Microsoft Azure"
 	description="Learn how to restore an Azure virtual machine"
 	services="backup"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="08/11/2015"
 	ms.author="trinadhk"; "jimpark"/>
 
 # Restore a virtual machine
@@ -100,4 +100,4 @@ For most errors, you can follow the recommended action suggested in the Error De
 | Restore | Restore failed with Cloud Internal error | <ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Next steps
-- [Manage virtual machines](backup-azure-manage-vms)
+- [Manage virtual machines](backup-azure-manage-vms.md)

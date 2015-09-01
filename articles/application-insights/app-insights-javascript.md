@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
@@ -24,6 +24,10 @@ Find out about the performance and usage of your web page. Add Visual Studio App
 ![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/16-page-views.png)    
 
 If you already set up server telemetry for your [ASP.NET][greenbrown] or [Java][java] web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
+
+#### Quick demo
+
+If you don't have an Azure subscription and would like to try Application Insights on your web page, visit [Try Application Insights](http://aka.ms/ainow). 
 
 ## Create an Application Insights resource
 

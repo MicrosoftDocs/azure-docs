@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -401,8 +401,7 @@ The present code sample uses the following custom class that borrows the idea of
 	        static Custom_SqlDatabaseTransientErrorDetectionStrategy()
 	        {
 	            int[] arrayOfTransientErrorNumbers =
-	                {4060, 10928, 10929, 40197, 40501, 40613
-	};
+	                {4060, 10928, 10929, 40197, 40501, 40613 };
 	
 	            M_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
 	        }
@@ -420,11 +419,11 @@ The present code sample uses the following custom class that borrows the idea of
 
 
 The source code in this section is a shortened repeat of the longer `Program.cs` file presented earlier.
-All the retry logic and all the `Exception` handling has been removed.
+All the retry logic and all the exception handling has been removed.
 
 
 The short version makes it easier to see the ADO.NET calls, knowing that these usually work.
-Usually no transient faults occur and no `Exception` is thrown.
+Usually no transient faults occur and no exception is thrown.
 And usually a skydiver does not need a backup parachute.
 
 

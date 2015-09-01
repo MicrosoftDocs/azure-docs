@@ -123,6 +123,13 @@ If you have not previously used Azure PowerShell with Resource Manager, see [Usi
 7. To get detailed information about deployment failures.
 
         PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        
+### Video
+
+Here's a video demonstrating working with Resource Manager templates with PowerShell.
+
+[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
+
 
 ## Deploy with Azure CLI for Mac, Linux and Windows
 

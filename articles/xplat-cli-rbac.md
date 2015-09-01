@@ -18,30 +18,20 @@
 
 # Managing Role-Based Access Control with the Azure Command-Line Interface (Azure CLI)#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Azure CLI">Azure CLI</a></div>
-
 Role-Based access control (RBAC) in the Azure portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for active directory users, groups or service principals by assigning some roles to them at a particular scope.
 
 In this tutorial, you'll learn how to use the Azure CLI to manage RBAC. It walks you through the process of creating and checking role assignments.
 
 **Estimated time to complete:** 15 minutes
 
-## Prerequisites ##
+## Prerequisites
 
 Before you can use Azure CLI to manage RBAC, you must have the following:
 
 - Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [install](xplat-cli-install.md).
 - Please also read the following tutorials to get familiar with set up and using the Azure Resource Manager in the Azure CLI: [Using the Azure CLI with the Resource Manager](xplat-cli-azure-resource-manager.md)
 
-## In this tutorial ##
-
-* [Connect to your subscriptions](#connect)
-* [Check existing role assignments](#check)
-* [Create a role assignment](#create)
-* [Verify permissions](#verify)
-* [Next steps](#next)
-
-## <a id="connect"></a>Connect to your subscriptions ##
+## Connect to your subscriptions 
 
 Since RBAC only works with Azure Resource Manager, the first thing to do is to switch to Azure Resource Manager mode, type:
 
@@ -86,7 +76,7 @@ This will return all the role assignments for a particular user in your AD tenan
 
 All the parameters of this cmdlet are optional. You can combine them to check role assignments with different filters.
 
-## <a id="create"></a>Create a role assignment ##
+## Create a role assignment 
 
 To create a role assignment, you need to think about
 
@@ -124,7 +114,7 @@ Then use `azure role assignment create` to create a role assignment. For example
 
     `azure role assignment create --mail <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
-## <a id="verify"></a>Verify permissions ##
+## Verify permissions 
 
 After you check that your account has some role assignments, you can actually see the permissions these role assignments grant you by running
 
@@ -135,7 +125,7 @@ These two cmdlets will only return the resource groups or resources where you ha
 
 Then when you try to run other cmdlet like `azure group create`, you will get an access denied error if you don't have the permission.
 
-## <a id="next"></a>Next steps ##
+## Next steps 
 
 To learn more about managing role-based access control with Azure CLI and related topics:
 

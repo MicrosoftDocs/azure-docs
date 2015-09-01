@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Service-side authorization of users in a JavaScript backend mobile service | Azure Mobile Services"
+	pageTitle="Service-side authorization of users in a JavaScript backend mobile service | Microsoft Azure"
 	description="Learn how to authorize users in JavaScript backend of Azure Mobile Services"
 	services="mobile-services"
 	documentationCenter=""

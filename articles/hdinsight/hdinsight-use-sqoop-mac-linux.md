@@ -5,7 +5,8 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="Blackmist"/>
+	authors="Blackmist"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"

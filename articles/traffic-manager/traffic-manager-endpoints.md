@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Manage Endpoints in Traffic Manager"
+   pageTitle="Manage Endpoints in Traffic Manager | Microsoft Azure"
    description="This article will help you add, remove, enable and disable endpoints from Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Add, Disable, Enable or Delete Endpoints
 
-Azure Websites already provides failover and round-robin load balancing functionality for websites within a datacenter, regardless of the website mode. Traffic Manager allows you to specify failover and round-robin load balancing for websites and cloud services in different datacenters. The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.
+Azure Websites already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode. Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters. The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.
 
 >[AZURE.NOTE] You cannot add external locations or Traffic Manager profiles as endpoints using the Management Portal. You must use the REST API [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) or Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774).
 
@@ -36,7 +36,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 6. Select the websites in the list to add them as endpoints for this profile. Clearing the website name removes it from the list of endpoints. Note that you can only select a single website per Azure datacenter (also known as a region). If you select a website in a datacenter that hosts multiple websites, when you select the first website, the others in the same datacenter become unavailable for selection. Also note that only Standard websites are listed.
 7. After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.
 
->[AZURE.NOTE] If you are using the *Failover* load balancing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration. For more information, see [Configure Failover Load Balancing](traffic-manager-configure-failover-load-balancing.md).
+>[AZURE.NOTE] If you are using the *Failover* traffic routing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration. For more information, see [Configure Failover traffic routing](traffic-manager-configure-failover-load-balancing.md).
 
 ## To disable an endpoint
 
@@ -68,7 +68,9 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 [About Traffic Manager Monitoring](traffic-manager-monitoring.md)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
+
+[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Connecting DocumentDB with Azure Search using indexers | Azure" 
+    pageTitle="Connecting DocumentDB with Azure Search using indexers | Microsoft Azure" 
     description="This article shows you how to use to Azure Search indexer with DocumentDB as a data source."
     services="documentdb" 
     documentationCenter="" 
@@ -132,50 +132,16 @@ Ensure that the schema of your target index is compatible with the schema of the
 
 ###Figure A: Mapping between JSON Data Types and Azure Search Data Types
 
-<table style="font-size:12">
-    <tr>
-        <th>JSON Data Type</th>
-        <th>Compatible Target Index Field Types</th>
-    </tr>
-    <tr>
-        <td>Bool</td>
-        <td>Edm.Boolean, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Numbers that look like integers</td>
-        <td>Edm.Int32, Edm.Int64, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Numbers that look like floating-points</td>
-        <td>Edm.Double, Edm.String</td>
-    </tr>
-    <tr>
-        <td>String</td>
-        <td>Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Arrays of primitive types<br/>
-            e.g. [ "a", "b", "c" ]
-        </td>
-        <td>Collection(Edm.String)</td>
-    </tr>
-    <tr>
-        <td>Strings that look like dates</td>
-        <td>Edm.DateTimeOffset, Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            GeoJSON objects<br/>
-            e.g. { "type": "Point", "coordinates": [ long, lat ] }
-        </td>
-        <td>Edm.GeographyPoint</td>
-    </tr>
-    <tr>
-        <td>Other JSON objects</td>
-        <td>N/A</td>
-    </tr>
-</table>
+| JSON DATA TYPE|	COMPATIBLE TARGET INDEX FIELD TYPES|
+|---|---|
+|Bool|Edm.Boolean, Edm.String|
+|Numbers that look like integers|Edm.Int32, Edm.Int64, Edm.String|
+|Numbers that look like floating-points|Edm.Double, Edm.String|
+|String|Edm.String|
+|Arrays of primitive types e.g. "a", "b", "c" |Collection(Edm.String)|
+|Strings that look like dates| Edm.DateTimeOffset, Edm.String|
+|GeoJSON objects e.g. { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
+|Other JSON objects|N/A|
 
 ###<a id="CreateIndexExample"></a>Request body example
 

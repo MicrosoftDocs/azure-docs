@@ -9,13 +9,13 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# How to create a load balancer using Azure Resource Manager
+# Get started configuring internal load balancer using Azure Resource Manager
 
 
 > [AZURE.SELECTOR]

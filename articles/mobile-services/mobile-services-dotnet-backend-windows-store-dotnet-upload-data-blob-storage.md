@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" 
+	pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Microsoft Azure" 
 	description="Learn how to use Mobile Services to upload images to Azure Blob Storage." 
 	documentationCenter="windows" 
 	authors="ggailey777" 

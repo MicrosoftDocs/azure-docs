@@ -118,7 +118,7 @@ The allowed types and values are:
 - string or secureString - any valid JSON string
 - int - any valid JSON integer
 - bool - any valid JSON boolean
-- object - any valid JSON object
+- object or secureObject - any valid JSON object
 - array - any valid JSON array
 
 

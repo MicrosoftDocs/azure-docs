@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Azure" 
+	pageTitle="Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Microsoft Azure" 
 	description="Download a whitepaper by David Chappell about DocumentDB, a managed NoSQL database on Azure." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="08/06/2015" 
 	ms.author="mimig"/>
 
 # Introducing DocumentDB - A NoSQL Database for Microsoft Azure 

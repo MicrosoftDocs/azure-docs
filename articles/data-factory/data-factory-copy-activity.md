@@ -249,7 +249,6 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-> [AZURE.NOTE] See [Examples for using Copy Activity in Azure Data Factory][copy-activity-examples] for more examples for using the Copy Activity.
 
 ## Security
 This section includes overall security guidelines and best practices that help establish secure access to data stores for the Copy Activity.
@@ -266,7 +265,6 @@ For traditional databases such as **SQL Server**, especially when the instances 
 - **Data Type Handling by the Copy Activity**. Explains in which case the data types specified in the Structure section of the Table definition are honored/ignored.
 - **Invoke stored procedure for SQL Sink**. When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked.
 
-See [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced] article for details on these scenarios. 
 
 ## Walkthroughs
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity.
@@ -274,10 +272,8 @@ See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that sho
 See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity
 
 ## See Also
-- [Copy Activity - Examples][copy-activity-examples]
 - [Video: Introducing Azure Data Factory Copy Activity][copy-activity-video]
 - [Copy Activity topic on MSDN Library][msdn-copy-activity]
-- [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced]
 
 [msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
@@ -290,9 +286,7 @@ See [Enable your pipelines to work with on-premises data][use-onpremises-datasou
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
-[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 

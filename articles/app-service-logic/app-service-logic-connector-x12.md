@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/14/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
 #BizTalk X12 Connector
@@ -65,33 +65,18 @@ X12 Connector can be used either as a trigger or as an action.
 
 	![Encode configured][10]
 
-<table>
-	<tr>
-		<th>Parameter</th>
-		<th>Type</th>
-		<th>Description of the parameter</th>
-	</tr>
-	<tr>
-		<td>Content</td>
-		<td>string</td>
-		<td>XML Message</td>
-	</tr>
-	<tr>
-		<td>Agreement ID</td>
-		<td>string</td>
-		<td>Agreement ID</td>
-	</tr>
-	<tr>
-		<td>Is Batched Message</td>
-		<td>string</td>
-		<td>Is Batched Message</td>
-	</tr>
-</table>
+Parameter|Type|Description of the parameter
+---|---|---
+Content|string|XML Message
+Agreement ID|string|Agreement ID
+Is Batched Message|string|Is Batched Message
 
 The action returns an object containing the X12 payload.
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/24/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Use the StorSimple Manager service to modify your StorSimple device configuration

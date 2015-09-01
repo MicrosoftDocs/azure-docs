@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Client quick start code samples to SQL Database | Microsoft Azure" 
-	description="Provides code samples and drivers for Node.js on Linux, Python on Mac OS, Java and Windows, and many more all for Azure SQL Database clients."
+	description="Provides code samples and drivers for Node.js on Linux, Python on Mac OS, Java and Windows, Enterprise Library, and many more all for Azure SQL Database clients."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -75,7 +75,7 @@ This section provides links to code sample topics for client programs that run o
 
 | Language | Short sample | Retry sample | Relational to object |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET custom](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET with Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET custom](sql-database-develop-csharp-retry-windows.md)<br/><br/>[Enterprise Library](sql-database-develop-entlib-csharp-retry-windows.md) | (Entity Framework) |
 | C++ | [ODBC driver](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
@@ -92,4 +92,5 @@ This section provides links to code sample topics for client programs that run o
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
 - [Create your first Azure SQL Database](sql-database-get-started.md)
+- [Entity Framework 6 here, EF 7 on GitHub](http://entityframework.codeplex.com/)
 

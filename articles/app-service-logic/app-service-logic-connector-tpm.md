@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/14/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
 #BizTalk Trading Partner Management
@@ -26,6 +26,13 @@ The TPM API App is the base requirement of the AS2 connector, and the X12 or EDI
 
 ##Understanding Partners, Agreements and Profiles
 To know more about trading partner agreement, click [here][1]
+
+## Do more with your Connector
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md

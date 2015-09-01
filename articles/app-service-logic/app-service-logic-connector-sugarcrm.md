@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
-#Using the SugarCRM Connector in your Logic App#
+# Using the SugarCRM Connector in your Logic App
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. SugarCRM connector lets you create and modify different entities such as Accounts, Leads, Contacts etc. Following are the typical integration scenarios that involve SugarCRM.
 
@@ -30,7 +30,7 @@ Logic apps can trigger based on a variety of data sources and offer connectors t
 
 As part of Connector package settings, the user can specify entities the connector can manage and the actions, input and output parameters are dynamically populated.
 
-##SugarCRM Connector Actions##
+## SugarCRM Connector Actions
 Following are the different actions available in SugarCRM connector.
 
 - Create Module - Use this action to create a new record for SugarCRM module such as Accounts, Leads, Contacts.
@@ -47,57 +47,28 @@ Following are the different actions available in SugarCRM connector.
 
 - Check Duplicate Module - Use this action to check for duplicate records within a module.
 
-*Note*: For more details on the supported arguments in query refer to SugarCRM REST API documentation.
+*Note*: For more details on the supported arguments in a query, refer to [SugarCRM REST API](https://msdn.microsoft.com/library/dn705870) documentation.
 
-##Create a SugarCRM Connector API App##
+## Create a SugarCRM Connector API App
 1.	Navigate to portal.azure.com. Open the Azure Marketplace using the + NEW option at the top left corner of the Azure Portal.
 2.	Browse to “Marketplace > Everything” and search for “SugarCRM”.
 3.	Configure the SugarCRM Connector by providing the details for App Service Plan, the Resource Group and entering the name of the API App.
 4. Configure the SugarCRM Connector package settings. Following are the package settings you would need to provide to create the connector:
 
-	<table>
-	  <tr>
-	    <td><b>Name</b></td>
-	    <td><b>Required</b></td>
-	    <td><b>Description</b></td>
-	  </tr>
-	  <tr>
-	    <td>Site URL</td>
-	    <td>Yes</td>
-	    <td>Specify the URL of your SugarCRM instance Ex: https://abcde1234.sugarcrm.com</td>
-	  </tr>
-	  <tr>
-	    <td>Client Id</td>
-	    <td>Yes</td>
-	    <td>Specify the consumer key of oauth 2.0 key in SugarCRM </td>
-	  </tr>
-	  <tr>
-	    <td>Client Secret</td>
-	    <td>Yes</td>
-	    <td>Specify the consumer secret of oauth 2.0 key in SugarCRM </td>
-	  </tr>
-	<tr>
-	    <td>Username</td>
-	    <td>Yes</td>
-	    <td>Specify the username of SugarCRM user</td>
-	  </tr>
-		<tr>
-	    <td>Password</td>
-	    <td>Yes</td>
-	    <td>Specify the password of the SugarCRM user</td>
-	  </tr>
-	  <tr>
-	    <td>Module Names</td>
-	    <td>Yes</td>
-	    <td>Specify the SugarCRM modules such as Accounts, Contacts, Products, etc. on which you want to perform operation<br><br>Ex: Accounts,Leads,Contacts</td>
-	  </tr>
-	</table>
-
-	![][9]
+	Name | Required | Description
+--- | --- | ---
+Site URL | Yes | Enter the URL of your SugarCRM instance. For example, enter https://abcde1234.sugarcrm.com.
+Client Id | Yes | Enter the consumer key of OAUTH 2.0 key in SugarCRM. 
+Client Secret | Yes | Enter the consumer secret of OAUTH.
+Username | Yes | Enter the username of SugarCRM user.
+Password | Yes | Enter the password of the SugarCRM user.
+Module Names | Yes | Enter the SugarCRM modules (such as Accounts, Contacts, Products) on which you want to perform operation<br><br>Example: Accounts, Leads, Contacts  
+  
+![][9]
 
 
 
-##Create a Logic App##
+## Create a Logic App
 Let us create a simple logic app that creates an account in SugarCRM and updates billing address details of the same account.
 
 1.	Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’
@@ -143,6 +114,13 @@ Let us create a simple logic app that creates an account in SugarCRM and updates
 18. Browse the newly created Logic App and click on 'Run Now' to initiate a run.
 
 19. You can check that a new account by name 'Microsoft Account' gets created in your SugarCRM account and the same account is also updated with billing address information.
+
+## Do more with your Connector
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sugarcrm/1_New_Logic_App.png

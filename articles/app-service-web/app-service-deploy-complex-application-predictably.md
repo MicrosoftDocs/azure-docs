@@ -295,7 +295,6 @@ Find out how to [apply agile methodologies and continuously publish your microse
 -	[Azure Resource Manager Template Language](http://msdn.microsoft.com/library/azure/dn835138.aspx)
 -	[Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
 -	[Azure Resource Manager Template Functions](../resource-group-template-functions.md)
--	[Advanced Template Operations](../resource-group-advanced-template.md)
 -	[Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md)
 -	[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 -	[Troubleshooting Resource Group Deployments in Azure](../resource-group-deploy-debug.md)

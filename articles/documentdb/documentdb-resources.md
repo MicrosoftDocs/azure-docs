@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB resource model and concepts | Azure" 
+	pageTitle="DocumentDB resource model and concepts | Microsoft Azure" 
 	description="Microsoft Azure DocumentDB is a fully-managed NoSQL document database that uses a hierarchichal model of database accounts, databases, collections, stored procedures, triggers, UDFs, documents, attachments, media, users, and permissions to manage resources."  
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
 #DocumentDB resource model and concepts
@@ -59,46 +59,13 @@ Resources such as database accounts, databases, collections, users, permissions,
 >[AZURE.NOTE] Note that all system generated properties in a resource are prefixed with an underscore (_) in their JSON representation.  
 
 
-<table width="500"> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Property </b></p></td>
-<td valign="top" ><p><b>User settable or system generated?</b></p></td>
-<td valign="top" ><p><b>Purpose</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_rid</p></td>
-<td valign="top" ><p>System generated</p></td>
-<td valign="top" ><p>System generated, unique and hierarchical identifier of the resource.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_etag</p></td>
-<td valign="top" ><p>System generated</p></td>
-<td valign="top" ><p>etag of the resource required for optimistic concurrency control.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_ts</p></td>
-<td valign="top" ><p>System generated</p></td>
-<td valign="top" ><p>Last updated timestamp of the resource.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_self</p></td>
-<td valign="top" ><p>System generated</p></td>
-<td valign="top" ><p>Unique addressable URI of the resource.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>id</p></td>
-<td valign="top" ><p>User settable</p></td>
-<td valign="top" ><p>User defined unique name of the resource.</p></td>
-</tr>
-
-</tbody>
-</table>  
+Property |User settable or system generated?|Purpose
+---|---|---
+_rid|System generated|System generated, unique and hierarchical identifier of the resource.
+_etag|System generated|etag of the resource required for optimistic concurrency control.
+_ts|System generated|Last updated timestamp of the resource.
+_self|System generated|Unique addressable URI of the resource.
+id|User settable|User defined unique name of the resource.
 
 ###Wire representation of resources
 DocumentDB does not mandate any proprietary extensions to the JSON standard or special encodings; it works with standard compliant JSON documents.  
@@ -131,37 +98,12 @@ You can [create and manage DocumentDB database accounts](documentdb-create-accou
 ###Database account properties
 As part of provisioning and managing a database account you can configure and read the following properties:  
 
-<table border="1" cellspacing="0" cellpadding="0" > 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Property Name</b></p></td>
-<td valign="top" ><p><b>Description</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Consistency Policy</p></td>
-<td valign="top" ><p>Set this property to configure the default consistency level for all the collections under your database account. You can override the consistency level on a per request basis using the [x-ms-consistency-level] request header. In the future, we may support overriding the consistency level on a per collection basis. </p>
-
-<p>Note that this property only applies to the <i>user defined resources</i>. All system defined resources are configured to support reads/queries with strong consistency.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Primary Key and Secondary Key</p></td>
-<td valign="top" ><p>These are the primary and secondary keys that provide administrative access to all of the resources under the database account.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MaxMediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>Maximum amount of media storage available for the database account.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>Current usage of media storage for the database account.</p></td>
-</tr>
-
-</tbody>
-</table>
+Property Name|Description
+---|---
+Consistency Policy|Set this property to configure the default consistency level for all the collections under your database account. You can override the consistency level on a per request basis using the [x-ms-consistency-level] request header. In the future, we may support overriding the consistency level on a per collection basis. <p><p>Note that this property only applies to the <i>user defined resources</i>. All system defined resources are configured to support reads/queries with strong consistency.
+Primary Key and Secondary Key|These are the primary and secondary keys that provide administrative access to all of the resources under the database account.
+MaxMediaStorageUsageInMB (READ)|Maximum amount of media storage available for the database account.
+MediaStorageUsageInMB (READ)|Current usage of media storage for the database account.
 
 Note that in addition to provisioning, configuring and managing your database account from the Azure portal, you can also programmatically create and manage DocumentDB database accounts by using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) as well as [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
 

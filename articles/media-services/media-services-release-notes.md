@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -54,20 +54,19 @@ These release notes summarize changes from previous releases and known issues.
 
 ### <a id="general_issues"></a>Media Services General Issues
 
-<table border="1">
-<tr><th>Issue</th><th>Description</yt></tr>
-<tr><td>Several common HTTP headers are not provided in the REST API.</td><td>If you develop Media Services applications using the REST API, you find that some common HTTP header fields (including CLIENT-REQUEST-ID, REQUEST-ID, and RETURN-CLIENT-REQUEST-ID) are not supported. The headers will be added in a future update.</td></tr>
-<tr><td>Encoding an asset with a file name that contains escape characters (for example, %20) fails with “MediaProcessor : File not found.”</td><td>Names of files that are going to be added to an asset and then encoded should only contain alphanumeric characters and spaces. The issue will be fixed in a future update.</td></tr>
-<tr><td>The ListBlobs method that is part of the Azure Storage SDK version 3.x fails.</td><td>Media Services generates SAS URLs based on the <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">2012-02-12</a> version. If you want to use Azure Storage SDK to list blobs in a blob container, use the <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail.</td></tr>
-<tr><td>Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code.</td><td>For more information, see the description of the 503 HTTP status code in the <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Azure Media Services Error Codes</a> topic.</td></tr>
-</table><br/>
- 
+Issue|Description
+---|---
+Several common HTTP headers are not provided in the REST API.|If you develop Media Services applications using the REST API, you find that some common HTTP header fields (including CLIENT-REQUEST-ID, REQUEST-ID, and RETURN-CLIENT-REQUEST-ID) are not supported. The headers will be added in a future update.
+Encoding an asset with a file name that contains escape characters (for example, %20) fails with “MediaProcessor : File not found.”|Names of files that are going to be added to an asset and then encoded should only contain alphanumeric characters and spaces. The issue will be fixed in a future update.
+The ListBlobs method that is part of the Azure Storage SDK version 3.x fails.|Media Services generates SAS URLs based on the [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) version. If you want to use Azure Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail.
+Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code.|For more information, see the description of the 503 HTTP status code in the [Azure Media Services Error Codes](http://msdn.microsoft.com/library/azure/dn168949.aspx) topic.
+
+
 ### <a id="dotnet_issues"></a>Media Services SDK for .NET Issues
 
-<table border="1">
-<tr><th>Issue</th><th>Description</yt></tr>
-<tr><td>Media Services objects in the SDK cannot be serialized and as a result do not work with Azure Caching.</td><td>If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown.</td></tr>
-</table><br/>
+Issue|Description
+---|---
+Media Services objects in the SDK cannot be serialized and as a result do not work with Azure Caching.|If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown.
 
 ##<a id="rest_version_history"></a>REST API Version History
 
@@ -77,7 +76,7 @@ For information about the Media Services REST API version history, see [Azure Me
 
 Announcing the general availability of Media Encoder Standard. For more information, see [this blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium ** reserved unit type. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
+Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium** reserved unit type. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
 
 
 ###Media Services .NET SDK Updates
@@ -99,7 +98,7 @@ Azure Media Services .NET SDK is now version 3.3.0.0. The following functionalit
 - support for OpenId Connect Discovery spec,
 - support for handling keys rollover on identity provider side. 
 
-If you are using an identity provider which exposes OpenID Connect discovery document (as the following prviders do: Azure Active Directory, Google, Salesforce ), you can instruct Azure Media Services to obtain signing keys for validation of JWT token from OpenID connect discovery spec. 
+If you are using an identity provider which exposes OpenID Connect discovery document (as the following providers do: Azure Active Directory, Google, Salesforce ), you can instruct Azure Media Services to obtain signing keys for validation of JWT token from OpenID connect discovery spec. 
 
 For more information, see [Using Json Web Keys from OpenID Connect discovery spec to work with JWT token authentication in Azure Media Services](http://gtrifonov.com/2015/06/07/using-json-web-keys-from-openid-connect-discovery-spec-to-work-with-jwt-token-authentication-in-azure-media-services/).
 
@@ -291,7 +290,7 @@ The following bug fixes were made for the Azure Media Services Packager and Encr
 
 ### <a id="may_14_changes"></a>General Media Services Updates
 
-You can now use [Dynamic Packaging] to stream HTTP Live Streaming (HLS) v3. To stream HLS v3, add the following format to the origin locator path: *.ism/manifest(format=m3u8-aapl-v3). For more information, see [Nick Drouin's Blog].
+You can now use [Dynamic Packaging] to stream HTTP Live Streaming (HLS) v3. To stream HLS v3, add the following format to the origin locator path: * .ism/manifest(format=m3u8-aapl-v3). For more information, see [Nick Drouin's Blog].
 
 Dynamic Packaging now also supports delivering HLS (v3 and v4) encrypted with PlayReady based on Smooth Streaming statically encrypted with PlayReady. For information on how to encrypt Smooth Streaming with PlayReady, see [Protecting Smooth Stream with PlayReady].
 

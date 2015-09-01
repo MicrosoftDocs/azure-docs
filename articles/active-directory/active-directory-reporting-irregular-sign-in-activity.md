@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Irregular sign in activity"
-	description="A report that includes sign ins that have been identified as anomalous by our machine learning algorithms.""
+	description="A report that includes sign ins that have been identified as anomalous by our machine learning algorithms."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Irregular sign in activity
 

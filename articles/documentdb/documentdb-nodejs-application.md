@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build a Node.js web application using DocumentDB | Azure" 
+	pageTitle="Build a Node.js web application using DocumentDB | Microsoft Azure" 
 	description="Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js Express web application hosted on Azure Websites." 
 	services="documentdb" 
 	documentationCenter="nodejs" 

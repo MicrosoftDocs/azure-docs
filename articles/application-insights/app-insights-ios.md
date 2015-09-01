@@ -11,7 +11,7 @@
     ms.workload="tbd" 
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
-    ms.topic="article" 
+    ms.topic="get-started-article" 
     ms.date="04/27/2015" 
     ms.author="awills"/>
 
@@ -137,6 +137,6 @@ Click on any chart to get more detail. For example, crashes:
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

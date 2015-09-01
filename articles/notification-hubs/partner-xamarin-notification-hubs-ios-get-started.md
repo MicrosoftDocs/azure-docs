@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="04/14/2015"
+	ms.topic="hero-article"
+	ms.date="07/28/2015"
 	ms.author="yuaxu"/>
 
 # Get started with Notification Hubs

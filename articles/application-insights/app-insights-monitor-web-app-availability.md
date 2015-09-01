@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
@@ -29,8 +29,6 @@ There are two types of web test:
 
 * [URL ping test](#set-up-a-url-ping-test): a simple test that you can create in the Azure portal.
 * [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.
-
-*Is it an Azure web app? Just [create the web test in the web app blade][azure-availability].*
 
 
 
@@ -69,7 +67,7 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 #### Test more URLs
 
-You can add tests for as many URLs as you like. For example, as well as testing your home page, you could make sure your database is running by testing the URL for a search.
+Add more tests. For example, as well as testing your home page, you could make sure your database is running by testing the URL for a search.
 
 
 ### <a name="monitor"></a>3. View availability reports
@@ -206,6 +204,16 @@ Open an individual test to edit or disable it.
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
 
 You might want to disable web tests while you are performing maintenance on your service.
+
+## Questions? Problems?
+
+* I get an error about "invalid characters" when I 
+
+* *Is there a difference between "web tests" and "availability"?
+
+    We use the two terms interchangeably. 
+
+
 
 ## <a name="video"></a>Video
 

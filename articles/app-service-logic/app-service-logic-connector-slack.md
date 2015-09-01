@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Slack Connector
@@ -78,7 +78,8 @@ Property | Description
 --- | ---
 Text | Enter the text of the message to be posted.
 Channel Name | Enter the Slack Channel where this message is posted. If the channel is not entered, then the message is posted to #general.
-Advanced Properties | <ul><li><strong>Bot User name</strong>: Name of the bot to use for this message. The message is posted as "Bot" if this is not entered.</li><li><strong>Icon URL</strong>: The image URL to use as the icon for this message.</li><li><strong>Icon Emoji</strong>: Emoji to use as the icon for this message. This property overrides the Icon URL property.</li></ul>
+Advanced Properties | **Bot User name**: Name of the bot to use for this message. The message is posted as "Bot" if this is not entered.<p><p>**Icon URL**: The image URL to use as the icon for this message.<p><p>**Icon Emoji**: Emoji to use as the icon for this message. This property overrides the Icon URL property.
+
 
 The Slack connector has REST APIs available so you can use the connector outside of a Logic App. Open your Slack Connector and select **API definition**:
 
@@ -88,7 +89,7 @@ The Slack connector has REST APIs available so you can use the connector outside
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
-Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
@@ -103,4 +104,3 @@ You can also review performance statistics and control security to the connector
 [7]: ./media/app-service-logic-connector-slack/img7.PNG
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
-

@@ -5,7 +5,8 @@
 	documentationCenter=""
 	editor="cgronlun"
 	manager="paulettm"
-	authors="nitinme"/>
+	authors="nitinme"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,11 +14,62 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/26/2015"
+	ms.date="07/30/2015"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 07/31/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.640.1695824 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.640.1695824  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.4.640.1695824  (HDP 2.1.15.0-2334 - unchanged)
+* HDInsight		3.2.6.640.1695824  (HDP 2.2.6.1-0012 - unchanged)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Fix Spark cluster node re-imaging workflow | Fixed a bug that was causing Spark cluster nodes to not recover after re-image | Service    | Spark| N/A                  |
+
+
+## Notes for 07/31/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.635.1684502 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.635.1684502  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.4.635.1684502  (HDP 2.1.15.0-2334 - unchanged)
+* HDInsight		3.2.6.635.1684502  (HDP 2.2.6.1-0012 - unchanged)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDInsight versions for all HDInsight clusters | With this release, HDInsight versions have been updated | Service    | All| N/A                  |
+
+
+## Notes for 07/07/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.610.1630216	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.610.1630216	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.4.610.1630216	(HDP 2.1.15.0-2334 - unchanged)
+* HDInsight		3.2.4.610.1630216	(HDP 2.2.6.1-0012)
+* SDK			1.5.8
+
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDP versions for HDInsight 3.2 clusters | With this release, HDInsight 3.2 deploys HDP 2.2.6.1-0012 | Service    | All                                                 | N/A                  |
 
 
 ## Notes for 06/26/2015 release of HDInsight ##
@@ -80,7 +132,7 @@ This release contains the following updates.
 
 <tr>
 <td>Additional HTTPS ports opened</td>
-<td>The cloud service now opens 5 ports 8001 to 8005 on the cluster E.g. at https://<clustername>.azurehdinsight.net:8001/. Requests to these URLs are authenticated using the same basic authentication password mechanism as port 443. These ports bind to the same port on the active headnode. Script actions can be used to make customer services listen on these ports on the headnode and route to outside the  cluster.</td>
+<td>The cloud service now opens 5 ports 8001 to 8005 on the cluster E.g. at https://<clustername>.azurehdinsight.net:8001/. Requests to these URLs are authenticated using the same basic authentication password mechanism as port 443. These ports bind to the same port on the active headnode. Script actions can be used to make customer services listen on these ports on the headnode and route to outside the  cluster.</td>
 <td>Cloud Service</td>
 <td>All</td>
 <td>N/A</td>
@@ -559,7 +611,7 @@ This release contains the following updates.
 
 <tr>
 <td>HDInsight 3.2 clusters</td>
-<td>Hadoop 2.6/HDP2.2 is available with HDInsight 3.2 clusters. It contains major updates to all of the open-source components. For more details, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">What's new in HDInsight</a> and <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 Release Notes</a>.</td>
+<td>Hadoop 2.6/HDP2.2 is available with HDInsight 3.2 clusters. It contains major updates to all of the open-source components. For more details, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">What's new in HDInsight</a> and <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 Release Notes</a>.</td>
 <td>Open-source software</td>
 <td>All</td>
 <td>N/A</td>
@@ -752,7 +804,7 @@ Apache Mahout is an Apache Hadoop machine learning library. Mahout contains algo
 
 <tr>
 <td>Change to default value for Hive configuration: hive.auto.convert.join.noconditionaltask.size</td>
-<td><p>This size configuration applies to automatically converted map joins. The value represents the sum of the sizes of tables that can be converted to hash maps that fit in memory. In a prior release, this value increased from the default value of 10 MB to 128 MB. However, the new value of 128 MB was causing jobs to fail due to lack of memory. This release reverts the default value back to 10 MB. Customers can still choose to override this value during cluster creation, given their queries and table sizes. For more information about this setting and how to override it, see <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/optimize-joins.html#JoinOptimization-OptimizeAutoJoinConversion" target="_blank">Optimize Auto Join Conversion</a> in Hortonworks documentation. </p></td>
+<td><p>This size configuration applies to automatically converted map joins. The value represents the sum of the sizes of tables that can be converted to hash maps that fit in memory. In a prior release, this value increased from the default value of 10 MB to 128 MB. However, the new value of 128 MB was causing jobs to fail due to lack of memory. This release reverts the default value back to 10 MB. Customers can still choose to override this value during cluster creation, given their queries and table sizes. For more information about this setting and how to override it, see <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/optimize-joins.html#JoinOptimization-OptimizeAutoJoinConversion" target="_blank">Optimize Auto Join Conversion</a> in Hortonworks documentation. </p></td>
 <td>Hive</td>
 <td>Hadoop, Hbase</td>
 <td>N/A</td>
@@ -809,7 +861,7 @@ This release contains the following component update.
 
 <tr>
 <td><a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">Cluster customization General Avalability</a></td>
-<td><p>Customization provides the ability for you to customize your Azure HDInsight clusters with projects that are available from the Apache Hadoop ecosystem. With this new feature, you can experiment and deploy Hadoop projects to Azure HDInsight. This is enabled through the **Script Action** feature, which can modify Hadoop clusters in arbitrary ways by using custom scripts. This customization is available on all types of HDInsight clusters including Hadoop, HBase, and Storm. To demonstrate the power of this capability, we have documented the process to install the popular <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>, and <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> modules. This release also adds the capability for customers to specify their custom script action via the Azure portal, provides guidelines and best practices about how to build custom script actions using helper methods, and provides guidelines about how to test the script action. </p></td>
+<td><p>Customization provides the ability for you to customize your Azure HDInsight clusters with projects that are available from the Apache Hadoop ecosystem. With this new feature, you can experiment and deploy Hadoop projects to Azure HDInsight. This is enabled through the **Script Action** feature, which can modify Hadoop clusters in arbitrary ways by using custom scripts. This customization is available on all types of HDInsight clusters including Hadoop, HBase, and Storm. To demonstrate the power of this capability, we have documented the process to install the popular <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>, and <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> modules. This release also adds the capability for customers to specify their custom script action via the Azure portal, provides guidelines and best practices about how to build custom script actions using helper methods, and provides guidelines about how to test the script action. </p></td>
 <td>Feature General Availability</td>
 <td>All</td>
 <td>N/A</td>
@@ -857,7 +909,7 @@ This release contains the following component updates.
 
 <tr>
 <td>Bug fix: Occasional spike in latency of Hbase queries</td>
-<td>If this happens, users will notice an occasional spike of 3 seconds in the latency of Hbase queries. </td>
+<td>If this happens, users will notice an occasional spike of 3 seconds in the latency of Hbase queries. </td>
 <td>HDInsight Cluster Gateway</td>
 <td>HBase</td>
 <td>N/A</td>

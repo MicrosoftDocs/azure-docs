@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for Azure RemoteApp
@@ -78,7 +78,7 @@ You can find more information about creating Azure virtual machines and connecti
 4. Choose the plan that you want to use - standard or basic.
 5. Click **Create RemoteApp collection**.
 
-After your RemoteApp collection has been created, go to the RemoteApp **Quick Start** page to continue with the set up steps.
+After your RemoteApp collection has been created, double-click the name of the collection. That will bring up the **Quick Start** page - this is where you finish configuring the collection.
 
 ## Step 3: Link your collection to the virtual network ##
 
