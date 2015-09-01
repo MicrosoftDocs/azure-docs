@@ -24,7 +24,7 @@ This information is provided to help you publish your software solution into the
 ## Getting Started
 The first thing you would want to do as a publisher is to define out what kind of solution your company is offering. Azure Marketplace supports multiple different types of solutions and each of them require a slightly different set of work from you in order to successfully publish into the Marketplace.
 
-** Types of solutions **
+** Types of solutions: **
 
 1. Data Services
 2. Developer Services
