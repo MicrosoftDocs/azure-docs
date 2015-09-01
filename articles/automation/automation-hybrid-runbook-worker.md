@@ -37,18 +37,6 @@ Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you
 
 When you start a runbook on a Hybrid Runbook Worker, you specify the group that it will run on.  The members of the group will determine which worker will service the request.  You cannot specify a particular worker.
 
-## Hybrid Runbook Worker requirements
-
-You must designate at least one on-premise computer to run hybrid runbook jobs.  This computer must have the following:
-
-- Windows Server 2012 or later
-- WIndows PowerShell 4.0 or later
-
-Consider the following recommendations for hybrid workers: 
-
-- Designate multiple hybrid workers in each group for high availability.  
-- Hybrid workers can coexist with Service Management Automation or System Center Orchestrator runbook servers.
-- Consider using a machine physically located in or near the region of your automation account since the job data is sent back to Azure Automation when a job completes.
 
 ## Installing Hybrid Runbook Worker
 The procedure below describes how to install and configure Hybrid Runbook Worker.  Perform the first two steps once for your Automation environment and then repeat the remaining steps for each worker computer.
@@ -89,16 +77,11 @@ You can get the information required for this cmdlet from the  **Manage Keys** b
 - **EndPoint** is the **URL** field in the **Manage Keys** blade.
 - **Token** is the **Primary Access Key** in the **Manage Keys** blade.  
 
-Use the **-Verbose** switch with **Add-HybridRunbookWorker** to receive detailed information about the installation.
 
 ### 5. Install PowerShell modules
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment.  These modules are not automatically deployed to on-premises machines though, so you must install them manually.  The exception is the Azure module which is installed by default providing access to cmdlets for all Azure services and activities for Azure Automation.
 
 Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you will most likely need to install the modules that support these resources.  You can refer to  [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx) for information on installing Windows PowerShell modules.
-
-## Removing Hybrid Runbook Worker
-
-You can remove Hybrid Runbook Worker from an on-premise machine with by running **Remove-HybridRunbookWorker** cmdlet on that machine.  Use the **-Verbose** switch for a detailed log of the removal process.  
 
 ## Starting runbooks on Hybrid Runbook Worker
 
@@ -111,12 +94,6 @@ Use the **RunOn** parameter  You could use the following command to start a runb
 	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 >[AZURE.NOTE] The **RunOn** parameter was added to the **Start-AzureAutomationRunbook** cmdlet in version 0.9.1 of Microsoft Azure PowerShell.  You should [download the latest version](http://azure.microsoft.com/downloads) if you have an earlier one installed.  You only need to install this version on a workstation where you will be starting the runbook from Windows PowerShell.  You do not need to install it on the worker computer unless you intend to start runbooks from that computer.  You cannot currently start a runbook on a Hybrid Runbook Worker from another runbook since this would require the latest version of Azure Powershell to be installed in your Automation account.  The latest version will be automatically updated in Azure Automation and automatically pushed down to the workers soon.
-
-## Troubleshooting runbooks on Hybrid Runbook Worker
-
-[Runbook output and messages](automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud.  You can also enable the Verbose and Progress streams the same way you would for other runbooks.  
-
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.
 
 
 ## Creating runbooks for Hybrid Runbook Worker
