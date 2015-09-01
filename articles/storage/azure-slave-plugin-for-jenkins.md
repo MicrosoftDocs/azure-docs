@@ -13,8 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
-	ms.author="v-dedomi"/>
+	ms.date="09/01/2015"
 
 # How to use the Azure slave plug-in with Jenkins Continuous Integration
 
