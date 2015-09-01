@@ -481,7 +481,7 @@ If you are looking for an API based approach for encrypting the credentials you 
 
 **Note:** If you use the “Setting Credentials” application it automatically sets the encrypted credentials in the linked service as shown above.
 
-There is one more approach for setting credentials using Data Factory Editor.If you create a SQL Server linked service by using the editor and you enter credentials in plain text, the credentials are encrypted using a certificate that the Data Factory service owns, NOT the certificate that gateway is configured to use. While this approach might be a little faster in some cases it is less secure. Therefore, we recommend that you follow this approach only for development/testing purposes. 
+There is one more approach for setting credentials using Data Factory Editor. If you create a SQL Server linked service by using the editor and you enter credentials in plain text, the credentials are encrypted using a certificate that the Data Factory service owns, NOT the certificate that gateway is configured to use. While this approach might be a little faster in some cases it is less secure. Therefore, we recommend that you follow this approach only for development/testing purposes. 
 
 
 ## Creating and registering a gateway using Azure PowerShell 
