@@ -29,10 +29,10 @@ See the [Python Developer Center] for more articles that cover development of Az
 
 ## Prerequisites
 
- - Visual Studio 2012 or 2013
+ - Visual Studio 2013 or 2015
  - [Python Tools 2.2 for Visual Studio]
  - [Python Tools 2.2 for Visual Studio Samples VSIX]
- - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2012]
+ - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2015]
  - [Python 2.7 32-bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -201,7 +201,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Remote Debugging on Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
