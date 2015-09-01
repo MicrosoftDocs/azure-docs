@@ -92,8 +92,7 @@ Perform the following steps to create a new cloud service project named 'express
 
 	This change is required since we moved the file (formerly **bin/www**,) to the same directory as the app file being required. After making this change, save the **server.js** file.
 
-8.  Use the following command to run the application in the Windows
-    Azure emulator:
+8.  Use the following command to run the application in the Azure emulator:
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
