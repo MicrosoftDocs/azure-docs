@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Azure virtual machine backup - Troubleshooting | Microsoft Azure"
 	description="Find information to troubleshoot backup and restore of Azure virtual machine"
 	services="backup"
@@ -85,9 +85,9 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Create policy | Failed to create the policy - Please reduce the retention choices to continue with policy configuration. | None |
 
 
-### VM Agent
+## VM Agent
 
-#### Setting up the VM Agent
+### Setting up the VM Agent
 Typically, the VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly. Read more about [installing the VM agent on an existing VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
 
 For Windows VMs:
@@ -96,17 +96,17 @@ For Windows VMs:
 - [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
 
 
-#### Updating the VM Agent
+### Updating the VM Agent
 Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). However, you need to ensure that no backup operation is running while the VM Agent is being updated.
 
 
-#### Validating VM Agent installation
+### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:
 
 1. Log on to the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*. You should find the WaAppAgent.exe file present.
 2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
 
-### Networking
+## Networking
 Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of of ways:
 
 - The extension installation can fail
