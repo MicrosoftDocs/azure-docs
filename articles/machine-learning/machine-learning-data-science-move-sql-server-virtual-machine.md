@@ -181,10 +181,10 @@ SSIS is available in two studio environments. For details, see [Integration Serv
 
 You can also use the following migration strategies:
 
-- [Deploy a SQL Server Database to a Microsoft Azure VM wizard](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
-- [Export to Flat File](#export-flat-file) 
-- [SQL Database Migration Wizard](#sql-migration)
-- [Database backup and restore](#sql-backup)
+1. [Deploy a SQL Server Database to a Microsoft Azure VM wizard](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
+2. [Export to Flat File](#export-flat-file) 
+3. [SQL Database Migration Wizard](#sql-migration)
+4. [Database backup and restore](#sql-backup)
 
 We describe each of these below:
 
