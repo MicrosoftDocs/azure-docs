@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure SSL for a cloud service (Node.js) - Azure" 
+	pageTitle="Configure SSL for a cloud service (Node.js) | Microsoft Azure" 
 	description="Set an HTTPS endpoint for a Node.js web role and upload an SSL certificate to secure your application." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to create and deploy a cloud service - Azure"
+	pageTitle="How to create and deploy a cloud service | Microsoft Azure"
 	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 

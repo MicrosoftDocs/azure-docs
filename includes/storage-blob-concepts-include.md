@@ -11,8 +11,7 @@ Common uses of Blob storage include:
 -   Storing files for distributed access
 -   Streaming video and audio
 -   Performing secure backup and disaster recovery
--   Storing data for analysis by an on-premises or Azure-hosted
-    service
+-   Storing data for analysis by an on-premises or Azure-hosted service
 
 ## Blob service concepts
 
@@ -28,13 +27,13 @@ The Blob service contains the following components:
     unlimited number of containers. A container can store an unlimited
     number of blobs.
 
--   **Blob:** A file of any type and size. There are two types of blobs
-    that can be stored in Azure Storage: block and page blobs.
-    Most files are block blobs. A single block blob can be up to 200 GB
-    in size. This tutorial uses block blobs. Page blobs, another blob
-    type, can be up to 1 TB in size, and are more efficient when ranges
-    of bytes in a file are modified frequently. For more information
-    about blobs, see [Understanding Block Blobs and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+-   **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.
+    
+	*Block blobs* are ideal for storing text or binary files, such as documents and media files. *Append blobs* are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios. A single block blob or append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).
+    
+	*Page blobs* can be up to 1 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines use page blobs as OS and data disks.
+
+	For more information about blobs, see [Understanding Block Blobs, Page Blobs, and Append Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ## Naming and referencing containers and blobs
 

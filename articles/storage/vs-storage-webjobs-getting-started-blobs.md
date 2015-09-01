@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Getting Started with Azure Storage" 
-	description="How to get started using Azure blob storage in an Azure WebJob project in Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Getting started with Azure storage and Visual Studio connected services (WebJob projects)" 
+	description="How to get started using Blob storage in an Azure storage account that was created using Visual Studio's Add Connected Services dialog box in a WebJob project."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
+	ms.service="storage"
+	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (Azure WebJob Projects)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-blobs.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-blobs.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
@@ -29,9 +29,9 @@
 
 ## Overview
 
-When you add a Storage Account to a WebJob project by using the Visual Studio **Add Connected Services** dialog, the appropriate Azure Storage NuGet package is installed, the appropriate .NET references are added to the project, and connection strings for the storage account are updated in the App.config file.  
+This article provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use the [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x. When you add a storage account to a WebJob project by using the Visual Studio **Add Connected Services** dialog, the appropriate Azure Storage NuGet package is installed, the appropriate .NET references are added to the project, and connection strings for the storage account are updated in the App.config file.
 
-This article provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use the [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x. 
+
 
 ## How to trigger a function when a blob is created or updated
 
@@ -86,7 +86,7 @@ The following code sample changes the file extension as it copies blobs that app
 		    output = input.ReadToEnd();
 		}
 
-## <a id="types"></a> Types that you can bind to blobs
+## Types that you can bind to blobs
 
 You can use the `BlobTrigger` attribute on the following types:
 
@@ -100,7 +100,7 @@ You can use the `BlobTrigger` attribute on the following types:
 
 If you want to work directly with the Azure storage account, you can also add a `CloudStorageAccount` parameter to the method signature.
 
-## <a id="string"></a> Getting text blob content by binding to string
+## Getting text blob content by binding to string
 
 If text blobs are expected, `BlobTrigger` can be applied to a `string` parameter. The following code sample binds a text blob to a `string` parameter named `logMessage`. The function uses that parameter to write the contents of the blob to the WebJobs SDK dashboard. 
  
@@ -113,7 +113,7 @@ If text blobs are expected, `BlobTrigger` can be applied to a `string` parameter
 		     logger.WriteLine(logMessage);
 		}
 
-## <a id="icbsb"></a> Getting serialized blob content by using ICloudBlobStreamBinder
+## Getting serialized blob content by using ICloudBlobStreamBinder
 
 The following code sample uses a class that implements `ICloudBlobStreamBinder` to enable the `BlobTrigger` attribute to bind a blob to the `WebImage` type.
 
@@ -151,7 +151,7 @@ The `WebImage` binding code is provided in a `WebImageBinder` class that derives
 		    }
 		}
 
-## <a id="poison"></a> How to handle poison blobs
+## How to handle poison blobs
 
 When a `BlobTrigger` function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
 
@@ -196,7 +196,7 @@ The SDK automatically deserializes the JSON message. Here is the `PoisonBlobMess
 		    public string ETag { get; set; }
 		}
 
-### <a id="polling"></a> Blob polling algorithm
+### Blob polling algorithm
 
 The WebJobs SDK scans all containers specified by `BlobTrigger` attributes at application start. In a large storage account this scan can take some time, so it might be a while before new blobs are found and `BlobTrigger` functions are executed.
 
@@ -204,7 +204,7 @@ To detect new or changed blobs after application start, the SDK periodically rea
 
 There is an exception for blobs that you create by using the `Blob` attribute. When the WebJobs SDK creates a new blob, it passes the new blob immediately to any matching `BlobTrigger` functions. Therefore if you have a chain of blob inputs and outputs, the SDK can process them efficiently. But if you want low latency running your blob processing functions for blobs that are created or updated by other means, we recommend using `QueueTrigger` rather than `BlobTrigger`.
 
-### <a id="receipts"></a> Blob receipts
+### Blob receipts
 
 The WebJobs SDK makes sure that no `BlobTrigger` function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
 
@@ -218,7 +218,7 @@ Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure
 
 If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the *azure-webjobs-hosts* container.
 
-## <a id="queues"></a>Related topics covered by the queues article
+## Related topics covered by the queues article
 
 For information about how to handle blob processing triggered by a queue message, or for WebJobs SDK scenarios not specific to blob processing, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
@@ -234,7 +234,7 @@ Related topics covered in that article include the following:
 * Trigger a function manually
 * Write logs
 
-## <a id="nextsteps"></a> Next steps
+## Next steps
 
-This guide has provided code samples that show how to handle common scenarios for working with Azure blobs. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
+This article has provided code samples that show how to handle common scenarios for working with Azure blobs. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
  

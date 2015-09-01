@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Factory - Create Predictive Pipelines using Data Factory and Machine Learning | Azure" 
+	pageTitle="Data Factory - Create Predictive Pipelines using Data Factory and Machine Learning | Microsoft Azure" 
 	description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
 ## Overview
-You can operationalize published [Azure Machine Learning][azure-machine-learning] models within Azure Data Factory pipelines.These pipelines are called predictive pipelines. To create a predictive pipeline, you will need:
 
--	The published workspace model’s API Key and the batch scoring URL (see the image below)
--	An Azure blob storage holding the input CSV file (or) an Azure SQL database that contains the input data to be scored. 
--	An Azure blob storage that will hold the scoring results CSV file (or) an Azure SQL database that will hold the output data. 
+Azure Data Factory enables you to easily create pipelines that leverages a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. This enables you to use Azure Data Factory to orchestrate  data movement and processing, and then perform batch scoring using Azure Machine Learning. To achieve this, you will need to do the following:
+
+1. Use the **AzureMLBatchScoring** activity.
+2. **Request URI** for the Batch Execution API. You can find the Request URI by clicking on the **BATCH EXECUTION** link in the web services page (shown below).
+3. **API key** for the published Azure Machine Learning web service. You can find this information by clicking on the web service that you have published. 
 
 	![Machine Learning Dashboard][machine-learning-dashboard]
-
-	The batch scoring URL for the AzureMLLinkedService is obtained as from indicated in the image above, minus ‘**help**’:  https://ussouthcentral.services.azureml.net/workspaces/da9e350b758e44b2812a6218d507e216/services/8c91ff373a81416f8f8e0d96a1162681/jobs/
 
 A **predictive pipeline** has these parts:
 
@@ -39,7 +38,7 @@ A **predictive pipeline** has these parts:
 ## Example
 This example uses Azure Storage to hold both the input and output data. You can also use Azure SQL Database instead of using Azure Storage. 
 
-We recommend that you go through the [Get started with Azure Data Factory][adf-getstarted] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.   
+We recommend that you go through the [Build your first pipeline with Data Factory][adf-build-1st-pipeline] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.   
  
 
 1. Create a **linked service** for your **Azure Storage**. If the scoring input and output files will be in different storage accounts, you will need two linked services. Here is a JSON example:
@@ -180,7 +179,6 @@ We recommend that you go through the [Get started with Azure Data Factory][adf-g
 		  }
 		}
 
-	Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 
 ## Web Service Parameters
 You can use Web service parameters that are exposed by a published Azure Machine Learning Web service in Azure Data Factory (ADF) pipelines. You can create an experiment in Azure Machine Learning and publish it as a web service, and then use that web service in multiple ADF pipelines or activities, passing in different inputs via the Web Service Parameters.
@@ -206,11 +204,12 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
  
 > [AZURE.NOTE] The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service. 
 
-### Azure SQL Readers and Writers
+### Reader and Writer Modules
+
 A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
 For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.  
 
-#### Azure SQL Reader
+#### Azure SQL as a data source
 In Azure ML Studio, you can build an experiment and publish a Web service with an Azure SQL Reader for the input. The Azure SQL Reader has connection properties that can be exposed as Web service parameters, allowing values for the connection properties to be passed at runtime in the batch scoring request.
 
 At runtime, the details from the input Data Factory table will be used by the Data Factory service to fill in the Web service parameters. Note that you must use default names (Database server name, Database name, Server user account name, Server user account password) for the Web service parameters for this integration with the Data Factory service to work.
@@ -225,7 +224,7 @@ To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following:
 
 
 
-#### Azure SQL Writer
+#### Azure SQL as a data sink
 As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters. An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table. The following table describes when the input linked service is used vs. output linked service. 
 
 | Output/Input | Input is Azure SQL | Input is Azure Blob |
@@ -237,6 +236,12 @@ As with Azure SQL Reader, an Azure SQL Writer can also have its properties expos
 > [AZURE.NOTE] Azure SQL Writer may encounter key violations if it is overwriting an identity column. You should ensure that you structure your output table to avoid this situation. 
 > 
 > You can use staging tables with a Stored Procedure Activity to merge rows, or to truncate the data before scoring. If you use this approach, set concurrency setting of the executionPolicy to 1.    
+
+#### Azure Blob as a source
+
+When using the Reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (e.g. 000000_0) that are produced by a Pig and Hive script running on HDInsight. The Reader module allows you to read files (with no extensions) by configuring the **Path to container, directory or blob** property of the reader module to point to the container/folder that contains the files as shown below. Note, the asterisk (i.e. \*) **specifies that all the files in the container/folder (i.e. data/aggregateddata/year=2014/month-6/\*)** will be read as part of the experiment.
+
+![Azure Blob properties](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
 ### Example of using Web service parameters
 #### Pipeline with AzureMLBatchScoringActivity with Web Service Parameters
@@ -301,21 +306,8 @@ In the above JSON example:
 
 
 
-## See Also
 
-Article | Description
------- | ---------------
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, .NET class library, functions, etc… 
-
-[adf-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[adf-tutorial]: data-factory-tutorial.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md  
-[developer-reference]: http://go.microsoft.com/fwlink/p/?LinkId=516908
+[adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png

@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="stevenp" 
+	editor="curtland"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
-
 # Setup experience for Azure Multi-Factor Authentication
 
  Additional security verification settings are used when an admin has configured your account to require that both your password and a response from your phone must be used to verify your identity. If an administrator has configured your account to require additional security verification, **you will be unable to sign-in until you have completed the auto-enrollment process**. 

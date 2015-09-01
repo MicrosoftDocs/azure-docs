@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" 
+	pageTitle="How to Use Twilio for Voice and SMS (Java) | Microsoft Azure" 
 	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." 
 	services="" 
 	documentationCenter="java" 

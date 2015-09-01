@@ -30,7 +30,7 @@ A Dataset is a logical description of the data. The data being described can var
 	       "structure": [ ],
 	       "type": "<type of dataset>",
 			"external": <boolean flag to indicate external data>,
-	        "type properties":
+	        "typeProperties":
 	        {
 	        },
 	        "availability":
@@ -51,7 +51,7 @@ A Dataset is a logical description of the data. The data being described can var
 | Name | Name of the dataset | Yes | NA |
 | Structure | <p>Schema of the dataset</p><p>See [Dataset Structure](#Structure) section for more details</p> | No. | NA |
 | Type | Type of the dataset | Yes | NA |
-| type properties | <p>Properties corresponding to the selected type</p><p>See [Dataset Type](#Type) section for details on the supported types and their properties.</p> | Yes | NA |
+| typeProperties | <p>Properties corresponding to the selected type</p><p>See [Dataset Type](#Type) section for details on the supported types and their properties.</p> | Yes | NA |
 | external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not  | No | false | 
 | Availability | <p>Defines the processing window or the slicing model for the dataset production. </p><p>See [Dataset Availability](#Availability) topic for more details</p><p>See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing model</p> | Yes | NA
 | policy | Defines the criteria or the condition that the dataset slices must fulfill. <p>See [Dataset Policy](#Policy) topic for more details</p> | No | NA |

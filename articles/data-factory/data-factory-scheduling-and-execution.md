@@ -575,6 +575,9 @@ Text | Format(X) | X: String variable | Formats the text.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
+> [AZURE.NOTE] When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
+  
+
 ## Data Dependency Deep Dive
 
 In order to generate a dataset slice by an activity run, data factory uses the following **dependency model** to determine the relationships between the dataset(s) consumed by an activity and the dataset(s) produced by an activity.

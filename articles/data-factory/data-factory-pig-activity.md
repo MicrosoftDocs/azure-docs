@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Data Factory - Pig Activity" 
+	pageTitle="Pig Activity" 
 	description="Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -18,9 +18,7 @@
 
 # Pig Activity
 
-The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Pig queries on [your own](https://msdn.microsoft.com/library/mt185697.aspx) or [on-demand](https://msdn.microsoft.com/library/mt185733.aspx) HDInsight cluster.  
-
-**Note:** This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
+The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Pig queries on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight cluster.. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
 
 ## Syntax
 
@@ -97,7 +95,7 @@ The **Pig script** to process this data looks like this:
 
 To execute this Pig script in a Data Factory pipeline, you need to the do the following:
 
-1.	Create a linked service to register [your own HDInsight compute cluster](https://msdn.microsoft.com/library/mt185697.aspx) or configure [on-demand HDInsight compute cluster](https://msdn.microsoft.com/library/mt185733.aspx). Let’s call this linked service “HDInsightLinkedService”.
+1. Create a linked service to register [your own HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or configure [on-demand HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Let’s call this linked service “HDInsightLinkedService”.
 2.	Create a [linked service](data-factory-azure-storage-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service “StorageLinkedService”.
 3.	Create [datasets](data-factory-create-datasets.md) pointing to the input and the output data. Let’s call the input dataset “PigSampleIn” and the output dataset “PigSampleOut”.
 4.	Copy the Pig query in a file the Azure Blob Storage configured in step #2 above. if the linked service for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity configuration. Use **scriptPath **to specify the path to pig script file and **scriptLinkedService** to specify the Azure storage that contains the script file. 

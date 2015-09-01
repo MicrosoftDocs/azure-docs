@@ -1,27 +1,27 @@
 <properties
-   pageTitle="Manage your StorSimple volumes"
-   description="Explains how to add, modify, and monitor StorSimple volumes, and how to take them offline if necessary."
+   pageTitle="Manage your StorSimple volumes | Microsoft Azure"
+   description="Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="08/27/2015"
    ms.author="v-sharos" />
 
-# Manage your StorSimple volumes
+# Use the StorSimple Manager service to manage volumes
 
 ## Overview
 
 This tutorial explains how to use the StorSimple Manager service to create and manage volumes on the StorSimple device and StorSimple virtual device.
 
-The StorSimple Manager service is an extension of the Azure Management Portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
+The StorSimple Manager service is an extension of the Azure Portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
 
 > [AZURE.NOTE] Azure StorSimple can create thinly provisioned volumes only. You cannot create fully provisioned or partially provisioned volumes on an Azure StorSimple system.
 >
@@ -31,7 +31,7 @@ The StorSimple Manager service is an extension of the Azure Management Portal th
 
 The **Volumes** page allows you to manage the storage volumes that are provisioned on the Microsoft Azure StorSimple device for your initiators (servers). It displays the list of volumes on your StorSimple device.
 
- ![volumes page](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
+ ![Volumes page](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
 
 A volume consists of a series of attributes:
 
@@ -55,7 +55,7 @@ The most common tasks associated with a volume are:
 
 ## Add a volume
 
-You [created a volume](storsimple-deployment-walkthrough.md#to-create-a-volume) during deployment of your StorSimple solution. Adding a volume is a similar procedure.
+You [created a volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-volume) during deployment of your StorSimple solution. Adding a volume is a similar procedure.
 
 ### To add a volume
 
@@ -65,22 +65,22 @@ You [created a volume](storsimple-deployment-walkthrough.md#to-create-a-volume) 
 
 3. Click **Add** at the bottom of the page. The Add a volume wizard starts.
 
-     ![add-volume](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
 
 4. In the Add a volume wizard, under **Basic Settings**, do the following:
 
   1. Supply a **Name** for your volume.
   2. Specify the **Provisioned Capacity** for your volume in GB or TB. The capacity must be between 1 GB and 64 TB for a physical device. The maximum capacity that can be provisioned for a volume on a StorSimple virtual device is 30 TB.
-  3. From the drop-down list, select the **Usage Type** for your volume. Choose **Archival Volume** if you are working with less frequently accessed archival data. For all other use cases, select **Primary Volume**.
-  5. Click the arrow icon ![arrow-icon](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)to go to the **Additional Settings** page.
+  3. From the drop-down list, select the **Usage Type** for your volume. Choose **Archival Volume** if you are working with less frequently accessed archival data. For all other use cases, select **Tiered Volume**. (Tiered volumes were formerly called primary volumes.)
+  5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)to go to the **Additional Settings** page.
 
-     ![add-volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+     ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
    
 5. Under **Additional Settings**, add a new access control record (ACR):
   
   1. Select an access control record (ACR) from the drop-down list. Alternatively, you can add a new ACR. ACRs determine which hosts can access your volumes by matching the host IQN with that listed in the record.
   2. Under **Default backup for this volume**, we recommend that you enable a default backup by selecting the **Enable** check box.
-   3. Click the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png) to create the volume with the specified settings.
+   3. Click the check icon ![Check icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png) to create the volume with the specified settings.
 
 Your new volume is now ready to use.
 
@@ -148,7 +148,7 @@ Complete the following steps to delete a volume.
 
 2. Select the volume container that has the volume you want to delete. Click the volume container to access the **Volumes** page.
 
-3. All the volumes associated with this container are displayed in a tabular format. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first, following the steps in [Take a volume offline](#Take-a-volume-offline).
+3. All the volumes associated with this container are displayed in a tabular format. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first, following the steps in [Take a volume offline](#take-a-volume-offline).
 
 4. After the volume is offline, click **Delete** at the bottom of the page.
 
@@ -172,7 +172,7 @@ Perform the following steps to enable or disable monitoring for a volume.
 
 5. In the Modify Volume wizard, under **Basic Settings**, select **Enable** or **Disable** from the **Monitoring** drop-down list.
 
-    ![monitor a volume](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
+    ![Modify a volume Basic Settings](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
 ## Next steps
 

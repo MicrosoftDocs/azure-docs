@@ -27,7 +27,7 @@ Out of the box dependency monitoring is currently available for:
 * ASP.NET web apps and services running on an IIS server or on Azure
 * [Java web apps](app-insights-java-agent.md)
 
-For other types, such as device apps, you can write your own monitor using the TrackDependency API.
+For other types, such as device apps, you can write your own monitor using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
 The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:
 
