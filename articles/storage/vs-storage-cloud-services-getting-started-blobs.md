@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Blob storage and Visual Studio connected services | Microsoft Azure"
-	description="How to get started using Azure blob storage in a cloud service project in Visual Studio"
+	pageTitle="Get started with Azure Blob Storage and Visual Studio connected services | Microsoft Azure"
+	description="How to get started using Azure Blob Storage in a cloud service project in Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -16,7 +16,7 @@
 	ms.date="08/04/2015"
 	ms.author="patshea123"/>
 
-# Get started with Azure Blob storage and Visual Studio connected services
+# Get started with Azure Blob Storage and Visual Studio connected services
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-cloud-services-getting-started-blobs.md)
@@ -29,9 +29,9 @@
 
 ## Overview
 
-This article describes how to get started with Azure Blob storage after you created or referenced an Azure Storage account by using the Visual Studio **Add Connected Services** dialog in a Visual Studio cloud services project. We'll show you how to access and create blob containers, and how to perform common tasks like uploading, listing, and downloading blobs. The samples are written in C\# and use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+This article describes how to get started with Azure Blob Storage after you created or referenced an Azure Storage account by using the Visual Studio **Add Connected Services** dialog in a Visual Studio cloud services project. We'll show you how to access and create blob containers, and how to perform common tasks like uploading, listing, and downloading blobs. The samples are written in C\# and use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files.
+Azure Blob Storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files.
 
 Just as files live in folders, storage blobs live in containers. After you have created a storage, you create one or more containers in the storage. For example, in a storage called “Scrapbook,” you can create containers in the storage called “images” to store pictures and another called “audio” to store audio files. After you create the containers, you can upload individual blob files to them.
 
