@@ -59,7 +59,7 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 
 1. Run **Azure PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**.)
 
-2.  [Connect PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/#how-to-connect-to-your-subscription) to your subscription.
+2.  [Connect PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) to your subscription.
 3.  Enter the following PowerShell cmdlet to create to create the project:
 
         New-AzureServiceProject helloworld
