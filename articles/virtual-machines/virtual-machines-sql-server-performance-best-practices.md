@@ -29,45 +29,13 @@ For a companion resource on this topic, you can [download the following white pa
 
 The following is a quick check list for optimal performance of SQL Server on Azure Virtual Machines:
 
-- Use [Premium Storage](../storage/storage-premium-storage-preview-portal.md).
-
-- Use a [VM size](virtual-machines-size-specs.md) of DS3 or higher for SQL Enterprise edition and DS2 or higher for SQL Standard edition.
-
-- Use a minimum of 2 [P30 disks](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).
-
-- Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.
-
-- Disable Azure [geo-redundant storage](../storage/storage-redundancy.md) (geo-replication) on the storage account.
-
-- Avoid using operating system or temporary disks for database storage or logging.
-
-- Enable read caching on the disk(s) hosting the data files and TempDB.
-
-- Do not enable caching on disk(s) hosting the log file.
-
-- Stripe multiple Azure data disks to get increased IO throughput.
-
-- Format with documented allocation sizes.
-
-- Enable database page compression.
-
-- Enable instant file initialization for data files.
-
-- Limit or disable autogrow on the database.
-
-- Disable autoshrink on the database.
-
-- Move all databases to data disks, including system databases.
-
-- Move SQL Server error log and trace file directories to data disks.
-
-- Apply SQL Server performance fixes.
-
-- Setup default locations.
-
-- Enable locked pages.
-
-- Backup directly to blob storage.
+|Area|Optimizations|
+|---|---|
+|**VM size**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) or higher for SQL Enterprise edition.<br/><br/>[DS2](virtual-machines-size-specs.md#standard-tier-ds-series) or higher for SQL Standard and Web editions.|
+|**Storage**|Use [Premium Storage](../storage/storage-premium-storage-preview-portal.md).<br/><br/>Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../storage/storage-redundancy.md) (geo-replication) on the storage account.|
+|**Disks**|Use a minimum of 2 [P30 disks](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes.|
+|**I/O**|Enable database page compression.<br/><br/>Enable instant file initialization for data files.<br/><br/>Limit or disable autogrow on the database.<br/><br/>Disable autoshrink on the database.<br/><br/>Move all databases to data disks, including system databases.<br/><br/>Move SQL Server error log and trace file directories to data disks.<br/><br/>Setup default backup and database file locations.<br/><br/>Enable locked pages.<br/><br/>Apply SQL Server performance fixes.|
+|**Feature-specific**|Back up directly to blob storage.|
 
 For more information, please follow the guidelines provided in the following sub sections.
 
@@ -77,7 +45,7 @@ For performance sensitive applications, it’s recommended that you use the foll
 
 - **SQL Server Enterprise Edition**: DS3 or higher
 
-- **SQL Server Standard Edition**: DS2 or higher
+- **SQL Server Standard and Web Editions**: DS2 or higher
 
 For up-to-date information on supported virtual machine sizes, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
 

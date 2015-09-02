@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure"
-   ms.date="05/05/2015"
+   ms.date="09/01/2015"
    ms.author="rasquill"/>
 
 # Creating a Work or School identity in Azure Active Directory

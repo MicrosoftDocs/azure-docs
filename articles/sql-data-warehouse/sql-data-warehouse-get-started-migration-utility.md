@@ -22,9 +22,7 @@ The Data Warehouse Migration Utility is a tool designed to migrate schema and da
 
 In addition to schema and data migration, this tool gives users the option to generate compatibility reports which summarize incompatibilities between the target and source instances which would prevent streamlined migration. 
 
-##Getting Started
-
-###Installing
+##Get Started
 The Data Warehouse Migration Utility can be downloaded [here][].  As a prerequisite for installation, you will need the BCP command-line utility to run migration scripts and Office to view the compatibility report.  After launching the executable that is downloaded you will be prompted to accept a standard EULA before the tool will be installed.
 
 ###Launching the tool and Connecting

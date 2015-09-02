@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Improve performance by compressing files
