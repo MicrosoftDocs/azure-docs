@@ -78,7 +78,7 @@ You can find more information about creating Azure virtual machines and connecti
 
 
 
-1. In the [Azure Management Portal](http://manage.windowsazure.com), go to the RemoteApp page.
+1. In the [Azure portal](http://manage.windowsazure.com), go to the RemoteApp page.
 2. Click **New > Create with VNET**.
 3. Enter a name for your collection.
 4. Choose the plan that you want to use - standard or basic.

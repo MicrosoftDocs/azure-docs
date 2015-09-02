@@ -64,6 +64,7 @@ If you have navigated away from the Azure RemoteApp node while the collection wa
 
 
 1. Once the app has finished publishing, head over to the **User Access** tab to add all the users that need access to your apps. Enter user names (email address) for your users and then click **Save**.
+
 ![Add users to RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
 
 
