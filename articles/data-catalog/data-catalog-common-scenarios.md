@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Data Catalog common scenarios"
-   description="Review common scenarios in Azure Data Catalog: Registering, enriching, exploring, understanding, and consuming data sources, and removing data source metadata."
+   description="An overview of common scenarios for Azure Data Catalog, including the registration and discovery of high-value data sources, enabling self-service business intelligence, and capturing existing tribal knowledge about data sources and processes."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -64,4 +64,4 @@ This ongoing transfer of tribal knowledge is part of the data source discovery p
 
 Sometimes these data experts will make the effort to document their knowledge, sharing it via email, or in Word documents on a team SharePoint site. Although this can be valuable, it introduces a new discovery problem – how do people know what documentation exists, and where to find it…
 
-Azure Data Catalog provides a location for sharing this tribal knowledge, and for making it easily discoverable. Data experts can directly annotate data assets, and can also include links to existing documentation. Not only does this capture the knowledge itself, but it also puts the knowledge in the same experience that is used for data source discovery. When someone uses the catalog to discover a data source not only will he find the source itself, he will also find the expert’s knowledge that previously existed only in the mind of the expert himself. 
+Azure Data Catalog provides a location for sharing this tribal knowledge, and for making it easily discoverable. Data experts can directly annotate data assets, and can also include links to existing documentation. Not only does this capture the knowledge itself, but it also puts the knowledge in the same experience that is used for data source discovery. When someone uses the catalog to discover a data source not only will he find the source itself, he will also find the expert’s knowledge that previously existed only in the mind of the expert himself.

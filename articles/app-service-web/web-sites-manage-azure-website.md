@@ -22,7 +22,7 @@ This topic contains links to resources for managing a web app in [Azure App Serv
 
 Over the lifetime of a web app, you will perform different management tasks, as you move from initial deployment to normal operation, maintenance, and updates.
 
-Many web app management tasks can be performed in the Azure portal. For more information, see [Manage web apps using the Azure Portal](web-sites-manage.md).
+Many web app management tasks can be performed in the Azure portal.
 
 ## Before you deploy your web app to production
 

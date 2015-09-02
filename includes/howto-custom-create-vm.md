@@ -38,7 +38,7 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 
 	**Note**: For more information about placing virtual machines in the same cloud service, see [How to connect virtual machines in a cloud service](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
-12. In **Region/Affinity Group/Virtual Network**, select region, affinity group, or virtual network that you want to use for the virtual machine. For more information about affinity groups, see [About Affinity Groups for Virtual Network](http://msdn.microsoft.com/library/azure/jj156085.aspx).
+12. In **Region/Affinity Group/Virtual Network**, select region, affinity group, or virtual network that you want to use for the virtual machine. For more information about affinity groups, see [About Affinity Groups for Virtual Network](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 13. In **Storage Account**, select an existing storage account for the VHD file, or use an automatically generated storage account. Only one storage account per region is automatically created. All other virtual machines that you create with this setting are located in this storage account. You are limited to 20 storage accounts.
 
@@ -60,5 +60,3 @@ After the virtual machine is created, it's started automatically. When the porta
 
 - [How to Log on to a Virtual Machine Running Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [How to Log on to a Virtual Machine Running Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
-
-

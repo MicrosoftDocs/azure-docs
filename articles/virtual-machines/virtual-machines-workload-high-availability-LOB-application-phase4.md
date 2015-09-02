@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Line of Business Application Workload Phase 4: Configure web servers" 
-	description="In this fourth phase of deploying a high-availability line of business application in Azure infrastructure services, you create the web servers and load your line of business application on them." 
+	pageTitle="Line of business application Phase 4 | Microsoft Azure" 
+	description="Create the web servers and load your line of business application on them in Phase 4 of the line of business application in Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
@@ -31,7 +31,7 @@ First, you configure internal load balancing so that Azure distributes the clien
 
 	Switch-AzureMode AzureServiceManagement
 	$vnet="<Table V – Item 1 – Value column>"
-	$testIP="<a chosen IP address from the subnet address space, Table S - Item 1 – Subnet address space column>"
+	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
 If the **IsAvailable** field in the display of the Test-AzureStaticVNetIP command is **True**, you can use the IP address.
@@ -166,3 +166,5 @@ To continue with the configuration of this workload, go to [Phase 5: Create the 
 [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
