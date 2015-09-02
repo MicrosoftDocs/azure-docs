@@ -57,7 +57,7 @@ By default, non-SSL access is disabled for new caches. To enable the non-SSL por
 
 ## Pricing tier
 
-Click **Pricing tier** to scale your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
+Click **Pricing tier** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 
 ![Redis Cache pricing tier](./media/cache-configure/pricing-tier.png)
 
