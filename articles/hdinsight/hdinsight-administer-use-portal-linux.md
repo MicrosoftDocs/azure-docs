@@ -37,13 +37,13 @@ There are also other tools available for administering HDInsight in addition to 
 
 - [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md): Azure PowerShell provides PowerShell cmdlets for managing Azure services
 
-##Prerequisites
+## Prerequisites
 
 Before you begin this article, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
-##Provision HDInsight clusters
+## Provision HDInsight clusters
 
 You can provision HDInsight clusters from the Azure portal by using the following steps:
 
@@ -73,7 +73,7 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows)
 
-6. For __Data Source__, you can select the entry to choose an existing data source, or create a new one.
+7. For __Data Source__, you can select the entry to choose an existing data source, or create a new one.
 
 	![Data source blade](./media/hdinsight-administer-use-portal-linux/datasource.png)
 
@@ -90,8 +90,8 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 		> [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
 
 	- __Select__: Use this to save the data source configuration.
-
-7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. Set this to __1__, as this will be sufficient for this tutorial and will reduce the cost of the cluster. You can also change the number of nodes in a cluster after it has been provisioned.
+	
+8. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. 
 
 	The estimated cost of the cluster will be shown at the bottom of this blade.
 
@@ -99,7 +99,7 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 
 	Use the __Select__ button to save the __Node Pricing Tiers__ information.
 
-8. Select __Optional Configuration__. This blade allows you to configure the following items:
+9. Select __Optional Configuration__. This blade allows you to configure the following items:
 
 	* __HDInsight Version__: The version of HDInsight used for the cluster. For more information on HDInsight versioning, see [HDInsight component versioning](hdinsight-component-versioning.md)
 
@@ -119,7 +119,7 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 
 	![Optional configuration blade](./media/hdinsight-administer-use-portal-linux/optionalconfiguration.png)
 
-9. Ensure that __Pin to Startboard__ is selected, and then select __Create__. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.
+10. Ensure that __Pin to Startboard__ is selected, and then select __Create__. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.
 
 	| While provisioning | Provisioning complete |
 	| ------------------ | --------------------- |
@@ -127,7 +127,7 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 
 	> [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the __Notifications__ entry on the left of the page to check on the provisioning process.
 
-##Manage a cluster
+## Manage a cluster
 
 Selecting a cluster from the Azure preview portal will display essential information about the cluster, such as the name, resource group, operating system, and the URL for the cluster dashboard (used to access Ambari Web for Linux clusters.)
 
@@ -157,7 +157,7 @@ Use the following to understand the icons at the top of this blade, and in the _
 
 > [AZURE.IMPORTANT] To manage the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
 
-###<a name="scaling"></a>Scaling
+### <a name="scaling"></a>Scaling
 
 To scale a cluster using the portal, select your HDInsight cluster and then select __Scale Cluster__. Enter the __Number of worker nodes__ you wish to set for the cluster, and then click __Save__.
 
@@ -165,7 +165,7 @@ To scale a cluster using the portal, select your HDInsight cluster and then sele
 
 For more information on scaling operations, see [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md#scaling).
 
-##Monitor a cluster
+## Monitor a cluster
 
 The __Usage__ section of the HDInsight cluster blade dislays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster.
 
@@ -173,7 +173,7 @@ The __Usage__ section of the HDInsight cluster blade dislays information about t
 
 > [AZURE.IMPORTANT] To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md)
 
-##Next steps
+## Next steps
 In this article, you have learned how to create an HDInsight cluster by using the Azure portal, and how to open the Hadoop command-line tool. To learn more, see the following articles:
 
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)

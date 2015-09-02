@@ -3,7 +3,7 @@
 	description="How to configure a web app in Azure App Services" 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="MikeWasson" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
-	ms.author="mwasson"/>
+	ms.date="08/31/2015" 
+	ms.author="erikre"/>
 
 
 # Configure web apps in Azure App Service #
