@@ -67,7 +67,7 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 ```
 
 
-* **NAMD software and tutorial files** - Download NAMD software for Linux from the [NAMD](http://www.ks.uiuc.edu/Research/namd/) site. This article is based on NAMD version 2.10, and uses the [Linux-x86_64 (64-bit Intel/AMD with Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) archive, which you'll use to run NAMD on multiple Linux compute nodes in a cluster network. Also download the [NAMD tutorial files](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Follow the instructions later in this article to extract the archive and the samples on the cluster head node.
+* **NAMD software and tutorial files** - Download NAMD software for Linux from the [NAMD](http://www.ks.uiuc.edu/Research/namd/) site. This article is based on NAMD version 2.10, and uses the [Linux-x86_64 (64-bit Intel/AMD with Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) archive, which you'll use to run NAMD on multiple Linux compute nodes in a cluster network. Also download the [NAMD tutorial files](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Follow the instructions later in this article to extract the archive and the tutorial samples on the cluster head node.
 
 * **VMD** (optional) - To see the results of your NAMD job, download and install the molecular visualization program [VMD](http://www.ks.uiuc.edu/Research/vmd/) on a computer of your choice. The current version is 1.9.2. See the VMD download site to get started.  
 
@@ -119,10 +119,11 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
 ## Set up a file share for Linux nodes
 
-Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. See the file sharing options and steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-cluster-hpcpack.md). (We recommend mounting a shared folder on the head node in this article because CentOS 6.6 Linux nodes don’t currently support the Azure File service, which provides similar features. For more about mounting an Azure File share, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)).
+Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. See the file sharing options and steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-cluster-hpcpack.md). (We recommend mounting a shared folder on the head node in this article because CentOS 6.6 Linux nodes don’t currently support the Azure File service, which provides similar features. For more about mounting an Azure File share, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).)
 
+1.	Create a folder on the head node, and share it to everyone by setting Read/Write privileges. In this example, \\\\CentOS66HN\Namd is the name of the folder, where CentOS66HN is the host name of the head node.
 
-1.	Create a folder on head node, extract the NAMD files in it, and share it to everyone by setting Read/Write privileges. In this example, extract the NAMD tar archive to \\CentOS66HN\Namd\namd2 and extract the tutorial files under \\CentOS66HN\Namd\namd2\namdsample. Here, CentOS66HN is the host name of the head node.
+2. Extract the NAMD files in the folder by using a Windows version of **tar** or another Windows utility that operates on .tar archives. Extract the NAMD tar archive to \\\\CentOS66HN\Namd\namd2, and extract the tutorial files under \\\\CentOS66HN\Namd\namd2\namdsample.
 
 2.	Open a Windows PowerShell window and run the following commands to mount the shared folder.
 
@@ -189,7 +190,7 @@ Using a text editor of your choice, create the following Bash script in the fold
     # Argument of ++nodelist
     NODELIST_OPT="++nodelist"
     # Argument of ++p
-    NUMPROCESS="++p"
+    NUMPROCESS="+p"
     ```
 
 2.	Get node information from the environment variables. $NODESCORES stores a list of split words from $CCP_NODES_CORES. $COUNT is the size of $NODESCORES.
