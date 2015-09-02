@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="05/19/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
-# Azure Guest OS Supportability and Retirement Policy
+# Azure Guest OS supportability and retirement policy
 The information on this page relates to the Azure Guest operating system ([Guest OS](https://msdn.microsoft.com/library/azure/ff729422.aspx)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS). 
 
 Microsoft has a published [support policy for the Guest OS](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). The page you are reading now describes how the policy is implemented.
@@ -87,3 +87,5 @@ You should use latest Guest OS family for designing your Cloud Services.
 
 If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as "[Startup Tasks](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
  
+## Next steps
+Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).

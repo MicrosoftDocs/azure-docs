@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -24,7 +24,9 @@
 
 ## Get the cmdlets 
 -------------
-First we need to download Azure Powershell commandlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp ones are included in it.
+First we need to download Azure Powershell commandlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp ones are included in it. 
+
+Check out the Azure RemoteApp cmdlet help [here](https://msdn.microsoft.com/library/mt428031.aspx).
 
 ## Configure Azure cmdlets to use your subscription
 ------------------

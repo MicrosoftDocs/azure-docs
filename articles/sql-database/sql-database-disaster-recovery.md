@@ -69,6 +69,8 @@ Use the secondary server name and database name in the Stop Database Copy reques
 
 In the event of an outage of a database, you can recover your database from its latest geo redundant backup using Geo-Restore. 
 
+> [AZURE.NOTE] Recovering a database creates a new database. It is important to make sure the server you are recovering to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+
 ###Azure Portal
 1. Log in to the [Azure Portal](https://portal.Azure.com)
 2. On the left side of the screen select **NEW**, then select **Data and Storage**, and then select **SQL Database**

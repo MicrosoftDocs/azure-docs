@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # What is Application Insights?
@@ -103,10 +103,12 @@ The impact on your performance is very small. Tracking calls non-blocking, and a
 
 For more details, choose your app type under Get Started in the navigation bar on the left of this page.
 
-## Samples
+## Code
 
 
 [Samples and walkthroughs](app-insights-code-samples.md)
+
+[SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) - NuGet packages you can install (and uninstall) as additions to Application Insights SDK. Try them out and give us feedback!
 
 
 ## Support and feedback

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Set up a web-based LOB application in a hybrid cloud for testing" 
+	pageTitle="LOB application test environment | Microsoft Azure" 
 	description="Learn how to create a web-based, line of business application in a hybrid cloud environment for IT pro or development testing." 
 	services="virtual-network" 
 	documentationCenter="" 

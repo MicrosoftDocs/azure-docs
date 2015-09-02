@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Azure" 
+	pageTitle="How to use AMQP 1.0 with the .NET Service Bus API | Microsoft Azure" 
 	description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." 
 	services="service-bus" 
 	documentationCenter=".net" 

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Replace an EBOD controller on your StorSimple device | Microsoft Azure"
+   pageTitle="Replace a StorSimple EBOD controller | Microsoft Azure"
    description="Explains how to remove and replace one or both EBOD controllers on a StorSimple 8600 device."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Replace an EBOD controller on your StorSimple device
@@ -50,7 +50,7 @@ Before replacing the failed EBOD controller module in your StorSimple device, ma
 
     >[AZURE.NOTE] Typically, this will be Port A, which is labeled as **Host in** in in the following diagram.
 
-    ![Backplane Of EBOD Controller](./media/storsimple-ebod-controller-replacement/IC741049.png)
+    ![Backplane of EBOD controller](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
      **Figure 1** Back of EBOD module
 
@@ -75,13 +75,13 @@ The following procedure and table explain how to install an EBOD controller modu
 
 2. With the latches in the open position, slide the module into the enclosure until the latches engage.
 
-    ![Installing EBOD Controller](./media/storsimple-ebod-controller-replacement/IC741050.png)
+    ![Installing EBOD controller](./media/storsimple-ebod-controller-replacement/IC741050.png)
 
     **Figure 2** Installing the EBOD controller module
 
 3. Close the latch. You should hear a click as the latch engages.
 
-    ![Releasing EBOD Latch](./media/storsimple-ebod-controller-replacement/IC741047.png)
+    ![Releasing EBOD latch](./media/storsimple-ebod-controller-replacement/IC741047.png)
 
     **Figure 3** Closing the EBOD module latch
 
