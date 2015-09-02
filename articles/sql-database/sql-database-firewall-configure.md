@@ -67,11 +67,11 @@ You can enable connections from Azure in the [Management Portal](http://go.micro
 
 ## Creating the first server-level firewall rule
 
-The first server-level firewall setting can be created using the [Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=161793) or programmatically using the REST API or Azure PowerShell. Subsequent server-level firewall rules can be created and managed using these methods, as well as through Transact-SQL. For more information on server-level firewall rules, see [How to: Configure Firewall Settings (Azure SQL Database)](article:sql-database-configure-firewall-settings).
+The first server-level firewall setting can be created using the [Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=161793) or programmatically using the REST API or Azure PowerShell. Subsequent server-level firewall rules can be created and managed using these methods, as well as through Transact-SQL. For more information on server-level firewall rules, see [How to: Configure Firewall Settings (Azure SQL Database)](https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings).
 
 ## Creating database-level firewall rules
 
-After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can be created and managed through Transact-SQL. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](article:sql-database-configure-firewall-settings).
+After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can be created and managed through Transact-SQL. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings).
 
 ## Programmatically managing firewall rules
 
@@ -82,12 +82,12 @@ In addition to the Azure Management Portal, firewall rules can be managed progra
 
 | Catalog View or Stored Procedure                                                           | Level     | Description                                          |
 |--------------------------------------------------------------------------------------------|-----------|------------------------------------------------------|
-| [sys.firewall\\_rules](https://msdn.microsoft.com/library/dn269980.aspx)                   | Server    | Displays the current server-level firewall rules     |
-| [sp\\_set\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270017.aspx)             | Server    | Creates or updates server-level firewall rules       |
-| [sp\\_delete\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270024.aspx)          | Server    | Removes server-level firewall rules                  |
-| [sys.database\\_firewall\\_rules](https://msdn.microsoft.com/library/dn269982.aspx)        | Database  | Displays the current database-level firewall rules   |
-| [sp_set\\_database\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270010.aspx)    | Database  | Creates or updates the database-level firewall rules |
-| [sp\\_delete\\_database\\_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) | Databases | Removes database-level firewall rules                |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx)                   | Server    | Displays the current server-level firewall rules     |
+| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx)             | Server    | Creates or updates server-level firewall rules       |
+| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx)          | Server    | Removes server-level firewall rules                  |
+| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx)        | Database  | Displays the current database-level firewall rules   |
+| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx)    | Database  | Creates or updates the database-level firewall rules |
+| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) | Databases | Removes database-level firewall rules                |
 
 ### REST API
 
@@ -130,7 +130,7 @@ Consider the following points when access to the Microsoft Azure SQL Database se
 
 ## See also
 
-[How to: Configure Firewall Settings (Azure SQL Database)](article:sql-database-configure-firewall-settings)
+[How to: Configure Firewall Settings (Azure SQL Database)](https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
