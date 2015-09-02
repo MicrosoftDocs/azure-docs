@@ -286,20 +286,21 @@ Now you are ready to submit a NAMD job in HPC Cluster Manager.
 
     By default, HPC Pack submits the job as your current logged-on user account. A dialog box might prompt you to enter the user name and password after you click **Submit**.
 
-        ![Job credentials][creds]
+    ![Job credentials][creds]
 
     Under some conditions HPC Pack remembers the user information you input before and won’t show this dialog box. To make HPC Pack show it again, enter the following in a Command window and then submit the job.
-        ```
-        hpccred delcreds
-        ```
+
+    ```
+    hpccred delcreds
+    ```
 
 6.	The job takes several minutes to finish.
 
 7.	Find the job log at \\<headnodeName>\Namd\namd2\namd2_hpccharmrun.log and the output files in \\<headnode>\Namd\namd2\namdsample\1-2-sphere\.
 
-8.	Start VMD to view your job results. The steps for visualizing the NAMD output files (in this case, a ubiquitin protein molecule in a water sphere) are beyond the scope of this article. See [NAMD Tutorial](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf) for details.
+8.	Optionally, start VMD to view your job results. The steps for visualizing the NAMD output files (in this case, a ubiquitin protein molecule in a water sphere) are beyond the scope of this article. See [NAMD Tutorial](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf) for details.
 
-        ![Job results][vmd_view]
+    ![Job results][vmd_view]
 
 ## Appendix
 
