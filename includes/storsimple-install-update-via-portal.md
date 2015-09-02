@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Install Update 1 from the Azure Management Portal"
+   pageTitle="Install Update 1.2 from the Azure Management Portal"
    description="Explains how to use the Management Portal to install StorSimple 8000 Series Update 1."
    services="storsimple"
    documentationCenter="NA"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="09/02/2015"
    ms.author="v-sharos" />
 
-#### To install Update 1 from the Management Portal
+#### To install Update 1.2 from the Management Portal
 
 1. On the StorSimple service page, select your device. Navigate to **Devices** > **Maintenance**.
 
 2. At the bottom of the page, click **Scan Updates**. A job will be created to scan for available updates. You will be notified when the job has completed successfully.
 
-3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 1.0 on your device.
+3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 1.2 on your device.
 
     ![Install software updates](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates1-include.png)
 
@@ -29,11 +29,23 @@
 
 5. You will be prompted for confirmation. Click **OK**.
 
-6. An **Install Updates** dialog box will be presented. Make sure that your device satisfies the checks listed in this dialog box. Select **I understand the above requirement and am ready to update my device**. Click the check icon.
+6. An **Install Updates** dialog box will be presented. Your device should satisfy the checks listed in this dialog box. These steps were completed prior to the update. Select **I understand the above requirement and am ready to update my device**. Click the check icon.
 
     ![Confirmation message](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates2-include.png)
 
-7. You will be notified that pre-update checks are in progress.
+7. A set of automatic pre-checks will now start. These include:
+
+	- **Controller health checks** to verify that both the device controllers are healthy and online.
+	
+	- **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
+	
+	- **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you will need to enable it and then retry.
+	
+	- **DATA 2 and DATA 3 checks** to verify that DATA 2 and DATA 3 network interfaces are not enabled. If these interfaces are enabled, then you will need to disable them and then try to update your device. This check is performed only if you are updating from a device running GA software. Devices running versions 0.1, 0.2, or 0.3 will not need this check.
+	
+	- **Gateway check** on any device running a version prior to Update 1. This check is performed only on devices that have a gateway configured for a network interface other than DATA 0.
+ 
+	Update 1.2 will only be applied if all the above pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
   
     ![Pre-check notification](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates3-include.png)
 
@@ -41,13 +53,15 @@
 
     ![Pre-check failed](./media/storsimple-install-update-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
+	> [AZURE.NOTE] After you have applied Update 1.2 on your StorSimple device, future updates will not have the DATA 2 and DATA 3 checks and the gateway check. The other pre-checks will occur.
+
 8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
  
     ![Update job creation](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates4-include.png)
 
     The update will then be applied on your device.
  
-9. To monitor the progress of the update job, click **View Job**. On the Jobs page, you can see the update progress. 
+9. To monitor the progress of the update job, click **View Job**. On the **Jobs** page, you can see the update progress. 
 
     ![Update job progress](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates5-include.png)
 
@@ -57,7 +71,7 @@
 
 11. After the job is complete, navigate to the **Maintenance** page and scroll down to **Software Updates**.
 
-12. Verify that your device is running **StorSimple 8000 Series Update 1.0 (6.3.9600.17491)**. The **Last updated date** should also be modified.
+12. Verify that your device is running **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. The **Last updated date** should also be modified.
 
     ![Maintenance page](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 

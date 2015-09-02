@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Install Update 1 on your StorSimple device | Microsoft Azure"
-   description="Explains how to install StorSimple 8000 Series Update 1 on your device."
+   pageTitle="Install Update 1.2 on your StorSimple device | Microsoft Azure"
+   description="Explains how to install StorSimple 8000 Series Update 1.2 on your device."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,22 +12,45 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="09/02/2015"
    ms.author="alkohli" />
 
 # Install Update 1 on your StorSimple device
 
 ## Overview
 
-This tutorial explains how to install Update 1 on a StorSimple device that is running a software version prior to Update 1. Your device could be running the generally available (GA) release, Update 0.1, Update 0.2, or Update 0.3 software.  
+This tutorial explains how to install Update 1.2 on a StorSimple device that is running a software version prior to Update 1. The tutorial also covers the additional steps required for the update when a gateway is configured on a network interface other than DATA 0 of the StorSimple device. 
 
-During this installation, if your device is running a version prior to Update 1, then checks are performed on your device. These checks determine the device health in terms of hardware state and network connectivity.
+Depending upon which version your device is running, you can determine if Update 1.2 will be applied. You can check the software version of your device by navigating to the **quick glance** section of your device **Dashboard**.
 
-You will be prompted to perform a manual pre-check to ensure that:
+</br>
 
-- The controller fixed IPs are routable and can connect to the Internet. These IPs are used to service updates to your StorSimple device. You can test this by running the following cmdlet on each controller:
+| If running software version …   | What happens in the portal?                              |
+|---------------------------------|--------------------------------------------------------------|
+| Release (GA)                    | Portal applies Update 0.1 followed by Update 1.2. </br> </br> If you are running Release version and have a gateway configured on a non-DATA0 network interface, do not apply this update. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to update your device.|
+| Update 0.1                      | Portal applies Update 1.2.                                |
+| Update 0.2                      | Portal applies Update 1.2.                                |
+| Update 0.3                      | Portal applies Update 1.2.                                |
+| Update 1                        | This update will not be available.                           |
+| Update 1.1                      | This update will not be available.                           |
 
-    `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
+</br>
+
+> [AZURE.IMPORTANT]
+ 
+> - This update includes a set of manual and automatic pre-checks to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure portal. 
+> - We recommend that you install these updates via the Azure portal, and not the Windows PowerShell interface of the device. The updates may take 5-10 hours to install (including the Windows Updates).
+
+## Preparing for updates
+You will need to perform the following steps before you scan and apply the update:
+
+
+1. Take a cloud snapshot of the device data.
+
+
+1. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
+
+ 	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
 	**Sample output for Test-Connection when fixed IPs can connect to the Internet**
 
@@ -49,32 +72,59 @@ You will be prompted to perform a manual pre-check to ensure that:
 	    HCSNODE0  204.79.197.200  204.79.197.200
 	    HCSNODE0  204.79.197.200  204.79.197.200
 	    HCSNODE0  204.79.197.200  204.79.197.200
-	    
-	    
 
+After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
 
-- Before updating the device, we recommend that you take a cloud snapshot of the device data. 
+## Install Update 1.2 via the Management Portal 
 
-After you have verified and acknowledged the manual checks (above), a set of automatic pre-update checks will be performed. These include:
-
-- **Controller health checks** to verify that both the device controllers are healthy and online.
-
-- **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
-
-- **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you will need to enable it and then retry.
-
-- **DATA 2 and DATA 3 checks** to verify that DATA 2 and DATA 3 network interfaces are not enabled. If these interfaces are enabled, then you will need to disable them and then try to update your device. This check is performed only if you are updating from a device running GA software. Devices running versions 0.1, 0.2, or 0.3 will not need this check.
-
-- **Gateway check** on any device running a version prior to Update 1. This check is performed only on devices that have a gateway configured for a network interface other than DATA 0.
- 
-Update 1 will only be applied if all the pre-update checks are successfully completed. After you have applied Update 1 on your StorSimple device, future updates will not have the Data 2 and Data 3 checks and the Gateway check. The other pre-checks will occur.
-
-## Use the Management Portal to install Update 1
-
-We recommend that you use the Azure Management Portal to update a device that is running the GA version. Perform the following steps to update your device.
+Use this procedure only if you have a gateway configured on DATA 0 network interface on your device. Perform the following steps to update your device.
 
 [AZURE.INCLUDE [storsimple-install-update-via-portal](../../includes/storsimple-install-update-via-portal.md)]
 
+## Install Update 1.2 on a device that has a gateway configured for a non-DATA 0 network interface 
+
+This procedure applies only to StorSimple devices that are running a software version prior to Update 1 and have a gateway set on a network interface other than DATA 0. The software versions that can be upgraded using this method are Update 0.1, Update 0.2, and Update 0.3. 
+
+If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Management Portal. See [Use the Management Portal to install Update 1](#install-update-1.2-via-the-management-portal).
+
+> [AZURE.IMPORTANT] 
+> 
+> - This procedure needs to be performed only once to apply Update 1.2. You can use the Azure Management Portal to apply subsequent updates.
+> - If your device is running Release (GA) version, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with the update. 
+
+
+If your device is running pre-Update 1 software and it has a gateway set for a network interface other than DATA 0, you can apply Update 1.2 in the following two ways:
+
+- Option 1: Download the update and apply it by using the Start-HcsHotfix cmdlet from the Windows PowerShell interface of the device. This is the recommended method. Do not use this method to apply Update 1.2 if your device is running Update 1.0 or Update 1.1. 
+
+- Option 2: Remove the gateway configuration and install the update directly from the Management Portal.
+
+
+Detailed instructions for each of these are provided in the following sections.
+
+## Option 1: Use Windows PowerShell for StorSimple to apply Update 1.2 as a hotfix
+
+Before using this procedure to apply the update, make sure that:
+
+- Both device controllers are online.
+- DATA 2 and DATA 3 are disabled. You will need to do this only if the devices are running the GA release. Devices running Update 0.2 and 0.3 do not require them to be disabled. After the update is complete, you can enable these network interfaces again.
+
+
+Perform the following steps to apply Update 1.2. The update could take a few hours to complete.
+
+[AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
+
+
+
+## Option 2: Use the Azure Portal to apply Update 1.2
+
+This procedure applies only to StorSimple devices that are running a software version prior to Update 1 and have a gateway set on a network interface other than DATA 0. You will need to clear the gateway setting prior to applying the update.
+ 
+The update may take a few hours to complete. If your hosts are in different subnets, removing the gateway configuration on the iSCSI interfaces could result in downtime. We recommend that you configure DATA 0 for iSCSI traffic to reduce the downtime.
+ 
+Perform the following steps to clear the gateway setting and then apply the update.
+ 
+[AZURE.INCLUDE [storsimple-install-update-option2](../../includes/storsimple-install-update-option2.md)]
 
 ## Troubleshooting update failures
 
@@ -98,4 +148,4 @@ If you have verified the connectivity exists, and you continue to see this issue
 
 ## Next steps
 
-Learn more about [Microsoft Azure StorSimple](storsimple-overview.md) 
+Learn more about [Update 1.2 release](storsimple-update1-release-notes.md) 
