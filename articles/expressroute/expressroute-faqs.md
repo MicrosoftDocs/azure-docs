@@ -48,20 +48,18 @@ Yes. An ExpressRoute circuit, once setup will allow you to access services withi
 ### Does ExpressRoute offer a Service Level Agreement (SLA)?
 Please refer to the [ExpressRoute SLA page](http://azure.microsoft.com/support/legal/sla/) for more information.
 
-## Supported Azure Services
+## Supported services
 Most Azure services are supported over ExpressRoute.
 
-Connectivity to virtual machines and cloud services deployed in virtual networks are supported over the private peering path.
+- Connectivity to virtual machines and cloud services deployed in virtual networks are supported over the private peering path.
+- Azure Websites are supported over the public peering path.
+- All other services are accessible over the public peering path. The exceptions are as follows.
 
-Azure Websites are supported over the public peering path.
+	**The following services are not supported:**
 
-All other services are accessible over the public peering path. The exceptions are as follows -
-
-**The following are not supported:**
-
-- CDN
-- Visual Studio Online Load Testing
-- Multi-factor Authentication
+	- CDN
+	- Visual Studio Online Load Testing
+	- Multi-factor Authentication
 
 ## Data and connections
 
