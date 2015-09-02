@@ -14,32 +14,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="09/01/2015" 
 	ms.author="fashah;garye" /> 
 
 #<a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
 
-This document covers exploring data and generating features for data stored in a SQL Server VM on Azure. This can be done in the following ways:
-
-1. [Using SQL](#sql)
-2. [Using a programming language like Python](#python) 
+This document covers exploring data and generating features for data stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
 
 
-**Note**
->The sample SQL statements in this document assume that data is in SQL Server. If it isn't, please refer to the cloud data science process map to learn how to move your data to SQL Server.
+> [AZURE.NOTE] The sample SQL statements in this document assume that data is in SQL Server. If it isn't, please refer to the cloud data science process map to learn how to move your data to SQL Server.
 
-###<a name="SQL"></a>Using SQL
+##<a name="SQL"></a>Using SQL
 
 We describe the following data wrangling tasks in this section using SQL:
 
 1. [Data Exploration](#sql-dataexploration)
 2. [Feature Generation](#sql-featuregen)
 
-####<a name="sql-dataexploration"></a>Data Exploration
+###<a name="sql-dataexploration"></a>Data Exploration
 Here are a few sample SQL scripts that can be used to explore data stores in SQL Server.
 
-**Note**
-> For a practical example, you can use the [NYC Taxi dataset](http://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
+
+> [AZURE.NOTE] For a practical example, you can use the [NYC Taxi dataset](http://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
 
 1. Get the count of observations per day
 
@@ -58,7 +54,7 @@ Here are a few sample SQL scripts that can be used to explore data stores in SQL
 	`select <column_name>, count(*) from <tablename> group by <column_name>`
 
 
-####<a name="sql-featuregen"></a>Feature Generation
+###<a name="sql-featuregen"></a>Feature Generation
 
 In this section, we describe ways of generating features using SQL:  
 
@@ -66,10 +62,10 @@ In this section, we describe ways of generating features using SQL:
 2. [Binning Feature Generation](#sql-binningfeature)
 3. [Rolling out the features from a single column](#sql-featurerollout)
 
-**Note**
->Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, that can be joined with the original table. 
 
-####<a name="sql-countfeature"></a>Count based Feature Generation
+> [AZURE.NOTE] Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, that can be joined with the original table. 
+
+###<a name="sql-countfeature"></a>Count based Feature Generation
 
 This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the 'where` clause. These can then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
@@ -78,14 +74,14 @@ This document demonstrates two ways of generating count features. The first meth
 	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
 	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-####<a name="sql-binningfeature"></a>Binning Feature Generation
+###<a name="sql-binningfeature"></a>Binning Feature Generation
 
 The following example shows how to generate binned features by binning (using 5 bins) a numerical column that can be used as a feature instead:
 
 	`SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-####<a name="sql-featurerollout"></a>Rolling out the features from a single column
+###<a name="sql-featurerollout"></a>Rolling out the features from a single column
 
 In this section, we demonstrate how to roll-out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
@@ -118,18 +114,18 @@ The location information can can be featurized as follows, separating out region
 The above location based features can be further used to generate additional count features as described earlier. 
 
 
-**TIP**
+> [AZURE.TIP] You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
+ 
 
-> 1. You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
-> 2. Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP] Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
 
-####<a name="sql-aml"></a>Connecting to Azure Machine Learning
+###<a name="sql-aml"></a>Connecting to Azure Machine Learning
 
 The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Reader][reader] module in Azure ML as shown below:
 
 ![azureml readers][1] 
 
-###<a name="python"></a>Using a programming language like Python
+##<a name="python"></a>Using a programming language like Python
 
 Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented [here](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
 
@@ -146,7 +142,7 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
 
 Now you can work with the Pandas data frame as covered in topics [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md).
 
-### Azure Data Science in Action Example
+## Azure Data Science in Action Example
 
 For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
 

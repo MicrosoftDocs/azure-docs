@@ -50,6 +50,9 @@ Before you begin the instructions in this article, you must have the following:
 
 	An HDInsight cluster is tied to one Azure subscription.
 
+- **Resource group name**
+
+	Applications are typically made up of many components, for example a web app, database, database server, storage, and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md).	
 - **Operating system**
 
 	You can provision HDInsight clusters on one of the following two operating systems:
@@ -246,13 +249,7 @@ For more information on Virtual Network features, benefits, and capabilities, se
 >
 > It is highly recommended to designate a single subnet for one cluster.
 
-## Provision tools
-
-- Azure Preview Portal
-- Azure PowerShell
-- HDInsight .NET SDK
-
-### Use the preview portal
+## Provision using the preview portal
 
 You can refer to the [basic configuration options], and the [advanced configuration options] for the explanations of the fields.
 
@@ -343,9 +340,46 @@ You can refer to the [basic configuration options], and the [advanced configurat
 	* **Tags** (![tag icon](./media/hdinsight-provision-clusters/tags.png)): Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
 
 
+## Provision using Azure Resource Manager template
+
+Azure Resource Manager (ARM) template makes it easier to deploy and redeploy cluster. The following procedure creates a Hadoop cluster on the Linux operating system in the North Europe data center with 4 worker nodes.
+
+**To deploy a cluster using ARM template**
+
+1. Save the json file in the Appendix A to your workstation.
+2. Make the parameters if needed.
+3. Run the template using the following PowerShell script:
+
+		$resourceGroupName = "<ResourceGroupName>"
+		$Location = "<ResourceGroupLocation>"
+		
+		$armDeploymentName = "<ARMDeploymentName>"
+		$clusterName = "<ClusterName>"
+		$clusterStorageAccountName = "<DefaultStorageAccountName>"
+		
+		# Connect to Azure
+		Switch-AzureMode -Name AzureResourceManager
+		Add-AzureAccount
+		
+		# Create a resource group
+		New-AzureResourceGroup -Name $resourceGroupName -Location $Location
+		
+		# Provision cluster and the dependent storage accounge
+		$parameters = @{clusterName="$clusterName";clusterStorageAccountName="$clusterStorageAccountName"}
+		
+		New-AzureResourceGroupDeployment `
+		    -Name $armDeploymentName `
+		    -ResourceGroupName $resourceGroupName `
+		    -TemplateFile E:\Tutorials\HDIARMTemplates\ARMTemplate-create-hadoop-cluster-with-storage.json `
+		    -TemplateParameterObject $parameters
+		
+		# List cluster
+		Get-AzureHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+
+For deploying an ARM template using other methods, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
 
-### Use Azure PowerShell
+## Provision using Azure PowerShell
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This section provides instructions on how to provision an HDInsight cluster by using Azure PowerShell. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell](../install-configure-powershell.md). For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 
@@ -413,8 +447,7 @@ The following procedures are needed to provision an HDInsight cluster by using A
 
 	![HDI.CLI.Provision](./media/hdinsight-provision-clusters/HDI.ps.provision.png)
 
-
-### Use the HDInsight .NET SDK
+## Provision using the HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. Follow the instructions below to create a Visual Studio console application and paste the code for creating a cluster.
 
 **To create a Visual Studio console application**
@@ -566,7 +599,6 @@ You can also use SQL Server Integration Services (SSIS) to create or delete an H
 Learn more about the Azure Feature Pack for SSIS [here][ssispack].
 
 
-
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
 
@@ -575,6 +607,167 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md) - Learn how to work with HDInsight by using Azure PowerShell
 * [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
 * [Azure HDInsight SDK documentation] [hdinsight-sdk-documentation] - Discover the HDInsight SDK
+
+
+
+##Appendix A - ARM template
+
+The following Azure Resource Manger template creates a Hadoop cluster with the dependent Azure storage account.
+
+	{
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {
+	    "location": {
+	      "type": "string",
+	      "defaultValue": "North Europe",
+	      "allowedValues": [
+	        "North Europe"
+	      ],
+	      "metadata": {
+	        "description": "The location where all azure resources will be deployed."
+	      }
+	    },
+	    "clusterName": {
+	      "type": "string",
+	      "metadata": {
+	        "description": "The name of the HDInsight cluster to create."
+	      }
+	    },
+	    "clusterLoginUserName": {
+	      "type": "string",
+	      "defaultValue": "admin",
+	      "metadata": {
+	        "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+	      }
+	    },
+	    "clusterLoginPassword": {
+	      "type": "securestring",
+	      "metadata": {
+	        "description": "The password for the cluster login."
+	      }
+	    },
+	    "sshUserName": {
+	      "type": "string",
+	      "defaultValue": "hdiuser",
+	      "metadata": {
+	        "description": "These credentials can be used to remotely access the cluster and the edge node virtual machine."
+	      }
+	    },
+	    "sshPassword": {
+	      "type": "securestring",
+	      "metadata": {
+	        "description": "The password for the ssh user."
+	      }
+	    },
+	    "clusterStorageAccountName": {
+	      "type": "string",
+	      "metadata": {
+	        "description": "The name of the storage account to be created and be used as the cluster's storage."
+	      }
+	    },
+	    "clusterStorageType": {
+	      "type": "string",
+	      "defaultValue": "Standard_LRS",
+	      "allowedValues": [
+	        "Standard_LRS",
+	        "Standard_GRS",
+	        "Standard_ZRS"
+	      ]
+	    },
+	    "clusterWorkerNodeCount": {
+	      "type": "int",
+	      "defaultValue": 4,
+	      "metadata": {
+	        "description": "The number of nodes in the HDInsight cluster."
+	      }
+	    }
+	  },
+	  "variables": {},
+	  "resources": [
+	    {
+	      "name": "[parameters('clusterStorageAccountName')]",
+	      "type": "Microsoft.Storage/storageAccounts",
+	      "location": "[parameters('location')]",
+	      "apiVersion": "2015-05-01-preview",
+	      "dependsOn": [],
+	      "tags": {},
+	      "properties": {
+	        "accountType": "[parameters('clusterStorageType')]"
+	      }
+	    },
+	    {
+	      "name": "[parameters('clusterName')]",
+	      "type": "Microsoft.HDInsight/clusters",
+	      "location": "[parameters('location')]",
+	      "apiVersion": "2015-03-01-preview",
+	      "dependsOn": [
+	        "[concat('Microsoft.Storage/storageAccounts/',parameters('clusterStorageAccountName'))]"
+	      ],
+	      "tags": {},
+	      "properties": {
+	        "clusterVersion": "3.2",
+	        "osType": "Linux",
+	        "clusterDefinition": {
+	          "kind": "hadoop",
+	          "configurations": {
+	            "gateway": {
+	              "restAuthCredential.isEnabled": true,
+	              "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+	              "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+	            }
+	          }
+	        },
+	        "storageProfile": {
+	          "storageaccounts": [
+	            {
+	              "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
+	              "isDefault": true,
+	              "container": "[parameters('clusterName')]",
+	              "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
+	            }
+	          ]
+	        },
+	        "computeProfile": {
+	          "roles": [
+	            {
+	              "name": "headnode",
+	              "targetInstanceCount": "1",
+	              "hardwareProfile": {
+	                "vmSize": "Large"
+	              },
+	              "osProfile": {
+	                "linuxOperatingSystemProfile": {
+	                  "username": "[parameters('sshUserName')]",
+	                  "password": "[parameters('sshPassword')]"
+	                }
+	              }
+	            },
+	            {
+	              "name": "workernode",
+	              "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
+	              "hardwareProfile": {
+	                "vmSize": "Large"
+	              },
+	              "osProfile": {
+	                "linuxOperatingSystemProfile": {
+	                  "username": "[parameters('sshUserName')]",
+	                  "password": "[parameters('sshPassword')]"
+	                }
+	              }
+	            }
+	          ]
+	        }
+	      }
+	    }
+	  ],
+	  "outputs": {
+	    "cluster": {
+	      "type": "object",
+	      "value": "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
+	    }
+	  }
+	}
 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx

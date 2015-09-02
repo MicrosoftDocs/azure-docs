@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Use Azure Mobile Services and Notification Hubs to send notifications to your Windows Phone app" 
-	description="Learn how to use Notification Hubs with Azure mobile services to send push notifications to your Windows phone app." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Use Azure Mobile Services and Notification Hubs to send notifications to your Windows Phone app"
+	description="Learn how to use Notification Hubs with Azure mobile services to send push notifications to your Windows phone app."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015" 
 	ms.author="wesmc"/>
 
 # Add push notifications to your Mobile Services app
@@ -26,7 +26,7 @@ This topic shows you how to use Azure Mobile Services with a .NET backend to sen
 
 This tutorial is based on the Mobile Services TodoList project. Before you start this tutorial, you must first complete [Add Mobile Services to an existing app] to connect your project to the mobile service.
 
->[AZURE.NOTE]This tutorial targets Windows Phone 8.1 Silverlight apps. If you are instead building a Windows Phone 8.1 Store app, see the [Windows Store app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) version of this tutorial. For information on Windows Phone Silverlight apps and how they compare with Windows Phone Store apps, see [Windows Phone Silverlight 8.1 apps]. 
+>[AZURE.NOTE]This tutorial targets Windows Phone 8.1 Silverlight apps. If you are instead building a Windows Phone 8.1 Store app, see the [Windows Store app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) version of this tutorial. For information on Windows Phone Silverlight apps and how they compare with Windows Phone Store apps, see [Windows Phone Silverlight 8.1 apps].
 
 ##Update the app to register for notifications
 
@@ -36,10 +36,10 @@ Before your app can receive push notifications, you must register a notification
 
         using Microsoft.Phone.Notification;
 
-2. Add the following `AcquirePushChannel` method to `App` class: 
+2. Add the following `AcquirePushChannel` method to `App` class:
 
-        public static HttpNotificationChannel CurrentChannel { get; private set; }	
-        
+        public static HttpNotificationChannel CurrentChannel { get; private set; }
+
         private void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
@@ -68,13 +68,13 @@ Before your app can receive push notifications, you must register a notification
                     {
                         Deployment.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            MessageBox.Show(exception.Message, 
+                            MessageBox.Show(exception.Message,
                                             "Registering for Push Notifications",
                                             MessageBoxButton.OK);
                         });
                     }
             });
-            CurrentChannel.ShellToastNotificationReceived += 
+            CurrentChannel.ShellToastNotificationReceived +=
                 new EventHandler<NotificationEventArgs>((o, args) =>
                 {
                     string message = "";
@@ -90,20 +90,20 @@ Before your app can receive push notifications, you must register a notification
         }
 
     This code retrieves the channel URI for the app if it exists. Otherwise, it will be created. The channel URI is then opened and bound for toast notifications. Once the channel URI is completely opened, the handler for the `ChannelUriUpdated` method is called and the channel is registered to received push notifications. If the registration should fail, the channel is closed so that subsequent executions of the app can try registration again. The `ShellToastNotificationReceived` handler is setup so that the app can receive and handle push notifications while running.
-    
+
 4. In the `Application_Launching` event handler in App.xaml.cs, add the following call to the new `AcquirePushChannel` method:
 
         AcquirePushChannel();
 
-	This makes sure that registration is requested every time that the app is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current. 
+	This makes sure that registration is requested every time that the app is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
-  
+
 6. In Visual Studio, open the Package.appxmanifest file and make sure that **Toast capable** is set to **Yes** on the **Application UI** tab.
 
    	![][1]
 
-   	This makes sure that your app can raise toast notifications. 
+   	This makes sure that your app can raise toast notifications.
 
 ##Update the server to send push notifications
 
@@ -178,7 +178,7 @@ Consider finding out more about the following Mobile Services and Notification H
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
 * [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
+  </br>Get guidance troubleshooting and debugging Notification Hubs solutions.
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
@@ -190,7 +190,7 @@ Consider finding out more about the following Mobile Services and Notification H
 
 [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
 [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
-[3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png 
+[3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
 
 <!-- URLs. -->
 [Add Mobile Services to an existing app]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
@@ -206,4 +206,3 @@ Consider finding out more about the following Mobile Services and Notification H
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
 [Windows Phone Silverlight 8.1 apps]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Azure Management Portal]: https://manage.windowsazure.com/
- 

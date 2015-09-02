@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Network Resource Provider"
    description="Network Resource Provider"
    services="virtual-network"
@@ -222,6 +222,8 @@ Network Interface Card, or NIC, represents a network interface that can be assoc
 Key properties of a NIC resource include:
 
 - IP settings
+- Internal DNS name
+- DNS servers
 
 A NIC can also be associated with the following network resources:
 
@@ -240,6 +242,7 @@ Key properties of a VNET resource include:
 - IP address space (CIDR block) 
 - VNET name
 - subnets
+- DNS servers
 
 A VNET can also be associated with the following network resources:
 
