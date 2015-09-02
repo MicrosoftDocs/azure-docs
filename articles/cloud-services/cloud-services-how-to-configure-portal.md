@@ -86,6 +86,6 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 
 ## Configure remote access to role instances
 
-Remote access cannot be configured using the **Azure Preview Portal**, you can only change this setting through the [non-preview portal](http://manage.windowsazure.com/). This is detailed [here](cloud-services-how-to-configure.md#configure-remote-access-to-role-instances).
+Remote access cannot be configured using the **Azure Preview Portal**, you can only change this setting through the [non-preview portal](http://manage.windowsazure.com/). This is detailed [here](cloud-services-role-enable-remote-desktop.md).
 			
  
