@@ -69,7 +69,7 @@ You can also optionally specify the deployment slot and roles that you want to e
 The Remote Desktop extension is associated with a deployment. If you were to create a new deployment for the service then you will have to enable remote desktop on the new deployment again. If you want to always have remote desktop enabled on your deployments then you should consider integrating the PowerShell scripts to enable remote desktop into your deployment workflow.
 
 
-### Remote Desktop into an role instance
+## Remote Desktop into an role instance
 The [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet can be used to remote desktop into a specific role instance of your cloud service. You can use the *LocalPath* parameter on the cmdlet to download the RDP file locally or you can use the *Launch* parameter to directly launch the Remote Desktop Connection dialog to access the cloud service role instance.
 
 ```
