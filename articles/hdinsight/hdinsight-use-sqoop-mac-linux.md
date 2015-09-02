@@ -159,7 +159,7 @@ You will first export **hivesampletable** to the Azure SQL database or to SQL Se
 
 2. Use the following command to create a link to the SQL Server JDBC driver from the Sqoop lib directory. This allows Sqoop to use this driver to talk to SQL Database:
 
-        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
+        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /usr/hdp/current/sqoop-client/lib/sqljdbc41.jar
 
 3. Use the following command to verify that Sqoop can see your SQL Database:
 
