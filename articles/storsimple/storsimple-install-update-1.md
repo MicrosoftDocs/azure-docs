@@ -21,13 +21,15 @@
 
 This tutorial explains how to install Update 1.2 on a StorSimple device that is running a software version prior to Update 1. The tutorial also covers the additional steps required for the update when a gateway is configured on a network interface other than DATA 0 of the StorSimple device. 
 
+Update 1.2 includes device software updates, LSI driver updates and disk firmware updates. We recommend that you apply disk firmware updates in a planned maintenance window as these are disruptive updates.
+
 Depending upon which version your device is running, you can determine if Update 1.2 will be applied. You can check the software version of your device by navigating to the **quick glance** section of your device **Dashboard**.
 
 </br>
 
 | If running software version …   | What happens in the portal?                              |
 |---------------------------------|--------------------------------------------------------------|
-| Release (GA)                    | Portal applies Update 0.1 followed by Update 1.2. </br> </br> If you are running Release version and have a gateway configured on a non-DATA0 network interface, do not apply this update. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to update your device.|
+| Release (GA)                    | Portal applies Update 0.1 followed by Update 1.2. </br> </br> If you are running Release version (GA) and have a gateway configured on a non-DATA0 network interface, do not apply this update. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to update your device.|
 | Update 0.1                      | Portal applies Update 1.2.                                |
 | Update 0.2                      | Portal applies Update 1.2.                                |
 | Update 0.3                      | Portal applies Update 1.2.                                |
@@ -95,9 +97,9 @@ If your device does not have a gateway on a non-DATA 0 network interface, you ca
 
 If your device is running pre-Update 1 software and it has a gateway set for a network interface other than DATA 0, you can apply Update 1.2 in the following two ways:
 
-- Option 1: Download the update and apply it by using the Start-HcsHotfix cmdlet from the Windows PowerShell interface of the device. This is the recommended method. Do not use this method to apply Update 1.2 if your device is running Update 1.0 or Update 1.1. 
+- **Option 1**: Download the update and apply it by using the `Start-HcsHotfix` cmdlet from the Windows PowerShell interface of the device. This is the recommended method. Do not use this method to apply Update 1.2 if your device is running Update 1.0 or Update 1.1. 
 
-- Option 2: Remove the gateway configuration and install the update directly from the Management Portal.
+- **Option 2**: Remove the gateway configuration and install the update directly from the Management Portal.
 
 
 Detailed instructions for each of these are provided in the following sections.
@@ -110,10 +112,9 @@ Before using this procedure to apply the update, make sure that:
 - DATA 2 and DATA 3 are disabled. You will need to do this only if the devices are running the GA release. Devices running Update 0.2 and 0.3 do not require them to be disabled. After the update is complete, you can enable these network interfaces again.
 
 
-Perform the following steps to apply Update 1.2. The update could take a few hours to complete.
+Perform the following steps to apply Update 1.2. The updates could take around 2 hours to complete (approximately 30 minutes for software, 30 minutes for driver, 45 minutes for disk firmware).
 
 [AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
-
 
 
 ## Option 2: Use the Azure Portal to apply Update 1.2
@@ -122,7 +123,7 @@ This procedure applies only to StorSimple devices that are running a software ve
  
 The update may take a few hours to complete. If your hosts are in different subnets, removing the gateway configuration on the iSCSI interfaces could result in downtime. We recommend that you configure DATA 0 for iSCSI traffic to reduce the downtime.
  
-Perform the following steps to clear the gateway setting and then apply the update.
+Perform the following steps to disable the network interface with the gateway and then apply the update.
  
 [AZURE.INCLUDE [storsimple-install-update-option2](../../includes/storsimple-install-update-option2.md)]
 

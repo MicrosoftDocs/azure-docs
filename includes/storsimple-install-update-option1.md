@@ -37,6 +37,7 @@
         ![View basket](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png) 
 
     6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) will be downloaded in a **StorSimple Update 1.2 Appliance Update bundle** (KB3063418) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device.
+    7. Repeat the above steps to download and copy StorSimple Update 1.2 SAS Controller Update (KB3043005) and **StorSimple Update 1.2 Disk Firmware Update** (KB3063416).
         
 2. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](#use-putty-to-connect-to-the-serial-console).
 
@@ -74,7 +75,7 @@
         ````
         Controller0>Get-HcsUpdateStatus
         RunInprogress       : True
-        LastHotfixTimestamp : 9/02/2015 10:56:13 PM
+        LastHotfixTimestamp : 9/02/2015 10:36:13 PM
         LastUpdateTimestamp : 9/02/2015 10:35:25 PM
         Controller0Events   :
         Controller1Events   : 
@@ -97,7 +98,7 @@
 
 9. Click **Install updates** to apply all the available software updates from the portal. 
 
-10. After the software updates are complete, verify the system software and driver versions. Type the following command:
+10. After the software updates are complete, verify the system software versions. Type the following command:
 
     `Get-HcsSystem`
 
@@ -105,8 +106,10 @@
 
     - HcsSoftwareVersion: 6.3.9600.17584
     - CisAgentVersion: 1.0.9049.0
-    - MdsAgentVersion: 26.0.XXXX.XXXX
+    - MdsAgentVersion: 26.0.4696.1433
 
 If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
+
+ 
  
 
