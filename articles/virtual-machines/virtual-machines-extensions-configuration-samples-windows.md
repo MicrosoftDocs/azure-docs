@@ -19,7 +19,8 @@
 # Azure Windows VM Extension Configuration Samples.
 
 This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Windows VMs.
-To learn more about these extensions click <a href="https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx" target="_blank">here</a>.
+
+To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx)
 
 ## Sample template snippet for VM Extensions.
 The template snippet for Deploying extensions looks as following:
@@ -271,8 +272,7 @@ Before deploying the extension please check the latest extension version and rep
 
 ### Azure Diagnostics
 
-Click the link below for complete documentation of the Azure Diagnostics schema and documentation
-<a href="https://msdn.microsoft.com/en-us/library/azure/dn782207.aspx/" target="_blank">WAD Configuration</a>.
+Click here for an overview of [Azure Diagnostics Extension](https://msdn.microsoft.com/en-us/library/azure/dn782207.aspx/)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -292,4 +292,5 @@ Click the link below for complete documentation of the Azure Diagnostics schema 
 In the examples above, replace the version number with the latest version number.
 
 Here is an example of a full VM template with Custom Script Extension.
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Custom Script Extension on a Windows VM</a>.
+
+[Custom Script Extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
