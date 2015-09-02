@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to monitor a cloud service - Azure" 
+	pageTitle="How to monitor a cloud service | Microsoft Azure" 
 	description="Learn how to monitor cloud services by using the Azure Management Portal." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2014" 
+	ms.date="08/04/2015" 
 	ms.author="robb"/>
 
 

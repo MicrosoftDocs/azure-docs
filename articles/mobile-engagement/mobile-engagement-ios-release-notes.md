@@ -18,9 +18,14 @@
 
 #Release notes
 
+##3.1.0 (08/26/2015)
+
+-   Fix iOS 9 compatibility bug with a third party library. It was causing crashes while sending polls results, application information or extra data.
+
 ##3.0.0 (06/19/2015)
 
 -   Mobile Engagement uses Silent Push Notifications.
+-   Dropped support for iOS 4.X. Starting from this version the deployment target of your application must be at least iOS 6.
 
 ##2.2.0 (05/21/2015)
 

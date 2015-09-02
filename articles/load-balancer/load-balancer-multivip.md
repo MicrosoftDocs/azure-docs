@@ -94,7 +94,7 @@ In this example, the cloud service has 3 VIPs:
 >[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## How to associate a VIP to an endpoint
-To associate a VIP on a cloud service to an endpoint, runt he following PowerShell command:
+To associate a VIP on a cloud service to an endpoint, run the following PowerShell command:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
     | Add-AzureEndpoint -Name myEndpoint -Protocol tcp -LocalPort 8080 -PublicPort 80 -VirtualIPName Vip2 `
@@ -150,7 +150,7 @@ You can also update your load balancer to use a different VIP. For instance, if 
 
 [Get started on Internet facing load balancer](load-balancer-internet-getstarted.md)
 
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
 [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  

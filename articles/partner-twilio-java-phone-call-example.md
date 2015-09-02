@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Make a phone call from Twilio (Java) - Azure" 
+	pageTitle="How to Make a phone call from Twilio (Java) | Microsoft Azure" 
 	description="Learn how to make a phone call from a web page using Twilio in a Java application on Azure." 
 	services="" 
 	documentationCenter="java" 
