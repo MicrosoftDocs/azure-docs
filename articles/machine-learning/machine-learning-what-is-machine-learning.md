@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/23/2015"
+    ms.date="09/02/2015"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -48,12 +48,12 @@ Azure Machine Learning has everything you need to create predictive analytics so
 
 Create predictive models in [Machine Learning Studio](machine-learning-what-is-ml-studio.md), a browser-based tool, by dragging, dropping, and connecting modules.
 
-![What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
+![What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Use a large library of [Machine Learning algorithms and modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio to jump-start your predictive models. Choose from a library of sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing. Extend Studio modules with your own custom  [R](machine-learning-r-quickstart.md) and [Python](machine-learning-execute-python-scripts.md) scripts.
 * In [Machine Learning Community Gallery](machine-learning-gallery-how-to-use-contribute-publish.md), you can get started with Azure Machine Learning and learn from others in the community. Try experiments authored by others, ask questions or post comments about experiments, or publish your own experiments. You can also share links to experiments via social networks such as LinkedIn and Twitter.  
 
-	![Try predictive experiment samples or contribute your own in Azure Machine Learning Gallery](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
+	![Try predictive experiment samples or contribute your own in Azure Machine Learning Gallery](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
 
 ### Operationalize predictive analytics solutions: Purchase web services or publish your own
 
