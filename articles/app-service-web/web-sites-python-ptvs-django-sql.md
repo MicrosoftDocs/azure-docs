@@ -1,26 +1,26 @@
-<properties
-	pageTitle="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio"
-	description="Learn how to use the Python Tools for Visual Studio to create a Django web app that stores data in a SQL database instance and deploy it to Azure App Service Web Apps."
-	services="app-service\web"
+<properties 
+	pageTitle="Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio" 
+	description="Learn how to use the Python Tools for Visual Studio to create a Django web app that stores data in a SQL database instance and deploy it to Azure App Service Web Apps." 
+	services="app-service\web" 
 	tags="python"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
-<tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="06/16/2015" 
+<tags 
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
 
 
-# Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio
+# Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio 
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
@@ -30,10 +30,10 @@ See the [Python Developer Center] for more articles that cover development of Az
 
 ## Prerequisites
 
- - Visual Studio 2012 or 2013
- - [Python Tools 2.1 for Visual Studio]
- - [Python Tools 2.1 for Visual Studio Samples VSIX]
- - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2012]
+ - Visual Studio 2013 or 2015
+ - [Python Tools 2.2 for Visual Studio]
+ - [Python Tools 2.2 for Visual Studio Samples VSIX]
+ - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2015]
  - [Python 2.7 32-bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -108,14 +108,14 @@ You can create a database by following these steps.
 
 	This will allow connections to the database server from your development machine.
 
-4.  Back in the database blade, click **Properties**, then click **Show database connection strings**.
+4.  Back in the database blade, click **Properties**, then click **Show database connection strings**. 
 
 2.  Use the copy button to put the value of **ADO.NET** on the clipboard.
 
 ## Configure the Project
 
-In this section, we'll configure our web app to use the SQL database
-we just created. We'll also install additional Python packages required to use SQL
+In this section, we'll configure our web app to use the SQL database 
+we just created. We'll also install additional Python packages required to use SQL 
 databases with Django. Then we'll run the web app locally.
 
 1.  In Visual Studio, open **settings.py**, from the *ProjectName* folder. Temporarily paste the connection string in the editor. The connection string is in this format:
@@ -149,7 +149,7 @@ Edit the definition of `DATABASES` to use the values above.
 
   	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
-1.  Right-click the project node and select **Python**, **Django Sync DB**.
+1.  Right-click the project node and select **Python**, **Django Sync DB**. 
 
     This will create the tables for the SQL database we created in the previous section. Follow the prompts to create a user, which doesn't have to match the user in the sqlite database created in the first section.
 
@@ -210,14 +210,14 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 <!--External Link references-->
 [Azure Portal]: https://portal.azure.com
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
-[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
-[Remote Debugging on Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Web Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Remote Debugging on Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Web Projects]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django Documentation]: https://www.djangoproject.com/
 [SQL Database]: /documentation/services/sql-database/

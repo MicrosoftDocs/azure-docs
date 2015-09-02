@@ -93,7 +93,7 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 		
 	- __Select__: Use this to save the data source configuration.
 	
-7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. Set this to __1__, as this will be sufficient for this tutorial and will reduce the cost of the cluster. You can also change the number of nodes in a cluster after it has been provisioned. 
+7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. 
 
 	The estimated cost of the cluster will be shown at the bottom of this blade.
 

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # SQL Server on Azure Virtual Machines overview
@@ -128,9 +128,11 @@ The following database engine settings are configured. For more settings, examin
 |Default language|English|
 |Cross-database ownership chaining|Off|
 
+### Customer Experience Improvement Program (CEIP)
+
 The [Customer Experience Improvement Program (CEIP)](https://technet.microsoft.com/library/cc730757.aspx) is enabled. You can disable the CEIP by using the SQL Server Error and Usage Reporting utility. To launch the SQL Server Error and Usage Reporting utility; on the Start menu, click All Programs, click Microsoft SQL Server version, click Configuration Tools, and then click SQL Server Error and Usage Reporting. If you do not want to use an instance of SQL Server with CEIP enabled, you might also consider deploying your own virtual machine image to Azure.  For more information, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](virtual-machines-create-upload-vhd-windows-server.md).
 
-### Running SQL Server setup from the platform-provided SQL Server image
+## Run SQL Server setup from the platform-provided SQL Server image
 
 If you create a virtual machine by using a platform-provided SQL Server image, you can find the SQL Server setup media saved on the virtual machine in the **C:\SqlServer_SQLMajorVersion.SQLMinorVersion_Full** directory. You can run setup from this directory to perform any setup actions including add or remove features, add a new instance, or repair the instance if the disk space permits.
 
