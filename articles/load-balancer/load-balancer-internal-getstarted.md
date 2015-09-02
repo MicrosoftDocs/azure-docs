@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="0/01/2015"
+   ms.date="09/01/2015"
    ms.author="joaoma" />
 
 # Get started configuring an internal load balancer
