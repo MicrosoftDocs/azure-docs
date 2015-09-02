@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="05/27/2015"
+   ms.date="09/01/2015"
    ms.author="tamram" />
 
 # Azure Storage Samples

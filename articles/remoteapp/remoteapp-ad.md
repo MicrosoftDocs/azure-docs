@@ -3,7 +3,6 @@
     pageTitle="Configure Active Directory for Azure RemoteApp" 
     description="Learn how to set up Active Directory to work with Azure RemoteApp." 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />

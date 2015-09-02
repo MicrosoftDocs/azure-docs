@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Server Farm Configuration Details"
-	description="This article describes the default configuration of SharePoint farms when you use the SharePoint Server Farm feature of the Azure preview portal."
+	pageTitle="SharePoint Server Farm configuration | Microsoft Azure"
+	description="Learn about the default configuration of SharePoint farms when you use the SharePoint Server Farm feature of the Azure preview portal."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"

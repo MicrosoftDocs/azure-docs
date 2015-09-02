@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/05/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>I use Mobile Services, how does App Service help?
@@ -24,7 +24,7 @@ Your existing Mobile Service is safe and will remain supported. However there ar
 - Simpler, easier and more cost effective offering for apps that include both web and mobile clients
 - New host features including Web Jobs, custom CNames, better monitoring
 - Turnkey integration with Office 365, Dynamics CRM, Salesforce, and other vital SaaS APIs.
-- Support for  Java and PHP backend code, in addition to Node.js and .NET
+- Support for Java and PHP backend code, in addition to Node.js and .NET
 - Turnkey integration with Traffic Manager
 - Connectivity to your on-premise resources and VPNs using VNet in addition to Hybrid Connections
 - Monitoring and troubleshooting for your app using NewRelic or AppInsights, as well as alerts
@@ -35,10 +35,12 @@ Your existing Mobile Service is safe and will remain supported. However there ar
 ## New hosting features
 In *Azure App Service* the *Mobile App* backend code runs in the same container as Web App and API App. As such you can take advantage of all the features in this container, including some of those that are not currently present in Mobile Services:
 
-- add continuously running backend logic via Web Jobs
-- ensure your backend code is always running
-- use custom CNames to provide friendly and stable names to your mobile backend endpoints
-- geo-scale your app with Traffic Manager
+- Add continuously running backend logic via Web Jobs
+- Ensure your backend code is always running
+- Use custom CNames to provide friendly and stable names to your mobile backend endpoints
+- Geo-scale your app with Traffic Manager
+- Include any libraries and packages you want. On .NET, the assemblies you deploy are the assemblies that are used at runtime; there is never a conflict with versions in the hosting environment.
+- (For .NET) Leverage any feature of ASP.NET, including MVC
 
 
 ##Connect your *Mobile App* to SaaS API

@@ -204,5 +204,5 @@ The following is a list of per-requisites and supporting components that Azure A
 * [How Azure AD Connect works](active-directory-aadconnect-how-it-works.md)
 * [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
 * [Learn More](active-directory-aadconnect-learn-more.md)
-* [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect on MSDN](active-directory-aadconnect.md)
  

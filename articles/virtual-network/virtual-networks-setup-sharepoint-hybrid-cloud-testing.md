@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Set up a SharePoint intranet farm in a hybrid cloud for testing" 
-	description="Learn how to create a SharePoint intranet farm in a hybrid cloud environment for development or IT pro testing." 
+	pageTitle="SharePoint 2013 farm test environment | Microsoft Azure" 
+	description="Learn how to create a two-tier SharePoint Server 2013 intranet farm in a hybrid cloud environment for development or IT pro testing." 
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
