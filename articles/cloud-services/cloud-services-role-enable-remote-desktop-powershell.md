@@ -17,7 +17,7 @@ ms.author="saurabh"/>
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell
 
-[AZURE.SELECTOR]
+>[AZURE.SELECTOR]
 - [Azure Portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 - [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
