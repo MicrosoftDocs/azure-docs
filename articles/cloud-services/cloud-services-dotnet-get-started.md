@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/08/2015"
+	ms.date="09/01/2015"
 	ms.author="tdykstra"/>
 
 # Get started with Azure Cloud Services and ASP.NET
@@ -409,6 +409,8 @@ After the solution is created, you'll review the code that is unique to cloud se
 14. In the left pane, select **Online**.
 
 16. Find the *EntityFramework* NuGet package, and install it in all three projects.
+
+17. Find the Microsoft.WindowsAzure.ConfigurationManager NuGet package, and install it in the worker role project.
 
 ### Set project references
 
