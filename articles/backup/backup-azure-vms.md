@@ -110,7 +110,7 @@ This step involves setting up a backup and retention policy for the virtual mach
 
 ### Installation of the backup extension
 
-The Azure Backup service seamlessly handles the upgrade and patching of the backup extension without requiring any cumbersome user intervention. This relieves the user of the “agent management overhead” that is typically associated with backup products.
+The Azure Backup service seamlessly handles the upgrade and patching of the backup extension without requiring any cumbersome user intervention. This relieves the user of the ï¿½agent management overheadï¿½ that is typically associated with backup products.
 
 #### Offline VMs
 The backup extension is installed if the VM is running. A running VM also provides the greatest chance of getting an application consistent point. However, the Azure Backup service will continue to backup the VM even if the VM is turned off and the extension could not be installed (aka Offline VM). The impact is seen in the consistency - in such a case the recovery point will be *File-system consistent*.
@@ -150,9 +150,13 @@ The following table explains the types of consistency that are encountered durin
 | Crash consistency | No | This situation is equivalent to a machine experiencing a "crash" (through either a soft or hard reset). This typically happens when the Azure virtual machine is shut down at the time of backup. For Azure virtual machine backup, getting a crash-consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage medium - either from the perspective of the operating system or from the perspective of the application. Only data that already exists on the disk at the time of backup is what gets captured and backed up. <br/> <br/> While there are no guarantees, in most cases the OS will boot. This is typically followed by a disk checking procedure like chkdsk to fix any corruption errors. Any in-memory data or writes that have not been completely flushed to the disk will be lost. The application typically follows with its own verification mechanism in case data rollback needs to be done. For Azure VM backup, getting a crash consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage - either from the OS perspective or the application's perspective. This typically happens when the Azure VM is shut down at the time of backup.<br><br>As an example, if the transaction log has entries that are not present in the database, then the database software does a rollback till the data is consistent. When dealing with data spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data.|
 
 
-## Next steps
-To learn more about getting started with Azure Backup, see:
+## Troubleshooting errors
+Get an exhaustive list of workarounds to the errors that are faced during virtual machine backup: [Troubleshoot virtual machine backup](backup-azure-vms-troubleshoot.md)
 
-- [Troubleshoot virtual machine backup](backup-azure-vms-troubleshoot.md)
+
+## Next steps
+
+To learn more about getting started with Azure Backup, see:
+ 
 - [Restore virtual machines](backup-azure-restore-vms.md)
 - [Manage virtual machines](backup-azure-manage-vms.md)
