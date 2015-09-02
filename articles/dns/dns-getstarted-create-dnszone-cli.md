@@ -85,7 +85,7 @@ Tags are different from Etags. Tags are a list of name-value pairs, and are used
 
 ## Create a DNS zone
 
-A DNS zone is created using the "azure network dns-zone create" command. In the example below, you create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':
+A DNS zone is created using the `azure network dns zone create` command. In the example below, you create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':
 
     Azure network dns zone create -n contoso.com -g myresourcegroup
 
