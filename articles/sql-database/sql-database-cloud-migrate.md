@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="08/26/2015"
+   ms.date="09/02/2015"
    ms.author="carlrab"/>
 
 # Migrating a database to Azure SQL Database
