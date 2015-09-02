@@ -109,7 +109,7 @@ All log blobs are stored with metadata that can be used to identify what logging
 | EndTime    	| The latest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:22:09Z.                                                                                                                                           	|
 | LogVersion 	| The version of the log format. Currently the only supported value is 1.0.                                                                                                                                                                                 	|
 
-The following list displays complete sample metadata using the prevous examples.
+The following list displays complete sample metadata using the previous examples.
 
 - LogType=write
 
