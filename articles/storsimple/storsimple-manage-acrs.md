@@ -5,17 +5,17 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="09/01/2015"
    ms.author="alkohli" />
 
-# Manage access control records in StorSimple
+# Use the StorSimple Manager service to manage access control records
 
 ## Overview
 
@@ -34,7 +34,7 @@ This tutorial explains the following common ACR-related tasks:
 
 ## Add an access control record
 
-You use the **Configure** page in the Management Portal to add ACRs. Typically, you will associate one ACR with one volume.
+You use the StorSimple Manager service **Configure** page to add ACRs. Typically, you will associate one ACR with one volume.
 
 Perform the following steps to add an ACR.
 
