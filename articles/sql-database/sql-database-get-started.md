@@ -26,13 +26,6 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-**Elastic database**
-
-> [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-client-library.md)
-- [PowerShell](sql-database-elastic-pool-powershell.md)
-
 This article shows you how to create a sample SQL database in just a few minutes using the Azure portal. You'll learn how to:
 
 - Create a server to host the database you create, and then set up a firewall rule for it
