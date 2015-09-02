@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/03/2015"
 	ms.author="sethm"/>
 
 # Service Bus Premium and Standard Messaging Tiers 
@@ -33,7 +33,7 @@ Some high-level differences are highlighted in the table below.
 
 **Azure Service Bus Premium Messaging** provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution.
 
-Not only is this performance more predictable and available, but it is also faster. Azure Service Bus Premium messaging builds on the storage engine introduced in [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/). With Premium messaging, peak performance is an order of magnitude faster than the Standard tier.
+Not only is this performance more predictable and available, but it is also faster. Azure Service Bus Premium messaging builds on the storage engine introduced in [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/). With Premium messaging, peak performance is much faster than the Standard tier.
 
 ## Premium Messaging technical differences
 
@@ -45,7 +45,7 @@ Partitioned entities are supported in Premium messaging, but they do not functio
 
 ### Express entities
 
-Because it runs in a completely isolated runtime environment, there is no longer a need for express entities in Premium messaging. Consequently, express entities are not supported in Premium namespaces. For more information about the express feature, see [EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
+Because it runs in a completely isolated runtime environment, there is no longer a need for express entities in Premium messaging. Consequently, express entities are not supported in Premium namespaces. For more information about the express feature, see the [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) property.
 
 ## Next steps
 
