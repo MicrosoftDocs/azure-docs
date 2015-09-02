@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/> 
 
 # Machine Learning Apps in the Azure Marketplace
@@ -57,4 +57,9 @@ This API can be used to analyze unstructured text for tasks such as sentiment an
 [Documentation](machine-learning-apps-text-analytics.md)
 
  
- 
+ ##Customer Churn Prediction##
+Customer Churn Prediction is a churn analytics service built with Azure Machine Learning. It's designed to predict when a customer (player, subscriber, user, etc.) is likely to end his or her relationship with a company or service. Being able to predict which customers have a high risk of leaving the relationship with a company provides the company with a window of opportunity to approach them and reduce the likelihood of their leaving. 
+
+[Data Market Link](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
+
+[Documentation](https://churn.cloudapp.net/documentation)

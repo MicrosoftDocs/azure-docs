@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/13/2015"
+   ms.date="09/01/2015"
    ms.author="alkohli" />
 
-# View and manage StorSimple jobs
+# Use the StorSimple Manager service to view and manage StorSimple jobs
 
 ## Overview
 
