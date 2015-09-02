@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Add push notifications to your Mobile Services app (Windows Store) | Microsoft Azure" 
-	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Add push notifications to your Mobile Services app (Windows Store) | Microsoft Azure"
+	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="windows" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="windows"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -33,7 +33,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 3. [Update server scripts to send push notifications](#update-scripts)
 3. [Insert data to receive push notifications](#test)
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard creates this connection for you. 
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard creates this connection for you.
 
 ##<a id="register"></a> Register your app with WNS and configure Mobile Services
 
@@ -53,8 +53,8 @@ Before your app can receive push notifications, you must register a notification
             .createPushNotificationChannelForApplicationAsync()
             .then(function (channel) {
                 // Register for notifications using the new channel
-                client.push.registerNative(channel.uri);                    
-            });      
+                client.push.registerNative(channel.uri);
+            });
 
 	This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
 
@@ -64,7 +64,7 @@ Before your app can receive push notifications, you must register a notification
 
    	![][2]
 
-   	This makes sure that your app can raise toast notifications. 
+   	This makes sure that your app can raise toast notifications.
 
 ##<a id="update-scripts"></a> Update server scripts to send push notifications
 
@@ -100,7 +100,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
 * [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
+  </br>Get guidance troubleshooting and debugging Notification Hubs solutions.
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
@@ -133,4 +133,3 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-localized-breaking-news.md
- 

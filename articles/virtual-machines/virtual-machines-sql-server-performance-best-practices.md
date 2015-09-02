@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Performance Best Practices for SQL Server in Azure Virtual Machines"
-	description="Provides best practices for optimizing SQL Server performance in Microsoft Azure Virtual Machine."
+	pageTitle="Performance best practices for SQL Server in Azure Virtual Machines"
+	description="Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="jroth" />
 
-# Performance Best Practices for SQL Server in Azure Virtual Machines
+# Performance best practices for SQL Server in Azure Virtual Machines
 
 ## Overview
 
@@ -33,7 +33,7 @@ The following is a quick check list for optimal performance of SQL Server on Azu
 
 - Use a [VM size](virtual-machines-size-specs.md) of DS3 or higher for SQL Enterprise edition and DS2 or higher for SQL Standard edition.
 
-- Use a minimum of 2 [P30 disks](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).
+- Use a minimum of 2 [P30 disks](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).
 
 - Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.
 
@@ -101,7 +101,7 @@ Only store TempDB and/or Buffer Pool Extensions on the **D** drive when using th
 
 ### Data Disk
 
-- **Number of data disks for data and log files**: At a minimum, use 2 [P30 disks](../storage/storage-premium-storage-preview-portal.md) where one disk contains the log file(s) and the other contains the data file(s) and TempDB. For more throughput, you might require additional data disks. To determine the number of data disks, you need to analyze the number of IOPS available for your data and log disk(s). For that information, see the tables on IOPS per [VM size](virtual-machines-size-specs.md) and disk size in the following article: [Using Premium Storage for Disks](../storage/storage-premium-storage-preview-portal.md). If you require more bandwidth, you can attach additional disks use Disk Striping. If you are not using Premium Storage, the recommendation is to add the maximum number of data disks supported by your [VM size](virtual-machines-size-specs.md) and use Disk Striping. For more information about Disk Striping, see the related section below.
+- **Number of data disks for data and log files**: At a minimum, use 2 [P30 disks](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) where one disk contains the log file(s) and the other contains the data file(s) and TempDB. For more throughput, you might require additional data disks. To determine the number of data disks, you need to analyze the number of IOPS available for your data and log disk(s). For that information, see the tables on IOPS per [VM size](virtual-machines-size-specs.md) and disk size in the following article: [Using Premium Storage for Disks](../storage/storage-premium-storage-preview-portal.md). If you require more bandwidth, you can attach additional disks use Disk Striping. If you are not using Premium Storage, the recommendation is to add the maximum number of data disks supported by your [VM size](virtual-machines-size-specs.md) and use Disk Striping. For more information about Disk Striping, see the related section below.
 
 - **Caching policy**: Enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
