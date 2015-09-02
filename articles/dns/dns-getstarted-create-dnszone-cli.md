@@ -19,6 +19,7 @@
 # Get started with Azure DNS
 
 
+
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 - [Azure Powershell steps](dns-getstarted-create-dnszone.md)
