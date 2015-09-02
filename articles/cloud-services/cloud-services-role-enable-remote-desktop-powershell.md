@@ -86,7 +86,7 @@ The [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/
 ## Remove Remote Desktop extension from a service 
 If you have already enabled the remote desktop extension on a deployment and need to update the remote desktop settings then you must first remove the remote desktop extension and then enable it again with the new settings. For example if you want to set a new password for the remote user account or if the user account has expired then you need to remove the extension and then add it again with the new password or expiration. This is only required on existing deployments which have the remote desktop extension enabled. For new deployments you can call simply apply the extension directly.
 
-To remove the remote desktop extension from s service deployment you can use the [Remove-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/en-us/library/azure/dn495280.aspx) cmdlet. You can also optionally specify the deployment slot and role from which you want to remove the remote desktop extension. 
+To remove the remote desktop extension from s service deployment you can use the [Remove-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495280.aspx) cmdlet. You can also optionally specify the deployment slot and role from which you want to remove the remote desktop extension. 
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
