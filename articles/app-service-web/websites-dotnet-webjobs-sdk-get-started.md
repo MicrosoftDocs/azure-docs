@@ -40,7 +40,7 @@ The tutorial instructions work with the following products:
 * Visual Studio 2013 Community
 * Visual Studio 2013 Express for Web
 
-If you don't have one of these, Visual Studio 2013 Express for Web is installed automatically when you install the Azure SDK.
+If you don't have one of these, Visual Studio 2013 Express for Web will be installed automatically when you install the Azure SDK.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -107,7 +107,7 @@ In a real-world application, you typically create separate accounts for applicat
 
 5. Set the **Region or Affinity Group** drop-down list to the region closest to you.
 
-	This setting specifies which Azure datacenter hosts your storage account. For this tutorial, your choice won't make a noticeable difference. However, for a production web app, you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) datacenter should be as close as possible to the browsers accessing the web app in order to minimize latency.
+	This setting specifies which Azure datacenter will host your storage account. For this tutorial, your choice won't make a noticeable difference. However, for a production web app, you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) datacenter should be as close as possible to the browsers accessing the web app in order to minimize latency.
 
 6. Set the **Replication** drop-down list to **Locally redundant**.
 
@@ -249,31 +249,35 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 7. In the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) drop-down list choose **Create new App Service plan**. Enter a name for the App Service plan, such as ContosoAdsPlan.
 
-8. In the [Resource group](../resource-group-overview.md) drop-down list choose **Create new resource group**.. Enter a name for the resource group, such as ContosoAdsGroup.
+8. In the [Resource group](../resource-group-overview.md) drop-down list choose **Create new resource group**.
 
-9. In the **Region** drop-down list, choose the same region you chose for your storage account.
+9. Enter a name for the resource group, such as ContosoAdsGroup.
 
-	This setting specifies which Azure datacenter your web app runs in. Keeping the web app and storage account in the same datacenter minimizes latency and data egress charges.
+10. In the **Region** drop-down list, choose the same region you chose for your storage account.
 
-10. In the **Database server** drop-down list choose **Create new server**. Enter a name for the database server, such as ContosoAdsServer.
+	This setting specifies which Azure datacenter your web app will run in. Keeping the web app and storage account in the same datacenter minimizes latency and data egress charges.
+
+11. In the **Database server** drop-down list choose **Create new server**.
+
+12. Enter a name for the database server, such as ContosoAdsServer.
 
 	Alternatively, if your subscription already has a server, you can select that server from the drop-down list.
 
-11. Enter an administrator **Database username** and **Database password**.
+12. Enter an administrator **Database username** and **Database password**.
 
 	If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a server that you created previously, you'll be prompted for the password to the administrative user account you already created.
 
-12. Click **Create**.
+13. Click **Create**.
 
 	![Create web app on Microsoft Azure dialog](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)
 
 	Visual Studio creates the solution, the web project, the web app in Azure, and the Azure SQL Database instance.
 
-13. In the **Connection** step of the **Publish Web** wizard, click **Next**.
+14. In the **Connection** step of the **Publish Web** wizard, click **Next**.
 
 	![Connection step](./media/websites-dotnet-webjobs-sdk-get-started/connstep.png)
 
-14. In the **Settings** step, clear the **Use this connection string at runtime** check box, and then click **Next**.
+15. In the **Settings** step, clear the **Use this connection string at runtime** check box, and then click **Next**.
 
 	![Settings step](./media/websites-dotnet-webjobs-sdk-get-started/settingsstep.png)
 
@@ -287,7 +291,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	For this tutorial, the default values of the options under **File Publish Options** are fine.
 
-15. In the **Preview** step, click **Start Preview**.
+16. In the **Preview** step, click **Start Preview**.
 
 	![Click Start Preview](./media/websites-dotnet-webjobs-sdk-get-started/previewstep.png)
 
@@ -297,7 +301,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
-16. Click **Publish**.
+17. Click **Publish**.
 
 	Visual Studio deploys the application and opens the home page URL in the browser.
 
@@ -484,9 +488,9 @@ To add files to a project or a folder, right-click the project or folder and cli
 	- *Web.config*
 	- *Global.asax.cs*  
 	- In the *Controllers* folder: *AdController.cs*
-	- In the *Views\Shared* folder: <em>_Layout.cshtml</em> file.
-	- In the *Views\Home* folder: *Index.cshtml*.
-	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.<br/><br/>
+	- In the *Views\Shared* folder: *_Layout.cshtml* file
+	- In the *Views\Home* folder: *Index.cshtml*
+	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files<br/><br/>
 
 3. In the ContosoAdsWebJob project, add the following files from the downloaded project.
 
@@ -494,7 +498,7 @@ To add files to a project or a folder, right-click the project or folder and cli
 	- *Program.cs*
 	- *Functions.cs*
 
-You can now build, run, and deploy the application as instructed earlier in the tutorial. Before you do that, however, stop the WebJob that is still running in the first web app you deployed to. Otherwise that WebJob  processes queue messages created locally or by the app running in a new web app, since all are using the same storage account.
+You can now build, run, and deploy the application as instructed earlier in the tutorial. Before you do that, however, stop the WebJob that is still running in the first web app you deployed to. Otherwise that WebJob will process queue messages created locally or by the app running in a new web app, since all are using the same storage account.
 
 ## <a id="code"></a>Review the application code
 
@@ -794,7 +798,7 @@ For more information about how to write functions that use  WebJobs SDK attribut
 
 > [AZURE.NOTE]
 >
-> * If your web app runs on multiple VMs, multiple WebJobs will be running simultaneously, and in some scenarios this can result in the same data getting processed multiple times. This is not a problem if you use the built-in queue, blob, and Service Bus triggers. The SDK ensures that your functions process only once for each message or blob.
+> * If your web app runs on multiple VMs, multiple WebJobs will be running simultaneously, and in some scenarios this can result in the same data getting processed multiple times. This is not a problem if you use the built-in queue, blob, and Service Bus triggers. The SDK ensures that your functions will be processed only once for each message or blob.
 >
 > * For information about how to implement graceful shutdown, see [Graceful Shutdown](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).
 >
