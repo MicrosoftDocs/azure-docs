@@ -30,6 +30,7 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 * **HPC Pack cluster with Linux compute nodes** - See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md) for the prerequisites and steps to deploy an HPC Pack cluster with Linux compute nodes on Azure by using an Azure PowerShell script and HPC Pack images in the Azure Marketplace.
 
     Following is a sample XML configuration file you can use with the script to deploy an Azure-based HPC Pack cluster consisting of a Windows Server 2012 R2 head node and 4 size Large (A3) CentOS 6.6 compute nodes. Substitute appropriate values for your subscription and service names.
+    
     ```
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
