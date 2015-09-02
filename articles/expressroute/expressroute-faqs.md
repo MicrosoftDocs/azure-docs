@@ -4,15 +4,15 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+   manager="carolz"
+   editor=""/>
 <tags
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
+   ms.date="09/02/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -91,7 +91,7 @@ Yes. Each Express Route circuit has a redundant pair of cross connections config
 You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
 
 ### Do I have to configure both links to get the service to work?
-If you are connecting through a NSP, the NSP takes care of configuring redundant links on your behalf. If you connect through an EXP, you must configure both links. Our SLA will be void if the circuit is not configured for redundancy.
+If you are connecting through a NSP, the NSP takes care of configuring redundant links on your behalf. If you are already co-located at an EXP, you must configure two LAN links to the EXP cloud exchange platform. If you connect to an EXP through a single WAN link from your private datacenter, you need to terminate the WAN link on your own router at the EXP, and then configure two LAN links to the EXP cloud exchange platform.  
 
 ### Can I extend one of my VLANs to Azure using ExpressRoute?
 No. We do not support layer 2 connectivity extensions into Azure.
@@ -160,6 +160,9 @@ We will filter out private prefixes (RFC1918) in the public peering BGP session.
 
 ### What happens if I exceed the BGP limits?
 BGP sessions will be dropped. They will be reset once the prefix count goes below the limit.
+
+### What is the ExpressRoute BGP Hold time? Can it be adjusted?
+The hold time is 180. The keep-alive messages are sent every 60 seconds. These are fixed settings on the Microsoft side that cannot be changed.
 
 ### After I advertise the default route (0.0.0.0/0) to my virtual networks, I can't activate Windows running on my Azure VMs. How to I fix this?
 The following steps will help Azure recognize the activation request:
