@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -84,7 +84,7 @@ will use this value in your code later in this tutorial.
 
 > [AZURE.NOTE]
 > You can also find this key if you log on to the
-> [Azure Management Portal](http://manage.windowsazure.com/) and navigate to the
+> [Azure Portal](http://manage.windowsazure.com/) and navigate to the
 > connection information for your service bus namespace.
 
 ## Create a Ruby application

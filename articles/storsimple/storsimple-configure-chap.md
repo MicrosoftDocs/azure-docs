@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configure CHAP for your StorSimple device | Microsoft Azure"
-   description="Describes how to configure Challenge Handshake Authentication Protocol on a StorSimple device."
+   description="Describes how to configure the Challenge Handshake Authentication Protocol (CHAP) on a StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,14 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="08/11/2015"
+   ms.date="09/01/2015"
    ms.author="alkohli" />
 
 # Configure CHAP for your StorSimple device
 
-This tutorial explains how to configure CHAP for your StorSimple device.
-
-CHAP stands for Challenge Handshake Authentication Protocol. It is an authentication scheme used by servers to validate the identity of remote clients. The verification is based on a shared password or secret.
+This tutorial explains how to configure CHAP for your StorSimple device. CHAP stands for Challenge Handshake Authentication Protocol. It is an authentication scheme used by servers to validate the identity of remote clients. The verification is based on a shared password or secret. 
 
 CHAP can be one-way (unidirectional) or mutual (bidirectional). One-way CHAP is when the target authenticates an initiator. Mutual or reverse CHAP, on the other hand, requires that the target authenticate the initiator and then the initiator authenticate the target. Initiator authentication can be implemented without target authentication. However, target authentication can be implemented only if initiator authentication is also implemented.
 

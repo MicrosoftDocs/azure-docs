@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a Cross-Premises Virtual Network Using Configuration Tables"
-	description="This topic describes how to configure a cross-premises virtual network using pre-determined configuration tables."
+	pageTitle="Virtual network using configuration tables | Microsoft Azure"
+	description="Learn how to configure a cross-premises Azure virtual network with settings from a configuration table with pre-determined settings."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -61,8 +61,8 @@ The following procedure references the information in these tables to guide you 
 
 ## Additional resources
 
-[Virtual network overview](https://msdn.microsoft.com/library/jj156007.aspx)
+[Virtual network overview](../virtual-network/virtual-networks-overview.md)
 
-[Virtual network configuration tasks](https://msdn.microsoft.com/library/jj156206.aspx)
+[Virtual network configuration tasks](../documentation/services/virtual-machines/)
 
 [Configure a cross-premises site-to-site connection to an Azure virtual network](../vpn-gateway/vpn-gateway-site-to-site-create.md)

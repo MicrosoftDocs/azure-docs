@@ -1,33 +1,33 @@
-<properties 
-	pageTitle="Application Insights for JavaScript web apps" 
-	description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages." 
-	services="application-insights" 
+<properties
+	pageTitle="Application Insights for JavaScript web apps | Microsoft Azure"
+	description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/10/2015"
 	ms.author="awills"/>
- 
+
 # Application Insights for JavaScript web apps
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Find out about the performance and usage of your web page. Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][track], and you can analyse in detail the most popular features, the most common mistakes, and tune your page to success with your users.
+Find out about the performance and usage of your web page. Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][track], and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.
 
-![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/16-page-views.png)    
+![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/16-page-views.png)
 
 If you already set up server telemetry for your [ASP.NET][greenbrown] or [Java][java] web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
 
 #### Quick demo
 
-If you don't have an Azure subscription and would like to try Application Insights on your web page, visit [Try Application Insights](http://aka.ms/ainow). 
+If you don't have an Azure subscription and would like to try Application Insights on your web page, visit [Try Application Insights](http://aka.ms/ainow).
 
 ## Create an Application Insights resource
 
@@ -35,7 +35,7 @@ The Application Insights resource is where data about your page's performance an
 
 In the [Azure portal](http://portal.azure.com), create a new Application Insights resource:
 
-![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/01-create.png)    
+![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/01-create.png)
 
 *Questions already?* [More about creating a resource][new].
 
@@ -55,12 +55,12 @@ The script contains the instrumentation key that directs the data to your Applic
 
 *(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
 
- 
+
 ## <a name="run"></a>Run your app
 
-Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it with F5 on your development machine, or publish it and let users play with it.
+Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it using the  **F5** key on your development machine, or publish it and let users play with it.
 
-If you want to check the telemetry that a web app is sending to Application Insights, use your browser's debugging tools (F12 on many browsers). Data is sent to dc.services.visualstudio.com.
+If you want to check the telemetry that a web app is sending to Application Insights, use your browser's debugging tools (**F12** on many browsers). Data is sent to dc.services.visualstudio.com.
 
 ## Explore your data
 
@@ -72,11 +72,11 @@ In the application overview blade, there's a chart near the top that shows avera
 
 *No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting][qna].*
 
-Click on that chart, and you get a more detailed version:
+Click that chart, and you get a more detailed version:
 
 ![](./media/app-insights-javascript/07-client-perf.png)
 
-This is a stacked chart which breaks the total page load time into the [standard timings defined by W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
+This is a stacked chart which breaks the total page load time into the [standard timings defined by W3C](http://www.w3.org/TR/navigation-timing/#processing-model).
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
@@ -96,7 +96,7 @@ If you'd like to see the performance of the pages over time, double-click the gr
 
 ## Client usage overview
 
-Back on the overview blade, click Usage:
+Back on the overview blade, click **Usage**:
 
 ![](./media/app-insights-javascript/14-usage.png)
 
@@ -122,7 +122,7 @@ Click a chart to see other metrics that you can display, or add a new chart and 
 
 ## Custom page counts
 
-By default, a page count occurs each time a new page loads into the client browser.  But you might want to count additional page views. For example, a page might display its content in tabs and you want to count a page when the user switches tabs. Or JavaScript code in the page might load new content without changing the browser's URL. 
+By default, a page count occurs each time a new page loads into the client browser.  But you might want to count additional page views. For example, a page might display its content in tabs and you want to count a page when the user switches tabs. Or JavaScript code in the page might load new content without changing the browser's URL.
 
 Insert a JavaScript call like this at the appropriate point in your client code:
 
@@ -133,7 +133,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 
 ## Inspect individual page view events
 
-Usually page view telemetry is analysed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can also look at individual page view events.
+Usually page view telemetry is analyzed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can also look at individual page view events.
 
 In the Diagnostic Search blade, set Filters to Page View.
 
@@ -141,17 +141,17 @@ In the Diagnostic Search blade, set Filters to Page View.
 
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
-> [AZURE.NOTE] If you use [Search][diagnostic], notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About". 
+> [AZURE.NOTE] If you use [Search][diagnostic], notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About".
 
 > [Learn more about diagnostic search][diagnostic]
 
 ### Page view properties
 
-* **Page view duration** The time taken to load the page and start running scripts. Specifically, the interval between starting to load the page and execution of the trackPageView. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value. 
+* **Page view duration**&#151;The time it takes to load the page and start running scripts. Specifically, the interval between starting to load the page and execution of the trackPageView. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value.
 
 ## Custom usage tracking
 
-Want to find out what your users do with your app? By inserting calls in your client and server code, you can send your own telemetry to Application Insights. For example, you could find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.
+Want to find out what your users do with your app? By inserting calls in your client and server code, you can send your own telemetry to Application Insights. For example, you can find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.
 
 * [Learn about the custom events and metrics API][track].
 * [API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -183,5 +183,3 @@ If you haven't done this yet, you can get insights from your server and display 
 [new]: app-insights-create-new-resource.md
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
-
- 

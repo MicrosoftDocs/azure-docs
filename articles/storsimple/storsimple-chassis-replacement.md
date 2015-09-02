@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Replace the chassis on your StorSimple device | Microsoft Azure"
+   pageTitle="Replace the chassis on a StorSimple device | Microsoft Azure"
    description="Describes how to remove and replace the chassis on your StorSimple primary device or EBOD enclosure."
    services="storsimple"
    documentationCenter=""
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/31/2015"
    ms.author="alkohli" />
 
 # Replace the chassis on your StorSimple device
 
 ## Overview
 
-This tutorial explains how to remove and replace a chassis in a StorSimple device. The 8100 model is a single enclosure device (one chassis), whereas the 8600 is a dual enclosure device (two chassis). For an 8600 model, there are potentially two chassis that can fail in the device: the chassis for the primary enclosure or the chassis for the EBOD enclosure.
+This tutorial explains how to remove and replace a chassis in a StorSimple device. The StorSimple 8100 model is a single enclosure device (one chassis), whereas the 8600 is a dual enclosure device (two chassis). For an 8600 model, there are potentially two chassis that can fail in the device: the chassis for the primary enclosure or the chassis for the EBOD enclosure.
 
 In either case, the replacement chassis that is shipped by Microsoft will be empty. No Power and Cooling Modules (PCMs), controller modules, solid state disk drives (SSDs), hard disk drives (HDDs), or EBOD modules will be included.
 

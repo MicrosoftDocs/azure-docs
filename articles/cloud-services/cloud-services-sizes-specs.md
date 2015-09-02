@@ -12,7 +12,7 @@
  ms.topic="article" 
  ms.tgt_pltfrm="na" 
  ms.workload="tbd"
- ms.date="06/04/2015" 
+ ms.date="09/01/2015" 
  ms.author="adegeo"/>
  
 # Sizes for Cloud Services

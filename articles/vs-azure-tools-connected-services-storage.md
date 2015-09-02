@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Add Azure Storage by using Connected Services in Visual Studio"
+   pageTitle="Add Azure Storage by using Connected Services in Visual Studio | Microsoft Azure"
    description="Add Azure Storage to your app by using the Visual Studio Add Connected Services dialog box"
    services="visual-studio-online"
    documentationCenter="na"
@@ -38,13 +38,13 @@ You can use the Connected Services dialog to connect to Azure Storage in the fol
 
 ## Connect to Azure Storage using the Connected Services dialog
 
-1. Make sure you have an Azure account. If you don't have an Azure account, you can sign up for a [free trial](http://go.microsoft.com/fwlink/?LinkId=518146).Once you have an Azure account, you can create storage accounts, create mobile services, and configure Azure Active Directory.
+1. Make sure you have an Azure account. If you don't have an Azure account, you can sign up for a [free trial](http://go.microsoft.com/fwlink/?LinkId=518146). Once you have an Azure account, you can create storage accounts, create mobile services, and configure Azure Active Directory.
 
 1. Open your project in Visual Studio, open the context menu for the **References** node in Solution Explorer, and then choose **Add Connected Service**.
 
     ![Adding a connected service](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. In the **Add Connected Service** dialog box, choose **Azure Storage**, and then choose the **Configure** button.You may be prompted to log into Azure if you haven't already done so.
+1. In the **Add Connected Service** dialog box, choose **Azure Storage**, and then choose the **Configure** button. You may be prompted to log into Azure if you haven't already done so.
 
     ![Add Connected Service dialog box - Storage](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
@@ -79,7 +79,8 @@ When you finish the dialog, Visual Studio adds references and modifies certain c
  - For ASP.NET projects, see [What happened – ASP.NET Projects](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
  - For ASP.NET 5 projects, see [What happened – ASP.NET 5 Projects](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
  - For cloud service projects (web roles and worker roles), see [What happened – Cloud Service projects](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
- - For WebJob projects, see [What happened - WebJob projects](storage/vs-storage-webjobs-what-happened/).
+ - For WebJob projects, see [What
+happened - WebJob projects](vs-storage-webjobs-what-happened/).
 
 ## Next steps
 
