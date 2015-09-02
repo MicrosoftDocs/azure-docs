@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/29/2015"
+   ms.date="09/02/2015"
    ms.author="joaoma"/>
 
 
@@ -61,9 +61,9 @@ In the following example we will show how to create a record set and records.  W
 
 Create record set using CLI:
 
-	Usage: network dns-record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
+	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
-	azure network dns-record-set create myresourcegroup  contoso.com  www A  60
+	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
 The record set has relative name ‘www’ in the DNS Zone ‘contoso.com’, so the fully-qualified name of the records will be ‘www.contoso.com’.  The record type is ‘A’ and the TTL is 60 seconds.
 
@@ -75,15 +75,15 @@ The record set is empty and we have to add records to be able to use the newly c
 
 Add IPv4 A records to the "www" record set using the following command:
 
-	Usage: network dns-record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
+	Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
 
-	azure network dns-record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
+	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 	
 
 The changes are complete.  You can retrieve the record set from Azure DNS using "azure network dns-record-set show" :
 
 
-	azure network dns-record-set show myresourcegroup "contoso.com" www A
+	azure network dns record-set show myresourcegroup "contoso.com" www A
 	
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "www"
@@ -95,7 +95,7 @@ The changes are complete.  You can retrieve the record set from Azure DNS using 
 	data:    A records:
 	data:        IPv4 address                : 134.170.185.46
 	data:
-	info:    network dns-record-set show command OK
+	info:    network dns record-set show command OK
 
 
 You can also use nslookup or other DNS tools to query the new record set.  
