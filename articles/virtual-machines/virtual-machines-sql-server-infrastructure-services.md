@@ -29,22 +29,19 @@ To create a SQL Server virtual machine in Azure, you must first obtain an Azure 
 
 After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure Management Portal](virtual-machines-provision-sql-server.md). Those images include licensing of SQL Server in the pricing for the VM. 
 
-You can run common SQL Server workloads on Azure Virtual Machines. SQL Server has several optimized virtual machine images available in the gallery. For more information on specific workloads, see:
-
-- [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-sql-server-business-intelligence.md)
-- [SQL Server Data Warehousing and Transactional Workloads in Azure Virtual Machines](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 The following table provides a matrix of available SQL Server images in the virtual machine gallery. 
 
 |SQL Server version|Operating system|SQL Server edition|
 |---|---|---|
-|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard, and Web|
-|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard, and Web|
-|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
+|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Evaluation|
+
+>[AZURE.NOTE] The virtual machines gallery images for data warehousing and transactional workloads (OLTP) are deprecated and will be removed from the gallery soon. Please use the standard images and optimize performance for your specific workload by following the recommendations in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). 
 
 In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](http://azure.microsoft.com/pricing/details/virtual-machines) associated with the virtual machine.
 
@@ -66,6 +63,7 @@ If you want to manually configure your Availability Group and associated listene
 
 - [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Deploy SQL Server AlwaysOn with an Azure Resource Manager template](virtual-machines-workload-template-sql-alwayson.md)
 - [Extend on-premises AlwaysOn Availability Groups to Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
@@ -110,7 +108,7 @@ The SQL Server installation in the platform image contains the following configu
 |Data Quality Services|Installed (SQL Server 2012 or later only)|
 |Master Data Services|Installed (SQL Server 2012 or later only). Requires [additional configuration and components](https://msdn.microsoft.com/library/ee633752.aspx)
 |PowerPivot for SharePoint|Available (SQL Server 2012 or later only). Requires additional configuration and components (including SharePoint)|
-|Distributed Replay Client|Available (SQL Server 2012 or later only), but not installed. See [Running SQL Server setup from the platform-provided SQL Server image](#running-sql-server-setup-from-the-platform-provided-sql-server-image)|
+|Distributed Replay Client|Available (SQL Server 2012 or later only), but not installed. See [Running SQL Server setup from the platform-provided SQL Server image](#run-sql-server-setup-from-the-platform-provided-sql-server-image)|
 |Tools|All tools, including SQL Server Management Studio, SQL Server Configuration Manager, the Business Intelligence Development Studio, SQL Server Setup, Client Tools Connectivity, Client Tools SDK, and SQL Client Connectivity SDK, and upgrade and migration tools, such as Data-tier applications (DAC), backup, restore, attach, and detach|
 |SQL Server Books Online|Installed but requires configuration by using Help Viewer|
 
