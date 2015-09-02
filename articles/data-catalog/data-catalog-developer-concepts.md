@@ -276,4 +276,4 @@ Special security principal <Everyone> has objectId "00000000-0000-0000-0000-0000
 > [AZURE.NOTE] In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
 
 <!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept.png
+[1]: ./media/data-catalog-developer-concepts/concept2.png
