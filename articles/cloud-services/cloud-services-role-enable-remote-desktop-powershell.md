@@ -45,7 +45,7 @@ Since PowerShell will mostly be used for automation scenarios you can also setup
 Use the following PowerShell to create a secure password file:  
 
 ```
-	ConvertTo-SecureString -String "MyP@ssword1" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
+	ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ``` 
 
 Once the password file (password.txt) is created you will only be using this file and will not have to specify the password in plain text. If you need to update the password then you can run the above powershell again with the new password to generate a new password.txt file. 
