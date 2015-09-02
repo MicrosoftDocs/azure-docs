@@ -78,3 +78,8 @@ Azure can only ensure 99.95 percent service availability during the configuratio
         Unless you define at least two instances of every role, Azure cannot guarantee at least 99.95 percent availability of your cloud service during service configuration updates. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
     
     4. Click **OK** (checkmark). 
+
+
+## Additional Resources
+
+[Enable Remote Desktop Connection for a Role in Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)

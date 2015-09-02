@@ -16,6 +16,11 @@ ms.date="07/06/2015"
 ms.author="saurabh"/>
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services
+[AZURE.SELECTOR]
+- [Azure Portal](cloud-services-role-enable-remote-desktop.md)
+- [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. 
 
@@ -136,3 +141,8 @@ The [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) file
     </Role>
 </ServiceConfiguration>
 ```
+
+
+## Additional Resources
+
+[How to Configure Cloud Services](cloud-services-how-to-configure.md)
