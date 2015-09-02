@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="08/27/2015"
 	ms.author="wesmc"/>
 
 # Enable offline sync for your Windows app
@@ -38,8 +38,6 @@ This tutorial requires the following:
 * Completion of [Create a Windows app][create a windows app].
 * [Azure Mobile Services SQLite Store version 2.0.0-beta][sqlite store nuget]
 * [SQLite for Windows 8.1](http://www.sqlite.org/downloads)
-
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
 ## Update the client app to support offline features
 

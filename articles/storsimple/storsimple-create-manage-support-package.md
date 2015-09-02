@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create and manage a support package | Microsoft Azure"
-   description="Learn how to create, decrypt and edit a support package for your StorSimple device."
+   pageTitle="Create a StorSimple support package | Microsoft Azure"
+   description="Learn how to create, decrypt, and edit a support package for your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/12/2015"
+   ms.date="08/31/2015"
    ms.author="alkohli" />
 
 
-# Create and manage a support package
+# Create and manage a StorSimple support package
 
 ## Overview
 

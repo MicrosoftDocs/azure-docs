@@ -24,6 +24,8 @@ You'll use the **Connect** button in the Azure portal to start a Remote Desktop 
 
 ## How to log on
 
+[AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
+
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## Troubleshooting tips
