@@ -34,7 +34,7 @@ See this page for service location and availability: [ExpressRoute partners and 
 You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the EXP location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your network provider is present in any of the Exchange locations. You can then order an ExpressRoute circuit through the Exchange provider to connect to Azure.
 
 ### How much does ExpressRoute cost?
-Check [Pricing Details](http://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
+Check [pricing details](http://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
 
 ### If I pay for an ExpressRoute circuit of a given bandwidth, does the VPN connection I purchase from my network service provider have to be the same speed?
 No. You can purchase a VPN connection of any speed from your service provider. However, your connection to Azure will be limited to the ExpressRoute circuit bandwidth that you purchase.
@@ -64,7 +64,7 @@ Most Azure services are supported over ExpressRoute.
 ## Data and connections
 
 ### Are there limits on the amount of data that I can transfer using ExpressRoute?
-We do not set a limit on the amount of data transfer. Refer to the [Pricing Details](http://azure.microsoft.com/pricing/details/expressroute/) for information on bandwidth rates.
+We do not set a limit on the amount of data transfer. Refer to [pricing details](http://azure.microsoft.com/pricing/details/expressroute/) for information on bandwidth rates.
 
 ### What connection speeds are supported by ExpressRoute?
 Supported bandwidth offers:
@@ -109,9 +109,9 @@ The basic steps are outlined below.
 
 The following tutorials will help you:
 
-- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
-- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
-- [Configure a Virtual Network and Gateway for ExpressRoute](expressroute-configuring-vnet-gateway.md)
+- [Configure an ExpressRoute connection through a network service provider](expressroute-configuring-nsps.md)
+- [Configure an ExpressRoute connection through an exchange provider](expressroute-configuring-exps.md)
+- [Configure a virtual network and gateway for ExpressRoute](expressroute-configuring-vnet-gateway.md)
 
 ### Are there connectivity boundaries for my ExpressRoute circuit?
 Yes. [ExpressRoute partners and locations](expressroute-locations.md) page provides an overview of the connectivity boundaries for an ExpressRoute circuit. Connectivity for an ExpressRoute circuit is limited to a single geopolitical region. Connectivity can be expanded to cross geopolitical regions by enabling the ExpressRoute premium feature.
@@ -122,7 +122,7 @@ Yes. You can link up to 10 virtual networks to an ExpressRoute circuit.
 ### I have multiple Azure subscriptions that contain virtual networks. Can I connect virtual networks that are in separate subscriptions to a single ExpressRoute circuit?
 Yes. You can authorize up to 10 other Azure subscriptions to use a single ExpressRoute circuit. This limit can be increased by enabling the ExpressRoute premium feature.
 
-For more details, see [Sharing an ExpressRoute Circuit across multiple subscriptions](expressroute-share-circuit.md).
+For more details, see [Sharing an ExpressRoute circuit across multiple subscriptions](expressroute-share-circuit.md).
 
 ### Are virtual networks connected to the same circuit isolated from each other?
 No. All virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other from a routing perspective. If you need route isolation, you’ll need to create a separate ExpressRoute circuit.
@@ -222,7 +222,7 @@ You can disable ExpressRoute premium by calling the update dedicated circuit API
 No. You will not be able to pick the features you need. We enable all features when you turn on ExpressRoute premium.
 
 ### How much does ExpressRoute premium cost?
-Refer to the [Pricing Details](http://azure.microsoft.com/pricing/details/expressroute/) for cost.
+Refer to [pricing details](http://azure.microsoft.com/pricing/details/expressroute/) for cost.
 
 ### Do I pay for ExpressRoute premium in addition to standard ExpressRoute charges?
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
@@ -235,25 +235,25 @@ Yes. ExpressRoute premium is supported cor ExpressRoute circuits connected throu
 
 ### How do I create an ExpressRoute circuit to connect to Office 365 services?
 
-1. Review the  [ExpressRoute prerequisites page](expressroute-prerequisites.md) page to make sure you meet the requirements
+1. Review the  [ExpressRoute prerequisites page](expressroute-prerequisites.md) page to make sure you meet the requirements.
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
-3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/)
+3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
 4. Follow the steps listed in the workflows below to setup connectivity.
 
-	- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
-	- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
+	- [Configure an ExpressRoute connection through a network service provider](expressroute-configuring-nsps.md)
+	- [Configure an ExpressRoute connection through an exchange provider](expressroute-configuring-exps.md)
 
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services?
 Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs.
 
 The following tutorials will help you:
 
-- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
-- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
+- [Configure an ExpressRoute connection through a network service provider](expressroute-configuring-nsps.md)
+- [Configure an ExpressRoute connection through an exchange provider](expressroute-configuring-exps.md)
 
 ### What Office 365 services can be accessed over an ExpressRoute connection?
 
-**The following Office 365 services are supported**
+**The following Office 365 services are supported:**
 
 - Exchange Online & Exchange Online Protection
 - SharePoint Online
@@ -265,7 +265,7 @@ The following tutorials will help you:
 - Delve
 - Project Online
 
-**The following Office 365 services are not supported**
+**The following Office 365 services are not supported:**
 
 - Yammer
 - Office 365 ProPlus client downloads
