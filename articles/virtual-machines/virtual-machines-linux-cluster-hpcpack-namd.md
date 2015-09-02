@@ -30,7 +30,7 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 * **HPC Pack cluster with Linux compute nodes** - See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md) for the prerequisites and steps to deploy an HPC Pack cluster with Linux compute nodes on Azure by using an Azure PowerShell script and HPC Pack images in the Azure Marketplace.
 
     Following is a sample XML configuration file you can use with the script to deploy an Azure-based HPC Pack cluster consisting of a Windows Server 2012 R2 head node and 4 size Large (A3) CentOS 6.6 compute nodes. Substitute appropriate values for your subscription and service names.
-    
+
     ```
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
@@ -82,6 +82,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 1.	Log on to a Linux computer.
 
 2.	Run the following command.
+
     ```
     ssh-keygen -t rsa
     ```
@@ -100,6 +101,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpclab\hpcuser.
 
 2.	Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example of this file in the Appendix at the end of this article.
+
     ```
     <ExtendedData>
       <PrivateKey>Copy the contents of private key here</PrivateKey>
@@ -108,6 +110,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
     ```
 
 3.	Open a Command window and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
+
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
     ```
@@ -141,7 +144,7 @@ The first command creates a folder named /namd2 on all nodes in the LinuxNodes g
 
 ## Prepare to run a NAMD job
 
- Your  NAMD job needs a *nodelist* file for **charmrun** to know the number of nodes touse when starting NAMD processes. You'll write a Bash script that generates the nodelist file and runs **charmrun** with this nodelist file. You can then submit a NAMD job in HPC Cluster Manager that calls this script.
+ Your  NAMD job needs a *nodelist* file for **charmrun** to know the number of nodes to use when starting NAMD processes. You'll write a Bash script that generates the nodelist file and runs **charmrun** with this nodelist file. You can then submit a NAMD job in HPC Cluster Manager that calls this script.
 
 ### Environment variables and nodelist file
 Information about nodes and cores is in the $CCP_NODES_CORES environment variable, which is automatically set by the HPC Pack head node when the job is activated. The format for the $CCP_NODES_CORES variable is as follows:
