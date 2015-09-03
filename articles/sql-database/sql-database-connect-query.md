@@ -21,7 +21,7 @@
 
 
 <!-- ?? Remove this comment before publishing!
-GeneMi ,   2015-09-03  Thursday  02:18am
+GeneMi ,   2015-09-03  Thursday  03:36am
 
 OLD TITLE:  "Connect to and query your SQL Database with C#"
 
@@ -322,7 +322,7 @@ For information about how to manage the list of allowed IP addresses, see:
 ## Related links
 
 
-- [Client quick-start code samples to SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-develop-quick-start-client-code-samples/)
+- [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
 - If your client program runs on an Azure VM, learn about TCP ports other than 1433 at:<br/>[Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 

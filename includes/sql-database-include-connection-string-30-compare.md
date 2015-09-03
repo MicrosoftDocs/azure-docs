@@ -22,7 +22,7 @@ The following table compares the connection strings that your C# program needs t
 The **Database=** is optional for SQL Server, but is required for SQL Database.
 
 
-[.NET ADO SqlConnectionStringBuilder Properties](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnectionstringbuilder_properties.aspx) - discusses all the parameters in detail.
+[.NET ADO SqlConnectionStringBuilder Properties](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder_properties.aspx) - discusses all the parameters in detail.
 
 
 <!--
