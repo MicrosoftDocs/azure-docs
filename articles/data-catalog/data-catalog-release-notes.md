@@ -13,26 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/28/2015"
+   ms.date="09/04/2015"
    ms.author="maroche"/>
 
 # Azure Data Catalog release notes
 
-## Notes for the 28 August 2015 release of Azure Data Catalog
+## Notes for the September 4, 2015 release of Azure Data Catalog
 
-### Data profile missing for some registered data assets
+### Data profile may be missing for some registered data assets
 
-When registering data sources with the data profiling option selected in the data source registration tool, the data profile information may not be included in the following scenarios:
+When registering data sources with the data profiling option selected in the data source registration tool, the data profile information may not be included when registering Oracle tables and views with multi-byte characters in column names.
 
-* Azure SQL Database tables
-* SQL Server tables and views where there are multiple objects with the same name in different schemas
-* SQL Server tables and views with column names greater than 118 characters
-* Oracle tables and views with column names greater than 20 characters
-* Oracle tables and views with spaces or multu-byte characters in column names
+These restrictions are due to a known issue in the September 4 release, and will be addressed in a future update to Azure Data Catalog.
 
-These restrictions are due to a known issue in the August 28 release, and will be addressed in a future update to Azure Data Catalog.
-
-## Notes for the 13 July 2015 release of Azure Data Catalog
+## Notes for the July 13, 2015 release of Azure Data Catalog
 
 ### Registering and Connecting to Oracle Database
 
