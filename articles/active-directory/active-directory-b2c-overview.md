@@ -46,7 +46,7 @@ Learn how to use specific Azure Active Directory B2C preview features:
 - [Enable Multi-Factor Authentication in your consumer-facing applications](active-directory-b2c-reference-mfa.md).
 - [Setup self-service password reset for your consumers](active-directory-b2c-reference-sspr.md).
 - [Customize the look-and-feel of sign up, sign in and other consumer-facing pages](active-directory-b2c-reference-ui-customization.md) served by Azure Active Directory B2C.
-- [Use Azure Active Directory Graph API to programmatically create, read, update and delete consumers](github link) in your Azure Active Directory B2C directory.
+- [Use Azure Active Directory Graph API to programmatically create, read, update and delete consumers](active-directory-b2c-devquickstarts-graph-dotnet.md) in your Azure Active Directory B2C directory.
 
 ## Reference
 
