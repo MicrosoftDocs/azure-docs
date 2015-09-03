@@ -13,11 +13,6 @@
 	ms.topic="article"
 	ms.date="06/18/2015"
 	ms.author="tamram"/>
-
-
-
-
-
 # How to use Azure Storage in Windows Store apps
 
 ## Overview
