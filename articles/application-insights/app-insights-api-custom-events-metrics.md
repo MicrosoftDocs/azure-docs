@@ -124,7 +124,7 @@ Click any occurrence to see more detail.
 
 ## <a name="properties"></a>Filter, search and segment your data with properties
 
-You can attach properties and measurements to your events (and also to metrics, page views, and other telemetry data).
+You can attach properties and measurements to your events (and also to metrics, page views, exceptions, and other telemetry data).
 
 **Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you'll want to attach the name of the game to each event, so that you can see which games are more popular. 
 
@@ -140,13 +140,22 @@ There are some [limits on the number of properties, property values, and metrics
 
 *JavaScript*
 
-    appInsights.trackEvent // or trackPageView, trackMetric, ...
+    appInsights.trackEvent
       ("WinGame",
          // String properties:
          {Game: currentGame.name, Difficulty: currentGame.difficulty},
          // Numeric metrics:
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
+
+    appInsights.trackPageView
+        ("page name", "http://fabrikam.com/pageurl.html",
+          // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+          
 
 *C#*
 
@@ -341,9 +350,10 @@ You can also call it yourself if you want to simulate requests in a context wher
 
     // At start of processing this request:
 
-    // Operation Id is attached to all telemetry and helps you identify
+    // Operation Id and Name are attached to all telemetry and help you identify
     // telemetry associated with one request:
     telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
+    telemetry.Context.Operation.Name = requestName;
     
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -353,6 +363,8 @@ You can also call it yourself if you want to simulate requests in a context wher
     telemetryClient.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
+
+
 
 ## Track Exception
 
@@ -513,96 +525,10 @@ Individual telemetry calls can override the default values in their property dic
     // ...
 
 
-## <a name="default-properties"></a>Context initializers - Set default properties for all telemetry
-
-You can set up a universal initializer so that all new TelemetryClients automatically use your context. This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
-
-A typical use is to identify telemetry coming from different versions or components of your app. In the portal, you can filter or group results by the "Application Version" property.
-
-**Define your initializer**
-
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MyNamespace
-    {
-      // Context initializer class
-      public class MyContextInitializer : IContextInitializer
-      {
-        public void Initialize (TelemetryContext context)
-        {
-            if (context == null) return;
-
-            context.Component.Version = "v2.1";
-        }
-      }
-    }
-```
-
-*Java*
-
-```Java
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyContextInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.Component.Version = "2.1";
-      }
-    }
-```
-
-**Load your initializer**
-
-In ApplicationInsights.config:
-
-    <ApplicationInsights>
-      <ContextInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
-        ...
-      </ContextInitializers>
-    </ApplicationInsights>
-
-*Alternatively,* you can instantiate the initializer in code:
-
-*C#*
-
-```C#
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyContextInitializer());
-    }
-```
-
-*Java*
-
-```Java
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
-```
-
-
-### JavaScript web client
-
-For JavaScript web clients, [use telemetry initializers to set default values](#js-initializer).
 
 ## Telemetry Initializers
 
-Use telemetry initializers to override selected behavior of the standard telemetry modules. 
+Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules. 
 
 For example, the Application Insights for Web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initilizer that sets the Success property.
 
@@ -799,7 +725,9 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 
 ## TelemetryContext
 
-TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. 
+TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
+
+    telemetryClient.Context.Operation.Name = “MyOperationName”;
 
 If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config][config], so that your values and the standard values don't get confused.
 
@@ -809,11 +737,96 @@ If you set any of these values yourself, consider removing the relevant line fro
 * **Location** Identifies the geographic location of the device.
 * **Operation** In web apps, the current HTTP request. In other app types, you can set this to group events together.
  * **Id**: A generated value that correlates different events, so that when you inspect any event in Diagnostic Search, you can find "Related items"
- * **Name**: The URL of the HTTP request
+ * **Name**: An identifier, usually the URL of the HTTP request. 
  * **SyntheticSource**: If not null or empty, this string indicates that the source of the request has been identified as a robot or web test. By default it will be excluded from calculations in Metrics Explorer.
 * **Properties** Properties that are sent with all telemetry data. Can be overridden in individual Track* calls.
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
 * **User** User information. 
+
+
+## <a name="default-properties"></a>Context initializers - Set default properties for all telemetry
+
+You can set up a universal initializer so that all new TelemetryClients automatically use your context. This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
+
+A typical use is to identify telemetry coming from different versions or components of your app. In the portal, you can filter or group results by the "Application Version" property.
+
+In general, [we recommend that you use telemetry initializers rather than context initializers](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
+
+#### Define a context initializer
+
+
+*C#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MyNamespace
+    {
+      // Context initializer class
+      public class MyContextInitializer : IContextInitializer
+      {
+        public void Initialize (TelemetryContext context)
+        {
+            if (context == null) return;
+
+            context.Component.Version = "v2.1";
+        }
+      }
+    }
+```
+
+*Java*
+
+```Java
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyContextInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.Component.Version = "2.1";
+      }
+    }
+```
+
+#### Load your context initializer
+
+In ApplicationInsights.config:
+
+    <ApplicationInsights>
+      <ContextInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
+        ...
+      </ContextInitializers>
+    </ApplicationInsights>
+
+*Alternatively,* you can instantiate the initializer in code:
+
+*C#*
+
+```C#
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyContextInitializer());
+    }
+```
+
+*Java*
+
+```Java
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
+```
 
 
 

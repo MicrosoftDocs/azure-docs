@@ -151,6 +151,11 @@ The most current list of supported guest operating systems is available in the a
 
 No, this type of chained replication isn't supported
 
+### Do I need certificates to configure protection between two VMM datacenters?
+
+No. While configuring protection between VMM clouds in ASR specify the authentication type. Select HTTPS unless you have a working Kerberos environment configured. Azure Site Recovery will automatically configure certificates for HTTPS authentication. No manual configuration is required. If you do select Kerberos, a Kerberos ticket will be used for mutual authentication of the host servers. By default, port 8083 (for Kerberos) and 8084 (for certificates) will be opened in the Windows Firewall on the Hyper-V host servers. Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.
+
+
 
 ## Deploy between two VMM datacenters with SAN
 
@@ -162,6 +167,15 @@ No problem. ASR supports the scenario where replication may already be set up, i
 Yes. We need the SAN array to be brought under management by VMM using an array-specific SMI-S provider.
 
 We support single VMM HA deployments based on the array type, though the recommended configuration is to use separate VMM servers to manage the sites.
+
+
+### What are the supported storage arrays?
+
+NetApp, EMC and HP have enabled support for Azure Site Recovery SAN replication with updates to their SMI-S providers. For more details see below links.
+
+- [NetApp Clustered Data ONTAP 8.2](http://community.netapp.com/t5/Technology/NetApp-Unveils-Support-for-Microsoft-Azure-SAN-Replication-with-SMI-S-and/ba-p/94483)
+- [EMC VMAX series](https://thecoreblog.emc.com/high-end-storage/microsoft-azure-site-recovery-now-generally-available-vmax-srdf-integration-pack-ready-for-public-review/)    
+- [HP 3PAR](http://h20195.www2.hp.com/V2/GetDocument.aspx?docname=4AA5-7068ENW&cc=us&lc=en)
 
 
 ### What if I'm not sure about my storage admin?

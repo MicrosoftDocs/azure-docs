@@ -149,8 +149,6 @@ The following list provides additional resources for SQL Server in Azure virtual
 ### SQL Server Workloads in Azure:
 - [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-sql-server-business-intelligence.md)
 
-- [SQL Server Data Warehousing and Transactional Workloads in Azure Virtual Machines](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 ### Whitepapers:
 - [Understand Azure SQL Database and SQL Server in Azure Virtual Machines](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
