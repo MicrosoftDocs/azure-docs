@@ -21,6 +21,7 @@
 ## Overview of Azure Resource Manager Templates.
 
 Azure Resource Manager Template allows you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources.
+
 Click the article  [Authoring Extension Templates](virtual-machines-extensions-authoring-templates.md) to learn more about authoring templates for using Extensions.
 
 In this article we'll learn about troubleshooting some of the common VM Extension failures.
@@ -80,14 +81,9 @@ and name is the name of the extension resource from the template
 
     Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
-Once the extension has been removed, the template can be reexecuted to run the scripts on the VM.
+Once the extension has been removed, the template can be re-executed to run the scripts on the VM.
+Here are some additional pointers for deploying templates.
 
-<a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Deploying Templates with Azure CLI</a>.
-<br/>
-<a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Deploying Templates with Azure Powershell</a>.
+[Deploying Templates with Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/)
 
-Please refer to the following to the VM Templates to get a fully complete Template with VM Extensions.
-
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Custom Script Extension on a Linux VM</a>.
-</br>
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Custom Script Extension on a Windows VM</a>.
+[Deploying Templates with Azure Powershell](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/)
