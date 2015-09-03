@@ -56,7 +56,8 @@ Moving BLOB content to the file system can provide other cost savings and benefi
 ### Capacity and performance limits
 
 Before you consider using RBS in your SharePoint solution, you should be aware of the tested performance and capacity limits of SharePoint Server 2010 and SharePoint Server 2013, and how these limits relate to acceptable performance. 
-For more information, see Software Boundaries and Limits for SharePoint 2013.
+
+For more information, see [Software Boundaries and Limits for SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
 
 Review the following before you configure RBS:
 
@@ -229,14 +230,14 @@ Use the following procedure to upgrade SharePoint server and then reinstall Stor
 >
 >- If you are configuring RBS for a SharePoint farm that has a very large number of databases (greater than 200), the **SharePoint Central Administration** page might time out. If that occurs, refresh the page. This does not affect the configuration process.
 
+
+[AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
+ 
 ## StorSimple Adapter for SharePoint removal
 
 The following tutorial describes how to move the BLOBs back to the SQL Server content databases and then uninstall the StorSimple Adapter for SharePoint. It contains the following sections:
 
-- Move the BLOBs back to the content databases 
-- Uninstall the adapter 
-
->[AZURE.IMPORTANT] You have to move the BLOBs back to the content databases and uninstall the existing adapter software before you can upgrade or reinstall the adapter. 
+>[AZURE.IMPORTANT] You must move the BLOBs back to the content databases and uninstall the existing adapter software before you can upgrade or reinstall the adapter. 
 
 ### Before you begin 
 
