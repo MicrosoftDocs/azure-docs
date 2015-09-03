@@ -36,3 +36,6 @@ You need to create a linked service for the compute environment and then use the
 2. **Bring Your Own**: In this case, you can register your own computing environment (for example HDInsight cluster) as a linked service in Data Factory. The computing environment is managed by you and the Data Factory service uses it to execute the activities. 
 
 See [Compute Linked Services](data-factory-compute-linked-services.md) article to learn about compute linked services supported by Data Factory. 
+
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md). 
