@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2015"
+   ms.date="09/02/2015"
    ms.author="v-sharos" />
 
 # Deploy the StorSimple Manager service

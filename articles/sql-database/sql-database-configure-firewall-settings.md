@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to: Configure Firewall Settings (Azure SQL Database)"
-	description="configure the firewall for Azure SQL databases"
+	pageTitle="How to: Configure Firewall Settings | Microsoft Azure"
+	description="Configure the firewall for IP addresses that access Azure SQL databases."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="06/22/2015"
+	ms.date="09/02/2015"
 	ms.author="rickbyh"/>
 
 
-# How to: Configure Firewall Settings (Azure SQL Database)
+# How to: Configure firewall settings on SQL Database
 
  Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.
 
-**Important**  To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/). 
+**Important**  To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](sql-database-firewall-configure.md)
 
 
 ## Server-Level Firewall Rules
@@ -49,27 +49,33 @@ Server-level firewall rules can be created and managed through the Microsoft Azu
 ## Manage Server-Level Firewall Rules through Management Portal 
 
 1. From the Management Portal, click **SQL Databases**. All databases and their corresponding servers are listed here.
-1. Click **Servers** at the top of the page.
-2. Click the arrow beside the server for which you want to manage firewall rules.
-3. Click **Configure** at the top of the page.
+2. Click **Servers** at the top of the page.
+3. Click the arrow beside the server for which you want to manage firewall rules.
+4. Click **Configure** at the top of the page.
 
 	*  To add the current computer, click Add to the Allowed IP Addresses.
 	*  To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
 	*  To modify an existing rule, click any of the fields in the rule and modify.
 	*  To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
-8. Click **Save** at the bottom of the page to save the changes.
+5. Click **Save** at the bottom of the page to save the changes.
 
 ## Manage Server-Level Firewall Rules through Transact-SQL
+
 1. Launch a query window through the Management Portal or through SQL Server Management Studio.
 2. Verify you are connected to the master database.
-3. Server-level firewall rules can be created, updated, or deleted from within the query window.
-4. To create or update server-level firewall rules, execute the sp_set_firewall rule stored procedure. The following example enables a range of IP addresses on the server Contoso.
+3. Server-level firewall rules can be selected, created, updated, or deleted from within the query window.
+4. To create or update server-level firewall rules, execute the sp_set_firewall rule stored procedure. The following example enables a range of IP addresses on the server Contoso.<br/>Start by seeing what rules already exist.
 
-		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
+		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+
+	Next, add a firewall rule.
+
+		EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
+			@start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
 	To delete a server-level firewall rule, execute the sp_delete_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule.
  
-		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
+		EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
 ## Manage Server-Level Firewall Rules through Azure PowerShell
 1. Launch Azure PowerShell.

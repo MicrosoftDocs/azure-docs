@@ -122,6 +122,7 @@ Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=
 - Virtual machine backup using the Azure Backup service is only supported only for select Operating System versions:
   - **Linux**: The list of distributions endorsed by Azure is available [here](../virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM Agent is available on the virtual machine.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
+- Restoring a domain controller VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#multiple-dcs)
 
 If there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
