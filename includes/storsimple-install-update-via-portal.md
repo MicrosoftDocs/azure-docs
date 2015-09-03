@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Install Update 1.2 from the Azure Management Portal"
-   description="Explains how to use the Management Portal to install StorSimple 8000 Series Update 1."
+   description="Explains how to use the Management Portal to install StorSimple 8000 Series Update 1.2."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/02/2015"
+   ms.date="09/03/2015"
    ms.author="v-sharos" />
 
 #### To install Update 1.2 from the Management Portal
@@ -51,9 +51,10 @@
 
     The following is an example in which the pre-upgrade check failed. You will need to verify that both the device controllers are healthy and online. You will also need to check the health of the hardware components. In this example, Controller 0 and Controller 1 components need attention. You may need to contact Microsoft Support if you cannot address these issues by yourself.
 
-    ![Pre-check failed](./media/storsimple-install-update-via-portal/HCS_PreUpgradeChecksFailed-include.png)
+   	 ![Pre-check failed](./media/storsimple-install-update-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	> [AZURE.NOTE] After you have applied Update 1.2 on your StorSimple device, future updates will not have the DATA 2 and DATA 3 checks and the gateway check. The other pre-checks will occur.
+
 
 8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
  
@@ -75,3 +76,4 @@
 
     ![Maintenance page](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
+13. You will now see that Maintenance mode updates are available. These updates are disruptive updates and can only be applied via the Windows PowerShell interface of your device. We recommend that you install these updates during a planned maintenance window. Follow the instructions in [Install Maintenance mode Updates](storsimple-update-device.md/#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) to install these updates via the Windows PowerShell for StorSimple.

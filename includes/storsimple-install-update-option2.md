@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/02/2015"
+   ms.date="09/03/2015"
    ms.author="v-sharos" />
 
 #### To install Update 1.2 from the Azure Management Portal
@@ -21,9 +21,9 @@
  
 2. Navigate to **Devices** > **Configure**. 
 
-3. Under **Network Interfaces**, locate the network interface that has a gateway assigned. This will be a network interface other than DATA 0. 
+3. Under **Network Interfaces**, first verify that you have at least one network interface that is iSCSI-enabled. Then locate the network interface (other than DATA 0) that has a gateway assigned. 
 
-4. Disable the network interface and save the modified configuration.
+4. Disable the network interface that has an assigned gateway and save the modified configuration.
 
 7. You can now [use the Management Portal to install Update 1.2](#use-the-management-portal-to-install-update-1). 
 
