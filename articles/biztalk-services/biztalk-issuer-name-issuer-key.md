@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Issuer Name and Issuer Key in BizTalk Services | Azure" 
+	pageTitle="Issuer Name and Issuer Key in BizTalk Services | Microsoft Azure" 
 	description="Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -42,9 +42,10 @@ The Access Control Issuer Name and Issuer Key are used by the following:
 1. Sign in to the [Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **BizTalk Services**.
 3. Select your BizTalk Service. 
-4. Select **Connection Information** in the task bar. The Access Control Namespace, Default Issuer (Issuer Name), and Default Key (Issuer Key) are listed and can be copied and pasted.<br/><br/>
-To summarize:<br/>
-Issuer Name = Default Issuer<br/>
+4. Select **Connection Information** in the task bar. The Access Control Namespace, Default Issuer (Issuer Name), and Default Key (Issuer Key) are listed and can be copied and pasted.  
+
+To summarize:  
+Issuer Name = Default Issuer  
 Issuer Key = Default Key
 
 
@@ -55,9 +56,10 @@ You can also select **Open ACS Management Portal** to get the Access Control val
 3. Select your BizTalk Service.
 4. Select the Connection Information button and select **Open ACS Management Portal**.
 5. In the Portal under **Service Settings**, select **Service Identities**. This displays your Service Identity, which is your Access Control Issuer Name value. Select your Service Identity link to see the Password, which is your Issuer Key value. Their values can be copied.<br/><br/>
-For example, in **Service Identities**, you see "owner". "Owner" is your Access Control Issuer Name. When you click the "owner" link, you see the **Password**. When you click the "Password" link, you see the value. This Password value is your Access Control Issuer Key. <br/><br/>
-To summarize:<br/>
-Issuer Name = Service Identity name<br/>
+For example, in **Service Identities**, you see "owner". "Owner" is your Access Control Issuer Name. When you click the "owner" link, you see the **Password**. When you click the "Password" link, you see the value. This Password value is your Access Control Issuer Key.  
+
+To summarize:  
+Issuer Name = Service Identity name  
 Issuer Key = Password value
 
 In the left navigation pane, you can also select **Active Directory** to retrieve the Access Control values. 
@@ -73,9 +75,10 @@ Service Bus Issuer Name and Issuer Key are used by BizTalk Adapter Services. In 
 
 1. Sign in to the [Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **Service Bus**.
-3. Select your namespace. In the task bar, select **Connection Information**. This displays the **Default Issuer** (Issuer Name) and **Default Key** (Issuer Key). Their values can be copied.<br/><br/>
-To summarize:<br/>
-Issuer Name = Default Issuer<br/>
+3. Select your namespace. In the task bar, select **Connection Information**. This displays the **Default Issuer** (Issuer Name) and **Default Key** (Issuer Key). Their values can be copied.  
+
+To summarize:  
+Issuer Name = Default Issuer  
 Issuer Key = Default Key
 
 ## Next

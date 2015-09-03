@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Xamarin.iOS) | Mobile Dev Center" 
+	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Xamarin.iOS) | Microsoft Azure" 
 	description="Learn how to authentication users for single sign-on with ADAL in your Xamarin.iOS application." 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 

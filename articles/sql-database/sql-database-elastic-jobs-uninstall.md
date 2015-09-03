@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="08/09/2015" 
 	ms.author="ddove; sidneyh"/>
 
 #Uninstall Elastic Database jobs components
@@ -29,14 +29,14 @@
 
 ##Uninstall  Elastic Database jobs components using PowerShell
 
-1.	Launch a Microsoft Azure PowerShell command window and navigate to the \content sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x folder: Type cd \content
+1.	Launch a Microsoft Azure PowerShell command window and navigate to the tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x folder: Type cd tools
 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*>cd content
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
 2.	Execute the .\UninstallElasticDatabaseJobs.ps1 PowerShell script.
 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\content>Unblock-File .\UninstallElasticDatabaseJobs.ps1
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\content>.\UninstallElasticDatabaseJobs.ps1
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
 
 Or simply, execute the following script, assuming default values where used on installation of the components:
 

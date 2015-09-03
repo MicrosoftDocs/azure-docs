@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" 
-	description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Microsoft Azure"
+	description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
+<tags
+	ms.service="mobile-services"
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Accessing Azure Active Directory Graph Information
@@ -26,28 +26,28 @@
 
 Like the other identity providers offered with Mobile Services, the Azure Active Directory (AAD) provider also supports a rich Graph API which can be used for programmatic access to the directory. In this tutorial you update the ToDoList app to personalize the authenticated user’s app experience returning additional user information you retrieve from the directory using the [Graph REST API].
 
-For more information on the Azure AD Graph API, see the [Azure Active Directory Graph Team Blog]. 
+For more information on the Azure AD Graph API, see the [Azure Active Directory Graph Team Blog].
 
 
->[AZURE.NOTE] The intent of this tutorial is to extend your knowledge of authentication with the Azure Active Directory. It is expected that you have completed the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider. This tutorial continues to update the TodoItem application used in the [Add Authentication to your app] tutorial. 
+>[AZURE.NOTE] The intent of this tutorial is to extend your knowledge of authentication with the Azure Active Directory. It is expected that you have completed the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider. This tutorial continues to update the TodoItem application used in the [Add Authentication to your app] tutorial.
 
 
 
 
-##Prerequisites 
+##Prerequisites
 
 Before you start this tutorial, you must have already completed these Mobile Services tutorials:
 
 + [Add Authentication to your app]<br/>Adds a login requirement to the TodoList sample app.
 
-+ [Custom API Tutorial]<br/>Demonstrates how to call a custom API. 
++ [Custom API Tutorial]<br/>Demonstrates how to call a custom API.
 
 
 
 ## <a name="generate-key"></a>Generate an access key for the App registration in AAD
 
 
-During the [Add Authentication to your app] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step. In this section you generate a key to be used when reading directory information with that integrated application's client ID. 
+During the [Add Authentication to your app] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step. In this section you generate a key to be used when reading directory information with that integrated application's client ID.
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
@@ -84,7 +84,7 @@ If you've never used custom APIs with Mobile Services, refer to the [Custom API 
 	        public String postalCode { get; set; }
 	        public String mail { get; set; }
 	        public String[] otherMails { get; set; }
-	
+
 	        public override string ToString()
 	        {
 	            return "displayName : " + displayName + "\n" +
@@ -206,15 +206,15 @@ If you've never used custom APIs with Mobile Services, refer to the [Custom API 
         }
 
 9. Save your changes and build the the service to verify no syntax errors.
-10. Publish the mobile service project to your Azure account. 
+10. Publish the mobile service project to your Azure account.
 
 
 ## <a name="update-app"></a>Update the app to use GetUserInfo
 
-In this section you will update the `AuthenticateAsync` method you implemented in the [Add Authentication to your app] tutorial to call the custom API and return additional information about the user from the AAD. 
+In this section you will update the `AuthenticateAsync` method you implemented in the [Add Authentication to your app] tutorial to call the custom API and return additional information about the user from the AAD.
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../../includes/mobile-services-aad-graph-info-update-app.md)]
-  
+
 
 
 ## <a name="test-app"></a>Test the app
@@ -227,7 +227,7 @@ In this section you will update the `AuthenticateAsync` method you implemented i
 
 ##<a name="next-steps"></a>Next steps
 
-In the next tutorial, [Role based access control with the AAD in Mobile Services], you will use role based access control with the Azure Active Directory (AAD) to check group membership before allowing access. 
+In the next tutorial, [Role based access control with the AAD in Mobile Services], you will use role based access control with the Azure Active Directory (AAD) to check group membership before allowing access.
 
 
 
@@ -252,4 +252,3 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 [Azure Active Directory Graph Team Blog]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Role based access control with the AAD in Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
- 

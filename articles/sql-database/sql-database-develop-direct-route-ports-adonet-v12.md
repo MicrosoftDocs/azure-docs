@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ports beyond 1433 for ADO.NET 4.5, ODBC 11, and SQL Database V12 | Microsoft Azure"
+	pageTitle="Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12 | Microsoft Azure"
 	description="Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important."
 	services="sql-database"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="09/01/2015" 
 	ms.author="genemi"/>
 
 
-# Ports beyond 1433 for ADO.NET 4.5, ODBC 11, and SQL Database V12
+# Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12
 
 
 This topic describes the changes that Azure SQL Database V12 brings to the connection behavior of clients that use ADO.NET 4.5 or a later version.
@@ -52,7 +52,7 @@ For connections to V12 we must ask whether your client program runs *outside* or
 Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
 
-#### *Inside:* Client runs on an Azure VM
+#### *Inside:* Client runs on Azure
 
 
 When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no middleware proxy.
@@ -107,8 +107,6 @@ This section clarifies the monikers that refer to product versions. It also list
 
 - ADO.NET 4.0 supports the TDS 7.3 protocol, but not 7.4.
 - ADO.NET 4.5 and later supports the TDS 7.4 protocol.
-- ADO.NET 4.5 internally uses ODBC 11.
- - The information here that applies to ADO.NET 4.5 also applies to ODBC 11.
 
 
 #### SQL Database V11 and V12
@@ -125,12 +123,16 @@ The client connection differences between SQL Database V11 and V12 are highlight
 
 - [What's new in SQL Database V12](sql-database-v12-whats-new.md)
 
-- Retry logic considerations: ["Gateway no longer provides retry logic in V12" section, in topic "Connecting to SQL Database: Links, Best Practices and Design Guidelines"](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+- [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
+
 
 - ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
+
 - ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
  - A blog post about ADO.NET 4.5.1 is available [here](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+
 
 - [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 

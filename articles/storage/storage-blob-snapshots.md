@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Create a snapshot of a blob"
 	description="A guide for creating snapshots of Azure storage blobs"
 	services="storage"
@@ -7,13 +7,14 @@
 	manager="adinah"
 	editor=""/>
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/27/2015"
+<<<<<<< HEAD
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tamram"/>
 
 # Create a blob snapshot

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 # Buy and Configure a custom domain name in Azure App Service

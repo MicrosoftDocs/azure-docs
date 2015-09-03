@@ -41,6 +41,12 @@ Use standard procedures to start Azure PowerShell and [connect to your Azure sub
     Switch-AzureMode -Name AzureResourceManager
     ```
 
+* **Register with the Batch provider namespace (one-time operation)** - Before you can manage your Batch accounts, you must register with the Batch provider namespace. This operation only needs to be performed once per subscription.
+
+    ```
+    Register-AzureProvider -ProviderNamespace Microsoft.Batch
+    ```
+
 ## Manage Batch accounts and keys
 
 You can use Azure PowerShell cmdlets to create and manage Batch accounts and keys.
@@ -131,7 +137,7 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 ```
 The **Id** parameter supports only full-id search, not wildcards or OData-style filters.
 
-### Use the pipleline
+### Use the pipeline
 
 Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, you can find all tasks under your account:
 

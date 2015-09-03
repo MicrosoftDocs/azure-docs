@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Building Multi-Factor Authentication into Custom Apps (SDK)

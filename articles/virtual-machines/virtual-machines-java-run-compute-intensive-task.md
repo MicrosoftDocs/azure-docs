@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Compute-intensive Java application on a VM - Azure"
+	pageTitle="Compute-intensive Java application on a VM | Microsoft Azure"
 	description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application."
 	services="virtual-machines"
 	documentationCenter="java"

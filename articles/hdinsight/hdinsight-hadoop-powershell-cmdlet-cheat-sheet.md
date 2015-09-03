@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight Hadoop PowerShell Cmdlet Cheat Sheet | Azure" 
+	pageTitle="HDInsight Hadoop PowerShell Cmdlet Cheat Sheet | Microsoft Azure" 
 	description="A downloadable HDInsight Hadoop powershell cmdlet cheat sheet that can help you perform standard Hadoop tasks in Azure HDInsight."
 	services="hdinsight" 
 	documentationCenter="" 

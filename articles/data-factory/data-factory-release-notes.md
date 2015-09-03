@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Factory - Release Notes | Azure" 
+	pageTitle="Data Factory - Release Notes | Microsoft Azure" 
 	description="Data Factory release notes" 
 	services="data-factory" 
 	documentationCenter="" 

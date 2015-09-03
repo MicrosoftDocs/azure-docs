@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add Offline Data Sync to your Android Mobile Services app | Mobile Dev Center"
+	pageTitle="Add Offline Data Sync to your Android Mobile Services app | Microsoft Azure"
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Android application"
 	documentationCenter="android"
 	authors="RickSaling"

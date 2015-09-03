@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" 
-	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Mobile Services for Windows Store apps | Microsoft Azure"
+	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-This tutorial shows you how to add a cloud-based backend service to a universal Windows app using Azure Mobile Services. 
+This tutorial shows you how to add a cloud-based backend service to a universal Windows app using Azure Mobile Services.
 
 In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the .NET backend version of this topic.
 
@@ -29,7 +29,7 @@ In this tutorial, you will create both a new mobile service and a simple *To do 
 To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
-* [Visual Studio 2013 Express for Windows] 
+* [Visual Studio 2013 Express for Windows]
 
 ## Create a new mobile service
 
@@ -37,13 +37,13 @@ To complete this tutorial, you need the following:
 
 ## Create a new universal Windows app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new universal Windows app or modify an existing Windows Store or Windows Phone app project to connect to your mobile service. 
+Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new universal Windows app or modify an existing Windows Store or Windows Phone app project to connect to your mobile service.
 
 In this section you will create a new universal Windows app that is connected to your mobile service.
 
 1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
-   
+
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new Windows Store app**.
 
    	![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png)
@@ -56,7 +56,7 @@ In this section you will create a new universal Windows app that is connected to
 
 4. Click **Create TodoItem table** to create a table to store app data.
 
-5. Under **Download and run your app**, select a language for your app, then click **Download**. 
+5. Under **Download and run your app**, select a language for your app, then click **Download**.
 
   	This downloads the project for the sample *To do list* application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
@@ -67,12 +67,12 @@ In this section you will create a new universal Windows app that is connected to
 >[AZURE.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.
 
 ## Next Steps
-Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
+Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
 * [Add authentication to your app][Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Add push notifications to your app][Get started with push notifications] 
+* [Add push notifications to your app][Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
 
 For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
@@ -92,4 +92,3 @@ For more information about universal Windows apps, see [Supporting multiple devi
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
- 
