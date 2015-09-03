@@ -65,29 +65,40 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Configure single sign-on")
 
-3.  On the **Configure single sign-on at Citrix GoToMeeting** page, click **Download certificate**, and then save the certificate file on your computer.
+
+3. On the **Configure App Settings** page, click **Next**. <br><br>![Enable single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Enable single sign-on")
+
+4.  On the **Configure single sign-on at Citrix GoToMeeting** page, click **Download certificate**, and then save the certificate file on your computer.
 
     ![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Configure single sign-on")
 
-4.  In a different browser window, log into your Citrix GoToMeeting tenant as administrator.
+5.  In a different browser window, log into your Citrix Organization Center ([https://account.citrixonline.com/organization/administration/](https://account.citrixonline.com/organization/administration/)).
 
-5.  Open the [Set up SAML 2.0 single sign-on configuration (SSO)](https://login.citrixonline.com/saml/settings.html) page, and then perform the following steps:
+6. Click the **Identity Provider** tab, and then perform the following steps:  <br><br> ![SAML setup](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "SAML setup")
 
-    ![SAML setup](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC689232.png "SAML setup")
+     6.1. Select **Manual**
 
-    1.  Select **Configure manually**.
-    2.  In the Azure portal, on the **Configure single sign-on at Citrix GoToMeeting** dialogue page, copy the **Sign-Out Page URL** value, and then paste it into the **Sign-out page URL** textbox.
-    3.  In the Azure portal, on the **Configure single sign-on at Citrix GoToMeeting** dialogue page, copy the **Sign-In Page URL** value, and then paste it into the **Sign-in page URL** textbox.
-    4.  Create a **Base-64 encoded** file from your downloaded certificate.  
+     6.2. In the Azure portal, on the **Configure single sign-on at Citrix GoToMeeting** dialog page, copy the **Sign-In Page URL** value, and then paste it into the **Sign-in page URL** textbox. 
 
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+     6.3. In the Azure portal, on the **Configure single sign-on at Citrix GoToMeeting** dialog page, copy the **Sign-Out Page URL** value, and then paste it into the **Sign-out page URL** textbox.
 
-    5.  Click **Replace certificate**, and then upload your **base-64 encoded certificate file**.
-    6.  Click **Save**.
+     6.4. In the **Identity Provider Entity ID** textbox,...
 
-6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+     6.5. To upload your downloaded certificate, click **Upload Certificate**.
+
+     6.6. Click **Save**.
+
+6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configure single sign-on")
+
+
+7. On the **Single sign-on confirmation** page, click **Complete**.<br><br> ![SAML setup](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "SAML setup")
+
+
+
+
+
 ##Configuring user provisioning
 
 The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Citrix GoToMeeting.
