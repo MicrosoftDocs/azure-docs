@@ -58,7 +58,7 @@
 
 8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
  
-    ![Update job creation](./media/storsimple-install-update-via-portal/InstallUpdate12_4M.png)
+    ![Update job creation](./media/storsimple-install-update-via-portal/InstallUpdate12_44M.png)
 
     The update will then be applied on your device.
  
