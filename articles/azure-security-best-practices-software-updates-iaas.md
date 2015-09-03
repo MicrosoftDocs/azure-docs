@@ -113,7 +113,7 @@ You should also consider the following tasks:
 
 -   Track the inventory and update installation status and progress for all the computers in your company.
 
-In addition to general considerations that were explained in this article, you should also consider the each product’s best practice, for example: if you have a VM in Azure with SQL Server, make sure that you are following the software updates recommendation for that product.
+In addition to general considerations that were explained in this article, you should also consider each product’s best practice, for example: if you have a VM in Azure with SQL Server, make sure that you are following the software updates recommendation for that product.
 
 ## Next steps
 
