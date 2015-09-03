@@ -22,13 +22,13 @@ Updates to **Azure Data Catalog** are released on a regular basis. Not every rel
 
 ## What's new for the week of September 4, 2015 release
 
-As of the week of August 28, 2015, the following capabilities have been added to **Azure Data Catalog**:
-
-- Support for registering and discovering SQL Server databases as containers. When registering SQL Server tables and views, **Azure Data Catalog** will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the **Azure Data Catalog** portal. Users can also search and filter the contents of a database in addition to searching and filtering the contents of the catalog.
-
-> [AZURE.NOTE] SQL Server tables and views that have been registered prior to the 2015-09-04 release must be re-registered using the data source registration tool before the database entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the **Azure Data Catalog** portal.
+As of the week of September 4, 2015, the following capabilities have been added to **Azure Data Catalog**:
 
 - Support for manually registering unknown data source types. Users can manually enter data source information using the **Azure Data Catalog** portal, so that data sources not explicitly supported by the data source registration tool can be annotated and discovered.
+- Support for registering and discovering SQL Server databases as containers. When registering SQL Server tables and views, **Azure Data Catalog** will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the **Azure Data Catalog** portal. Users can also search and filter the contents of a database in addition to searching and filtering the contents of the catalog.
+
+
+> [AZURE.NOTE] SQL Server tables and views that have been registered prior to the 2015-09-04 release must be re-registered using the data source registration tool before the database entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the **Azure Data Catalog** portal.
 
 ## What's new for the week of August 28, 2015 release
 
