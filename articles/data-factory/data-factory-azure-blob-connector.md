@@ -481,9 +481,6 @@ Properties available in the typeProperties section of the activity on the other 
 | blobWriterAddHeader | Specifies whether to add header of column definitions. | TRUE<br/>FALSE (default) | No |
 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
-
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
@@ -492,6 +489,8 @@ We would really appreciate your feedback on this article. Please take a few minu
 
 
 
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
 
 
 
