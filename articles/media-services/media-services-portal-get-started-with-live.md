@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use the Azure portal to create channels that receive multi-bitrate live stream from on-premises encoders | Microsoft Azure"
+	pageTitle="Use the Azure portal to create channels that receive multi-bitrate live streams from on-premises encoders | Microsoft Azure"
 	description="This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a channel receives a multi-bitrate live stream from an on-premises live encoder."
 	services="media-services"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Use the Azure portal to create channels that receive multi-bitrate live stream from on-premises encoders
+# Use the Azure portal to create channels that receive multi-bitrate live streams from on-premises encoders
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
