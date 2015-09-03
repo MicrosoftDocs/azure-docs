@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Create a snapshot of a blob"
+	pageTitle="Create a snapshot of a blob | Microsoft Azure"
 	description="A guide for creating snapshots of Azure storage blobs"
 	services="storage"
 	documentationCenter=""
