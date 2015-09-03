@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copy output data from tutorial to an on-premises SQL Server database" 
-	description="The walkthrough in this tutorial extends the data factory tutorial to copy marketing campaign effectiveness data to an on-premises SQL Server database."
+	pageTitle="Copy output data to an on-premises SQL Server database (Azure Portal)" 
+	description="This walkthrough extends the tutorial using Data Factory Editor in the Azure Portal such that the pipeline copies output data to a SQL Server database."
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 

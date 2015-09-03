@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Send push notifications to authenticated users"
-	description="Learn how to send push notifications to specific"
+	pageTitle="Send push notifications to authenticated users of your Android app (JavaScript Backend)"
+	description="Learn how to send push notifications to specific authenticated users of your Android app using a Mobile Service with a JavaScript backend."
 	services="mobile-services, notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015" 
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
 
-# Send push notifications to authenticated users
+# Send push notifications to authenticated users of your Android app
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
@@ -26,7 +26,7 @@
 
 This topic shows you how to send push notifications to an authenticated user on any registered device. Unlike the previous [push notification][Get started with push notifications] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications. Registration is also modified to add a tag based on the assigned user ID. Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.
 
-This tutorial supports Android apps.
+This tutorial supports Android apps using an Azure Mobile Service with a JavaScript backend.
 
 ##Prerequisites
 
