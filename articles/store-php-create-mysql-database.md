@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 #How to Create a MySQL Database in Azure
