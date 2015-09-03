@@ -21,7 +21,7 @@
 User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active users and truly engaged ones. Azure AD B2C allows you to customize user sign up, sign in (*see note below*) and profile editing pages with pixel-perfect control.
 
 > [AZURE.NOTE]
-Currently, local account sign-in and password reset pages are only customizable using the [company branding feature](active-directory-add-company-branding.md).
+Currently, local account sign-in pages, verification emails and self-service password reset pages are only customizable using the [company branding feature](active-directory-add-company-branding.md).
 
 In this article, you will read about:
 
@@ -265,6 +265,6 @@ TBD.
 
 If you are planning to use the page UI customization feature, please review the following best practices:
 
-- Don't copy over Azure AD's default template and attempt to modify it. It is best to build your HTML5 content from scratch and to use the default template as reference.
+- Don't copy over Azure AD B2C's default template and attempt to modify it. It is best to build your HTML5 content from scratch and to use the default template as reference.
 - For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out-of-the-box. If not, please use [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) to request new functionality.
-- Don't duplicate Azure AD's content in your own. This causes JavaScript binding issues during run time.
+- Don't duplicate Azure AD B2C's content in your own. This causes JavaScript binding issues during run time.

@@ -38,6 +38,9 @@ Use the following steps to create a new Azure AD B2C directory. Currently B2C fe
 5. Click the check mark to complete the action.
 6. Your directory is now created and will appear in the Active Directory extension. You are also made a Global Administrator of the directory. You can add other Global Administrators as required.
 
+> [AZURE.NOTE]
+It typically takes up to a minute for your Azure AD B2C directory to be created.
+
 ## Step 3: Navigate to the B2C features blade on the Azure Portal
 
 The B2C features on your directory can be managed on the [Azure Portal](https://portal.azure.com/); only a Global Administrator can do this. You can manage users and groups, self-service password reset configuration and company branding features on the [Azure Management Portal](https://manage.windowsazure.com/).
