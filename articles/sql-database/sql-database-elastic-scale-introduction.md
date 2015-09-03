@@ -1,10 +1,10 @@
 <properties
     pageTitle="Azure SQL Database - elastic database tools"
-    description="Easily scale database resources in the cloud using elastic database tools."
+    description="Software as a Service (SaaS) developers can easily create elastic, scalable databases in the cloud using these tools"
     services="sql-database"
     documentationCenter=""
     manager="jeffreyg"
-    authors="sidneyh"
+    authors="ddove"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/03/2015"
+    ms.date="08/27/2015"
     ms.author="sidneyh"/>
 
 # Elastic Database features overview
@@ -28,6 +28,8 @@
 The graphic below shows an architecture that includes the **Elastic Database features** in relation to a collection of databases. 
 
 ![Elastic Database tools][1]
+
+For a printable version of this graphic, go to [Elastic database overview download](http://aka.ms/axmybc).
 
 In this graphic, colors of the database represent schemas. Databases with the same color share the same schemas.
 
@@ -55,7 +57,7 @@ The figure below shows the horizontal and vertical dimensions of scaling, which 
 
 Horizontal scaling refers to adding or removing databases in order to adjust capacity or overall performance. This is also called “scaling out”. Sharding, in which data is partitioned across a collection of identically structured databases, is a common way to implement horizontal scaling.  
 
-Vertical scaling refers to increasing or decreasing the performance level of an individual database—this is also known as “scaling up”.
+Vertical scaling refers to increasing or decreasing the performance level of an individual database—this is also known as “scaling up.”
 
 Most cloud-scale database applications will use a combination of these two strategies. For example, a Software as a Service application may use horizontal scaling to provision new end-customers and vertical scaling to allow each end-customer’s database to grow or shrink resources as needed by the workload.
 

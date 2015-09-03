@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Send push notifications to authenticated users" 
-	description="Learn how to send push notifications to specific" 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Send push notifications to authenticated users"
+	description="Learn how to send push notifications to specific"
+	services="mobile-services,notification-hubs"
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="notification-hubs" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="notification-hubs"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015" 
 	ms.author="wesmc"/>
 
 # Send push notifications to authenticated users
@@ -27,27 +27,27 @@ This topic shows you how to send push notifications to an authenticated user on 
 
 This tutorial supports Android apps.
 
-##Prerequisites 
+##Prerequisites
 
 Before you start this tutorial, you must have already completed these Mobile Services tutorials:
 
 + [Add authentication to your Mobile Services app]<br/>Adds a login requirement to the TodoList sample app.
 
-+ [Get started with push notifications]<br/>Configures the TodoList sample app for push notifications by using Notification Hubs. 
++ [Get started with push notifications]<br/>Configures the TodoList sample app for push notifications by using Notification Hubs.
 
 After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.
 
 ##Update the service to require authentication to register
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
 ##Update the app to log in before registration
 
-[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](../../includes/mobile-services-android-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](../../includes/mobile-services-android-push-notifications-app-users.md)]
 
 ##Test the app
 
-[AZURE.INCLUDE [mobile-services-android-test-push-users](../../includes/mobile-services-android-test-push-users.md)] 
+[AZURE.INCLUDE [mobile-services-android-test-push-users](../../includes/mobile-services-android-test-push-users.md)]
 
 
 <!---##Next steps
@@ -61,4 +61,3 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
- 

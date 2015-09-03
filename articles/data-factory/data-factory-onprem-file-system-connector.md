@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="File System Connector - Move data to and from File System" 
-	description="Learn about File System Connector for the Data Factory service that lets you move data to/from on-premises File System" 
+	pageTitle="Move data to and from File System | Azure Data Factory" 
+	description="Learn how to move data to/from on-premises File System using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# File System Connector - Move data to and from On-premises File System
+# Move data to and from On-premises File System using Azure Data Factory
 
 This article outlines how you can use data factory copy activity to move data to and from on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
@@ -35,11 +35,11 @@ Perform the following two steps to use a Linux file share with the File Server L
 
 The sample below shows:
 
-1.	A linked service of type OnPremisesFileServer
-2.	A linked service of type AzureStorage
-3.	An input dataset of type FileShare.
-4.	An output dataset of type AzureBlob.
-4.	The pipeline with Copy Activity that uses FileSystemSource and BlobSink. 
+1.	A linked service of type [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
+2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+3.	An input [dataset](data-factory-create-datasets.md) of type [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 The sample below copies data belonging to a time series from on-premises file system to Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -434,6 +434,8 @@ password | Specify the password for the user (userid) | No (if you choose encryp
 encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureDataFactoryEncryptValue cmdlet<p>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService</p> | No (if you choose to specify userid and password in plain text)
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
 
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises File System data source.
+
 **Example: Using username and password in plain text**
 	
 	{
@@ -476,6 +478,7 @@ fileName | Specify the name of the file in the **folderPath** if you want the ta
 partitionedBy | partitionedBy can be leveraged to specify a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data. | No
 Format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either if this value. When the forAvroFormatmat is TextFormat you can specify additional optional properties for format. See the format section below for more details. | No
 fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <p>Allowed values are: * (multiple characters) and ? (single character).</p><p>Examples 1: "fileFilter": "*.log"</p>Example 2: "fileFilter": 2014-1-?.txt"</p><p>**Note**: fileFilter is applicable for an input FileShare dataset</p> | No
+| compression | Specify the type and level of compression for the data. Supported types are: GZip, Deflate, and BZip2 and supported levels are: Optimal and Fastest. See [Compression support](#compression-support) section for more details.  | No |
 
 > [AZURE.NOTE] filename and fileFilter cannot be used simultaneously.
 
@@ -554,6 +557,8 @@ If the format is set to **AvroFormat**, you do not need to specify any propertie
 	}
 	
 To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).		
+
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## File Share Copy Activity type properties
 

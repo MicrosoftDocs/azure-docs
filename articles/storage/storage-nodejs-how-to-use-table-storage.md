@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="09/01/2015" 
 	ms.author="mwasson"/>
 
 
@@ -48,17 +48,18 @@ communicate with the storage REST services.
 
 1.  Use a command-line interface such as **PowerShell** (Windows) **Terminal** (Mac) or **Bash** (Unix), and navigate to the folder where you created your application.
 
-2.  Type **npm install azure-storage** in the command window, which should result in the following output:
+2.  Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
@@ -193,7 +194,7 @@ The following example demonstrates updating an entity using **updateEntity**:
 >    
 > 3. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
     
-With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn't exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, you should instead use **insertOrReplaceEntity** or **insertOrMergeEntity**.
+With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn't exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, use **insertOrReplaceEntity** or **insertOrMergeEntity**.
 
 The `result` for successful update operations will contain the **Etag** of the updated entity.
 
@@ -230,7 +231,7 @@ batch to ensure atomic processing by the server. To accomplish that, use the **T
 
 For successful batch operations, `result` will contain information for each operation in the batch.
 
-### Working with batched operations
+### Work with batched operations
 
 Operations added to a batch can be inspected by viewing the `operations` property. You can also use the following methods to work with operations.
 
@@ -286,9 +287,9 @@ Since **select** is not used, all fields will be returned. To perform the query 
 	  }
 	});
 
-If successful, `result.entries` will contain an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` will be non-*null* and can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, the third parameter should be *null*.
+If successful, `result.entries` will contain an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` will be non-*null* and can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, use *null* for the third parameter.
 
-### How to Query a Subset of Entity Properties
+### Query a Subset of Entity Properties
 
 A query to a table can retrieve just a few fields from an entity.
 This reduces bandwidth and can improve query performance, especially for large entities. Use the **select** clause and pass the names of the fields to be returned. For example, the following query will only return the **description** and **dueDate** fields.
@@ -298,7 +299,7 @@ This reduces bandwidth and can improve query performance, especially for large e
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
-## How to Delete an Entity
+## Delete an Entity
 
 You can delete an entity using its partition and row keys. In this
 example, the **task1** object contains the **RowKey** and
@@ -316,9 +317,9 @@ passed to the **deleteEntity** method.
 	  }
 	});
 
-> [AZURE.NOTE] You should consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [How To: Update an Entity][] for information in using ETags.
+> [AZURE.NOTE] Consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [Update an Entity](#update-an-entity) for information in using ETags.
 
-## How to Delete a Table
+## Delete a Table
 
 The following code deletes a table from a storage account.
 
@@ -330,9 +331,9 @@ The following code deletes a table from a storage account.
 
 If you are uncertain whether the table exists, use **deleteTableIfExists**.
 
-## How to: Use continuation tokens
+## Use continuation tokens
 
-When you are querying tables for large amounts of results, you should look for 
+When you are querying tables for large amounts of results, look for 
 continuation tokens. There may be large amounts of data available for your 
 query that you might not realize if you do not build to recognize when a 
 continuation token is present.
@@ -368,7 +369,7 @@ iterate through all the results.
 There is also a continuation sample within the Azure Storage Node.js repo on 
 GitHub, look for `examples/samples/continuationsample.js`.
 
-## How to: Work with Shared Access Signatures
+## Work with Shared Access Signatures
 
 Shared Access Signatures (SAS) are a secure way to provide granular access to tables without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
 

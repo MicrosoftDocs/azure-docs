@@ -1,20 +1,20 @@
-<properties 
-	writer="ricksal" 
-	pageTitle="Call a custom API from an Android client | Microsoft Azure" 
-	description="Learn how to define a custom API and then call it from an Android app that uses Microsoft Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	writer="ricksal"
+	pageTitle="Call a custom API from an Android client | Microsoft Azure"
+	description="Learn how to define a custom API and then call it from an Android app that uses Microsoft Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015" 
 	ms.author="ricksal"/>
 
 # Call a custom API from the client
@@ -25,9 +25,9 @@ This topic shows you how to call a custom API from an Android app. A custom API 
 
 The custom API created in this topic enables you to send a single POST request that sets the *completed* flag to `true` for all the todo items in your mobile service's table. Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.
 
-You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. 
+You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial.
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
 
 ## <a name="define-custom-api"></a>Define the custom API
 
@@ -63,4 +63,3 @@ Now that you have created a custom API and called it from your Android app, cons
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
- 
