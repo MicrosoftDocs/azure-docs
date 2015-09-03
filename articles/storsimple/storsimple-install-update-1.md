@@ -21,7 +21,7 @@
 
 This tutorial explains how to install Update 1.2 on a StorSimple device that is running a software version prior to Update 1. The tutorial also covers the additional steps required for the update when a gateway is configured on a network interface other than DATA 0 of the StorSimple device. 
 
-Update 1.2 includes device software updates, LSI driver updates and disk firmware updates. We recommend that you apply disk firmware updates in a planned maintenance window as these are disruptive updates.
+Update 1.2 includes device software updates, LSI driver updates and disk firmware updates. The software and LSI driver updates are non-disruptive updates and can be applied via the Management Portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. We recommend that you apply disk firmware updates in a planned maintenance window to avoid downtime.
 
 Depending upon which version your device is running, you can determine if Update 1.2 will be applied. You can check the software version of your device by navigating to the **quick glance** section of your device **Dashboard**.
 

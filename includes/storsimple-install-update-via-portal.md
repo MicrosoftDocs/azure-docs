@@ -23,7 +23,7 @@
 
 3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 1.2 on your device.
 
-    ![Install software updates](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates1-include.png)
+    ![Install software updates](./media/storsimple-install-update-via-portal/InstallUpdate12_1M.png)
 
 4. At the bottom of the page, click **Install Updates**.
 
@@ -31,7 +31,7 @@
 
 6. An **Install Updates** dialog box will be presented. Your device should satisfy the checks listed in this dialog box. These steps were completed prior to the update. Select **I understand the above requirement and am ready to update my device**. Click the check icon.
 
-    ![Confirmation message](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates2-include.png)
+    ![Confirmation message](./media/storsimple-install-update-via-portal/InstallUpdate12_2M.png)
 
 7. A set of automatic pre-checks will now start. These include:
 
@@ -47,7 +47,7 @@
  
 	Update 1.2 will only be applied if all the above pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
   
-    ![Pre-check notification](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates3-include.png)
+    ![Pre-check notification](./media/storsimple-install-update-via-portal/InstallUpdate12_3M.png)
 
     The following is an example in which the pre-upgrade check failed. You will need to verify that both the device controllers are healthy and online. You will also need to check the health of the hardware components. In this example, Controller 0 and Controller 1 components need attention. You may need to contact Microsoft Support if you cannot address these issues by yourself.
 
@@ -58,22 +58,22 @@
 
 8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
  
-    ![Update job creation](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates4-include.png)
+    ![Update job creation](./media/storsimple-install-update-via-portal/InstallUpdate12_4M.png)
 
     The update will then be applied on your device.
  
 9. To monitor the progress of the update job, click **View Job**. On the **Jobs** page, you can see the update progress. 
 
-    ![Update job progress](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates5-include.png)
+    ![Update job progress](./media/storsimple-install-update-via-portal/InstallUpdate12_5M.png)
 
 10. The update will take a few hours to complete. You can view the details of the job at any time.
 
-    ![Update job details](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates6-include.png)
+    ![Update job details](./media/storsimple-install-update-via-portal/InstallUpdate12_6M.png)
 
 11. After the job is complete, navigate to the **Maintenance** page and scroll down to **Software Updates**.
 
 12. Verify that your device is running **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. The **Last updated date** should also be modified.
 
-    ![Maintenance page](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
+    ![Maintenance page](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 
 13. You will now see that Maintenance mode updates are available. These updates are disruptive updates and can only be applied via the Windows PowerShell interface of your device. We recommend that you install these updates during a planned maintenance window. Follow the instructions in [Install Maintenance mode Updates](storsimple-update-device.md/#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) to install these updates via the Windows PowerShell for StorSimple.
