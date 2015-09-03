@@ -82,8 +82,3 @@ and name is the name of the extension resource from the template
     Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Once the extension has been removed, the template can be re-executed to run the scripts on the VM.
-Here are some additional pointers for deploying templates.
-
-[Deploying Templates with Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/)
-
-[Deploying Templates with Azure Powershell](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/)

@@ -20,7 +20,7 @@
 
 This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Windows VMs.
 
-To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx)
+To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
 ## Sample template snippet for VM Extensions.
 The template snippet for Deploying extensions looks as following:
@@ -272,7 +272,7 @@ Before deploying the extension please check the latest extension version and rep
 
 ### Azure Diagnostics
 
-Click here for an overview of [Azure Diagnostics Extension](https://msdn.microsoft.com/en-us/library/azure/dn782207.aspx/)
+Click here for an overview of [Azure Diagnostics Extension](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",

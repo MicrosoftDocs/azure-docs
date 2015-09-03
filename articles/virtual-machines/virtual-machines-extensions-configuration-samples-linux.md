@@ -20,7 +20,7 @@
 
 This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Linux VMs.
 
-To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx)
+To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
 ## Sample template snippet for VM Extensions.
 The template snippet for Deploying extensions looks as following:

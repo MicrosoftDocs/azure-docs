@@ -22,11 +22,7 @@
 
 Azure Resource Manager Template allows you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager Templates, please refer to the articles below:
 
-[Resource Group Overview](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/)
-
-[Deploying Templates with Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/)
-
-[Deploying Templates with Azure Powershell](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/)
+[Resource Group Overview](../resource-group-overview.md)
 
 ## Sample template snippet for VM Extensions.
 The template snippet for Deploying extensions looks as following:
