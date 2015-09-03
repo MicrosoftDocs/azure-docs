@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/28/2015"
+   ms.date="09/02/2015"
    ms.author="danlep"/>
 
 # Big Compute in Azure: Technical resources for batch and high performance computing (HPC)
@@ -68,11 +68,15 @@ HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows S
 
     * [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
+    * [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+
     * [HPC Pack IaaS deployment PowerShell script](https://www.microsoft.com/download/details.aspx?id=44949)
 
 * **Azure tutorials**
 
     * [Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+
+    * [Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
 
     * [Tutorial: Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
 
