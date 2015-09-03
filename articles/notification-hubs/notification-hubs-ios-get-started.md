@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
-	ms.date="05/27/2015"
+	ms.topic="hero-article" 
+	ms.date="09/02/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs
