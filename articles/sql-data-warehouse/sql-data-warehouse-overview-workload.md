@@ -60,6 +60,9 @@ One way to make data available for reports and analysis is to send data from the
 ## Next steps
 To start developing your data warehouse, see [development overview][].
 
+## Books
+[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) by Karthik Ramachandran, Istvan Szededi, and Richard L. Saltzer (Manning Publications). [Chapter 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+
 <!--Image references-->
 
 <!--Article references-->
