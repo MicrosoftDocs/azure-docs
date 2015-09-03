@@ -3,7 +3,7 @@
 	description="Difference in Proportions Test" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="aniedea" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
