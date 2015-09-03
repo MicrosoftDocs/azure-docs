@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="09/01/2015"
+   ms.date="09/02/2015"
    ms.author="sstein"/>
 
 # Import a BACPAC to an Azure SQL Database using PowerShell
@@ -22,7 +22,6 @@
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-import.md)
-- [C#](sql-database-import-csharp.md)
 - [PowerShell](sql-database-import-powershell.md)
 
 
