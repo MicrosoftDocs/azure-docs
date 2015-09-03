@@ -17,7 +17,7 @@
 
 # Shared Access Signature Authentication with Service Bus
 
-Shared Access Signature (SAS) authentication enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
+[Shared Access Signature (SAS)](service-bus-sas-overview.md) authentication enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
 
 SAS authentication support is included in the Azure SDK version 2.0 and later. For more information about Service Bus authentication, see [Service Bus Authentication and Authorization](service-bus-authentication-and-authorization.md).
 
@@ -251,5 +251,7 @@ The following table shows the access rights required for various operations on S
 |Send to a notification hub|Send|../notificationHub/messages|
 
 ## Next steps
+
+For a high-level overview of SAS in Service Bus, see [Shared Access Signatures](service-bus-sas-overview.md).
 
 See [Service Bus Authentication and Authorization](service-bus-authentication-and-authorization.md) for more background on Service Bus authentication.
