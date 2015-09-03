@@ -27,10 +27,12 @@
 
 This article shows you how to create a new SQL database by importing a BACPAC with PowerShell.
 
+A BACPAC encapsulates the database schema as well as the data stored in the database. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
+
 The database is created by importing a .bacpac file located in an Azure storage blob container.
 
 
-> [AZURE.NOTE] If you did not manually create any backups that's okay, Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+> [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
 
 To import a SQL database you need the following:

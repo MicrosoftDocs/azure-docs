@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/01/2015"
+	ms.date="09/02/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -27,10 +27,12 @@
 
 This article shows you how to create a SQL Database from a BACPAC with the [Azure preview portal](https://portal.azure.com).
 
+A BACPAC encapsulates the database schema as well as the data stored in the database. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
+
 The database is created from a .bacpac file imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-backup.md).
 
 
-> [AZURE.NOTE] If you did not manually create any backups that's okay, Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+> [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
 
 To import a SQL database from a .bacpac you need the following:

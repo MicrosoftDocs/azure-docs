@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Create and export a BACPAC of an Azure SQL Database using PowerShell" 
-    description="Create and export a BACPAC of an Azure SQL Database using PowerShell" 
+    pageTitle="Create and export a BACPAC of an Azure SQL database using PowerShell" 
+    description="Create and export a BACPAC of an Azure SQL database using PowerShell" 
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -17,7 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create and export a BACPAC of an Azure SQL Database using PowerShell
+# Create and export a BACPAC of an Azure SQL database using PowerShell
 
 **Single database**
 
@@ -26,7 +26,9 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-This article shows you how to export a BACPAC of your SQL database with PowerShell.
+This article shows you how to manually export a BACPAC of your SQL database with PowerShell.
+
+A BACPAC encapsulates the database schema as well as the data stored in the database. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
 
 > [AZURE.NOTE] Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
@@ -117,7 +119,7 @@ Running this command will prompt you for a password. Enter the admin login and p
     Select-AzureSubscription -SubscriptionId "4cac86b0-1e56-bbbb-aaaa-000000000000"
     
     $ServerName = "servername"
-    $DatabaseName = "nameofdatabasetobackup"
+    $DatabaseName = "databasename"
     $BlobName = "bacpacfilename"
     
     $StorageName = "storageaccountname"

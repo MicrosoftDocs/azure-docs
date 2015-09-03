@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create and export a BACPAC of an Azure SQL Database"
-	description="Create and export a BACPAC of an Azure SQL Database"
+	pageTitle="Create and export a BACPAC of an Azure SQL database"
+	description="Create and export a BACPAC of an Azure SQL database into Azure Storage"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -17,7 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create and export a BACPAC of an Azure SQL Database
+# Create and export a BACPAC of an Azure SQL database
 
 **Single database**
 
@@ -27,10 +27,12 @@
 
 This article shows how to manually export a BACPAC of your SQL database with the [Azure preview portal](https://portal.azure.com).
 
+A BACPAC encapsulates the database schema as well as the data stored in the database. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
+
 > [AZURE.NOTE] Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
 
-The .bacpac file is exported into an Azure storage blob container that you can download once the operation successfully completes.
+The BACPAC is exported into an Azure storage blob container that you can download once the operation successfully completes.
 
 To complete this article you need the following:
 
@@ -39,14 +41,14 @@ To complete this article you need the following:
 - An [Azure Storage account](storage-create-storage-account.md) with a blob container to store the database backup. Currently the storage account must use the classic deployment model so choose **Classic** when creating a storage account. 
 
 
-## Create a backup of your database
+## Export your database
 
 Open the SQL Database blade for the database you want to export as a .bacpac file:
 
 1.	Go to the [Azure Preview Portal](https//:portal.azure.com).
 2.	Click **BROWSE ALL**.
 3.	Click **SQL databases**.
-2.	Click the database you want to backup.
+2.	Click the database you want to export as a BACPAC.
 3.	In the SQL Database blade click **Export** to open the **Export database** blade:
 
     ![export button][1]
