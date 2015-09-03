@@ -282,6 +282,15 @@ Note that in some cases a custom script may actually depend on HDInsight compone
 ## Debug custom scripts
 
 The script error logs are stored, along with other output, in the default Storage account that you specified for the cluster at its creation. The logs are stored in a table with the name *u<\cluster-name-fragment><\time-stamp>setuplog*. These are aggregated logs that have records from all of the nodes (head node and worker nodes) on which the script runs in the cluster.
+An easy way to check the logs is to use HDInsight Tools for Visual Studio. For installing the tools, see [Get started using Visual Studio Hadoop tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#install-hdinsight-tools-for-visual-studio)
+
+**To check the log using Visual Studio**
+
+1. Open Visual Studio.
+2. Click **View**, and then click **Server Explorer**.
+3. Right-click "Azure", click Connect to **Microsoft Azure Subscriptions**, and then enter your credentials.
+4. Expand **Storage**, expand the Azure storage account used as the default file system, expand **Tables**, and then double-click the table name.
+
 
 You can also remote into the cluster nodes to see the both STDOUT and STDERR for custom scripts. The logs on each node are specific only to that node and are logged into **C:\HDInsightLogs\DeploymentAgent.log**. These log files record all outputs from the custom script. An example log snippet for a Spark script action looks like this:
 
