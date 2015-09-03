@@ -21,26 +21,26 @@
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-graph-switcher](../../includes/active-directory-b2c-devquickstarts-graph-switcher.md)]-->
 
-With Azure Active Directory, you can perform most of your directory management tasks using the Azure Portal.  However, because B2C directories
-tend to be very large, you will likely want to perform many of these tasks programatically.  A primary example is user management - maybe you 
-need to migrate an existing user store to a B2C directory, or want to host user registration on your own page and create user accounts behind
-the scenes.  These types of tasks require the ability to create, read, update and delete user accounts - which you can do using the Azure AD
-Graph API.
+Azure AD B2C directories tend to be very large, which means that many common directory management tasks need to be performed programatically.  
+A primary example is user management - you might need to migrate an existing user store to a B2C directory, or maybe you want to host user 
+registration on your own page, creating user accounts in Azure AD behind the scenes.  These types of tasks require the ability to create,
+read, update and delete user accounts - which you can do using the Azure AD Graph API.
 
 > [AZURE.NOTE]
 	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
 	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 	
-For B2C directories, there are primarily two modes of communicating with the Graph API.  For interactive, run-once tasks, you will likely 
-want to perform management tasks acting as an administrator account in the B2C directory.  This mode requires an admin to login with their
-credentials before performing any calls to the Graph API.
+For B2C directories, there are primarily two modes of communicating with the Graph API.  
 
-For automated, continuous tasks, you will want to perform management tasks using some type of service account to which you grant necessary
+- For interactive, run-once tasks, you will likely want to perform management tasks acting as an administrator account in the B2C directory.
+  This mode requires an admin to login with their credentials before performing any calls to the Graph API.
+- For automated, continuous tasks, you will want to perform management tasks using some type of service account to which you grant necessary
 privileges.  In Azure AD, you can do so by registering an application and authenticating to Azure AD using an "application identity", using
 the [OAuth 2.0 Client Credentials Grant](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api).  In this case, 
 the appilication calls the Graph API acting as itself, rather than as any particular user.  
 
 In this article, we'll show how to perform the latter, automated use case. At a high level, you will need to:
+
 - Create an application in your B2C directory
 - Grant that application the necessary permissions to perform user CRUD
 - Acquire an access_token for calling the Graph API
@@ -232,13 +232,13 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Where the access_token acquired via ADAL has been added to the request in the authorization header.
 
-There are many other actions you can perform with the Azure AD Graph API in addition to user managment.  The 
-[Azure AD Graph API Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) provides the details of each action, along with sample requests.  
-
 > [AZURE.NOTE]
 	The Azure AD Graph API beta version provides preview functionality.  Please refer to 
 	[this Graph API team blog post](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx) 
 	for details on the beta version.
+
+There are many other actions you can perform with the Azure AD Graph API in addition to user managment.  The 
+[Azure AD Graph API Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) provides the details of each action, along with sample requests.  
 
 ### Creating & updating consumer user accounts 
 
@@ -288,12 +288,43 @@ To create a user with the template JSON files, try:
 
 `> B2C Create-User ..\..\..\usertemplate-email.json`
 
+Which should result in a request like:
+
+```
+POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
+Content-Type: application/json
+
+{ <the-json-object> }
+```
+
+Similarly, to update a user with the template JSON files, use:
+
+`> B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json`
+	
+Which should result in a request like:
+
+```
+PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=beta
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
+Content-Type: application/json
+
+{ <the-json-object> }
+```
+
 ### Deleting users
 
 Deleting a user is staightfoward - just like reading users, you need to get an access token, construct the HTTP request, and append the access token to the request.
 To see an example, try the below command and view the resulting DELETE request that is printed to the console:
 
 `> B2C Delete-User <object-id-of-user>`
+
+The resulting Graph API request should look like:
+
+```
+DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
+```
 
 ## Using Custom Attributes
 
