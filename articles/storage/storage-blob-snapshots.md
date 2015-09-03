@@ -7,7 +7,6 @@
 	manager="adinah"
 	editor=""/>
 
-<<<<<<< HEAD
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
