@@ -5,14 +5,14 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="08/31/2015"
    ms.author="alkohli" />
 
 # Install Update 1 on your StorSimple device

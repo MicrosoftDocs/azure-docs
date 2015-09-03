@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Credential assets in Azure Automation"
+   pageTitle="Credential assets in Azure Automation | Microsoft Azure"
    description="Credential assets in Azure Automation contain security credentials that can be used to authenticate to resources accessed by the runbook. This article describes how to create credential assets and use them in a runbook."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Credential assets in Azure Automation

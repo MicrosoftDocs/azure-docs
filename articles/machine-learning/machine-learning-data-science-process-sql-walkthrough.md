@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="09/01/2015" 
 	ms.author="mohabib;fashah;bradsev"/> 
 
                 
 # Advanced Analytics Process and Technology in Action: using SQL Server
 
-In this tutorial, you will follow the Azure Advanced Analytics Process and Technology (ADAPT) guide end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
+In this tutorial, you walkthrough building and deploying a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows the Azure Advanced Analytics Process and Technology (ADAPT) guide. 
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description

@@ -196,6 +196,6 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 [trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-spi-custom-events-metrics.md
 
  

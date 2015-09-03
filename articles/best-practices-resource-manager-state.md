@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/02/2015"
 	ms.author="mmercuri"/>
 
 # Sharing state in Azure Resource Manager templates
 
-This topic describes how to manage and share state within an Azure Resource Manager template and across linked templates.
+This topic shows best practices for managing and sharing state within an Azure Resource Manager template and across linked templates. The parameters and variables shown in this topic are examples of the type of objects you can define to conveniently organize your deployment requirements. From these examples, you can implement your own objects with property values that make sense for your environment.
 
 ## Using complex objects to share state
 
@@ -385,7 +385,7 @@ The following example shows how to pass the private IP address generated in a li
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
             "type": "string"
          }
     }
