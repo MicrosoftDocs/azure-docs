@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a WordPress web app in Azure App Service Microsoft Azure"
+	pageTitle="Create a WordPress web app in Azure App Service | Microsoft Azure"
 	description="Learn how to create a new Azure web app for a WordPress blog, and then deploy it through the Azure Preview Portal."
 	services="app-service\web"
 	documentationCenter="php"
@@ -23,8 +23,8 @@
 ## <a name="nextsteps"></a>Next steps
 You've seen how to create and deploy a web app from the gallery. To learn more about how to create, configure, deploy, and scale Azure web apps, check out these resources:
 
-- [Create a PHP-MySQL Azure web app and deploy using Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/)--Create an PHP web app from scratch and deploy it to Azure App Service using Git
-- [More PHP tutorials](/en-us/develop/php/tutorials/)--Create additional types of applications using PHP and Azure
+- [Create a PHP-MySQL Azure web app and deploy using Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/)
+- [Create additional types of applications using PHP and Azure](/en-us/develop/php/tutorials/)
 
 ## What's changed
 * For a guide to the change from Websites to App Service, see [Azure App Service and its impact on existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714).
