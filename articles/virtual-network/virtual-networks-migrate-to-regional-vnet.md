@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # How to migrate from Affinity Groups to a Regional Virtual Network (VNet)
 
-You can use an affinity group to ensure that resources created within the same affinity group are physically hosts by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (VNets). At the time, the network manager service that managed VNets could only work within a set of physical servers or scale unit. Recent architectural improvements have increased the scope of network management to a region.
+You can use an affinity group to ensure that resources created within the same affinity group are physically hosted by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (VNets). At that time, the network manager service that managed VNets could only work within a set of physical servers or scale unit. Architectural improvements have increased the scope of network management to a region.
 
 As a result of these architectural improvements, affinity groups are no longer recommended, or required for virtual networks. The use of affinity groups for VNets is being replaced by regions. VNets that are associated with regions are called regional VNets.
 
@@ -46,6 +46,8 @@ VNets that are currently associated with affinity groups are enabled for migrati
 	**New value:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 
 1. Save your changes and [import](../virtual-networks-using-network-configuration-file/) the network configuration to Azure.
+
+>[AZURE.INFO] This migration does NOT cause any downtime to your services.
 
 ## Affinity groups and VMs
 

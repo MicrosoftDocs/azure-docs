@@ -59,6 +59,8 @@ You can enable Geo-Replicatiom using Azure Portal or by calling REST API or Powe
 
 ###Azure Portal
 
+[AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
+
 1. Log in to the [Azure Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**
 3. Navigate to your database blade, select the **Geo Replication map** and click **Configure Geo-Replication**.
@@ -68,7 +70,8 @@ You can enable Geo-Replicatiom using Azure Portal or by calling REST API or Powe
 7. Click **Create** to complete the configuration
 
 > [AZURE.NOTE] The DR paired region on the Geo-Replication blade will be marked as *recommended*. If you use a Premium tier database you can choose a different region. If you are using a Standard database you cannot change it. The Premium database will  have a choice of the secondary type (*Readable* or *Non-readable*). Standard database can only select a *Non-readable* secondary.
- 
+
+
 ###PowerShell
 
 Use the [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) PowerShell cmdlet to automate Geo-Replication configuration.
