@@ -150,6 +150,38 @@ The following table explains the types of consistency that are encountered durin
 | Crash consistency | No | This situation is equivalent to a machine experiencing a "crash" (through either a soft or hard reset). This typically happens when the Azure virtual machine is shut down at the time of backup. For Azure virtual machine backup, getting a crash-consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage medium - either from the perspective of the operating system or from the perspective of the application. Only data that already exists on the disk at the time of backup is what gets captured and backed up. <br/> <br/> While there are no guarantees, in most cases the OS will boot. This is typically followed by a disk checking procedure like chkdsk to fix any corruption errors. Any in-memory data or writes that have not been completely flushed to the disk will be lost. The application typically follows with its own verification mechanism in case data rollback needs to be done. For Azure VM backup, getting a crash consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage - either from the OS perspective or the application's perspective. This typically happens when the Azure VM is shut down at the time of backup.<br><br>As an example, if the transaction log has entries that are not present in the database, then the database software does a rollback till the data is consistent. When dealing with data spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data.|
 
 
+## Performance and resource utilization
+Like backup software that is deployed on-premises, backup of VMs in Azure also needs to be planned for capacity and resource utilization. The [Azure Storage limits](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#storage-limits) will define how VM deployments are structured to get maximum performance with minimum impact to running workloads. There are two main Azure Storage limits that impact backup performance:
+
++ Max egress per storage account
++ Total request rate per storage account
+
+When the backup data is copied out of the customer storage account, it counts towards the IOPS and Egress (storage throughput) metrics of the storage account. At the same time, the virtual machines are also running and consuming IOPS and throughput. The goal is to ensure that the total traffic - backup and virtual machine - does not exceed the storage account limits.
+
+Backup is greedy and tries to consume as many resources as it can, with the aim of completing backup as quickly as possible. However, all IO operations are limited by the *Target Throughput for Single Blob* which has a limit of *60MB per second*. In order to speed up the backup process, the backup of each disk of the VM is attempted *in parallel*. Thus if a VM has 4 disks, then Azure Backup will attempt to backup all 4 disks in parallel. Thus, the single most important factor that determines the backup traffic exiting from a customer storage account is the **number of disks** being backed up from the storage account.
+
+A secondary factor that impacts the performance is the **backup schedule**. If you configure all the VMs to backup at the same time, then the number of disks being backed up *in parallel* will increase - as Azure Backup will attempt to backup as many disks as possible. So one way to reduce the backup traffic from a storage account is to ensure that different VMs are backed up at different times of the day, with no overlap.
+
+### Capacity planning
+Putting all these factors together means that storage account usage needs to be planned properly. Download the [VM backup capacity planning excel sheet](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) to see the impact of your disk and backup schedule choices.
+
+### Backup throughput
+For each disk being backed up, Azure Backup reads the blocks on the disk and stores only the changed data (incremental backup). The table below shows average throughput values that can be expected from Azure Backup:
+
+| Backup operation | Best-case Throughput |
+| ---------------- | ---------- |
+| Initial backup | 160 Mbps |
+| Incremental backup (DR) | 640 Mbps <br><br> This throughput can drop significantly if there is a lot of dispersed churn on the disk that needs to be backed up |
+
+Using this you can estimate the amount of time that it will take to backup a disk of a given size.
+
+### Total VM backup time
+While a majority of the time is spent in reading and copying data, there are other operations that contribute to the total time taken to backup a VM:
+
+1. Time taken to [install or update the backup extension](backup-azure-vms.md#offline-vms)
+2. Queue wait time : Since the service is processing backups from multiple customers, your backup operation might not start immediately. The average wait time for a VM is 15-30 minutes.
+
+
 ## Troubleshooting errors
 Get an exhaustive list of workarounds to the errors that are faced during virtual machine backup: [Troubleshoot virtual machine backup](backup-azure-vms-troubleshoot.md)
 
@@ -157,6 +189,6 @@ Get an exhaustive list of workarounds to the errors that are faced during virtua
 ## Next steps
 
 To learn more about getting started with Azure Backup, see:
- 
+
 - [Restore virtual machines](backup-azure-restore-vms.md)
 - [Manage virtual machines](backup-azure-manage-vms.md)
