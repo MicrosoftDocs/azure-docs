@@ -102,7 +102,7 @@ Locate your cluster and click on it..
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
 [CreateRG]: ./media/service-fabric-cluster-creation-via-portal/CreateRG.png
 [CreateNodeType]: ./media/service-fabric-cluster-creation-via-portal/NodeType.png
-[Ports]: ./media/service-fabric-cluster-creation-via-portal/Ports.png
+[Ports]: ./media/service-fabric-cluster-creation-via-portal/ports.png
 [SFConfigurations]: ./media/service-fabric-cluster-creation-via-portal/SFConfigurations.png
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
