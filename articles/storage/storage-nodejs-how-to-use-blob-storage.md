@@ -1,33 +1,30 @@
-<properties 
-	pageTitle="How to use Blob storage from Node.js | Microsoft Azure" 
-	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+<properties
+	pageTitle="How to use blob storage from Node.js | Microsoft Azure"
+	description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples written in Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="09/01/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
 
-# How to Use Blob storage from Node.js
+# How to use blob storage from Node.js
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the
-Azure Blob service. The samples are written using the
-Node.js API. The scenarios covered include **uploading**, **listing**,
-**downloading**, and **deleting** blobs.
+This article shows you how to perform common scenarios using the Azure Blob service. The samples are written using the Node.js API. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -35,18 +32,17 @@ Node.js API. The scenarios covered include **uploading**, **listing**,
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure web site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## Configure your application to access storage
 
-To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
-communicate with the storage REST services.
+To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
 
-1.  Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
+1.  Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix), to navigate to the folder where you created your sample application.
 
-2.  Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
+2.  Type **npm install azure-storage** in the command window. Output from the command is similar to the following code example.
 
 		azure-storage@0.5.0 node_modules\azure-storage
 		+-- extend@1.2.1
@@ -59,10 +55,7 @@ communicate with the storage REST services.
 		+-- xml2js@0.2.7 (sax@0.5.2)
 		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
-3.  You can manually run the **ls** command to verify that a
-    **node\_modules** folder was created. Inside that folder find the
-    **azure-storage** package, which contains the libraries you need to access
-    storage.
+3.  You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder find the **azure-storage** package, which contains the libraries you need to access storage.
 
 ### Import the package
 
@@ -71,17 +64,15 @@ Using Notepad or another text editor, add the following to the top the
 
     var azure = require('azure-storage');
 
-## Set up an Azure storage connection
+## Set up an Azure Storage connection
 
-The azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING` for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
+The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING` for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
 For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
 
 ## Create a container
 
-The **BlobService** object lets you work with containers and blobs. The
-following code creates a **BlobService** object. Add the following near
-the top of **server.js**:
+The **BlobService** object lets you work with containers and blobs. The following code creates a **BlobService** object. Add the following near the top of **server.js**:
 
     var blobSvc = azure.createBlobService();
 
@@ -89,27 +80,27 @@ the top of **server.js**:
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-To create a new container, use **createContainerIfNotExists**. The following creates a new container named 'mycontainer'
+To create a new container, use **createContainerIfNotExists**. The following code example creates a new container named 'mycontainer'
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
       if(!error){
-        // Container exists and allows 
-        // anonymous read access to blob 
+        // Container exists and allows
+        // anonymous read access to blob
         // content and metadata within this container
       }
 	});
 
-If the container is created, `result` will be true. If the container already exists, `result` will be false. `response` will contain information about the operation, including the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) information for the container.
+If the container is newly created, `result` is true. If the container already exists, `result` is false. `response` contains information about the operation, including the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) information for the container.
 
 ### Container security
 
-By default, new containers are private and cannot be accessed anonymously. To make the container public so that they can be accessed anonymously, you can set the container's access level to **blob** or **container**.
+By default, new containers are private and cannot be accessed anonymously. To make the container public so that you can access them anonymously, you can set the container's access level to **blob** or **container**.
 
-* **blob** - allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container. 
+* **blob** - allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container
 
-* **container** - allows anonymous read access to blob content and metadata as well as container metadata. 
+* **container** - allows anonymous read access to blob content and metadata as well as container metadata
 
-The following example demonstrates setting the access level to **blob**: 
+The following code example demonstrates setting the access level to **blob**:
 
     blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
       if(!error){
@@ -117,7 +108,7 @@ The following example demonstrates setting the access level to **blob**:
       }
 	});
 
-Alternatively, you can modify the access level of a container by using **setContainerAcl** to specify the access level. The following example changes the access level to container:
+Alternatively, you can modify the access level of a container by using **setContainerAcl** to specify the access level. The following code example changes the access level to container:
 
     blobSvc.setContainerAcl('mycontainer', null /* signedIdentifiers */, 'container' /* publicAccessLevel*/, function(error, result, response){
 	  if(!error){
@@ -125,11 +116,11 @@ Alternatively, you can modify the access level of a container by using **setCont
 	  }
 	});
 
-The result will contain information about the operation, including the current **ETag** for the container.
+The result contains information about the operation, including the current **ETag** for the container.
 
 ### Filters
 
-Optional filtering operations can be applied to operations performed using **BlobService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
+You can apply optional filtering operations to operations performed using **BlobService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
 		function handle (requestOptions, next)
 
@@ -146,21 +137,21 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 
 ## Upload a blob into a container
 
-A blob can be either block, or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+A blob can be either block or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Block blobs
 
 To upload data to a block blob, use the following:
 
-* **createBlockBlobFromLocalFile** - creates a new block blob and uploads the contents of a file.
+* **createBlockBlobFromLocalFile** - creates a new block blob and uploads the contents of a file
 
-* **createBlockBlobFromStream** - creates a new block blob and uploads the contents of a stream.
+* **createBlockBlobFromStream** - creates a new block blob and uploads the contents of a stream
 
-* **createBlockBlobFromText** - creates a new block blob and uploads the contents of a string.
+* **createBlockBlobFromText** - creates a new block blob and uploads the contents of a string
 
-* **createWriteStreamToBlockBlob** - provides a write stream to a block blob.
+* **createWriteStreamToBlockBlob** - provides a write stream to a block blob
 
-The following example uploads the contents of the **test.txt** file into **myblob**.
+The following code example uploads the contents of the **test.txt** file into **myblob**.
 
 	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', function(error, result, response){
 	  if(!error){
@@ -168,23 +159,23 @@ The following example uploads the contents of the **test.txt** file into **myblo
 	  }
 	});
 
-The `result` returned by these methods will contain information on the operation, such as the **ETag** of the blob.
+The `result` returned by these methods contains information on the operation, such as the **ETag** of the blob.
 
 ### Page blobs
 
 To upload data to a page blob, use the following:
 
-* **createPageBlob** - creates a new page blob of a specific length.
+* **createPageBlob** - creates a new page blob of a specific length
 
-* **createPageBlobFromLocalFile** - creates a new page blob and uploads the contents of a file.
+* **createPageBlobFromLocalFile** - creates a new page blob and uploads the contents of a file
 
-* **createPageBlobFromStream** - creates a new page blob and uploads the contents of a stream.
+* **createPageBlobFromStream** - creates a new page blob and uploads the contents of a stream
 
-* **createWriteStreamToExistingPageBlob** - provides a write stream to an existing page blob.
+* **createWriteStreamToExistingPageBlob** - provides a write stream to an existing page blob
 
-* **createWriteStreamToNewPageBlob** - creates a new blob and then provides a stream to write to it.
+* **createWriteStreamToNewPageBlob** - creates a new blob and then provides a stream to write to it
 
-The following example uploads the contents of the **test.txt** file into **mypageblob**.
+The following code example uploads the contents of the **test.txt** file into **mypageblob**.
 
 	blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
 	  if(!error){
@@ -205,7 +196,7 @@ To list the blobs in a container, use the **listBlobsSegmented** method. If you 
 	  }
 	});
 
-The `result` will contain an `entries` collection, which is an array of objects describing each blob. If all blobs cannot be returned, the `result` will also provide a `continuationToken`, which may be used as the second parameter to retrieve additional entries.
+The `result` contains an `entries` collection, which is an array of objects describing each blob. If all blobs cannot be returned, the `result` also provides a `continuationToken`, which you may use as the second parameter to retrieve additional entries.
 
 ## Download blobs
 
@@ -213,13 +204,13 @@ To download data from a blob, use the following:
 
 * **getBlobToFile** - writes the blob contents to file
 
-* **getBlobToStream** - writes the blob contents to a stream.
+* **getBlobToStream** - writes the blob contents to a stream
 
-* **getBlobToText** - writes the blob contents to a string. 
+* **getBlobToText** - writes the blob contents to a string
 
 * **createReadStream** - provides a stream to read from the blob
 
-The following example demonstrates using **getBlobToStream** to download the contents of the **myblob** blob and store it to the **output.txt** file using a stream:
+The following code example demonstrates using **getBlobToStream** to download the contents of the **myblob** blob and store it to the **output.txt** file using a stream:
 
     var fs = require('fs');
 	blobSvc.getBlobToStream('mycontainer', 'myblob', fs.createWriteStream('output.txt'), function(error, result, response){
@@ -228,11 +219,11 @@ The following example demonstrates using **getBlobToStream** to download the con
 	  }
 	});
 
-The `result` will contain information about the blob, including **ETag** information.
+The `result` contains information about the blob, including **ETag** information.
 
 ## Delete a blob
 
-Finally, to delete a blob, call **deleteBlob**. The following example deletes the blob named **myblob**.
+Finally, to delete a blob, call **deleteBlob**. The following code example deletes the blob named **myblob**.
 
     blobSvc.deleteBlob(containerName, 'myblob', function(error, response){
 	  if(!error){
@@ -244,15 +235,15 @@ Finally, to delete a blob, call **deleteBlob**. The following example deletes th
 
 To support concurrent access to a blob from multiple clients or multiple process instances, you can use **ETags** or **leases**.
 
-* **Etag** - provides a way to detect that the blob or container has been modified by another process.
+* **Etag** - provides a way to detect that the blob or container has been modified by another process
 
-* **Lease** - provides a way to obtain exclusive, renewable, write or delete access to a blob for a period of time.
+* **Lease** - provides a way to obtain exclusive, renewable, write or delete access to a blob for a period of time
 
 ### ETag
 
 Use ETags if you need to allow multiple clients or instances to write to the blob simultaneously. The ETag allows you to determine if the container or blob has been modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.
 
-ETag conditions can be set using the optional `options.accessConditions` parameter. The following example will only upload the **test.txt** file if the blob already exists and has the ETag value contained by `etagToMatch`.
+You can set ETag conditions by using the optional `options.accessConditions` parameter. The following code example only uploads the **test.txt** file if the blob already exists and has the ETag value contained by `etagToMatch`.
 
 	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
       if(!error){
@@ -270,7 +261,7 @@ If the value has been modified, this indicates that another client or instance h
 
 ### Lease
 
-A new lease can be acquired using the **acquireLease** method, specifying the blob or container that you wish to obtain a lease on. For example, the following acquires a lease on **myblob**.
+You can acquire a new lease by using the **acquireLease** method, specifying the blob or container that you wish to obtain a lease on. For example, the following code acquires a lease on **myblob**.
 
 	blobSvc.acquireLease('mycontainer', 'myblob', function(error, result, response){
 	  if(!error) {
@@ -290,15 +281,15 @@ Shared Access Signatures (SAS) are a secure way to provide granular access to bl
 
 > [AZURE.NOTE] While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.
 
-A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
+A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application such as a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
 
-The following example generates a new shared access policy that will allow the SAS holder to perform read operations on the **myblob** blob, and expires 100 minutes after the time it is created.
+The following code example generates a new shared access policy that allows the SAS holder to perform read operations on the **myblob** blob, and expires 100 minutes after the time it is created.
 
 	var startDate = new Date();
 	var expiryDate = new Date(startDate);
 	expiryDate.setMinutes(startDate.getMinutes() + 100);
 	startDate.setMinutes(startDate.getMinutes() - 100);
-	    
+
 	var sharedAccessPolicy = {
 	  AccessPolicy: {
 	    Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
@@ -306,7 +297,7 @@ The following example generates a new shared access policy that will allow the S
 	    Expiry: expiryDate
 	  },
 	};
-	
+
 	var blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', 'myblob', sharedAccessPolicy);
 	var host = blobSvc.host;
 
@@ -327,7 +318,7 @@ Since the SAS was generated with only read access, if an attempt were made to mo
 
 You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access a container, but provide different access policies for each client.
 
-An ACL is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
+An ACL is implemented using an array of access policies, with an ID associated with each policy. The following code example defines two policies; one for 'user1' and one for 'user2':
 
 	var sharedAccessPolicy = [
 	  {
@@ -348,7 +339,7 @@ An ACL is implemented using an array of access policies, with an ID associated w
 	  }
 	];
 
-The following example gets the current ACL for **mycontainer**, then adds the new policies using **setBlobAcl**. This approach allows:
+The following code example gets the current ACL for **mycontainer**, then adds the new policies using **setBlobAcl**. This approach allows:
 
 	blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
       if(!error){
@@ -362,7 +353,7 @@ The following example gets the current ACL for **mycontainer**, then adds the ne
 	  }
 	});
 
-Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
+Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following code example creates a new SAS for 'user2':
 
 	blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
@@ -372,7 +363,7 @@ Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   Read the [Azure Storage SDK for Node API Reference][]
--   See the MSDN Reference: [Storing and Accessing Data in Azure][].
+-   See the MSDN Reference: [Storing and accessing data in Azure][].
 -   Visit the [Azure Storage Team Blog][].
 -   Visit the [Azure Storage SDK for Node][] repository on GitHub.
 
@@ -387,4 +378,3 @@ to learn how to do more complex storage tasks.
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html
- 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move and process log files using Azure Data Factory" 
-	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor." 
+	pageTitle="Move and process log files using Azure Data Factory (Azure Portal)" 
+	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor in the Azure Portal." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -418,6 +418,8 @@ In order to copy the marketing campaign effectiveness data from Azure Blob to on
 
 Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] to learn how to create a pipeline to copy marketing campaign effectiveness data to an on-premises SQL Server database.
 
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md).
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
