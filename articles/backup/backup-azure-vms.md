@@ -151,7 +151,7 @@ The following table explains the types of consistency that are encountered durin
 
 
 ## Performance and resource utilization
-Like backup software that is deployed on-premises, backup of VMs in Azure also needs to be planned for capacity and resource utilization. The [Azure Storage limits](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#storage-limits) will define how VM deployments are structured to get maximum performance with minimum impact to running workloads. There are two main Azure Storage limits that impact backup performance:
+Like backup software that is deployed on-premises, backup of VMs in Azure also needs to be planned for capacity and resource utilization. The [Azure Storage limits](azure-subscription-service-limits.md#storage-limits) will define how VM deployments are structured to get maximum performance with minimum impact to running workloads. There are two main Azure Storage limits that impact backup performance:
 
 + Max egress per storage account
 + Total request rate per storage account
