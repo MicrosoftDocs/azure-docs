@@ -22,58 +22,58 @@ What is it to be an Azure Marketplace Publisher
 
 How to get started
 ## Account Registration
-Microsoft Account Creation
+Microsoft Account Creation (coming soon)
 
-Publisher Account Creation on Azure Publishing Portal
+Publisher Account Creation on Azure Publishing Portal (coming soon)
 
-Seller Account Creation on Seller Dashboard
+Seller Account Creation on Seller Dashboard (coming soon)
 
 ## Offer Publication and Management
 #### Virtual Machine Offer and Management
-Azure Certification
+Azure Certification (coming soon)
 
-Publishing Process
+Publishing Process (coming soon)
 
-Update an Offer
+Update an Offer (coming soon)
 
-Reporting
+Reporting (coming soon)
 
-Payouts
+Payouts (coming soon)
 
-Troubleshooting
+Troubleshooting (coming soon)
 #### Developer Services Offer and Management
-Azure Certification
+Azure Certification (coming soon)
 
-Publishing Process
+Publishing Process (coming soon)
 
-Update an Offer
+Update an Offer (coming soon)
 
-Reporting
+Reporting (coming soon)
 
-Payouts
+Payouts (coming soon)
 #### Data Services Offer and Management
-Publishing Process
+Publishing Process (coming soon)
 
-Update an Offer
+Update an Offer (coming soon)
 
-Reporting
+Reporting (coming soon)
 
-Payouts
+Payouts (coming soon)
 #### Solution Template Offer and Management
-Azure Certification
+Azure Certification (coming soon)
 
-Publishing Process
+Publishing Process (coming soon)
 
-Update an Offer
+Update an Offer (coming soon)
 
-Reporting
+Reporting (coming soon)
 
-Payouts
+Payouts (coming soon)
 ## Get Support
-Get Support as a Publisher
+Get Support as a Publisher (coming soon)
 
-Get Support as a Developer
+Get Support as a Developer (coming soon)
 
-Get Support for your Customer
-## Frequently Asked Questions
-## Troubleshooting
+Get Support for your Customer (coming soon)
+## Frequently Asked Questions (tenative)
+## Troubleshooting (tentative)
