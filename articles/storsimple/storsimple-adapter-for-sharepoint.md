@@ -228,7 +228,6 @@ Use the following procedure to upgrade SharePoint server and then reinstall Stor
 >
 >- If you are configuring RBS for a SharePoint farm that has a very large number of databases (greater than 200), the **SharePoint Central Administration** page might time out. If that occurs, refresh the page. This does not affect the configuration process.
 
-
 [AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
  
 ## StorSimple Adapter for SharePoint removal
