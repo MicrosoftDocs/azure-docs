@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="How can I discover unsanctioned cloud apps that are used within my organization" 
-	description="This topic describes what is the Cloud App Discvery is and why you would use it." 
+	pageTitle="Known Networks" 
+	description="By configuring known networks, you can avoid having IP addresses that are owned by your organization included in the Sign ins from multiple geographies and Sign ins from IP addresses with suspicious activity reports." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="stevenpo" 
-	editor="lisatoft"/>
+	manager="msStevenPo"  
+	editor=""/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="09/03/2015" 
 	ms.author="markvi"/>
 
 # Known Networks
