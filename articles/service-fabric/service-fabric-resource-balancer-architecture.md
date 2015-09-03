@@ -3,7 +3,7 @@
    description="An architectural overview of Service Fabric's Resource Balancer"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
+   ms.date="9/03/2015"
    ms.author="abhic"/>
 
 # Resource Balancer Architecture Overview
