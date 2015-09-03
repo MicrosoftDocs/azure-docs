@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/02/2015"
+   ms.date="09/03/2015"
    ms.author="yurid"/>
 
-#Best practices for Software Updates on Microsoft Azure IaaS
+#Best practices for software updates on Microsoft Azure IaaS
 
 
 Before diving into any kind of discussion on best practices for an Azure IaaS environment, it is important to understand what the scenarios are that will have you managing software updates. The diagram below should help with this:
 
 ![Cloud models and responsabilities](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
 
-In the traditional datacenter model where the entire infrastructure is located on-premises, you have full responsibility for managing updates to operating systems, applications, network devices (routers, switches, etc.) and hardware (e.g., firmware). In an IaaS scenario, you will still have to manage updates for operating systems and applications; however, the entire infrastructure underneath the operating systems and applications is managed by Microsoft. In all these models customer is still the owner of his data and still responsible for protecting it at the end point level.
+In the traditional datacenter model where the entire infrastructure is located on-premises, you have full responsibility for managing updates to operating systems, applications, network devices (routers, switches, etc.) and hardware (firmware). In an IaaS scenario, you will still have to manage updates for operating systems and applications; however, the entire infrastructure underneath the operating systems and applications is managed by Microsoft. In all these models, customers are still owners of their data and are still responsible for protecting it at the end point level.
 
 In a PaaS scenario, you will have even less responsibility for software updates, as update management for the operating system is Microsoft’s responsibility. In a SaaS scenario, the responsibility for software updates for the entire stack is owned by Microsoft.
 
@@ -31,7 +31,7 @@ These same principles apply in a hybrid scenario where your company is using Azu
 
 ![Typical hybrid scenario with Microsoft Azure](./media/azure-security-best-practices-software-updates-iaas/sec-azconnectonpre.png)
 
-## Initial Assessment
+## Initial assessment
 
 Even if your company is already using an update management system and you already have software update policies in place, it is important to frequently revisit previous policy assessments and update them based on your current requirements. This means that you need to be familiar with the current state of the resources in your company. To reach this state, you need to know:
 
@@ -49,7 +49,7 @@ Even if your company is already using an update management system and you alread
 
 -   The assets present in your environment and their relative value to determine which areas need the most attention and protection.
 
--   Known security problems and the processes your enterprise has for identifying new security issues or changes in security level.
+-   Known security problems and the processes your enterprise has in place for identifying new security issues or changes in security level.
 
 -   Countermeasures that have been deployed to secure your environment.
 
@@ -73,9 +73,9 @@ After you perform an initial audit of the software in use in your enterprise, yo
 
 For example, the Microsoft Security Response Center (MSRC) responds to all security-related concerns about Microsoft products and provides the Microsoft Security Bulletin Service, a free e-mail notification of newly identified vulnerabilities and software updates that are released to address these vulnerabilities. You can subscribe to this service at <http://www.microsoft.com/technet/security/bulletin/notify.mspx>
 
-## Software Update Considerations
+## Software update considerations
 
-After you perform an initial audit of the software in use in your enterprise, you should determine the requirements to setup you software update management system, which depends on the software update management system that you are using. For WSUS read [Best Practices with Windows Server Update Services](https://technet.microsoft.com/en-us/library/Cc708536(v=WS.10).aspx), for System Center read [Planning for Software Updates in Configuration Manager](https://technet.microsoft.com/en-us/library/gg712696.aspx).
+After you perform an initial audit of the software in use in your enterprise, you should determine the requirements to setup you software update management system, which depends on the software update management system that you are using. For WSUS read [Best Practices with Windows Server Update Services](https://technet.microsoft.com/en-us/library/Cc708536), for System Center read [Planning for Software Updates in Configuration Manager](https://technet.microsoft.com/en-us/library/gg712696).
 
 However, there are some general considerations and best practices that you can apply regardless of the solution that you are using as shown in the sections that follows.
 
@@ -93,9 +93,9 @@ The design options that will determine where the update server will be located w
 
 ### Backup
 
-Regular backups are important not only for the software update management platform itself but also for the servers that will be updated. Organizations that have a [change management process](https://technet.microsoft.com/en-us/library/cc543216.aspx) in place will require IT to justify the reason the server needs to be update, the estimated downtime and possible impact. To ensure that you have a rollback in case an update fails, make sure to back up the system regularly.
+Regular backups are important not only for the software update management platform itself but also for the servers that will be updated. Organizations that have a [change management process](https://technet.microsoft.com/en-us/library/cc543216.aspx) in place will require IT to justify the reasons for why the server needs to be updated, the estimated downtime and possible impact. To ensure that you have a rollback configuration in place in case an update fails, make sure to back up the system regularly.
 
-Below you have some backup options for Azure IaaS:
+Some backup options for Azure IaaS include:
 
 -   [Azure IaaS workload protection using Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
@@ -103,16 +103,18 @@ Below you have some backup options for Azure IaaS:
 
 ### Monitoring
 
-You should run regular reports to monitor the number of missing or installed updates, or updates with incomplete status, for each software update that is authorized. Similarly, reporting for software updates that are not yet authorized can facilitate easy deployment decisions. Also consider the following tasks:
+You should run regular reports to monitor the number of missing or installed updates, or updates with incomplete status, for each software update that is authorized. Similarly, reporting for software updates that are not yet authorized can facilitate easier deployment decisions. 
 
--   Conducting an audit of applicable and installed security updates for all the computers in your company.
+You should also consider the following tasks:
 
--   Authorizing and deploying the updates to the appropriate computers.
+-   Conduct an audit of applicable and installed security updates for all the computers in your company.
 
--   Tracking the inventory and update installation status and progress for all the computers in your company
+-   Authorize and deploy the updates to the appropriate computers.
 
-In addition to general considerations that were explained in this article, you should also consider the product’s best practice, for example: if you have a VM in Azure with SQL Server, make sure that you are following the software updates recommendation for that product.
+-   Track the inventory and update installation status and progress for all the computers in your company.
 
-## Next Steps
+In addition to general considerations that were explained in this article, you should also consider the each product’s best practice, for example: if you have a VM in Azure with SQL Server, make sure that you are following the software updates recommendation for that product.
 
-Use the guidelines described in this article to assist you in determining the best options for software updated in an Azure IaaS. There are many similarities between software update best practices in a traditional datacenter versus Azure IaaS, therefore it is recommended that you evaluate your current software update policies to include Azure VMs and include the relevant best practices from this article in your overall software update process.
+## Next steps
+
+Use the guidelines described in this article to assist you in determining the best options for software updates for virtual machines within Azure IaaS. There are many similarities between software update best practices in a traditional datacenter versus Azure IaaS, therefore it is recommended that you evaluate your current software update policies to include Azure VMs and include the relevant best practices from this article in your overall software update process.
