@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Build your first pipeline using Azure Data Factory"
-	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight using Data Factory Editor"
+	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"

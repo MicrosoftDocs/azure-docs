@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move and process log files using Azure Data Factory" 
-	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor." 
+	pageTitle="Move and process log files using Azure Data Factory (Azure Portal)" 
+	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor in the Azure Portal." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 

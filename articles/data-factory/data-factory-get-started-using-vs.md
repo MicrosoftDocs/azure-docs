@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Tutorial: Copy data from an Azure blob to Azure SQL" 
-	description="This tutorial shows you how to create a sample data pipeline that copies data from a blob to an Azure SQL Database instance." 
+	pageTitle="Tutorial: Create a pipeline with Copy Activity using Visual Studio" 
+	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 

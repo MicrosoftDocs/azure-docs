@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Build your first pipeline using Azure Data Factory | Microsoft Azure"
-	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight and Azure PowerShell"
+	pageTitle="Build your first Azure Data Factory pipeline using Azure PowerShell"
+	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
