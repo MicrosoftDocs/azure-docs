@@ -22,11 +22,11 @@ What is it to be an Azure Marketplace Publisher
 
 How to get started
 ## Account Registration
-Microsoft Account Creation (coming soon)
+[Microsoft Account Creation][2a]
 
-Publisher Account Creation on Azure Publishing Portal (coming soon)
+[Publisher Account Creation on Azure Publishing Portal][2b]
 
-Seller Account Creation on Seller Dashboard (coming soon)
+[Seller Account Creation on Seller Dashboard][2c]
 
 ## Offer Publication and Management
 #### Virtual Machine Offer and Management
@@ -77,3 +77,7 @@ Get Support as a Developer (coming soon)
 Get Support for your Customer (coming soon)
 ## Frequently Asked Questions (tenative)
 ## Troubleshooting (tentative)
+
+[2a]: marketplace-publishing-microsoft-account-creation.md
+[2b]: marketplace-publishing-seller-account-creation.md
+[2c]: marketplace-publishing-publisher-account-creation.md
