@@ -27,7 +27,7 @@ The following table lists the device software versions corresponding to Updates 
 
 | If running update … | this is your device software version. |
 |---------------------|---------------------------------------|
-| Update 1.2          | 6.3.9600.17XXX                        |
+| Update 1.2          | 6.3.9600.17584                        |
 | Update 1.1          | 6.3.9600.17521                        |
 | Update 1.0          | 6.3.9600.17491                        |
 
@@ -105,7 +105,7 @@ The following table provides a summary of known issues in this release.
 
 ## Physical device updates in Update 1.2
 
-If patch update 1.2 is applied to a physical device (running versions prior to Update 1), the software version will change to 6.3.9600.17XXX.
+If patch update 1.2 is applied to a physical device (running versions prior to Update 1), the software version will change to 6.3.9600.17584.
 
 ## Controller and firmware updates in Update 1.2
 
