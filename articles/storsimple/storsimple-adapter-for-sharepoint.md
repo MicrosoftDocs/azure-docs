@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to install and configure the StorSimple Adapter for SharePoint in a SharePoint server farm."
+   description="Describes how to install and configure or remove the StorSimple Adapter for SharePoint in a SharePoint server farm."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="09/03/2015"
    ms.author="v-sharos" />
 
 # Install and configure the StorSimple Adapter for SharePoint
@@ -55,9 +55,7 @@ Moving BLOB content to the file system can provide other cost savings and benefi
 
 ### Capacity and performance limits
 
-Before you consider using RBS in your SharePoint solution, you should be aware of the tested performance and capacity limits of SharePoint Server 2010 and SharePoint Server 2013, and how these limits relate to acceptable performance. 
-
-For more information, see [Software Boundaries and Limits for SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
+Before you consider using RBS in your SharePoint solution, you should be aware of the tested performance and capacity limits of SharePoint Server 2010 and SharePoint Server 2013, and how these limits relate to acceptable performance. For more information, see [Software Boundaries and Limits for SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
 
 Review the following before you configure RBS:
 
@@ -235,9 +233,9 @@ Use the following procedure to upgrade SharePoint server and then reinstall Stor
  
 ## StorSimple Adapter for SharePoint removal
 
-The following tutorial describes how to move the BLOBs back to the SQL Server content databases and then uninstall the StorSimple Adapter for SharePoint. It contains the following sections:
+The following procedures describe how to move the BLOBs back to the SQL Server content databases and then uninstall the StorSimple Adapter for SharePoint. 
 
->[AZURE.IMPORTANT] You must move the BLOBs back to the content databases and uninstall the existing adapter software before you can upgrade or reinstall the adapter. 
+>[AZURE.IMPORTANT] You have to move the BLOBs back to the content databases before you uninstall the adapter software. 
 
 ### Before you begin 
 
