@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-include-connection-string-30-compare.md
 
-Latest Freshness check:  2015-09-02 , GeneMi.
+Latest Freshness check:  2015-09-03 , GeneMi.
 
 ## Connection string
 -->
@@ -11,12 +11,12 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### Compare the connection string
 
 
-The following table compares the connection strings that your C# program needs to connect to your on-premises SQL Server versus your Azure SQL Database in the cloud. The differences are bolded.
+The following table compares the connection strings that your C# program needs to connect to your on-premises SQL Server versus your Azure SQL Database in the cloud. The differences are in bold.
 
 
-| Connection string,<br/>Azure SQL Database | Connection string,<br/>Microsoft SQL Server |
+| Connection string for<br/>Azure SQL Database | Connection string for<br/>Microsoft SQL Server |
 | :-- | :-- |
-| Server=**tcp:**{your_serverName_here}**.database.windows.net,1433**;<br/>User ID={your_loginName_here}**@{your_serverName_here}**;<br/>Password={your_password_here};<br/>**Database={your_databaseName_here};**<br/>Connection Timeout=**30**;<br/>**Encrypt=True**;<br/>**TrustServerCertificate=False**; | Server={your_serverName_here};<br/>User ID={your_loginName_here};<br/>Password={your_password_here}; |
+| Server=**tcp:**{your_serverName_here}**.database.windows.net,1433**;<br/>User ID={your_loginName_here}**@{your_serverName_here}**;<br/>Password={your_password_here};<br/>**Database={your_databaseName_here};**<br/>**Connection Timeout=30**;<br/>**Encrypt=True**;<br/>**TrustServerCertificate=False**; | Server={your_serverName_here};<br/>User ID={your_loginName_here};<br/>Password={your_password_here}; |
 
 
 The **Database=** is optional for SQL Server, but is required for SQL Database.
