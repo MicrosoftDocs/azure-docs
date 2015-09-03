@@ -59,7 +59,7 @@ To explore the C++ samples, download the [C++ Storage Client Library](https://ww
 * [Get started with tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Get started with queues](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## Additional references
+## See also
 
 ### .NET resources
 
