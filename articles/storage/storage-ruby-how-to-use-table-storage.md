@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to use Azure Table storage from Ruby | Microsoft Azure"
-	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API."
+	pageTitle="How to use Azure Table Storage from Ruby | Microsoft Azure"
+	description="Learn how to use Azure Table Storage in Azure. Code samples are written using the Ruby API."
 	services="storage"
 	documentationCenter="ruby"
 	authors="tfitzmac"
@@ -34,9 +34,9 @@ This guide shows you how to perform common scenarios using the Azure Table servi
 For instructions how to create a Ruby application,
 see [Create a Ruby application in Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
-## Configure your application to access storage
+## Configure your application to access Storage
 
-To use Azure Storage, you need to download and use the Ruby azure package which includes a set of convenience libraries that communicate with the storage REST services.
+To use Azure Storage, you need to download and use the Ruby azure package which includes a set of convenience libraries that communicate with the Storage REST services.
 
 ### Use RubyGems to obtain the package
 
@@ -46,13 +46,13 @@ To use Azure Storage, you need to download and use the Ruby azure package which 
 
 ### Import the package
 
-Use your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:
+Use your favorite text editor, add the following to the top of the Ruby file where you intend to use Storage:
 
 	require "azure"
 
 ## Set up an Azure Storage connection
 
-The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::TableService** with the following code:
+The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information before using **Azure::TableService** with the following code:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
