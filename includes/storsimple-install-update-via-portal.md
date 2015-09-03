@@ -23,7 +23,7 @@
 
 3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 1.2 on your device.
 
-    ![Install software updates](./media/storsimple-install-update-via-portal/InstallUpdate12_1M.png)
+    ![Install software updates](./media/storsimple-install-update-via-portal/InstallUpdate12_11M.png)
 
 4. At the bottom of the page, click **Install Updates**.
 
