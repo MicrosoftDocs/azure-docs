@@ -22,7 +22,7 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-import.md)
+- [Azure Preview Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
 This article shows you how to create a SQL Database from a BACPAC with the [Azure preview portal](https://portal.azure.com).

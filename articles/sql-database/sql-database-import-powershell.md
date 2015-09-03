@@ -21,7 +21,7 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-import.md)
+- [Azure Preview Portal](sql-database-import.md)
 - [C#](sql-database-import-csharp.md)
 - [PowerShell](sql-database-import-powershell.md)
 
