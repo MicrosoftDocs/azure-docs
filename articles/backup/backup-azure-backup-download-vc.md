@@ -44,5 +44,11 @@ The vault credential file is downloaded through a secure channel from the Azure 
 - The vault credentials file expires after 48hrs and can be downloaded from the portal.
 - Refer to the Azure Backup [FAQ](backup-azure-backup-faq.md) for any questions on the workflow.
 
+##Video Walkthough
+
+Here's a video walkthrough of this tutorial.
+
+[AZURE.VIDEO using-vault-credentials-to-authenticate-with-the-azure-backup-service]
+
 ## Next steps
 [Download, register and install the Azure Backup Agent](backup-azure-backup-download-register)

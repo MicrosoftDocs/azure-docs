@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/12/2015"
+	ms.date="08/14/2015"
 	ms.author="billmath"/>
 
 
@@ -71,7 +71,6 @@ Perform any time prior to running Register-AdHealthAgent (The final step of Inst
 Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64\[version]\config\machine.config</li>
 
 Add the following entry under the <configuration></configuration> element in your machine.config file.
- 
 		
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
@@ -84,7 +83,7 @@ Add the following entry under the <configuration></configuration> element in you
 
  
 
-Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
+Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 
 This settings configures .NET applications system-wide to use your explicitly defined proxy when makeing http .NET requests. Modifying each individual app.config is not recommended because it will be undone during auto update. You only have to change one file and it will persist through updates if you only modify machine.config.
 
@@ -127,3 +126,10 @@ Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Con
 **Q: What firewall ports do I need to open for the Azure AD Connect Health Agent to work?**
 
 You will need to have TCP/UDP ports 80 and 443 open for the Azure AD Connect Health Agent to be able to communicate with the Azure AD Health service endpoints.
+
+## Related links
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Azure AD Connect Health Agent Installation for AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)

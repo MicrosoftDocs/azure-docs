@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell
+
+> [AZURE.SELECTOR]
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 This article shows you how to use Azure Resource Manager templates and PowerShell to automate common tasks for deploying and managing Azure virtual machines. For more templates you can use, see [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
 

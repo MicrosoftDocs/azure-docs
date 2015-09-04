@@ -2,10 +2,11 @@ Resource|Default Limit
 ---|---
 Max number of storage accounts per subscription|100<sup>1</sup>
 TB per storage account|500 TB
+Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
 Max size of a single blob container, table, or queue|500 TB
-Max number of blocks in a block blob|50,000
-Max size of a block in a block blob|4 MB
-Max size of a block blob|50,000 X 4 MB (approx. 195 GB) 
+Max number of blocks in a block blob or append blob|50,000
+Max size of a block in a block blob or append blob|4 MB
+Max size of a block blob or append blob|50,000 X 4 MB (approx. 195 GB) 
 Max size of a page blob |1 TB
 Max size of a table entity|1 MB
 Max number of properties in a table entity|252
@@ -14,6 +15,7 @@ Max size of a file share|5 TB
 Max size of a file in a file share|1 TB
 Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
 Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
+Max number of stored access policies per container, file share, table, or queue|5
 Max 8 KB IOPS per persistent disk (Basic Tier virtual machine)|300<sup>2</sup>
 Max 8 KB IOPS per persistent disk (Standard Tier virtual machine)|500<sup>2</sup>
 Total Request Rate (assuming 1KB object size) per storage account|Up to 20,000 IOPS, entities per second, or messages per second

@@ -53,7 +53,10 @@ At any time, you can switch to the 30 day free Premium trial. This gives you the
 * The quota depends on the pricing tier that you have chosen.
 * The quota is counted from midnight UTC on the first day of each month.
 * The Data points chart shows how much of your quota has been used up this month.
-* The quota is measured in *data points.* A single data point is a call to one of the Track methods, whether called explicitly in your code, or by one of the standard telemetry modules. Each row you see in diagnostic search is a data point. Each measurement of a metric such as a performance counter is a data point. 
+* The quota is measured in *data points.* A single data point is a call to one of the Track methods, whether called explicitly in your code, or by one of the standard telemetry modules. Data points include:
+ * Each row you see in [diagnostic search](app-insights-diagnostic-search.md). 
+ * Each raw measurement of a [metric](app-insights-metrics-explorer.md) such as a performance counter. (The points you see on the charts are usually aggregates of multiple raw data points.)
+ * Each point on the [web test (availability)](app-insights-monitor-web-app-availability.md) charts. 
 * *Session data* is not counted in the quota. This includes counts of users, sessions, environment and device data.
 
 
@@ -72,7 +75,7 @@ The chart at the bottom of the pricing blade shows your application's data point
 
 ![At the bottom of the pricing blade](./media/app-insights-pricing/03-allocation.png)
 
-Click the chart for more detail, or drag across it for the detail of a time range.
+Click the chart for more detail, or drag across it and click (+) for the detail of a time range.
 
 
 ## Data rate
@@ -83,7 +86,7 @@ There are three buckets which are counted separately:
 
 * [TrackTrace calls](app-insights-api-custom-events-metrics.md#track-trace) and [captured logs](app-insights-asp-net-trace-logs.md)
 * [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), limited to 50 points/s.
-* All other telemetry (page views, sessions, requests, dependencies, metrics, custom events).
+* All other telemetry (page views, sessions, requests, dependencies, metrics, custom events, web test results).
 
 If your app sends more than the limit, some of the data is dropped. You'll see a notification warning that this has happened.
 

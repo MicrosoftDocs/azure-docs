@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X (preview)
@@ -72,15 +73,17 @@ When creating a Linux-based HDInsight cluster, you have the option of using a pa
 
 When creating a Linux-based HDInsight cluster, you must provide the public key created previously. From Linux, Unix, or OS X clients, there are two ways to create an HDInsight cluster:
 
-* **Azure portal** - Uses a web-based portal to create the cluster.
+* **Azure preview portal** - Uses a web-based portal to create the cluster.
 
 * **Azure CLI for Mac, Linux and Windows** - Uses command-line commands to create the cluster.
 
 Each of these methods will require either a password or a public key. For complete information on creating a Linux-based HDInsight cluster, see [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Azure portal
+###Azure preview portal
 
-When using the portal to create a Linux-based HDInsight cluster, you must enter an **SSH USER NAME**, and select to enter a **PASSWORD** or **SSH PUBLIC KEY**. If you select **SSH PUBLIC KEY**, you must paste the public key (contained in the file with the **.pub** extension) into the following form:
+When using the [Azure preview portal][preview-portal] to create a Linux-based HDInsight cluster, you must enter an **SSH USER NAME**, and select to enter a **PASSWORD** or **SSH PUBLIC KEY**.
+
+If you select **SSH PUBLIC KEY**, you can either paste the public key (contained in the file with the **.pub** extension) into the __SSH PublicKey__ field, or select __Select a file__ to browse and select the public key file.
 
 ![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
@@ -116,6 +119,8 @@ If you used an SSH key that is secured with a passphrase, you will be prompted t
 > [AZURE.NOTE] If SSH does not automatically authenticate with the correct private key, use the **-i** parameter and specify the path to the private key. The following example will load the private key from `~/.ssh/id_rsa`:
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
+
+If no port is specified, SSH will default to port 22, which will connect to headnode0 on the HDInsight cluster. If you use port 23, you will connect to headnode1. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
 
 ###Connect to worker nodes
 
@@ -204,9 +209,9 @@ Use the following steps to connect to the worker nodes for your cluster.
 
 ##<a id="tunnel"></a>SSH tunneling
 
-SSH can also be used to tunnel local requests, such as web requests, to the HDInsight cluster. The request will then be routed to the requested resource as if it had originated on the HDInsight cluster head node.
+SSH can be used to tunnel local requests, such as web requests, to the HDInsight cluster. The request will then be routed to the requested resource as if it had originated on the HDInsight cluster head node.
 
-This is most useful for accessing web-based services on the HDInsight cluster that use internal domain names for the head or worker nodes in the cluster. For example, some sections of the Ambari webpage use internal domain names such as **headnode0.mycluster.d1.internal.cloudapp.net**. These names cannot be resolved from outside the cluster, but requests tunneled over SSH originate inside the cluster and will resolve correctly.
+> [AZURE.IMPORTANT] An SSH tunnel is a requirement for accessing the web UI for sopme Hadoop services. For example, both the Job History UI or Resource Manager UI can only be accessed using an SSH tunnel.
 
 Use the following steps to create an SSH tunnel and configure your browser to use it to connect to the cluster.
 
@@ -295,3 +300,5 @@ Now that you understand how to authenticate by using an SSH key, learn how to us
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
+
+[preview-portal]: https://portal.azure.com/

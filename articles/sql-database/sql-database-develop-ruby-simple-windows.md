@@ -28,7 +28,7 @@ This topic presents a Ruby code sample that runs on a Windows computer running W
 
 Open your terminal and install the following:
 
-**1) Ruby:** If your machine does not have Ruby please install it. For new ruby users, we recommend you use Ruby 2.1.X installers. These provide a stable language and a extensive list of packages (gems) that are compatible and updated. [Go the Ruby download page]() and download the appropriate 2.1.x installer. For example if you are on a 64 bit machine, download the **Ruby 2.1.6 (x64)** installer.
+**1) Ruby:** If your machine does not have Ruby please install it. For new ruby users, we recommend you use Ruby 2.1.X installers. These provide a stable language and a extensive list of packages (gems) that are compatible and updated. [Go the Ruby download page](http://rubyinstaller.org/downloads/) and download the appropriate 2.1.x installer. For example if you are on a 64 bit machine, download the **Ruby 2.1.6 (x64)** installer.
 <br/><br/>Once the installer is downloaded, do the following: 
 
 

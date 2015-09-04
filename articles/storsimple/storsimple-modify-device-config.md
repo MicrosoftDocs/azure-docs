@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the StorSimple Manager service to modify your StorSimple device configuration | Microsoft Azure" 
+   pageTitle="Modify the StorSimple device configuration | Microsoft Azure" 
    description="Describes how to use the StorSimple Manager service to reconfigure a StorSimple device that has already been deployed." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Use the StorSimple Manager service to modify your StorSimple device configuration

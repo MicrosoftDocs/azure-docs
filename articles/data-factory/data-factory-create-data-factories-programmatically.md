@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -105,6 +105,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
         );
 
 8. Add the following code that creates a **linked service** to the **Main** method. 
+
 	> [AZURE.NOTE] Use **account name** and **account key** of your Azure storage account for the **ConnectionString**. 
 
         // create a linked service
@@ -117,7 +118,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     Name = "LinkedService-AzureStorage",
                     Properties = new LinkedServiceProperties
                     (
-                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>")
                     )
                 }
             }
@@ -335,6 +336,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
         Console.WriteLine("Getting run details of a data slice");
 
 		// give it a few minutes for the output slice to be ready
+        Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
         Console.ReadKey();
 
         var datasliceRunListResponse = client.DataSliceRuns.List(
@@ -384,7 +386,6 @@ Article | Description
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908

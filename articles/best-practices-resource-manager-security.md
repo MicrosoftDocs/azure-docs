@@ -192,13 +192,13 @@ Group (NSG) to do this as part of an ARM template deployment.
 A network security group is a top-level object that is associated with your subscription. An NSG contains access control rules that allow or deny traffic to 
 VM instances. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a virtual network 
 that is associated with a region (location). NSGs are not compatible with virtual networks that are associated with an affinity group. If you don’t have a 
-regional virtual network and you want to control traffic to your endpoints, please see [About Network Access Control Lists (ACLs)](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+regional virtual network and you want to control traffic to your endpoints, please see [About Network Access Control Lists (ACLs)](../virtual-network/virtual-networks-acl.md).
 
 You can associate an NSG with a VM, or to a subnet within a virtual network. When associated with a VM, the NSG applies to all the traffic that is sent and 
 received by the VM instance. When applied to a subnet within your virtual network, it applies to all the traffic that is sent and received by all the VM instances 
 in the subnet. A VM or subnet can be associated with only 1 NSG, but each NSG can contain up to 200 rules. You can have 100 NSGs per subscription.
 
->[AZURE.NOTE]  Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+>[AZURE.NOTE]  Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ### How network security groups work
 

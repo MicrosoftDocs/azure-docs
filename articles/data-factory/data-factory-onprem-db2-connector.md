@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="DB2 Connector - Move data from DB2" 
-	description="Learn about DB2 Connector for the Data Factory service that lets you move data from DB2 Database" 
+	pageTitle="Move data from DB2 | Azure Data Factory" 
+	description="Learn about how move data from DB2 Database using Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# DB2 Connector - Move data from DB2
+# Move data from DB2 using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to from DB2 to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory supports connecting to on-premises DB2 sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
@@ -35,11 +35,11 @@ There are known issues reported by IBM on installing the IBM DB2 Data Server Dri
 
 The sample below shows:
 
-1.	A linked service of type OnPremisesDb2.
-2.	A linked service of type AzureStorage. 
-3.	An input dataset of type RelationalTable.
-4.	An output dataset of type AzureBlob. 
-5.	A pipeline with Copy Activity that uses RelationalSource and BlobSink. 
+1.	A linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
+2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+5.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 The sample copies data from a query result in DB2 database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -223,6 +223,9 @@ The following table provides description for JSON elements specific to DB2 linke
 | username | Specify user name if you are using Basic or Windows authentication. | No |
 | password | Specify password for the user account you specified for the username. | No |
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. | Yes |
+
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises DB2 data source. 
+
 
 ## DB2 Dataset type properties
 

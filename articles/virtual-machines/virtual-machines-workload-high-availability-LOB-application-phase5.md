@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Line of Business Application Workload Phase 5: Create the availability group and add the application databases" 
-	description="In this final phase of deploying a high-availability line of business application, you create an availability group and add your application databases to it." 
+	pageTitle="Line of business application Phase 5 | Microsoft Azure" 
+	description="Create an availability group and add your application databases to it in Phase 5 of the line of business application in Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
@@ -122,3 +122,5 @@ Once the listener is configured, you need to configure all the web server virtua
 [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)

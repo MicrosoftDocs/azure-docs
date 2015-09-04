@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Viewing and Modifying Hostnames"
-   description="Description"
+   pageTitle="Viewing and Modifying Hostnames | Microsoft Azure"
+   description="How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution"
    services="virtual-network"
    documentationCenter="na"
    authors="joaoma"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
+   ms.date="08/25/2015"
    ms.author="joaoma" />
 
-# Viewing and Modifying Hostnames
+# Viewing and modifying hostnames
 
 To allow your role instances to be referenced by host name, you must set the value for the host name in the service configuration file for each role. You do that by adding the desired host name to the **vmName** attribute of the **Role** element. The value of the **vmName** attribute is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*. You do not need to specify a host name for virtual machines in the configuration file, because the host name for a virtual machine is populated based on the virtual machine name.For more information about configuring a Microsoft Azure service, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
@@ -61,13 +61,12 @@ From a REST client, follow these instructions:
 
 You can modify the host name for any virtual machine or role instance by uploading a modified service configuration file, or by renaming the computer from a Remote Desktop session.
 
-## See Also
+## Next steps
 
-[Name Resolution (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)
+[Name Resolution (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
 [Azure Virtual Network Configuration Schema)](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Configure a Virtual Network Using Network Configuration Files](http://go.microsoft.com/fwlink/?LinkId=248094)
-
+[Specify DNS settings using network configuration files](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
