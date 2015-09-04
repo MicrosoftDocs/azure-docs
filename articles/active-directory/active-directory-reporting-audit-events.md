@@ -39,7 +39,7 @@ For customers interested in storing their audit events for longer retention peri
 
 <!--- audit event descriptions should be in the past tense --->
 
-| Events 				| Event Description																				|
+| Events				 | Event Description																				|
 | ------------------------------	| -------																					|
 | Add User				| Added a user to the directory.																		|
 | Delete User				| Deleted a user from the directory.																		|
@@ -71,6 +71,13 @@ For customers interested in storing their audit events for longer retention peri
 | Set Password Policy			| Set length and character constraints for user passwords.															|
 | Set Company Information		| Updated the company-level information. See the [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) PowerShell cmdlet for more details.	|
 | Set force change user password	| Set the property that forces a user to change their password on login.													|
+| *Group events*				|
+| Create group				| Created a group in the directory					|
+| Update group				| Updated a group in the directory					|
+| Delete group				| Deleted a group from the directory				|
+| Add member to group		| Added a member to a group in the directory		|
+| Remove member from group	| Removed a member from a group in the directory	|
+
 
 <!---
 
@@ -86,7 +93,7 @@ Promote tenant to partner
 
 The "Update user" audit event includes additional information about what user attributes were updated. For each attribute, both the previous value and the new value is included.
 
-| Attribute 				| Description																			|
+| Attribute				 | Description																			|
 | ---------------------------------	| ---------																			|
 | AccountEnabled			| The user is allowed to sign in.																|
 | AssignedLicense			| All licenses that have been assigned to the user.														|
@@ -101,4 +108,3 @@ The "Update user" audit event includes additional information about what user at
 | TelephoneNumber			| The user's telephone number.																	|
 
 Audit records are a required control for many compliance regulations. For customers using the Azure Active Directory Audit Report to meet their compliance regulations, it is recommended that the customer submit a copy of this help topic with the copy of the customer’s exported audit report to help explain the report details. If the auditor would like to understand the compliance regulations that Azure currently meets, direct the auditor to the [Compliance page](http://azure.microsoft.com/support/trust-center/compliance/) of the Microsoft Azure Trust Center.
- 
