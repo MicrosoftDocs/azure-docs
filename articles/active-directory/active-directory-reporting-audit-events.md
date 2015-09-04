@@ -71,7 +71,7 @@ For customers interested in storing their audit events for longer retention peri
 | Set Password Policy			| Set length and character constraints for user passwords.															|
 | Set Company Information		| Updated the company-level information. See the [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) PowerShell cmdlet for more details.	|
 | Set force change user password	| Set the property that forces a user to change their password on login.													|
-| *Group events*				|
+| **Group events**				|
 | Create group				| Created a group in the directory					|
 | Update group				| Updated a group in the directory					|
 | Delete group				| Deleted a group from the directory				|
