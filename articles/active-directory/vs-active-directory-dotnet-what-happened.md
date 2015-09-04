@@ -63,14 +63,15 @@ If you already had a Startup class in your project, the **Configuration** method
 ### Your app.config or web.config has new configuration values
 
 The following configuration entries have been added.
-	<pre>
-	**<appSettings>
+
+
+	<appSettings>
 	    <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
 	    <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
 	    <add key="ida:Domain" value="The selected Azure AD Domain" />
 	    <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
 	    <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
-	</appSettings>** </pre>
+	</appSettings>
 
 ### An Azure Active Directory (AD) App was created
 An Azure AD Application was created in the directory that you selected in the wizard.
@@ -139,14 +140,14 @@ In the **startup.auth.cs** file, a new **OpenIdConnectAuthenticationNotification
 ###Additional changes were made to your app.config or web.config
 
 The following additional configuration entries have been added.
-	<pre>
-	**<appSettings>
+
+	<appSettings>
 	    <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
-	</appSettings>** </pre>
+	</appSettings>
 
 The following configuration sections and connection string have been added.
-	<pre>
- 	**<configSections>
+
+	<configSections>
 	    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
 	    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
 	</configSections>
@@ -162,7 +163,7 @@ The following configuration sections and connection string have been added.
 	    <providers>
 	      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
 	    </providers>
-	</entityFramework>**</pre>
+	</entityFramework>
 
 
 ###Your Azure Active Directory App was updated

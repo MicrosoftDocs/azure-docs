@@ -16,7 +16,7 @@
 	ms.date="09/03/2015" 
 	ms.author="patshea"/>
 
-# Getting Started with Azure Active Directory and Visual Studio connected services (.NET Projects)
+# Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
