@@ -62,12 +62,11 @@ The key **advantage** of this approach is that it avoids data loss if the outage
 
 ## Summary
 
-Your specific DR strategy can combine or extend these patterns to best fit the needs of your application.  To help guide your decision the table below compares the choices based on the estimated data loss or recovery point objective (RPO) and estimated recovery time (ERT).
+Your specific DR strategy can combine or extend these patterns to best meet the needs of your application.  To help guide your decision the table below compares the choices based on the estimated data loss or recovery point objective (RPO) and estimated recovery time (ERT).
 
 | Pattern | RPO | ERT 
 | --- |--- | --- 
-| Active-passive deployment with co-located database configuration | < 5 sec | Failure detection time, 
-failover API call, application verification test 
+| Active-passive deployment with co-located database configuration | < 5 sec | Failure detection time, failover API call, application verification test 
 | Active-active deployment with non co-located database configuration | < 5 sec | Failure detection time, failover API call, SQL connection string change, application verification test
 | Active-passive deployment with non co-located database configuration | read-only RPO < 5 sec 
 read-write RPO = zero |  ERT (read-only) = connectivity failure detection time, application verification test ERT (read-write) = time to mitigate the outage 
