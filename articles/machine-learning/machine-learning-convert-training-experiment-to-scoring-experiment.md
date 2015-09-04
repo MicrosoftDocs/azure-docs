@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Convert a Machine Learning training experiment to a predictive experiment | Microsoft Azure"
 	description="How to convert a Machine Learning training experiment, used for training your predictive analytics model, to a predictive experiment which can be published as a web service."
 	services="machine-learning"
@@ -34,7 +34,7 @@ The process of converting a training experiment to a predictive experiment invol
 
 ## Set Up Web Service button
 
-The **Set Up Web Service** button at the bottom of the experiment canvas (selecting the **Predictive Web Service** option) will perform for you the three steps of converting your training experiment to a predictive experiment:
+The **Set Up Web Service** button at the bottom of the experiment canvas (select the **Predictive Web Service** option) will perform for you the three steps of converting your training experiment to a predictive experiment:
 
 1.	It saves your trained model as a module in the **Trained Models** section of the module palette (to the left of the experiment canvas), then replaces the machine learning algorithm and [Train Model][train-model] modules with the saved trained model.
 2.	It removes modules that are clearly not needed. In our example, this includes the [Split][split], 2nd [Score Model][score-model], and [Evaluate Model][evaluate-model] modules.
