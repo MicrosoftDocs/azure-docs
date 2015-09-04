@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="09/04/2015" 
 	ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps, services and worker roles
@@ -23,7 +23,9 @@
 
 Application Insights lets you monitor your deployed application for usage and performance.
 
-All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights core SDK to send telemetry to Application Insights. The core SDK just provides an API: unlike the Web or device SDKs, it doesn't include any modules that collect data automatically, so you have to write code to send your own telemetry.
+All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights core SDK to send telemetry to Application Insights. You can also add Application Insights SDK to a class library project.
+
+The core SDK just provides an API: unlike the Web or device SDKs, it doesn't include any modules that collect data automatically, so you have to write code to send your own telemetry. Some of the other packages such as the performance counter collector will also work in a desktop app.
 
 
 ## <a name="add"></a> Create an Application Insights resource
@@ -46,25 +48,27 @@ All Windows applications - including desktop apps, background services, and work
 
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Install the Application Insights Core API package.
+2. Install the Application Insights Core API package: Microsoft.ApplicationInsights.
 
     ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-    You can install other packages such as the Performance Counter or log capture packages if you want to use their facilities.
+    *Can I use other packages?*
 
-3. Set your InstrumentationKey in code, for example in main(). 
+    Yes, you can install other packages such as the performance counter or dependency  collector packages if you want to use their modules. Microsoft.ApplicationInsights.Web includes several such packages. If you want to use the [log or trace collector packages](app-insights-asp-net-trace-logs.md), start with the web server package.
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+    (But don't use Microsoft.ApplicationInsights.Windows: that is intended for Windows Store apps.)
 
-*Why isn't there an ApplicationInsights.config?*
+3. Set your InstrumentationKey.
 
-* The .config file isn't installed by the Core API package, which is only used to configure telemetry collectors. So you write your own code to set the instrumentation key and send telemetry.
-* If you installed one of the other packages, you will have a .config file. You can insert the instrumentation key there instead of setting it in code.
+ * If you only installed the core API package Microsoft.ApplicationInsights, you must set the key in code, for example in main(): 
 
-*Could I use a different NuGet package?*
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*your key*`";`
 
-* Yes, you could use the web server package (Microsoft.ApplicationInsights.Web), which would install collectors for a variety of collection modules such as performance counters. It would install a .config file, where you would put your instrumentation key. Use  [ApplicationInsights.config to disable modules you don't want](app-insights-configuration-with-applicationinsights-config.md), such as the HTTP Request collector. 
-* If you want to use the [log or trace collector packages](app-insights-asp-net-trace-logs.md), start with the web server package. 
+ * If you installed one of the other packages, you can either set the key using code, or set it in ApplicationInsights.config:
+ 
+     `<InstrumentationKey>`*your key*`</InstrumentationKey>`
+
+
 
 ## <a name="telemetry"></a>Insert telemetry calls
 
