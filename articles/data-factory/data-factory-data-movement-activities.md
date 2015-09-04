@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Data Movement Activities" 
-	description="Learn about Data Factory entities that you can use in an Data Factory pipelines to move data." 
+	pageTitle="Data movement activities" 
+	description="Learn about Data Factory entities that you can use in a Data Factory pipelines to move data." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,10 +16,10 @@
 	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
-# Data Movement Activities
+# Data movement activities
 Data factory has a [globally available service](#global) to support data movement with [Copy activity](#copyactivity) across a variety of data stores listed below. Data factory also has built-in support for [securely moving data between on-premises locations and cloud](#moveonpremtocloud) using the data management gateway.
 
-## Supported data stores for Copy Activity
+## Supported data stores for copy activity
 Copy activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and source, sink combinations. Click on a data store to learn how to copy data from/to that store.
 
 | **Source** | **Sink** |
@@ -38,7 +38,7 @@ Copy activity copies data from a **source** data store to a **sink** data store.
 | [On-premises Sybase Database](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 | [On-premises PostgreSQL Database](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
 
-## <a name="copyactivity"></a>Copy Activity
+## <a name="copyactivity"></a>Copy activity
 Copy activity takes one input dataset (**source**) and copies data per activity configuration to one output dataset (**sink**). Data copy is done in a batch fashion according to the schedule specified on the activity.
 
 > [AZURE.NOTE] To learn about defining activities in general at a high level such as various JSON sections and properties available for all activities, see [Understanding Pipelines & Activities](data-factory-create-pipelines.md) article.
@@ -86,9 +86,10 @@ Different data stores have different native type systems. Copy activity performs
 You can find the mapping for a given native type system to .NET for the data store in the respective data store connector articles. You can use these mappings to determine appropriate types while creating your tables so that right conversions are performed during Copy activity.
 
 ### Working with different file formats
-For file based sources Copy activity supports variety of file format including binary, text and Avro formats.
+For file based sources Copy activity supports variety of file format including binary, text and Avro formats. 
+You can use the copy activity to convert from one format to another. Example: text (CSV) to Avro.  
 
-### Copy Activity Properties
+### Copy activity properties
 Properties like name, description, input and output tables, various policies etc are available for all types of activities. Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. 
 
 In case of Copy activity the **typeProperties** section varies depending on the types of sources and sinks. Each of the data store specific page listed above documents these properties specific to the data store type.
