@@ -165,7 +165,7 @@ The next steps are therefore to learn how to:
 1. [Connect and query][] the data warehouse.
 2. Load [sample data].
 
-	> [AZURE.NOTE] We want to make this article better. If you choose "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
+	> [AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
 
 <!--Image references-->
 
