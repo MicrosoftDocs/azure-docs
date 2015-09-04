@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use the StorSimple Manager service dashboard | Microsoft Azure"
-   description="Describes the service dashboard and explains how to use it to monitor the health of your StorSimple solution."
+   pageTitle="StorSimple Manager service dashboard | Microsoft Azure"
+   description="Describes the StorSimple Manager service dashboard and explains how to use it to monitor the health of your StorSimple solution."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="09/02/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service dashboard
