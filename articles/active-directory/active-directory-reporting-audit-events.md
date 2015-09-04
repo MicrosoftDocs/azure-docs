@@ -38,6 +38,7 @@ Target        | The user or service principal that the action was performed on
 
 Events                               | Event Description
 ------------------------------------ | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**User events**                      |
 Add User                             | Added a user to the directory.
 Delete User                          | Deleted a user from the directory.
 Set license properties               | Set the license properties for a user in the directory.
@@ -45,28 +46,6 @@ Reset user password                  | Reset the password for a user in the dire
 Change user password                 | Changed the password for a user in the directory.
 Change user license                  | Changed the license assigned to a user in the directory.
 Update user                          | Updated a user in the directory.
-Add role member to Role              | Added a user to a directory role.
-Remove role member from Role         | Removed a user from a directory role.
-Set Company contact information      | Set company-level contact preferences. This includes email addresses for marketing, as well as technical notifications about Microsoft Online Services.
-Add partner to company               | Added a partner to the directory.
-Remove Partner from company          | Removed a partner from the directory.
-Add service principal                | Added a service principal to the directory.
-Remove service principal             | Removed a service principal from the directory.
-Add service principal credentials    | Added credentials to a service principal.
-Remove service principal credentials | Removed credentials from a service principal.
-Add domain to company                | Added a domain to the directory.
-Remove domain from company           | Removed a domain from the directory.
-Update domain                        | Updated a domain on the directory.
-Set domain authentication            | Changed the default domain setting for the company
-Set federation settings on domain    | Updated the federation settings for a domain.
-Verify domain                        | Verified a domain on the directory.
-Verify email verified domain         | Verified a domain on the directory using email verification.
-Add delegation entry                 | Added a delegation entry to the directory.
-Set delegation entry                 | Update a delegation entry in the directory.
-Remove delegation entry              | Removed a delegation entry from the directory.
-Set DirSyncEnabled flag on company   | Set the property that enables a directory for Azure AD Sync.
-Set Password Policy                  | Set length and character constraints for user passwords.
-Set Company Information              | Updated the company-level information. See the [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) PowerShell cmdlet for more details.
 Set force change user password       | Set the property that forces a user to change their password on login.
 **Group events**                     |
 Create group                         | Created a group in the directory
@@ -74,6 +53,31 @@ Update group                         | Updated a group in the directory
 Delete group                         | Deleted a group from the directory
 Add member to group                  | Added a member to a group in the directory
 Remove member from group             | Removed a member from a group in the directory
+**Application events**               |
+Add service principal                | Added a service principal to the directory.
+Remove service principal             | Removed a service principal from the directory.
+Add service principal credentials    | Added credentials to a service principal.
+Remove service principal credentials | Removed credentials from a service principal.
+Add delegation entry                 | Added a delegation entry to the directory.
+Set delegation entry                 | Update a delegation entry in the directory.
+Remove delegation entry              | Removed a delegation entry from the directory.
+**Role events**                      |
+Add role member to Role              | Added a user to a directory role.
+Remove role member from Role         | Removed a user from a directory role.
+Set Company contact information      | Set company-level contact preferences. This includes email addresses for marketing, as well as technical notifications about Microsoft Online Services.
+**Directory events**                 |
+Add partner to company               | Added a partner to the directory.
+Remove Partner from company          | Removed a partner from the directory.
+Add domain to company                | Added a domain to the directory.
+Remove domain from company           | Removed a domain from the directory.
+Update domain                        | Updated a domain on the directory.
+Set domain authentication            | Changed the default domain setting for the company
+Set federation settings on domain    | Updated the federation settings for a domain.
+Verify domain                        | Verified a domain on the directory.
+Verify email verified domain         | Verified a domain on the directory using email verification.
+Set DirSyncEnabled flag on company   | Set the property that enables a directory for Azure AD Sync.
+Set Password Policy                  | Set length and character constraints for user passwords.
+Set Company Information              | Updated the company-level information. See the [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) PowerShell cmdlet for more details.
 
 <!---
 
