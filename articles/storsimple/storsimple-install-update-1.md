@@ -87,7 +87,7 @@ Use this procedure only if you have a gateway configured on DATA 0 network inter
 
 This procedure applies only to StorSimple devices that are running a software version prior to Update 1 and have a gateway set on a network interface other than DATA 0. The software versions that can be upgraded using this method are Update 0.1, Update 0.2, and Update 0.3. 
 
-If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Management Portal. See [Use the Management Portal to install Update 1](##install-update-12-via-the-management-portal).
+If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Management Portal. See [Use the Management Portal to install Update 1](#install-update-12-via-the-management-portal).
 
 > [AZURE.IMPORTANT] 
 > 

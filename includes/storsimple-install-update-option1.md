@@ -37,6 +37,8 @@
         ![View basket](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png) 
 
     6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) will be downloaded in a **StorSimple Update 1.2 Appliance Update bundle** (KB3063418) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. Repeat these steps to download and copy **StorSimple 1.2 SAS Controller Update **(KB3043005) and **StorSimple 1.2 Disk Firmware Update **(KB3063416).
+    
+	> [AZURE.NOTE] The hotfix must be accessible from both controllers. An error message of ‘WARNING: The network name cannot be found’ could be coming from the peer controller. 
             
 2. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](#use-putty-to-connect-to-the-serial-console).
 
@@ -48,9 +50,11 @@
 
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    The credential parameter is used only if you are accessing an authenticated share.
+    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share. 
 
-    Sample output is shown below.
+	We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
+
+    A sample output is shown below.
 
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
