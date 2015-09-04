@@ -1,8 +1,13 @@
 # Microsoft Azure and the Internet of Things (IoT)
-Microsoft Azure services enable you to implement IoT solutions that can use a variety of client hardware devices. Microsoft provides you with libraries that you can use to implement an IoT device client with your choice of development language and hardware platform. To implement your IoT service infrastructure, you typically combine multiple Azure services. To better understand how Azure can provide this IoT infrastructure, it's useful to consider the Microsoft IoT reference architecture as a starting point.
+A typical IoT solution involves secure, bidirectional communication between devices, possibly numbering in the millions, and an application back end.
+Microsoft provides you with a set of libraries (that support multiple languages and hardware platforms) that you can use to implement an IoT device. To implement your IoT back end application, you can combine multiple Azure services. To better understand how Azure enables this IoT infrastructure, it's useful to consider the Microsoft IoT reference architecture as a starting point.
 
 ## Microsoft IoT Reference Architecture
-The following diagram shows the [Microsoft IoT reference architecture][lnk-reference-architecture]. Notice that is does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide more information about the elements in this architecture.
+You can watch this video for an in-depth discussion of the Microsoft IoT reference architecture:
+
+> [AZURE.VIDEO microsoft-ignite-2015-the-microsoft-architecture-for-the-internet-of-things-iot]
+
+The diagram below is a summary of the Microsoft IoT reference architecture described in the video. Notice that is does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide more information about the elements in this architecture.
 
 ![IoT Reference Architecture][img-reference-architecture]
 [_TBD_ - redraw this diagram with agreed terminology]
@@ -24,4 +29,3 @@ Some IoT solutions include automatic feedback loops. For example, a machine lear
 Many IoT solutions enable users to view and analyze the data collected from their devices. These visualizations may take the form of dashboards or BI reports.
 
 [img-reference-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
-[lnk-reference-architecture]: TBD

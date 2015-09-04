@@ -19,9 +19,9 @@
 [AZURE.INCLUDE [iot-azure-and-iot](../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
-Azure IoT Suite includes a collection of preconfigured solutions for you to deploy in your Azure subscription. These preconfigured solutions:
+Azure IoT Suite enables you to simplify your billing for a bundle of Azure services that you combine in an IoT solution. Azure IoT Suite also includes a collection of preconfigured solutions for you to deploy. These preconfigured solutions:
 - Implement common IoT scenarios such as _remote monitoring_ and _predictive maintenance_.
-- Are complete, working, end-to-end solutions that include simulated devices to get you started, a configured IoT hub, and other preconfigured Azure services such as Azure Stream Analytics, Machine Learning, and Azure storage.
+- Are complete, working, end-to-end solutions that include simulated devices to get you started, preconfigured Azure services such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics, Azure Machine Learning, and Azure storage, and solution specific management consoles.
 - Contain proven, production-ready code that you can customize and extend to implement your own specific IoT scenarios.
 - Are implementations of the Microsoft IoT reference architecture.
 
