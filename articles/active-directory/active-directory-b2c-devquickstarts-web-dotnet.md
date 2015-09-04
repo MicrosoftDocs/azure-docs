@@ -16,7 +16,7 @@
 	ms.date="09/03/2015"
 	ms.author="dastrock"/>
 
-# Azure AD B2C Preview: Add sign-in to an .NET MVC web app
+# Azure AD B2C Preview: Build a .NET web app
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
@@ -40,14 +40,14 @@ and email address during registration.  Policies can be used to control a severa
 - whether or not the user should complete multi-factor authentication.
 - the information that your app should receive when the flow completes.
 
-Every time your app wants to execute a policy, your app simply sends an authentication request to Azure AD, passing the policy identifier in the request.
+Every time your app wants to execute a policy, your app simply sends an HTTP authentication request to Azure AD, passing a policy identifier in the request.
 You can either craft these authentication requests yourself using our [OpenID Connect or OAuth 2.0 protocol reference](), or use our [open source libraries]()
 to do the job for you.  After a policy has been successfully completed, your app will receive back a security token from Azure AD, which can be used to sign the user
 into the app, modify UI, update application data, etc.  Every flow in Azure AD B2C is, in fact, an authentication request.  It's just that the steps the user must
 take to complete the request vary from policy to policy.  To learn more about policies in Azure AD B2C, check 
 out [the policy reference article](active-directory-b2c-reference-policies.md).
 
-For .NET web applications, you can use Microsoft's OWIN library to implement OpenID Connect authentication.  In this article, we'll use OWIN to:
+For .NET web applications, you can use Microsoft's OWIN library to implement OpenID Connect authentication and execute policies.  In this article, we'll use OWIN to:
 
 - Implement a sign-up, sign-in, and edit profile flow using policies.
 - Display some information about the user.
@@ -76,8 +76,8 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 
 ## 3. Set up your IDPs
 
-When you configure your policies, you can choose which types of accounts you want to support - each type of account corresponds to an **identity provider**, or IDP.
-For each IDP you want to support, you will need to register an application in their system and obtain a client ID.  For the purposes of the tutuorial, we reccomend 
+When you create your policies, you can choose which types of accounts you want to support - each type of account corresponds to an **identity provider**, or IDP.
+For each IDP you want to support, you will need to register an application in their system and obtain a client ID.  For the purposes of the tutorial, we recommend 
 that you choose one or two social IDPs to support in addition to local accounts:
 
 - [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
