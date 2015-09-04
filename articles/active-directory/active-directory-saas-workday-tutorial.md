@@ -68,7 +68,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     1.  In the **Sign On URL** textbox, type the URL used by your users to sign in to Workday (e.g.: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*)
     2.  In the **Workday Reply URL** textbox, type the Workday reply URL (e.g.: *https://impl.workday.com/\<tenant\>/login-saml.htmld*).
 
-        >[AZURE.NOTE] Your reply URL must have a sub-domain (e.g.: eg: www, wd2, wd3, wd3-impl, wd5, wd5-impl). 
+        >[AZURE.NOTE] Your reply URL must have a sub-domain (e.g.: www, wd2, wd3, wd3-impl, wd5, wd5-impl). 
 		>Using something like "*http://www.myworkday.com*" works but "*http://myworkday.com*" does not. 
  
 4.  On the **Configure single sign-on at Workday** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
@@ -152,20 +152,22 @@ If you are not familiar with this procedure, see [How to convert a binary certif
       7.  Click **OK**.
 
 12.  Perform the following steps: <br><br>
-        ![SSO configuration](./media/active-directory-saas-workday-tutorial/IC792131.png "SSO configuration")
+        ![SSO configuration](./media/active-directory-saas-workday-tutorial/IC7829351111.png "SSO configuration")
 
-     12.1.  In the **Service Provider ID** textbox, type **http://www.workday.com**.
+     12.1.  Enable the **x509 Private Key Pair**.
 
-     12.2.  Select **Enable SP Initiated SAML Authentication**.
+     12.2.  In the **Service Provider ID** textbox, type **http://www.workday.com**.
 
-     12.3.  In the Azure portal, on the **Configure single sign-on at Workday** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **IdP SSO Service URL** textbox.
+     12.3.  Select **Enable SP Initiated SAML Authentication**.
+
+     12.4.  In the Azure portal, on the **Configure single sign-on at Workday** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **IdP SSO Service URL** textbox.
      
-     12.4 Select **Do Not Deflate SP-initiated Authentication Request**.
+     12.5 Select **Do Not Deflate SP-initiated Authentication Request**.
 
-     12.5. As **Authentication Request Signature Method**, select **SHA256**. <br><br>
+     12.6. As **Authentication Request Signature Method**, select **SHA256**. <br><br>
         ![Authentication Request Signature Method](./media/active-directory-saas-workday-tutorial/IC782932.png "Authentication Request Signature Method") <br><br>
  
-     12.6 Click **OK**. <br><br>
+     12.7 Click **OK**. <br><br>
         ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 12. In the Azure AD portal, on the **Configure single sign-on at Workday** page, click **Next**. <br><br>
