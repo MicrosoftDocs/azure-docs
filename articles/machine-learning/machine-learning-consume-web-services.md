@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="06/29/2015" 
+	ms.date="09/04/2015" 
 	ms.author="bradsev" />
 
 
@@ -46,9 +46,9 @@ For information about how to create and publish an Azure Machine Learning web se
 
 ## Request-Response Service (RRS)
 
-A Request-Response Service (RRS) is a low-latency, highly scalable web service used to provide an interface to the stateless models that have been created and published from an Azure Machine Learning Studio experiment.
+A Request-Response Service (RRS) is a low-latency, highly scalable web service used to provide an interface to the stateless models that have been created and published from an Azure Machine Learning Studio experiment. It enables scenarios where the consuming application expects a response in real-time.
 
-RRS accepts a single row of input parameters and generates a single row as output. The output row can contain multiple columns.
+RRS accepts a single row, or multiple rows, of input parameters and can generate a single row, or multiple rows, as output. The output row(s) can contain multiple columns. 
 
 An example for RRS is validating the authenticity of an application. Hundreds to millions of installations of an application can be expected in this case. When the application starts up, it makes a call to the RRS service with the relevant input. The application then receives a validation response from the service that either allows or blocks the application from performing.
 
