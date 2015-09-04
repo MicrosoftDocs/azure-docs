@@ -66,7 +66,7 @@ To start developing your data warehouse, see [development overview][].
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: sql-data-warehouse-overview-development.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
