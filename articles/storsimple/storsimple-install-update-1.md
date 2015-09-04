@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/03/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # Install Update 1 on your StorSimple device
@@ -29,9 +29,9 @@ Depending upon which version your device is running, you can determine if Update
 
 | If running software version …   | What happens in the portal?                              |
 |---------------------------------|--------------------------------------------------------------|
-| Release (GA)                    | Portal applies Update 0.1 followed by Update 1.2. </br> </br> If you are running Release version (GA) and have a gateway configured on a non-DATA0 network interface, do not apply this update. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to update your device.|
-| Update 0.1                      | Portal applies Update 1.2.                                |
-| Update 0.2                      | Portal applies Update 1.2.                                |
+| Release - GA 				   	  | Portal applies Update 0.1 followed by Update 1.2. </br> </br> If you are running Release version (GA) and have a gateway configured on a non-DATA0 network interface, do not apply this update. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to update your device.|
+| Update 0.1 					  | Portal applies Update 1.2.                                |
+| Update 0.2 					  | Portal applies Update 1.2.                                |
 | Update 0.3                      | Portal applies Update 1.2.                                |
 | Update 1                        | This update will not be available.                           |
 | Update 1.1                      | This update will not be available.                           |
@@ -87,7 +87,7 @@ Use this procedure only if you have a gateway configured on DATA 0 network inter
 
 This procedure applies only to StorSimple devices that are running a software version prior to Update 1 and have a gateway set on a network interface other than DATA 0. The software versions that can be upgraded using this method are Update 0.1, Update 0.2, and Update 0.3. 
 
-If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Management Portal. See [Use the Management Portal to install Update 1](#install-update-1.2-via-the-management-portal).
+If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Management Portal. See [Use the Management Portal to install Update 1](##install-update-12-via-the-management-portal).
 
 > [AZURE.IMPORTANT] 
 > 
@@ -112,12 +112,12 @@ Before using this procedure to apply the update, make sure that:
 - DATA 2 and DATA 3 are disabled. You will need to do this only if the devices are running the GA release. Devices running Update 0.2 and 0.3 do not require them to be disabled. After the update is complete, you can enable these network interfaces again.
 
 
-Perform the following steps to apply Update 1.2. The updates could take around 2 hours to complete (approximately 30 minutes for software, 30 minutes for driver, 45 minutes for disk firmware).
+Perform the following steps to apply Update 1.2. The updates could take around 2 hours to complete (approximately 30 minutes for software, 30 minutes for driver, 45 minutes for disk firmware). This does not include Windows Updates that may take another 3-5 hours.
 
 [AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
 
 
-## Option 2: Use the Azure Portal to apply Update 1.2
+## Option 2: Use the Azure Portal to apply Update 1.2 after removing the gateway configuration
 
 This procedure applies only to StorSimple devices that are running a software version prior to Update 1 and have a gateway set on a network interface other than DATA 0. You will need to clear the gateway setting prior to applying the update.
  
@@ -146,6 +146,7 @@ One likely cause for this could be that you do not have connectivity to the Micr
 Run the cmdlet on both controllers.
  
 If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.
+
 
 ## Next steps
 

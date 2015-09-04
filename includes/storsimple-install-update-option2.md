@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/03/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 #### To install Update 1.2 from the Azure Management Portal
@@ -25,6 +25,6 @@
 
 4. Disable the network interface that has an assigned gateway and save the modified configuration.
 
-7. You can now [use the Management Portal to install Update 1.2](#use-the-management-portal-to-install-update-1). 
+7. You can now [use the Management Portal to install Update 1.2](#use-the-management-portal-to-install-update-1). Follow the instructions starting from step 3 of this procedure.
 
 
