@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use StorSimple Snapshot Manager to connect and manage StorSimple devices | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to connect and  manage StorSimple devices."
+   pageTitle="StorSimple Snapshot Manager and devices | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to connect and manage StorSimple devices."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to connect and manage StorSimple devices
