@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/02/2015"
+	ms.date="09/03/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create and export a BACPAC of an Azure SQL database using PowerShell
+# Create and export a BACPAC of a SQL database using PowerShell
 
 **Single database**
 
@@ -28,7 +28,7 @@
 
 This article shows you how to manually export a BACPAC of your SQL database with PowerShell.
 
-A BACPAC encapsulates the database schema as well as the data stored in the database. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
+A BACPAC is a .bacpac file that contains a database schema and data. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
 
 > [AZURE.NOTE] Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
@@ -42,11 +42,6 @@ To complete this article you need the following:
 - An [Azure Storage account](storage-create-storage-account.md) with a blob container to store the BACPAC. Currently the storage account must use the classic deployment model so choose **Classic** when creating a storage account.
 - Azure PowerShell. You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
-The cmdlets for creating and managing Azure SQL Databases are located in the Azure Resource Manager module. When you start Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet.
-
-	Switch-AzureMode -Name AzureResourceManager
-
-For detailed information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
 
 ## Configure your credentials and select your subscription

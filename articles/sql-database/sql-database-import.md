@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/02/2015"
+	ms.date="09/03/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Import a BACPAC to an Azure SQL Database
+# Import a BACPAC to a SQL Database
 
 **Single database**
 
@@ -25,11 +25,11 @@
 - [Azure Preview Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-This article shows you how to create a SQL Database from a BACPAC with the [Azure preview portal](https://portal.azure.com).
+This article shows you how to create a SQL Database by importing a BACPAC with the [Azure preview portal](https://portal.azure.com).
 
-A BACPAC encapsulates the database schema as well as the data stored in the database. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
+A BACPAC is a .bacpac file that contains a database schema and data. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
 
-The database is created from a .bacpac file imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-backup.md).
+The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-backup.md).
 
 
 > [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
@@ -54,17 +54,17 @@ Open the SQL Server blade for the database you want to import:
 
     ![import database][1]
 
-1.  Click **Storage** and select your storage account, blob container, and .bacpac file to restore from and click **OK**.
+1.  Click **Storage** and select your storage account, blob container, and .bacpac file and click **OK**.
 
     ![configure storage options][2]
 
-1.  Select the pricing tier for the restored database and click **Select**.
+1.  Select the pricing tier for the new database and click **Select**.
 
     ![select pricing tier][3]
 
-1.  Enter a **DATABASE NAME** for the restored database.
-2.  Enter the **Server admin login** and **Password** for the Azure SQL server you are restoring the database to.
-1.  Click **Create** to create the database from the BACPAC (.bacpac file).
+1.  Enter a **DATABASE NAME**.
+2.  Enter the **Server admin login** and **Password** for the Azure SQL server you are importing the database to.
+1.  Click **Create** to create the database from the BACPAC.
 
     ![create database][4]
 
