@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Call a custom API from a Windows Store client - Mobile Services" 
-	description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Call a custom API from a Windows Store client - Mobile Services"
+	description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015" 
 	ms.author="glenga"/>
 
 # Call a custom API from the client
@@ -24,7 +24,7 @@ This topic shows you how to call a custom API from a Windows Store app. A custom
 
 The custom API created in this topic gives you the ability to send a single POST request that sets the completed flag to `true` for all the todo items in the table. Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Add Mobile Services to an existing app]. 
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Add Mobile Services to an existing app].
 
 ## <a name="define-custom-api"></a>Define the custom API
 
@@ -57,4 +57,3 @@ Also, consider finding out more about the following Mobile Services topics:
 [Add Mobile Services to an existing app]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md
 [Define a custom API that supports periodic notifications]: mobile-services-windows-store-dotnet-create-pull-notifications.md
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
- 

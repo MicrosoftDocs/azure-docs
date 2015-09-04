@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple security | Microsoft Azure" 
-   description="Describes the security and privacy features that protect your StorSimple service, device, and data." 
+   description="Describes the security and privacy features that protect your StorSimple service, device, and data on premises and in the cloud." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="AdinaH" 
+   manager="Carolz" 
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/17/2015"
+   ms.date="08/26/2015"
    ms.author="v-sharos"/>
 
-# StorSimple security 
+# StorSimple security and data protection
 
 ## Overview
 

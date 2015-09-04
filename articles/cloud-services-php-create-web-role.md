@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create web and worker roles | Microsoft Azure"
+	pageTitle="PHP web and worker roles | Microsoft Azure"
 	description="A guide to creating PHP web and worker roles in an Azure cloud service, and configuring the PHP runtime."
 	services=""
 	documentationCenter="php"
@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
-	ms.date="06/09/2015"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 #How to create PHP web and worker roles
@@ -23,13 +23,14 @@
 This guide will show you how to create PHP web or worker roles in a Windows development environment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, deploy to Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
 
 ## What are PHP web and worker roles?
-Azure provides three compute models for running applications: the [Web Apps feature in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. All three models support PHP. Cloud Services, which includes web and worker roles, provides *platform as a service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications. A worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
-For more information, see [What is a cloud service?].
+Azure provides three compute models for running applications: Azure App Service, Azure Virtual Machines, and Azure Cloud Services. All three models support PHP. Cloud Services, which includes web and worker roles, provides *platform as a service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications. A worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
+
+For more information about these options, see [Compute hosting options provided by Azure](./cloud-services/fundamentals-application-models.md).
 
 ## Download the Azure SDK for PHP
 
-The [Azure SDK for PHP] consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be [installed via the Microsoft Web Platform Installer][install ps and emulators].
+The [Azure SDK for PHP] consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
 ## Create a Cloud Services project
 
@@ -99,7 +100,7 @@ In some cases, instead of selecting a built-in PHP runtime and configuring it as
 
 To configure a web role to use a PHP runtime that you provide, follow these steps:
 
-1. Create an Azure Service project and add a PHP web role as described in the [Create a cloud services project](#how-to-create-a-cloud-services-project) and [Add PHP web or worker roles](#how-to-add-php-web-or-worker-roles) sections above.
+1. Create an Azure Service project and add a PHP web role as described previously in this topic.
 2. Create a `php` folder in the `bin` folder that is in your web role's root directory, and then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
 3. (OPTIONAL) If your PHP runtime uses the [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your web role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the [sqlncli.msi x64 installer] to the `bin` folder in your web role's root directory. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script shown in the next step:
 
@@ -133,7 +134,7 @@ To configure a web role to use a PHP runtime that you provide, follow these step
 
 To configure a worker role to use a PHP runtime that you provide, follow these steps:
 
-1. Create an Azure Service project and add a PHP worker role as described in the [Create a cloud services project](#how-to-create-a-cloud-services-project) and [Add PHP web or worker roles](#how-to-add-php-web-or-worker-roles) sections above.
+1. Create an Azure Service project and add a PHP worker role as described previously in this topic.
 2. Create a `php` folder in the worker role's root directory, and then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
 3. (OPTIONAL) If your PHP runtime uses [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your worker role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the [sqlncli.msi x64 installer] to the worker role's root directory. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script shown in the next step:
 
@@ -172,7 +173,7 @@ To configure a worker role to use a PHP runtime that you provide, follow these s
 
 ## Run your application in the compute and storage emulators
 
-The Azure compute and storage emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Differences Between the Compute Emulator and Azure](http://msdn.microsoft.com/library/windowsazure/gg432960.aspx) and [Differences Between the Storage Emulator and Azure Storage Services](http://msdn.microsoft.com/library/windowsazure/gg433135.aspx).
+The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure storage emulator for development and testing](./storage/storage-use-emulator.md).
 
 Note that you must have PHP installed locally to use the compute emulator. The compute emulator will use your local PHP installation to run your application.
 
@@ -195,19 +196,13 @@ To stop the emulators, execute this command:
 
 ## Publish your application
 
-To publish your application, you need to first import your publish settings  by using the **Import-PublishSettingsFile** cmdlet. Then you can publish your application by using the **Publish-AzureServiceProject** cmdlet. Details on using each of these cmdlets can be found in [Import publish settings] and [Deploy a cloud service to Azure] respectively.
+To publish your application, you need to first import your publish settings by using the **Import-PublishSettingsFile** cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
-[execution model-web sites]: /develop/net/fundamentals/compute/#WebSites
-[execution model-vms]: /develop/net/fundamentals/compute/#VMachine
-[execution model-cloud services]: /develop/net/fundamentals/compute/#CloudServices
 [Azure SDK for PHP]: /develop/php/common-tasks/download-php-sdk/
-[install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-[What is a cloud service?]: /manage/services/cloud-services/what-is-a-cloud-service/
+[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [service configuration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
-[Import publish settings]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-[Deploy a cloud service to Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy

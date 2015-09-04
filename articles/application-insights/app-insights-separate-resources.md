@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create a new Application Insights resource" 
-	description="Set up for a new application and get a new instrumentation key. Application Insights monitors the performance and usage of live applications." 
+	pageTitle="Separate Application Insights resources for dev, test and production" 
+	description="Monitor the performance and usage of your application at different stages of development" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/02/2015" 
 	ms.author="awills"/>
 
-# Create a new Application Insights resource
+# Separate Application Insights resources for development, test and production
 
 
 To avoid mixing up telemetry from debugging, test, and production versions of your app, create separate [Application Insights][start] resources to receive the data from each version.
