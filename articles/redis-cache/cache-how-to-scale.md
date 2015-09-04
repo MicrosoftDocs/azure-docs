@@ -48,17 +48,15 @@ Select the desired pricing tier from the **Pricing tier** blade and click **Sele
 
 >[AZURE.NOTE] You can scale to a different pricing tier with the following restrictions.
 >
->-	You can't scale from a Standard cache to a Basic cache.
->-	You can scale from a Basic cache to a Standard cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
->-	You can't scale from a larger size down to the C0 (250 MB) size.
+>-	You can't scale from a **Standard** cache to a **Basic** cache.
+>-	You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
+>-	You can't scale from a larger size down to the **C0 (250 MB)** size.
 
 While the cache is scaling to the new pricing tier, a **Scaling** status is displayed in the **Redis Cache** blade.
 
 ![Scaling][redis-cache-scaling]
 
 When scaling is complete, the status changes from **Scaling** to **Running**.
-
->[AZURE.IMPORTANT] During scaling operations, Basic caches are offline and all data in the cache is lost. Once the scaling operation completes, the Basic cache will be back online, with no data. Standard caches remain online during a scaling operation, and no data is typically lost when scaling a Standard cache to a larger size. When scaling a Standard cache to a smaller size, some data may be lost if the new size is smaller than the amount of cached data. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. Note that while Standard caches have a 99.9% SLA for availability, there is no SLA for data loss.
 
 ## How to automate a scaling operation
 
@@ -94,21 +92,27 @@ No, your cache name and keys are unchanged during a scaling operation.
 
 ## How does scaling work
 
-When a **Basic** cache is scaled, it is shut down and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
+When a **Basic** cache is scaled to a different size, it is shut down and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
 
-When a **Standard** cache is scaled, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is reprovisioned, similar to the process that occurs during a failure of one of the cache nodes.
+When a **Basic** cache is scaled to a **Standard** cache, a replica cache is provisioned and the data is copied from the primary cache to the replica cache. The cache remains available during the scaling process.
+
+When a **Standard** cache is scaled to a different size, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is reprovisioned, similar to the process that occurs during a failure of one of the cache nodes.
 
 ## Will I lose data from my cache during scaling
 
-When a **Basic** cache is scaled, all data is lost and the cache is unavailable during the scaling operation.
+When a **Basic** cache is scaled to a new size, all data is lost and the cache is unavailable during the scaling operation.
 
-When a **Standard** cache is scaled to a larger size, all data is usually preserved. When scaling a **Standard** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. Note that while Standard caches have a 99.9% SLA for availability, there is no SLA for data loss.
+When a **Basic** cache is scaled to a **Standard** cache, the data in the cache is typically preserved.
+
+When a **Standard** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
+
+Note that while Standard caches have a 99.9% SLA for availability, there is no SLA for data loss.
 
 ## Will my cache be available during scaling
 
 **Standard** caches remain available during the scaling operation.
 
-**Basic** caches are offline during the scaling operation.
+**Basic** caches are offline during scaling operations to a different size, but remain available when scaling from **Basic** to **Standard**.
 
 ## Operations that are not supported
 
