@@ -17,16 +17,14 @@
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
 # Publishing an Offer on the Microsoft Azure Marketplace
+This information is provided to help you publish your software solution into the Azure Marketplace for other Azure customers to purchase.
+
 ## Getting Started
 What is it to be an Azure Marketplace Publisher
 
 How to get started
-## Account Registration
-[Microsoft Account Creation][2a]
-
-[Publisher Account Creation on Azure Publishing Portal][2b]
-
-[Seller Account Creation on Seller Dashboard][2c]
+## Account Creation & Registration
+[Seller Account Creation & Registration Process][2a]
 
 ## Offer Publication and Management
 #### Virtual Machine Offer and Management
@@ -78,6 +76,12 @@ Get Support for your Customer (coming soon)
 ## Frequently Asked Questions (tenative)
 ## Troubleshooting (tentative)
 
-[2a]: marketplace-publishing-microsoft-account-creation.md
-[2b]: marketplace-publishing-seller-account-creation.md
-[2c]: marketplace-publishing-publisher-account-creation.md
+[1]:.
+[2a]: marketplace-publishing-microsoft-accounts-creation-registration.md
+[3a]:.
+[3b]:.
+[3c]:.
+[4a]:.
+[5a]:.
+[6a]:.
+[7a]:.
