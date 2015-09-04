@@ -76,4 +76,4 @@
 
     ![Maintenance page](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 
-13. You will now see that Maintenance mode updates are available. These updates are disruptive updates and can only be applied via the Windows PowerShell interface of your device. We recommend that you install these updates during a planned maintenance window. Follow the instructions in [Install Maintenance mode Updates](storsimple-update-device.md/#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) to install these updates via the Windows PowerShell for StorSimple.
+13. You will now see that Maintenance mode updates are available. These updates are disruptive updates and can only be applied via the Windows PowerShell interface of your device. We recommend that you install these updates during a planned maintenance window. Follow the instructions in [Install Maintenance mode Updates](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) to install these updates via the Windows PowerShell for StorSimple.
