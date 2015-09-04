@@ -51,6 +51,8 @@ Because it runs in a completely isolated runtime environment, there is no longer
 
 To learn more about Service Bus messaging, see the following topics.
 
+- [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Azure Service Bus Architectural Overview](fundamentals-service-bus-hybrid-solutions.md)
 - [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)

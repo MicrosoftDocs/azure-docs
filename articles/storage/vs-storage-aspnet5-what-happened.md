@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Getting Started with Azure Storage" 
-	description="Describes what happened when creating an Azure storage in a Visual Studio ASP.NET 5 project" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Get Started with Azure Storage | Microsoft Azure"
+	description="Describes what happened when creating an Azure storage in a Visual Studio ASP.NET 5 project"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2015"
 	ms.author="patshea"/>
 
 # What happened to my project?
@@ -27,9 +27,9 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###What happened to my project?
+### What happened to my project?
 
-##### References Added
+#### References added
 
 The Azure Storage NuGet package was added to your Visual Studio project.  
 This package adds the following .NET references:
@@ -45,8 +45,7 @@ This package adds the following .NET references:
 
 Also, the NuGet package **Microsoft.Framework.Configuration.Json** was added.
 
-#####Connection string for Azure Storage added 
+#### Connection string for Azure Storage added
 In the config.json file of your project, an element was created with the selected storage account's connection string and key.
 
 For more information, see [ASP.NET 5](http://www.asp.net/vnext).
- 
