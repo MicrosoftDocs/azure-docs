@@ -15,18 +15,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/28/2015"
+	ms.date="09/03/2015"
 	ms.author="jgao"/>
 
 # Get started using Visual Studio Hadoop tools for HDInsight to run a Hive query
 
 Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight][hdinsight.introduction] and [Get started with HDInsight][hdinsight.get.started]. For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][hdinsight.storm.visual.studio.tools].
 
->[AZURE.NOTE] The most recent release introduced some new features, such as Hive editor
-> support, Hive script local validation, and YARN log access.
-
-
-## Prerequisites
+**Prerequisites**
 
 To complete this tutorial and use the Hadoop tools in Visual Studio, you'll need the following:
 
@@ -178,7 +174,7 @@ The most recent release of the tool allows you to see what’s inside your Hive 
 **To view Hive jobs**
 
 1. From **Server Explorer**, expand **Azure**, and then expand **HDInsight**.
-2. Right-click an HDInsight cluster, and then click **View Hive Jobs**. You'll see a list of the Hive jobs that ran on the cluster.
+2. Right-click an HDInsight cluster, and then click **View Jobs**. You'll see a list of the Hive jobs that ran on the cluster.
 3. Click a job in the job list to select it, and then use the **Hive Job Summary** window to open **Job Query**, **Job Output**, **Job Log**, or **Yarn log**.
 
 	![Hadoop tools: HDInsight Visual Studio Tools view Hive jobs][12]
@@ -190,6 +186,8 @@ The HDInsight Visual Studio Tools support showing performance graphs for the Hiv
 > [AZURE.NOTE] This feature is only available for HDInsight cluster version above 3.2.4.593, and can only work for completed jobs. This works for both Windows and Linux based clusters.
 
 ![hadoop hive tez performance graph](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
+
+To help you understand your Hive query better, the tool add the Hive Operator view in this release. You just need to double click on the vertices of the job graph and you can see all the operators inside the vertex. You can also hover on a particular operator to view more details of this operator.
 
 ## Run Pig scripts
 
