@@ -24,7 +24,7 @@ From a high-level point-of-view, this is done in three steps:
 
 - **[Create a training experiment]** - Azure Machine Learning Studio is a collaborative visual development environment that you use to train and test a predictive analytics model using training data that you supply.
 - **[Convert it to a predictive experiment]** - Once your model has been trained with existing data and you're ready to use it to score new data, you prepare and streamline your experiment for scoring.
-- **[Publish it as a web service]** - With just a click, you can publish your scoring experiment as an Azure web service. Users can send data to your model and receive your model's predictions.
+- **[Deploy it as a web service]** - With just a click, you can publish your scoring experiment as an Azure web service. Users can send data to your model and receive your model's predictions.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
