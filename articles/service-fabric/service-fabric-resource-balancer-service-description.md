@@ -3,7 +3,7 @@
    description="An overview of configuring service descriptions for the Resource Balancer to use"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
+   ms.date="09/03/2015"
    ms.author="abhic"/>
 
 # Service Description Overview
