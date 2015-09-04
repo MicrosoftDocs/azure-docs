@@ -66,14 +66,11 @@ Your specific DR strategy can combine or extend these patterns to best fit the n
 
 | Pattern | RPO | ERT 
 | --- |--- | --- 
-| Active-passive deployment with co-located database configuration | < 5 sec | Failure detection time 
-+ failover API call + application verification test 
-| Active-active deployment with non co-located database configuration | < 5 sec | Failure detection time 
-+ failover API call + SQL connection string change + application verification test
+| Active-passive deployment with co-located database configuration | < 5 sec | Failure detection time, 
+failover API call, application verification test 
+| Active-active deployment with non co-located database configuration | < 5 sec | Failure detection time, failover API call, SQL connection string change, application verification test
 | Active-passive deployment with non co-located database configuration | read-only RPO < 5 sec 
-read-write RPO = zero |  ERT (read-only) = connectivity failure detection time 
-+ application verification test
-ERT (read-write) = time to mitigate the outage 
+read-write RPO = zero |  ERT (read-only) = connectivity failure detection time, application verification test ERT (read-write) = time to mitigate the outage 
 
 Fundamentally the strategy you choose will be based on what SLA you want to offer to your customers and what aspect of the application design you want to optimize for. 
 
