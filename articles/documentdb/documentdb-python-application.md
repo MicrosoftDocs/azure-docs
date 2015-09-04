@@ -373,9 +373,9 @@ running in Azure!
 ## Next steps
 
 Congratulations! You have just built your first Python application using
-Azure DocumentDB and published it to Azure Websites.
+Azure DocumentDB and published it to Azure Websites. 
 
-We'd like to know if you found this tutorial helpful, so please use the voting buttons at the beginning or end of the topic to let us know how we did. This topic is actively being updated, so we want your feedback on improving it. If you'd like us to contact you, feel free to include your email address in the comment for follow-up.  
+We update and improve this topic frequently based on your feedback.  Once you've completed the tutorial, please using the voting buttons at the top and bottom of this page, and be sure to include your feedback on what improvements you want to see made. If you'd like us to contact you directly, feel free to include your email address in your comments.
 
 To add additional functionality to your application, review the APIs available in the [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb).
 
