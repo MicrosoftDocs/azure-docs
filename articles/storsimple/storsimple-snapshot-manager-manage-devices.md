@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager and devices | Microsoft Azure"
+   pageTitle="Manage devices with StorSimple Snapshot Manager | Microsoft Azure"
    description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to connect and manage StorSimple devices."
    services="storsimple"
    documentationCenter=""
