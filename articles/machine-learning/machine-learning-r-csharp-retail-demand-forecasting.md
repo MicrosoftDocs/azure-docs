@@ -3,7 +3,7 @@
 	description="Forecasting - ETS + STL" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="xueshzha" 
+	authors="xueshanz" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

@@ -3,7 +3,7 @@
 	description="Web service: Forecasting-Exponential Smoothing" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="xueshzha" 
+	authors="xueshanz" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
