@@ -140,13 +140,15 @@ Confirm the serialization format:
 
 Close the wizard and wait for the setup to complete.
 
+> [AZURE.TIP] Use the Sample command to download some data. Keep it as a test sample to debug your query.
+
 ## Set the output
 
 Now select your job and set the output.
 
 ![Select the new channel, click Outputs, Add, Power BI](./media/app-insights-export-power-bi/160.png)
 
-Authorize Stream Analytics to access your Power BI resource, and then create a name for the output, and for the target Power BI dataset and table.
+Authorize Stream Analytics to access your Power BI resource, and then invent a name for the output, and for the target Power BI dataset and table.
 
 ![Invent three names](./media/app-insights-export-power-bi/170.png)
 
@@ -155,6 +157,11 @@ Authorize Stream Analytics to access your Power BI resource, and then create a n
 The query governs the translation from input to output.
 
 ![Select the job and click Query. Paste the sample below.](./media/app-insights-export-power-bi/180.png)
+
+
+Use the Test function to check that you get the right output. Give it the sample data that you took from the inputs page. 
+
+#### Query to display counts of events
 
 Paste this query:
 
@@ -173,7 +180,29 @@ Paste this query:
 
 * export-input is the alias we gave to the stream input
 * pbi-output is the output alias we defined
-* We use GetElements because the event name is in a nested JSON arrray. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The Group By clause groups the elements into time periods of 1 minute.
+* We use [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) because the event name is in a nested JSON arrray. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) clause groups the elements into time periods of 1 minute.
+
+
+#### Query to display metric values
+
+
+```SQL
+
+    SELECT
+      A.context.data.eventtime,
+      avg(flat.arrayvalue.myMetric.value) as myValue
+    INTO
+      [pbi-output]
+    FROM
+      [export-input] A
+    OUTER APPLY GetElements(A.context.custom.metrics) as flat
+    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+
+``` 
+
+* This query drills into the metrics telemetry to get the event time and the metric value. The metric values are inside an array, so we use the OUTER APPLY GetElements pattern to extract the rows. "myMetric" is the name of the metric in this case. 
+
+
 
 ## Run the job
 

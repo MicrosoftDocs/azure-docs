@@ -164,11 +164,11 @@ In Visual Studio, you'll see a count of the events that have been sent.
 
 Return to your application blade in the Azure portal.
 
-The first events will appear in Diagnostic Search. 
+The first events will appear in [Diagnostic Search](app-insights-diagnostic-search.md). 
 
 Click Refresh after a few seconds if you're expecting more data.
 
-If you used TrackMetric or the measurements parameter of TrackEvent, open [Metric Explorer][metrics] and open the Filters blade, where you'll see your metrics.
+If you used TrackMetric or the measurements parameter of TrackEvent, open [Metric Explorer][metrics] and open the Filters blade. You should see your metrics there, but they can sometimes take a while to get through the pipeline, so you might have to close the Filters blade, wait a while and then refresh.
 
 
 
