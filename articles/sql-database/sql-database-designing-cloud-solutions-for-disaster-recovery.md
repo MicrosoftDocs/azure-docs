@@ -45,9 +45,9 @@ The key **advantage** of this approach is that you can scale the application log
 ## Design pattern 3: Active-passive deployment with non co-located database configuration
 This design pattern is best suited for applications that are extremely sensitive to the data loss and would only consider the database failover if the outage is permanent. In this pattern the application relies on the read-only secondary database to remain online. The application logic is deployed in both primary and secondary locations and co-located with the database. The databases are geo-replicated between the primary and secondary locations. 
 > [AZURE.NOTE] Because it requires read-only access to the secondary this pattren require using [Active geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx). 
-The following diagram illustrates this configuration before the outage. 
 
-As in the first pattern, the traffic manager is configured with a failover profile and directs the user traffic to the active deployment in the primary region.
+As in the first pattern, the traffic manager is configured with a failover profile and directs the user traffic to the active deployment in the primary region. The following diagram illustrates this configuration before the outage. 
+
 
 ![Figure 5](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
 
@@ -68,8 +68,7 @@ Your specific DR strategy can combine or extend these patterns to best meet the 
 | --- |--- | --- 
 | Active-passive deployment with co-located database configuration | < 5 sec | Failure detection time, failover API call, application verification test 
 | Active-active deployment with non co-located database configuration | < 5 sec | Failure detection time, failover API call, SQL connection string change, application verification test
-| Active-passive deployment with non co-located database configuration | read-only RPO < 5 sec 
-read-write RPO = zero |  ERT (read-only) = connectivity failure detection time, application verification test ERT (read-write) = time to mitigate the outage 
+| Active-passive deployment with non co-located database configuration | read-only RPO < 5 sec, read-write RPO = zero |  ERT (read-only) = connectivity failure detection time, application verification test ERT (read-write) = time to mitigate the outage 
 
 Fundamentally the strategy you choose will be based on what SLA you want to offer to your customers and what aspect of the application design you want to optimize for. 
 
