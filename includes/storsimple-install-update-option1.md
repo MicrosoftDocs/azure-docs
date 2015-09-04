@@ -36,11 +36,11 @@
  
         ![View basket](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png) 
 
-    6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) will be downloaded in a **StorSimple Update 1.2 Appliance Update bundle** (KB3063418) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. Repeat these steps to download and copy **StorSimple 1.2 SAS Controller Update **(KB3043005) and **StorSimple 1.2 Disk Firmware Update **(KB3063416).
+    6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) will be downloaded in a **StorSimple Update 1.2 Appliance Update bundle** (KB3063418) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. Repeat these steps to download and copy **StorSimple 1.2 SAS Controller Update**(KB3043005) and **StorSimple 1.2 Disk Firmware Update**(KB3063416).
     
-	> [AZURE.NOTE] The hotfix must be accessible from both controllers. An error message of ‘WARNING: The network name cannot be found’ could be coming from the peer controller. 
+	> [AZURE.NOTE] The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller. 
             
-2. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](#use-putty-to-connect-to-the-serial-console).
+2. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md/#use-putty-to-connect-to-the-device-serial-console).
 
 3. At the command prompt, press Enter.
 
@@ -131,7 +131,7 @@
 
 	`Get-HcsUpdateStatus`
 
-	If the `RunInProgress` is True, the update is still in progress. If `RunInProgress` is False, it indicates that the update has completed. 
+	If the `RunInProgress` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed. 
 
 
 12. After the driver is updated, you can install the maintenance mode updates. Follow the instructions in [Install Maintenance mode updates via the Winwdow PowerShell for StorSimple](storsimple-update-device.md/#install-maintenance-mode-updates-via-windows-powershell-for-storsimple). Since these are disruptive updates, we recommend that you install these during a planned maintenance windows for your device.
