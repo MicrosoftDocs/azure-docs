@@ -40,7 +40,7 @@
     
 	> [AZURE.NOTE] The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller. 
             
-2. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md/#use-putty-to-connect-to-the-device-serial-console).
+2. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough/#use-putty-to-connect-to-the-device-serial-console).
 
 3. At the command prompt, press Enter.
 
@@ -134,7 +134,7 @@
 	If the `RunInProgress` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed. 
 
 
-12. After the driver is updated, you can install the maintenance mode updates. Follow the instructions in [Install Maintenance mode updates via the Winwdow PowerShell for StorSimple](storsimple-update-device.md/#install-maintenance-mode-updates-via-windows-powershell-for-storsimple). Since these are disruptive updates, we recommend that you install these during a planned maintenance windows for your device.
+12. After the driver is updated, you can install the maintenance mode updates. Follow the instructions in [Install Maintenance mode updates via the Winwdow PowerShell for StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple). Since these are disruptive updates, we recommend that you install these during a planned maintenance windows for your device.
 
 
 
