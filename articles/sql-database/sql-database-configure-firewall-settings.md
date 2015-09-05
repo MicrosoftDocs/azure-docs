@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="How to: Configure Firewall Settings | Microsoft Azure"
 	description="Configure the firewall for IP addresses that access Azure SQL databases."
 	services="sql-database"
@@ -14,13 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="09/02/2015"
+	ms.date="09/04/2015"
 	ms.author="rickbyh"/>
 
 
 # How to: Configure firewall settings on SQL Database
 
- Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.
+
+Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.
 
 **Important**  To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx). 
 
@@ -30,21 +31,10 @@
 Server-level firewall rules can be created and managed through the Microsoft Azure Management Portal, Transact-SQL, Azure PowerShell, or REST API.
 
 ### Manage Server-Level Firewall Rules through the New Azure Portal
-1. Visit the Azure Portal at https://portal.azure.com and sign-in with your Azure Administrator or Contributor account.
-2. On the left banner, click BROWSE ALL, scroll down, and then click SQL servers.
-3. Click the server that you want to configure firewall rules for in the list of SQL Server displayed.
 
-	![firewall][1]
 
-4. In the server blade, click Settings at the top of the blade, and then click Firewall to open the Firewall Settings blade for the server.
-5. Add or change a firewall rule.
+[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-	* To add the IP address of the current computer, click **Add Client IP** at the top of the blade.
-	* To add additional IP addresses, type in the **RULE NAME**, **START IP** address, and **END IP** address.
-	* To modify an existing rule, click and change any of the fields in the rule.
-	* To delete an existing rule, click the rule, click the ellipsis (…) at the end of the row, and then click **Delete**.
-6. Click Save at the top of the Firewall Settings blade to save the changes.
-	![firewall blade][2] 
 
 ## Manage Server-Level Firewall Rules through Management Portal 
 

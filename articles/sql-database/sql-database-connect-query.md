@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Preparations C# query your SQL Database | Microsoft Azure"
-	description="Details about IP addresses, contained users, port numbers, and connection strings to enable your C# program to connect to your Azure SQL Database database in the cloud, by using ADO.NET."
+	pageTitle="Query SQL Database with C# | Microsoft Azure"
+	description="Details about IP addresses, connection strings, config file for secure login, and free Visual Studio all to enable your C# program to connect to your Azure SQL Database database in the cloud, by using ADO.NET."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,27 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/03/2015"
+	ms.date="09/04/2015"
 	ms.author="genemi"/>
 
 
-# Preparations and C# to query your SQL Database
-
-
-<!-- ?? Remove this comment before publishing!
-GeneMi ,   2015-09-03  Thursday  16:08pm
-
-OLD TITLE:  "Connect to and query your SQL Database with C#"
-
-In-progress of rewriting.
-Far enough that now want Jeff.G feedback before finalizing.
--->
-
+# Connect to and query your SQL Database with C&#x23;
 
 
 You want to write a C# program that uses ADO.NET to connect to an Azure SQL Database database in the cloud. 
 
-This topic describes every step for people who are new to Azure SQL Database and C#. Others who are experienced with Microsoft SQL Server and C# will skip some steps to focus on those that are particular to SQL Database.
+This topic describes every step for people who are new to Azure SQL Database and C#. Others who are experienced with Microsoft SQL Server and C# may skip some steps and focus on those that are particular to SQL Database.
 
 
 ## Prerequisites
@@ -81,14 +70,14 @@ Your first use will be to connect Visual Studio to your Azure SQL Database **Adv
 
 If you need to install Visual Studio, you can:
 
-- Install VS by navigating your browser Visual Studio product webpages that provide free downloads and other options; or
+- Install VS by navigating your browser to Visual Studio product webpages that provide free downloads and other options; or
 - Let the [Azure preview portal](http://portal.azure.com/) guide you to the download webpage, which described next.
 
 
 ### Visual Studio through the Azure preview portal
 
 
-1. Login through the [Azure preview portal](http://portal.azure.com/).
+1. Login through the [Azure preview portal](http://portal.azure.com/), http://portal.azure.com/.
 
 2. Click **BROWSE* ALL** > **SQL databases**. A blade opens that searches for databases.
 
@@ -294,35 +283,31 @@ Our C# sample uses the .NET Framework assembly **System.Configuration.dll**, so 
 ## Step 6: Edit the config file
 
 
-1. Find the directory that contains your new **ConnectAndQuery_Example.exe** file, and its companion config file.
+1. Use a plain file manager to find the directory that contains your new **ConnectAndQuery_Example.exe** file, and its companion config file.
+ - The directory path is under your VS project directory, and it probably ends with **bin\debug\**.
  - In the same directory, Visual Studio has placed a file named **ConnectAndQuery_Example.exe.config**. 
 
 2.  Edit the config file, to paste in the whole `<connectionStrings> </connectionStrings>` section, after the `</startup>` close tag.
  - Remember to edit the placeholders such as **{your_serverName_here}**.
 
 
-## Step 7: Add allowed IP addresses in the server firewall
+## Step 7: Add allowed IP address range in the server firewall
 
 
-For an Azure SQL Database server, you can use its firewall to create a whitelist of IP address ranges from which clients are allowed to connect. Your C# program will fail to connect if its IP address is not in the whitelist.
-
-Firewall rules can be set at the server or database level. For information see:
+Your client C# program cannot connect to Azure SQL Database until the IP address of the client computer has been added in the SQL Database firewall. You program will fail with an error message that states the necessary IP address, which is handy information.
 
 
-- [sp_set_firewall_rule](http://msdn.microsoft.com/library/dn270017.aspx) or [sp_set_database_firewall_rule](http://msdn.microsoft.com/library/dn270010.aspx) - to add ranges of allowed IP addresses to connect.
-- [sys.firewall_rules](http://msdn.microsoft.com/library/dn269980.aspx) or [sys.database_firewall_rules](http://msdn.microsoft.com/library/Dn269982.aspx) - to see what ranges are presently allowed.
-- [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md) - for discussion of the whole area, including code examples and portal UI examples.
-
-
-> [AZURE.TIP] If your C# program fails because its IP address is absent from the allowed list, the error message tells you the exact IP address that you need to add.
+You can use the [Azure preview portal](http://portal.azure.com/) to add the IP address.
 
 
 
-<!-- ??
+[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-## Step 8: ??_TEST_Allow outbound communication on port 1433 in your client firewall. LUIZ.F.S ??
 
--->
+
+For more information, see:<br/>
+[How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
+
 
 
 ## Step 8: Run the program
