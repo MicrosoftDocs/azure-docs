@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-include-connection-string-40-config.md
 
-Latest Freshness check:  2015-09-03 , GeneMi.
+Latest Freshness check:  2015-09-04 , GeneMi.
 
 ## Connection string
 -->
@@ -49,6 +49,7 @@ You must edit real names in for the placeholders:
 
 
 For this illustration we chose to omit two parameters:
+
 - User ID={your_userName_here};
 - Password={your_password_here};
 
