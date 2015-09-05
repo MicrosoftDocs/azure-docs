@@ -25,7 +25,8 @@ Azure Resource Manager Template allows you to declaratively specify the Azure Ia
 [Resource Group Overview](../resource-group-overview.md)
 
 ## Sample template snippet for VM Extensions.
-The template snippet for Deploying extensions looks as following:
+Deploying VM Extension as part of Azure Resource Manager template requires you to declaratively specify the Extension configuration in the template.
+Here is the format for specifying the extension configuration.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -43,6 +44,11 @@ The template snippet for Deploying extensions looks as following:
       }
       }
       }
+
+As you can see from the above, the extension template contains two main parts:
+
+1. Extension name, publisher and version.
+2. Extension Configuration.
 
 ## Identifying the publisher, type and the typeHandlerVersion for any extension.
 
