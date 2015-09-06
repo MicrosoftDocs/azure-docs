@@ -55,7 +55,7 @@ The API key is an authentication token generated during service provisioning (ad
 - admin keys (read-write permissions, 2 per service)
 - query keys (read-only, up to 50 per service)
 
-API keys are strings, 32 characters long. Visually, there is no distinction between admin and query keys. If you lose take of what type of key you've specified in code, you would need to check the portal or use the Management REST API to return the key type. To learn more about keys, visit [Azure Search Service REST API](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx).
+API keys are strings, 32 characters long. Visually, there is no distinction between admin and query keys. If you lose take of what type of key you've specified in code, you would need to check the portal or use the Management REST API to return the key type. To learn more about keys, visit [Azure Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 > [AZURE.TIP] A query key delivers a read-only experience to the client. See the [TryAppService + Azure Search](search-tryappservice.md) to test-drive the Azure Search operations that are available in a read-only service. Note that in TryAppService, the Web app code is fully modifiable – you can change any of the C# code in the ASP.NET project to modify web page layout, search query construction, or search results—it’s just the Azure Search service index and document load operations that are read-only, per the inclusion of a query api-key on the service connection.
 
