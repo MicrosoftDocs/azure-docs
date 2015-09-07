@@ -97,7 +97,7 @@
 
         ````
 		
-	> - [AZURE.NOTE] Owing to a bug in the software, you will need to wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed. 
+	> - [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed. 
 	
 8. After the software update is complete, verify the system software versions. Type the following command:
 
@@ -111,9 +111,11 @@
     
 	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
     
-9. Schedule for downtime as we will now install the disk firmware updates that are disruptive updates. To install disk firmware updates, follow the instructions in [Install Maintenance mode updates via the Winwdow PowerShell for StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple). These disruptive updates will take around 30 minutes to apply. 
+9. You will now install the disk firmware updates that are disruptive and take around 30-45 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. To install disk firmware updates, follow the instructions in [Install Maintenance mode updates via the Winwdow PowerShell for StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).  
 
-10. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Management Portal. Navigate to **Maintenance** page and from the bottom of the page, click **Scan Updates**. You will be notified that updates are available, these include the driver and the Windows Updates. Click **Install Updates** to begin the install. You are done after all the updates are successfully installed. 
+10. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Management Portal. Maintenance mode updates are not updated on the portal until 24 hours have elapsed. You may need to wait before you apply the remaining non-disruptive updates from the Management Portal. 
+
+11. When you are ready to apply updates, navigate to **Maintenance** page and from the bottom of the page, click **Scan Updates**. You will be notified that updates are available, these include the driver and the Windows Updates. Click **Install Updates** to begin the install. You are done after all the updates are successfully installed. 
 
 
 
