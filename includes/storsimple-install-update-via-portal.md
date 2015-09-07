@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/07/2015"
    ms.author="v-sharos" />
 
 #### To install Update 1.2 from the Management Portal
@@ -43,7 +43,7 @@
 	
 	- **DATA 2 and DATA 3 checks** to verify that DATA 2 and DATA 3 network interfaces are not enabled. If these interfaces are enabled, then you will need to disable them and then try to update your device. This check is performed only if you are updating from a device running GA software. Devices running versions 0.1, 0.2, or 0.3 will not need this check.
 	
-	- **Gateway check** on any device running a version prior to Update 1. This check is performed only on devices that have a gateway configured for a network interface other than DATA 0.
+	- **Gateway check** on any device running a version prior to Update 1. This check is performed on all the device running pre-update 1 software but fails on the devices that have a gateway configured for a network interface other than DATA 0.
  
 	Update 1.2 will only be applied if all the above pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
   
@@ -76,4 +76,4 @@
 
     ![Maintenance page](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 
-13. You will now see that Maintenance mode updates are available. These updates are disruptive updates and can only be applied via the Windows PowerShell interface of your device. We recommend that you install these updates during a planned maintenance window. Follow the instructions in [Install Maintenance mode Updates](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) to install these updates via the Windows PowerShell for StorSimple.
+13. You will now see that Maintenance mode updates are available. These updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the instructions in [Install Maintenance mode Updates](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) to install these updates via the Windows PowerShell for StorSimple.

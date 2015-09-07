@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/07/2015"
    ms.author="v-sharos" />
 
 #### To install Update 1.2 from Windows PowerShell for StorSimple
@@ -36,13 +36,13 @@
  
         ![View basket](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png) 
 
-    6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) will be downloaded in a **StorSimple Update 1.2 Appliance Update bundle** (KB3063418) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. Repeat these steps to download and copy **StorSimple 1.2 SAS Controller Update**(KB3043005) and **StorSimple 1.2 Disk Firmware Update**(KB3063416).
+    6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) will be downloaded in a **StorSimple Update 1.2 Appliance Update bundle** (KB3063418) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
     
 	> [AZURE.NOTE] The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller. 
             
 2. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-3. At the command prompt, press Enter.
+3. At the command prompt, press **Enter**.
 
 4. Select **Option 1** to log on to the device with full access.
 
@@ -97,6 +97,8 @@
 
         ````
 		
+	> - [AZURE.NOTE] Owing to a bug in the software, you will need to wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed. 
+	
 8. After the software update is complete, verify the system software versions. Type the following command:
 
     `Get-HcsSystem`
@@ -109,32 +111,9 @@
     
 	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
     
-9. Scan for available updates. Type:
-	
-	`Get-HcsUpdateAvailability`
+9. Ensure that you are connected to the serial console. See the steps in Connecting to the device serial console. Schedule for downtime as we will now install the disk firmware updates that are maintenance mode updates. To install disk firmware updates, follow the instructions in [Install Maintenance mode updates via the Winwdow PowerShell for StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple). These disruptive updates will take around 30 minutes to apply. 
 
-	You should see that both regular software updates (LSI driver updates) as well as maintenance mode updates (disk firmware updates) are available. A sample output is shown below:
-
-		Controller0>Get-HcsUpdateAvailability
-	
-	
-		RegularUpdates : True
-		MaintenanceModeUpdates : True
-
-10. To install the driver updates, type:
-
-	`Start-HcsUpdate`
-
-	This will start the install. Both the controllers will be updated and you may see a controller failover.
-
-11. You can monitor the status of the update. Type:
-
-	`Get-HcsUpdateStatus`
-
-	If the `RunInProgress` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed. 
-
-
-12. After the driver is updated, you can install the maintenance mode updates. Follow the instructions in [Install Maintenance mode updates via the Winwdow PowerShell for StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple). Since these are disruptive updates, we recommend that you install these during a planned maintenance windows for your device.
+10. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Management Portal. Navigate to Maintenance page and from the bottom of the page, click **Scan Updates**. You will be notified that updates are available, these include the driver and the Windows Updates. Click **Install Updates** to begin the install. You are done after all the updates are successfully installed. 
 
 
 
