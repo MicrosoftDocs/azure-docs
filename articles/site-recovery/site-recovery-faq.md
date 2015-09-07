@@ -64,7 +64,7 @@ This isn't supported. Send us your feedback through [Azure Site Recovery Feedbac
 ### Can I seed the initial disks to Azure using offline mechanism?
 This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Support for offline replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
-### Can I throttle bandwidth allotted for replication traffic when using Hyper-v as source.
+### Can I throttle bandwidth allotted for replication traffic when using Hyper-v as source?
 - If you are doing replication between two on-premises site then you can use Windows QoS for that. Below is a sample script: 
 
     	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
