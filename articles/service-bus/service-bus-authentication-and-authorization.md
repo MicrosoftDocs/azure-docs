@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Service Bus Authentication and Authorization"
+   pageTitle="Service Bus Authentication and Authorization | Microsoft Azure"
    description="Overview of Shared Access Signature (SAS) authentication."
    services="service-bus"
    documentationCenter="na"
@@ -11,7 +11,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
+   ms.workload="na"
    ms.date="09/04/2015"
    ms.author="sethm" />
 
