@@ -107,13 +107,13 @@ Detailed instructions for each of these are provided in the following sections.
 
 ## Option 1: Use Windows PowerShell for StorSimple to apply Update 1.2 as a hotfix
 
-You should use this procedure only if you are running Update 0.1, 0.2, 0.3 and if your gateway check has failed when trying to install updates from the Management Portal. If you are running Release (GA) software, please contact Microsoft Support to update your device. 
+You should use this procedure only if you are running Update 0.1, 0.2, 0.3 and if your gateway check has failed when trying to install updates from the Management Portal. If you are running Release (GA) software, please [Microsoft Support](storsimple-contact-microsoft-support.md) to update your device. 
 
 Before using this procedure to apply the update, make sure that:
 
 - Both device controllers are online.
 
-Perform the following steps to apply Update 1.2. The updates could take around 2 hours to complete (approximately 30 minutes for software, 30 minutes for driver, 45 minutes for disk firmware).
+Perform the following steps to apply Update 1.2. **The updates could take around 2 hours to complete (approximately 30 minutes for software, 30 minutes for driver, 45 minutes for disk firmware).**
 
 [AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
 

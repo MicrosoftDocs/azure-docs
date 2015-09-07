@@ -111,9 +111,9 @@
     
 	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
     
-9. Ensure that you are connected to the serial console. See the steps in Connecting to the device serial console. Schedule for downtime as we will now install the disk firmware updates that are maintenance mode updates. To install disk firmware updates, follow the instructions in [Install Maintenance mode updates via the Winwdow PowerShell for StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple). These disruptive updates will take around 30 minutes to apply. 
+9. Schedule for downtime as we will now install the disk firmware updates that are disruptive updates. To install disk firmware updates, follow the instructions in [Install Maintenance mode updates via the Winwdow PowerShell for StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple). These disruptive updates will take around 30 minutes to apply. 
 
-10. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Management Portal. Navigate to Maintenance page and from the bottom of the page, click **Scan Updates**. You will be notified that updates are available, these include the driver and the Windows Updates. Click **Install Updates** to begin the install. You are done after all the updates are successfully installed. 
+10. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Management Portal. Navigate to **Maintenance** page and from the bottom of the page, click **Scan Updates**. You will be notified that updates are available, these include the driver and the Windows Updates. Click **Install Updates** to begin the install. You are done after all the updates are successfully installed. 
 
 
 
