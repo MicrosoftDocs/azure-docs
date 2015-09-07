@@ -190,7 +190,7 @@ Paste this query:
 
     SELECT
       A.context.data.eventtime,
-      avg(flat.arrayvalue.myMetric.value) as myValue
+      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
     INTO
       [pbi-output]
     FROM
