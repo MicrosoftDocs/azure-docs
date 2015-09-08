@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/04/2015"
+   ms.date="09/08/2015"
    ms.author="kempb" />
 
 # Configuring Diagnostics for Azure Cloud Services and Virtual Machines
@@ -246,7 +246,7 @@ After you’ve collected the diagnostics data for a cloud service or a virtual m
 
   A report that shows the available data appears.
 
-  ![Windows Azure Diagnostics Report in Visual Studio](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796666.png)
+  ![Microsoft Azure Diagnostics Report in Visual Studio](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796666.png)
 
   If the most recent data doesn't appear, you might have to wait for the transfer period to elapse.
 

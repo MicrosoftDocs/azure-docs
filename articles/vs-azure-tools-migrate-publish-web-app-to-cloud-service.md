@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/04/2015"
+   ms.date="09/08/2015"
    ms.author="kempb" />
 
 # How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio
@@ -25,7 +25,7 @@ For a list of specific templates that are supported for both Visual C# and Visua
 
 You must first enable your web application for Azure from Visual Studio. The following illustration shows the key steps to publish your existing web application by adding an Azure project to use for deployment. This process adds an Azure project with the required web role to your solution. Based on the type of web project that you have, the project properties for assemblies are also updated if the service package requires additional assemblies for deployment.
 
-![Publish a Web application to Windows Azure](./media/vs-azure-tools-how-to-migrate-and-publish-web-app-to-azure-cloud-service-from-vs/IC748917.png)
+![Publish a Web application to Microsft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
 >[AZURE.NOTE] The **Convert**, **Convert to Azure Cloud Service Project** command is displayed only for the web project in your solution. For example, the command is not available for a Silverlight project in your solution.
 When you create a service package or publish your application to Azure, warnings or errors might occur. These warnings and errors can help you fix issues before you deploy to Azure. For example, you might receive a warning about a missing assembly. For more information about how to treat any warnings as errors, see [How to Configure an Azure Cloud Service Project with Visual Studio](vs-azure-tools-cloud-service-how-to-configure-project-with-visual-studio.md). If you build your application, run it locally using the compute emulator, or publish it to Azure, you might see the following error in the **Error List** window: **The specified path, file name, or both are too long**. This error occurs because the length of the fully qualified Azure project name is too long. The length of the project name, including the full path, cannot be more than 146 characters. For example, this is the full project name including file path for an Azure project that is created for a Silverlight application: `c:\users\<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. You might have to move your solution to a different directory that has a shorter path to reduce the length of the fully qualified project name.
@@ -130,7 +130,7 @@ If you have a connection string for your web application that uses a SQL Server 
 
 1. To see the progress of the deployment, you can view the **Azure Activity Log** window. This log is automatically displayed when the deployment process starts. You can expand the line item in the activity log to show detailed information, as shown in the following illustration:
 
-  ![VST_AzureActivityLog](./media/vs-azure-tools-how-to-migrate-and-publish-web-app-to-azure-cloud-service-from-vs/IC744149.png)
+  ![VST_AzureActivityLog](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744149.png)
 
 1. (Optional) To cancel the deployment process, open the shortcut menu for the line item in the activity log and choose **Cancel and remove**. This stops the deployment process and deletes the deployment environment from Azure.
 
@@ -140,7 +140,7 @@ If you have a connection string for your web application that uses a SQL Server 
 
   The following illustration shows the role instances while they are still in the Initializing state:
 
-  ![VST_DeployComputeNode](./media/vs-azure-tools-how-to-migrate-and-publish-web-app-to-azure-cloud-service-from-vs/IC744134.png)
+  ![VST_DeployComputeNode](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744134.png)
 
 1. To access your application after deployment, choose the arrow next to your deployment when a status of **Completed** appears in the **Azure Activity log**. This displays the URL for your web application in Azure. See the following table for the details about how to start a specific type of web application from Azure.
 

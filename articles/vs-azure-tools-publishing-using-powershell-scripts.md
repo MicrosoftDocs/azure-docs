@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/04/2015"
+   ms.date="09/08/2015"
    ms.author="kempb" />
 
 # Using Windows PowerShell Scripts to Publish to Dev and Test Environments
@@ -159,7 +159,7 @@ If you have never run a Windows PowerShell script before, you must first set the
 
 1. Create the Web Deploy package for your project. A Web Deploy package is a compressed archive (.zip file) that contain files that you want to copy to your website or virtual machine. You can create Web Deploy packages in Visual Studio for any web application.
 
-  ![Create Web Deploy Package](./media/using-windows-powershell-scripts-to-publish-to-dev-and-test-environments/IC767885.png)
+  ![Create Web Deploy Package](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
 
   For more information, see [How to: Create a Web Deployment Package in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). You can also automate the creation of your Web Deploy package, as described in the section **Customizing and extending the publish scripts** later in this topic.
 

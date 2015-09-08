@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/04/2015"
+   ms.date="09/08/2015"
    ms.author="kempb" />
 
 # How to configure an Azure cloud service project with Visual Studio
@@ -185,7 +185,7 @@ By using a different value for each service configuration, you do not have to us
 
 ## Manage local storage for each role instance
 
-You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. For more information about local storage resources, see [Configure Local Storage Resources](https://msdn.microsoft.com/en-us/library/azure/ee758708).
+You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. For more information about local storage resources, see [Configure Local Storage Resources](https://msdn.microsoft.com/library/azure/ee758708).
 
 Local storage settings apply to all service configurations. You can only add, remove, or modify local storage for all service configurations.
 
@@ -295,7 +295,7 @@ You can collect diagnostics data for your Azure cloud service. This data is adde
 
 ## Change the size of the virtual machine used for each role
 
-You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Configure Sizes for Cloud Services](https://msdn.microsoft.com/en-us/library/azure/ee814754).
+You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Configure Sizes for Cloud Services](https://msdn.microsoft.com/library/azure/ee814754).
 
 The resources required for each virtual machine in Azure affects the cost of running your cloud service in Azure. For more information about Azure Billing, see [Understand Your Azure Bill](billing-understand-your-bill.md).
 
@@ -376,4 +376,4 @@ Any management certificates that you associate with your service configurations 
 1. Choose the **Save** button on the toolbar to save these changes to the service configuration files.
 
 ## Next steps
-Learn more about Azure projects in Visual Studio by reading [Configuring an Azure Project](vs-azure-tools-configuring-an-azure-project.md). Learn more about the cloud service schema by reading [Schema Reference](https://msdn.microsoft.com/en-us/library/azure/dd179398).
+Learn more about Azure projects in Visual Studio by reading [Configuring an Azure Project](vs-azure-tools-configuring-an-azure-project.md). Learn more about the cloud service schema by reading [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398).
