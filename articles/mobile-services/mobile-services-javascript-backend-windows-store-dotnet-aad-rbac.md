@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Microsoft Azure" 
-	description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." 
+	pageTitle="Role Based Access Control in Mobile Services using JavaScript and the Azure Active Directory (Windows Store) | Microsoft Azure" 
+	description="Learn how to control access based on Azure Active Directory roles in your Windows Store application using a Mobile Service with a JavaScript backend" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# Role Based Access Control in Mobile Services and Azure Active Directory
+# Role Based Access Control in Mobile Services using .NET and the Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -24,7 +24,7 @@
 
 Roles-based access control (RBAC) is the practice of assigning permissions to roles that your users can hold, nicely defining boundaries on what certain classes of users can and cannot do. This tutorial will walk you through how to add basic RBAC to Azure Mobile Services.
 
-This tutorial will demonstrate role based access control, checking each user's membership to a Sales group defined in the Azure Active Directory (AAD). The access check will be done with JavaScript in the mobile service backend using the [Graph API] for Azure Active Directory. Only users who belong to the Sales role will be allowed to query the data.
+This tutorial will demonstrate role based access control, checking each user's membership to a Sales group defined in the Azure Active Directory (AAD). The access check will be done with JavaScript in the Mobile Service backend using the [Graph API] for Azure Active Directory. Only users who belong to the Sales role will be allowed to query the data.
 
 
 >[AZURE.NOTE] The intent of this tutorial is to extend your knowledge of authentication to include authorization practices. It is expected that you first complete the [Add authentication to your Mobile Service app] tutorial using the Azure Active Directory authentication provider. This tutorial continues to update the TodoItem application used in the [Add authentication to your Mobile Service app] tutorial.
