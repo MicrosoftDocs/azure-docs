@@ -19,9 +19,9 @@
 
 ## Overview
 
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1.2. They also contain a list of the StorSimple software and firmware updates included in this release. 
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1.2. They also contain a list of the StorSimple software, driver and disk firmware updates included in this release. 
 
-Update 1.2 can be applied to any StorSimple device running Release (GA), Update 0.1, Update 0.2, or Update 0.3 software. Update 1.2 is not available if your device is running Update 1 or Update 1.1. 
+Update 1.2 can be applied to any StorSimple device running Release (GA), Update 0.1, Update 0.2, or Update 0.3 software. Update 1.2 is not available if your device is running Update 1 or Update 1.1. If your device is running Release (GA), please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with installing this update.
 
 The following table lists the device software versions corresponding to Updates 1, 1.1, and 1.2.
 
