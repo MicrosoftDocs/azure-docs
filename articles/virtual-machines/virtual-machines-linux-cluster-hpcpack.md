@@ -291,7 +291,7 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
 
 ## Next steps
 
-* Use **clusrun** to install your Linux application on the Linux compute nodes and submit a job to the HPC Pack cluster.
+* Try running a Linux workload on the cluster. For an example, see [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
 
 * Try scaling up the cluster to a larger number of nodes, or deploy size [A8 or A9](virtual-machines-a8-a9-a10-a11-specs.md) compute nodes to run MPI workloads.
 
