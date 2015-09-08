@@ -43,19 +43,20 @@ Select SQL Database and click next.
 ![][Add Output]
 
 ### Step 3
-Enter the following values on the next page
-- Output Alias: Enter a friendly name for this job output.
-- Subscription: 
+Enter the following values on the next page:
+
+- *Output Alias*: Enter a friendly name for this job output.
+- *Subscription*:
 	- If your SQL Data Warehouse database is in the same subscription as the Stream Analytics job, select Use SQL Database from Current Subscription.
 	- If your database is in a different subscription, select Use SQL Database from Another Subscription.
-- Database: Specify the name of a destination database.
-- Server Name: Specify the server name for the database you just specified. You can use the Azure Portal to find this.
+- *Database*: Specify the name of a destination database.
+- *Server Name*: Specify the server name for the database you just specified. You can use the Azure Portal to find this.
 
 ![][Server Name]
 
-- User Name: Specify the user name of an account that has write permissions for the database.
-- Password: Provide the password for the specified user account.
-- Table: Specify the name of the target table in the database.
+- *User Name*: Specify the user name of an account that has write permissions for the database.
+- *Password*: Provide the password for the specified user account.
+- *Table*: Specify the name of the target table in the database.
 
 ![][Add Database] 
 
