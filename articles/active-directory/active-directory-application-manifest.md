@@ -25,7 +25,7 @@ There are actually multiple options available for updating the properties on an 
 
 - The **[Azure portal's][AZURE-PORTAL] Web user interface** allows you to update the most common properties of an application. This is the quickest and least error prone way of updating your application's properties, but does not give you full access to all properties, like the next two methods.
 - For more advanced scenarios where you need to update properties that are not exposed in the Azure portal, you can modify the **application manifest**. This is the focus of this article and is discussed in more detail starting in the next section.
-- It's also possible to **write an application that uses the [Graph API](GRAPH-API)** to update your application, which requires the most effort. This may be an attractive option though, if you are writing management software, or need to update application properties on a regular basis in an automated fashion.
+- It's also possible to **write an application that uses the [Graph API][GRAPH-API]** to update your application, which requires the most effort. This may be an attractive option though, if you are writing management software, or need to update application properties on a regular basis in an automated fashion.
 
 ## Using the application manifest to update an application's identity configuration
 Through the [Azure portal][AZURE-PORTAL], you can manage your application's identity configuration, by downloading and uploading a JSON file representation, which is called an application manifest. No actual file is stored in the directory - the application manifest is merely an HTTP GET operation on the Azure AD Graph API application entity, and the upload is an HTTP PATCH operation on the application entity. 
