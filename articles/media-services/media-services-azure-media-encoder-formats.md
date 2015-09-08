@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2015" 
+	ms.date="09/03/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Encoder formats and codecs
@@ -21,7 +21,7 @@
 This document contains a list of the most common input and output file formats and codecs that you can use with Azure Media Encoder.
 
 
-##Input video file formats (containers)
+##Input file formats (containers)
  
 File format (file extensions)|Supported
 ---|---
@@ -33,32 +33,25 @@ Digital camcorder MPEG-2 (MOD) (.mod)	|Yes
 DVD transport stream (TS) file (.ts)	|Yes
 DVD video object (VOB) file (.vob)	|Yes
 Expression Encoder Screen Capture Codec file (.xesc)	|Yes
-MP4 (.mp4)	|Yes
+MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)	|Yes
 MPEG-1 System Stream (.mpeg, .mpg)	|Yes
 MPEG-2 video file (.m2v)	|Yes
-Smooth Streaming File Format (PIFF 1.3) (.ismv)	|Yes
 Windows Media Video (WMV) (.wmv)	|Yes
+AC-3 (Dolby Digital) audio(.ac3)|Yes
+Audio Interchange File Format (AIFF)(.aiff)|Yes
+Broadcast Wave Format(.bwf)|Yes
+MP3 (MPEG-1 Audio Layer 3)(.mp3)|Yes
+MPEG-4 audio book(.m4b)|Yes
+WAVE file(.wav)|Yes
+Windows Media Audio(.wma)|Yes
 Adobe® Flash® F4V			|No		
 MXF/SMPTE 377M				|Limited 
 GXF							|No		 
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|No
 Matroska/WebM				|No
 
+
 Some uncompressed formats are supported. For more information, see [Supported Uncompressed Video Formats](#uncompressed)
-
-##Input audio file formats
-
-File Format (file extensions)|Supported
----|---
-AC-3 (Dolby Digital) audio(.ac3)|Yes
-Audio Interchange File Format (AIFF)(.aiff)|Yes
-Broadcast Wave Format(.bwf)|Yes
-MP3 (MPEG-1 Audio Layer 3)(.mp3)|Yes
-MP4 audio(.m4A)|Yes
-MPEG-4 audio book(.m4b)|Yes
-WAVE file(.wav)|Yes
-Windows Media Audio(.wma)|Yes
-
 
 ##Input video Codecs
 

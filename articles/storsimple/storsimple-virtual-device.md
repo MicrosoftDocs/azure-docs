@@ -1,6 +1,6 @@
 <properties
    pageTitle="StorSimple virtual device in Azure | Microsoft Azure"
-   description="Learn how to create, configure, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network."
+   description="Learn how to create, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network. (Applies to StorSimple version .3 and earlier.)"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/27/2015"
+   ms.date="09/02/2015"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure
