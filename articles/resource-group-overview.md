@@ -13,22 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/20/2015"
+   ms.date="09/08/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Overview
 
-Applications are typically made up of many components – maybe a web app, database, database server, storage, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group.  
+The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update or delete all of the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production.
 
-Azure Resource Manager natively integrates access control into the management platform so you can specify which actions a user in your organization can take for a resource group.  
+## The benefits of using Resource Manager
 
-Resource Manager provides a new way to deploy and manage your solutions. To learn about the changes in this new deployment model, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md).
+Azure Resource Manager provides several benefits:
 
-Here's a video demonstration of this overview:
+- You can deploy, manage, and monitor all of the resources for your solution as a group, rather than handling these resources individually.
+- You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.
+- You can use declarative templates to define your deployment.
+- You can define the dependencies between resources so they are deployed in the correct order.
+- You can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.
+- You can apply tags to resources to logically organize all of the resources in your subscription.
+- You can clarify billing for your organization by viewing the rolled-up costs for the entire group or for a group of resources sharing the same tag.  
 
-[AZURE.VIDEO azure-resource-manager-overview]
-
-> [AZURE.NOTE] This topic describes resources, groups, and templates using the preview portal to demonstrate the concepts. However, you can also create, manage, and delete Azure resources using the [Azure CLI for Mac, Linux, and Windows](virtual-machines/xplat-cli-azure-resource-manager.md) as well as [PowerShell](powershell-azure-resource-manager.md).
+Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model, you may want to learn about the changes in [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md).
 
 ## Resource Groups
 
@@ -39,25 +43,10 @@ There are some important factors to consider when defining your resource group:
 1. All of the resources in your group must share the same lifecycle. You will deploy, update and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.
 2. Each resource can only exist in one resource group.
 3. You can add or remove a resource to a resource group at any time.
+4. You can move a resource from one resource group to another group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 4. A resource group can contain resources that reside in different regions.
 5. A resource group can be used to scope access control for administrative actions.
-
-In the Azure preview portal, all new resources are created in a resource group. Even if you create just a single resource such as a web site, you must decide whether to add that resource to an existing group or create a new group for that resource.
-
-The following image shows a resource group with Application Insights, database server, database, app service plan, and web site.
-
-![resource group summary](./media/resource-group-overview/resourcegroupsummary2.png)
-
-A resource group can also be linked to a resource in another resource group. A resource is considered linked when a deployment dependency exists between resources in different resource groups. For example, if a web app in one resource group connects to database in another resource group, those resources are linked. 
-You can also explicitly define links between resources in other resource group.
-
-For more information about linking resources, see [Linking resources in Azure Resource Manager](resource-group-link-resources.md)
-
-If you need to move a resource to a new resource group, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
-
-From the preview portal, you can easily view costs, monitor events, and manage alerts. The following image shows the consolidated billing for a group.
-
-![billing](./media/resource-group-overview/billing.png)
+6. A resource can be linked to a resource in another resource group when the two resources must interact with each other but they do not share the same lifecycle (for example, multiple apps connecting to a database). For more information, see [Linking resources in Azure Resource Manager](resource-group-link-resources.md).
 
 ## Template Deployment
 
@@ -125,6 +114,8 @@ For information about the REST API, see [Azure Resource Manager REST API Referen
 
 For information about using the preview portal, see [Using the Azure Preview Portal to manage your Azure resources](azure-portal/resource-group-portal.md).
 
+
+
 ## Next Steps
 
 - To learn about creating templates, see [Authoring templates](./resource-group-authoring-templates.md)
@@ -132,3 +123,6 @@ For information about using the preview portal, see [Using the Azure Preview Por
 - To understand the functions you can use in a template, see [Template functions](./resource-group-template-functions.md)
 - For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md)
 
+Here's a video demonstration of this overview:
+
+[AZURE.VIDEO azure-resource-manager-overview]
