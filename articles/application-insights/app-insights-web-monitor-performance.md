@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Monitor performance in web applications
@@ -22,18 +22,17 @@
 
 Make sure your application is performing well, and find out quickly about any failures. [Application Insights][start] will tell you about any performance issues and exceptions, and help you find and diagnose the root causes.
 
-Application Insights can monitor ASP.NET web applications and WCF services, hosted on-premise or on virtual machines, as well as Microsoft Azure websites. 
+Application Insights can monitor both Java and ASP.NET web applications and services, WCF services. They can be hosted on-premise, on virtual machines, or as Microsoft Azure websites. 
+
+On the client side, Application Insights can take telemetry from web pages and a wide variety of devices including iOS, Android and Windows Store apps.
 
 
 ## <a name="setup"></a>Set up performance monitoring
 
 If you haven't yet added Application Insights to your project (that is, if it doesn't have ApplicationInsights.config), choose one of these ways to get started:
 
-* [Add Application Insights to your project in Visual Studio][greenbrown] - Recommended. As well as passive performance monitoring, you can insert diagnostic logging and track usage.
-* [Monitor performance of a live website now][redfield] - This way, you don't need to update the application project or redeploy the website.
-* [For a Microsoft Azure website](../insights-how-to-customize-monitoring.md)  you can already see metrics on the website's Monitoring lens. 
-
-Using either of these methods, you'll quickly see data on the overview blade in Application Insights.
+* [ASP.NET web apps](app-insights-asp-net.md)
+* [J2EE web apps](app-insights-java-get-started.md)
 
 
 ## <a name="view"></a>Exploring metrics
@@ -102,11 +101,16 @@ To see what other metrics you can display, click a graph, and then deselect all 
 
 Selecting any metric will disable the others that can't appear on the same chart.
 
-## Collect more performance counters
+## System performance counters
 
 Some of the metrics you can choose from are [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows provides a wide variety of them, and you can also define your own.
 
-If the counters you want aren't on the list, you can add them to the set that the SDK collects. Open ApplicationInsights.config and edit the performance collector directive:
+This example shows performance counters that are available by default. We have [added a separate chart](app-insights-metrics-explorer.md#editing-charts-and-grids) for each counter, and named the chart by [saving it as a favorite](app-insights-metrics-explorer.md#editing-charts-and-grids):
+
+![](./media/app-insights-web-monitor-performance/sys-perf.png)
+
+
+If the counters you want aren't in the properties list, you can add them to the set that the SDK collects. Open ApplicationInsights.config and edit the performance collector directive:
 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
@@ -115,7 +119,7 @@ If the counters you want aren't on the list, you can add them to the set that th
       </Counters>
     </Add>
 
-The format is `\Category(instance)\Counter"` or for categories that don't have instances, just `\Category\Counter`. 
+The format is `\Category(instance)\Counter"` or for categories that don't have instances, just `\Category\Counter`. To discover what counters are available in your system, read [this introduction](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 `ReportAs` is required for counter names that contain characters other than these: letters, round brackets, forward slahes, hyphens, underscores, spaces and dots.
 

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article" 
-    ms.date="05/27/2015"
+    ms.date="09/01/2015"
     ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Using the Azure CLI with Azure Storage
@@ -202,6 +202,16 @@ You can list the files and subdirectories in a share root or a directory using t
         azure storage file list myshare myDir
 
 Note that the directory name is optional for the listing operation. If omitted, the command lists the contents of the root directory of the share.
+
+### Copy files
+
+Beginning with version 0.9.8 of Azure CLI, you can copy a file to another file, a file to a blob, or a blob to a file. Below we demonstrate how to perform these copy operations using CLI commands. To copy a file to the new directory:
+
+	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+	
+To copy a blob to a file directory:
+
+	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
 
 ## Next Steps
 

@@ -3,7 +3,7 @@
 	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="SamirMehta"
+	authors="AnuragMehrotra"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="jimpark"; "aashishr"; "sammehta"/>
+	ms.date="09/04/2015"
+	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
@@ -266,6 +266,10 @@ When backing up a datasource for the first time, DPM needs to create an initial 
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
+### Changing the size of DPM Replica & recovery point volume
+You can also change the size of DPM Replica volume as well as Shadow Copy volume using [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/en-us/library/hh881618(v=sc.20).aspx) cmdlet as in the below example:
+Get-DatasourceDiskAllocation -Datasource $DS
+Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### Committing the changes to the Protection Group
 Finally, the changes need to be committed before DPM can take the backup per the new Protection Group configuration. This is done using the [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) cmdlet.
@@ -273,7 +277,6 @@ Finally, the changes need to be committed before DPM can take the backup per the
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
-
 ## View the backup points
 You can use the [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet to get a list of all recovery points for a datasource. In this example, we will:
 - fetch all the PGs on the DPM server which will be stored in an array ```$PG```

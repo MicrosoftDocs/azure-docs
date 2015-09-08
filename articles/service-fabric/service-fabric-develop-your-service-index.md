@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/14/2015"
+   ms.date="08/20/2015"
    ms.author="ryanwi"/>
 
 # Develop a Service Fabric service
@@ -53,7 +53,7 @@ A simple turn-based concurrency is provided for Reliable Actor methods. Concurre
 - [Events and performance counters related to concurrency](service-fabric-reliable-actors-diagnostics.md)
 - [Actor Reentrancy](service-fabric-reliable-actors-reentrancy.md)
 - [Actor Timers](service-fabric-reliable-actors-timers-reminders.md)
- 
+
 Information on configuring Reliable Actors is found here:
 
 - [KVSActorStateProvider Configuration](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)  
@@ -86,4 +86,3 @@ Communicating with Reliable Services and the abstractions which clients can use 
 Reliable Services emit events and performance counters, which can be used to diagnose and monitor your service:
 
 - [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md)
- 

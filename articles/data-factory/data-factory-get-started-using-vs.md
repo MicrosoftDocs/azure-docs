@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Tutorial: Copy data from an Azure blob to Azure SQL" 
-	description="This tutorial shows you how to create a sample data pipeline that copies data from a blob to an Azure SQL Database instance." 
+	pageTitle="Tutorial: Create a pipeline with Copy Activity using Visual Studio" 
+	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -254,3 +254,6 @@ To update Azure Data Factory tools for Visual Studio, do the following:
 
 See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
 
+
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
