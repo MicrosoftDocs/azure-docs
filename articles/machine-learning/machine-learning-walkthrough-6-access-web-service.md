@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ This is the last step of the walkthrough, [Developing a Predictive Solution with
 2.	[Upload existing data](machine-learning-walkthrough-2-upload-data.md)
 3.	[Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
 6.	**Access the web service**
 
 ----------
