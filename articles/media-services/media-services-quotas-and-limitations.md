@@ -21,8 +21,7 @@
 
 This topic describes quotas and limitations associated with Microsoft Azure Media Services.
 
-[AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
-
+[AZURE.INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
 ##Media Services learning paths
 
