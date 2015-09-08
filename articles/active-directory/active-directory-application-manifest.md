@@ -35,7 +35,7 @@ include:
 
 - Declare permission scopes (oauth2Permissions) exposed by your web API. See the "Exposing Web APIs to Other Applications" topic in [Integrating Applications with Azure Active Directory][INTEGRATING-APPLICATIONS-AAD] for information on implementing user impersonation using the oauth2Permissions delegated permission scope. As mentioned previously, all Application Entity properties are documented in the the Graph API [Entity and Complex Type reference][APPLICATION-ENTITY] reference article, including oauth2Permissions which is of type [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION]
 - Declare application roles (appRoles) exposed by your app. See the [Roles based access control in cloud applications using Azure AD][RBAC-CLOUD-APPS-AZUREAD] article for an implementation example.
-- Declaring known client applications
+- Declare known client applications
 - Request Azure AD to issue group memberships claim for the signed in user.  NOTE: this can be configured to additionally issue claims about the user's directory roles memberships. See the [Authorization in Cloud Applications using AD Groups][AAD-GROUPS-FOR-AUTHORIZATION] article for an implementation example.
 - Allow your application to support OAuth 2.0 Implicit grant flows (for embedded JavaScript web pages or Single Page Applications (SPA))
 - Enable use of X509 certificates as the secret key. See the [Build service and daemon apps in Office 365][O365-SERVICE-DAEMON-APPS] article for an implementation example. 
