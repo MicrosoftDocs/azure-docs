@@ -17,7 +17,7 @@
 	ms.author="tedway"/>
 
 
-# Consuming an Azure Machine Learning Web Service from Excel #
+# Consuming an Azure Machine Learning Web Service from Excel
 
  Azure Machine Learning Studio makes it easy to call web services directly from Excel without the need to write any code.
 
