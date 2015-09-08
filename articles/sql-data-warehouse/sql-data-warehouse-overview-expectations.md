@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2015"
-   ms.author="lvargas;barbkess"/>
+   ms.date="09/05/2015"
+   ms.author="lvargas;twounder;barbkess"/>
 
 # SQL Data Warehouse preview expectations
 
@@ -29,7 +29,7 @@ We will continuously work toward these goals before promoting SQL Data Warehouse
 
 ## Predictable and scalable performance
 
-Azure SQL Data Warehouse introduces Data Warehouse Units (DWUs) as as a way to measure the computing resources (CPUs, memory, storage I/O) available for the data warehouse. Increasing the number of DWUs increases the resources. As the number of DWUs increases, SQL Data Warehouse runs operations in parallel (e.g. data load or query) across more distributed resources. This reduces latency and improves performance.
+Azure SQL Data Warehouse introduces Data Warehouse Units (DWUs) as a way to measure the computing resources (CPUs, memory, storage I/O) available for the data warehouse. Increasing the number of DWUs increases the resources. As the number of DWUs increases, SQL Data Warehouse runs operations in parallel (e.g. data load or query) across more distributed resources. This reduces latency and improves performance.
 
 Any data warehouse has 2 fundamental performance metrics:
 
