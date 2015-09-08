@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Step 5: Publish the Machine Learning web service | Microsoft Azure" 
-	description="Step 5 of the Develop a predictive solution walkthrough: Publish a scoring experiment in Machine Learning Studio as a web service." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Step 5: Publish the Machine Learning web service | Microsoft Azure"
+	description="Step 5 of the Develop a predictive solution walkthrough: Publish a scoring experiment in Machine Learning Studio as a web service."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -31,7 +31,7 @@ This is the fifth step of the walkthrough, [Developing a Predictive Solution wit
 
 ----------
 
-To make this predictive model useful to others, we'll publish it as a web service on Azure. 
+To make this predictive model useful to others, we'll publish it as a web service on Azure.
 
 Up to this point we've been experimenting with training our model. But the published service is no longer going to do training - it will be scoring the user's input. So we're going to do some preparation and then publish this experiment as a working web service that users can access. A user will be able to send a set of credit application data to the service, and the service will return the prediction of credit risk.
 
@@ -51,9 +51,9 @@ We need to delete the following modules:
 3.	[Normalize Data][normalize-data] (both of them)
 4.	[Evaluate Model][evaluate-model]
 
-Now we're ready to publish this model. 
+Now we're ready to publish this model.
 
-##Convert the training experiment to a scoring experiment
+## Convert the training experiment to a scoring experiment
 
 Converting to a scoring experiment involves three steps:
 
@@ -61,14 +61,14 @@ Converting to a scoring experiment involves three steps:
 2. Trim the experiment to remove modules that were only needed for training
 3. Define where the web service input and output nodes should be
 
-Fortunately, all three steps can be accomplished by just clicking **Create Scoring Experiment** at the bottom of the experiment canvas.
+Fortunately, all three steps can be accomplished by just clicking **Deploy Web Service** at the bottom of the experiment canvas (select the **Predictive Web Service** option).
 
-When you click **Create Scoring Experiment**, several things happen:
+When you click **Deploy Web Service**, several things happen:
 
 - The model we trained is saved as a **Trained Model** module in the module palette to the left of the experiment canvas (you can find it in the palette under **Trained Models**).
 - Modules that were used for training are removed. Specifically:
   - [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree]
-  - [Train Model][train-model] 
+  - [Train Model][train-model]
   - [Split][split]
   - the second [Execute R Script][execute-r-script] module that was used for test data
 - The saved trained model is added to the experiment.
@@ -76,8 +76,8 @@ When you click **Create Scoring Experiment**, several things happen:
 
 > [AZURE.NOTE] The experiment has been saved in two parts: the original training experiment, and the new scoring experiment. You can access either one using the tabs at the top of the experiment canvas.
 
-We need to take an additional step with our experiment. 
-Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module, but it left the other [Execute R Script][execute-r-script] module. 
+We need to take an additional step with our experiment.
+Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module, but it left the other [Execute R Script][execute-r-script] module.
 Since that module was only used for training and testing (it provided a weighting function on the sample data), we can now remove it and connect [Metadata Editor][metadata-editor] to [Score Model][score-model].    
 
 Our experiment should now look like this:  
@@ -89,17 +89,17 @@ You may be wondering why we left the UCI German Credit Card Data dataset in the 
 
 It's true that the service doesn't need the original credit card data. But it does need the schema for that data, which includes information such as how many columns there are and which columns are numeric. This schema information is necessary in order to interpret the user's data. We leave these components connected so that the scoring module will have the dataset schema when the service is running. The data isn't used, just the schema.  
 
-Run the experiment one last time (click **RUN**). If you want to verify that the model is still working, click the output of the [Score Model][score-model] module and select **View Results**. You'll see that the original data is displayed, along with the credit risk value ("Scored Labels") and the scoring probability value ("Scored Probabilities").  
+Run the experiment one last time (click **Run**). If you want to verify that the model is still working, click the output of the [Score Model][score-model] module and select **View Results**. You'll see that the original data is displayed, along with the credit risk value ("Scored Labels") and the scoring probability value ("Scored Probabilities").  
 
-##Publish the web service
+## Publish the web service
 
-To publish a web service derived from our experiment, click **PUBLISH WEB SERVICE** below the canvas. Machine Learning Studio publishes the experiment as a web service and takes you to the service dashboard.   
+To publish a web service derived from our experiment, click **Deploy Web Service** below the canvas. Machine Learning Studio publishes the experiment as a web service and takes you to the service dashboard.   
 
-> [AZURE.TIP] You can update the web service after you've published it. For example, if you want to change your model, just edit the training experiment, tweak the model parameters, and click **PUBLISH WEB SERVVICE**. When you publish the experiment again, it will replace the web service, now using your updated model.  
+> [AZURE.TIP] You can update the web service after you've published it. For example, if you want to change your model, just edit the training experiment, tweak the model parameters, and click **Deploy Web Service**. When you publish the experiment again, it will replace the web service, now using your updated model.  
 
 You can configure the service by clicking the **CONFIGURATION** tab. Here you can modify the service name (it's given the experiment name by default) and give it a description. You can also give more friendly labels for the input and output columns.  
 
-##Test the web service
+## Test the web service
 On the **DASHBOARD** page, click the **Test** link under **Default Endpoint**. A dialog will pop up and ask you for the input data for the service. These are the same columns that appeared in the original German credit risk dataset.  
 
 Enter a set of data and then click **OK**.  
@@ -127,4 +127,3 @@ The results generated by the web service are displayed at the bottom of the dash
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
- 
