@@ -51,6 +51,7 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 	        "type": "AzureDataLake",
 	        "typeProperties": {
 	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
 	    }
@@ -81,7 +82,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -89,7 +90,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -97,7 +98,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ]
@@ -143,7 +144,7 @@ The sample copies data to Azure DataLake. New data is copies to DataLake every h
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -151,7 +152,7 @@ The sample copies data to Azure DataLake. New data is copies to DataLake every h
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -159,22 +160,14 @@ The sample copies data to Azure DataLake. New data is copies to DataLake every h
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ]
 	    },
-	    "external": true,
 	    "availability": {
 	      "frequency": "Hour",
 	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
 	    }
 	  }
 	}
@@ -250,6 +243,7 @@ The sample copies data belonging to a time series from an Azure data lake to an 
 	        "type": "AzureDataLake",
 	        "typeProperties": {
 	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
 	    }
@@ -292,7 +286,7 @@ Setting **"external": true** and specifying **externalData** policy informs the 
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -300,7 +294,7 @@ Setting **"external": true** and specifying **externalData** policy informs the 
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -308,7 +302,7 @@ Setting **"external": true** and specifying **externalData** policy informs the 
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ]
@@ -353,7 +347,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -361,7 +355,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -369,7 +363,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -444,7 +438,12 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | -------- | ----------- | -------- |
 | type | The type property must be set to: **AzureDataLake** | Yes |
 | dataLakeUri | Specify information about the Azure DataLake account. It is in the following format: https://<Azure DataLake account name>.azuredatalake.net/webhdfs/v1 | Yes |
-| authorization | In order to get the authorization URL above, login using your org/live id to the following URL: [https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=a306baf0-5ad8-4f6f-babf-6a286b0142ba&redirect_uri=https://datafactory.azure.com/oauthredirect](https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=a306baf0-5ad8-4f6f-babf-6a286b0142ba&redirect_uri=https://datafactory.azure.com/oauthredirect), copy the URL from the address bar of the browser and assign it to the **authorization** property in the linked service JSON. <p>**Note:** This is temporary manual step until the Data Factory OAuth UI work is done. </p> | Yes  
+| authorization | In order to get the authorization URL above, login using your org/live id to the following URL: [https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=a306baf0-5ad8-4f6f-babf-6a286b0142ba&redirect_uri=https://datafactory.azure.com/oauthredirect](https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=a306baf0-5ad8-4f6f-babf-6a286b0142ba&redirect_uri=https://datafactory.azure.com/oauthredirect), copy the URL from the address bar of the browser and assign it to the **authorization** property in the linked service JSON. <p>**Note:** This is temporary manual step until the Data Factory OAuth UI work is done. </p> | Yes |
+| sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. | Yes |  
+| accountName | Data lake account name | No | 
+| subscriptionId | Azure subscription Id. | No (If not specified, subscription of the data factory is used). | 
+| resourceGroupName |  Azure resource group name | No (If not specified, resource group of the data factory is used). | 
+
 
 ## Azure Data Link Dataset type properties
 

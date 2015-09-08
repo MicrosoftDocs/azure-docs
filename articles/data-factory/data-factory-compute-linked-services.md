@@ -234,18 +234,18 @@ mlEndpoint | The batch scoring URL. | Yes
 apiKey | The published workspace model’s API. | Yes
 
 
-## Azure Kona Linked Service
-You create an Azure Kona linked service to link a Kona compute service to an Azure data factory.
+## Azure Big Analytics Linked Service
+You create an Azure Big Analytics linked service to link an Azure Big Analytics compute service to an Azure data factory.
 
 ### Example
 
 	{
-	    "name": "KonaLinkedService",
+	    "name": "BigAnalyticsLinkedService",
 	    "properties": {
-	        "type": "AzureKona",
+	        "type": "BigAnalytics",
 	        "typeProperties": {
-	            "accountName": "konadftestaccount",
-	            "konaUri": "microsoftkonacompute.net",
+	            "accountName": "adftestaccount",
+	            "konaUri": "microsoftbiganalyticscompute.net",
 	            "authorization": "**********",
 	            "subscriptionId": "<subscription id>",
 	            "resourceGroupName": "<resource group name>"
@@ -258,9 +258,9 @@ You create an Azure Kona linked service to link a Kona compute service to an Azu
 
 Property | Description | Required
 -------- | ----------- | --------
-Type | The type property should be set to: **AzureKona**. | Yes
+Type | The type property should be set to: **BigAnalytics**. | Yes
 accountName | Azure Kona Account Name. | Yes
-konaUri | Azure Kona URI. Enter ‘microsoftkonacompute.net’. |  Yes
+konaUri | Azure Kona URI. Enter ‘microsoftbiganalyticscompute.net’. |  No 
 authorization | Autherization code is automatically retrieved after clicking ‘Authorize’ and completing the OAuth login. | Yes 
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
