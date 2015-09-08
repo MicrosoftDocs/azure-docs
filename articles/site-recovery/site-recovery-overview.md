@@ -61,6 +61,7 @@ Remote Desktop/VDI | Y | Y | Y | N/A
 Dynamics AX | Y | Y | Y | Y
 Dynamics CRM | Y | Coming soon | Y | Coming soon
 Oracle | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
+Windows File Server | Y | Y | Y | Y
 
 
 ## Features and requirements 
