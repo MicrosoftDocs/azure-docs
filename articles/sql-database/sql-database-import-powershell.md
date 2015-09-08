@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="09/03/2015"
+    ms.date="09/05/2015"
     ms.author="sstein"/>
 
 # Import a BACPAC to a SQL Database using PowerShell

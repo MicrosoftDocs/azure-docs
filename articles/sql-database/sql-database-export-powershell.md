@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/03/2015"
+	ms.date="09/05/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -66,7 +66,7 @@ After successfully running **Select-AzureSubscription** you are returned to the 
 
 There are a few variables where you need to replace the example values with the specific values for your database and storage account.
 
-Replace the server and database names with the server and database that currently exists in your account. For the blob name enter the BACPAC filename that will be created. Enter whatever you want to name the BACPAC file. You must include the .bacpac extension.
+Replace the server and database names with the server and database that currently exists in your account. For the blob name enter the BACPAC filename that will be created. Enter whatever you want to name the BACPAC file but you must include the .bacpac extension.
 
     $ServerName = "servername"
     $DatabaseName = "nameofdatabasetobackup"
@@ -100,7 +100,7 @@ This command submits an export database request to the service. Depending on the
 
 After running **Start-AzureSqlDatabaseExport** you can check the status of the request. Running this immediately after the request will usually return **Status : Pending** or **Status : Running** so you can run this multiple times until you see **Status : Completed** in the output. 
 
-Running this command will prompt you for a password. Enter the admin login and password for your SQL server.
+Running this command will prompt you for a password. Enter the admin password for your SQL server.
 
 
     Get-AzureSqlDatabaseImportExportStatus -RequestId $exportRequest.RequestGuid -ServerName $ServerName -Username $credential.UserName

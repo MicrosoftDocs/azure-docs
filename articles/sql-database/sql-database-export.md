@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/03/2015"
+	ms.date="09/05/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create and export a BACPAC of an Azure SQL database
+# Create and export a BACPAC of a SQL database
 
 **Single database**
 
