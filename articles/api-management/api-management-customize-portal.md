@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Customize the Azure portal in Azure API Management"
-	description="Customizing the Azure portal in Azure API Management."
+	pageTitle="Customize the developer portal in Azure API Management" | Microsoft Azure
+	description="Customizing the developer portal in Azure API Management."
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
@@ -16,33 +16,33 @@
 	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
-# Customize the Azure portal in Azure API Management
+# Customize the developer portal in Azure API Management
 
-This guide shows you how to modify the appearance of the Azure portal in API Management for consistency with your brand.
+This guide shows you how to modify the appearance of the developer portal in API Management for consistency with your brand.
 
 ## <a name="change-page-headers"> </a>Change the text or logo in the page header
 
 One of the key aspects of portal customization is replacing the text at the top of all pages with your company name or logo.
 
-Content within the Azure portal is modified via the Publisher portal, which is accessed through the Azure portal. To reach the API publisher portal, click **Manage** in the Azure portal for your API Management service.
+Content within the developer portal is modified via the publisher portal, which is accessed through the Azure portal. To reach the API publisher portal, click **Manage** in the Azure portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
-The Azure portal is based on a Content Management System or CMS. The header that appears on every page is a special type of content known as a widget. To edit the contents of that widget, click **Widgets** from the **Developer Portal** menu on the left, and then select the **Header** widget from the list.
+The developer portal is based on a content management system or CMS. The header that appears on every page is a special type of content known as a widget. To edit the contents of that widget, click **Widgets** from the **Developer Portal** menu on the left, and then select the **Header** widget from the list.
 
 ![Widgets header][api-management-widgets-header]
 
 The contents of the header is editable from within the **Body** field. Change the text to "Fabrikam Developer Portal", and then click **Save** at the bottom of the page.
 
-Now you should be able to see the new header on every page within the Azure portal!
+Now you should be able to see the new header on every page within the developer portal!
 
-> To open the Azure portal while in the Publisher portal, click **Developer portal** in the top bar.
+> To open the developer portal while in the publisher portal, click **Developer portal** in the top bar.
 
 ## <a name="change-headers-styling"> </a>Change the styling of the headers
 
-The colors, fonts, sizes, spacings, and other style-related elements of any page on the portal are defined by style rules. To edit the styles, click **Appearance** from the **Developer portal** menu in the Publisher portal, and then click **Begin customization** to enable the styling editor.
+The colors, fonts, sizes, spacings, and other style-related elements of any page on the portal are defined by style rules. To edit the styles, click **Appearance** from the **Developer portal** menu in the publisher portal, and then click **Begin customization** to enable the styling editor.
 
-Your browser switches to a hidden page within the Azure portal that contains samples of content, with examples for all styling rules used anywhere on the site. To open the styling editor, move your cursor over the thin gray vertical line on the left-most part of the page. The editor toolbar should appear.
+Your browser switches to a hidden page within the developer portal that contains samples of content, with examples for all styling rules used anywhere on the site. To open the styling editor, move your cursor over the thin gray vertical line on the left-most part of the page. The editor toolbar should appear.
 
 ![Customization toolbar][api-management-customization-toolbar]
 
@@ -52,9 +52,9 @@ In this section, we want to change the styling of only the headers. Click the **
 
 Each rule represents a styling property of the selected element. For example, for the header text selected above, the size of the text is in @font-size-h1 while the name of the font with alternatives is in @headings-font-family.
 
-> If you're familiar with [bootstrap][], these rules are in fact [LESS variables][] within the bootstrap theme used by the Azure portal.
+> If you're familiar with [bootstrap][], these rules are in fact [LESS variables][] within the bootstrap theme used by the developer portal.
 
-Let's change the color of the heading text. Select the entry in the **@headings-color** field and type #000000. This is the hex code for the color black. As you do this, you see that a square color indicator will appear at the end of the text box. If you click this indicator, a color picker lets you to choose a color.
+Let's change the color of the heading text. Select the entry in the **@headings-color** field and type **#000000**. This is the hex code for the color black. As you do this, you see that a square color indicator appears at the end of the text box. If you click this indicator, a color picker lets you to choose a color.
 
 ![Color picker][api-management-customization-toolbar-color-picker]
 
@@ -66,13 +66,13 @@ When you are done making changes to the styles of the selected element, click **
 
 ## <a name="edit-page-contents"> </a>Edit the contents of a page
 
-The Azure portal consists of automatically generated pages like APIs, Products, Applications, Issues, and manually written content. Because it is based on a content management system, you can create such content as necessary.
+The developer portal consists of automatically generated pages like APIs, Products, Applications, Issues, and manually written content. Because it is based on a content management system, you can create such content as necessary.
 
-To see the list of all existing content pages, click **Content** from the **Developer portal** menu in the Publisher portal.
+To see the list of all existing content pages, click **Content** from the **Developer portal** menu in the publisher portal.
 
 ![Manage content][api-management-customization-manage-content]
 
-Click the **Welcome** page to edit what is displayed on the home page of the Azure portal. Make the changes you want, preview them if necessary, and then click **Publish Now** to make them visible to everyone.
+Click the **Welcome** page to edit what is displayed on the home page of the developer portal. Make the changes you want, preview them if necessary, and then click **Publish Now** to make them visible to everyone.
 
 > The home page uses a special layout which allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list box, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
 
