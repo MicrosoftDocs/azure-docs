@@ -33,12 +33,12 @@ Through the [Azure portal][AZURE-PORTAL], you can manage your application's iden
 As a result, in order to understand the format and properties of the application manifest, you will need to reference the Graph API [Application entity][APPLICATION-ENTITY] documentation. Examples of updates that can be performed though application manifest upload 
 include:
 
-- Declare permission scopes (oauth2Permissions) exposed by your web API
-- Declare application roles (appRoles) exposed by your app
+- Declare permission scopes (oauth2Permissions) exposed by your web API. See the [Office 365 application manifest and permission details][O365-PERM-DETAILS] for an  example of implementing in an Office 365 application.
+- Declare application roles (appRoles) exposed by your app. See the [Roles based access control in cloud applications using Azure AD][RBAC-CLOUD-APPS-AZUREAD] article for an implementation example.
 - Declaring known client applications
-- Request Azure AD issue group memberships claim for the signed in user.  NOTE:  this can be configured to additionally issues claims about the user's directory roles memberships.
-- Allow your application to support OAuth 2.0 Implicit grant flows (for embedded JS web pages or SPA)
-- Enable use of X509 certificates as the secret key 
+- Request Azure AD to issue group memberships claim for the signed in user.  NOTE: this can be configured to additionally issue claims about the user's directory roles memberships. See the [Authorization in Cloud Applications using AD Groups][AAD-GROUPS-FOR-AUTHORIZATION] article for an implementation example.
+- Allow your application to support OAuth 2.0 Implicit grant flows (for embedded JavaScript web pages or Single Page Applications (SPA))
+- Enable use of X509 certificates as the secret key. See the [Build service and daemon apps in Office 365][O365-SERVICE-DAEMON-APPS] article for an implementation example. 
 
 The application manifest also provides a good way to track the state of your application registration. Because it's available in JSON format, the file representation can be checked into your source control, along with your application's source code.
 
@@ -93,11 +93,15 @@ Please use the DISQUS comments section below to provide feedback and help us ref
 [UPLOAD-MANIFEST-CONFIRM]: ./media/active-directory-application-manifest/upload-manifest-confirm.png
 
 <!--article references -->
+[AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]: https://msdn.microsoft.com/library/azure/dn132599.aspx
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
 [AZURE-PORTAL]: https://manage.windowsazure.com 
 [GRAPH-API]: https://msdn.microsoft.com/library/azure/hh974476.aspx
+[O365-Perm-Details]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
+[O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
+[RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
 [Graph-Perm-Scopes]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes
-[O365-Perm-Details]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
+
 [OAUTH2-IN-AAD]: https://msdn.microsoft.com/en-us/library/azure/dn645545.aspx 
