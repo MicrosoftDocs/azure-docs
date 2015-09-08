@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/03/2015" 
+	ms.date="09/08/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics outputs
@@ -55,7 +55,6 @@ The table below lists the property names and their description for creating a bl
 |  | Within the path, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: |
 |  | {date} |
 |  | {time} |
-|  |  |
 |  | Example 1: |
 |  | cluster1/logs/{date}/{time} |
 |  | Example 2: |
@@ -64,8 +63,7 @@ The table below lists the property names and their description for creating a bl
 | Time Format [optional] | If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
 | Event Serialization Format | Serialization format for output data.  JSON, CSV, and Avro are supported. |
 | Encoding | If CSV or JSON format, an encoding must be specified.  UTF-8 is the only supported encoding format at this time |
-| Delimiter |  |
-|  | Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar. |
+| Delimiter | Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar. |
 | Format | Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
 
 ## Event Hub
@@ -179,24 +177,6 @@ The table below lists the property names and their description for creating a ta
 | Event Serialization Format | Serialization format for output data.  JSON, CSV, and Avro are supported. |
 | Encoding | If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter | Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
-
-## DocumentDB
-
-[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
-
-The table below lists the property names and their description for creating a DocumentDB output.
-
-| Property Name | Description |
-|--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Account Name | The name of the DocumentDB account. This can also be the endpoint for the account. |
-| Account Key | The shared access key for the DocumentDB account. |
-| Database | The DocumentDB database name. |
-| Collection Name Pattern | The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. E.g. The followings are valid inputs: |
-|  | -  MyCollection{partition} |
-|  | -  MyCollection |
-|  | Note that collections must exist before the Stream Analytics job is started and will not be created automatically. |
-| Partition Key | The name of the field in output events used to specify the key for partitioning output across collections. |
-| Document ID | The name of the field in output events used to specify the primary key which insert or update operations are based on. |
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
