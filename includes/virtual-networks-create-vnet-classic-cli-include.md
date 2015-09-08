@@ -7,6 +7,8 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
+	Here is the expected output for the command above:
+
 			info:    Executing command network vnet create
 			+ Looking up network configuration
 			+ Looking up locations
@@ -25,6 +27,8 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
+	Here is the expected output for the command above:
+
 			info:    Executing command network vnet subnet create
 			+ Looking up network configuration
 			+ Creating subnet "BackEnd"
@@ -42,6 +46,8 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
 
 			azure network vnet show
+
+	Here is the expected output for the command above:
 
 			info:    Executing command network vnet show
 			Virtual network name: TestVNet

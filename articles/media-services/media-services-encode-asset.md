@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015"  
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
@@ -237,6 +237,14 @@ AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)|Yes|Yes|Yes
 MPEG Layer 2|No|No|Yes
 MP3 (MPEG-1 Audio Layer 3)|No|No|Yes
 Windows Media Audio|No|Yes|Yes
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Related articles
 

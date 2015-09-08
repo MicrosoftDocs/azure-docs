@@ -10,7 +10,7 @@
 
 <tags
    ms.author="danecke"
-   ms.date="05/27/2015"
+   ms.date="09/01/2015"
    ms.devlang="na"
    ms.service="virtual-network"
    ms.topic="article"

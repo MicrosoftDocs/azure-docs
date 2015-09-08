@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Notification Hubs | Microsoft Azure"
+	pageTitle="Get started with Azure Notification Hubs for Chrome apps | Microsoft Azure"
 	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Chrome App."
 	services="notification-hubs"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Get started with Notification Hubs
+# Get started with Notification Hubs for Chrome apps
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 

@@ -97,7 +97,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     And also, the data will export to your storage. 
 
-4. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
+4. Inspect the exported data, either in the portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
 
     ![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
@@ -196,7 +196,7 @@ Now you'll need the Primary Access Key from your Storage Account, which you note
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Be sure to set the Date Format to YYYY-MM-DD (with dashes).
+Be sure to set the Date Format to **YYYY-MM-DD** (with **dashes**).
 
 The Path Prefix Pattern specifies how Stream Analytics finds the input files in the storage. You need to set it to correspond to how Continuous Export stores the data. Set it like this:
 
@@ -218,6 +218,8 @@ Confirm the serialization format:
 ![Confirm and close wizard](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
 
 Close the wizard and wait for the setup to complete.
+
+>[AZURE.TIP] Use the Sample function to check that you have set the input path correctly. If it fails: Check that there is data in the storage for the sample time range you chose. Edit the input definition and check you set the storage account, path prefix and date format correctly.
 
 ## Set query
 
