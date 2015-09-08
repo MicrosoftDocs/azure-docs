@@ -50,14 +50,14 @@ Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS
 >Wildcard record sets are supported for all record types except NS and SOA.  
 
 ## Get a record set
-To retrieve an existing record set, use `azure network dns-record-set show`, specifying resource group, zone name, record set relative name and the record type:
+To retrieve an existing record set, use `azure network dns record-set show`, specifying resource group, zone name, record set relative name and the record type:
 
 	azure network dns record-set show myresourcegroup contoso.com www A
 
 
 ## List record sets
 
-You can list all records in a DNS Zone using `azure network dns-record-set list` command:
+You can list all records in a DNS Zone using `azure network dns record-set list` command:
 
 ### Option 1 
 List all record sets.  This will return all record sets, regardless of name or record type:
@@ -90,7 +90,7 @@ To create record set, use `azure network dns record-set create`, specifying reso
 >[AZURE.NOTE] If --ttl parameter is not defined, the value defaults to 4 (in seconds).
 
 
-After creating the A record set, add IPv4 address to record set with `azure network dns-record-set add-record`:
+After creating the A record set, add IPv4 address to record set with `azure network dns record-set add-record`:
 
 	azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1 
 
@@ -167,7 +167,7 @@ For this example we will add another IP address (1.2.3.4) to an existing A recor
 	info:    network dns record-set add-record command OK
 
 
-You will use `azure network dns-record-set delete-record` to remove an existing value from a record set:
+You will use `azure network dns record-set delete-record` to remove an existing value from a record set:
  
 	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 1.2.3.4
 	info:    Executing command network dns record-set delete-record
@@ -188,7 +188,7 @@ You will use `azure network dns-record-set delete-record` to remove an existing 
 
 ## Remove a record from an existing record set
 
-Records can be removed from a record set using `azure network dns-record-set delete-record` Note that the record being removed must be an exact match with an existing record, across all parameters.
+Records can be removed from a record set using `azure network dns record-set delete-record` Note that the record being removed must be an exact match with an existing record, across all parameters.
 
 Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete-a-record-set) below for more.
 
