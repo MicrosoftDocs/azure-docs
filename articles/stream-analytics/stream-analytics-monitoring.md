@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/04/2015" 
+	ms.date="09/08/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics Job Monitoring
@@ -70,7 +70,7 @@ The job dashboard provides information on where you need to look for the diagnos
 
   ![Error](./media/stream-analytics-monitoring/04-stream-analytics-monitoring.png)  
 
-Clicking on the input or output resource provides detailed diagnostic information. This is refreshed with the latest diagnosis information while the job is running. When the job is stopped, the diagnosis information of the inputs and outputs is  
+Clicking on the input or output resource provides detailed diagnostic information. This is refreshed with the latest diagnosis information while the job is running.
 
   ![Diagnostics](./media/stream-analytics-monitoring/05-stream-analytics-monitoring.png)  
 
