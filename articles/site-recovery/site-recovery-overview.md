@@ -55,7 +55,7 @@ Web apps (IIS, SQL) | Y | Y | Y | Y
 SCOM | Y | Y | Y | Y
 Sharepoint | Y | Y | Y | Y
 <p>SAP</p><p>Replicate SAP site to Azure for non cluster</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
-Exchange (non-DAG) | Y | Coming soon | Y | Coming soon
+Exchange (non-DAG) | Y | Coming soon | Y | Y
 Remote Desktop/VDI | Y | Y | Y | N/A 
 <p>Linux</p> <p>(operating system and apps)</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) 
 Dynamics AX | Y | Y | Y | Y
