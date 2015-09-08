@@ -98,7 +98,7 @@ Please use the DISQUS comments section below to provide feedback and help us ref
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
 [AZURE-PORTAL]: https://manage.windowsazure.com 
 [GRAPH-API]: https://msdn.microsoft.com/library/azure/hh974476.aspx
-[O365-Perm-Details]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
+[O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
