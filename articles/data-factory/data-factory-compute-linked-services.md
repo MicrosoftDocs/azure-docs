@@ -234,6 +234,37 @@ mlEndpoint | The batch scoring URL. | Yes
 apiKey | The published workspace model’s API. | Yes
 
 
+## Azure Kona Linked Service
+You create an Azure Kona linked service to link a Kona compute service to an Azure data factory.
+
+### Example
+
+	{
+	    "name": "KonaLinkedService",
+	    "properties": {
+	        "type": "AzureKona",
+	        "typeProperties": {
+	            "accountName": "konadftestaccount",
+	            "konaUri": "microsoftkonacompute.net",
+	            "authorization": "**********",
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
+
+
+### Properties
+
+Property | Description | Required
+-------- | ----------- | --------
+Type | The type property should be set to: **AzureKona**. | Yes
+accountName | Azure Kona Account Name. | Yes
+konaUri | Azure Kona URI. Enter ‘microsoftkonacompute.net’. |  Yes
+authorization | Autherization code is automatically retrieved after clicking ‘Authorize’ and completing the OAuth login. | Yes 
+subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
+resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
+
 ## Azure SQL Linked Service
 
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) article for details about this linked service.
