@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory Audit Report Events"
+   pageTitle="Azure Active Directory Audit Report Events | Microsoft Azure"
    description="Audited events that are available for viewing and downloading from your Azure Active Directory"
    services="active-directory"
    documentationCenter=""
