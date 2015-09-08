@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade an Azure SQL Database to V12 server with PowerShell" 
-	description="Upgrade an Azure SQL Database server to V12 with PowerShell." 
+	pageTitle="Upgrade an Azure SQL server to V12 with PowerShell" 
+	description="Upgrade an Azure SQL server to V12 with PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="09/05/2015" 
 	ms.author="sstein"/>
 
-# Upgrade Azure SQL Database Server to V12 with PowerShell
+# Upgrade Azure SQL server to V12 with PowerShell
  
 
 This article shows you how to upgrade a SQL Database server to V12 using pricing tier and elastic pool recommendations. 
@@ -78,37 +78,13 @@ To start the upgrade of the server run the following cmdlet:
 When you run this command upgrade process will begin. You can customize the output of the recommendation and provide the edited recommendation to this cmdlet. 
 
 
-
-## Customize an Upgrade
-
-If the recommendations are not appropriate for your server and business case, then you can choose how your databases are upgraded and can map them to either single or elastic databases.
-
-Upgrade databases into an elastic database pool:
-
-    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties
-    $elasticPool.DatabaseDtuMax = 100  
-    $elasticPool.DatabaseDtuMin = 0  
-    $elasticPool.Dtu = 800
-    $elasticPool.Edition = "Standard"  
-    $elasticPool.DatabaseCollection = ("DB1")  
-    $elasticPool.Name = "elasticpool_1"  
-    $elasticPool.StorageMb = 800  
-
-Upgrade databases into single databases:
-
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  $databaseMap.Name = "DB2"
-    $databaseMap.TargetEdition = "Standard"
-    $databaseMap.TargetServiceLevelObjective = "S0"
-    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
-    
-
-
-## Upgrade Azure SQL Database server script
+## Upgrade an Azure SQL server
 
 
     # Adding the account
     #
     Add-AzureAccount
+    Switch-AzureMode -Name AzureResourceManager
 
     # Setting the variables
     #
@@ -127,6 +103,32 @@ Upgrade databases into single databases:
     #
     Start-AzureSqlServerUpgrade -ResourceGroupName 
     $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+
+
+## Custom upgrade mapping
+
+If the recommendations are not appropriate for your server and business case, then you can choose how your databases are upgraded and can map them to either single or elastic databases.
+
+Upgrade databases into an elastic database pool:
+
+    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties
+    $elasticPool.DatabaseDtuMax = 100  
+    $elasticPool.DatabaseDtuMin = 0  
+    $elasticPool.Dtu = 800
+    $elasticPool.Edition = "Standard"  
+    $elasticPool.DatabaseCollection = ("DB1")  
+    $elasticPool.Name = "elasticpool_1"  
+
+
+Upgrade databases into single databases:
+
+    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  $databaseMap.Name = "DB2"
+    $databaseMap.TargetEdition = "Standard"
+    $databaseMap.TargetServiceLevelObjective = "S0"
+    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
+    
+
+
 
 
 ## Related Information
