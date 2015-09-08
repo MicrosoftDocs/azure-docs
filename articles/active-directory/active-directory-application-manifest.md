@@ -101,7 +101,3 @@ Please use the DISQUS comments section below to provide feedback and help us ref
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
-
-[Graph-Perm-Scopes]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes
-
-[OAUTH2-IN-AAD]: https://msdn.microsoft.com/en-us/library/azure/dn645545.aspx 
