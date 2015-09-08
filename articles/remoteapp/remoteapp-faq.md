@@ -27,7 +27,7 @@ We've heard the following questions about Azure RemoteApp. Have others? Visit th
 
 ## Supported configurations ##
 
-- **What are the service limits?** You can learn about the default settings and serivce limits of Azure RemoteApp in [Azure Subscription and Service Limits, Quotas, and Constraints](.\azure-subscription-service-limits.md). Let us know if you have more questions.
+- **What are the service limits?** You can learn about the default settings and serivce limits of Azure RemoteApp in [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md). Let us know if you have more questions.
 - **How many users do I have to have?** There's a minimum of 20 users. Let me repeat that to be super clear - the MINIMUM is 20. You will be billed for 20. 
 - **Are custom line-of-business (LOB) applications supported?** Yes. To use a custom application in Azure RemoteApp, create a [custom template image](remoteapp-create-custom-image.md), and then upload it to the RemoteApp collection.
 - **Will my custom LOB application work in Azure RemoteApp?** The best way to figure that out is to test it. Review the [application compatibility requirements](http://www.microsoft.com/download/details.aspx?id=18704) and check out the [RD Compatibility Center](http://www.rdcompatibility.com/compatibility/default.aspx).
