@@ -13,8 +13,8 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="08/07/2015"
-	 ms.author="arunak"; "jimpark"; "aashishr"/>
+	 ms.date="08/26/2015"
+	 ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - FAQ
 The following is a list of commonly asked questions about Azure Backup. If you have any additional questions about Azure Backup, please go to the the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
@@ -29,6 +29,7 @@ A1. The following list of operating systems is supported by Azure Backup
 | Windows 8 and latest SPs      | 64 bit | Enterprise, Pro |
 | Windows 7 and latest SPs      | 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 and latest SPs | 64 bit      |    Enterprise, Pro |
+| Windows 10      | 64 bit | Enterprise, Pro, Home |
 |Windows Server 2012 R2 and latest SPs|	64 bit|	Standard, Datacenter, Foundation|
 |Windows Server 2012 and latest SPs|	64 bit|	Datacenter, Foundation, Standard|
 |Windows Storage Server 2012 R2 and latest SPs	|64 bit|	Standard, Workgroup|
@@ -121,13 +122,25 @@ A20. Ensure firewall rules enable communication with URLs below for seamless bac
 
 ## Backup & Retention
 **Q1. Is there a limit on the size of each data source being backed up?** <br/>
-A1. As of July 2015, each data source should be less than or equal to 1.7 TB. A data source is either
+A1. As of August 2015, The maximum size of data source is as mentioned below for various operating systems
 
-- File/Folder volume
-- SQL DB
-- Sharepoint farm
-- Exchange server
-- Hyper-V VM
+|S.No |	Operating system |	Maximum size of data source |
+| :-------------: |:-------------| :-----|
+|1| Windows Server 2012 or above| 54400 GB|
+|2| Windows Server 8 or above| 54400 GB|
+|3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
+|4| Windows 7 | 1700 GB|
+ 
+The datasource size is measured as mentioned below
+
+|	Datasource  |	Details |
+| :-------------: |:-------------|
+|Volume |The amount of data being backed up from single volume of a machine. This is applicable for the volumes being protected on both server and client machines.|
+|Hyper-V virtual machine|Sum of data of all the VHDs of the virtual machine being backed up|
+|Microsoft SQL Server database|Size of single SQL database size being backed up |
+|Microsoft SharePoint|Sum of the content and config databases within a SharePoint farm being backed up|
+|Microsoft Exchange|Sum of all Exchange databases in an Exchange server being backed up|
+|BMR/System State|Each individual copy of BMR or system state of the machine being backed up|
 
 **Q2. Is there are limit on the number of times backup can be scheduled per day?**<br/>
 A2. Yes, Azure Backup enables 3 backup copies per day through Windows Server/Client and 2 backup copies per day through SCDPM.

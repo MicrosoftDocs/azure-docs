@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/12/2015" 
+    ms.date="09/02/2015" 
     ms.author="elizapo" />
 
 # What is in the Azure RemoteApp template images?
@@ -64,10 +64,10 @@ This image is an extension of the vanilla image and has the following components
 - OneDrive for Business
 - Outlook
 - PowerPoint
-- Project
-- Visio
 - Word
 - Microsoft Office Proofing Tools
+
+The image also includes Visio Pro and Project Pro.
 
 And the following applications, as well:
 
@@ -80,7 +80,9 @@ And the following applications, as well:
 - PowerMap
 
 
-Full functionality of Office 365 ProPlus apps is available only for users who have an Office 365 ProPlus plan. For more details on the Office 365 subscription plans see [Office 365 service plans](http://technet.microsoft.com/library/office-365-plan-options.aspx). Still have questions? Check out the [Office 365 + RemoteApp](remoteapp-o365.md) information.
+Full functionality of Office 365 ProPlus apps is available only for users who have an Office 365 ProPlus plan. For more details on the Office 365 subscription plans see [Office 365 service plans](http://technet.microsoft.com/library/office-365-plan-options.aspx). Still have questions? Check out the [Office 365 + RemoteApp](remoteapp-o365.md) information. Also check out the new article, [How to use your Office 365 subscription with Azure RemoteApp](remoteapp-officesubscription.md).
+
+Note that you need to license Office 365 ProPlus, Visio Pro, and Project Pro separately - they each have their own license.
 
 ## Microsoft Office 2013 Professional Plus (trial only)
 During the free trial period, you can test the service with the Office 2013 image.

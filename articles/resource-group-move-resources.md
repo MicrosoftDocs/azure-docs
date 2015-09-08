@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/20/2015" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -56,6 +56,11 @@ The services that support moving to a new resource group but not a new subscript
 The services that currently do not support moving a resource are:
 
 - Virtual Networks
+
+When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
+
+- Move all of the resources from one resource group to a different resource group, if the destination resource group does not already have Microsoft.Web resources.
+- Move the web apps to a different resource group, but keep the App Service plan in the original resource group.
 
 ## Using PowerShell to move resources
 
