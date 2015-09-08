@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Power BI views of Application Insights data
@@ -24,6 +24,9 @@
 In this article, we'll show how to export data from Application Insights and use Stream Analytics to move the data into Power BI. [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) is an Azure service that we'll use as an adaptor.
 
 ![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/020.png)
+
+
+> [AZURE.NOTE] You need a work or school account (MSDN organizational account) to send data from Stream Analytics to Power BI.
 
 ## Video
 
@@ -148,7 +151,7 @@ Now select your job and set the output.
 
 ![Select the new channel, click Outputs, Add, Power BI](./media/app-insights-export-power-bi/160.png)
 
-Authorize Stream Analytics to access your Power BI resource, and then invent a name for the output, and for the target Power BI dataset and table.
+Provide your **work or school account** to authorize Stream Analytics to access your Power BI resource. Then invent a name for the output, and for the target Power BI dataset and table.
 
 ![Invent three names](./media/app-insights-export-power-bi/170.png)
 
@@ -214,7 +217,7 @@ Wait until the job is Running.
 
 ## See results in Power BI
 
-Open Power BI and select the dataset and table that you defined as the output of the Stream Analytics job.
+Open Power BI with your work or school account, and select the dataset and table that you defined as the output of the Stream Analytics job.
 
 ![In Power BI, select your dataset and fields.](./media/app-insights-export-power-bi/200.png)
 
