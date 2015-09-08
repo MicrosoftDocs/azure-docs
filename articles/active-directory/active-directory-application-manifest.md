@@ -33,7 +33,7 @@ Through the [Azure portal][AZURE-PORTAL], you can manage your application's iden
 As a result, in order to understand the format and properties of the application manifest, you will need to reference the Graph API [Application entity][APPLICATION-ENTITY] documentation. Examples of updates that can be performed though application manifest upload 
 include:
 
-- Declare permission scopes (oauth2Permissions) exposed by your web API. See the [Office 365 application manifest and permission details][O365-PERM-DETAILS] for an  example of implementing in an Office 365 application.
+- Declare permission scopes (oauth2Permissions) exposed by your web API. See the "Exposing Web APIs to Other Applications" topic in [Integrating Applications with Azure Active Directory][INTEGRATING-APPLICATIONS-AAD] for information on implementing user impersonation using the oauth2Permissions delegated permission scope. As mentioned previously, all Application Entity properties are documented in the the Graph API [Entity and Complex Type reference][APPLICATION-ENTITY] reference article, including oauth2Permissions which is of type [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION]
 - Declare application roles (appRoles) exposed by your app. See the [Roles based access control in cloud applications using Azure AD][RBAC-CLOUD-APPS-AZUREAD] article for an implementation example.
 - Declaring known client applications
 - Request Azure AD to issue group memberships claim for the signed in user.  NOTE: this can be configured to additionally issue claims about the user's directory roles memberships. See the [Authorization in Cloud Applications using AD Groups][AAD-GROUPS-FOR-AUTHORIZATION] article for an implementation example.
@@ -96,8 +96,10 @@ Please use the DISQUS comments section below to provide feedback and help us ref
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]: https://msdn.microsoft.com/library/azure/dn132599.aspx
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
+[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
 [AZURE-PORTAL]: https://manage.windowsazure.com 
 [GRAPH-API]: https://msdn.microsoft.com/library/azure/hh974476.aspx
+[INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
