@@ -24,10 +24,7 @@ This release contains the following updates.
 
 Title|Description
 ---|---
-Support for DocumentDB output |Stream Analytics jobs can now output to DocumentDB.
 Support for PowerBI groups|To enabling sharing data with other Power BI users, Stream Analytics jobs can now write to groups inside your Power BI account.
-Added ABS function|Added the mathematical function ABS for calculating the absolute value of numeric expressions.
-TIMESTAMP BY for heterogeneous events|When a single data stream contains multiple event types having timestamps in different fields, you can use TIMESTAMP BY to specify different timestamp fields for each case.
 
 ## Notes for 08/20/2015 release of Stream Analytics ##
 
