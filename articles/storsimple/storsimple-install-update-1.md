@@ -132,7 +132,7 @@ Perform the following steps to disable the network interface with the gateway an
 
 **What if you see a notification that the pre-upgrade checks have failed?**
 
-If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page. This provides guidance as to which pre-check has failed. The following illustration shows an instance in which such a notification appears. In this case, the controller health check and hardware component health check have failed. Under the **Hardware Status** section, you can see that both Controller 0 and Controller 1 components need attention. 
+If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page. This provides guidance as to which pre-check has failed. The following illustration shows an instance in which such a notification appears. In this case, the controller health check and hardware component health check have failed. Under the **Hardware Status** section, you can see that both **Controller 0** and **Controller 1** components need attention. 
  
   ![Pre-check failure](./media/storsimple-install-update-1/HCS_PreUpdateCheckFailed-include.png)
 
