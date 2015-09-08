@@ -82,9 +82,9 @@ TelemetryClient is thread-safe.
 
 ## Track Event
 
-Events can be displayed in [Metrics Explorer][metrics] as an aggregated count, and you can also display individual occurrences in [Diagnostic Search][diagnostic].  
+In Application Insights, a *custom event* is a data point that you can display both in in [Metrics Explorer][metrics] as an aggregated count, and also as individual occurrences in [Diagnostic Search][diagnostic]. (It isn't related to MVC or other framework "events.") 
 
-Insert events in your code to count how often they use a particular feature, how often they achieve particular goals, or make particular choices. 
+Insert TrackEvent calls in your code to count how often users choose a particular feature, how often they achieve particular goals, or maybe make particular types of mistake. 
 
 For example, in a game app, send an event whenever a user wins the game: 
 
@@ -105,14 +105,12 @@ For example, in a game app, send an event whenever a user wins the game:
 
     telemetry.trackEvent("WinGame");
 
-
-Click the Custom Events tile on the overview blade:
+Here, "WinGame" is the name that appears in the Application Insights portal. Click the Custom Events tile on the overview blade:
 
 ![Browse to your application resource in portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-Click through to see an overview chart and a complete list.
 
-Select the chart and group it by Event name to see the relative contributions of the most significant events.
+The chart is grouped by Event name so that you can see the relative contributions of the most significant events. To control this, select the chart and use the Grouping control.
 
 ![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -203,7 +201,7 @@ There are some [limits on the number of properties, property values, and metrics
 
 ![Open metric explorer, select the chart, and select the metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*If your metric doesn't appear, close the selection blade, wait a while, and click Refresh.*
+*If your metric doesn't appear, or if the Custom heading isn't there, close the selection blade and try later. It can sometimes take an hour for metrics to be aggregated through the pipeline.*
 
 **If you used properties and metrics**, segment the metric by the property:
 

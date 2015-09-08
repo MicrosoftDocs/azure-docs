@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Shared Access Signatures Overview"
+   pageTitle="Shared Access Signatures Overview | Microsoft Azure"
    description="What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#."
    services="service-bus,event-hubs"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
+   ms.workload="na"
    ms.date="09/04/2015"
    ms.author="darosa"/>
 

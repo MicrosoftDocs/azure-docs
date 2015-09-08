@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Service Bus queues, topics, and subscriptions"
+   pageTitle="Service Bus queues, topics, and subscriptions | Microsoft Azure"
    description="Overview of Service Bus messaging entities."
    services="service-bus"
    documentationCenter="na"
@@ -11,7 +11,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
+   ms.workload="na"
    ms.date="09/04/2015"
    ms.author="sethm" />
 

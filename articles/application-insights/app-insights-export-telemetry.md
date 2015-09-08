@@ -64,6 +64,8 @@ The data also includes the results of any [availability web tests](app-insights-
 
 ## <a name="get"></a> Inspect the data
 
+You can inspect the storage directly in the portal. Click **Browse**, select your storage account, and then open **Containers**.
+
 To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. (If you don't have that menu command, you need to install the Azure SDK: Open the **New Project** dialog, expand Visual C#/Cloud and choose **Get Microsoft Azure SDK for .NET**.)
 
 When you open your blob store, you'll see a container with a set of blob files. The URI of each file derived from your Application Insights resource name, its instrumentation key, telemetry-type/date/time. (The resource name is all lowercase, and the instrumentation key omits dashes.)
