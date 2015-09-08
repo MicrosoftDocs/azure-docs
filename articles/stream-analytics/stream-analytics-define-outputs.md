@@ -55,10 +55,8 @@ The table below lists the property names and their description for creating a bl
 |  | Within the path, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: |
 |  | {date} |
 |  | {time} |
-|  | Example 1: |
-|  | cluster1/logs/{date}/{time} |
-|  | Example 2: |
-|  | cluster1/logs/{date} |
+|  | Example 1: | cluster1/logs/{date}/{time} |
+|  | Example 2: | cluster1/logs/{date} |
 | Date Format [optional] | If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
 | Time Format [optional] | If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
 | Event Serialization Format | Serialization format for output data.  JSON, CSV, and Avro are supported. |
@@ -116,7 +114,7 @@ Once you have the Power BI account authenticated, you can configure the properti
 
 ### Renew Power BI Authorization
 
-There is a temporary limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Power BI output.  You will also need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated.  A symptom of this issue is no job output and an "Authenticate user error" in the Operations Logs:
+There is a temporary limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Power BI output.  You will also need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated.  A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
 
   ![Power BI refresh token error](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
