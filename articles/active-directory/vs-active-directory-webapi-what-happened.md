@@ -1,7 +1,7 @@
 <properties
-	pageTitle=""
-	description="Describes what was changed in your Visual Studio project after you ran the Azure Active Directory wizard"
-	services="active-directory"
+	pageTitle="What happened to my WebApi project (Visual Studio Azure Active Directory connected service) |Microsoft Azure "
+	description="Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio services="active-directory"
+    services="active-directory"
 	documentationCenter=""
 	authors="patshea123"
 	manager="douge"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea"/>
 
-# What happened to my project?
+# What happened to my WebApi project (Visual Studio Azure Active Directory connected service)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
@@ -65,7 +65,7 @@ The following configuration entries have been added.
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` 
+	</appSettings>`
 ```
 
 ###An Azure AD App was created
@@ -109,7 +109,7 @@ The following additional configuration entries have been added.
 ```
 	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` 
+	</appSettings>`
 ```
 
 ###Your Azure Active Directory App was updated

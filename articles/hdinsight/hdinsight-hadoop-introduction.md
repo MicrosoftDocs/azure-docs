@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="09/03/2015"
    ms.author="cgronlun"/>
 
 
@@ -59,7 +59,7 @@ Category | Hadoop on Linux | Hadoop on Windows
 
 
 
-### Hadoop, HBase, Storm, and customized clusters
+### Hadoop, HBase, Storm, Spark, and customized clusters
 
 HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you can [customize clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -69,7 +69,7 @@ HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you c
 
 * **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>** (the "Stream" workload): A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
 
-####Example customization scripts
+#### Example customization scripts
 
 Script Actions are scripts that are ran during cluster provisioning, and can be used to install additional components on the cluster. For Windows-based HDInsight clusters, these are PowerShell scripts. For Linux-based clusters, these are Bash scripts.
 
