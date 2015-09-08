@@ -36,6 +36,7 @@ For those of you with knowledge of older sync technologies, the staging mode is 
 
 ### Verify the configuration of a server
 To apply this method, follow these steps:
+
 1. Prepare
 2. Import and Synchronize
 3. Verify
@@ -43,7 +44,7 @@ To apply this method, follow these steps:
 
 **Prepare**
 
-1. Install Azure AD Connect, select *staing mode*, and unselect *start synchronization* on the last page in the installation wizard. This will allow us to run the sync engine manually.
+1. Install Azure AD Connect, select *staging mode*, and unselect *start synchronization* on the last page in the installation wizard. This will allow us to run the sync engine manually.
 2. Logoff/logon and from the start menu select *Synchronization Service*.
 
 **Import and Synchronize**
@@ -67,8 +68,10 @@ The name of the Connector can be found in Synchronization Service. It will have 
 **Understanding the export.csv file**
 
 Most of the file is self-explanatory. Some abbreviations to understand the content:
+
 - OMODT – Object Modification Type. Indicates if the operation at an object level is an Add, Update, or Delete.
 - AMODT – Attribute Modification Type. Indicates if the operation at an attribute level is an Add, Update, or delete.
+
 If the attribute value is multi-valued then not every change is displayed. Only the number of values added and removed will be visible.
 
 **Switch active server**
@@ -84,6 +87,7 @@ Part of the implementation design is to plan for what to do in case of a disaste
 -	Do you have a dependency on real-time operations, such as password writeback?
 
 Depending on the answers to these questions and your organization’s policy one of the following strategies can be implemented:
+
 -	Rebuild when needed.
 -	Have a spare standby server, known as *staging mode*.
 -	Use virtual machines.
