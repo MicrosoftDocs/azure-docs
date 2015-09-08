@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Testability Action."
+   pageTitle="Testability Action | Microsoft Azure"
    description="This article talks about the testability actions found in Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/31/2015"
    ms.author="heeldin;motanv"/>
 
 # Testability actions
@@ -215,6 +215,7 @@ To use, create a ReplicaSelector object and set the way you want to select the r
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
 PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
 long replicaId = 130559876481875498;
+
 
 ```csharp
 // Select Random replica

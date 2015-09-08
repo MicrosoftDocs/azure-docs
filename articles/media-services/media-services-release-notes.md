@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [August 2015 Release](#august_changes_15)
 - [July 2015 Release](#july_changes_15)
 - [June 2015 Release](#june_changes_15)
 - [May 2015 Release](#may_changes_15)
@@ -72,12 +73,21 @@ Media Services objects in the SDK cannot be serialized and as a result do not wo
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
 
+##<a id="august_changes_15"></a>August 2015 Release
+
+- Azure Media Services SDK for Java V0.8.0 release and new samples are now available. For more information, see:
+
+	- [Blog post](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
+	- [Java samples repository](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- Azure Media Player update with multi-audio stream support. For more information, see:
+	- [Blog post](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
+
 ##<a id="july_changes_15"></a>July 2015 Release
 
-Announcing the general availability of Media Encoder Standard. For more information, see [this blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+- Announcing the general availability of Media Encoder Standard. For more information, see [this blog post](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium** reserved unit type. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
-
+	Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium** reserved unit type. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
+- Live Real-time captions with Azure Media Services and Player. For more information, see  [this blog post](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###Media Services .NET SDK Updates
 
@@ -523,6 +533,14 @@ The following functionality was new in the November release of the SDK.
 * Asynchronous Method Support
 
 	Asynchronous support has been added to all methods.
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 <!-- Anchors. -->
 

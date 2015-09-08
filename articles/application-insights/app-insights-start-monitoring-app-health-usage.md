@@ -74,7 +74,6 @@ Installing and configuring the Application Insights SDK varies depending on the 
 
     ![Search for "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
 
-
 3. Edit ApplicationInsights.config (which was added by the NuGet install). Insert this just before the closing tag:
 
     `<InstrumentationKey>` *the instrumentation key you copied* `</InstrumentationKey>`
@@ -137,11 +136,13 @@ Sign in to your server with admin rights, and install [Application Insights Stat
 
 #### If your app is an Azure Web App
 
-In the control panel of your Azure Web App, add the Application Insights extension.
+In each web or worker role that you want to monitor:
 
-![In your web app, Tools, Performance Monitoring, Add, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+* Add this [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) folder and the two files in it to your web/worker role projects. Be sure to set their build properties so that they are always copied into the output directory. These files install the agent.
 
-(The extension only assists an app that has been built with the SDK. Unlike Status Monitor, it can't instrument an existing app.)
+* Add the start up task to the CSDEF file as shown [in this example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18).
+
+[More about monitoring Azure web and worker roles](app-insights-cloudservices.md)
 
 ## 6. Add client-side monitoring
 
@@ -207,9 +208,9 @@ If this is your first time, you'll be asked sign in or sign up to Microsoft Azur
 
 If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components.
 
-*No Application Insights option? Check you're using Visual Studio 2013 Update 3 or later, that Application Insights Tools are enabled in Extensions and Updates.*
+*No Application Insights option? Check that you're using Visual Studio 2013 Update 3 or later and that Application Insights Tools are enabled in Extensions and Updates.*
 
-#### Open Application Insights from your project.
+#### Open Application Insights from your project
 
 ![Right-click your project and open the Azure portal](./media/app-insights-start-monitoring-app-health-usage/appinsights-04-openPortal.png)
 

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Call a custom API from an HTML client - Mobile Services" 
-	description="Learn how to define a custom API and then call it from an HTML app that uses Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="bureado"  
-	manager="dwrede" 
+<properties
+	pageTitle="Call a custom API from an HTML client - Mobile Services"
+	description="Learn how to define a custom API and then call it from an HTML app that uses Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"  
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Call a custom API from an HTML application
@@ -32,11 +32,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ##<a name="update-app"></a>Update the app to call the custom API
 
-1. Using your text editor, open the index.html file, locate the **button** element named `buttonRefresh`, and add the following new element right after it: 
+1. Using your text editor, open the index.html file, locate the **button** element named `buttonRefresh`, and add the following new element right after it:
 
-		<button id="buttonCompleteAll">Complete All</button> 
+		<button id="buttonCompleteAll">Complete All</button>
 
-	This adds a new button to the page. 
+	This adds a new button to the page.
 
 2. In page.js, and after the **refreshTodoItems** function, add the following code:
 
@@ -92,4 +92,4 @@ Also, consider finding out more about the following Mobile Services topics:
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Get started with Mobile Services]: mobile-services-html-get-started.md
 [Add Mobile Services to an existing app]: mobile-services-html-get-started-data.md
-[Store server scripts in source control]: mobile-services-store-scripts-source-control.md 
+[Store server scripts in source control]: mobile-services-store-scripts-source-control.md

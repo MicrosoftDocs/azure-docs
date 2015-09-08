@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to encode an asset using Media Encoder Strandard" 
+	pageTitle="How to encode an asset using Media Encoder Standard" 
 	description="This topic shows how to use .NET to encode an asset using Media Encoder Strandard." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015"  
+	ms.date="09/07/2015"    
 	ms.author="juliako"/>
 
 
-#Overview
+#How to encode an asset using Media Encoder Standard
 
 Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. 
 
@@ -115,6 +115,14 @@ The following code example uses Media Services .NET SDK to perform the following
 		
 		    return processor;
 		}
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##See Also 
 
