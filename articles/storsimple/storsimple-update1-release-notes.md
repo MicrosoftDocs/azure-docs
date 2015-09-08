@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/28/2015"
+    ms.date="09/08/2015"
     ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1.2 release notes  
@@ -31,12 +31,12 @@ The following table lists the device software versions corresponding to Updates 
 | Update 1.1          | 6.3.9600.17521                        |
 | Update 1.0          | 6.3.9600.17491                        |
 
-Please review the information contained in the release notes before you deploy the update in your StorSimple solution. For more information, see how to [install Update 1 on your StorSimple device](storsimple-install-update-1.md). 
+Please review the information contained in the release notes before you deploy the update in your StorSimple solution. For more information, see how to [install Update 1.2 on your StorSimple device](storsimple-install-update-1.md). 
 
 >[AZURE.IMPORTANT]
 > 
-- It takes approximately 5-10 hours to install this update (including the Windows Updates). Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
-- This release also contains disk firmware updates that can only be applied when the device is in Maintenance mode. These are disruptive updates that will result in down time for your device. You can apply these updates during planned maintenance.
+- It takes approximately 5-10 hours to install this update (including the Windows Updates). 
+- Update 1.2 has software, LSI driver and disk firmware updates. To install, follow the instructions in [install Update 1.2 on your StorSimple device](storsimple-install-update-1.md).
 - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Scan for updates in a few days again as these will become available soon.
 
 
