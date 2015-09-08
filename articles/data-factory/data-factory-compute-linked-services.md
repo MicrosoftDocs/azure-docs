@@ -259,8 +259,8 @@ You create an Azure Big Analytics linked service to link an Azure Big Analytics 
 Property | Description | Required
 -------- | ----------- | --------
 Type | The type property should be set to: **BigAnalytics**. | Yes
-accountName | Azure Kona Account Name. | Yes
-konaUri | Azure Kona URI. Enter ‘microsoftbiganalyticscompute.net’. |  No 
+accountName | Azure Big Analytics Account Name. | Yes
+konaUri | Azure Big Analytics URI. Enter ‘microsoftbiganalyticscompute.net’. |  No 
 authorization | Autherization code is automatically retrieved after clicking ‘Authorize’ and completing the OAuth login. | Yes 
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
