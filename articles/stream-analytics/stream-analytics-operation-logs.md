@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Operation Logs, streaming data analytics | Microsoft Azure" 
+	pageTitle="Operation Logs | Microsoft Azure" 
 	description="Stream Analytics Operation Logs" 
 	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
@@ -23,7 +23,7 @@ All Azure services supply operational logging messages to users to record detail
 
 ## Finding Operation Logs
 
-Operation logs can be accessed in two ways:  
+Operation Logs can be accessed in two ways:  
 
 - Dashboard of the Stream Analytics job  
 - Management Services in the Azure Portal  
@@ -36,7 +36,7 @@ A link to the corresponding logs of a Stream Analytics job is displayed on the j
 
 ## Management Services in the Azure Portal
 
-To manually navigate to the Operations Logs for Stream Analytics and other services in the Azure Portal:
+To manually navigate to the Operation Logs for Stream Analytics and other services in the Azure Portal:
 
 1.	Click on **Management Services** in the [Azure Portal](https://manage.windowsazure.com).
 2.	Select **Stream Analytics** for **Type** and the name of the job for **Service Name**.  
