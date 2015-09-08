@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/14/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Use PlayReady DRM Dynamic Encryption and License Delivery Service
@@ -579,3 +579,10 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		    }
 		}
 
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
