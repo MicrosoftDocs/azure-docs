@@ -56,11 +56,11 @@ SCOM | Y | Y | Y | Y
 Sharepoint | Y | Y | Y | Y
 <p>SAP</p><p>Replicate SAP site to Azure for non cluster</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
 Exchange (non-DAG) | Y | Coming soon | Y | Coming soon
-Remote Desktop/VDI | Y | Y | Y | Y 
+Remote Desktop/VDI | Y | Y | Y | N/A 
 <p>Linux</p> <p>(operating system and apps)</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) 
 Dynamics AX | Y | Y | Y | Y
-Dynamics CRM | Coming soon | Coming soon | Y | Coming soon
-Oracle | Coming soon | Coming soon | Y (tested by Microsoft) | Coming soon
+Dynamics CRM | Y | Coming soon | Y | Coming soon
+Oracle | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
 
 
 ## Features and requirements 
