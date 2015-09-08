@@ -441,7 +441,7 @@ We would really appreciate your feedback on this article. Please take a few minu
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
+[azure-sql-firewall]: https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings/
 
 
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
