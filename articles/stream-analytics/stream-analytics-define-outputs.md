@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Define Outputs, streaming data analytics | Microsoft Azure" 
+	pageTitle="Define Outputs | Microsoft Azure" 
 	description="Understanding Stream Analytics Outputs" 
 	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/08/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics outputs
@@ -53,8 +53,7 @@ The table below lists the property names and their description for creating a bl
 | Storage Container | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
 | Path Prefix Pattern [optional] | The file path used to write your blobs within the specified container. |
 |  | Within the path, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: |
-|  | {date} |
-|  | {time} |
+|  | {date}  {time} |
 |  | Example 1: | cluster1/logs/{date}/{time} |
 |  | Example 2: | cluster1/logs/{date} |
 | Date Format [optional] | If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
