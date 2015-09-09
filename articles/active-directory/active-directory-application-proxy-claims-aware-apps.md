@@ -47,6 +47,6 @@ Before performing this procedure, make sure that the STS the claims aware app re
 3. On the **Endpoints** tab, under **Endpoint type** select **WS-Federation**.
 4. Under **Trusted URL**, enter the URL you entered in the Application Proxy under **External URL** and click **OK**.
 
-![Add an Endpoint - set Trusted URL value - screenshot](appproxyendpointtrustedurl.png)
+![Add an Endpoint - set Trusted URL value - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
 
