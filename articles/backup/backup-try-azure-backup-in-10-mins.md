@@ -13,14 +13,14 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="08/20/2015"
+	 ms.date="09/03/2015"
 	 ms.author="aashishr"; "jimpark"/>
 
-# Try Azure Backup in 10mins
-It is extremely easy to setup Azure Backup and the following how-to-videos should help you get started.
+# Getting started with Azure Backup
+It is extremely easy to setup Azure Backup and the following how-to videos will help you get started.
 
 ## Step 1: Get an Azure subscription
-- If you do not have an Azure subscription, you can get started with a free trial offer which lets you access any Azure service. Visit the following link [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) to learn more.
+- If you don't have an Azure subscription, you can get started with a free trial offer that lets you access any Azure service. Visit the following link [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) to learn more.
 - You can skip this step you have an Azure subscription.
 
 ## Step 2: Configure the Azure Backup service
@@ -49,6 +49,6 @@ Go through the steps mentioned in the video [Getting Started with Azure Backup 3
 > [AZURE.VIDEO getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server]
 
 ## Next steps
-- To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md).
+- To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md)
 - [Back up Windows Server](backup-azure-backup-windows-server.md)
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).

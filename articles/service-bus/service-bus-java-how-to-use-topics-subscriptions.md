@@ -325,8 +325,7 @@ with the topic. Subscriptions can also be deleted independently.
 
 ## Next Steps
 
-Now that you've learned the basics of Service Bus queues, see the MSDN
-topic [Service Bus Queues, Topics, and Subscriptions][] for more information.
+Now that you've learned the basics of Service Bus queues, see [Service Bus Queues, Topics, and Subscriptions][] for more information.
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/en-us/library/azure/hh694271.aspx
@@ -348,5 +347,5 @@ topic [Service Bus Queues, Topics, and Subscriptions][] for more information.
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Service Bus Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Service Bus Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
  

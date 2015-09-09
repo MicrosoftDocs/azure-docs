@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Call a custom API from a Windows Phone client - Mobile Services" 
-	description="Learn how to define a custom API and then call it from a Windows Phone app that use Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Call a custom API from a Windows Phone client - Mobile Services"
+	description="Learn how to define a custom API and then call it from a Windows Phone app that use Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Call a custom API from the client
@@ -61,4 +61,3 @@ Also, consider finding out more about the following Mobile Services topics:
 [Get started with push notifications]: ../mobile-services-windows-phone-get-started-push.md
 
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
- 
