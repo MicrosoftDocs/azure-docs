@@ -66,7 +66,7 @@ Certreq.exe is Windows utility for creating certificate requests. It has been pa
 		[EnhancedKeyUsageExtension]
 		OID=1.3.6.1.5.5.7.3.1
 
-	For more information on the options specified above, as well as other available options, see the [Certreq reference documentationn](http://technet.microsoft.com/library/cc725793.aspx).
+	For more information on the options specified above, as well as other available options, see the [Certreq reference documentation](http://technet.microsoft.com/library/cc725793.aspx).
 
 2. Save the text file as **myrequest.txt**.
 
