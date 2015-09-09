@@ -105,7 +105,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 4. In the menu on the top, click **System Settings**. <br><br> ![Azure AD Single Sign-On][10]
 
-5. To open the System Settings page, click **SSO (SAML)**. <br><br> ![Azure AD Single Sign-On][11]
+5. To open the **SingleSignOnSAML** page, click **SSO (SAML)**. <br><br> ![Azure AD Single Sign-On][11]
 
 
 6. In the Azure portal, on the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][13]
@@ -121,6 +121,8 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 8. On you **Questetra BPM Suite** company site, perform the following steps: <br><br>![Configure Single Sign-On][15]
 
+     8.1. Select **Enable Single Sign-On**.
+     
      8.1. On the Azure portal, copy the **Issuer URL** value, and then paste it into the **Entity ID** textbox.
 
      8.2. On the Azure portal, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
@@ -134,7 +136,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-     8.6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. <br><br>![Configure Single Sign-On][16]
+     8.6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. 
 
      8.7. Click **Save**.
 
