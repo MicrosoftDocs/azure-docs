@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-The sample PowerShell commands below expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-netcfg-ps).
+The sample PowerShell commands below expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## How to verify if a specific IP address is available
 To verify if the IP address *192.168.1.101* is available in a vnet named *TestVnet*, run the following PowerShell command and verify the value for *IsAvailable*:
