@@ -27,7 +27,7 @@ The Azure Tools for Visual Studio provide property pages that you can use to set
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-configuring-an-azure-project/IC784076.png)
 
-For information about the underlying schemas for the service definition and service configuration files, see the [Schema Reference](https://msdn.microsoft.com/en-us/library/azure/dd179398.aspx). For more information about service configuration, see [How to manage service configurations and profiles](vs-azure-tools-service-configurations-and-profiles-how-to-manage.md).
+For information about the underlying schemas for the service definition and service configuration files, see the [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398.aspx). For more information about service configuration, see [How to manage service configurations and profiles](vs-azure-tools-service-configurations-and-profiles-how-to-manage.md).
 
 ## Configuring role properties
 
@@ -41,7 +41,7 @@ On the **Configuration** page, you can set the following properties.
 
 Set the **Instance count** property to the number of instances the service should run for this role.
 
-Set the **VM size** property to **Extra Small**, **Small**, **Medium**, **Large**, or **Extra Large**. For more information, see [Configure Sizes for Cloud Services](https://msdn.microsoft.com/en-us/library/azure/ee814754.aspx) .
+Set the **VM size** property to **Extra Small**, **Small**, **Medium**, **Large**, or **Extra Large**. For more information, see [Configure Sizes for Cloud Services](https://msdn.microsoft.com/library/azure/ee814754.aspx) .
 
 **Startup Action (Web Role Only)**
 
@@ -53,17 +53,17 @@ If you have already added an HTTPS endpoint, the **HTTPS endpoint** option is en
 
 **Diagnostics**
 
-By default, diagnostics is enabled for the Web role. The Azure cloud service project and storage account are set to use the local storage emulator. When you are ready to deploy to Azure, you can click the builder button (**…**) to update the storage account to use Azure storage in the cloud. You can transfer the diagnostics data to the storage account on demand or at automatically scheduled intervals. For more information about Azure diagnostics, see [Collect Logging Data by Using Azure Diagnostics](https://msdn.microsoft.com/en-us/library/azure/gg433048.aspx).
+By default, diagnostics is enabled for the Web role. The Azure cloud service project and storage account are set to use the local storage emulator. When you are ready to deploy to Azure, you can click the builder button (**…**) to update the storage account to use Azure storage in the cloud. You can transfer the diagnostics data to the storage account on demand or at automatically scheduled intervals. For more information about Azure diagnostics, see [Collect Logging Data by Using Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx).
 
 ### Settings page
 
-On the **Settings** page, you can add configuration settings for your service. Configuration settings are name-value pairs. Code running in the role can read the values of your configuration settings at runtime using classes provided by the [Azure Managed Library](http://go.microsoft.com/fwlink?LinkID=171026). Specifically, the [GetConfigurationSettingValue](https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) method returns the value of a named configuration setting at runtime.
+On the **Settings** page, you can add configuration settings for your service. Configuration settings are name-value pairs. Code running in the role can read the values of your configuration settings at runtime using classes provided by the [Azure Managed Library](http://go.microsoft.com/fwlink?LinkID=171026). Specifically, the [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) method returns the value of a named configuration setting at runtime.
 
 **Configuring a connection string to a storage account**
 
 A connection string is a configuration setting that provides connection and authentication information for the storage emulator or for an Azure storage account. Whenever your code must access Azure storage services data – that is, blob, queue, or table data – from code running in a role, you will have to define a connection string for that storage account.
 
-A connection string that points to an Azure storage account must use a defined format. For information about how to create connection strings, see [How to Configure Connection Strings](https://msdn.microsoft.com/en-us/library/azure/ee758697.aspx).
+A connection string that points to an Azure storage account must use a defined format. For information about how to create connection strings, see [How to Configure Connection Strings](https://msdn.microsoft.com/library/azure/ee758697.aspx).
 
 When you are ready to test your service against the Azure storage services, or when you are ready to deploy your cloud service to Azure, you can change the value of any connection strings to point to your Azure storage account. Click (…), select Enter storage account credentials. Enter your account information that includes your account name and account key. In the Storage Account Connection String dialog box, you can also indicate whether you want to use the default HTTPS endpoints (the default option), the default HTTP endpoints, or custom endpoints. You might decide to use custom endpoints if you have registered a custom domain name for your service, as described in [Configure a custom domain name for blob data in an Azure storage account](storage-custom-domain-name.md).
 
@@ -83,7 +83,7 @@ A worker role can have any number of HTTP, HTTPS, or TCP endpoints. Endpoints ca
 
 ### Local storage page
 
-You can use the Local Storage property page to reserve one or more local storage resources for a role. A local storage resource is a reserved directory in the file system of the Azure virtual machine in which an instance of a role is running. For more information about how to work with local storage resources, see [Configure Local Storage Resources](https://msdn.microsoft.com/en-us/library/azure/ee758708.aspx).
+You can use the Local Storage property page to reserve one or more local storage resources for a role. A local storage resource is a reserved directory in the file system of the Azure virtual machine in which an instance of a role is running. For more information about how to work with local storage resources, see [Configure Local Storage Resources](https://msdn.microsoft.com/library/azure/ee758708.aspx).
 
 ### Certificates page
 
