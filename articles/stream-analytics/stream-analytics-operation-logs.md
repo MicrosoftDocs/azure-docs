@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/08/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
 # Operation Logs
