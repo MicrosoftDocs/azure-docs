@@ -126,7 +126,7 @@ The following samples demonstrate various other features of the service.
 
 ## Next steps
 
-See the following topics for overviews of how Service Bus works.
+See the following topics for more overviews of Service Bus.
 
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus architecture](service-bus-architecture.md)

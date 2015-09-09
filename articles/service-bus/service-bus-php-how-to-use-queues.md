@@ -199,7 +199,7 @@ In the event that the application crashes after processing the message but befor
 
 ## Next steps
 
-Now that you've learned the basics of Service Bus queues, see the MSDN topic [Queues, Topics, and Subscriptions][] for more information.
+Now that you've learned the basics of Service Bus queues, see the topic [Queues, Topics, and Subscriptions][] for more information.
 
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/

@@ -302,7 +302,7 @@ Deleting a topic also deletes any subscriptions that are registered with the top
 
 Now that you've learned the basics of Service Bus topics and subscriptions, follow these links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
+-   See [Queues, Topics, and Subscriptions][].
 -   API reference for [SqlFilter][].
 -   Build a working application that sends and receives messages to and from a Service Bus queue: [Service Bus Brokered Messaging .NET Tutorial][].
 -   Service Bus samples: Download from [Azure Samples][] or see the [overview](service-bus-samples.md).
