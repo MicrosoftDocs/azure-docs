@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Run a Job| Microsoft Azure" 
+	pageTitle="Run a Job | Microsoft Azure" 
 	description="Run a Job learning path segment."
 	documentationCenter=""
 	services="stream-analytics"
