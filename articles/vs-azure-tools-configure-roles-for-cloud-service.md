@@ -39,21 +39,21 @@ When you create a new Azure cloud service in Visual Studio, two service configur
 
 You can configure an Azure cloud service from Solution Explorer in Visual Studio, as shown in the following illustration.
 
-  ![](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
+    ![](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
 
 ### To configure an Azure cloud service
 
 1. To configure each role in your Azure project from **Solution Explorer**, open the shortcut menu for the role in the Azure project and then choose **Properties**.
 
-  A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
+    A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
 
 1. In the **Service Configuration** list, choose the name of the service configuration that you want to edit.
 
-  If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.
+    If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.
 
-  >[AZURE.IMPORTANT] If you choose a specific service configuration, some properties are disabled because they can only be set for all configurations. To edit these properties, you must choose All Configurations.
+    >[AZURE.IMPORTANT] If you choose a specific service configuration, some properties are disabled because they can only be set for all configurations. To edit these properties, you must choose All Configurations.
 
-You can now choose a tab to update any enabled properties on that view.
+    You can now choose a tab to update any enabled properties on that view.
 
 ## Change the number of role instances
 

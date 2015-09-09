@@ -51,11 +51,11 @@ When you publish your Azure application, you can do one of the following tasks:
 
   1. (optional) To turn on Remote Desktop for the cloud service after you publish it, select the **Enable Remote Desktop for all Roles** check box, and then click **Settings** to configure Remote Desktop. If you want to debug your cloud service after you publish it, turn on remote debugging by selecting **Enable Remote Debugger for all Roles**.
 
-    For more information, see [Using Remote Desktop with Azure Roles](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
+      For more information, see [Using Remote Desktop with Azure Roles](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
 
   1. To create the package, choose the **Package** link.
 
-    File Explorer shows the file location of the newly created package. You can copy this location so that you can use it from the Azure Management Portal.
+      File Explorer shows the file location of the newly created package. You can copy this location so that you can use it from the Azure Management Portal.
 
   1. To publish this package to a deployment environment, you must use this location as the Package location when you create a cloud service and deploy this package to an environment with the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
