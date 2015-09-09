@@ -102,7 +102,7 @@ As with other services on Azure, Service Bus enforces a set of specific quotas t
 
 - **Number of correlation filters per topic** – The maximum number of correlation filters per topic is limited to 100,000. If this quota is reached, any subsequent requests for creation of additional filters on the topic will be rejected and an exception will be received by the calling code.
 
-For more information about quotas, see [Service Bus quotas](https://azure.microsoft.com/documentation/articles/service-bus-quotas/).
+For more information about quotas, see [Service Bus quotas](service-bus-quotas.md).
 
 ## Next steps
 
