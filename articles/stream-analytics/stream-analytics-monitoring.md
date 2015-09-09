@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitoring, streaming data analytics | Microsoft Azure" 
+	pageTitle="Understanding Stream Analytics Job Monitoring | Microsoft Azure" 
 	description="Understanding Stream Analytics Job Monitoring" 
 	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/08/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics Job Monitoring
