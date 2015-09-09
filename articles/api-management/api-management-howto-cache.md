@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add caching to improve performance in Azure API Management"
+	pageTitle="Add caching to improve performance in Azure API Management | Microsoft Azure"
 	description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls."
 	services="api-management"
 	documentationCenter=""
@@ -20,15 +20,15 @@
 
 Operations in API Management can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
 
-This guide shows you how to add response caching for your API and configure policies for the sample Echo Api operations. You can then call the operation from the Azure portal to verify caching in action.
+This guide shows you how to add response caching for your API and configure policies for the sample Echo API operations. You can then call the operation from the developer portal to verify caching in action.
 
 ## Prerequisites
 
-Before following the steps in this guide, you must have an API Management service instance with an API and a Product configured. If you have not yet created an API Management service instance, please see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+Before following the steps in this guide, you must have an API Management service instance with an API and a product configured. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 ## <a name="configure-caching"> </a>Configure an operation for caching
 
-In this step, you will review the caching settings of the **GET Resource (cached)** operation of the sample Echo Api.
+In this step, you will review the caching settings of the **GET Resource (cached)** operation of the sample Echo API.
 
 >[AZURE.NOTE] Each API Management service instance comes preconfigured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
 
@@ -36,19 +36,19 @@ To get started, click **Manage** in the Azure portal for your API Management ser
 
 ![Publisher portal][api-management-management-console]
 
-Click **APIs** from the **API Management** menu on the left, and click **Echo API**.
+Click **APIs** from the **API Management** menu on the left, and then click **Echo API**.
 
 ![Echo API][api-management-echo-api]
 
-Select the **Operations** tab, and then click the **GET Resource (cached)** operation from the **Operations** list.
+Click the **Operations** tab, and then click the **GET Resource (cached)** operation from the **Operations** list.
 
 ![Echo API operations][api-management-echo-api-operations]
 
-Select the **Caching** tab to view the caching settings for this operation.
+Click the **Caching** tab to view the caching settings for this operation.
 
 ![Caching tab][api-management-caching-tab]
 
-To enable caching for an operation, select the **Enable** checkbox. In this example, caching is enabled.
+To enable caching for an operation, select the **Enable** check box. In this example, caching is enabled.
 
 Each operation response is keyed, based on the values in the **Vary by query string parameters** and **Vary by headers** fields. If you want to cache multiple responses based on query string parameters or headers, you can configure them in these two fields.
 
@@ -58,11 +58,11 @@ Using the caching configuration in this example, the first request to the **GET 
 
 ## <a name="caching-policies"> </a>Review the caching policies
 
-In this step, you review the caching settings for the **GET Resource (cached)** operation of the sample Echo Api.
+In this step, you review the caching settings for the **GET Resource (cached)** operation of the sample Echo API.
 
-When caching, settings are configured for an operation on the **Caching** tab, caching policies are added for the operation. These policies can be viewed and edited in the policy editor.
+When caching settings are configured for an operation on the **Caching** tab, caching policies are added for the operation. These policies can be viewed and edited in the policy editor.
 
-Click **Policies** from the **API Management** menu on the left, and then select **Echo API / GET Resource (cached)** from the **Operation** drop-down list box.
+Click **Policies** from the **API Management** menu on the left, and then select **Echo API / GET Resource (cached)** from the **Operation** drop-down list.
 
 ![Policy scope operation][api-management-operation-dropdown]
 
@@ -87,13 +87,13 @@ The policy definition for this operation includes the policies that define the c
 		</outbound>
 	</policies>
 
->[AZURE.NOTE] Changes made to the caching policies in the policy editor will reflect in the **Caching** tab of an operation, and vice-versa.
+>[AZURE.NOTE] Changes made to the caching policies in the policy editor will be reflected on the **Caching** tab of an operation, and vice-versa.
 
 ## <a name="test-operation"> </a>Call an operation and test the caching
 
-To see the caching in action, we can call the operation from the Azure portal. Click **Developer portal** in the top right menu.
+To see the caching in action, we can call the operation from the developer portal. Click **Developer portal** in the top right menu.
 
-!Azure portal][api-management-developer-portal-menu]
+![Developer portal][api-management-developer-portal-menu]
 
 Click **APIs** in the top menu, and then select **Echo API**.
 
@@ -105,13 +105,13 @@ Select the **GET Resource (cached)** operation, and then click **Open Console**.
 
 ![Open console][api-management-open-console]
 
-The console allows you to invoke operations directly from the Azure portal.
+The console allows you to invoke operations directly from the developer portal.
 
 ![Console][api-management-console]
 
 Keep the default values for **param1** and **param2**.
 
-Select the desired key from the **subscription-key** drop-down list box. If your account has only one subscription, it will already be selected.
+Select the desired key from the **subscription-key** drop-down list. If your account has only one subscription, it will already be selected.
 
 Enter **sampleheader:value1** in the **Request headers** text box.
 
@@ -121,9 +121,9 @@ Enter **sampleheader:value2** in the **Request headers** text box, and then clic
 
 Note that the value of **sampleheader** is still **value1** in the response. Try some different values and note that the cached response from the first call is returned.
 
-Enter **25** into the **param2** field, and click **HTTP Get**.
+Enter **25** into the **param2** field, and then click **HTTP Get**.
 
-Note that the value of **sampleheader** in the response is now **value2**. Because the operation results are keyed by query string, the previous, cached response was not returned.
+Note that the value of **sampleheader** in the response is now **value2**. Because the operation results are keyed by query string, the previous cached response was not returned.
 
 ## <a name="next-steps"> </a>Next steps
 
