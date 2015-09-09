@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage your StorSimple storage account Microsoft Azure | Microsoft Azure"
-   description="Explains how you can use the Configure page to add, edit, delete, or rotate the security keys for a storage account."
+   pageTitle="Manage your StorSimple storage account | Microsoft Azure"
+   description="Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/14/2015"
+   ms.date="08/27/2015"
    ms.author="v-sharos" />
 
-# Manage your StorSimple storage account
+# Use the StorSimple Manager service to manage your storage account
 
 ## Overview
 
@@ -28,8 +28,6 @@ The **Configure** page presents all the global service parameters that can be cr
 This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.
 
  ![Configure page](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)  
-
-**Figure 1: StorSimple Manager service configure page**
 
 Storage accounts contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/07/2015" 
 	ms.author="robmcm"/>
 
 #How to use Media Services with Java
@@ -349,6 +349,16 @@ Alternatively, the following code shows how to retrieve the ID of a media proces
 Should you need to cancel a job that hasn't finished processing, the following code shows how to cancel a job by job ID.
 
     mediaService.action(Job.cancel(jobId));
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 
 ##Additional Resources
 

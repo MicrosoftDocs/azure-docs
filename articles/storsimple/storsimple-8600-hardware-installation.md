@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Install your StorSimple 8600 device | Microsoft Azure"
-   description="Describes how to unpack, rack mount, and cable your StorSimple 8600 device."
+   description="Describes how to unpack, rack mount, and cable your StorSimple 8600 device before you deploy and configure the software."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,7 +15,7 @@
    ms.date="08/06/2015"
    ms.author="alkohli" />
 
-# Install your StorSimple 8600 device
+# Unpack, rack-mount, and cable your StorSimple 8600 device
 
 ## Overview
 Your Microsoft Azure StorSimple 8600 is a dual enclosure device and consists of a primary and an EBOD enclosure. This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8600 device hardware before you configure the StorSimple software.

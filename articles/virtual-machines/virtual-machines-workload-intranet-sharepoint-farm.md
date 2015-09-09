@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Infrastructure Services Workload: Intranet SharePoint farm"
-	description="Learn about the value of an intranet SharePoint farm deployed in Azure, how to set up a dev/test environment, and how to deploy a high-availability production configuration."
+	pageTitle="SharePoint Server 2013 farm in Azure | Microsoft Azure"
+	description="Learn the value of a SharePoint Server 2013 farm in Azure, set up a test environment, and deploy a high-availability configuration."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -32,6 +32,8 @@ This configuration allows you to easily expand the SharePoint farm by adding new
 Hosting an intranet SharePoint farm in Azure infrastructure services is an example of a line of business application. For an overview, see the [Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664).
 
 Your next step is to set up a dev/test intranet SharePoint farm hosted in Azure.
+
+> [AZURE.NOTE] Microsoft has released the SharePoint Server 2016 IT Preview. To make this preview easy to install and test, you can use an Azure virtual machine gallery image with SharePoint Server 2016 IT Preview and its prerequisites pre-installed. For more information, see [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Create a dev/test intranet SharePoint farm hosted in Azure
 
@@ -121,3 +123,5 @@ Once configured, you can expand this SharePoint farm with guidance from [Microso
 [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Azure infrastructure services implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-workload-high-availability-lob-application.md)
