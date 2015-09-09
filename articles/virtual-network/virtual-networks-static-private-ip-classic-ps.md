@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to set a static internal private IP in classic and PowerShell| Microsoft Azure"
-   description="Understanding static internal IPs (DIPs) and how to manage them in classic and PowerShell"
+   pageTitle="How to set a static private IP in classic mode using PowerShell| Microsoft Azure"
+   description="Understanding static private IPs (DIPs) and how to manage them in classic mode and PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -17,13 +17,13 @@
    ms.date="09/08/2015"
    ms.author="telmos" />
 
-# How to set a static internal private IP in PowerShell
+# How to set a static private IP address in PowerShell
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]. This article covers the classic deployment model. You can also [manage static private IP address in the Resource Manager deployment model](virtual-networks-static-private-ip-arm-ps).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]. This article covers the classic deployment model. You can also [manage a static private IP address in the Resource Manager deployment model](virtual-networks-static-private-ip-arm-ps).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -42,12 +42,12 @@ Expected output:
 	OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
 	OperationStatus      : Succeeded
 
-## How to specify a static internal IP when creating a VM
-The PowerShell script below creates a new cloud service named *TestService*, then retrieves an image from Azure, creates a VM named *DC01* in the new cloud service using the retrieved image, sets the VM to be in a subnet named *FrontEnd*, and sets *192.168.1.7* as a static internal IP for the VM:
+## How to specify a static private IP address when creating a VM
+The PowerShell script below creates a new cloud service named *TestService*, then retrieves an image from Azure, creates a VM named *DNS01* in the new cloud service using the retrieved image, sets the VM to be in a subnet named *FrontEnd*, and sets *192.168.1.7* as a static private IP address for the VM:
 
 	New-AzureService -ServiceName TestService -Location "Central US"
 	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
-	New-AzureVMConfig -Name DC01 -InstanceSize Small -ImageName $image.ImageName `
+	New-AzureVMConfig -Name DNS01 -InstanceSize Small -ImageName $image.ImageName `
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 	| Set-AzureSubnet –SubnetNames FrontEnd `
 	| Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
@@ -61,15 +61,15 @@ Expected output:
 	New-AzureService     fcf705f1-d902-011c-95c7-b690735e7412 Succeeded      
 	New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
 
-## How to retrieve static internal IP information for a VM
-To view the static internal IP information for the VM created with the script above, run the following PowerShell command and observe the values for *IpAddress*:
+## How to retrieve static private IP address information for a VM
+To view the static private IP address information for the VM created with the script above, run the following PowerShell command and observe the values for *IpAddress*:
 
-	Get-AzureVM -Name DC01 -ServiceName TestService
+	Get-AzureVM -Name DNS01 -ServiceName TestService
 
 Expected output:
 
 	DeploymentName              : TestService
-	Name                        : DC01
+	Name                        : DNS01
 	Label                       : 
 	VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
 	InstanceStatus              : Provisioning
@@ -78,7 +78,7 @@ Expected output:
 	PowerState                  : Started
 	InstanceErrorCode           : 
 	InstanceFaultDomain         : 0
-	InstanceName                : DC01
+	InstanceName                : DNS01
 	InstanceUpgradeDomain       : 0
 	InstanceSize                : Small
 	HostName                    : rsR2-797
@@ -95,10 +95,10 @@ Expected output:
 	OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
 	OperationStatus             : OK
 
-## How to remove a static internal IP from a VM
-To remove the static internal IP added to the VM in the script above, run the following PowerShell command:
+## How to remove a static private IP address from a VM
+To remove the static private IP address added to the VM in the script above, run the following PowerShell command:
 	
-	Get-AzureVM -ServiceName TestService -Name DC01 `
+	Get-AzureVM -ServiceName TestService -Name DNS01 `
 	| Remove-AzureStaticVNetIP `
 	| Update-AzureVM
 
@@ -108,10 +108,10 @@ Expected output:
 	-------------------- -----------                          ---------------
 	Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
-## How to add a static internal IP to an existing VM
-To add a static internal IP to the VM created using the script above, runt he following command:
+## How to add a static private IP address to an existing VM
+To add a static private IP address to the VM created using the script above, runt he following command:
 
-	Get-AzureVM -ServiceName TestService -Name DC01 `
+	Get-AzureVM -ServiceName TestService -Name DNS01 `
 	| Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
 	| Update-AzureVM
 
