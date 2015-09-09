@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015" 
+	ms.date="09/09/2015"
 	ms.author="paulettm"/>
 
 #Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
@@ -111,7 +111,7 @@ You can visit the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=4
 
 **Can I bring my existing code into ML Studio?**
 
-Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and publish this as a web service via Azure Machine Learning. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md).
+Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and deploy this as a web service via Azure Machine Learning. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md).
 
 **Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)  to define a model?**
 
@@ -201,7 +201,7 @@ See the [Azure subscription limits](../azure-subscription-service-limits.md)
 ###Use
 **When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
-The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](machine-learning-consume-web-services.md).
+The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and deployed from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](machine-learning-consume-web-services.md).
 
 **How do I update the model for the deployed web service?**
 
@@ -268,7 +268,7 @@ No.
 
 **Who has access to the http end point for the web service deployed in production by default? How do I restrict access to the end point?**
 
-After a web service is published, we create a default endpoint for that service. That default endpoint is deployed to production and can be called using its API Key. Additional endpoints can be added with their own keys from the Azure Portal or programmatically using the Web Service Management APIs. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
+After a web service is deployed, we create a default endpoint for that service. That default endpoint is deployed to production and can be called using its API Key. Additional endpoints can be added with their own keys from the Azure Portal or programmatically using the Web Service Management APIs. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 
 **What happens if my Storage Account cannot be found?**
