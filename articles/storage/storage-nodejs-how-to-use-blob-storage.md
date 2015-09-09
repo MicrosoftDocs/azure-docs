@@ -32,7 +32,7 @@ This article shows you how to perform common scenarios using the Azure Blob serv
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure web site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+For instructions how to create a Node.js application, see [Create and deploy a Node.js application to an Azure web site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web site with WebMatrix].
 
 ## Configure your application to access storage
 
@@ -68,7 +68,7 @@ Using Notepad or another text editor, add the following to the top the
 
 The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING` for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the Portal for an Azure Website, see [Node.js Web Application with Storage]
 
 ## Create a container
 
@@ -137,7 +137,7 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 
 ## Upload a blob into a container
 
-A blob can be either block or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+A blob can be either block-based or page-based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Block blobs
 
@@ -187,7 +187,7 @@ The following code example uploads the contents of the **test.txt** file into **
 
 ## List the blobs in a container
 
-To list the blobs in a container, use the **listBlobsSegmented** method. If you would like to return blobs with a specific prefix, use **listBlobsSegmentedWithPrefix**.
+To list the blobs in a container, use the **listBlobsSegmented** method. If you'd like to return blobs with a specific prefix, use **listBlobsSegmentedWithPrefix**.
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
       if(!error){
@@ -241,7 +241,7 @@ To support concurrent access to a blob from multiple clients or multiple process
 
 ### ETag
 
-Use ETags if you need to allow multiple clients or instances to write to the blob simultaneously. The ETag allows you to determine if the container or blob has been modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.
+Use ETags if you need to allow multiple clients or instances to write to the blob simultaneously. The ETag allows you to determine if the container or blob was modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.
 
 You can set ETag conditions by using the optional `options.accessConditions` parameter. The following code example only uploads the **test.txt** file if the blob already exists and has the ETag value contained by `etagToMatch`.
 
@@ -251,13 +251,13 @@ You can set ETag conditions by using the optional `options.accessConditions` par
 	  }
 	});
 
-The general pattern when using ETags is:
+When using ETags, the general pattern  is:
 
 1. Obtain the ETag as the result of a create, list, or get operation.
 
 2. Perform an action, checking that the ETag value has not been modified.
 
-If the value has been modified, this indicates that another client or instance has modified the blob or container since you obtained the ETag value.
+If the value was modified, this indicates that another client or instance modified the blob or container since you obtained the ETag value.
 
 ### Lease
 
@@ -277,7 +277,7 @@ To remove a lease, use **releaseLease**. To break a lease, but prevent others fr
 
 ## Work with shared access signatures
 
-Shared Access Signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
+Shared access signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
 
 > [AZURE.NOTE] While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.
 
@@ -312,11 +312,11 @@ The client application then uses the SAS with **BlobServiceWithSAS** to perform 
 	  }
 	});
 
-Since the SAS was generated with only read access, if an attempt were made to modify the blob, an error would be returned.
+Since the SAS was generated with only read access, if an attempt is made to modify the blob, an error will be returned.
 
 ### Access control lists
 
-You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access a container, but provide different access policies for each client.
+You can also use an access control list (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access a container, but provide different access policies for each client.
 
 An ACL is implemented using an array of access policies, with an ID associated with each policy. The following code example defines two policies; one for 'user1' and one for 'user2':
 
@@ -353,28 +353,27 @@ The following code example gets the current ACL for **mycontainer**, then adds t
 	  }
 	});
 
-Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following code example creates a new SAS for 'user2':
+Once the ACL is set, you can then create a SAS based on the ID for a policy. The following code example creates a new SAS for 'user2':
 
 	blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
 ## Next steps
 
-Now that you've learned the basics of blob storage, follow these links
-to learn how to do more complex storage tasks.
+For more information on how to do more complex storage tasks, see the following links.
 
--   Read the [Azure Storage SDK for Node API Reference][]
--   See the MSDN Reference: [Storing and accessing data in Azure][].
--   Visit the [Azure Storage Team Blog][].
--   Visit the [Azure Storage SDK for Node][] repository on GitHub.
+-   [Azure Storage SDK for Node API Reference][]
+-   MSDN Reference: [Storing and accessing data in Azure][].
+-   [Azure Storage Team Blog][].
+-   [Azure Storage SDK for Node][] repository on GitHub.
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [Node.js Web Application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
 [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
-[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Management Portal]: http://manage.windowsazure.com
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure Portal]: http://manage.windowsazure.com
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html
