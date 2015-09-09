@@ -1,6 +1,6 @@
 <properties 
    pageTitle="How to set a static private IP in classic mode using the Preview Portal| Microsoft Azure"
-   description="Understanding static private IPs (DIPs) and how to manage them in classic mode using the preview portal
+   description="Understanding static private IPs and how to manage them in classic mode using the portal
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
