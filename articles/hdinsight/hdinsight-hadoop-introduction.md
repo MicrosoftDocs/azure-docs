@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/27/2015"
+   ms.date="09/03/2015"
    ms.author="cgronlun"/>
 
 
@@ -59,9 +59,9 @@ Category | Hadoop on Linux | Hadoop on Windows
 
 
 
-### Hadoop, HBase, Storm, and customized clusters
+### Hadoop, HBase, Storm, Spark, and customized clusters
 
-HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters with script actions</a>.
+HDInsight provides cluster configurations for Hadoop, HBase, Storm, and Spark. Or, you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters with script actions</a>.
 
 * **Hadoop** (the "Query" workload): Provides reliable data storage with [HDFS](#HDFS), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 
@@ -69,6 +69,7 @@ HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you c
 
 * **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>** (the "Stream" workload): A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
 
+* **<a  target="_blank" href="http://spark.apache.org/">Apache Spark</a>**: An open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. See [Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md).
 
 ## What are the Hadoop components?
 

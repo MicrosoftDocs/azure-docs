@@ -3,7 +3,7 @@
 	description="This article covers a series of application patterns related to SQL Server running on Azure VMs. It provides solution architects and developers a foundation for good application architecture and design."
 	services="virtual-machines"
 	documentationCenter="na"
-	authors="rothja"
+	authors="Selcin"
 	manager="jeffreyg"
 	editor="monicar" />
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/20/2015"
-	ms.author="jroth" />
+	ms.author="selcint" />
 
 # Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/03/2015"
 	ms.author="juliako"/>
 
 #Media Encoder Standard Formats and Codecs
@@ -29,10 +29,10 @@ File formats (file extensions)|Supported
 FLV (with H.264 and AAC codecs) (.flv)			|Yes 
 MXF	(.mxf)					|Yes 
 GXF	(.gxf)					|Yes 
-MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp)	|Yes 
+MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg)	|Yes 
 Windows Media Video (WMV)/ASF (.wmv, .asf) |Yes 
 AVI (Uncompressed 8bit/10bit) (.avi)|Yes 
-MP4/ISMV (.ismv)|Yes 
+MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Yes 
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Yes 
 Matroska/WebM (.mkv)		|Yes 
 WAVE/WAV (.wav)	|Yes 
@@ -81,8 +81,16 @@ The following table lists the codecs and file formats that are supported for exp
 
 File Format|Video Codec|Audio Codec
 ---|---|---
-MP4 (* .mp4)<br/><br/>(including multi-bitrate MP4 containers) |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4 <br/><br/>(including multi-bitrate MP4 containers) |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##See also
 

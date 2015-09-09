@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/02/2015" 
-	ms.author="jaymathe"/> 
+	ms.author="aniedea"/> 
 
 
 #Difference in Proportions Test
