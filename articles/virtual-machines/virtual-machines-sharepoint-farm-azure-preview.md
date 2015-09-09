@@ -35,6 +35,8 @@ You can use this farm configuration to test higher client loads, high availabili
 
 For the configuration details for both of these farms, see [SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
+> [AZURE.NOTE] Microsoft has released the SharePoint Server 2016 IT Preview. To make this preview easy to install and test, you can use an Azure virtual machine gallery image with SharePoint Server 2016 IT Preview and its prerequisites pre-installed. For more information, see [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Stepping through configuration
 
 To create your SharePoint farm with the SharePoint Server Farm template, do the following:
@@ -83,7 +85,7 @@ Notes:
 
 ## Azure Resource Manager
 
-The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines in Service Management. To create SharePoint Server 2013 farms in Resource Manager, see [Deploy SharePoint Farms with Azure Resource Manager Templates](virtual-machines-workload-template-sharepoint.md).
+The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines with the classic deployment model. To create SharePoint Server 2013 farms with the Resource Manager deployment model, see [Deploy SharePoint Farms with Azure Resource Manager Templates](virtual-machines-workload-template-sharepoint.md).
 
 ## Additional resources
 
