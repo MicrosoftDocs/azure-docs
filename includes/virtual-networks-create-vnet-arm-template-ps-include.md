@@ -5,9 +5,11 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Run the **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
 
-	Switch-AzureMode AzureResourceManager
+		Switch-AzureMode AzureResourceManager
 
-	WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
+	Here is the expected output for the command above:
+
+		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
 
@@ -15,6 +17,8 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
+	Here is the expected output for the command above:
+
 		ResourceGroupName : TestRG
 		Location          : centralus
 		ProvisioningState : Succeeded
@@ -29,7 +33,8 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
 		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-		
+			
+	Here is the expected output for the command above:
 		
 		DeploymentName    : TestVNetDeployment
 		ResourceGroupName : TestRG
@@ -55,6 +60,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
 		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
+	Here is the expected output for the command above:
 		
 		Name              : TestVNet
 		ResourceGroupName : TestRG

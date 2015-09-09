@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Microsoft Azure"
-	description="Learn how to control access based on Azure Active Directory roles in your Windows Store application."
+	pageTitle="Role Based Access Control in Mobile Services using .NET and the Azure Active Directory (Windows Store) | Microsoft Azure"
+	description="Learn how to control access based on Azure Active Directory roles in your Windows Store application using a Mobile Service with a .NET backend."
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Role Based Access Control in Mobile Services and Azure Active Directory
+# Role Based Access Control in Mobile Services using JavaScript and the Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 

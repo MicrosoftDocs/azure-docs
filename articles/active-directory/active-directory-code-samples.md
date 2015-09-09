@@ -145,6 +145,7 @@ PHP | [PHP Sample App for Azure AD Graph API](http://code.msdn.microsoft.com/PHP
 
 ##### Other Resources
 
+[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
 
 [Azure AD Graph API Helper Library](http://code.msdn.microsoft.com/Windows-Azure-AD-Graph-API-a8c72e18)
 

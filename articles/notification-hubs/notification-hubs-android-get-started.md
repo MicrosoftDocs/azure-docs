@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Notification Hubs | Microsoft Azure"
+	pageTitle="Get started with Azure Notification Hubs for Android apps | Microsoft Azure"
 	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices."
 	services="notification-hubs"
 	documentationCenter="android"
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Get started with Notification Hubs
+# Get started with Notification Hubs for Android apps
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 

@@ -19,7 +19,12 @@
 # Azure Linux VM Extension Configuration Samples.
 
 This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Linux VMs.
-To learn more about these extensions click <a href="https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx" target="_blank">here</a>.
+
+To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+
+To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-extensions-authoring-templates.md)
+
+This article lists expected configuration values for some of the Linux Extensions.
 
 ## Sample template snippet for VM Extensions.
 The template snippet for Deploying extensions looks as following:
@@ -92,7 +97,7 @@ Rest of the article provides sample configurations for Linux VM Extensions.
         }
 
 ### VM Access Extension (Password Reset)
-For updated schema refer to the link <a href="https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess" target="_blank">here </a>.
+For updated schema refer to the [VMAccessForLinux Documentation](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -108,7 +113,7 @@ For updated schema refer to the link <a href="https://github.com/Azure/azure-lin
         }
 
 ### OS Patching
-For updated schema refer to the link <a href="https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching" target="_blank">here </a>.
+For updated schema refer to the [OSPatching Documentation](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -133,7 +138,7 @@ For updated schema refer to the link <a href="https://github.com/Azure/azure-lin
         }
 
 ### Docker Extension
-For updated schema refer to the link <a href="https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema" target="_blank">here </a>.
+For updated schema refer to the [Docker Extension Documentation](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -156,4 +161,27 @@ For updated schema refer to the link <a href="https://github.com/Azure/azure-doc
             }
             }
         }
+
+        ### Linux Diagnostics Extension
+        {
+        "storageAccountName": "storage account to receive data",
+        "storageAccountKey": "key of the account",
+        "perfCfg": [
+        {
+            "query": "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+            "table": "LinuxMemory"
+        }
+        ],
+        "fileCfg": [
+        {
+            "file": "/var/log/mysql.err",
+            "table": "mysqlerr"
+        }
+        ]
+        }
+
 In the examples above, replace the version number with the latest version number.
+
+Here is a full VM template for creating a Linux VM with an extension:
+
+[Custom Script Extension on a Linux VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
