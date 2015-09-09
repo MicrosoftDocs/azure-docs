@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -218,7 +218,7 @@ You might want to disable web tests while you are performing maintenance on your
 
 * *Can I call code from my web test?*
 
-    No. The steps of the test must be in the .webtest file.
+    No. The steps of the test must be in the .webtest file. There are a number of plug-ins that you might find helpful.
 
 ## <a name="video"></a>Video
 
