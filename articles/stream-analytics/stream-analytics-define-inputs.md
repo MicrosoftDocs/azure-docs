@@ -107,7 +107,7 @@ The table below explains each property in the Blob storage input tab with its de
 </tr>
 <tr>
 <td>Path Prefix Pattern [optional]</td>
-<td>The file path used to locate your blobs within the specified container.<BR>Within the path, you may choose to specify one or more instances of the following 3 variables:<BR>{date}<BR>{time}<BR>{partition}<BR>Example 1: cluster1/logs/{date}/{time}/{partition}<BR>Example 2: Example 2: cluster1/logs/{date}</td>
+<td>The file path used to locate your blobs within the specified container.<BR>Within the path, you may choose to specify one or more instances of the following 3 variables:<BR>{date}, {time}, {partition}<BR>Example 1: cluster1/logs/{date}/{time}/{partition}<BR>Example 2: Example 2: cluster1/logs/{date}</td>
 </tr>
 <tr>
 <td>Date Format [optional]</td>
