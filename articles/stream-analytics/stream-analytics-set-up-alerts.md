@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Alerting, streaming data analytics | Microsoft Azure" 
+	pageTitle="Stream Analytics Alerting | Microsoft Azure" 
 	description="Understanding Stream Analytics Alerting" 
 	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/04/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
 # Setting up Alerts
