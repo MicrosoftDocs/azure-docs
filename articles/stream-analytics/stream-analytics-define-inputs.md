@@ -83,20 +83,54 @@ It is important to note that the default timestamp of Blob storage events in Str
 
 The table below explains each property in the Blob storage input tab with its description:
 
-| Property Name | Description |
-|------------------------------|--------------------------------------------------------------------|
-| Input Alias | A friendly name that will be used in the job query to reference this input |
-| Storage Account | It’s the storage account name where your blob files are located. |
-| Storage Account Key | The secret key associated with the storage account. |
-| Storage Container | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
-| Path Prefix Pattern [optional] | The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 3 variables: |
-|   | {date}  {time}  {partition} |
-|   | Example 1: cluster1/logs/{date}/{time}/{partition} |
-|   | Example 2: cluster1/logs/{date} |
-| Date Format [optional] | If the date token is specified in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD || Time Format [optional] | If the time token is specified in the prefix path, you can select the time format in which your files are organized. Currently supported values are HH |
-| Event Serialization Format | To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams |
-| Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time |
-| Delimiter | Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
+<table>
+<tbody>
+<tr>
+<td>Property Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Input Alias</td>
+<td>A friendly name that will be used in the job query to reference this input.</td>
+</tr>
+<tr>
+<td>Storage Account</td>
+<td>The name of the storage account where your blob files are located.</td>
+</tr>
+<tr>
+<td>Storage Account Key</td>
+<td>The secret key associated with the storage account.</td>
+</tr>
+<tr>
+<td>Storage Container</td>
+<td>Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.</td>
+</tr>
+<tr>
+<td>Path Prefix Pattern [optional]</td>
+<td>The file path used to locate your blobs within the specified container.<BR>Within the path, you may choose to specify one or more instances of the following 3 variables:<BR>{date}<BR>{time}<BR>{partition}<BR>Example 1: cluster1/logs/{date}/{time}/{partition}<BR>Example 2: Example 2: cluster1/logs/{date}</td>
+</tr>
+<tr>
+<td>Date Format [optional]</td>
+<td>If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD</td>
+</tr>
+<tr>
+<td>Time Format [optional]</td>
+<td>If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH.</td>
+</tr>
+<tr>
+<td>Event Serialization Format</td>
+<td>To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td>For CSV and JSON, UTF-8 is the only supported encoding format at this time.</td>
+</tr>
+<tr>
+<td>Delimiter</td>
+<td>Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar.</td>
+</tr>
+</tbody>
+</table>
 
 When your data is coming from a Blob storage source, you can access to few metadata fields in your Stream Analytics query. The table below lists the fields and their description. 
 
