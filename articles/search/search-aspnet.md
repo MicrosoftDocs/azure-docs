@@ -20,20 +20,6 @@
 
 ASP.NET is the predominant web application framework in custom solutions that integrate with Azure Search. In this article, you’ll learn how to connect your ASP.NET web app to Azure Search, ramp up on design patterns for common operations, and review a few coding practices that could help your development experience go more smoothly. 
 
-##Organize your code
-
-Splitting your workloads up into standalone projects within the same Visual Studio solution gives you more flexibility in how you design, maintain, and run each program. We recommend three:
-
-- Index creation code
-- Data ingestion code
-- User interaction code
-
-In Azure Search, indexing operations and document operations – such as adding or updating documents, or executing queries – are fully independent of each other. This means you can decouple index management from your ASP.NET user interaction code that formulates search requests and renders the results.
-
-In most of our code samples, the index is both created and loaded in one project (referred to as DataIndexer, CatalogIndexer, or DataCatalog in various samples), while the code that handles search requests and responses is placed in an ASP.NET MVC application project. In code samples, its practical to bundle index creation and document upload in one project, but production code would probably isolate these operations. Once an index is created, it’s rarely changed (and if it does change, it needs to be rebuilt), whereas documents are likely to be refreshed on a recurring basis.
-
-Separating the workloads provides other advantages in the form of different levels of permissions for Azure Search (full admin rights versus query-only rights), use of different programming languages, more specific dependencies per program, plus the ability to revise programs independently or create multiple front-end applications that all operate on the index built and maintained by a central indexing application.
-
 ##Samples and demos using ASP.NET and Azure Search
 
 Several code samples already exist that show how Search integrates with ASP.NET. You can go straight to code or a demo app by visiting any of these links:
@@ -47,7 +33,7 @@ Several code samples already exist that show how Search integrates with ASP.NET.
 To establish a connection to the service and issue requests, your Web application only needs three things: 
 
 - A URL to the Azure Search service you’ve provisioned, formatted as https://<service-name>.search.windows.net
-- An API key (GUID) that authenticates the connection to Azure Search
+- An API key (string) that authenticates the connection to Azure Search
 - An HTTPClient or SearchServiceClient to formulate the connection request
 
 ####URLs and API Keys
@@ -69,7 +55,7 @@ The API key is an authentication token generated during service provisioning (ad
 - admin keys (read-write permissions, 2 per service)
 - query keys (read-only, up to 50 per service)
 
-All API keys are GUIDs. Visually, there is no distinction between admin and query keys. You would need to check the portal or use the Management REST API to determine the type of key.
+API keys are strings, 32 characters long. Visually, there is no distinction between admin and query keys. If you lose take of what type of key you've specified in code, you would need to check the portal or use the Management REST API to return the key type. To learn more about keys, visit [Azure Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 > [AZURE.TIP] A query key delivers a read-only experience to the client. See the [TryAppService + Azure Search](search-tryappservice.md) to test-drive the Azure Search operations that are available in a read-only service. Note that in TryAppService, the Web app code is fully modifiable – you can change any of the C# code in the ASP.NET project to modify web page layout, search query construction, or search results—it’s just the Azure Search service index and document load operations that are read-only, per the inclusion of a query api-key on the service connection.
 
@@ -95,7 +81,7 @@ The next two code snippets set up a connection to the Search service using the U
             }
             catch (Exception e)
             {
-                errorMessage = e.Message.ToString();
+                errorMessage = e.Message;
             }
         }
 
@@ -455,6 +441,19 @@ Code for JSON serialization can be found in several of samples, in a file named 
 	    }
 	}
 
+###Organize your code
+
+Splitting your workloads up into standalone projects within the same Visual Studio solution gives you more flexibility in how you design, maintain, and run each program. We recommend three:
+
+- Index creation code
+- Data ingestion code
+- User interaction code
+
+In Azure Search, indexing operations and document operations – such as adding or updating documents, or executing queries – are fully independent of each other. This means you can decouple index management from your ASP.NET user interaction code that formulates search requests and renders the results.
+
+In most of our code samples, the index is both created and loaded in one project (referred to as DataIndexer, CatalogIndexer, or DataCatalog in various samples), while the code that handles search requests and responses is placed in an ASP.NET MVC application project. In code samples, its practical to bundle index creation and document upload in one project, but production code would probably isolate these operations. Once an index is created, it’s rarely changed (and depending on the change, it might need to be rebuilt), whereas documents are likely to be refreshed on a recurring basis.
+
+Separating the workloads provides other advantages in the form of different levels of permissions for Azure Search (full admin rights versus query-only rights), use of different programming languages, more specific dependencies per program, plus the ability to revise programs independently or create multiple front-end applications that all operate on the index built and maintained by a central indexing application.
 
 ##Next steps
 
