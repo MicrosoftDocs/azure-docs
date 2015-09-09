@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduction to Stream Analytics, streaming data analytics | Microsoft Azure" 
+	pageTitle="Introduction to Stream Analytics | Microsoft Azure" 
 	description="Learn about Azure Stream Analytics, a fully managed cloud service that helps you analyze streaming data from the Internet of Things (IoT) in real-time." 
 	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/04/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
 

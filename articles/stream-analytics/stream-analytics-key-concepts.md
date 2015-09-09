@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/19/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok" />
 
 
@@ -171,8 +171,8 @@ The following metrics are available for monitoring the usage and performance of 
 - Out-of-order events - Number of events received out of order that were either dropped or given an adjusted timestamp, based on the out-of-order policy.
 - Data conversion errors - Number of data conversion errors incurred by a Stream Analytics job.
 
-### Operation logs
-The best approach to debugging or troubleshooting a Stream Analytics job is through Azure operation logs. Operation logs can be accessed in the **Management Services** section of the portal. To inspect logs for your job, set **Service Type** to **Stream Analytics** and **Service Name** to the name of your job.
+### Operation Logs
+The best approach to debugging or troubleshooting a Stream Analytics job is through Azure Operation Logs. Operation Logs can be accessed in the **Management Services** section of the portal. To inspect logs for your job, set **Service Type** to **Stream Analytics** and **Service Name** to the name of your job.
 
 
 ## Manage jobs 
