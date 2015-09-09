@@ -165,7 +165,7 @@ This will help you integrate your Azure AD tenant with your local active directo
 1. On your federation server, open a Windows PowerShell command window and type:
     Set-AdfsDeviceRegistration -MaximumInactiveDays 0
 
-## Prepare Azure AD Connect for device writeback
+### Prepare Azure AD Connect for device writeback
 
 1.	Complete Part 1: Prepare AAD Connect. 
 
