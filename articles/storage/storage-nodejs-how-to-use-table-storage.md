@@ -26,7 +26,7 @@
 
 This topic shows how to perform common scenarios using the Azure Table service in a Node.js application.
 
-The code examples in this topic assume you already have a Node.js application. For instructions how to create a Node.js application in Azure, see any of these topics:
+The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
 
 - [Build and deploy a Node.js website to Azure][Create and deploy a Node.js application to an Azure Web Site]
 - [Build and deploy a Node.js website to Azure using WebMatrix][Web Site with WebMatrix]
@@ -68,11 +68,11 @@ Add the following code to the top of the **server.js** file in your application:
 
     var azure = require('azure-storage');
 
-## Setup an Azure Storage connection
+## Set up an Azure Storage connection
 
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
-For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web application with Storage]
+For an example of setting the environment variables in the Portal for an Azure Website, see [Node.js Web application with Storage]
 
 ## Create a table
 
@@ -442,7 +442,7 @@ To learn how to do more complex storage tasks, follow these links:
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
   [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
   [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
