@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/09/2015" 
 	ms.author="spelluru"/>
 
 # Compute Linked Services
@@ -247,6 +247,7 @@ You create an Azure Big Analytics linked service to link an Azure Big Analytics 
 	            "accountName": "adftestaccount",
 	            "konaUri": "microsoftbiganalyticscompute.net",
 	            "authorization": "**********",
+				"sessionId": "<session ID> 
 	            "subscriptionId": "<subscription id>",
 	            "resourceGroupName": "<resource group name>"
 	        }
@@ -261,9 +262,10 @@ Property | Description | Required
 Type | The type property should be set to: **BigAnalytics**. | Yes
 accountName | Azure Big Analytics Account Name. | Yes
 konaUri | Azure Big Analytics URI. Enter ‘microsoftbiganalyticscompute.net’. |  No 
-authorization | Autherization code is automatically retrieved after clicking ‘Authorize’ and completing the OAuth login. | Yes 
+authorization | Authorization code is automatically retrieved after clicking ‘Authorize’ and completing the OAuth login. | Yes 
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
+sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. | Yes   
 
 ## Azure SQL Linked Service
 

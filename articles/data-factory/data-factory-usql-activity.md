@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Invoke U-SQL script from Data Factory
-This article describes how to run a **U-SQL** script on an Azure Kona compute from an Azure Data Factory pipeline by using the **U-SQL Activity**. 
+This article describes how to run a **U-SQL** script on an Azure Big Analytics compute from an Azure Data Factory pipeline by using the **U-SQL Activity**. 
 
 ## Introduction 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes using the U-SQL Activity.
@@ -36,7 +36,7 @@ The following JSON snippet defines a pipeline with a U-SQL Activity.
 		            {
 		                "type": "U-SQL",
 		                "typeProperties": {
-		                    "scriptPath": "scripts/kona/LogProcessing.txt",
+		                    "scriptPath": "scripts/biganalytics/LogProcessing.txt",
 		                    "scriptLinkedService": "StorageLinkedService",
 		                    "degreeOfParallelism": 3,
 		                    "priority": 100,
@@ -69,7 +69,7 @@ The following JSON snippet defines a pipeline with a U-SQL Activity.
 		                    "interval": 1
 		                },
 		                "name": "EventsByRegion",
-		                "linkedServiceName": "KonaLinkedService"
+		                "linkedServiceName": "BigAnalyticsLinkedService"
 		            }
 		        ],
 		        "start": "2015-08-08T00:00:00Z",
