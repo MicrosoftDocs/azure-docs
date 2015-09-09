@@ -86,7 +86,7 @@ Your new volume is now ready to use.
 
 ## Modify a volume
 
-Modify a volume when you need to extend it or change the hosts that access the volume.
+Modify a volume when you need to expand it or change the hosts that access the volume.
 
 > [AZURE.IMPORTANT] If you modify the volume size on the device, the volume size needs to be changed on the host as well. Refer to your host operating system instructions when modifying the volume on the host. For complete instructions when extending a volume on a Windows host, go to [Expand a volume](#expand-a-volume).
 
