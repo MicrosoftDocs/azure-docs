@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 # Detect, Triage and Diagnose J2EE apps with Application Insights
@@ -102,25 +102,27 @@ It's also possible to set alerts on a wide variety of other metrics. For example
 ## Detecting exceptions
 
 
-Uncaught exceptions are reported to Application Insights automatically. They can also be reported explicitly by inserting calls to [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) into the handler:  
+Uncaught exceptions are reported to Application Insights automatically. They can also be reported explicitly by inserting calls to [trackException()](app-insights-api-custom-events-metrics.md#track-exception) into the handler:  
 
-    var telemetry = new TelemetryClient();
+``` Java
+
+   TelemetryClient telemetry = new TelemetryClient();
+   try {
     ...
-    try
-    { ...
-    }
-    catch (Exception ex)
-    {
-       // Set up some properties:
-       var properties = new Dictionary <string, string>
-         {{"Game", currentGame.Name}};
+   } catch (Exception ex) {
+    // Set up some properties:
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("Game", currentGame.getName());
 
-       var measurements = new Dictionary <string, double>
-         {{"Users", currentGame.Users.Count}};
+    Map<String, Double> measurements = new HashMap<String, Double>();
+    measurements.put("Users", currentGame.getUsers().getCount());
 
-       // Send the exception telemetry:
-       telemetry.TrackException(ex, properties, measurements);
-    }
+    // Send the exception telemetry:
+    telemetry.trackException(ex, properties, measurements);
+   }
+
+```
+
 
 
 The Fabrikam Bank team has evolved the practice of always sending telemetry on an exception, unless there's an obvious recovery.  
@@ -144,7 +146,7 @@ For example, a typical user journey through the web site has a clear 'funnel': M
 
 By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
 
-Whatever the reasons, the data helps the team work out what users are doing. More tracking calls can be inserted to work out more detail. TrackEvent() can be used to count any user actions, from the fine detail of individual button clicks to significant achievements such as paying off a loan.
+Whatever the reasons, the data helps the team work out what users are doing. More tracking calls can be inserted to work out more detail. trackEvent() can be used to count any user actions, from the fine detail of individual button clicks to significant achievements such as paying off a loan.
 
 The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
 
@@ -207,10 +209,10 @@ Some slow dependency issues are geolocation problems. Fabrikam Bank uses Azure v
 **What did we do?** If the issue doesn't appear to be in a dependency, and if it wasn't always there, it's probably caused by a recent change. The historical perspective provided by the metric and event charts makes it easy to correlate any sudden changes with deployments. That narrows down the search for the problem.
 
 
-**What's going on?** Some problems occur only rarely and can be difficult to track down by testing offline. All we can do is to try to capture the bug when it occurs live. You can inspect the stack dumps in exception reports. In addition, you can write tracing calls, either with your favourite logging framework or with TrackTrace() or TrackEvent().  
+**What's going on?** Some problems occur only rarely and can be difficult to track down by testing offline. All we can do is to try to capture the bug when it occurs live. You can inspect the stack dumps in exception reports. In addition, you can write tracing calls, either with your favourite logging framework or with trackTrace() or trackEvent().  
 
 
-Fabrikam had an intermittent problem with inter-account transfers, but only with certain account types. To understand better what was happening, they inserted TrackTrace() calls at key points in the code, attaching the account type as a property to each call. That made it easy to filter out just those traces in Diagnostic Search. They also attached parameter values as properties and measures to the trace calls.
+Fabrikam had an intermittent problem with inter-account transfers, but only with certain account types. To understand better what was happening, they inserted trackTrace() calls at key points in the code, attaching the account type as a property to each call. That made it easy to filter out just those traces in Diagnostic Search. They also attached parameter values as properties and measures to the trace calls.
 
 
 ## Dealing with it

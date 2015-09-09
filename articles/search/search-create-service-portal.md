@@ -84,7 +84,7 @@ A Search service at the standard tier is created with one replica and partition 
 
 Additional replicas and partitions are billed in terms of search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources.
 
-You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for help in deciding how to configure partition and replica combinations.
+You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](search-limits-quotas-capacity.md) for help in deciding how to configure partition and replica combinations.
 
 <a id="sub-4"></a>
 ##Test service operations
