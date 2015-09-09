@@ -33,7 +33,7 @@ environment by performing a Virtual IP (VIP) swap.
 
 ## Step 1: Stage an Application
 
-This task covers how to stage an application by using the **Windows
+This task covers how to stage an application by using the **Microsoft
 Azure PowerShell**.
 
 1.  When publishing a service, simply pass the **-Slot** parameter to
