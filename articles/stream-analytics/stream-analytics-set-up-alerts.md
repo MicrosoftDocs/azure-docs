@@ -17,9 +17,9 @@
 	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
-# Setting up Alerts
+# Setting up alerts
 
-## Monitor Page
+## Monitor page
 
 You can setup a rule to trigger an alert when a metric reaches a condition that you specify.
 
