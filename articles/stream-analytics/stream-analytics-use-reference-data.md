@@ -32,8 +32,7 @@ To configure your reference data, you first need to create an input that is of t
 | Storage Account Key | The secret key associated with the storage account. This gets automatically populated if the storage account is in the same subscription as your Stream Analytics job. |
 | Storage Container | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
 | Path Pattern [optional] | The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables: |
-|   | {date} |
-|   | {time} |
+|   | {date} {time} |
 |   | Example 1: products/{date}/{time}/product-list.csv |
 |   | Example 2: products/{date}/product-list.csv |
 | Date Format [optional] | If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your files are organized from the drop down of supported formats. Example: YYYY/MM/DD |
