@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="09/09/2015"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
 
-## Notes for 09/08/2015 release of HDInsight ##
+## Notes for 09/09/2015 release of HDInsight ##
 
 The full version numbers for HDInsight clusters deployed with this release:
 
