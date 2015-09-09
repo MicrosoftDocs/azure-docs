@@ -30,7 +30,7 @@ This article shows how to change the pricing tier (scale up or down) of your SQL
 
 > [AZURE.IMPORTANT] Changing the pricing tier of a SQL database is an online operation. The database will remain online and available during the entire scaling operation.
 
-- To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. For more information on the allowed sized for each service tier, see the service tier and database size table later in this section.
+- To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
 
 - When upgrading a database with [Standard Geo-Replication](https://msdn.microsoft.com/library/azure/dn758204.aspx) or [Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
 
@@ -47,12 +47,6 @@ To complete this article you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-
-
-> [AZURE.TIP] If you have Geo-Replication configured, the secondary databases must always be at a pricing tier that is the same or greater than the primary database so change the primary and secondary databases in the following order: 
-> - If you are changing from a higher performance level to a lower performance level, first change the primary database, and then the active secondary databases. 
-> - If you are changing from a lower performance level to a higher performance level, first change the active secondary databases, and then the primary.
-
 
 
 ## Change the pricing tier of your database
@@ -82,7 +76,7 @@ Open the SQL Database blade for the database you want to scale up or down:
 
 ## Verify the database is at the selected pricing tier
 
-    After the scaling operation is complete inspect and confirm the database is at the correct pricing tier
+   After the scaling operation is complete inspect and confirm the database is at the correct pricing tier
 
 2.	Click **BROWSE ALL**.
 3.	Click **SQL databases**.
