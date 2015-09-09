@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/24/2015" 
+	ms.date="09/09/2015" 
 	ms.author="billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
