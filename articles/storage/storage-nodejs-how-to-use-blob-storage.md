@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use blob storage from Node.js | Microsoft Azure"
+	pageTitle="How to use Blob storage from Node.js | Microsoft Azure"
 	description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples written in Node.js."
 	services="storage"
 	documentationCenter="nodejs"
@@ -18,7 +18,7 @@
 
 
 
-# How to use blob storage from Node.js
+# How to use Blob storage from Node.js
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
