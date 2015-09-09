@@ -1,0 +1,53 @@
+# **Developer Service On-boarding Guide**#
+
+###  PRE-REQUISITES
+
+**Pricing Models**
+
+
+*	Plans can be any combination of BASE + Overage, where BASE is monthly price and Overage is pay-per-use price (see below for more details)
+
+*	Monthly Only
+	* Flat monthly rate paid at time of purchase
+	* e.g. $10/month
+*	Overage (aka Usage or Meter) Based:
+	*	Pay per use, which is defined by partner
+	* Cannot be set per seat, per user, etc. as there is no concept of a fraction of a user or capability to do proration
+	* Usage is reported by Partner on an hourly basis
+	* Customer pays at the end of monthly billing cycle (as opposed to up front like monthly plan)
+*	Free Trial
+	* Customer may use for free for a limited time and then pay normal rates thereafter
+*	Free Tier
+	* Plan is always free
+*	Migration (aka conversion or upgrade/downgrade) of Plan
+	* Concept of a user moving from their current plan to another acceptable plan; defined by partner
+
+**Contoso Application Service Offering**
+
+1.	Free Plan
+	*	$0/month
+	*	Includes basic functionality
+	*	Migration: can migrate to any other plan
+2.	Bronze Plan
+	* $10/month
+	* Includes basic functionality and a quota of 1,000 of feature X
+	* Migration: can migrate to Bronze Plus, Silver, and Gold Plans.
+3.	Bronze Plus Plan
+	* Free Trial period
+	  * $0/month + $0/meter01
+	* Paid period (aka Free Trial expired)
+	  * $10/month + $0.05/meter01
+	* Includes basic functionality and a quota of 10,000 of feature X.  Once feature X quota is used, the customer can pay per use via meter01.
+	* Migration: can migrate to Silver Plus and Gold Plans.
+4.	Silver Plan
+	* $0.15/meter01
+	* The customer can pay-per-use via meter01, which is for feature X.
+	* Migration: can migrate to Bronze and Gold Plans.
+5.	Silver Plus Plan
+	* $20/month + $0.15/meter01 + $0.01/meter02
+	* Includes basic functionality and a quota of 10,000 of feature X and 100 of feature Y.  Once feature X quota is used, the customer can pay per use via meter01.  Once feature Y quota is used, the customer can pay per use via meter02.
+	* Migration: can migrate to Bronze Plus and Gold Plans.
+6.	 Gold Plan
+	* $1000/month
+	* Includes quota of 10,000 of feature X, 1,000 of feature Y, and unlimited of feature Z.
+	* Migration: can migrate to all plans except free.
