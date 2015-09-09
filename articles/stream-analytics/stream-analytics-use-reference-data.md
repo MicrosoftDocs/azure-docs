@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Reference Data | Microsoft Azure" 
-	description="Use Reference Data as an Input Stream" 
+	pageTitle="Use reference data | Microsoft Azure" 
+	description="Use reference data as an input stream" 
 	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -17,11 +17,11 @@
 	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
-# Using Reference Data as an Input
+# Using reference data as an input
 
 Reference data is a finite data set that is static or slowing changing in nature, used to perform a lookup or to correlate with your data stream. To make use of reference data in your Azure Stream Analytics job you will generally use a [Reference Data Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in your Query. Stream Analytics uses Azure Blob storage as the storage layer for Reference Data, and with Azure Data Factory reference data can be transformed and/or copied to Azure Blob storage, for use as Reference Data, from [any number of cloud based and on-premises data stores](./articles/data-factory-data-movement-activities.md).
 
-## Configuring Reference Data ##
+## Configuring reference data
 
 To configure your reference data, you first need to create an input that is of type Reference Data. The table below explains each property that you will need to provide while creating the reference data input with its description:
 
@@ -41,7 +41,7 @@ To configure your reference data, you first need to create an input that is of t
 | Encoding | UTF-8 is the only supported encoding format at this time |
 
 
-## Generating Reference Data on a Schedule ##
+## Generating reference data on a schedule
 
 If your reference data is a slowly changing dataset, then support for refreshing reference data is enabled by specifying a path pattern in the input configuration using the {date} and {time} tokens. Stream Analytics will pick up the updated reference data definitions based on this path pattern. For example, a pattern of ````"/sample/{date}/{time}/products.csv"```` with a date format of “YYYY-MM-DD” and a time format of “HH:mm” tells Stream Analytics to pick up the updated blob ````"/sample/2015-04-16/17:30/products.csv"```` at 5:30 PM on April 16th 2015 UTC time zone.
 
