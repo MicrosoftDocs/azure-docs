@@ -97,4 +97,4 @@ Note – you can always update these values in the “Global.asax” file.
 8.	Once all methods are implemented do one file Mock Tool test.
 	
 	>	Call the validate contracts method in Mock tool.
-9.	Once tests pass, [deploy your solution to Azure Websites](3.1.Deploy-ResourceProvider-As-AzureWebsites.md) and test the validate contracts against azure website endpoint.
+9.	Once tests pass, [deploy your solution to Azure Websites](marketplace-publishing-dev-services-create-and-deploy-resource-provider-deploy-resourceprovider-as-azurewebsites.md) and test the validate contracts against azure website endpoint.

@@ -11,19 +11,16 @@ Below is the detailed view of how the publisher portal offer marketing details a
 #####Azure Portal mappings
 
 * **Offer Name & Description mapping**
-	![drawing](images/Marketing_Data_ACOM.JPG)
+	![drawing](media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-acom.JPG)
 
 * **Product & Details mapping**
-	![drawing](images/POrtal_Offer_Map.JPG)
+	![drawing](media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-portal-offer-map.JPG)
 
 #####Publisher Portal mappings
 
 * **Links**
-    ![drawing](images/Pub_Portal_links.jpg)
+    ![drawing](media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-links.jpg)
 * **Logos**
-    ![drawing](images/Pub-Portal-Logos.jpg)
+    ![drawing](media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-logos.jpg)
 * **Offer Title & Description**
-    ![drawing](images/Pub-Portal-Offer.png)
-
-
-[<<Back to Pre-Requisites](1.0.Pre-Requisites.md)
+    ![drawing](media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-publisher-offer.png)

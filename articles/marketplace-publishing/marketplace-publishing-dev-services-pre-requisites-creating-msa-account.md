@@ -18,7 +18,7 @@
 	* Your MSA ID is now AzureStore@yourcompany.com 
 
 
-          ![drawing](images/MSA_live.jpg)
+          ![drawing](media/marketplace-publishing-dev-services-pre-requisites-creating-msa-account-msa-live.jpg)
 
 4. When registering, use a valid phone number, which is used in validation
 	* They’ll send verification code as a text message or an automated call if they need to verify your identity.
@@ -26,12 +26,8 @@
 5. Verify the email address sent to the DL
 
 
-       ![drawing](images/MSA_Verifyemail.jpg)
+       ![drawing](media/marketplace-publishing-dev-services-pre-requisites-creating-msa-account-msa-verifyemail.jpg)
 
 6. You’re now ready to use the new MSA
 
 >**NOTE**: Using the DL allows multiple people to receive email notifications that are important reporting of payout information, and also insures that ownership of the MSA can be transferred and isn’t tied to a single individual.
-
-
-
-[<<Back to Main Page](1.0.Pre-Requisites.md)

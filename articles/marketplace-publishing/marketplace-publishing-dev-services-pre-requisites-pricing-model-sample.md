@@ -51,6 +51,3 @@
 	* $1000/month
 	* Includes quota of 10,000 of feature X, 1,000 of feature Y, and unlimited of feature Z.
 	* Migration: can migrate to all plans except free.
-
-
-[<<Back to Pre-Requisites](1.0.Pre-Requisites.md)
