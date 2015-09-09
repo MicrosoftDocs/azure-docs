@@ -29,7 +29,7 @@ This tutorial describes how you can use a backup set to clone an individual volu
 
 You can create a clone on the same device, another device, or even a virtual machine by using a local or a cloud snapshot.
 
-## To clone a volume
+#### To clone a volume
 
 1. On the StorSimple Manager service page, click the **Backup catalog** tab and select a backup set.
 
