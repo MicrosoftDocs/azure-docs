@@ -123,6 +123,7 @@ The allowed types and values are:
 - object or secureObject - any valid JSON object
 - array - any valid JSON array
 
+To specify a parameter as optional, set its defaultValue to an empty string.
 
 >[AZURE.NOTE] All passwords, keys, and other secrets should use the **secureString** type. Template parameters with the secureString type cannot be read after resource deployment. 
 
