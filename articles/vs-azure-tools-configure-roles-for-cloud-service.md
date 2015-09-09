@@ -51,7 +51,7 @@ You can configure an Azure cloud service from Solution Explorer in Visual Studio
 
   If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.
 
-    >[AZURE.IMPORTANT] If you choose a specific service configuration, some properties are disabled because they can only be set for all configurations. To edit these properties, you must choose **All Configurations**.
+  >[AZURE.IMPORTANT] If you choose a specific service configuration, some properties are disabled because they can only be set for all configurations. To edit these properties, you must choose All Configurations.
 
 You can now choose a tab to update any enabled properties on that view.
 
@@ -107,15 +107,13 @@ By using a different value for each service configuration, you do not have to us
 
 1. Choose the **Save** icon on the toolbar to save these changes to the service configuration file.
 
-1. To access the connection string in the service configuration file, you must get the value of the configuration setting. The following code shows an example where blob storage is created and data uploaded using a connection string `MyConnectionString` from the service configuration file when a user chooses **Button1** on the Default.aspx page in the web role for an Azure cloud service:
+1. To access the connection string in the service configuration file, you must get the value of the configuration setting. The following code shows an example where blob storage is created and data uploaded using a connection string `MyConnectionString` from the service configuration file when a user chooses **Button1** on the Default.aspx page in the web role for an Azure cloud service. Add the following using statements to Default.aspx.cs:
 
-  Add the following using statements to Default.aspx.cs:
-
-  ```
-  using Microsoft.WindowsAzure;
-  using Microsoft.WindowsAzure.Storage;
-  using Microsoft.WindowsAzure.ServiceRuntime;
-  ```
+    ```
+    using Microsoft.WindowsAzure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.ServiceRuntime;
+    ```
 
 1. Open Default.aspx.cs in design view, and add a button from the toolbox. Add the following code to the `Button1_Click` method. This code uses `GetConfigurationSettingValue` to get the value from the service configuration file for the connection string. Then a blob is created in the storage account that is referenced in the connection string `MyConnectionString` and finally the program adds text to the blob.
 
@@ -213,10 +211,10 @@ Local storage settings apply to all service configurations. You can only add, re
 
 1. You need to make sure that the following using statements are added to Default.aspx.cs:
 
-  ```  
-  using System.IO;
-  using System.Text;
-  ```
+    ```
+    using System.IO;
+    using System.Text;
+    ```
 
 1. Add the following code to the `Button1_Click` method. This creates the file in the local storage and writes test data into that file.
 
@@ -269,7 +267,7 @@ You can collect diagnostics data for your Azure cloud service. This data is adde
 
 1. To change the value for the storage account, choose the ellipsis (...) button.
 
-  The **Create Storage Connection String** dialog box appears.
+    The **Create Storage Connection String** dialog box appears.
 
 1. To use a local connection string, choose Azure storage emulator option and then choose the **OK** button.
 
@@ -277,11 +275,11 @@ You can collect diagnostics data for your Azure cloud service. This data is adde
 
 1. To use a storage account for the local connection string, choose the **Manually entered credentials** option.
 
-  For more information about how to create a storage account and how to enter the details for the storage account in the Create Storage Connection String dialog box, see [Setting Up Services Required to Publish a Cloud Service from Visual Studio](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md).
+    For more information about how to create a storage account and how to enter the details for the storage account in the Create Storage Connection String dialog box, see [Setting Up Services Required to Publish a Cloud Service from Visual Studio](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md).
 
 1. Choose the storage account you want to use in **Account name**.
 
-  If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the Azure Management Portal. To copy this key, following these steps from the **Storage Accounts** view in the Azure Management Portal:
+    If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the Azure Management Portal. To copy this key, following these steps from the **Storage Accounts** view in the Azure Management Portal:
 
   1. Select the storage account that you want to use for your cloud service.
 

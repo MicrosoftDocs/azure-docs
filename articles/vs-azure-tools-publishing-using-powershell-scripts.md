@@ -159,52 +159,52 @@ If you have never run a Windows PowerShell script before, you must first set the
 
 1. Create the Web Deploy package for your project. A Web Deploy package is a compressed archive (.zip file) that contain files that you want to copy to your website or virtual machine. You can create Web Deploy packages in Visual Studio for any web application.
 
-  ![Create Web Deploy Package](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
+    ![Create Web Deploy Package](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
 
-  For more information, see [How to: Create a Web Deployment Package in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). You can also automate the creation of your Web Deploy package, as described in the section **Customizing and extending the publish scripts** later in this topic.
+    For more information, see [How to: Create a Web Deployment Package in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). You can also automate the creation of your Web Deploy package, as described in the section **Customizing and extending the publish scripts** later in this topic.
 
 1. In **Solution Explorer**, open the context menu for the script, and then choose **Open with PowerShell ISE**.
 
 1. If this is the first time you've run Windows PowerShell scripts on this computer, open a command prompt window with Administrator privileges and type the following command:
 
-  `Set-ExecutionPolicy RemoteSigned`
+    `Set-ExecutionPolicy RemoteSigned`
 
 1. Sign in to Azure by using the following command.
 
-  `Add-AzureAccount`
+    `Add-AzureAccount`
 
-  When prompted, supply your username and password.
+    When prompted, supply your username and password.
 
-  Note that when you automate the script, this method of providing Azure credentials won't work. Instead, you should use the .publishsettings file to provide credentials. One time only, you use the command **Get-AzurePublishSettingsFile** to download the file from Azure, and thereafter use **Import-AzurePublishSettingsFile** to import the file. For detailed instructions, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+    Note that when you automate the script, this method of providing Azure credentials won't work. Instead, you should use the .publishsettings file to provide credentials. One time only, you use the command **Get-AzurePublishSettingsFile** to download the file from Azure, and thereafter use **Import-AzurePublishSettingsFile** to import the file. For detailed instructions, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
 1. (Optional) If you want to create Azure resources such as the virtual machine, database, and website without publishing your web application, use the **Publish-WebApplication.ps1** command with the **-Configuration** argument set to the JSON configuration file. This command line uses the JSON configuration file to determine which resources to create. Because it uses the default settings for other command-line arguments, it creates the resources, but doesn't publish your web application. The –Verbose option gives you more information about what's happening.
 
-  `Publish-WebApplication.ps1 -Verbose –Configuration C:\Path\WebProject-WAWS-dev.json`
+    `Publish-WebApplication.ps1 -Verbose –Configuration C:\Path\WebProject-WAWS-dev.json`
 
 1. Use the **Publish-WebApplication.ps1** command as shown in one of the following examples to invoke the script and publish your web application. If you need to override the default settings for any of the other arguments, such as the subscription name, publish package name, virtual machine credentials, or database server credentials, you can specify those parameters. Use the **–Verbose** option to see more information about the progress of the publishing process.
 
-  ```
-  Publish-WebApplication.ps1 –Configuration C:\Path\WebProject-WAWS-dev-json `
-  –SubscriptionName Contoso `
-  -WebDeployPackage C:\Documents\Azure\ADWebApp.zip `
-  -DatabaseServerPassword @{Name="dbServerName";Password="adminPassword"} `
-  -Verbose
-  ```
+    ```
+    Publish-WebApplication.ps1 –Configuration C:\Path\WebProject-WAWS-dev-json `
+    –SubscriptionName Contoso `
+    -WebDeployPackage C:\Documents\Azure\ADWebApp.zip `
+    -DatabaseServerPassword @{Name="dbServerName";Password="adminPassword"} `
+    -Verbose
+    ```
 
-  If you're creating a virtual machine, the command looks like the following. This example also shows how to specify the credentials for multiple databases. For the virtual machines that these scripts create, the SSL certificate is not from a trusted root authority. Therefore, you need to use the **–AllowUntrusted** option.
+    If you're creating a virtual machine, the command looks like the following. This example also shows how to specify the credentials for multiple databases. For the virtual machines that these scripts create, the SSL certificate is not from a trusted root authority. Therefore, you need to use the **–AllowUntrusted** option.
 
-  ```
-  Publish-WebApplication.ps1 `
-  -Configuration C:\Path\ADVM-VM-test.json `
-  -SubscriptionName Contoso `
-  -WebDeployPackage C:\Path\ADVM.zip `
-  -AllowUntrusted `
-  -VMPassword @{name = "vmUserName"; password = "YourPasswordHere"} `
-  -DatabaseServerPassword @{Name="server1";Password="adminPassword1"}, @{Name="server2";Password="adminPassword2"} `
-  -Verbose
-  ```
+    ```
+    Publish-WebApplication.ps1 `
+    -Configuration C:\Path\ADVM-VM-test.json `
+    -SubscriptionName Contoso `
+    -WebDeployPackage C:\Path\ADVM.zip `
+    -AllowUntrusted `
+    -VMPassword @{name = "vmUserName"; password = "YourPasswordHere"} `
+    -DatabaseServerPassword @{Name="server1";Password="adminPassword1"}, @{Name="server2";Password="adminPassword2"} `
+    -Verbose
+    ```
 
-  The script can create databases, but it doesn't create database servers. If you want to create a database server, you can use the **New-AzureSqlDatabaseServer** function in the Azure module.
+    The script can create databases, but it doesn't create database servers. If you want to create a database server, you can use the **New-AzureSqlDatabaseServer** function in the Azure module.
 
 ## Customizing and extending the publish scripts
 
@@ -216,93 +216,93 @@ To automate building your project, add code that calls MSBuild to `New-WebDeploy
 
 1. Add the `$ProjectFile` parameter in the global param section.
 
-  ```
-  [Parameter(Mandatory = $false)]
-  [ValidateScript({Test-Path $_ -PathType Leaf})]
-  [String]
-  $ProjectFile,
-  ```
+    ```
+    [Parameter(Mandatory = $false)]
+    [ValidateScript({Test-Path $_ -PathType Leaf})]
+    [String]
+    $ProjectFile,
+    ```
 
 1. Copy the function `Get-MSBuildCmd` into your script file.
 
-  ```
-  function Get-MSBuildCmd
-  {
-          process
-          {
+    ```
+    function Get-MSBuildCmd
+    {
+            process
+            {
 
-               $path =  Get-ChildItem "HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\" |
-                                     Sort-Object {[double]$_.PSChildName} -Descending |
-                                     Select-Object -First 1 |
-                                     Get-ItemProperty -Name MSBuildToolsPath |
-                                     Select -ExpandProperty MSBuildToolsPath
-         
-              $path = (Join-Path -Path $path -ChildPath 'msbuild.exe')
+                 $path =  Get-ChildItem "HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\" |
+                                       Sort-Object {[double]$_.PSChildName} -Descending |
+                                       Select-Object -First 1 |
+                                       Get-ItemProperty -Name MSBuildToolsPath |
+                                       Select -ExpandProperty MSBuildToolsPath
+           
+                $path = (Join-Path -Path $path -ChildPath 'msbuild.exe')
 
-          return Get-Item $path
-      }
-  }
-  ```
+            return Get-Item $path
+        }
+    }
+    ```
 
 1. Replace `New-WebDeployPackage` with the following code and replace the placeholders in the line constructing `$msbuildCmd`. This code is for Visual Studio 2015. If you're using Visual Studio 2013, change the **VisualStudioVersion** property below to `12.0`.
 
-  ```
-  function New-WebDeployPackage
-    {
-      #Write a function to build and package your web application
-        
-      #To build your web application, use MsBuild.exe. For help, see MSBuild Command-Line Reference at: http://go.microsoft.com/fwlink/?LinkId=391339
-        
-      Write-VerboseWithTime 'Build-WebDeployPackage: Start'
-        
-      $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=14.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
-        
-      Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
-        
-      #Start execution of the build command
-      $job = Start-Process cmd.exe -ArgumentList('/C "' + $msbuildCmd + '"') -WindowStyle Normal -Wait -PassThru
-        
-      if ($job.ExitCode -ne 0)
+    ```
+    function New-WebDeployPackage
       {
-        throw('MsBuild exited with an error. ExitCode:' + $job.ExitCode)
-      }
+        #Write a function to build and package your web application
+          
+        #To build your web application, use MsBuild.exe. For help, see MSBuild Command-Line Reference at: http://go.microsoft.com/fwlink/?LinkId=391339
+          
+        Write-VerboseWithTime 'Build-WebDeployPackage: Start'
+          
+        $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=14.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
+          
+        Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
+          
+        #Start execution of the build command
+        $job = Start-Process cmd.exe -ArgumentList('/C "' + $msbuildCmd + '"') -WindowStyle Normal -Wait -PassThru
+          
+        if ($job.ExitCode -ne 0)
+        {
+          throw('MsBuild exited with an error. ExitCode:' + $job.ExitCode)
+        }
 
-      #Obtain the project name
-      $projectName = (Get-Item $ProjectFile).BaseName
-        
-      #Construct the path to web deploy zip package
-      $DeployPackageDir =  '.\MSBuildOutputPath\_PublishedWebsites\{0}_Package\{0}.zip' -f $projectName
-        
-        
-      #Get the full path for the web deploy zip package. This is required for MSDeploy to work
-      $WebDeployPackage = Resolve-Path –LiteralPath $DeployPackageDir
-        
-      Write-VerboseWithTime 'Build-WebDeployPackage: End'
-        
-      return $WebDeployPackage
-    }
-  ```
+        #Obtain the project name
+        $projectName = (Get-Item $ProjectFile).BaseName
+          
+        #Construct the path to web deploy zip package
+        $DeployPackageDir =  '.\MSBuildOutputPath\_PublishedWebsites\{0}_Package\{0}.zip' -f $projectName
+          
+          
+        #Get the full path for the web deploy zip package. This is required for MSDeploy to work
+        $WebDeployPackage = Resolve-Path –LiteralPath $DeployPackageDir
+          
+        Write-VerboseWithTime 'Build-WebDeployPackage: End'
+          
+        return $WebDeployPackage
+      }
+    ```
 
 1. Call the `New-WebDeployPackage` function before this line: `$Config = Read-ConfigFile $Configuration` for web apps or `$Config = Read-ConfigFile $Configuration -HasWebDeployPackage:([Bool]$WebDeployPackage)` for virtual machines.
 
-  ```
-  if($ProjectFile)
-    {
-      $WebDeployPackage = New-WebDeployPackage
-    }
-  ```
+    ```
+    if($ProjectFile)
+      {
+        $WebDeployPackage = New-WebDeployPackage
+      }
+    ```
 
 1. Invoke the customized script from command line using passing the `$Project` argument, as in the following example command line.
 
-  ```
-  .\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
-   -ProjectFile ..\WebApplication5\WebApplication5.csproj `
-   -VMPassword @{Name="VMUser";Password="Test.123"} `
-   -AllowUntrusted `
-  -Verbose
-  ```
+    ```
+    .\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
+     -ProjectFile ..\WebApplication5\WebApplication5.csproj `
+     -VMPassword @{Name="VMUser";Password="Test.123"} `
+     -AllowUntrusted `
+    -Verbose
+    ```
 
-  To automate testing of your application, add code to `Test-WebApplication`. Be sure to uncomment the lines in **Publish-WebApplication.ps1** where these functions are called. If you don't provide an implementation, you can manually build your project with Visual Studio, and then run the publish script to publish to Azure.
+    To automate testing of your application, add code to `Test-WebApplication`. Be sure to uncomment the lines in **Publish-WebApplication.ps1** where these functions are called. If you don't provide an implementation, you can manually build your project with Visual Studio, and then run the publish script to publish to Azure.
 
 ## Publishing function summary
 
