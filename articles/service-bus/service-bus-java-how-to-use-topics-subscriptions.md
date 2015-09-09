@@ -348,5 +348,5 @@ topic [Service Bus Queues, Topics, and Subscriptions][] for more information.
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Service Bus Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Service Bus Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
  
