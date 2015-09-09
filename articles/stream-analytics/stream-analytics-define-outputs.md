@@ -44,24 +44,62 @@ Blob storage offers a cost-effective and scalable solution for storing large amo
 
 The table below lists the property names and their description for creating a blob output.
 
-| Property Name | Description |
-|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Output Alias | This is a friendly name used in queries to direct the query output to this blob storage. |
-| Subscription | You can choose a blob storage account from your own subscription or provide the connection information to one in another subscription |
-| Storage Account | The name of the storage account where you are sending your output. |
-| Storage Account Key | The secret key associated with the storage account. |
-| Storage Container | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
-| Path Prefix Pattern [optional] | The file path used to write your blobs within the specified container. |
-|  | Within the path, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: |
-|  | {date}  {time} |
-|  | Example 1: | cluster1/logs/{date}/{time} |
-|  | Example 2: | cluster1/logs/{date} |
-| Date Format [optional] | If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
-| Time Format [optional] | If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
-| Event Serialization Format | Serialization format for output data.  JSON, CSV, and Avro are supported. |
-| Encoding | If CSV or JSON format, an encoding must be specified.  UTF-8 is the only supported encoding format at this time |
-| Delimiter | Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar. |
-| Format | Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
+<table>
+<tbody>
+<tr>
+<td>Property Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Output Alias</td>
+<td>This is a friendly name used in queries to direct the query output to this blob storage.</td>
+</tr>
+<tr>
+<td>Subscription</td>
+<td>You can choose a blob storage account from your own subscription or provide the connection information to one in another subscription</td>
+</tr>
+<tr>
+<td>Storage Account</td>
+<td>The name of the storage account where you are sending your output.</td>
+</tr>
+<tr>
+<td>Storage Account Key</td>
+<td>The secret key associated with the storage account.</td>
+</tr>
+<tr>
+<td>Storage Container</td>
+<td>Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.</td>
+</tr>
+<tr>
+<td>Path Prefix Pattern [optional]</td>
+<td>The file path used to write your blobs within the specified container.<BR>Within the path, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written:<BR>{date}<BR>{time}<BR>Example 1: cluster1/logs/{date}/{time}<BR>Example 2: cluster1/logs/{date}</td>
+</tr>
+<tr>
+<td>Date Format [optional]</td>
+<td>If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD</td>
+</tr>
+<tr>
+<td>Time Format [optional]</td>
+<td>If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH.</td>
+</tr>
+<tr>
+<td>Event Serialization Format</td>
+<td>Serialization format for output data.  JSON, CSV, and Avro are supported.</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td>If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.</td>
+</tr>
+<tr>
+<td>Delimiter</td>
+<td>Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects.</td>
+</tr>
+</tbody>
+</table>
 
 ## Event Hub
 
