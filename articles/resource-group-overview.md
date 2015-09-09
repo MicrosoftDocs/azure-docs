@@ -34,6 +34,15 @@ Azure Resource Manager provides several benefits:
 
 Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model, and want to learn about the changes, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md).
 
+## Guidance for managing your resources with Resource Manager
+
+The following suggestions will help you take full advantage of Resource Manager when working with your solutions.
+
+1. Define and deploy your infrastructure through the declarative syntax in Resource Manager templates, rather than through imperative commands.
+2. Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
+3. Only run Resource Manager commands to manage your infrastructure, such as to start or stop an app or machine.
+4. Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
+
 ## Resource groups
 
 A resource group is a container that holds related resources for an application. The resource group could include all of the resources for an application, or only those resources that are logically grouped together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization.
@@ -52,7 +61,9 @@ There are some important factors to consider when defining your resource group:
 
 With Azure Resource Manager, you can create a simple template (in JSON format) that defines deployment and configuration of your application. This template in known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
 
-Within the template, you define the infrastructure for your app, how to configure that infrastructure, and how to publish your app code to that infrastructure. You do not need to worry about the order for deployment because Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order.
+Within the template, you define the infrastructure for your app, how to configure that infrastructure, and how to publish your app code to that infrastructure. You do not need to worry about the order for deployment because Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
+
+You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily re-use these templates for different solutions. To deploy a particular solution, you create a master template that links all of the required templates. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 You can also use the template for updates to the infrastructure. For example, you can add a new resource to your app and add configuration rules for the resources that are already deployed. If the template specifies creating a new resource but that resource already exists, Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager updates the existing asset to the same state as it would be as new.
 
@@ -106,14 +117,6 @@ For information about the REST API, see [Azure Resource Manager REST API Referen
 
 For information about using the preview portal, see [Using the Azure Preview Portal to manage your Azure resources](azure-portal/resource-group-portal.md).
 
-## Guidance for managing your resources with Resource Manager
-
-The following suggestions will help you take full advantage of Resource Manager when working with your solutions.
-
-1. Define and deploy your infrastructure through the declarative syntax in Resource Manager templates, rather than through imperative commands.
-2. Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
-3. Only run Resource Manager commands to manage your infrastructure, such as to start or stop an app or machine.
-4. Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
 
 ## Next steps
 
