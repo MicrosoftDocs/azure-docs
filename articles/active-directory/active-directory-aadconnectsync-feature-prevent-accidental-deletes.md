@@ -24,6 +24,7 @@ When installing Azure AD Connect, prevent accidental deletes will be enabled by 
 The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`. You should configure this value to fit your organization’s size. Since the sync scheduler will run every 3 hours, the value is the number of deletes seen within 3 hours.
 
 With this feature enabled, if there are too many deletes staged to be exported to Azure AD, the export will not continue and you will receive an email like this:
+
 ![Accidental deletes email](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 If this was unexpected, then investigate and take corrective actions. To see which objects are about to be deleted, do the following:
@@ -33,6 +34,7 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 3. Select the Connector with type **Windows Azure Active Directory**.
 4. Under **Actions** to the right, select **Search Connector Space**.
 5. In the pop-up under **Scope** select **Disconnected Since** and pick a time in the past. Click on **Search**. This will provide a view of all objects about to be deleted. By clicking on each item, you can get additional information about the object. You can also click on **Column Setting** to add additional attributes to be visible in the grid.
+
 ![Search Connector Space](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/searchcs.png)
 
 If all the deletes are desired, then do the following:
