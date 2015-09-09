@@ -182,8 +182,7 @@ Perform the following steps to enable or disable monitoring for a volume.
 
 ## Next steps
 
-Watch a video that shows how to expand a StorSimple volume.
-> [AZURE.VIDEO expand-a-storsimple-volume].
+Watch a video that shows how to [expand a StorSimple volume](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
 
 Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
 
