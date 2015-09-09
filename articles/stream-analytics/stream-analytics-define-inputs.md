@@ -90,9 +90,7 @@ The table below explains each property in the Blob storage input tab with its de
 | Storage Account Key | The secret key associated with the storage account. |
 | Storage Container | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
 | Path Prefix Pattern [optional] | The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 3 variables: |
-|   | {date} |
-|   | {time} |
-|   | {partition} |
+|   | {date}  {time}  {partition} |
 |   | Example 1: cluster1/logs/{date}/{time}/{partition} |
 |   | Example 2: cluster1/logs/{date} |
 | Date Format [optional] | If the date token is specified in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD || Time Format [optional] | If the time token is specified in the prefix path, you can select the time format in which your files are organized. Currently supported values are HH |
