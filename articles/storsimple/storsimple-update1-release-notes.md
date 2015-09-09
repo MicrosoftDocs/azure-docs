@@ -12,16 +12,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/28/2015"
+    ms.date="09/09/2015"
     ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1.2 release notes  
 
 ## Overview
 
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1.2. They also contain a list of the StorSimple software and firmware updates included in this release. 
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1.2. They also contain a list of the StorSimple software, driver and disk firmware updates included in this release. 
 
-Update 1.2 can be applied to any StorSimple device running Release (GA), Update 0.1, Update 0.2, or Update 0.3 software. Update 1.2 is not available if your device is running Update 1 or Update 1.1. 
+Update 1.2 can be applied to any StorSimple device running Release (GA), Update 0.1, Update 0.2, or Update 0.3 software. Update 1.2 is not available if your device is running Update 1 or Update 1.1. If your device is running Release (GA), please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with installing this update.
 
 The following table lists the device software versions corresponding to Updates 1, 1.1, and 1.2.
 
@@ -31,12 +31,12 @@ The following table lists the device software versions corresponding to Updates 
 | Update 1.1          | 6.3.9600.17521                        |
 | Update 1.0          | 6.3.9600.17491                        |
 
-Please review the information contained in the release notes before you deploy the update in your StorSimple solution. For more information, see how to [install Update 1 on your StorSimple device](storsimple-install-update-1.md). 
+Please review the information contained in the release notes before you deploy the update in your StorSimple solution. For more information, see how to [install Update 1.2 on your StorSimple device](storsimple-install-update-1.md). 
 
 >[AZURE.IMPORTANT]
 > 
-- It takes approximately 5-10 hours to install this update (including the Windows Updates). Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
-- This release also contains disk firmware updates that can only be applied when the device is in Maintenance mode. These are disruptive updates that will result in down time for your device. You can apply these updates during planned maintenance.
+- It takes approximately 5-10 hours to install this update (including the Windows Updates). 
+- Update 1.2 has software, LSI driver and disk firmware updates. To install, follow the instructions in [install Update 1.2 on your StorSimple device](storsimple-install-update-1.md).
 - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Scan for updates in a few days again as these will become available soon.
 
 
@@ -55,7 +55,7 @@ These features were first released with Update 1 that was made available to a li
 
 - **Support for other cloud service providers** – The other cloud service providers supported are Amazon S3, Amazon S3 with RRS, HP, and OpenStack (beta).
 
-- **Update to latest Storage APIs** – With this release, StorSimple has been updated to the latest Azure Storage service APIs. StorSimple 8000 series devices that are running  GA are using versions of the Azure Storage Service APIs older than February 12, 2012. As stated in the [announcement about removal of Storage service versions](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), by December 10, 2015, these APIs will be deprecated. It is imperative that you apply the StorSimple 8000 Series Update 1 prior to December 9, 2015. If you fail to do so, StorSimple devices will stop functioning correctly.
+- **Update to latest Storage APIs** – With this release, StorSimple has been updated to the latest Azure Storage service APIs. StorSimple 8000 series devices that are running  pre-Update 1 software versions (Release, 0.1, 0.2, and 0.3) are using versions of the Azure Storage Service APIs older than February 12, 2012. As stated in the [announcement about removal of Storage service versions](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), by December 10, 2015, these APIs will be deprecated. It is imperative that you apply the StorSimple 8000 Series Update 1 prior to December 9, 2015. If you fail to do so, StorSimple devices will stop functioning correctly.
 
 - **Support for Zone Redundant Storage (ZRS)** – With the upgrade to the latest version of the Storage APIs, the StorSimple 8000 series will support Zone Redundant Storage (ZRS) in addition to Locally Redundant Storage (LRS) and Geo-redundant Storage (GRS). Refer to this [article on Azure Storage redundancy options](../storage/storage-redundancy.md) for ZRS details.
 
