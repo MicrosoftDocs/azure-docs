@@ -32,26 +32,16 @@ This article shows you how to change the pricing tier (scale up or down) of your
 
 > [AZURE.IMPORTANT] Changing the pricing tier of a SQL database is an online operation. The database will remain online and available during the entire scaling operation.
 
-- To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. For more information on the allowed sized for each service tier, see the service tier and database size table later in this section.
-
+- To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
 - When upgrading a database with [Standard Geo-Replication](https://msdn.microsoft.com/library/azure/dn758204.aspx) or [Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
-
 - When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships. You can follow the steps described in the [Terminate a Continuous Copy Relationship](https://msdn.microsoft.com/library/azure/dn741323.aspx) topic to stop the replication process between the primary and the active secondary databases.
-
 - The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](https://msdn.microsoft.com/library/azure/jj650016.aspx).
-
 - You can make up to four individual database changes (service tier or performance levels) within a 24 hour period.
-
 - The new properties for the database are not applied until the changes are complete.
 
 
-> [AZURE.TIP] If you have Geo-Replication configured, the secondary databases must always be at a pricing tier that is the same or greater than the primary database so change the primary and secondary databases in the following order: 
-> - If you are changing from a higher performance level to a lower performance level, first change the primary database, and then the active secondary databases. 
-> - If you are changing from a lower performance level to a higher performance level, first change the active secondary databases, and then the primary.
 
-
-
-To complete this article you need the following:
+**To complete this article you need the following:**
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
