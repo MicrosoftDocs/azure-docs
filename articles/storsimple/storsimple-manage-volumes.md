@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="09/09/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
@@ -86,10 +86,9 @@ Your new volume is now ready to use.
 
 ## Modify a volume
 
-Modify a volume when you need to expand it or change the hosts that access the volume.
+Modify a volume when you need to extend it or change the hosts that access the volume.
 
-> [AZURE.IMPORTANT] If you modify the volume size on the device, the volume size needs to be changed on the host as well. Refer to your host operating system instructions when modifying the volume on the host.
-
+> [AZURE.IMPORTANT] If you modify the volume size on the device, the volume size needs to be changed on the host as well. Refer to your host operating system instructions when modifying the volume on the host. For complete instructions when extending a volume on a Windows host, go to [Expand a volume](#expand-a-volume).
 
 ### To modify a volume
 
@@ -114,6 +113,27 @@ Modify a volume when you need to expand it or change the hosts that access the v
     > [AZURE.NOTE] You cannot change the **Enable a default backup** option for the volume.
 
 6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png).
+
+## Expand a volume
+
+You may find that you need to increase the size of a volume. To accomplish this, you will need to complete some steps in the Azure Management Portal and some additional steps on the host computer.
+
+> [AZURE.NOTE] The host-side steps described are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different.
+
+#### To expand a volume
+
+1. On the **Devices** page, select the device on which the volume resides and then double-click it.
+2. Click the **Volume Container** tab.
+3. Select the volume container that has the volume you want to extend, and click it to open the **Volumes** page.
+4. Select the volume that you wish to modify, and, at the bottom of the page, click **Modify**. The **Basic Settings** dialog box appears.
+5. In the **Provisioned Capacity** box, enter the increased size.
+6. Click the arrow icon. The **Additional Settings** dialog box appears. 
+7. Click the check icon. The portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
+8. On the host computer, go to **Computer Management** ->**Disk Management**.
+9. Right-click **Disk Management** and select **Rescan Disks**.
+10. In the list of disks, select the volume that you updated, right-click, and then select **Extend Volume**. The Extend Volume wizard starts. Click **Next**.
+11. Complete the wizard, accepting the default values.
+12. After the wizard is finished, the volume should show the increased size.
 
 ## Take a volume offline
 
