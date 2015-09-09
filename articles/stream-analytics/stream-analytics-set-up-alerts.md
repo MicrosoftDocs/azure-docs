@@ -25,7 +25,7 @@ You can setup a rule to trigger an alert when a metric reaches a condition that 
 
 For example,  “If Output Events for the last 15 minutes is <100,  send email notification to email id: xyz@company.com”.
 
-Rules can be setup on metrics through the portal, or can be done programmatically for the operations logs has defined in this [link](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
+Rules can be setup on metrics through the portal, or can be configured [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) over Operation Logs data.
 
 ## Setting up alerts through the Azure Portal
 
