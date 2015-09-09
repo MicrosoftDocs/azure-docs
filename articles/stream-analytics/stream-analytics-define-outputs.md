@@ -72,7 +72,7 @@ The table below lists the property names and their description for creating a bl
 </tr>
 <tr>
 <td>Path Prefix Pattern [optional]</td>
-<td>The file path used to write your blobs within the specified container.<BR>Within the path, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written:<BR>{date}<BR>{time}<BR>Example 1: cluster1/logs/{date}/{time}<BR>Example 2: cluster1/logs/{date}</td>
+<td>The file path used to write your blobs within the specified container.<BR>Within the path, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written:<BR>{date}, {time}<BR>Example 1: cluster1/logs/{date}/{time}<BR>Example 2: cluster1/logs/{date}</td>
 </tr>
 <tr>
 <td>Date Format [optional]</td>
