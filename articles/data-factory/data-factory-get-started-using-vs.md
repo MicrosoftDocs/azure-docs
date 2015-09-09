@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="09/09/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Visual Studio
@@ -25,11 +25,12 @@
 
 
 ##In This Tutorial
-In This tutorial you will first create an Azure data factory named  **ADFTutorialDataFactoryVS** using the Azure Preview Portal and then do the following using Visual Studio 2013:
+In This tutorial you will do the following using Visual Studio 2013:
 
 1. Create two linked services: **AzureStorageLinkedService1** and **AzureSqlinkedService1**. The AzureStorageLinkedService1 links an Azure storage and AzureSqlLinkedService1 links an Azure SQL database to the data factory: **ADFTutorialDataFactoryVS**. The input data for the pipeline resides in a blob container in the Azure blob storage and output data will be stored in a table in the Azure SQL database. Therefore, you add these two data stores as linked services to the data factory.
 2. Create two data factory tables: **EmpTableFromBlob** and **EmpSQLTable**, which represent the input/output data that is stored in the data stores. For the EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for the EmpSQLTable, you will specify the SQL table that will store the output data. You will also specify other properties such as structure of the data, availability of the data, etc...
-3. Create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactoryVS. The pipeline will have a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table 
+3. Create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactoryVS. The pipeline will have a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table.
+4. Create a data factory, and deploy linked services, tables, and the pipeline.    
 
 ## Create and deploy Data Factory entities using Visual Studio 
 

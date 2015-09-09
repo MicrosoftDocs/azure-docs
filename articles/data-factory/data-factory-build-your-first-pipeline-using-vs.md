@@ -26,9 +26,10 @@
 
 In this article, you will learn how to use the Visual Studio to create your first pipeline. This tutorial consists of the following steps:
 
-1.	Creating the data factory
-2.	Creating the linked services (data stores, computes) and datasets
-3.	Creating the pipeline
+2.	Creating linked services (data stores, computes).
+3.	Creating a dataset.
+3.	Creating a pipeline.
+4.	Create a data factory, and deploy linked services, dataset, and the pipeline. 
 
 This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
