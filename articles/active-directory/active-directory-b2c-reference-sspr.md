@@ -16,7 +16,7 @@
 	ms.date="08/13/2015"
 	ms.author="swkrish"/>
 
-# Setup self-service password reset for your consumers in Azure AD B2C
+# Azure AD B2C preview: Setup self-service password reset for your consumers
 
 This feature allows your consumers (who have signed up for local accounts) to reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of consumers using it on a regular basis. Currently, we only support using a verified email address as a recovery method. We will add additional recovery methods (verified phone number, security questions, etc.) in the future. By default, your directory will not have self-service password reset turned on. Use the following steps to turn it on:
 
@@ -24,7 +24,10 @@ This feature allows your consumers (who have signed up for local accounts) to re
 2. Navigate to the Active Directory extension on the navigation bar on the left hand side.
 3. Find your directory under the **Directory** tab and click on it.
 4. Click on the **Configure** tab.
-5. Scroll down to the **user password reset policy** section and toggle the **users enabled for password reset** option to **YES**. Notice that the **Alternate Email Address** option is checked; leave it as-is. 
+5. Scroll down to the **user password reset policy** section and toggle the **users enabled for password reset** option to **YES**. Notice that the **Alternate Email Address** option is checked; leave it as-is.
+
+    ![Self-service password reset](../media/active-directory-b2c/sspr.png)
+ 
 6. Click **Save** at the bottom of the page. You're done!
 
 To test, use the "Run now" feature on any sign-in policy (which has local accounts as an identity provider). On the local account sign-in page (where you enter email address & password or username & password), click on **Can't access your account?** to verify the consumer experience.

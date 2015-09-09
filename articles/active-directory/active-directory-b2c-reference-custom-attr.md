@@ -16,7 +16,7 @@
 	ms.date="08/13/2015"
 	ms.author="swkrish"/>
 
-#  Azure AD B2C - Use custom attributes to collect information about your consumers
+#  Azure AD B2C preview: Use custom attributes to collect information about your consumers
 
 Your Azure AD B2C directory comes with a built-in set of properties; for e.g., Given Name, Surname, City, Postal Code, etc. However, every consumer-facing application has unique requirements on what information (attributes) they would like to gather from their consumers. Azure AD B2C allows you to extend your directory (specifically, extend the set of attributes stored on each consumer account). You can create custom attributes on the [Azure Portal](https://portal.azure.com/) and use it in your sign-up policies as shown below. You can also read & write these attributes using Azure AD Graph API as shown [here](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
@@ -30,8 +30,10 @@ Custom attributes use [Azure AD Graph API Directory Schema Extensions](https://m
 3. Click **+Add** at the top of the blade.
 4. Provide a **Name** for the custom attribute (for e.g., "ShoeSize") and optionally, a **Description**. Click **Create**. You're done!
 
-> [AZURE.NOTE]
-Only the "String" **Data Type** is available currently. We will be adding more data types (DateTime, Integer, etc.) in the future.
+    > [AZURE.NOTE]
+    Only the "String" **Data Type** is available currently. We will be adding more data types (DateTime, Integer, etc.) in the future.
+
+    ![User attributes - Add attribute](../media/active-directory-b2c/user-attr-new.png)
 
 The custom attribute is now available in the list of **User attributes** and for use in your sign-up policies.
 

@@ -16,9 +16,9 @@
 	ms.date="08/20/2015"
 	ms.author="swkrish"/>
 
-# How to register your application with Azure AD B2C
+# Azure AD B2C preview: How to register your application
 
-To build an application that accepts consumer sign up & sign in, you'll first need to register it with Azure AD B2C. Before you do this, you will need an [Azure AD B2C directory](active-directory-get-started.md).
+To build an application that accepts consumer sign up & sign in, you'll first need to register it with Azure AD B2C. To do this, you will need an [Azure AD B2C directory](active-directory-get-started.md).
 
 ## Navigate to the B2C features blade on the Azure Portal
 
@@ -38,14 +38,14 @@ You can also find the **Manage B2C settings** link (under **B2C Administration**
 
 1. On the B2C features blade on the [Azure Portal](https://portal.azure.com/), click on **Applications**.
 2. Click **+Add** at the top of the blade.
-3. The **Name** of the application will describe your application to consumers. For e.g., enter "B2C app".
+3. The **Name** of the application will describe your application to consumers. For e.g., enter "Contoso B2C app".
 4. If you are writing a web-based application, toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens your application requests. For e.g., enter `https://localhost:44321/`. If your application includes a server-side component (API) that needs to be secured, you'll want to create (and copy) an **Application Secret** as well by clicking on the **Generate Key** button.
 5. If you are writing a mobile application, toggle the **Include native client** switch to **Yes**. Copy down the default **Redirect URI** automatically created for you.
 6. Click **Create** to register your application.
 7. Click on the application that you just created and copy down the globally unique **Application ID** that you'll use later in your code.
 
-> [AZURE.NOTE]
-**Application Secret** is an important security credential.
+    > [AZURE.NOTE]
+    **Application Secret** is an important security credential.
 
 ## Build a Quick Start Application
 

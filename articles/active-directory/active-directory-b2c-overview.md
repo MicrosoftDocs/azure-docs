@@ -18,7 +18,7 @@
 
 # Azure Active Directory B2C preview: Sign up & sign in consumers in your applications
 
-**Azure Active Directory B2C** is a comprehensive identity management cloud solution for your consumer-facing web and mobile applications. It is a highly available global service that scales to hundreds of millions of consumer identities. Built on an enterprise-grade secure platform, Azure Active Directory B2C keeps your applications, your business and your consumers protected.
+**Azure Active Directory B2C** is a comprehensive cloud identity management solution for your consumer-facing web and mobile applications. It is a highly available global service that scales to hundreds of millions of consumer identities. Built on an enterprise-grade secure platform, Azure Active Directory B2C keeps your applications, your business and your consumers protected.
 
 In the past, application developers who wanted to sign up and sign in consumers into their applications would have to use with on-premises databases or systems and write all of the identity management code themselves. Azure Active Directory B2C offers developers a better way to integrate consumer identity management into their applications with the help of a standards-based platform and a rich set of extensible policies. Using Azure Active Directory B2C allows your consumers to sign-up for your applications using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address & password or username & password); we call the latter "local accounts".
 
@@ -26,7 +26,9 @@ Azure Active Directory B2C is in preview. During this time, we are eager to hear
 
 ## Getting Started
 
-There are two ways to get your own application up & running with Azure Active Directory B2C. You can choose to send protocol messages directly, using [OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-b2c-protocols.md#openid-connect-sign-in-flow). Alternatively you can use our libraries to do the work for you - choose your favorite platform below and get started.
+To build an application that accepts consumer sign up & sign in, you'll first need to register it with Azure Active Directory B2C. To do this, you will need a [directory](active-directory-get-started.md).
+
+You can write your application against the Azure Active Directory B2C service by either choosing to send protocol messages directly, using [OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-b2c-protocols.md#openid-connect-sign-in-flow) or by using our libraries to do the work for you (choose your favorite platform below and get started).
 
 [AZURE.INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
