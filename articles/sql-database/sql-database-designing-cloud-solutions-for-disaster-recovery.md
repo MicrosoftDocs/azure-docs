@@ -18,7 +18,7 @@
 
 # Designing Cloud Solutions for Disaster Recovery Using Geo-Replication
 
-There are several ways you can take advantage of the SQL Database Geo-Replication feature when designing your application for business continuity. The choice depends on several factors, but the main goal is to optimize it for specific application patterns. Other factors include ease of failover management, your application’s service level agreement, and traffic latency and costs. In this article we look at the common design patterns and discuss the trade-off of the specific options.
+There are several ways you can take advantage of the SQL Database Geo-Replication feature when designing your application for business continuity. The choice depends on several factors, but the main goal is to optimize it for your specific application. The factors that will guide your design choice include the application deployment topology, the service level agreement you are targeting, traffic latency and costs. In this article we look at the common application patterns and discuss the trade-offs of the different options.
 
 ## Design pattern 1: Active-passive deployment with co-located database configuration
 
@@ -62,14 +62,14 @@ The key **advantage** of this approach is that it avoids data loss if the outage
 
 ## Summary
 
-Your specific DR strategy can combine or extend these patterns to best meet the needs of your application.  To help guide your decision the table below compares the choices based on the estimated data loss or recovery point objective (RPO) and estimated recovery time (ERT).
+Your specific DR strategy can combine or extend these patterns to best meet the needs of your application.  As mentioned earlier, the strategy you choose will be based on the SLA you want to offer to your customers and the application deployment topology. To help guide your decision the table below compares the choices based on the estimated data loss or recovery point objective (RPO) and estimated recovery time (ERT).
 
 | Pattern | RPO | ERT 
-| --- |--- | --- 
-| Active-passive deployment with co-located database configuration | Read-write < 5 sec | Failure detection time /+ failover API call /+ application verification test 
-| Active-active deployment with non co-located database configuration | Read-write < 5 sec | Failure detection time /+ failover API call /+ SQL connection string change /+ application verification test
-| Active-passive deployment with non co-located database configuration | Read-only RPO < 5 sec Read-write RPO = zero |  Read-only ERT = connectivity failure detection time /+ application verification test <br>Read-write ERT = time to mitigate the outage 
+| :--- |:--- | :--- 
+| Active-passive deployment with co-located database configuration | Read-write access < 5 sec | Failure detection time + failover API call + application verification test 
+| Active-active deployment with non co-located database configuration | Read-write access < 5 sec | Failure detection time + failover API call + SQL connection string change + application verification test
+| Active-passive deployment with non co-located database configuration | Read-only access < 5 sec Read-write access = zero |  Read-only access = connectivity failure detection time + application verification test <br>Read-write access = time to mitigate the outage 
 
-Fundamentally the strategy you choose will be based on what SLA you want to offer to your customers and what aspect of the application design you want to optimize for. 
+
 
 
