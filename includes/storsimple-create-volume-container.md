@@ -5,14 +5,14 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/08/2015"
+   ms.date="09/10/2015"
    ms.author="v-sharos" />
 
 #### To create a volume container
@@ -31,3 +31,5 @@
   6. Click the check icon ![check-icon](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) to save this volume container and exit the wizard. 
 
   The newly created volume container will be listed on the **Volume containers** page.
+
+To watch a video that demonstrates how to create a volume container in your StorSimple solution, click [here](http://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).

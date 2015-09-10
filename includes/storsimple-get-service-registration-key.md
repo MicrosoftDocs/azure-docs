@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/14/2015"
+   ms.date="09/10/2015"
    ms.author="v-sharos" />
 
 
@@ -34,4 +34,4 @@
 
 > [AZURE.NOTE] The service registration key is used to register all the devices that need to register with your StorSimple Manager service.
 
- 
+To watch a video that demonstrates how to get the service registration key, click [here](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).

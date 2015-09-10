@@ -41,3 +41,4 @@
 You have completed the device configuration. 
 
 
+To watch a video that demonstrates how to take a StorSimple backup, click [here](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
