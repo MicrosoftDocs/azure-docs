@@ -109,7 +109,7 @@ If you have not selected the **Delete associate backup data** option in **Stop P
 
 After re-protect, the virtual machine’s protection status will be changed to **Protected** if there are recovery points prior to **Stop Protection**.
 
-![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
 
