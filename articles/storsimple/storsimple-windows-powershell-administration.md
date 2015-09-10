@@ -68,7 +68,7 @@ You can choose from the following settings:
 
 1. **Log in with full access**
 This option allows you to connect (with the proper credentials) to the **SSAdminConsole** runspace on the local controller. (The local controller is the controller that you are currently accessing through the serial console of your StorSimple device.) 
-This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues. After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet. For details, refer to [Start a support session](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple). This option connects to a runspace on the local controller.
+This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues. After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet. For details, refer to [Start a support session](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
 
 1. **Log in to peer controller with full access**
 This option is the same as option 1, except that you can connect (with the proper credentials) to the **SSAdminConsole** runspace on the peer controller. Because the StorSimple device is a high availability device with two controllers in an active-passive configuration, peer refers to the other controller in the device that you are accessing through the serial console).
@@ -129,7 +129,7 @@ You can now use PuTTY to connect to the device serial console by doing the follo
 ## Connect remotely to StorSimple using Windows PowerShell for StorSimple
 You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language. 
 
-The display language is independent of the language that you set by using the Change Language option in the serial console menu. Remote PowerShell will automatically pick up the locale of the device you are connecting from if none is specified.
+The display language is independent of the language that you set by using the **Change Language** option in the serial console menu. Remote PowerShell will automatically pick up the locale of the device you are connecting from if none is specified.
 
 >[AZURE.NOTE] If you are working with Microsoft Azure virtual hosts and StorSimple virtual devices, you can use Windows PowerShell remoting and the virtual host to connect to the virtual device. If you have set up a share location on the host on which to save information from the Windows PowerShell session you should be aware that the Everyone principal includes only authenticated users. Therefore, if you have set the share up to allow access by Everyone and you connect without specifying credentials, the unauthenticated Anonymous principal will be used and you will see an error. To fix this issue, on the share host you must enable the Guest account and then give the Guest account full access to the share or you must specify valid credentials along with the Windows PowerShell cmdlet.
 
