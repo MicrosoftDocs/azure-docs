@@ -33,7 +33,7 @@ The way that you add a reference to the Mobile Services client depends on your a
 
 - For a web-based application, open the HTML file and add the following to the script references for the page:
 
-        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
 
 - For a Windows Store app written in JavaScript/HTML, add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project. 
 
