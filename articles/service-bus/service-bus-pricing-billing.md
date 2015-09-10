@@ -23,9 +23,9 @@ Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-mes
 
 Service Bus uses the following two meters for queues and topics/subscriptions:
 
-1. Messaging Operations: Defined as API calls against queue or topic/subscription service endpoints. This meter will replace messages sent or received as the primary unit of billable usage for queues and topics/subscriptions.
+1. **Messaging Operations**: Defined as API calls against queue or topic/subscription service endpoints. This meter will replace messages sent or received as the primary unit of billable usage for queues and topics/subscriptions.
 
-2. Brokered Connections: Defined as the peak number of persistent connections open against queues, topics/subscriptions, or Event Hubs during a given one-hour sampling period. This meter will only apply in the Standard tier, in which you can open additional connections (previously, connections were limited to 100 per queue/topic/subscription) for a nominal per-connection fee.
+2. **Brokered Connections**: Defined as the peak number of persistent connections open against queues, topics/subscriptions, or Event Hubs during a given one-hour sampling period. This meter will only apply in the Standard tier, in which you can open additional connections (previously, connections were limited to 100 per queue/topic/subscription) for a nominal per-connection fee.
 
 The **Standard** tier introduces graduated pricing for operations performed with queues and topics/subscriptions, resulting in volume-based discounts of up to 80% at the highest usage levels. There is also a Standard tier base charge of $10 per month, which enables you to perform up to 12.5 million operations per month at no additional cost.
 
@@ -121,7 +121,7 @@ Relays are available only in Standard tier namespaces. Otherwise, pricing and co
 
 ### How is the Relay Hours meter calculated?
 
-See [this topic](service-bus-pricing-faq.md/#How-is-the-Relay-Hours-meter-calculated?).
+See [this topic](service-bus-pricing-faq.md#How-is-the-Relay-Hours-meter-calculated?).
 
 ### What are brokered connections and how do I get charged for them?
 
