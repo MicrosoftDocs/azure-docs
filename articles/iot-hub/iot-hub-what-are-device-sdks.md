@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date=""
+ ms.date="09/04/2015"
  ms.author="dobett"/>
 
 # What are the Azure IoT device SDKs?
