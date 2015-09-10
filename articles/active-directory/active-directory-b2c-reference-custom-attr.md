@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Custom attributes - Azure Active Directory B2C"
-	description="Custom attributes - Azure Active Directory B2C"
+	pageTitle="Azure AD B2C preview | Microsoft Azure"
+	description="How to use custom attributes in Azure AD B2C to collect information about your consumers"
 	services="active-directory"
 	documentationCenter=""
 	authors="swkrish"
@@ -25,7 +25,7 @@ Custom attributes use [Azure AD Graph API Directory Schema Extensions](https://m
 
 ## How to create a custom attribute
 
-1. Navigate to the B2C features blade on the [Azure Portal](htts://portal.azure.com/). Read [here](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade-on-the-azure-portal) on how to do this.
+1. [Navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade-on-the-azure-portal)..
 2. Click **User attributes**.
 3. Click **+Add** at the top of the blade.
 4. Provide a **Name** for the custom attribute (for e.g., "ShoeSize") and optionally, a **Description**. Click **Create**. You're done!

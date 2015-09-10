@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Developing consumer-facing applications with Azure Active Directory B2C"
+	description="Developing consumer-facing applications with Azure AD B2C"
 	services="active-directory"
 	documentationCenter=""
 	authors="swkrish"

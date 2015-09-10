@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Page UI customization tutorial - Azure Active Directory B2C"
-	description="Page UI customization tutorial - Azure Active Directory B2C"
+	pageTitle="Azure AD B2C preview | Microsoft Azure"
+	description="A tutorial on how to use the page UI customization feature in Azure AD B2C"
 	services="active-directory"
 	documentationCenter=""
 	authors="swkrish"

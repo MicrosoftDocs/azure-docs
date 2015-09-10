@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
+	pageTitle="Azure AD B2C preview | Microsoft Azure"
 	description="How to register your application with Azure AD B2C"
 	services="active-directory"
 	documentationCenter=""
