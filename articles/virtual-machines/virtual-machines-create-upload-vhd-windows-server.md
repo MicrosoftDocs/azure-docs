@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/10/2015"
 	ms.author="kathydav"/>
 
 # Create and upload a Windows Server VHD to Azure#
@@ -29,13 +29,13 @@ This article assumes you have:
 
 2. **Microsoft Azure PowerShell** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Microsoft Azure Downloads](http://azure.microsoft.com/downloads/). A tutorial to install and configure the module is available [here](../powershell-install-configure.md). You'll use the [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the VHD.
 
-3. **A supported Windows operating system stored in a .vhd file** - You have installed a supported Windows Server operating system to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use Hyper-V to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For details about operating systems, see [Microsoft server software support for Microsoft Azure virtual machines](http://go.microsoft.com/fwlink/p/?LinkId=393550).
+3. **A supported Windows operating system stored in a .vhd file and attached to a virtual machine** - Multiple tools exist to create .vhd files. For example, you can use Hyper-V to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For details about operating systems, see [Microsoft server software support for Microsoft Azure virtual machines](http://go.microsoft.com/fwlink/p/?LinkId=393550).
 
-> [AZURE.IMPORTANT] The VHDX format is not supported in Microsoft Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For details, see [here](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+> [AZURE.IMPORTANT] The VHDX format is not supported in Microsoft Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For details, see this [blogpost](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
-## Step 1: Prepare the image to be uploaded ##
+## Step 1: Prep the VHD ##
 
-Before you can upload the image to Azure, you need to generalize it by using the Sysprep command. For more information about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+Before you upload the VHD to Azure, it needs to be generalized by using the Sysprep tool. This prepares the VHD to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
 From the virtual machine that the operating system was installed to, complete the following procedure:
 
@@ -55,9 +55,9 @@ From the virtual machine that the operating system was installed to, complete th
 
 6.  Click **OK**.
 
-## Step 2: Create or get info from your Azure storge account##
+## Step 2: Create or get info from your Azure storage account##
 
-You need a storage account in Azure to upload the .vhd file. This step shows you how to create an account, or get the info you need from an existing account.
+You need a storage account in Azure so you have a place to upload the .vhd file. This step shows you how to create an account, or get the info you need from an existing account.
 
 ### Option 1: Create a storage account
 
@@ -73,7 +73,7 @@ You need a storage account in Azure to upload the .vhd file. This step shows you
 
  - Under **URL**, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name of the URL you use to access blob, queue, or table resources for the subscription.
  - Choose the **location or affinity group** for the storage account. An affinity group lets you place your cloud services and storage in the same datacenter.
- - Decide whether to use **geo-replication** for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically, and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. More details on managing geo-replication of Storage accounts can be found here: [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
+ - Decide whether to use **geo-replication** for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically, and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, if you turn on geo-replication later, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. For more details, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
       ![Enter storage account details](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
@@ -118,11 +118,9 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 2. Type:  
 	   `Add-AzureAccount`
 
-	This command opens a sign-in window so you can sign with your work or school account.
+3.	In the sign-in windows, type the user name and password of your work or school account.
 
-	![PowerShell Window](./media/virtual-machines-create-upload-vhd-windows-server/add_azureaccount.png)
-
-3. Azure authenticates and saves the credential information, and then closes the window.
+4. Azure authenticates and saves the credential information, and then closes the window.
 
 ### Option 2: Use a certificate
 
@@ -162,6 +160,10 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 
 ## Step 5: Add the image to your list of custom images
 
+> [Azure.TIP] You can the **Add-AzureVMImage** cmdlet instead of the portal to add your VHD as an image. In the Azure PowerShell console, type:
+
+>	`Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>`
+
 1. From the portal, under **All Items**, click **Virtual Machines**.
 
 2. Under Virtual Machines, click **Images**.
@@ -185,12 +187,6 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 	- Check **I have run Sysprep on the virtual machine associated with this VHD** to acknowledge that you generalized the operating system in step 1, and then click **OK**.
 
     ![Add Image](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
-
-5. **OPTIONAL :** You can the **Add-AzureVMImage** cmdlet instead of the portal to add your VHD as an image. In the Azure PowerShell console, type:
-
-	`Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>`
-
-	![PowerShell Add-AzureVMImage](./media/virtual-machines-create-upload-vhd-windows-server/add_azureimage_powershell.png)
 
 6. After you complete the previous steps, the new image is listed when you choose the **Images** tab.
 
