@@ -176,7 +176,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 (The extension only assists an app that has been built with the SDK. Unlike Status Monitor, it can't instrument an existing app.)
 
-#### To monitor an Azure worker role
+#### To monitor Azure cloud services roles
 
 There's a [manual procedure for adding the status monitor](app-insights-cloudservices.md).
 

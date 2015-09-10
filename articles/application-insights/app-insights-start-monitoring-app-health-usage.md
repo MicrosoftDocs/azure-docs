@@ -146,15 +146,9 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 (The extension only assists an app that has been built with the SDK and published to Azure. Unlike Status Monitor, it can't instrument an existing app.)
 
-#### If it's an Azure worker role
+#### If it's an Azure cloud services project
 
-In each web or worker role that you want to monitor:
-
-* Add this [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) folder and the two files in it to your web/worker role projects. Be sure to set their build properties so that they are always copied into the output directory. These files install the agent.
-
-* Add the start up task to the CSDEF file as shown [in this example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18).
-
-[More about monitoring Azure web and worker roles](app-insights-cloudservices.md)
+[Add scripts to web and worker roles](app-insights-cloudservices.md)
 
 ## 6. Add client-side monitoring
 
