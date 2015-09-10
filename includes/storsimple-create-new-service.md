@@ -33,10 +33,12 @@
   4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf." If you need your data in a different location, uncheck this box. 
   5. Click **Create StorSimple Manager** to create the service.
 
-   ![create a service](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![Create StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
   You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
  
-   ![service creation](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Service creation](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+
+![Video available](./media/storsimple-create-new-service/Video_icon.png)  **Video available**
 
 To watch a video that demonstrates how to create a new StorSimple Manager service, click [here](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).

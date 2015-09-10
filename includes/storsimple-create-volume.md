@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="8/21/15"
+   ms.date="09/10/2015"
    ms.author="v-sharos" />
 
 #### To create a volume
@@ -37,6 +37,8 @@
      ![Add volume](./media/storsimple-create-volume/HCs_AddVolume2M-include.png)
 
 4. Click the check icon ![check icon](./media/storsimple-create-volume/HCS_CheckIcon-include.png). A volume will be created with the specified settings.
+
+![Video available](./media/storsimple-create-volume/Video_icon.png) **Video available**
 
 To watch a video that demonstrates how to create a StorSimple volume, click [here](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 

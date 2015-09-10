@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   edito**r="tysonn" />
+   manager="carolz"
+   edito**r="" />
 <tags 
    ms.se**rvice="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/29/2015"
+   ms.date="09/10/2015"
    ms.author="v-sharos" />
 
 #### To mount, initialize, and format a volume
@@ -42,6 +42,8 @@
   2. In the New Simple Volume wizard, specify the volume size and drive letter and configure the volume as an NTFS file system.
   3. Specify a 64 KB allocation unit size. This allocation unit size works well with the deduplication algorithms used in the StorSimple solution.
   4. Perform a quick format.
+
+![Video available](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Video available**
 
 To watch a video that demonstrates how to mount, initialize, and format a StorSimple volume, click [here](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 
