@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="mwasson"/>
 
 
@@ -31,20 +31,17 @@ environment by performing a Virtual IP (VIP) swap.
 
 > [AZURE.NOTE] The steps in this article only apply to node applications hosted as an Azure Cloud Service.
 
-This task includes the following steps:
-
--   [Step 1: Stage an Application]
--   [Step 2: Deploy an Application to Production by Swapping VIPs]
-
 ## Step 1: Stage an Application
 
-This task covers how to stage an application by using the **Windows
+This task covers how to stage an application by using the **Microsoft
 Azure PowerShell**.
 
 1.  When publishing a service, simply pass the **-Slot** parameter to
     the **Publish-AzureServiceProject** cmdlet.
 
-    **Publish-AzureServiceProject -Slot staging**
+    ```powershell
+    Publish-AzureServiceProject -Slot staging
+    ```
 
 2.  Log on to the [Azure Management Portal] and select **Cloud Services**. After the cloud service is created and the **Staging** column status has been updated to **Running**, click on the service name.
 
@@ -60,11 +57,6 @@ Azure PowerShell**.
 
 Now you can verify that the application is working correctly in the staging environment by using the staging site URL.
 
-For an upgrade scenario, in which the staged application is an upgraded
-version of one that has already been deployed to production, you can
-[upgrade the application in the production environment by swapping the
-VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
-
 ## Step 2: Upgrade an Application in Production by Swapping VIPs
 
 After you have verified the upgraded version of an application in the
@@ -76,17 +68,13 @@ environments.
 application to production and staged the upgraded version of the
 application.
 
-1.  Log into the [Azure Management Portal],
-    click **Cloud Services** and then select the service name.
+1.  Log into the [Azure Management Portal], click **Cloud Services** and then select the service name.
 
-2.  From the **Dashboard**, select **Staging**, and then click **Swap** at the bottom of the page. This opens the VIP Swap
-    dialog.
+2.  From the **Dashboard**, select **Staging**, and then click **Swap** at the bottom of the page. This opens the VIP Swap dialog.
 
     ![vip swap dialog][vip-swap-dialog]
 
-3.  Review the information, and then click **OK**. The two deployments
-    begin updating as the staging deployment switches to production and
-    the production deployment switches to staging.
+3.  Review the information, and then click **OK**. The two deployments begin updating as the staging deployment switches to production and the production deployment switches to staging.
 
 You have successfully staged a deployment and upgraded a production
 deployment by swapping VIPs with the deployment in staging.
@@ -94,15 +82,10 @@ deployment by swapping VIPs with the deployment in staging.
 ## Additional Resources
 
 - [How to Deploy a Service Upgrade to Production by Swapping VIPs in Azure]
-- [Overview of Managing Deployments in Azure]
 
-  [Step 1: Stage an Application]: #step1
-  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-  [Azure Management Portal]: http://manage.windowsazure.com
+[Azure Management Portal]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-  [How to Deploy a Service Upgrade to Production by Swapping VIPs in Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-  [Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
- 
+[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+[How to Deploy a Service Upgrade to Production by Swapping VIPs in Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production

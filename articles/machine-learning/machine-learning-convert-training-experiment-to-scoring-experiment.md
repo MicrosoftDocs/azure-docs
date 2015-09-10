@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Convert a Machine Learning training experiment to a predictive experiment | Microsoft Azure"
-	description="How to convert a Machine Learning training experiment, used for training your predictive analytics model, to a predictive experiment which can be published as a web service."
+	description="How to convert a Machine Learning training experiment, used for training your predictive analytics model, to a predictive experiment which can be deployed as a web service."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/09/2015"
 	ms.author="garye"/>
 
 # Convert a Machine Learning training experiment to a predictive experiment
 
 Azure Machine Learning enables you to build, test, and deploy predictive analytics solutions.
 
-Once you've created and iterated on a *training experiment* to train your predictive analytics model, and you're ready to use it to score new data, you need to prepare and streamline your experiment for scoring. You can then publish this *predictive experiment* as an Azure web service so that users can send data to your model and receive your model's predictions.
+Once you've created and iterated on a *training experiment* to train your predictive analytics model, and you're ready to use it to score new data, you need to prepare and streamline your experiment for scoring. You can then deploy this *predictive experiment* as an Azure web service so that users can send data to your model and receive your model's predictions.
 
-By converting to a predictive experiment, you're getting your trained model ready to be published as a scoring web service. Users of the web service will send input data to your model and your model will send back the prediction results. So as you convert to a predictive experiment you will want to keep in mind how you expect your model to be used by others.
+By converting to a predictive experiment, you're getting your trained model ready to be deployed as a web service. Users of the web service will send input data to your model and your model will send back the prediction results. So as you convert to a predictive experiment you will want to keep in mind how you expect your model to be used by others.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -34,7 +34,7 @@ The process of converting a training experiment to a predictive experiment invol
 
 ## Set Up Web Service button
 
-The **Set Up Web Service** button at the bottom of the experiment canvas (select the **Predictive Web Service** option) will perform for you the three steps of converting your training experiment to a predictive experiment:
+After you have run your experiment (**RUN** button at the bottom of the experiment canvas), the **Set Up Web Service** button (select the **Predictive Web Service** option) will perform for you the three steps of converting your training experiment to a predictive experiment:
 
 1.	It saves your trained model as a module in the **Trained Models** section of the module palette (to the left of the experiment canvas), then replaces the machine learning algorithm and [Train Model][train-model] modules with the saved trained model.
 2.	It removes modules that are clearly not needed. In our example, this includes the [Split][split], 2nd [Score Model][score-model], and [Evaluate Model][evaluate-model] modules.
@@ -64,7 +64,7 @@ Here is how our example looks after clicking **Set Up Web Service**:
 
 ![Converted predictive experiment][figure3]
 
-This may be sufficient to prepare your experiment to be published as a web service. However, you may want to do some additional work specific to your experiment.
+This may be sufficient to prepare your experiment to be deployed as a web service. However, you may want to do some additional work specific to your experiment.
 
 ### Adjust input and output modules
 
@@ -94,7 +94,7 @@ Our predictive experiment now looks like this:
 
 In some cases, you may want to allow the user of your web service to change the behavior of modules when the service is accessed. *Web Service Parameters* allow you to do this.
 
-A common example is setting up the [Reader][reader] module so that the user of the published web service can specify a different data source when the web service is accessed. Or configuring the [Writer][writer] module so that a different destination can be specified.
+A common example is setting up the [Reader][reader] module so that the user of the deployed web service can specify a different data source when the web service is accessed. Or configuring the [Writer][writer] module so that a different destination can be specified.
 
 You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional. The user of the web service can then provide values for these parameters when the service is accessed and the module actions will be modified accordingly.
 
@@ -104,13 +104,13 @@ For more information about Web Service Parameters, see [Using Azure Machine Lear
 [webserviceparameters]: machine-learning-web-service-parameters.md
 
 
-## Publish the predictive experiment as a web service
+## Deploy the predictive experiment as a web service
 
-Now that the predictive experiment has been sufficiently prepared, you can publish it as an Azure web service. Using the web service, users can send data to your model and the model will return its predictions.
+Now that the predictive experiment has been sufficiently prepared, you can deploy it as an Azure web service. Using the web service, users can send data to your model and the model will return its predictions.
 
-For more information on the complete publishing process, see [Publish an Azure Machine Learning web service][publish]
+For more information on the complete deployment process, see [Deploy an Azure Machine Learning web service][deploy]
 
-[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[deploy]: machine-learning-publish-a-machine-learning-web-service.md
 
 
 <!-- Images -->

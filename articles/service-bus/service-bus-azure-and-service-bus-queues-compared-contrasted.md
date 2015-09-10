@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="08/25/2015"
+   ms.date="09/09/2015"
    ms.author="sethm" />
 
 # Azure Queues and Service Bus queues - compared and contrasted
@@ -258,7 +258,7 @@ This section discusses the authentication and authorization features supported b
 |Comparison Criteria|Azure Queues|Service Bus Queues|
 |---|---|---|
 |Authentication|**Symmetric key**|**Symmetric key**|
-|Access control model|Delegated access via SAS tokens.|RBAC via ACS|
+|Security model|Delegated access via SAS tokens.|SAS|
 |Identity provider federation|**No**|**Yes**|
 
 ### Additional information
@@ -266,10 +266,6 @@ This section discusses the authentication and authorization features supported b
 - Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access are not supported. Using SAS, you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
 
 - The authentication scheme provided by Azure Queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authenticating Access to Your Storage Account](https://msdn.microsoft.com/library/hh225339.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](https://msdn.microsoft.com/library/dn170477.aspx).
-
-- The Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) supported by Service Bus offers three distinct roles: **Admin**, **Sender**, and **Receiver**, which is not supported at this time for Azure Queues.
-
-- Because Service Bus offers ACS integration, it enables you to federate with Active Directory (through the use of ADFS) and other common web identity providers.
 
 ## Cost
 
