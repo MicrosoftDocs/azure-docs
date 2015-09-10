@@ -42,11 +42,10 @@ To use Windows PowerShell cmdlets, you first must install them.
 
 	- To see whether a single user’s password is set to never expire, run the following cmdlet by using the user principal name (UPN) (for example, aprilr@contoso.onmicrosoft.com) or the user ID of the user you want to check:
 
-	`Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+    Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires
 
 	- To see the "Password never expires" setting for all users, run the following cmdlet:
-
-	`Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+    Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ## Set a password to expire
 
@@ -56,11 +55,11 @@ To use Windows PowerShell cmdlets, you first must install them.
 
 	- To set the password of one user so that the password will expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user:
 
-	`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
+    Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false
   	
 	- To set the passwords of all users in the organization so that they will expire, use the following cmdlet:
 
-	`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
+    Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
 
 ## Set a password not to expire
 
@@ -70,8 +69,8 @@ To use Windows PowerShell cmdlets, you first must install them.
 
 	- To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user:
 
-	`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$true`
+    Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$true`
 
 	- To set the passwords of all the users in an organization to never expire, run the following cmdlet:
 
-	`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
+    Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
