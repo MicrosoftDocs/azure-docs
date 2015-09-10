@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Starting and stopping virtual machines | Microsoft Azure"
-   description=""
+   pageTitle="Starting and stopping virtual machines - Graph | Microsoft Azure"
+   description="PowerShell Workflow version of Azure Automation solution including runbooks to start and stop classic virtual machines."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="09/09/2015"
    ms.author="bwren" />
 
 # Azure Automation solution - starting and stopping virtual machines
@@ -24,32 +24,28 @@ This Azure Automation solution includes runbooks to start and stop classic virtu
 - Call the runbooks from another runbook as part of an overall solution. 
 - Use the runbooks as tutorials to learn runbook authoring concepts. 
 
-This is the graphical runbook version of this solution. It is also available using textual workflow runbooks.
-
 > [AZURE.SELECTOR]
-- [Graphical](automation-solutions-startstopvm-graphical.md)
-- [Textual](automation-solutions-startstopvm-textual.md)
+- [Graph](automation-solutions-startstopvm-graphic.md)
+- [PowerShell Workflow](automation-solutions-startstopvm-psworkflow.md)
 
-| Runbook | Type | Description |
-|:---|:---|:---|
-| StartAzureClassicVM | Graphical | Starts all classic virtual machines in an Azure subscription or all virtual machines with a particular service name. |
-| StopAzureClassicVM | Graphical | Stops all virtual machines in an automation account or all virtual machines with a particular service name.  |
-
-
+This is the graph runbook version of this solution. It is also available using [PowerShell Workflow runbooks](automation-solutions-startstopvm-psworkflow.md).
 
 ## Getting the solution
 
-This solution consists of two two graphical runbooks that you can download from the following links.  See the [textual version](automation-solutions-startstopvm-textual.md) of this solution for links to the textual runbooks.
+This solution consists of two two graph runbooks that you can download from the following links.  See the [PowerShell Workflow version](automation-solutions-startstopvm-psworkflow.md) of this solution for links to the PowerShell Workflow runbooks.
 
-- [Start Azure Classic VM Graph Runbook](https://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Classic-VM-c6067b3d)
-- [Stop Azure Classic VM Graph Runbook](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-Classic-VM-397819bd)
+
+| Runbook | Link | Type | Description |
+|:---|:---|:---|
+| StartAzureClassicVM | [Start Azure Classic VM Graph Runbook](https://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Classic-VM-c6067b3d) | Graph | Starts all classic virtual machines in an Azure subscription or all virtual machines with a particular service name. |
+| StopAzureClassicVM | [Stop Azure Classic VM Graph Runbook](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-Classic-VM-397819bd) | Graph | Stops all virtual machines in an automation account or all virtual machines with a particular service name.  |
 
 
 ## Installing the solution
 
 ### 1. Install the runbooks
 
-After downloading the runbooks, you can import them using the procedure in [Graphical runbook procedures](automation-graphical-authoring-intro.md#graphical-runbook-procedures).
+After downloading the runbooks, you can import them using the procedure in [Graph runbook procedures](automation-graphical-authoring-intro.md#graphical-runbook-procedures).
 
 ### 2. Review the description and requirements
 The runbooks include an activity called **Read Me** that includes a description and required assets.  You can view this information by selecting the **Read Me** activity and then the **Workflow Script** parameter.  You can also get the same information from this article. 
@@ -78,10 +74,10 @@ The runbooks each have the following [input parameters](automation-starting-a-ru
 
 You can use any of the methods in [Starting a runbook in Azure Automation](automation-starting-a-runbook.md) to start either of the runbooks in this solution.
 
-The following sample commands uses Windows PowerShell to run **StartAzureClasscVM** to start all virtual machines with the service name *MyVMService*.
+The following sample commands uses Windows PowerShell to run **StartAzureClassicVM** to start all virtual machines with the service name *MyVMService*.
 
 	$params = @{"ServiceName"="MyVMService"}
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "StartAzureClasscVM" –Parameters $params
+	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "StartAzureClassicVM" –Parameters $params
 
 ### Output
 
@@ -97,14 +93,14 @@ The runbooks will [output a message](https://azure.microsoft.com/documentation/a
 | StopAzureClassicVM | Start request for virtual machine failed  | MyVM failed to start |
 
 
-Following is an image of using the **StartAzureClassicVM** as a [child runbook](https://azure.microsoft.com/documentation/articles/automation-child-runbooks) in a sample graphical runbook.  This uses the conditional links in the following table.
+Following is an image of using the **StartAzureClassicVM** as a [child runbook](https://azure.microsoft.com/documentation/articles/automation-child-runbooks) in a sample graph runbook.  This uses the conditional links in the following table.
 
 | Link | Criteria |
 |:---|:---|
 | Success link | $ActivityOutput['StartAzureClassicVM'] -like "\* has been started"    |
 | Error link   | $ActivityOutput['StartAzureClassicVM'] -notlike "\* has been started" |
 
-![Child runbook example](media/automation-solution-startstopvm/graphical-childrunbook-example.png)
+![Child runbook example](media/automation-solution-startstopvm/graph-childrunbook-example.png)
 
 
 ## Detailed breakdown
@@ -114,7 +110,7 @@ Following is a detailed breakdown of the runbooks in this solution.  You can use
 
 ### Authentication
 
-![Authentication](media/automation-solution-startstopvm/graphical-authentication.png)
+![Authentication](media/automation-solution-startstopvm/graph-authentication.png)
 
 The runbook starts with activities to set the [credentials](automation-configuring.md#configuring-authentication-to-azure-resources) and Azure subscription that will be used for the rest of the runbook.
 
@@ -124,7 +120,7 @@ The first two activities, **Get Subscription Id** and **Get Azure Credential**, 
 
 ### Get virtual machines
 
-![Get VMs](media/automation-solution-startstopvm/graphical-getvms.png)
+![Get VMs](media/automation-solution-startstopvm/graph-getvms.png)
 
 The runbook needs to determine which virtual machines it will be working with and whether they are already started or stopped (depending on the runbook).   One of two activities will retrieve the VMs.  **Get VMs in Service** will run if the *ServiceName* input parameter for the runbook contains a value.  **Get All VMs** will run if the *ServiceName* input parameter for the runbook does not contain a value.  This logic is performed by the conditional links preceding each activity.
 
@@ -132,7 +128,7 @@ Both activities use the **Get-AzureVM** cmdlet.  **Get All VMs** uses the **List
 
 ### Merge VMs
 
-![Merge VMs](media/automation-solution-startstopvm/graphical-mergevms.png)
+![Merge VMs](media/automation-solution-startstopvm/graph-mergevms.png)
 
 The **Merge VMs** activity is required to provide input to **Start-AzureVM** which needs the name and service name of the vm(s) to start.  That input could come from either **Get All VMs** or **Get VMs in Service**, but **Start-AzureVM** can only specify one activity for its input.   
 
@@ -140,13 +136,13 @@ The solution is to create **Merge VMs** which runs the **Write-Output** cmdlet. 
 
 ### Start/Stop virtual machines
 
-![Start VMs](media/automation-solution-startstopvm/graphical-startvm.png) ![Stop VMs](media/automation-solution-startstopvm/graphical-stopvm.png)
+![Start VMs](media/automation-solution-startstopvm/graph-startvm.png) ![Stop VMs](media/automation-solution-startstopvm/graph-stopvm.png)
 
 Depending on the runbook, the next activities attempt to start or stop the runbook using **Start-AzureVM** or **Stop-AzureVM**.  Since the activity is preceded by a pipeline link, it will run once for each object returned from **Merge VMs**.  The link is conditional so that the activity will only run if the *RunningState* of the virtual machine is *Stopped* for **Start-AzureVM** and *Started* for **Stop-AzureVM**. If this condition is not met, then **Notify Already Started** or **Notify Already Stopped** is run to send a message using **Write-Output**.
 
-### Send notifications
+### Send output
 
-![Notify Start VMs](media/automation-solution-startstopvm/graphical-notifystart.png) ![Notify Stop VMs](media/automation-solution-startstopvm/graphical-notifystop.png)
+![Notify Start VMs](media/automation-solution-startstopvm/graph-notifystart.png) ![Notify Stop VMs](media/automation-solution-startstopvm/graph-notifystop.png)
 
 The final step in the runbook is to send output whether the start or stop request for each virtual machine was successfully submitted. There is a separate **Write-Output** activity for each, and we determine which one to run with conditional links.  **Notify VM Started** or **Notify VM Stopped** is run if *OperationStatus* is *Succeeded*.  If *OperationStatus* is any other value, then **Notify Failed To Start** or **Notify Failed to Stop** is run.
 
