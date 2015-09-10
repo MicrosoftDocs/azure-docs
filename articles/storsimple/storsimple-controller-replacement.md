@@ -42,11 +42,7 @@ The following table shows the supported controller replacement scenarios.
 You need to remove a controller module if it has failed. One or both the controller modules can fail, which can result in a single controller replacement or dual controller replacement. For replacement procedures and the logic behind them, see the following:
 
 - [Replace a single controller](#replace-a-single-controller)
-     - [Single controller replacement logic](#single-controller-replacement-logic)
-     - [Single controller replacement steps](#single-controller-replacement-steps) 
 - [Replace both controllers](#replace-both-controllers)
-     - [Dual controller replacement logic](#dual-controller-replacement-logic) 
-     - [Dual controller replacement steps](#dual-controller-replacement-steps) 
 - [Remove a controller](#remove-a-controller)
 - [Insert a controller](#insert-a-controller)
 - [Identify the active controller on your device](#identify-the-active-controller-on-your-device)
