@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Custom installation of Azure AD Connect" 
 	description="This document details the custom installation options for Azure AD Connect." 
 	services="active-directory" 
@@ -186,19 +186,6 @@ With staging mode the process to setup a new sync server in parallel with an exi
 
 While in staging mode, it is possible to make required changes to the sync engine and review what is about to be exported. When the configuration looks good, run the installation wizard again and disable staging mode. This will enable data to be exported to Azure AD. Make sure to disable the other server at the same time so only one server is actively exporting.
 
-### Preventing accidental deletions
-When installing Azure AD Connect the feature preventing accidental deletions will be enabled by default and configured to not allow an export with more than 500 deletes. The 500 is a default value and can be changed. With this feature enabled, if there are too many deletes, the export will not continue and you will receive an email like this:
-
-![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/email.png)
-
-
-If this was unexpected, then investigate and take any corrective actions. 
-
-To temporarily disable this protection and let these deletes go through, run:
-Disable-ADSyncExportDeletionThreshold
-
-To re-enable the protection or to change the default threshold setting, run:
-Enable-ADSyncExportDeletionThreshold
 
 
 ## Configuring Federation with AD FS
