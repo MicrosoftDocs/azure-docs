@@ -31,6 +31,8 @@ To manage protected virtual machines:
 
 3. To view and manage backup policy settings for a virtual machine click the **Policies** tab.
 
+    ![Virtual machine policy](./media/backup-azure-manage-vms/manage-policy-settings.png)
+
     The **Backup Policies** tab shows you the existing policy. You can modify as needed. If you need to create a new policy click **Create** on the **Policies** page. Note that if you want to remove a policy it shouldn't have any virtual machines associated with it.
 
     ![Virtual machine policy](./media/backup-azure-manage-vms/backup-vmpolicy.png)
@@ -156,7 +158,7 @@ To delete backup data on a virtual machine, which is in the *Protection Stopped*
 ## Dashboard
 On the **Dashboard** page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors.
 
-    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
 ## Auditing Operations
 Azure backup provides review of the "operation logs" of backup operations triggered by the customer making it easy to see exactly what management operations were performed on the backup vault. Operations logs enable great post-mortem and audit support for the backup operations.
