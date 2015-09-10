@@ -125,7 +125,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 ## On demand backup of a SQL database
 While the previous steps created a backup policy, a “recovery point” is created only when the first backup occurs. Rather than waiting for the scheduler to kick in, the steps below will trigger the creation of a recovery point manually.
 
-1. Wait until the protection group status shows **OK** for the both the databases before creating the recovery point.
+1. Wait until the protection group status shows **OK** for the database before creating the recovery point.
 
     ![Protection Group Members](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
 
