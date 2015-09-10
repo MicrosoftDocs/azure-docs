@@ -62,6 +62,7 @@ Before a virtual machine can be protected it needs to be registered with the Azu
     ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. Click the **REGISTER** button at the bottom of the page.
+
     ![register button](./media/backup-azure-vms/register-button-only.png)
 
 4. In the **Register Items** shortcut menu, choose the virtual machines that you would like to register. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
@@ -88,27 +89,33 @@ This step involves setting up a backup and retention policy for the virtual mach
 To protect a virtual machine, do the following steps:
 
 1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and then click the **Registered Items** tab.
-2. Choose the type of workload in the drop-down menu as **Azure Virtual Machine**, and then click the **Select** button.
+2. Choose the type of workload in the drop-down menu as **Azure Virtual Machine**, and then click **Select**.
 
     ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
 
-3. Click the **PROTECT** button at the bottom of the page. The **Protect Items** wizard appears. This wizard only lists virtual machines which are registered and not protected.
+3. Click **PROTECT** at the bottom of the page. The **Protect Items** wizard appears. This wizard only lists virtual machines which are registered and not protected.
 
-    The **Protect Items** wizard is where the virtual machines to be protected can be selected. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
+4. The **Protect Items** wizard is where the virtual machines to be protected can be selected. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
 
     The **Protect** operation can be done at scale, which means that multiple virtual machines can be selected at one time to be registered. This greatly reduces the effort spent in protecting the virtual machine.
 
-4. In the second screen of the **Protect Items** wizard, choose a backup and retention policy to back up the selected virtual machines. Pick from an existing set of policies or define a new one.
+    ![Configure protection at scale](./media/backup-azure-vms/protect-at-scale.png)
 
-    In each backup vault, you can have multiple backup policies. The policies reflect the details about how the backup should be scheduled and retained. For example, one backup policy could be for daily backup at 10:00 P.M., while another backup policy could be for weekly backup at 6:00 A.M. Multiple backup policies allow flexibility in scheduling backups for your virtual machine infrastructure.
+5. In the second screen of the **Protect Items** wizard, choose a backup schedule  to back up the selected virtual machines. Pick from an existing set of policies or define a new one.
+
+    In each backup vault, you can have multiple backup policies. The policies reflect the details about how the backup should be scheduled and retained. For example, one backup policy could be for daily backup at 10:00 P.M., while another backup policy could be for weekly backup on Saturday at 6:00 A.M. Multiple backup policies allow flexibility in scheduling backups for your virtual machine infrastructure.
 
     Each backup policy can have multiple virtual machines that are associated with the policy. The virtual machine can be associated with only one policy at any given point in time.
 
-5. In the third screen of the **Protect Items** wizard, choose a retention range to be associated with backups taken. This screens supports industry standard GFS(Grandfather-Father-Son) based retention scheme. Read more about [Long Term retention](backup-azure-vms-introduction.md#Long term retention).
+    ![Protect with new policy](./media/backup-azure-vms/policy-schedule.png)
+
+6. In the third screen of the **Protect Items** wizard, choose a retention range to be associated with backups taken. This screens supports industry standard GFS(Grandfather-Father-Son) based retention scheme. Read more about [Long Term retention](backup-azure-vms-introduction.md#Long term retention).
 
     A backup policy also involves retention scheme of the scheduled backups. Selecting an existing backup policy in previous screen disables modification of the retention scheme and backups follow the retention policy as defined in the policy.
 
-6. A job is created for each virtual machine to configure the protection policy and to associate the virtual machines to the policy. Click the **Jobs** tab and choose the right filter to view the list of **Configure Protection** jobs.
+    ![Protect with flexible retention](./media/backup-azure-vms/policy-retention.png)
+
+7. A job is created for each virtual machine to configure the protection policy and to associate the virtual machines to the policy. Click the **Jobs** tab and choose the right filter to view the list of **Configure Protection** jobs.
 
     ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
 
@@ -192,7 +199,6 @@ While a majority of the time is spent in reading and copying data, there are oth
 
 1. Time taken to [install or update the backup extension](backup-azure-vms.md#offline-vms)
 2. Queue wait time: Since the service is processing backups from multiple customers, your backup operation might not start immediately. The average wait time for a VM is 15-30 minutes.
-
 
 ## Troubleshooting errors
 Get an exhaustive list of workarounds to the errors that are faced during virtual machine backup:

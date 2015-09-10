@@ -107,7 +107,7 @@ If you have not selected the **Delete associate backup data** option in **Stop P
 
 After re-protect, the virtual machine’s protection status will be changed to **Protected** if there are recovery points prior to **Stop Protection**.
 
-  ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+    ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
 
@@ -132,15 +132,19 @@ You can delete the backup data associated with a virtual machine, either:
 To delete backup data on a virtual machine, which is in the *Protection Stopped* state post successful completion of a **Stop Backup** job:
 
 1. Navigate to the **Protected Items** page and select **Azure Virtual Machine** as *type* and click the **Select** button.
+
     ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
 
 2. Select the virtual machine. The virtual machine will be in **Protection Stopped** state.
+
     ![Protection stopped](./media/backup-azure-manage-vms/protection-stopped-b.png)
 
 3. Click the **DELETE** button at the bottom of the page.
+
     ![Delete backup](./media/backup-azure-manage-vms/delete-backup.png)
 
 4. In the **Delete backup data** wizard, select a reason for deleting backup data (highly recommended) and click **Submit**.
+
     ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 5. This will create a job to delete backup data of selected virtual machine. Click **View job** to see corresponding job in Jobs page.
@@ -152,7 +156,7 @@ To delete backup data on a virtual machine, which is in the *Protection Stopped*
 ## Dashboard
 On the **Dashboard** page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors.
 
-  ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
 ## Auditing Operations
 Azure backup provides review of the "operation logs" of backup operations triggered by the customer making it easy to see exactly what management operations were performed on the backup vault. Operations logs enable great post-mortem and audit support for the backup operations.
@@ -172,16 +176,20 @@ The following operations are logged in Operation logs:
 - Cancel job
 
 To view operation logs corresponding to a backup vault:
+
 1. Navigate to **Management services** in Azure portal, and then click the **Operation Logs** tab.
+
     ![Operation Logs](./media/backup-azure-manage-vms/ops-logs.png)
 
 2. In the filters, select **Backup** as *Type* and specify the backup vault name in *service name* and click on **Submit**.
+
     ![Operation Logs Filter](./media/backup-azure-manage-vms/ops-logs-filter.png)
 
 3. In the operations logs, select any operation and click  **Details** to see details corresponding to an operation.
+
     ![Operation Logs-Fetching details](./media/backup-azure-manage-vms/ops-logs-details.png)
 
-   The **Details wizard** contains information about the operation triggered, job Id, resource on which this operation is triggered, and start time of the operation.
+    The **Details wizard** contains information about the operation triggered, job Id, resource on which this operation is triggered, and start time of the operation.
 
     ![Operation Details](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
@@ -236,6 +244,7 @@ Sample body of the alert mail:
 
 ### Limitations on Alerts
 Event based alerts are subjected to following limitations:
+
 1. Alerts are triggered on all Virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
 2. Alerts are auto resolved if there is no alert matching event triggered in next alert duration. Use *WindowSize* parameter in Add-AlertRule cmdlet to set alert triggering duration.
 
