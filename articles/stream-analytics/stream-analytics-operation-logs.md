@@ -17,11 +17,11 @@
 	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
-# Operation Logs
+# Operation logs
 
 All Azure services supply operational logging messages to users to record details related to management operations. In Azure Stream Analytics, this information can be used for debugging purposes such as viewing job status, job progress, and failure messages to track the progress of a job over time, from start to processing to output.
 
-## Finding Operation Logs
+## Finding operation logs
 
 Operation Logs can be accessed in two ways:  
 
@@ -43,7 +43,7 @@ To manually navigate to the Operation Logs for Stream Analytics and other servic
 
     ![Select Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
 
-## Use Operation Logs
+## Use operation logs
 
 You can filter by Time Range and Status to view the logs for your job.
 
