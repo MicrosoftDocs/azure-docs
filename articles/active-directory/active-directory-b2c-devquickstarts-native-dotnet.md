@@ -38,7 +38,8 @@ one already, go [create a B2C directory](active-directory-b2c-get-started.md) be
 Now you need to create an app in your B2C directory, which gives Azure AD some information that it needs to securely communicate with your app.  To create an app,
 follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to
 
-- Copy down the **Reply URL** `urn:ietf:wg:oauth:2.0:oob` - it is the default URL for this code sample.
+- Include a **native client** in the application
+- Copy down the **Redirect Uri** `urn:ietf:wg:oauth:2.0:oob` - it is the default URL for this code sample.
 - Copy down the **Application ID** that is assigned to your app.  You will need it shortly.
 
 ## 3. Create your policies
@@ -328,7 +329,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 ## 9. Run the sample app
 
-Finally, build and run both the `TaskClient` and the `Task Service`.  Sign up for the app with an email address or username.  Sign out, and sign back in as the same user.  Edit that user's profile.  Sign out, and sign up
+Finally, build and run both the `TaskClient` and the `TaskService`.  Sign up for the app with an email address or username.  Sign out, and sign back in as the same user.  Edit that user's profile.  Sign out, and sign up
 using a different user.
 
 ## 10. Add social IDPs

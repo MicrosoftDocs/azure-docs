@@ -38,6 +38,7 @@ one already, go [create a B2C directory](active-directory-b2c-get-started.md) be
 Now you need to create an app in your B2C directory, which gives Azure AD some information that it needs to securely communicate with your app.  To create an app,
 follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to
 
+- Include a **web app/web api** in the application
 - Enter `https://localhost:44316/` as a **Reply URL** - it is the default URL for this code sample.
 - Copy down the **Application ID** that is assigned to your app.  You will need it shortly.
 
