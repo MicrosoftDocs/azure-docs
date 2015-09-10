@@ -34,7 +34,7 @@ The following JSON snippet defines a pipeline with a U-SQL Activity.
 		        "description": "This is a pipeline to compute events by region.",
 		        "activities": [
 		            {
-		                "type": "U-SQL",
+		                "type": "BigAnalyticsU-SQL",
 		                "typeProperties": {
 		                    "scriptPath": "scripts/biganalytics/LogProcessing.txt",
 		                    "scriptLinkedService": "StorageLinkedService",
@@ -82,7 +82,7 @@ The following table describes names and descriptions of properties that are spec
 
 Property | Description
 -------- | -----------
-type | The type property must be set to **U-SQL**.
+type | The type property must be set to **BigAnalyticsU-SQL**.
 scriptPath | Path to folder that contains the U-SQL script. 
 scriptLinkedService | Linked service that links the storage that contains the script to the data factory
 degreeOfParallelism | Also known as BAUs (Big Analytics Units), or the maximum number of nodes that will be used simultaneously to run the job.
