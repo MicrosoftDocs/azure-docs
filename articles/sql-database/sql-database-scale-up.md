@@ -17,7 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Change the pricing tier of a SQL database (scale up)
+# Change the pricing tier of a SQL database
 
 **Single database**
 
@@ -66,11 +66,11 @@ Open the SQL Database blade for the database you want to scale up or down:
 
 1.  Select a new tier and click **Select**:
 
+    Clicking **Select** submits a scale request to change the database tier. Depending on the size of your database the scale operation can take some time to complete. Click the notification for details and status of the scale operation. 
+
     ![select pricing tier][2]
 
 3.	In the left ribbon click **Notifications**:
-    
-    Selecting a new tier in the previous step submits a scale request to change the database tier. Depending on the size of your database the scale operation can take some time to complete. Click the notification for details and status of the scale operation.    
 
     ![notifications][3]
 
