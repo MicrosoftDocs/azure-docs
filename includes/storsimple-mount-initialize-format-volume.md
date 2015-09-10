@@ -43,7 +43,7 @@
   3. Specify a 64 KB allocation unit size. This allocation unit size works well with the deduplication algorithms used in the StorSimple solution.
   4. Perform a quick format.
 
-To watch a video that demonstrates how to mount, initialize, and format a StorSimple volume, click [here](http://azure.microsoft.com/en-us/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+To watch a video that demonstrates how to mount, initialize, and format a StorSimple volume, click [here](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx

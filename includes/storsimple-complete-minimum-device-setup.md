@@ -51,4 +51,4 @@
 
  > [AZURE.NOTE] You can modify all the other device settings at any time by accessing the **Configure** page.
 
-To watch a video that demonstrates how to complete the minimum device setup, click [here](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#step-4-complete-minimum-device-setup).
+To watch a video that demonstrates how to complete the minimum device setup, click [here](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
