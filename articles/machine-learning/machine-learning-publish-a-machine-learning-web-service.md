@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Publish a Machine Learning web service | Microsoft Azure"
-	description="How to convert a training experiment to a scoring experiment, prepare it for publishing, then publish it as an Azure Machine Learning web service."
+	pageTitle="Deploy a Machine Learning web service | Microsoft Azure"
+	description="How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning web service."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/09/2015"
 	ms.author="garye"/>
 
-# Publish an Azure Machine Learning web service
+# Deploy an Azure Machine Learning web service
 
 Azure Machine Learning enables you to build, test, and deploy predictive analytics solutions.
 

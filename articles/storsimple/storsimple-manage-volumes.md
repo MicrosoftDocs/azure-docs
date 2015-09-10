@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="09/09/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
@@ -88,8 +88,7 @@ Your new volume is now ready to use.
 
 Modify a volume when you need to expand it or change the hosts that access the volume.
 
-> [AZURE.IMPORTANT] If you modify the volume size on the device, the volume size needs to be changed on the host as well. Refer to your host operating system instructions when modifying the volume on the host.
-
+> [AZURE.IMPORTANT] If you modify the volume size on the device, the volume size needs to be changed on the host as well. The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
 
 ### To modify a volume
 
@@ -113,7 +112,14 @@ Modify a volume when you need to expand it or change the hosts that access the v
  
     > [AZURE.NOTE] You cannot change the **Enable a default backup** option for the volume.
 
-6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png).
+6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). The portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
+
+7. If you are expanding a volume, complete the following steps on your Windows host computer:
+
+   1. Go to **Computer Management** ->**Disk Management**.
+   2. Right-click **Disk Management** and select **Rescan Disks**.
+   3. In the list of disks, select the volume that you updated, right-click, and then select **Extend Volume**. The Extend Volume wizard starts. Click **Next**.
+   4. Complete the wizard, accepting the default values. After the wizard is finished, the volume should show the increased size.
 
 ## Take a volume offline
 
@@ -175,6 +181,8 @@ Perform the following steps to enable or disable monitoring for a volume.
     ![Modify a volume Basic Settings](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
 ## Next steps
+
+Watch a video that shows how to [expand a StorSimple volume](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
 
 Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
 
