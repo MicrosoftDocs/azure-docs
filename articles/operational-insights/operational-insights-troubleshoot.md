@@ -12,14 +12,67 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
-#Troubleshoot issues with Operational Insights
+# Troubleshoot issues with Operational Insights
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
 You can use the information in the following sections to help you troubleshoot problems. If the issue you're having isn't in this article, you can try the [Operational Insights team blog](http://blogs.technet.com/b/momteam/archive/2014/05/29/advisor-error-3000-unable-to-register-to-the-advisor-service-amp-onboarding-troubleshooting-steps.aspx).
+
+## Troubleshoot permissions issues with the SQL Assessment
+The Operations Management Suite (OMS) uses the Microsoft Monitoring Agent and Operations Manager management groups to collect and send data to the OMS service. Certain workloads, such as SQL Server, require workload-specific privileges to run data collection in a different security context, such as a domain account. If your Microsoft Monitoring Agent is connected through System Center Operations Manager, and you are experiencing permissions issues when collecting data, then you'll need to provide credential information by configuring a Run As account.  
+
+If you are already using the SQL Server management pack, you should use that Windows account for Run As account.
+
+### To configure the SQL Run As account in the Operations console
+
+1. In Operations Manager, open the Operations console, and then click **Administration**.
+
+2. Under **Run As Configuration**, click **Profiles**, and open **Microsoft System Center Advisor Run As Profile**.
+
+3. On the **Run As Accounts** page, click **Add**.
+
+4. Select a Windows Run As account that contains the credentials needed for SQL Server, or click **New** to create one.
+	>[AZURE.NOTE] The Run As account type must be Windows. The Run As account must also be part of Local Administrators group on all Windows Servers hosting SQL Server Instances.
+
+5. Click **Save**.
+
+6. Modify and then execute the following T-SQL sample on each SQL Server Instance to grant minimum permissions required to Run As Account to perform SQL Assessment. However, you don’t need to do this if a Run As Account is already part of the sysadmin server role on SQL Server Instances.
+
+```
+---
+    -- Replace <UserName> with the actual user name being used as Run As Account.
+    USE master
+
+    -- Create login for the user, comment this line if login is already created.
+    CREATE LOGIN [<UserName>] FROM WINDOWS
+
+    -- Grant permissions to user.
+    GRANT VIEW SERVER STATE TO [<UserName>]
+    GRANT VIEW ANY DEFINITION TO [<UserName>]
+    GRANT VIEW ANY DATABASE TO [<UserName>]
+
+    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
+    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
+    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
+
+```
+
+### To configure the SQL Run As account using Windows PowerShell
+Alternatively, you can use the following PowerShell script to set the SQL Run As account. Open a PowerShell window and run the following script after you’ve updated it with your information:
+
+```
+
+    import-module OperationsManager
+    New-SCOMManagementGroupConnection "<your management group name>"
+     
+    $profile = Get-SCOMRunAsProfile -DisplayName "Operational Insights SQL Assessment Run As Profile"
+    $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
+    Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
+```
+After the PowerShell Script finishes executing, perform the T-SQL commands provided above.
 
 ## Diagnose connection issues for Operational Insights
 
