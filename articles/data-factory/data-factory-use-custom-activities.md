@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="08/28/2015" 
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -213,7 +213,9 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 10. Compile the project. Click **Build** from the menu and click **Build Solution**.
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending type of build.
 12. Create a zip file **MyDotNetActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder. You may want to include the MyDotNetActivity.pdb file so that you get additional details such as line number in the source code that caused the issue in case of a failure. 
-13. Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **customactivitycontainer** if it does not already exist. 
+13. Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **customactivitycontainer** if it does not already exist.
+
+> [AZURE.NOTE] If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, you do not need to perform the last two steps of creating the zip file and manually uploading it to the Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-get-started-using-vs.md) articles to learn about creating and publishing Data Factory entities using Visual Studio.  
 
 
 ## Step 2: Use the custom activity in a pipeline

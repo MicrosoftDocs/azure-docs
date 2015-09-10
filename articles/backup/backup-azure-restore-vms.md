@@ -20,7 +20,8 @@
 # Restore a virtual machine
 You can restore a virtual machine to a new VM from the backups stored in Azure backup vault using restore action.
 
-## Choose an item to restore
+## Restore workflow
+### 1. Choose an item to restore
 
 1. Navigate to the **Protected Items** tab and select the virtual machine you want to restore to a new VM.
 
@@ -32,7 +33,7 @@ You can restore a virtual machine to a new VM from the backups stored in Azure b
 
     ![Restore an item](./media/backup-azure-restore-vms/restore-item.png)
 
-## Pick a recovery point
+### 2. Pick a recovery point
 
 1. In the **select a recovery point** screen, you can restore from the newest recovery point, or from a previous point in time. The default option selected when wizard opens is *Newest Recovery Point*.
 
@@ -48,7 +49,7 @@ You can restore a virtual machine to a new VM from the backups stored in Azure b
 
 3. Select the recovery point from the **Recovery Points** table and click the Next arrow to go to the next screen.
 
-## Specify a destination location
+### 3. Specify a destination location
 
 1. In the **Select restore instance** screen specify details of where to restore the virtual machine.
 
@@ -92,12 +93,21 @@ Once the restore operation is finished, it will be marked as completed in **Jobs
 
 After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](virtual-machines-set-up-endpoints) for the virtual machine in the Azure portal.
 
-## Troubleshooting errors
-For most errors, you can follow the recommended action suggested in the Error Details. Here are some additional points to help with the troubleshooting:
+## Restoring Domain Controller VMs
+Backup of Domain Controller (DC) virtual machines is a supported scenario with Azure Backup. However some care must be taken during the restore process. The restore experience is vastly different for Domain Controller VMs in a single-DC configuration vs. VMs in a multi-DC configuration.
 
-| Backup operation | Error details | Workaround |
-| -------- | -------- | -------|
-| Restore | Restore failed with Cloud Internal error | <ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
+### Single DC
+The VM can be restored (like any other VM) from the Azure portal or using PowerShell.
+
+### Multiple DCs
+When you have a multi-DC environment, the Domain Controllers have their own way of keeping data in sync. When an older backup point is restored *without the proper precautions*, The USN rollback process can wreak havoc in a multi-DC environment. The right way to recover such a VM is to boot it in DSRM mode. 
+
+The challenge arises because DSRM mode is not present in Azure. So to restore such a VM, you cannot use the Azure portal. The only supported restore mechanism is disk-based restore using PowerShell.
+
+>[AZURE.WARNING] For Domain Controller VMs in a multi-DC environment, do not use the Azure portal for restore! Only PowerShell based restore is supported
+
+Read more about the [USN rollback problem](https://technet.microsoft.com/library/dd363553) and the strategies suggested to fix it.
 
 ## Next steps
+- [Troubleshooting errors](backup-azure-vms-troubleshoot.md#restore)
 - [Manage virtual machines](backup-azure-manage-vms.md)

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Build your first pipeline using Azure Data Factory"
-	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight using Data Factory Editor"
+	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/27/2015"
+	ms.date="09/10/2015"
 	ms.author="spelluru"/>
 
 # Build your first pipeline using Azure Data Factory
@@ -64,12 +64,10 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 
 1. Launch notepad, paste the following text, and save it as **partitionweblogs.hql** in the C:\adfgettingstarted folder on your hard drive. This Hive scripts creates two external tables: **WebLogsRaw** and **WebLogsPartitioned**.
 
-	> [AZURE.IMPORTANT] Replace **storageaccountname** in the last line with the name of your storage account. 
-
 		set hive.exec.dynamic.partition.mode=nonstrict;
-
+		
 		DROP TABLE IF EXISTS WebLogsRaw; 
-		CREATE EXTERNAL TABLE WebLogsRaw (
+		CREATE TABLE WebLogsRaw (
 		  date  date,
 		  time  string,
 		  ssitename string,
@@ -91,8 +89,9 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 		)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 		LINES TERMINATED BY '\n' 
-		LOCATION '/HdiSamples/WebsiteLogSampleData/SampleLog/'
 		tblproperties ("skip.header.line.count"="2");
+		
+		LOAD DATA INPATH '/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log' OVERWRITE INTO TABLE WebLogsRaw;
 		
 		DROP TABLE IF EXISTS WebLogsPartitioned ; 
 		create external table WebLogsPartitioned (  
@@ -119,7 +118,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
 		LOCATION '${hiveconf:partitionedtable}';
-
+		
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
 		  date,
@@ -143,8 +142,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-
-	 
+	
  
 2. To prepare the Azure storage for the tutorial:
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
@@ -153,7 +151,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 	
 
-	3. Navigate to the c:\adfgettingstarted folder, and run the following command to upload the Hive .HQL file to the storage account. Replace **<StorageAccountName\>** with the name of your storage account, and **<Storage Key\>** with the storage account key.
+	3. Navigate to the c:\adfgettingstarted folder, and run the following command to upload the Hive .HQL file to the storage account. Replace **StorageAccountName** with the name of your storage account, and **Storage Key** with the storage account key.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 	4. After the file has been successfully uploaded, you will see the following output from AzCopy.
@@ -172,3 +170,6 @@ Do the following:
 - Click [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Portal.
 - Click [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
 - Click [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) link at the top to perform the tutorial by using Visual Studio. 
+
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md). 

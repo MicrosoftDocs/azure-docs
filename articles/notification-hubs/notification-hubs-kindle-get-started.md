@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Notification Hubs | Microsoft Azure"
+	pageTitle="Get started with Azure Notification Hubs for Kindle apps | Microsoft Azure"
 	description="In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Kindle application."
 	services="notification-hubs"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Get started with Notification Hubs
+# Get started with Notification Hubs for Kindle apps
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 

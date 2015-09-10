@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Notification Hubs | Microsoft Azure"
+	pageTitle="Get started with Azure Notification Hubs for Windows Phone | Microsoft Azure"
 	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application."
 	services="notification-hubs"
 	documentationCenter="windows"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="wesmc"/>
 
-# Get started with Notification Hubs
+# Get started with Notification Hubs for Windows Phone
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -141,15 +141,15 @@ You can send notifications by using Notification Hubs from any backend via the <
 
 	This displays the Package Manager Console.
 
-6. In the console window, set **Default project** to your new console application project, and then in the console window, execute the following command:
+5.  In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
-	This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
+	This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
 
-5. Open the file Program.cs and add the following `using` statement:
+6. Open the file Program.cs and add the following `using` statement:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. In the **Program** class, add the following method:
 

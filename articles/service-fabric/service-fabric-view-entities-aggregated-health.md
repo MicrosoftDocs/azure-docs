@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # How to view Service Fabric health reports
