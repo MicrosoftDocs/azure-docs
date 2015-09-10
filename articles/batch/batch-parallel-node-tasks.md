@@ -13,22 +13,21 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="vm-windows"
    	ms.workload="big-compute"
-   	ms.date="09/01/2015"
+   	ms.date="09/08/2015"
    	ms.author="v-marsma"/>
 
 # Parallel task execution on Azure Batch compute nodes
 
 Large-scale parallel task execution is a core feature of Batch, and this ability extends not only to multiple compute nodes running your tasks, but also to running concurrent tasks on the those nodes. With Batch, parallel task execution scales up as well as out.
 
-This easily configured feature enables maximizing resource usage on a smaller number of multi-core compute nodes within a pool, and can also help mitigate node number limits in pools where inter-node communication is required. Currently, pools configured for inter-node communication are limited to 50 nodes, therefore a greater number of tasks can be executed simultaneously if each node in such a pool is able to execute tasks in parallel.
+This easily configured feature enables maximizing resource usage on a smaller number of multi-core compute nodes within a pool. While some scenarios benefit from all of a node's resources being available for allocation to a single task, a number of situations benefit from allowing multiple tasks to share those resources:
 
-Other situations benefitting from parallel task execution on pool nodes:
-
- - Minimize data transfer when tasks are able to share data. In this scenario, copying shared data to a smaller number of nodes and executing tasks in parallel on each node can dramatically reduce data transfer charges, especially if the data to be copied to each node must be transferred between geographic regions.
- - When tasks require a large amount of memory, but only during short periods of time and at variable times during execution. Fewer but larger node instances with more memory could be employed to efficiently handle such spikes, with parallel tasks running on each node taking advantage of the nodes' memory at different times.
+ - Minimizing data transfer when tasks are able to share data. In this scenario, copying shared data to a smaller number of nodes and executing tasks in parallel on each node can dramatically reduce data transfer charges, especially if the data to be copied to each node must be transferred between geographic regions.
+ - Maximizing memory usage when tasks require a large amount of memory, but only during short periods of time, and at variable times during execution. Fewer but larger node instances with more memory may be employed to efficiently handle such spikes, with parallel tasks running on each node taking advantage of the nodes' plentiful memory at different times.
+ - Where inter-node communication is required, mitigating node number limits within a pool. Currently, pools configured for inter-node communication are limited to 50 nodes, therefore a greater number of tasks can be executed simultaneously if each node in such a pool is able to execute tasks in parallel.
  - Replicating an on-premises compute cluster, such as when first moving a compute environment to Azure. Increasing the maximum number of node tasks may be done to more closely mirror an existing physical configuration if that configuration currently executes multiple tasks per compute node.
 
-## Specify parallel task execution
+## Enable parallel task execution
 
 Configuring the compute nodes in your Batch solution for parallel task execution is done at the pool level. When working with the Batch REST API, the [maxTasksPerNode][maxtasks_rest] element is set in the request body during pool creation. In the Batch .NET API, the [CloudPool.MaxTasksPerComputeNode][maxtasts_net] property is set when creating a pool.
 
@@ -61,7 +60,7 @@ This [Batch .NET][api_net] API code snippet shows a request to create a pool con
 
 > [AZURE.NOTE] The `maxTasksPerNode` element and [MaxTasksPerComputeNode][maxtasts_net] property may only be set at pool creation time. It cannot be modified after a pool has already been created.
 
-## Next steps
+## Explore the sample project
 
 Check out the [ParallelNodeTasks][parallel_tasks_sample] project on GitHub, a working code sample illustrating the use of [CloudPool.MaxTasksPerComputeNode][maxtasts_net]. This C# console application uses the [Batch .NET][api_net] library to create a pool with one or more compute nodes and executes a configurable number of tasks on those nodes to simulate variable load. Output from the application details which nodes executed each task, as well as a summary of the job parameters and duration. The summary portion of the output from two different runs of the sample application appears below.
 
@@ -83,9 +82,9 @@ Tasks: 32
 Job duration: 00:08:48.2423500
 ```
 
-The second execution shows a significant decrease in job duration due to the pool having been configured with four tasks per node, allowing for parallel task execution.
+The second run of the sample shows a significant decrease in job duration due to the pool having been configured with four tasks per node, allowing for parallel task execution to complete the job in nearly a quarter of the time.
 
-> [AZURE.NOTE] The job durations in the summaries above do not include pool creation time. Each of the jobs above were submitted to previously created pools whose compute nodes were in the Active state.
+> [AZURE.NOTE] The job durations in the summaries above do not include pool creation time. Each of the jobs above were submitted to previously created pools whose compute nodes were in the Active state at submission time.
 
  [maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
  [maxtasts_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx  
