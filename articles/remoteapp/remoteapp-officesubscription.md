@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="How to use your Office 365 subscription with Azure RemoteApp"
+    pageTitle="How to use your Office 365 subscription with Azure RemoteApp | Microsoft Azure"
 	description="Learn how you can use your Office 365 subscription in Azure RemoteApp to share Office apps."
 	services="remoteapp"
 	documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/02/2015" 
+    ms.date="09/09/2015" 
     ms.author="elizapo" />
 
 
@@ -35,6 +35,8 @@ Which Office 365 plans include Office 365 ProPlus? Check out the [Service availa
 ## Ok, so how are my Office 365 ProPlus licenses used with Azure RemoteApp?
 
 Each user license for Office 365 ProPlus lets a single user activate Office applications on up to 5 computers plus tablets and phones. Each activation is registered with the user until they deactivate Office on the device. (Users can manage their devices in the [Office 365 portal](https://portal.office365.com/).)
+
+With Azure RemoteApp a single user might log into several computers on the same day without realizing it. That is because the service automatically manages and scales resources in the cloud, while the user sees only the apps and programs you've shared. For this scenario Office 365 ProPlus offers a shared computer activation mode - this means that user doesn't need to do any license management to access those resources and that the individual computers do not count against the 5 computer activation limit.
 
 As long as you (the admin) assign Office 365 ProPlus licenses to your users, they can use Office on their personal devices, as well as through your Azure RemoteApp collection.
 

@@ -409,14 +409,14 @@ following code demonstrates how to delete a subscription named
 Now that you've learned the basics of Service Bus topics, follow these
 links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
+-   See [Queues, Topics, and Subscriptions][].
 -   API reference for [SqlFilter][].
 -   Visit the [Azure SDK for Node] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure Management Portal]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
