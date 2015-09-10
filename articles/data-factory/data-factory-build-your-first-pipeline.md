@@ -64,8 +64,6 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 
 1. Launch notepad, paste the following text, and save it as **partitionweblogs.hql** in the C:\adfgettingstarted folder on your hard drive. This Hive scripts creates two external tables: **WebLogsRaw** and **WebLogsPartitioned**.
 
-	> [AZURE.IMPORTANT] Replace **storageaccountname** in the last line with the name of your storage account. 
-
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -153,7 +151,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 	
 
-	3. Navigate to the c:\adfgettingstarted folder, and run the following command to upload the Hive .HQL file to the storage account. Replace **<StorageAccountName\>** with the name of your storage account, and **<Storage Key\>** with the storage account key.
+	3. Navigate to the c:\adfgettingstarted folder, and run the following command to upload the Hive .HQL file to the storage account. Replace **StorageAccountName** with the name of your storage account, and **Storage Key** with the storage account key.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 	4. After the file has been successfully uploaded, you will see the following output from AzCopy.
