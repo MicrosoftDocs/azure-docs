@@ -695,7 +695,7 @@ If you want to encrypt your HLS with AES-128, you have a choice of using dynamic
 >Also, for the HLS to get encrypted with AES make sure to set the following properties in your MediaPackager_SmoothToHLS.xml file: set the encrypt property to true, set the key value, and the keyuri value to point to your authentication\authorization server.
 Media Services will create a key file and place it in the asset container. You should copy the /asset-containerguid/*.key file to your server (or create your own key file) and then delete the *.key file from the asset container.
 
-The example in this section encodes a mezzanine file (in this case MP4) into multibitrate MP4 files and then packages MP4s into Smooth Streaming. It then packages Smooth Streaming into HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES) 128-bit stream encryption. Make sure to update the following code to point to the folder where your input MP4 file is located. And also to where your MediaPackager_MP4ToSmooth.xml and MediaPackager_SmoothToHLS.xml configuration files are located. You can find the definition for these files in the [Task Preset for Azure Media Packager](https://msdn.microsoft.com/en-us/library/azure/hh973635.aspx) topic.
+The example in this section encodes a mezzanine file (in this case MP4) into multibitrate MP4 files and then packages MP4s into Smooth Streaming. It then packages Smooth Streaming into HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES) 128-bit stream encryption. Make sure to update the following code to point to the folder where your input MP4 file is located. And also to where your MediaPackager_MP4ToSmooth.xml and MediaPackager_SmoothToHLS.xml configuration files are located. You can find the definition for these files in the [Task Preset for Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) topic.
 	
 	using System;
 	using System.Collections.Generic;
@@ -756,7 +756,7 @@ The example in this section encodes a mezzanine file (in this case MP4) into mul
 	            IAsset HLSEncryptedWithAESAsset = CreateHLSEncryptedWithAES(clearSmoothStreamAsset);
 	
 	            // You can use the following player to test the HLS with AES stream.
-	            // http://apps.microsoft.com/windows/en-us/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614 
+	            // http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614 
 	            string hlsWithAESURL = HLSEncryptedWithAESAsset.GetHlsUri().ToString();
 	            Console.WriteLine("HLS with AES URL:");
 	            Console.WriteLine(hlsWithAESURL);
