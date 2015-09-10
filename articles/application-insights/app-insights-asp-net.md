@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
 
 
@@ -154,11 +154,13 @@ For a major application, it's advisable to send telemetry data from debugging, t
 
 
 
-## Add dependency tracking
+## Add dependency tracking and system perf counters
 
 [Dependency metrics](app-insights-dependencies.md) can be invaluable to help you diagnose performance issues. They measure calls from your app to databases, REST APIs, and other external components.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
+
+This step also enables [reporting of performance counters](app-insights-web-monitor-performance.md#system-performance-counters) such as CPU, memory, network occupancy.
 
 #### If your app runs in your IIS server
 
@@ -173,6 +175,10 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 ![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
 (The extension only assists an app that has been built with the SDK. Unlike Status Monitor, it can't instrument an existing app.)
+
+#### To monitor an Azure worker role
+
+There's a [manual procedure for adding the status monitor](app-insights-cloudservices.md).
 
 ## Availability web tests
 
