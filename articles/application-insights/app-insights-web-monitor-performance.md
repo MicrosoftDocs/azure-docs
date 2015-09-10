@@ -35,9 +35,13 @@ If you haven't yet added Application Insights to your project (that is, if it do
 * [J2EE web apps](app-insights-java-get-started.md)
 
 
-## <a name="view"></a>Exploring metrics
+## <a name="view"></a>Exploring performance metrics
 
-Click any  to see more detail, and to see results for a longer period. For example, click the Requests tile and then select a time range:
+In [the Azure portal](https://portal.azure.com), browse to the Application Insights resource that you set up for your application. The overview blade shows basic performance data:
+
+
+
+Click any chart to see more detail, and to see results for a longer period. For example, click the Requests tile and then select a time range:
 
 
 ![Click through to more data and select a time range](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
