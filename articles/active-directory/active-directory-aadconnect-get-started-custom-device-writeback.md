@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10"
+	ms.date="09/10/2015"
 	ms.author="billmath"/>
 
 # Enabling device writeback in Azure AD Connect
@@ -22,7 +22,7 @@ The following documentation provides information on how to enable the device wri
 
 Enable conditional access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts). 
 
-This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](https://msdn.microsoft.com/library/azure/dn788908.aspx).
+This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](active-directory-conditional-access.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](https://msdn.microsoft.com/library/azure/dn788908.aspx).
 
 >[AZURE.Note] A subscription to Office 365 or Azure AD Premium is required when using devices registered in Azure Active Directory Device Registration service conditional access policies. This includes policies enforced by Active Directory Federation Services (AD FS) to on-premises resources.
 
