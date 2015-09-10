@@ -1,6 +1,6 @@
 # Get Started with Azure Big Analytics using Azure Preview Portal
 
-Learn how to use the Azure Preview portal to create Big Analytics accounts, create a Big Analytics job using [U-SQL], and submit the job.  For more information about Big Analytics, see [Azure Big Analytics overview](big-analytics-overview.md).
+Learn how to use the Azure Preview portal to create a Big Analytics account, create a Big Analytics job using [U-SQL], and submit the job.  For more information about Big Analytics, see [Azure Big Analytics overview](big-analytics-overview.md).
 
 See the following articles for using other tools:
 
@@ -134,12 +134,15 @@ You can download a data file from [Github](https://github.com/MicrosoftBigData/P
 
 
 
-At this point, you’ve learned: 
+
+#See also
+
+Until now, you’ve learned: 
 
 - Upload, list, and upload files to Azure Data Lake
 - Submit a Big Analytics jobs
 
-#See also
+To read more:
 
 - [Azure Big Analytics overview](big-analytics-overview.md)
 - [Get started with Azure Big Analytics using Azure PowerShell](big-analytics-get-started-powershell.md)
