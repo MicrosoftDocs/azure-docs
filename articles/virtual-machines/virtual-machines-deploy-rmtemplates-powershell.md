@@ -62,9 +62,14 @@ If you're interested in authoring templates, see [Authoring Azure Resource Manag
 
 ### Create a resource group
 
-For tasks that create a resource, you'll need a resource group. If you don't already have one, create one by replacing *resource group name* with the name of the new resource group, replacing *Azure location* with the Azure datacenter location where you want the resource to be located, and then running this command:
+For tasks that create a resource, you'll need a resource group. If you don't already have one.
 
-	New-AzureResourceGroup -Name "<resource group name>" -Location "<Azure location, such as West US>"
+Replace these values in the command and then run it:
+
+- *resource group name* with the name of the new resource group, replacing
+- *Azure location* with the Azure datacenter location where you want the resource to be located
+
+	New-AzureResourceGroup -Name "*resource group name*" -Location "*Azure location*"
 
 ## <a id="windowsvm"></a>TASK: Create a virtual machine
 
@@ -72,12 +77,12 @@ This task uses a template from the template gallery. To learn more about the tem
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
-Replace these values in the following command and then run it:
+Replace these values in the command and then run it:
 
-- <deployment name> with the name that you want to use for the deployment
-- <resource group name> with the name of an existing resource group
+- *deployment name* with the name that you want to use for the deployment
+- *resource group name* with the name of the existing resource group
 
-	New-AzureResourceGroupDeployment -Name "<deployment name>" -ResourceGroupName "<resource group name>" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureResourceGroupDeployment -Name "*deployment name*" -ResourceGroupName "*resource group name*" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
 When you run the **New-AzureResourceGroupDeployment** command, you are prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the needed parameter values, the command creates the resource group and the virtual machine.
 
@@ -133,12 +138,12 @@ If you would like to see a video of this task being done, take a look at this:
 
 This task uses a template from the template gallery. To learn more about the template, see [Create a VM from a specialized VHD disk](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
-Replace these values in the following command and then run it:
+Replace these values in the command and then run it:
 
-- <deployment name> with the name that you want to use for the deployment
-- <resource group name> with the name of an existing resource group
+- *deployment name* with the name that you want to use for the deployment
+- *resource group name* with the name of the existing resource group
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "<resource group name>" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
+	New-AzureResourceGroupDeployment -Name "*deployment name*" -ResourceGroupName "*resource group name*" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
 You are prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, Azure Resource Manager creates the virtual machine.
 
@@ -169,12 +174,12 @@ This task uses a template from the template gallery. To learn more about the tem
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
-Replace these values in the following command and then run it:
+Replace these values in the command and then run it:
 
-- <deployment name> with the name that you want to use for the deployment
-- <resource group name> with the name of an existing resource group
+- *deployment name* with the name that you want to use for the deployment
+- *resource group name* with the name of the existing resource group
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "<resource group name>" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
+	New-AzureResourceGroupDeployment -Name "*deployment name*" -ResourceGroupName "*resource group name*" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
 When you run the **New-AzureResourceGroupDeployment** command, you will be prompted to supply the values of parameters of the JSON file. When you have specified all the parameter values, the command creates the resource group and the deployment.
 
@@ -197,9 +202,9 @@ If you would like to see a video of this task being done, take a look at this:
 
 ## <a id="removerg"></a>TASK: Remove a resource group
 
-Replace <resource group name> in the following command with the name of the resource group that you want to remove, and then run it"
+Replace *resource group name* in the following command with the name of the resource group that you want to remove, and then run it:
 
-	Remove-AzureResourceGroup  -Name "<resource group name>"
+	Remove-AzureResourceGroup  -Name "*resource group name*"
 
 > [AZURE.NOTE] You can use the **-Force** parameter to skip the confirmation prompt.
 
@@ -215,9 +220,12 @@ If you would like to see a video of this task being done, take a look at this:
 
 ## <a id="displayvm"></a>TASK: Display information about a virtual machine
 
-Replace <resource group name> with the name of the resource group that contains the virtual machine and <VM name> with the name of the machine, and then run it:
+Replace these values in the command and then run it:
 
-	Get-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
+- *resource group name* with the name of the resource group that contains the virtual machine
+- *VM name* with the name of the machine
+
+	Get-AzureVM -ResourceGroupName "*resource group name*" -Name "*VM name*"
 
 You should see something like this:
 
@@ -286,9 +294,12 @@ If you would like to see a video of this task being done, take a look at this:
 
 ## <a id="start"></a>TASK: Start a virtual machine
 
-Replace <resource group name> with the name of the resource group that contains the virtual machine and <VM name> with the name of the machine, and then run it:
+Replace these values in the command and then run it:
 
-	Start-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
+- *resource group name* with the name of the resource group that contains the virtual machine
+- *VM name* with the name of the machine
+
+	Start-AzureVM -ResourceGroupName "*resource group name*" -Name "*VM name*"
 
 You should see something like this:
 
@@ -307,9 +318,12 @@ If you would like to see a video of this task being done, take a look at this:
 
 ## <a id="stop"></a>TASK: Stop a virtual machine
 
-Replace <resource group name> with the name of the resource group that contains the virtual machine and <VM name> with the name of the machine, and then run it:
+Replace these values in the command and then run it:
 
-	Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
+- *resource group name* with the name of the resource group that contains the virtual machine
+- *VM name* with the name of the machine
+
+	Stop-AzureVM -ResourceGroupName "*resource group name*" -Name "*VM name*"
 
 You will see information like this:
 
@@ -333,9 +347,12 @@ If you would like to see a video of this task being done, take a look at this:
 
 ## <a id="restart"></a>TASK: Restart a virtual machine
 
-Replace <resource group name> with the name of the resource group that contains the virtual machine and <VM name> with the name of the machine, and then run it:
+Replace these values in the command and then run it:
 
-	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
+- *resource group name* with the name of the resource group that contains the virtual machine
+- *VM name* with the name of the machine
+
+	Restart-AzureVM -ResourceGroupName "*resource group name*" -Name "*VM name*"
 
 You will see information like this:
 
@@ -354,9 +371,12 @@ If you would like to see a video of this task being done, take a look at this:
 
 ## <a id="delete"></a>TASK: Delete a virtual machine
 
-Replace <resource group name> with the name of the resource group that contains the virtual machine and <VM name> with the name of the machine, and then run it:  
+Replace these values in the command and then run it:
 
-	Remove-AzureVM -ResourceGroupName "<resource group name>" –Name "<VM name>"
+- *resource group name* with the name of the resource group that contains the virtual machine
+- *VM name* with the name of the machine  
+
+	Remove-AzureVM -ResourceGroupName "*resource group name*" –Name "*VM name*"
 
 > [AZURE.NOTE] You can use the **-Force** parameter to skip the confirmation prompt.
 
