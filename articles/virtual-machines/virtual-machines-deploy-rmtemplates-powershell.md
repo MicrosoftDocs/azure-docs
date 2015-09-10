@@ -27,8 +27,6 @@ Using Azure PowerShell and Resource Manager templates provides you with a lot of
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing resources with the Resource Manager deployment model. You can also manage resources with the [classic deployment model](virtual-machines-windows-tutorial-classic-portal.md).
 
-Some of the tasks in this article show you how to use Azure Resource Manager templates and PowerShell to automatically deploy and manage Azure virtual machines. For more templates you can use, see [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
-
 These tasks use a Resource Manager template and PowerShell:
 
 - [Create a virtual machine](#windowsvm)
@@ -48,11 +46,11 @@ Before you get started, make sure you have Azure PowerShell ready to go.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-Also, for tasks that create a resource, you'll need a resource group. If you don't already have one, create one by replacing *resource group name* with the name of the new resource group, replacing *Azure location* with the Azure datacenter location where you want the resource to be located, and then running the following command:
 
-	New-AzureResourceGroup -Name "<resource group name>" -Location "<Azure location, such as West US>"
 
 ## Azure Resource Manager templates and resource groups
+
+Some of the tasks in this article show you how to use Azure Resource Manager templates and PowerShell to automatically deploy and manage Azure virtual machines.
 
 Most applications running in Microsoft Azure are built from a combination of different cloud resource types, such as one or more virtual machines and storage accounts, a SQL database, or a virtual network. Azure Resource Manager templates make it possible for you to manage these different resources together by using a JSON description of the resources and associated configuration and deployment parameters.
 
@@ -60,7 +58,13 @@ After you define a JSON-based resource template, you can use it with a PowerShel
 
 The resources you create using Azure Resource Manager templates are deployed to either a new or existing *Azure resource group*. A resource group allows you to manage multiple deployed resources together as a logical group; this means that you to manage the overall lifecycle of the group/application.
 
-To learn more, see [Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+If you're interested in authoring templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+
+### Create a resource group
+
+For tasks that create a resource, you'll need a resource group. If you don't already have one, create one by replacing *resource group name* with the name of the new resource group, replacing *Azure location* with the Azure datacenter location where you want the resource to be located, and then running this command:
+
+	New-AzureResourceGroup -Name "<resource group name>" -Location "<Azure location, such as West US>"
 
 ## <a id="windowsvm"></a>TASK: Create a virtual machine
 
@@ -69,8 +73,9 @@ This task uses a template from the template gallery. To learn more about the tem
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
 Replace these values in the following command and then run it:
- - <deployment name> with the name that you want to use for the deployment
- - <resource group name> with the name of an existing resource group
+
+- <deployment name> with the name that you want to use for the deployment
+- <resource group name> with the name of an existing resource group
 
 	New-AzureResourceGroupDeployment -Name "<deployment name>" -ResourceGroupName "<resource group name>" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
@@ -129,8 +134,9 @@ If you would like to see a video of this task being done, take a look at this:
 This task uses a template from the template gallery. To learn more about the template, see [Create a VM from a specialized VHD disk](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
 Replace these values in the following command and then run it:
- - <deployment name> with the name that you want to use for the deployment
- - <resource group name> with the name of an existing resource group
+
+- <deployment name> with the name that you want to use for the deployment
+- <resource group name> with the name of an existing resource group
 
 	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "<resource group name>" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
@@ -164,8 +170,9 @@ This task uses a template from the template gallery. To learn more about the tem
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
 Replace these values in the following command and then run it:
- - <deployment name> with the name that you want to use for the deployment
- - <resource group name> with the name of an existing resource group
+
+- <deployment name> with the name that you want to use for the deployment
+- <resource group name> with the name of an existing resource group
 
 	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "<resource group name>" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
@@ -374,6 +381,7 @@ If you would like to see a video of this task being done, take a look at this:
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
 ## Additional resources
+[Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md)
 
 [Azure compute, network and storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
