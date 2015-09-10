@@ -35,6 +35,7 @@ If you are already using the SQL Server management pack, you should use that Win
 3. On the **Run As Accounts** page, click **Add**.
 
 4. Select a Windows Run As account that contains the credentials needed for SQL Server, or click **New** to create one.
+
     >[AZURE.NOTE] The Run As account type must be Windows. The Run As account must also be part of Local Administrators group on all Windows Servers hosting SQL Server Instances.
 
 5. Click **Save**.
