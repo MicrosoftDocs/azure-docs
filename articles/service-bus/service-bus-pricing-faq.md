@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="service-bus-pricing-faq"
+   pageTitle="Service Bus Pricing FAQ | Microsoft Azure"
    description="Answers some frequently-asked questions about the Service Bus pricing structure."
    services="service-bus"
    documentationCenter="na"
