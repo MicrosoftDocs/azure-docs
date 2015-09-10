@@ -40,10 +40,10 @@ are trying to research how a web app was stopped you could run the following com
     PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
-                    Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-                    Action    : Microsoft.Web/sites/stop/action
-                    Role      : Subscription Admin
-                    Condition :
+                        Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+                        Action    : Microsoft.Web/sites/stop/action
+                        Role      : Subscription Admin
+                        Condition :
     Caller            : someone@example.com
     CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
     EventSource       : Administrative
@@ -86,11 +86,17 @@ To retrieve log entries, you run the **azure group log show** command.
 
     azure group log show ExampleGroup
 
+You can filter results with a JSON utility such as [jq](http://stedolan.github.io/jq/download/). The following example shows how to look for operations that involved updating a web configuration file.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == \"Update web sites config\")"
+
 You can add the **–-last-deployment** parameter to limit the returned entries to only operations from the last deployment.
 
     azure group log show ExampleGroup --last-deployment
 
-It returns a long list of operations, including one that shows the error message.
+If the list of operations from the last deployment is too long, you can filter the results for just operations that failed.
+
+    azure group log show tfCopyGroup --last-deployment --json | jq ".[] | select(.status.value == \"Failed\")"
 
                                    /Microsoft.Web/Sites/ExampleSite
     data:    SubscriptionId:       <guid>
@@ -124,9 +130,7 @@ It returns a long list of operations, including one that shows the error message
                                    "Parameters":["ExampleSite"],"
                                    InnerErrors":null}}],"Innererror":null}
 
-You can filter results with a JSON utility such as [jq](http://stedolan.github.io/jq/download/). The following example shows how to look for actions that involved updating a web configuration file.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == \"Update web sites config\")"
 
 ## REST API
 
