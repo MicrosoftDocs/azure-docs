@@ -17,15 +17,15 @@
 	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
-# Understanding Stream Analytics Job Monitoring
+# Understanding Stream Analytics job monitoring
 
-## Monitor Page
+## Monitor page
 
 The Monitor page contains key performance metrics that can be used to monitor and troubleshoot your job. Click on the Monitor tab of a running Stream Analytics job to see these metrics. There is a delay of at the most 1 minute in the performance metrics showing up in the Monitor page. 
 
   ![Monitoring Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
-## Metrics Available for Stream Analytics
+## Metrics available for Stream Analytics
 
 | Metric | Definition |
 |--------|-------------|
@@ -50,7 +50,7 @@ To change the time range the metrics chart displays, select 1 hour, 24 hours, or
 
 You can set rules that can notify you by email in case the job crosses a defined threshold. 
 
-## Job Status
+## Job status
 
 The status of Stream Analytics jobs can be viewed in the Azure portal where you see a list of jobs. You can see the list of jobs by clicking the Stream Analytics icon in the Azure Portal.
 
