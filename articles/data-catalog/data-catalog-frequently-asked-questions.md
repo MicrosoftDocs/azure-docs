@@ -85,7 +85,7 @@ Feature requests and other feedback can be submitted in the [Azure Data Catalog 
 
 ## Q: How do I get started with Azure Data Catalog?
 
-The best place to get started is by following the instructions in [Getting Started with Data Catalog](data-catalog-get-started/). This article is an end-to-end tour of the capabilities in the public preview.
+The best place to get started is by following the instructions in [Getting Started with Data Catalog](../data-catalog-get-started/). This article is an end-to-end tour of the capabilities in the public preview.
 
 ## Q: How do I register my data?
 
