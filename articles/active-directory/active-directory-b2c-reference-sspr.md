@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Self-service password reset - Azure Active Directory B2C"
-	description="Self-service password reset - Azure Active Directory B2C"
+	pageTitle="Azure AD B2C preview | Microsoft Azure"
+	description="A topic demonstrating how to setup self-service password reset for your consumers in Azure AD B2C"
 	services="active-directory"
 	documentationCenter=""
 	authors="swkrish"

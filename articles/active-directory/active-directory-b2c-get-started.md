@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure AD B2C"
+	pageTitle="Azure AD B2C preview | Microsoft Azure"
 	description="A topic on how to create an Azure AD B2C directory"
 	services="active-directory"
 	documentationCenter=""
@@ -25,7 +25,7 @@ To start using Azure AD B2C, follow the 3 steps outlined below.
 If you already have an Azure subscription move on to the next step. If not, sign up for [an Azure subscription](sign-up-organization) and get access to Azure AD B2C.
 
 > [AZURE.NOTE]
-Azure AD B2C is currently free for use but limited (up to 50,000 users per directory). An Azure subscription is needed to access the [Azure Management Portal](http://manage.windowsazure.com/) and won't be used to bill your usage.
+Azure AD B2C preview is currently free for use but limited (up to 50,000 users per directory). An Azure subscription is needed to access the [Azure Management Portal](http://manage.windowsazure.com/).
 
 ## Step 2: Create an Azure AD B2C directory
 

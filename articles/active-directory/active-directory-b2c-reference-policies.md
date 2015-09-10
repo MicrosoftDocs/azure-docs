@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Policies - Azure Active Directory B2C"
-	description="Policies - Azure Active Directory B2C"
+	pageTitle="Azure AD B2C preview | Microsoft Azure"
+	description="A topic on the extensible policy framework of Azure AD B2C and on how to create various policy types"
 	services="active-directory"
 	documentationCenter=""
 	authors="swkrish"

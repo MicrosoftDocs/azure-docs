@@ -1,6 +1,6 @@
 <properties
-	pageTitle="LinkedIn configuration - Azure Active Directory B2C"
-	description="Azure Active Directory B2C - Provide sign up and sign in to consumers with LinkedIn accounts in your applications"
+	pageTitle="Azure AD B2C preview | Microsoft Azure"
+	description="Provide sign up and sign in to consumers with LinkedIn accounts in your applications secured by Azure AD B2C"
 	services="active-directory"
 	documentationCenter=""
 	authors="swkrish"
@@ -43,7 +43,7 @@ To use LinkedIn as an identity provider in Azure AD B2C, you will first need to 
 
 ## Configure LinkedIn as an identity provider in your directory
 
-1. Navigate to the B2C features blade on the [Azure Portal](htts://portal.azure.com/). Read [here](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade-on-the-azure-portal) on how to do this.
+1. [Navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade-on-the-azure-portal).
 2. On the B2C features blade, click **Social identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For e.g., enter "LI".

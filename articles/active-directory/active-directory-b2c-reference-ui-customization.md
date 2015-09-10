@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Page UI customization - Azure Active Directory B2C"
-	description="Page UI customization - Azure Active Directory B2C"
+	pageTitle="Azure AD B2C preview | Microsoft Azure"
+	description="A topic on the UI customization features in Azure AD B2C"
 	services="active-directory"
 	documentationCenter=""
 	authors="swkrish"
@@ -16,7 +16,7 @@
 	ms.date="08/13/2015"
 	ms.author="swkrish"/>
 
-# Azure AD B2C preview: How to customize the UI of pages served by the Azure AD B2C service
+# Azure AD B2C preview: How to customize the UI of pages (and other elements) served by the Azure AD B2C service
 
 User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active users and truly engaged ones. Azure AD B2C allows you to customize user sign up, sign in (*see note below*) and profile editing pages with pixel-perfect control.
 
@@ -26,9 +26,10 @@ Currently, local account sign-in pages, verification emails and self-service pas
 In this article, you will read about:
 
 - Overview of the page UI customization feature.
-- A sample demonstrating the feature.
+- A sample demonstrating the page UI customization feature.
 - The core UI elements in each type of page.
 - Best practices when exercising this feature.
+- Other UI elements that can be customized.
 
 ## The page UI customization feature
 
@@ -213,7 +214,9 @@ If you are planning to use the page UI customization feature, please review the 
 - Don't copy over Azure AD B2C's default template and attempt to modify it. It is best to build your HTML5 content from scratch and to use the default template as reference.
 - For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out-of-the-box. If not, please use [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) to request new functionality.
 - Don't duplicate Azure AD B2C's content in your own. This causes JavaScript binding issues during run time.
+- Supported browser versions: TBD.
 
-### UI elements that can be customized independent of your own content
+## Other UI elements that can be customized (independent of your own content pages)
 
 TBD.
+Email: Mention about "from:" field
