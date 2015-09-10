@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/04/2015"
+	ms.date="09/09/2015"
 	ms.author="genemi"/>
 
 
@@ -138,7 +138,7 @@ Your first use will be to connect Visual Studio to your Azure SQL Database **Adv
 2. Add a **&#x3c;configuration&#x3e; &#x3c;/configuration&#x3e;** element as shown in the following example App.config code sample.
  - Replace the *{your_placeholders}* with your actual values:
 
-
+```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
 	    <startup> 
@@ -152,7 +152,7 @@ Your first use will be to connect Visual Studio to your Azure SQL Database **Adv
 			/>
 		</connectionStrings>
 	</configuration>
-
+```
 
 3. Save the App.config change.
 
