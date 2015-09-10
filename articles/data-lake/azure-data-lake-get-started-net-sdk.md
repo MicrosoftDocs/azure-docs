@@ -38,20 +38,11 @@ Learn how to use the Azure Data Lake .NET SDK to create an Azure Data Lake accou
 
 3. From **New Project**, type or select the following values:
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateADLApplication</td></tr>
-	</table>
+	| Property | Value                       |
+	|----------|-----------------------------|
+	| Category | Templates/Visual C#/Windows |
+	| Template | Console Application         |
+	| Name     | CreateADLApplication        |
 
 4. Click **OK** to create the project.
 
@@ -92,31 +83,30 @@ Learn how to use the Azure Data Lake .NET SDK to create an Azure Data Lake accou
 			using Microsoft.Azure.Management.DataLakeFileSystem.Models;
 			using Microsoft.Azure.Management.DataLakeFileSystem.Uploading;
 			using Microsoft.IdentityModel.Clients.ActiveDirectory;
-			
-			
+			using Microsoft.Azure.Common.Authentication.Factories;
+
+
 			namespace CreateADLApplication
 			{
 			    class CreateADLApplication
 			    {
 			        private static DataLakeManagementClient _dataLakeClient;
 			        private static DataLakeFileSystemManagementClient _dataLakeFileSystemClient;
-			        private static Guid SubscriptionId = new Guid("65a1016d-0f67-45d2-b838-b8f373d6d52e");
-			        private const string ResourceGroupName = "myresourcegroup";
-			        
-			        
+			        private const string ResourceGroupName = "myresourcegroup";		//provide a resource group name that already exists
 			        
 			        static void Main(string[] args)
 			        {
-			            var profileClient = GetProfile();
-			            var _credentials = GetCloudCredentials(profileClient, SubscriptionId);
+			            var subscriptionId = new Guid("<subscriptoin id>");
+			            var _credentials = GetAccessToken();
 			
+			            _credentials = GetCloudCredentials(_credentials, subscriptionId);
 			            _dataLakeClient = new DataLakeManagementClient(_credentials);
 			            _dataLakeFileSystemClient = new DataLakeFileSystemManagementClient(_credentials);
 			            
 			            var parameters = new DataLakeAccountCreateOrUpdateParameters();
 			            parameters.DataLakeAccount = new DataLakeAccount
 			            {
-			                Name = "adldotnetaccount",
+			                Name = "adldotnetaccount", //provide the name of account to be created
 			                Location = "East US 2"
 			            };
 			            
@@ -126,59 +116,66 @@ Learn how to use the Azure Data Lake .NET SDK to create an Azure Data Lake accou
 			
 			            Console.WriteLine("Account created. Press any key to continue...");
 			            Console.ReadLine();
-			            /*
+			            
 			            // Create a directory
 			            Console.WriteLine("Creating a directory under the Azure Data Lake account");
-			            CreateDir(_dataLakeFileSystemClient, "swebhdfs://adldotnetaccount.azuredatalake.net/mytempdir", "adldotnetaccount", "777");
+			            CreateDir(_dataLakeFileSystemClient, "/mytempdir", "adldotnetaccount", "777");
 			            Console.WriteLine("Directory created. Press any key to continue...");
 			            Console.ReadLine();
-			            */
+			            
 			            // Upload a file
 			            Console.WriteLine("Uploading a file to the Azure Data Lake account");
 			            bool force = true;
-			            UploadFile(_dataLakeFileSystemClient,"adldotnetaccount", "C:\\users\\nitinme\\desktop\\tweets.txt", "swebhdfs://adldotnetaccount.azuredatalake.net/mytempdir/tweets.txt", force);
+			            UploadFile(_dataLakeFileSystemClient,"adldotnetaccount", "C:\\users\\nitinme\\desktop\\tweets.txt", "/mytempdir/tweets.txt", force);
 			                        Console.WriteLine("File uploaded. Press any key to continue...");
 			            Console.ReadLine();
 			
 			            // List the files
 			            Console.WriteLine("Listing all files in the Azure Data Lake account");
-			            ListItems(_dataLakeFileSystemClient, "adldotnetaccount", "swebhdfs://adldotnetaccount.azuredatalake.net/mytempdir");
-			                        Console.WriteLine("Files listed. Press any key to continue...");
+			            var fileList = ListItems(_dataLakeFileSystemClient, "adldotnetaccount", "/mytempdir");
+			            var fileMenuItems = fileList.Select(a => String.Format("{0,15} {1}", a.Type, a.PathSuffix)).ToList();
+			            foreach (var filename in fileMenuItems)
+			            {
+			                Console.WriteLine(filename);
+			
+			            }
+			            Console.WriteLine("Files listed. Press any key to continue...");
 			            Console.ReadLine();
 			
 			            // Download the files
 			            Console.WriteLine("Downloading files from an Azure Data Lake account");
 			            bool force1 = true;
-			            DownloadFile(_dataLakeFileSystemClient, "adldotnetaccount", "swebhdfs://adldotnetaccount.azuredatalake.net/mytempdir/tweets.txt", "C:\\users\\nitinme\\desktop\\tweets1.txt", force1);
-			                        Console.WriteLine("Files downloaded. Press any key to continue...");
+			            DownloadFile(_dataLakeFileSystemClient, "adldotnetaccount", "/mytempdir/tweets.txt", "C:\\users\\nitinme\\desktop\\tweets2.txt", force1);
+			            Console.WriteLine("Files downloaded. Press any key to continue...");
 			            Console.ReadLine();
 			
 			            // Delete the ADL account
 			            _dataLakeClient.DataLakeAccount.Delete(ResourceGroupName, "adldotnetaccount");
-			            Console.WriteLine("Azure Data Lake account deleted. Press any key to continue...");
-			            Console.WriteLine("Press any key to exit...");
+			            Console.WriteLine("Azure Data Lake account will be deleted. Press any key to continue...");
+			            Console.ReadLine();
+			            Console.WriteLine("Account deleted. Press any key to exit...");
 			            Console.ReadLine();
 			        }
 			
-			        public static ProfileClient GetProfile(string username = null, SecureString password = null)
+			        public static SubscriptionCloudCredentials GetAccessToken(string username = null, SecureString password = null)
 			        {
-			            var pClient = new ProfileClient(new AzureProfile());
-			            var env = pClient.GetEnvironmentOrDefault(EnvironmentName.AzureCloud);
-			            var acct = new AzureAccount { Type = AzureAccount.AccountType.User };
+			            var authFactory = new AuthenticationFactory();
+			
+			            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+			
 			            if (username != null && password != null)
-			                acct.Id = username;
+			                account.Id = username;
 			
-			            pClient.AddAccountAndLoadSubscriptions(acct, env, password);
-			            return pClient;
+			            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+			            return new TokenCloudCredentials(authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto).AccessToken);
 			        }
 			
-			        private static SubscriptionCloudCredentials GetCloudCredentials(ProfileClient profileClient, Guid subscriptionId)
+			        public static SubscriptionCloudCredentials GetCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
 			        {
-			            var sub = profileClient.Profile.Subscriptions.Values.FirstOrDefault(s => s.Id.Equals(subscriptionId));
-			            Debug.Assert(sub != null, "subscription != null");
-			            profileClient.SetSubscriptionAsDefault(sub.Id, sub.Account);
-			            return AzureSession.AuthenticationFactory.GetSubscriptionCloudCredentials(profileClient.Profile.Context);
+			            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
 			        }
+			
+			      
 			
 			        public static bool CreateDir(DataLakeFileSystemManagementClient dataLakeFileSystemClient, string path, string dlAccountName, string permission)
 			        {
@@ -195,13 +192,6 @@ Learn how to use the Azure Data Lake .NET SDK to create an Azure Data Lake accou
 			            return true;
 			        }
 			
-			        public static bool AppendBytes(DataLakeFileSystemManagementClient dataLakeFileSystemClient, string dlAccountName, string path, Stream streamContents)
-			        {
-			            var response = dataLakeFileSystemClient.FileSystem.BeginAppend(path, dlAccountName, null);
-			            dataLakeFileSystemClient.FileSystem.Append(response.Location, streamContents);
-			            return true;
-			        }
-			
 			        public static void DownloadFile(DataLakeFileSystemManagementClient dataLakeFileSystemClient,
 			        string dataLakeAccountName, string srcPath, string destPath, bool force)
 			        {
@@ -215,7 +205,7 @@ Learn how to use the Azure Data Lake .NET SDK to create an Azure Data Lake accou
 			        public static List<FileStatusProperties> ListItems(DataLakeFileSystemManagementClient dataLakeFileSystemClient, string dataLakeAccountName, string path)
 			        {
 			            var response = dataLakeFileSystemClient.FileSystem.ListFileStatus(path, dataLakeAccountName, new DataLakeFileSystemListParameters());
-			            return response.FileStatuses.FileStatus.ToList();
+			            return response.FileStatuses.FileStatus.ToList();            
 			        }
 			    }
 			}
