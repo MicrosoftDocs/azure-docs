@@ -16,7 +16,7 @@
 	ms.date="09/09/2015" 
 	ms.author="jeffstok"/>
 
-# Run a Job
+# Run a job
 
 When a job input, query, and output have all been specified you can start the Stream Analytics job.
 
