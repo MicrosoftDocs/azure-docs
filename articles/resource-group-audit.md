@@ -57,7 +57,7 @@ are trying to research how a web app was stopped you could run the following com
 
 In the next example, we'll just look for failed actions after the specified start time. We'll also include the **DetailedOutput** parameter to see the error messages.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed â€“DetailedOutput
     
 If this command returns too many entries and properties, you can focus your auditing efforts by retrieving the **properties** property.
 
@@ -86,16 +86,15 @@ To retrieve log entries, you run the **azure group log show** command.
 
     azure group log show ExampleGroup
 
-You can add the **–-last-deployment** parameter to limit the returned entries to only operations from the last deployment.
+You can add the **â€“-last-deployment** parameter to limit the returned entries to only operations from the last deployment.
 
     azure group log show ExampleGroup --last-deployment
 
 It returns a long list of operations, including one that shows the error message.
 
-                               /Microsoft.Web/Sites/ExampleSite
-    data:    SubscriptionId:       xxxxx
-    data:    EventTimestamp (UTC): Thu Aug 27 2015 13:03:27 GMT-0700 (Pacific
-                               Daylight Time)
+                                   /Microsoft.Web/Sites/ExampleSite
+    data:    SubscriptionId:       <guid>
+    data:    EventTimestamp (UTC): Thu Aug 27 2015 13:03:27 GMT-0700 (Pacific Daylight Time)
     data:    OperationName:        Update website
     data:    OperationId:          cb772193-b52c-4134-9013-673afe6a5604
     data:    Status:               Failed
@@ -103,36 +102,30 @@ It returns a long list of operations, including one that shows the error message
     data:    Caller:               someone@example.com
     data:    CorrelationId:        a8c7a2b4-5678-4b1b-a50a-c17230427b1e
     data:    Description:
-    data:    HttpRequest:          clientRequestId: 55f47285-1407-4fed-aab4-
-                               3a9c63365d0f
-                               clientIpAddress: 131.107.174.38
-                               method:          PUT
+    data:    HttpRequest:          clientRequestId: <guid>
+                                   clientIpAddress: 000.000.000.000
+                                   method:          PUT
 
     data:    Level:                Error
     data:    ResourceGroup:        ExampleGroup
     data:    ResourceProvider:     Azure Web Sites
     data:    EventSource:          Administrative
     data:    Properties:           statusCode:       Conflict
-                               serviceRequestId:
-                               statusMessage:    {"Code":"Conflict","Message":"
-                               Website with given name
+                                   serviceRequestId:
+                                   statusMessage:    {"Code":"Conflict","Message":"Website with given name
+                                   ExampleSite already exists.","Target":null,"
+                                   Details
+                                   ":[{"Message":"Website with given name ExampleSite already exists."},
+                                   {"Code":"Conflict"},
+                                   {"ErrorEntity":{"Code":"Conflict","Message":"Website with given
+                                   name ExampleSite already exists.","ExtendedCode
+                                   ":"
+                                   54001","MessageTemplate":"Website with given name
 
-                               ExampleSite already exists.","Target":null,"
-                               Details
-                               ":[{"Message":"Website with given name
-                               ExampleSite
-                               already exists."},{"Code":"Conflict"},{"
-                               ErrorEntity
-                               ":{"Code":"Conflict","Message":"Website with
-                               given
-                               name ExampleSite already exists.","ExtendedCode
-                               ":"
-                               54001","MessageTemplate":"Website with given name
-
-                               {0
-                               } already exists.","Parameters":["ExampleSite
-                               "],"
-                               InnerErrors":null}}],"Innererror":null}
+                                  {0
+                                  } already exists.","Parameters":["ExampleSite
+                                  "],"
+                                  InnerErrors":null}}],"Innererror":null}
 
 You can filter results with a JSON utility such as [jq](http://stedolan.github.io/jq/download/). The following example shows how to look for actions that involved updating a web configuration file.
 
