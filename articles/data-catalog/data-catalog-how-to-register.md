@@ -64,8 +64,27 @@ In addition to the descriptive metadata extracted from the data source, users ca
 
 By default, only metadata is extracted from data sources and copied to the **Azure Data Catalog** service, but understanding a data source is often made easier by seeing a sample of the data it contains.
 
-The **Azure Data Catalog** data source registration tool allows users to include a snapshot preview of the data in each table and view that is registered. If the user opts-in to including previews during registration, the registration tool will include up to 20 records from each table and view. This snapshot is then copied into the Catalog along with the structural and descriptive metadata.
-Note: Wide tables with a large number of columns may have fewer than 20 records included in their preview.
+The **Azure Data Catalog** data source registration tool allows users to include a snapshot preview of the data in each table and view that is registered. If the user opts-in to include previews during registration, the registration tool will include up to 20 records from each table and view. This snapshot is then copied into the Catalog along with the structural and descriptive metadata.
+
+
+> [AZURE.NOTE]  Wide tables with a large number of columns may have fewer than 20 records included in their preview.
+
+
+## Including data profiles
+
+Just as including previews can provide valuable context for users searching for data sources in **Azure Data Catalog**, including a data profile can also make it easier to understand discovered data sources.
+
+The **Azure Data Catalog** data source registration tool allows users to include a data profile for each table and view that is registered. If the user chooses to include a data profile during registration, the registration tool will include aggregate statistics about the data in each table and view, including:
+
+* The number of rows and size of the data in the object
+* The date for the most recent update of the data and the object schema
+* The number of null records and distinct values for columns
+* The minimum, maximum, average, and standard deviation values for columns
+
+These statistics are then copied into the Catalog along with the structural and descriptive metadata.
+
+> [AZURE.NOTE]  Text and date columns will not include average or standard deviation statistics in their data profile.
+
 
 ## Updating registrations
 
