@@ -94,7 +94,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
   >[AZURE.TIP] Best Practice: Make sure that Azure Backups are scheduled after the completion of local disk backups using DPM. This enable the latest disk backup to be copied to Azure.
 
-13.	Choose the retention policy schedule. The details on how the retention policy works are provided at [Use Azure Backup to replace your tape infrastructure article](https://azure.microsoft.com/en-us/documentation/articles/backup-azure-backup-cloud-as-tape/).
+13.	Choose the retention policy schedule. The details on how the retention policy works are provided at [Use Azure Backup to replace your tape infrastructure article](backup-azure-backup-cloud-as-tape.md).
 
   ![Retention Policy](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
@@ -107,7 +107,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 14.	Click **Next>** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network** or **Offline Backup**.
 
   - **Automatically over the network** will transfer the backup data to Azure as per the schedule chosen for backup.
-  - How **Offline Backup** works is explained at [Offline Backup workflow in Azure Backup](https://azure.microsoft.com/en-us/documentation/articles/backup-azure-backup-import-export/).
+  - How **Offline Backup** works is explained at [Offline Backup workflow in Azure Backup](backup-azure-backup-import-export.md).
 
   Choose the relevant transfer mechanism to send the initial backup copy to Azure and click **Next**.
 
