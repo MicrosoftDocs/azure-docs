@@ -18,14 +18,14 @@
 
 # Parallel task execution on Azure Batch compute nodes
 
-Large-scale parallel task execution is a core feature of Batch, and this ability extends not only to multiple compute nodes running your tasks, but also to running concurrent tasks on the those nodes. With Batch, parallel task execution scales up as well as out.
+Large-scale parallel task execution is a core feature of Batch, and this ability extends not only to multiple compute nodes running your tasks, but also to running concurrent tasks on those nodes. With Batch, parallel task execution scales up as well as out.
 
 This easily configured feature enables maximizing resource usage on a smaller number of multi-core compute nodes within a pool. While some scenarios benefit from all of a node's resources being available for allocation to a single task, a number of situations benefit from allowing multiple tasks to share those resources:
 
- - Minimizing data transfer when tasks are able to share data. In this scenario, copying shared data to a smaller number of nodes and executing tasks in parallel on each node can dramatically reduce data transfer charges, especially if the data to be copied to each node must be transferred between geographic regions.
- - Maximizing memory usage when tasks require a large amount of memory, but only during short periods of time, and at variable times during execution. Fewer but larger node instances with more memory may be employed to efficiently handle such spikes, with parallel tasks running on each node taking advantage of the nodes' plentiful memory at different times.
- - Where inter-node communication is required, mitigating node number limits within a pool. Currently, pools configured for inter-node communication are limited to 50 nodes, therefore a greater number of tasks can be executed simultaneously if each node in such a pool is able to execute tasks in parallel.
- - Replicating an on-premises compute cluster, such as when first moving a compute environment to Azure. Increasing the maximum number of node tasks may be done to more closely mirror an existing physical configuration if that configuration currently executes multiple tasks per compute node.
+ - **Minimizing data transfer** when tasks are able to share data. In this scenario, copying shared data to a smaller number of nodes and executing tasks in parallel on each node can dramatically reduce data transfer charges, especially if the data to be copied to each node must be transferred between geographic regions.
+ - **Maximizing memory usage** when tasks require a large amount of memory, but only during short periods of time, and at variable times during execution. Fewer but larger node instances with more memory may be employed to efficiently handle such spikes, with parallel tasks running on each node taking advantage of the nodes' plentiful memory at different times.
+ - **Mitigating node number limits** when inter-node communication is required within a pool. Currently, pools configured for inter-node communication are limited to 50 nodes, therefore a greater number of tasks can be executed simultaneously if each node in such a pool is able to execute tasks in parallel.
+ - **Replicating an on-premises compute cluster**, such as when first moving a compute environment to Azure. Increasing the maximum number of node tasks may be done to more closely mirror an existing physical configuration if that configuration currently executes multiple tasks per compute node.
 
 ## Enable parallel task execution
 
