@@ -21,7 +21,7 @@
 
 This article will lead you through configuring SQL backups using Azure Backup. To back up SQL to Azure you need an Azure account. If you don’t have an account, you can create a free trial account in just couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Management of SQL database backup and recovery to Azure involves four steps:
+Management of SQL database backup and recovery to Azure involves three steps:
 
 1. Create backup policy to protect SQL server databases to Azure.
 2. Create on-demand backup copies to Azure.
@@ -50,7 +50,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     ![Select SQL DB](./media/backup-azure-backup-sql/pg-databases.png)
 
-6. Provide name for the protection group you are going to create. Make sure you select the  “**I want Online Protection**” option.
+6. Provide name for the protection group you are going to create. Make sure you select the  “**I want online Protection**” option.
 
     ![Data Protection Method - short term disk & Online Azure](./media/backup-azure-backup-sql/pg-name.png)
 
@@ -98,7 +98,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     >[AZURE.NOTE] It’s a good practice to have a few recovery points for short term on disk for quick recovery. This is called “operational recovery”. Azure serves as a good offsite location with higher SLAs and guaranteed availability. By H1, 2015, DPM & Azure Backup will have the added capability to specify multiple “generations” (a.k.a GFS scheme) of backups.
 
-    Best Practice: Make sure that Azure Backups are scheduled after the completion of local disk backups using DPM. This enable the latest disk backup to be copied to Azure.
+    **Best Practice**: Make sure that Azure Backups are scheduled after the completion of local disk backups using DPM. This enable the latest disk backup to be copied to Azure.
 
 13. Choose the retention policy schedule. The details on how the retention policy works are provided at [Use Azure Backup to replace your tape infrastructure article](backup-azure-backup-cloud-as-tape.md).
 
@@ -111,7 +111,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
     - The backup on Last Saturday at 12:00 P.M. is retained for 60 months
     - The backup on Last Saturday of March at 12:00 P.M. is retained for 10 years
 
-14. Click **Next>** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network** or **Offline Backup**.
+14. Click **Next** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network** or **Offline Backup**.
 
     - **Automatically over the network** will transfer the backup data to Azure as per the schedule chosen for backup.
     - How **Offline Backup** works is explained at [Offline Backup workflow in Azure Backup](backup-azure-backup-import-export.md).
