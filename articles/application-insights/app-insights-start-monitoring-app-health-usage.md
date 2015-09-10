@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 
@@ -108,11 +108,6 @@ Look for data in the Overview charts. At first, you'll just see one or two point
 
 Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
 
-Now deploy your application and watch the data accumulate.
-
-
-When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app, data accumulates more slowly.
-
 #### No data?
 
 * Open the [Search][diagnostic] tile, to see individual events.
@@ -120,13 +115,22 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 * Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
 * See [Troubleshooting][qna].
 
+## Publish your app
+
+Now deploy your application to IIS or to Azure and watch the data accumulate.
+
+When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app, data accumulates more slowly.
+
+
 #### Trouble on your build server?
 
 Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
 
-## 5. Add dependency tracking
+## 5. Add dependency tracking and perf counters
 
 The SDK needs a little help to get access to some data. In particular, you'll need this additional step in order to automatically measure calls from your app to databases, REST APIs, and other external components. These dependency metrics can be invaluable to help you diagnose performance issues.
+
+This step also enables [reporting of performance counters](app-insights-web-monitor-performance.md#system-performance-counters) such as CPU, memory, network occupancy.
 
 #### If your app runs in your IIS server
 
@@ -138,9 +142,13 @@ Sign in to your server with admin rights, and install [Application Insights Stat
 
 In the control panel of your Azure Web App, add the Application Insights extension.
 
-![In your web app, Tools, Performance Monitoring, Add, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(The extension only assists an app that has been built with the SDK. Unlike Status Monitor, it can't instrument an existing app.)
+(The extension only assists an app that has been built with the SDK and published to Azure. Unlike Status Monitor, it can't instrument an existing app.)
+
+#### If it's an Azure cloud services project
+
+[Add scripts to web and worker roles](app-insights-cloudservices.md)
 
 ## 6. Add client-side monitoring
 

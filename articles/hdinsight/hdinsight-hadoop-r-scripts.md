@@ -23,6 +23,7 @@ You can install R on any type of cluster in Hadoop on HDInsight by using **Scrip
 
 Script action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight cluster using script action][hdinsight-cluster-customize].
 
+> [AZURE.NOTE] The steps in this document require a Windows-based HDInsight cluster. For information on using R with a Linux-based cluster, see [Install and use R on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-r-scripts-linux.md).
 
 ## What is R?
 
