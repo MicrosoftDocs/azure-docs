@@ -21,7 +21,7 @@
 
 Azure Stream Analytics inputs are defined as a connection to a data source. Stream Analytics has first class integration with the Azure sources Event Hub and Blob storage from within and outside of the Azure subscription your job is running in. As data is pushed to that data source, it is consumed by the Stream Analytics job and processed in real time. Inputs are divided into two distinct types: data stream inputs and reference data inputs.
 
-## Data Stream Inputs
+## Data Stream inputs
 
 A data stream is unbounded sequence of events coming over time. Stream Analytics jobs must include at least one data stream input to be consumed and transformed by the job. Azure Blob storage and Azure Event Hubs are supported as data stream input sources. Azure Event Hubs are used to collect event streams from multiple devices and services, such as social media activity feeds, stock trade information or data from sensors. Alternately, Azure Blob storage can be used as an input source for ingesting bulk data as a stream.
 
@@ -37,7 +37,7 @@ To learn how to create reference data inputs, see [Use Reference Data](./article
 
 It is important to note that the default timestamp of events coming from Event Hubs in Stream Analytics is the timestamp that the event arrived in Event Hub which is *EventEnqueuedUtcTime*. To process the data as a stream using a timestamp in the event payload, the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword must be used. 
 
-## Consumer Groups
+## Consumer groups
 
 Each Stream Analytics Event Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group. To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](./articles/event-hubs-programming-guide.md).
 
