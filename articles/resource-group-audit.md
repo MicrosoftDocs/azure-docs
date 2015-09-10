@@ -120,12 +120,9 @@ It returns a long list of operations, including one that shows the error message
                                    {"ErrorEntity":{"Code":"Conflict","Message":"Website with given
                                    name ExampleSite already exists.","ExtendedCode
                                    ":"
-                                   54001","MessageTemplate":"Website with given name
-
-                                  {0
-                                  } already exists.","Parameters":["ExampleSite
-                                  "],"
-                                  InnerErrors":null}}],"Innererror":null}
+                                   54001","MessageTemplate":"Website with given name {0} already exists.",
+                                   "Parameters":["ExampleSite"],"
+                                   InnerErrors":null}}],"Innererror":null}
 
 You can filter results with a JSON utility such as [jq](http://stedolan.github.io/jq/download/). The following example shows how to look for actions that involved updating a web configuration file.
 
