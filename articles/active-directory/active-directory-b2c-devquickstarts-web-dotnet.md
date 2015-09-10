@@ -304,12 +304,15 @@ Experiment until you begin to understand how policies, authentication requests, 
 For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip),
 or you can clone it from GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
+```
 
 ## Next Steps
 
 You can now move onto more advanced B2C topics.  You may want to try:
 
 [Calling a Web API from a Web App >>]()
+
 [Customizing the your B2C App's UX >>]()
 
