@@ -31,7 +31,7 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 
 1. Start **Synchronization Service** from the Start Menu.
 2. Go to **Connectors**.
-3. Select the Connector with type **Windows Azure Active Directory**.
+3. Select the Connector with type **Azure Active Directory**.
 4. Under **Actions** to the right, select **Search Connector Space**.
 5. In the pop-up under **Scope** select **Disconnected Since** and pick a time in the past. Click on **Search**. This will provide a view of all objects about to be deleted. By clicking on each item, you can get additional information about the object. You can also click on **Column Setting** to add additional attributes to be visible in the grid.
 
@@ -40,7 +40,7 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 If all the deletes are desired, then do the following:
 
 1. To temporarily disable this protection and let these deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`
-2. With the Windows Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
+2. With the Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
 3. To re-enable the protection run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`
 
 ## Next steps
