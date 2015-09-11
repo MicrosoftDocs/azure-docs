@@ -1,19 +1,19 @@
 # Microsoft Azure and the Internet of Things (IoT)
-A typical IoT solution involves secure, bidirectional communication between devices, possibly numbering in the millions, and an application back end.
-Microsoft provides you with a set of libraries (that support multiple languages and hardware platforms) that you can use to implement an IoT device. To implement your IoT back end application, you can combine multiple Azure services. To better understand how Azure enables this IoT infrastructure, it's useful to consider the Microsoft IoT reference architecture as a starting point.
+A typical IoT solution requires secure, bidirectional communication between devices, possibly numbering in the millions, and an application back end.
+Microsoft provides you with a set of libraries (that support multiple languages and hardware platforms) that you can use to develop client applications to run on an IoT device. To implement your IoT back end application, you can combine multiple Azure services. To better understand how Azure enables this IoT infrastructure, it's useful to consider the Microsoft IoT reference architecture.
 
 ## Microsoft IoT Reference Architecture
-You can watch this video for an in-depth discussion of the Microsoft IoT reference architecture:
+You can watch the following video for an in-depth discussion of the Microsoft IoT reference architecture:
 
 > [AZURE.VIDEO microsoft-ignite-2015-the-microsoft-architecture-for-the-internet-of-things-iot]
 
-The diagram below is a summary of the Microsoft IoT reference architecture described in the video. Notice that is does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide more information about the elements in this architecture.
+The diagram below is a summary of the Microsoft IoT reference architecture described in the video. Notice that it does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide you with more information about the elements in this architecture.
 
 ![IoT Reference Architecture][img-reference-architecture]
 [_TBD_ - redraw this diagram with agreed terminology]
 
 ### Devices and data sources
-In a typical IoT scenario, devices send device-to-cloud telemetry data such as temperature readings to a cloud end-point for storage and processing. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud end-point. For example, a device might retrieve a command that instructs it to change the frequency at which it samples data.
+In a typical IoT scenario, devices send device-to-cloud telemetry data such as temperature readings to a cloud end-point for storage and processing. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, a device might retrieve a command that instructs it to change the frequency at which it samples data.
 
 A device or data source in an IoT solution can range from a simple network-connected sensor to a powerful, standalone computing device. A device may have limited processing capability, memory, communication bandwidth, and communication protocol support.
 
@@ -21,9 +21,9 @@ A device or data source in an IoT solution can range from a simple network-conne
 A device may communicate directly with an end-point in a cloud gateway, or through some intermediary such as a field gateway that provides a service such as protocol translation. Typical communication protocols include AMQP and HTTP.
 
 ### Device and event processing
-In the cloud, a stream event processor receives device-to-cloud messages at scale from your devices and determines how to process and store those messages. A control system enables you to send cloud-to-device data in the form of commands to specific devices. Identity and registry stores enable you to provision devices and to control which devices are permitted to connect to your infrastructure. A device state store enables you to track the state of your devices, and monitor their activities.
+In the cloud, a stream event processor receives device-to-cloud messages at scale from your devices and determines how to process and store those messages. A control system enables you to send cloud-to-device data in the form of commands to specific devices. Identity and registry stores enable you to provision devices and to control which devices are permitted to connect to your infrastructure. A device state store enables you to track the state of your devices and monitor their activities.
 
-Some IoT solutions include automatic feedback loops. For example, a machine learning module can identify from cloud-to-device telemetry data that the temperature of a device is above normal operating levels and then send a command to the device instructing it to take corrective action.
+Some IoT solutions include automatic feedback loops. For example, a machine learning module can identify from cloud-to-device telemetry data that the temperature of a specific device is above normal operating levels and then send a command to the device instructing it to take corrective action.
 
 ### Presentation
 Many IoT solutions enable users to view and analyze the data collected from their devices. These visualizations may take the form of dashboards or BI reports.
