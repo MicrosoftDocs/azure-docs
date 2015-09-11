@@ -39,7 +39,8 @@ Verify that you have the following items before beginning configuration.
 - An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 - The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
-	
+
+>[AZURE.IMPORTANT] If you aren't familiar with configuring your VPN device or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.	
 
 ## Connect to your subscription 
 
@@ -108,7 +109,7 @@ If you want to add a local site with multiple address prefixes, use this example
 
 ### To modify IP address prefixes for your local site
 
-Sometimes your local site prefixes change, or a mistake was made when adding them. You can modify your IP address prefixes. The steps you take depend on whether or not you have created a VPN gateway connection. If you have a working VPN gateway, modifying your IP address prefixes will result in downtime for your VPN connection, as you must rebuild the gateway. See [Modifying IP address prefixes for a local site](#modifying-ip-address-prefixes-for-a-local-site).
+Sometimes your local site prefixes change. The steps you take to modify your IP address prefixes depend on whether or not you have created a VPN gateway connection. See [Modify IP address prefixes for a local site](#modify-ip-address-prefixes-for-a-local-site).
 
 
 
@@ -159,7 +160,7 @@ Next, you'll create the site-to-site VPN connection between your virtual network
 
 After a short while, the connection will be established. 
 
-### <a name="verifyconnection"></a>Verifying connections
+## Verify a VPN connection
 
 At this time, the site-to-site VPN connections created with Resource Manager are not visible in the Preview Portal. However, it's possible to verify that your connection succeeded by using *get-azurevirtualnetworkgatewayconnection –Debug*. In the future, we'll have a cmdlet for this, as well as the ability to view your connection in the Preview Portal.
 
@@ -197,7 +198,7 @@ You can use the following cmdlet example, configuring the values to match your o
 	  }
 
 
-## Modifying IP address prefixes for a local site
+## Modify IP address prefixes for a local site
 
 ### Adding and removing prefixes for a site without a VPN gateway connection
 

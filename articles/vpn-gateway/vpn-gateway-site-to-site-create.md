@@ -32,9 +32,9 @@ You can select the article for the deployment model and deployment tool by using
  
 ## Before beginning
 
-Before you begin, verify that you have the following items.
+Before you begin, verify that you do the following:
 
-- Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection. See [About VPN devices for virtual network connections](vpn-gateway-about-vpn-devices.md) for more information.
+- Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection. See [About VPN devices](vpn-gateway-about-vpn-devices.md) for more information.
 
 - Obtain an externally facing IPv4 IP for your VPN device. This IP address is required for a site-to-site configuration and is used for your VPN device, which cannot be located behind a NAT.
 
