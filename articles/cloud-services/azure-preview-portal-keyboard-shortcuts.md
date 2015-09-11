@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter="dev-center-name"
    authors="curtand"
-   manager="terrylan"
+   manager="msStevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="05/28/2015"
+   ms.date="09/10/2015"
    ms.author="curtand"/>
 
 # Azure portal keyboard shortcuts
@@ -49,4 +49,3 @@
 ## Next steps
 
 Get to know the Azure Portal better: http://azure.microsoft.com.
- 

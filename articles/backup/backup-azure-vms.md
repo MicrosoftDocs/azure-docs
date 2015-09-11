@@ -3,7 +3,7 @@
 	description="Learn how to backup an Azure virtual machine after registration"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2015"
-	ms.author="aashishr"; "jimpark"/>
+	ms.date="09/10/2015"
+	ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
 # Backup Azure virtual machines
@@ -97,7 +97,7 @@ To protect a virtual machine, do the following steps:
 
 4. The **Protect Items** wizard is where the virtual machines to be protected can be selected. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
 
-    The **Protect** operation can be done at scale, which means that multiple virtual machines can be selected at one time to be registered. This greatly reduces the effort spent in protecting the virtual machine.
+    The **Protect** operation can be done at scale, which means that multiple virtual machines can be selected at one time to be protected. This greatly reduces the effort spent in protecting the virtual machine.
 
     ![Configure protection at scale](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -109,7 +109,7 @@ To protect a virtual machine, do the following steps:
 
     ![Protect with new policy](./media/backup-azure-vms/policy-schedule.png)
 
-6. In the third screen of the **Protect Items** wizard, choose a retention range to be associated with backups taken. This screens supports industry standard GFS(Grandfather-Father-Son) based retention scheme. Read more about [Long Term retention](backup-azure-vms-introduction.md#Long term retention).
+6. In the third screen of the **Protect Items** wizard, choose a retention range to be associated with backups taken. This screen supports industry standard GFS(Grandfather-Father-Son) based retention scheme. Read more about [long Term retention](#long-term-retention).
 
     A backup policy also involves retention scheme of the scheduled backups. Selecting an existing backup policy in previous screen disables modification of the retention scheme and backups follow the retention policy as defined in the policy.
 
@@ -146,6 +146,8 @@ Once protected, the virtual machine count also increases in the **Dashboard** pa
 
 ### Long term retention
 Retention policy specifies the duration for which the backup must be stored. Rather than just specifying a “flat retention” for all backup points, customers can specify different retention policies based on when the backup is taken. For example, the backup point taken at the end of each quarter may need to be preserved for a longer duration for audit purposes while the backup point taken daily, which serves as an operational recovery point, needs to be preserved for 90 days.
+
+![Virtual machine is backed up with recovery point](./media/backup-azure-vms/long-term-retention.png)
 
 1. **Daily retention policy**: Backups taken daily are stored for 30 days.
 2. **Weekly retention policy**: Backups taken every week on Sunday will be preserved for 104 weeks
