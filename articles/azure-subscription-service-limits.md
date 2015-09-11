@@ -150,7 +150,7 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 
 ###BizTalk Services Limits
 
-[AZURE.INCLUDE [bizTalk-services-service-limits](../includes/bizTalk-services-service-limits.md)]
+[AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 
 ### DocumentDB Limits
