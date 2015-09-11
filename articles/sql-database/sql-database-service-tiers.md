@@ -48,7 +48,7 @@ The following table describes the characteristics of the elastic database pool s
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
->[AZURE.NOTE] Unless otherwise stated, the limits above relate to the shared resources for the pool. For example, the Basic pool has a max sessions of 2400 – 28800 for the pool, but an individual database within that pool has a database limit of 300 sessions (the Basic limit for a single database as specified in the previous section of this topic).
+>[AZURE.NOTE] Each database within a pool also adheres to the single-database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 2400 – 28800, but an individual database within that pool has a database limit of 300 sessions (the limit for a single Basic database as specified in the previous section).
 
 ## Understanding DTUs
 
