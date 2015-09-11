@@ -32,13 +32,13 @@ You can select the article for the deployment model and deployment tool by using
  
 ## Before beginning
 
-Before you begin, verify that you do the following:
+Verify that you have the following items before beginning configuration.
 
-- Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection. See [About VPN devices](vpn-gateway-about-vpn-devices.md) for more information.
+- A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md).
+- An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-- Obtain an externally facing IPv4 IP for your VPN device. This IP address is required for a site-to-site configuration and is used for your VPN device, which cannot be located behind a NAT.
-
->[AZURE.IMPORTANT] If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.
+>[AZURE.IMPORTANT] If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.	
 
 ## Create your virtual network
 
