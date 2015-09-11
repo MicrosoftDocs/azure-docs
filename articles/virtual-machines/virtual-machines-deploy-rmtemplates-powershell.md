@@ -64,7 +64,7 @@ If you're interested in authoring templates, see [Authoring Azure Resource Manag
 
 For tasks that create a resource, you'll need a resource group. If you don't already have one.
 
-Replace *resource group name* with the name of the new resource group and *Azure location* with the Azure datacenter location where you want the resource to be located, and then run it:
+In the following command, replace *resource group name* with the name of the new resource group and *Azure location* with the Azure datacenter location where you want the resource to be located, and then run it:
 
 	New-AzureResourceGroup -Name "resource group name" -Location "Azure location"
 
@@ -74,10 +74,7 @@ This task uses a template from the template gallery. To learn more about the tem
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
-Replace these values in the command and then run it:
-
-- *deployment name* with the name that you want to use for the deployment
-- *resource group name* with the name of the existing resource group
+In the following command, replace *deployment name* with the name that you want to use for the deployment and *resource group name* with the name of the existing resource group, and then run it:
 
 	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
