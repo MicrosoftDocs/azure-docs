@@ -126,8 +126,8 @@ Learn how to use the Azure Data Lake .NET SDK to create an Azure Data Lake accou
 			            // Upload a file
 			            Console.WriteLine("Uploading a file to the Azure Data Lake account");
 			            bool force = true;
-			            UploadFile(_dataLakeFileSystemClient,"adldotnetaccount", "C:\\users\\nitinme\\desktop\\tweets.txt", "/mytempdir/tweets.txt", force);
-			                        Console.WriteLine("File uploaded. Press any key to continue...");
+			            UploadFile(_dataLakeFileSystemClient,"adldotnetaccount", "C:\\<folder_structure>\\<filename>", "/mytempdir/<filename>", force);
+			            Console.WriteLine("File uploaded. Press any key to continue...");
 			            Console.ReadLine();
 			
 			            // List the files
@@ -145,7 +145,7 @@ Learn how to use the Azure Data Lake .NET SDK to create an Azure Data Lake accou
 			            // Download the files
 			            Console.WriteLine("Downloading files from an Azure Data Lake account");
 			            bool force1 = true;
-			            DownloadFile(_dataLakeFileSystemClient, "adldotnetaccount", "/mytempdir/tweets.txt", "C:\\users\\nitinme\\desktop\\tweets2.txt", force1);
+			            DownloadFile(_dataLakeFileSystemClient, "adldotnetaccount", "/mytempdir/<filename>", "C:\\<folder_structure>\\<filename>", force1);
 			            Console.WriteLine("Files downloaded. Press any key to continue...");
 			            Console.ReadLine();
 			
