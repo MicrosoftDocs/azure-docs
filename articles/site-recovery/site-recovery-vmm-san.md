@@ -268,7 +268,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 	`CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin`    
 >
 	`C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <<friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>`         
-> ####Silent Install Parameter List####
+> ####Command line Install Parameter List####
 >
 - /Credentials : Mandatory parameter that specifies the location in which the registration key file is located  
 - /FriendlyName : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
