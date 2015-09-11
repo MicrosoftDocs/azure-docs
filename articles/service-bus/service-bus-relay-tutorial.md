@@ -17,7 +17,7 @@
 
 # Service Bus relayed messaging tutorial
 
-This tutorial describes how to build a simple Service Bus client application and service using the Service Bus "relay" capabilities. For a corresponding tutorial that describes how to build an application that uses the Service Bus "brokered," or asynchronous messaging capabilities, see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx).
+This tutorial describes how to build a simple Service Bus client application and service using the Service Bus "relay" capabilities. For a corresponding tutorial that describes how to build an application that uses the Service Bus "brokered," or asynchronous messaging capabilities, see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx). For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md/#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx).
 
 Working through this tutorial gives you an understanding of the steps that are required to create a Service Bus client and service application. Like their WCF counterparts, a service is a construct that exposes one or more endpoints, each of which exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between a WCF and a Service Bus service is that the endpoint is exposed in the cloud instead of locally on your computer.
 
@@ -621,7 +621,7 @@ The following code shows the App.config file for the Echo client.
 </configuration>
 ```
 
-## Implement WCF client to call Service Bus
+## Implement the WCF client to call Service Bus
 
 In this step, you implement a basic client application that accesses the service you created previously in this tutorial. Similar to the service, the client performs many of the same operations to access Service Bus:
 
@@ -687,10 +687,10 @@ However, one of the main differences is that the client application uses a chann
 
 1. Create and open the channel to the service.
 
-```
-IEchoChannel channel = channelFactory.CreateChannel();
-channel.Open();
-```
+	```
+	IEchoChannel channel = channelFactory.CreateChannel();
+	channel.Open();
+	```
 
 1. Write the basic user interface and functionality for the echo.
 
@@ -741,6 +741,7 @@ channel.Open();
 	The service application starts and prints to the console window the address on which it's listening, as seen in the following example.
 
     `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
+
     `Press [Enter] to exit`
     
 1. Run the client application. You should now have an executable for the Echo client application named EchoClient.exe that is located under the client project directory at .\bin\Debug\EchoClient.exe (for the debug configuration) or .\bin\Release\EchoClient.exe (for the release configuration). Double-click this file to start the client application.
@@ -834,5 +835,10 @@ Make sure that the service is running before you start the client.
 
 ## Next steps
 
-[Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx)
+This tutorial showed how to build a Service Bus client application and service using the Service Bus "relay" capabilities. For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md/#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx).
 
+To learn more about Service Bus, see the following topics.
+
+- [Service Bus messaging overview](service-bus-messaging-overview.md)
+- [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus architecture](service-bus-architecture.md)
