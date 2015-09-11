@@ -1,6 +1,6 @@
 <properties
-	pageTitle="DataStax on Ubuntu Resource Manager template | Microsoft Azure"
-	description="Learn to easily deploy a new DataStax cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
+	pageTitle="DataStax on Ubuntu with a Resource Manager template | Microsoft Azure"
+	description="Learn to easily deploy a new DataStax cluster on Ubuntu VMs by using Azure PowerShell or the Azure CLI and a Resource Manager template"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="karthmut"
@@ -18,7 +18,7 @@
 
 # DataStax on Ubuntu with a Resource Manager template
 
-DataStax is a recognized industry leader in developing and delivering solutions based on Apache Cassandra - the commercially supported, enterprise-ready NoSQL distributed database technology that is widely acknowledged as agile, always on, and predictably scalable to any size. DataStax offers both the Enterprise (DSE) and Community (DSC) flavors. It also provides capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise search.
+DataStax is a recognized industry leader in developing and delivering solutions based on Apache Cassandra--the commercially supported, enterprise-ready NoSQL distributed database technology that is widely acknowledged as agile, always on, and predictably scalable to any size. DataStax offers both the Enterprise (DSE) and Community (DSC) flavors. It also provides capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise search.
 
 In addition to what is already available in Azure Marketplace, now you can also easily deploy a new DataStax cluster on Ubuntu VMs by using a Resource Manager template deployed through [Azure PowerShell](../powershell-install-configure.md) or the [Azure CLI](../xplat-cli.md).
 
@@ -173,7 +173,7 @@ Each parameter has details such as data type and allowed values. This allows for
 
 ### Step 3-a: Deploy a DataStax cluster by using a template via Azure PowerShell
 
-Prepare a parameters file for your deployment by creating a JSON file containing runtime values for all parameters. This file will then be passed as a single entity to the deployment command. If you do not include a parameters file, Azure PowerShell will use any default values specified in the template, and then prompt you to fill in the remaining values.
+Prepare a parameters file for your deployment by creating a JSON file that contains runtime values for all parameters. This file will then be passed as a single entity to the deployment command. If you do not include a parameters file, Azure PowerShell will use any default values specified in the template, and then prompt you to fill in the remaining values.
 
 Here is an example set of parameters from the azuredeploy-parameters.json file:
 
@@ -256,11 +256,7 @@ You can check the status of individual resources deployments by using the follow
 
 ## A tour of the DataStax template structure and file organization
 
-In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like DataStax. Leveraging Resource Manager template linking and resource looping in addition to script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
-
-This diagram describes the relationships between all the files downloaded from GitHub for this deployment:
-
-![datastax-files](media/virtual-machines-datastax-template/datastax-files.png)
+In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like DataStax. By leveraging Resource Manager template linking and resource looping in addition to script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
 
 This section steps you through the structure of the azuredeploy.json file for the DataStax cluster.
 
@@ -314,7 +310,7 @@ The "variables" section specifies variables that can be used throughout this tem
 	"nodeList": "[concat(variables('networkSettings').statics.clusterRange.base, variables('networkSettings').statics.clusterRange.start, '-', parameters('clusterNodeCount'))]"
 	},
 
-Drilling down into this example, you can see two different approaches. In this first fragment, the **osSettings** variable is a nested JSON element containing four key-value pairs:
+Drilling down into this example, you can see two different approaches. In this first fragment, the **osSettings** variable is a nested JSON element that contains four key-value pairs:
 
 	"osSettings": {
 	      "imageReference": {
@@ -325,7 +321,7 @@ Drilling down into this example, you can see two different approaches. In this f
 	      },
 
 	 
-In this second fragment, the **scripts** variable is a JSON array where each element will be calculated at run time using a template language function (concat) and the value of another variable plus string constants:
+In this second fragment, the **scripts** variable is a JSON array where each element will be calculated at run time through a template language function (concat) and the value of another variable plus string constants:
 
 	      "scripts": [
 	        "[concat(variables('templateBaseUrl'), 'dsenode.sh')]",
@@ -335,7 +331,7 @@ In this second fragment, the **scripts** variable is a JSON array where each ele
 
 ### "resources" section
 
-The "resources" section is where most of the action is happening. Looking carefully inside this section, you can immediately identify two different cases. The first one is an element defined of type `Microsoft.Resources/deployments` that basically means the invocation of a nested deployment within the main one. Through the **templateLink** element (and related version property), it’s possible to specify a linked template file that will be invoked passing a set of parameters as input, as seen in this fragment:
+The "resources" section is where most of the action is happening. Looking carefully inside this section, you can immediately identify two different cases. The first one is an element defined of type `Microsoft.Resources/deployments` that basically means the invocation of a nested deployment within the main one. Through the **templateLink** element (and related version property), it’s possible to specify a linked template file that will be invoked by passing a set of parameters as input, as seen in this fragment:
 
 	{
 	      "name": "shared",
@@ -365,10 +361,10 @@ From this first example, it is clear how azuredeploy.json in this scenario has b
 
 In particular, the following linked templates will be used for this deployment:
 
--	**shared-resource.json**: contains the definition of all resources that will be shared across the deployment. Examples are storage accounts used to store a VM’s OS disks and virtual networks.
--	**opscenter-resources.json**: deploys an OpsCenter VM and all related resources, including a network interface and public IP address.
--	**opscenter-install-resources.json**: deploys the OpsCenter VM extension (custom script for Linux) that will invoke the specific bash script file (opscenter.sh) required to set up the OpsCenter service within that VM.
--	**ephemeral-nodes-resources.json**: deploys all cluster node VMs and connected resources (network cards, private IPs, etc.). This template will also deploy VM extensions (custom scripts for Linux) and invoke a bash script (dsenode.sh) to physically install Apache Cassandra bits on each node.
+-	**shared-resource.json**: Contains the definition of all resources that will be shared across the deployment. Examples are storage accounts used to store a VM’s OS disks and virtual networks.
+-	**opscenter-resources.json**: Deploys an OpsCenter VM and all related resources, including a network interface and public IP address.
+-	**opscenter-install-resources.json**: Deploys the OpsCenter VM extension (custom script for Linux) that will invoke the specific bash script file (opscenter.sh) required to set up the OpsCenter service within that VM.
+-	**ephemeral-nodes-resources.json**: Deploys all cluster node VMs and connected resources (network cards, private IPs, etc.). This template will also deploy VM extensions (custom scripts for Linux) and invoke a bash script (dsenode.sh) to physically install Apache Cassandra bits on each node.
 
 Let’s drill down into how this last template is used, as it is one of the most interesting from a template development perspective. One important concept to highlight is how a single template file can deploy multiple copies of a single resource type, and for each instance can set unique values for required settings. This concept is known as **resource looping**.
 
@@ -467,7 +463,7 @@ Another interesting fragment to explore is the one related to CustomScriptForLin
 	}
 	}
 
-By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-node solutions, based on any technology, leveraging Azure Resource Manager templates. While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:
+By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-node solutions, based on any technology, by leveraging Azure Resource Manager templates. While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:
 
 ![datastax-template-structure](media/virtual-machines-datastax-template/datastax-template-structure.png)
 
