@@ -40,6 +40,7 @@ Not all services currently support the ability to move resources.
 For now, the services that support moving to both a new resource group and subscription are:
 
 - API Management
+- Azure DocumentDB
 - Azure Search
 - Azure Web Apps (some [limitations](app-service-web/app-service-move-resources.md) apply)
 - Data Factory
