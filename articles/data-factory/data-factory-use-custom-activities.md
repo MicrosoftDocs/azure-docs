@@ -416,6 +416,7 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 		    "type": "AzureBatch",
 		    "typeProperties": {
 		      "accountName": "<Azure Batch account name>",
+			  "batchUri": "https://<region>.batch.azure.com",
 		      "accessKey": "<Azure Batch account key>",
 		      "poolName": "<Azure Batch pool name>",
 		      "linkedServiceName": "<Specify associated storage linked service reference here>"
@@ -423,11 +424,10 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 		  }
 		}
 
-	> [AZURE.NOTE] Append "**.<region name**" to the name of your batch account for the **accountName** property. Example: "mybatchaccount.eastus". Another option is to provide the batchUri endpoint as shown below.  
+	In the above JSON, you could skip using the **batchUri** property and append **"**.region**"** to the name of your batch account for the **accountName** property. Example: "mybatchaccount.eastus". 
+	
+	> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: accountname.region.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property.   
 
-		accountName: "adfteam",
-		batchUri: "https://eastus.batch.azure.com",
- 
 	See [Azure Batch Linked Service MSDN topic](https://msdn.microsoft.com/library/mt163609.aspx) for descriptions of these properties. 
 
 2.  In the Data Factory Editor, open JSON definition for the pipeline you created in the walkthrough and replace **HDInsightLinkedService** with **AzureBatchLinkedService**.
