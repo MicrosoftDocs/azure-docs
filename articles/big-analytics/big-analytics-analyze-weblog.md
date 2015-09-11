@@ -1,6 +1,6 @@
 # Analyze Website logs using Azure Big Analytics
 
-(working in progress ...)
+[jgao: see big-analytics-use-interactive-tutorials.md]
 
 Learn how to analyze website logs using Azure Big Analytics. For the information on analyzing website logs using Azure HDInsight, see []().
 
@@ -24,6 +24,8 @@ Before you begin this tutorial, you must have the following:
 
 
 ## TOC [The TOC will be removed before the release]
+
+
 
 1. This Tutorial shows you how you can analyze website logs using Kona.
 

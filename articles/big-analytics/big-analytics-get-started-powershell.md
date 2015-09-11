@@ -179,8 +179,6 @@ Big Analytics can also access Azure Blob storage.  For uploading data to Azure B
 		$bigAnalyticsName = "<BigAnalyticsAccountName>"
 		$usqlScriptPath = "c:\tutorials\big-analytics\copyFile.sip"
 		
-		Submit-AzureKonaJob -
-		
 		Submit-AzureKonaJob -Name "copyAthleteFile" -AccountName $bigAnalyticsName –ScriptPath $usqlScriptPath 
 		                
 		Get-AzureKonaJob -AccountName $bigAnalyticsName
@@ -211,7 +209,7 @@ To read more:
 
 - [Azure Big Analytics overview](big-analytics-overview.md)
 - [Get started with Azure Big Analytics using Azure PowerShell](big-analytics-get-started-powershell.md)
-- [Get started with Azure Big Analytics and U-SQL using Visual Studio](big-analytics-get-started-u-sql.md)
+- [Get started with Azure Big Analytics and U-SQL using Visual Studio](big-analytics-get-started-u-sql-studio.md)
 
 
 

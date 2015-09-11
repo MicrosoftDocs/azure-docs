@@ -146,7 +146,7 @@ To read more:
 
 - [Azure Big Analytics overview](big-analytics-overview.md)
 - [Get started with Azure Big Analytics using Azure PowerShell](big-analytics-get-started-powershell.md)
-- [Get started with Azure Big Analytics and U-SQL using Visual Studio](big-analytics-get-started-u-sql.md)
+- [Get started with Azure Big Analytics and U-SQL using Visual Studio](big-analytics-get-started-u-sql-studio.md)
 
 
 
