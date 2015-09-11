@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/06/2015"
+	ms.date="09/10/2015"
 	ms.author="bwren"/>
 
 # What is Azure Automation?
@@ -33,7 +33,7 @@ For example, you might have an existing manual process for provisioning a new vi
 
 ## What can runbooks automate?
 
-Runbooks in Azure Automation are based on PowerShell Workflow, so they do anything that PowerShell can do.  If an application or service has an API, then a runbook can work with it.  If you have a PowerShell module for it, then you can load that module into Azure Automation and include those cmdlets in your runbook.  Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.  Using [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), runbooks can run in your local data center to manage local resources.
+Runbooks in Azure Automation are based on Windows PowerShell script or Windows PowerShell Workflow, so they do anything that PowerShell can do.  If an application or service has an API, then a runbook can work with it.  If you have a PowerShell module for it, then you can load that module into Azure Automation and include those cmdlets in your runbook.  Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.  Using [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), runbooks can run in your local data center to manage local resources.
 
 
 ## Where do I get runbooks?
@@ -48,7 +48,7 @@ You can [create your own runbooks](http://msdn.microsoft.com/library/azure/dn643
 
 ## How does Azure Automation relate to other automation tools?
 
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) is intended to automate management tasks in the private cloud.  It is installed locally in your data center as a component of [Windows Azure Pack](http://www.microsoft.com/server-cloud/products/windows-azure-pack/default.aspx). SMA and Azure Automation use the same runbook format based on Windows PowerShell Workflow, but SMA does not support [graphical runbooks](automation-graphical-authoring-intro.md). 
+[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) is intended to automate management tasks in the private cloud.  It is installed locally in your data center as a component of [Windows Azure Pack](http://www.microsoft.com/server-cloud/products/windows-azure-pack/default.aspx). SMA and Azure Automation use the same runbook format based on Windows PowerShell and Windows PowerShell Workflow, but SMA does not support [graphical runbooks](automation-graphical-authoring-intro.md). 
 
 [System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) is intended for automation of on-premises resources. It uses a different runbook format than Azure Automation and Service Management Automation and has a graphical interface to create runbooks without requiring any scripting. Its runbooks are composed of activities from Integration Packs that are written specifically for Orchestrator. 
 

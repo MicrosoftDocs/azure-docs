@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="09/09/2015"
    ms.author="bwren" />
 
 
@@ -71,7 +71,7 @@ Microsoft provides [integration packs](http://technet.microsoft.com/library/hh29
 
 ## Runbook Converter (coming soon)
 
-This tool will convert Orchestrator runbooks into graphical runbooks that can be imported into Azure Automation.  Further details on this tool will be provided here when it comes available.
+This tool will convert Orchestrator runbooks into [graphical runbooks](automation-runbook-types.md#graph-runbooks) that can be imported into Azure Automation.  Further details on this tool will be provided here when it comes available.
 
 ## Related articles
 
