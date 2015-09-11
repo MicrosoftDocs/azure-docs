@@ -424,8 +424,6 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 		  }
 		}
 
-	In the above JSON, you could skip using the **batchUri** property and append **"**.region**"** to the name of your batch account for the **accountName** property. Example: "mybatchaccount.eastus". 
-	
 	> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: accountname.region.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property.   
 
 	See [Azure Batch Linked Service MSDN topic](https://msdn.microsoft.com/library/mt163609.aspx) for descriptions of these properties. 
