@@ -26,11 +26,13 @@ If you want to define security policies for traffic (both incoming and outgoing)
 The following graphics show the two different collection options when you want to use a virtual network.
 
 ### Azure RemoteApp cloud collection with VNET
+
  ![Azure RemoteApp - Cloud collection with a VNET](./media/remoteapp-planvpn/ra-cloudvpn.png)
 
 This represents an Azure RemoteApp collection where all the resources that the RemoteApp session hosts need to access are deployed in Azure. They can be in the same VNET as the RemoteApp VNET or a different VNET in Azure.
 
 ### Azure RemoteApp hybrid collection with VNET
+
 ![Azure RemoteApp - Hybrid collection with a VNET](./media/remoteapp-planvpn/ra-hybridvpn.png)
 
 This represents an Azure RemoteApp collection where some of the resources that the RemoteApp session hosts need to access are deployed on-premises. The RemoteApp VNET is linked to the on-premises network using Azure hybrid technologies like site-to-site VPN or Express Route.
