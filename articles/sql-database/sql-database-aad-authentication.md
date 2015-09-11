@@ -319,14 +319,14 @@ For specific code examples related to Azure AD authentication see the [SQL Serve
 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 <!--Image references-->
-[1]: ./media/sql-database-aad-authentication/aad-auth-diagram.png
-[2]: ./media/sql-database-aad-authentication/subscription-relationship.png
-[3]: ./media/sql-database-aad-authentication/admin-structure.png
-[4]: ./media/sql-database-aad-authentication/select-subscription.png
-[5]: ./media/sql-database-aad-authentication/ad-settings-portal.png
-[6]: ./media/sql-database-aad-authentication/edit-directory-select.png
-[7]: ./media/sql-database-aad-authentication/edit-directory-confirm.png
-[8]: ./media/sql-database-aad-authentication/choose-ad.png
-[9]: ./media/sql-database-aad-authentication/ad-settings.png
-[10]: ./media/sql-database-aad-authentication/choose-admin.png
+[1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
+[2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
+[3]: ./media/sql-database-aad-authentication/3admin-structure.png
+[4]: ./media/sql-database-aad-authentication/4select-subscription.png
+[5]: ./media/sql-database-aad-authentication/5ad-settings-portal.png
+[6]: ./media/sql-database-aad-authentication/6edit-directory-select.png
+[7]: ./media/sql-database-aad-authentication/7edit-directory-confirm.png
+[8]: ./media/sql-database-aad-authentication/8choose-ad.png
+[9]: ./media/sql-database-aad-authentication/9ad-settings.png
+[10]: ./media/sql-database-aad-authentication/10choose-admin.png
 <!--anchors-->
