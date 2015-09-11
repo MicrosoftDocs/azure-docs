@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 | Microsoft Azure"
+	pageTitle="App Model v2.0 Protocols | Microsoft Azure"
 	description="The protocols supported by the Azure AD v2.0 app model public preview."
 	services="active-directory"
 	documentationCenter=""
