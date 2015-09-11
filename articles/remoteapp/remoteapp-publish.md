@@ -26,7 +26,7 @@ On the **Publishing** tab in the portal, click **Publish**. You can either add a
 
 > [AZURE.NOTE] If you want to add your app from the **Start** menu, you need to have *added that app to the **Start** menu on your template image.* Otherwise, RemoteApp will only see what *is* on the **Start** menu, and you will be confused. 
 
->To make sure your app is in the **Start** menu, make sure you can see it here: C:\ProgramData\Microsoft\Windows\Start Menu\Programs. Also make sure that it's in the **Start** menu for all users, not just for you as the admin.
+>To make sure your app is in the **Start** menu, place a shortcut file - **.lnk** - inside the %systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs folder.
 
 > If you forgot to add the app to the **Start** menu when you created the template, choose to add the path to the app. (Or recreate your template image, but that's quite a bit more work.)
 

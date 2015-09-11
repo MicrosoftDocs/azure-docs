@@ -60,7 +60,7 @@ These are the high level steps to create a new template image from scratch:
 4.	Install Windows Server 2012 R2.
 5.	Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature.
 6.	Install additional features required by your applications.
-7.	Install and configure your applications. To make sharing apps easier, add any apps or programs that you want to share to the **Start** menu of the image, specifically in C:\ProgramData\Microsoft\Windows\Start Menu\Programs.
+7.	Install and configure your applications. To make sharing apps easier, add any apps or programs that you want to share to the **Start** menu of the image, specifically in **%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs.
 8.	Perform any additional Windows configurations required by your applications.
 9.	Disable the Encrypting File System (EFS).
 10.	**REQUIRED:** Go to Windows Update and install all important updates.
@@ -114,9 +114,8 @@ The detailed steps for creating a new image are:
 >
 >Install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
 >
->Make sure your application appears in the **Start** menu. Also ensure that the icon you see in the **Start** menu is what you want users to see. If not, change it. (You do not *have* to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp. Otherwise, you have to provide the installation path for the application when you publish the app.)
->
->To make sure your app is in the **Start** menu, make sure you can see it here: C:\ProgramData\Microsoft\Windows\Start Menu\Programs. Also make sure that it's in the **Start** menu for all users, not just for you as the admin.
+>Make sure a shortcut to your application (**.lnk** file) appears in the **Start** menu for all users (%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs). Also ensure that the icon you see in the **Start** menu is what you want users to see. If not, change it. (You do not *have* to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp. Otherwise, you have to provide the installation path for the application when you publish the app.)
+
 
 8.	Perform any additional Windows configurations required by your applications.
 9.	Disable the Encrypting File System (EFS). Run the following command at an elevated command window:
