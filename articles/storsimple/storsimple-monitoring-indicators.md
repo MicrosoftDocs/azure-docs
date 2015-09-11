@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/28/2015"
+    ms.date="08/31/2015"
     ms.author="v-sharos" />
 
-# StorSimple monitoring indicators   
+# Use StorSimple monitoring indicators to manage your device   
 
 ## Overview
 

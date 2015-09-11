@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -22,7 +22,7 @@
 
 # How to Use Service Bus Topics/Subscriptions
 
-This guide will show you how to use Service Bus topics and subscriptions from Ruby applications. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending messages** to a topic, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information on topics and subscriptions, see the [Next Steps](#NextSteps) section.
+This guide will show you how to use Service Bus topics and subscriptions from Ruby applications. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending messages** to a topic, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information on topics and subscriptions, see the [Next Steps](#next-steps) section.
 
 ## What are Service Bus Topics and Subscriptions
 
@@ -79,7 +79,7 @@ will use this value in your code later in this tutorial.
 
 > [AZURE.NOTE]
 > You can also find this key if you log on to the
-> [Azure Management Portal](http://manage.windowsazure.com/) and navigate to the
+> [Azure Portal](http://manage.windowsazure.com/) and navigate to the
 > connection information for your service bus namespace.
 
 ## Create a Ruby Application
@@ -224,7 +224,7 @@ In the event that the application crashes after processing the message but befor
 
 ## How to Delete Topics and Subscriptions
 
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure Management Portal](https://manage.windowsazure.com) or programmatically. The example below demonstrates how to delete the topic named "test-topic".
+Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure Portal](https://manage.windowsazure.com) or programmatically. The example below demonstrates how to delete the topic named "test-topic".
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -236,7 +236,7 @@ Deleting a topic will also delete any subscriptions that are registered with the
 
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
--   API reference for [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
--	Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+-   See [Queues, Topics, and Subscriptions](service-bus-queues-topics-subscriptions.md).
+-   API reference for [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
+-	Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub.
  

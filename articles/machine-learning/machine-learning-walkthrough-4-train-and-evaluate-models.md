@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Step 4: Train and evaluate the predictive analytic models | Microsoft Azure" 
-	description="Step 4 of the Develop a predictive solution walkthrough: Train, score, and evaluate multiple models in Azure Machine Learning Studio." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Step 4: Train and evaluate the predictive analytic models | Microsoft Azure"
+	description="Step 4 of the Develop a predictive solution walkthrough: Train, score, and evaluate multiple models in Azure Machine Learning Studio."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ This is the fourth step of the walkthrough, [Developing a Predictive Solution wi
 2.	[Upload existing data](machine-learning-walkthrough-2-upload-data.md)
 3.	[Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	**Train and evaluate the models**
-5.	[Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -51,7 +51,7 @@ First, let's set up the boosted decision tree model:
 This portion of the experiment now looks something like this:  
 
 ![Training a model][1]
- 
+
 Next, we'll set up the SVM model.  
 
 Boosted decision trees work well with features of any type. However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all numeric features have the same scale. To convert all numeric features to the same scale, we use the [Normalize Data][normalize-data] module with a Tanh transformation, which transforms features into the [0,1] range. Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features. Also, we don't want to transform the Credit Risk column (column 21) - it's numeric, but it's the value we're training the model to predict, so we need to leave it alone.  
@@ -79,7 +79,7 @@ We'll use the scoring data that was separated out by the **Split** module to sco
 
 1.	Find the [Score Model][score-model] module and drag it onto the canvas.
 2.	Connect the left input port of this module to the boosted decision tree model (that is, connect it to the output port of the [Train Model][train-model] module that's connected to the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] module).
-3.	Connect the right input port of the [Score Model][score-model] module to the output of the right [Execute R Script][execute-r-script] module. 
+3.	Connect the right input port of the [Score Model][score-model] module to the output of the right [Execute R Script][execute-r-script] module.
 4.	Copy and paste the [Score Model][score-model] module to create a second copy, or drag a new module onto the canvas.
 5.	Connect the left input port of this module to the SVM model (that is, connect to the output port of the [Train Model][train-model] module that's connected to the [Two-Class Support Vector Machine][two-class-support-vector-machine] module).
 6.	For the SVM model, we have to do the same transformation to the test data as we did to the training data. So copy and paste the [Normalize Data][normalize-data] module to create a second copy and connect it to the output of the right [Execute R Script][execute-r-script] module.
@@ -94,7 +94,7 @@ To evaluate the two scoring results we'll use the [Evaluate Model][evaluate-mode
 The experiment should now look something like this:  
 
 ![Evaluating both models][3]
- 
+
 Click the **RUN** button below the canvas to run the experiment. It may take a few minutes. You'll see a spinning indicator on each module to indicate that it's running, and then a green check mark when the module is finished.   
 
 When all the modules have a check mark, the experiment has finished running. To check the results, click the output port of the [Evaluate Model][evaluate-model] module and select **View Results**.  
@@ -104,7 +104,7 @@ The [Evaluate Model][evaluate-model] module produces a pair of curves and metric
 Click **Scored dataset** or **Scored dataset to compare** to highlight the associated curve and to display the associated metrics below. In the legend for the curves, "Scored dataset" corresponds to the left input port of the [Evaluate Model][evaluate-model] module - in our case, this is the boosted decision tree model. "Scored dataset to compare" corresponds to the right input port - the SVM model in our case. When you click one of these labels you will highlight the curve for that model and display the corresponding metrics below.  
 
 ![ROC curves for models][4]
- 
+
 By examining these values you can decide which model is closest to giving you the results you're looking for. You can go back and iterate on your experiment by changing values in the different models.  
 
 > [AZURE.TIP] Each time you run the experiment a record of that iteration is kept in the Run History. You can view these iterations, and return to any of them, by clicking **VIEW RUN HISTORY** below the canvas. You can also click **Prior Run** in the **Properties** pane to return to the iteration immediately preceding the one you have open. For more information, see [Manage experiment iterations in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
@@ -116,7 +116,7 @@ As an additional help to track the changes you make to module parameters, you ca
 
 ----------
 
-**Next: [Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)**
+**Next: [Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
@@ -132,4 +132,3 @@ As an additional help to track the changes you make to module parameters, you ca
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
- 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Notification Hubs | Microsoft Azure"
+	pageTitle="Get started with Azure Notification Hubs for Android apps | Microsoft Azure"
 	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices."
 	services="notification-hubs"
 	documentationCenter="android"
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Get started with Notification Hubs
+# Get started with Notification Hubs for Android apps
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -107,6 +107,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 		private NotificationHub hub;
     	private String HubName = "<Enter Your Hub Name>";
 		private String HubListenConnectionString = "<Your default listen connection string>";
+	    private static Boolean isVisible = false;
 
 
 	Make sure to update the three placeholders:
@@ -145,6 +146,21 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     	}
 
 
+7. Add the **DialogNotify** method to the activity to display the notification when the app is running and visible. Also override **onStart** and **onStop** to determine whether the activity is visible to display the dialog.
+
+	    @Override
+	    protected void onStart() {
+	        super.onStart();
+	        isVisible = true;
+	    }
+	
+	    @Override
+	    protected void onStop() {
+	        super.onStop();
+	        isVisible = false;
+	    }
+
+
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
 		  * when there's an exception or message to report.
@@ -154,6 +170,9 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 		  */
     	public void DialogNotify(final String title,final String message)
     	{
+	        if (isVisible == false)
+	            return;
+
         	final AlertDialog.Builder dlg;
         	dlg = new AlertDialog.Builder(this);
 
@@ -176,7 +195,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
         	});
     	}
 
-7. Because Android does not display notifications, you must write your own receiver. In **AndroidManifest.xml**, add the following element inside the `<application>` element.
+8. Because Android does not display notifications, you must write your own receiver. In **AndroidManifest.xml**, add the following element inside the `<application>` element.
 
 	> [AZURE.NOTE] Replace the placeholder with your package name.
 
@@ -189,14 +208,14 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
         </receiver>
 
 
-8. In the Project View, expand **app** > **src** > **main** > **java**. Right-click your package folder under **java**, click **New**, and then click **Java Class**.
+9. In the Project View, expand **app** > **src** > **main** > **java**. Right-click your package folder under **java**, click **New**, and then click **Java Class**.
 
 	![][6]
 
-9. In the **Name** field for the new class, type **MyHandler**, and then click **OK**.
+10. In the **Name** field for the new class, type **MyHandler**, and then click **OK**.
 
 
-10. Add the following import statements at the top of **MyHandler.java**:
+11. Add the following import statements at the top of **MyHandler.java**:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -207,12 +226,12 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-11. Update the class declaration as follows to make `MyHandler` a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler` as shown below.
+12. Update the class declaration as follows to make `MyHandler` a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler` as shown below.
 
 		public class MyHandler extends NotificationsHandler {
 
 
-12. Add the following code for the `MyHandler` class.
+13. Add the following code for the `MyHandler` class.
 
 	This code overrides the `OnReceive` method, so the handler will pop up an `AlertDialog` to show notifications that are received. The handler also sends the notification to the Android notification manager by using the `sendNotification()` method.
 
@@ -251,7 +270,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-13. In Android Studio on the menu bar, click **Build** > **Rebuild Project** to make sure that no errors are detected.
+14. In Android Studio on the menu bar, click **Build** > **Rebuild Project** to make sure that no errors are detected.
 
 ##Send notifications
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/08/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
