@@ -64,10 +64,7 @@ If you're interested in authoring templates, see [Authoring Azure Resource Manag
 
 For tasks that create a resource, you'll need a resource group. If you don't already have one.
 
-Replace these values in the command and then run it:
-
-- *resource group name* with the name of the new resource group, replacing
-- *Azure location* with the Azure datacenter location where you want the resource to be located
+Replace *resource group name* with the name of the new resource group and *Azure location* with the Azure datacenter location where you want the resource to be located, and then run it:
 
 	New-AzureResourceGroup -Name "resource group name" -Location "Azure location"
 
