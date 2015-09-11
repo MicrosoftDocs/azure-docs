@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -27,12 +27,12 @@ If errors occur in accessing a published application or in publishing applicatio
 
 - Open the Windows Services console and verify that the “Microsoft AAD Application Proxy Connector” service is enabled and running. You may also want to look at the Application Proxy service properties page, as shown in the following image:
 
-![Microsoft AAD Application Proxy Connector Properties screenshot][1]
+![Microsoft AAD Application Proxy Connector Properties screenshot][connectorproperties.png]
 
 - Open Event Viewer and look for events related to the Application Proxy connector located under **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 - If needed, more detailed logs are available by turning on analytics and debugging logs and turning on the Application Proxy connector session log, as shown in the following image:
 
-![Application Proxy Connector session log screenshot][2]
+![Application Proxy Connector session log screenshot][sessionlog.png]
 
 
 ## General errors
@@ -87,5 +87,5 @@ If registration fails during the Connector wizard installation, you can view the
 [Enable Application Proxy services](active-directory-application-proxy-enable.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-application-proxy-troubleshoot/ConnectorProperties.jpg
-[2]: ./media/active-directory-application-proxy-troubleshoot/SessionLog.jpg
+[1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
+[2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png

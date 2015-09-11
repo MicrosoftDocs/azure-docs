@@ -25,21 +25,50 @@ Reference data is a finite data set that is static or slowing changing in nature
 
 To configure your reference data, you first need to create an input that is of type Reference Data. The table below explains each property that you will need to provide while creating the reference data input with its description:
 
-| Property Name | Description |
-|---------------|-------------|
-| Input Alias | A friendly name that will be used in the job query to reference this input |
-| Storage Account | The storage account name where your blob files are located. If it’s in the same subscription as your Stream Analytics Job, you can select it from the drop down. |
-| Storage Account Key | The secret key associated with the storage account. This gets automatically populated if the storage account is in the same subscription as your Stream Analytics job. |
-| Storage Container | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
-| Path Pattern [optional] | The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables: |
-|   | {date} {time} |
-|   | Example 1: products/{date}/{time}/product-list.csv |
-|   | Example 2: products/{date}/product-list.csv |
-| Date Format [optional] | If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your files are organized from the drop down of supported formats. Example: YYYY/MM/DD |
-| Time Format [optional] | If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your files are organized from the drop down of supported formats. Example: HH |
-| Event Serialization Format | To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format you're using for incoming data streams. For Reference Data, the supported formats are CSV and JSON. |
-| Encoding | UTF-8 is the only supported encoding format at this time |
-
+<table>
+<tbody>
+<tr>
+<td>Property Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Input Alias</td>
+<td>A friendly name that will be used in the job query to reference this input.</td>
+</tr>
+<tr>
+<td>Storage Account</td>
+<td>The name of the storage account where your blob files are located. If it’s in the same subscription as your Stream Analytics Job, you can select it from the drop down.</td>
+</tr>
+<tr>
+<td>Storage Account Key</td>
+<td>The secret key associated with the storage account. This gets automatically populated if the storage account is in the same subscription as your Stream Analytics job.</td>
+</tr>
+<tr>
+<td>Storage Container</td>
+<td>Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.</td>
+</tr>
+<tr>
+<td>Path Prefix Pattern [optional]</td>
+<td>The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables:<BR>{date}, {time}<BR>Example 1: products/{date}/{time}/product-list.csv<BR>Example 2: products/{date}/product-list.csv
+</tr>
+<tr>
+<td>Date Format [optional]</td>
+<td>If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your files are organized from the drop down of supported formats. Example: YYYY/MM/DD</td>
+</tr>
+<tr>
+<td>Time Format [optional]</td>
+<td>If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your files are organized from the drop down of supported formats. Example: HH</td>
+</tr>
+<tr>
+<td>Event Serialization Format</td>
+<td>To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format you're using for incoming data streams. For Reference Data, the supported formats are CSV and JSON.</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td>UTF-8 is the only supported encoding format at this time</td>
+</tr>
+</tbody>
+</table>
 
 ## Generating reference data on a schedule
 
