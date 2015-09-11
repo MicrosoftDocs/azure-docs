@@ -116,7 +116,7 @@ Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjective
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId $SubscriptionId
     
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition Standard -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
     
     $ScaleRequest
     
