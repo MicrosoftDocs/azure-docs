@@ -1,6 +1,6 @@
 <properties
-   pageTitle="StorSimple virtual device | Microsoft Azure"
-   description="Describes how to create, configure, deploy, and manage the StorSimple virtual device."
+   pageTitle="StorSimple virtual device in Azure | Microsoft Azure"
+   description="Learn how to create, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network. (Applies to StorSimple version .3 and earlier.)"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,18 +12,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/21/2015"
+   ms.date="09/02/2015"
    ms.author="alkohli" />
 
-# StorSimple virtual device
+# Deploy and manage a StorSimple virtual device in Azure
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ## Overview
 
 The StorSimple virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. The following topics in this article will help you learn about, configure, and use the StorSimple virtual device.
-
-
 
 - How the virtual device differs from the physical device.
 

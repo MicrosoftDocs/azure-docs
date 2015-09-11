@@ -50,17 +50,18 @@ ASR replication technologies are compatible with any application running in a vi
 
 **Workload** | <p>**Replicate Hyper-V virtual machines**</p> <p>**(to secondary site)**</p> | <p>**Replicate Hyper-V virtual machines**</p> <p>**(to Azure)**</p> | <p>**Replicate VMware virtual machines**</p> <p>**(to secondary site)**</p> | <p>**Replicate VMware virtual machines**</p><p>**(to Azure)**</p>
 ---|---|---|---|---
-Active Directory, DNS | Y | Y | Y | Coming soon 
-Web apps (IIS, SQL) | Y | Y | Y | Coming soon
-SCOM | Y | Y | Y | Coming soon
-Sharepoint | Y | Y | Y | Coming soon
-<p>SAP</p><p>Replicate SAP site to Azure for non cluster</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Coming soon
-Exchange (non-DAG) | Y | Coming soon | Y | Coming soon
-Remote Desktop/VDI | Y | Y | Y | Coming soon 
-<p>Linux</p> <p>(operating system and apps)</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Coming soon 
-Dynamics AX | Y | Y | Y | Coming soon
-Dynamics CRM | Coming soon | Coming soon | Y | Coming soon
-Oracle | Coming soon | Coming soon | Y (tested by Microsoft) | Coming soon
+Active Directory, DNS | Y | Y | Y | Y 
+Web apps (IIS, SQL) | Y | Y | Y | Y
+SCOM | Y | Y | Y | Y
+Sharepoint | Y | Y | Y | Y
+<p>SAP</p><p>Replicate SAP site to Azure for non cluster</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
+Exchange (non-DAG) | Y | Coming soon | Y | Y
+Remote Desktop/VDI | Y | Y | Y | N/A 
+<p>Linux</p> <p>(operating system and apps)</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) 
+Dynamics AX | Y | Y | Y | Y
+Dynamics CRM | Y | Coming soon | Y | Coming soon
+Oracle | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
+Windows File Server | Y | Y | Y | Y
 
 
 ## Features and requirements 

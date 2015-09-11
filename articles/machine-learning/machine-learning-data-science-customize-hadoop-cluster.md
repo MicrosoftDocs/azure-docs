@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="09/01/2015" 
 	ms.author="hangzh;bradsev" />
 
 # Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology

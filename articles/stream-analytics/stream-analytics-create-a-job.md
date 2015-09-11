@@ -1,0 +1,52 @@
+<properties 
+	pageTitle="Create a Job | Microsoft Azure" 
+	description="Create a Job learning path segment."
+	documentationCenter=""
+	services="stream-analytics"
+	authors="jeffstokes72" 
+	manager="paulettm" 
+	editor="cgronlun"/>
+
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="09/09/2015" 
+	ms.author="jeffstok"/>
+
+# Create a Job
+
+The top-level resource in Azure Stream Analytics is a Stream Analytics Job.  It consists of one or more input data sources, a query expressing the data transformation, and one or more output targets that results are written to.
+
+To start using Stream Analytics, create a new Stream Analytics job.  Note that this action has no billing implications until the job is started.
+
+1.  Sign in on the online [Microsoft Azure portal](http://manage.windowsazure.com).
+2.  **Click New**, then click **Data Services**, and then click **Stream Analytics** and **Quick Create**.
+
+    ![Quick Create Wizard](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)  
+
+3.  Specify the desired configuration for the Stream Analytics job.
+	- In the **Job Name** box, enter a name to identify the Stream Analytics job. When the **Job Name** is validated, a green check mark appears in the Job Name box. The **Job Name** may contain only alphanumeric characters and the '-' character, and must be between 3 and 63 characters.
+	- Use **Region** to specify the geographic location where you want to run the job.
+	- In **Regional Monitoring Storage Account**, select or create a storage account. This storage account is used to store monitoring data for all Stream Analytics jobs running in this region.
+
+4.  Once the new Stream Analytics job options are configure, click **Create Stream Analytics Job**. It can take a few minutes for the Stream Analytics job to be created. To check the status, you can monitor the progress in the Notifications hub.
+
+    ![Notfications hub](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)  
+
+5.  The new job will be shown with a status of **Created**. Notice that the **Start** button is disabled. You must configure the job input, query, and output before you can start the job.
+
+    ![Job Status](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
+
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+
+## Next steps
+
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
