@@ -162,11 +162,12 @@ After a short while, the connection will be established.
 ### <a name="verifyconnection"></a>Verifying connections
 
 At this time, the site-to-site VPN connections created with Resource Manager are not visible in the Preview Portal. However, it's possible to verify that your connection succeeded by using *get-azurevirtualnetworkgatewayconnection –Debug*. In the future, we'll have a cmdlet for this, as well as the ability to view your connection in the Preview Portal.
-Here's an example. When prompted, select *A.*
+
+You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All.
 
 		Get-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
- In the example below, the connection status shows as *Connected* and you can see ingress and egress bytes.
+ After the cmdlet has finished, scroll through to view the values. In the example below, the connection status shows as *Connected* and you can see ingress and egress bytes.
 
 	Body:
 	{
@@ -198,7 +199,7 @@ Here's an example. When prompted, select *A.*
 
 ## Modifying IP address prefixes for a local site
 
-### Adding and removing prefixes for a site without a gateway connection
+### Adding and removing prefixes for a site without a VPN gateway connection
 
 
 **To add** additional address prefixes to a local site that you created, but doesn't yet have a VPN gateway connection, use the example below.
@@ -236,6 +237,6 @@ You can use the following sample as a guideline.
 
 
 
-## Next Steps
+## Next steps
 
 Add a virtual machine to your virtual network. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
