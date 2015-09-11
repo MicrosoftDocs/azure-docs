@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="09/11/2015"
    ms.author="v-sharos"/>
 
 # Use the StorSimple Manager service to manage backup policies
@@ -78,6 +78,10 @@ Perform the following steps in the Management Portal to create an on-demand (man
 Perform the following steps in the Management Portal to create a custom backup policy that has multiple volumes and schedules.
 
 [AZURE.INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy.md)]
+
+![Video available](./media/storsimple-manage-backup-policies/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how to create a local or cloud backup policy, click [here](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Next steps

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/02/2015"
+   ms.date="09/11/2015"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure
@@ -380,6 +380,9 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 - Click **Delete** and choose to delete all the virtual machine disks.
 
+![Video available](./media/storsimple-virtual-device/Video_icon.png) **Video available**
+
+To watch a video that describes how to create a virtual StorSimple device in the cloud, click [here](http://azure.microsoft.com/en-us/documentation/videos/create-a-storsimple-virtual-device/).
 
 ## Next steps
 

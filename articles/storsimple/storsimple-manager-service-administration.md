@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/01/2015"
+   ms.date="09/11/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to administer your StorSimple device
@@ -101,6 +101,10 @@ For more information about each workflow, click the appropriate procedure in the
 |Learn about StorSimple hardware components</br>Monitor hardware status</br>(Above are for on-premises device only)|StorSimple Manager service → Devices → Maintenance|[Monitor hardware components](storsimple-monitor-hardware-status.md)|
 |Create a support package|StorSimple Manager service → Devices → Maintenance|[Create and manage a Support package](storsimple-create-manage-support-package.md)|
 |Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your device](storsimple-update-device.md)|
+
+![Video available](./media/storsimple-manager-service-administration/Video_icon.png) **Video available**
+
+To watch a video that walks you through the StorSimple Manager service user interface, click [here](http://azure.microsoft.com/en-us/documentation/videos/storsimple-manager-service-overview/).
 
 ##Next steps
 If you experience any issues with the day-to-day operation of your StorSimple device or with any of its hardware components, refer to:
