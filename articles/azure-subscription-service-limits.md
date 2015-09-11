@@ -45,6 +45,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Backup](#backup-limits)
 - [Batch](#batch-limits)
+- [BizTalk Services](#biztalk-services-limits)
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
@@ -146,6 +147,10 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 ### Batch Limits
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+
+###BizTalk Services Limits
+
+[AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 
 ### DocumentDB Limits
