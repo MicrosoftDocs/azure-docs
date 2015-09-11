@@ -3,7 +3,7 @@
     description="Learn how to plan your virtual network for an Azure RemoteApp collection."
     services="remoteapp"
     documentationCenter="" 
-    authors="mghosh"
+    authors="mghosh1616"
     manager="mbaldwin" />
 
 <tags
@@ -22,6 +22,8 @@ This document describes how to set up your Azure virtual network (VNET) and the 
 If you want to define security policies for traffic (both incoming and outgoing) in your virtual network where you are deploying Azure RemoteApp, we strongly recommend creating a separate subnet for Azure RemoteApp from the rest of your deployments in the Azure virtual network. For more information on how to define security policies on your Azure virtual network subnet, please read [What is a Network Security Group (NSG)?](virtual-networks-nsg.md).
 
 ## Types of Azure RemoteApp collections with Azure virtual networks
+
+The following graphics show the two different collection options when you want to use a virtual network.
 
 ### Azure RemoteApp cloud collection with VNET
  ![Azure RemoteApp - Cloud collection with a VNET](./media/remoteapp-planvpn/remoteapp-cloudvpn.png)
