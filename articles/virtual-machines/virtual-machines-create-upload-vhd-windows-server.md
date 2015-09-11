@@ -160,9 +160,9 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 
 ## Step 5: Add the image to your list of custom images
 
-> [AZURE.TIP] You can the **Add-AzureVMImage** cmdlet instead of the portal to add your VHD as an image. In the Azure PowerShell console, type:
+> [AZURE.TIP] To use Azure PowerShell instead of the portal to add the image, use the **Add-AzureVMImage** cmdlet. For example:
 
->	`Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>`
+>	`Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>`
 
 1. From the portal, under **All Items**, click **Virtual Machines**.
 
