@@ -92,6 +92,6 @@ To delete an Azure Data Lake account, from your Data Lake blade, click Delete. A
 
 ![Delete Data Lake account](./media/azure-data-lake-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
 
-## See Also
+## See also
 
 [ TBD: Add links ]
