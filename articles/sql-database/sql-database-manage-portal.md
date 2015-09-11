@@ -64,7 +64,7 @@ Azure SQL databases can also be configured to mask sensitive data to non-privile
 
 Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The geo-replication part on the management portal allows you to select the Azure region you would like the secondary database to reside in. 
 
-- [Geo-Replication][https://msdn.microsoft.com/library/azure/dn783447.aspx]
+- [Geo-Replication](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
 
 
