@@ -40,7 +40,7 @@ Verify that you have the following items before beginning configuration.
 - The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
->[AZURE.IMPORTANT] If you aren't familiar with configuring your VPN device or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.	
+>[AZURE.IMPORTANT] If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.	
 
 ## Connect to your subscription 
 
@@ -200,10 +200,12 @@ You can use the following cmdlet example, configuring the values to match your o
 
 ## Modify IP address prefixes for a local site
 
-### Adding and removing prefixes for a site without a VPN gateway connection
+If you need to change the prefixes for your local site, use the instructions below.  Two sets of instructions are provided and depend on whether you have already created your VPN gateway connection. 
+
+### Add or remove prefixes without a VPN gateway connection
 
 
-**To add** additional address prefixes to a local site that you created, but doesn't yet have a VPN gateway connection, use the example below.
+**To add** additional address prefixes to a local site that you created, but that doesn't yet have a VPN gateway connection, use the example below.
 
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
@@ -213,7 +215,7 @@ You can use the following cmdlet example, configuring the values to match your o
 		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### Adding and removing prefixes for a site with a VPN gateway connection
+### Add or remove prefixes with a VPN gateway connection
 
 If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local site, you'll need to do the following steps in order. This will result in some downtime for your VPN connection, as you will need to remove and rebuild the gateway.  However, because you have requested an IP address for the connection, you won't need to re-configure your on-premises VPN router unless you decide to change the values you previously used.
 
