@@ -94,17 +94,18 @@ If you already have an existing virtual network and you want to add a gateway su
 
 In a virtual network, the *local site* typically refers to your on-premises location. You'll give that site a name by which Azure can refer to it. 
 
-You'll also specify the address space prefix for the local site. Azure will use the IP address prefix you specify to identify which traffic to send to the local site. This means that you'll have to specify each address prefix that you want to be associated with the local site. You can easily update these prefixes if your on-premises network changes. Use the PowerShell samples below to specify your local site. 
+You'll also specify the address space prefix for the local site. Azure will use the IP address prefix you specify to identify which traffic to send to the local site. This means that you'll have to specify each address prefix that you want to be associated with the local site. You can easily update these prefixes if your on-premises network changes. 
 
+When using the PowerShell examples, note the following:
 	
 - The *GatewayIPAddress* is the IP address of your on-premises VPN device. Your VPN device cannot be located behind a NAT. 
 - The *AddressPrefix* is your on-premises address space.
 
-Use this example to add a local site with a single address prefix.
+To add a local site with a single address prefix:
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 
-If you want to add a local site with multiple address prefixes, use this example.
+To add a local site with multiple address prefixes:
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
 
