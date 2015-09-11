@@ -77,7 +77,7 @@ After successfully running **Select-AzureSubscription** you are returned to the 
  
 
 
-## Change the service tier and performance level of your database
+## Change the service tier and performance level of your SQL database
 
 Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
 
@@ -97,7 +97,7 @@ Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjective
    
 
 
-## Change SQL database service tier and performance level
+## Sample PowerShell script to change the service tier and performance level of your SQL database
 
     
 	Switch-AzureMode -Name AzureResourceManager
