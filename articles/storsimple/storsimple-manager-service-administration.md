@@ -104,7 +104,7 @@ For more information about each workflow, click the appropriate procedure in the
 
 ![Video available](./media/storsimple-manager-service-administration/Video_icon.png) **Video available**
 
-To watch a video that walks you through the StorSimple Manager service user interface, click [here](http://azure.microsoft.com/en-us/documentation/videos/storsimple-manager-service-overview/).
+To watch a video that walks you through the StorSimple Manager service user interface, click [here](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Next steps
 If you experience any issues with the day-to-day operation of your StorSimple device or with any of its hardware components, refer to:
