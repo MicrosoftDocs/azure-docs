@@ -71,7 +71,7 @@ Azure SQL databases can be configured to asynchronously replicate committed tran
 
 
 ##Additional resources
-* [SQL Database][sql-database-technical-overview.md]   
+* [SQL Database](sql-database-technical-overview.md)   
 * [Monitoring SQL Database using Dynamic Management Views][]   
 * [Transact-SQL Reference (SQL Database)][]
   
