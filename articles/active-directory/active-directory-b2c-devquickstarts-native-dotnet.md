@@ -68,7 +68,8 @@ The completed app is also [available as a .zip](https://github.com/AzureADQuickS
 `complete` branch of the same repo.
 
 Once you've downloaded the sample code, open the Visual Studio `.sln` file to get started.  You'll notice that there are two projects in the solution: a `TaskClient` project and a `TaskService` project.  The `TaskClient` is the WPF 
-desktop application that the user interacts with.  The `TaskService` is the app's backend web API that stores each user's to-do list. 
+desktop application that the user interacts with.  The `TaskService` is the app's backend web API that stores each user's to-do list.  Both the `TaskClient` and the `TaskService` will be represented by a single **Application ID**
+in this case, since they both comprise one logical application. 
 
 ## 5. Configure the task service
 
