@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders"/>
 # Analyze data from servers in Microsoft Azure
 
@@ -49,7 +49,7 @@ The agent is automatically installed and configured for your Operational Insight
 
 ![Image of Operational Insights Servers page](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE] The [Azure VM agent](https://msdn.microsoft.com/library/azure/dn832621.aspx) must be installed to automatically install the agent for Operational Insights.
+ >[AZURE.NOTE] The [Azure VM agent](https://msdn.microsoft.com/library/azure/dn832621.aspx) must be installed to automatically install the agent for Operational Insights. If you have an Azure Resource Manager virtual machine it will not show in the list and you must use PowerShell or create an ARM template to install the agent.
 
 
 
@@ -57,7 +57,9 @@ The agent is automatically installed and configured for your Operational Insight
 
 If you prefer scripting to make changes to your Azure virtual machines, then you can enable the Microsoft Monitoring Agent using PowerShell.
 
-The Microsoft Monitoring Agent is an [Azure virtual machine extension](https://msdn.microsoft.com/library/azure/dn832621.aspx) and you can manage it using PowerShell, as shown in the example below.
+The Microsoft Monitoring Agent is an [Azure virtual machine extension](https://msdn.microsoft.com/library/azure/dn832621.aspx) and you can manage it using PowerShell, as shown in the examples below.
+
+For "classic" Azure virtual machines use this PowerShell:
 
 ```powershell
 Add-AzureAccount
@@ -68,6 +70,24 @@ $hostedService="enter hosted service here"
 
 $vm = Get-AzureVM –ServiceName $hostedService
 Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
+```
+For Azure Resource Manager virtual machines use this PowerShell:
+
+```powershell
+Add-AzureAccount
+Switch-AzureMode -Name AzureResourceManager
+
+$workspaceId="enter workspace here"
+$workspaceKey="enter workspace key here"
+
+$resourcegroup = "enter resource group"
+$resourcename = "enter resource group"
+
+$vm = Get-AzureVM -ResourceGroupName $resourcegroup -Name $resourcename
+$location = $vm.Location
+
+Set-AzureVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+
 ```
 
 When configuring using PowerShell, you need to provide the Workspace ID and Primary Key. You can find your Workspace ID and Primary Key on the **Settings** page of the Operational Insights portal.
