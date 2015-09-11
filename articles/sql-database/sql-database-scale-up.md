@@ -50,7 +50,7 @@ This article shows how to change the service tier and performance level of your 
 
 Open the SQL Database blade for the database you want to scale up or down:
 
-1.	Go to the [Azure Preview Portal](https//:portal.azure.com).
+1.	Go to the [Azure Preview Portal](https://portal.azure.com).
 2.	Click **BROWSE ALL**.
 3.	Click **SQL databases**.
 2.	Click the database you want to change.
@@ -70,11 +70,11 @@ Open the SQL Database blade for the database you want to scale up or down:
 
 ## Verify the database is at the selected pricing tier
 
-   After the scaling operation is complete inspect and confirm the database is at the correct pricing tier
+   After the scaling operation is complete inspect and confirm the database is at the desired tier:
 
 2.	Click **BROWSE ALL**.
 3.	Click **SQL databases**.
-2.	Click the database you scaled up or down.
+2.	Click the database you updated.
 3.	Check the **Pricing tier** tile and confirm it is set to the correct tier.
 
     ![new price][4]	

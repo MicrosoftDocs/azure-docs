@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-scale-up-powershell.md)
 
 
-This article shows how to change the pricing tier (scale up or down) of your SQL database with PowerShell.
+This article shows how to change the service tier and performance level of your SQL database with PowerShell.
 
 
 
